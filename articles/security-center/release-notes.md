@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2020
+ms.date: 01/07/2021
 ms.author: memildin
-ms.openlocfilehash: f0015177332aa07ed65f9d0345a11bfdad170104
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 4e4ee8690822c6caf4a7c5bd69387ea00d6d00a8
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862609"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955451"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -29,6 +29,30 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 
 > [!TIP]
 > Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
+
+
+## <a name="january-2021"></a>Gennaio 2021
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-generally-available"></a>La valutazione delle vulnerabilità per computer locali e multicloud è disponibile a livello generale
+
+A ottobre è stata annunciata un'anteprima per l'analisi dei server con abilitazione di Azure Arc con lo strumento di analisi integrato per la valutazione delle vulnerabilità di [Azure Defender per i server](defender-for-servers-introduction.md) (con tecnologia Qualys).
+
+Questa funzionalità è ora disponibile a livello generale. 
+
+Quando Azure Arc viene abilitato in computer non di Azure, il Centro sicurezza offre la possibilità di distribuirvi lo strumento integrato di analisi delle vulnerabilità, manualmente e su larga scala.
+
+Con questo aggiornamento, è possibile sfruttare la potenza di **Azure Defender per i server** per consolidare il programma di gestione delle vulnerabilità in tutti gli asset di Azure e non di Azure.
+
+Funzionalità principali:
+
+- Monitoraggio dello stato di provisioning dello strumento di analisi per la valutazione delle vulnerabilità nei computer Azure Arc
+- Provisioning dell'agente di valutazione delle vulnerabilità nei computer Azure Arc Windows e Linux non protetti (manualmente e su larga scala)
+- Ricezione e analisi delle vulnerabilità rilevate dagli agenti distribuiti (manualmente e su larga scala)
+- Esperienza unificata per macchine virtuali di Azure e computer Azure Arc
+
+[Altre informazioni sulla distribuzione dello strumento di analisi delle vulnerabilità integrato nei computer ibridi](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Altre informazioni sui server con abilitazione di Azure Arc](../azure-arc/servers/index.yml).
 
 
 ## <a name="december-2020"></a>Dicembre 2020
@@ -796,118 +820,3 @@ La fase iniziale di questo progetto include un'anteprima privata e l'aggiunta di
 
 1. **Anteprima singola**: per partecipare solo a questa anteprima privata. Indicare esplicitamente "Analisi continua del Centro sicurezza di Azure" come anteprima a cui si vuole partecipare.
 1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. Sarà necessario completare un profilo e accettare un contratto sulla privacy.
-
-
-## <a name="july-2020"></a>Luglio 2020
-
-Gli aggiornamenti del mese di luglio includono quanto segue:
-- [Disponibilità della valutazione delle vulnerabilità per macchine virtuali per immagini non del marketplace](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)
-- [Espansione della protezione dalle minacce per Archiviazione di Azure in modo da includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
-- [Otto nuove raccomandazioni per abilitare le funzionalità di protezione dalle minacce](#eight-new-recommendations-to-enable-threat-protection-features)
-- [Miglioramenti alla sicurezza dei contenitori: analisi più rapida dei registri e documentazione aggiornata](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
-- [Aggiornamento dei controlli applicazioni adattivi con una nuova raccomandazione e supporto per caratteri jolly nelle regole di percorso](#adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules)
-- [Sei criteri per la funzionalità deprecata Sicurezza dei dati avanzata SQL](#six-policies-for-sql-advanced-data-security-deprecated)
-
-
-
-
-### <a name="vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images"></a>Disponibilità della valutazione delle vulnerabilità per macchine virtuali per immagini non del marketplace
-
-Durante la distribuzione di una soluzione di valutazione delle vulnerabilità, il Centro sicurezza eseguiva in precedenza un controllo di convalida prima della distribuzione. Il controllo consentiva di confermare la disponibilità di uno SKU del marketplace della macchina virtuale di destinazione. 
-
-A partire da questo aggiornamento, il controllo è stato rimosso ed è ora possibile distribuire strumenti di valutazione delle vulnerabilità in computer Windows e Linux "personalizzati". Le immagini personalizzate sono immagini modificate a partire da impostazioni predefinite del marketplace.
-
-Anche se è ora possibile distribuire l'estensione di valutazione delle vulnerabilità integrata (con tecnologia Qualys) in molti altri computer, il supporto è disponibile solo se si usa un sistema operativo elencato in [Distribuire il rilevatore di vulnerabilità integrato nelle macchine virtuali di livello Standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines)
-
-Altre informazioni sul [rilevatore di vulnerabilità integrato per macchine virtuali (richiede Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
-
-Per altre informazioni sull'uso di una soluzione personalizzata di valutazione delle vulnerabilità con licenza privata di Qualys o Rapid7, vedere [Distribuzione di una soluzione di analisi delle vulnerabilità di partner](deploy-vulnerability-assessment-vm.md).
-
-
-### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Espansione della protezione dalle minacce per Archiviazione di Azure in modo da includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)
-
-Threat Protection per Archiviazione di Azure rileva le attività potenzialmente dannose negli account di archiviazione di Azure. Il Centro sicurezza mostra avvisi quando rileva tentativi di accesso o di exploit degli account di archiviazione. 
-
-I dati possono essere protetti indipendentemente dal fatto che siano archiviati come contenitori BLOB, condivisioni file o data lake.
-
-
-
-
-### <a name="eight-new-recommendations-to-enable-threat-protection-features"></a>Otto nuove raccomandazioni per abilitare le funzionalità di protezione dalle minacce
-
-Sono state aggiunte otto nuove raccomandazioni per offrire un modo semplice per abilitare le funzionalità di protezione dalle minacce del Centro sicurezza di Azure per i tipi di risorse seguenti: macchine virtuali, piani di servizio app, server di database SQL di Azure, Server SQL nei computer, account di archiviazione di Azure, cluster del servizio Azure Kubernetes, registri del Registro Azure Container e insiemi di credenziali di Azure Key Vault.
-
-Di seguito sono elencate le nuove raccomandazioni:
-
-- **La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure**
-- **La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali**
-- **La soluzione Advanced Threat Protection deve essere abilitata nei piani di servizio app di Azure**
-- **La soluzione Advanced Threat Protection deve essere abilitata nei registri in Registro Azure Container**
-- **La soluzione Advanced Threat Protection deve essere abilitata negli insiemi di credenziali in Azure Key Vault**
-- **La soluzione Advanced Threat Protection deve essere abilitata nei cluster del servizio Azure Kubernetes**
-- **La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione di Azure**
-- **È consigliabile abilitare Advanced Threat Protection nelle macchine virtuali**
-
-Queste nuove raccomandazioni appartengono al controllo di sicurezza **Abilita Azure Defender**.
-
-Le raccomandazioni includono anche la capacità di correzione rapida. 
-
-> [!IMPORTANT]
-> La correzione in base a una di queste raccomandazioni comporterà addebiti per la protezione delle risorse rilevanti. L'applicazione degli addebiti inizierà immediatamente se sono presenti risorse correlate nella sottoscrizione corrente oppure inizierà in futuro se si aggiungono risorse in un momento successivo.
-> 
-> Se ad esempio non sono presenti cluster del servizio Azure Kubernetes nella sottoscrizione e si abilita la protezione dalle minacce, non verranno applicati addebiti. Se in futuro si aggiunge un cluster nella stessa sottoscrizione, il cluster verrà protetto automaticamente e l'applicazione degli addebiti avrà inizio in tale momento.
-
-Per altre informazioni su ogni raccomandazione, vedere la [pagina di riferimento delle raccomandazioni sulla sicurezza](recommendations-reference.md).
-
-Altre informazioni sulla [protezione dalle minacce nel Centro sicurezza di Azure](azure-defender.md).
-
-
-
-
-### <a name="container-security-improvements---faster-registry-scanning-and-refreshed-documentation"></a>Miglioramenti alla sicurezza dei contenitori: analisi più rapida dei registri e documentazione aggiornata
-
-Come parte degli investimenti continui nel dominio della sicurezza dei contenitori, è ora disponibile nel Centro sicurezza un miglioramento significativo delle prestazioni per le analisi dinamiche di immagini dei contenitori archiviate nel Registro Azure Container. Le analisi vengono ora in genere completate in due minuti circa. In alcuni casi l'analisi potrebbe richiedere fino a 15 minuti.
-
-Per migliorare la chiarezza e le indicazioni correlate alle funzionalità di sicurezza dei contenitori del Centro sicurezza di Azure, sono stati anche apportati aggiornamenti alle pagine della documentazione sulla sicurezza. 
-
-Per altre informazioni sulla sicurezza dei contenitori del Centro sicurezza, vedere gli articoli seguenti:
-
-- [Panoramica delle funzionalità di sicurezza dei contenitori del Centro sicurezza](container-security.md)
-- [Dettagli dell'integrazione con il Registro Azure Container](defender-for-container-registries-introduction.md)
-- [Dettagli dell'integrazione con il servizio Azure Kubernetes](defender-for-kubernetes-introduction.md)
-- [Come analizzare i registri e applicare la protezione avanzata agli host Docker](container-security.md)
-- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per cluster del servizio Azure Kubernetes](alerts-reference.md#alerts-akscluster)
-- [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per host del servizio Azure Kubernetes](alerts-reference.md#alerts-containerhost)
-- [Raccomandazioni sulla sicurezza per i contenitori](recommendations-reference.md#recs-containers)
-
-
-
-### <a name="adaptive-application-controls-updated-with-a-new-recommendation-and-support-for-wildcards-in-path-rules"></a>Aggiornamento dei controlli applicazioni adattivi con una nuova raccomandazione e supporto per caratteri jolly nelle regole di percorso
-
-Sono stati apportati due aggiornamenti significativi alla funzionalità Controlli applicazioni adattivi:
-
-* Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non era consentito in precedenza. La nuova raccomandazione, **Le regole dell'elenco Consentiti dei criteri dei controlli applicazioni adattivi devono essere aggiornate**, richiede l'aggiunta di nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazioni adattivi.
-
-* Le regole di percorso supportano ora i caratteri jolly. A partire da questo aggiornamento, è possibile configurare le regole di percorso consentite usando i caratteri jolly. Sono supportati due scenari:
-
-    * Uso di un carattere jolly alla fine del percorso per consentire tutti i file eseguibili entro tale cartella e nelle sottocartelle
-
-    * Uso di un carattere jolly al centro del percorso per consentire un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio cartelle personali dell'utente con un file eseguibile noto, nomi di cartella generati automaticamente e così via)
-
-
-[Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
-
-
-
-### <a name="six-policies-for-sql-advanced-data-security-deprecated"></a>Sei criteri per la funzionalità deprecata Sicurezza dei dati avanzata SQL
-
-Verranno deprecati sei criteri correlati alla sicurezza dei dati avanzata per i computer SQL:
-
-- I tipi di protezione di Advanced Threat Protection devono essere impostati su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
-- È necessario impostare i tipi di protezione di Advanced Threat Protection su "Tutti" nelle impostazioni di Sicurezza dei dati avanzata di SQL Server
-- Le impostazioni avanzate di sicurezza dei dati per l'istanza gestita di SQL devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
-- Le impostazioni avanzate di sicurezza dei dati per SQL Server devono contenere un indirizzo di posta elettronica a cui ricevere gli avvisi di sicurezza
-- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
-- Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL
-
-Altre informazioni sui [criteri predefiniti](./policy-reference.md).

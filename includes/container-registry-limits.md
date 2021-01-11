@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 3fe1b966b56142fd312850ac5d77839b7d9db434
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97706186"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015667"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
@@ -22,8 +22,8 @@ ms.locfileid: "97706186"
 | Dimensioni massime livello immagini (GiB) | 200 | 200 | 200 |
 | Operazioni di lettura al minuto<sup>2, 3</sup> | 1\.000 | 3,000 | 10,000 |
 | Operazioni di scrittura al minuto<sup>2, 4</sup> | 100 | 500 | 2\.000 |
-| Larghezza di banda in download in Mbps<sup>2</sup> | 30 | 60 | 100 |
-| Larghezza di banda in upload in Mbps<sup>2</sup> | 10 | 20 | 50 |
+| Larghezza di banda in download<sup>2</sup> (Mbps) | 30 | 60 | 100 |
+| Larghezza di banda in upload <sup>2</sup> (Mbps) | 10 | 20 | 50 |
 | Webhook | 2 | 10 | 500 |
 | Replica geografica | N/D | N/D | [Supportato][geo-replication] |
 | Zone di disponibilità | N/D | N/D | [Anteprima][zones] |
@@ -38,7 +38,7 @@ ms.locfileid: "97706186"
 | &bull; repository per mapping di ambito | N/D | N/D | 500 |
 
 
-<sup>1</sup> Spazio di archiviazione incluso nella tariffa giornaliera per ogni livello. Per lo spazio di archiviazione aggiuntivo viene addebitata una tariffa giornaliera aggiuntiva per GiB fino al limite di archiviazione. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
+<sup>1</sup> Spazio di archiviazione incluso nella tariffa giornaliera per ogni livello. È possibile usare uno spazio di archiviazione aggiuntivo, fino al limite di archiviazione del registro, a una velocità giornaliera aggiuntiva per GiB. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
 
 <sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Registro Azure Container migliora le prestazioni in base alle necessità d'uso.
 

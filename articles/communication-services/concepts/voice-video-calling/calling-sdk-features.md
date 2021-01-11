@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c801a276f3a116f00b34d750ca8bfec7e56d377b
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680743"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936057"
 ---
 # <a name="calling-client-library-overview"></a>Panoramica della libreria client per le chiamate
 
@@ -58,7 +58,7 @@ L'elenco seguente presenta il set di funzionalità attualmente disponibili nelle
 |                   | Disconnettersi da una chiamata di gruppo come partecipante PSTN                                                                    | ✔️   | ✔️            | ✔️   
 | Generale           | Testare microfono, altoparlante e fotocamera con un servizio di test audio (disponibile chiamando 8:echo123)                   |  ✔️  | ✔️            | ✔️   
 
-## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Supporto della libreria client per la chiamate Javascript da parte del sistema operativo e del browser
+## <a name="javascript-calling-client-library-support-by-os-and-browser"></a>Browser e sistemi operativi supportati dalla libreria client per le chiamate JavaScript
 
 La tabella seguente rappresenta il set di versioni e browser supportati attualmente disponibili.
 
@@ -96,8 +96,8 @@ La libreria client per le chiamate di Servizi di comunicazione supporta le confi
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|Numero di flussi in uscita che possono essere inviati contemporaneamente |1 video + 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
-|Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
+|**Numero di flussi in uscita che possono essere inviati contemporaneamente** |1 video + 1 condivisione dello schermo | 1 video + 1 condivisione dello schermo|
+|**Numero di flussi in entrata di cui è possibile eseguire il rendering simultaneamente** |1 video + 1 condivisione dello schermo| 6 video + 1 condivisione dello schermo |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

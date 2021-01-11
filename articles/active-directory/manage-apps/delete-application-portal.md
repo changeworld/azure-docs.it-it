@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 12/28/2020
+ms.date: 1/5/2021
 ms.author: kenwith
-ms.openlocfilehash: e2b8bd47f7d124562a38413d36b849d1f7efacee
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: a3468b6f74519018f73f6bf32df74bd6cbb458f6
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802763"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97916695"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Eliminare un'applicazione dal tenant di Azure Active Directory (Azure AD)
 
 In questo argomento di avvio rapido si usa il portale di Azure per eliminare un'applicazione aggiunta al tenant di Azure Active Directory (Azure AD).
+
+Per altre informazioni sull'accesso Single Sign-On e su Azure, vedere [Che cos'è l'accesso Single Sign-On (SSO)](what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
