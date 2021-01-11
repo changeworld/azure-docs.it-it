@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 47c3c091e767cac63bb814469397ef1a0aeca3a4
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516496"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063791"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per Microsoft Identity Platform
 
@@ -30,7 +30,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 > [!TIP]
 > *Integration Assistant* nella portale di Azure può essere utile per applicare molti di questi consigli e procedure consigliate. Selezionare una delle registrazioni per l' [app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure, quindi selezionare la voce di menu **Integration Assistant** per iniziare a usare l'assistente.
 
-## <a name="basics"></a>Operazioni di base
+## <a name="basics"></a>Informazioni di base
 
 ![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo leggere e comprendere i [criteri della piattaforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Assicurarsi che l'applicazione soddisfi le condizioni descritte in quanto sono progettate per proteggere gli utenti e la piattaforma.
 
@@ -38,7 +38,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 
 ![casella di controllo](./media/active-directory-integration-checklist/checkbox-two.svg) Assicurarsi che le informazioni associate all'account usato per registrare e gestire le app siano aggiornate.
 
-## <a name="branding"></a>Marchio
+## <a name="branding"></a>Personalizzazione
 
 ![](./media/active-directory-integration-checklist/checkbox-two.svg)osservare le [linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).
 

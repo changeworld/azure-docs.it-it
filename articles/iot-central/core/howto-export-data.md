@@ -7,21 +7,18 @@ ms.author: viviali
 ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.custom: contperf-fy21q1
-ms.openlocfilehash: b84f1efd77ca757fd2ceaa8bb5605e3fc78297d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.custom: contperf-fy21q1, contperf-fy21q3
+ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032372"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065389"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
 > [!Note]
-> Questo articolo descrive le funzionalità di esportazione dei dati in IoT Central.
->
-> - Per informazioni sulle funzionalità di esportazione dei dati legacy, vedere [esportare i dati dell'area dati nelle destinazioni cloud usando l'esportazione dei dati (legacy)](./howto-export-data-legacy.md).
-> - Per informazioni sulle differenze tra le funzionalità di esportazione dei dati e di esportazione dei dati legacy, vedere la [tabella di confronto](#comparison-of-legacy-data-export-and-data-export) riportata di seguito.
+> Questo articolo descrive le funzionalità di esportazione dei dati in IoT Central. Per informazioni sulle funzionalità di esportazione dei dati legacy, vedere [esportare i dati dell'area dati nelle destinazioni cloud usando l'esportazione dei dati (legacy)](./howto-export-data-legacy.md).
 
 Questo articolo descrive come usare la nuova funzionalità di esportazione dei dati in Azure IoT Central. Usare questa funzionalità per esportare in modo continuativo i dati delle cose filtrate e arricchiti dall'applicazione IoT Central. L'esportazione dei dati consente di effettuare il push delle modifiche quasi in tempo reale ad altre parti della soluzione cloud per informazioni dettagliate sul percorso a caldo, analisi e archiviazione.
 
@@ -161,7 +158,7 @@ Ora che si dispone di una destinazione in cui esportare i dati, configurare l'es
     - Per webhook incollare l'URL di callback per l'endpoint del webhook. Facoltativamente, è possibile configurare l'autorizzazione webhook (OAuth 2,0 e token di autorizzazione) e aggiungere intestazioni personalizzate. 
         - Per OAuth 2,0, è supportato solo il flusso di credenziali client. Quando la destinazione viene salvata, IoT Central comunicherà con il provider OAuth per recuperare un token di autorizzazione. Questo token verrà allegato all'intestazione "Authorization" per ogni messaggio inviato a questa destinazione.
         - Per il token di autorizzazione, è possibile specificare un valore di token che verrà collegato direttamente all'intestazione "Authorization" per ogni messaggio inviato a questa destinazione.
-    - Selezionare **Create** (Crea).
+    - Selezionare **Crea**.
 
 1. Selezionare **+ destinazione** e scegliere una destinazione dall'elenco a discesa. È possibile aggiungere fino a cinque destinazioni a un'unica esportazione.
 
@@ -276,11 +273,11 @@ L'esempio seguente mostra un messaggio di modifica delle proprietà esportato ri
 
 Nella tabella seguente vengono illustrate le differenze tra l' [esportazione dei dati legacy](howto-export-data-legacy.md) e le nuove funzionalità di esportazione dei dati:
 
-| Funzionalità  | Esportazione dei dati legacy | Nuova esportazione dei dati |
+| Capabilities  | Esportazione dei dati legacy | Nuova esportazione dei dati |
 | :------------- | :---------- | :----------- |
 | Tipi di dati disponibili | Telemetria, dispositivi, modelli di dispositivo | Telemetria, modifiche delle proprietà |
-| Filtro | Nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
-| Arricchimenti | Nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
+| Filtro | nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |
+| Arricchimenti | nessuno | Arricchire con una stringa personalizzata o un valore di proprietà nel dispositivo |
 | Destinazioni | Hub eventi di Azure, code e argomenti del bus di servizio di Azure, archiviazione BLOB di Azure | Come per l'esportazione di dati legacy e i webhook|
 | Versioni applicazione supportate | V2, V3 | Solo V3 |
 | Limiti rilevanti | 5 esportazioni per app, 1 destinazione per esportazione | 10 esportazioni-connessioni di destinazione per app |

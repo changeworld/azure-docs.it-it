@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 59924c1f876d08aa504f19c5d6c86dca32fbd1e2
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173465"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064969"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Supportare Single Sign-On e i criteri di protezione delle app nelle app per dispositivi mobili sviluppate
 
@@ -36,7 +36,7 @@ I [criteri di protezione delle app (app)](/mem/intune/apps/app-protection-policy
 
 Per consentire all'app di sfruttare i vantaggi di Single Sign-On, è consigliabile eseguire le operazioni seguenti.
 
-### <a name="use-microsoft-authentication-library-msal"></a>USA Microsoft Authentication Library (MSAL)
+### <a name="use-the-microsoft-authentication-library-msal"></a>Utilizzare Microsoft Authentication Library (MSAL)
 
 La scelta migliore per implementare Single Sign-On nell'applicazione consiste nell'utilizzare [Microsoft Authentication Library (MSAL)](msal-overview.md). Con MSAL è possibile aggiungere l'autenticazione all'app con codice minimo e chiamate API, ottenere le funzionalità complete della [piattaforma Microsoft Identity](./index.yml)e consentire a Microsoft di gestire la manutenzione di una soluzione di autenticazione sicura. Per impostazione predefinita, MSAL aggiunge il supporto SSO per l'applicazione. Inoltre, l'uso di MSAL è un requisito se si prevede anche di implementare i criteri di protezione delle app.
 

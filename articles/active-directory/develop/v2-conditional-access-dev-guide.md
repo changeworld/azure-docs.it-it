@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8935cb3208aadc2822af1f57067877f9cedcb931
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120627"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064369"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Linee guida per gli sviluppatori per l'accesso condizionale di Azure Active Directory
 
@@ -43,7 +43,7 @@ Si presuppone una conoscenza delle app a [tenant singolo](quickstart-register-ap
 
 ### <a name="app-types-impacted"></a>Tipi di app interessati
 
-Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore. Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale. L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
+Nella maggior parte dei casi, l'accesso condizionale non modifica il comportamento di un'app né richiede modifiche da parte dello sviluppatore.  Solo in alcuni casi, quando un'app richiede in modo indiretto o automatico un token per un servizio, sono necessarie modifiche al codice per gestire le richieste di accesso condizionale.  L'operazione può essere semplice quanto l'esecuzione di una richiesta di accesso interattiva.
 
 In particolare, gli scenari seguenti richiedono che il codice gestisca le richieste di accesso condizionale:
 
@@ -182,6 +182,6 @@ Per provare questo scenario, vedere l'[esempio di codice on-behalf-of JS SPA](ht
 
 * Per altre informazioni sulle funzionalità, vedere [Accesso condizionale in Azure Active Directory](../conditional-access/overview.md).
 * Per altri esempi di codice di Azure AD, vedere gli [esempi](sample-v2-code.md).
-* Per altre informazioni su MSAL SDK e sull'accesso alla documentazione di riferimento, vedere la [panoramica della libreria di Microsoft Authentication](msal-overview.md).
+* Per altre informazioni su MSAL SDK e sull'accesso alla documentazione di riferimento, vedere [Panoramica di Microsoft Authentication Library](msal-overview.md).
 * Per altre informazioni sugli scenari multi-tenant, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](howto-convert-app-to-be-multi-tenant.md).
 * Altre informazioni sull'[Accesso condizionale e la protezione dell'accesso alle app IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

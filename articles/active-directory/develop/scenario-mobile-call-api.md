@@ -13,16 +13,16 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d7cad0592c5c4c0487f582ce5405c275b94b7bd0
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444028"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064267"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobili
 
-Dopo l'accesso di un utente all'app e la ricezione dei token, Microsoft Authentication Library (MSAL) espone le informazioni sull'utente, l'ambiente dell'utente e i token rilasciati. L'app può usare questi valori per chiamare un'API Web o visualizzare un messaggio di benvenuto all'utente.
+Dopo che l'app ha eseguito l'accesso a un utente e riceve i token, Microsoft Authentication Library (MSAL) espone le informazioni sull'utente, l'ambiente dell'utente e i token emessi. L'app può usare questi valori per chiamare un'API Web o visualizzare un messaggio di benvenuto all'utente.
 
 In questo articolo si esaminerà per prima cosa il risultato di MSAL, quindi verrà illustrato come usare un token di accesso da `AuthenticationResult` o `result` per chiamare un'API Web protetta.
 
@@ -119,9 +119,9 @@ task.resume()
 
 Se è necessario chiamare la stessa API più volte o chiamare più API, durante la creazione dell'app considerare gli argomenti seguenti.
 
-- **Consenso incrementale** : Microsoft Identity Platform consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni, anziché interamente all'inizio. Ogni volta che l'app è pronta per chiamare un'API, dovrà richiedere solo gli ambiti necessari.
+- **Consenso incrementale**: Microsoft Identity Platform consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni, anziché interamente all'inizio. Ogni volta che l'app è pronta per chiamare un'API, dovrà richiedere solo gli ambiti necessari.
 
-- **Accesso condizionale** : quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare requisiti di accesso condizionale aggiuntivi. In questo modo, i requisiti possono aumentare se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di rilevare gli errori dalle richieste automatiche e di essere preparati per effettuare una richiesta interattiva.  Per altre informazioni, vedere [Linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
+- **Accesso condizionale**: quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare requisiti di accesso condizionale aggiuntivi. In questo modo, i requisiti possono aumentare se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di rilevare gli errori dalle richieste automatiche e di essere preparati per effettuare una richiesta interattiva.  Per altre informazioni, vedere [Linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Chiamare diverse API usando il consenso incrementale e l'accesso condizionale
 

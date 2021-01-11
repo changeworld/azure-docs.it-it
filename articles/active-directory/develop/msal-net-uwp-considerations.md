@@ -13,12 +13,12 @@ ms.date: 07/16/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: c71c55adbf79af780169380269b5081322f94baf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6451368baf9c047f0318eb74d53ffac075d4a184
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083440"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063451"
 ---
 # <a name="considerations-for-using-universal-windows-platform-with-msalnet"></a>Considerazioni sull'uso di piattaforma UWP (Universal Windows Platform) con MSAL.NET
 Gli sviluppatori di applicazioni che usano piattaforma UWP (Universal Windows Platform) (UWP) con MSAL.NET devono prendere in considerazione i concetti presentati in questo articolo.
@@ -28,7 +28,7 @@ Nella piattaforma Windows Runtime (WinRT) è presente `PublicClientApplication` 
 
 > [!IMPORTANT]
 > `UseCorporateNetwork`Se si imposta la proprietà su true, si presuppone che lo sviluppatore dell'applicazione abbia abilitato IWA nell'applicazione. Per abilitare l'autenticazione integrata:
-> - Nella scheda funzionalità dell'applicazione UWP `Package.appxmanifest` abilitare le **Capabilities** funzionalità seguenti:
+> - Nella scheda funzionalità dell'applicazione UWP `Package.appxmanifest` abilitare le  funzionalità seguenti:
 >   - **Autenticazione aziendale**
 >   - **Reti private (client e server)**
 >   - **Certificato utente condiviso**
@@ -42,7 +42,7 @@ Nella piattaforma UWP l'implementazione WAB sottostante non funziona correttamen
 
 È possibile provare a evitare questo problema usando un metodo alternativo, ad esempio l'autenticazione tramite nome utente e password, ma l'esperienza non è valida.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Alcuni clienti hanno segnalato il seguente errore di accesso in ambienti aziendali specifici in cui sanno che hanno una connessione a Internet e che la connessione funziona con una rete pubblica.
 
@@ -61,7 +61,7 @@ Per ulteriori informazioni, vedere [Web Authentication broker-Fiddler](/windows/
 ## <a name="next-steps"></a>Passaggi successivi
 Negli esempi seguenti vengono fornite ulteriori informazioni.
 
-Esempio | Piattaforma | Descrizione 
+Esempio | Piattaforma | Description 
 |------ | -------- | -----------|
-|[Active-Directory-DotNet-native-UWP-V2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Applicazione client UWP che usa MSAL.NET. Accede a Microsoft Graph per un utente che esegue l'autenticazione tramite un endpoint Azure AD 2,0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-DotNet-native-UWP-V2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | Piattaforma UWP | Applicazione client UWP che usa MSAL.NET. Accede a Microsoft Graph per un utente che esegue l'autenticazione tramite un endpoint Azure AD 2,0. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[Active-Directory-Novell-native-V2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, piattaforma UWP | App Novell Forms che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite la piattaforma di identità Microsoft. Viene inoltre illustrato come accedere a Microsoft Graph e visualizzare il token risultante. <br>![Diagramma che illustra come usare MSAL per autenticare gli account personali Microsoft e Azure AD tramite la piattaforma di identità Microsoft.](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

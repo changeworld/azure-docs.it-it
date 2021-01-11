@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 1c4f47fd771cfb92b3896963c96b39d9eb7d97b8
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ad43d380bde1bae0e389fa58e3d916c2c3250be7
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344879"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064933"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
 
-Microsoft Authentication Library (MSAL) permette agli sviluppatori di applicazioni di autenticare gli utenti con identità di social networking e locali usando [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C è un servizio di gestione delle identità, È possibile usarlo per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni.
+Microsoft Authentication Library (MSAL) consente agli sviluppatori di applicazioni di autenticare gli utenti con identità di social networking e locali usando [Azure Active Directory B2C (Azure ad B2C)](../../active-directory-b2c/index.yml). Azure AD B2C è un servizio di gestione delle identità, È possibile usarlo per personalizzare e controllare la modalità di iscrizione, accesso e gestione dei profili dei clienti quando usano le applicazioni.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configurare le autorità note e l'URI di Reindirizzamento
 
@@ -139,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Specificare un criterio
 
-Poiché i criteri in B2C sono rappresentati come autorità separate, la chiamata di un criterio diverso da quello predefinito viene eseguita specificando una `fromAuthority` clausola quando si costruiscono `acquireToken` `acquireTokenSilent` parametri o.  Ad esempio:
+Poiché i criteri in B2C sono rappresentati come autorità separate, la chiamata di un criterio diverso da quello predefinito viene eseguita specificando una `fromAuthority` clausola quando si costruiscono `acquireToken` `acquireTokenSilent` parametri o.  Esempio:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

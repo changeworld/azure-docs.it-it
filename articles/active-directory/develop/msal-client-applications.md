@@ -13,12 +13,12 @@ ms.date: 04/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9c3292a31e5f750c16933acf94509e0ad226080a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef29f6fe3403809d01fcea382474c514319b7c0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81534313"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063757"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Client pubblici e applicazioni client riservate
 Microsoft Authentication Library (MSAL) definisce due tipi di client: client pubblici e client riservati. I due tipi di client sono distinti dalla loro capacità di eseguire l'autenticazione in modo sicuro con il server di autorizzazione e di mantenere la riservatezza delle proprie credenziali client. Al contrario, Autenticazione di Azure AD Library (ADAL) usa il cosiddetto *contesto di autenticazione* , ovvero una connessione a Azure ad.
@@ -46,7 +46,7 @@ Di seguito sono riportate alcune analogie e differenze tra client pubblici e app
 Se è stato usato ADAL, è possibile notare che, a differenza del contesto di autenticazione di ADAL, in MSAL l'ID client (noto anche come ID *applicazione* o *ID app*) viene passato una volta alla costruzione dell'applicazione. Non è necessario passare di nuovo quando l'app acquisisce un token. Questo vale sia per le app client pubbliche che riservate. Ai costruttori di app client riservate vengono inoltre passate le credenziali client: il segreto che condividono con il provider di identità.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vengono fornite informazioni su:
+Informazioni su:
 - [Opzioni di configurazione dell'applicazione client](msal-client-application-configuration.md)
 - [Creazione di istanze di applicazioni client tramite MSAL.NET](msal-net-initializing-client-applications.md)
 - [Creazione di istanze di applicazioni client tramite MSAL.js](msal-js-initializing-client-applications.md)

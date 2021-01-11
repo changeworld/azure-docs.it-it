@@ -1,7 +1,7 @@
 ---
 title: Usare i broker con Novell iOS & Android | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come configurare le applicazioni Novell iOS che possono usare Microsoft Authenticator e Microsoft Authentication Library per .NET (MSAL.NET). Viene inoltre illustrato come eseguire la migrazione da Autenticazione di Azure AD Library for .NET (ADAL.NET) a Microsoft Authentication Library for .NET (MSAL.NET).
+description: Informazioni su come configurare le applicazioni Novell iOS che possono usare il Microsoft Authenticator e Microsoft Authentication Library per .NET (MSAL.NET). Viene inoltre illustrato come eseguire la migrazione da Autenticazione di Azure AD Library for .NET (ADAL.NET) a Microsoft Authentication Library for .NET (MSAL.NET).
 author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 10fb55cc133d5d6b39ca2809474ff20dfe500708
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 73fbda9a3356e2877617391430a7f2b555b1a0e5
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017800"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063485"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usare Microsoft Authenticator o Portale aziendale Intune nelle applicazioni Novell
 
@@ -183,7 +183,7 @@ Aggiungere l'URI di reindirizzamento alla registrazione dell'app nel [portale di
 
 **Per generare l'URI di reindirizzamento:**
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Selezionare **Azure Active Directory**  >  **registrazioni app** > app registrata
 1. Selezionare **autenticazione**  >  **aggiungere una piattaforma**  >  **iOS/MacOS**
 1. Immettere l'ID bundle, quindi selezionare **Configura**.
@@ -239,7 +239,7 @@ result = await app.AcquireTokenInteractive(scopes)
 
 MSAL usa gli URL per richiamare il broker e quindi tornare all'app. Per completare questa round trip, è necessario registrare un **URI di reindirizzamento** per l'app usando il [portale di Azure](https://portal.azure.com).
 
-Il formato dell'URI di reindirizzamento per l'applicazione dipende dal certificato usato per firmare l'APK. Ad esempio:
+Il formato dell'URI di reindirizzamento per l'applicazione dipende dal certificato usato per firmare l'APK. Esempio:
 
 ```
 msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=

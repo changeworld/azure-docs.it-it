@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 2d7c732771749c0c0372c5433b76c3e30469e2b0
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: eacdf0cf80414c44aaccf6925e466b914c66da03
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968416"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065304"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -43,7 +43,7 @@ Prima di poter creare una connessione, è necessario aggiungere connettore.
    >[!NOTE]
    >Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro*.
 
-5. Seleziona **OK**.
+5. Selezionare **OK**.
 
 Quando viene distribuita la risorsa connettore, viene visualizzata una notifica nell'angolo superiore destro della finestra.
 
@@ -64,7 +64,7 @@ Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per cre
 
 1. In **tutte le risorse** cercare **ServiceDesk (*nome dell'area di lavoro*)**:
 
-   ![Screenshot che mostra le risorse recenti nel portale di Azure.](media/itsmc-overview/itsm-connections.png)
+   ![Screenshot che mostra le risorse recenti nel portale di Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
 
 1. In **origini dati dell'area di lavoro** nel riquadro sinistro selezionare **connessioni ITSM**:
 
@@ -137,7 +137,7 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
     * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso":
         * Se si seleziona la casella di controllo **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** , ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione.
 
-             Ad esempio:
+             Esempio:
              1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 3 elementi di lavoro.
              2) Avviso 2 con 1 elemento di configurazione: A-creerà 1 elemento di lavoro.
 
@@ -146,7 +146,7 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
         >[!NOTE]
         > In questo caso parte dell'avviso attivato non genererà nuovi elementi di lavoro nello strumento ITSM.
 
-        Ad esempio:
+        Esempio:
          1) Avviso 1 con 3 elementi di configurazione: A, B, C-creerà 1 elemento di lavoro.
          2) Avviso 2 per la stessa regola di avviso della fase 1 con 1 elemento di configurazione: D-verrà unito all'elemento di lavoro della fase 1.
          3) Avviso 3 per una regola di avviso diversa con 1 elemento di configurazione: E-creerà 1 elemento di lavoro.
@@ -158,7 +158,7 @@ Utilizzare la seguente procedura per creare i gruppi di azioni:
         * Se si seleziona **"Crea elementi di lavoro singoli per ogni elemento di configurazione"** nella selezione dei pulsanti di opzione, ogni elemento di configurazione in ogni avviso creerà un nuovo elemento di lavoro. Nel sistema ITSM possono essere presenti più elementi di lavoro per ogni elemento di configurazione. Corrisponde alla casella di controllo verifica nella sezione evento imprevisto/avviso.
     ![Screenshot che mostra la finestra dell'evento ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
-10. Seleziona **OK**.
+10. Selezionare **OK**.
 
 Quando si crea o si modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione ITSM. Quando l'avviso viene attivato, l'elemento di lavoro viene creato o aggiornato nello strumento ITSM.
 

@@ -7,19 +7,19 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 9e5f4fd14f56f0a2dff45dd2650ea552b07fecd7
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d4c099d29a843b4c354ffb218887dc7ffab51771
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987355"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065440"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati (legacy)
 
 > [!Note]
 > Questo articolo descrive le funzionalità legacy di esportazione dei dati in IoT Central.
 >
-> - Per informazioni sulle nuove funzionalità di anteprima per l'esportazione dei dati, vedere [esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati](./howto-export-data.md).
+> - Per informazioni sulle funzionalità di esportazione dei dati più recenti, vedere [esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati](./howto-export-data.md).
 > - Per informazioni sulle differenze tra le funzionalità di esportazione dei dati di anteprima e di esportazione dei dati legacy, vedere la [tabella di confronto](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Questo articolo descrive come usare la funzionalità di esportazione dei dati in Azure IoT Central. Questa funzionalità consente di esportare i dati in modo continuo in **Hub eventi** di Azure, nel **bus di servizio di Azure** o nelle istanze di **archiviazione BLOB di Azure** . L'esportazione dei dati usa il formato JSON e può includere dati di telemetria, informazioni sul dispositivo e informazioni sul modello di dispositivo. Usare i dati esportati per:
@@ -113,7 +113,7 @@ Ora che si dispone di una destinazione in cui esportare i dati, attenersi alla p
 
 7. In **dati da esportare** scegliere i tipi di dati da esportare impostando il tipo **su on**.
 
-8. Per attivare l'esportazione dei dati, assicurarsi che l'interruttore abilitato sia **On** **attivo** . Selezionare **Salva**.
+8. Per attivare l'esportazione dei dati, assicurarsi che l'interruttore abilitato sia  **attivo** . Selezionare **Salva**.
 
 9. Dopo alcuni minuti, i dati vengono visualizzati nella destinazione scelta.
 

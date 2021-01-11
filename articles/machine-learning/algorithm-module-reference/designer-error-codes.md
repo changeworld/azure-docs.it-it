@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 11/25/2020
-ms.openlocfilehash: 846c5519dced06ed16f5a0d12b0bb25443961f93
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753910"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065474"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
@@ -1536,3 +1536,8 @@ Per ottenere ulteriore assistenza, è consigliabile pubblicare il messaggio dett
 |Library exception. (Eccezione della libreria.)|
 |Library exception: {exception}. (Eccezione della libreria: {exception}.)|
 |Unknown library exception: {exception}. {customer_support_guidance}. (Eccezione della libreria sconosciuta: {exception}. {customer_support_guidance}.)|
+
+
+## <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
+
+Eseguire una ricerca **in azureml_main** **70_Driver_logs** del **modulo Execute Python script (Esegui script Python** ) per individuare la riga che ha generato l'errore. Ad esempio, "file"/tmp/tmp01_ID/user_script. py ", riga 17, in azureml_main" indica che l'errore si è verificato nella riga 17 dello script Python.

@@ -13,12 +13,12 @@ ms.date: 01/16/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 840c371e63aacf8ef410cbf84cc9f68137dd77df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c1fad96ea6e3b75b3afdfd4a4d3baac43308541
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85477584"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063672"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>Passa lo stato personalizzato nelle richieste di autenticazione usando MSAL.js
 
@@ -51,7 +51,7 @@ export type AuthenticationParameters = {
 > Ignorare la cache deve essere utilizzata solo negli scenari in cui si sa che i dati attualmente memorizzati nella cache non contengono informazioni aggiornate.
 > Ad esempio uno strumento di amministrazione che aggiunge ruoli a un utente che deve ottenere un nuovo token con i ruoli aggiornati.
 
-Ad esempio:
+Esempio:
 
 ```javascript
 let loginRequest = {

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 9d2fba48762e11a92f6f3925c969b01aebbe3630
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: e18267d5a810826e41e05eb3dde3cd82a8eb9197
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347592"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065321"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Log di diagnostica e integrità back-end per il gateway applicazione
 
@@ -222,7 +222,7 @@ Il log di accesso viene generato solo se è stato abilitato in ogni istanza del 
 |serverRouted| Il server back-end a cui il gateway applicazione instrada la richiesta.|
 |serverStatus| Codice di stato HTTP del server back-end.|
 |serverResponseLatency| Latenza della risposta dal server back-end.|
-|host| Indirizzo elencato nell'intestazione host della richiesta. Se riscritto, questo campo contiene il nome host aggiornato|
+|host| Indirizzo elencato nell'intestazione host della richiesta. Se riscritto usando l'intestazione Rewrite, questo campo contiene il nome host aggiornato|
 |originalRequestUriWithArgs| Questo campo contiene l'URL della richiesta originale |
 |requestUri| Questo campo contiene l'URL dopo l'operazione di riscrittura sul gateway applicazione |
 |originalHost| Questo campo contiene il nome host della richiesta originale
@@ -306,7 +306,7 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |ruleSetVersion     | Versione del set di regole usata. I valori disponibili sono 2.2.9 e 3.0.     |
 |ruleId     | ID regola dell'evento di attivazione.        |
 |message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
-|action     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
+|azione     |  Azione eseguita sulla richiesta. I valori disponibili vengono abbinati e bloccati.      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
 |dettagli     | Dettagli dell'evento di attivazione.        |
 |details.message     | Descrizione della regola.        |

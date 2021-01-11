@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 01e492072bd75af9f80656b71d2cc1c473d64263
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803800"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065186"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Risolvere i problemi di Connettore di Gestione dei servizi IT
 
@@ -23,13 +23,38 @@ ITSM offre la possibilità di inviare gli avvisi a un sistema di ticket esterno,
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizzare e analizzare i dati degli eventi imprevisti e delle richieste di modifica
 
-A seconda della configurazione quando si configura una connessione, connettore è in grado di sincronizzare fino a 120 giorni di dati relativi a eventi imprevisti e richieste di modifica. Lo schema dei record di log per questi dati è disponibile nella [sezione informazioni aggiuntive](./itsmc-overview.md) di questo articolo.
+A seconda della configurazione quando si configura una connessione, connettore è in grado di sincronizzare fino a 120 giorni di dati relativi a eventi imprevisti e richieste di modifica. Lo schema dei record di log per questi dati è disponibile nella [sezione informazioni aggiuntive](./itsmc-synced-data.md) di questo articolo.
 
 È possibile visualizzare i dati degli eventi imprevisti e delle richieste di modifica usando il dashboard di connettore:
 
 ![Screenshot che mostra il dashboard di connettore.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Il dashboard fornisce inoltre informazioni sullo stato del connettore, che è possibile utilizzare come punto di partenza per analizzare i problemi relativi alle connessioni.
+
+### <a name="error-investigation-using-the-dashboard"></a>Analisi degli errori tramite il dashboard
+
+Per visualizzare gli errori nel dashboard, attenersi alla procedura seguente:
+
+1. In **tutte le risorse** cercare **ServiceDesk (*nome dell'area di lavoro*)**:
+
+   ![Screenshot che mostra le risorse recenti nel portale di Azure.](media/itsmc-definition/create-new-connection-from-resource.png)
+
+2. In **origini dati dell'area di lavoro** nel riquadro sinistro selezionare **connessioni ITSM**:
+
+   ![Screenshot che mostra la voce di menu connessioni ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
+
+3. In **Riepilogo** nella casella a sinistra **connettore gestione servizi IT** Selezionare **Visualizza riepilogo**:
+
+    ![Screenshot che mostra il riepilogo della visualizzazione.](media/itsmc-resync-servicenow/dashboard-view-summary.png)
+
+4. In **Summary (riepilogo** ) nella casella a sinistra **Service Management Connector** fare clic sul grafico:
+
+    ![Screenshot che mostra il clic sul grafico.](media/itsmc-resync-servicenow/dashboard-graph-click.png)
+
+5. Con questo dashboard sarà possibile esaminare lo stato e gli errori nel connettore.
+    ![Screenshot che mostra lo stato del connettore.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="service-map"></a>Mappa del servizio
 
 È inoltre possibile visualizzare gli eventi imprevisti sincronizzati con i computer interessati in Mapping dei servizi.
 

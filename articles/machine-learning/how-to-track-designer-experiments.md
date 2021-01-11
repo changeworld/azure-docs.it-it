@@ -8,15 +8,15 @@ ms.author: keli19
 ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 11/25/2020
+ms.date: 01/11/2021
 ms.topic: conceptual
 ms.custom: designer
-ms.openlocfilehash: 29d83f4acddfce6294457f87519d62e35f52bf15
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: b940f5c9bd14bcec404827daaef666da802d969b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709419"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065253"
 ---
 # <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Abilitare la registrazione nelle pipeline di Azure Machine Learning Designer
 
@@ -27,7 +27,7 @@ Per altre informazioni sulla registrazione delle metriche con l'esperienza di cr
 
 ## <a name="enable-logging-with-execute-python-script"></a>Abilitare la registrazione con script Execute Python
 
-Usare il modulo __Execute Python script__ per abilitare la registrazione nelle pipeline della finestra di progettazione. Sebbene sia possibile registrare qualsiasi valore con questo flusso di lavoro, è particolarmente utile registrare le metriche dal modulo __Evaluate Model__ per tenere traccia delle prestazioni del modello tra le esecuzioni.
+Usare il modulo [Execute Python script](./algorithm-module-reference/execute-python-script.md) per abilitare la registrazione nelle pipeline della finestra di progettazione. Sebbene sia possibile registrare qualsiasi valore con questo flusso di lavoro, è particolarmente utile registrare le metriche dal modulo __Evaluate Model__ per tenere traccia delle prestazioni del modello tra le esecuzioni.
 
 L'esempio seguente illustra come registrare l'errore quadratico medio di due modelli sottoposti a training usando i moduli Evaluate Model ed Execute Python script.
 
@@ -53,7 +53,7 @@ L'esempio seguente illustra come registrare l'errore quadratico medio di due mod
         
         # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
         parent_run.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-        # Log right output port result of Evaluate Model.
+        # Log right output port result of Evaluate Model. The following line should be deleted if you only connect one Score Module to the` left port of Evaluate Model module.
         parent_run.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
 
         return dataframe1,
@@ -81,3 +81,4 @@ In questo articolo si è appreso come usare i log nella finestra di progettazion
 
 * Per informazioni su come risolvere i problemi relativi alle pipeline di progettazione, vedere [Debug & risolvere i problemi delle pipeline di ml](how-to-debug-pipelines.md#azure-machine-learning-designer).
 * Per informazioni su come usare Python SDK per registrare le metriche nell'esperienza di creazione dell'SDK, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).
+* Informazioni su come usare [Execute Python script](./algorithm-module-reference/execute-python-script.md) nella finestra di progettazione.

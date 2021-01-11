@@ -13,16 +13,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 85d1880479a514ffb002e4894066734690480457
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 946908bf28a50bc8b523c4efd853e8720b115c7b
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443127"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98063077"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Ottenere un token per un'app per dispositivi mobili che chiama API Web
 
-Prima che l'app possa chiamare le API Web protette, è necessario un token di accesso. Questo articolo illustra il processo di ottenimento di un token tramite Microsoft Authentication Library (MSAL).
+Prima che l'app possa chiamare le API Web protette, è necessario un token di accesso. Questo articolo illustra la procedura per ottenere un token tramite Microsoft Authentication Library (MSAL).
 
 ## <a name="define-a-scope"></a>Definire un ambito
 
@@ -255,7 +255,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Altri parametri facoltativi
 
-Per informazioni sugli altri parametri facoltativi per `AcquireTokenInteractive` , vedere la [documentazione di riferimento per AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Per informazioni sugli altri parametri facoltativi per `AcquireTokenInteractive` , vedere la [documentazione di riferimento per AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Acquisire token tramite il protocollo
 

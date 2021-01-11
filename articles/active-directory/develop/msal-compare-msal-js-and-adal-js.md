@@ -13,16 +13,16 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6894d84f489d3719f1106ba4de79cb85fa45c5ed
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88120899"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064951"
 ---
-# <a name="differences-between-msal-js-and-adal-js"></a>Differenze tra MSAL.js e ADAL.js
+# <a name="differences-between-msaljs-and-adaljs"></a>Differenze tra MSAL.js e ADAL.js
 
-Sia Microsoft Authentication Library per JavaScript (MSAL.js) che Azure AD Authentication Library per JavaScript (ADAL.js) vengono usate per eseguire l'autenticazione delle entità di Azure AD e richiedere token da Azure AD. Finora, la maggior parte degli sviluppatori ha usato Azure AD per sviluppatori (v1.0) per autenticare le identità di Azure AD (account aziendali e dell'istituto di istruzione) richiedendo token con ADAL. Ora, con MSAL.js, è possibile eseguire l'autenticazione di un set più ampio di identità Microsoft (identità di Azure AD, account Microsoft e account social e locali tramite Azure AD B2C) usando Microsoft Identity Platform (versione 2.0).
+Sia la libreria di autenticazione Microsoft per JavaScript (MSAL.js) che la libreria Autenticazione di Azure AD per JavaScript (ADAL.js) vengono usate per autenticare Azure AD entità e i token di richiesta da Azure AD. Finora, la maggior parte degli sviluppatori ha usato Azure AD per sviluppatori (v1.0) per autenticare le identità di Azure AD (account aziendali e dell'istituto di istruzione) richiedendo token con ADAL. Ora, con MSAL.js, è possibile eseguire l'autenticazione di un set più ampio di identità Microsoft (identità di Azure AD, account Microsoft e account social e locali tramite Azure AD B2C) usando Microsoft Identity Platform (versione 2.0).
 
 In questo articolo viene descritto come scegliere tra Microsoft Authentication Library per JavaScript (MSAL.js) e Azure AD Authentication Library per JavaScript (ADAL.js) e vengono confrontate le due librerie.
 
@@ -73,7 +73,7 @@ Nella versione 2.0, l'uso dell'autorità `https://login.microsoftonline.com/comm
 
 * Ambiti dinamici per il consenso incrementale.
 
-    Quando si creano applicazioni tramite la versione 1.0, è necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile usare il parametro di ambito per richiedere le autorizzazioni nel momento desiderato. Gli ambiti di questo tipo sono definiti dinamici. In questo modo l'utente può fornire il proprio consenso incrementale agli ambiti. Pertanto, se all'inizio si vuole semplicemente che l'utente acceda all'applicazione e non è necessario alcun tipo di accesso, è possibile impostare questo tipo di autorizzazione. Se, in un secondo momento, si vuole avere la possibilità di leggere il calendario dell'utente, è possibile richiedere l'ambito del calendario nei metodi di acquisizione dei token e ottenere il consenso dell'utente. Ad esempio:
+    Quando si creano applicazioni tramite la versione 1.0, è necessario registrare il set completo di autorizzazioni (ambiti statici) richiesto dall'applicazione per ottenere il consenso dell'utente al momento dell'accesso. Nella versione 2.0 è possibile usare il parametro di ambito per richiedere le autorizzazioni nel momento desiderato. Gli ambiti di questo tipo sono definiti dinamici. In questo modo l'utente può fornire il proprio consenso incrementale agli ambiti. Pertanto, se all'inizio si vuole semplicemente che l'utente acceda all'applicazione e non è necessario alcun tipo di accesso, è possibile impostare questo tipo di autorizzazione. Se, in un secondo momento, si vuole avere la possibilità di leggere il calendario dell'utente, è possibile richiedere l'ambito del calendario nei metodi di acquisizione dei token e ottenere il consenso dell'utente. Esempio:
 
     ```javascript
     var request = {
