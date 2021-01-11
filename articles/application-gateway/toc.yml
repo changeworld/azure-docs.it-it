@@ -109,7 +109,7 @@
     - name: Informazioni sui prezzi
       href: understanding-pricing.md
     - name: Domande frequenti
-      href: application-gateway-faq.md
+      href: application-gateway-faq.yml
 - name: Guide pratiche
   items:
     - name: Ospitare un singolo sito

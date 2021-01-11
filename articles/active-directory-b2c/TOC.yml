@@ -443,7 +443,7 @@
     - name: Modello di fatturazione
       href: billing.md
     - name: Esempi di codice
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
+      href: /samples/browse/?terms=b2c
     - name: Definizioni dei cookie
       href: cookie-definitions.md
       displayName: 'cookies, SameSite'
