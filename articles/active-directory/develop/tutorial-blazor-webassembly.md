@@ -8,18 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 09e922ffddcce732d9213eb91026561528c0728a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ce854c8f2d1d317c3660aaab9c0a6569aae0bb36
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169138"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97895972"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Esercitazione: Concedere l'accesso agli utenti e chiamare un'API protetta da un'app WebAssembly Blazor
 
-In questa esercitazione verrà creata un'app Blazor WebAssembly che concede l'accesso agli utenti e recupera dati da Microsoft Graph usando Microsoft Identity Platform e registrando l'app in Azure Active Directory (Azure AD).
-
-È anche disponibile un'esercitazione per [Blazor Server](tutorial-blazor-server.md). 
+In questa esercitazione verrà creata un'app Blazor WebAssembly che concede l'accesso agli utenti e recupera dati da Microsoft Graph usando Microsoft Identity Platform e registrando l'app in Azure Active Directory (Azure AD). 
 
 In questa esercitazione:
 
@@ -27,6 +25,10 @@ In questa esercitazione:
 >
 > * Creare una nuova app WebAssembly Blazor configurata per l'uso di Azure Active Directory (Azure AD) per l'[autenticazione e l'autorizzazione](authentication-vs-authorization.md) con Microsoft Identity Platform
 > * Recuperare i dati da un'API Web protetta, in questo caso [Microsoft Graph](/graph/overview)
+
+Questa esercitazione usa .NET Core 3.1. La documentazione di .NET contiene le istruzioni su [come proteggere un'app Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api) usando ASP.NET Core 5.0. 
+
+È anche disponibile un'esercitazione per [Blazor Server](tutorial-blazor-server.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,9 +76,11 @@ Nel browser passare a `https://localhost:5001` e accedere usando un account uten
 
 Per altre informazioni sui componenti di questo modello che consentono gli accessi con Azure AD tramite Microsoft Identity Platform, vedere [Proteggere un'app WebAssembly Blazor autonoma di ASP.NET Core con Azure Active Directory](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
-## <a name="retrieving-data-from-microsoft-graph"></a>Recupero dei dati da Microsoft Graph
+## <a name="retrieving-data-from-a-protected-api-microsoft-graph"></a>Recuperare i dati da un'API Web protetta (Microsoft Graph)
 
-[Microsoft Graph](/graph/overview) include numerose API che consentono di accedere ai dati Microsoft 365 degli utenti nel tenant. Usando Microsoft Identity Platform come provider di identità per l'app, è possibile accedere più facilmente a queste informazioni perché Microsoft Graph supporta direttamente i token rilasciati da Microsoft Identity Platform. In questa sezione viene aggiunto il codice che consente di visualizzare i messaggi di posta elettronica dell'utente connesso nella pagina "Recupera dati" dell'applicazione.
+[Microsoft Graph](/graph/overview) contiene API che consentono di accedere ai dati di Microsoft 365 per gli utenti e supporta i token emessi da Microsoft Identity Platform, per cui si tratta di API protette valide da usare come esempio. In questa sezione viene aggiunto codice per chiamare Microsoft Graph e visualizzare gli indirizzi di posta elettronica dell'utente nella pagina "Recupera dati" dell'applicazione.
+
+Questa sezione è scritta usando un approccio comune alle chiamate di un'API protetta tramite un client denominato. Lo stesso metodo può essere usato per altre API protette da chiamare. Tuttavia, se si prevede di chiamare Microsoft Graph dall'applicazione, è possibile usare Graph SDK per ridurre il boilerplate. La documentazione di .NET contiene le istruzioni su [come usare Graph SDK](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/graph-api?view=aspnetcore-5.0).
 
 Prima di iniziare, disconnettersi dall'app perché verranno apportate modifiche alle autorizzazioni obbligatorie e il token corrente non funzionerà. Se non è già stato fatto, eseguire di nuovo l'app e selezionare **Disconnetti** prima di aggiornare il codice seguente.
 

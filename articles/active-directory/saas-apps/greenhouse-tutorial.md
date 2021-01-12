@@ -9,33 +9,32 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 2206f0e1cfbe9e362937c6299c65eee2ebbb6253
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0eb64ebe5e55bc054b6a280ac249cf451bb027db
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92448028"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Esercitazione: Integrazione di Azure Active Directory con Greenhouse
 
-Questa esercitazione descrive come integrare Greenhouse con Azure Active Directory (Azure AD).
-L'integrazione di Greenhouse con Azure AD offre i vantaggi seguenti:
+Questa esercitazione descrive come integrare Greenhouse con Azure Active Directory (Azure AD). Integrando Greenhouse con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a Greenhouse.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Greenhouse con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a Greenhouse.
+* Abilitare gli utenti per l'accesso automatico a Greenhouse con gli account Azure AD personali.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per iniziare, sono necessari gli elementi seguenti:
 
-Per configurare l'integrazione di Azure AD con Greenhouse, sono necessari gli elementi seguenti:
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di Greenhouse abilitata per l'accesso Single Sign-On (SSO).
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Greenhouse abilitata per l'accesso Single Sign-On
+> [!NOTE] 
+> È possibile usare questa integrazione anche dall'ambiente cloud US Government di Azure AD. Questa applicazione è disponibile nella raccolta di applicazioni cloud US Government di Azure AD e la procedura di configurazione è analoga a quella eseguita dal cloud pubblico. 
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -47,59 +46,38 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Greenhouse in Azure AD, è necessario aggiungere Greenhouse dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Greenhouse dalla raccolta, seguire questa procedura:**
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Greenhouse** nella casella di ricerca.
+1. Selezionare **Greenhouse** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-sso-for-greenhouse"></a>Configurare e testare l'accesso SSO di Azure AD per Greenhouse
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
+Configurare e testare l'accesso SSO di Azure AD con Greenhouse usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Greenhouse.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+Per configurare e testare l'accesso SSO di Azure AD con Greenhouse, seguire questa procedura:
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+2. **[Configurare l'accesso Single Sign-On di Greenhouse](#configure-greenhouse-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Greenhouse](#create-greenhouse-test-user)**: per avere una controparte di Britta Simon in Greenhouse collegata alla rappresentazione dell'utente in Azure AD.
+3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-4. Nella casella di ricerca digitare **Greenhouse** , selezionare **Greenhouse** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-     ![Greenhouse nell'elenco dei risultati](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Greenhouse usando un utente di test di nome **Britta Simon** .
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Greenhouse.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Greenhouse, è necessario completare le procedure di base seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Greenhouse](#configure-greenhouse-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Greenhouse](#create-greenhouse-test-user)** : per avere una controparte di Britta Simon in Greenhouse collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On di Azure AD con Greenhouse, seguire questa procedura:
-
-1. Nella pagina di integrazione dell'applicazione **Greenhouse** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
+1. Nella pagina di integrazione dell'applicazione **Greenhouse** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
-
-    ![Informazioni su URL e dominio per Single Sign-On di Greenhouse](common/sp-identifier.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.greenhouse.io`
 
@@ -108,7 +86,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Greenhouse, seguire que
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Greenhouse](https://www.greenhouse.io/contact). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -116,66 +94,57 @@ Per configurare l'accesso Single Sign-On di Azure AD con Greenhouse, seguire que
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
 
-    b. Identificatore Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-    c. URL di chiusura sessione
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-### <a name="configure-greenhouse-single-sign-on"></a>Configurare l'accesso Single Sign-On per Greenhouse
-
-Per configurare l'accesso Single Sign-On sul lato **Greenhouse** , è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Greenhouse](https://www.greenhouse.io/contact). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
-
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon** .
-  
-    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
-    Ad esempio, usare BrittaSimon@contoso.com
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Crea** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso di Single Sign-On di Azure concedendole l'accesso a Greenhouse.
+In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Greenhouse.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Greenhouse** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco di applicazioni selezionare **Greenhouse**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
+## <a name="configure-greenhouse-sso"></a>Configurare l'accesso SSO per Greenhouse
 
-2. Nell'elenco di applicazioni selezionare **Greenhouse** .
+1. In un'altra finestra del Web browser accedere al sito Web di Greenhouse come amministratore.
 
-    ![Collegamento Greenhouse nell'elenco Applicazioni](common/all-applications.png)
+1. Passare a **Configure > Dev Center > Single Sign-On**.
 
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
+    ![Screenshot della pagina SSO](./media/greenhouse-tutorial/configure.png)
 
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
+1. Nella pagina Single Sign-On seguire questa procedura.
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+    ![Screenshot della pagina di configurazione di SSO](./media/greenhouse-tutorial/sso-page.png)
 
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
+    a. Copiare il valore di **SSO Assertion Consumer URL** (URL consumer di asserzione SSO) e incollarlo nella casella di testo **URL di risposta** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
+    b. Nella casella di testo **Entity ID/Issuer** (ID entità/Autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+    c. Nella casella di testo **Single Sign-On URL** (URL di accesso SSO) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+    d. Aprire nel Blocco note il file **XML dei metadati della federazione**, scaricato dal portale di Azure, quindi incollarne il contenuto nella casella di testo **IdP Certificate Fingerprint** (Impronta digitale del certificato IdP).
+
+    e. Selezionare il valore di **Name Identifier Format** (Formato identificatore nome) nell'elenco a discesa.
+
+    f. Fare clic su **Begin Testing** (Inizia test).
+
+    >[!NOTE]
+    >In alternativa, è anche possibile caricare il file **XML dei metadati di federazione** facendo clic sull'opzione **Choose File** (Scegli file).
 
 ### <a name="create-greenhouse-test-user"></a>Creare l'utente di test di Greenhouse
 
@@ -186,37 +155,34 @@ Per consentire agli utenti di Azure AD di accedere a Greenhouse, è necessario e
 
 **Per effettuare il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al sito aziendale di **Greenhouse** come amministratore.
+1. Accedere al sito della società **Greenhouse** come amministratore.
 
-2. Nel menu in alto fare clic su **Configure** (Configura) e quindi su **Users** (Utenti).
+2. Passare a **Configure > Users > New Users** (Configura > Utenti > Nuovi utenti)
    
-    ![Utenti](./media/greenhouse-tutorial/ic790791.png "Utenti")
+    ![Utenti](./media/greenhouse-tutorial/create-user-1.png "Utenti")
 
-3. Fare clic su **Nuovi utenti** .
+4. Nella sezione **Add New Users** eseguire la procedura seguente:
    
-    ![New User](./media/greenhouse-tutorial/ic790792.png "Nuovo utente")
+    ![Aggiungi nuovo utente](./media/greenhouse-tutorial/create-user-2.png "Aggiungi nuovo utente")
 
-4. Nella sezione **Aggiungi nuovo utente** eseguire la procedura seguente:
-   
-    ![Aggiungere un nuovo utente](./media/greenhouse-tutorial/ic790793.png "Aggiungi nuovo utente")
+    a. Nella casella di testo **Enter user emails** digitare l'indirizzo di posta elettronica di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
 
-    a. Nella casella di testo **Inserire email utente** digitare l'indirizzo di posta elettronica di un account di Azure Active Directory valido di cui si vuole eseguire il provisioning.
-
-    b. Fare clic su **Salva** .    
+    b. Fare clic su **Salva**.    
    
       >[!NOTE]
       >I titolari dell'account Azure Active Directory riceveranno un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On 
+### <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di Greenhouse nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Greenhouse per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Greenhouse, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso di Greenhouse e avviare il flusso di accesso da questa posizione.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Greenhouse in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Greenhouse. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver configurato Greenhouse, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
