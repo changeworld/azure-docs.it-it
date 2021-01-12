@@ -3,12 +3,12 @@ title: Linguaggi supportati in Funzioni di Azure
 description: Informazioni sulle lingue supportate (GA) e sulle quali sono disponibili in anteprima e sui modi per estendere lo sviluppo di funzioni ad altre lingue.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da3100521faae61e9803aaa82dbf91045a7ecbc9
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83994902"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108552"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Linguaggi supportati in Funzioni di Azure
 
@@ -27,9 +27,9 @@ Sono disponibili [tre versioni del runtime di funzioni di Azure](functions-versi
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-## <a name="custom-handlers-preview"></a>Gestori personalizzati (anteprima) 
+## <a name="custom-handlers"></a>Gestori personalizzati
 
-I gestori personalizzati sono server Web leggeri che ricevono eventi dall'host di funzioni di Azure. Qualsiasi linguaggio che supporta le primitive HTTP può implementare un gestore personalizzato. Ciò significa che i gestori personalizzati possono essere usati per creare funzioni in linguaggi che non sono ufficialmente supportati. Per altre informazioni, vedere [gestori personalizzati di funzioni di Azure (anteprima)](functions-custom-handlers.md).
+I gestori personalizzati sono server Web leggeri che ricevono eventi dall'host di funzioni di Azure. Qualsiasi linguaggio che supporta le primitive HTTP può implementare un gestore personalizzato. Ciò significa che i gestori personalizzati possono essere usati per creare funzioni in linguaggi che non sono ufficialmente supportati. Per altre informazioni, vedere [gestori personalizzati di funzioni di Azure](functions-custom-handlers.md).
 
 ## <a name="language-extensibility"></a>Estendibilità di un linguaggio
 

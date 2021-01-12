@@ -9,16 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 1cc6c8cd49a2388ad66a276f4a1667b4c3ee3826
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070321"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107906"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+
+ ## <a name="2021-01-11"></a>2021-01-11
+
+### <a name="azure-machine-learning-sdk-for-python-v1200"></a>SDK di Azure Machine Learning per Python v 1.20.0
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + framework_version aggiunto in OptimizationConfig. Verrà usato quando il modello viene registrato con il Framework multipiattaforma.
+  + **azureml-automl-runtime**
+    + In questo aggiornamento è stato aggiunto Holt Winters esponenzial smoothing alla casella degli strumenti di previsione di AutoML SDK. Data una serie temporale, il modello migliore viene selezionato da [AICc (criterio delle informazioni di Akaike corretto)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e restituito.
+  + **azureml-contrib-ottimizzazione**
+    + framework_version aggiunto in OptimizationConfig. Verrà usato quando il modello viene registrato con il Framework multipiattaforma.
+  + **azureml-pipeline-steps**
+    + Introduzione a CommandStep che richiede l'elaborazione del comando. Il comando può includere file eseguibili, comandi della shell, script e così via.
+  + **azureml-core**
+    + La creazione dell'area di lavoro supporta l'identità assegnata dall'utente. Aggiunta del supporto UAI da SDK/interfaccia della riga di comando
+    + Correzione del problema relativo al servizio. ricaricare () per rilevare le modifiche apportate in score.py nella distribuzione locale.
+    + `run.get_details()` dispone di un campo aggiuntivo denominato "submittedBy" che Visualizza il nome dell'autore per questa esecuzione.
+    + Modificata la documentazione del metodo Model. Register per informazioni su come registrare il modello dall'esecuzione diretta
+   
 
 ## <a name="2020-12-31"></a>2020-12-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-december-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di dicembre)
@@ -31,6 +51,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
   + Tempi di caricamento delle pagine migliorati
   + prestazioni migliorate 
   + Maggiore velocità e affidabilità del kernel
+
   
 ## <a name="2020-12-07"></a>2020-12-07
 

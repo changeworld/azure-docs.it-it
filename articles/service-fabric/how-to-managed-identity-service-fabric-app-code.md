@@ -3,22 +3,75 @@ title: Usare l'identità gestita con un'applicazione
 description: Come usare le identità gestite in Azure Service Fabric il codice dell'applicazione per accedere ai servizi di Azure.
 ms.topic: article
 ms.date: 10/09/2019
-ms.openlocfilehash: 07f960c01367ab42a434a8c2e1e276d9c5f7bd11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c89f7bd064e643b978253f2e083c449d904d2cad
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86253644"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108518"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services"></a>Come sfruttare un'identità gestita dell'applicazione Service Fabric per accedere ai servizi di Azure
 
 Service Fabric applicazioni possono sfruttare le identità gestite per accedere ad altre risorse di Azure che supportano l'autenticazione basata su Azure Active Directory. Un'applicazione può ottenere un [token di accesso](../active-directory/develop/developer-glossary.md#access-token) che rappresenta l'identità, che può essere assegnata dal sistema o assegnata dall'utente e usarla come token di connessione per autenticarsi a un altro servizio, noto anche come [server di risorse protetto](../active-directory/develop/developer-glossary.md#resource-server). Il token rappresenta l'identità assegnata all'applicazione Service Fabric e verrà emesso solo per le risorse di Azure (incluse le applicazioni SF) che condividono tale identità. Per una descrizione dettagliata delle identità gestite, vedere la documentazione relativa alla [Panoramica dell'identità gestita](../active-directory/managed-identities-azure-resources/overview.md) , nonché la distinzione tra identità assegnate dal sistema e identità assegnate dall'utente. Si fa riferimento a un'applicazione Service Fabric abilitata per l'identità gestita come [applicazione client](../active-directory/develop/developer-glossary.md#client-application) in questo articolo.
+
+Vedere un'applicazione di esempio complementare che illustra l'uso di [identità gestite dall'applicazione](https://github.com/Azure-Samples/service-fabric-managed-identity) e assegnate dal sistema Service Fabric con Reliable Services e contenitori.
 
 > [!IMPORTANT]
 > Un'identità gestita rappresenta l'associazione tra una risorsa di Azure e un'entità servizio nel tenant di Azure AD corrispondente associato alla sottoscrizione che contiene la risorsa. Di conseguenza, nel contesto di Service Fabric, le identità gestite sono supportate solo per le applicazioni distribuite come risorse di Azure. 
 
 > [!IMPORTANT]
 > Prima di usare l'identità gestita di un'applicazione Service Fabric, è necessario concedere all'applicazione client l'accesso alla risorsa protetta. Vedere l'elenco dei servizi di [Azure che supportano l'autenticazione Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) per verificare il supporto e quindi la documentazione del rispettivo servizio per i passaggi specifici per concedere a un'identità l'accesso alle risorse di interesse. 
+ 
+
+## <a name="leverage-a-managed-identity-using-azureidentity"></a>Sfruttare un'identità gestita usando Azure. Identity
+
+Azure Identity SDK supporta ora Service Fabric. L'uso di Azure. Identity rende più semplice la scrittura di codice per usare Service Fabric identità gestite dall'app perché gestisce il recupero dei token, la memorizzazione dei token nella cache e l'autenticazione del server. Quando si accede alla maggior parte delle risorse di Azure, il concetto di token è nascosto.
+
+Il supporto Service Fabric è disponibile nelle versioni seguenti per queste lingue: 
+- [C# nella versione 1.3.0](https://www.nuget.org/packages/Azure.Identity). Vedere un [esempio di C#](https://github.com/Azure-Samples/service-fabric-managed-identity).
+- [Python nella versione 1.5.0](https://pypi.org/project/azure-identity/). Vedere un [esempio di Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/tests/managed-identity-live/service-fabric/service_fabric.md).
+- [Java nella versione 1.2.0](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable).
+
+Esempio C# di inizializzazione delle credenziali e utilizzo delle credenziali per recuperare un segreto da Azure Key Vault:
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+namespace MyMIService
+{
+    internal sealed class MyMIService : StatelessService
+    {
+        protected override async Task RunAsync(CancellationToken cancellationToken)
+        {
+            try
+            {
+                // Load the service fabric application managed identity assigned to the service
+                ManagedIdentityCredential creds = new ManagedIdentityCredential();
+
+                // Create a client to keyvault using that identity
+                SecretClient client = new SecretClient(new Uri("https://mykv.vault.azure.net/"), creds);
+
+                // Fetch a secret
+                KeyVaultSecret secret = (await client.GetSecretAsync("mysecret", cancellationToken: cancellationToken)).Value;
+            }
+            catch (CredentialUnavailableException e)
+            {
+                // Handle errors with loading the Managed Identity
+            }
+            catch (RequestFailedException)
+            {
+                // Handle errors with fetching the secret
+            }
+            catch (Exception e)
+            {
+                // Handle generic errors
+            }
+        }
+    }
+}
+
+```
 
 ## <a name="acquiring-an-access-token-using-rest-api"></a>Acquisizione di un token di accesso tramite l'API REST
 Nei cluster abilitati per l'identità gestita, il runtime di Service Fabric espone un endpoint localhost che le applicazioni possono usare per ottenere i token di accesso. L'endpoint è disponibile in ogni nodo del cluster ed è accessibile a tutte le entità in tale nodo. I chiamanti autorizzati possono ottenere i token di accesso chiamando questo endpoint e presentando un codice di autenticazione; il codice viene generato dal Runtime Service Fabric per ogni attivazione del pacchetto di codice del servizio distinto ed è associato alla durata del processo che ospita il pacchetto di codice del servizio.
@@ -377,3 +430,4 @@ Vedere i [servizi di Azure che supportano l'autenticazione Azure ad](../active-d
 * [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dal sistema](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 * [Distribuire un'applicazione Service Fabric di Azure con un'identità gestita assegnata dall'utente](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Concedere a un'applicazione Service Fabric di Azure l'accesso ad altre risorse di Azure](./how-to-grant-access-other-resources.md)
+* [Esplorare un'applicazione di esempio usando Service Fabric identità gestita](https://github.com/Azure-Samples/service-fabric-managed-identity)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: f8c6fce5b22d67dd1022fbaac763ea5df3b0930f
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505376"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108399"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Usare gestione API di Azure con microservizi distribuiti nel servizio Azure Kubernetes
 
@@ -99,7 +99,7 @@ In alcuni casi, i clienti con vincoli normativi o requisiti di sicurezza severi 
 
 Sono disponibili due modalità di [distribuzione di gestione API in una VNet](./api-management-using-with-vnet.md) , esterna e interna. 
 
-Se i consumer di API non si trovano nel VNet del cluster, è consigliabile usare la modalità esterna (Figg. 4). In questa modalità il gateway di gestione API viene inserito nel VNet del cluster, ma accessibile dalla rete Internet pubblica tramite un servizio di bilanciamento del carico esterno. Consente di nascondere completamente il cluster, consentendo comunque ai client esterni di utilizzare i microservizi. Inoltre, è possibile usare le funzionalità di rete di Azure, ad esempio i gruppi di sicurezza di rete (NSG) per limitare il traffico di rete.
+Se i consumer di API non si trovano nel VNet del cluster, è consigliabile usare la modalità esterna (Figg. 4). In questa modalità il gateway di gestione API viene inserito nel VNet del cluster, ma accessibile dalla rete Internet pubblica tramite un servizio di bilanciamento del carico esterno. Consente di nascondere completamente il cluster consentendo comunque ai client esterni di utilizzare i microservizi. Inoltre, è possibile usare le funzionalità di rete di Azure, ad esempio i gruppi di sicurezza di rete (NSG) per limitare il traffico di rete.
 
 ![Modalità VNet esterna](./media/api-management-aks/vnet-external.png)
 

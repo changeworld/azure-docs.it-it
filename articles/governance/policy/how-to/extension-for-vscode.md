@@ -1,22 +1,22 @@
 ---
 title: Estensione Criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
-ms.date: 10/20/2020
+ms.date: 01/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8c7357d70323fa74ec77cf43bd11f149a2f99154
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 4c4ba0eeb0506179ff92ead0ee86f048600d157e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96906302"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107940"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
-> Si applica alla versione dell'estensione criteri di Azure **0.1.0** e versioni successive
+> Si applica alla versione dell'estensione criteri di Azure **0.1.1** e versioni successive
 
 Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare gli [alias](../concepts/definition-structure.md#aliases), esaminare le risorse e i criteri, esportare oggetti e valutare le definizioni dei criteri. In primo luogo, viene descritto come installare l'estensione di criteri di Azure in Visual Studio Code. Verranno quindi illustrate le procedure per la ricerca degli alias.
 
-L'estensione di criteri di Azure per Visual Studio Code può essere installata in tutte le piattaforme supportate da Visual Studio Code. Questo supporto include Windows, Linux e macOS.
+L'estensione di criteri di Azure per Visual Studio Code può essere installata in Windows.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

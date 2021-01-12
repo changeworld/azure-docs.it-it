@@ -3,12 +3,12 @@ title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e10ac5847a38190c8feaae5e51f9b55bee4c4fbc
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 8824334e762237c3f18cb763d5b39fa55d6415a3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861480"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108489"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 
@@ -70,7 +70,29 @@ La sezione seguente è una panoramica del processo di failover e illustra come c
 
 ### <a name="setup"></a>Configurazione
 
-È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto spesso i failover devono essere eseguiti in modo sincronizzato con il sottosistema o l'infrastruttura rimanente.
+È prima di tutto necessario creare uno spazio dei nomi primario o usarne uno esistente e creare un nuovo spazio dei nomi secondario, quindi associare i due spazi dei nomi. L'associazione fornisce un alias che può essere usato per la connessione. Poiché si usa un alias, non è necessario modificare le stringhe di connessione. È possibile aggiungere solo nuovi spazi dei nomi all'associazione di failover. 
+
+1. Creare lo spazio dei nomi primario.
+1. Creare lo spazio dei nomi secondario. Questo passaggio è facoltativo. È possibile creare lo spazio dei nomi secondario durante la creazione dell'associazione nel passaggio successivo. 
+1. Nella portale di Azure passare allo spazio dei nomi primario.
+1. Selezionare **ripristino geografico** nel menu a sinistra e selezionare **Avvia associazione** sulla barra degli strumenti. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Avviare l'associazione dallo spazio dei nomi primario":::    
+1. Nella pagina **avvio associazione** selezionare uno spazio dei nomi secondario esistente o crearne uno, quindi selezionare **Crea**. Nell'esempio seguente viene selezionato uno spazio dei nomi secondario esistente. 
+
+    :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selezionare lo spazio dei nomi secondario":::        
+1. A questo punto, quando si seleziona il **ripristino geografico** per lo spazio dei nomi primario, viene visualizzata la pagina alias ripristino di emergenza **geografico** simile all'immagine seguente:
+
+    :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Pagina alias ripristino di emergenza geografico":::    
+1. In questa pagina di **Panoramica** è possibile eseguire le azioni seguenti: 
+    1. Suddividere l'associazione tra gli spazi dei nomi primari e secondari. Selezionare **Interrompi associazione** sulla barra degli strumenti. 
+    1. Eseguire manualmente il failover allo spazio dei nomi secondario. Selezionare **failover** sulla barra degli strumenti. 
+    
+        > [!WARNING]
+        > Il failover attiverà lo spazio dei nomi secondario e rimuoverà lo spazio dei nomi primario dall'associazione di Geo-Disaster Recovery. Creare un altro spazio dei nomi per avere una nuova coppia di ripristino di emergenza geografico. 
+1. Nella pagina **alias ripristino di emergenza geografico** selezionare **criteri di accesso condivisi** per accedere alla stringa di connessione primaria per l'alias. Usare questa stringa di connessione invece di utilizzare direttamente la stringa di connessione allo spazio dei nomi primario/secondario. 
+
+Infine, è necessario aggiungere funzionalità di monitoraggio per rilevare i casi in cui è necessario un failover. Nella maggior parte dei casi, il servizio fa parte di un ecosistema di grandi dimensioni, quindi i failover automatici sono raramente possibili, in quanto spesso i failover devono essere eseguiti in modo sincronizzato con il sottosistema o l'infrastruttura rimanente.
 
 ### <a name="example"></a>Esempio
 
@@ -133,7 +155,7 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 ![3][]
 
 ## <a name="private-endpoints"></a>Endpoint privati
-Questa sezione presenta considerazioni aggiuntive sull'uso del ripristino di emergenza geografico con spazi dei nomi che usano endpoint privati. Per informazioni generali sull'uso di endpoint privati con Hub eventi, vedere [Configurare gli endpoint privati](private-link-service.md).
+Questa sezione offre ulteriori considerazioni quando si usa il ripristino di emergenza geografico con gli spazi dei nomi che usano endpoint privati. Per informazioni generali sull'uso di endpoint privati con Hub eventi, vedere [Configurare gli endpoint privati](private-link-service.md).
 
 ### <a name="new-pairings"></a>Nuove associazioni
 Se si tenta di creare un'associazione tra uno spazio dei nomi primario con un endpoint privato e uno spazio dei nomi secondario senza un endpoint privato, l'associazione ha esito negativo. L'associazione avrà esito positivo solo se entrambi gli spazi dei nomi, primario e secondario, hanno endpoint privati. È consigliabile usare le stesse configurazioni per gli spazi dei nomi primario e secondario e per le reti virtuali in cui sono stati creati gli endpoint privati.  

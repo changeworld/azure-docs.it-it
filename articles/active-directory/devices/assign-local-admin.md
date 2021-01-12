@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd7b5ac981fcb87d0fc929d944205dec9432b74
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d482f21955b76e6b90523afe3b4933378c91d36e
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575823"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107362"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -24,7 +24,7 @@ Per gestire un dispositivo Windows, è necessario essere un membro del gruppo di
 
 Questo articolo illustra il funzionamento dell'aggiornamento dell'appartenenza degli amministratori locali e il modo in cui è possibile personalizzarlo durante un Azure AD join. Il contenuto di questo articolo non si applica a dispositivi **ibridi Azure ad aggiunti** .
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si connette un dispositivo Windows con Azure AD usando un join Azure AD, Azure AD aggiunge le entità di sicurezza seguenti al gruppo Administrators locale nel dispositivo:
 
@@ -32,8 +32,7 @@ Quando si connette un dispositivo Windows con Azure AD usando un join Azure AD, 
 - Ruolo Amministratore dispositivo di Azure AD 
 - Utente che esegue l'aggiunta ad Azure AD   
 
-Aggiungendo i ruoli di Azure AD al gruppo di amministratori locale, è possibile aggiornare gli utenti che possono gestire un dispositivo in qualsiasi momento in Azure AD senza modificare nulla sul dispositivo. Non è attualmente possibile assegnare gruppi a un ruolo di amministratore.
-Azure AD aggiunge anche il ruolo Amministratore dispositivo di Azure AD al gruppo di amministratori locale per supportare il principio dei privilegi minimi necessari. Oltre che agli amministratori globali, è possibile consentire di gestire un dispositivo anche agli utenti a cui è stato assegnato *solo* il ruolo Amministratore dispositivo. 
+Aggiungendo i ruoli di Azure AD al gruppo di amministratori locale, è possibile aggiornare gli utenti che possono gestire un dispositivo in qualsiasi momento in Azure AD senza modificare nulla sul dispositivo. Azure AD aggiunge anche il ruolo Amministratore dispositivo di Azure AD al gruppo di amministratori locale per supportare il principio dei privilegi minimi necessari. Oltre che agli amministratori globali, è possibile consentire di gestire un dispositivo anche agli utenti a cui è stato assegnato *solo* il ruolo Amministratore dispositivo. 
 
 ## <a name="manage-the-global-administrators-role"></a>Gestire il ruolo degli amministratori globali
 
@@ -70,7 +69,7 @@ Gli amministratori dispositivo vengono assegnati a tutti i dispositivi aggiunti 
 ## <a name="manage-administrator-privileges-using-azure-ad-groups-preview"></a>Gestire i privilegi di amministratore usando gruppi di Azure AD (anteprima)
 
 >[!NOTE]
-> Questa funzionalità è attualmente in anteprima.
+> Questa funzionalità è attualmente disponibile in anteprima.
 
 
 A partire dall'aggiornamento di Windows 10 2004, è possibile usare i gruppi di Azure AD per gestire i privilegi di amministratore nei dispositivi Azure AD aggiunti con i criteri MDM dei [gruppi limitati](/windows/client-management/mdm/policy-csp-restrictedgroups) . Questo criterio consente di assegnare singoli utenti o gruppi di Azure AD al gruppo Administrators locale in un dispositivo Azure AD aggiunto, offrendo la granularità per configurare amministratori distinti per gruppi diversi di dispositivi. 

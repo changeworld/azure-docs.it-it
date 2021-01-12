@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 11/16/2020
-ms.openlocfilehash: aaf0374bcafdb91f316b7133de1c2d019b12b285
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.date: 12/18/2020
+ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302854"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107396"
 ---
 # <a name="introduction-to-listing-options"></a>Introduzione alle opzioni di elenco
 
@@ -26,21 +26,23 @@ Quando si crea un tipo di offerta, è possibile scegliere una o più opzioni di 
 
 Questa tabella mostra le opzioni di elenco disponibili per ogni tipo di offerta.
 
-| Tipo di offerta | Versione di valutazione gratuita | Test drive | Contattami | Ottenere ora (transazionale) |
+| Tipo di offerta | Versione di valutazione gratuita | Test drive | Contattami | Ottieni subito `*` |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Applicazione Azure (app gestita) |   | &#10004; |   | &#10004; |
-| Applicazione Azure (modello di soluzione) |  |  |  |  |
+| Applicazione Azure (modello di soluzione) |  |  |  | &#10004; |
 | Servizio di consulenza |  |  | &#10004; |  |
-| Contenitore di Azure |  |  |  |  |
-| Dynamics 365 business Central | &#10004; | &#10004; | &#10004; |  |
-| & PowerApps di Dynamics 365 Customer Engagement | &#10004; | &#10004; | &#10004; |  |
-| Dynamics 365 per le operazioni | &#10004; | &#10004; | &#10004; |  |
-| Modulo IoT Edge |  |  |  |  |
-| Servizio gestito |  |  |  |  |
-| App Power BI |  |  |  |  |
+| Contenitore di Azure |  |  |  | &#10004; |
+| Dynamics 365 business Central | &#10004; | &#10004; | &#10004; | &#10004; |
+| & PowerApps di Dynamics 365 Customer Engagement | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 per le operazioni | &#10004; | &#10004; | &#10004; | &#10004; |
+| Modulo IoT Edge |  |  |  | &#10004; |
+| Servizio gestito |  |  |  | &#10004; |
+| App Power BI |  |  |  | &#10004; |
 | Macchina virtuale di Azure | &#10004; | &#10004; |  | &#10004; |
 | Software come un servizio | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
+
+`*` L'opzione Get it now Listing include Get it Now (gratuito), Bring your own License (BYOL), sottoscrizione e prezzi basati sull'utilizzo. Per informazioni dettagliate, vedere [Get it now](#get-it-now).
 
 ### <a name="free-trial"></a>Versione di valutazione gratuita
 
@@ -69,12 +71,12 @@ L'opzione Get it now Listing può includere le opzioni di prezzo seguenti, a sec
 
 - Ottieni ora (gratuito)
 - Bring Your Own License (BYOL)
-- Subscription
+- Sottoscrizione
 - Prezzi basati sull'utilizzo
 
 Questa tabella mostra i tipi di offerta che supportano le opzioni di prezzo aggiuntive incluse nell'opzione Get it now Listing.
 
-| Tipo di offerta | Ottieni ora (gratuito) | BYOL | Subscription | Prezzi basati sull'utilizzo |
+| Tipo di offerta | Ottieni ora (gratuito) | BYOL | Sottoscrizione | Prezzi basati sull'utilizzo |
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Applicazione Azure (app gestita) |   |   | &#10004; | &#10004; |
 | Applicazione Azure (modello di soluzione) | &#10004; |   |   |   |
@@ -104,7 +106,7 @@ Usare questa opzione di elenco per offrire gratuitamente l'applicazione. I clien
 
 Usa il Marketplace commerciale per migliorare l'individuabilità, automatizzare il provisioning della soluzione e completare la transazione finanziaria separata dal Marketplace. L'opzione Bring your own License (BYOL) è ideale per le migrazioni da sito locale a cloud. I clienti usano il pulsante _Get it now_ per acquistare l'offerta usando una licenza acquistata in precedenza.
 
-#### <a name="subscription"></a>Subscription
+#### <a name="subscription"></a>Sottoscrizione
 
 È possibile addebitare un costo forfettario per questi tipi di offerta:
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: eca2009ee0470dec9c9ce60d8754f8f7a71619d3
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d9dd07e3a35d83ff6bd9c7c493768d1197667c39
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740539"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108790"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticare e risolvere i problemi relativi a un ambiente Gen2 Azure Time Series Insights
 
@@ -71,7 +71,7 @@ Esistono diversi motivi comuni per cui i dati potrebbero non essere visualizzati
 - Questo problema può verificarsi perché l'ambiente è limitato nelle richieste.
 
     > [!NOTE]
-    > Attualmente, Time Series Insights supporta una velocità di inserimento massima di 6 MB/s.
+    > A questo punto, Time Series Insights supporta una velocità di inserimento massima di 1 Mbps.
 
 ## <a name="problem-data-was-showing-but-now-ingestion-has-stopped"></a>Problema: i dati sono stati visualizzati, ma ora l'inserimento è stato arrestato
 

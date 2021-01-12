@@ -12,19 +12,21 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 8b95c5a45992c895713e0be056856172b14b830d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740675"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108591"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 
 
-Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) negli esperimenti di training.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati.
+Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) per eseguire il training dei modelli di machine learning.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati. 
 
 Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning [funzionalità di training](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) come [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), iperguida e [pipeline di Azure Machine Learning](how-to-create-your-first-pipeline.md).
+
+Se non si è pronti a rendere i dati disponibili per il training del modello, ma si vuole caricare i dati nel notebook per l'esplorazione dei dati, vedere come [esplorare i dati nel set](how-to-create-register-datasets.md#explore-data)di dati. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,7 +36,7 @@ Per creare ed eseguire il training con i set di impostazioni, è necessario:
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* [SDK Azure Machine Learning per Python installato](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), che include il pacchetto azureml-DataSets.
+* [SDK Azure Machine Learning per Python installato](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), che include il `azureml-datasets` pacchetto.
 
 > [!Note]
 > Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
@@ -65,7 +67,7 @@ Il codice seguente configura un argomento dello script `--input-data` che verrà
 > [!Note]
 > Se l'origine dati originale contiene NaN, stringhe vuote o valori vuoti, quando si usa `to_pandas_dataframe()` , questi valori vengono sostituiti come valore *null* .
 
-Se è necessario caricare i dati preparati in un nuovo set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un parquet, e creare un nuovo set di dati da tale file. È anche possibile creare set di dati da file o percorsi locali negli archivi dati. Altre informazioni su [come creare set di impostazioni](how-to-create-register-datasets.md).
+Se è necessario caricare i dati preparati in un nuovo set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un parquet, e creare un nuovo set di dati da tale file. Altre informazioni su [come creare set di impostazioni](how-to-create-register-datasets.md).
 
 ```Python
 %%writefile $script_folder/train_titanic.py

@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: c6754e6f0e3f0d6208bd34c96c8bc473429c943c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917903"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108059"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -122,7 +122,7 @@ L'utilizzo dell'archiviazione di backup fino alle dimensioni massime dei dati pe
 
 ## <a name="backup-retention"></a>Conservazione dei backup
 
-Per tutti i nuovi database, ripristinati e copiati, il database SQL di Azure e Azure SQL Istanza gestita conservano backup sufficienti per consentire ripristino temporizzato negli ultimi 7 giorni per impostazione predefinita. Fatta eccezione per i database con iperscalabilità, è possibile [modificare il periodo di conservazione dei backup](#change-the-pitr-backup-retention-period) per ogni database attivo nell'intervallo di 1-35 giorni. Come descritto in [utilizzo dell'archiviazione di backup](#backup-storage-consumption), i backup archiviati per abilitare ripristino temporizzato potrebbero essere precedenti al periodo di conservazione. Solo per Istanza gestita SQL di Azure, è possibile impostare il tasso di conservazione dei backup di ripristino temporizzato dopo l'eliminazione di un database nell'intervallo di 0-35 giorni. 
+Per tutti i nuovi database, ripristinati e copiati, il database SQL di Azure e Azure SQL Istanza gestita conservano backup sufficienti per consentire ripristino temporizzato negli ultimi 7 giorni per impostazione predefinita. Fatta eccezione per i database di livello Basic e iperscalabile, è possibile [modificare il periodo di conservazione dei backup](#change-the-pitr-backup-retention-period) per ogni database attivo nell'intervallo di 1-35 giorni. Come descritto in [utilizzo dell'archiviazione di backup](#backup-storage-consumption), i backup archiviati per abilitare ripristino temporizzato potrebbero essere precedenti al periodo di conservazione. Solo per Istanza gestita SQL di Azure, è possibile impostare il tasso di conservazione dei backup di ripristino temporizzato dopo l'eliminazione di un database nell'intervallo di 0-35 giorni. 
 
 Se si elimina un database, il sistema mantiene i backup allo stesso modo di un database online con il periodo di memorizzazione specifico. Non è possibile modificare il periodo di conservazione dei backup per un database eliminato.
 

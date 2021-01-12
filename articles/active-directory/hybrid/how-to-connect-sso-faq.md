@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2dd1ac58c89060fc3e09e97617cb2a68d8ac
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 2dac4b461d4506015f0ef374eae37f67c445791d
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094574"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107872"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -85,6 +85,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    > [!NOTE]
    >Per la procedura seguente sono necessarie sia l'amministratore di dominio sia le credenziali di amministratore globale.
+   >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
 
    **Passaggio 1. Ottenere l'elenco delle foreste di Active Directory in cui è stata abilitato l'accesso SSO facile**
 
@@ -105,9 +106,6 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    >L'account amministratore di dominio usato non deve essere un membro del gruppo Utenti protetti, in caso contrario l'operazione non riesce.
 
    2. Chiamare `Update-AzureADSSOForest -OnPremCredentials $creds`. Questo comando aggiorna la chiave di decrittografia di Kerberos per l'account computer `AZUREADSSO` in questa foresta di AD specifica e la aggiorna in Azure AD.
-   
-   >[!NOTE]
-   >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
    

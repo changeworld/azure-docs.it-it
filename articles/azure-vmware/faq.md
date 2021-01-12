@@ -3,12 +3,12 @@ title: Domande frequenti
 description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 1/4/2020
-ms.openlocfilehash: d0228739a6ee4eac20d2fa04e47cf86b6fddb84e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1420fba40492e1a5f45f4ad5e58da2caa29ae7e7
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881226"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98107957"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -29,6 +29,10 @@ Il servizio viene continuamente aggiunto alle nuove aree, quindi è possibile vi
 #### <a name="can-workloads-running-in-an-azure-vmware-solution-instance-consume-or-integrate-with-azure-services"></a>I carichi di lavoro in esecuzione in un'istanza di soluzione VMware di Azure utilizzano o si integrano con i servizi di Azure?
 
 Tutti i servizi di Azure saranno disponibili per i clienti della soluzione VMware di Azure. Le limitazioni relative alle prestazioni e alla disponibilità di servizi specifici dovranno essere risolte caso per caso.
+
+#### <a name="what-guest-operating-systems-are-compatible-with-azure-vmware-solution"></a>Quali sistemi operativi guest sono compatibili con la soluzione VMware di Azure?
+
+È possibile trovare informazioni sulla compatibilità del sistema operativo guest con vSphere usando la [Guida alla compatibilità di VMware](https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software&details=1&releases=485&page=1&display_interval=10&sortColumn=Partner&sortOrder=Asc&testConfig=16).  Per identificare la versione di vSphere in esecuzione nella soluzione VMware di Azure, vedere la pagina relativa alle [versioni del software VMware](concepts-private-clouds-clusters.md#vmware-software-versions).
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Si usano gli stessi strumenti attualmente usati per gestire le risorse dei cloud privati?
 
