@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/25/2020
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1fbc6eede6c82020b765185602c672c1162fdf8
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 769ca4cf0ecbdba5fd80d977eb69c8a4f58df55f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548189"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071188"
 ---
 # <a name="enabling-synapse-workspace-features-for-a-dedicated-sql-pool-formerly-sql-dw"></a>Abilitazione delle funzionalità dell'area di lavoro sinapsi per un pool SQL dedicato (in precedenza SQL DW)
 
@@ -57,6 +57,9 @@ Seguire questa procedura per creare un'area di lavoro sinapsi per la data wareho
 4. Selezionare una delle istanze del pool SQL dedicato (in precedenza SQL DW) ospitate nel server logico. Nella pagina Overview (panoramica) selezionare **Launch sinapsi Studio (avvia sinapsi Studio** ) o passare a l' [accesso a sinapsi Studio](https://web.azuresynapse.net) e accedere all'area di lavoro.
 
 5. Aprire l' **hub dati** ed espandere il pool SQL dedicato in Esplora oggetti per assicurarsi di avere accesso ed eseguire query sul data warehouse.
+
+    > [!NOTE] 
+    > Un'area di lavoro connessa può essere eliminata in qualsiasi momento. Eliminando l'area di lavoro non verrà eliminato il pool SQL dedicato connesso (in precedenza SQL DW). La funzionalità dell'area di lavoro può essere riabilitata nel pool SQL dedicato (in precedenza SQL DW) al termine dell'operazione di eliminazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Introduzione all' [area di lavoro sinapsi e a Studio](../get-started.md).

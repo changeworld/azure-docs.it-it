@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 454ac9a377800bd11a53250569c3e7b65bac713a
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 779b66412319ec8422977a7e56570a4d16f89aa9
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558794"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071545"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Binding di output Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -248,136 +248,6 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
-
-```json
-{
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-La funzione crea documenti di Azure Cosmos DB nel formato seguente per ogni record:
-
-```json
-{
-    "id": "John Henry-123456",
-    "name": "John Henry",
-    "employeeId": "123456",
-    "address": "A town nearby"
-}
-```
-
-Ecco i dati di associazione nel file *function.json*:
-
-```json
-{
-    "name": "employeeDocument",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": true,
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice JavaScript:
-
-```javascript
-    module.exports = function (context) {
-
-      context.bindings.employeeDocument = JSON.stringify({
-        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
-        name: context.bindings.myQueueItem.name,
-        employeeId: context.bindings.myQueueItem.employeeId,
-        address: context.bindings.myQueueItem.address
-      });
-
-      context.done();
-    };
-```
-
-Per l'inserimento bulk eseguire prima gli oggetti e quindi eseguire la funzione stringify. Ecco il codice JavaScript:
-
-```javascript
-    module.exports = function (context) {
-    
-        context.bindings.employeeDocument = JSON.stringify([
-        {
-            "id": "John Henry-123456",
-            "name": "John Henry",
-            "employeeId": "123456",
-            "address": "A town nearby"
-        },
-        {
-            "id": "John Doe-123457",
-            "name": "John Doe",
-            "employeeId": "123457",
-            "address": "A town far away"
-        }]);
-    
-      context.done();
-    };
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Nell'esempio seguente viene illustrato come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
-
-La definizione di associazione viene definita infunction.jsin cui il *tipo* è impostato *su* `cosmosDB` .
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "cosmosDB",
-      "direction": "out",
-      "name": "doc",
-      "databaseName": "demodb",
-      "collectionName": "data",
-      "createIfNotExists": "true",
-      "connectionStringSetting": "AzureCosmosDBConnectionString"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-}
-```
-
-Per scrivere nel database, passare un oggetto Document al `set` metodo del parametro database.
-
-```python
-import azure.functions as func
-
-def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
-
-    request_body = req.get_body()
-
-    doc.set(func.Document.from_json(request_body))
-
-    return 'OK'
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 * [Trigger della coda e salvataggio di un messaggio nel database tramite il valore restituito](#queue-trigger-save-message-to-database-via-return-value-java)
@@ -545,6 +415,165 @@ L'esempio seguente mostra una funzione Java che scrive più documenti in Cosmos 
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `@CosmosDBOutput` per i parametri che saranno scritti su Cosmos DB.  Il tipo di parametro di annotazione deve essere ```OutputBinding<T>```, dove T è un tipo nativo di Java o un oggetto POJO.
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+L'esempio seguente mostra un'associazione di output di Azure Cosmos DB in un file *function.json* e una [funzione script JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un'associazione di input di coda per una coda che riceve JSON nel formato seguente:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+La funzione crea documenti di Azure Cosmos DB nel formato seguente per ogni record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "name": "employeeDocument",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice JavaScript:
+
+```javascript
+    module.exports = function (context) {
+
+      context.bindings.employeeDocument = JSON.stringify({
+        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+        name: context.bindings.myQueueItem.name,
+        employeeId: context.bindings.myQueueItem.employeeId,
+        address: context.bindings.myQueueItem.address
+      });
+
+      context.done();
+    };
+```
+
+Per l'inserimento bulk eseguire prima gli oggetti e quindi eseguire la funzione stringify. Ecco il codice JavaScript:
+
+```javascript
+    module.exports = function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    
+      context.done();
+    };
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Nell'esempio seguente viene illustrato come scrivere dati in Cosmos DB usando un'associazione di output. L'associazione viene dichiarata nel file di configurazione della funzione (_functions.js_) e prende i dati da un messaggio della coda e scrive in un documento Cosmos DB.
+
+```json
+{ 
+  "name": "EmployeeDocument",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "direction": "out" 
+} 
+```
+
+Nel file di _run.ps1_ , l'oggetto restituito dalla funzione viene mappato a un `EmployeeDocument` oggetto, che viene salvato in modo permanente nel database.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name EmployeeDocument -Value @{ 
+    id = $QueueItem.name + '-' + $QueueItem.employeeId 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Nell'esempio seguente viene illustrato come scrivere un documento in un database CosmosDB di Azure come output di una funzione.
+
+La definizione di associazione viene definita infunction.jsin cui il *tipo* è impostato *su* `cosmosDB` .
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Per scrivere nel database, passare un oggetto Document al `set` metodo del parametro database.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
+
 ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
@@ -569,17 +598,21 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Gli attributi non sono supportati da Script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+L' `CosmosDBOutput` annotazione è disponibile per la scrittura dei dati Cosmos DB. È possibile applicare l'annotazione alla funzione o a un singolo parametro di funzione. Quando viene usato nel metodo Function, il valore restituito della funzione è quello che viene scritto in Cosmos DB. Se si utilizza l'annotazione con un parametro, il tipo del parametro deve essere dichiarato come `OutputBinding<T>` dove `T` un tipo Java nativo o un POJO.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-L' `CosmosDBOutput` annotazione è disponibile per la scrittura dei dati Cosmos DB. È possibile applicare l'annotazione alla funzione o a un singolo parametro di funzione. Quando viene usato nel metodo Function, il valore restituito della funzione è quello che viene scritto in Cosmos DB. Se si utilizza l'annotazione con un parametro, il tipo del parametro deve essere dichiarato come `OutputBinding<T>` dove `T` un tipo Java nativo o un POJO.
 
 ---
 

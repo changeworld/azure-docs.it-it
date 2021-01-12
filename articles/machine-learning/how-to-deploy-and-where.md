@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: dd7a336df5ff187b874876db32abb45915e00f3b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739383"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070423"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
 
@@ -322,6 +322,8 @@ Nella tabella seguente vengono descritti i diversi Stati del servizio:
 | Non riuscito | La distribuzione del servizio non è riuscita a causa di un errore o di un arresto anomalo. | Sì |
 | Healthy | Il servizio è integro e l'endpoint è disponibile. | Sì |
 
+> [!TIP]
+> Quando si distribuiscono, le immagini Docker per le destinazioni di calcolo vengono compilate e caricate da Azure Container Registry (ACR). Per impostazione predefinita, Azure Machine Learning crea un ACR che usa il livello di servizio *Basic* . La modifica dell'ACR per l'area di lavoro nel livello standard o Premium può ridurre il tempo necessario per compilare e distribuire immagini nelle destinazioni di calcolo. Per altre informazioni, vedere [Livelli di servizio di Registro Azure Container](../container-registry/container-registry-skus.md).
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferenza batch
 Azure Machine Learning le destinazioni di calcolo vengono create e gestite da Azure Machine Learning. Possono essere usati per la stima in batch da Azure Machine Learning pipeline.

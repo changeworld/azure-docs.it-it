@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346520"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071604"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -157,11 +157,6 @@ Per modificare le regole per un gruppo di computer:
     Questo riquadro Mostra il nome del gruppo (che può essere modificato), il tipo di sistema operativo, la posizione e altri dettagli pertinenti.
 
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Pagina Impostazioni gruppo per i controlli applicazione adattivi" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
-
-    > [!IMPORTANT]
-    > L'opzione **applica** , nelle impostazioni della modalità di protezione dei tipi di file, è disattivata in **tutti gli** scenari. Al momento non sono disponibili opzioni di imposizione. 
-    >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="La modalità di imposizione per la protezione dei file è disabilitata in modo permanente. Non sono disponibili opzioni di imposizione.":::
 
 1. Facoltativamente, modificare il nome del gruppo o le modalità di protezione dei tipi di file.
 

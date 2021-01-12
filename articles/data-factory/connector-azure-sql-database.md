@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 9b0445a9ca92f05a11f5a97895039a55f9d64d71
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 01/11/2021
+ms.openlocfilehash: 82a84fb719b2a6c261e35f247f32355caa659557
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693904"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072021"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database SQL di Azure usando Azure Data Factory
 
@@ -387,7 +387,7 @@ Per copiare i dati nel database SQL di Azure, nella sezione **sink** dell'attivi
 | storedProcedureParameters |Parametri per la stored procedure.<br/>I valori consentiti sono coppie nome-valore. I nomi e le maiuscole e minuscole dei parametri devono corrispondere ai nomi e alle maiuscole e minuscole dei parametri della stored procedure. | No |
 | writeBatchSize | Numero di righe da inserire nella tabella SQL *per batch*.<br/> Il valore consentito è **integer** (numero di righe). Per impostazione predefinita, Azure Data Factory determina in modo dinamico le dimensioni del batch appropriate in base alle dimensioni della riga. | No |
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/> Il valore consentito è **timespan**. Un esempio è "00:30:00" (30 minuti). | No |
-| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio il database SQL di Azure DTU per l'ottimizzazione delle prestazioni di copia e le raccomandazioni. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
+| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio il database SQL di Azure DTU per l'ottimizzazione delle prestazioni di copia e le raccomandazioni, che introduce un ulteriore accesso al database master. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 **Esempio 1: accodare i dati**
 
@@ -738,7 +738,7 @@ Quando i dati vengono copiati da o nel database SQL di Azure, i mapping seguenti
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Oggetto |
-| text |String, Char[] |
+| testo |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | TINYINT |Byte |

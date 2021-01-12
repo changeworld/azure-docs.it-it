@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 8b1eedc47d2a89b9552c22b3ae770f655f926945
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898777"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070941"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -269,7 +269,7 @@ Di seguito sono elencate alcune informazioni utili da visualizzare dopo la confi
 - Statistiche del traffico bloccato.
     - Perché un host blocca un volume di traffico non dannoso significativo? Questo comportamento richiede un'ulteriore analisi e probabilmente un'ottimizzazione della configurazione
 - Statistiche del traffico dannoso consentito/bloccato
-  - Perché un host riceve traffico dannoso e perché sono consentiti i flussi provenienti dall'origine dannosa? Questo comportamento richiede un'ulteriore analisi e probabilmente un'ottimizzazione della configurazione.
+  - Perché un host riceve traffico dannoso e perché i flussi da origini dannose sono consentiti? Questo comportamento richiede un'ulteriore analisi e probabilmente un'ottimizzazione della configurazione.
 
     Selezionare **Visualizza tutto**, in **Host**, come illustrato nell'immagine seguente:
 

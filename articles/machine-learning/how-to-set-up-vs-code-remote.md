@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.author: jmartens
-author: j-martens
+ms.author: luquinta
+author: luisquintanilla
 ms.date: 11/16/2020
-ms.openlocfilehash: 0afbf32f80a3d19f6db457f398a213a634cfa3d4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3f3794ed4748eda44e863ff4627dedc0a34691af
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447047"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070100"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Connettersi a un'istanza di calcolo Azure Machine Learning in Visual Studio Code (anteprima)
 
@@ -135,7 +135,7 @@ Di seguito sono riportati alcuni dettagli sui campi:
 |Host|Usa qualsiasi abbreviazione che preferisci per l'istanza di calcolo |
 |HostName|Si tratta dell'indirizzo IP dell'istanza di calcolo |
 |Porta|Si tratta della porta visualizzata nella finestra di dialogo SSH sopra |
-|Utente|Questa operazione deve essere `azureuser` |
+|User|Questa operazione deve essere `azureuser` |
 |IdentityFile|Deve puntare al file in cui è stata salvata la chiave privata |
 
 A questo punto, si dovrebbe essere in grado di eseguire ssh nell'istanza di calcolo usando la sintassi abbreviata usata in precedenza, `ssh azmlci1` .

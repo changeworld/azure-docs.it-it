@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dec41a5e05d22891aae9d16280ebb6b0c8da3f20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 49762b1844aec85ff55ae2a16243a231414b263f
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185114"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071579"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Binding di input Azure Cosmos DB per funzioni di Azure 2. x e versioni successive
 
@@ -300,7 +300,7 @@ namespace CosmosDBSamplesV2
 L'esempio seguente illustra una [funzione C#](functions-dotnet-class-library.md) che recupera un elenco di documenti. La funzione viene attivata da una richiesta HTTP. Il codice usa un'istanza di `DocumentClient` fornita dall'associazione di Azure Cosmos DB per leggere un elenco di documenti. L'istanza di `DocumentClient` potrebbe essere usata anche per operazioni di scrittura.
 
 > [!NOTE]
-> È anche possibile usare l'interfaccia [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) per semplificare i test.
+> È anche possibile usare l'interfaccia [IDocumentClient](/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet&preserve-view=true) per semplificare i test.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -721,421 +721,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
-
-* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-javascript)
-* [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-javascript)
-* [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-javascript)
-* [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
-
-<a id="queue-trigger-look-up-id-from-json-javascript"></a>
-
-### <a name="queue-trigger-look-up-id-from-json"></a>Trigger della coda e ricerca dell'ID da JSON
-
-L'esempio seguente mostra un'associazione di input di Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione legge un singolo documento e aggiorna il relativo valore di testo.
-
-Ecco i dati di associazione nel file *function.json*:
-
-```json
-{
-    "name": "inputDocumentIn",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger_payload_property}",
-    "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "in"
-},
-{
-    "name": "inputDocumentOut",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": false,
-    "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice JavaScript:
-
-```javascript
-    // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {
-    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-    context.bindings.inputDocumentOut.text = "This was updated!";
-    context.done();
-    };
-```
-
-<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
-
-### <a name="http-trigger-look-up-id-from-query-string"></a>Trigger HTTP e ricerca dell'ID da una stringa di query
-
-L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
-
-Ecco il file *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "cosmosDB",
-      "name": "toDoItem",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connectionStringSetting": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{Query.id}",
-      "PartitionKey": "{Query.partitionKeyValue}"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Ecco il codice JavaScript:
-
-```javascript
-module.exports = function (context, req, toDoItem) {
-    context.log('JavaScript queue trigger function processed work item');
-    if (!toDoItem)
-    {
-        context.log("ToDo item not found");
-    }
-    else
-    {
-        context.log("Found ToDo item, Description=" + toDoItem.Description);
-    }
-
-    context.done();
-};
-```
-
-<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
-
-### <a name="http-trigger-look-up-id-from-route-data"></a>Trigger HTTP e ricerca dell'ID dai dati della route
-
-L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
-
-Ecco il file *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route":"todoitems/{partitionKeyValue}/{id}"
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "cosmosDB",
-      "name": "toDoItem",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connectionStringSetting": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{id}",
-      "PartitionKey": "{partitionKeyValue}"
-    }
-  ],
-  "disabled": false
-}
-```
-
-Ecco il codice JavaScript:
-
-```javascript
-module.exports = function (context, req, toDoItem) {
-    context.log('JavaScript queue trigger function processed work item');
-    if (!toDoItem)
-    {
-        context.log("ToDo item not found");
-    }
-    else
-    {
-        context.log("Found ToDo item, Description=" + toDoItem.Description);
-    }
-
-    context.done();
-};
-```
-
-<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
-
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Trigger della coda e recupero di più documenti con SqlQuery
-
-L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
-
-Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario.
-
-Ecco i dati di associazione nel file *function.json*:
-
-```json
-{
-    "name": "documents",
-    "type": "cosmosDB",
-    "direction": "in",
-    "databaseName": "MyDb",
-    "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
-    "connectionStringSetting": "CosmosDBConnection"
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice JavaScript:
-
-```javascript
-    module.exports = function (context, input) {
-        var documents = context.bindings.documents;
-        for (var i = 0; i < documents.length; i++) {
-            var document = documents[i];
-            // operate on each document
-        }
-        context.done();
-    };
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
-
-* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-python)
-* [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-python)
-* [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-python)
-* [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
-
-<a id="queue-trigger-look-up-id-from-json-python"></a>
-
-### <a name="queue-trigger-look-up-id-from-json"></a>Trigger della coda e ricerca dell'ID da JSON
-
-L'esempio seguente mostra un'associazione di input di Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione legge un singolo documento e aggiorna il relativo valore di testo.
-
-Ecco i dati di associazione nel file *function.json*:
-
-```json
-{
-    "name": "documents",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "id" : "{queueTrigger_payload_property}",
-    "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "in"
-},
-{
-    "name": "$return",
-    "type": "cosmosDB",
-    "databaseName": "MyDatabase",
-    "collectionName": "MyCollection",
-    "createIfNotExists": false,
-    "partitionKey": "{queueTrigger_payload_property}",
-    "connectionStringSetting": "MyAccount_COSMOSDB",
-    "direction": "out"
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice Python:
-
-```python
-import azure.functions as func
-
-
-def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Document:
-    if documents:
-        document = documents[0]
-        document['text'] = 'This was updated!'
-        return document
-```
-
-<a id="http-trigger-look-up-id-from-query-string-python"></a>
-
-### <a name="http-trigger-look-up-id-from-query-string"></a>Trigger HTTP e ricerca dell'ID da una stringa di query
-
-L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
-
-Ecco il file *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "cosmosDB",
-      "name": "todoitems",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connectionStringSetting": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{Query.id}",
-      "PartitionKey": "{Query.partitionKeyValue}"
-    }
-  ],
-  "scriptFile": "__init__.py"
-}
-```
-
-Ecco il codice Python:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
-    if not todoitems:
-        logging.warning("ToDo item not found")
-    else:
-        logging.info("Found ToDo item, Description=%s",
-                     todoitems[0]['description'])
-
-    return 'OK'
-```
-
-<a id="http-trigger-look-up-id-from-route-data-python"></a>
-
-### <a name="http-trigger-look-up-id-from-route-data"></a>Trigger HTTP e ricerca dell'ID dai dati della route
-
-L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
-
-Ecco il file *function.json*:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in",
-      "methods": [
-        "get",
-        "post"
-      ],
-      "route":"todoitems/{partitionKeyValue}/{id}"
-    },
-    {
-      "name": "$return",
-      "type": "http",
-      "direction": "out"
-    },
-    {
-      "type": "cosmosDB",
-      "name": "todoitems",
-      "databaseName": "ToDoItems",
-      "collectionName": "Items",
-      "connection": "CosmosDBConnection",
-      "direction": "in",
-      "Id": "{id}",
-      "PartitionKey": "{partitionKeyValue}"
-    }
-  ],
-  "disabled": false,
-  "scriptFile": "__init__.py"
-}
-```
-
-Ecco il codice Python:
-
-```python
-import logging
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
-    if not todoitems:
-        logging.warning("ToDo item not found")
-    else:
-        logging.info("Found ToDo item, Description=%s",
-                     todoitems[0]['description'])
-    return 'OK'
-```
-
-<a id="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>
-
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Trigger della coda e recupero di più documenti con SqlQuery
-
-L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
-
-Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario.
-
-Ecco i dati di associazione nel file *function.json*:
-
-```json
-{
-    "name": "documents",
-    "type": "cosmosDB",
-    "direction": "in",
-    "databaseName": "MyDb",
-    "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
-    "connectionStringSetting": "CosmosDBConnection"
-}
-```
-
-Queste proprietà sono descritte nella sezione [configuration](#configuration).
-
-Ecco il codice Python:
-
-```python
-import azure.functions as func
-
-def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
-    for document in documents:
-        # operate on each document
-```
-
 # <a name="java"></a>[Java](#tab/java)
 
 Questa sezione contiene gli esempi seguenti:
@@ -1400,6 +985,636 @@ public class DocsFromRouteSqlQuery {
 }
  ```
 
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
+
+* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-javascript)
+* [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-javascript)
+* [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-javascript)
+* [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+
+<a id="queue-trigger-look-up-id-from-json-javascript"></a>
+
+### <a name="queue-trigger-look-up-id-from-json"></a>Trigger della coda e ricerca dell'ID da JSON
+
+L'esempio seguente mostra un'associazione di input di Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione legge un singolo documento e aggiorna il relativo valore di testo.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "name": "inputDocumentIn",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger_payload_property}",
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "in"
+},
+{
+    "name": "inputDocumentOut",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice JavaScript:
+
+```javascript
+    // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
+    module.exports = function (context) {
+    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+    context.bindings.inputDocumentOut.text = "This was updated!";
+    context.done();
+    };
+```
+
+<a id="http-trigger-look-up-id-from-query-string-javascript"></a>
+
+### <a name="http-trigger-look-up-id-from-query-string"></a>Trigger HTTP e ricerca dell'ID da una stringa di query
+
+L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+<a id="http-trigger-look-up-id-from-route-data-javascript"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data"></a>Trigger HTTP e ricerca dell'ID dai dati della route
+
+L'esempio seguente illustra una [funzione JavaScript](functions-reference-node.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{partitionKeyValue}/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItem",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function (context, req, toDoItem) {
+    context.log('JavaScript queue trigger function processed work item');
+    if (!toDoItem)
+    {
+        context.log("ToDo item not found");
+    }
+    else
+    {
+        context.log("Found ToDo item, Description=" + toDoItem.Description);
+    }
+
+    context.done();
+};
+```
+
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
+
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Trigger della coda e recupero di più documenti con SqlQuery
+
+L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
+
+Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "name": "documents",
+    "type": "cosmosDB",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
+    "connectionStringSetting": "CosmosDBConnection"
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice JavaScript:
+
+```javascript
+module.exports = function (context, input) {
+  var documents = context.bindings.documents;
+  for (var i = 0; i < documents.length; i++) {
+    var document = documents[i];
+    // operate on each document
+  }
+  context.done();
+};
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-ps)
+* [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-id-query-string-ps)
+* [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-id-route-data-ps)
+* [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-multiple-docs-sqlquery-ps)
+
+### <a name="queue-trigger-look-up-id-from-json"></a>Trigger della coda e ricerca dell'ID da JSON
+
+Nell'esempio seguente viene illustrato come leggere e aggiornare un singolo documento di Cosmos DB. L'identificatore univoco del documento viene fornito tramite il valore JSON in un messaggio in coda.
+
+L'associazione di input Cosmos DB viene elencata per prima nell'elenco di associazioni individuate nel file di configurazione della funzione (_function.jsin_).
+
+<a name="queue-trigger-look-up-id-from-json-ps"></a>
+
+```json
+{
+  "name": "InputDocumentIn",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "id" : "{queueTrigger_payload_property}",
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "in"
+},
+{
+  "name": "InputDocumentOut",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": false,
+  "partitionKey": "{queueTrigger_payload_property}",
+  "connectionStringSetting": "CosmosDBConnection",
+  "direction": "out"
+}
+```
+
+Il file di _run.ps1_ contiene il codice PowerShell che legge il documento in ingresso e restituisce le modifiche.
+
+```powershell
+param($QueueItem, $InputDocumentIn, $TriggerMetadata) 
+
+$Document = $InputDocumentIn 
+$Document.text = 'This was updated!' 
+
+Push-OutputBinding -Name InputDocumentOut -Value $Document  
+```
+
+<a name="http-trigger-id-query-string-ps"></a>
+
+### <a name="http-trigger-look-up-id-from-query-string"></a>Trigger HTTP e ricerca dell'ID da una stringa di query
+
+Nell'esempio seguente viene illustrato come leggere e aggiornare un singolo documento di Cosmos DB da un'API Web. L'identificatore univoco del documento viene fornito tramite un parametro QueryString dalla richiesta HTTP, come definito nella proprietà dell'associazione `"Id": "{Query.Id}"` .
+
+L'associazione di input Cosmos DB viene elencata per prima nell'elenco di associazioni individuate nel file di configurazione della funzione (_function.jsin_).
+
+```json
+{ 
+  "bindings": [ 
+    { 
+      "type": "cosmosDB", 
+      "name": "ToDoItem", 
+      "databaseName": "ToDoItems", 
+      "collectionName": "Items", 
+      "connectionStringSetting": "CosmosDBConnection", 
+      "direction": "in", 
+      "Id": "{Query.id}", 
+      "PartitionKey": "{Query.partitionKeyValue}" 
+    },
+    { 
+      "authLevel": "anonymous", 
+      "name": "Request", 
+      "type": "httpTrigger", 
+      "direction": "in", 
+      "methods": [ 
+        "get", 
+        "post" 
+      ] 
+    }, 
+    { 
+      "name": "Response", 
+      "type": "http", 
+      "direction": "out" 
+    },
+  ], 
+  "disabled": false 
+} 
+```
+  
+Il file di _run.ps1_ contiene il codice PowerShell che legge il documento in ingresso e restituisce le modifiche.
+
+```powershell
+using namespace System.Net 
+
+param($Request, $ToDoItem, $TriggerMetadata) 
+
+Write-Host 'PowerShell HTTP trigger function processed a request' 
+
+if (-not $ToDoItem) { 
+    Write-Host 'ToDo item not found' 
+
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::NotFound 
+        Body = $ToDoItem.Description 
+    }) 
+
+} else { 
+
+    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)" 
+ 
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::OK 
+        Body = $ToDoItem.Description 
+    }) 
+}
+```
+
+<a name="http-trigger-id-route-data-ps"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data"></a>Trigger HTTP e ricerca dell'ID dai dati della route
+
+Nell'esempio seguente viene illustrato come leggere e aggiornare un singolo documento di Cosmos DB da un'API Web. L'identificatore univoco del documento viene fornito tramite un parametro di route. Il parametro route viene definito nella proprietà del binding della richiesta HTTP `route` e viene fatto riferimento alla `"Id": "{Id}"` proprietà di associazione Cosmos DB.
+
+L'associazione di input Cosmos DB viene elencata per prima nell'elenco di associazioni individuate nel file di configurazione della funzione (_function.jsin_).
+
+```json
+{ 
+  "bindings": [ 
+    { 
+      "type": "cosmosDB", 
+      "name": "ToDoItem", 
+      "databaseName": "ToDoItems", 
+      "collectionName": "Items", 
+      "connectionStringSetting": "CosmosDBConnection", 
+      "direction": "in", 
+      "Id": "{id}", 
+      "PartitionKey": "{partitionKeyValue}" 
+    },
+    { 
+      "authLevel": "anonymous", 
+      "name": "Request", 
+      "type": "httpTrigger", 
+      "direction": "in", 
+      "methods": [ 
+        "get", 
+        "post" 
+      ], 
+      "route": "todoitems/{partitionKeyValue}/{id}" 
+    }, 
+    { 
+      "name": "Response", 
+      "type": "http", 
+      "direction": "out" 
+    }
+  ], 
+  "disabled": false 
+} 
+```
+
+Il file di _run.ps1_ contiene il codice PowerShell che legge il documento in ingresso e restituisce le modifiche.
+
+```powershell
+using namespace System.Net 
+
+param($Request, $ToDoItem, $TriggerMetadata) 
+
+Write-Host 'PowerShell HTTP trigger function processed a request' 
+
+if (-not $ToDoItem) { 
+    Write-Host 'ToDo item not found' 
+
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::NotFound 
+        Body = $ToDoItem.Description 
+    }) 
+
+} else { 
+    Write-Host "Found ToDo item, Description=$($ToDoItem.Description)" 
+  
+    Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{ 
+        StatusCode = [HttpStatusCode]::OK 
+        Body = $ToDoItem.Description 
+    }) 
+} 
+```
+
+<a name="queue-trigger-multiple-docs-sqlquery-ps"></a>
+
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Trigger della coda e recupero di più documenti con SqlQuery
+
+Nell'esempio seguente viene illustrato come leggere più documenti Cosmos DB. Il file di configurazione della funzione (_function.json_) definisce le proprietà di associazione, che include `sqlQuery` . L'istruzione SQL fornita alla proprietà consente di `sqlQuery` selezionare il set di documenti fornito alla funzione.
+
+```json
+{ 
+  "name": "Documents", 
+  "type": "cosmosDB", 
+  "direction": "in", 
+  "databaseName": "MyDb", 
+  "collectionName": "MyCollection", 
+  "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}", 
+  "connectionStringSetting": "CosmosDBConnection" 
+} 
+```
+
+Il file _run1.PS_ contiene il codice PowerShell che legge i documenti in arrivo.
+
+```powershell
+param($QueueItem, $Documents, $TriggerMetadata) 
+
+foreach ($Document in $Documents) { 
+    # operate on each document 
+} 
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Questa sezione contiene gli esempi seguenti per leggere un singolo documento specificando un valore di ID da varie origini:
+
+* [Trigger della coda e ricerca dell'ID da JSON](#queue-trigger-look-up-id-from-json-python)
+* [Trigger HTTP e ricerca dell'ID da una stringa di query](#http-trigger-look-up-id-from-query-string-python)
+* [Trigger HTTP e ricerca dell'ID dai dati della route](#http-trigger-look-up-id-from-route-data-python)
+* [Trigger della coda e recupero di più documenti con SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
+
+<a id="queue-trigger-look-up-id-from-json-python"></a>
+
+### <a name="queue-trigger-look-up-id-from-json"></a>Trigger della coda e ricerca dell'ID da JSON
+
+L'esempio seguente mostra un'associazione di input di Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione legge un singolo documento e aggiorna il relativo valore di testo.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "name": "documents",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "id" : "{queueTrigger_payload_property}",
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "in"
+},
+{
+    "name": "$return",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": false,
+    "partitionKey": "{queueTrigger_payload_property}",
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice Python:
+
+```python
+import azure.functions as func
+
+
+def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Document:
+    if documents:
+        document = documents[0]
+        document['text'] = 'This was updated!'
+        return document
+```
+
+<a id="http-trigger-look-up-id-from-query-string-python"></a>
+
+### <a name="http-trigger-look-up-id-from-query-string"></a>Trigger HTTP e ricerca dell'ID da una stringa di query
+
+L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che utilizza una stringa di query per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "todoitems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{Query.id}",
+      "PartitionKey": "{Query.partitionKeyValue}"
+    }
+  ],
+  "scriptFile": "__init__.py"
+}
+```
+
+Ecco il codice Python:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
+    if not todoitems:
+        logging.warning("ToDo item not found")
+    else:
+        logging.info("Found ToDo item, Description=%s",
+                     todoitems[0]['description'])
+
+    return 'OK'
+```
+
+<a id="http-trigger-look-up-id-from-route-data-python"></a>
+
+### <a name="http-trigger-look-up-id-from-route-data"></a>Trigger HTTP e ricerca dell'ID dai dati della route
+
+L'esempio seguente illustra una [funzione Python](functions-reference-python.md) che recupera un singolo documento. La funzione viene attivata da una richiesta HTTP che usa i dati di route per specificare l'ID e il valore della chiave di partizione da ricercare. L'ID e il valore della chiave di partizione vengono utilizzati per recuperare un `ToDoItem` documento dal database e dalla raccolta specificati.
+
+Ecco il file *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route":"todoitems/{partitionKeyValue}/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "todoitems",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connection": "CosmosDBConnection",
+      "direction": "in",
+      "Id": "{id}",
+      "PartitionKey": "{partitionKeyValue}"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+Ecco il codice Python:
+
+```python
+import logging
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
+    if not todoitems:
+        logging.warning("ToDo item not found")
+    else:
+        logging.info("Found ToDo item, Description=%s",
+                     todoitems[0]['description'])
+    return 'OK'
+```
+
+<a id="queue-trigger-get-multiple-docs-using-sqlquery-python"></a>
+
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Trigger della coda e recupero di più documenti con SqlQuery
+
+L'esempio seguente mostra un'associazione di input di Azure Cosmos DB in un file *function.json* e una [funzione Python](functions-reference-python.md) che usa l'associazione. La funzione recupera più documenti specificati da una query SQL mediante un trigger di coda per personalizzare i parametri di query.
+
+Il trigger di coda fornisce un parametro `departmentId`. Un messaggio nella coda di `{ "departmentId" : "Finance" }` restituirà tutti i record per il reparto finanziario.
+
+Ecco i dati di associazione nel file *function.json*:
+
+```json
+{
+    "name": "documents",
+    "type": "cosmosDB",
+    "direction": "in",
+    "databaseName": "MyDb",
+    "collectionName": "MyCollection",
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
+    "connectionStringSetting": "CosmosDBConnection"
+}
+```
+
+Queste proprietà sono descritte nella sezione [configuration](#configuration).
+
+Ecco il codice Python:
+
+```python
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, documents: func.DocumentList):
+    for document in documents:
+        # operate on each document
+```
+
  ---
 
 ## <a name="attributes-and-annotations"></a>Attributi e annotazioni
@@ -1414,17 +1629,21 @@ Il costruttore dell'attributo accetta il nome del database e il nome della racco
 
 Gli attributi non sono supportati da Script C#.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l' `@CosmosDBOutput` annotazione sui parametri che scrivono in Cosmos DB. Il tipo di parametro dell'annotazione deve essere `OutputBinding<T>` , dove `T` è un tipo Java nativo o un POJO.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Gli attributi non sono supportati da JavaScript.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli attributi non sono supportati da PowerShell.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Gli attributi non sono supportati da Python.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l' `@CosmosDBOutput` annotazione sui parametri che scrivono in Cosmos DB. Il tipo di parametro dell'annotazione deve essere `OutputBinding<T>` , dove `T` è un tipo Java nativo o un POJO.
 
 ---
 
@@ -1457,17 +1676,21 @@ Quando la funzione viene chiusa correttamente, tutte le modifiche apportate al d
 
 Quando la funzione viene chiusa correttamente, tutte le modifiche apportate al documento di input tramite parametri di input denominati vengono rese automaticamente permanente.
 
+# <a name="java"></a>[Java](#tab/java)
+
+Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), l' [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotazione espone Cosmos DB dati alla funzione. Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`.
+
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Gli aggiornamenti non vengono eseguiti automaticamente alla chiusura della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Vedere l'esempio JavaScript.
+Gli aggiornamenti non vengono eseguiti automaticamente alla chiusura della funzione. Per eseguire gli aggiornamenti usare invece `context.bindings.<documentName>In` e `context.bindings.<documentName>Out`. Per altri dettagli, vedere l' [esempio JavaScript](#example) .
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Gli aggiornamenti ai documenti non vengono eseguiti automaticamente alla chiusura della funzione. Per aggiornare i documenti in una funzione, usare un' [associazione di output](./functions-bindings-cosmosdb-v2-input.md). Per altri dettagli, vedere l' [esempio di PowerShell](#example) .
 
 # <a name="python"></a>[Python](#tab/python)
 
 I dati vengono resi disponibili per la funzione tramite un `DocumentList` parametro. Le modifiche apportate al documento non vengono rese automaticamente permanente.
-
-# <a name="java"></a>[Java](#tab/java)
-
-Dalla [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), l' [@CosmosDBInput](/java/api/com.microsoft.azure.functions.annotation.cosmosdbinput) annotazione espone Cosmos DB dati alla funzione. Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`.
 
 ---
 

@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/03/2021
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 9a05fe509e032681a0bf5ed989595a25f66d33c6
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857342"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070730"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -91,9 +91,9 @@ Se si sta cercando di generare un avviso per una metrica specifica ma non è pos
 Se si sta cercando di avvisare su [valori di dimensione specifici di una metrica](./alerts-metric-overview.md#using-dimensions), ma questi valori non sono stati trovati, tenere presente quanto segue:
 
 1. La visualizzazione dei valori delle dimensioni nell'elenco **Valori delle dimensioni** potrebbe richiedere alcuni minuti
-1. I valori delle dimensioni visualizzati sono basati sui dati delle metriche raccolti negli ultimi tre giorni
-1. Se il valore della dimensione non è ancora stato emesso, fare clic sul segno "+" per aggiungere un valore personalizzato
-1. Per segnalare tutti i possibili valori di una dimensione (compresi i valori futuri), selezionare la casella di controllo ' Seleziona *'
+1. I valori della dimensione visualizzati sono basati sui dati delle metriche raccolti nell'ultimo giorno
+1. Se il valore della dimensione non è ancora stato emesso o non è visualizzato, è possibile usare l'opzione ' Aggiungi valore personalizzato ' per aggiungere un valore di dimensione personalizzato
+1. Se si vuole avvisare tutti i valori possibili di una dimensione (compresi i valori futuri), scegliere l'opzione ' Seleziona tutti i valori correnti e futuri '
 
 ## <a name="metric-alert-rules-still-defined-on-a-deleted-resource"></a>Regole di avviso delle metriche ancora definite in una risorsa eliminata 
 
@@ -252,7 +252,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Ad esempio:
+Esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

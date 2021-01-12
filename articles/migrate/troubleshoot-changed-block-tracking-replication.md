@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: e19c5064dd69538dfc025b0d244baf4fa74706b2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 33e2bf641b75a5dd360498478f1ea70c7614fb38
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753536"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071375"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -297,6 +297,24 @@ Si tratta di un problema noto di VMware in cui le dimensioni del disco indicate 
 ### <a name="error-message-an-internal-error-occurred-memory-allocation-failed-out-of-memory"></a>Messaggio di errore: si è verificato un errore interno. [Allocazione di memoria non riuscita. Memoria insufficiente.]
 
 Questo errore si verifica quando il buffer dell'host NFC ha esaurito la memoria. Per risolvere questo problema, è necessario spostare la VM (Compute vMotion) in un host diverso, che dispone di risorse gratuite.
+
+## <a name="replication-cycle-failed"></a>Ciclo di replica non riuscito
+
+**ID errore:** 181008
+
+**Messaggio di errore:** VM:' VMName '. Errore: non è stato trovato alcun disksnapshots per la replica snapshot con ID snapshot:' SnapshotID '.
+
+**Possibili cause:**
+
+Le possibili cause sono:
+1. Il percorso di uno o più dischi inclusi è stato modificato a causa di Storage VMotion.
+2. Uno o più dischi inclusi non sono più collegati alla macchina virtuale.
+      
+**Consiglio:**
+
+Sono disponibili le raccomandazioni seguenti
+1. Ripristinare i dischi inclusi nel percorso originale usando Storage vMotion e quindi disabilitare Storage vMotion.
+2. Disabilitare Storage VMotion, se abilitato, arrestare la replica nella macchina virtuale e replicare di nuovo la macchina virtuale. Se il problema persiste, contattare il supporto tecnico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

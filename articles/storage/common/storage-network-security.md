@@ -9,18 +9,18 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c2074402225c8134329e00003e4fbdfd95b5dba6
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938410"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070559"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
 Archiviazione di Azure offre un modello di sicurezza su più livelli, che consente di proteggere e controllare il livello di accesso agli account di archiviazione richiesto dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti usati. Quando le regole di rete sono configurate, solo le applicazioni che richiedono dati sul set di reti specificato possono accedere a un account di archiviazione. È possibile limitare l'accesso all'account di archiviazione alle richieste provenienti da indirizzi IP o intervalli IP specifici o da un determinato elenco di subnet in una rete virtuale di Azure.
 
-Gli account di archiviazione hanno un endpoint pubblico accessibile tramite Internet. È anche possibile creare [endpoint privati per l'account di archiviazione](storage-private-endpoints.md), assegnando così un indirizzo IP privato della rete virtuale all'account di archiviazione e proteggendo tutto il traffico tra la rete virtuale e l'account di archiviazione tramite un collegamento privato. Il firewall di archiviazione di Azure fornisce l'accesso al controllo di accesso per l'endpoint pubblico dell'account di archiviazione. Si può usare il firewall anche per bloccare tutti gli accessi tramite l'endpoint pubblico quando si usano endpoint privati. La configurazione del firewall di archiviazione consente inoltre di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione.
+Gli account di archiviazione hanno un endpoint pubblico accessibile tramite Internet. È anche possibile creare [endpoint privati per l'account di archiviazione](storage-private-endpoints.md), assegnando così un indirizzo IP privato della rete virtuale all'account di archiviazione e proteggendo tutto il traffico tra la rete virtuale e l'account di archiviazione tramite un collegamento privato. Il firewall di archiviazione di Azure fornisce il controllo di accesso per l'endpoint pubblico dell'account di archiviazione. Si può usare il firewall anche per bloccare tutti gli accessi tramite l'endpoint pubblico quando si usano endpoint privati. La configurazione del firewall di archiviazione consente inoltre di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione.
 
 Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve ancora inviare una richiesta che deve essere correttamente autorizzata. L'autorizzazione è supportata con le credenziali di Azure Active Directory (Azure AD) per BLOB e code, con una chiave di accesso dell'account valida o con un token di firma di accesso condiviso.
 
@@ -33,13 +33,13 @@ Per accedere a un account di archiviazione quando le regole di rete sono applica
 
 ## <a name="scenarios"></a>Scenari
 
-Per proteggere l'account di archiviazione, occorre innanzitutto configurare una regola per negare l'accesso al traffico da tutte le reti (incluso il traffico Internet) nell'endpoint pubblico, per impostazione predefinita. Quindi, è necessario configurare regole che concedano l'accesso al traffico da reti virtuali specifiche. È anche possibile configurare regole per concedere l'accesso al traffico da specifici intervalli di indirizzi IP della rete Internet pubblica, abilitando le connessioni da client Internet o client locali specifici. Questa configurazione consente di creare un limite di rete protetto per le applicazioni.
+Per proteggere l'account di archiviazione, occorre innanzitutto configurare una regola per negare l'accesso al traffico da tutte le reti (incluso il traffico Internet) nell'endpoint pubblico, per impostazione predefinita. Quindi, è necessario configurare regole che concedano l'accesso al traffico da reti virtuali specifiche. È anche possibile configurare regole per concedere l'accesso al traffico da intervalli di indirizzi IP Internet pubblici selezionati, abilitando le connessioni da client Internet o locali specifici. Questa configurazione consente di creare un limite di rete protetto per le applicazioni.
 
 È possibile combinare regole del firewall che consentono l'accesso da reti virtuali specifiche e da intervalli di indirizzi IP pubblici nello stesso account di archiviazione. Le regole del firewall di archiviazione possono essere applicate ad account di archiviazione esistenti oppure durante la creazione di nuovi account di archiviazione.
 
 Le regole del firewall di archiviazione si applicano all'endpoint pubblico di un account di archiviazione. Non sono necessarie regole di accesso al firewall per consentire il traffico per gli endpoint privati di un account di archiviazione. Il processo di approvazione della creazione di un endpoint privato concede l'accesso implicito al traffico dalla subnet che ospita l'endpoint privato.
 
-Le regole di rete vengono applicate a tutti i protocolli di rete per l'archiviazione di Azure, tra cui REST e SMB. Per accedere ai dati usando strumenti come il portale di Azure, Storage Explorer e AZCopy, è necessario configurare regole di rete esplicite.
+Le regole di rete vengono applicate a tutti i protocolli di rete per archiviazione di Azure, inclusi REST e SMB. Per accedere ai dati usando strumenti come il portale di Azure, Storage Explorer e AZCopy, è necessario configurare regole di rete esplicite.
 
 Una volta configurate, le regole di rete vengono applicate a tutte le richieste. I token di firma di accesso condiviso che concedono l'accesso a un indirizzo IP specifico hanno lo scopo di limitare l'accesso del titolare del token, ma non concedono nuovi accessi oltre le regole di rete configurate.
 
@@ -388,7 +388,7 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
-| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Ricerca cognitiva di Azure         | Microsoft.Search/searchServices        | Consente ai servizi Ricerca cognitiva di accedere agli account di archiviazione per l'indicizzazione, l'elaborazione e l'esecuzione di query. |
 | Servizi cognitivi di Azure       | Microsoft. CognitiveService             | Consente ai servizi cognitivi di accedere agli account di archiviazione. |
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività del Registro Azure Container possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
@@ -397,8 +397,8 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md). |
-| Database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| Azure Synapse Analytics       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
 

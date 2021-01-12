@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 408ba76c44d1161a4b91ccc037721796c7b94661
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500751"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071732"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -21,10 +21,14 @@ La diagnostica di avvio è una funzionalità di debug per macchine virtuali di A
 ## <a name="boot-diagnostics-storage-account"></a>Account di archiviazione di diagnostica di avvio
 Quando si crea una macchina virtuale in portale di Azure, la diagnostica di avvio è abilitata per impostazione predefinita. L'esperienza di diagnostica di avvio consigliata prevede l'uso di un account di archiviazione gestito, poiché produce miglioramenti significativi delle prestazioni nel tempo per la creazione di una macchina virtuale di Azure. Questo perché verrà usato un account di archiviazione gestito di Azure, rimuovendo il tempo necessario per creare un nuovo account di archiviazione utente per archiviare i dati di diagnostica di avvio.
 
-Un'esperienza di diagnostica di avvio alternativa consiste nell'usare un account di archiviazione gestito dall'utente. Un utente può creare un nuovo account di archiviazione o utilizzarne uno esistente. 
-
 > [!IMPORTANT]
 > I BLOB dei dati di diagnostica di avvio (che includono i log e le immagini di snapshot) vengono archiviati in un account di archiviazione gestito. Ai clienti verranno addebitati solo i GiBs usati dai BLOB, non sulle dimensioni del disco di cui è stato effettuato il provisioning. I contatori degli snapshot verranno usati per la fatturazione dell'account di archiviazione gestito. Poiché gli account gestiti vengono creati in con ridondanza locale standard o ZRS standard, ai clienti verranno addebitati i costi di $0,05/GB al mese per la dimensione dei soli BLOB di dati di diagnostica. Per altre informazioni su questo piano tariffario, vedere [prezzi di Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/). I clienti vedranno questo costo associato all'URI della risorsa VM. 
+
+Un'esperienza di diagnostica di avvio alternativa consiste nell'usare un account di archiviazione gestito dall'utente. Un utente può creare un nuovo account di archiviazione o utilizzarne uno esistente.
+> [!NOTE]
+> Per gli account di archiviazione gestiti dall'utente associati alla diagnostica di avvio è necessario che l'account di archiviazione e le macchine virtuali associate si trovino nella stessa sottoscrizione. 
+
+
 
 ## <a name="boot-diagnostics-view"></a>Visualizzazione diagnostica di avvio
 Nel pannello della macchina virtuale l'opzione diagnostica di avvio si trova nella sezione *supporto e risoluzione dei problemi* del portale di Azure. Selezionando diagnostica di avvio vengono visualizzate una schermata e informazioni sul log seriale. Il log seriale contiene la messaggistica del kernel e lo screenshot è uno snapshot dello stato corrente delle macchine virtuali. A seconda che la macchina virtuale esegua Windows o Linux, determina come dovrebbe apparire lo screenshot previsto. Per Windows, gli utenti visualizzeranno uno sfondo del desktop e per Linux, gli utenti visualizzeranno una richiesta di accesso.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: af5ed0296ce99a4450fffec6b047285307ed0ff2
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: d24565522a75427be04cacfdc20347056a515847
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709300"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070763"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -50,7 +50,7 @@ In questa tabella sono elencati i tipi di dati accettati, quando è necessario u
 | [Trascrizioni audio + con etichetta umana](#audio--human-labeled-transcript-data-for-testingtraining) | Sì<br>Utilizzato per valutare l'accuratezza | 0,5-5 ore di audio | Sì | 1-20 ore di audio |
 | [Testo correlato](#related-text-data-for-training) | No | N/a | Sì | 1-200 MB di testo correlato |
 
-Quando si esegue il training di un nuovo modello, iniziare con il [testo correlato](#related-text-data-for-training). Questi dati miglioreranno già il riconoscimento di termini e frasi speciali.
+Quando si esegue il training di un nuovo modello, iniziare con il [testo correlato](#related-text-data-for-training). Questi dati miglioreranno già il riconoscimento di termini e frasi speciali. Il training con testo è molto più veloce rispetto alla formazione con audio (minuti e giorni).
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file con estensione zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
@@ -76,7 +76,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà                 | valore                 |
+| Proprietà                 | Valore                 |
 |--------------------------|-----------------------|
 | Formato file              | RIFF (WAV)            |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz |
@@ -104,7 +104,7 @@ Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microso
 
 I file audio possono avere un silenzio all'inizio e alla fine della registrazione. Se possibile, includere almeno un mezzo secondo di silenzio prima e dopo il riconoscimento vocale in ogni file di esempio. Anche se l'audio con un volume di registrazione basso o un rumore di fondo a disturbo non è utile, non dovrebbe danneggiare il modello personalizzato. Provare sempre a aggiornare i microfoni e l'hardware di elaborazione dei segnali prima di raccogliere esempi di audio.
 
-| Proprietà                 | valore                               |
+| Proprietà                 | Valore                               |
 |--------------------------|-------------------------------------|
 | Formato file              | RIFF (WAV)                          |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz               |
@@ -121,7 +121,7 @@ I file audio possono avere un silenzio all'inizio e alla fine della registrazion
 
 Per risolvere problemi come l'eliminazione o la sostituzione di parole, per migliorare il riconoscimento è necessaria una quantità significativa di dati. In genere, è consigliabile fornire trascrizioni Word per parola per circa 10 o 20 ore di audio. Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
-  Ad esempio:
+  Esempio:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -138,7 +138,9 @@ Dopo aver raccolto i file audio e le trascrizioni corrispondenti, crearne un pac
 > [!div class="mx-imgBorder"]
 > ![Selezionare audio dal portale vocale](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
-Per un elenco delle aree consigliate per le sottoscrizioni al servizio vocale, vedere [configurare l'account Azure](custom-speech-overview.md#set-up-your-azure-account) . La configurazione delle sottoscrizioni vocali in una di queste aree consente di ridurre il tempo necessario per il training del modello.
+Per un elenco delle aree consigliate per le sottoscrizioni al servizio vocale, vedere [configurare l'account Azure](custom-speech-overview.md#set-up-your-azure-account) . La configurazione delle sottoscrizioni vocali in una di queste aree consente di ridurre il tempo necessario per il training del modello. In queste aree, il training può elaborare circa 10 ore di audio al giorno rispetto a una sola ora al giorno in altre aree. Se il training del modello non può essere completato entro una settimana, il modello verrà contrassegnato come non riuscito.
+
+Non tutti i modelli di base supportano il training con dati audio. Se il modello di base non la supporta, il servizio ignorerà l'audio e solo eseguirà il training con il testo delle trascrizioni. In questo caso, il training sarà uguale a quello di training con testo correlato.
 
 ## <a name="related-text-data-for-training"></a>Dati di testo correlati per il training
 
@@ -151,6 +153,8 @@ I nomi di prodotto o le funzionalità univoche devono includere dati di testo co
 
 Le frasi possono essere fornite come un singolo file di testo o più file di testo. Per migliorare l'accuratezza, usare i dati di testo più vicini alle espressioni vocali previste. Le pronunce devono essere fornite come un singolo file di testo. Tutto può essere incluso in un unico file zip e caricato nel <a href="https://speech.microsoft.com/customspeech" target="_blank">portale <span class="docon docon-navigate-external x-hidden-focus"></span> di riconoscimento vocale personalizzato </a>.
 
+Il training con testo correlato viene in genere completato entro pochi minuti.
+
 ### <a name="guidelines-to-create-a-sentences-file"></a>Linee guida per la creazione di un file di frasi
 
 Per creare un modello personalizzato usando le frasi, è necessario fornire un elenco di espressioni di esempio. _Non_ è necessario che le espressioni siano complete o grammaticalmente corrette, ma devono riflettere accuratamente l'input parlato previsto nell'ambiente di produzione. Se si desidera che determinati termini abbiano un peso maggiore, aggiungere diverse frasi che includono questi termini specifici.
@@ -159,7 +163,7 @@ Come materiale sussidiario generale, l'adattamento del modello è più efficace 
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le espressioni sia formattato correttamente:
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Codifica testo | UTF-8 BOM |
 | N. di espressioni per riga | 1 |
@@ -190,14 +194,14 @@ Il form vocale è la sequenza fonetica digitata. Può essere costituito da lette
 
 La pronuncia personalizzata è disponibile in inglese ( `en-US` ) e tedesco ( `de-DE` ). Questa tabella mostra i caratteri supportati per lingua:
 
-| Linguaggio | Impostazioni locali | Caratteri |
+| Lingua | Locale | Caratteri |
 |----------|--------|------------|
 | Inglese | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tedesco | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Usare la tabella seguente per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di dimensioni ridotte e devono contenere solo pochi kilobyte.
 
-| Proprietà | valore |
+| Proprietà | Valore |
 |----------|-------|
 | Codifica testo | BOM UTF-8 (ANSI è supportato anche per l'inglese) |
 | numero di pronunce per riga | 1 |

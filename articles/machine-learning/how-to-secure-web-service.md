@@ -5,18 +5,17 @@ description: Informazioni su come abilitare HTTPS con TLS versione 1,2 per prote
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/04/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 14e4fda6ef36dd8fc57529046473d8afa916ef2c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 8399cfb4ceed9f50a5c9de0d3d16912a718bbfaa
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97880971"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070117"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usare TLS per proteggere un servizio Web tramite Azure Machine Learning
 

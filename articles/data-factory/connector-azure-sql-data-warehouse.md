@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 68f536e06ec5a40083d96745f5b72e511e423f64
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 01/11/2021
+ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695174"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070899"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
@@ -391,7 +391,7 @@ Per copiare dati in Azure sinapsi Analytics, impostare il tipo di sink nell'atti
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si usa l'inserimento bulk.        |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure sinapsi Analytics a ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory raccoglie metriche come Azure sinapsi Analytics DWU per l'ottimizzazione delle prestazioni di copia e consigli. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
+| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio Azure sinapsi Analytics DWU, per l'ottimizzazione delle prestazioni di copia e consigli, che introduce un ulteriore accesso al database master. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Esempio di sink di analisi delle sinapsi di Azure
 

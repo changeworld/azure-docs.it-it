@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4592742b99d7c3e915c31ca5a202355d32e76d68
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356124"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070865"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -54,10 +54,10 @@ Partner Microsoft con i seguenti ISV per l'autenticazione a più fattori e l'aut
 | ![Screenshot di un logo Nevis](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) consente l'autenticazione senza password e offre un'esperienza utente finale per dispositivi mobili e completamente personalizzata con l'app di accesso Nevis per l'autenticazione avanzata dei clienti e per conformarsi ai requisiti delle transazioni di PSD2. |
 | ![Screenshot di un logo trusona](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali. |
 | ![Screenshot di un logo Twilio.](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite SMS, una password monouso (OTP), una password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per PSD2. |
-| ![Screenshot di un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-twilio.md) consente un'autenticazione avanzata dei clienti analizzando il modello di digitazione di un utente. Consente alle aziende di abilitare un'autenticazione a più fattori invisibile all'utente e di conformarsi ai requisiti SCA per PSD2. |
+| ![Screenshot di un logo typingDNA](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) consente un'autenticazione avanzata dei clienti analizzando il modello di digitazione di un utente. Consente alle aziende di abilitare un'autenticazione a più fattori invisibile all'utente e di conformarsi ai requisiti SCA per PSD2. |
 | ![Screenshot di un logo whoiam](./media/partner-gallery/whoiam-logo.png) | [WhoIAM](./partner-whoiam.md) è un'applicazione con un sistema di gestione delle identità personalizzato che consente alle organizzazioni di verificare la propria base di utenti tramite voce, SMS e posta elettronica. |
 
-## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli 
+## <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo 
  
 Partner Microsoft con i seguenti ISV per il controllo degli accessi in base al ruolo.
 

@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8813b2cad5800bd4ede6e64119117df57c230fdc
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324829"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071222"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -143,7 +142,7 @@ Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](/power-bi/service-machine-learning-integration).
 

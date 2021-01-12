@@ -7,18 +7,17 @@ author: vladvino
 manager: erikre
 editor: ''
 ms.service: api-management
-ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/10/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e36f7c6085908630d5e7aa2593fe4d57202d6ee7
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: d0d5434de747b48464df1c07f8c7b6a7e785c858
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107652"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070943"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -147,6 +146,9 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
   > La modifica dei cluster sopra indicati con zona DNS **.nsatc.net** a **.microsoftmetrics.com** è principalmente una modifica DNS. L'indirizzo IP del cluster non verrà modificato.
 
 + **Tag del servizio locale**: le regole NSG che consentono la connettività in uscita ai tag di servizio di archiviazione, SQL e hub eventi possono usare le versioni locali dei tag corrispondenti all'area che contiene l'istanza di Gestione API (ad esempio, Storage.WestUS per un'istanza di Gestione API nell'area Stati Uniti occidentali). Nelle distribuzioni in più aree, il gruppo di sicurezza di rete in ogni area deve consentire il traffico ai tag del servizio per tale area e l'area primaria.
+
+    > [!IMPORTANT]
+    > Per abilitare la pubblicazione del [portale per sviluppatori](api-management-howto-developer-portal.md) per un'istanza di gestione API in una rete virtuale, assicurarsi di consentire anche la connettività in uscita all'archiviazione BLOB nell'area Stati Uniti occidentali. Ad esempio, usare il tag del servizio **storage. westus** in una regola NSG. La connettività all'archiviazione BLOB nell'area Stati Uniti occidentali è attualmente necessaria per pubblicare il portale per sviluppatori per qualsiasi istanza di gestione API.
 
 + **Inoltro SMTP**: connettività di rete in uscita per il server di inoltro SMTP, che si risolve nell'host `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` e `ies.global.microsoft.com`
 

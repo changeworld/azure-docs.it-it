@@ -3,13 +3,13 @@ title: Push & immagine Docker pull
 description: Effettuare il push e il pull di immagini Docker in un registro contenitori privato in Azure tramite l'interfaccia della riga di comando di Docker
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.custom: seodec18, H1Hack27Feb2017
+ms.openlocfilehash: d04a5fcbc4d6294a216ddfc9a8e6ea1ef98825a3
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020059"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071630"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Effettuare il push della prima immagine in un registro contenitori Docker privato tramite l'interfaccia della riga di comando di Docker
 
@@ -37,6 +37,8 @@ docker login myregistry.azurecr.io
 ```
 
 Entrambi i comandi restituiscono `Login Succeeded` una volta completati.
+> [!NOTE]
+>* Potrebbe essere necessario usare Visual Studio Code con l'estensione Docker per un accesso più veloce e più pratico.
 
 > [!TIP]
 > Specificare sempre il nome completo (tutto in maiuscolo) del registro quando si usa `docker login` e quando le immagini vengono contrassegnate per l'esecuzione del push nel registro. Negli esempi riportati in questo articolo il nome completo è *myregistry.azurecr.io*.

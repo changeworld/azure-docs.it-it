@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/04/2020
+ms.date: 01/11/2021
 ms.author: b-juche
-ms.openlocfilehash: 919a9831731a8f7c8065f2f1c496691ae33ba659
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: a66b5d59415aad7abf3e8dc95c7498b5d774d640
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861985"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071273"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Architetture di soluzioni con Azure NetApp Files
 Questo articolo fornisce i riferimenti alle procedure consigliate che consentono di comprendere le architetture della soluzione per l'uso di Azure NetApp Files.  
@@ -122,7 +122,7 @@ In questa sezione vengono forniti i riferimenti per le soluzioni HPC (High Perfo
 * [Azure CycleCloud: EDA HPC Lab con Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Azure per il settore dei semiconduttori](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 * [Azure NetApp Files: un file system condiviso da usare con la griglia SAS in Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Procedure consigliate per l'uso di Microsoft Azure con SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
@@ -136,6 +136,7 @@ Questa sezione fornisce soluzioni per i servizi della piattaforma Azure.
 * [Integrare Azure NetApp Files con il servizio Azure Kubernetes](../aks/azure-netapp-files.md)
 * [Prestazioni Kubernetes out-of-World in Azure con Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Agente di orchestrazione di archiviazione Trident per i contenitori](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
+* [Piattaforma di e-commerce di Magento in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
 
 ### <a name="azure-batch"></a>Azure Batch
 

@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite informazioni sugli scenari e le 
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: cb7f31986b9ebd91c631d2b896600039c93084de
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 7f287206c40e4556db2ee4b38bb46ef8e5352102
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96607093"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072191"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice di supporto per il backup di database di SAP HANA in VM di Azure
 
@@ -27,7 +27,7 @@ Backup di Azure supporta il backup dei database SAP HANA in Azure. In questo art
 | **Versioni del sistema operativo**            | SLES 12 con SP2, SP3, SP4 e SP5; SLES 15 con SP0, SP1, SP2 <br><br>  A partire dal 1° agosto 2020, il backup di SAP HANA per RHEL (7.4, 7.6, 7.7 e 8.1) è disponibile a livello generale.                |                                             |
 | **Versioni di HANA**          | DSC su HANA 1. x, MDC su HANA 2. x <= SPS04 Rev 48, SPS05 (ancora da convalidare per gli scenari di crittografia abilitata)      |                                                            |
 | **Distribuzioni HANA**       | SAP HANA su una singola VM di Azure: solo scalabilità verticale. <br><br> Per le distribuzioni a disponibilità elevata, entrambi i nodi in due computer diversi vengono considerati come nodi singoli con catene di dati separate.               | Scalabilità orizzontale <br><br> Nelle distribuzioni a disponibilità elevata, il backup non esegue automaticamente il failover nel nodo secondario. La configurazione del backup deve essere eseguita separatamente per ogni nodo.                                           |
-| **Istanze HANA**         | Una singola istanza SAP HANA in una singola VM di Azure: solo scalabilità verticale | Più istanze SAP HANA in una singola VM                  |
+| **Istanze HANA**         | Una singola istanza SAP HANA in una singola VM di Azure: solo scalabilità verticale | Più istanze di SAP HANA in una singola macchina virtuale. È possibile proteggere solo una di queste istanze multiple alla volta.                  |
 | **Tipi di database HANA**    | Contenitore di database singolo (SDC) in 1.x, contenitore di più database (MDC) in 2.x | MDC in HANA 1.x                                              |
 | **Dimensioni database HANA**     | Database HANA di dimensioni <= 2 TB (questa non è la dimensione della memoria del sistema HANA)               |                                                              |
 | **Tipi di backup**           | Backup completi, differenziali, incrementali (anteprima) e log                          |  Snapshot                                       |

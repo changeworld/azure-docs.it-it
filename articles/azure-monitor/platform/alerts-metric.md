@@ -4,14 +4,14 @@ description: Informazioni su come usare portale di Azure o l'interfaccia della r
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 08/11/2020
+ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342162"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071035"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -41,23 +41,23 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 7. Viene visualizzato un grafico per la metrica per le ultime sei ore. Utilizzare l'elenco a discesa **periodo grafico** per selezionare la cronologia più lunga per la metrica.
 
 8. Se la metrica ha dimensioni, viene visualizzata una tabella delle dimensioni. Selezionare uno o più valori per ogni dimensione.
-    - I valori della dimensione visualizzati sono basati sui dati delle metriche degli ultimi tre giorni.
-    - Se il valore della dimensione che si sta cercando non è visualizzato, fare clic su "+" per aggiungere un valore personalizzato.
-    - È anche possibile **Select \* *_ per una qualsiasi delle dimensioni. _*Seleziona \* *_ consente di ridimensionare dinamicamente la selezione a tutti i valori correnti e futuri di una dimensione.
+    - I valori della dimensione visualizzati sono basati sui dati della metrica dell'ultimo giorno.
+    - Se il valore della dimensione che si sta cercando non è visualizzato, fare clic su "Aggiungi valore personalizzato" per aggiungere un valore di dimensione personalizzato.
+    - È anche possibile **selezionare tutti i valori correnti e futuri** per qualsiasi dimensione. Questa operazione consente di ridimensionare in modo dinamico la selezione a tutti i valori correnti e futuri di una dimensione.
 
     La regola di avviso metrica valuterà la condizione per tutte le combinazioni di valori selezionati. [Altre informazioni sul funzionamento degli avvisi sulle metriche multidimensionali](alerts-metric-overview.md).
 
-9. Selezionare il tipo, l' **operatore**e il tipo di **aggregazione**_*Threshold**. In questo modo verrà determinata la logica che verrà valutata dalla regola di avviso della metrica.
+9. Selezionare il tipo di **soglia** , l' **operatore** e il **tipo di aggregazione**. In questo modo verrà determinata la logica che verrà valutata dalla regola di avviso della metrica.
     - Se si usa una soglia **statica** , continuare a definire un **valore soglia**. Il grafico delle metriche può essere utile per determinare quale sia una soglia ragionevole.
     - Se si usa una soglia **dinamica** , continuare a definire la **sensibilità della soglia**. Il grafico delle metriche mostrerà le soglie calcolate in base ai dati recenti. [Altre informazioni sulle opzioni di sensibilità e i tipi di condizione delle soglie dinamiche](alerts-dynamic-thresholds.md).
 
 10. Facoltativamente, perfezionare la condizione modificando la granularità e la **frequenza di valutazione dell'** **aggregazione** . 
 
-11. Fare clic su **Done**.
+11. Fare clic su **Fine**.
 
 12. Facoltativamente, aggiungere altri criteri per monitorare una regola di avviso complessa. Attualmente gli utenti possono ricevere regole di avviso con criteri di soglia dinamica come singolo criterio.
 
-13. Specificare **i dettagli dell'avviso** , ad esempio il nome, la **Descrizione**e la **gravità**della **regola di avviso**.
+13. Specificare **i dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 
 14. Aggiungere un gruppo di azioni per l'avviso selezionando un gruppo di azioni esistente o creandone uno nuovo.
 
@@ -74,7 +74,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 2. Fare clic su **Avvisi** e **Gestisci le regole**
 
-3. Nel pannello **Gestisci le regole** è possibile visualizzare tutte le regole di avviso tra le sottoscrizioni. È possibile filtrare ulteriormente le regole usando il  **gruppo di risorse**, il tipo di **risorsa**e la **risorsa**. Per visualizzare solo gli avvisi delle metriche, selezionare **Tipi di segnali** come Metriche.
+3. Nel pannello **Gestisci le regole** è possibile visualizzare tutte le regole di avviso tra le sottoscrizioni. È possibile filtrare ulteriormente le regole usando il  **gruppo di risorse**, il tipo di **risorsa** e la **risorsa**. Per visualizzare solo gli avvisi delle metriche, selezionare **Tipi di segnali** come Metriche.
 
     > [!TIP]
     > Nel pannello **Gestisci le regole** è possibile selezionare più regole di avviso e abilitarle/disabilitarle. Questa operazione potrebbe essere utile quando è necessario sottoporre a manutenzione alcune risorse di destinazione

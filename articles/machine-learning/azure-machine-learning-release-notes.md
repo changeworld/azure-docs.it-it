@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.author: jmartens
-author: j-martens
+ms.author: larryfr
+author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 695702c04e2eeb74ee27b7d4276a3be94d9d1cf7
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 1cc6c8cd49a2388ad66a276f4a1667b4c3ee3826
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881821"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070321"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -129,7 +129,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
     + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
     + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
     + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
-      [Altre informazioni](./how-to-enable-studio-virtual-network.md)
+      [Scopri di più](./how-to-enable-studio-virtual-network.md)
     + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
     + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
     + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param

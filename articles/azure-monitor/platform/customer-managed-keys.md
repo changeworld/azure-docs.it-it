@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 11/18/2020
-ms.openlocfilehash: 6037b372f73bcf3554120e305f4b3031b26e97d4
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.date: 01/10/2021
+ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831653"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071936"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -36,7 +36,7 @@ Log Analytics cluster dedicati usano un [modello di determinazione dei prezzi](.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funzionamento della chiave Customer-Managed in monitoraggio di Azure
 
-Monitoraggio di Azure usa l'identità gestita assegnata dal sistema per concedere l'accesso al Azure Key Vault. L'identità del cluster Log Analytics è supportata a livello di cluster e consente Customer-Managed chiave su più aree di lavoro, una nuova risorsa *cluster* log Analytics viene eseguita come connessione di identità intermedia tra il Key Vault e le aree di lavoro di log Analytics. Lo spazio di archiviazione del cluster Log Analytics usa l'identità gestita \' associata alla risorsa *Cluster* per l'autenticazione ad Azure Key Vault tramite Azure Active Directory. 
+Monitoraggio di Azure usa l'identità gestita per concedere l'accesso al Azure Key Vault. L'identità del cluster Log Analytics è supportata a livello di cluster. Per consentire Customer-Managed la protezione delle chiavi in più aree di lavoro, una nuova risorsa *Cluster* log Analytics viene eseguita come connessione di identità intermedia tra la Key Vault e le aree di lavoro log Analytics. Lo spazio di archiviazione del cluster usa l'identità gestita \' associata alla risorsa *cluster* per l'autenticazione al Azure Key Vault tramite Azure Active Directory. 
 
 Dopo la configurazione della chiave gestita dal cliente, i nuovi dati inseriti nelle aree di lavoro collegate al cluster dedicato vengono crittografati con la chiave. È possibile scollegare le aree di lavoro dal cluster in qualsiasi momento. I nuovi dati vengono quindi inseriti nell'archiviazione Log Analytics e crittografati con la chiave Microsoft, mentre è possibile eseguire facilmente query sui dati nuovi e obsoleti.
 
@@ -81,7 +81,7 @@ La configurazione della chiave Customer-Managed non è supportata in portale di 
 
 Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. La `status` risposta in può essere una delle seguenti:' InProgress ',' Updating ',' deleting ',' Success o ' failed ' con codice di errore.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -125,6 +125,11 @@ Queste impostazioni possono essere aggiornate in Key Vault tramite l'interfaccia
 
 ## <a name="create-cluster"></a>Creare cluster
 
+> [! INFORMAZIONI] i cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). L'identità gestita assegnata dal sistema viene creata con il cluster quando si immette il `SystemAssigned` tipo di identità e può essere usata in un secondo momento per concedere l'accesso al Key Vault. Se si vuole creare un cluster configurato per la chiave gestita dal cliente durante la creazione, creare il cluster con l'identità gestita assegnata dall'utente concessa nella Key Vault: aggiornare il cluster con il `UserAssigned` tipo di identità, l'ID risorsa dell'identità in `UserAssignedIdentities` e fornire i dettagli della chiave in `keyVaultProperties` .
+
+> [!IMPORTANT]
+> Attualmente non è possibile definire una chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault si trova in Private-Link (vNet). Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
+
 Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Concedere le autorizzazioni di Key Vault
@@ -132,7 +137,7 @@ Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-que
 Creare criteri di accesso in Key Vault per concedere le autorizzazioni al cluster. Queste autorizzazioni vengono usate dall'archiviazione di monitoraggio di Azure sottostante. Aprire il Key Vault in portale di Azure e fare clic su *"criteri di accesso"* e quindi su *"+ Aggiungi criteri di accesso"* per creare un criterio con le impostazioni seguenti:
 
 - Autorizzazioni per le chiavi: selezionare *' Get '*, *' wrap Key '* e *' Unwrap Key '*.
-- Seleziona entità: immettere il nome del cluster o l'ID entità.
+- Selezionare l'entità di protezione: a seconda del tipo di identità usato nel cluster (sistema o identità gestita assegnata dall'utente) immettere il nome del cluster o l'ID dell'entità cluster per l'identità gestita assegnata dal sistema o il nome dell'identità gestita assegnata dall'utente.
 
 ![concedere le autorizzazioni di Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -152,7 +157,7 @@ Aggiornare KeyVaultProperties nel cluster con i dettagli dell'identificatore di 
 
 L'operazione è asincrona e può richiedere del tempo per il completamento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -237,11 +242,15 @@ Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-que
 
 ## <a name="key-revocation"></a>Revoca della chiave
 
-È possibile revocare l'accesso ai dati disabilitando la chiave o eliminando i criteri di accesso del cluster nel Key Vault. Lo spazio di archiviazione del cluster Log Analytics rispetta sempre al massimo entro un'ora le modifiche apportate alle autorizzazioni delle chiavi e l'archivio non sarà più disponibile. Tutti i nuovi dati inseriti nelle aree di lavoro collegate al cluster vengono eliminati e non possono essere recuperati, i dati non sono accessibili e le query a queste aree di lavoro hanno esito negativo. I dati inseriti in precedenza rimangono nello spazio di archiviazione purché il cluster e le aree di lavoro non vengano eliminati. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati al raggiungimento della scadenza della conservazione. 
+È possibile revocare l'accesso ai dati disabilitando la chiave o eliminando i criteri di accesso del cluster nel Key Vault. 
 
-I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Anche questi dati vengono eliminati durante l'operazione di revoca della chiave e diventano inaccessibili.
+> [!IMPORTANT]
+> - Se il cluster è impostato con l'identità gestita assegnata dall'utente, `UserAssignedIdentities` l'impostazione di con `None` sospende il cluster e impedisce l'accesso ai dati, ma non è possibile ripristinare la revoca e attivare il cluster senza aprire la richiesta di supporto. Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
+> - L'azione di revoca della chiave consigliata è la disabilitazione della chiave nella Key Vault.
 
-L'archiviazione esegue periodicamente il polling di Key Vault per tentare di annullare il wrapping della chiave di crittografia e, una volta eseguito l'accesso, l'inserimento dei dati e la query riprendono entro 30 minuti.
+L'archiviazione del cluster rispetta sempre le modifiche apportate alle autorizzazioni chiave entro un'ora o prima e l'archiviazione non sarà più disponibile. Tutti i nuovi dati inseriti nelle aree di lavoro collegate al cluster vengono eliminati e non saranno recuperabili, i dati diventeranno inaccessibili e le query su tali aree di lavoro avranno esito negativo. I dati inseriti in precedenza rimangono nello spazio di archiviazione purché il cluster e le aree di lavoro non vengano eliminati. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati al raggiungimento della scadenza della conservazione. I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Anche questi dati vengono eliminati durante l'operazione di revoca della chiave e diventano inaccessibili.
+
+L'archiviazione del cluster esegue periodicamente il polling del Key Vault per tentare di annullare il wrapping della chiave di crittografia e, una volta eseguito l'accesso, l'inserimento dei dati e la ripresa della query entro 30 minuti.
 
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
@@ -271,7 +280,7 @@ Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'a
 
 Collegare un account di archiviazione per la *query* all'area di lavoro: le query *salvate* vengono salvate nell'account di archiviazione. 
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -315,7 +324,7 @@ Dopo la configurazione, qualsiasi nuova query di *ricerca salvata* verrà salvat
 
 Collegare un account di archiviazione per gli *avvisi* all'area di lavoro: le query *log-alerts* vengono salvate nell'account di archiviazione. 
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
 
 N/D
 
@@ -404,7 +413,38 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
   - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` la proprietà nel corpo della richiesta REST.
   - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
 
-- messaggi di errore
+  - Se il cluster è impostato con l'identità gestita assegnata dall'utente, `UserAssignedIdentities` l'impostazione di con `None` sospende il cluster e impedisce l'accesso ai dati, ma non è possibile ripristinare la revoca e attivare il cluster senza aprire la richiesta di supporto. Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
+
+  - Attualmente non è possibile definire una chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault si trova in Private-Link (vNet). Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+- Comportamento con la disponibilità di Key Vault
+  - Nel funzionamento normale: l'archiviazione memorizza la chiave AEK nella cache per brevi periodi di tempo e torna a Key Vault per annullare il wrapping periodicamente.
+    
+  - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un po' più di tempo, superando così piccoli problemi di disponibilità. Le funzionalità di query e inserimento proseguono senza interruzioni.
+    
+  - Sito Live: una indisponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non sarà disponibile e i dati inseriti verranno memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita dei dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con Customer-Managed chiave.
+
+  - Frequenza di accesso a Key Vault: la frequenza con cui l'archivio di Monitoraggio di Azure accede a Key Vault per le operazioni di wrapping e annullamento del wrapping è compresa tra 6 e 60 secondi.
+
+- Se si crea un cluster e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema al cluster.
+
+- Se si aggiorna il cluster esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
+
+- Se si verifica un errore di conflitto durante la creazione di un cluster, è possibile che sia stato eliminato il cluster negli ultimi 14 giorni ed è in fase di eliminazione temporanea. Il nome del cluster rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando il cluster viene eliminato definitivamente.
+
+- Se si aggiorna il cluster mentre è in corso un'operazione, l'operazione avrà esito negativo.
+
+- Se non si riesce a distribuire il cluster, verificare che le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate si trovino nella stessa area. Le sottoscrizioni possono essere diverse.
+
+- Se si aggiorna la versione della chiave in Key Vault e non si aggiornano i nuovi dettagli dell'identificatore di chiave nel cluster, il cluster Log Analytics continuerà a usare la chiave precedente e i dati diventeranno inaccessibili. Aggiornare i nuovi dettagli dell'identificatore di chiave nel cluster per riprendere l'inserimento dei dati e la possibilità di eseguire query sui dati.
+
+- Alcune operazioni sono lunghe e possono richiedere del tempo per essere completate, ovvero creazione di cluster, aggiornamento della chiave del cluster e eliminazione del cluster. È possibile controllare lo stato dell'operazione in due modi:
+  1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
+  2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
+
+- Messaggi di errore
   
   **Creazione cluster**
   -  400--il nome del cluster non è valido. Il nome del cluster può contenere i caratteri a-z, A-Z, 0-9 e la lunghezza di 3-63.
@@ -441,34 +481,6 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
   **Scollegamento dell'area di lavoro**
   -  404--area di lavoro non trovata. L'area di lavoro specificata non esiste o è stata eliminata.
   -  409--collegamento dell'area di lavoro o operazione di scollegamento del collegamento nel processo.
-
-## <a name="troubleshooting"></a>Risoluzione dei problemi
-
-- Comportamento con la disponibilità di Key Vault
-  - Nel funzionamento normale: l'archiviazione memorizza la chiave AEK nella cache per brevi periodi di tempo e torna a Key Vault per annullare il wrapping periodicamente.
-    
-  - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un po' più di tempo, superando così piccoli problemi di disponibilità. Le funzionalità di query e inserimento proseguono senza interruzioni.
-    
-  - Sito Live: una indisponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non sarà disponibile e i dati inseriti verranno memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita dei dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con Customer-Managed chiave.
-
-  - Frequenza di accesso a Key Vault: la frequenza con cui l'archivio di Monitoraggio di Azure accede a Key Vault per le operazioni di wrapping e annullamento del wrapping è compresa tra 6 e 60 secondi.
-
-- Se si crea un cluster e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema al cluster.
-
-- Se si aggiorna il cluster esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
-
-- Se si verifica un errore di conflitto durante la creazione di un cluster, è possibile che sia stato eliminato il cluster negli ultimi 14 giorni ed è in fase di eliminazione temporanea. Il nome del cluster rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando il cluster viene eliminato definitivamente.
-
-- Se si aggiorna il cluster mentre è in corso un'operazione, l'operazione avrà esito negativo.
-
-- Se non si riesce a distribuire il cluster, verificare che le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate si trovino nella stessa area. Le sottoscrizioni possono essere diverse.
-
-- Se si aggiorna la versione della chiave in Key Vault e non si aggiornano i nuovi dettagli dell'identificatore di chiave nel cluster, il cluster Log Analytics continuerà a usare la chiave precedente e i dati diventeranno inaccessibili. Aggiornare i nuovi dettagli dell'identificatore di chiave nel cluster per riprendere l'inserimento dei dati e la possibilità di eseguire query sui dati.
-
-- Alcune operazioni sono lunghe e possono richiedere del tempo per essere completate, ovvero creazione di cluster, aggiornamento della chiave del cluster e eliminazione del cluster. È possibile controllare lo stato dell'operazione in due modi:
-  1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
-  2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su [log Analytics la fatturazione del cluster dedicato](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)

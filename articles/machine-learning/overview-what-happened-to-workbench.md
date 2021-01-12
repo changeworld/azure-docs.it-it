@@ -7,20 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.reviewer: jmartens
-author: j-martens
-ms.author: jmartens
+ms.author: larryfr
+author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: fb35cce46a8448b744e8f7b3d26f2ca6a166f831
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 812bbb2507310d088c42fa1cf2cad4c330755892
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541216"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072327"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
-L'applicazione Azure Machine Learning Workbench e alcune altre funzionalità di anteprima sono state deprecate e sostituite nella versione di **settembre 2018** per introdurre un miglioramento nell' [architettura](concept-azure-machine-learning-architecture.md).
+L'applicazione Azure Machine Learning Workbench e alcune altre funzionalità di anteprima sono state deprecate e sostituite nella versione di **settembre 2018** per introdurre un miglioramento nell'[architettura](concept-azure-machine-learning-architecture.md).
 
 Per migliorare l'esperienza dell'utente, questa versione contiene molti aggiornamenti significativi introdotti in base al feedback dei clienti. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma è ora possibile usare le solide funzionalità di <a href="/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> e R SDK e dell'[interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) per eseguire attività e pipeline di apprendimento automatico.
 
@@ -68,7 +67,7 @@ Iniziare ad eseguire il training dei modelli e a rilevare le cronologie di esecu
 
 Non si perderà il codice o il lavoro svolto. Nella versione precedente, i progetti sono entità cloud con una directory locale. Nell'ultima versione si associano le directory locali all'area di lavoro di Azure Machine Learning con un file di configurazione locale. Vedere un [diagramma dell'architettura più recente](concept-azure-machine-learning-architecture.md).
 
-Gran parte del contenuto del progetto era già nel computer locale. È quindi sufficiente creare un file di configurazione in tale directory e farvi riferimento nel codice per collegarlo all'area di lavoro. Per continuare a usare la directory locale che contiene i file e gli script, specificare il nome della directory nel comando Python "[experiment.submit](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)" o usando il comando `az ml project attach` dell'interfaccia della riga di comando.  Ad esempio:
+Gran parte del contenuto del progetto era già nel computer locale. È quindi sufficiente creare un file di configurazione in tale directory e farvi riferimento nel codice per collegarlo all'area di lavoro. Per continuare a usare la directory locale che contiene i file e gli script, specificare il nome della directory nel comando Python "[experiment.submit](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py)" o usando il comando `az ml project attach` dell'interfaccia della riga di comando.  Esempio:
 ```python
 run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)

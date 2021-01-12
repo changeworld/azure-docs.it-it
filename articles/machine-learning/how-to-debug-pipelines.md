@@ -10,12 +10,12 @@ ms.author: laobri
 ms.date: 10/22/2020
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
-ms.openlocfilehash: 9baf305ab72354c150cb06e594ed8909f2fa1dda
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: d55a9ff4dc2a639fca67d19d9323b9397aa0f409
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739315"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98070372"
 ---
 # <a name="troubleshooting-machine-learning-pipelines"></a>Risoluzione dei problemi relativi alle pipeline di Machine Learning
 
@@ -33,6 +33,7 @@ La tabella seguente contiene problemi comuni durante lo sviluppo di pipeline, co
 | La pipeline non riusa i passaggi | Il riutilizzo dei passaggi è abilitato per impostazione predefinita, ma assicurarsi che non sia stato disabilitato in un passaggio della pipeline. Se il riutilizzo è disabilitato, il `allow_reuse` parametro nel passaggio verrà impostato su `False` . |
 | La pipeline è stata rieseguita inutilmente | Per assicurarsi che i passaggi vengano rieseguiti solo quando cambiano i dati o gli script sottostanti, separare le directory del codice sorgente per ogni passaggio. Se si usa la stessa directory di origine per più passaggi, è possibile che si verifichino riesecuzioni non necessarie. Usare il `source_directory` parametro in un oggetto step della pipeline per puntare alla directory isolata per questo passaggio e assicurarsi che non si usi lo stesso `source_directory` percorso per più passaggi. |
 | Passaggio al rallentamento rispetto alle epoche di training o ad altri comportamenti di ciclo | Provare a cambiare le scritture dei file, inclusa la registrazione, da `as_mount()` a `as_upload()` . La modalità di **montaggio** usa un filesystem virtualizzato remoto e carica l'intero file ogni volta che viene aggiunto a. |
+| La destinazione di calcolo richiede molto tempo per l'avvio | Le immagini Docker per le destinazioni di calcolo vengono caricate da Azure Container Registry (ACR). Per impostazione predefinita, Azure Machine Learning crea un ACR che usa il livello di servizio *Basic* . La modifica dell'ACR per l'area di lavoro nel livello standard o Premium può ridurre il tempo necessario per compilare e caricare le immagini. Per altre informazioni, vedere [Livelli di servizio di Registro Azure Container](../container-registry/container-registry-skus.md). |
 
 ### <a name="authentication-errors"></a>Errori di autenticazione
 
