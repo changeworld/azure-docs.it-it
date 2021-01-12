@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
-ms.openlocfilehash: 73b18d15ad054f1c485d6f61cdefe54993148bc4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f11693b34048b11c02668e086561b9a6521a5213
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450532"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121526"
 ---
 # <a name="visualize-data"></a>Visualizzare i dati
 Azure sinapsi è un servizio di analisi integrato che accelera il time-to-Insight, nei data warehouse e nei sistemi di analisi Big Data. La visualizzazione dei dati è un componente chiave per poter ottenere informazioni sui dati. Semplifica la comprensione dei dati di grandi e piccole dimensioni. Rende inoltre più semplice rilevare modelli, tendenze e outlier in gruppi di dati. 
@@ -38,7 +38,7 @@ Per accedere alle opzioni del grafico:
    |--|--| 
    | Tipo di grafico | La ```display``` funzione supporta un'ampia gamma di tipi di grafico, tra cui grafici a barre, grafici a dispersione, grafici a linee e altro ancora |
    | Chiave | Specificare l'intervallo di valori per l'asse x|
-   | valore | Specificare l'intervallo di valori per i valori dell'asse y |
+   | Valore | Specificare l'intervallo di valori per i valori dell'asse y |
    | Gruppo Serie | Utilizzato per determinare i gruppi per l'aggregazione | 
    | Aggregazione | Metodo per aggregare i dati nella visualizzazione| 
    
@@ -227,7 +227,7 @@ Oltre a queste librerie, il runtime di Azure sinapsi Analytics include anche il 
 ## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>Connettersi a Power BI usando Apache Spark & SQL su richiesta
 Azure sinapsi Analytics si integra profondamente con Power BI consentendo agli ingegneri di dati di creare soluzioni di analisi.
 
-Azure sinapsi Analytics consente ai diversi motori di calcolo dell'area di lavoro di condividere database e tabelle tra i pool Spark e il pool SQL senza server. Utilizzando il [modello di metadati condiviso](https://docs.microsoft.com/azure/synapse-analytics/metadata/overview), è possibile eseguire query sulle tabelle Apache Spark tramite SQL su richiesta. Al termine, è possibile connettere l'endpoint SQL su richiesta a Power BI per eseguire facilmente query sulle tabelle Spark sincronizzate.
+Azure sinapsi Analytics consente ai diversi motori di calcolo dell'area di lavoro di condividere database e tabelle tra i pool Spark e il pool SQL senza server. Utilizzando il [modello di metadati condiviso](../metadata/overview.md), è possibile eseguire query sulle tabelle Apache Spark tramite SQL su richiesta. Al termine, è possibile connettere l'endpoint SQL su richiesta a Power BI per eseguire facilmente query sulle tabelle Spark sincronizzate.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

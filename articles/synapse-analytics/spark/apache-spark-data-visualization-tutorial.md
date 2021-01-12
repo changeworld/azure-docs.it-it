@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 10/20/2020
 ms.author: midesa
-ms.openlocfilehash: 8735514b639cb0322a83ffb19d661027327c0f73
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8768b8f8c7bf70b184971abc6ce27e2193823dea
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458775"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121550"
 ---
 # <a name="analyze-data-with-apache-spark"></a>Analizzare i dati con Apache Spark
 
@@ -25,7 +25,7 @@ In particolare, si analizzerà il set di dati di [New York City (NYC) taxi](http
 - Creare un pool di Apache Spark seguendo l' [esercitazione creare un pool di Apache Spark](../articles/../quickstart-create-apache-spark-pool-studio.md) 
 
 ## <a name="download-and-prepare-the-data"></a>Scaricare e preparare i dati
-1. Creare un notebook usando il kernel PySpark. Per istruzioni, vedere [creare un notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook). 
+1. Creare un notebook usando il kernel PySpark. Per istruzioni, vedere [creare un notebook](../quickstart-apache-spark-notebook.md#create-a-notebook). 
    
 > [!Note]
 > 
@@ -180,5 +180,5 @@ Al termine dell'esecuzione dell'applicazione, arrestare il notebook per rilascia
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentazione ufficiale di Apache Spark](https://spark.apache.org/docs/latest/)
