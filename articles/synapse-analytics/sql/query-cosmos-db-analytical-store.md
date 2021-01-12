@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 22103ad580fa474f44eaf42c696d19bbbd137c8e
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095101"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121346"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
 
@@ -222,7 +222,7 @@ FROM OPENROWSET(
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
 
-Non usare `OPENROWSET` senza uno schema definito in modo esplicito perché potrebbe avere un effetto sulle prestazioni. Assicurarsi di usare le dimensioni più piccole possibili per le colonne, ad esempio VARCHAR (100) anziché VARCHAR default (8000). È consigliabile utilizzare alcune regole di confronto UTF-8 come regole di confronto predefinite del database o impostarle come regole di confronto della colonna esplicite per evitare il [problema di conversione UTF-8](/azure/synapse-analytics/troubleshoot/reading-utf8-text). Le regole di confronto `Latin1_General_100_BIN2_UTF8` offrono prestazioni ottimali quando Yu filtra i dati usando alcune colonne stringa.
+Non usare `OPENROWSET` senza uno schema definito in modo esplicito perché potrebbe avere un effetto sulle prestazioni. Assicurarsi di usare le dimensioni più piccole possibili per le colonne, ad esempio VARCHAR (100) anziché VARCHAR default (8000). È consigliabile utilizzare alcune regole di confronto UTF-8 come regole di confronto predefinite del database o impostarle come regole di confronto della colonna esplicite per evitare il [problema di conversione UTF-8](../troubleshoot/reading-utf8-text.md). Le regole di confronto `Latin1_General_100_BIN2_UTF8` offrono prestazioni ottimali quando Yu filtra i dati usando alcune colonne stringa.
 
 ## <a name="query-nested-objects-and-arrays"></a>Eseguire query su oggetti e matrici annidati
 
@@ -268,8 +268,8 @@ Il risultato di questa query potrebbe essere simile a quello della tabella segue
 Altre informazioni sull'analisi di [tipi di dati complessi nel collegamento sinapsi di Azure](../how-to-analyze-complex-schema.md) e [nelle strutture annidate in un pool SQL senza server](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
-> Se vengono visualizzati caratteri imprevisti nel testo `MÃƒÂ©lade` `Mélade` , ad esempio anziché, le regole di confronto del database non sono impostate per le regole di confronto [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
-> [Modificare le regole di confronto del database con le](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) regole di confronto UTF-8 utilizzando un'istruzione SQL come `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se vengono visualizzati caratteri imprevisti nel testo `MÃƒÂ©lade` `Mélade` , ad esempio anziché, le regole di confronto del database non sono impostate per le regole di confronto [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) .
+> [Modificare le regole di confronto del database con le](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) regole di confronto UTF-8 utilizzando un'istruzione SQL come `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="flatten-nested-arrays"></a>Flat array annidati
 
@@ -325,7 +325,7 @@ Informazioni supplementari su Eco-epidemi... | `[{"first":"Nicolas","last":"4#",
 | Informazioni supplementari su Eco-epidemi... |   `[{"first":"Olivier","last":"Flores","suffix":"","affiliation":{"laboratory":"UMR C53 CIRAD, …` | Olivier | Flores |`{"laboratory":"UMR C53 CIRAD, …` |     
 
 > [!IMPORTANT]
-> Se vengono visualizzati caratteri imprevisti nel testo `MÃƒÂ©lade` `Mélade` , ad esempio anziché, le regole di confronto del database non sono impostate per le regole di confronto [UTF-8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Modificare le regole di confronto del database con le](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) regole di confronto UTF-8 utilizzando un'istruzione SQL come `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
+> Se vengono visualizzati caratteri imprevisti nel testo `MÃƒÂ©lade` `Mélade` , ad esempio anziché, le regole di confronto del database non sono impostate per le regole di confronto [UTF-8](/sql/relational-databases/collations/collation-and-unicode-support#utf8) . [Modificare le regole di confronto del database con le](/sql/relational-databases/collations/set-or-change-the-database-collation#to-change-the-database-collation) regole di confronto UTF-8 utilizzando un'istruzione SQL come `ALTER DATABASE MyLdw COLLATE LATIN1_GENERAL_100_CI_AS_SC_UTF8` .
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB ai mapping dei tipi SQL
 

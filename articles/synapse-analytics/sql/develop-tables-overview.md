@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33eb5977ecb373a0dba87c26cacea247f541be8f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3778b6046c750bb131be1e51bf1afdc7b0df7184
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452727"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116790"
 ---
 # <a name="design-tables-using-synapse-sql-in-azure-synapse-analytics"></a>Progettare tabelle con sinapsi SQL in Azure sinapsi Analytics
 
@@ -76,7 +76,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL dedicato, è possib
 | Tabella WideWorldImportersDW  | Tipo di tabella. | pool SQL dedicato |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
-| Ordine | Fact | wwi.FactOrder |
+| JSON | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
 
@@ -102,7 +102,7 @@ Per altre informazioni, vedere [Tabelle temporanee](develop-tables-temporary.md)
 
 Le [tabelle esterne](develop-tables-external-tables.md) puntano ai dati che si trovano in un BLOB di archiviazione di Azure o in Azure Data Lake storage.
 
-Importare i dati da tabelle esterne in pool SQL dedicati utilizzando l'istruzione [SELECT create table](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Per un'esercitazione sul caricamento, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Importare i dati da tabelle esterne in pool SQL dedicati utilizzando l'istruzione [SELECT create table](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) . Per un'esercitazione sul caricamento, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
 Per il pool SQL senza server, è possibile usare [CETAS](develop-tables-cetas.md) per salvare il risultato della query in una tabella esterna in archiviazione di Azure.
 

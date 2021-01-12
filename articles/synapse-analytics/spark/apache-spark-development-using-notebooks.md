@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: bfb822481e00e84fa17bd4b1fcb58c1d4b89a124
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450870"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120955"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire notebook di sinapsi studio in Azure sinapsi Analytics
 
@@ -33,13 +33,13 @@ Questo articolo descrive come usare i notebook in Azure Synapse Studio.
 ## <a name="preview-of-the-new-notebook-experience"></a>Anteprima della nuova esperienza notebook
 Il team sinapsi ha portato il nuovo componente notebooks in sinapsi Studio per offrire un'esperienza coerente con i notebook per i clienti Microsoft e massimizzare l'individuabilità, la produttività, la condivisione e la collaborazione. La nuova esperienza notebook è pronta per l'anteprima. Selezionare il pulsante **funzionalità di anteprima** nella barra degli strumenti del notebook per attivarlo. La tabella seguente acquisisce il confronto delle funzionalità tra un notebook esistente (denominato "notebook classico") con la nuova versione di anteprima.  
 
-|Feature|Notebook classico|Anteprima notebook|
+|Funzionalità|Notebook classico|Anteprima notebook|
 |--|--|--|
-|% esecuzione| Non supportato | &#9745;|
-|% cronologia| Non supportato |&#9745;
-|% carico| Non supportato |&#9745;|
-|%% HTML| Non supportato |&#9745;|
-|Trascinare e rilasciare per spostare una cella| Non supportato |&#9745;|
+|% esecuzione| Non supportate | &#9745;|
+|% cronologia| Non supportate |&#9745;
+|% carico| Non supportate |&#9745;|
+|%% HTML| Non supportate |&#9745;|
+|Trascinare e rilasciare per spostare una cella| Non supportate |&#9745;|
 |Output di visualizzazione permanente ()|&#9745;| Non disponibile |
 |Annulla tutto| &#9745;| Non disponibile|
 |Esegui tutte le celle sopra|&#9745;| Non disponibile |
@@ -553,4 +553,4 @@ Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire pi�
 - [Che cos'è Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Usare .NET per Apache Spark con Azure Synapse Analytics](spark-dotnet.md)
 - [Documentazione di .NET per Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: a5e514602668c96d63562e45fb114cf9770a54a9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1fd7649cac6b636873ca529fe9780429d86697c6
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321488"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120904"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Procedure di sviluppo consigliate per SQL Synapse
 
@@ -53,7 +53,7 @@ Ciò significa che si eliminano le operazioni di spostamento dei dati.  Un numer
 
 Vedere i collegamenti seguenti per informazioni più dettagliate su come la selezione di una colonna di distribuzione possa migliorare le prestazioni e su come definire una tabella distribuita nella clausola WITH dell'istruzione CREATE TABLES.
 
-Vedere anche [Panoramica sulle tabelle](develop-tables-overview.md), [Distribuzione delle tabelle](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selezione della distribuzione delle tabelle](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+Vedere anche [Panoramica sulle tabelle](develop-tables-overview.md), [Distribuzione delle tabelle](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [Selezione della distribuzione delle tabelle](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Non creare un numero eccessivo di partizioni
 Anche se il partizionamento dei dati può essere efficace per la gestione dei dati tramite il cambio di partizione o l'ottimizzazione delle analisi con l'eliminazione delle partizioni, un numero eccessivo di partizioni può rallentare le query.  Spesso una strategia di partizionamento a granularità elevata che può funzionare correttamente in SQL Server potrebbe non funzionare correttamente nel pool SQL dedicato.  
@@ -167,7 +167,6 @@ Quando CETAS genera file parquet, le statistiche vengono create automaticamente 
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-Se sono necessarie informazioni non fornite in questo articolo, usare la funzione **Cerca documento** sul lato sinistro di questa pagina per cercare tutti i documenti del pool SQL.  La pagina Domande e risposte di [Microsoft&per Azure sinapsi Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) è una posizione in cui è possibile porre domande ad altri utenti e al gruppo di prodotti analisi sinapsi di Azure. Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
+Se sono necessarie informazioni non fornite in questo articolo, usare la funzione **Cerca documento** sul lato sinistro di questa pagina per cercare tutti i documenti del pool SQL.  La pagina Domande e risposte di [Microsoft&per Azure sinapsi Analytics](/answers/topics/azure-synapse-analytics.html) è una posizione in cui è possibile porre domande ad altri utenti e al gruppo di prodotti analisi sinapsi di Azure. Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
 
 Se si preferisce porre domande in Stack Overflow, è anche presente un forum di [analisi delle sinapsi di Azure stack overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
- 

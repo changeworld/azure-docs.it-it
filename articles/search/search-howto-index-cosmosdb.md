@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: be7c6ec9dbc577143e6c7219580f42c876f536bc
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 563edae0292062e1ed7f216c69aeeb84ef0fa7a8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499969"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119476"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Come indicizzare i dati di Cosmos DB usando un indicizzatore in Ricerca cognitiva di Azure 
 
@@ -137,7 +137,7 @@ In precedenza in questo articolo si è indicato che [Azure Cosmos DB](../cosmos-
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
-Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. Per inviare richieste HTTP ad Azure ricerca cognitiva, è possibile usare il [post o il Visual Studio Code](search-get-started-rest.md) .
+Per ogni richiesta, è necessario fornire il nome del servizio e la chiave amministratore per Azure ricerca cognitiva (nell'intestazione POST) e il nome e la chiave dell'account di archiviazione per l'archiviazione BLOB. Per inviare richieste HTTP ad Azure ricerca cognitiva, è possibile usare il [post](search-get-started-rest.md) o il [Visual Studio Code](search-get-started-vs-code.md) .
 
 Copiare i quattro valori seguenti nel blocco note in modo che sia possibile incollarli in una richiesta:
 
@@ -391,7 +391,7 @@ L'esempio seguente crea un'origine dati con criteri di eliminazione temporanea:
 
 ## <a name="next-steps"></a><a name="NextSteps"></a>Passaggi successivi
 
-Congratulazioni! Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
+La procedura è stata completata. Si è appreso come integrare Azure Cosmos DB con ricerca cognitiva di Azure usando un indicizzatore.
 
 * Per altre informazioni su Azure Cosmos DB, vedere la [pagina del servizio Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Per ulteriori informazioni su Azure ricerca cognitiva, vedere la [pagina del servizio di ricerca](https://azure.microsoft.com/services/search/).

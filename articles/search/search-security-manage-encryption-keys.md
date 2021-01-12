@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8295e619cfda0d4b83a7356d5fd21d4b80f83849
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530885"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119289"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
@@ -52,7 +52,7 @@ In questo scenario vengono usati gli strumenti e i servizi seguenti.
 È necessario disporre di un'applicazione di ricerca in grado di creare l'oggetto crittografato. In questo codice si farà riferimento a una chiave dell'insieme di credenziali delle chiavi e Active Directory informazioni di registrazione. Questo codice può essere un'app funzionante o un codice del prototipo, ad esempio il codice [C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
 > [!TIP]
-> Per chiamare le API REST per la creazione di indici e mappe sinonimo che includono un parametro della chiave di crittografia, è possibile usare il [post o il Visual Studio Code](search-get-started-rest.md)o [Azure PowerShell](./search-get-started-powershell.md). Al momento non è disponibile il supporto del portale per l'aggiunta di una chiave a indici o mappe sinonimi.
+> Per chiamare le API REST per la creazione di indici e mappe sinonimo che includono un parametro della chiave di crittografia, è possibile usare il [post](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)o [Azure PowerShell](./search-get-started-powershell.md). Al momento non è disponibile il supporto del portale per l'aggiunta di una chiave a indici o mappe sinonimi.
 
 ## <a name="1---enable-key-recovery"></a>1-Abilita ripristino chiavi
 
@@ -66,7 +66,7 @@ A causa della natura della crittografia con chiavi gestite dal cliente, nessuno 
 
 1. Nella pagina **Overview** in **Essentials** abilitare l' **eliminazione** temporanea e l' **eliminazione della protezione**.
 
-### <a name="using-powershell"></a>Uso di PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 1. Eseguire `Connect-AzAccount` per configurare le credenziali di Azure.
 

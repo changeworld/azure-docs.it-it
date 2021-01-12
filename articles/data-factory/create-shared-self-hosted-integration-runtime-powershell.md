@@ -11,18 +11,31 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 8734247a913bdf6a44a9156f6f87705b618f7228
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 3f0cf3de4c2cffca6540fcd727872372103ac98f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632890"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118252"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Questa guida illustra come creare un runtime di integrazione self-hosted condiviso in Azure Data Factory. È quindi possibile usare il runtime di integrazione self-hosted condiviso in un'altra data factory.
+
+## <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory
+
+È possibile usare nuovamente un'infrastruttura del runtime di integrazione self-hosted esistente già configurata in una data factory. Questo riuso consente di creare un runtime di integrazione self-hosted collegato in un data factory diverso facendo riferimento a un runtime di integrazione self-hosted condiviso esistente.
+
+Per visualizzare un'introduzione e una dimostrazione di questa funzionalità, guardare il video di 12 minuti seguente:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
+### <a name="terminology"></a>Terminologia
+
+- **IR condiviso**: un runtime di integrazione self-hosted originale che viene eseguito in un'infrastruttura fisica.  
+- **IR collegato**: un IR che fa riferimento a un altro IR condiviso. Il runtime di integrazione collegato è un IR logico e usa l'infrastruttura di un altro runtime di integrazione self-hosted condiviso.
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Creare un runtime di integrazione self-hosted condiviso usando l'interfaccia utente di Azure Data Factory
 
@@ -55,9 +68,9 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Sottoscrizione di Azure** . Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
+- **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare. 
 
-- **Azure PowerShell** . Seguire le istruzioni fornite in [Installare Azure PowerShell in Windows con PowerShellGet](/powershell/azure/install-az-ps). Usare PowerShell per eseguire uno script per creare un runtime di integrazione self-hosted che può essere condiviso con altre data factory. 
+- **Azure PowerShell**. Seguire le istruzioni fornite in [Installare Azure PowerShell in Windows con PowerShellGet](/powershell/azure/install-az-ps). Usare PowerShell per eseguire uno script per creare un runtime di integrazione self-hosted che può essere condiviso con altre data factory. 
 
 > [!NOTE]  
 > Per un elenco delle aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse in [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -66,7 +79,7 @@ Per creare un runtime di integrazione self-hosted condiviso usando Azure PowerSh
 
 1. Avviare Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. Creare le variabili. Copiare e incollare lo script seguente. Sostituire le variabili, ad esempio **SubscriptionName** e **ResourceGroupName** , con gli effettivi valori: 
+1. Creare le variabili. Copiare e incollare lo script seguente. Sostituire le variabili, ad esempio **SubscriptionName** e **ResourceGroupName**, con gli effettivi valori: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -213,6 +226,37 @@ Remove-AzDataFactoryV2IntegrationRuntime `
     -Links `
     -LinkedDataFactoryName $LinkedDataFactoryName
 ```
+
+### <a name="monitoring"></a>Monitoraggio
+
+#### <a name="shared-ir"></a>IR condiviso
+
+![Selezioni per trovare un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
+
+![Monitorare un runtime di integrazione condivisa](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
+
+#### <a name="linked-ir"></a>IR collegato
+
+![Selezioni per trovare un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
+
+![Monitorare un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
+
+
+### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitazioni note della condivisione del runtime di integrazione self-hosted
+
+* Il data factory in cui viene creato un runtime di integrazione collegato deve avere un' [identità gestita](../active-directory/managed-identities-azure-resources/overview.md). Per impostazione predefinita, le data factory create nel portale di Azure o i cmdlet di PowerShell hanno un'identità gestita creata in modo implicito. Tuttavia, quando viene creata una data factory tramite un modello di Azure Resource Manager o un SDK, è necessario impostare la proprietà **Identity** in modo esplicito. Questa impostazione garantisce che Gestione risorse crei una data factory contenente un'identità gestita.
+
+* Il Data Factory .NET SDK che supporta questa funzionalità deve essere la versione 1.1.0 o successiva.
+
+* Per concedere l'autorizzazione, è necessario il ruolo proprietario o il ruolo proprietario ereditato nel data factory in cui è presente il runtime di integrazione condiviso.
+
+* La funzionalità di condivisione funziona solo per le data factory nello stesso tenant Azure AD.
+
+* Per Azure AD [utenti Guest](../active-directory/governance/manage-guest-access-with-access-reviews.md), la funzionalità di ricerca nell'interfaccia utente, che elenca tutte le data factory usando una parola chiave di ricerca, non funziona. Tuttavia, finché l'utente Guest è il proprietario del data factory, è possibile condividere il runtime di integrazione senza la funzionalità di ricerca. Per l'identità gestita del data factory che deve condividere il runtime di integrazione, immettere l'identità gestita nella casella **assegnazione autorizzazione** e selezionare **Aggiungi** nell'interfaccia utente di data factory.
+
+  > [!NOTE]
+  > Questa funzionalità è disponibile solo in Data Factory V2.
+
 
 ### <a name="next-steps"></a>Passaggi successivi
 

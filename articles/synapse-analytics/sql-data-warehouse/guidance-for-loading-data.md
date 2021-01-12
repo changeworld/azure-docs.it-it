@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 60a995f78b9b696197d9bd45e04becb19e4129f0
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653062"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120105"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati con pool SQL dedicati in Azure sinapsi Analytics
 
@@ -47,7 +47,7 @@ In questo esempio viene creato un utente di caricamento Classificato in un grupp
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
+Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -179,5 +179,5 @@ Non sono necessarie altre modifiche alle origini dati esterne.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sull'istruzione COPY o sulla polibase durante la progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere [progettare ELT per l'analisi delle sinapsi di Azure](design-elt-data-loading.md).
-- Per un'esercitazione sul caricamento, [usare l'istruzione Copy per caricare dati dall'archivio BLOB di Azure a sinapsi SQL](load-data-from-azure-blob-storage-using-polybase.md).
+- Per un'esercitazione sul caricamento, [usare l'istruzione Copy per caricare dati dall'archivio BLOB di Azure a sinapsi SQL](./load-data-from-azure-blob-storage-using-copy.md).
 - Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](sql-data-warehouse-manage-monitor.md).

@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9802e6553d553aae4f13194dc9951d1a17af6f66
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b17e47463ef3fe9a2cc959364825451468266f0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462885"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120020"
 ---
 # <a name="best-practices-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
@@ -74,7 +74,7 @@ Azure Data Factory supporta anche il caricamento PolyBase e può raggiungere pre
 > [!NOTE]
 > Per aumentare al massimo la velocità effettiva quando si usano file di testo con estensione gzip, suddividere i file in 60 o più file per ottimizzare il parallelismo del caricamento.  Per una velocità effettiva totale maggiore, prendere in considerazione il caricamento simultaneo dei dati.
 
-Vedere anche [caricare i dati](design-elt-data-loading.md), [Guida per l'uso di polibase](guidance-for-loading-data.md), [modelli e strategie di caricamento del pool SQL dedicati](https://blogs.msdn.microsoft.com/sqlcat/20../../), [caricare dati con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [spostare dati con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [creare un formato di file esterno](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [creare table As Select (CTAs)](sql-data-warehouse-develop-ctas.md).
+Vedere anche [caricare i dati](design-elt-data-loading.md), [Guida per l'uso di polibase](guidance-for-loading-data.md), [modelli e strategie di caricamento del pool SQL dedicati](/archive/blogs/sqlcat/), [caricare dati con Azure Data Factory]( ../../data-factory/load-azure-sql-data-warehouse.md), [spostare dati con Azure Data Factory](../../data-factory/transform-data-using-machine-learning.md), [creare un formato di file esterno](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [creare table As Select (CTAs)](sql-data-warehouse-develop-ctas.md).
 
 ## <a name="load-then-query-external-tables"></a>Caricare ed eseguire query su tabelle esterne
 
@@ -97,7 +97,7 @@ Se, ad esempio, sono presenti una tabella degli ordini, distribuita in base a id
 
 Vedere i collegamenti seguenti per informazioni più dettagliate su come la selezione di una colonna di distribuzione possa migliorare le prestazioni e su come definire una tabella distribuita nella clausola WITH dell'istruzione CREATE TABLE.
 
-Vedere anche [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md), [Distribuzione delle tabelle](sql-data-warehouse-tables-distribute.md), [Selezione della distribuzione delle tabelle](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Vedere anche [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md), [Distribuzione delle tabelle](sql-data-warehouse-tables-distribute.md), [Selezione della distribuzione delle tabelle](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="do-not-over-partition"></a>Non creare un numero eccessivo di partizioni
 
@@ -180,7 +180,7 @@ Vedere anche [Classi di risorse per la gestione del carico di lavoro](resource-c
 
 Vedere anche l'articolo sulla [risoluzione dei problemi](sql-data-warehouse-troubleshoot.md) per informazioni sui problemi più comuni e le relative soluzioni.
 
-Se questo articolo non contiene le informazioni necessarie, provare a usare la funzione "Search for docs" (Cerca documenti) sul lato sinistro della pagina per cercare in tutti i documenti relativi ad Azure Synapse.  La [pagina delle domande di Domande e risposte Microsoft per Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) è un posto in cui è possibile inviare domande ad altri utenti e al gruppo di prodotti Azure Synapse. Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
+Se questo articolo non contiene le informazioni necessarie, provare a usare la funzione "Search for docs" (Cerca documenti) sul lato sinistro della pagina per cercare in tutti i documenti relativi ad Azure Synapse.  La [pagina delle domande di Domande e risposte Microsoft per Azure Synapse](/answers/topics/azure-synapse-analytics.html) è un posto in cui è possibile inviare domande ad altri utenti e al gruppo di prodotti Azure Synapse. Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
 
 Se si preferisce porre domande in Stack Overflow, è disponibile anche un [forum di Stack Overflow in Azure Synapse](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

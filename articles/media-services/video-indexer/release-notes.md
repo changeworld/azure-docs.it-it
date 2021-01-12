@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/06/2021
 ms.author: juliako
-ms.openlocfilehash: 3552d55d995608dd0d471c84cd5e9f9988ebe2c0
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: b6e18e077b717da65ca8d70b9bda6a133dba1f5c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028642"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120088"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -44,7 +44,7 @@ Video Indexer supporta il rilevamento, il raggruppamento e il riconoscimento di 
 
 ### <a name="planned-video-indexer-website-authenticatication-changes"></a>Modifiche authenticatication sito Web pianificato Video Indexer
 
-A partire dal 1 ° marzo 2021, non sarà più possibile iscriversi e accedere al sito Web [video Indexer](https://www.videoindexer.ai/) usando Facebook o LinkedIn.
+A partire dal 1 ° marzo 2021, non sarà più possibile iscriversi e accedere al [portale per sviluppatori](video-indexer-use-apis.md) [video Indexer sito Web](https://www.videoindexer.ai/) usando Facebook o LinkedIn.
 
 Sarà possibile effettuare l'iscrizione e l'accesso con uno di questi provider: Azure AD, Microsoft e Google.
 

@@ -11,12 +11,12 @@ ms.date: 06/26/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 667629b7f613b11f40528b039c7525339b7a62d0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd32b9690f8a9aef92eb1f2fbcc4ec926a65584e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462859"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121193"
 ---
 # <a name="azure-advisor-recommendations-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Azure Advisor raccomandazioni per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -65,12 +65,12 @@ Attualmente Advisor visualizza al massimo quattro candidati di tabella replicata
 
 
 ## <a name="adaptive-gen2-cache-utilization"></a>Utilizzo della cache adattiva (Gen2)
-Quando il working set è di grandi dimensioni, la percentuale di riscontri nella cache potrebbe essere bassa e l'utilizzo della cache potrebbe risultare elevato. In questo tipo di scenario è opportuno aumentare le prestazioni in modo da incrementare la capacità della cache e rieseguire il carico di lavoro. Per altre informazioni, vedere la [documentazione](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache) seguente. 
+Quando il working set è di grandi dimensioni, la percentuale di riscontri nella cache potrebbe essere bassa e l'utilizzo della cache potrebbe risultare elevato. In questo tipo di scenario è opportuno aumentare le prestazioni in modo da incrementare la capacità della cache e rieseguire il carico di lavoro. Per altre informazioni, vedere la [documentazione](./sql-data-warehouse-how-to-monitor-cache.md) seguente. 
 
 ## <a name="tempdb-contention"></a>Conflitto di tempdb
 
-Quando si verifica un conflitto di tempdb significativo, le prestazioni delle query possono peggiorare.  Un conflitto di tempdb può verificarsi per via delle tabelle temporanee definite dall'utente o nel caso in cui venga spostato un grande quantitativo di dati. In questo tipo di scenario è possibile eseguire un ridimensionamento per aumentare l'allocazione di tempdb e [configurare le classi di risorse e la gestione del carico di lavoro](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management) in modo da rendere disponibile più memoria per le query. 
+Quando si verifica un conflitto di tempdb significativo, le prestazioni delle query possono peggiorare.  Un conflitto di tempdb può verificarsi per via delle tabelle temporanee definite dall'utente o nel caso in cui venga spostato un grande quantitativo di dati. In questo tipo di scenario è possibile eseguire un ridimensionamento per aumentare l'allocazione di tempdb e [configurare le classi di risorse e la gestione del carico di lavoro](./sql-data-warehouse-workload-management.md) in modo da rendere disponibile più memoria per le query. 
 
 ## <a name="data-loading-misconfiguration"></a>Configurazione errata del caricamento dei dati
 
-È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL dedicato per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/guidance-for-loading-data)seguente. 
+È necessario caricare sempre i dati da un account di archiviazione nella stessa area del pool SQL dedicato per ridurre al minimo la latenza. Usare l' [istruzione Copy per l'inserimento di dati con velocità effettiva elevata](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) e suddividere i file di gestione temporanea nell'account di archiviazione per ottimizzare la velocità effettiva. Se non è possibile usare l'istruzione COPY, è possibile usare l'API SqlBulkCopy o BCP con una dimensione di batch elevata per una migliore velocità effettiva. Per informazioni aggiuntive sul caricamento dei dati, vedere la [documentazione](./guidance-for-loading-data.md)seguente.

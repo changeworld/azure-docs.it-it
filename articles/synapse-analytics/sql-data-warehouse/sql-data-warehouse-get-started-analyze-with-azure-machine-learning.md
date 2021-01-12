@@ -12,27 +12,27 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5348c0ed5d80e2738bb865ca3ec1ddf5aaed009a
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015567"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118048"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizzare i dati con Azure Machine Learning
 
-Questa esercitazione usa la [finestra di progettazione di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) per creare un modello di apprendimento automatico predittivo. Il modello è basato sui dati archiviati in sinapsi di Azure. Lo scenario per l'esercitazione consiste nel prevedere se è probabile che un cliente acquisti una bicicletta o meno, quindi Adventure Works, il Bike Shop, può creare una campagna di marketing mirata.
+Questa esercitazione usa la [finestra di progettazione di Azure Machine Learning](../../machine-learning/concept-designer.md) per creare un modello di apprendimento automatico predittivo. Il modello è basato sui dati archiviati in sinapsi di Azure. Lo scenario per l'esercitazione consiste nel prevedere se è probabile che un cliente acquisti una bicicletta o meno, quindi Adventure Works, il Bike Shop, può creare una campagna di marketing mirata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, è necessario:
 
-* un pool SQL pre-caricato con i dati di esempio AdventureWorksDW. Per eseguire il provisioning di questo pool SQL, vedere [creare un pool SQL](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si dispone già di un data warehouse ma non si dispone di dati di esempio, è possibile [caricare manualmente i dati di esempio](load-data-from-azure-blob-storage-using-polybase.md).
-* un'area di lavoro di Azure Machine Learning. Seguire [questa esercitazione](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) per crearne uno nuovo.
+* un pool SQL pre-caricato con i dati di esempio AdventureWorksDW. Per eseguire il provisioning di questo pool SQL, vedere [creare un pool SQL](create-data-warehouse-portal.md) e scegliere di caricare i dati di esempio. Se si dispone già di un data warehouse ma non si dispone di dati di esempio, è possibile [caricare manualmente i dati di esempio](./load-data-from-azure-blob-storage-using-copy.md).
+* un'area di lavoro di Azure Machine Learning. Seguire [questa esercitazione](../../machine-learning/how-to-manage-workspace.md) per crearne uno nuovo.
 
 ## <a name="get-the-data"></a>Ottenere i dati
 
-I dati usati si trova nella vista dbo. vTargetMail in AdventureWorksDW. Per usare l'archivio dati in questa esercitazione, i dati vengono prima esportati nell'account Azure Data Lake Storage perché la sinapsi di Azure attualmente non supporta i set di dati. Azure Data Factory può essere usato per esportare i dati dal data warehouse a Azure Data Lake Storage usando l' [attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-overview). Utilizzare la query seguente per l'importazione:
+I dati usati si trova nella vista dbo. vTargetMail in AdventureWorksDW. Per usare l'archivio dati in questa esercitazione, i dati vengono prima esportati nell'account Azure Data Lake Storage perché la sinapsi di Azure attualmente non supporta i set di dati. Azure Data Factory può essere usato per esportare i dati dal data warehouse a Azure Data Lake Storage usando l' [attività di copia](../../data-factory/copy-activity-overview.md). Utilizzare la query seguente per l'importazione:
 
 ```sql
 SELECT [CustomerKey]
@@ -54,7 +54,7 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Una volta che i dati sono disponibili in Azure Data Lake Storage, per [connettersi ai servizi di archiviazione di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data)vengono usati gli archivi dati in Azure Machine Learning. Attenersi alla procedura seguente per creare un archivio dati e un set di dati corrispondente:
+Una volta che i dati sono disponibili in Azure Data Lake Storage, per [connettersi ai servizi di archiviazione di Azure](../../machine-learning/how-to-access-data.md)vengono usati gli archivi dati in Azure Machine Learning. Attenersi alla procedura seguente per creare un archivio dati e un set di dati corrispondente:
 
 1. Avviare Azure Machine Learning Studio da portale di Azure o accedere a [Azure Machine Learning Studio](https://ml.azure.com/).
 
@@ -68,7 +68,7 @@ Una volta che i dati sono disponibili in Azure Data Lake Storage, per [connetter
 
 1. Specificare il nome del set di dati e selezionare il tipo da **tabulare**. Quindi, fare clic su **Avanti** per spostarsi in avanti.
 
-1. Nella **sezione selezionare o creare un archivio dati**selezionare l'opzione data **Store creato in precedenza**. Selezionare l'archivio dati creato in precedenza. Fare clic su Avanti e specificare il percorso e le impostazioni del file. Assicurarsi di specificare l'intestazione di colonna se i file ne contengono uno.
+1. Nella **sezione selezionare o creare un archivio dati** selezionare l'opzione data **Store creato in precedenza**. Selezionare l'archivio dati creato in precedenza. Fare clic su Avanti e specificare il percorso e le impostazioni del file. Assicurarsi di specificare l'intestazione di colonna se i file ne contengono uno.
 
 1. Infine, fare clic su **Crea** per creare il set di dati.
 
@@ -90,9 +90,9 @@ Eseguire quindi i passaggi seguenti per la configurazione della finestra di prog
 
 1. Trascinare il set di dati creato in precedenza nell'area di disegno.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png" alt-text="Screenshot del modulo del set di dati nell'area di disegno.":::
 
-## <a name="clean-the-data"></a>Eseguire la pulizia dei dati
+## <a name="clean-the-data"></a>Pulire i dati
 
 Per pulire i dati, eliminare le colonne che non sono rilevanti per il modello. Seguire la procedura descritta di seguito:
 
@@ -100,13 +100,13 @@ Per pulire i dati, eliminare le colonne che non sono rilevanti per il modello. S
 
 1. Trascinare il modulo **Select Columns in Dataset** in **Trasformazione dati < Manipolazione** nel pannello Canvas. Connettere questo modulo al modulo **DataSet** .
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-in.png" alt-text="Screenshot del modulo di selezione delle colonne nell'area di disegno." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns-zoomed-out.png":::
 
 1. Per aprire il riquadro proprietà, fare clic sul modulo. Fare clic su Modifica colonna per specificare le colonne che si desidera eliminare.
 
-1. Escludere due colonne: CustomerAlternateKey e GeographyKey. Fare clic su **Save** (Salva).
+1. Escludere due colonne: CustomerAlternateKey e GeographyKey. Fare clic su **Salva**
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png" alt-text="Screenshot che mostra le colonne che vengono eliminate.":::
 
 ## <a name="build-the-model"></a>Creare il modello
 
@@ -116,7 +116,7 @@ I dati sono suddivisi 80-20:80% per eseguire il training di un modello di appren
 
 1. Nel riquadro Proprietà immettere 0,8 per **la frazione di righe nel primo set di dati di output**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png" alt-text="Screenshot che mostra il rapporto di divisione 0,8.":::
 
 1. Trascinare il modulo **Two-Class Boosted Decision Tree** nell'area di disegno.
 
@@ -124,9 +124,9 @@ I dati sono suddivisi 80-20:80% per eseguire il training di un modello di appren
 
 1. Per Train Model Model selezionare Modifica colonna nell'opzione **colonna etichetta** nel riquadro proprietà. Selezionare la colonna **BikeBuyer** come colonna da stimare e selezionare **Salva**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png" alt-text="Screenshot che mostra l'etichetta column, BikeBuyer, Selected.":::
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png" alt-text="Screenshot che mostra il modulo Train Model connesso a Two-Class albero delle decisioni con boosting e moduli Split data.":::
 
 ## <a name="score-the-model"></a>Assegnare un punteggio al modello
 
@@ -142,11 +142,11 @@ A questo punto, testare il modo in cui il modello viene eseguito sui dati di tes
 
 1. Fare clic su **Invia** per impostare l'esecuzione della pipeline.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning" lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-in.png" alt-text="Screenshot di tutti i moduli rimanenti nell'area di disegno." lightbox="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison-zoomed-out.png":::
 
 1. Al termine dell'esecuzione, fare clic con il pulsante destro del mouse sul modulo **Evaluate Model** e scegliere **Visualizza risultati valutazione**.
 
-    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot del riquadro sinistro dell'interfaccia Azure Machine Learning":::
+    :::image type="content" source="./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize-zoomed-out.png" alt-text="Screenshot dei risultati.":::
 
 La metrica fornita include curva ROC, diagramma di precisione/recupero e curva lift. Esaminare queste metriche per verificare che il primo modello sia stato eseguito in modo migliore rispetto al secondo. Per esaminare la stima del primo modello, fare clic con il pulsante destro del mouse sul modulo Score Model e scegliere Visualizza set di dati con punteggio per visualizzare i risultati previsti.
 
@@ -155,10 +155,10 @@ Verranno visualizzate altre due colonne aggiunte al set di dati di test.
 * Scored Probabilities: la probabilità che un cliente sia un acquirente di biciclette.
 * Scored Labels: la classificazione eseguita dal modello – acquirente di biciclette (1) o non acquirente (0). La soglia di probabilità per le etichette è impostata su 50% e può essere modificata.
 
-Confrontare la colonna BikeBuyer (Actual) con le etichette con Punteggio (stima), per verificare l'esecuzione del modello. Successivamente, è possibile utilizzare questo modello per eseguire stime per i nuovi clienti. È possibile [pubblicare questo modello come servizio Web](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) o scrivere i risultati in sinapsi di Azure.
+Confrontare la colonna BikeBuyer (Actual) con le etichette con Punteggio (stima), per verificare l'esecuzione del modello. Successivamente, è possibile utilizzare questo modello per eseguire stime per i nuovi clienti. È possibile [pubblicare questo modello come servizio Web](../../machine-learning/tutorial-designer-automobile-price-deploy.md) o scrivere i risultati in sinapsi di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure Machine Learning, vedere [Introduzione a Machine Learning in Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Per altre informazioni su Azure Machine Learning, vedere [Introduzione a Machine Learning in Azure](../../machine-learning/overview-what-is-azure-ml.md).
 
 Per informazioni sul Punteggio predefinito, vedere la data warehouse, [qui](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).

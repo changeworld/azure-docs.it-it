@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5f0dc73877d7742d4fc6a0c5b9bcf0529d475e0a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6ff3d985bb24ec852bb5c6cfaedf295fd79a8247
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445267"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120360"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>Risolvere i problemi di connettività di sinapsi studio con PowerShell
 
@@ -58,4 +58,4 @@ Se si è un amministratore di rete e si sta ottimizzando la configurazione del f
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se la procedura precedente non consente di risolvere il problema, [creare un ticket di supporto](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Se la procedura precedente non consente di risolvere il problema, [creare un ticket di supporto](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

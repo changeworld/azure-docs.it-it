@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31014d336b5122251cf8be4a166520064776fce3
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96024028"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118167"
 ---
 # <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati in un pool SQL dedicato Azure sinapsi Analytics
 
@@ -145,5 +145,5 @@ Non sono necessarie altre modifiche alle origini dati esterne.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni su polibase e sulla progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere la pagina relativa alla progettazione di un processo ELT [per l'analisi delle sinapsi di Azure](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-- Per un'esercitazione sul caricamento, [usare la polibase per caricare i dati dall'archiviazione BLOB di Azure ad Azure sinapsi Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- Per un'esercitazione sul caricamento, [usare la polibase per caricare i dati dall'archiviazione BLOB di Azure ad Azure sinapsi Analytics](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 - Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

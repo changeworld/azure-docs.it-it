@@ -7,16 +7,16 @@ ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a517f7a796b6543c8d60f0d1ebdba16afa0bc4b7
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 36329987e510372ff286a10584a115ea259afc60
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751428"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119085"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Usare le proprietà in una soluzione IoT Central di Azure
 
-Questo articolo illustra come usare le proprietà del dispositivo definite in un modello di dispositivo nell'applicazione IoT Central di Azure.
+Questa guida illustra come gli sviluppatori di dispositivi possono usare le proprietà del dispositivo definite in un modello di dispositivo nell'applicazione IoT Central di Azure.
 
 Le proprietà rappresentano valori temporizzati. Ad esempio, un dispositivo potrebbe usare una proprietà per segnalare la temperatura di destinazione che sta tentando di raggiungere. Per impostazione predefinita, le proprietà del dispositivo sono di sola lettura in IoT Central. Le proprietà scrivibili consentono di sincronizzare lo stato tra il dispositivo e l'applicazione IoT Central di Azure.
 
@@ -35,7 +35,7 @@ Nella tabella seguente vengono illustrate le impostazioni di configurazione per 
 | Campo           | Descrizione                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nome visualizzato    | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli.                                                                                                                                                              |
-| Nome            | Nome della proprietà. Azure IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. Questo campo deve essere alfanumerico.                                                 |
+| Nome            | Nome della proprietà. Azure IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere il proprio valore, se necessario. Questo campo deve essere alfanumerico.  Il codice del dispositivo usa questo valore **nome** .           |
 | Tipo di funzionalità | Proprietà.                                                                                                                                                                                                                          |
 | Tipo semantico   | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili.                                                                       |
 | SCHEMA          | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento.                                               |
@@ -44,7 +44,7 @@ Nella tabella seguente vengono illustrate le impostazioni di configurazione per 
 | Valori di stato    | Disponibile solo per il tipo semantico stato. Definisce i valori di stato possibili, ognuno dei quali ha un nome visualizzato, un nome, un tipo di enumerazione e un valore.                                                                                   |
 | Unità            | Unità per il valore della proprietà, ad esempio **mph**, **%** o **&deg; C**.                                                                                                                                                              |
 | Unità di visualizzazione    | Unità di visualizzazione da usare nei dashboard e nei moduli.                                                                                                                                                                                    |
-| Commento         | Eventuali commenti sulla funzionalità della proprietà.                                                                                                                                                                                        |
+| Comment         | Eventuali commenti sulla funzionalità della proprietà.                                                                                                                                                                                        |
 | Descrizione     | Descrizione della funzionalità della proprietà.                                                                                                                                                                                          |
 
 Le proprietà possono essere definite anche in un'interfaccia in un modello di dispositivo, come illustrato di seguito:
@@ -160,7 +160,7 @@ hubClient.getTwin((err, twin) => {
 });
 ```
 
-Questo articolo usa Node.js per semplicità. Per informazioni complete sugli esempi di applicazioni per dispositivi, vedere l'esercitazione [creare e connettere un'applicazione client all'applicazione Azure IOT Central](tutorial-connect-device.md) .
+Questo articolo usa Node.js per semplicità. Per altri esempi di linguaggio, vedere l'esercitazione [creare e connettere un'applicazione client all'applicazione Azure IOT Central](tutorial-connect-device.md) .
 
 La vista seguente nell'applicazione IoT Central di Azure Mostra le proprietà che è possibile visualizzare. La visualizzazione rende automaticamente la proprietà del **modello del dispositivo** una _proprietà di sola lettura del dispositivo_.
 

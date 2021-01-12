@@ -1,17 +1,17 @@
 ---
 title: Chiave gestita dal cliente di Monitoraggio di Azure
-description: Informazioni e procedure per configurare la chiave di Customer-Managed per crittografare i dati nelle aree di lavoro Log Analytics usando una chiave di Azure Key Vault.
+description: Informazioni e procedure per configurare la chiave gestita dal cliente per crittografare i dati nelle aree di lavoro Log Analytics usando una chiave di Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 66a3276863b05cb2fe0dd80a2195f7fd2af1443c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 07562167131d1839bc0827c74fae09c683302c08
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071936"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118609"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -25,25 +25,25 @@ La [crittografia di](../../security/fundamentals/encryption-atrest.md) dati inat
 
 Monitoraggio di Azure garantisce che tutti i dati e le query salvate siano crittografati a riposo usando chiavi gestite da Microsoft (MMK). Monitoraggio di Azure offre anche un'opzione per la crittografia usando la propria chiave archiviata nel [Azure Key Vault](../../key-vault/general/overview.md), che offre il controllo per revocare l'accesso ai dati in qualsiasi momento. L'uso della crittografia da parte di monitoraggio di Azure è identico a quello di [Azure Storage Encryption](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
-Customer-Managed chiave viene fornita nei [cluster dedicati](../log-query/logs-dedicated-clusters.md) garantendo un livello di protezione e un controllo più elevati. I dati inseriti in cluster dedicati vengono crittografati due volte, una volta a livello di servizio usando chiavi gestite da Microsoft o chiavi gestite dal cliente e una volta a livello di infrastruttura usando due algoritmi di crittografia diversi e due chiavi diverse. La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati. Il cluster dedicato consente inoltre di proteggere i dati con il controllo dell' [archivio protetto](#customer-lockbox-preview) .
+La chiave gestita dal cliente viene distribuita su [cluster dedicati](../log-query/logs-dedicated-clusters.md) garantendo un livello di protezione e un controllo più elevati. I dati inseriti in cluster dedicati vengono crittografati due volte, una volta a livello di servizio usando chiavi gestite da Microsoft o chiavi gestite dal cliente e una volta a livello di infrastruttura usando due algoritmi di crittografia diversi e due chiavi diverse. La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protegge da uno scenario in cui uno degli algoritmi o delle chiavi di crittografia può essere compromesso. In questo caso, il livello di crittografia aggiuntivo continua a proteggere i dati. Il cluster dedicato consente inoltre di proteggere i dati con il controllo dell' [archivio protetto](#customer-lockbox-preview) .
 
-I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con Customer-Managed chiave nella prima metà del 2021.
+I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con la chiave gestita dal cliente nella prima metà del 2021.
 
 Log Analytics cluster dedicati usano un [modello di determinazione dei prezzi](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) per la prenotazione della capacità a partire da 1000 GB/giorno.
 
 > [!IMPORTANT]
 > A causa di vincoli temporanei di capacità, è necessario pre-eseguire la registrazione prima di creare un cluster. Usare i contatti in Microsoft o aprire la richiesta di supporto per registrare gli ID delle sottoscrizioni.
 
-## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funzionamento della chiave Customer-Managed in monitoraggio di Azure
+## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funzionamento della chiave gestita dal cliente in monitoraggio di Azure
 
-Monitoraggio di Azure usa l'identità gestita per concedere l'accesso al Azure Key Vault. L'identità del cluster Log Analytics è supportata a livello di cluster. Per consentire Customer-Managed la protezione delle chiavi in più aree di lavoro, una nuova risorsa *Cluster* log Analytics viene eseguita come connessione di identità intermedia tra la Key Vault e le aree di lavoro log Analytics. Lo spazio di archiviazione del cluster usa l'identità gestita \' associata alla risorsa *cluster* per l'autenticazione al Azure Key Vault tramite Azure Active Directory. 
+Monitoraggio di Azure usa l'identità gestita per concedere l'accesso al Azure Key Vault. L'identità del cluster Log Analytics è supportata a livello di cluster. Per consentire la protezione delle chiavi gestite dal cliente su più aree di lavoro, una nuova risorsa *Cluster* log Analytics viene eseguita come connessione di identità intermedia tra la Key Vault e le aree di lavoro log Analytics. Lo spazio di archiviazione del cluster usa l'identità gestita \' associata alla risorsa *cluster* per l'autenticazione al Azure Key Vault tramite Azure Active Directory. 
 
 Dopo la configurazione della chiave gestita dal cliente, i nuovi dati inseriti nelle aree di lavoro collegate al cluster dedicato vengono crittografati con la chiave. È possibile scollegare le aree di lavoro dal cluster in qualsiasi momento. I nuovi dati vengono quindi inseriti nell'archiviazione Log Analytics e crittografati con la chiave Microsoft, mentre è possibile eseguire facilmente query sui dati nuovi e obsoleti.
 
 > [!IMPORTANT]
-> Customer-Managed funzionalità chiave è a livello di area. Le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse.
+> La funzionalità chiave gestita dal cliente è a livello di area. Le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate devono trovarsi nella stessa area, ma possono trovarsi in sottoscrizioni diverse.
 
-![Panoramica della chiave di Customer-Managed](media/customer-managed-keys/cmk-overview.png)
+![Panoramica della chiave gestita dal cliente](media/customer-managed-keys/cmk-overview.png)
 
 1. Key Vault
 2. La risorsa *Cluster* di Log Analytics con identità gestita con le autorizzazioni per Key Vault: l'identità viene propagata all'archivio cluster sottostante dedicato Log Analytics
@@ -54,7 +54,7 @@ Dopo la configurazione della chiave gestita dal cliente, i nuovi dati inseriti n
 
 La crittografia dei dati di archiviazione include tre tipi di chiavi:
 
-- Chiave di crittografia della chiave **KEK** (chiave di Customer-Managed)
+- Chiave di crittografia della chiave **KEK** (chiave gestita dal cliente)
 - **AEK** - chiave di crittografia dell'account
 - **DEK** - chiave di crittografia dei dati
 
@@ -75,7 +75,7 @@ Sono applicabili le regole seguenti:
 1. Aggiornamento del cluster con i dettagli dell'identificatore di chiave
 1. Collegamento di aree di lavoro Log Analytics
 
-La configurazione della chiave Customer-Managed non è supportata in portale di Azure attualmente e il provisioning può essere eseguito tramite [PowerShell](/powershell/module/az.operationalinsights/), l' [interfaccia](/cli/azure/monitor/log-analytics) della riga di comando o le richieste [Rest](/rest/api/loganalytics/) .
+La configurazione della chiave gestita dal cliente non è attualmente supportata in portale di Azure e il provisioning può essere eseguito tramite [PowerShell](/powershell/module/az.operationalinsights/), l' [interfaccia](/cli/azure/monitor/log-analytics) della riga di comando o le richieste [Rest](/rest/api/loganalytics/) .
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operazioni asincrone e controllo dello stato
 
@@ -125,7 +125,8 @@ Queste impostazioni possono essere aggiornate in Key Vault tramite l'interfaccia
 
 ## <a name="create-cluster"></a>Creare cluster
 
-> [! INFORMAZIONI] i cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). L'identità gestita assegnata dal sistema viene creata con il cluster quando si immette il `SystemAssigned` tipo di identità e può essere usata in un secondo momento per concedere l'accesso al Key Vault. Se si vuole creare un cluster configurato per la chiave gestita dal cliente durante la creazione, creare il cluster con l'identità gestita assegnata dall'utente concessa nella Key Vault: aggiornare il cluster con il `UserAssigned` tipo di identità, l'ID risorsa dell'identità in `UserAssignedIdentities` e fornire i dettagli della chiave in `keyVaultProperties` .
+> [!NOTE]
+> I cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types), assegnati dal sistema e assegnati dall'utente, che possono essere usati in base allo scenario. L'identità gestita assegnata dal sistema è più semplice e viene creata automaticamente con la creazione del cluster quando si imposta l'identità `type` come. `SystemAssigned` questa identità può essere usata in un secondo momento per concedere l'accesso al Key Vault. Se è necessario creare un cluster con configurazione della chiave gestita dal cliente durante la creazione, è necessario avere una chiave definita e l'identità assegnata dall'utente concessa in precedenza nel Key Vault, quindi creare il cluster con l'identità `type` come `UserAssigned` , `UserAssignedIdentities` con l'ID risorsa dell'identità e i dettagli della chiave in `keyVaultProperties` .
 
 > [!IMPORTANT]
 > Attualmente non è possibile definire una chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault si trova in Private-Link (vNet). Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
@@ -254,20 +255,20 @@ L'archiviazione del cluster esegue periodicamente il polling del Key Vault per t
 
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
-Customer-Managed rotazione della chiave richiede un aggiornamento esplicito al cluster con la nuova versione della chiave in Azure Key Vault. [Aggiornare il cluster con i dettagli dell'identificatore di chiave](#update-cluster-with-key-identifier-details). Se non si aggiorna la nuova versione della chiave nel cluster, l'archiviazione del cluster Log Analytics continuerà a usare la chiave precedente per la crittografia. Se si disabilita o si elimina la chiave precedente prima di aggiornare la nuova chiave nel cluster, si otterrà lo stato di [revoca della chiave](#key-revocation) .
+La rotazione della chiave gestita dal cliente richiede un aggiornamento esplicito al cluster con la nuova versione della chiave in Azure Key Vault. [Aggiornare il cluster con i dettagli dell'identificatore di chiave](#update-cluster-with-key-identifier-details). Se non si aggiorna la nuova versione della chiave nel cluster, l'archiviazione del cluster Log Analytics continuerà a usare la chiave precedente per la crittografia. Se si disabilita o si elimina la chiave precedente prima di aggiornare la nuova chiave nel cluster, si otterrà lo stato di [revoca della chiave](#key-revocation) .
 
 Tutti i dati rimarranno accessibili dopo l'operazione di rotazione della chiave perché i dati vengono sempre crittografati con la chiave di crittografia dell'account (AEK), mentre la chiave AEK viene ora crittografata con la nuova versione della chiave di crittografia della chiave (KEK) in Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Chiave di Customer-Managed per le query
+## <a name="customer-managed-key-for-queries"></a>Chiave gestita dal cliente per le query
 
-Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette in Customer-Managed criterio chiave ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query salvate e per le *ricerche* con *avvisi di log* crittografate con la chiave nel proprio account di archiviazione quando si è connessi all'area di lavoro. 
+Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette con i criteri chiave gestiti dal cliente ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query salvate e per le *ricerche* con *avvisi di log* crittografate con la chiave nel proprio account di archiviazione quando si è connessi all'area di lavoro. 
 
 > [!NOTE]
-> Log Analytics le query possono essere salvate in diversi archivi a seconda dello scenario utilizzato. Le query rimangono crittografate con la chiave Microsoft (MMK) negli scenari seguenti indipendentemente dalla configurazione della chiave Customer-Managed: cartelle di lavoro in monitoraggio di Azure, dashboard di Azure, app per la logica di Azure, Azure Notebooks e manuali operativi di automazione.
+> Log Analytics le query possono essere salvate in diversi archivi a seconda dello scenario utilizzato. Le query rimangono crittografate con la chiave Microsoft (MMK) negli scenari seguenti indipendentemente dalla configurazione della chiave gestita dal cliente, ovvero cartelle di lavoro in monitoraggio di Azure, dashboard di Azure, app per la logica di Azure, Azure Notebooks e manuali operativi di automazione.
 
-Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'area di lavoro, il servizio carica le query *salvate* e di *log-alerts* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/customer-managed-keys-overview.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione. 
+Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'area di lavoro, il servizio carica le query *salvate* e di *log-alerts* nell'account di archiviazione. Ciò significa che è possibile controllare l'account di archiviazione e i [criteri di crittografia](../../storage/common/customer-managed-keys-overview.md) dei dati inattivi usando la stessa chiave usata per crittografare i dati in log Analytics cluster o una chiave diversa. Si sarà tuttavia responsabili dei costi associati a tale account di archiviazione. 
 
-**Considerazioni prima dell'impostazione della chiave Customer-Managed per le query**
+**Considerazioni prima di impostare la chiave gestita dal cliente per le query**
 * È necessario disporre delle autorizzazioni di scrittura per l'area di lavoro e l'account di archiviazione
 * Assicurarsi di creare l'account di archiviazione nella stessa area in cui si trova l'area di lavoro Log Analytics
 * Il *salvataggio delle ricerche* nell'archiviazione viene considerato come artefatti del servizio e il relativo formato potrebbe cambiare
@@ -385,7 +386,7 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
-- Customer-Managed chiave è supportata in un cluster Log Analytics dedicato e adatto per i clienti che inviano 1 TB al giorno o più.
+- La chiave gestita dal cliente è supportata in un cluster di Log Analytics dedicato e adatto per i clienti che inviano 1 TB al giorno o più.
 
 - Il numero massimo di cluster per area e sottoscrizione è 2
 
@@ -395,7 +396,7 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
 - Il collegamento dell'area di lavoro al cluster deve essere eseguito solo dopo aver verificato il completamento del provisioning del cluster Log Analytics.  I dati inviati all'area di lavoro prima del completamento verranno eliminati e non saranno recuperabili.
 
-- Customer-Managed crittografia della chiave si applica ai dati appena inseriti dopo l'ora di configurazione. I dati inseriti prima della configurazione rimangono crittografati con la chiave Microsoft. È possibile eseguire query sui dati inseriti prima e dopo la configurazione della chiave Customer-Managed.
+- La crittografia della chiave gestita dal cliente si applica ai dati appena inseriti dopo l'ora di configurazione. I dati inseriti prima della configurazione rimangono crittografati con la chiave Microsoft. È possibile eseguire facilmente query sui dati inseriti prima e dopo la configurazione della chiave gestita dal cliente.
 
 - Il Azure Key Vault deve essere configurato come reversibile. Queste proprietà non sono abilitate per impostazione predefinita e devono essere configurate tramite CLI o PowerShell:<br>
   - [eliminazione temporanea](../../key-vault/general/soft-delete-overview.md)
@@ -424,7 +425,7 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
     
   - Errori di connessione temporanei: l'archiviazione gestisce gli errori temporanei (timeout, errori di connessione, problemi relativi a DNS) consentendo alle chiavi di rimanere nella cache per un po' più di tempo, superando così piccoli problemi di disponibilità. Le funzionalità di query e inserimento proseguono senza interruzioni.
     
-  - Sito Live: una indisponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non sarà disponibile e i dati inseriti verranno memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita dei dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con Customer-Managed chiave.
+  - Sito Live: una indisponibilità di circa 30 minuti comporterà la mancata disponibilità dell'account di archiviazione. La funzionalità di query non sarà disponibile e i dati inseriti verranno memorizzati nella cache per diverse ore usando la chiave Microsoft per evitare la perdita dei dati. Quando viene ripristinato l'accesso Key Vault, la query diventa disponibile e i dati temporanei memorizzati nella cache vengono inseriti nell'archivio dati e crittografati con la chiave gestita dal cliente.
 
   - Frequenza di accesso a Key Vault: la frequenza con cui l'archivio di Monitoraggio di Azure accede a Key Vault per le operazioni di wrapping e annullamento del wrapping è compresa tra 6 e 60 secondi.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91f612ba7f19deb739dbb6004e275ea044a5a3d3
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462555"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98118762"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati nei file parquet e JSON usando un pool SQL senza server in Azure sinapsi Analytics
 
@@ -24,7 +24,7 @@ I tipi annidati sono strutture complesse che rappresentano oggetti o matrici. I 
 - [File JSON](query-json-files.md)gerarchici, in cui è possibile leggere un documento JSON complesso come colonna singola.
 - Azure Cosmos DB raccolte (attualmente in anteprima pubblica gestita), in cui ogni documento può contenere proprietà nidificate complesse.
 
-Il pool SQL senza server formatta tutti i tipi annidati come oggetti e matrici JSON. È quindi possibile [estrarre o modificare oggetti complessi usando funzioni JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Il pool SQL senza server formatta tutti i tipi annidati come oggetti e matrici JSON. È quindi possibile [estrarre o modificare oggetti complessi usando funzioni JSON](/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Di seguito è riportato un esempio di una query che estrae i valori scalari e di oggetti dal file JSON del [set di dati Open Research COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , che contiene gli oggetti annidati: 
 
@@ -121,7 +121,7 @@ Il risultato è illustrato nella tabella seguente:
 | --- | --- | --- | --- |
 | Informazioni supplementari su Eco-epidemiolo... | Julien   | -Figura S1: filogenesi... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Diversamente dai file JSON, che nella maggior parte dei casi restituiscono una singola colonna contenente un oggetto JSON complesso, i file parquet possono avere più colonne complesse. È possibile leggere le proprietà delle colonne annidate utilizzando la `JSON_VALUE` funzione in ogni colonna. `OPENROWSET` consente di specificare direttamente i percorsi delle proprietà annidate in una `WITH` clausola. È possibile impostare i percorsi come nome di una colonna oppure è possibile aggiungere un'espressione di [percorso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) dopo il tipo di colonna.
+Diversamente dai file JSON, che nella maggior parte dei casi restituiscono una singola colonna contenente un oggetto JSON complesso, i file parquet possono avere più colonne complesse. È possibile leggere le proprietà delle colonne annidate utilizzando la `JSON_VALUE` funzione in ogni colonna. `OPENROWSET` consente di specificare direttamente i percorsi delle proprietà annidate in una `WITH` clausola. È possibile impostare i percorsi come nome di una colonna oppure è possibile aggiungere un'espressione di [percorso JSON](/sql/relational-databases/json/json-path-expressions-sql-server) dopo il tipo di colonna.
 
 Nella query seguente viene letto il file structExample. parquet e viene illustrato come visualizzare gli elementi di una colonna nidificata. Esistono due modi per fare riferimento a un valore annidato:
 - Specificando l'espressione del percorso del valore annidato dopo la specifica del tipo.

@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7761fee8f23b5be259f9a5c278f761fa4ce92fbf
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059977"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121244"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -20,6 +20,23 @@ Questo articolo illustra quanto segue:
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+<hr width=100%>
+
+## <a name="january-12-2021"></a>12 gennaio 2021
+
+Questo tag di versione è per l'aggiornamento del 2021 gennaio del modulo:
+
+```
+mcr.microsoft.com/media/live-video-analytics:2.0.1
+```
+
+> [!NOTE]
+> Nelle guide introduttive ed esercitazioni i manifesti della distribuzione usano un tag 2 (Live-Video-Analytics: 2). Quindi, la semplice ridistribuzione di tali manifesti dovrebbe aggiornare il modulo sui dispositivi perimetrali >.
+### <a name="bug-fixes"></a>Correzioni di bug 
+
+* I campi `ActivationSignalOffset` `MinimumActivationTime` e `MaximumActivationTime` nei processori di controllo del segnale sono stati impostati erroneamente come proprietà obbligatorie. Sono ora proprietà **facoltative** .
+* Correzione di un bug di utilizzo che provoca l'arresto anomalo dell'analisi video in tempo reale su IoT Edge modulo quando viene distribuito in determinate aree.
 
 <hr width=100%>
 

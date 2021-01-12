@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: fee7e244e26a59a773a5d5c9c74e23acd4113ee6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c681195a60329320b875cc06919e9440b65eb9e5
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446701"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120241"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introduzione alle utilità di Microsoft Spark
 
@@ -33,7 +33,7 @@ Per assicurarsi che il Azure AD e l'identità del servizio gestito dell'area di 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e l'account di archiviazione a cui si vuole accedere. È possibile passare al contenitore specifico a cui si vuole accedere.
 2. Selezionare il **controllo di accesso (IAM)** nel pannello di sinistra.
 3. Assegnare l' **account Azure ad** e l' **identità dell'area di lavoro** (uguale al nome dell'area di lavoro) al ruolo di **collaboratore dati BLOB di archiviazione** nell'account di archiviazione, se non è già assegnato. 
-4. Selezionare **Salva**.
+4. Selezionare **Save** (Salva).
 
 È possibile accedere ai dati in ADLS Gen2 con sinapsi Spark tramite l'URL seguente:
 
@@ -706,12 +706,12 @@ Env.Help()
 
 Ottenere il risultato:
 ```
-getUserName(): returns user name
-getUserId(): returns unique user id
-getJobId(): returns job id
-getWorkspaceName(): returns workspace name
-getPoolName(): returns Spark pool name
-getClusterId(): returns cluster id
+GetUserName(): returns user name
+GetUserId(): returns unique user id
+GetJobId(): returns job id
+GetWorkspaceName(): returns workspace name
+GetPoolName(): returns Spark pool name
+GetClusterId(): returns cluster id
 ```
 
 ### <a name="get-user-name"></a>Ottenere il nome utente
@@ -881,4 +881,4 @@ Env.GetClusterId()
 - [Estrai notebook di esempio sinapsi](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Avvio rapido: Creare un pool di Apache Spark in Azure Synapse Analytics con gli strumenti Web](../quickstart-apache-spark-notebook.md)
 - [Che cos'è Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)

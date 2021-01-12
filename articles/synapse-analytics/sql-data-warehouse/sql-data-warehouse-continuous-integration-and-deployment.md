@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 9f2bbc39b9c9c4770775bf49a7775ab8980a1f3b
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cb80f2d21246a75d41fc5753e72995d409d5c6b4
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589900"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119187"
 ---
 # <a name="continuous-integration-and-deployment-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integrazione e distribuzione continue per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -62,5 +62,5 @@ A questo punto, si dispone di un ambiente semplice in cui qualsiasi archiviazion
 
 - Esplora l' [architettura del pool SQL dedicato (in precedenza SQL DW)](massively-parallel-processing-mpp-architecture.md)
 - [Creare rapidamente un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md)
-- [Caricare dati di esempio](load-data-from-azure-blob-storage-using-polybase.md)
+- [Caricare dati di esempio](./load-data-from-azure-blob-storage-using-copy.md)
 - Esplorare i [video](sql-data-warehouse-videos.md)

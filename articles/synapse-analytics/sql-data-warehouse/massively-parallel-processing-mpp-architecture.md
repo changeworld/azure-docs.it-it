@@ -10,19 +10,19 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 45c7f89f773095a102429c07f7441223de3c2dec
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c537d3109f770c1ce77be6495bdacd24270dad5f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448263"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119595"
 ---
 # <a name="dedicated-sql-pool-formerly-sql-dw-architecture-in-azure-synapse-analytics"></a>Architettura del pool SQL dedicato (precedentemente SQL DW) in Azure sinapsi Analytics
 
 Azure Synapse Analytics è un servizio di analisi che riunisce funzionalità aziendali di data warehouse e analisi di Big Data. Consente di eseguire query sui dati in base alle proprie esigenze.
 
 > [!NOTE]
->Esplorare la [documentazione di Azure sinapsi Analytics](../overview-what-is.md).
+>Esplorare la [documentazione di Azure Synapse Analytics](../overview-what-is.md).
 >
 
 
@@ -107,13 +107,13 @@ Il diagramma seguente mostra una tabella replicata memorizzata nella cache duran
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si conoscono le sinapsi di Azure, si apprenderà come [creare rapidamente un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md) e [caricare i dati di esempio](load-data-from-azure-blob-storage-using-polybase.md). Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle altre risorse disponibili per Azure Synapse.  
+Ora che si conoscono le sinapsi di Azure, si apprenderà come [creare rapidamente un pool SQL dedicato (in precedenza SQL DW)](create-data-warehouse-portal.md) e [caricare i dati di esempio](./load-data-from-azure-blob-storage-using-copy.md). Se non si ha familiarità con Azure, il [glossario di Azure](../../azure-glossary-cloud-terminology.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) può essere utile quando si incontrano termini nuovi. In alternativa, vedere alcune delle altre risorse disponibili per Azure Synapse.  
 
 - [Casi di successo dei clienti](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Blog](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - [Richieste di funzionalità](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Video](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Creare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-synapse-analytics.html)
 - [Forum su Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

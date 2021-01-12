@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/05/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f74e6435af9084b0c8f222c33dc922fe678bc4c7
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e3a4c367bbe0770495a63c00ca33861ac815460f
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914520"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121006"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -83,6 +83,7 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 01/11/2021: modifiche minime in [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL guida](./high-availability-guide-rhel-multi-sid.md) a più SID per modificare i comandi da usare sia per RHEL8 che per RHEL7 e ENSA1 e ENSA2
 - 01/05/2021: modifiche apportate all' [SAP Hana con scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con e in SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con e in RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), modificando la configurazione consigliata per consentire all'agente host SAP di gestire l'intervallo di porte locali  
 - 01/04/2021: aggiungere nuove aree di Azure supportate da HLI in informazioni [sulle SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
 - 12/29/2020: aggiungere consigli sull'architettura per aree di Azure specifiche nelle [configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)

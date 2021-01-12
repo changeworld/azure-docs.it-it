@@ -11,12 +11,12 @@ ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8826dff6d347f78625272a5620a1f168b8804db
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457907"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120037"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Procedure di sviluppo consigliate per il pool SQL Synapse
 
@@ -55,7 +55,7 @@ Se, ad esempio, sono presenti una tabella degli ordini, distribuita in base a id
 
 Durante il caricamento di una tabella distribuita, assicurarsi che i dati in entrata non siano ordinati nella chiave di distribuzione, perché questo rallenterebbe il caricamento.  L'articolo seguente fornisce ulteriori dettagli sul miglioramento delle prestazioni selezionando una colonna di distribuzione e su come definire una tabella distribuita nella clausola WITH dell'istruzione CREATE TABLES.
 
-Vedere anche [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md), [Distribuzione delle tabelle](sql-data-warehouse-tables-distribute.md), [Selezione della distribuzione delle tabelle](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/), [CREATE TABLE](sql-data-warehouse-tables-overview.md) e [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
+Vedere anche [Panoramica sulle tabelle](sql-data-warehouse-tables-overview.md), [Distribuzione delle tabelle](sql-data-warehouse-tables-distribute.md), [Selezione della distribuzione delle tabelle](/archive/blogs/sqlcat/choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service), [CREATE TABLE](sql-data-warehouse-tables-overview.md) e [CREATE TABLE AS SELECT](sql-data-warehouse-develop-ctas.md)
 
 ## <a name="do-not-over-partition"></a>Non creare un numero eccessivo di partizioni
 
@@ -120,7 +120,7 @@ Vedere anche [Indicizzazione delle tabelle](sql-data-warehouse-tables-index.md),
 
 Se questo articolo non contiene le informazioni necessarie, provare a usare la funzione "Search for docs" (Cerca documenti) sul lato sinistro della pagina per cercare in tutti i documenti relativi ad Azure Synapse.  
 
-La [pagina delle domande di Domande e risposte Microsoft per Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) è un posto in cui è possibile inviare domande ad altri utenti e al gruppo di prodotti Azure Synapse.  Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
+La [pagina delle domande di Domande e risposte Microsoft per Azure Synapse](/answers/topics/azure-synapse-analytics.html) è un posto in cui è possibile inviare domande ad altri utenti e al gruppo di prodotti Azure Synapse.  Questo forum viene monitorato attivamente per garantire che venga fornita una risposta a tutte le domande, da un altro utente o da Microsoft.  
 
 Se si preferisce porre domande in Stack Overflow, è anche presente un forum di [analisi delle sinapsi di Azure stack overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
 
