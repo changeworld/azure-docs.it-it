@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 41c0bd23bbd2d69506a979c5a36ac40f73258f2c
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ab03e0bdf7761e45a134ec90685955403fbc433b
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605514"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060385"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Esercitazione: Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database
 
@@ -237,7 +237,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     ![Eseguire il mapping nei database di destinazione](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
    > [!NOTE] 
-   > Sebbene in questo passaggio sia possibile selezionare più database, ogni istanza del Servizio Migrazione del database di Azure supporta fino a quattro database per la migrazione simultanea. È anche previsto un limite di due istanze del Servizio Migrazione del database di Azure per ogni area in una sottoscrizione. Ad esempio, se si deve eseguire la migrazione di 40 database, è possibile farlo simultaneamente solo a gruppi di otto e solo se sono state create due istanze del Servizio Migrazione del database di Azure.
+   > Sebbene in questo passaggio sia possibile selezionare più database, ogni istanza del Servizio Migrazione del database di Azure supporta fino a quattro database per la migrazione simultanea. È anche previsto un limite di 10 istanze del Servizio Migrazione del database di Azure per sottoscrizione e per area. Ad esempio, se si deve eseguire la migrazione di 80 database, è possibile farlo simultaneamente a gruppi di 40 nella stessa area, ma solo se sono state create 10 istanze del Servizio Migrazione del database di Azure.
 
 3. Selezionare **Salva**, nella schermata **Riepilogo della migrazione**, nella casella di testo **Nome attività**, specificare un nome per l'attività di migrazione, quindi rivedere il riepilogo per verificare che i dettagli dell'origine e della destinazione corrispondano a quanto specificato in precedenza.
 

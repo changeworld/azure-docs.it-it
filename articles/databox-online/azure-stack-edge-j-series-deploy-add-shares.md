@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/22/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 845eef6e119823af789c9a263bfb750845d55bc0
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 919ec1c3c2b71b7d9aecb90d434aa919c7188d38
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740913"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97897619"
 ---
 # <a name="tutorial-transfer-data-via-shares-with-azure-stack-edge-pro-gpu"></a>Esercitazione: Trasferire dati tramite condivisioni con Azure Stack Edge Pro con GPU
 
@@ -43,7 +43,7 @@ Prima di aggiungere le condivisioni ad Azure Stack Edge Pro, verificare che:
 
 Per creare una condivisione, eseguire la procedura seguente:
 
-1. Nel [portale di Azure](https://portal.azure.com/) selezionare la risorsa Azure Stack Edge e quindi passare a **Panoramica**. Il dispositivo dovrebbe essere online.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare la risorsa Azure Stack Edge e quindi passare a **Panoramica**. Il dispositivo dovrebbe essere online. Selezionare **Gateway di archiviazione nel cloud**.
 
    ![Dispositivo online](./media/azure-stack-edge-j-series-deploy-add-shares/device-online-1.png)
 
@@ -51,7 +51,7 @@ Per creare una condivisione, eseguire la procedura seguente:
 
    ![Aggiungere una condivisione](./media/azure-stack-edge-j-series-deploy-add-shares/select-add-share-1.png)
 
-3. Nel riquadro **Aggiungi condivisione** eseguire le operazioni seguenti:
+3. Nel riquadro **Aggiungi condivisione** seguire questa procedura:
 
     a. Nella casella **Nome**, specificare un nome univoco per la condivisione.  
     Il nome della condivisione può contenere solo lettere, numeri e trattini. Deve avere lunghezza compresa tra 3 e 63 caratteri e iniziare con una lettera o un numero. I trattini devono essere preceduti e seguiti da una lettera o un numero.

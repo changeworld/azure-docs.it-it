@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 62a1f43fb73f0eda77ebb8f62f64c95ff4ad37a1
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 5df8b478c550522d4602398afd208c1e001c96a2
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734199"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97883300"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Esercitazione: Introduzione ad Azure Machine Learning nel proprio ambiente di sviluppo (parte 1 di 4)
 
@@ -67,8 +67,10 @@ tutorial
 - `.azureml`: sottodirectory nascosta per l'archiviazione dei file di configurazione di Azure Machine Learning.
 
 > [!TIP]
-> Se si usa un Mac, in una finestra del Finder premere **CMD+MAIUSC+.** per attivare la possibilità di vedere e creare directory che iniziano con un punto.  In alternativa, usare il terminale di comandi per creare la directory.
-
+> È possibile creare la sottodirectory nascosta .azureml in una finestra del terminale  oppure si può usare la procedura seguente:
+> * In una finestra del Finder in un Mac premere **CMD+MAIUSC+.** per attivare la possibilità di vedere e creare directory che iniziano con un punto.  
+> * In Windows 10 vedere [Visualizzare cartelle e file nascosti in Windows 10](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
+> * Nell'interfaccia grafica di Linux premere **CTRL+H** o selezionare il menu **Visualizza** e quindi la casella di controllo **Mostra file nascosti**.
 
 > [!div class="nextstepaction"]
 > [È stata creata una directory](?success=create-dir#workspace) [Si è verificato un problema](https://www.research.net/r/7C8Z3DN?issue=create-dir)

@@ -3,7 +3,7 @@ title: "Esercitazione: Distribuire un'app Python Django con Postgres"
 description: Creare un'app Web Python con un database PostgreSQL e distribuirla in Azure. L'esercitazione usa il framework Django e l'app è ospitata nel Servizio app di Azure in Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 01/04/2021
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: b106b403022f3407a3838b7f65222baf41cbfff5
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: ffde74a0567661d6b9f77e45a80bfd585e5c7212
+ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852966"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97898590"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -236,14 +236,11 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
 1. Nella sessione SSH eseguire i comandi seguenti (è possibile incollare i comandi usando **CTRL**+**MAIUSC**+**V**):
 
     ```bash
-    # Change to the folder where the app code is deployed
-    cd site/wwwroot
+    # Change to the app folder
+    cd $APP_PATH
     
-    # Activate default virtual environment in App Service container
+    # Activate the venv (requirements.txt is installed automatically)
     source /antenv/bin/activate
-
-    # Install packages
-    pip install -r requirements.txt
 
     # Run database migrations
     python manage.py migrate
@@ -251,6 +248,8 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
     # Create the super user (follow prompts)
     python manage.py createsuperuser
     ```
+
+    Se si verificano errori relativi alla connessione al database, verificare i valori delle impostazioni dell'applicazione create nella sezione precedente.
 
 1. Il comando `createsuperuser` chiede di immettere le credenziali di utente con privilegi avanzati. Ai fini di questa esercitazione, usare il nome utente predefinito `root`, premere **INVIO** per l'indirizzo di posta elettronica per lasciarlo vuoto e immettere `Pollsdb1` per la password.
 
@@ -266,7 +265,7 @@ Problemi? Per prima cosa, vedere la [guida alla risoluzione dei problemi](config
 
     Dopo aver aggiornato le impostazioni per correggere gli errori, attendere un minuto che l'app venga riavviata, quindi aggiornare il browser.
 
-1. Passare a `http://<app-name>.azurewebsites.net/admin`. Accedere usando le credenziali di utente con privilegi avanzati della sezione precedente (`root` e `Pollsdb1`). In **Polls** (Sondaggi) selezionare **Add** (Aggiungi) accanto a **Questions** (Domande) e creare una domanda del sondaggio con alcune scelte.
+1. Passare a `http://<app-name>.azurewebsites.net/admin`. Accedere usando le credenziali di utente con privilegi avanzati di Django della sezione precedente (`root` e `Pollsdb1`). In **Polls** (Sondaggi) selezionare **Add** (Aggiungi) accanto a **Questions** (Domande) e creare una domanda del sondaggio con alcune scelte.
 
 1. Passare di nuovo a `http://<app-name>.azurewebsites.net` per verificare se le domande ora vengono presentate all'utente. Rispondere alle domande come desiderato per generare alcuni dati nel database.
 
@@ -292,7 +291,7 @@ Eseguire i comandi seguenti in una finestra del terminale. Assicurarsi di seguir
 python3 -m venv venv
 source venv/bin/activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -310,7 +309,7 @@ py -3 -m venv venv
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
 venv\scripts\activate
 
-# Install packages
+# Install dependencies
 pip install -r requirements.txt
 # Run Django migrations
 python manage.py migrate
@@ -327,7 +326,7 @@ python manage.py runserver
 py -3 -m venv venv
 venv\scripts\activate
 
-:: Install packages
+:: Install dependencies
 pip install -r requirements.txt
 :: Run Django migrations
 python manage.py migrate
@@ -397,11 +396,8 @@ Poiché sono state apportate modifiche al modello di dati, è necessario riesegu
 Aprire di nuovo una sessione SSH nel browser passando a `https://<app-name>.scm.azurewebsites.net/webssh/host`. Eseguire quindi i comandi seguenti:
 
 ```
-cd site/wwwroot
-
-# Activate default virtual environment in App Service container
+cd $APP_PATH
 source /antenv/bin/activate
-# Run database migrations
 python manage.py migrate
 ```
 

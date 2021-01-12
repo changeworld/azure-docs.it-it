@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 8706ac588f2cc868805de7126140a1edd4b8c735
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6bf21205c028eaff08eef91757424f8b52764ada
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445529"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936142"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Esercitazione: Configurare l'accesso Single Sign-On tra Azure Active Directory e F5
 
@@ -143,13 +143,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<YourCustomFQDN>.f5.com/`
 
@@ -168,7 +168,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -195,7 +195,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 1. Fare clic su **Accesso condizionale**.
 1. Fare clic su **Nuovi criteri**.
-1. È ora possibile visualizzare l'app F5 come risorsa per i criteri della CA e applicare qualsiasi accesso condizionale, tra cui autenticazione a più fattori, controllo di accesso in base al dispositivo o criteri di protezione delle identità.
+1. È ora possibile visualizzare l'app F5 come risorsa per i criteri di accesso condizionale e applicare qualsiasi accesso condizionale, tra cui autenticazione a più fattori, controllo di accesso in base al dispositivo o criteri di protezione delle identità.
 
 ## <a name="configure-f5-sso"></a>Configurare l'accesso Single Sign-On di F5
 
@@ -301,7 +301,7 @@ Usare questa sezione se non è possibile usare la configurazione guidata oppure 
 
         * Specificare il pool di app di uscita o crearne uno nuovo.
 
-        * Se si crea un nuovo server app specificare l' **indirizzo IP interno** e il **numero di porta**.
+        * Se si crea un nuovo server app specificare l'**indirizzo IP interno** e il **numero di porta**.
 
         ![Screenshot che mostra il riquadro in cui è possibile specificare questi dettagli.](./media/headerf5-tutorial/configure19.png) 
 
@@ -321,7 +321,7 @@ Usare questa sezione se non è possibile usare la configurazione guidata oppure 
 
     ![Screenshot che mostra la pagina About this BIG IP. ](./media/headerf5-tutorial/configure22.png)
 
-1. Specificare i dettagli per il servizio del provider di servizi. Specificare il **nome** che rappresenta la configurazione SP di F5. Specificare l' **ID entità** (in genere uguale all'URL dell'applicazione).
+1. Specificare i dettagli per il servizio del provider di servizi. Specificare il **nome** che rappresenta la configurazione SP di F5. Specificare l'**ID entità** (in genere uguale all'URL dell'applicazione).
 
     ![Screenshot che mostra la pagina SAML Service Provider con la finestra di dialogo Create New SAML SP.](./media/headerf5-tutorial/configure23.png)
 

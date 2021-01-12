@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 01/05/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 28b5c107fb35c7bda9b1680050b92004436b98ff
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185505"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935463"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro
 
@@ -37,7 +37,6 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro, assicurarsi di:
-
 - Aver attivato il dispositivo Azure Stack Edge Pro come descritto in [Attivare il dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
 
@@ -45,36 +44,36 @@ Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro, a
 
 Per configurare il calcolo in Azure Stack Edge Pro, creare una risorsa hub IoT.
 
-1. Nel portale di Azure della risorsa Azure Stack Edge passare a **Panoramica**. Nel riquadro **Calcolo** a destra selezionare **Inizia subito**.
+1. Nel portale di Azure della risorsa Azure Stack Edge passare a **Panoramica** e selezionare **IoT Edge**.
 
-    ![Introduzione al calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
+   ![Introduzione al calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-1.png)
 
-2. Nel riquadro **Configura calcolo Edge** selezionare **Configura calcolo**.
+2. In **Abilita servizio IoT Edge** selezionare **Aggiungi**.
 
-    ![Configurare il calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
+   ![Configurare il calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-2.png)
 
-3. Nel pannello **Configura calcolo Edge** immettere quanto segue:
+3. In **Crea servizio IoT Edge** immettere le impostazioni per la risorsa hub IoT:
 
-   
-    |Campo  |valore  |
-    |---------|---------|
-    |Hub IoT     | Scegliere **Nuovo** o **Esistente**. <br> Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente. <br> In ogni caso, la risorsa hub IoT usa la stessa sottoscrizione e lo stesso gruppo di risorse usati dalla risorsa Azure Stack Edge.     |
-    |Nome     |Immettere un nome per la risorsa hub IoT.         |
+   |Campo   |Valore    |
+   |--------|---------|
+   |Sottoscrizione      | Sottoscrizione usata dalla risorsa Azure Stack Edge. |
+   |Gruppo di risorse    | Gruppo di risorse usato dalla risorsa Azure Stack Edge. |
+   |Hub IoT           | Scegliere **Crea nuovo** o **Usa esistente**. <br> Per impostazione predefinita, per creare una risorsa IoT viene usato un livello Standard (S1). Per usare una risorsa IoT di un livello gratuito, crearne uno e quindi selezionare la risorsa esistente. <br> In ogni caso, la risorsa hub IoT usa la stessa sottoscrizione e lo stesso gruppo di risorse usati dalla risorsa Azure Stack Edge.     |
+   |Nome              | Se non si vuole usare il nome predefinito specificato per una nuova risorsa hub IoT, immettere un nome diverso. |
 
     ![Introduzione al calcolo 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-4. Selezionare **Crea**. La creazione della risorsa hub IoT richiede alcuni minuti. Al termine della creazione della risorsa hub IoT, il riquadro **Configura calcolo** viene aggiornato per mostrare la configurazione di calcolo. 
+4. Dopo aver completato le impostazioni, selezionare **Rivedi e crea**. Verificare le impostazioni della risorsa hub IoT e selezionare **Crea**.
+
+   La creazione di una risorsa hub IoT richiede alcuni minuti. Una volta creata la risorsa, la pagina **Panoramica** indica che il servizio IoT Edge è ora in esecuzione.
 
     ![Introduzione al calcolo 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Per verificare che il ruolo calcolo Edge sia stato configurato, selezionare **Visualizza calcolo** nel riquadro **Configura calcolo**.
-    
-    ![Introduzione al calcolo 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+5. Per verificare che il ruolo di calcolo Edge sia stato configurato, selezionare **Proprietà**.
 
-    > [!NOTE]
-    > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge Pro, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
-    
-    Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Nel dispositivo IoT Edge viene eseguito anche un runtime IoT Edge. Attualmente per il dispositivo IoT Edge è disponibile solo la piattaforma Linux.
+   ![Introduzione al calcolo 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
+
+   Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Nel dispositivo IoT Edge viene eseguito anche un runtime IoT Edge. Attualmente per il dispositivo IoT Edge è disponibile solo la piattaforma Linux.
 
 
 ## <a name="add-shares"></a>Aggiungere condivisioni
@@ -94,11 +93,11 @@ Per la distribuzione semplice di questa esercitazione, saranno necessarie due co
 
         ![Aggiungere una condivisione Edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
-    Se è stata creata una condivisione NFS locale, usare l'opzione di comando di sincronizzazione remota (rsync) seguente per copiare i file nella condivisione:
+    Se è stata creata una condivisione NFS locale, usare l'opzione di comando di sincronizzazione remota (`rsync`) seguente per copiare i file nella condivisione:
 
     `rsync <source file path> < destination file path>`
 
-    Per altre informazioni sul comando `rsync`, vedere la [documentazione di Rsync](https://www.computerhope.com/unix/rsync.htm).
+    Per altre informazioni sul comando `rsync`, vedere la [documentazione di `Rsync`](https://www.computerhope.com/unix/rsync.htm).
 
     > [!NOTE]
     > Per montare la condivisione NFS per il calcolo, la rete di calcolo deve essere configurata nella stessa subnet dell'indirizzo IP virtuale NFS. Per informazioni dettagliate su come configurare la rete di calcolo, vedere [Abilitare la rete di calcolo nel dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
@@ -125,7 +124,7 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
 2. Nel pannello **Configura e aggiungi modulo** immettere i valori seguenti:
 
     
-    |Campo  |valore  |
+    |Campo  |Valore  |
     |---------|---------|
     |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato ad Azure Stack Edge Pro.        |
     |URI immagine     | URI dell'immagine del contenitore corrispondente per il modulo.        |
@@ -154,15 +153,15 @@ Per verificare che il modulo sia in esecuzione, eseguire queste operazioni:
  
 1. In Esplora file connettersi alla condivisione locale Edge e alla condivisione Edge create in precedenza.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
+    ![Verificare la trasformazione dei dati - 1](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
 1. Aggiungere i dati alla condivisione locale.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
+    ![Verificare la trasformazione dei dati - 2](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
    I dati vengono spostati nella condivisione cloud.
 
-    ![Verificare la trasformazione dei dati](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
+    ![Verificare la trasformazione dei dati - 3](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
    Viene quindi eseguito il push dei dati dalla condivisione cloud all'account di archiviazione. Per visualizzare i dati, è possibile usare Storage Explorer.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/17/2020
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 490bce5ba39b374d54dc9a3f5d76e7ddcdc4e99a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 643cfd1efcc03f0a5d36e4ba53213bba18fc422d
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504559"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97914655"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamzskill"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con TeamzSkill
 
@@ -45,16 +45,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di TeamzSkill in Azure AD, è necessario aggiungere TeamzSkill dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **TeamzSkill** nella casella di ricerca.
 1. Selezionare **TeamzSkill** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-teamzskill"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per TeamzSkill
 
-Configurare e testare l'accesso SSO di Azure AD con TeamzSkill usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in TeamzSkill.
+Configurare e testare l'accesso SSO di Azure AD con TeamzSkill usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in TeamzSkill.
 
 Per configurare e testare l'accesso SSO di Azure AD con TeamzSkill, completare i passaggi seguenti:
 
@@ -69,19 +69,19 @@ Per configurare e testare l'accesso SSO di Azure AD con TeamzSkill, completare i
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **TeamzSkill** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On** .
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina di integrazione dell'applicazione **TeamzSkill** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona a forma di matita relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<CUSTOMER_SUBDOMAIN>.teamzskill.com/login/callback`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<CUSTOMER_SUBDOMAIN>.teamzskill.com/login/callback`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<CUSTOMER_SUBDOMAIN>.teamzskill.com/login/callback`
 
@@ -106,7 +106,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | ruolo | user.assignedroles |
 
     > [!NOTE]
-    > TeamzSkill prevede ruoli per gli utenti assegnati all'applicazione. Configurare questi ruoli in Azure AD in modo che agli utenti possano essere assegnati i ruoli appropriati. Per informazioni su come configurare i ruoli in Azure AD, vedere [qui](../develop/active-directory-enterprise-app-role-management.md).
+    > TeamzSkill prevede ruoli per gli utenti assegnati all'applicazione. Configurare questi ruoli in Azure AD in modo che agli utenti possano essere assegnati i ruoli appropriati. Per informazioni su come configurare i ruoli in Azure AD, vedere [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -120,25 +120,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
-   1. Fare clic su **Crea** .
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TeamzSkill.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
-1. Nell'elenco delle applicazioni selezionare **TeamzSkill** .
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni selezionare **TeamzSkill**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo** . Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
+1. Se i ruoli sono stati configurati come illustrato sopra, è possibile selezionarlo dall'elenco a discesa **Selezionare un ruolo**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-teamzskill-sso"></a>Configurare l'accesso Single Sign-On di TeamzSkill
 
@@ -154,9 +154,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     a. Passare a **Company > Single Sign-On** (Società > Accesso Single Sign-On) e quindi selezionare la scheda **Metadata Upload** (Caricamento metadati).
 
-    b. Incollare il valore di **XML metadati federazione** , copiato dal portale di Azure, nel campo **XML Metadata** (Metadati XML).
+    b. Incollare il valore di **XML metadati federazione**, copiato dal portale di Azure, nel campo **XML Metadata** (Metadati XML).
      
-    c. Fare quindi clic su **Salva** .
+    c. Fare quindi clic su **Salva**.
 
 ### <a name="create-teamzskill-test-user"></a>Creare l'utente di test di TeamzSkill
 

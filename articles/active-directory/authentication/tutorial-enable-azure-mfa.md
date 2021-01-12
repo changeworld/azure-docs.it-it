@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32228e90e3cfc064cd5be9cd0655f321ab3e2809
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: f2e8bf2ccbf7a53563013c7ba653a6f6e8905337
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741151"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881311"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-ad-multi-factor-authentication"></a>Esercitazione: Proteggere gli eventi di accesso degli utenti con Azure AD Multi-Factor Authentication
 
 L'autenticazione a più fattori è un processo che richiede all'utente di immettere ulteriori forme di identificazione durante un evento di accesso. La richiesta può prevedere l'immissione di un codice sul telefono cellulare o l'analisi dell'impronta digitale. Quando è necessaria una seconda forma di autenticazione, la sicurezza viene rafforzata, perché questo fattore aggiuntivo non è facile da ottenere o duplicare.
 
-Azure AD Multi-Factor Authentication e i criteri di accesso condizionale offrono la flessibilità per abilitare l'autenticazione a più fattori per gli utenti durante specifici eventi di accesso.
+Azure AD Multi-Factor Authentication e i criteri di accesso condizionale offrono la flessibilità per abilitare l'autenticazione a più fattori per gli utenti durante specifici eventi di accesso. Guardare questo [video che illustra come configurare e applicare l'autenticazione a più fattori nel tenant](https://www.youtube.com/watch?v=qNndxl7gqVM) (**consigliato**)
 
 > [!IMPORTANT]
 > Questa esercitazione illustra come un amministratore può abilitare Azure AD Multi-Factor Authentication.

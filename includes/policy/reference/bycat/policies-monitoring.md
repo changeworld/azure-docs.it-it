@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: cf638e1de116532136b9e78df1933048c8305b7b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 907bf06c009738eb098532ac5ff53e13dbd16826
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005462"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98047718"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -65,3 +65,4 @@ ms.locfileid: "96005462"
 |[L'account di archiviazione che include il contenitore con i log attività deve essere crittografato tramite BYOK](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffbb99e8e-e444-4da0-9ff1-75c92f5a85b2) |Questo criterio verifica se l'account di archiviazione che include il contenitore con i log attività è crittografato tramite BYOK. Il criterio funziona solo se l'account di archiviazione risiede nella stessa sottoscrizione dei log attività per impostazione predefinita. Per altre informazioni sulla crittografia dei dati inattivi in Archiviazione di Azure, vedere [https://aka.ms/azurestoragebyok](https://aka.ms/azurestoragebyok).  |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_StorageAccountBYOK_Audit.json) |
 |[L'agente di Log Analytics deve essere installato nei set di scalabilità di macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fefbde977-ba53-4479-b8e9-10b957924fbf) |Questo criterio controlla i set di scalabilità di macchine virtuali Windows/Linux in cui non è installato l'agente di Log Analytics. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VMSS_LogAnalyticsAgent_AuditIfNotExists.json) |
 |[L'agente di Log Analytics deve essere installato nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa70ca396-0a34-413a-88e1-b956c1e683be) |Questo criterio controlla le macchine virtuali Windows/Linux in cui non è installato l'agente di Log Analytics. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/VirtualMachines_LogAnalyticsAgent_AuditIfNotExists.json) |
+|[Le cartelle di lavoro devono essere salvate in account di archiviazione controllati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6fc8115b-2008-441f-8c61-9b722c1e537f) |Con il modello Bring your own Storage (BYOS), le cartelle di lavoro vengono caricate in un account di archiviazione controllato dall'utente. Questo significa che è possibile controllare i criteri di crittografia dei dati inattivi, i criteri di gestione della durata e l'accesso alla rete. Si sarà tuttavia responsabili dei costi associati a tale account di archiviazione. Per altre informazioni, vedere [https://aka.ms/workbooksByos](https://aka.ms/workbooksByos) |deny, audit, disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Workbooks_BYOSEnabled_Audit.json) |

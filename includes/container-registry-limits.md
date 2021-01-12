@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: e451171859efc49753131b145642aec4864db45d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 089b1b6f1af2f19c16866858324bde2e151e8bdb
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015667"
+ms.locfileid: "98053017"
 ---
 | Risorsa | Basic | Standard | Premium |
 |---|---|---|---|
@@ -38,7 +38,7 @@ ms.locfileid: "98015667"
 | &bull; repository per mapping di ambito | N/D | N/D | 500 |
 
 
-<sup>1</sup> Spazio di archiviazione incluso nella tariffa giornaliera per ogni livello. È possibile usare uno spazio di archiviazione aggiuntivo, fino al limite di archiviazione del registro, a una velocità giornaliera aggiuntiva per GiB. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing].
+<sup>1</sup> Spazio di archiviazione incluso nella tariffa giornaliera per ogni livello. È possibile usare uno spazio di archiviazione aggiuntivo, fino al limite di archiviazione del registro, a una velocità giornaliera aggiuntiva per GiB. Per informazioni sui costi, vedere [Prezzi di Registro Azure Container][pricing]. Se è necessario uno spazio di archiviazione oltre il limite di archiviazione del registro, contattare il supporto di Azure.
 
 <sup>2</sup> I dati delle *operazioni di lettura*, *operazioni di scrittura* e *larghezza di banda* sono stime minime. Registro Azure Container migliora le prestazioni in base alle necessità d'uso.
 

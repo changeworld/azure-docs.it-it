@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 01/04/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 7ca9b21838d35b54b4ed84d5aaf3aa797b02d9e0
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: dd0b6833c4c51c218497cea4fec04390200edff4
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630769"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97935357"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro R
 
-Questa è la prima esercitazione della serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge Pro R. L'esercitazione descrive come preparare il portale di Azure per distribuire una risorsa di Azure Stack Edge. L'esercitazione usa un dispositivo Azure Stack Edge Pro R a un nodo dotato di un gruppo di continuità (UPS).
+Questa esercitazione è la prima della serie di esercitazioni sulla distribuzione necessarie per distribuire completamente Azure Stack Edge Pro R. L'esercitazione descrive come preparare il portale di Azure per distribuire una risorsa di Azure Stack Edge. L'esercitazione usa un dispositivo Azure Stack Edge Pro R a un nodo dotato di un gruppo di continuità (UPS).
 
 Per completare il processo di installazione e configurazione sono necessari privilegi di amministratore. La preparazione del portale richiede meno di 10 minuti.
 
@@ -37,7 +37,7 @@ Per distribuire Azure Stack Edge Pro R, fare riferimento alle esercitazioni segu
 | --- | --- |
 | **Preparazione** |Questi passaggi devono essere completati per preparare la successiva distribuzione. |
 | **[Elenco di controllo configurazione della distribuzione](#deployment-configuration-checklist)** |Usare questo elenco di controllo per raccogliere e registrare informazioni prima e durante la distribuzione. |
-| **[Prerequisiti di distribuzione](#prerequisites)** |Questi confermano che l'ambiente è pronto per la distribuzione. |
+| **[Prerequisiti di distribuzione](#prerequisites)** |Questi prerequisiti confermano che l'ambiente è pronto per la distribuzione. |
 |  | |
 |**Esercitazioni sulla distribuzione** |Queste esercitazioni sono necessarie per distribuire il dispositivo Azure Stack Edge Pro R nell'ambiente di produzione. |
 |**[1. Preparare il portale di Azure per il dispositivo](azure-stack-edge-pro-r-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare un dispositivo fisico Azure Stack Box Edge. |
@@ -47,7 +47,7 @@ Per distribuire Azure Stack Edge Pro R, fare riferimento alle esercitazioni segu
 |**[5. Configurare le impostazioni del dispositivo](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Assegnare un nome di dispositivo e un dominio DNS, configurare il server di aggiornamento e l'ora del dispositivo. |
 |**[6. Configurare le impostazioni di sicurezza](azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md)** |Configurare i certificati, la VPN e la crittografia dei dati inattivi per il dispositivo. Usare i certificati generati dal dispositivo o caricare i certificati personali.   |
 |**[7. Attivare il dispositivo](azure-stack-edge-pro-r-deploy-activate.md)** |Usare la chiave di attivazione dal servizio per attivare il dispositivo. Il dispositivo è pronto per la configurazione di condivisioni SMB o NFS o per la connessione tramite REST. |
-|**[8. Configurare il ruolo di calcolo](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurare il ruolo di calcolo nel dispositivo. Verrà creato anche un cluster Kubernetes. |
+|**[8. Configurare il ruolo di calcolo](azure-stack-edge-gpu-deploy-configure-compute.md)** |Configurare il ruolo di calcolo nel dispositivo. Viene creato anche un cluster Kubernetes. |
 
 È ora possibile iniziare a configurare il portale di Azure.
 
@@ -109,7 +109,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
     
     |Impostazione  |Valore  |
     |---------|---------|
-    |Subscription    |Questo campo viene popolato automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
+    |Subscription    |I dati della sottoscrizione vengono compilati automaticamente in base alla selezione precedente. La sottoscrizione viene collegata all'account di fatturazione. |
     |Resource group  |Selezionare un gruppo esistente o crearne uno nuovo.<br>Altre informazioni sui [gruppi di risorse di Azure](../azure-resource-manager/management/overview.md).     |
 
 7. Immettere o selezionare quanto segue in **Dettagli istanza**.
@@ -150,7 +150,7 @@ Al termine della creazione e della distribuzione della risorsa, si riceverà una
 
 Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
 
-<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
 Se si verificano problemi durante il processo di ordine, vedere [Risolvere i problemi relativi all'ordine](azure-stack-edge-troubleshoot-ordering.md).
 
@@ -158,20 +158,17 @@ Se si verificano problemi durante il processo di ordine, vedere [Risolvere i pro
 
 Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Azure Stack Edge Pro e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
 
-1. Selezionare la risorsa creata. Selezionare **Panoramica** e quindi **Configurazione dispositivo**.
+1. Selezionare la risorsa creata, quindi selezionare **Panoramica**.
 
-    ![Selezionare Configurazione dispositivo](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-2.png)
+2. Nel riquadro a destra specificare un nome per l'istanza di Azure Key Vault o accettare il nome predefinito. La lunghezza del nome dell'insieme di credenziali delle chiavi deve essere compresa tra 3 e 24 caratteri.
 
-2. Nel riquadro **Attiva** specificare un nome per l'istanza di Azure Key Vault o accettare il nome predefinito. La lunghezza del nome dell'insieme di credenziali delle chiavi deve essere compresa tra 3 e 24 caratteri. 
+   Viene creato un insieme di credenziali delle chiavi per ogni risorsa Azure Stack Edge attivata con il dispositivo. L'insieme di credenziali delle chiavi consente di archiviare e accedere ai segreti, ad esempio la chiave di integrità del canale per il servizio viene archiviata nell'insieme di credenziali delle chiavi.
 
-    Viene creato un insieme di credenziali delle chiavi per ogni risorsa Azure Stack Edge attivata con il dispositivo. L'insieme di credenziali delle chiavi consente di archiviare e accedere ai segreti, ad esempio la chiave di integrità del canale per il servizio viene archiviata nell'insieme di credenziali delle chiavi. 
+   Dopo aver specificato un nome dell'insieme di credenziali delle chiavi, selezionare **Genera chiave di attivazione** per creare una chiave di attivazione.
 
-    Dopo aver specificato un nome dell'insieme di credenziali delle chiavi, selezionare **Genera chiave** per creare una chiave di attivazione. 
+   ![Ottenere una chiave di attivazione](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
 
-    ![Ottenere una chiave di attivazione](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-3.png)
-
-    Attendere alcuni minuti mentre vengono creati l'insieme di credenziali delle chiavi e la chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
-
+   Attendere alcuni minuti mentre vengono creati l'insieme di credenziali delle chiavi e la chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.<!--Verify that the new screen has a copy icon.-->
 
 > [!IMPORTANT]
 > - La chiave di attivazione scade tre giorni dopo la generazione.

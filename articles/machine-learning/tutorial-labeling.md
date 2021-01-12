@@ -11,12 +11,12 @@ author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
 ms.custom: data4ml
-ms.openlocfilehash: 5aec3d6bb2afeadda64ac19563f8334a6aef3b77
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 238801171d19191bcac505f0c95395320f96d75c
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347507"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97882467"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
 
@@ -104,7 +104,8 @@ Ora che si ha l'accesso ai dati da etichettare, creare il progetto di etichettat
 1. Per il modulo **Crea set di dati da archivio dati** usare l'input seguente:
 
     1. Nel modulo **Informazioni di base** aggiungere un nome. Qui si userà **images-for-tutorial**.  Aggiungere una descrizione, se si vuole.  Fare quindi clic su **Avanti**.
-    1. Nel modulo **Selezione archivio dati** usare l'elenco a discesa per selezionare **Archivio dati creato in precedenza** e quindi, ad esempio, **tutorial_images (Azure Blob Storage)** (tutorial_images - archivio BLOB di Azure)
+    1. Nel modulo **Selezione archivio dati** selezionare **Archivio dati creato in precedenza**, quindi fare clic sul nome dell'archivio dati e selezionare **Seleziona archivio dati**.
+    1. Nella pagina successiva verificare che l'archivio dati attualmente selezionato sia corretto. Se non lo è, selezionare **Archivio dati creato in precedenza** e ripetere il passaggio precedente.
     1. Successivamente, sempre nel modulo **Selezione archivio dati** selezionare **Sfoglia** e quindi **MultiClass - DogsCats**.  Selezionare **Salva** per usare **/MultiClass - DogsCats** come percorso.
     1. Selezionare **Avanti** per confermare i dettagli e quindi **Crea** per creare il set di dati.
     1. Selezionare il cerchio accanto al nome del set di dati nell'elenco, ad esempio **images-for-tutorial**.

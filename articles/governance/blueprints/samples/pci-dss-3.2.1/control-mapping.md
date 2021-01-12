@@ -3,18 +3,18 @@ title: Controlli dell'esempio di progetto PCI-DSS v3.2.1
 description: Mapping dei controlli dell'esempio di progetto Payment Card Industry Data Security Standard v3.2.1 con Criteri di Azure e Controllo degli accessi in base al ruolo di Azure.
 ms.date: 08/19/2020
 ms.topic: sample
-ms.openlocfilehash: c634e8cc64f6376251e2cd07725c5c5a643b27c7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 7391b32b23f6f0fb8b337a8178b83cffd7dba69b
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931428"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955689"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto PCI-DSS v3.2.1
 
 L'articolo seguente descrive il mapping dei controlli dell'esempio di progetto PCI-DSS v3.2.1 di Azure Blueprints con i controlli PCI-DSS v3.2.1. Per altre informazioni sui controlli, vedere [PCI-DSS v3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-I mapping seguenti fanno riferimento ai controlli **PCI-DSS v3.2.1:2018**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: Verifica controlli PCI v3.2.1:2018 e distribuisci estensioni macchina virtuale specifiche per supportare i requisiti di controllo**.
+I mapping seguenti fanno riferimento ai controlli **PCI-DSS v3.2.1:2018**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Quindi, trovare e selezionare l'iniziativa dei criteri predefinita **PCI v3.2.1:2018**.
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).

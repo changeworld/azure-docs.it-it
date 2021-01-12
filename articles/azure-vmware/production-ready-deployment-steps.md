@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 1d1deebd56717c63a745500198eb8df9e3687b49
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.openlocfilehash: 2cc4d40fd8088a632e0c24e3c4b770ebdc9de2e8
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96558692"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97912734"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -62,7 +62,7 @@ Definire la password dell'amministratore di NSX-T.  Durante la distribuzione ver
 
 Il primo passaggio della pianificazione della distribuzione consiste nel pianificare la segmentazione IP.  La soluzione Azure VMware inserisce una rete /22 fornita dall'utente, quindi la suddivide in segmenti più piccoli e usa tali segmenti IP per vCenter, VMware HCX, NSX-T e vMotion.
 
-La soluzione Azure VMware si connette alla Rete virtuale di Microsoft Azure tramite un circuito ExpressRoute interno. Nella maggior parte dei casi si connette al data center tramite Copertura globale ExpressRoute. 
+La soluzione Azure VMware si connette alla Rete virtuale di Microsoft Azure attraverso un circuito ExpressRoute interno. Nella maggior parte dei casi si connette al data center tramite Copertura globale ExpressRoute. 
 
 La soluzione Azure VMware, l'ambiente di Azure esistente e l'ambiente locale scambiano in genere route. Il blocco di indirizzi di rete CIDR /22 definito in questo passaggio non dovrebbe quindi sovrapporsi a eventuali elementi già presenti in locale o in Azure.
 
@@ -100,7 +100,7 @@ Per accedere al cloud privato della soluzione Azure VMware, il circuito ExpressR
 Il circuito ExpressRoute dalla soluzione Azure VMware si connette a un gateway ExpressRoute nella Rete virtuale di Azure definita in questo passaggio.  
 
 >[!IMPORTANT]
->È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione Azure VMware, purché non si superi il limite di quattro circuiti ExpressRoute per rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.  
+>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione Azure VMware, purché non si superi il limite di quattro circuiti ExpressRoute per rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute, è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.  
 
 Se si vuole connettere il circuito ExpressRoute dalla soluzione Azure VMware a un gateway ExpressRoute esistente, è possibile eseguire questa operazione dopo la distribuzione.  
 

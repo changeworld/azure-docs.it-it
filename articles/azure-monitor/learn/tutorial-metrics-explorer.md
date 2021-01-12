@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: 6ce9183fad50c43ea7070f5fa09e0d445caf89df
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5dcb86ff4af2a68ecf0bb361e6da4f788ea32b62
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451246"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881294"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Esercitazione: Creare un grafico delle metriche in Monitoraggio di Azure
 Esplora metriche è una funzionalità di Monitoraggio di Azure nel portale di Azure che consente di creare grafici dai valori delle metriche, correlare le tendenze a livello visivo ed esaminare picchi e flessioni nei valori delle metriche. Usare Esplora metriche per esaminare l'integrità e l'utilizzo delle risorse di Azure o per tracciare grafici dalle metriche personalizzate. 
@@ -40,7 +40,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 1. Selezionare **Metriche** dal menu **Monitoraggio di Azure** o dalla sezione **Monitoraggio** del menu di una risorsa.
 
-1. Selezionare l'**Ambito**, ovvero la risorsa per cui si vogliono visualizzare le metriche. L'ambito è già popolato se si apre Esplora metriche dal menu di una risorsa.
+1. Selezionare l'**Ambito**, ovvero la risorsa per cui si vogliono visualizzare le metriche. L'ambito è già popolato se si apre Esplora metriche dal menu di una risorsa. Per altre informazioni sulle varie funzionalità della selezione dell'ambito delle risorse, vedere [questo articolo](../platform/metrics-charts.md#resource-scope-picker).
 
     ![Selezionare un ambito](media/tutorial-metrics-explorer/scope-picker.png)
 

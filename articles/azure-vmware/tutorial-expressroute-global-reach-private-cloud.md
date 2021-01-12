@@ -2,13 +2,13 @@
 title: Esercitazione - Associare gli ambienti locali a un cloud privato
 description: Informazioni su come creare il peering di Copertura globale ExpressRoute a un cloud privato in una soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 4d10972a693f7c4c3ae25a5bc986f6c15e978294
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 1/5/2021
+ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
+ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912498"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97913159"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Esercitazione: Associare gli ambienti locali a un cloud privato
 
@@ -19,8 +19,8 @@ Per il circuito ExpressRoute usato quando si [configura la rete da Azure al clou
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Creare una seconda chiave di autorizzazione per _circuito 2_ , il circuito ExpressRoute del cloud privato
-> * Usare il [portale di Azure](#azure-portal-method) o l' [interfaccia della riga di comando di Azure in un metodo di Cloud Shell](#azure-cli-in-a-cloud-shell-method) nella sottoscrizione del _circuito 1_ per abilitare il peering da locale a cloud privato di Copertura globale ExpressRoute
+> * Creare una seconda chiave di autorizzazione per _circuito 2_, il circuito ExpressRoute del cloud privato
+> * Usare il [portale di Azure](#azure-portal-method) o l'[interfaccia della riga di comando di Azure in un metodo di Cloud Shell](#azure-cli-in-a-cloud-shell-method) nella sottoscrizione del _circuito 1_ per abilitare il peering da locale a cloud privato di Copertura globale ExpressRoute
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -33,6 +33,7 @@ Prima di abilitare la connettività tra due circuiti ExpressRoute usando Copertu
 - Connettività stabilita verso e da un cloud privato della soluzione Azure VMware con peering del circuito ExpressRoute con un gateway ExpressRoute in una rete virtuale di Azure, ovvero _circuito 2_ delle procedure di peering.  
 - Un circuito ExpressRoute separato e funzionante usato per connettere gli ambienti locali ad Azure, ovvero il _circuito 1_ dal punto di vista delle procedure di peering.
 - Un [blocco di indirizzi di rete](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) non sovrapposti /29 per il peering Copertura globale ExpressRoute.
+- Assicurarsi che tutti i router che includono il servizio del provider ExpressRoute supportino il numero sistema autonomo (ASN) a 4 byte. La soluzione Azure VMware usa numeri ASN pubblici a 4 byte per annunciare le route.
 
 > [!TIP]
 > Nel contesto di questi prerequisiti, il circuito ExpressRoute locale è _circuito 1_ e il circuito ExpressRoute del cloud privato si trova in una sottoscrizione diversa ed è contrassegnato come _circuito 2_. 

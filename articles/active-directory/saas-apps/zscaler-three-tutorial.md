@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: ad88f2a469fb89145c39990fe55e92abf0f2a4c1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 054afcc4fb0f137a49e4b200ca7399424aba9adc
+ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608885"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97936556"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler-three"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zscaler Three
 
@@ -26,7 +26,6 @@ Questa esercitazione descrive come integrare Zscaler Three con Azure Active Dire
 * Abilitare gli utenti per l'accesso automatico a Zscaler Three con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,21 +49,21 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di Zscaler Three in Azure AD, è necessario aggiungere Zscaler Three dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Zscaler Three** nella casella di ricerca.
 1. Selezionare **Zscaler Three** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zscaler-three"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Zscaler Three
+## <a name="configure-and-test-azure-ad-sso-for-zscaler-three"></a>Configurare e testare l'accesso SSO di Azure AD per Zscaler Three
 
 Configurare e testare l'accesso SSO di Azure AD con Zscaler Three usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Zscaler Three.
 
-Per configurare e testare l'accesso SSO di Azure AD con Zscaler Three, completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Zscaler Three, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Zscaler Three](#configure-zscaler-three-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Zscaler Three](#create-zscaler-three-test-user)** : per avere una controparte di B.Simon in Zscaler Three collegata alla rappresentazione dell'utente in Azure AD.
@@ -74,9 +73,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Zscaler Three, completar
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Zscaler Three** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Zscaler Three** nel portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona a forma di matita relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -95,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | memberOf | user.assignedroles |
 
     > [!NOTE]
-    > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare un Ruolo in Azure AD
+    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) per informazioni su come configurare un ruolo in Azure AD.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -223,16 +222,15 @@ In questa sezione viene creato un utente di nome B.Simon in Zscaler Three. Zscal
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di Zscaler Three nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler Three per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Zscaler Three, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso di Zscaler Three e avviare il flusso di accesso da questa posizione.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Zscaler Three in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Zscaler Three. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Provare Zscaler Three con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato Zscaler Three, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
