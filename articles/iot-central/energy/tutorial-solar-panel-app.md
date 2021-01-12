@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un'app di monitoraggio di pannelli solari con IoT Central"
+title: "Esercitazione: Creare un'app di monitoraggio dei pannelli solari con Azure IoT Central"
 description: "Esercitazione: Informazioni su come creare un'applicazione per pannelli solari usando i modelli di applicazione di Azure IoT Central."
 author: op-ravi
 ms.author: omravi
@@ -8,104 +8,102 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: d006bae8290c1f6ea564f9985727f4d6ff70bb04
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 9ea1db982a6944bd12b458624545b3888881508f
+ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516759"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97881919"
 ---
-# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Esercitazione: Creare ed esaminare il modello di app per il monitoraggio dei pannelli solari 
+# <a name="tutorial-create-and-explore-the-solar-panel-monitoring-app-template"></a>Esercitazione: Creare ed esplorare il modello di app per il monitoraggio dei pannelli solari 
 
-Questa esercitazione assiste l'utente durante il processo di creazione dell'applicazione di monitoraggio dei pannelli solari, che include un modello di dispositivo di esempio con dati simulati. In questa esercitazione si apprenderà come:
+Questa esercitazione assiste l'utente durante il processo di creazione di un'applicazione di monitoraggio dei pannelli solari, che include un modello di dispositivo di esempio con dati simulati. In questa esercitazione si apprenderà come:
 
 
 > [!div class="checklist"]
-> * Creare gratuitamente l'app per pannelli solari
-> * Procedura dettagliata per l'applicazione
+> * Creare gratuitamente un'app per pannelli solari
+> * Esaminare l'applicazione
 > * Pulire le risorse
 
 
-Se non si ha una sottoscrizione, [creare un account di valutazione gratuito](https://azure.microsoft.com/free)
+Se non si ha una sottoscrizione, [creare un account di valutazione gratuito](https://azure.microsoft.com/free).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* nessuno
-* La sottoscrizione di Azure è consigliata, ma non è necessaria
+
+Non sono previsti prerequisiti per completare questa esercitazione. Una sottoscrizione di Azure è consigliata, ma non obbligatoria.
 
 
 ## <a name="create-a-solar-panel-monitoring-app"></a>Creare un'app per il monitoraggio pannelli solari 
 
 È possibile creare questa applicazione in tre semplici passaggi:
 
-1. Aprire la [home page di Azure IoT Central](https://apps.azureiotcentral.com) e fare clic su **Compila** per creare una nuova applicazione. 
+1. Passare ad [Azure IoT Central](https://apps.azureiotcentral.com). Per creare una nuova applicazione, selezionare **Crea**. 
 
-1. Selezionare la scheda **Energia** e fare clic su **Crea app** nel riquadro dell'applicazione **Monitoraggio pannelli solari**. 
+1. Selezionare la scheda **Energia**. In **Monitoraggio pannelli solari** selezionare **Crea app**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Compila app](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
+    > ![Screenshot delle opzioni di creazione di Azure IoT Central.](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
   
-1. Dopo la selezione di **Crea app** verrà aperto il modulo **Nuova applicazione**. Specificare i dettagli richiesti, come illustrato nella figura seguente:
-    * **Nome applicazione**: Scegliere un nome per l'applicazione IoT Central. 
-    * **URL**: Selezionare un URL di IoT Central. La piattaforma verificherà se è univoco o meno.
-    * **Versione di valutazione gratuita valida 7 giorni**: Se si dispone già di una sottoscrizione di Azure, è consigliabile usare l'impostazione predefinita. Se non si ha una sottoscrizione di Azure, iniziare con una versione di valutazione gratuita.
+1. Nella finestra di dialogo **Nuova applicazione** immettere i dettagli richiesti e quindi selezionare **Crea**:
+    * **Nome applicazione**: scegliere un nome per l'applicazione Azure IoT Central. 
+    * **URL**: selezionare un URL di Azure IoT Central. La piattaforma ne verifica l'univocità.
+    * **Piano tariffario**: se si ha già una sottoscrizione di Azure, è consigliabile usare l'impostazione predefinita. Se non si ha una sottoscrizione di Azure, iniziare con una versione di valutazione gratuita.
     * **Info di fatturazione**: L'applicazione stessa è gratuita. Per effettuare il provisioning delle risorse per l'app sono necessari i dettagli relativi alla directory, alla sottoscrizione di Azure e all'area.
-    * Fare clic sul pulsante **Crea** nella parte inferiore della pagina. L'app verrà creata in un minuto circa.
-        ![Modulo Nuova applicazione](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Screenshot di Nuova applicazione.](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
         
-        ![Modulo Nuova applicazione - Info di fatturazione](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
+        ![Screenshot di Info di fatturazione.](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Verificare l'applicazione e i dati simulati
 
-L'app per pannelli solari appena creata è l'app dell'utente ed è possibile modificarla in qualsiasi momento. Assicurarsi che l'app sia distribuita e che funzioni come previsto prima di modificarla.
+È possibile modificare la nuova app per pannelli solari in qualsiasi momento. Per il momento, assicurarsi che l'app venga distribuita e funzioni come previsto prima di modificarla.
 
-Per verificare la creazione dell'app e la simulazione dei dati, passare al **Dashboard**. Se i riquadri presentano alcuni dati, la distribuzione dell'app ha avuto esito positivo. La simulazione dei dati potrebbe richiedere alcuni minuti per la generazione dei dati. Attendere almeno 1 o 2 minuti. 
+Per verificare la creazione dell'app e la simulazione dei dati, passare al **Dashboard**. Se i riquadri presentano alcuni dati, la distribuzione dell'app ha avuto esito positivo. La simulazione dei dati può richiedere alcuni minuti per la generazione dei dati. 
 
 ## <a name="application-walk-through"></a>Procedura dettagliata per l'applicazione
-Dopo aver distribuito il modello di app, saranno disponibili un dispositivo contatore intelligente di esempio, un modello di dispositivo e un dashboard.
+Dopo aver distribuito il modello di app, è possibile esaminare l'app in dettaglio. Si noterà che include di un dispositivo contatore intelligente, un modello di dispositivo e un dashboard di esempio.
 
-Adatum è una società fornitrice di energia fittizia che monitora e gestisce i pannelli solari. Nel dashboard di monitoraggio del pannello solare sono presenti le proprietà del pannello solare, i dati e i comandi di esempio. Consente agli operatori e ai team di supporto tecnico di eseguire proattivamente le attività seguenti prima che si trasformino in richieste di assistenza:
-* Esaminare le informazioni sul pannello più recenti e la posizione di installazione sulla mappa
-* Controllare in modo proattivo lo stato del pannello e lo stato della connessione
-* Esaminare le tendenze relative alla generazione di energia e alla temperatura per rilevare modelli anomali
-* Tenere traccia della generazione di energia totale ai fini della pianificazione e della fatturazione
-* Eseguire comandi e operazioni di controllo, ad esempio attivare il pannello e aggiornare la versione del firmware. Nel modello i pulsanti di comando mostrano le funzionalità possibili senza inviare comandi reali.
+Adatum è una società fornitrice di energia fittizia che monitora e gestisce pannelli solari. Nel dashboard di monitoraggio del pannello solare sono presenti le proprietà del pannello solare, i dati e i comandi di esempio. Questo dashboard consente all'utente o al team di supporto di eseguire le attività seguenti in modo proattivo, prima che eventuali problemi richiedano ulteriori interventi:
+* Esaminare le informazioni sul pannello più recenti e la posizione di installazione sulla mappa.
+* Controllare lo stato del pannello e lo stato della connessione.
+* Esaminare le tendenze relative alla generazione di energia e alla temperatura per rilevare modelli anomali.
+* Tenere traccia della generazione di energia totale ai fini della pianificazione e della fatturazione.
+* Attivare un pannello e aggiornare la versione del firmware, se necessario. Nel modello i pulsanti di comando mostrano le funzionalità possibili senza inviare comandi reali.
 
 > [!div class="mx-imgBorder"]
-> ![Dashboard di monitoraggio pannelli solari](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
+> ![Screenshot del dashboard del modello Monitoraggio pannelli solari.](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### <a name="devices"></a>Dispositivi
-L'app include un dispositivo pannello solare di esempio. È possibile visualizzare i dettagli del dispositivo facendo clic sulla scheda **Dispositivi**.
+L'app include un dispositivo pannello solare di esempio. Per visualizzare i dettagli del dispositivo, selezionare **Dispositivi**.
 
 > [!div class="mx-imgBorder"]
-> ![Dispositivi pannello solare](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
+> ![Screenshot dei dispositivi del modello Monitoraggio pannelli solari.](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
-
-Fare clic sul collegamento del dispositivo di esempio **SP0123456789** per visualizzare i dettagli del dispositivo. Nella pagina **Aggiorna proprietà** è possibile aggiornare le proprietà scrivibili del dispositivo e visualizzare i valori aggiornati nel dashboard. 
+Selezionare il dispositivo di esempio **SP0123456789**. Nella scheda **Aggiorna proprietà** è possibile aggiornare le proprietà scrivibili del dispositivo e visualizzare un oggetto visivo dei valori aggiornati nel dashboard. 
 
 > [!div class="mx-imgBorder"]
-> ![Proprietà del pannello solare](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
+> ![Screenshot della scheda Aggiorna proprietà del modello Monitoraggio pannelli solari.](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### <a name="device-template"></a>Modello di dispositivo
-Fare clic sulla scheda **Modelli di dispositivo** per visualizzare il modello di dispositivo pannello solare. Il modello offre un'interfaccia predefinita per dati, proprietà, comandi e visualizzazioni.
+Per visualizzare il modello di dispositivo per pannelli solari, selezionare la scheda **Modelli di dispositivo**. Il modello include interfacce predefinite per i dati, le proprietà, i comandi e le visualizzazioni.
 
 > [!div class="mx-imgBorder"]
-> ![Modello di dispositivo pannello solare](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
+> ![Screenshot dei modelli di dispositivo del modello Monitoraggio pannelli solari.](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Se si decide di non continuare a usare questa applicazione, seguire questa procedura per eliminare l'applicazione:
 
-1. Aprire la scheda Amministrazione nel riquadro sinistro
-1. Selezionare Impostazioni applicazione e fare clic sul pulsante Elimina nella parte inferiore della pagina. 
+1. Nel riquadro sinistro selezionare **Amministrazione**.
+1. Selezionare **Impostazioni applicazione** > **Elimina**. 
 
     > [!div class="mx-imgBorder"]
-    > ![Eliminare l'applicazione](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
+    > ![Screenshot dell'amministrazione del modello Monitoraggio pannelli solari.](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sull'architettura dell'app per pannelli solari, vedere 
+ 
 > [!div class="nextstepaction"]
-> [l'articolo sui concetti](./concept-iot-central-solar-panel-app.md)
-* Creare modelli di applicazione per pannelli solari gratuitamente: [app per pannelli solari](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../index.yml)
+> [Azure IoT Central - Architettura dell'app per pannelli solari](./concept-iot-central-solar-panel-app.md)
+* [Creare gratuitamente modelli di applicazione per pannelli solari](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* [Panoramica di Azure IoT Central](../index.yml)
