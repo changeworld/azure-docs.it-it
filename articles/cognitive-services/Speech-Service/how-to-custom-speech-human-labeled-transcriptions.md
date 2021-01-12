@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4516bbddd3fda593021288a440e1b354d4d7f1e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340238"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126887"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
 Se si vuole migliorare l'accuratezza del riconoscimento, in particolare per i problemi che si verificano quando le parole vengono eliminate o sostituite in modo errato, è opportuno usare trascrizioni con etichetta umana insieme ai dati audio. Che cosa sono le trascrizioni con etichetta umana? Si tratta di un'operazione semplice, ovvero le trascrizioni Verbatim di un file audio.
 
-Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione. è consigliabile fornire tra 10 e 1.000 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
+Per migliorare il riconoscimento è necessario un ampio esempio di dati di trascrizione, quindi è consigliabile fornire tra 10 e 20 ore di dati di trascrizione. In questa pagina, verranno esaminate le linee guida progettate per facilitare la creazione di trascrizioni di alta qualità. Questa guida è suddivisa in base alle impostazioni locali, con sezioni per l'inglese (Stati Uniti), cinese mandarino e tedesco.
+
+> [!NOTE]
+> Non tutti i modelli di base supportano la personalizzazione con i file audio. Se un modello di base non la supporta, il training utilizzerà semplicemente il testo delle trascrizioni in modo analogo all'utilizzo del testo correlato.
 
 ## <a name="us-english-en-us"></a>Inglese Stati Uniti (en-US)
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/03/2020
+ms.date: 01/11/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296679135063e2c7e1b7f0e3ffd193c8f18c3acf
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 5038bde01a6b183a25a47f3b4e206c1ce80e6b6d
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576265"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127839"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Miglioramenti alla gestione degli utenti (anteprima) in Azure Active Directory
 
@@ -60,6 +60,9 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 - Nome: il nome visualizzato dell'utente.
 - Nome entità utente: nome dell'entità utente (UPN) dell'utente.
 - Tipo di utente: membro, Guest, nessuno.
+- Ora di creazione: data e ora di creazione dell'utente.
+- Titolo del processo: il titolo dell'utente.
+- Reparto: il reparto usato dall'utente.
 - Directory sincronizzata: indica se l'utente è sincronizzato da una directory locale.
 - Autorità emittente di identità: autorità emittenti dell'identità usata per accedere a un account utente.
 - ID oggetto: ID oggetto dell'utente.
@@ -76,7 +79,8 @@ Di seguito sono riportate le proprietà utente visualizzate nella pagina **tutti
 Nella pagina **utenti eliminati** sono incluse tutte le colonne disponibili nella pagina **tutti gli utenti** e alcune colonne aggiuntive, ovvero:
 
 - Data di eliminazione: la data in cui l'utente è stato eliminato per la prima volta dall'organizzazione (l'utente è ripristinabile).
-- Data di eliminazione permanente: la data in cui inizia automaticamente il processo di eliminazione definitiva dell'utente dall'organizzazione. 
+- Data di eliminazione permanente: la data in cui inizia automaticamente il processo di eliminazione definitiva dell'utente dall'organizzazione.
+- Nome dell'entità utente originale: il nome UPN originale dell'utente prima che il relativo ID oggetto sia stato aggiunto come prefisso all'UPN eliminato.
 
 > [!NOTE]
 > Le date di eliminazione vengono visualizzate in formato UTC (Coordinated Universal Time).
@@ -105,6 +109,10 @@ Di seguito sono riportate le proprietà filtrabili della pagina **tutti gli uten
 - Tipo di utente: membro, Guest, nessuno
 - Stato sincronizzato della directory: Sì, no
 - Tipo di creazione: invito, verifica posta elettronica, account locale
+- Data di creazione: ultimi 7, 14, 30, 90, 360 o >360 giorni fa
+- Titolo processo: immettere un titolo per il processo
+- Reparto: immettere un nome di reparto
+- Gruppo: Cerca un gruppo
 - Stato invito-accettazione in sospeso, accettato
 - Nome di dominio: immettere un nome di dominio
 - Nome società: immettere il nome di una società
@@ -117,6 +125,9 @@ La pagina **utenti eliminati** contiene filtri aggiuntivi non presenti nella pag
 - Tipo di utente: membro, Guest, nessuno
 - Stato sincronizzato della directory: Sì, no
 - Tipo di creazione: invito, verifica posta elettronica, account locale
+- Data di creazione: ultimi 7, 14, 30, 90, 360 o > 360 giorni fa
+- Titolo processo: immettere un titolo per il processo
+- Reparto: immettere un nome di reparto
 - Stato invito: accettazione in sospeso, accettato
 - Data di eliminazione: ultimi 7, 14 o 30 giorni
 - Nome di dominio: immettere un nome di dominio

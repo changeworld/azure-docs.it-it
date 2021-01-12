@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 87fb7f0eb4017a39aca081f73de543a67400d4b5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 5a9f6fa79da59425e4972dddd21ffdea15af73e7
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969062"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127907"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Payload di telemetria, proprietà e comandi
 
@@ -187,6 +187,9 @@ Il frammento di codice seguente da un modello di dispositivo Mostra la definizio
   "schema": "geopoint"
 }
 ```
+
+> [!NOTE]
+> Il tipo di schema **Geopoint** non fa parte della [specifica del linguaggio di definizione dei gemelli digitali](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central supporta attualmente il tipo di schema **Geopoint** e il tipo semantico di **posizione** per la compatibilità con le versioni precedenti.
 
 Un client del dispositivo deve inviare i dati di telemetria come JSON, come nell'esempio seguente. IoT Central Visualizza il valore come pin su una mappa:
 
@@ -576,6 +579,9 @@ Il frammento di codice seguente di un modello di dispositivo Mostra la definizio
 }
 ```
 
+> [!NOTE]
+> Il tipo di schema **Geopoint** non fa parte della [specifica del linguaggio di definizione dei gemelli digitali](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). IoT Central supporta attualmente il tipo di schema **Geopoint** e il tipo semantico di **posizione** per la compatibilità con le versioni precedenti.
+
 Un client del dispositivo deve inviare un payload JSON simile all'esempio seguente come proprietà segnalata nel dispositivo gemello:
 
 ```json
@@ -827,7 +833,7 @@ Il dispositivo deve inviare il payload JSON seguente per IoT Central dopo l'elab
 }
 ```
 
-## <a name="commands"></a>Comandi:
+## <a name="commands"></a>Comandi
 
 Il frammento di codice seguente di un modello di dispositivo Mostra la definizione di un comando che non presenta parametri e non prevede che il dispositivo restituisca alcun risultato:
 

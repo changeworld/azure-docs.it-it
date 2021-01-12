@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 0ecf47ecdc66c0005f0d793d91a67af102fb1c76
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107906"
+ms.locfileid: "98127618"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -27,8 +27,6 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 + **Correzioni di bug e miglioramenti**
   + **azure-cli-ml**
     + framework_version aggiunto in OptimizationConfig. Verrà usato quando il modello viene registrato con il Framework multipiattaforma.
-  + **azureml-automl-runtime**
-    + In questo aggiornamento è stato aggiunto Holt Winters esponenzial smoothing alla casella degli strumenti di previsione di AutoML SDK. Data una serie temporale, il modello migliore viene selezionato da [AICc (criterio delle informazioni di Akaike corretto)](https://otexts.com/fpp3/selecting-predictors.html#selecting-predictors) e restituito.
   + **azureml-contrib-ottimizzazione**
     + framework_version aggiunto in OptimizationConfig. Verrà usato quando il modello viene registrato con il Framework multipiattaforma.
   + **azureml-pipeline-steps**

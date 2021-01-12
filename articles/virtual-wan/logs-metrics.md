@@ -8,18 +8,24 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 53b8d74d6eb35347d6ac5b27d12fa5b5eaed2582
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566368"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127890"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Metriche e log WAN virtuali di Azure
 
-È possibile monitorare la rete WAN virtuale di Azure con monitoraggio di Azure. La rete WAN virtuale è un servizio di rete che riunisce numerose funzionalità di rete, sicurezza e routing per fornire una singola interfaccia operativa. I gateway VPN WAN virtuali, i gateway ExpressRoute e il firewall di Azure hanno la registrazione e le metriche disponibili tramite monitoraggio di Azure. Per informazioni sul firewall di Azure, vedere [log e metriche del firewall di Azure](../firewall/logs-and-metrics.md).
+È possibile monitorare la rete WAN virtuale di Azure con monitoraggio di Azure. La rete WAN virtuale è un servizio di rete che riunisce numerose funzionalità di rete, sicurezza e routing per fornire una singola interfaccia operativa. I gateway VPN WAN virtuali, i gateway ExpressRoute e il firewall di Azure hanno la registrazione e le metriche disponibili tramite monitoraggio di Azure.
 
 Questo articolo illustra le metriche e le diagnostica disponibili tramite il portale. Le metriche sono leggere e possono supportare scenari quasi in tempo reale, rendendoli utili per gli avvisi e il rilevamento rapido dei problemi.
+
+## <a name="monitoring-secured-hub-azure-firewall"></a>Monitoraggio dell'hub protetto (firewall di Azure) 
+
+È possibile monitorare l'hub protetto usando i log del firewall di Azure. È possibile usare anche i log attività per controllare le operazioni eseguite sulle risorse di Firewall di Azure.
+
+Se si è scelto di proteggere l'hub virtuale usando il firewall di Azure, i log e le metriche pertinenti sono disponibili qui: [log e metriche del firewall di Azure](../firewall/logs-and-metrics.md).
 
 ## <a name="metrics"></a>Metriche
 
@@ -95,11 +101,11 @@ La procedura seguente consente di individuare e visualizzare la diagnostica:
 
    :::image type="content" source="./media/logs-metrics/3.png" alt-text="Screenshot che mostra la sezione &quot;Overview&quot; con una freccia che punta al pulsante &quot;copy&quot;.":::
 
-2. Nella sezione monitoraggio passare al gruppo di risorse. Selezionare **impostazioni di diagnostica** , quindi immettere le informazioni sulle risorse. Si tratta delle informazioni sulle risorse copiate nel passaggio 2 dalla sezione [visualizzare le metriche del gateway](#metrics-steps) , più indietro in questo articolo.
+2. Nella sezione monitoraggio passare al gruppo di risorse. Selezionare **impostazioni di diagnostica**, quindi immettere le informazioni sulle risorse. Si tratta delle informazioni sulle risorse copiate nel passaggio 2 dalla sezione [visualizzare le metriche del gateway](#metrics-steps) , più indietro in questo articolo.
 
    :::image type="content" source="./media/logs-metrics/4.png" alt-text="Screenshot che mostra la sezione &quot;monitoraggio&quot; con una freccia che punta all'elenco a discesa &quot;Resource&quot;.":::
 
-3. Nella pagina risultati selezionare **+ Aggiungi impostazione di diagnostica** , quindi selezionare un'opzione. È possibile scegliere di inviare a Log Analytics, trasmettere a un hub eventi o semplicemente archiviarli in un account di archiviazione.
+3. Nella pagina risultati selezionare **+ Aggiungi impostazione di diagnostica**, quindi selezionare un'opzione. È possibile scegliere di inviare a Log Analytics, trasmettere a un hub eventi o semplicemente archiviarli in un account di archiviazione.
 
    :::image type="content" source="./media/logs-metrics/5.png" alt-text="pagina metrica":::
 
@@ -109,7 +115,7 @@ I log si trovano nell' **area di lavoro log Analytics di Azure**. È possibile c
 
 ```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
 
-Sostituire i valori seguenti, dopo **= =** , in base alle esigenze.
+Sostituire i valori seguenti, dopo **= =**, in base alle esigenze.
 
 * "GatewayDiagnosticLog"
 * "IKEDiagnosticLog"
@@ -119,7 +125,7 @@ Sostituire i valori seguenti, dopo **= =** , in base alle esigenze.
 
 ## <a name="activity-logs"></a><a name="activity-logs"></a>Log attività
 
-Le voci del **log attività** vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure. È possibile usare i log attività di Azure (precedentemente noti come *log operativi* e *log di controllo* ) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
+Le voci del **log attività** vengono raccolte per impostazione predefinita e possono essere visualizzate nel portale di Azure. È possibile usare i log attività di Azure (precedentemente noti come *log operativi* e *log di controllo*) per visualizzare tutte le operazioni inviate alla sottoscrizione di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

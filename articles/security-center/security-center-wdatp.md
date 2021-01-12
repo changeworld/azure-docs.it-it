@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116280"
+ms.locfileid: "98126853"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -71,7 +71,7 @@ Integrando Defender for endpoint con il Centro sicurezza, sarà possibile usufru
 
 Quando si usa il Centro sicurezza di Azure per monitorare i server, viene creato automaticamente un tenant di Microsoft Defender per endpoint. I dati raccolti da Defender per l'endpoint vengono archiviati nella posizione geografica del tenant, come identificato durante il provisioning. Dati del cliente, in formato con pseudonimo, possono anche essere archiviati nei sistemi di archiviazione e di elaborazione centrali del Stati Uniti. 
 
-Dopo aver configurato il percorso, non è possibile modificarlo. Se è necessario spostare i dati in un altro percorso, contattare supporto tecnico Microsoft per reimpostare il tenant.
+Dopo aver configurato il percorso, non è possibile modificarlo. Se si dispone di una licenza per Microsoft Defender per l'endpoint ed è necessario spostare i dati in un altro percorso, contattare supporto tecnico Microsoft per reimpostare il tenant.
 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Abilitazione di Microsoft Defender per l'integrazione degli endpoint

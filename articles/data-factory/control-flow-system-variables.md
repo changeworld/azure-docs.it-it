@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 1780b4a64de349c1e272158fe6bfde9cab6f8369
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: fc6b2e4c944394d811abc19f70aeb34a0ae3c9a4
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486046"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127669"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variabili di sistema supportate da Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -28,29 +28,43 @@ Questo articolo descrive le variabili di sistema supportate da Azure Data Factor
 
 | Nome variabile | Descrizione |
 | --- | --- |
-| @pipeline().DataFactory |Nome della data factory in cui viene eseguita la pipeline |
+| @pipeline().DataFactory |Nome del data factory in cui viene eseguita la pipeline |
 | @pipeline().Pipeline |Nome della pipeline |
-| @pipeline().RunId | ID dell'esecuzione della pipeline specifica |
-| @pipeline().TriggerType | Tipo di trigger che ha richiamato la pipeline (manuale, Utilità di pianificazione) |
-| @pipeline().TriggerId| ID del trigger che richiama la pipeline |
-| @pipeline().TriggerName| Nome del trigger che richiama la pipeline |
-| @pipeline().TriggerTime| Ora in cui il trigger ha richiamato la pipeline. L'ora del trigger è l'ora effettiva di attivazione, non l'orario pianificato. Ad esempio, viene restituito `13:20:08.0149599Z` anziché `13:20:00.00Z` |
+| @pipeline().RunId |ID dell'esecuzione della pipeline specifica |
+| @pipeline().TriggerType |Tipo di trigger che ha richiamato la pipeline (ad esempio `ScheduleTrigger` , `BlobEventsTrigger` ). Per un elenco dei tipi di trigger supportati, vedere [esecuzione e trigger di pipeline in Azure Data Factory](concepts-pipeline-execution-triggers.md). Un tipo di trigger `Manual` indica che la pipeline è stata attivata manualmente. |
+| @pipeline().TriggerId|ID del trigger che ha richiamato la pipeline |
+| @pipeline().TriggerName|Nome del trigger che ha richiamato la pipeline |
+| @pipeline().TriggerTime|Ora dell'esecuzione del trigger che ha richiamato la pipeline. Si tratta dell'ora in cui il trigger è stato **effettivamente** attivato per richiamare l'esecuzione della pipeline e potrebbe essere leggermente diverso dall'ora pianificata del trigger.  |
+
+>[!NOTE]
+>Le variabili di sistema di data e ora correlate al trigger (in entrambi gli ambiti di pipeline e trigger) restituiscono le date UTC in formato ISO 8601, ad esempio `2017-06-01T22:20:00.4061448Z` .
 
 ## <a name="schedule-trigger-scope"></a>Ambito del trigger di pianificazione
-È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi del trigger JSON se il trigger è di tipo "ScheduleTrigger".
+È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nome variabile | Descrizione |
 | --- | --- |
-| @trigger().scheduledTime |Ora in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Ad esempio, per un trigger che viene generato ogni 5 minuti, questa variabile restituisce rispettivamente `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:30:00Z`.|
-| @trigger().startTime |Ora in cui il trigger ha richiamato **effettivamente** l'esecuzione della pipeline. Per un trigger che viene attivato ogni 5 minuti, ad esempio, questa variabile potrebbe restituire rispettivamente `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:30:00.9935483Z` o un output simile. (Nota: il timestamp è per impostazione predefinita nel formato ISO 8601)|
+| @trigger().scheduledTime |Ora in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. |
+| @trigger().startTime |Ora in cui il trigger è stato **effettivamente** attivato per richiamare l'esecuzione della pipeline. Questo può differire leggermente dall'ora pianificata del trigger. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Ambito del trigger della finestra a cascata
-È possibile fare riferimento a queste variabili di sistema in un punto qualsiasi del trigger JSON se il trigger è di tipo "TumblingWindowTrigger".
-(Nota: il timestamp è per impostazione predefinita nel formato ISO 8601)
+È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nome variabile | Descrizione |
 | --- | --- |
-| @trigger().outputs.windowStartTime |Ora di avvio della finestra in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Se il trigger della finestra a cascata ha una frequenza "oraria", questa indica l'ora di inizio.|
-| @trigger().outputs.windowEndTime |Ora di fine della finestra in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. Se il trigger della finestra a cascata ha una frequenza "oraria", questa indica l'ora di fine.|
+| @trigger().outputs.windowStartTime |Inizio della finestra associata all'esecuzione del trigger. |
+| @trigger().outputs.windowEndTime |Fine della finestra associata all'esecuzione del trigger. |
+| @trigger().scheduledTime |Ora in cui il trigger è stato pianificato per richiamare l'esecuzione della pipeline. |
+| @trigger().startTime |Ora in cui il trigger è stato **effettivamente** attivato per richiamare l'esecuzione della pipeline. Questo può differire leggermente dall'ora pianificata del trigger. |
+
+## <a name="event-based-trigger-scope"></a>Ambito trigger basato su eventi
+È possibile fare riferimento a queste variabili di sistema in qualsiasi punto del trigger JSON per i trigger di tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+| Nome variabile | Descrizione |
+| --- | --- |
+| @triggerBody(). fileName  |Nome del file la cui creazione o eliminazione ha causato l'attivazione del trigger.   |
+| @triggerBody(). FolderName  |Percorso della cartella che contiene il file specificato da `@triggerBody().fileName` . Il primo segmento del percorso della cartella è il nome del contenitore di archiviazione BLOB di Azure.  |
+| @trigger().startTime |Ora in cui il trigger è stato attivato per richiamare l'esecuzione della pipeline. |
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni sull'uso di queste variabili nelle espressioni, vedere [Expression language & functions](control-flow-expression-language-functions.md) (Linguaggio e funzioni delle espressioni).

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 04/03/2020
-ms.openlocfilehash: 8ee6449f357a578b30809bb03723ac1556e4f459
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62c8240a4d2e50aa3b584f322baf7d2ee217c6d3
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816178"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127873"
 ---
 # <a name="troubleshoot-mobility-service-push-installation"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -106,7 +106,22 @@ Il server di configurazione/server di elaborazione con scalabilità orizzontale 
 
 Per risolvere l'errore:
 
+* Verificare che l'account utente disponga dell'accesso amministrativo nel computer di origine, con un account locale o un account di dominio. Se non si usa un account di dominio, è necessario disabilitare il controllo dell'accesso utente remoto nel computer locale.
+  * Per aggiungere manualmente una chiave del registro di sistema che disabilita il controllo dell'accesso utente remoto:
+    * `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System`
+    * Aggiungere un nuovo `DWORD` : `LocalAccountTokenFilterPolicy`
+    * Impostare il valore su `1`
+  * Per aggiungere la chiave del registro di sistema, al prompt dei comandi eseguire il comando seguente:
+
+    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+
 * Assicurarsi che sia possibile effettuare il ping del computer di origine dal server di configurazione. Se è stato scelto il server di elaborazione con scalabilità orizzontale durante l'abilitazione della replica, assicurarsi che sia possibile effettuare il ping del computer di origine dal server di elaborazione.
+
+* Verificare che il servizio Condivisione file e stampanti sia abilitato nella macchina virtuale. Controllare i passaggi [qui](vmware-azure-troubleshoot-push-install.md#file-and-printer-sharing-services-check-errorid-95105--95106).
+
+* Verificare che il servizio WMI sia abilitato nella macchina virtuale. Controllare i passaggi [qui](vmware-azure-troubleshoot-push-install.md#windows-management-instrumentation-wmi-configuration-check-error-code-95103).
+
+* Verificare che le cartelle condivise di rete nella macchina virtuale siano accessibili dal server di elaborazione. Controllare i passaggi [qui](vmware-azure-troubleshoot-push-install.md#check-access-for-network-shared-folders-on-source-machine-errorid-9510595523).
 
 * Dalla riga di comando del computer del server di origine usare `Telnet` per eseguire il ping del server di configurazione o del server di elaborazione con scalabilità orizzontale sulla porta HTTPS 135, come illustrato nel comando seguente. Questo comando controlla se sono presenti problemi di connettività di rete o problemi di blocco delle porte del firewall.
 
@@ -159,13 +174,13 @@ Dopo un controllo della connettività, verificare se il servizio di condivisione
 Per **Windows 2008 R2 e versioni precedenti**:
 
 * Per abilitare la condivisione di file e stampanti tramite Windows Firewall,
-  1. Aprire il **Pannello**  >  **di controllo sistema e**  >  **Windows Firewall**sicurezza. Nel riquadro sinistro selezionare **Impostazioni avanzate**  >  **regole in ingresso** nell'albero della console.
+  1. Aprire il **Pannello**  >  **di controllo sistema e**  >  **Windows Firewall** sicurezza. Nel riquadro sinistro selezionare **Impostazioni avanzate**  >  **regole in ingresso** nell'albero della console.
   1. Individuare le regole Condivisione file e stampanti (NB-Session-In) e Condivisione file e stampanti (SMB-In).
   1. Su ogni regola fare clic con il pulsante destro del mouse e quindi fare clic su **Abilita regola**.
 
 * Per abilitare la condivisione di file con Criteri di gruppo:
   1. Passare a **Start**, digitare `gpmc.msc` e cercare.
-  1. Nel riquadro di spostamento aprire le cartelle seguenti: configurazione **utente criteri computer locale**  >  **User Configuration**  >  **modelli amministrativi**  >  **Windows Components**  >  **condivisione di rete**componenti di Windows.
+  1. Nel riquadro di spostamento aprire le cartelle seguenti: configurazione **utente criteri computer locale**  >    >  **modelli amministrativi**  >    >  **condivisione di rete** componenti di Windows.
   1. Nel riquadro dei dettagli fare doppio clic su **Impedisci di condividere file nel profilo utente**.
 
      Per disabilitare l'impostazione Criteri di gruppo e abilitare la capacità dell'utente di condividere i file, selezionare **disabilitato**.
@@ -224,7 +239,7 @@ Prima della versione 9,20, la configurazione di una partizione radice o di un vo
 
 ### <a name="possible-cause"></a>Possibile causa
 
-I file di configurazione di Grand Unified Bootloader (GRUB) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/GRUB2/grub.cfg_o _/etc/default/grub_) possono contenere il valore per la **radice** dei parametri e **riprendere** come nomi di dispositivo effettivi anziché come identificatore univoco universale (UUID). Site Recovery impone l'approccio UUID perché i nomi dei dispositivi possono cambiare al riavvio della macchina virtuale. Ad esempio, la macchina virtuale potrebbe non tornare online con lo stesso nome in caso di failover e ciò comporta problemi.
+I file di configurazione di Grand Unified Bootloader (GRUB) (_/boot/grub/menu.lst_, _/boot/grub/grub.cfg_, _/boot/GRUB2/grub.cfg_ o _/etc/default/grub_) possono contenere il valore per la **radice** dei parametri e **riprendere** come nomi di dispositivo effettivi anziché come identificatore univoco universale (UUID). Site Recovery impone l'approccio UUID perché i nomi dei dispositivi possono cambiare al riavvio della macchina virtuale. Ad esempio, la macchina virtuale potrebbe non tornare online con lo stesso nome in caso di failover e ciò comporta problemi.
 
 Ad esempio:
 
@@ -254,7 +269,7 @@ I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. A questo punto, sostituire il nome del dispositivo con il relativo UUID nel formato come `root=UUID=\<UUID>` . Ad esempio, se si sostituiscono i nomi di dispositivo con UUID per root e Resume parametro indicato nei file _/boot/GRUB2/grub.cfg_, _/boot/GRUB2/grub.cfg_o _/etc/default/grub_ , le righe nei file appaiono come la riga seguente:
+1. A questo punto, sostituire il nome del dispositivo con il relativo UUID nel formato come `root=UUID=\<UUID>` . Ad esempio, se si sostituiscono i nomi di dispositivo con UUID per root e Resume parametro indicato nei file _/boot/GRUB2/grub.cfg_, _/boot/GRUB2/grub.cfg_ o _/etc/default/grub_ , le righe nei file appaiono come la riga seguente:
 
    `kernel /boot/vmlinuz-3.0.101-63-default root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4 resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b splash=silent crashkernel=256M-:128M showopts vga=0x314`
 
@@ -374,7 +389,7 @@ Per ignorare l'installazione del provider VSS Azure Site Recovery e installare m
       ```
 
 1. Eseguire un'installazione manuale dell'agente di mobilità.
-1. Quando l'installazione ha esito positivo e passa al passaggio successivo, **configurare**e rimuovere le righe aggiunte.
+1. Quando l'installazione ha esito positivo e passa al passaggio successivo, **configurare** e rimuovere le righe aggiunte.
 1. Per installare il provider VSS, aprire un prompt dei comandi come amministratore ed eseguire il comando seguente:
 
    `"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`

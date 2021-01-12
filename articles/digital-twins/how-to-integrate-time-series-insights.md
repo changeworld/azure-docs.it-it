@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 7/14/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 22ee57592af838a236d75fa7f56a0c8e1ed89403
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: f776482c684004c8d661f69d8158ba9597c923b2
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046548"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127037"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-time-series-insights"></a>Integrare i dispositivi gemelli digitali di Azure con Azure Time Series Insights
 
@@ -84,9 +84,9 @@ Esercitazione sui gemelli digitali di Azure [*: connettere una soluzione end-to-
 
 Prima di procedere, prendere nota dello *spazio dei nomi* e del *gruppo di risorse* dell'hub eventi, perché verranno usati di nuovo per creare un altro hub eventi più avanti in questo articolo.
 
-## <a name="create-an-azure-function"></a>Creare una funzione di Azure 
+## <a name="create-a-function-in-azure"></a>Creare una funzione in Azure
 
-Successivamente, verrà creata una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)) o personalizzata. 
+Si userà quindi funzioni di Azure per creare una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)) o personalizzata. 
 
 Questa funzione convertirà gli eventi di aggiornamento dei dispositivi gemelli dal formato originale come documenti patch JSON in oggetti JSON, che contengono solo valori aggiornati e aggiunti dai dispositivi gemelli.
 

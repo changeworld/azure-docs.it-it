@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bb90c5776e67c1ba8fecdbf394a8098e96ca0652
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022378"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127482"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
@@ -79,7 +79,7 @@ Quando viene chiamato **Delete Blob** su un BLOB di base (qualsiasi BLOB che non
 > [!NOTE]  
 > Quando un BLOB eliminato temporaneamente viene sovrascritto, viene generato automaticamente uno snapshot eliminato temporaneamente dello stato del BLOB prima dell'operazione di scrittura. Il nuovo BLOB eredita il livello del BLOB sovrascritto.
 
-L'eliminazione temporanea non salva i dati in caso di eliminazioni di contenitori o account, né quando vengono sovrascritti i metadati e le proprietà del BLOB. Per proteggere un account di archiviazione in caso di errata eliminazione, è possibile configurare un blocco tramite Azure Resource Manager. Per ulteriori informazioni, vedere l'articolo Azure Resource Manager [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+L'eliminazione temporanea non salva i dati in caso di eliminazione di contenitori o account, né quando i metadati e le proprietà del BLOB vengono sovrascritti. Per proteggere un account di archiviazione dall'eliminazione, è possibile configurare un blocco usando il Azure Resource Manager. Per ulteriori informazioni, vedere l'articolo Azure Resource Manager [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 La tabella seguente illustra il comportamento previsto quando l'eliminazione temporanea è abilitata:
 
@@ -171,7 +171,7 @@ No, gli snapshot eliminati temporaneamente non vengono considerati ai fini quest
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se si elimina un intero account o un intero contenitore con l'eliminazione temporanea abilitata, tutti i BLOB associati verranno salvati?
 
-No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per altre informazioni sulla protezione di un account di archiviazione da eliminazioni accidentali, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+No, se si elimina un intero account o un intero contenitore, tutti i BLOB associati verranno eliminati definitivamente. Per altre informazioni sulla protezione di un account di archiviazione da eliminare accidentalmente, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>È possibile visualizzare le metriche relative alla capacità per i dati eliminati?
 

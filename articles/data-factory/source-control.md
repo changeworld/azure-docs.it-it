@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: e839b8a22da50ce172043f57a4467219a1771175
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 27f14834e45dd32bdf3a26d22d38ab250aa1bcbe
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97584202"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127737"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controllo del codice sorgente in Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -25,6 +25,7 @@ Per impostazione predefinita, l'esperienza dell'interfaccia utente di Azure Data
 
 - Il servizio Data Factory non include un repository in cui archiviare le entità JSON per le modifiche. L'unico modo per salvare le modifiche è tramite il pulsante **Pubblica tutto**, che consente di pubblicare tutte le modifiche direttamente nel servizio Data Factory.
 - Il servizio Data Factory non è ottimizzato per la collaborazione e il controllo della versione.
+- Il modello di Azure Resource Manager necessario per la distribuzione di Data Factory non è incluso.
 
 Per fornire una migliore esperienza di creazione, Azure Data Factory consente di configurare un repository Git con Azure Repos o GitHub. Git è un sistema di controllo della versione che consente di rilevare le modifiche e collaborare in modo più semplice. Questo articolo descrive come configurare e lavorare in un repository git insieme alle procedure consigliate e a una guida alla risoluzione dei problemi.
 

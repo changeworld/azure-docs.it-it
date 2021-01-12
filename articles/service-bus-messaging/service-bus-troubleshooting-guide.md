@@ -3,12 +3,12 @@ title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Micros
 description: Informazioni sui suggerimenti e consigli per la risoluzione dei problemi che si possono verificare quando si usa il bus di servizio di Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: aab7fa53b4af309c68cd91fdb1d25c5771f89828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c31d252d75a2ba75528cd12d3a94bad5bd9f677
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261125"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98126870"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure. 
@@ -26,7 +26,7 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
     
     Esempio di messaggio di errore di errore:
 
-    ```json
+    ```xml
     <Error>
         <Code>400</Code>
         <Detail>

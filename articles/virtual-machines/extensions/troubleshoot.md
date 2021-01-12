@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: bca826cda8dfe47c341886faaf4a0d66f09d37d2
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966344"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127142"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "94966344"
 ## <a name="viewing-extension-status"></a>Visualizzazione dello stato dell'estensione
 I modelli di Azure Resource Manager possono essere eseguiti da Azure PowerShell. Una volta che il modello viene eseguito, sarà possibile visualizzare lo stato dell'estensione da Azure Resource Explorer o dagli strumenti da riga di comando.
 
-Esempio:
+Ecco un esempio:
 
 Azure PowerShell:
 
@@ -85,19 +85,23 @@ Il certificato verrà rigenerato automaticamente riavviando l'agente guest di Wi
 - Fare clic con il pulsante destro del mouse e scegliere "Termina attività". Il processo verrà riavviato automaticamente
 
 
-È anche possibile attivare un nuovo GoalState per la VM eseguendo un "aggiornamento vuoto":
+È anche possibile attivare un nuovo GoalState per la macchina virtuale eseguendo una "macchina virtuale riapplicata". La [riapplicazione](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) della macchina virtuale è un'API introdotta in 2020 per riapplicare lo stato di una macchina virtuale. È consigliabile eseguire questa operazione in un momento in cui è possibile tollerare un breve tempo di inattività delle macchine virtuali. Sebbene Reapply stesso non provochi un riavvio della macchina virtuale e la maggior parte delle volte che si chiama riapply non riavvia la macchina virtuale, c'è un rischio molto ridotto che un altro aggiornamento in sospeso al modello di macchina virtuale viene applicato quando Reapply attiva un nuovo obiettivo e che potrebbe richiedere un riavvio. 
 
-Azure PowerShell:
+Portale di Azure:
+
+Nel portale selezionare la macchina virtuale e nel riquadro sinistro sotto **supporto e risoluzione dei problemi** selezionare **Ridistribuisci + riapplica**, quindi selezionare **Riapplica**.
+
+
+Azure PowerShell *(sostituire il nome RG e il nome della macchina virtuale con i valori seguenti)*:
 
 ```azurepowershell
-$vm = Get-AzureRMVM -ResourceGroupName <RGName> -Name <VMName>  
-Update-AzureRmVM -ResourceGroupName <RGName> -VM $vm  
+Set-AzVM -ResourceGroupName <RG Name> -Name <VM Name> -Reapply
 ```
 
-Interfaccia della riga di comando di Azure:
+INTERFACCIA *della riga di comando di Azure (sostituire il nome RG e il nome della macchina virtuale con i valori)*:
 
 ```azurecli
-az vm update -g <rgname> -n <vmname>
+az vm reapply -g <RG Name> -n <VM Name>
 ```
 
-Se un "aggiornamento vuoto" non funziona, è possibile aggiungere un nuovo disco dati vuoto alla macchina virtuale dalla portale di gestione di Azure e quindi rimuoverlo successivamente dopo che il certificato è stato aggiunto nuovamente.
+Se una "macchina virtuale riapplica" non funziona, è possibile aggiungere un nuovo disco dati vuoto alla macchina virtuale dalla portale di gestione di Azure e quindi rimuoverlo in un secondo momento dopo che il certificato è stato aggiunto nuovamente.

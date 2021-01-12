@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 466af29a3f073f73d4a0fc62d74709cd59f82425
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: bd36434bbfe435a53567c46728610627f99f987f
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183788"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127788"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API di Azure  
 
@@ -88,4 +88,5 @@ Se i requisiti di sicurezza includono l' [isolamento di calcolo](../azure-govern
 
 - [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md)
 - [Come ridimensionare automaticamente un'istanza del servizio di Gestione API di Azure](api-management-howto-autoscale.md)
-- [Ottimizza e Risparmia sulla spesa per il cloud](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Pianificare e gestire i costi per gestione API](plan-manage-costs.md)
+- [Limiti relativi a Gestione API](../azure-resource-manager/management/azure-subscription-service-limits.md#api-management-limits)

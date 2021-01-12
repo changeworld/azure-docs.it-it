@@ -7,21 +7,21 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 5be3652d7fca62a0740888ad458f8564f555169e
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518907"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127380"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
-Questo articolo contiene raccomandazioni sulla sicurezza per l'archiviazione BLOB. Implementando queste raccomandazioni sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa. Per altre informazioni sulle iniziative intraprese da Microsoft per assolvere alle responsabilità dei provider di servizi, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
+Questo articolo contiene raccomandazioni sulla sicurezza per l'archiviazione BLOB. Implementando queste raccomandazioni sarà possibile adeguarsi gli obblighi di sicurezza descritti nel modello di responsabilità condivisa. Per ulteriori informazioni sul modo in cui Microsoft soddisfa le responsabilità del provider di servizi, vedere [responsabilità condivise per cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225366/1/Shared%20Responsibility%20for%20Cloud%20Computing-2019-10-25.pdf).
 
-Alcune raccomandazioni presenti in questo articolo possono essere monitorate automaticamente dal Centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse di Azure: Per informazioni sul centro sicurezza di Azure, vedere informazioni sul [Centro sicurezza di Azure](../../security-center/security-center-introduction.md).
+Alcune raccomandazioni presenti in questo articolo possono essere monitorate automaticamente dal Centro sicurezza di Azure. Il Centro sicurezza di Azure è la prima linea di difesa per la protezione delle risorse di Azure: Per informazioni sul centro sicurezza di Azure, vedere [che cos'è il Centro sicurezza di Azure?](../../security-center/security-center-introduction.md)
 
 Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle risorse di Azure per identificare le potenziali vulnerabilità di sicurezza. e fornisce raccomandazioni per affrontarle in modo efficace. Per altre informazioni sulle raccomandazioni del Centro di sicurezza di Azure, vedere [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-recommendations.md).
 
@@ -31,9 +31,11 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 |-|----|--|
 | Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui il controllo degli accessi in base al ruolo di Azure superiore (RBAC di Azure) e il controllo, la distribuzione e la governance basate su Gestione risorse, l'accesso alle identità gestite, l'accesso ai Azure Key Vault per i segreti e l'autenticazione basata su Azure AD e l'autorizzazione per l'accesso ai dati e alle risorse Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
 | Abilitare Azure Defender per tutti gli account di archiviazione | Azure Defender per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [configurare Azure Defender per archiviazione di Azure](../common/azure-defender-storage-configure.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
-| Attivare l'eliminazione temporanea per i dati BLOB | L'eliminazione temporanea consente di ripristinare i dati BLOB dopo l'eliminazione. Per altre informazioni sull'eliminazione temporanea, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md). | - |
-| Bloccare l'account di archiviazione per evitare l'eliminazione accidentale | È possibile bloccare una sottoscrizione, un gruppo di risorse o una risorsa per impedire ad altri utenti dell'organizzazione di eliminarli o modificarli accidentalmente. Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+| Attivare l'eliminazione temporanea per i BLOB | L'eliminazione temporanea consente di ripristinare i dati BLOB dopo l'eliminazione. Per altre informazioni sull'eliminazione temporanea, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md). | - |
+| Attivare l'eliminazione temporanea per i contenitori | ???. | - |
+| Bloccare l'account di archiviazione per evitare l'eliminazione accidentale di un account | È possibile bloccare un Azure Resource Manager risorse, ad esempio una sottoscrizione, un gruppo di risorse o un account di archiviazione, per impedire ad altri utenti dell'organizzazione di eliminarli o modificarli accidentalmente. Il blocco di un account di archiviazione non impedisce l'eliminazione dei dati all'interno di tale account. Impedisce solo l'eliminazione dell'account stesso. Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 | Archiviare dati critici per l'azienda in BLOB non modificabili | Configurare i criteri di conservazione validi e temporali per archiviare i dati BLOB in un WORM (scrivere una sola volta, leggere molti) stato. I BLOB archiviati immutabilmente possono essere letti, ma non possono essere modificati o eliminati per la durata dell'intervallo di conservazione. Per altre informazioni, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md). | - |
+| Richiedi il trasferimento sicuro (HTTPS) all'account di archiviazione | ??? | - |
 | Limitare i token di firma di accesso condiviso solo alle connessioni HTTPS | Richiesta di HTTPS quando un client utilizza un token di firma di accesso condiviso per accedere ai dati BLOB consente di ridurre al minimo il rischio di intercettazione. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
