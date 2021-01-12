@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e3daf89b80daf47049150b05ca392eede360bd3e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: d778844fee8cad9359532ffa23e177bf7b13c4b8
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673417"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117691"
 ---
 # <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limiti di capacità per il pool SQL dedicato in Azure sinapsi Analytics
 
@@ -43,7 +43,7 @@ Valori massimi consentiti per vari componenti di un pool SQL dedicato in Azure s
 | Tabella |Tabelle per ogni database | 100,000 |
 | Tabella |Colonne per ogni tabella |1024 colonne |
 | Tabella |Byte per colonna |Dipende dalla colonna [tipo di dati](sql-data-warehouse-tables-data-types.md). Il limite è 8000 per i tipi di dati char, 4000 per nvarchar o 2 GB per i tipi di dati MAX. |
-| Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, è supportata l'archiviazione di overflow della riga, che consente di eseguire il push delle **colonne a lunghezza variabile** all'esterno di righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per ulteriori informazioni, vedere [dati di overflow della riga che superano 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabella |Byte per riga, dimensioni definite |8060 byte<br/><br/>Il numero di byte per riga viene calcolato come per SQL Server, con la compressione pagina. Come SQL Server, è supportata l'archiviazione di overflow della riga, che consente di eseguire il push delle **colonne a lunghezza variabile** all'esterno di righe. Quando le righe di lunghezza variabile vengono inviate all'esterno delle righe, viene archiviata nel record principale solo una radice 24 byte. Per ulteriori informazioni, vedere [dati di overflow della riga che superano 8 KB](/previous-versions/sql/sql-server-2008-r2/ms186981(v=sql.105)). |
 | Tabella |Partizioni per tabella |15.000<br/><br/>Per prestazioni elevate, è consigliabile ridurre al minimo il numero di partizioni necessarie garantendo al tempo stesso il supporto dei requisiti aziendali. Con l'aumentare del numero di partizioni, l'overhead per le operazioni DDL (Data Definition Language) e DML (Data Manipulation Language ) aumenta e le prestazioni rallentano. |
 | Tabella |Caratteri per valore limite della partizione. |4000 |
 | Indice |Indici non in cluster per tabella. |50<br/><br/>Si applica solo alle tabelle rowstore. |
@@ -54,7 +54,7 @@ Valori massimi consentiti per vari componenti di un pool SQL dedicato in Azure s
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizzazione |Colonne per ogni vista |1\.024 |
+| Visualizza |Colonne per ogni vista |1\.024 |
 ||||
 
 ## <a name="loads"></a>Carichi

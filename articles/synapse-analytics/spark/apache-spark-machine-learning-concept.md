@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 11/13/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: ca55186a53b228aa97cc82d33a09aa3ffe455eee
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0485f697b9360b0f2dfe94fdf07629978b5127c1
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092007"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116926"
 ---
 # <a name="machine-learning-with-apache-spark"></a>Machine Learning con Apache Spark
 
@@ -32,7 +32,7 @@ Quando si usa Apache Spark in Azure sinapsi Analytics, sono disponibili diverse 
 
 Per altre informazioni sulle opzioni di visualizzazione dei dati e di analisi dei dati, vedere l'articolo su come [visualizzare i dati usando i notebook di sinapsi di Azure](../spark/apache-spark-data-visualization.md).
 
-## <a name="feature-engineering"></a>Progettazione delle funzioni
+## <a name="feature-engineering"></a>Progettazione delle caratteristiche
 Per impostazione predefinita, il runtime di sinapsi include un set di librerie comunemente usate per la progettazione di funzionalità. Per i set di impostazioni di grandi dimensioni, è possibile usare Spark SQL, MLlib e Koala per la progettazione delle funzionalità. Per i set di impostazioni più piccoli, le librerie di terze parti come NumPy, Pandas e Scikit-learn forniscono anche metodi utili per questi scenari.
 
 ## <a name="train-models"></a>Eseguire il training dei modelli
@@ -44,7 +44,7 @@ Per altre informazioni sulle funzionalità di Machine Learning, vedere l'articol
 Le funzionalità di calcolo distribuite in memoria rendono Spark uno strumento valido per l'esecuzione di algoritmi iterativi utilizzati in calcoli grafici e di Machine Learning. ```spark.ml``` fornisce un set uniforme di API di alto livello che consentono agli utenti di creare e ottimizzare le pipeline di machine learning. Per ulteriori informazioni su ```spark.ml``` , vedere la guida alla [programmazione di Apache Spark ml](https://spark.apache.org/docs/1.2.2/ml-guide.html).
 
 ### <a name="azure-machine-learning-automated-ml"></a>Azure Machine Learning automatizzato ML
-[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) Machine Learning automatizzato (automazione automatica) consente di automatizzare il processo di sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli di Machine Learning con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. I componenti per l'esecuzione di Azure Machine Learning Machine Learning SDK sono integrati direttamente nel runtime di sinapsi.
+[Azure Machine Learning](../../machine-learning/concept-automated-ml.md) Machine Learning automatizzato (automazione automatica) consente di automatizzare il processo di sviluppo di modelli di machine learning. Consente a data scientist, analisti e sviluppatori di creare modelli di Machine Learning con scalabilità, efficienza e produttività elevate, garantendo al tempo stesso la qualità del modello. I componenti per l'esecuzione di Azure Machine Learning Machine Learning SDK sono integrati direttamente nel runtime di sinapsi.
 
 ### <a name="open-source-libraries"></a>Librerie open source
 Ogni pool di Apache Spark in Azure sinapsi Analytics è dotato di un set di librerie di Machine Learning pre-caricate e diffuse.  Alcune delle librerie di Machine Learning pertinenti incluse per impostazione predefinita includono:
@@ -56,13 +56,13 @@ Ogni pool di Apache Spark in Azure sinapsi Analytics è dotato di un set di libr
 - [PyTorch](https://pytorch.org/)  &  [Tensorflow](https://www.tensorflow.org/) sono librerie di apprendimento avanzato Python avanzate. All'interno di un pool di Apache Spark in Azure sinapsi Analytics, è possibile usare queste librerie per compilare modelli a computer singolo impostando il numero di esecutori nel pool su zero. Anche se Apache Spark non funziona in questa configurazione, si tratta di un modo semplice e conveniente per creare modelli a computer singolo.
 
 ## <a name="track-model-development"></a>Tenere traccia dello sviluppo di modelli
-[MLFlow](https://www.mlflow.org/) è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. Il rilevamento MLFlow è un componente di MLflow che registra e tiene traccia delle metriche di esecuzione del training e degli elementi del modello. Per altre informazioni su come usare il rilevamento del MLFlow tramite analisi delle sinapsi di Azure e Azure Machine Learning, vedere questa esercitazione sull' [uso di MLFlow](https://docs.microsoft.com/azure/machine-learning/how-to-use-mlflow).
+[MLFlow](https://www.mlflow.org/) è una libreria open source per la gestione del ciclo di vita degli esperimenti di machine learning. Il rilevamento MLFlow è un componente di MLflow che registra e tiene traccia delle metriche di esecuzione del training e degli elementi del modello. Per altre informazioni su come usare il rilevamento del MLFlow tramite analisi delle sinapsi di Azure e Azure Machine Learning, vedere questa esercitazione sull' [uso di MLFlow](../../machine-learning/how-to-use-mlflow.md).
 
 ## <a name="model-scoring"></a>Punteggio del modello
 Il Punteggio del modello o l'inferenza è la fase in cui viene usato un modello per eseguire stime. Per il punteggio del modello con SparkML o MLLib, è possibile usare i metodi Spark nativi per eseguire l'inferenza direttamente in un dataframe di Spark. Per altre librerie e tipi di modelli open source, è anche possibile creare una funzione definita dall'utente Spark per scalare l'inferenza su set di dati di grandi dimensioni. Per i set di impostazioni di dimensioni ridotte, è inoltre possibile utilizzare i metodi di inferenza del modello nativi forniti dalla libreria.
 
 ## <a name="register-and-serve-models"></a>Registrare e gestire i modelli
-La registrazione di un modello consente di archiviare, eseguire la versione e tenere traccia dei metadati relativi ai modelli nell'area di lavoro. Al termine del training del modello, è possibile registrare il modello nel registro di sistema del [modello Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment#register-package-and-deploy-models-from-anywhere). Una volta registrati, i modelli ONNX possono essere usati anche per [arricchire i dati](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) archiviati in pool SQL dedicati.
+La registrazione di un modello consente di archiviare, eseguire la versione e tenere traccia dei metadati relativi ai modelli nell'area di lavoro. Al termine del training del modello, è possibile registrare il modello nel registro di sistema del [modello Azure Machine Learning](../../machine-learning/concept-model-management-and-deployment.md#register-package-and-deploy-models-from-anywhere). Una volta registrati, i modelli ONNX possono essere usati anche per [arricchire i dati](../machine-learning/tutorial-sql-pool-model-scoring-wizard.md) archiviati in pool SQL dedicati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per iniziare a usare Machine Learning in Azure sinapsi Analytics, assicurarsi di consultare le esercitazioni seguenti:
@@ -71,4 +71,3 @@ Per iniziare a usare Machine Learning in Azure sinapsi Analytics, assicurarsi di
 - [Eseguire il training di un modello di apprendimento automatico con ML automatico](../spark/apache-spark-azure-machine-learning-tutorial.md)
 
 - [Eseguire il training di un modello di apprendimento automatico con Apache Spark MLlib](../spark/apache-spark-machine-learning-mllib-notebook.md)
-  

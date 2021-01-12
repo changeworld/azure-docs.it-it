@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: a3c44d667b6baaf16e109dfb88c22c16a1ea2ce1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 1fc6c7086917f2bcd6e4991d2dac37ea24cbfa83
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94697204"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116382"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -108,7 +108,7 @@ Al termine dell'indicizzazione, è possibile usare [Esplora ricerche](search-exp
 
 È possibile esaminare il [codice di esempio REST](#rest-example) alla fine di questa sezione in cui viene illustrato come creare tutti e tre gli oggetti. Questa sezione contiene anche informazioni dettagliate sulle [modalità di analisi JSON](#parsing-modes), [BLOB singoli](#parsing-single-blobs), [matrici JSON](#parsing-arrays)e [matrici annidate](#nested-json-arrays).
 
-Per l'indicizzazione JSON basata sul codice, usare la funzione [post o Visual Studio Code](search-get-started-rest.md) e l'API REST per creare questi oggetti:
+Per l'indicizzazione JSON basata sul codice, usare la funzione [post](search-get-started-rest.md) o [Visual Studio Code](search-get-started-vs-code.md) e l'API REST per creare questi oggetti:
 
 + [index](/rest/api/searchservice/create-index)
 + [origine dati](/rest/api/searchservice/create-data-source)

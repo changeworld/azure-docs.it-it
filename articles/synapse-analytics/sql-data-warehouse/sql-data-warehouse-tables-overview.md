@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ec62724b7aedbad4111a4882dd89f86d116b2a96
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2a8cfbe75925ddc49f6fa3205fafdd1c2203b472
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448054"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115634"
 ---
 # <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Progettare tabelle con un pool SQL dedicato in Azure sinapsi Analytics
 
@@ -47,7 +47,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL dedicato, è possib
 | Tabella WideWorldImportersDW  | Tipo di tabella. | Pool SQL dedicato |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
-| Ordine | Fact | wwi.FactOrder |
+| JSON | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
 
@@ -71,7 +71,7 @@ Le tabelle temporanee utilizzano l'archiviazione locale per offrire prestazioni 
 
 Una tabella esterna punta ai dati che si trovano nel BLOB del servizio di archiviazione di Azure o in Azure Data Lake Store. Quando viene usato in combinazione con l'istruzione SELECT CREATE TABLE, la selezione da una tabella esterna importa i dati in un pool SQL dedicato.
 
-Di conseguenza, le tabelle esterne sono utili per il caricamento dei dati. Per un'esercitazione sul caricamento, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure](load-data-from-azure-blob-storage-using-polybase.md).
+Di conseguenza, le tabelle esterne sono utili per il caricamento dei dati. Per un'esercitazione sul caricamento, vedere [usare la polibase per caricare dati dall'archivio BLOB di Azure](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## <a name="data-types"></a>Tipi di dati
 

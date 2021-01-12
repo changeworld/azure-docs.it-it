@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 950cb4c40a534f252ec8b0daa5a57eb87c098450
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b213954dde6ca4eaa0a69ddf0e40398fc09b9063
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450475"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115770"
 ---
 # <a name="connect-to-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Connettersi a un pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics con SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+> * [Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
@@ -41,7 +41,7 @@ Per eseguire questa esercitazione, è necessario:
 ## <a name="1-connect-to-your-dedicated-sql-pool-formerly-sql-dw"></a>1. connettersi al pool SQL dedicato (in precedenza SQL DW)
 
 1. Aprire SSMS.
-2. Aprire Esplora oggetti selezionando **File**  >  **Esplora oggetti file Connetti**.
+2. Aprire Esplora oggetti selezionando   >  **Esplora oggetti file Connetti**.
 
     ![Esplora oggetti di SQL Server](./media/sql-data-warehouse-query-ssms/connect-object-explorer.png)
 3. Compilare i campi nella finestra Connetti al server.
@@ -79,4 +79,4 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Per configurare l'ambiente per l'autenticazione Azure Active Directory, vedere eseguire l'autenticazione [a un pool SQL dedicato](sql-data-warehouse-authentication.md).
+Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect). Per configurare l'ambiente per l'autenticazione Azure Active Directory, vedere eseguire l'autenticazione [a un pool SQL dedicato](sql-data-warehouse-authentication.md).

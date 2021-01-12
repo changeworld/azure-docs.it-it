@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
-ms.openlocfilehash: 242ff1d7c16ca952b19f44fb139f8fae7562524a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 56b9a98eb72b375aacfeb7cb147997028d3d9ba7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048318"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116807"
 ---
 # <a name="train-machine-learning-models"></a>Eseguire il training di modelli di Machine Learning
 Apache Spark in Azure sinapsi Analytics consente l'apprendimento automatico con Big Data, offrendo la possibilità di ottenere informazioni preziose da grandi quantità di dati strutturati, non strutturati e in rapida evoluzione. Sono disponibili diverse opzioni per il training di modelli di Machine Learning con Azure Spark in Azure sinapsi Analytics: Apache Spark MLlib, Azure Machine Learning e diverse altre librerie open source. 
@@ -53,7 +53,7 @@ Quando si usa Machine Learning automatiche in Azure sinapsi Analytics, è possib
 > Per altre informazioni sulla creazione di un esperimento di Machine Learning Azure Machine Learning automatizzato, seguire questa [esercitazione](./spark/../apache-spark-azure-machine-learning-tutorial.md).
 
 ## <a name="azure-cognitive-services"></a>Servizi cognitivi di Azure
-[Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/what-are-cognitive-services) offre funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario avere conoscenze specifiche di Machine Learning o data science. Un servizio cognitivo fornisce parte o tutti i componenti in una soluzione di apprendimento automatico: dati, algoritmo e modello sottoposto a training. Questi servizi sono destinati a richiedere una conoscenza generale dei dati senza che sia necessaria un'esperienza di apprendimento automatico o data science. È possibile sfruttare automaticamente questi servizi cognitivi già sottoposti a training in Azure sinapsi Analytics.
+[Servizi cognitivi di Azure](../../cognitive-services/what-are-cognitive-services.md) offre funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario avere conoscenze specifiche di Machine Learning o data science. Un servizio cognitivo fornisce parte o tutti i componenti in una soluzione di apprendimento automatico: dati, algoritmo e modello sottoposto a training. Questi servizi sono destinati a richiedere una conoscenza generale dei dati senza che sia necessaria un'esperienza di apprendimento automatico o data science. È possibile sfruttare automaticamente questi servizi cognitivi già sottoposti a training in Azure sinapsi Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo offre una panoramica delle diverse opzioni per il training dei modelli di machine learning all'interno di Apache Spark pool in Azure sinapsi Analytics. Per altre informazioni sul training del modello, vedere l'esercitazione seguente:

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43200985820779c56983f09b81a86989261c36f
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 13756be041f88883d84f9558308c7fe5c9be2d0e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935003"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116008"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -223,14 +223,6 @@ La creazione di un criterio per ciascuna applicazione non è un'operazione effic
 Se si configura un criterio in modo errato, potrebbe bloccare l'accesso delle organizzazioni al portale di Azure. È possibile ridurre l'impatto di un blocco accidentale degli accessi degli amministratori creando due o più [account di accesso di emergenza](../roles/security-emergency-access.md) nell'organizzazione.
 
 * Creare un account utente dedicato all'amministrazione dei criteri ed escluso da tutti i criteri.
-
-* Scenario critico per ambienti ibridi:
-
-  * Creare un gruppo di sicurezza locale e sincronizzarlo con Azure AD. Il gruppo di sicurezza deve contenere l'account di amministrazione dei criteri dedicato. 
-
-   * ESENTAre questo gruppo di sicurezza forma tutti i criteri di accesso condizionale.
-
-   * Quando si verifica un'interruzione del servizio, aggiungere gli altri amministratori al gruppo locale nel modo appropriato e forzare una sincronizzazione. Questa operazione consente di animare l'esenzione per i criteri di accesso condizionale.
 
 ### <a name="set-up-report-only-mode"></a>Configurare la modalità solo report
 
@@ -493,4 +485,4 @@ Dopo aver raccolto le informazioni, vedere le seguenti risorse:
 
 [Altre informazioni su Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gestire i criteri di accesso condizionale con Microsoft Graph API](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gestire i criteri di accesso condizionale con Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy)

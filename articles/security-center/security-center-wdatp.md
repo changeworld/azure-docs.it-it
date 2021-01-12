@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9a8dba99435e1616b1c49d5209b30c3c523876db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 34d8881eb072c4c723bf68b7c6ccfd24ab19cd3c
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071341"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116280"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -131,7 +131,7 @@ Defender for endpoint è incluso senza costi aggiuntivi con **Azure Defender per
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se si dispone già di una licenza per Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?
 Se si ha già una licenza per Microsoft Defender per l'endpoint, non sarà necessario pagare per tale parte della licenza di Azure Defender.
 
-Per confermare lo sconto, contattare il team di supporto di Security Center e fornire l'ID, l'area e le informazioni sulla licenza pertinenti.
+Per confermare lo sconto, contattare il team di supporto di Security Center e fornire l'ID, l'area e le informazioni di licenza rilevanti per ogni licenza pertinente.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Ricerca per categorie passare da uno strumento EDR di terze parti?
 Le istruzioni complete per il passaggio da una soluzione endpoint non Microsoft sono disponibili nella documentazione di Microsoft Defender per l'endpoint: [Panoramica della migrazione](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

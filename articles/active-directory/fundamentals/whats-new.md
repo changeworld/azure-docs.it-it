@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c0fa7a6e676e1b888bc13e0fa4cb42e93b2e71
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802848"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115702"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -107,8 +107,6 @@ Le funzionalità di gestione dei diritti sono ora disponibili per tutti i tenant
 Per altre informazioni su come migliorare la sicurezza dell'organizzazione usando il provisioning automatico degli account utente, vedere [Automatizzare il provisioning utenti nelle applicazioni SaaS con Azure AD](../app-provisioning/user-provisioning.md).
  
 ---
- 
-[1233182](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1233182&triage=true&fullScreen=false&_a=edit)
 
 ### <a name="new-federated-apps-available-in-azure-ad-application-gallery---december-2020"></a>Nuove app federate disponibili nella raccolta di applicazioni Azure AD-2020 dicembre
 
@@ -123,6 +121,29 @@ Nel dicembre 2020 abbiamo aggiunto le 18 nuove applicazioni seguenti nella racco
 È anche possibile trovare la documentazione di tutte le applicazioni da qui https://aka.ms/AppsTutorial
 
 Per elencare l'applicazione nella raccolta di app Azure AD, vedere qui i dettagli https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="navigate-to-teams-directly-from-my-access-portal"></a>Passare a team direttamente dal portale di accesso personale
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** **Funzionalità del prodotto** gestione accesso utenti: gestione dei diritti
+
+È ora possibile avviare i team direttamente dal portale di accesso personale. A tale scopo, accedere a [accesso personale](https://myaccess.microsoft.com/), passare a accedere ai **pacchetti**, quindi passare alla scheda **attiva** per visualizzare tutti i pacchetti di accesso a cui si ha già accesso. Quando si espande il pacchetto di accesso e si passa il puntatore del mouse su un team, è possibile avviarlo facendo clic sul pulsante **Apri** . 
+
+Per altre informazioni sull'uso del portale di accesso personale, vedere [richiedere l'accesso a un pacchetto di accesso in Azure ad gestione dei diritti](../governance/entitlement-management-request-access.md#sign-in-to-the-my-access-portal).
+
+---
+
+### <a name="public-preview---second-level-manager-can-be-set-as-alternate-approver"></a>Anteprima pubblica: il responsabile di secondo livello può essere impostato come responsabile approvazione alternativo
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Gestione degli accessi degli utenti  
+**Funzionalità del prodotto:** Gestione dei diritti
+
+Un'opzione aggiuntiva è ora disponibile nel processo di approvazione nella gestione dei diritti. Se si seleziona responsabile come responsabile approvazione per il primo responsabile approvazione, sarà disponibile un'opzione aggiuntiva, responsabile di secondo livello come responsabile approvazione alternativo, disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello.
+
+Per ulteriori informazioni, vedere [modificare le impostazioni di approvazione per un pacchetto di accesso in Azure ad gestione dei diritti](../governance/entitlement-management-access-package-approval-policy.md#alternate-approvers).
 
 --- 
 
@@ -334,7 +355,7 @@ L'attività da parte del [servizio di provisioning](../app-provisioning/user-pro
 Al termine di una data verrà fornito un aggiornamento. Questa deprecazione non è pianificata per l'anno di calendario 2020. 
 
 > [!NOTE]
-> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context).
+> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md?context=azure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context)
  
 
 ---
@@ -476,7 +497,7 @@ I connettori API sono ora disponibili per l'uso con Azure Active Directory B2C. 
 
  Tutte le organizzazioni connesse avranno ora una proprietà aggiuntiva denominata "state". Lo stato controllerà il modo in cui l'organizzazione connessa verrà usata nei criteri che fanno riferimento a "tutte le organizzazioni connesse configurate". Il valore sarà "configurata" (ovvero l'organizzazione è nell'ambito dei criteri che usano la clausola "All") o "proposed", ovvero l'organizzazione non è nell'ambito.  
 
-Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically).
+Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically)
  
 
 ---
@@ -502,7 +523,7 @@ Le funzionalità di accesso condizionale e di rilevamento dei rischi basate sul 
  
 Nel 2020 ottobre sono state aggiunte le seguenti 27 nuove applicazioni nella raccolta di app con supporto federativo:
 
-[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-Productivity superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys Cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [zone Technologies Portal](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [Reminder appuntamento](https://app.appointmentreminder.co.nz/account/login), [cloud. Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [greetly](https://app.greetly.com/), [OrgVitality SSO} (.. /Saas-Apps/orgvitality-SSO-tutorial.MD), [Web Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [flusso ciclo CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [vendite al dettaglio Zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-Productivity superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [zone Technologies Portal](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [AtSpoke](http://atspoke.com/login), [appuntamento promemoria](https://app.appointmentreminder.co.nz/account/login), [cloud. Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [greetly](https://app.greetly.com/), [OrgVitality SSO](../saas-apps/orgvitality-sso-tutorial.md), [Web Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [loop flow CRM](../saas-apps/loop-flow-crm-tutorial.md), Starmind [, Workstem,](https://hrm.workstem.com/login) [retail Zipline](../saas-apps/retail-zipline-tutorial.md) [, Hoxhunt,](../saas-apps/hoxhunt-tutorial.md) [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md) [](../saas-apps/starmind-tutorial.md)
 
 È anche possibile trovare la documentazione di tutte le applicazioni da qui https://aka.ms/AppsTutorial
 
@@ -533,7 +554,7 @@ Per informazioni su come usare la funzionalità, vedere comprendere il modo in c
 **Categoria di servizio:** Creazione di report  
 **Funzionalità del prodotto:** Monitoraggio e creazione report
  
-È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md).
+È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md)
  
 ---
 
@@ -601,7 +622,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
 
 - Esperienza di mapping degli attributi tramite portale di Azure
 
-    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Altre informazioni](../cloud-provisioning/how-to-attribute-mapping.md)
+    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - Esperienza utente di test o provisioning su richiesta
 
@@ -945,7 +966,7 @@ In precedenza, solo l'amministratore globale poteva gestire la [proprietà di es
  
 Con la versione GA della condizione delle app client nell'accesso condizionale, i nuovi criteri vengono ora applicati per impostazione predefinita a tutte le applicazioni client. Sono inclusi i client di autenticazione legacy. I criteri esistenti rimarranno invariati, ma l'interruttore *configura sì/no* verrà rimosso dai criteri esistenti per individuare facilmente le app client a cui vengono applicati i criteri. 
 
-Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md).
+Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli account di servizio che utilizzano ancora l'autenticazione legacy. in caso contrario, verranno bloccati. [Altre informazioni](../conditional-access/concept-conditional-access-conditions.md)
  
 ---
 
@@ -955,7 +976,7 @@ Quando si creano nuovi criteri, assicurarsi di escludere gli utenti e gli accoun
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md).
+Il servizio di provisioning Azure AD sfrutta lo standard SCIM per l'integrazione con le applicazioni. L'implementazione dello standard SCIM è in continua evoluzione e si prevede di apportare modifiche al comportamento in merito alla modalità di esecuzione delle operazioni di PATCH, nonché di impostare la proprietà "Active" su una risorsa. [Altre informazioni](../app-provisioning/application-provisioning-config-problem-scim-compatibility.md)
  
 ---
 
@@ -1003,7 +1024,7 @@ Gli amministratori possono ora verificare se un'autenticazione di Windows ha usa
 **Categoria di servizio:** Provisioning di app  
 **Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
  
-In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles).
+In precedenza, quando un gruppo è stato modificato da "in-scope" a "out-of-scope" e un amministratore ha fatto clic su Restart prima del completamento della modifica, l'oggetto gruppo non è stato eliminato. A questo punto l'oggetto gruppo verrà eliminato dall'applicazione di destinazione quando esce dall'ambito (disabilitato, eliminato, non assegnato o non ha superato il filtro di ambito). [Altre informazioni](../app-provisioning/how-provisioning-works.md#incremental-cycles)
  
 ---
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/15/2020
-ms.openlocfilehash: aa7c06c3bad59bad11fa288631042cca86109706
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3d5663177bb087e936a49dd7289659b684d85860
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701134"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98116195"
 ---
 # <a name="create-a-basic-search-index-in-azure-cognitive-search"></a>Creare un indice di ricerca di base in Azure ricerca cognitiva
 
@@ -70,7 +70,7 @@ L'arrivo a un progetto di indice finale è un processo iterativo. È comune iniz
 Durante lo sviluppo, pianificare le frequenti ricompilazioni. Poiché le strutture fisiche vengono create nel servizio, è necessario [eliminare e ricreare gli indici](search-howto-reindex.md) per la maggior parte delle modifiche apportate a una definizione di campo esistente. È possibile prendere in considerazione l'uso di un subset di dati per velocizzare le ricompilazioni. 
 
 > [!Tip]
-> Il codice, anziché un approccio basato su un portale, è consigliato per lavorare simultaneamente sulla progettazione di indici e sull'importazione di dati. In alternativa, gli strumenti come i [post e Visual Studio Code](search-get-started-rest.md) sono utili per i test del modello di prova quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
+> Il codice, anziché un approccio basato su un portale, è consigliato per lavorare simultaneamente sulla progettazione di indici e sull'importazione di dati. In alternativa, gli strumenti come l' [inserimento](search-get-started-rest.md) o l' [Visual Studio Code](search-get-started-vs-code.md) sono utili per i test del modello di prova quando i progetti di sviluppo sono ancora in fase iniziale. È possibile apportare modifiche incrementali a una definizione di indice nel corpo della richiesta e quindi inviare la richiesta al servizio per ricreare un indice usando uno schema aggiornato.
 
 ## <a name="index-schema"></a>Schema dell'indice
 
@@ -169,7 +169,7 @@ I campi hanno un nome, un tipo che classifica i dati archiviati e gli attributi 
 
 ### <a name="data-types"></a>Tipi di dati
 
-| Tipo | Descrizione |
+| Type | Descrizione |
 |------|-------------|
 | Edm.String |Testo facoltativamente soggetto a tokenizzazione per la ricerca full-text (suddivisione delle parole, stemming e così via). |
 | Collection(Edm.String) |Elenco di stringhe facoltativamente soggette a tokenizzazione per la ricerca full-text. Non esiste alcun limite superiore teorico al numero di elementi in una raccolta, ma alle raccolte si applica il limite massimo di 16 MB di dimensioni del payload. |

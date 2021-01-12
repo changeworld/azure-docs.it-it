@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 565b84603a14452dd2ec49f8cf61da128503bc03
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e746c7d09bb568d457ab1037b56c7c2973b29ad7
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964253"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117249"
 ---
 # <a name="steps-to-add-a-role-assignment"></a>Procedura per aggiungere un'assegnazione di ruolo
 
@@ -31,7 +31,7 @@ Per prima cosa è necessario determinare chi necessita di accesso. È possibile 
 - Entità servizio: un'identità di sicurezza utilizzata da applicazioni o servizi per accedere a specifiche risorse di Azure. È possibile pensare a questo elemento come a un'*identità utente* (nome utente e password o certificato) per un'applicazione.
 - Identità gestita: un'identità in Azure Active Directory che viene gestita automaticamente da Azure. Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) vengono in genere usate durante lo sviluppo di applicazioni cloud per gestire le credenziali per l'autenticazione ai servizi di Azure.
 
-## <a name="step-2-find-the-appropriate-role"></a>Passaggio 2: trovare il ruolo appropriato
+## <a name="step-2-select-the-appropriate-role"></a>Passaggio 2: selezionare il ruolo appropriato
 
 Le autorizzazioni vengono raggruppate in una *definizione di ruolo*. generalmente chiamata *ruolo*. È possibile scegliere da un elenco di diversi ruoli predefiniti. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare ruoli personalizzati.
 

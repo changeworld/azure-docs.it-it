@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8cf440a517c1a3496b3df438fdd0d2534609908f
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: d570b4a8df5d59cf8828985bee20852d6bc79b1e
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97733112"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117062"
 ---
 # <a name="troubleshoot-connectivity-between-azure-synapse-analytics-synapse-studio-and-storage"></a>Risolvere i problemi di connettività tra Azure Synapse Analytics Synapse Studio e la risorsa di archiviazione
 
@@ -63,4 +63,4 @@ Questo problema può essere dovuto a diversi motivi:
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se la procedura precedente non consente di risolvere il problema, [creare un ticket di supporto](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Se la procedura precedente non consente di risolvere il problema, [creare un ticket di supporto](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
