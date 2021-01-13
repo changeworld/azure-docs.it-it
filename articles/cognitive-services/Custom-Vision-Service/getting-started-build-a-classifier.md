@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: b57720b9d8fb05a605b9eace279b70b060c18450
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596868"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131696"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Avvio rapido: Creare un classificatore con il sito Web di Visione personalizzata
 
@@ -105,7 +105,7 @@ Al termine del training, le prestazioni del modello vengono stimate e visualizza
 
 ![I risultati di training mostrano la precisione e il richiamo complessivi, oltre alla precisione e al richiamo per ogni tag nella funzione di classificazione.](./media/getting-started-build-a-classifier/train03.png)
 
-### <a name="probability-threshold"></a>Soglia di probabilità
+### <a name="probability-threshold"></a>Probability threshold
 
 [!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
