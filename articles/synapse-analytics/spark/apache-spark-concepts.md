@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8df7a2ecd2a6732a011267eb0efe00e8eaf2bef4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 51b2e8cd968c4c14777d196d90686b13158aef42
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458749"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120309"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Concetti principali su Apache Spark in Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ L'articolo seguente spiega come richiedere un aumento della quota di vCore dell'
 - Selezionare "Azure Synapse Analytics" come tipo di servizio.
 - Nella finestra Dettagli quota selezionare Apache Spark (vCore) per area di lavoro
 
-[Richiedere un aumento di capacità tramite il portale di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+[Richiedere un aumento di capacità tramite il portale di Azure](../../azure-portal/supportability/per-vm-quota-requests.md#request-a-standard-quota-increase-from-help--support)
 
 ### <a name="spark-pool-level"></a>Livello di pool di Spark
 
@@ -95,5 +95,5 @@ Per risolvere il problema, è necessario ridurre l'utilizzo delle risorse del po
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
+- [Azure Synapse Analytics](../index.yml)
 - [Documentazione di Apache Spark](https://spark.apache.org/docs/2.4.5/)

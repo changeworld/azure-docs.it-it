@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 4ebae7e97f9128bb9302e9076e71dd3164f0c29e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: bf8b705aff8ac608d0eb3626026797f1d106414b
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030961"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017753"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Avvio rapido: Configurare un'applicazione per esporre un'API Web
 
@@ -45,7 +45,7 @@ Per richiedere l'autorizzazione per eseguire le operazioni definite dall'API Web
 
 Seguire innanzitutto questa procedura per creare un ambito di esempio denominato `Employees.Read.All`:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
 1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare la registrazione dell'app dell'API.
 1. Selezionare **Esporre un'API** > **Aggiungi un ambito**.

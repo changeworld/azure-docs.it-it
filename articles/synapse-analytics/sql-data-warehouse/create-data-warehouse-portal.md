@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 78a0982081b8e34461fb2910cc7ce21be622cb6a
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922880"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120275"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Avvio rapido: Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics usando il portale di Azure
 
@@ -153,7 +153,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 ## <a name="run-some-queries"></a>Eseguire alcune query
 
-Non è consigliabile eseguire query di grandi dimensioni quando si è effettuato l’accesso come amministratore del server, perché usa una [classe di risorse limitata](resource-classes-for-workload-management.md). Configurare invece [Isolamento dei carichi di lavoro](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) come [illustrato nelle esercitazioni](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
+Non è consigliabile eseguire query di grandi dimensioni quando si è effettuato l’accesso come amministratore del server, perché usa una [classe di risorse limitata](resource-classes-for-workload-management.md). Configurare invece [Isolamento dei carichi di lavoro](./quickstart-configure-workload-isolation-tsql.md) come [illustrato nelle esercitazioni](./load-data-wideworldimportersdw.md#create-a-user-for-loading-data).
 
 Azure Synapse Analytics usa T-SQL come linguaggio di query. Per aprire una finestra di query ed eseguire alcune query T-SQL, seguire questa procedura:
 

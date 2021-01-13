@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 7cf4020ad38224b25ea8bb7dc7f0fdea7dd6f3b1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5e4f3314ba580dddbd995855bc0f0512b7597107
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034004"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115735"
 ---
 # <a name="quickstart-check-access-for-a-user-to-azure-resources"></a>Avvio rapido: Controllare l'accesso di un utente alle risorse di Azure
 
@@ -37,7 +37,7 @@ Per aprire il set di risorse di Azure per cui si vuole controllare l'accesso, se
 
     L'immagine seguente mostra un gruppo di risorse di esempio.
 
-    ![Panoramica del gruppo di risorse](./media/check-access/rg-overview.png)
+    ![Panoramica del gruppo di risorse](./media/shared/rg-overview.png)
 
 ## <a name="step-2-check-access-for-a-user"></a>Passaggio 2: Controllare l'accesso per un utente
 
@@ -47,7 +47,7 @@ Seguire questa procedura per controllare l'accesso di un singolo utente, gruppo,
 
     L'immagine seguente mostra un esempio della pagina Controllo di accesso (IAM) per un gruppo di risorse.
 
-    ![Scheda Verifica l'accesso della pagina Controllo di accesso per un gruppo di risorse](./media/check-access/rg-access-control.png)
+    ![Scheda Verifica l'accesso della pagina Controllo di accesso per un gruppo di risorse](./media/shared/rg-access-control.png)
 
 1. Nell'elenco **Trova** della scheda **Verifica l'accesso** selezionare l'utente, il gruppo, l'entità servizio o l'identità gestita per cui si vuole controllare l'accesso.
 

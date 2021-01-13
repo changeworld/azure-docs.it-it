@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: efa160eb422658aeeb2eea3ad3c1d305b4b9f8be
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1217cf74ab36a8fe865e47009616b1ccb240df67
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462409"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98119884"
 ---
 # <a name="sql-authentication"></a>Autenticazione SQL
 
@@ -111,7 +111,7 @@ Per creare un database, l'utente deve essere basato su un account di accesso di 
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Aggiungere il nuovo utente al ruolo del database **dbmanager** in `master` usando la routine [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (si noti che l'istruzione [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) non è supportata in SQL con provisioning). Istruzioni di esempio:
+4. Aggiungere il nuovo utente al ruolo del database **dbmanager** in `master` usando la routine [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=azure-sqldw-latest) (si noti che l'istruzione [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) non è supportata in SQL con provisioning). Istruzioni di esempio:
 
    ```sql
    EXEC sp_addrolemember 'dbmanager', 'Mary'; 
@@ -133,7 +133,7 @@ L'altro ruolo amministrativo è il ruolo di gestione degli account di accesso. I
 
 ## <a name="non-administrator-users"></a>Utenti non amministratori
 
-Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) . 
+Per gli account non amministratore non è in genere necessario l'accesso al database master. Creare utenti di database indipendente a livello di database con l'istruzione [CREATE USER (Transact-SQL)](/sql/t-sql/statements/create-user-transact-sql) . 
 
 L'utente può essere un utente di database indipendente con autenticazione di Azure Active Directory (se l'ambiente è stato configurato per l'autenticazione di Azure AD), un utente di database indipendente con autenticazione di SQL Server oppure un utente con autenticazione di SQL Server basato su un account di accesso con autenticazione di SQL Server (creato nel passaggio precedente).  
 
@@ -191,7 +191,7 @@ I ruoli del database possono essere ruoli predefiniti come **db_owner**, **db_dd
 
 Il ruolo predefinito del database **db_datareader**, ad esempio, concede l'accesso in lettura a tutte le tabelle del database, che in genere è più di quanto strettamente necessario. 
 
-È preferibile usare l'istruzione [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
+È preferibile usare l'istruzione [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql) per creare ruoli del database definiti dall'utente e concedere con attenzione a ogni ruolo le autorizzazioni minime necessarie per le esigenze aziendali. Quando un utente è membro di più ruoli, vengono aggregate le autorizzazioni di tutti.
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -199,7 +199,7 @@ Nel database SQL possono essere concesse o negate singolarmente oltre 100 autori
 
 A causa dell'annidamento e del numero delle autorizzazioni, progettare un sistema di autorizzazioni appropriato per proteggere correttamente il database può richiedere un attento studio. 
 
-Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di database)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) e la [grafica in formato di poster](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png) relativa alle autorizzazioni.
+Per iniziare, vedere l'elenco di autorizzazioni in [Autorizzazioni (Motore di database)](/sql/relational-databases/security/permissions-database-engine) e la [grafica in formato di poster](/sql/relational-databases/security/media/database-engine-permissions.png) relativa alle autorizzazioni.
 
 ### <a name="considerations-and-restrictions"></a>Considerazioni e restrizioni
 
@@ -236,5 +236,4 @@ Quando si gestiscono gli account di accesso e gli utenti nel database SQL, tener
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](https://msdn.microsoft.com/library/ff929188.aspx).
- 
+Per altre informazioni, vedere [Utenti di database indipendente: rendere portabile un database](/sql/relational-databases/security/contained-database-users-making-your-database-portable).

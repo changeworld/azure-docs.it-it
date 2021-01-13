@@ -3,17 +3,16 @@ title: Creare ed eliminare gli endpoint privati in un cluster di Analisi di flus
 description: Informazioni su come gestire gli endpoint privati in un cluster di Analisi di flusso di Azure.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 36d26195e78c74ed7b976cfdd48e1e965bca872b
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: cff02bb4b7d0f7e969589a9977a89f89e2674ffc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95249785"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019415"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Creare ed eliminare gli endpoint privati in un cluster di Analisi di flusso di Azure
 

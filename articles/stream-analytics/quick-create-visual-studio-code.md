@@ -2,17 +2,17 @@
 title: 'Avvio rapido: Creare un processo di Analisi di flusso di Azure in Visual Studio Code'
 description: Questo argomento di avvio rapido descrive come iniziare a creare un processo di analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio Code.
 ms.service: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: su-jie
+ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: f53ff85dd118774b86a0ec25c89f912798a6418d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 104dfe7b2ce253d7ae42c7484532cfd5b2993aec
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125853"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014612"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure in Visual Studio Code (anteprima)
 
@@ -114,15 +114,15 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 ## <a name="create-a-stream-analytics-project"></a>Creare un progetto di Analisi di flusso
 
-1. In Visual Studio Code premere **CTRL+MAIUSC+P** per aprire il riquadro comandi. Immettere quindi **ASA** e selezionare **ASA: Create New Project** (ASA: Crea nuovo progetto).
+1. In Visual Studio Code premere **CTRL+MAIUSC+P** per aprire il riquadro comandi. Immettere quindi **ASA** e selezionare **ASA: Create New Project**(ASA: Crea nuovo progetto).
 
    ![Creare un nuovo progetto](./media/quick-create-visual-studio-code/create-new-project.png)
 
-2. Immettere il nome del progetto, ad esempio **myASAproj** , e selezionare una cartella per il progetto.
+2. Immettere il nome del progetto, ad esempio **myASAproj**, e selezionare una cartella per il progetto.
 
     ![Creare un nome di progetto](./media/quick-create-visual-studio-code/create-project-name.png)
 
-3. Il nuovo progetto viene aggiunto all'area di lavoro. Un progetto di Analisi di flusso è costituito da tre cartelle: **Inputs** , **Outputs** e **Functions** , oltre che dallo script di query **(*.asaql)** , da un file **JobConfig.json** e da un file di configurazione **asaproj.json**.
+3. Il nuovo progetto viene aggiunto all'area di lavoro. Un progetto di Analisi di flusso è costituito da tre cartelle: **Inputs**, **Outputs** e **Functions**, oltre che dallo script di query **(*.asaql)** , da un file **JobConfig.json** e da un file di configurazione **asaproj.json**.
 
     Il file di configurazione **asaproj.json** contiene gli input, gli output e le informazioni sul file di configurazione del processo che servono per inviare ad Azure il processo di analisi di flusso.
 
@@ -237,7 +237,7 @@ Dopo la compilazione, i due modelli di Azure Resource Manager generati saranno d
 
 3. Scegliere **Select a job** (Seleziona un processo). Scegliere quindi **Create New Job** (Crea nuovo processo).
 
-4. Immettere il nome del processo, **myASAjob** , quindi seguire le istruzioni per scegliere il gruppo di risorse e la posizione.
+4. Immettere il nome del processo, **myASAjob**, quindi seguire le istruzioni per scegliere il gruppo di risorse e la posizione.
 
 5. Selezionare **Invia ad Azure**. I log sono disponibili nella finestra di output. 
 

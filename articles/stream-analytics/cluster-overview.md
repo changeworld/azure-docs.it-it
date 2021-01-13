@@ -3,17 +3,16 @@ title: Panoramica dei cluster di Analisi di flusso di Azure (anteprima)
 description: Informazioni sull'offerta dedicata di cluster di Analisi di flusso a tenant singolo.
 author: sidramadoss
 ms.author: sidram
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: f67df45b6b663584e848983251031146cdf8df60
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95247694"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019534"
 ---
 # <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Panoramica del cluster di Analisi di flusso di Azure (anteprima)
 

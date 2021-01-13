@@ -1,17 +1,17 @@
 ---
 title: 'Avvio rapido: Creare un processo di Analisi di flusso di Azure con Visual Studio'
 description: Questa guida introduttiva descrive come iniziare a creare un processo di Analisi di flusso, configurare gli input e gli output e definire una query con Visual Studio.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 034f1497cb6262ca86cd440b914f3ae67356eef9
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7a02d0914ae111d6e2e00493fe27613e27d836b1
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124612"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012360"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code
 
@@ -89,7 +89,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 3. Nell'elenco dei modelli a sinistra selezionare **Analisi di flusso** e quindi **Applicazione Analisi di flusso di Azure**.  
 
-4. Inserire i valori appropriati per il progetto in **Nome** , **Percorso** e **Nome soluzione** e scegliere **OK**.
+4. Inserire i valori appropriati per il progetto in **Nome**, **Percorso** e **Nome soluzione** e scegliere **OK**.
 
    ![Creare un progetto di Analisi di flusso](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
 
@@ -102,7 +102,7 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 
 1. In Visual Studio dal menu **Visualizza** scegliere **Esplora server**.
 
-2. Fare clic con il pulsante destro del mouse su **Azure** , selezionare **Connetti a sottoscrizione di Microsoft Azure** e quindi accedere con l'account di Azure.
+2. Fare clic con il pulsante destro del mouse su **Azure**, selezionare **Connetti a sottoscrizione di Microsoft Azure** e quindi accedere con l'account di Azure.
 
 ## <a name="define-input"></a>Definire l'input
 
@@ -158,9 +158,9 @@ Si notino gli elementi che sono inclusi in un progetto di Analisi di flusso di A
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Inviare ad Azure una query di Analisi di flusso
 
-1. Nell' **Editor di query** selezionare **Invia ad Azure** nell'editor di script.
+1. Nell'**Editor di query** selezionare **Invia ad Azure** nell'editor di script.
 
-2. Selezionare **Create a New Azure Stream Analytics job** (Crea un nuovo processo di Analisi di flusso di Azure) e immettere un **Nome processo**. Scegliere la **Sottoscrizione** , il **Gruppo di risorse** e il **Percorso** usati all'inizio della guida introduttiva.
+2. Selezionare **Create a New Azure Stream Analytics job** (Crea un nuovo processo di Analisi di flusso di Azure) e immettere un **Nome processo**. Scegliere la **Sottoscrizione**, il **Gruppo di risorse** e il **Percorso** usati all'inizio della guida introduttiva.
 
    ![Inviare il processo ad Azure](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
@@ -198,7 +198,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi selezionare il nome della risorsa creata.  
 
-2. Nella pagina del gruppo di risorse selezionare **Elimina** , digitare il nome della risorsa da eliminare nella casella di testo e quindi selezionare **Elimina**.
+2. Nella pagina del gruppo di risorse selezionare **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 72d9aefcdda5d224b256c6e969b7a75259a97005
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: c34ea5e2c622b7b203c56c6de2b611d6eca1d35c
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95750774"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017511"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Guida introduttiva: Consentire l'accesso agli utenti e ottenere un token di accesso in un'applicazione a pagina singola Angular
 
@@ -35,7 +35,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >
 > ### <a name="option-1-express-register-and-automatically-configure-the-app-and-then-download-the-code-sample"></a>Opzione 1 (rapida): Registrare e configurare automaticamente l'app e quindi scaricare il codice di esempio
 >
-> 1. Accedere al [portale di Azure](https://portal.azure.com).
+> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure Active Directory (Azure AD) desiderato.
 > 1. Aprire il nuovo riquadro [Registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) nel portale di Azure.
 > 1. Immettere un nome per l'applicazione e quindi fare clic su **Registra**.
@@ -45,7 +45,7 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice di u
 >
 > #### <a name="step-1-register-the-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Accedere al [portale di Azure](https://portal.azure.com).
+> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Se l'account ha accesso a più tenant, selezionare l'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 > 1. Seguire le istruzioni per [registrare un'applicazione a pagina singola](./scenario-spa-app-registration.md) nel portale di Azure.
 > 1. Aggiungere una nuova piattaforma nel riquadro **Autenticazione** della registrazione dell'app e registrare l'URI di reindirizzamento: `http://localhost:4200/`.

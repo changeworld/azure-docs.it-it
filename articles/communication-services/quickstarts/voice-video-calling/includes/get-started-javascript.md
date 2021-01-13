@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: d35e51d097c2d5e0b66c23efa27ae70c065d547c
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96584562"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98024385"
 ---
 Questa guida di avvio rapido illustra come avviare una chiamata con la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
 
@@ -22,52 +22,10 @@ Questa guida di avvio rapido illustra come avviare una chiamata con la libreria 
 - Una risorsa attiva di Servizi di comunicazione. [Creare una risorsa di Servizi di comunicazione](../../create-communication-resource.md).
 - Un token di accesso utente per creare un'istanza del client di chiamata. Vedere come [creare e gestire i token di accesso utente](../../access-tokens.md).
 
-## <a name="setting-up"></a>Configurazione
 
-### <a name="create-a-new-nodejs-application"></a>Creare una nuova applicazione Node.js
+[!INCLUDE [Calling with JavaScript](./get-started-javascript-setup.md)]
 
-Aprire la finestra del terminale o di comando, creare una nuova directory per l'app e passare a tale directory.
-
-```console
-mkdir calling-quickstart && cd calling-quickstart
-```
-
-Eseguire `npm init -y` per creare un file **package.json** con le impostazioni predefinite.
-
-```console
-npm init -y
-```
-
-### <a name="install-the-package"></a>Installare il pacchetto
-
-Usare il comando `npm install` per installare la libreria client Chiamate di Servizi di comunicazione di Azure per JavaScript.
-
-```console
-npm install @azure/communication-common --save
-npm install @azure/communication-calling --save
-```
-
-Per questa guida di avvio rapido sono consigliate le versioni di webpack seguenti:
-
-```console
-"webpack": "^4.42.0",
-"webpack-cli": "^3.3.11",
-"webpack-dev-server": "^3.10.3"
-```
-
-L'opzione `--save` elenca la libreria come dipendenza nel file **package.json**.
-
-### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
-
-Questa guida di avvio rapido usa webpack per aggregare gli asset dell'applicazione. Eseguire il comando seguente per installare i pacchetti npm webpack, webpack-cli e webpack-dev-server ed elencarli come dipendenze di sviluppo in **package.json**:
-
-```console
-npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-dev
-```
-
-Creare un file **index.html** nella directory radice del progetto. Questo file verrà usato per configurare un layout di base che consentirà all'utente di effettuare una chiamata a un bot di Servizi di comunicazione di Azure.
-
-Il codice è il seguente:
+Ecco il codice:
 
 ```html
 <!DOCTYPE html>

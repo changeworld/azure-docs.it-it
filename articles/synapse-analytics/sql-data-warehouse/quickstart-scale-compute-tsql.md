@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 37033e3c5f388d1a55a122899114914e661565f6
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f3eaa6383b174e06ff6ce9b1b08c4eba9108d770
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460235"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115515"
 ---
 # <a name="quickstart-scale-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-t-sql"></a>Avvio rapido: Dimensionare le risorse di calcolo per un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics con T-SQL
 
@@ -153,4 +153,4 @@ AND
 Si è appreso come dimensionare le risorse di calcolo per il pool SQL dedicato (in precedenza SQL Data Warehouse). Per altre informazioni su Azure Synapse Analytics, continuare con l'esercitazione sul caricamento dei dati.
 
 > [!div class="nextstepaction"]
->[Caricare dati in un pool SQL dedicato](load-data-from-azure-blob-storage-using-polybase.md)
+>[Caricare dati in un pool SQL dedicato](./load-data-from-azure-blob-storage-using-copy.md)

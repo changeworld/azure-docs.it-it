@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 2630984d54134ca8fca94fdc1960265ba71935a6
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: fdaaf935dc458a6a5b2a87a81bb98a1392f1034a
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031301"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012122"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Avvio rapido: Configurare un'applicazione client per l'accesso a un'API Web
 
@@ -42,7 +42,7 @@ Questo diagramma mostra la correlazione tra le due registrazioni dell'app. In qu
 
 Dopo aver registrato sia l'app client che l'API Web e aver esposto l'API creando gli ambiti, seguire questa procedura per configurare le autorizzazioni del client per l'API:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
 1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client (*non* l'API Web).
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Le mie API**.
@@ -71,7 +71,7 @@ Oltre ad accedere all'API Web personalizzata per conto dell'utente connesso, l'a
 
 Configurare l'autorizzazione delegata per Microsoft Graph per consentire all'applicazione client di eseguire operazioni per conto dell'utente connesso, ad esempio la lettura della posta elettronica o la modifica del profilo. Per impostazione predefinita, quando eseguono l'accesso, agli utenti dell'app client viene richiesto di fornire il consenso alle autorizzazioni delegate configurate.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
 1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client.
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Microsoft Graph**.
@@ -96,7 +96,7 @@ Configurare le autorizzazioni dell'applicazione per un'applicazione che deve ese
 
 Nella procedura seguente viene concessa, ad esempio, l'autorizzazione *Files.Read.All* di Microsoft Graph.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
 1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client.
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Microsoft Graph** > **Autorizzazioni applicazione**.

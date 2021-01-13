@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 4e82c8402584f694cb32bb37ae3e6eae9366eaf7
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 200fdd126e2ed95804f81c1dd36804ecc6c61d85
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341434"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019687"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare PHP per connettersi ai dati ed eseguire query in Database di Azure per PostgreSQL - Server singolo
 
@@ -53,7 +53,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
  :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Nome del server Database di Azure per PostgreSQL":::
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice chiama il metodo [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) per connettersi a Database di Azure per PostgreSQL. Chiama quindi il metodo [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) più volte per eseguire diversi comandi e [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) ogni volta per controllare i dettagli se si è verificato un errore. Chiama infine il metodo [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) per chiudere la connessione.
 
@@ -87,7 +87,7 @@ Sostituire i parametri `$host`, `$database`, `$user` e `$password` con valori pe
     // Insert some data into table.
     $name = '\'banana\'';
     $quantity = 150;
-    $query = "INSERT INTO inventory (name, quantity) VALUES ($1, $2);";
+    $query = "INSERT INTO inventory (name, quantity) VALUES ($name, $quantity);";
     pg_query($connection, $query) 
         or die("Encountered an error when executing given sql statement: ". pg_last_error(). "<br/>");
 

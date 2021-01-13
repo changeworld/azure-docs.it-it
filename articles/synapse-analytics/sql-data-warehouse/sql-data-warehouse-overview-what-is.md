@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f9ab6dacde0259905368d8a0cb788dde77bbfb2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96453628"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98115821"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Che cos'è il pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics?
 
@@ -51,7 +51,7 @@ I risultati delle analisi possono essere passati ad applicazioni o database di r
 
 - Esplorare l'[architettura di Azure Synapse](massively-parallel-processing-mpp-architecture.md)
 - [Creare un pool SQL dedicato](create-data-warehouse-portal.md) in tempi rapidi
-- [Caricare dati di esempio](load-data-from-azure-blob-storage-using-polybase.md).
+- [Caricare dati di esempio](./load-data-from-azure-blob-storage-using-copy.md).
 - Esplorare i [video](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Oppure vedere alcune delle altre risorse disponibili per Azure Synapse.
@@ -59,5 +59,5 @@ Oppure vedere alcune delle altre risorse disponibili per Azure Synapse.
 - Eseguire ricerche nei [blog](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Inviare [richieste di funzionalità](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Creare un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md)
-- Eseguire ricerche nella [Pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
+- Eseguire ricerche nella [Pagina delle domande di Domande e risposte Microsoft](/answers/topics/azure-synapse-analytics.html)
 - Eseguire ricerche nel [forum di Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
