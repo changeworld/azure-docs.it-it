@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/12/2021
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 54306b8bd8718a0a69f5b04ceaab15dff46d21a8
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: 6f8ed3381f056238bdbb24fe52c5f859afef7d03
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97978772"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147487"
 ---
 | Risorsa | Limite |
 | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "97978772"
 | Circuiti ExpressRoute per ogni area per sottoscrizione con Azure Resource Manager |10 |
 | Numero massimo di route annunciate al peering privato di Azure con ExpressRoute Standard |4.000 |
 | Numero massimo di route annunciate al peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
-| Numero massimo di route annunciate dal peering privato di Azure dallo spazio indirizzi della rete virtuale per una connessione ExpressRoute |1000 |
+| Numero massimo di route annunciate dal peering privato di Azure dallo spazio indirizzi della rete virtuale per una connessione ExpressRoute |200 |
 | Numero massimo di route annunciate al peering Microsoft con ExpressRoute Standard |200 |
 | Numero massimo di route annunciate al peering Microsoft con il componente aggiuntivo ExpressRoute Premium |200 |
 | Numero massimo di circuiti ExpressRoute collegati alla stessa rete virtuale nella stessa posizione di peering |4 |

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: b26b0d9086f464556cbca2c70773374c3cccbd52
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915862"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134416"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Conteggi di dati in Machine Learning automatizzato
 
@@ -122,6 +122,9 @@ Le personalizzazioni supportate includono:
 |**Aggiornamento dei parametri del trasformatore** |Aggiornare i parametri per il trasformatore specificato. Attualmente supporta l' *imputatore* (medio, più frequente e mediano) e *HashOneHotEncoder*.|
 |**Eliminazione delle colonne** |Specifica le colonne da eliminare dall'trasformato.|
 |**Blocco dei trasformatori**| Specifica i trasformatori di blocco da usare nel processo conteggi.|
+
+>[!NOTE]
+> La funzionalità **Drop Columns** è deprecata a partire dalla versione SDK 1,19. Rilasciare le colonne dal set di dati come parte della pulizia dei dati, prima di utilizzarlo nell'esperimento di Machine Learning automatico. 
 
 Creare l' `FeaturizationConfig` oggetto usando le chiamate API:
 

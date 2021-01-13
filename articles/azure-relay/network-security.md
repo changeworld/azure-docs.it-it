@@ -3,18 +3,18 @@ title: Sicurezza di rete per l'inoltro di Azure
 description: Questo articolo descrive come usare le regole del firewall IP ed endpoint privati con il servizio di inoltro di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263726"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134467"
 ---
 # <a name="network-security-for-azure-relay"></a>Sicurezza di rete per l'inoltro di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con il servizio di inoltro di Azure: 
 
 - Regole del firewall IP (anteprima)
-- Endpoint privati (anteprima)
+- Endpoint privati 
 
 > [!NOTE]
 > Il servizio di inoltro di Azure non supporta gli endpoint servizio di rete. 
@@ -29,14 +29,14 @@ Le regole del firewall IP vengono applicate a livello di spazio dei nomi di inol
 
 Per ulteriori informazioni, vedere [come configurare un firewall IP per uno spazio dei nomi di inoltro](ip-firewall-virtual-networks.md)
 
-## <a name="private-endpoints"></a>Endpoint privati
-
-Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure? (Anteprima)](../private-link/private-link-overview.md).
-
-Un **endpoint privato** è un'interfaccia di rete che consente ai carichi di lavoro in esecuzione in una rete virtuale di connettersi privatamente e in modo sicuro a un servizio che dispone di una **risorsa di collegamento privato** (ad esempio, uno spazio dei nomi di Inoltro). L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute, connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile fornire un livello di granularità nel controllo di accesso consentendo le connessioni a spazi dei nomi di Inoltro di Azure specifici.
-
 > [!NOTE]
 > Questa funzionalità è attualmente disponibile in **anteprima**. 
+
+## <a name="private-endpoints"></a>Endpoint privati
+
+Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
+
+Un **endpoint privato** è un'interfaccia di rete che consente ai carichi di lavoro in esecuzione in una rete virtuale di connettersi privatamente e in modo sicuro a un servizio che dispone di una **risorsa di collegamento privato** (ad esempio, uno spazio dei nomi di Inoltro). L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute, connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile fornire un livello di granularità nel controllo di accesso consentendo le connessioni a spazi dei nomi di Inoltro di Azure specifici.
 
 Per ulteriori informazioni, vedere [come configurare gli endpoint privati](private-link-service.md)
 

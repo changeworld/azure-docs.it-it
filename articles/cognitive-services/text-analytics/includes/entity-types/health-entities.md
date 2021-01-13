@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 00c1c8ddab9214bf7698c21b05c24afa36ec20d9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553192"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98147692"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Analisi del testo per categorie di integrità, entità e attributi
 
@@ -23,15 +23,15 @@ ms.locfileid: "94553192"
 
 | Category  | Descrizione  |
 |---------|---------|
-| ANATOMIA | concetti che acquisiscono informazioni su sistemi di corpo, anatomia, siti, posizioni o aree geografiche. |
- | Demografia | concetti che acquisiscono informazioni sul sesso e l'età. |
- | ESAME | concetti che consentono di acquisire informazioni su procedure e test diagnostici. |
- | GENOMICA | concetti che acquisiscono informazioni su geni e varianti. |
- | SETTORE sanitario | concetti che acquisiscono informazioni sugli eventi amministrativi, gli ambienti di assistenza e le professioni sanitarie. |
- | CONDIZIONE MEDICA | concetti che acquisiscono informazioni sulle diagnosi, i sintomi o i segni. |
- | FARMACO | concetti che acquisiscono informazioni sui medicinali, inclusi i nomi dei farmaci, le classi, il dosaggio e il percorso di amministrazione. |
- | SOCIALE | concetti che acquisiscono informazioni sugli aspetti sociali medici pertinenti, ad esempio la relazione tra le famiglie. |
- | TRATTAMENTO | concetti che consentono di acquisire informazioni sulle procedure terapeutiche. |
+| [ANATOMIA](#anatomy) | concetti che acquisiscono informazioni su sistemi di corpo, anatomia, siti, posizioni o aree geografiche. |
+ | [Demografia](#demographics) | concetti che acquisiscono informazioni sul sesso e l'età. |
+ | [ESAME](#examinations) | concetti che consentono di acquisire informazioni su procedure e test diagnostici. |
+ | [GENOMICA](#genomics) | concetti che acquisiscono informazioni su geni e varianti. |
+ | [SETTORE sanitario](#healthcare) | concetti che acquisiscono informazioni sugli eventi amministrativi, gli ambienti di assistenza e le professioni sanitarie. |
+ | [CONDIZIONE MEDICA](#medical-condition) | concetti che acquisiscono informazioni sulle diagnosi, i sintomi o i segni. |
+ | [FARMACO](#medication) | concetti che acquisiscono informazioni sui medicinali, inclusi i nomi dei farmaci, le classi, il dosaggio e il percorso di amministrazione. |
+ | [SOCIALE](#social) | concetti che acquisiscono informazioni sugli aspetti sociali medici pertinenti, ad esempio la relazione tra le famiglie. |
+ | [TRATTAMENTO](#treatment) | concetti che consentono di acquisire informazioni sulle procedure terapeutiche. |
   
 Ogni categoria può includere due gruppi di concetti:
 
@@ -51,7 +51,7 @@ Sistemi del corpo **BODY_STRUCTURE** , posizioni anatomiche o aree e siti del co
 
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Esempio espanso dell'entità della struttura del corpo.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 Termini **direzionali direzionali,** ad esempio: Left, laterale, Upper, posterior, che caratterizza una struttura del corpo.
 
@@ -76,7 +76,7 @@ Termini **direzionali direzionali,** ad esempio: Left, laterale, Upper, posterio
 
 :::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Esempio di entità Gender.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 **RELATIONAL_OPERATOR** le frasi che esprimono la relazione tra un'entità demografica e informazioni aggiuntive.
 
@@ -92,17 +92,17 @@ Termini **direzionali direzionali,** ad esempio: Left, laterale, Upper, posterio
 
 :::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Un altro esempio di entità nome esame.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 **Direzione** : termini direzionali che caratterizzano un esame.
 
 :::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Esempio di un attributo Direction con un'entità nome esame.":::
 
-**MEASUREMENT_UNIT** : l'unità dell'esame. Ad esempio, in *emoglobina > 9,5 g/dl* , il termine *g/dl* è l'unità per il test di *emoglobina* .
+**MEASUREMENT_UNIT** : l'unità dell'esame. Ad esempio, in *emoglobina > 9,5 g/dl*, il termine *g/dl* è l'unità per il test di *emoglobina* .
 
 :::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Esempio di un attributo di unità di misura con un'entità nome esame.":::
 
-**MEASUREMENT_VALUE** : il valore dell'esame. Ad esempio, in *emoglobina > 9,5 g/dl* , il termine *9,5* è il valore per il test di *emoglobina* .
+**MEASUREMENT_VALUE** : il valore dell'esame. Ad esempio, in *emoglobina > 9,5 g/dl*, il termine *9,5* è il valore per il test di *emoglobina* .
 
 :::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Esempio di attributo valore di misurazione con un'entità nome esame.":::
 
@@ -166,7 +166,7 @@ Termini **direzionali direzionali,** ad esempio: Left, laterale, Upper, posterio
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Un altro esempio di un segno di condizione medica o di un'entità sintomo.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 Termini di qualità **CONDITION_QUALIFIER** utilizzati per descrivere una condizione medica. Tutte le sottocategorie seguenti sono considerate qualificatori:
 
@@ -198,7 +198,7 @@ Termini direzionali della **direzione** che caratterizzano una condizione medica
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Un altro esempio di attributo Direction con un sintomo o un'entità Sign.":::
 
-**MEASUREMENT_UNIT** : unità che caratterizza una condizione medica. Ad esempio, nel *tumore da 1,5 x2x1 cm* , il termine *cm* è l'unità di misura per il *tumore*. 
+**MEASUREMENT_UNIT** : unità che caratterizza una condizione medica. Ad esempio, nel *tumore da 1,5 x2x1 cm*, il termine *cm* è l'unità di misura per il *tumore*. 
 
 :::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Esempio di attributo di unità di misura con entità di condizione medica.":::
 
@@ -234,7 +234,7 @@ Termini **temporali** relativi all'inizio e/o alla lunghezza (durata) di una con
 
 :::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Esempio di entità nome di un farmaco.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 **Dosaggio** : quantità di medicinali ordinata. Ad esempio, infondere la soluzione cloruro di sodio *1000 ml*.
 
@@ -267,7 +267,15 @@ Termini **temporali** relativi all'inizio e/o alla lunghezza (durata) di una con
 +   **FREQUENCY_OF_MEDICATION**
 +   **ROUTE_OF_MEDICATION**
 +   **TIME_OF_MEDICATION**
-  
+
+## <a name="social"></a>Social network
+
+### <a name="entities"></a>Entità
+
+**FAMILY_RELATION** : menzioni dei parenti della famiglia dell'oggetto. Ad esempio, father, Daughter, di pari livello, parents.
+
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Screenshot mostra un altro esempio di attributo tempo di trattamento.":::
+
 ## <a name="treatment"></a>Modalità di gestione
 
 ### <a name="entities"></a>Entità
@@ -276,7 +284,7 @@ Termini **temporali** relativi all'inizio e/o alla lunghezza (durata) di una con
 
 :::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Esempio di entità nome trattamento.":::
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 
 Termini **direzionali direzionali che** caratterizzano un trattamento.
 
@@ -294,17 +302,8 @@ Termini **temporali** relativi all'inizio e/o alla lunghezza (durata) di un trat
 
 :::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Screenshot mostra un esempio di attributo tempo di trattamento.":::
 
-
 ### <a name="supported-relations"></a>Relazioni supportate
 
 + **DIRECTION_OF_TREATMENT**
 +   **TIME_OF_TREATMENT**
 +   **FREQUENCY_OF_TREATMENT**
-
-## <a name="social"></a>Social network
-
-### <a name="entities"></a>Entità
-
-**FAMILY_RELATION** : menzioni dei parenti della famiglia dell'oggetto. Ad esempio, father, Daughter, di pari livello, parents.
-
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Screenshot mostra un altro esempio di attributo tempo di trattamento.":::
