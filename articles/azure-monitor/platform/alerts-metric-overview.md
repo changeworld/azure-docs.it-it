@@ -1,15 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 01/11/2021
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 424cc9db01f1eb6300c2915795f3e2c37b34449f
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: d8e0621f88455a68ad0ee1b236f6b423c9d54b52
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071052"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179895"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -64,6 +64,10 @@ Se l'utilizzo in "myVM" rimane al di sopra della soglia nei controlli successivi
 Dopo un certo periodo di tempo, l'utilizzo di "myVM" Torna al normale (scende al di sotto della soglia). la regola di avviso monitora la condizione altre due volte, per inviare una notifica risolta. La regola di avviso invia una notifica risolta/disattivata se la condizione di avviso non viene soddisfatta per tre volte consecutive, per ridurre il rumore in caso di condizioni instabili.
 
 Quando la notifica risolta viene inviata tramite posta elettronica o webhook, anche lo stato dell'istanza di avviso (denominato stato di monitoraggio) nel portale di Azure viene impostato come risolto.
+
+> [!NOTE]
+>
+> Quando una regola di avviso monitora più condizioni, un avviso attivato viene risolto se almeno una delle condizioni non viene più soddisfatta per tre periodi consecutivi.
 
 ### <a name="using-dimensions"></a>Uso delle dimensioni
 
@@ -135,7 +139,7 @@ Fino a questo punto abbiamo visto che un solo avviso di metrica può essere usat
 
 Questa funzionalità è attualmente supportata per le metriche della piattaforma (non per le metriche personalizzate) per i servizi seguenti nei cloud di Azure seguenti:
 
-| Servizio | Public Azure (Azure pubblico) | Enti governativi | Cina |
+| Servizio | Public Azure (Azure pubblico) | Government | Cina |
 |:--------|:--------|:--------|:--------|
 | Macchine virtuali<sup>1</sup>  | **Sì** | **Sì** | No |
 | Database di SQL Server | **Sì** | **Sì** | **Sì** |

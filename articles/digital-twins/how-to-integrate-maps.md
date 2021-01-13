@@ -1,19 +1,19 @@
 ---
 title: Integrazione con Mappe di Azure
 titleSuffix: Azure Digital Twins
-description: Vedere come creare una funzione di Azure in grado di usare il grafo gemello e le notifiche dei dispositivi gemelli digitali di Azure per aggiornare una mappa interna di Azure maps.
+description: Vedere come usare funzioni di Azure per creare una funzione che può usare il grafo gemello e le notifiche di dispositivi gemelli digitali di Azure per aggiornare una mappa interna di Azure maps.
 author: alexkarcher-msft
 ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 7b2039f8b1aebef65112067e4fd9184777192015
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051582"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180048"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra i passaggi necessari per usare i dati di Azure Digital 
 Questa procedura comprende:
 
 1. Configurazione dell'istanza di Azure Digital gemelli per l'invio di eventi di aggiornamento gemelli a una funzione in [funzioni di Azure](../azure-functions/functions-overview.md).
-2. Creazione di una funzione di Azure per aggiornare un stato di funzionalità delle mappe interne di Azure maps.
+2. Creazione di una funzione per l'aggiornamento di una funzionalità di mappe interne di Azure maps.
 3. Come archiviare l'ID di Maps e l'ID degli Stati delle funzionalità nel grafico dei gemelli digitali di Azure.
 
 ### <a name="prerequisites"></a>Prerequisiti
@@ -41,7 +41,7 @@ L'immagine seguente illustra il punto in cui gli elementi di integrazione di Map
 
 ## <a name="create-a-function-to-update-a-map-when-twins-update"></a>Creare una funzione per aggiornare una mappa quando si aggiornano i dispositivi gemelli
 
-In primo luogo, verrà creata una route nei dispositivi gemelli digitali di Azure per inoltrare tutti gli eventi di aggiornamento gemelli a un argomento di griglia di eventi. Si userà quindi una funzione di Azure per leggere i messaggi di aggiornamento e aggiornare uno stato di funzionalità in Maps di Azure. 
+In primo luogo, verrà creata una route nei dispositivi gemelli digitali di Azure per inoltrare tutti gli eventi di aggiornamento gemelli a un argomento di griglia di eventi. Si userà quindi una funzione per leggere i messaggi di aggiornamento e aggiornare un stato di funzionalità in Maps di Azure. 
 
 ## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare le notifiche di aggiornamento del dispositivo gemello
 
@@ -70,7 +70,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## <a name="create-an-azure-function-to-update-maps"></a>Creare una funzione di Azure per aggiornare le mappe
+## <a name="create-a-function-to-update-maps"></a>Creare una funzione per aggiornare le mappe
 
 Verrà creata una funzione attivata da griglia di eventi all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
 

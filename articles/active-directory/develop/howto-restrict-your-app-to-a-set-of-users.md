@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f5a5242cb9448b3d11e0921b2272cf00bef8f6c1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722267"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178739"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Procedura: limitare l'app Azure AD a un set di utenti in un tenant Azure AD
 
@@ -34,8 +34,8 @@ Gli amministratori e gli sviluppatori tenant possono limitare un'app a un set sp
 
 La possibilità di limitare un'app a un set specifico di utenti o gruppi di sicurezza in un tenant può essere adottata con i tipi di applicazione seguenti:
 
-- Applicazioni configurate per l'accesso Single Sign-On federato con autenticazione basata su SAML
-- Applicazioni Application Proxy che usano la preautenticazione di Azure Active Directory
+- Applicazioni configurate per Single Sign-On federative con autenticazione basata su SAML.
+- Applicazioni proxy di applicazione che usano Azure AD pre-autenticazione.
 - Applicazioni create direttamente sulla piattaforma applicativa Azure AD che usano l'autenticazione OAuth 2.0/OpenID Connect dopo che un utente o un amministratore ha fornito il consenso per tale applicazione.
 
      > [!NOTE]
@@ -47,50 +47,40 @@ Esistono due modi per creare un'applicazione con l'assegnazione utente abilitata
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applicazioni aziendali (richiede il ruolo di amministratore globale)
 
-1. Passare alla [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale**.
-1. Nella barra superiore selezionare l'account connesso. 
-1. Nell'elenco **Directory** selezionare il tenant di Azure AD in cui verrà registrata l'app.
-1. Nel menu di spostamento a sinistra selezionare **Azure Active Directory**. Se Azure Active Directory non è disponibile nel riquadro di spostamento, attenersi alla seguente procedura:
-
-    1. Selezionare **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-    1. Digitare **Azure Active Directory** nella casella di ricerca del filtro e quindi selezionare l'elemento **Azure Active Directory** dal risultato.
-
-1. Nel riquadro **Azure Active Directory** selezionare **applicazioni aziendali** dal menu di spostamento a sinistra **Azure Active Directory** .
-1. Selezionare **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
-
-     Se l'applicazione desiderata non viene visualizzata, usare i filtri disponibili nella parte superiore dell'elenco **Tutte le applicazioni** per limitare l'elenco o scorrerlo verso il basso fino a trovare l'applicazione.
-
-1. Selezionare dall'elenco l'applicazione che si vuole assegnare a un utente o un gruppo di sicurezza.
-1. Nella pagina **Panoramica** dell'applicazione selezionare **Proprietà** nel menu di navigazione a sinistra dell'applicazione.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portale di Azure</a> come **amministratore globale**.
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **applicazioni aziendali**  >  **tutte le applicazioni**.
+1. Selezionare dall'elenco l'applicazione a cui si desidera assegnare un utente o un gruppo di sicurezza. 
+    Usare i filtri nella parte superiore della finestra per cercare un'applicazione specifica.
+1. Nella pagina **Panoramica** dell'applicazione, in **Gestisci**, selezionare **proprietà**.
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
-1. Selezionare **Salva** per salvare questa modifica di configurazione.
+1. Selezionare **Salva**.
 
-### <a name="app-registration"></a>Registrazione dell'app
+### <a name="app-registration"></a>Registrazione delle app
 
-1. Passare alla [**portale di Azure**](https://portal.azure.com/).
-1. Nella barra superiore selezionare l'account connesso. 
-1. Nell'elenco **Directory** selezionare il tenant di Azure AD in cui verrà registrata l'app.
-1. Nel menu di spostamento a sinistra selezionare **Azure Active Directory**.
-1. Nel riquadro **Azure Active Directory** selezionare registrazioni per l' **app** dal menu di spostamento a sinistra **Azure Active Directory** .
-1. Creare o selezionare l'app che si vuole gestire. È necessario essere **proprietario** di questa registrazione dell'app.
-1. Nella pagina **Panoramica** dell'applicazione, seguire il collegamento **applicazione gestita in directory locale** sotto gli elementi di base nella parte superiore della pagina. Questa operazione consente di passare all' _applicazione aziendale gestita_ della registrazione dell'app.
-1. Nel pannello di navigazione a sinistra selezionare **Proprietà**.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app**.
+1. Creare o selezionare l'app che si vuole gestire. È necessario essere il **proprietario** di questa applicazione.
+1. Nella pagina Panoramica dell'applicazione **selezionare il collegamento** **applicazione gestita in directory locale** nella sezione **informazioni** di base.
+1. In **Gestisci** selezionare **Proprietà**.
 1. Trovare l'impostazione **Assegnazione utenti obbligatoria** e impostarla su **Sì**. Quando questa opzione è impostata su **Sì**, gli utenti del tenant devono prima essere assegnati a questa applicazione o non saranno in grado di accedere a questa applicazione.
-1. Selezionare **Salva** per salvare questa modifica di configurazione.
+1. Selezionare **Salva**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Assegnare utenti e gruppi all'app
 
 Dopo aver configurato l'app per abilitare l'assegnazione degli utenti, è possibile ora assegnare all'app gli utenti e i gruppi desiderati.
 
-1. Selezionare il riquadro **utenti e gruppi** nel menu di navigazione a sinistra dell'applicazione aziendale.
-1. Nella parte superiore dell'elenco **Utenti e gruppi** selezionare il pulsante **Aggiungi utente** per aprire il riquadro **Aggiungi assegnazione**.
-1. Fare clic sul selettore **Utenti** nel riquadro **Aggiungi assegnazione**. 
+1. In **Gestisci** selezionare **utenti e gruppi**  >  **Aggiungi utente/gruppo** .
+1. Selezionare il selettore **utenti** . 
 
      Verrà visualizzato un elenco di utenti e gruppi di sicurezza, oltre a una casella di testo per cercare e trovare un determinato utente o gruppo. Questa schermata consente di selezionare contemporaneamente più utenti e gruppi.
 
-1. Dopo aver selezionato gli utenti e i gruppi, premere il pulsante **Seleziona** nella parte inferiore della pagina per passare alla parte successiva.
+1. Al termine della selezione di utenti e gruppi, selezionare **Seleziona**.
 1. Opzionale Se nell'applicazione sono stati definiti i ruoli dell'app, è possibile usare l'opzione **Seleziona ruolo** per assegnare gli utenti e i gruppi selezionati a uno dei ruoli dell'applicazione. 
-1. Premere il pulsante **Assegna** nella parte inferiore della pagina per completare le assegnazioni di utenti e gruppi all'app. 
+1. Selezionare **assegna** per completare le assegnazioni di utenti e gruppi all'app. 
 1. Verificare che gli utenti e i gruppi aggiunti siano presenti nell'elenco **Utenti e gruppi** aggiornato.
 
 ## <a name="more-information"></a>Ulteriori informazioni

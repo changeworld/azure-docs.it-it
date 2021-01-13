@@ -2,13 +2,13 @@
 title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 79cdb35de40501dfc0794155dcf807cced94bfa7
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95798598"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178926"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -123,7 +123,8 @@ Quando si esegue la distribuzione in un gruppo di gestione, è possibile distrib
 * sottoscrizioni nel gruppo di gestione
 * gruppi di risorse nel gruppo di gestione
 * tenant per il gruppo di risorse
-* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+Una [risorsa di estensione](scope-extension-resources.md) può avere come ambito una destinazione diversa dalla destinazione di distribuzione.
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 

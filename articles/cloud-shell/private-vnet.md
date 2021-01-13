@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89468539"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179198"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Distribuire Cloud Shell in una rete virtuale di Azure
-> [!NOTE]
-> Questa funzionalità è in anteprima pubblica.
 
 Una normale sessione di Cloud Shell viene eseguita in un contenitore in una rete Microsoft separata dalle risorse. Ciò significa che i comandi in esecuzione all'interno del contenitore non possono accedere alle risorse a cui è possibile accedere solo da una rete virtuale specifica. Ad esempio, non è possibile usare SSH per connettersi da Cloud Shell a una macchina virtuale che ha solo un indirizzo IP privato oppure usare kubectl per connettersi a un cluster Kubernetes che ha bloccato l'accesso. 
 
@@ -64,7 +62,7 @@ Come nel Cloud Shell standard, è necessario un account di archiviazione durante
 ## <a name="virtual-network-deployment-limitations"></a>Limitazioni alla distribuzione nella rete virtuale
 * A causa delle risorse di rete aggiuntive, l'avvio Cloud Shell in una rete virtuale è in genere più lento rispetto a una sessione di Cloud Shell standard.
 
-* Durante l'anteprima, sono supportate meno aree per Cloud Shell in una rete virtuale. Questo è attualmente limitato a: Westus e WestCentralUS.
+* Attualmente sono supportate tutte le aree Cloud Shell separate dall'India centrale. 
 
 * Il servizio di [inoltro di Azure](../azure-relay/relay-what-is-it.md) non è gratuito. Visualizza i [prezzi](https://azure.microsoft.com/pricing/details/service-bus/). Nello scenario Cloud Shell viene utilizzata una connessione ibrida per ogni amministratore durante l'utilizzo di Cloud Shell. La connessione verrà arrestata automaticamente dopo il completamento della sessione di Cloud Shell.
 

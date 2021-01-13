@@ -7,15 +7,15 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: e3cfede444b65ee6990afd006d3b174d65f9cfad
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132478"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179164"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
@@ -35,7 +35,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Attivare l'eliminazione temporanea per i contenitori | L'eliminazione temporanea per i contenitori consente di ripristinare un contenitore dopo che è stato eliminato. Per altre informazioni sull'eliminazione temporanea per i contenitori, vedere [eliminazione temporanea per i contenitori (anteprima)](./soft-delete-container-overview.md). | - |
 | Bloccare l'account di archiviazione per evitare l'eliminazione accidentale di un account | È possibile bloccare un Azure Resource Manager risorse, ad esempio una sottoscrizione, un gruppo di risorse o un account di archiviazione, per impedire ad altri utenti dell'organizzazione di eliminarli o modificarli accidentalmente. Il blocco di un account di archiviazione non impedisce l'eliminazione dei dati all'interno di tale account. Impedisce solo l'eliminazione dell'account stesso. Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 | Archiviare dati critici per l'azienda in BLOB non modificabili | Configurare i criteri di conservazione validi e temporali per archiviare i dati BLOB in un WORM (scrivere una sola volta, leggere molti) stato. I BLOB archiviati immutabilmente possono essere letti, ma non possono essere modificati o eliminati per la durata dell'intervallo di conservazione. Per altre informazioni, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md). | - |
-| Richiedi il trasferimento sicuro (HTTPS) all'account di archiviazione | ??? | - |
+| Richiedi il trasferimento sicuro (HTTPS) all'account di archiviazione | Quando è necessario un trasferimento sicuro per un account di archiviazione, tutte le richieste all'account di archiviazione devono essere effettuate tramite HTTPS. Qualsiasi richiesta effettuata su HTTP viene rifiutata. Microsoft consiglia di richiedere sempre il trasferimento sicuro per tutti gli account di archiviazione. Per altre informazioni, vedere [richiedere il trasferimento sicuro per garantire connessioni protette](../common/storage-require-secure-transfer.md). | - |
 | Limitare i token di firma di accesso condiviso solo alle connessioni HTTPS | Richiesta di HTTPS quando un client utilizza un token di firma di accesso condiviso per accedere ai dati BLOB consente di ridurre al minimo il rischio di intercettazione. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso

@@ -7,12 +7,12 @@ ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 1736a1d22ccfb0f00061534d1c733ab72da4c7b0
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 3f88fa38d62778bc3c4c1e29571d1d0ae4eeb5ff
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922503"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179606"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Aggiungere ed eseguire frammenti di codice usando il codice inline in app per la logica di Azure
 
@@ -31,7 +31,7 @@ Quando si vuole eseguire una parte di codice all'interno dell'app per la logica,
   > [!NOTE]
   > La `require()` funzione non è supportata dall'azione di codice inline per l'esecuzione di JavaScript.
 
-Questa azione esegue il frammento di codice e restituisce l'output del frammento come token denominato `Result` . È possibile usare questo token con le azioni successive nel flusso di lavoro dell'app per la logica. Per altri scenari in cui si vuole creare una funzione per il codice, provare a [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md) nell'app per la logica.
+Questa azione esegue il frammento di codice e restituisce l'output del frammento come token denominato `Result` . È possibile usare questo token con le azioni successive nel flusso di lavoro dell'app per la logica. Per altri scenari in cui si vuole creare una funzione per il codice, provare a [creare e chiamare una funzione tramite funzioni di Azure](../logic-apps/logic-apps-azure-functions.md) nell'app per la logica.
 
 In questo articolo, l'app per la logica di esempio viene attivata quando arriva un nuovo messaggio di posta elettronica in un account aziendale o dell'Istituto di istruzione. Il frammento di codice estrae e restituisce tutti gli indirizzi di posta elettronica visualizzati nel corpo del messaggio di posta elettronica.
 
@@ -279,7 +279,7 @@ Se si seleziona **azioni**, vengono richieste le azioni che si desidera aggiunge
 
 1. Per aggiungere un'altra azione, selezionare **Aggiungi nuovo elemento**.
 
-## <a name="reference"></a>Riferimento
+## <a name="reference"></a>Informazioni di riferimento
 
 Per altre informazioni sulla struttura e la sintassi dell'azione **Esegui codice JavaScript** nella definizione del flusso di lavoro sottostante dell'app per la logica usando il linguaggio di definizione del flusso di lavoro, vedere la [sezione di riferimento](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)di questa azione.
 

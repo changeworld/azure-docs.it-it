@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8eaadc031039b22e209db1023c65da39e1e096b1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9afce964652d2bedbe105a8a750a93d2f37eef85
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483284"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179032"
 ---
 # <a name="customer-managed-keys-for-azure-storage-encryption"></a>Chiavi gestite dal cliente per la crittografia di archiviazione di Azure
 
@@ -78,7 +78,7 @@ Quando si configura la crittografia con chiavi gestite dal cliente, sono disponi
 
     Quando la versione della chiave viene specificata in modo esplicito, è necessario aggiornare manualmente l'account di archiviazione per usare il nuovo URI della versione della chiave quando viene creata una nuova versione. Per informazioni su come aggiornare l'account di archiviazione per usare una nuova versione della chiave, vedere [configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault](customer-managed-keys-configure-key-vault.md) o [configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault HSM gestito (anteprima)](customer-managed-keys-configure-key-vault-hsm.md).
 
-Se si aggiorna la versione della chiave per una chiave gestita dal cliente, la nuova crittografia dei dati nell'account di archiviazione non viene attivata. Non sono necessarie altre azioni da parte dell'utente.
+Quando si aggiorna la versione della chiave, la protezione della chiave di crittografia radice viene modificata, ma i dati nell'account di archiviazione di Azure non vengono nuovamente crittografati. Non sono necessarie altre azioni da parte dell'utente.
 
 > [!NOTE]
 > Per ruotare una chiave, creare una nuova versione della chiave nell'insieme di credenziali delle chiavi o nel modulo di protezione hardware gestito, in base ai criteri di conformità. È possibile ruotare la chiave manualmente o creare una funzione per ruotarla in base a una pianificazione.

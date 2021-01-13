@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5d680da7a5f09a55bec5d791642b80fd76c6088e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509615"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178807"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
 
@@ -97,7 +97,7 @@ Prima di iniziare il processo di migrazione, è possibile eliminare la directory
 
 ### <a name="password-policy"></a>Criteri password
 
-Se gli account di cui si sta eseguendo la migrazione hanno un livello di complessità della password più debole rispetto al livello di [attendibilità della password forte](../active-directory/authentication/concept-sspr-policy.md) applicato da Azure ad B2C, è possibile disabilitare il requisito per la password complessa. Per ulteriori informazioni, vedere [proprietà dei criteri password](manage-user-accounts-graph-api.md#password-policy-property).
+Se gli account di cui si sta eseguendo la migrazione hanno un livello di complessità della password più debole rispetto al livello di [attendibilità della password forte](../active-directory/authentication/concept-sspr-policy.md) applicato da Azure ad B2C, è possibile disabilitare il requisito per la password complessa. Per ulteriori informazioni, vedere [proprietà dei criteri password](user-profile-attributes.md#password-policy-attribute).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

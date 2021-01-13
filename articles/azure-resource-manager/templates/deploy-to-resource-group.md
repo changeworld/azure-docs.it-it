@@ -2,13 +2,13 @@
 title: Distribuire le risorse nei gruppi di risorse
 description: Viene descritto come distribuire le risorse in un modello di Azure Resource Manager. Mostra come definire come destinazione più di un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 9d0bec51fa55ee377eb647a11fb554ec3b81e9eb
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: 8fe503cc95d71772c07427438b17e2ff0d4620a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807714"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178892"
 ---
 # <a name="resource-group-deployments-with-arm-templates"></a>Distribuzioni di gruppi di risorse con modelli ARM
 
@@ -85,7 +85,8 @@ Quando si esegue la distribuzione in un gruppo di risorse, è possibile distribu
 * altri gruppi di risorse nella stessa sottoscrizione o in altre sottoscrizioni
 * qualsiasi sottoscrizione nel tenant
 * tenant per il gruppo di risorse
-* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+Una [risorsa di estensione](scope-extension-resources.md) può avere come ambito una destinazione diversa dalla destinazione di distribuzione.
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 

@@ -3,18 +3,20 @@ title: Pubblica app-LUIS
 titleSuffix: Azure Cognitive Services
 description: Dopo aver compilato ed eseguito il test dell'app LUIS attiva, renderla disponibile per l'applicazione client effettuandone la pubblicazione sull'endpoint.
 services: cognitive-services
+author: aahill
 manager: nitinme
+ms.author: aahi
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/12/2021
+ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541476"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180031"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Pubblicare l'app attiva di cui si è eseguito il training in un endpoint di staging o di produzione
 
@@ -44,7 +46,7 @@ Con entrambi gli slot di pubblicazione è possibile disporre di due diverse vers
 
 L'app viene pubblicata in tutte le aree associate alle risorse dell'endpoint di stima Luis aggiunto nel portale Luis dalla pagina **Gestisci**  ->  **[risorse di Azure](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** .
 
-Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea una risorsa Luis in due aree, **westus** e **eastus**e si aggiungono tali risorse all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
+Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea una risorsa Luis in due aree, **westus** e **eastus** e si aggiungono tali risorse all'app come risorse, l'app viene pubblicata in entrambe le aree. Per altre informazioni sulle aree del servizio LUIS, vedere [Aree](luis-reference-regions.md).
 
 > [!TIP]
 > Sono disponibili 3 aree di creazione. È necessario creare nell'area in cui si intende eseguire la pubblicazione. Se è necessario pubblicare in tutte le aree, è necessario gestire il processo di creazione e il modello sottoposto a training risultante in tutte e tre le aree di creazione.
@@ -55,7 +57,7 @@ Per un'app creata in [www.Luis.ai](https://www.luis.ai), ad esempio, se si crea 
 Dopo aver selezionato lo slot, configurare le impostazioni di pubblicazione per:
 
 * Analisi del sentiment
-* [Correzione ortografica](luis-tutorial-bing-spellcheck.md) -solo endpoint di stima V2
+* [Correzione ortografica](luis-tutorial-bing-spellcheck.md)
 * Priming del riconoscimento vocale
 
 Dopo la pubblicazione, queste impostazioni sono disponibili per la revisione nella pagina impostazioni di **pubblicazione** della sezione **Gestisci** . È possibile modificare le impostazioni con ogni pubblicazione. Se si annulla una pubblicazione, verranno annullate anche tutte le modifiche apportate durante la pubblicazione.
@@ -80,7 +82,32 @@ Per altre informazioni sulla risposta dell'endpoint JSON con l'analisi del senti
 
 ## <a name="spelling-correction"></a>Correzione di errori di ortografia
 
-[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+L'API di stima V3 supporta ora l'API controllo ortografico Bing. È possibile aggiungere il controllo ortografico all'applicazione includendo la chiave per la risorsa di ricerca Bing nell'intestazione delle richieste. È possibile usare una risorsa Bing esistente se ne è già proprietaria o [crearne una nuova](https://portal.azure.com/#create/Microsoft.BingSearch) per usare questa funzionalità. 
+
+|Chiave di intestazione|Valore intestazione|
+|--|--|
+|`mkt-bing-spell-check-key`|Chiavi trovate nel pannello **chiavi ed endpoint** della risorsa|
+
+Esempio di output di stima per una query con errori di ortografia:
+
+```json
+{
+  "query": "bouk me a fliht to kayro",
+  "prediction": {
+    "alteredQuery": "book me a flight to cairo",
+    "topIntent": "book a flight",
+    "intents": {
+      "book a flight": {
+        "score": 0.9480589
+      }
+      "None": {
+        "score": 0.0332136229
+      }
+    },
+    "entities": {}
+  }
+}
+```
 
 Le correzioni all'ortografia vengono effettuate prima della stima dell'espressione utente LUIS. Nella risposta è possibile visualizzare tutte le modifiche apportate all'espressione originale, inclusa l'ortografia.
 

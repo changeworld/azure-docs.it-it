@@ -2,13 +2,13 @@
 title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 5733c5d6eb6cbd86207589244c22badc17fe7073
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807642"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178960"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
@@ -145,7 +145,8 @@ Quando si esegue la distribuzione in un tenant, è possibile distribuire le riso
 * gruppi di gestione all'interno del tenant
 * subscriptions
 * gruppi di risorse
-* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+Una [risorsa di estensione](scope-extension-resources.md) può avere come ambito una destinazione diversa dalla destinazione di distribuzione.
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 

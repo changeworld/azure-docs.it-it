@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/08/2021
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 60ae6eb3142f8898f760027d37881ded8261f571
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3c0b466a7db688ed3e24441f652f6a1ef1a88ee1
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108093"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180082"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -155,7 +155,7 @@ La tabella seguente descrive i principali parametri per ogni opzione di ridondan
 | Percentuale di durabilità degli oggetti nel corso di un determinato anno | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) per GRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GRS | Almeno 99,9% (99% per livello di accesso sporadico) per GZRS<br /><br />Almeno 99,99% (99,9% per livello di accesso sporadico) per RA-GZRS |
 | Disponibilità per le richieste di scrittura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
-| Numero di copie di dati mantenute in nodi distinti                             | 3   | 3   | 6   | 6      |
+| Numero di copie di dati mantenute in nodi distinti | Tre copie all'interno di una singola area | Tre copie in zone di disponibilità separate all'interno di una singola area | Sei copie totali, incluse tre nell'area primaria e tre nell'area secondaria | Sei copie totali, incluse tre tra zone di disponibilità separate nell'area primaria e tre copie con ridondanza locale nell'area secondaria |
 
 ### <a name="durability-and-availability-by-outage-scenario"></a>Durabilità e disponibilità in base allo scenario di interruzione
 

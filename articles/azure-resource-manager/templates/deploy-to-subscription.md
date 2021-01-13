@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 2d4bd0db32a4bf0224b9da3af6e03ca86d7b496e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 01/13/2021
+ms.openlocfilehash: ba055970a8fac71b798fca9d3c76550cb7d482a7
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95807701"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178994"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
@@ -142,7 +142,8 @@ Quando si esegue la distribuzione in una sottoscrizione, è possibile distribuir
 * qualsiasi sottoscrizione nel tenant
 * gruppi di risorse all'interno della sottoscrizione o di altre sottoscrizioni
 * tenant per la sottoscrizione
-* [le risorse di estensione](scope-extension-resources.md) possono essere applicate alle risorse
+
+Una [risorsa di estensione](scope-extension-resources.md) può avere come ambito una destinazione diversa dalla destinazione di distribuzione.
 
 L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 

@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: marsma, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 22b3ea9eb0e4c3379438b6c3fb58ccfb13b4ed32
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 5a032f45027cc4bffc7f2bc46c6ea1a69a1b83e4
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064794"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178620"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -70,19 +70,21 @@ Per abilitare l'applicazione MSAL.js per i cloud sovrani:
 
 ### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 
-1. Accedere al [portale di Azure](https://portal.azure.us/).
+1. Accedere al <a href="https://portal.azure.us/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
    Per trovare portale di Azure endpoint per altri cloud nazionali, vedere [endpoint di registrazione delle app](authentication-national-cloud.md#app-registration-endpoints).
 
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
-1. Passare alla pagina [registrazioni app](https://aka.ms/ra/ff) della piattaforma Microsoft Identity per sviluppatori.
-1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **nome** per l'applicazione. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
 1. Nella sezione **URI di reindirizzamento** selezionare la piattaforma **Web** e impostare il valore sull'URL dell'applicazione in base al server Web. Vedere le sezioni successive per istruzioni su come impostare e ottenere l'URL di reindirizzamento in Visual Studio e nel nodo.
 1. Selezionare **Registra**.
-1. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)**.
-1. Per questa esercitazione è necessario abilitare il [flusso di concessione implicito](v2-oauth2-implicit-grant-flow.md). Nel riquadro sinistro dell'applicazione registrata selezionare **Autenticazione**.
-1. In **Impostazioni avanzate**, in **Concessione implicita**, selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**. I token ID e i token di accesso sono necessari perché l'app deve eseguire l'accesso degli utenti e chiamare un'API.
+1. Nella pagina **Panoramica** , annotare il valore di **ID applicazione (client)** per un uso successivo.
+    Per questa esercitazione è necessario abilitare il [flusso di concessione implicito](v2-oauth2-implicit-grant-flow.md). 
+1. In **Gestisci** selezionare **Autenticazione**.
+1. In **concessione implicita** selezionare **token ID** e **token di accesso**. I token ID e i token di accesso sono necessari perché l'app deve eseguire l'accesso degli utenti e chiamare un'API.
 1. Selezionare **Salva**.
 
 ### <a name="step-2--set-up-your-web-server-or-project"></a>Passaggio 2: configurare il server Web o il progetto

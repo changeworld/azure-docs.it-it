@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 354c6f9710b7cbd70e0631bc973b2482ea8d8bb3
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: a87b4c6b845006a9f9f3cf82815277c67c09bef0
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386885"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178841"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,7 +38,7 @@ Un criterio personalizzato è rappresentato come uno o più file in formato XML 
 
 L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sì | La versione dello schema che deve essere usata per eseguire il criterio. Il valore deve essere `0.3.0.0`. |
 | TenantObjectId | No | Identificatore di oggetto univoco del tenant di Azure Active Directory B2C (Azure AD B2C). |
@@ -46,7 +46,7 @@ L'elemento **TrustFrameworkPolicy** contiene gli attributi seguenti:
 | PolicyId | Sì | L'identificatore univoco del criterio. Questo identificatore deve essere preceduto da *B2C_1A_* |
 | PublicPolicyUri | Sì | L'URI per il criterio, ovvero la combinazione dell'ID del tenant e l'ID del criterio. |
 | DeploymentMode | No | Valori possibili: `Production` , o `Development` . `Production` è l'impostazione predefinita. Usare questa proprietà per eseguire il debug del criterio. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | No | L'endpoint che viene usata quando **DeploymentMode** è impostato su `Development`. Il valore deve essere `urn:journeyrecorder:applicationinsights`. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | No | Endpoint utilizzato per la registrazione. Il valore deve essere impostato su `urn:journeyrecorder:applicationinsights` se l'attributo esiste. Per ulteriori informazioni, vedere [raccolta di log](troubleshoot-with-application-insights.md). |
 
 
 Nell'esempio seguente viene illustrato come specificare l'elemento **TrustFrameworkPolicy**:

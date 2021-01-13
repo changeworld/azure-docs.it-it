@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 3ee9e165ce9c24968b072d19367e0285f5438259
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 5ce5f5cea5d689720455dd8d60f6fff4692a9d3d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938801"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179300"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -392,6 +392,9 @@ Quando gli endpoint servizio di rete virtuale vengono abilitati, gli indirizzi I
 
 ### <a name="does-the-service-endpoint-route-always-take-precedence"></a>La route dell'endpoint di servizio ha sempre la precedenza?
 Gli endpoint di servizio aggiungono una route di sistema che ha la precedenza sulle route BGP e fornisce un routing ottimale per il traffico dell'endpoint del servizio. Gli endpoint di servizio instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Per ulteriori informazioni su come Azure seleziona una route, vedere [routing del traffico di rete virtuale di Azure](virtual-networks-udr-overview.md).
+
+### <a name="do-service-endpoints-work-with-icmp"></a>Gli endpoint di servizio funzionano con ICMP?
+No, il traffico ICMP originato da una subnet con endpoint di servizio abilitato non accetta il percorso del tunnel del servizio per l'endpoint desiderato. Gli endpoint di servizio gestiranno solo il traffico TCP. Ciò significa che se si desidera testare la latenza o la connettività a un endpoint tramite gli endpoint di servizio, gli strumenti come ping e tracert non visualizzeranno il percorso vero e proprio delle risorse all'interno della subnet.
  
 ### <a name="how-does-nsg-on-a-subnet-work-with-service-endpoints"></a>Come funziona un gruppo di sicurezza di rete in una subnet con gli endpoint di servizio?
 Per raggiungere il servizio di Azure, i gruppi di sicurezza di rete devono consentire la connettività in uscita. Se i gruppi di sicurezza di rete sono aperti a tutto il traffico Internet in uscita, il traffico dell'endpoint di servizio dovrebbe funzionare. È anche possibile limitare il traffico in uscita solo agli IP del servizio che usano i tag del servizio.  
@@ -416,7 +419,7 @@ Non ci sono limiti per il numero totale di endpoint di servizio di rete virtuale
 |Archiviazione di Azure| 100|
 |SQL di Azure| 128|
 |Azure Synapse Analytics|   128|
-|Azure KeyVault|    127|
+|Azure Key Vault|    127|
 |Azure Cosmos DB|   64|
 |Hub eventi di Azure|   128|
 |Bus di servizio di Azure| 128|

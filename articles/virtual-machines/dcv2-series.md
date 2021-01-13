@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1809194ce551fc828389cc31f5c7d6f28a2cddd6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972374"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98180167"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -25,7 +25,7 @@ I casi d'uso di esempio includono: condivisione tra più parti di dati riservati
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
-[Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Supporto](generation-2.md)per la generazione di VM: generazione 2<br>
 
 *Tranne che per Standard_DC8_v2
 

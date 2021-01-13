@@ -2,21 +2,24 @@
 title: Ambito per i tipi di risorsa di estensione
 description: Viene descritto come usare la proprietà Scope quando si distribuiscono i tipi di risorse di estensione.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: bd468d31454c38bd314269243702d7df4f279a5e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 01/13/2021
+ms.openlocfilehash: 75c2c8b8409cc9f8e7a8e71965589ece6660607a
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681583"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179980"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>Impostazione dell'ambito per le risorse di estensione nei modelli ARM
 
-Una risorsa di estensione è una risorsa che modifica un'altra risorsa. Ad esempio, è possibile assegnare un ruolo a una risorsa per limitare l'accesso. L'assegnazione di ruolo è un tipo di risorsa di estensione.
+Una risorsa di estensione è una risorsa che modifica un'altra risorsa. Ad esempio, è possibile assegnare un ruolo a una risorsa. L'assegnazione di ruolo è un tipo di risorsa di estensione.
 
 Per un elenco completo dei tipi di risorse di estensione, vedere [tipi di risorse che estendono le funzionalità di altre risorse](../management/extension-resource-types.md).
 
 Questo articolo illustra come impostare l'ambito per un tipo di risorsa di estensione quando viene distribuito con un modello di Azure Resource Manager (modello ARM). Viene descritta la proprietà Scope disponibile per le risorse di estensione quando si applica a una risorsa.
+
+> [!NOTE]
+> La proprietà Scope è disponibile solo per i tipi di risorse di estensione. Per specificare un ambito diverso per un tipo di risorsa che non è un tipo di estensione, usare una distribuzione annidata o collegata. Per altre informazioni, vedere [distribuzioni di gruppi di risorse](deploy-to-resource-group.md), [distribuzioni di sottoscrizioni](deploy-to-subscription.md), [distribuzioni di gruppi di gestione](deploy-to-management-group.md)e [distribuzioni tenant](deploy-to-tenant.md).
 
 ## <a name="apply-at-deployment-scope"></a>Applica nell'ambito di distribuzione
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 47a2aae39be93361e1e0e581efb56cc678b444cd
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549090"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178977"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replica di oggetti per BLOB in blocchi
 
@@ -89,6 +89,16 @@ Quando si crea una regola di replica, per impostazione predefinita vengono copia
 È anche possibile specificare uno o più filtri come parte di una regola di replica per filtrare i BLOB in blocchi per prefisso. Quando si specifica un prefisso, solo i BLOB corrispondenti al prefisso nel contenitore di origine verranno copiati nel contenitore di destinazione.
 
 Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato i criteri di replica, il contenitore di destinazione diventa di sola lettura. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Tuttavia, è possibile chiamare l'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per spostarla nel livello archivio. Per altre informazioni sul livello archivio, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md#archive-access-tier).
+
+## <a name="replication-status"></a>Stato della replica
+
+È possibile controllare lo stato di replica di un BLOB nell'account di origine. Per altre informazioni, vedere [controllare lo stato di replica di un BLOB](object-replication-configure.md#check-the-replication-status-of-a-blob).
+
+Se lo stato di replica di un BLOB nell'account di origine indica un errore, esaminare le possibili cause seguenti:
+
+- Verificare che i criteri di replica degli oggetti siano configurati nell'account di destinazione.
+- Verificare che il contenitore di destinazione esista ancora.
+- Se il BLOB di origine è stato crittografato con una chiave fornita dal cliente come parte di un'operazione di scrittura, la replica degli oggetti avrà esito negativo. Per altre informazioni sulle chiavi fornite dal cliente, vedere [fornire una chiave di crittografia per una richiesta all'archiviazione BLOB](encryption-customer-provided-keys.md).
 
 ## <a name="billing"></a>Fatturazione
 
