@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/07/2020
 ms.author: memildin
-ms.openlocfilehash: 7325ba1a8a90fec90182f9780c1fb18d29d3c0f1
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 835950cc68ca22ea3958d614d669d7a105fefe62
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955264"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132920"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Archivio delle novità del Centro sicurezza di Azure
 
@@ -110,7 +110,7 @@ Per altre informazioni sulla sicurezza dei contenitori del Centro sicurezza, ved
 - [Come analizzare i registri e applicare la protezione avanzata agli host Docker](container-security.md)
 - [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per cluster del servizio Azure Kubernetes](alerts-reference.md#alerts-akscluster)
 - [Avvisi di sicurezza dalle funzionalità di protezione dalle minacce per host del servizio Azure Kubernetes](alerts-reference.md#alerts-containerhost)
-- [Raccomandazioni sulla sicurezza per i contenitori](recommendations-reference.md#recs-containers)
+- [Raccomandazioni sulla sicurezza per i contenitori](recommendations-reference.md#recs-compute)
 
 
 
@@ -124,7 +124,7 @@ Sono stati apportati due aggiornamenti significativi alla funzionalità Controll
 
     * Uso di un carattere jolly alla fine del percorso per consentire tutti i file eseguibili entro tale cartella e nelle sottocartelle
 
-    * Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via).
+    * Uso di un carattere jolly al centro del percorso per consentire un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio cartelle personali dell'utente con un file eseguibile noto, nomi di cartella generati automaticamente e così via)
 
 
 [Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
@@ -195,7 +195,7 @@ Queste nuove raccomandazioni verranno visualizzate negli stessi quattro controll
 
 Le raccomandazioni includono anche la funzionalità di correzione rapida per accelerare il processo di distribuzione. 
 
-Per altre informazioni su queste due nuove raccomandazioni, vedere la tabella [Raccomandazioni sulle risorse di calcolo e sulle app](recommendations-reference.md#recs-computeapp).
+Per altre informazioni su queste due nuove raccomandazioni, vedere la tabella [Raccomandazioni sulle risorse di calcolo e sulle app](recommendations-reference.md#recs-compute).
 
 Per altre informazioni sul modo in cui il Centro sicurezza di Azure usa l'agente, vedere [Che cos'è l'agente di Log Analytics?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
@@ -232,7 +232,7 @@ Il controllo di sicurezza "Implementa le procedure consigliate per la sicurezza"
 
 Una raccomandazione esistente, **Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete**, non distingueva tra le macchine virtuali connesse a Internet e non connesse a Internet. Veniva generata per entrambi i tipi di VM una raccomandazione con gravità alta se una VM non era assegnata a un gruppo di sicurezza di rete. Questa nuova raccomandazione separa le macchine virtuali non connesse a Internet per ridurre i falsi positivi ed evitare avvisi con gravità elevata non necessari.
 
-Per altre informazioni, vedere la tabella [Raccomandazioni sulla rete](recommendations-reference.md#recs-network).
+Per altre informazioni, vedere la tabella [Raccomandazioni sulla rete](recommendations-reference.md#recs-networking).
 
 
 
@@ -432,7 +432,7 @@ Esempi di raccomandazioni relative a identità e accesso includono:
 
 Se si hanno sottoscrizioni nel piano tariffario gratuito, il punteggio di sicurezza corrispondente sarà influenzato da questa modifica, in quanto non sono state precedentemente valutate in termini di sicurezza dell'accesso e delle identità.
 
-Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identity).
+Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identityandaccess).
 
 Sono disponibili altre informazioni sul [monitoraggio di identità e accesso](security-center-identity-access.md).
 
@@ -737,7 +737,7 @@ Il Centro sicurezza supporta ora scenari di gestione tra tenant come parte di Az
 
 Il Centro sicurezza di Azure ha lanciato nuove raccomandazioni sulle risorse di rete e ne sono state migliorate alcune esistenti. Ora, l'uso del Centro sicurezza garantisce una maggiore protezione della rete per le risorse. 
 
-[Altre informazioni sulle raccomandazioni sulle risorse di rete](recommendations-reference.md#recs-network).
+[Altre informazioni sulle raccomandazioni sulle risorse di rete](recommendations-reference.md#recs-networking).
 
 
 ## <a name="june-2019"></a>Giugno 2019

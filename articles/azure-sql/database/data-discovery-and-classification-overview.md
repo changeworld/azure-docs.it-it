@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: c3f1209c2c903399617bd60258cc152a6ce90b80
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462081"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132036"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -28,7 +28,7 @@ L'individuazione dei dati & classificazione è incorporata nel database SQL di A
 I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Supporto per soddisfare gli standard per la privacy dei dati e i requisiti per la conformità alle normative.
-- Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
+- Diversi scenari di sicurezza, ad esempio il monitoraggio (controllo) e l'accesso ai dati sensibili.
 - Controllare l'accesso e rafforzare la protezione dei database che contengono dati altamente sensibili.
 
 > [!NOTE]
@@ -121,10 +121,10 @@ Un aspetto importante del paradigma di protezione delle informazioni è la possi
 Questi ruoli predefiniti possono leggere la classificazione dei dati di un database:
 
 - Proprietario
-- Reader
+- Lettore
 - Autore di contributi
 - Gestione della sicurezza SQL
-- Amministratore accessi utente
+- Amministratore Accesso utenti
 
 Questi ruoli predefiniti possono modificare la classificazione dei dati di un database:
 

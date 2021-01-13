@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412a987e0a93f7b69250450b8367a37bd3682925
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115702"
+ms.locfileid: "98132546"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -209,7 +209,7 @@ Alcuni scenari di delega comuni:
 
 ---
 
-### <a name="azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Azure AD proxy di applicazione supporta in modo nativo Single Sign-On l'accesso alle applicazioni che usano intestazioni per l'autenticazione
+### <a name="public-preview---azure-ad-application-proxy-natively-supports-single-sign-on-access-to-applications-that-use-headers-for-authentication"></a>Anteprima pubblica: il proxy di applicazione Azure AD supporta in modo nativo Single Sign-On l'accesso alle applicazioni che usano intestazioni per l'autenticazione
 
 **Tipo:** Nuova funzionalità  
 **Categoria di servizio:** Proxy app  

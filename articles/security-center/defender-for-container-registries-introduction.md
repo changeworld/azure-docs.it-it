@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: ad880b7c23c687530a79ca1123474e94c923e150
-ms.sourcegitcommit: b849ecdc8aa97337299b0f09970b7810c59cd044
+ms.openlocfilehash: 79a428c322b65bfbb982be7a7e0c8b9fab7eed18
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96310392"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132733"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -28,7 +28,7 @@ Il Centro sicurezza identifica i registri del servizio Registro Azure Container 
 
 **Azure Defender per registri contenitori** include una funzionalità di analisi delle vulnerabilità che analizza le immagini nei registri di Registro Azure Container basati su Azure Resource Manager e fornisce una maggiore visibilità sulle vulnerabilità delle immagini. La funzionalità di analisi integrata è fornita da Qualys, leader nel settore dell'analisi delle vulnerabilità.
 
-Quando viene rilevato un problema, da Qualys o dal Centro sicurezza, viene visualizzata una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità il Centro sicurezza offre raccomandazioni pratiche, una classificazione della gravità e istruzioni per la risoluzione del problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l'[elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-containers).
+Quando viene rilevato un problema, da Qualys o dal Centro sicurezza, viene visualizzata una notifica nel dashboard del Centro sicurezza. Per ogni vulnerabilità il Centro sicurezza offre raccomandazioni pratiche, una classificazione della gravità e istruzioni per la risoluzione del problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l'[elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-compute).
 
 Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Il Centro sicurezza fornisce informazioni dettagliate su ogni vulnerabilità segnalata, insieme a una classificazione della gravità. Fornisce inoltre indicazioni su come correggere le vulnerabilità specifiche rilevate in ogni immagine.
 

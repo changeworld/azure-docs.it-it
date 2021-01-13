@@ -3,12 +3,12 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: edcf3f09b57ed7628611c482effddb210ef8e456
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814381"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132750"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -83,7 +83,7 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
 > | locks | ambito di assegnazione | 1-90 | Caratteri alfanumerici, punti, caratteri di sottolineatura, trattini e parentesi.<br><br>Non può terminare con un punto. |
-> | policyAssignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
+> | policyAssignments | ambito di assegnazione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa<br><br>1-24 nome della risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
 > | policyDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio. |
 > | policySetDefinitions | ambito di definizione | 1-128 nome visualizzato<br><br>1-64 nome della risorsa<br><br>1-24 nome della risorsa nell'ambito del gruppo di gestione | Il nome visualizzato può contenere qualsiasi carattere.<br><br>Il nome della risorsa non può includere `%` e non può terminare con un punto o uno spazio.  |
 

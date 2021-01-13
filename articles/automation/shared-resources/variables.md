@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: d064eb0b748c361b76139b1a21d25cec8996e818
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734777"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131526"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire variabili in Automazione di Azure
 
@@ -26,7 +26,7 @@ Le variabili di automazione sono utili per gli scenari seguenti:
 
 Automazione di Azure salva in modo permanente le variabili e le rende disponibili anche in caso di errore per un runbook o una configurazione DSC. Questo comportamento consente a un runbook o a una configurazione DSC di impostare un valore che viene quindi usato da un altro runbook o dallo stesso runbook o dalla stessa configurazione DSC alla successiva esecuzione.
 
-Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile cambiarne lo stato di crittografia senza crearla nuovamente. Se sono disponibili variabili dell'account di Automazione usate per archiviare dati sensibili che non sono già crittografati, è necessario eliminarle e ricrearle come variabili crittografate. Una raccomandazione del Centro sicurezza di Azure suggerisce di crittografare tutte le variabili di Automazione di Azure, come descritto in [Le variabili dell'account di Automazione devono essere crittografate](../../security-center/recommendations-reference.md#recs-computeapp). Se si vogliono escludere alcune variabili non crittografate da questa raccomandazione di sicurezza, vedere [Esentare una risorsa dalle raccomandazioni e dal punteggio di sicurezza](../../security-center/exempt-resource.md) per creare una regola di esenzione.
+Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile cambiarne lo stato di crittografia senza crearla nuovamente. Se sono disponibili variabili dell'account di Automazione usate per archiviare dati sensibili che non sono già crittografati, è necessario eliminarle e ricrearle come variabili crittografate. Una raccomandazione del Centro sicurezza di Azure suggerisce di crittografare tutte le variabili di Automazione di Azure, come descritto in [Le variabili dell'account di Automazione devono essere crittografate](../../security-center/recommendations-reference.md#recs-compute). Se si vogliono escludere alcune variabili non crittografate da questa raccomandazione di sicurezza, vedere [Esentare una risorsa dalle raccomandazioni e dal punteggio di sicurezza](../../security-center/exempt-resource.md) per creare una regola di esenzione.
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Tali asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di Automazione. Automazione di Azure memorizza la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset.

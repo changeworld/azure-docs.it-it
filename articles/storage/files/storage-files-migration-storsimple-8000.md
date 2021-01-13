@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 1e45c39a8f562ca6264ab631dfadc84315b58030
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723979"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134348"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -137,15 +137,15 @@ Probabilmente sarà necessario distribuire diversi account di archiviazione di A
 
 È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
-#### <a name="resource-group"></a>Resource group
+#### <a name="resource-group"></a>Gruppo di risorse
 
 I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autorizzazioni di gestione amministratore. Scopri di più sui [gruppi di risorse in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-#### <a name="storage-account-name"></a>Nome dell'account di archiviazione
+#### <a name="storage-account-name"></a>Nome account di archiviazione
 
 Il nome dell'account di archiviazione diventerà parte di un URL e avrà alcune limitazioni relative ai caratteri. Nella convenzione di denominazione, tenere presente che i nomi degli account di archiviazione devono essere univoci in tutto il mondo, consentire solo lettere minuscole e numeri, richiedere da 3 a 24 caratteri e non consentire caratteri speciali come trattini o caratteri di sottolineatura. Per altre informazioni, vedere [regole di denominazione delle risorse di archiviazione di Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
-#### <a name="location"></a>Percorso
+#### <a name="location"></a>Location
 
 Il percorso o l'area di Azure di un account di archiviazione è molto importante. Se si usa Sincronizzazione file di Azure, tutti gli account di archiviazione devono trovarsi nella stessa area della risorsa del servizio di sincronizzazione archiviazione. L'area di Azure scelta deve essere vicina o centrale ai server e agli utenti locali. Dopo che la risorsa è stata distribuita, non è possibile modificarne l'area.
 
@@ -215,7 +215,7 @@ Dopo aver creato gli account di archiviazione, passare alla sezione relativa all
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-La risorsa di Azure che conterrà i processi di migrazione è denominata **StorSimple Data Manager**. Selezionare **nuova risorsa** e cercarla. Selezionare quindi **Crea**.
+La risorsa di Azure che conterrà i processi di migrazione è denominata **StorSimple Data Manager**. Selezionare **nuova risorsa** e cercarla. Quindi selezionare **Crea**
 
 Questa risorsa temporanea viene utilizzata per l'orchestrazione. Eseguirne il deprovisioning al termine della migrazione. Deve essere distribuito nella stessa sottoscrizione, gruppo di risorse e area geografica dell'account di archiviazione StorSimple.
 
@@ -441,6 +441,9 @@ A questo punto, esistono differenze tra l'istanza locale di Windows Server e l'a
 1. È possibile che alcuni file siano stati lasciati dal processo di trasformazione dei dati a causa di caratteri non validi. In tal caso, copiarli nell'istanza di Windows Server abilitata per Sincronizzazione file di Azure. Successivamente, è possibile modificarle in modo che vengano sincronizzate. Se non si usa Sincronizzazione file di Azure per una condivisione particolare, è preferibile rinominare i file con caratteri non validi nel volume StorSimple. Eseguire quindi RoboCopy direttamente nella condivisione file di Azure.
 
 > [!WARNING]
+> Robocopy in Windows Server 2019 presenta attualmente un problema che causa la Ricopia dei file a livelli Sincronizzazione file di Azure nel server di destinazione dal codice sorgente e il nuovo caricamento in Azure quando si usa la funzione/MIR di Robocopy. È fondamentale usare Robocopy in un server Windows diverso da 2019. Una scelta preferita è Windows Server 2016. Questa nota verrà aggiornata se il problema viene risolto tramite Windows Update.
+
+> [!WARNING]
 > *Non è necessario* avviare Robocopy prima che il server disponga dello spazio dei nomi per una condivisione file di Azure scaricata completamente. Per ulteriori informazioni, vedere [determinare quando lo spazio dei nomi è stato completamente scaricato nel server](#determine-when-your-namespace-has-fully-synced-to-your-server).
 
  Si desidera copiare solo i file che sono stati modificati dopo l'ultima esecuzione del processo di migrazione e i file che non sono stati spostati attraverso questi processi. Al termine della migrazione, è possibile risolvere il problema relativo al motivo per cui non si è spostato in un secondo momento sul server. Per ulteriori informazioni, vedere [sincronizzazione file di Azure risoluzione dei problemi](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
@@ -448,7 +451,7 @@ A questo punto, esistono differenze tra l'istanza locale di Windows Server e l'a
 RoboCopy presenta diversi parametri. Nell'esempio seguente viene presentato un comando finito e un elenco di motivi per la scelta di questi parametri.
 
 ```console
-Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
+Robocopy /MT:16 /UNILOG:<file name> /TEE /NP /B /MIR /IT /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
 ```
 
 Sfondo:
@@ -499,6 +502,14 @@ Sfondo:
    :::column-end:::
    :::column span="1":::
       Consente a RoboCopy di prendere in considerazione solo i delta tra l'origine (StorSimple Appliance) e la destinazione (directory di Windows Server).
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      /IT
+   :::column-end:::
+   :::column span="1":::
+      Garantisce che la fedeltà venga mantenuta in determinati scenari di mirroring.</br>Esempio: tra due operazioni di Robocopy esegue un file che presenta una modifica dell'ACL e un aggiornamento degli attributi, ad esempio, viene anche contrassegnato come *nascosto*. Senza/IT la modifica dell'ACL può essere persa da Robocopy e pertanto non viene trasferita nel percorso di destinazione.
    :::column-end:::
 :::row-end:::
 :::row:::

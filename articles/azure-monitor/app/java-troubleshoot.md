@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 6b578cd03daa6e996a69c03afd327097d6123045
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607899"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133243"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
 
@@ -23,7 +23,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 ## <a name="build-errors"></a>Errori di compilazione
 **In Eclipse o Intellij Idea quando si aggiunge l'SDK di Application Insights in Eclipse i in Intellij Idea tramite Maven o Gradle, vengono visualizzati errori di convalida relativi a build o checksum.**
 
-* Se l'elemento di dipendenza `<version>` usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.0.+'`, provare a indicare una versione specifica, come `2.0.1`. Vedere le [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Java/releases) per la versione più recente.
+* Se l'elemento di dipendenza `<version>` usa un criterio di ricerca con caratteri jolly, ad esempio (Maven) `<version>[2.0,)</version>` o (Gradle) `version:'2.+'`, provare a indicare una versione specifica, come `2.6.2`.
 
 ## <a name="no-data"></a>Nessun dato
 **Dopo avere aggiunto Application Insights correttamente ed avere eseguito l'app, nel portale non vengono visualizzati dati.**
@@ -36,7 +36,7 @@ Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco 
 * [Attivare la registrazione](#debug-data-from-the-sdk) aggiungendo un `<SDKLogger />` elemento sotto il nodo radice nel file di ApplicationInsights.xml (nella cartella risorse del progetto) e cercare le voci precedute da intelligenza artificiale: informazioni/avvisi/errori per eventuali log sospetti. 
 * Per verificare che Java SDK abbia caricato il file ApplicationInsights.xml corretto, esaminare i messaggi di output della console e cercare il messaggio "Configuration file has been successfully found".
 * Se il file di configurazione non è stato trovato, verificare i percorsi di ricerca di questo file nei messaggi di output e assicurarsi che il file ApplicationInsights.xml sia memorizzato in uno di tali percorsi. In linea di massima, il file di configurazione può essere salvato accanto ai file JAR di Application Insights SDK. In Tomcat, ad esempio, questo percorso corrisponde alla cartella WEB-INF/classes. Durante lo sviluppo è possibile inserire ApplicationInsights.xml nella cartella delle risorse del progetto Web.
-* Esaminare anche la [pagina dei problemi di GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) per i problemi noti con l'SDK.
+* Esaminare anche la [pagina dei problemi di GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues) per i problemi noti con l'SDK.
 * Assicurarsi di usare la stessa versione degli appender di core, Web, agente e registrazione di Application Insights per evitare eventuali problemi di conflitto di versione.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Non vengono più visualizzati i dati disponibili in precedenza
@@ -194,7 +194,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 
 ## <a name="get-help"></a>Ottieni supporto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
-* [Registrare un problema su GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
+* [Registrare un problema su GitHub](https://github.com/microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

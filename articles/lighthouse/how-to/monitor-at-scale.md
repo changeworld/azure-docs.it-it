@@ -1,14 +1,14 @@
 ---
 title: Monitorare le risorse delegate su larga scala
 description: Informazioni su come usare efficacemente i log di monitoraggio di Azure in modo scalabile nei tenant dei clienti gestiti.
-ms.date: 12/14/2020
+ms.date: 01/07/2021
 ms.topic: how-to
-ms.openlocfilehash: 6c1cbde696ccf9131797a05db33553b8505216a4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 797a6159d310f85c35c7eb550f05ff152526b3e8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509275"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131152"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorare le risorse delegate su larga scala
 
@@ -24,6 +24,9 @@ Questo argomento illustra come usare i [log di monitoraggio di Azure](../../azur
 Per raccogliere i dati, è necessario creare Log Analytics aree di lavoro. Queste aree di lavoro Log Analytics sono ambienti univoci per i dati raccolti da monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica.
 
 Si consiglia di creare queste aree di lavoro direttamente nei tenant del cliente. In questo modo i dati rimangono nei tenant anziché essere esportati nel proprio. Questo consente anche il monitoraggio centralizzato di risorse o servizi supportati da Log Analytics, garantendo una maggiore flessibilità sui tipi di dati monitorati.
+
+> [!TIP]
+> Qualsiasi account di automazione usato per accedere ai dati da un'area di lavoro di Log Analytics deve essere creato nello stesso tenant dell'area di lavoro.
 
 È possibile creare un'area di lavoro Log Analytics usando il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md), usando l'interfaccia della riga di comando di [Azure](../../azure-monitor/learn/quick-create-workspace-cli.md)oppure [Azure PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
 

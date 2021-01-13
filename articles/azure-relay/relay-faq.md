@@ -3,12 +3,12 @@ title: Domande frequenti sul servizio di inoltro di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299287"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131849"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -50,7 +50,6 @@ Ecco tre scenari di fatturazione di esempio per Connessioni ibride:
     *   Si inviano 6 GB di dati attraverso la connessione B durante il mese.
     *   Il costo totale è $ 10,50, che corrisponde a $5 per la connessione A + $ 5 per la connessione B + $ 0,50 per il sesto gigabyte sulla connessione B.
 
-Si noti che i prezzi usati negli esempi sono applicabili solo durante il periodo di anteprima di Connessioni ibride. I prezzi sono soggetti a modifiche al momento della disponibilità generale di Connessioni ibride.
 
 ### <a name="how-are-hours-calculated-for-relay"></a>Come vengono calcolate le ore per l'inoltro?
 
@@ -60,7 +59,7 @@ L'inoltro WCF è disponibile solo negli spazi dei nomi di livello Standard. Prez
 In alcuni casi, a un singolo inoltro possono essere connessi più listener. Un inoltro viene considerato "aperto" quando vi è connesso almeno un listener di inoltro. L'aggiunta di listener a un inoltro aperto genera ore per l'inoltro aggiuntive. Il numero di mittenti di inoltro, ossia di client che richiamano o inviano messaggi agli inoltri, connessi a un inoltro non influisce sul calcolo delle ore per l'inoltro.
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>Come viene calcolata la misurazione dei messaggi per gli inoltri WCF?
-Si**applica solo agli inoltri WCF. I messaggi non sono un costo per Connessioni ibride.**)
+Si **applica solo agli inoltri WCF. I messaggi non sono un costo per Connessioni ibride.**)
 
 In generale, i messaggi fatturabili per gli inoltri vengono calcolati con lo stesso metodo usato per le entità con broker, come code, argomenti e sottoscrizioni, descritti in precedenza. Esistono tuttavia alcune differenze significative.
 
@@ -74,7 +73,7 @@ Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non
 | Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
 | Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
 | Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10,000 |
-| Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 KB |
+| Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 kB |
 | Dimensione dei messaggi per gli inoltri [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Spazio dei nomi |Nessun limite alla dimensione dei messaggi. |Nessuna limitazione |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Per il servizio di inoltro sono previste quote di utilizzo?

@@ -10,39 +10,43 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: ed57c496443c9d1541bfa9933e7718213da116d7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 1fd4279cd35e54e2e04f88973c4a825218a75142
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845604"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131127"
 ---
-# <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>Modello per il riconoscimento delle schede business predefinite 
 
-Il riconoscitore di Azure form è in grado di analizzare ed estrarre le informazioni di contatto dai biglietti da visita usando uno dei modelli predefiniti. L'API del biglietto da visita combina potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con il modello di informazioni sui biglietti da visita per estrarre le informazioni chiave dai biglietti da visita in inglese. Estrae le informazioni di contatto personali, il nome della società, il titolo del processo e altro ancora. L'API del business card predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview. 
+Il sistema di riconoscimento dei moduli di Azure è in grado di analizzare ed estrarre le informazioni di contatto dai biglietti da visita usando il modello predefinito di schede business. Combina potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con il modello di informazioni sui biglietti da visita per estrarre le informazioni chiave dai biglietti da visita in inglese. Estrae le informazioni di contatto personali, il nome della società, il titolo del processo e altro ancora. L'API del business card predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview. 
 
-## <a name="what-does-the-business-card-api-do"></a>Che cosa fa l'API della scheda Business?
+## <a name="what-does-the-business-card-service-do"></a>Che cosa fa il servizio business card?
 
-L'API del business card estrae i campi chiave dai biglietti da visita e li restituisce in una risposta JSON organizzata.
+L'API del business card predefinita estrae i campi chiave dai biglietti da visita e li restituisce in una risposta JSON organizzata.
 
-![Immagine dell'elemento Contoso dall'output di FOTT + JSON](./media/business-card-english.jpg)
+![Immagine dell'elemento Contoso dall'output di FOTT + JSON](./media/business-card-example.jpg)
+
+
 
 ### <a name="fields-extracted"></a>Campi estratti:
 
-* Nomi dei contatti 
-  * Nomi
-  * Cognome
-* Nomi società 
-* Departments 
-* Titoli dei processi 
-* Messaggi di posta elettronica 
-* Siti Web 
-* Indirizzi 
-* Numeri di telefono 
-  * Telefoni cellulari 
-  * Fax 
-  * Telefoni lavorativi 
-  * Altri telefoni 
+|Nome| Type | Descrizione | Testo | 
+|:-----|:----|:----|:----|
+| ContactNames | matrice di oggetti | Nome del contatto Estratto dal biglietto da lavoro | [{"FirstName": "John", "LastName": "Doe"}] |
+| FirstName | string | Primo (dato) nome del contatto | "John" | 
+| LastName | string | Cognome (famiglia) del contatto |   "Doe" | 
+| CompanyName | matrice di stringhe | Nome della società Estratto dal biglietto da lavoro | ["Contoso"] | 
+| Departments | matrice di stringhe | Reparto o organizzazione del contatto | ["R&D"] | 
+| JobTitles | matrice di stringhe | Titolo del processo elencato del contatto | ["Ingegnere del software"] | 
+| Messaggi di posta elettronica | matrice di stringhe | Posta elettronica di contatto estratta dal biglietto da lavoro | ["johndoe@contoso.com"] | 
+| Siti Web | matrice di stringhe | Sito Web Estratto dal biglietto da lavoro | ["https://www.contoso.com"] | 
+| Indirizzi | matrice di stringhe | Indirizzo Estratto dal biglietto da lavoro | ["123 via principale, Redmond, WA 98052"] | 
+| Cellulari | matrice dei numeri di telefono | Numero di telefono cellulare Estratto dal biglietto da lavoro | ["+ 19876543210"] |
+| Fax | matrice dei numeri di telefono | Numero di telefono del fax Estratto dal biglietto da lavoro | ["+ 19876543211"] |
+| WorkPhones | matrice dei numeri di telefono | Numero di telefono dell'ufficio Estratto dal biglietto da lavoro | ["+ 19876543231"] |
+| OtherPhones    | matrice dei numeri di telefono | Altro numero di telefono Estratto dal biglietto da lavoro | ["+ 19876543233"] |
+
 
 L'API del business card può restituire anche tutto il testo riconosciuto dal biglietto da business. Questo output OCR è incluso nella risposta JSON.  
 
@@ -62,7 +66,7 @@ La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business card result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione analizza business card. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 

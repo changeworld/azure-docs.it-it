@@ -3,12 +3,12 @@ title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912600"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131985"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -25,16 +25,16 @@ ms.locfileid: "92912600"
 I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire i passaggi seguenti:
 
 1.  Passare allo spazio dei nomi degli hub eventi nel [portale di Azure](https://portal.azure.com). 
-2. Selezionare **Impostazioni di diagnostica** sotto **Monitoraggio** nel riquadro a sinistra, quindi selezionare **+ Aggiungi impostazione di diagnostica** . 
+2. Selezionare **Impostazioni di diagnostica** sotto **Monitoraggio** nel riquadro a sinistra, quindi selezionare **+ Aggiungi impostazione di diagnostica**. 
 
     ![Pagina Impostazioni di diagnostica - Aggiungi impostazione di diagnostica](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. Nella sezione **Dettagli categoria** , selezionare i **tipi di log di diagnostica** che si vuole abilitare. Informazioni dettagliate su queste categorie sono disponibili più avanti in questo articolo. 
-5. Nella sezione **Dettagli destinazione** , impostare la destinazione dell'archivio desiderata, ad esempio un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
+4. Nella sezione **Dettagli categoria**, selezionare i **tipi di log di diagnostica** che si vuole abilitare. Informazioni dettagliate su queste categorie sono disponibili più avanti in questo articolo. 
+5. Nella sezione **Dettagli destinazione**, impostare la destinazione dell'archivio desiderata, ad esempio un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
 
     ![Pagina Aggiungi impostazioni di diagnostica](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni di diagnostica.
 
-    Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica** .
+    Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
 
     Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
@@ -45,7 +45,7 @@ Hub eventi consente di acquisire i log di diagnostica per le categorie seguenti:
 | Category | Descrizione | 
 | -------- | ----------- | 
 | Log di archiviazione | Acquisisce informazioni sulle operazioni di [Acquisizione hub eventi](event-hubs-capture-overview.md), in particolare i log relativi agli errori di acquisizione. |
-| Log operativi | Permettono di acquisire tutte le operazioni di gestione eseguite nello spazio dei nomi di hub eventi di Azure. Le operazioni sui dati non vengono acquisite a causa del volume elevato di operazioni sui dati eseguite nell'hub eventi di Azure. |
+| Log operativi | Permettono di acquisire tutte le operazioni di gestione eseguite nello spazio dei nomi di hub eventi di Azure. Le operazioni sui dati non vengono acquisite a causa del volume elevato di operazioni sui dati eseguite negli hub eventi di Azure. |
 | Log di scalabilità automatica | Acquisisce le operazioni di aumento automatico eseguite su uno spazio dei nomi di hub eventi. |
 | Log del coordinatore Kafka | Acquisisce le operazioni del coordinatore Kafka correlate a hub eventi. |
 | Log degli errori utente Kafka | Acquisisce informazioni sulle API Kafka chiamate su Hub eventi. |
@@ -100,12 +100,12 @@ Le stringhe JSON dei log operativi includono gli elementi elencati nella seguent
 Nome | Descrizione
 ------- | -------
 `ActivityId` | ID interno, usato a scopo di rilevamento |
-`EventName` | Nome operazione |
+`EventName` | Nome operazione. Per un elenco di valori per questo elemento, vedere i [nomi degli eventi](#event-names) |
 `resourceId` | ID della risorsa Azure Resource Manager |
 `SubscriptionId` | ID sottoscrizione |
 `EventTimeString` | Durata dell'operazione |
-`EventProperties` | Proprietà dell'operazione |
-`Status` | Stato dell'operazione |
+`EventProperties` |Proprietà per l'operazione. Questo elemento fornisce altre informazioni sull'evento, come illustrato nell'esempio seguente. |
+`Status` | Stato dell'operazione. Il valore può essere **succeeded** o **failed**.  |
 `Caller` | Chiamante dell'operazione (Portale di Azure o client di gestione) |
 `Category` | OperationalLogs |
 
@@ -125,6 +125,13 @@ Example:
    "category": "OperationalLogs"
 }
 ```
+
+### <a name="event-names"></a>Nomi degli eventi
+Il nome dell'evento viene popolato come tipo di operazione e tipo di risorsa dalle enumerazioni seguenti. Ad esempio `Create Queue`, `Retrieve Event Hu` o `Delete Rule`. 
+
+| Tipo di operazione | Tipo di risorsa | 
+| -------------- | ------------- | 
+| <ul><li>Creazione</li><li>Aggiornamento</li><li>Delete</li><li>Recupero</li><li>Sconosciuto</li></ul> | <ul><li>Spazio dei nomi</li><li>Coda</li><li>Argomento</li><li>Sottoscrizione</li><li>Hub eventi</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regola</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Schema dei log di scalabilità automatica
 Le stringhe JSON dei log di scalabilità automatica includono gli elementi elencati nella tabella seguente:
@@ -195,7 +202,7 @@ Le stringhe JSON dell'evento di connessione rete virtuale degli hub eventi inclu
 | `SubscriptionId` | ID sottoscrizione di Azure |
 | `NamespaceName` | Nome spazio dei nomi |
 | `IPAddress` | Indirizzo IP di un client connesso al servizio Hub eventi |
-| `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione** . |
+| `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione**. |
 | `Reason` | Fornisce un motivo per cui è stata eseguita l'azione |
 | `Count` | Numero di occorrenze dell'azione |
 | `ResourceId` | ID della risorsa di Azure Resource Manager. |

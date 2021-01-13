@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: troubleshooting
 ms.date: 10/16/2019
 ms.author: charwen
-ms.openlocfilehash: d4f5d4b7fed8f14f048794616ee272342d1e8343
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 23b7a66afcc91cf1cf4a5dd9f720aad24ad40071
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915556"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133991"
 ---
 # <a name="troubleshoot-azure-bastion"></a>Risolvere i problemi di Azure Bastion
 
@@ -22,11 +22,7 @@ Questo articolo illustra come risolvere i problemi relativi ad Azure Bastion.
 
 **D:** Quando si tenta di creare un NSG di sicurezza di rete nella subnet di Azure Bastion, viene ricevuto l'errore seguente: *"il gruppo di sicurezza di rete non <NSG name> ha le regole necessarie per la subnet di Azure Bastion AzureBastionSubnet"*.
 
-**R:** Se si crea e si applica un NSG a *AzureBastionSubnet*, assicurarsi di avere aggiunto le regole seguenti nel NSG. Se non si aggiungono queste regole, la creazione o l'aggiornamento di NSG avrà esito negativo.
-
-1. Controllo della connettività del piano: in ingresso su 443 da GatewayManager
-2. Registrazione diagnostica e altri utenti: in uscita il 443 a AzureCloud (i tag internazionali all'interno di questo tag di servizio non sono ancora supportati).
-3. VM di destinazione: in uscita per 3389 e 22 a VirtualNetwork
+**R:** Se si crea e si applica un NSG a *AzureBastionSubnet*, assicurarsi di avere aggiunto le regole necessarie per il NSG. Per un elenco delle regole necessarie, vedere [uso di NSG Access e Azure Bastion](./bastion-nsg.md). Se non si aggiungono queste regole, la creazione o l'aggiornamento di NSG avrà esito negativo.
 
 Un esempio di regole NSG è disponibile come riferimento nel modello di [avvio rapido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg).
 Per altre informazioni, vedere [NSG Guidance for Azure Bastion](bastion-nsg.md).

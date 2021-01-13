@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come scrivere codice per H
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4f95abe3668bb400d84e354c3bca9eac289c5795
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108688"
+ms.locfileid: "98131237"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](./event-hubs-about.md).
@@ -57,7 +57,7 @@ Gli eventi vengono inviati a un hub eventi tramite la creazione di un'istanza di
 
 ## <a name="event-serialization"></a>Serializzazione degli eventi
 
-La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Esempio:
+La classe [EventData][] ha [due costruttori di overload](/dotnet/api/microsoft.azure.eventhubs.eventdata.-ctor) che accettano una serie di parametri, byte o una matrice di byte, che rappresentano il payload dei dati degli eventi. Quando si usa JSON con [EventData][]è possibile usare **Encoding.UTF8.GetBytes()** per recuperare la matrice di byte per una stringa con codifica JSON. Ad esempio:
 
 ```csharp
 for (var i = 0; i < numMessagesToSend; i++)
@@ -77,7 +77,7 @@ Quando si inviano i dati degli eventi, è possibile specificare un valore di cui
 
 ### <a name="availability-considerations"></a>Considerazioni sulla disponibilità
 
-L'uso di una chiave di partizione è facoltativo. È consigliabile valutare attentamente se farne uso o meno. Se non si specifica una chiave di partizione quando si pubblica un evento, viene usata un'assegnazione round robin. La chiave di partizione è un'ottima scelta se l'ordine degli eventi è importante. Quando si usa una chiave di partizione, queste partizioni richiedono la disponibilità in un singolo nodo. Nel tempo possono verificarsi interruzioni, ad esempio al riavvio dei nodi di calcolo e all'applicazione di patch. Di conseguenza, se si imposta un ID di partizione e per qualche motivo la partizione diventa non disponibile, il tentativo di accedere ai dati della partizione avrà esito negativo. Se è prioritaria la disponibilità elevata, non specificare alcuna chiave di partizione. In questo caso gli eventi vengono inviati alle partizioni con il modello round robin descritto in precedenza. In questo scenario viene esercitata una scelta esplicita tra disponibilità (nessun ID di partizione) e coerenza (aggiunta di eventi a un ID di partizione).
+L'uso di una chiave di partizione è facoltativo. È consigliabile valutare attentamente se farne uso o meno. Se non si specifica una chiave di partizione durante la pubblicazione di un evento, Hub eventi bilancia il carico tra le partizioni. La chiave di partizione è un'ottima scelta se l'ordine degli eventi è importante. Quando si usa una chiave di partizione, queste partizioni richiedono la disponibilità in un singolo nodo. Nel tempo possono verificarsi interruzioni, ad esempio al riavvio dei nodi di calcolo e all'applicazione di patch. Di conseguenza, se si imposta un ID di partizione e per qualche motivo la partizione diventa non disponibile, il tentativo di accedere ai dati della partizione avrà esito negativo. Se la disponibilità elevata è la più importante, non specificare una chiave di partizione. In tal caso, gli eventi vengono inviati alle partizioni usando un algoritmo di bilanciamento del carico interno. In questo scenario viene esercitata una scelta esplicita tra disponibilità (nessun ID di partizione) e coerenza (aggiunta di eventi a un ID di partizione).
 
 Va anche considerata la gestione dei ritardi nell'elaborazione degli eventi. In alcuni casi è preferibile eliminare i dati e riprovare anziché continuare a provare e mantenere attiva l'elaborazione, poiché ciò può sommare altro ritardo all'elaborazione downstream. Con i titoli azionari, ad esempio, è consigliabile attendere il completamento dell'aggiornamento dei dati, ma nel caso di una chat in tempo reale o in uno scenario VOIP è preferibile ottenere i dati rapidamente, anche se non sono completi.
 
@@ -109,7 +109,7 @@ Per usare la classe [EventProcessorHost][], è possibile implementare [IEventPro
 * [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
-Per avviare l'elaborazione di eventi, creare un'istanza di [EventProcessorHost][], fornendo i parametri appropriati per l'hub eventi. Esempio:
+Per avviare l'elaborazione di eventi, creare un'istanza di [EventProcessorHost][], fornendo i parametri appropriati per l'hub eventi. Ad esempio:
 
 > [!NOTE]
 > EventProcessorHost e le classi correlate sono disponibili nel pacchetto **Microsoft. Azure. EventHubs. Processor** . Aggiungere il pacchetto al progetto di Visual Studio seguendo le istruzioni riportate in [questo articolo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) oppure eseguendo il comando seguente nella finestra della [console di gestione pacchetti](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) : `Install-Package Microsoft.Azure.EventHubs.Processor` .

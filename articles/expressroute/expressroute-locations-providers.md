@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: duau
-ms.openlocfilehash: 0dc60f1785ee0d59307cb0d5b62405af62121518
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 21ec11110c28c3818bc5f834d21e0603e8ee0be3
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027622"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132376"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -98,6 +98,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Emirati Arabi Uniti settentrionali | n/d | DE-CIX, du datamena, Equinix, Megaport, Orange, Orixcom |
 | **Dublino** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa settentrionale | 10 G, 100 G | CenturyLink Cloud Connect, Colt, EIR, Equinix, GEANT, euNetworks, Interxion, Megaport |
 | **Francoforte** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Germania centro-occidentale | 10 G, 100 G | IN&T NetBond, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, euNetworks, GEANT, intercloud, Interxion, Megaport, Orange, Telia Carrier, T-Systems |
+| **Frankfurt2** | [FR7 Equinix](https://www.equinix.com/locations/europe-colocation/germany-colocation/frankfurt-data-centers/fr7/) | 1 | Germania centro-occidentale | 10 G, 100 G | |
 | **Ginevra** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Svizzera occidentale | 10 G, 100 G | Equinix, Megaport |
 | **RAS di Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asia orientale | 10 G | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | Asia orientale | 10 G | China Mobile International, China Telecom globale, PCCW Global Limited, SingTel |

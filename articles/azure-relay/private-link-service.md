@@ -3,15 +3,15 @@ title: Integrare Inoltro di Azure con il servizio Collegamento privato di Azure
 description: Informazioni su come integrare Inoltro di Azure con il servizio Collegamento privato di Azure
 ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13644082160704ba9918e6bd6257fa314bb463a6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263861"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134382"
 ---
-# <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrare Inoltro di Azure con Collegamento privato di Azure (anteprima)
-Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure? (Anteprima)](../private-link/private-link-overview.md).
+# <a name="integrate-azure-relay-with-azure-private-link"></a>Integrare il relè di Azure con collegamento privato di Azure 
+Il **servizio Collegamento privato** di Azure consente di accedere ai servizi di Azure, come ad esempio a Inoltro di Azure, al bus di servizio di Azure, ad Hub eventi di Azure, ad Archiviazione di Azure e ad Azure Cosmos DB, nonché ai servizi di clienti/partner ospitati in Azure tramite un endpoint privato nella rete virtuale. Per altre informazioni, vedere [Che cos'è Collegamento privato di Azure?](../private-link/private-link-overview.md).
 
 Un **endpoint privato** è un'interfaccia di rete che consente ai carichi di lavoro in esecuzione in una rete virtuale di connettersi privatamente e in modo sicuro a un servizio che dispone di una **risorsa di collegamento privato** (ad esempio, uno spazio dei nomi di Inoltro). L'endpoint privato usa un indirizzo IP privato della rete virtuale, introducendo efficacemente il servizio nella rete virtuale. Tutto il traffico verso il servizio può essere instradato tramite l'endpoint privato, quindi non sono necessari gateway, dispositivi NAT, ExpressRoute, connessioni VPN oppure indirizzi IP pubblici. Il traffico tra la rete virtuale e il servizio attraversa la rete backbone Microsoft, impedendone l'esposizione alla rete Internet pubblica. È possibile fornire un livello di granularità nel controllo di accesso consentendo le connessioni a spazi dei nomi di Inoltro di Azure specifici. 
 
@@ -19,7 +19,7 @@ Un **endpoint privato** è un'interfaccia di rete che consente ai carichi di lav
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Aggiungere un endpoint privato con il portale di Azure
 
 ### <a name="prerequisites"></a>Prerequisiti
-Per integrare uno spazio dei nomi di Inoltro di Azure con Collegamento privato di Azure (anteprima), sono necessarie le entità o autorizzazioni seguenti:
+Per integrare uno spazio dei nomi di inoltro di Azure con collegamento privato di Azure, sono necessarie le entità o le autorizzazioni seguenti:
 
 - Uno spazio dei nomi di Inoltro di Azure.
 - Una rete virtuale di Azure.
@@ -37,7 +37,7 @@ Per istruzioni dettagliate sulla creazione di un nuovo spazio dei nomi e di enti
 2. Nella barra di ricerca, digitare **Inoltri**.
 3. Selezionare nell'elenco lo **spazio dei nomi** in cui si vuole aggiungere un endpoint privato.
 4. Selezionare la scheda **Rete** in **Impostazioni**.
-5. Selezionare la scheda **Connessioni endpoint privato (anteprima)** nella parte superiore della pagina
+5. Selezionare la scheda **Connessioni endpoint privato** nella parte superiore della pagina
 6. Selezionare il pulsante **+ Endpoint privato** nella parte superiore della pagina.
 
     ![Pulsante Aggiungi endpoint privato](./media/private-link-service/add-private-endpoint-button.png)
@@ -81,7 +81,7 @@ Per istruzioni dettagliate sulla creazione di un nuovo spazio dei nomi e di enti
 12. Nella pagina **Endpoint privato** è possibile visualizzare lo stato della connessione all'endpoint privato. Se l'utente è il proprietario dello spazio dei nomi di Inoltro o ha accesso ad esso come gestore e ha selezionato l'opzione **Connettersi a una risorsa di Azure nella directory** come **Metodo di connessione**, la connessione all'endpoint deve essere impostata su **Approvazione automatica**. Se lo stato della connessione è **In sospeso**, vedere la sezione [Gestire gli endpoint privati con il portale di Azure](#manage-private-endpoints-using-azure-portal).
 
     ![Pagina dell'endpoint privato](./media/private-link-service/private-endpoint-page.png)
-13. Tornare alla pagina **Rete** dello **spazio dei nomi** e passare alla scheda **Connessioni endpoint privato (anteprima)** . Verrà visualizzato l'endpoint privato creato. 
+13. Tornare alla pagina **rete** dello **spazio dei nomi** e passare alla scheda **connessioni endpoint privato** . Verrà visualizzato l'endpoint privato creato. 
 
     ![Endpoint privato creato](./media/private-link-service/private-endpoint-created.png)
 
@@ -230,8 +230,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## <a name="limitations-and-design-considerations"></a>Limitazioni e considerazioni di progettazione
 
 ### <a name="design-considerations"></a>Considerazioni sulla progettazione
-- L'endpoint privato per Inoltro di Azure è in **anteprima pubblica**. 
-- per informazioni sui prezzi, vedere [Prezzi di Collegamento privato di Azure (Anteprima)](https://azure.microsoft.com/pricing/details/private-link/).
+- Per informazioni sui prezzi, vedere [prezzi di collegamento privato di Azure](https://azure.microsoft.com/pricing/details/private-link/).
 
 ### <a name="limitations"></a>Limitazioni 
 - Numero massimo di endpoint privati per lo spazio dei nomi di Inoltro di Azure: 64.
@@ -240,5 +239,5 @@ Aliases:  <namespace-name>.servicebus.windows.net
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni su [Collegamento privato di Azure (anteprima)](../private-link/private-link-service-overview.md)
+- Altre informazioni su [Collegamento privato di Azure](../private-link/private-link-service-overview.md)
 - Altre informazioni sul [servizio di inoltro di Azure](relay-what-is-it.md)

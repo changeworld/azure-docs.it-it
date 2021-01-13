@@ -1,14 +1,14 @@
 ---
 title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
-ms.date: 12/16/2020
+ms.date: 01/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: b789f241fba4b77223272f81d1a69c8fcb050008
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a550655b8076a1e3946ff015239715ddf0712236
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127159"
+ms.locfileid: "98131764"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -97,7 +97,7 @@ La maggior parte delle attività e dei servizi può essere eseguita nelle risors
 
 - Visualizza gli avvisi per le sottoscrizioni Delegate, con la possibilità di visualizzare e aggiornare gli avvisi in tutte le sottoscrizioni
 - Visualizzare i dettagli del log attività per le sottoscrizioni delegate
-- Log Analytics: eseguire query sui dati dalle aree di lavoro remote in più tenant
+- Log Analytics: eseguire query sui dati dalle aree di lavoro remote in più tenant. si noti che gli account di automazione usati per accedere ai dati dalle aree di lavoro nei tenant dei clienti devono essere creati nello stesso tenant.
 - Creare avvisi nei tenant dei clienti che attivano l'automazione, ad esempio manuali operativi di automazione di Azure o funzioni di Azure, nel tenant di gestione tramite webhook
 - Creare [impostazioni di diagnostica](../..//azure-monitor/platform/diagnostic-settings.md) nei tenant del cliente per inviare i log delle risorse alle aree di lavoro nel tenant di gestione
 - Per i carichi di lavoro SAP, [monitora le metriche delle soluzioni SAP con una visualizzazione aggregata tra i tenant dei clienti](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

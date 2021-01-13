@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 82f6c5989149b50a1ef5e6c6fb5350d474476436
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845481"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131450"
 ---
-# <a name="receipt-concepts"></a>Concetti relativi alle ricevute
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Modello di ricezione predefinito del riconoscimento moduli
 
-Il riconoscitore di form di Azure può analizzare le ricevute usando uno dei modelli predefiniti. L'API di ricezione estrae le informazioni chiave dalle ricevute di vendita in inglese, ad esempio nome Merchant, data transazione, totale transazione, voci e altro ancora. 
+Il riconoscitore di form di Azure può analizzare ed estrarre le informazioni dalle ricevute di vendita usando il modello di ricezione precompilato. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con la ricevuta informazioni sui modelli di apprendimento avanzato per estrarre le informazioni chiave dalle ricevute in inglese. L'API di ricezione estrae le informazioni chiave dalle ricevute di vendita in inglese, ad esempio nome Merchant, data transazione, totale transazione, voci e altro ancora. 
 
 ## <a name="understanding-receipts"></a>Informazioni sulle ricevute 
 
@@ -27,32 +27,39 @@ Molte aziende e persone si basano ancora sull'estrazione manuale dei dati dalle 
 
 L'estrazione automatica dei dati da queste ricevute può essere complessa. Le ricevute potrebbero essere sgualcite e difficili da leggere, le parti stampate o scritte a mano e le immagini smartphone delle ricevute potrebbero essere di bassa qualità. Inoltre, i modelli e i campi di ricezione possono variare significativamente in base al mercato, all'area e al Merchant. Queste problematiche nell'estrazione dei dati e nel rilevamento dei campi rendono la ricezione un problema univoco.  
 
-Usando il riconoscimento ottico dei caratteri (OCR) e il modello di ricezione predefinito, l'API di ricezione consente questi scenari di elaborazione della ricezione ed estrae i dati dalle ricevute, ad esempio nome esercente, suggerimento, totale, elementi linea e altro ancora. Con questa API non è necessario eseguire il training di un modello. si invia semplicemente la ricevuta all'API di ricezione Analyze e i dati vengono estratti.
+Usando il riconoscimento ottico dei caratteri (OCR) e il modello di ricezione predefinito, l'API di ricezione consente questi scenari di elaborazione della ricezione ed estrae i dati dalle ricevute, ad esempio nome esercente, suggerimento, totale, elementi linea e altro ancora. Con questa API non è necessario eseguire il training di un modello, basta inviare l'immagine della ricevuta all'API di ricezione dell'analisi e i dati vengono estratti.
 
-![ricevuta di esempio](./media/contoso-receipt-small.png)
+![ricevuta di esempio](./media/receipts-example.jpg)
 
-## <a name="what-does-the-receipt-api-do"></a>Che cosa fa l'API di ricezione? 
 
-L'API di ricezione precompilata estrae il contenuto delle ricevute di vendita &mdash; il tipo di ricezione che si otterrebbe normalmente presso un ristorante, un rivenditore o un negozio di alimentari.
+## <a name="what-does-the-receipt-service-do"></a>Che cosa fa il servizio di ricezione? 
+
+Il servizio di ricezione precompilato estrae il contenuto delle ricevute di vendita &mdash; il tipo di ricevuta che si otterrebbe normalmente presso un ristorante, un rivenditore o un negozio di alimentari.
 
 ### <a name="fields-extracted"></a>Campi estratti
 
-* Nome esercente 
-* Indirizzo esercente 
-* Numero di telefono esercente 
-* Data della transazione 
-* Tempo transazione 
-* Subtotale 
-* Imposta 
-* Totale 
-* Suggerimento 
-* Estrazione di elementi riga (ad esempio, quantità di elementi, prezzo dell'elemento, nome dell'elemento)
+|Nome| Type | Descrizione | Testo | Valore (output standardizzato) |
+|:-----|:----|:----|:----| :----|
+| ReceiptType | string | Tipo di ricevuta di vendita | Dettaglio |  |
+| MerchantName | string | Nome dell'esercente che rilascia la ricevuta | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | Numero di telefono elencato di Merchant | 987-654-3210 | + 19876543210 |
+| MerchantAddress | string | Indirizzo elencato di Merchant | 123 Main St Redmond WA 98052 |  |
+| TransactionDate | Data | Data di rilascio della ricevuta | 06 giugno, 2019 | 2019-06-26  |
+| TransactionTime | time | Ora di emissione della ricevuta | 4:49 PM | 16:49:00  |
+| Totale | d'acquisto | Totale transazioni totali di ricezione | $14,34 | 14.34 |
+| Subtotale | d'acquisto | Subtotale della ricezione, spesso prima dell'applicazione delle imposte | $12,34 | 12.34 |
+| Imposta | d'acquisto | Imposta sulla ricezione, spesso imposte sulle vendite o equivalente | $2,00 | 2,00 |
+| Suggerimento | d'acquisto | Suggerimento incluso dall'acquirente | $1,00 | 1,00 |
+| Elementi | matrice di oggetti | Voci estratte, con nome, quantità, prezzo unitario e prezzo totale Estratto | |
+| Nome | stringa | Nome elemento | Surface Pro 6 | |
+| Quantità | d'acquisto | Quantità di ogni elemento | 1 | |
+| Prezzo | d'acquisto | Prezzo individuale di ogni unità di elementi | $999,00 | 999,00 |
+| Prezzo totale | d'acquisto | Prezzo totale dell'elemento linea | $999,00 | 999,00 |
 
 ### <a name="additional-features"></a>Funzionalità aggiuntive
 
 L'API di ricezione restituisce anche le informazioni seguenti:
 
-* Tipo di ricezione (ad esempio, voce, carta di credito e così via)
 * Livello di confidenza del campo (ogni campo restituisce un valore di attendibilità associato)
 * Testo non elaborato OCR (output di testo estratto dall'OCR per l'intera ricezione)
 * Rettangolo di delimitazione per ogni valore, riga e parola
@@ -95,7 +102,7 @@ La [ricezione dell'analisi](https://westcentralus.dev.cognitive.microsoft.com/do
 
 Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze result result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeReceiptResult) . Questa operazione accetta come input l'ID del risultato creato dall'operazione di ricezione dell'analisi. Restituisce una risposta JSON che contiene un campo di **stato** con i valori possibili seguenti. Questa operazione viene chiamata in modo iterativo fino a quando non viene restituita con il valore **succeeded** . Utilizzare un intervallo da 3 a 5 secondi per evitare il superamento della frequenza di richieste al secondo (RPS).
 
-|Campo| Tipo | Valori possibili |
+|Campo| Type | Valori possibili |
 |:-----|:----:|:----|
 |status | string | notStarted: l'operazione di analisi non è stata avviata. |
 | |  | Running: l'operazione di analisi è in corso. |

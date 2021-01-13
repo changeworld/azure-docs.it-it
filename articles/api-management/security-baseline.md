@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 62b4629d258f8779dc53b4b8e00684d3b793291d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ab4ae6980af9556f973ece93634b614d01c615e9
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183754"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132665"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Baseline di sicurezza di Azure per Gestione API
 
@@ -381,7 +381,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la gestione e la ma
 
 * [Come ottenere una definizione del ruolo della directory in Azure AD con PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
-* [Informazioni sulle raccomandazioni relative a identità e accesso del Centro sicurezza di Azure](../security-center/recommendations-reference.md#recs-identity)
+* [Informazioni sulle raccomandazioni relative a identità e accesso del Centro sicurezza di Azure](../security-center/recommendations-reference.md#recs-identityandaccess)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

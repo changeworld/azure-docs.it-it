@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: dfea6d531dfb87a5344c5d8e53570b6e1ae8e598
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049321"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131390"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Comprendere i modelli gemelli nei dispositivi gemelli digitali di Azure
 
@@ -140,7 +140,7 @@ Quando si progettano i modelli in modo da riflettere le entità nell'ambiente in
 
 L'uso di modelli basati su standard del settore o la rappresentazione standard di ontologia, ad esempio RDF o OWL, fornisce un punto di partenza completo durante la progettazione dei modelli di dispositivi gemelli digitali di Azure. L'uso di modelli di settore contribuisce anche alla standardizzazione e alla condivisione delle informazioni.
 
-Per l'uso con i dispositivi gemelli digitali di Azure, un modello deve essere rappresentato nel [**linguaggio DTDL (Digital Gemini Definition Language)**](concepts-models.md)basato su JSON-LD. Questo articolo descrive quindi come rappresentare i modelli standard del settore in DTDL, integrando i concetti di settore esistenti con la semantica di DTDL, in modo che i dispositivi gemelli digitali di Azure possano usarli. Il modello DTDL funge quindi da origine della verità per il modello nei dispositivi gemelli digitali di Azure.
+Per l'uso con i dispositivi gemelli digitali di Azure, un modello deve essere rappresentato nel [**linguaggio DTDL (Digital Gemini Definition Language)**](concepts-models.md)basato su JSON-LD. Pertanto, per usare un modello standard di settore, è necessario prima convertirlo in DTDL in modo che i dispositivi gemelli digitali di Azure possano usarlo. Il modello DTDL funge quindi da origine della verità per il modello nei dispositivi gemelli digitali di Azure.
 
 Esistono due percorsi principali per l'integrazione dei modelli standard del settore con DTDL, a seconda della situazione:
 * Se è ancora necessario creare i modelli, è possibile progettarli intorno alle **ontologie Starter DTDL esistenti** che contengono il linguaggio specifico per il settore.

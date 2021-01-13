@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 47cc67b408ff7fa50a244fffa8d41e640df0ecf3
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796432"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132083"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 
@@ -224,6 +224,9 @@ Le personalizzazioni supportate per le `forecasting` attività includono:
 |**Eliminazione delle colonne** |Specifica le colonne da eliminare dall'trasformato.|
 
 Per personalizzare featurizations con l'SDK, specificare `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Altre informazioni sulle [featurizations personalizzate](how-to-configure-auto-features.md#customize-featurization).
+
+>[!NOTE]
+> La funzionalità **Drop Columns** è deprecata a partire dalla versione SDK 1,19. Rilasciare le colonne dal set di dati come parte della pulizia dei dati, prima di utilizzarlo nell'esperimento di Machine Learning automatico. 
 
 ```python
 featurization_config = FeaturizationConfig()

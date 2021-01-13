@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 08/17/2020
+ms.date: 01/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: ee3d7d1cf285573db894d64549cf79babb517d95
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535300"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131288"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -41,7 +41,7 @@ Il cloud di Azure fornisce diverse altre pipeline, ognuna con uno scopo diverso.
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orchestrazione del modello (Machine Learning) | Data scientist | Azure Machine Learning Pipelines | Pipeline Kubeflow | Modello di > dati | Distribuzione, memorizzazione nella cache, Code-First, riutilizzo | 
 | Orchestrazione dati (preparazione dati) | Data engineer | [Pipeline di Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Apache Airflow | Dati > dati | Spostamento fortemente tipizzato, attività incentrate sui dati |
-| Orchestrazione dell'app & codice (CI/CD) | App Developer/Ops | [Pipeline di Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Codice + modello-> app/servizio | Supporto delle attività più aperte e flessibili, code di approvazione, fasi con controllo | 
+| Orchestrazione dell'app & codice (CI/CD) | App Developer/Ops | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Codice + modello-> app/servizio | Supporto delle attività più aperte e flessibili, code di approvazione, fasi con controllo | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Che cosa possono fare le pipeline di Azure ML?
 
@@ -107,15 +107,18 @@ experiment = Experiment(ws, 'MyExperiment')
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
 
-output_data = PipelineData("output_data", datastore=blob_store)
-
+dataprep_step = PythonScriptStep(
+    name="prep_data",
+    script_name="dataprep.py",
+    compute_target=cluster,
+    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
+    )
+output_data = OutputFileDatasetConfig()
 input_named = input_data.as_named_input('input')
 
 steps = [ PythonScriptStep(
     script_name="train.py",
     arguments=["--input", input_named.as_download(), "--output", output_data],
-    inputs=[input_data],
-    outputs=[output_data],
     compute_target=compute_target,
     source_directory="myfolder"
 ) ]
@@ -126,7 +129,9 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `output_data` . La matrice `steps` include un singolo elemento, un oggetto che utilizzerà `PythonScriptStep` gli oggetti dati e viene eseguito su `compute_target` . Quindi, il codice crea un'istanza dell' `Pipeline` oggetto stesso, passando l'area di lavoro e la matrice Steps. La chiamata a `experiment.submit(pipeline)` Avvia l'esecuzione della pipeline di Azure ml. La chiamata a `wait_for_completion()` viene bloccata fino al termine della pipeline. 
+Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `output_data` . `input_data`È un'istanza di [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` è un'istanza di [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Per `OutputFileDatasetConfig` il comportamento predefinito, è necessario copiare l'output nell' `workspaceblobstore` archivio dati sotto il percorso `/dataset/{run-id}/{output-name}` , dove `run-id` è l'ID dell'esecuzione ed `output-name` è un valore generato automaticamente se non specificato dallo sviluppatore.
+
+La matrice `steps` include un singolo elemento, un oggetto che utilizzerà `PythonScriptStep` gli oggetti dati e viene eseguito su `compute_target` . Quindi, il codice crea un'istanza dell' `Pipeline` oggetto stesso, passando l'area di lavoro e la matrice Steps. La chiamata a `experiment.submit(pipeline)` Avvia l'esecuzione della pipeline di Azure ml. La chiamata a `wait_for_completion()` viene bloccata fino al termine della pipeline. 
 
 Per altre informazioni sulla connessione della pipeline ai dati, vedere gli articoli [accesso ai dati in Azure Machine Learning](concept-data.md) e [trasferimento dei dati in e tra i passaggi della pipeline di ml (Python)](how-to-move-data-in-out-of-pipelines.md). 
 

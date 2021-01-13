@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: f7cac8ef41ff49f2d623e2b86dff271adcd71ff1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.date: 01/12/2021
+ms.openlocfilehash: 43e46c1b5e720e4f9f46f8d3198fea7124d8f5ba
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821418"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132206"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gestire le risorse del cluster Apache Spark in Azure HDInsight
 
@@ -84,6 +84,9 @@ Il comando seguente è un esempio di come modificare i parametri di configurazio
 ```bash
 curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 ```
+
+> [!Note]
+> Copiare il file JAR nell'account di archiviazione del cluster. Non copiare il file JAR direttamente nel nodo head.
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Modificare questi parametri nel server Spark Thrift
 

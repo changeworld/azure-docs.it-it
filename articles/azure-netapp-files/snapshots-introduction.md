@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2021
+ms.date: 01/12/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d21f7c4e74a87e409a73b22fc6b316e97e24a4e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122366"
+ms.locfileid: "98133515"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Funzionamento degli snapshot Azure NetApp Files
 
@@ -37,11 +37,11 @@ I diagrammi seguenti illustrano i concetti:
 
 ![Diagrammi che mostrano i concetti chiave degli snapshot](../media/azure-netapp-files/snapshot-concepts.png)
 
-Nei diagrammi precedenti, lo snapshot è riportato nella figura 1a. Nella Figura 1B i dati modificati vengono scritti in un *nuovo blocco* e il puntatore viene aggiornato. Tuttavia, il puntatore dello snapshot fa ancora riferimento al *blocco scritto in precedenza*, offrendo una visualizzazione dinamica dei dati. Un altro snapshot viene assunto nella figura 1c. A questo punto è possibile accedere a tre generazioni di dati (dati Live, snapshot 2 e snapshot 1, in ordine di età), senza occupare lo spazio del volume necessario per tre copie complete. 
+Nei diagrammi, uno snapshot viene assunto nella figura 1a. Nella Figura 1B i dati modificati vengono scritti in un *nuovo blocco* e il puntatore viene aggiornato. Tuttavia, il puntatore dello snapshot fa ancora riferimento al *blocco scritto in precedenza*, offrendo una visualizzazione dinamica dei dati. Un altro snapshot viene assunto nella figura 1c. A questo punto è possibile accedere a tre generazioni di dati (dati Live, snapshot 2 e snapshot 1, in ordine di età), senza occupare lo spazio del volume necessario per tre copie complete. 
 
 Uno snapshot accetta solo una copia dei metadati del volume (*tabella inode*). La creazione di, indipendentemente dalle dimensioni del volume, dalla capacità utilizzata o dal livello di attività del volume, richiede solo pochi secondi. Quindi, la creazione di uno snapshot di un volume 100-TiB accetta lo stesso tempo (accanto a zero) per la creazione di uno snapshot di un volume 100-GiB. Dopo la creazione di uno snapshot, le modifiche apportate ai file di dati vengono riflesse nella versione attiva dei file, come di consueto.
 
-Nel frattempo, i blocchi di dati a cui punta uno snapshot rimangono stabili e non modificabili. A causa della natura di "Reindirizzamento in scrittura" degli snapshot Azure NetApp Files, uno snapshot non comporta alcun sovraccarico delle prestazioni e non usa alcuno spazio. È possibile archiviare fino a 255 snapshot per volume nel tempo, tutti accessibili come versioni di sola lettura e online dei dati, consumando così poca capacità del numero di blocchi modificati tra ogni snapshot. I blocchi modificati vengono archiviati nel volume attivo. I blocchi a cui puntano gli snapshot vengono mantenuti (in sola lettura) nel volume per la custodia, da reimpiegare solo quando tutti gli snapshot (puntatori) sono stati cancellati. Pertanto, l'utilizzo del volume aumenterà nel tempo, mediante nuovi blocchi di dati o blocchi di dati (modificati) conservati negli snapshot.
+Nel frattempo, i blocchi di dati a cui punta uno snapshot rimangono stabili e non modificabili. A causa della natura di "Reindirizzamento in scrittura" dei volumi Azure NetApp Files, uno snapshot non comporta alcun sovraccarico delle prestazioni e non usa alcuno spazio. È possibile archiviare fino a 255 snapshot per volume nel tempo, tutti accessibili come versioni di sola lettura e online dei dati, consumando così poca capacità del numero di blocchi modificati tra ogni snapshot. I blocchi modificati vengono archiviati nel volume attivo. I blocchi a cui puntano gli snapshot vengono mantenuti (in sola lettura) nel volume per la custodia, da reimpiegare solo quando tutti i puntatori (nel volume attivo e negli snapshot) sono stati cancellati. Pertanto, l'utilizzo del volume aumenterà nel tempo, mediante nuovi blocchi di dati o blocchi di dati (modificati) conservati negli snapshot.
 
  Il diagramma seguente Mostra gli snapshot di un volume e lo spazio usato nel tempo: 
 
@@ -56,7 +56,7 @@ Poiché uno snapshot del volume registra solo le modifiche del blocco dopo lo sn
     La creazione, la replica, il ripristino o la clonazione di uno snapshot richiede solo pochi secondi, indipendentemente dalle dimensioni del volume e dal livello delle attività. È possibile creare uno snapshot [del volume su richiesta](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). È anche possibile usare i [criteri di snapshot](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) per specificare quando Azure NetApp files deve creare automaticamente uno snapshot e il numero di snapshot da tenere per un volume.  La coerenza delle applicazioni può essere eseguita tramite l'orchestrazione degli snapshot con il livello dell'applicazione, ad esempio usando lo [strumento AzAcSnap](azacsnap-introduction.md) per SAP Hana.
 
 _ Gli snapshot non hanno alcun effetto sulle **prestazioni** del volume *.   
-    Grazie alla natura di "Reindirizzamento in scrittura" della tecnologia di sottodisposizione, l'archiviazione o la conservazione di Azure NetApp Files snapshot non ha alcun effetto sulle prestazioni, anche con un'attività di dati intensa. Anche l'eliminazione di uno snapshot non ha un effetto minimo sulle prestazioni in molti casi. 
+    Grazie alla natura di "Reindirizzamento in scrittura" della tecnologia di sottodisposizione, l'archiviazione o la conservazione di Azure NetApp Files snapshot non ha alcun effetto sulle prestazioni, anche con un'attività di dati intensa. Anche l'eliminazione di uno snapshot non ha un effetto minimo sulle prestazioni nella maggior parte dei casi. 
 
 _ Gli snapshot forniscono ***scalabilità** _ perché possono essere creati spesso e molti possono essere conservati.   
     Azure NetApp Files volumi supportano fino a 255 snapshot. La possibilità di archiviare un numero elevato di snapshot di basso livello e di uso frequente aumenta la probabilità che la versione desiderata dei dati possa essere ripristinata correttamente.
@@ -66,7 +66,7 @@ Le prestazioni elevate, la scalabilità e la stabilità di Azure NetApp Files te
 
 ## <a name="ways-to-create-snapshots"></a>Modalità di creazione di snapshot   
 
-Gli snapshot Azure NetApp Files sono versatili in uso. Di conseguenza, sono disponibili più metodi per la creazione e la gestione di snapshot:
+È possibile usare diversi metodi per creare e gestire gli snapshot:
 
 _ Manualmente (su richiesta), usando:   
     * Il [portale di Azure](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), l' [API REST](/rest/api/netapp/snapshots), l'interfaccia della riga di comando di [Azure](/cli/azure/netappfiles/snapshot)o gli strumenti [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
@@ -78,7 +78,7 @@ _ Manualmente (su richiesta), usando:
 
 ## <a name="how-volumes-and-snapshots-are-replicated-cross-region-for-dr"></a>Come i volumi e gli snapshot vengono replicati tra aree per il ripristino di emergenza  
 
-Azure NetApp Files supporta la [replica tra aree](cross-region-replication-introduction.md) per scopi di ripristino di emergenza. Azure NetApp Files la replica tra aree utilizza la tecnologia SnapMirror. Solo i blocchi modificati vengono inviati in rete in un formato compresso ed efficiente. Dopo che una replica tra aree viene avviata tra i volumi, l'intero contenuto del volume (ovvero i blocchi di dati archiviati effettivi) viene trasferito una sola volta. Questa operazione è denominata *trasferimento di base*. Dopo il trasferimento iniziale, vengono trasferiti solo i blocchi modificati (acquisiti negli snapshot). Viene creata una replica 1:1 asincrona del volume di origine (inclusi tutti gli snapshot).  Questo comportamento segue un meccanismo di replica completo e incrementale per sempre. Questa tecnologia proprietaria riduce al minimo la quantità di dati che è necessario replicare tra le aree, consentendo così di risparmiare sui costi di trasferimento dei dati. Riduce inoltre il tempo di replica. È possibile ottenere un obiettivo del punto di ripristino (RPO) più piccolo, perché è possibile creare più snapshot e trasferirli più spesso con trasferimenti di dati limitati.
+Azure NetApp Files supporta la [replica tra aree](cross-region-replication-introduction.md) per scopi di ripristino di emergenza. Azure NetApp Files la replica tra aree utilizza la tecnologia SnapMirror. Solo i blocchi modificati vengono inviati in rete in un formato compresso ed efficiente. Dopo che una replica tra aree viene avviata tra i volumi, l'intero contenuto del volume (ovvero i blocchi di dati archiviati effettivi) viene trasferito una sola volta. Questa operazione è denominata *trasferimento di base*. Dopo il trasferimento iniziale, vengono trasferiti solo i blocchi modificati (acquisiti negli snapshot). Il risultato è una replica 1:1 asincrona del volume di origine, inclusi tutti gli snapshot. Questo comportamento segue un meccanismo di replica completo e incrementale per sempre. Questa tecnologia riduce al minimo la quantità di dati necessari per la replica tra le aree, risparmiando quindi i costi di trasferimento dei dati. Riduce inoltre il tempo di replica. È possibile ottenere un obiettivo del punto di ripristino (RPO) più piccolo, perché è possibile creare più snapshot e trasferirli più spesso con trasferimenti di dati limitati. Inoltre, Elimina la necessità di meccanismi di replica basati su host, evitando i costi delle licenze software e delle macchine virtuali.
 
 Il diagramma seguente mostra il traffico di snapshot negli scenari di replica tra aree: 
 
@@ -90,7 +90,7 @@ La tecnologia snapshot Azure NetApp Files migliora notevolmente la frequenza e l
 
 ### <a name="restoring-files-or-directories-from-snapshots"></a>Ripristino di file o directory da snapshot 
 
-Se la [visibilità del percorso dello snapshot](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) non è nascosta, gli utenti possono accedere direttamente agli snapshot per il recupero da eliminazioni accidentali, danneggiamenti o modifiche dei dati. La protezione dei file e delle directory viene mantenuta nello snapshot e gli snapshot sono di sola lettura in base alla progettazione. Di conseguenza, il ripristino è sicuro e semplice. 
+Se la [visibilità del percorso dello snapshot](azure-netapp-files-manage-snapshots.md#edit-the-hide-snapshot-path-option) non è impostata su `hidden` , gli utenti possono accedere direttamente agli snapshot per il recupero da eliminazioni accidentali, danneggiamenti o modifiche dei dati. La protezione dei file e delle directory viene mantenuta nello snapshot e gli snapshot sono di sola lettura in base alla progettazione. Di conseguenza, il ripristino è sicuro e semplice. 
 
 Il diagramma seguente mostra l'accesso di file o directory a uno snapshot: 
 
@@ -108,7 +108,7 @@ Vedere [ripristinare un file da uno snapshot usando un client](azure-netapp-file
 
 ### <a name="restoring-cloning-a-snapshot-to-a-new-volume"></a>Ripristino (clonazione) di uno snapshot in un nuovo volume
 
-Azure NetApp Files snapshot possono essere ripristinati in un volume indipendente separato. Questa operazione è quasi immediata, indipendentemente dalle dimensioni del volume e dalla capacità utilizzata. Il volume appena creato è quasi immediatamente disponibile per l'accesso, mentre vengono copiati i blocchi di dati di volume e snapshot effettivi. A seconda delle dimensioni e della capacità del volume, questo processo può richiedere molto tempo durante il quale non è possibile eliminare il volume e lo snapshot padre. Tuttavia, è possibile accedere al volume dopo la creazione iniziale, mentre il processo di copia è in corso in background. Questa funzionalità consente la creazione rapida di volumi per il ripristino dei dati o la clonazione del volume per test e sviluppo. Per natura del processo di copia dei dati, l'utilizzo del pool di capacità di archiviazione raddoppierà al termine del ripristino e il nuovo volume visualizzerà la capacità attiva completa dello snapshot originale. Al termine di questo processo, il volume sarà indipendente e dissociato con il volume originale e i volumi e lo snapshot di origine potranno essere gestiti o rimossi in modo indipendente dal nuovo volume.
+È possibile ripristinare Azure NetApp Files snapshot in un volume indipendente separato. Questa operazione è quasi immediata, indipendentemente dalle dimensioni del volume e dalla capacità utilizzata. Il volume appena creato è quasi immediatamente disponibile per l'accesso, mentre vengono copiati i blocchi di dati di volume e snapshot effettivi. A seconda delle dimensioni e della capacità del volume, questo processo può richiedere molto tempo durante il quale non è possibile eliminare il volume e lo snapshot padre. Tuttavia, è possibile accedere al volume dopo la creazione iniziale, mentre il processo di copia è in corso in background. Questa funzionalità consente la creazione rapida di volumi per il ripristino dei dati o la clonazione del volume per test e sviluppo. Per natura del processo di copia dei dati, l'utilizzo del pool di capacità di archiviazione raddoppierà al termine del ripristino e il nuovo volume visualizzerà la capacità attiva completa dello snapshot originale. Al termine di questo processo, il volume sarà indipendente e dissociato con il volume originale e i volumi e lo snapshot di origine potranno essere gestiti o rimossi in modo indipendente dal nuovo volume.
 
 Il diagramma seguente mostra un nuovo volume creato ripristinando (clonando) uno snapshot:   
 
@@ -142,11 +142,11 @@ Vedere [ripristinare un volume utilizzando snapshot per ripristinare](azure-neta
 Gli snapshot utilizzano la capacità di archiviazione. Di conseguenza, non vengono in genere conservati per un periodo illimitato. Per la protezione dei dati, la conservazione e la recuperabilità, un numero di snapshot (creati in diversi momenti) viene in genere mantenuto online per una determinata durata, in base ai requisiti del contratto di RPO, RTO e conservazione. Tuttavia, gli snapshot meno recenti spesso non devono essere conservati nel servizio di archiviazione e potrebbe essere necessario eliminarli per liberare spazio. Qualsiasi snapshot può essere eliminato (non necessariamente in ordine di creazione) da un amministratore in qualsiasi momento. 
 
 > [!IMPORTANT]
-> L'operazione di eliminazione dello snapshot non può essere annullata. 
+> L'operazione di eliminazione dello snapshot non può essere annullata. È consigliabile mantenere copie offline del volume per la protezione dei dati e la conservazione. 
 
 Quando si elimina uno snapshot, verranno rimossi tutti i puntatori da tale snapshot ai blocchi di dati esistenti. Quando un blocco di dati non ha più puntatori che puntano a esso (dal volume attivo o da altri snapshot del volume), il blocco di dati viene restituito allo spazio disponibile nel volume per un uso futuro. Pertanto, la rimozione di snapshot in genere consente di liberare più capacità in un volume rispetto all'eliminazione dei dati dal volume attivo, perché i blocchi di dati vengono spesso acquisiti negli snapshot creati in precedenza. 
 
-Il diagramma seguente illustra l'effetto sul consumo di archiviazione dell'eliminazione di snapshot per un volume:  
+Il diagramma seguente illustra l'effetto sul consumo di archiviazione dell'eliminazione di snapshot 3 da un volume:  
 
 ![Diagramma che mostra l'effetto del consumo di archiviazione dell'eliminazione dello snapshot](../media/azure-netapp-files/snapshot-delete-storage-consumption.png)
 

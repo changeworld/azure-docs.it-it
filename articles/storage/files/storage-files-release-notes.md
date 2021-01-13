@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 739e59ea8e5737abbc6f0f0799129be5f59fb9b0
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 3bf3ecefb17f4c9fda6405da7fb2bdc2650f5324
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674498"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131475"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -236,14 +236,14 @@ Le note sulla versione seguenti si riferiscono alla versione 9.0.0.0 dell'agente
 ### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti
 
 - Supporto per il ripristino self-service
-    - Gli utenti possono ora ripristinare i file usando la funzionalità della versione precedente. Prima della versione 9, la funzionalità della versione precedente non era supportata nei volumi con abilitazione per il cloud a livelli. Questa funzionalità deve essere abilitata separatamente per ogni volume in cui è presente un endpoint con abilitazione per cloud a livelli. Per altre informazioni, vedere  
+    - Gli utenti possono ora ripristinare anche i file a livelli (insieme ai file su disco) utilizzando la funzionalità versione precedente, dagli snapshot VSS creati dopo che la funzionalità di ripristino self-service è stata abilitata nel volume. Prima della versione v9, la funzionalità versione precedente non era supportata per i file a livelli. Questa funzionalità deve essere abilitata separatamente per ogni volume in cui è presente un endpoint con abilitazione per cloud a livelli. Per altre informazioni, vedere  
 [Ripristino self-service tramite versioni precedenti e VSS (Servizio Copia Shadow del volume)](./storage-sync-files-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service). 
  
 - Supporto per dimensioni di condivisione file più grandi 
     - Sincronizzazione file di Azure supporta ora fino a 64TiB e 100 milioni di file in un singolo spazio dei nomi di sincronizzazione.  
  
 - Supporto della deduplicazione dei dati in Windows Server 2019 
-    - La deduplicazione dei dati è supportata con cloud a livelli abilitato in Windows Server 2019. Per supportare la deduplicazione dei dati nei volumi con cloud a livelli, è necessario installare Windows Update [KB4520062](https://support.microsoft.com/help/4520062). 
+    - La deduplicazione dati è ora supportata (indipendentemente dal fatto che la suddivisione in livelli cloud sia abilitata o disabilitata in uno o più endpoint server del volume) in Windows Server 2016 e Windows Server 2019. Per supportare la deduplicazione dei dati sui volumi con suddivisione in livelli nel cloud nel server 2019, è necessario installare Windows Update [KB4520062](https://support.microsoft.com/help/4520062) . 
  
 - Miglioramento della dimensione minima per un file da suddividere in livelli 
     - La dimensione minima per un file da suddividere in livelli si basa sulle dimensioni del cluster del file system (raddoppia le dimensioni del cluster del file system). Per impostazione predefinita, ad esempio, la dimensione del cluster del file system NTFS è 4 KB, la dimensione minima risultante per un file da suddividere in livelli è 8 KB. 

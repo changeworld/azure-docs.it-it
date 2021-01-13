@@ -3,12 +3,12 @@ title: Aggiungere in modo dinamico partizioni a un hub eventi in Hub eventi di A
 description: Questo articolo illustra come aggiungere partizioni in modo dinamico a un hub eventi in Hub eventi di Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ebe4491338c24a331812041f4d3e6d37b934117
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002540"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132172"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Aggiungere in modo dinamico partizioni a un hub eventi (argomento Apache Kafka) in Hub eventi di Azure
 Hub eventi fornisce lo streaming di messaggi tramite un modello consumer partizionato in cui ogni consumer legge solo un sottoinsieme specifico, o partizione, del flusso di messaggi. Questo modello consente la scalabilità orizzontale per l'elaborazione di eventi e fornisce altre funzionalità incentrate sul flusso non disponibili in code e argomenti. Una partizione è una sequenza ordinata di eventi contenuta in un hub eventi. Man mano che arrivano, i nuovi eventi vengono aggiunti alla fine di questa sequenza. Per altre informazioni sulle partizioni in generale, vedere [Partizioni](event-hubs-scalability.md#partitions)
@@ -71,7 +71,7 @@ Hub eventi offre tre opzioni di mittente:
 
 - **Mittente partizione**: in questo scenario, i client inviano eventi direttamente a una partizione. Sebbene le partizioni siano identificabili e sia possibile inviarvi direttamente gli eventi, questo modello non è consigliato. L'aggiunta di partizioni non ha alcun effetto su questo scenario. Si consiglia di riavviare le applicazioni in modo che possano rilevare le partizioni appena aggiunte. 
 - **Mittente chiave di partizione**: in questo scenario, i client inviano gli eventi con una chiave in modo che tutti gli eventi appartenenti a tale chiave si trovino nella stessa partizione. In questo caso, il servizio esegue l'hashing della chiave e la instrada alla partizione corrispondente. L'aggiornamento del numero di partizioni può causare problemi non ordinati a causa della modifica dell'hash. Pertanto, se si è interessati all'ordinamento, assicurarsi che l'applicazione usi tutti gli eventi delle partizioni esistenti prima di aumentare il numero di partizioni.
-- **Mittente round robin (impostazione predefinita)** : in questo scenario, il servizio Hub eventi esegue il meccanismo di round robin per gli eventi tra le partizioni. Il servizio Hub eventi riconosce le modifiche al numero di partizioni ed eseguirà l'invio a nuove partizioni entro pochi secondi dalla modifica del numero di partizioni.
+- **Mittente Round Robin (impostazione predefinita)** : in questo scenario il servizio Hub eventi Arrotonda gli eventi tra le partizioni e usa anche un algoritmo di bilanciamento del carico. Il servizio Hub eventi riconosce le modifiche al numero di partizioni ed eseguirà l'invio a nuove partizioni entro pochi secondi dalla modifica del numero di partizioni.
 
 ### <a name="receiverconsumer-clients"></a>Client destinatari/consumer
 Hub eventi fornisce destinatari diretti e una semplice libreria di consumer denominato [host del processore di eventi (SDK precedente)](event-hubs-event-processor-host.md) oppure [host del processore di eventi (nuovo SDK)](event-processor-balance-partition-load.md).
@@ -99,7 +99,7 @@ Quando un membro del gruppo di consumer esegue un aggiornamento dei metadati e p
     > [!IMPORTANT]
     > Mentre i dati esistenti mantengono l'ordinamento, l'hashing della partizione viene interrotto per i messaggi con hashing dopo la modifica del numero di partizioni a causa dell'aggiunta di partizioni.
 - L'aggiunta di una partizione a un argomento o a un'istanza di hub eventi esistente è consigliata nei casi seguenti:
-    - Quando si usa il metodo round robin (impostazione predefinita) per l'invio di eventi
+    - Quando si usa il metodo predefinito di invio di eventi
      - Strategie di partizionamento predefinite Kafka, esempio: strategia di assegnazione Sticky
 
 

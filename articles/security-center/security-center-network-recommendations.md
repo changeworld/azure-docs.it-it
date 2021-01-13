@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 28d0d7b14c18a1d98be1872b1555930b2e1650c3
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 366a9a63e4577a9b8470faec68f8d4a25114dd48
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342451"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133702"
 ---
 # <a name="protect-your-network-resources"></a>Proteggere le risorse di rete
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
 
-Per un elenco completo dei consigli per la rete, vedere [raccomandazioni](recommendations-reference.md#recs-network)per la rete.
+Per un elenco completo dei consigli per la rete, vedere [raccomandazioni](recommendations-reference.md#recs-networking)per la rete.
 
 Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da un punto di vista della sicurezza di rete. Raccomandazioni per la rete per i firewall di nuova generazione, i gruppi di sicurezza di rete, l'accesso JIT alle VM, le regole del traffico in ingresso eccessivamente permissive e altro ancora. Per visualizzare un elenco delle raccomandazioni per le risorse di rete e le azioni di correzione, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
@@ -48,9 +48,9 @@ Per aprire la mappa di rete:
 
 1. Dal menu del Centro sicurezza aprire il dashboard di Azure Defender e selezionare **mappa di rete**.
 
-    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Tipi di risorse di Asset Inventory Network" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Apertura della mappa di rete dal dashboard di Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
 
-1. Scegliere la **topologia**dal menu **livelli** .
+1. Scegliere la **topologia** dal menu **livelli** .
  
 La vista predefinita della mappa topologica contiene:
 

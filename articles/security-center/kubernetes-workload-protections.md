@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 08bcb74fd50be0eeb7a73c0743db2c4f3a57be32
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: dfa562be4561e8aaec66d4bff51aadeba77cf35f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030850"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131339"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -27,7 +27,7 @@ Il Centro sicurezza offre altre funzionalità di sicurezza del contenitore se si
 - Ottenere avvisi di rilevamento delle minacce in tempo reale per i cluster K8s [Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
-> Per un elenco di *tutte le* raccomandazioni sulla sicurezza che potrebbero essere visualizzate per i cluster e i nodi Kubernetes, vedere la [sezione relativa ai contenitori](recommendations-reference.md#recs-containers) della tabella di riferimento per le raccomandazioni.
+> Per un elenco di *tutte le* raccomandazioni sulla sicurezza che potrebbero essere visualizzate per i cluster e i nodi Kubernetes, vedere la [sezione calcolo](recommendations-reference.md#recs-compute) della tabella di riferimento per le raccomandazioni.
 
 
 
@@ -51,7 +51,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 Per configurare le raccomandazioni, installare il  **componente aggiuntivo criteri di Azure per Kubernetes**. 
 
-- È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando il provisioning automatico per il componente aggiuntivo è impostato su "on", l'estensione è abilitata per impostazione predefinita in tutti i cluster esistenti e futuri (che soddisfano i requisiti di installazione del componente aggiuntivo).
+- È possibile distribuire automaticamente questo componente aggiuntivo come descritto in [abilitare il provisioning automatico delle estensioni](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Con il provisioning automatico attivato per il componente aggiuntivo, l'estensione viene abilitata per impostazione predefinita in tutti i cluster esistenti e futuri che soddisfano i requisiti dell'installazione.
 
 - Per distribuire manualmente il componente aggiuntivo:
 
@@ -102,7 +102,7 @@ Per configurare le raccomandazioni, installare il  **componente aggiuntivo crite
     1. Selezionare "ASC default".
     1. Aprire la scheda **parametri** e modificare i valori come richiesto.
     1. Selezionare **Verifica e salva**.
-    1. Selezionare **Salva**.
+    1. Selezionare **Save** (Salva).
 
 
 1. Per applicare una qualsiasi delle raccomandazioni, 
@@ -251,6 +251,6 @@ In questo articolo si è appreso come configurare la protezione del carico di la
 
 Per altri materiali correlati, vedere le pagine seguenti: 
 
-- [Raccomandazioni del Centro sicurezza per i contenitori](recommendations-reference.md#recs-containers)
+- [Raccomandazioni del Centro sicurezza per il calcolo](recommendations-reference.md#recs-compute)
 - [Avvisi per il livello del cluster AKS](alerts-reference.md#alerts-akscluster)
 - [Avvisi per il livello host del contenitore](alerts-reference.md#alerts-containerhost)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1593c47b7a6cf3b861f3e1af148b7a5fbfae9a19
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 55c4fa00cfd20a83e65a3d57c6020991734f9d9f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127380"
+ms.locfileid: "98132478"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Raccomandazioni sulla sicurezza per archiviazione BLOB
 
@@ -31,8 +31,8 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 |-|----|--|
 | Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui il controllo degli accessi in base al ruolo di Azure superiore (RBAC di Azure) e il controllo, la distribuzione e la governance basate su Gestione risorse, l'accesso alle identità gestite, l'accesso ai Azure Key Vault per i segreti e l'autenticazione basata su Azure AD e l'autorizzazione per l'accesso ai dati e alle risorse Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md). | - |
 | Abilitare Azure Defender per tutti gli account di archiviazione | Azure Defender per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [configurare Azure Defender per archiviazione di Azure](../common/azure-defender-storage-configure.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
-| Attivare l'eliminazione temporanea per i BLOB | L'eliminazione temporanea consente di ripristinare i dati BLOB dopo l'eliminazione. Per altre informazioni sull'eliminazione temporanea, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md). | - |
-| Attivare l'eliminazione temporanea per i contenitori | ???. | - |
+| Attivare l'eliminazione temporanea per i BLOB | L'eliminazione temporanea per i BLOB consente di ripristinare i dati BLOB dopo l'eliminazione. Per altre informazioni sull'eliminazione temporanea per i BLOB, vedere [eliminazione temporanea per i BLOB di archiviazione di Azure](./soft-delete-blob-overview.md). | - |
+| Attivare l'eliminazione temporanea per i contenitori | L'eliminazione temporanea per i contenitori consente di ripristinare un contenitore dopo che è stato eliminato. Per altre informazioni sull'eliminazione temporanea per i contenitori, vedere [eliminazione temporanea per i contenitori (anteprima)](./soft-delete-container-overview.md). | - |
 | Bloccare l'account di archiviazione per evitare l'eliminazione accidentale di un account | È possibile bloccare un Azure Resource Manager risorse, ad esempio una sottoscrizione, un gruppo di risorse o un account di archiviazione, per impedire ad altri utenti dell'organizzazione di eliminarli o modificarli accidentalmente. Il blocco di un account di archiviazione non impedisce l'eliminazione dei dati all'interno di tale account. Impedisce solo l'eliminazione dell'account stesso. Per altre informazioni, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
 | Archiviare dati critici per l'azienda in BLOB non modificabili | Configurare i criteri di conservazione validi e temporali per archiviare i dati BLOB in un WORM (scrivere una sola volta, leggere molti) stato. I BLOB archiviati immutabilmente possono essere letti, ma non possono essere modificati o eliminati per la durata dell'intervallo di conservazione. Per altre informazioni, vedere [archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md). | - |
 | Richiedi il trasferimento sicuro (HTTPS) all'account di archiviazione | ??? | - |

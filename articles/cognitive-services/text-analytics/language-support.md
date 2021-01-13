@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
-ms.openlocfilehash: 180de56e3c158802460d2ff995041e8572d4dcd7
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: a0cd968c90a27d6f1ae79d08fb2bd027169233db
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844970"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133787"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
@@ -86,11 +86,9 @@ ms.locfileid: "97844970"
 
 #### <a name="key-phrase-extraction"></a>[Estrazione delle frasi chiave](#tab/key-phrase-extraction)
 
-> [!NOTE]
-> Le versioni del modello di Estrazione frasi chiave precedenti alla 2020-07-01 hanno un limite di 64 caratteri. Questo limite non è presente nelle versioni successive del modello.
-
 | Linguaggio              | Codice lingua | supporto V2 | supporto V3 | Disponibile a partire dalla versione del modello V3: |       Note        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
+| Danese                |     `da`      |     ✓      |      ✓     |                2019-10-01                 |                    |
 | Olandese                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglese               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Finlandese               |     `fi`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -120,7 +118,7 @@ Il API Analisi del testo è in grado di rilevare un'ampia gamma di linguaggi, va
 
 Se si ha contenuto espresso in un lingua usata con minore frequenza, si può provare Rilevamento lingua per vedere se viene restituito un codice. La risposta per le lingue che non è possibile rilevare è `unknown`.
 
-| Linguaggio | Codice lingua | supporto V3 | Disponibile a partire dalla versione del modello V3: |
+| Lingua | Codice lingua | supporto V3 | Disponibile a partire dalla versione del modello V3: |
 |:-|:-:|:-:|:-:|
 | Afrikaans | `af` | ✓ |  |
 | Albanese | `sq` | ✓ |  |

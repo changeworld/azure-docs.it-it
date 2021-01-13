@@ -5,14 +5,14 @@ services: private-link
 author: mblanco77
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 01/12/2021
 ms.author: allensu
-ms.openlocfilehash: 1c296b157fbac1e4c8d3fefb2b8cc09ff2ccc7a8
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 859768345c2b88e38e09d897391ac8a3501fd901
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620597"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134076"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -68,7 +68,7 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Backup di Azure (Microsoft.RecoveryServices/vaults) / vault | privatelink.{region}.backup.windowsazure.com | {region}.backup.windowsazure.com |
 | Hub eventi di Azure (Microsoft. EventHub/namespaces)/spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Bus di servizio di Azure (Microsoft.ServiceBus/namespaces) / spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
-| Hub Azure Internet (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net | azure-devices.net |
+| Hub Azure Internet (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net<br/>privatelink.servicebus.windows.net<sup>1</sup> | azure-devices.net<br/>servicebus.windows.net |
 | Inoltro di Azure (Microsoft.Relay/namespaces) / spazio dei nomi | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Griglia di eventi di Azure (Microsoft.EventGrid/topics) / argomento | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Griglia di eventi di Azure (Microsoft.EventGrid/domains) / dominio | privatelink.eventgrid.azure.net | eventgrid.azure.net |
@@ -83,6 +83,7 @@ Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella ta
 | Azure Data Factory (Microsoft. DataFactory/Factory)/portale |  privatelink.azure.com  |  azure.com  |
 | Cache di Azure per Redis (Microsoft. cache/Redis)/redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
+<sup>1</sup> Da usare con l'endpoint compatibile con l'hub eventi predefinito dell'hub Internet. Per altre informazioni, vedere [supporto dei collegamenti privati per l'endpoint predefinito dell'hub](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
  
 ## <a name="dns-configuration-scenarios"></a>Scenari di configurazione DNS
 

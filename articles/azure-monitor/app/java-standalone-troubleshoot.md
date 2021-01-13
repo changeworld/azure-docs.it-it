@@ -4,12 +4,12 @@ description: Informazioni su come risolvere i problemi relativi all'agente Java 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 14644f76b7de53b2b6ee3f04131daaf59267a5ff
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 54bf2440dff20fc757f37e3f31a53c57ebd59120
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507643"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133192"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guida alla risoluzione dei problemi: monitoraggio di Azure Application Insights per Java
 
@@ -20,6 +20,10 @@ In questo articolo vengono illustrati alcuni dei problemi comuni che potrebbero 
 Per impostazione predefinita, l'agente Java 3,0 per Application Insights produce un file di log denominato `applicationinsights.log` nella stessa directory che include il `applicationinsights-agent-3.0.0.jar` file.
 
 Questo file di log è la prima posizione in cui verificare la presenza di hint per eventuali problemi che potrebbero verificarsi.
+
+## <a name="jvm-fails-to-start"></a>Impossibile avviare JVM
+
+Se JVM non viene avviato con "errore durante l'apertura del file zip o del manifesto JAR mancante", provare a eseguire nuovamente il download del file jar dell'agente perché potrebbe essere stato danneggiato durante il trasferimento di file.
 
 ## <a name="upgrade-from-the-application-insights-java-2x-sdk"></a>Aggiornamento da Application Insights Java 2. x SDK
 

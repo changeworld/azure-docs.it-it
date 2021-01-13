@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 01/22/2020
-ms.openlocfilehash: 0eb9afc179f1dd2559f0db7b212f6b3a1da15824
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/12/2021
+ms.openlocfilehash: 2478148f946ddc88e571b76396544b028455ec75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998754"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132106"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La creazione del cluster non riesce con InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -30,7 +30,7 @@ La descrizione dell'errore contiene "risoluzione nome host non riuscita".
 
 Questo errore indica un problema con la configurazione DNS personalizzata. I server DNS all'interno di una rete virtuale possono inviare query DNS ai resolver ricorsivi di Azure per risolvere i nomi host all'interno della rete virtuale. per informazioni dettagliate, vedere [risoluzione dei nomi nelle reti virtuali](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) . L'accesso ai resolver ricorsivi di Azure viene fornito tramite l'indirizzo IP virtuale 168.63.129.16. Questo indirizzo IP è accessibile solo dalle macchine virtuali di Azure. Quindi non funzionerà se si usa un server DNS locale o se il server DNS è una macchina virtuale di Azure, che non fa parte della rete virtuale del cluster.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 1. Eseguire ssh nella macchina virtuale che fa parte del cluster ed eseguire il comando `hostname -f` . Verrà restituito il nome di dominio completo dell'host (indicato `<host_fqdn>` nelle istruzioni seguenti).
 
@@ -56,7 +56,7 @@ La descrizione dell'errore contiene "Impossibile connettersi all'account di arch
 
 Archiviazione di Azure e SQL non hanno indirizzi IP fissi, quindi è necessario consentire le connessioni in uscita a tutti gli IP per consentire l'accesso a questi servizi. La procedura di risoluzione esatta varia a seconda che sia stato configurato un gruppo di sicurezza di rete (NSG) o regole di User-Defined (UDR). Per informazioni dettagliate su queste configurazioni, vedere la sezione [controllo del traffico di rete con HDInsight con gruppi di sicurezza di rete e route definite dall'utente](../control-network-traffic.md) .
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 * Se il cluster usa un [gruppo di sicurezza di rete (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
@@ -78,7 +78,7 @@ La descrizione dell'errore contiene "Impossibile stabilire una connessione in us
 
 Quando si usano cluster HDInsight collegati privata, l'accesso in uscita dal cluster deve essere configurato per consentire la connessione al provider di risorse HDInsight.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 * Per risolvere questo problema, vedere la procedura di configurazione del collegamento privato HDInsight in [configurazione del collegamento privato](../hdinsight-private-link.md)
 ---
@@ -98,7 +98,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 Probabilmente si è riscontrato un problema con la configurazione del DNS personalizzato.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 
 Verificare che 168.63.129.16 sia nella catena DNS personalizzata. I server DNS all'interno di una rete virtuale possono inoltrare query DNS ai resolver ricorsivi di Azure per risolvere i nomi host all'interno di quella rete virtuale. Per altre informazioni, vedere [risoluzione dei nomi nelle reti virtuali](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). L'accesso ai resolver ricorsivi di Azure viene fornito tramite l'indirizzo IP virtuale 168.63.129.16.
 
@@ -147,6 +147,13 @@ hostname -f
 nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
+### <a name="cause"></a>Causa
+
+Un altro motivo per questo `InvalidNetworkConfigurationErrorCode` codice di errore potrebbe essere l'uso del parametro deprecato `EnableVmProtection` in PowerShell o in una Runbook di Azure.
+
+### <a name="resolution"></a>Soluzione
+
+Usare i parametri validi per `Get-AzVirtualNetwork` come documentato in [AZ PowerShell SDK](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-5.3.0&viewFallbackFrom=azps-4.2.0)
 
 ---
 

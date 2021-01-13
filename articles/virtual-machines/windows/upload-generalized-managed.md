@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 94db8ce46fc240a6c48c0919b6d2c2cd148522ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6e3333ac780cfca02a6ce4f28d2b0e312016f713
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976051"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131509"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Caricare un disco rigido virtuale generalizzato e usarlo per creare nuove macchine virtuali in Azure
 
@@ -38,13 +38,15 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 > 
 
 1. Accedere alla macchina virtuale Windows.
-2. Aprire la finestra del prompt dei comandi come amministratore. Impostare la directory su %windir%\system32\sysprep e quindi eseguire `sysprep.exe`.
-3. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
-4. In **Opzioni di arresto** selezionare **Arresta il sistema**.
-5. Selezionare **OK**.
+1. Aprire la finestra del prompt dei comandi come amministratore. 
+1. Eliminare la directory Panther (C:\Windows\Panther).
+1. Impostare la directory su %windir%\system32\sysprep e quindi eseguire `sysprep.exe`.
+1. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
+1. In **Opzioni di arresto** selezionare **Arresta il sistema**.
+1. Selezionare **OK**.
    
     ![Avvio di Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
+1. Al termine, Sysprep arresta la macchina virtuale. Non riavviare la VM.
 
 
 ## <a name="upload-the-vhd"></a>Caricare il disco rigido virtuale 
