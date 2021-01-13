@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 01/12/2021
 ms.author: victorh
-ms.openlocfilehash: 84ecea7764ddf48d68c983eaa5bccbac5f332d9b
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95489695"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132444"
 ---
 # <a name="what-is-azure-firewall-manager"></a>Che cos'è Gestione firewall di Azure?
 
@@ -86,7 +86,6 @@ Gestione firewall di Azure presenta i problemi noti seguenti:
 |Traffico tra rami con filtri abilitati per il traffico privato|Il traffico tra rami non è supportato quando sono abilitati filtri per il traffico privato. |Analisi in corso.<br><br>Non proteggere il traffico privato se la connettività tra rami è essenziale.|
 |Tutti gli hub virtuali protetti che condividono la stessa rete WAN virtuale devono risiedere nello stesso gruppo di risorse.|Questo comportamento è attualmente allineato agli hub di rete WAN virtuale.|Creare più reti WAN virtuali per consentire la creazione di hub virtuali protetti in gruppi di risorse diversi.|
 |L'aggiunta in blocco di indirizzi IP non riesce|Se si aggiungono più indirizzi IP pubblici, il firewall dell'hub protetto entra in uno stato di errore.|Aggiungere incrementi più piccoli di indirizzi IP pubblici. Ad esempio, aggiungerne 10 alla volta.|
-|Le regole dell'applicazione non riescono in un hub protetto con DNS personalizzato (anteprima) configurato.|Il DNS personalizzato (anteprima) non funziona nelle distribuzioni di hub protetti e nelle distribuzioni di reti virtuali hub in cui è abilitato il tunneling forzato.|La correzione è in corso di analisi.|
 |Protezione DDoS Standard non è supportato con hub virtuali protetti|Protezione DDoS Standard non è integrato con reti WAN virtuali.|Analisi in corso|
 |I log attività non sono supportati completamente|Il criterio firewall non supporta attualmente i log attività.|Analisi in corso|
 |Configurazione di intervalli di indirizzi IP privati SNAT|Le [impostazioni degli intervalli IP privati](../firewall/snat-private-range.md) vengono ignorate se è configurato il criterio di Firewall di Azure. Viene usato il comportamento predefinito di Firewall di Azure, in cui non si applicano le regole di rete SNAT quando l'indirizzo IP di destinazione si trova in un intervallo di indirizzi IP privati in base a [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Analisi in corso|

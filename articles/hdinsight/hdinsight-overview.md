@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: 7f4d820b33f36c295c294000d33a0ca5177fc4d1
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1ef441943ec3c29770e0964b3c1132f86239b42
+ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028071"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98127414"
 ---
 # <a name="what-is-azure-hdinsight"></a>Che cos'è Azure HDInsight?
 
@@ -53,7 +53,7 @@ L'estrazione, trasformazione e caricamento (ETL) è un processo in cui dati stru
 
 ### <a name="data-warehousing"></a>Data warehousing
 
-È possibile usare HDInsight per eseguire query interattive nell'ordine di grandezza di petabyte su dati strutturati o non strutturati in qualsiasi formato. È anche possibile compilare modelli che le connettono a strumenti di business intelligence. Per altre informazioni, [vedere la storia di questo cliente](https://customers.microsoft.com/story/milliman).
+È possibile usare HDInsight per eseguire query interattive nell'ordine di grandezza di petabyte su dati strutturati o non strutturati in qualsiasi formato. È anche possibile compilare modelli che le connettono a strumenti di business intelligence.
 
 Architettura di HDInsight: data warehouse
 
