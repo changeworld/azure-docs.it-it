@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 01/11/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f8959904482bda8dc26e4df626377027e1ab4bd1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3da4fd26b3f985e034ca60039c09412e8237e965
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005546"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109512"
 ---
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
@@ -26,8 +26,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 1. Selezionare un livello di prestazioni. Il livello predefinito è *Standard*.
 1. Impostare il campo **Tipologia account** su *Archiviazione V2 (utilizzo generico v2)* .
 1. Specificare la modalità di replica dell'account di archiviazione. L'opzione di replica predefinita è *Archiviazione con ridondanza geografica e accesso in lettura*. Per altre informazioni sulle opzioni di replica disponibili, vedere [Ridondanza di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md).
-1. Specificare il livello di accesso per i BLOB nell'account di archiviazione. Il livello predefinito è *Accesso frequente*. Per altre informazioni sui livelli di accesso per i BLOB, vedere [Livelli di accesso frequente, sporadico e archivio per i BLOB](../articles/storage/blobs/storage-blob-storage-tiers.md).
-1. Per usare Azure Data Lake Storage, scegliere la scheda **Avanzate** e quindi impostare **Spazio dei nomi gerarchico** su **Abilitato**. Per altre informazioni, vedere [Introduzione ad Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
+1. Altre opzioni sono disponibili nelle schede **Rete**, **Protezione dei dati**, **Avanzate** e **Tag**. Per usare Azure Data Lake Storage, scegliere la scheda **Avanzate** e quindi impostare **Spazio dei nomi gerarchico** su **Abilitato**. Per altre informazioni, vedere [Introduzione ad Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md).
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
 1. Selezionare **Crea**.
 

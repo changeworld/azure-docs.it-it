@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8086bd2a193ac52e76bf8da245063163ab2ea2f9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: a2d4cec57eb6ac23c191e504c305c2c6d11268ac
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591056"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165003"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -25,7 +25,7 @@ I connettori sono ciò che rende possibile il proxy di applicazione di Azure AD.
 
 ## <a name="what-is-an-application-proxy-connector"></a>Informazioni su un connettore proxy di applicazione
 
-I connettori sono agenti semplici che si trovano a livello locale e facilitano la connessione in uscita al servizio proxy di applicazione. I connettori devono essere installati su un server Windows dotato di accesso all'applicazione back-end. È possibile organizzare i connettori in gruppi di connettori, con ogni gruppo che gestisce il traffico per applicazioni specifiche.
+I connettori sono agenti semplici che si trovano a livello locale e facilitano la connessione in uscita al servizio proxy di applicazione. I connettori devono essere installati su un server Windows dotato di accesso all'applicazione back-end. È possibile organizzare i connettori in gruppi di connettori, con ogni gruppo che gestisce il traffico per applicazioni specifiche. Per altre informazioni sul proxy di applicazione e una rappresentazione diagrammatiche dell'architettura del proxy di applicazione, vedere [uso di Azure ad proxy di applicazione per pubblicare app locali per gli utenti remoti](what-is-application-proxy.md#application-proxy-connectors)
 
 ## <a name="requirements-and-deployment"></a>Requisiti e distribuzione
 

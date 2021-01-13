@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6a9d081d2b81124b0cae15e81e4b233f7824bb
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 99f47df86d89e9daf2bc8878b868b04b7038ffd5
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629341"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071205"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prezzi del Centro sicurezza di Azure
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione alle minacce e il rilevamento intelligente che consente di tenere il passo con i rischi informatici in rapida evoluzione.
@@ -72,6 +72,7 @@ Di seguito è riportata la pagina dei prezzi per una sottoscrizione di esempio. 
 - [Quali sono i piani offerti dal Centro sicurezza?](#what-are-the-plans-offered-by-security-center)
 - [Come abilitare Azure Defender per la sottoscrizione?](#how-do-i-enable-azure-defender-for-my-subscription)
 - [È possibile abilitare Azure Defender per i server in un subset di server nella sottoscrizione?](#can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription)
+- [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione?](#my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers)
 - [Si riceveranno addebiti per i computer senza l'agente di Log Analytics installato?](#will-i-be-charged-for-machines-without-the-log-analytics-agent-installed)
 - [Se un agente di Log Analytics è associato a più aree di lavoro, l'addebito verrà applicato due volte?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
@@ -111,6 +112,10 @@ No. Quando si abilita [Azure Defender per i server](defender-for-servers-introdu
 
 In alternativa, è possibile abilitare Azure Defender per i server a livello di area di lavoro Log Analytics. In questo caso, verranno protetti e fatturati solo i server associati a tale area di lavoro. Tuttavia, diverse funzionalità risulteranno non disponibili, tra cui l'accesso JIT alle VM, i rilevamenti in rete, la conformità alle normative, la protezione adattiva della rete, il controllo applicazioni adattivo e altre ancora. 
 
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?
+Se si ha già una licenza per Microsoft Defender per endpoint, non sarà necessario pagare per tale parte della licenza di Azure Defender.
+
+Per confermare lo sconto, contattare il team di supporto del Centro sicurezza e fornire le informazioni appropriate per ID area di lavoro, area e licenza.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Se nella sottoscrizione è abilitato Azure Defender per i server, sono previsti addebiti per i server non in esecuzione? 
 No. Se si abilita [Azure Defender per i server](defender-for-servers-introduction.md) in una sottoscrizione, verrà applicata una fatturazione oraria solo per i server in esecuzione. Non si riceveranno addebiti per tutto il tempo in cui eventuali server sono disattivati. 

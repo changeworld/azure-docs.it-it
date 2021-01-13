@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9999b2fa116a2336f8e50fb166e5d870ae4b5a5f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005385"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165060"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
-## <a name="what-is-azure"></a>Cos'è Azure?
+## <a name="what-is-azure"></a>Che cos'è Azure?
 
 Azure è una piattaforma cloud completa che può ospitare le applicazioni esistenti e semplificare lo sviluppo di nuove applicazioni. Azure può persino migliorare le applicazioni locali. Azure integra i servizi cloud necessari per sviluppare, testare, distribuire e gestire le applicazioni, sfruttando al contempo le efficienze dei cloud computing.
 
@@ -105,6 +105,21 @@ Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET
 > **Uso consigliato:** Service Fabric è una scelta valida quando si deve creare una nuova applicazione o riscrivere un'applicazione esistente per l'architettura dei microservizi. È consigliabile usare Service Fabric se è necessario un controllo più approfondito sull'infrastruttura sottostante o l'accesso diretto a questa.
 >
 > **Come iniziare:** [creare la prima applicazione Azure Service Fabric](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
+
+#### <a name="azure-spring-cloud"></a>Azure Spring Cloud
+
+Azure Spring cloud è una piattaforma di microservizi senza server che consente di creare, distribuire, ridimensionare e monitorare le applicazioni nel cloud. USA Spring cloud per offrire modelli di microservizi moderni alle app Spring boot, eliminando il codice standard per creare rapidamente app java affidabili.
+
+- Sfruttare le versioni gestite del server di configurazione e di individuazione dei servizi cloud di Spring, garantendo in tal modo che i componenti critici siano in esecuzione in condizioni ottimali.
+- Concentrati sulla creazione della logica di business e ci occuperemo del runtime del servizio con patch di sicurezza, standard di conformità e disponibilità elevata.
+- Gestisci il ciclo di vita dell'applicazione (ad esempio, Distribuisci, avvia, Interrompi, ridimensiona) oltre al servizio Azure Kubernetes.
+- Associa facilmente le connessioni tra le tue app e i tuoi servizi di Azure, come database di Azure per MySQL e cache di Azure per Redis.
+- Monitorare e risolvere i problemi relativi a microservizi e applicazioni usando strumenti di monitoraggio unificato di livello aziendale che offrono informazioni approfondite sulle dipendenze dell'applicazione e sulla telemetria operativa.
+
+> **Quando usare:** Poiché un servizio completamente gestito di Azure Spring cloud è una scelta ottimale per ridurre al minimo i costi operativi che eseguono microservizi basati sul cloud Spring boot/Spring in Azure. 
+>
+> Come **iniziare:** [distribuire la prima applicazione Azure Spring cloud](../../spring-cloud/spring-cloud-quickstart.md).
+
 
 ### <a name="enhance-your-applications-with-azure-services"></a>Migliorare le applicazioni con i servizi di Azure
 
@@ -313,9 +328,9 @@ Azure Resource Manager consente di assegnare tag personalizzati a risorse singol
 
 * Nel portale
 * Nel modello di Azure Resource Manager
-* Utilizzo dell'API REST
+* Uso dell'API REST
 * Con l'interfaccia della riga di comando di Azure
-* Uso di PowerShell
+* Utilizzo di PowerShell
 
 È possibile assegnare più tag a ogni risorsa. Per altre informazioni, vedere [Uso dei tag per organizzare le risorse di Azure](../../azure-resource-manager/management/tag-resources.md).
 

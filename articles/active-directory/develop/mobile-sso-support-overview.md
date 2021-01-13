@@ -11,16 +11,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: 9c53ea5bad88eb79940274c409218045c06d7981
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 4f0588667df6acb11a43e8c3469c67f65ed3cdd9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064969"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165179"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Supportare Single Sign-On e i criteri di protezione delle app nelle app per dispositivi mobili sviluppate
 
 Single Sign-on (SSO) è un'offerta chiave della piattaforma di identità Microsoft e Azure Active Directory, che consente di accedere in modo semplice e sicuro agli utenti dell'app. I criteri di protezione delle app (APP), inoltre, abilitano il supporto dei criteri di sicurezza principali che proteggono i dati dell'utente. Insieme, queste funzionalità consentono di proteggere gli accessi utente e la gestione dei dati dell'app.
+
+> [!VIDEO https://www.youtube.com/embed/JpeMeTjQJ04]
 
 Questo articolo illustra il motivo per cui SSO e APP sono importanti e fornisce indicazioni generali per la creazione di applicazioni per dispositivi mobili che supportano queste funzionalità. Questo vale per le app per telefoni e tablet. Se si è un amministratore IT che vuole distribuire SSO nel tenant Azure Active Directory dell'organizzazione, consultare le [linee guida per la pianificazione di una distribuzione di Single Sign-on](../manage-apps/plan-sso-deployment.md)
 

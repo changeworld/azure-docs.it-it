@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
-ms.openlocfilehash: 9ee7440b10bc348d3ba87a4779208791a7b0e9ac
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: b5a30846a6e2aaf85ded2e55641aa5fba9507a29
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97512029"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165774"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Livelli di servizio del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Questo articolo illustra le differenze tra i livelli di servizio, le considerazi
 
 Nella tabella seguente vengono descritte le differenze principali tra i livelli di servizio per la generazione più recente (Quinta generazione). Si noti che le caratteristiche del livello di servizio possono essere diverse nel database SQL e in SQL Istanza gestita.
 
-|-| Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+|-| Tipo di risorsa | Utilizzo generico |  Hyperscale | Business critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** | |  Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale del calcolo, ripristino rapido del database. | Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Disponibile in tipo di risorsa:** ||Database SQL/SQL Istanza gestita | Singolo database SQL di Azure | Database SQL/SQL Istanza gestita |
@@ -78,6 +78,7 @@ I seguenti fattori influiscono sulla quantità di spazio di archiviazione utiliz
   - Per l'archiviazione nei livelli di servizio Premium o business critical, aumentare o diminuire le dimensioni in incrementi di 250 GB.
 - Nel livello di servizio per utilizzo generico `tempdb` Usa un'unità SSD collegata e il costo di archiviazione è incluso nel prezzo vCore.
 - Nel livello di servizio business critical `tempdb` condivide l'unità SSD collegata con i file MDF e ldf e il `tempdb` costo di archiviazione è incluso nel prezzo vCore.
+- Nel livello di servizio DTU Premium `tempdb` condivide l'unità SSD collegata con i file MDF e ldf.
 - Le dimensioni di archiviazione per un Istanza gestita SQL devono essere specificate in multipli di 32 GB.
 
 

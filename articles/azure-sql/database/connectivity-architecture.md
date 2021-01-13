@@ -12,20 +12,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: d0242ceec62db6548d91e5e58c21981a4f0246a0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 74dd3a6b19d241fdf05e6438226227147ba4afbd
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92672511"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165944"
 ---
-# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure sinapsi Analytics
+# <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Questo articolo illustra l'architettura dei vari componenti che indirizzano il traffico di rete a un server nel database SQL di Azure o in Azure sinapsi Analytics. Vengono inoltre illustrati i diversi criteri di connessione e il modo in cui i client si connettono da Azure e i client che si connettono dall'esterno di Azure.
 
 > [!IMPORTANT]
-> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure** . [Per un'istanza gestita](../managed-instance/connectivity-architecture-overview.md), vedere Architettura di connettività.
+> Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**. [Per un'istanza gestita](../managed-instance/connectivity-architecture-overview.md), vedere Architettura di connettività.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
@@ -76,31 +76,32 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 
 | Nome area          | Indirizzi IP del gateway |
 | --- | --- |
-| Australia centrale    | 20.36.105.0 |
-| Central2 Australia   | 20.36.113.0 |
+| Australia centrale    | 20.36.105.0, 20.36.104.6, 20.36.104.7 |
+| Australia centrale 2   | 20.36.113.0, 20.36.112.6 |
 | Australia orientale       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Australia sud-orientale | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Brasile meridionale         | 104.41.11.5, 191.233.200.14 |
+| Brasile meridionale         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canada centrale       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
-| Canada orientale          | 40.86.226.166, 52.242.30.154 |
+| Canada orientale          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
 | Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
 | Cina orientale           | 139.219.130.35     |
 | Cina orientale 2         | 40.73.82.1         |
 | Cina settentrionale          | 139.219.15.17      |
 | Cina settentrionale 2        | 40.73.50.0         |
-| Asia orientale            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Asia orientale            | 191.234.2.139, 52.175.33.150, 13.75.32.4, 13.75.32.14 |
 | Stati Uniti orientali              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
 | Stati Uniti orientali 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
-| Francia centrale       | 40.79.137.0, 40.79.129.1 |
+| Francia centrale       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
+| Francia meridionale         | 40.79.177.10 ,40.79.177.12 |
 | Germania centrale      | 51.4.144.100       |
 | Germania nord-orientale   | 51.5.144.179       |
 | Germania centro-occidentale | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
-| India centrale        | 104.211.96.159     |
+| India centrale        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | India meridionale          | 104.211.224.146    |
-| India occidentale           | 104.211.160.80     |
+| India occidentale           | 104.211.160.80, 104.211.144.4 |
 | Giappone orientale           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
 | Giappone occidentale           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
-| Corea centrale        | 52.231.32.42       |
+| Corea centrale        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
 | Corea meridionale          | 52.231.200.86      |
 | Stati Uniti centro-settentrionali     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa settentrionale         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |

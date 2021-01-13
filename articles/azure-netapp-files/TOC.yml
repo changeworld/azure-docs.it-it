@@ -37,6 +37,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Linee guida per la pianificazione della rete per Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Funzionamento degli snapshot di Azure NetApp Files
+      href: snapshots-introduction.md
     - name: Pool di capacità QoS manuale
       href: manual-qos-capacity-pool-introduction.md
     - name: Replica tra più aree

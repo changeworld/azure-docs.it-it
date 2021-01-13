@@ -6,12 +6,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a77083c721328a8df9facd2f4b320b863aa03c68
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 6b9077fec13dd177ec4e07e7fbd7818ded2fd0a1
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352406"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164941"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 
@@ -26,7 +26,7 @@ Per visualizzare le domande suggerite, è necessario [attivare l'apprendimento a
 
 ## <a name="view-suggested-questions"></a>Visualizza le domande suggerite
 
-1. Per visualizzare le domande suggerite, nella pagina **modifica** Knowledge Base selezionare Visualizza **Opzioni**, quindi selezionare Mostra suggerimenti di **apprendimento attivi**.
+1. Per visualizzare le domande suggerite, nella pagina **modifica** Knowledge Base selezionare Visualizza **Opzioni**, quindi selezionare Mostra suggerimenti di **apprendimento attivi**. Questa opzione verrà disabilitata se non sono presenti suggerimenti per le coppie di domande e risposte.  
 
     [![Nella sezione Edit (modifica) del portale selezionare Show suggestions (Mostra suggerimenti) per visualizzare le nuove alternative per la domanda relativa ad Active Learning.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
@@ -143,9 +143,9 @@ Il corpo JSON ha diverse impostazioni:
 |Proprietà corpo JSON|Tipo|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti.|
-|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. facoltativo.|
+|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativo.|
 |`userQuestion`|string|Testo esatto della query dell'utente. Obbligatorio.|
-|`qnaID`|Numero|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`qnaID`|d'acquisto|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 

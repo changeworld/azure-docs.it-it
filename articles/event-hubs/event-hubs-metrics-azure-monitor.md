@@ -3,12 +3,12 @@ title: Metriche in Monitoraggio di Azure - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni su come usare il monitoraggio di Azure per monitorare Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5b055c02783c40d844d1c6306bbb71cb23d602f2
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 74830775a4f31e6f8e486b4d6cc434335b4ee723
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118796"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165893"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metriche di Hub eventi di Azure in Monitoraggio di Azure
 
@@ -20,7 +20,7 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche dal [portale di Azure](https://portal.azure.com) o usare le API di Monitoraggio di Azure (REST e .NET) e soluzioni di analisi come Log Analytics e Hub eventi. Per altre informazioni, consultare [Monitoraggio dei dati raccolti da Monitoraggio di Azure](../azure-monitor/platform/data-platform.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati delle metriche in un account di archiviazione di Azure. Questa impostazione può essere configurata in [impostazioni di diagnostica](../azure-monitor/platform/diagnostic-settings.md) in monitoraggio di Azure.
 
 
 ## <a name="access-metrics-in-the-portal"></a>Accedere alle metriche nel portale
@@ -29,7 +29,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![Visualizzare le metriche riuscite][1]
 
-È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e fare clic su **Metriche**. Per visualizzare le metriche filtrate in base all'ambito dell'hub eventi, selezionare l'hub eventi e quindi fare clic su **Metriche**.
+È anche possibile accedere alle metriche direttamente tramite lo spazio dei nomi. A tale scopo, selezionare lo spazio dei nomi e quindi selezionare **metrica**. Per visualizzare le metriche filtrate nell'ambito dell'hub eventi, selezionare l'hub eventi e quindi selezionare **metrica**.
 
 Per le metriche che supportano le dimensioni, è necessario filtrare specificando il valore di dimensione da usare come illustrato nell'esempio seguente:
 
@@ -37,7 +37,7 @@ Per le metriche che supportano le dimensioni, è necessario filtrare specificand
 
 ## <a name="billing"></a>Fatturazione
 
-L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito. Se tuttavia si usano soluzioni aggiuntive per inserire i dati delle metriche, è possibile che la fatturazione venga effettuata da tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. Viene anche addebitato da Azure se i dati di metrica vengono trasmessi ai log di monitoraggio di Azure per l'analisi avanzata.
+L'uso delle metriche in Monitoraggio di Azure è attualmente gratuito. Tuttavia, se si usano altre soluzioni che inseriscono dati di metrica, è possibile che vengano addebitate tali soluzioni. Ad esempio, la fatturazione viene effettuata da Archiviazione di Azure se i dati relativi alle metriche vengono archiviati in un account di Archiviazione di Azure. Viene anche addebitato da Azure se i dati di metrica vengono trasmessi ai log di monitoraggio di Azure per l'analisi avanzata.
 
 Le metriche seguenti offrono una panoramica dell'integrità del servizio. 
 
@@ -49,6 +49,9 @@ Tutti i valori delle metriche vengono inviati a Monitoraggio di Azure ogni minut
 ## <a name="azure-event-hubs-metrics"></a>Metriche di hub eventi di Azure
 Per un elenco delle metriche supportate dal servizio, vedere [Hub eventi di Azure](../azure-monitor/platform/metrics-supported.md#microsofteventhubnamespaces)
 
+> [!NOTE]
+> Quando si verifica un errore dell'utente, Hub eventi di Azure aggiorna la metrica degli **errori utente** , ma non registra altre informazioni di diagnostica. Pertanto, è necessario acquisire informazioni dettagliate sugli errori dell'utente nelle applicazioni. In alternativa, è anche possibile convertire i dati di telemetria generati quando i messaggi vengono inviati o ricevuti in Application Insights. Per un esempio, vedere [rilevamento con Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md#tracking-with-azure-application-insights).
+
 ## <a name="azure-monitor-integration-with-siem-tools"></a>Integrazione di monitoraggio di Azure con gli strumenti SIEM
 Il routing dei dati di monitoraggio (log attività, log di diagnostica e così via) a un hub eventi con monitoraggio di Azure consente di integrare facilmente gli strumenti di gestione di informazioni ed eventi di sicurezza (SIEM). Per ulteriori informazioni, vedere gli articoli e i post di Blog seguenti:
 
@@ -58,8 +61,8 @@ Il routing dei dati di monitoraggio (log attività, log di diagnostica e così v
 
 Nello scenario in cui uno strumento SIEM usa i dati di log da un hub eventi, se non viene visualizzato alcun messaggio in arrivo o se si visualizzano messaggi in arrivo ma nessun messaggio in uscita nel grafico delle metriche, attenersi alla procedura seguente:
 
-- Se non sono presenti **messaggi in ingresso**, significa che il servizio monitoraggio di Azure non sta muovendo i log di controllo/diagnostica nell'hub eventi. In questo scenario, aprire un ticket di supporto con il team di monitoraggio di Azure. 
-- Se sono presenti messaggi in ingresso, ma **nessun messaggio in uscita**, significa che l'applicazione Siem non sta leggendo i messaggi. Contattare il provider SIEM per determinare se la configurazione dell'hub eventi è corretta.
+- Se non sono presenti **messaggi in ingresso**, significa che il servizio monitoraggio di Azure non trasferisce i log di controllo/diagnostica nell'hub eventi. In questo scenario, aprire un ticket di supporto con il team di monitoraggio di Azure. 
+- Se sono presenti messaggi in ingresso, ma **nessun messaggio in uscita**, significa che l'applicazione Siem non legge i messaggi. Contattare il provider SIEM per determinare se la configurazione dell'hub eventi è corretta.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

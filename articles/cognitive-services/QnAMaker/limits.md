@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: b3dca3617e2fb7ccdff870041374e9158498c9d1
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97708941"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164873"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 
@@ -39,7 +39,7 @@ I nomi file non possono includere i caratteri seguenti:
 
 ### <a name="maximum-file-size"></a>Dimensione massima dei file
 
-|Format|Dimensioni massime file (MB)|
+|Formato|Dimensioni massime file (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -74,10 +74,10 @@ Il numero massimo di campi di metadati per Knowledge base è basato sui **[limit
 
 Nella tabella seguente sono elencati i caratteri di lunghezza e accettabili per il nome e il valore dei metadati.
 
-|Elemento|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
+|Item|Caratteri consentiti|Corrispondenza del criterio Regex|Caratteri max|
 |--|--|--|--|
 |Nome (chiave)|Consente<br>alfanumerico (lettere e cifre)<br>`_` sottolineatura<br> Non devono contenere spazi.|`^[a-zA-Z0-9_]+$`|100|
-|valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
+|Valore|Consente tutti gli elementi eccetto<br>`:` virgola<br>`|` (barra verticale)<br>È consentito un solo valore.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
@@ -99,6 +99,7 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 * Numero massimo consigliato di domande alternative per risposta: 300
 * Numero massimo di URL: 10
 * Numero massimo di file: 10
+* Numero massimo di QnAs consentiti per chiamata: 1000
 
 ## <a name="update-knowledge-base-call-limits"></a>Aggiornare i limiti di chiamata per la Knowledge base
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
@@ -106,6 +107,7 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 * Il numero massimo consigliato di domande alternative è stato aggiunto o eliminato: 300
 * Numero massimo di campi di metadati aggiunti o eliminati: 10
 * Numero massimo di URL che è possibile aggiornare: 5
+* Numero massimo di QnAs consentiti per chiamata: 1000
 
 ## <a name="next-steps"></a>Passaggi successivi
 

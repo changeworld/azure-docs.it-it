@@ -12,21 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3eb456dad2836bed55c45e7be9e898fdf72ac4d2
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 59e266274d6b65182ad63513ecf9bf3b5ab95490
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017936"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98164839"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>Esegui la migrazione a monitoraggio connessione da Monitoraggio prestazioni rete
 
 È possibile eseguire la migrazione dei test da Monitoraggio prestazioni rete (NPM) a un monitoraggio della connessione nuovo e migliorato con un solo clic e senza tempi di inattività. Per ulteriori informazioni sui vantaggi, vedere [Connection Monitor](./connection-monitor-overview.md).
 
-
->[!NOTE]
-> È possibile eseguire la migrazione solo dei test da monitoraggio connettività servizio a monitoraggio connessione.
->
 
 ## <a name="key-points-to-note"></a>Punti chiave da notare
 
@@ -52,7 +48,7 @@ Per eseguire la migrazione dei test da Monitoraggio prestazioni rete a monitorag
 
     :::image type="content" source="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png" alt-text="Esegui la migrazione dei test da Monitoraggio prestazioni rete a monitoraggio connessione" lightbox="./media/connection-monitor-2-preview/migrate-npm-to-cm-preview.png":::
     
-1. Negli elenchi a discesa selezionare la sottoscrizione e l'area di lavoro, quindi selezionare la funzionalità NPM di cui si vuole eseguire la migrazione. Attualmente, è possibile eseguire la migrazione dei test solo dal monitoraggio della connettività del servizio.  
+1. Negli elenchi a discesa selezionare la sottoscrizione e l'area di lavoro, quindi selezionare la funzionalità NPM di cui si vuole eseguire la migrazione. 
 1. Selezionare **Importa** per eseguire la migrazione dei test.
 
 Dopo l'inizio della migrazione, vengono applicate le modifiche seguenti: 
@@ -74,5 +70,5 @@ Dopo la migrazione, assicurarsi di:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni su monitoraggio connessione, vedere:
-* [Eseguire la migrazione da monitoraggio connessione a monitoraggio connessione](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
+* [Eseguire la migrazione da monitoraggio connessione (versione classica) a monitoraggio connessione](./migrate-to-connection-monitor-from-connection-monitor-classic.md)
 * [Creazione di un monitoraggio della connessione tramite il portale di Azure](./connection-monitor-create-using-portal.md)

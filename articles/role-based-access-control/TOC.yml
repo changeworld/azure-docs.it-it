@@ -60,9 +60,15 @@
         - name: Procedura per aggiungere un'assegnazione di ruolo
           href: role-assignments-steps.md
         - name: Portale
-          href: role-assignments-portal.md
-        - name: Portale - Utenti guest
-          href: role-assignments-external-users.md
+          items:
+            - name: Aggiungere o rimuovere assegnazioni di ruolo
+              href: role-assignments-portal.md
+            - name: Amministratore della sottoscrizione
+              href: role-assignments-portal-subscription-admin.md
+            - name: Identità gestita
+              href: role-assignments-portal-managed-identity.md
+            - name: Utenti guest esterni
+              href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
         - name: Interfaccia della riga di comando di Azure

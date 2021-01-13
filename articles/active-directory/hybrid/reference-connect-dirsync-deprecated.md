@@ -17,15 +17,15 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 915b56e9a9340920e99f4d3d4de6da4c39233eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 713ec3a4020434fa73aad2e04676129cf43853be
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014804"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165842"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Aggiornare il servizio di sincronizzazione di Microsoft Azure Active Directory e Azure Active Directory Sync
-Azure AD Connect è il modo migliore per connettere la directory locale con Azure AD e Microsoft 365. Questo è il momento giusto per eseguire l'aggiornamento ad Azure AD Connect dallo strumento di sincronizzazione di Windows Azure Active Directory (DirSync) o Azure AD Sync in quanto questi strumenti sono stati deprecati e non sono più supportati a partire dal 13 aprile 2017.
+Azure AD Connect è il modo migliore per connettere la directory locale con Azure AD e Microsoft 365. Questo è il momento ideale per eseguire l'aggiornamento a Azure AD Connect da Windows Azure Active Directory Sync (DirSync) o Azure AD Sync (AADSync), in quanto questi strumenti sono ora deprecati e non sono più supportati a partire dal 13 aprile 2017.
 
 I due strumenti di sincronizzazione delle identità deprecati erano disponibili per i clienti a foresta singola (DirSync) e per i clienti avanzati e con più foreste (Azure AD Sync). Gli strumenti obsoleti sono stati sostituiti da un'unica soluzione disponibile per tutti gli scenari: Azure AD Connect. Questa soluzione offre nuove funzionalità, miglioramenti e supporto per nuovi scenari. Per poter continuare a sincronizzare i dati di identità locali con Azure AD e Microsoft 365, si consiglia vivamente di eseguire l'aggiornamento a Azure AD Connect. Microsoft non garantisce il funzionamento delle versioni precedenti dopo il 31 dicembre 2017.
 

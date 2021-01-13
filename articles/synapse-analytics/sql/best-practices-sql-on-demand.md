@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b8b93471b6d7f2555cfd71e524718ed0ea1ee191
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457895"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165876"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
@@ -25,9 +25,9 @@ In questo articolo è presente una raccolta di procedure consigliate per l'uso d
 
 Il pool SQL senza server consente di eseguire query sui file negli account di archiviazione di Azure. Non include funzionalità di archiviazione o inserimento in locale. Tutti i file di destinazione della query sono quindi esterni al pool SQL senza server. Tutte le operazioni correlate alla lettura di file dall'archiviazione possono avere un impatto sulle prestazioni delle query.
 
-## <a name="colocate-your-azure-storage-account-and-serverless-sql-pool"></a>Individuare il percorso di archiviazione di Azure e il pool SQL senza server
+## <a name="colocate-your-storage-and-serverless-sql-pool"></a>Percorso di archiviazione e pool SQL senza server
 
-Per ridurre al minimo la latenza, colocare l'account di archiviazione di Azure e l'endpoint del pool SQL senza server. Gli account di archiviazione e gli endpoint sottoposti a provisioning durante la creazione dell'area di lavoro si trovano nella stessa area.
+Per ridurre al minimo la latenza, colocare l'account di archiviazione di Azure o l'archiviazione analitica CosmosDB e l'endpoint del pool SQL senza server. Gli account di archiviazione e gli endpoint sottoposti a provisioning durante la creazione dell'area di lavoro si trovano nella stessa area.
 
 Per ottenere prestazioni ottimali, se si accede ad altri account di archiviazione con un pool SQL senza server, assicurarsi che si trovino nella stessa area. Se non si trovano nella stessa area, si verificherà un aumento della latenza per il trasferimento in rete dei dati tra l'area remota e l'area dell'endpoint.
 
@@ -44,9 +44,9 @@ Quando viene rilevata una limitazione, il pool SQL senza server dispone di una g
 
 Se possibile, preparare i file per migliorare le prestazioni:
 
-- Convertire CSV e JSON in Parquet. Parquet è un formato a colonne. Poiché è compresso, le dimensioni dei file sono ridotte rispetto a quelle dei file CSV o JSON che contengono gli stessi dati. Per la lettura del pool SQL senza server saranno necessari meno tempo e meno richieste di archiviazione.
+- Convertire CSV e JSON di grandi dimensioni in parquet. Parquet è un formato a colonne. Poiché è compresso, le dimensioni dei file sono ridotte rispetto a quelle dei file CSV o JSON che contengono gli stessi dati. Il pool SQL senza server è in grado di ignorare le colonne e le righe che non sono necessarie in query se si leggono file parquet. Per la lettura del pool SQL senza server saranno necessari meno tempo e meno richieste di archiviazione.
 - Se una query è destinata a un singolo file di grandi dimensioni, è possibile dividerla in più file di dimensioni ridotte.
-- Provare a mantenere le dimensioni dei file CSV al di sotto di 10 GB.
+- Provare a ridurre le dimensioni del file CSV tra 100 MB e 10 GB.
 - È preferibile avere file di dimensioni uguali per un singolo percorso OPENROWSET o per la proprietà LOCATION di una tabella esterna.
 - Partizionare i dati archiviando le partizioni in cartelle o nomi di file diversi. Vedere [Usare le funzioni filename e filepath per indicare come destinazione partizioni specifiche](#use-filename-and-filepath-functions-to-target-specific-partitions).
 

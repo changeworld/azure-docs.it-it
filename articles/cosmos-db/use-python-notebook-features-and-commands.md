@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b89fcf32ed033f359b4db601e36cc69bb899944d
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340414"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165825"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usare i comandi e le funzionalità predefiniti dei notebook Python in Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -123,6 +123,8 @@ Total time taken : 00:00:38.1228087 hours
 Total RUs consumed : 25022.58
 ```
 Con le statistiche di output, è possibile calcolare il numero effettivo di UR/sec usate per caricare gli elementi. Se, ad esempio, sono state usate 25.000 UR in 38 secondi, il numero effettivo di UR/sec è 25.000 UR/38 secondi = 658 UR/sec.
+
+È possibile salvare i file (ad esempio file CSV o JSON) nell'area di lavoro del notebook locale. Si consiglia di aggiungere una cella nel notebook per salvare i file. È possibile visualizzare questi file dal terminale integrato nell'ambiente del notebook. È possibile utilizzare il comando "ls" per visualizzare i file salvati. Tuttavia, questi file vengono rimossi se si reimposta l'area di lavoro. È quindi consigliabile usare un archivio permanente, ad esempio GitHub o un account di archiviazione, anziché l'area di lavoro locale.
 
 ## <a name="run-another-notebook-in-current-notebook"></a>Eseguire un altro notebook nel notebook corrente 
 È possibile usare il comando magic ``%%run`` per eseguire un altro notebook nell'area di lavoro dal notebook corrente. Ecco la sintassi:

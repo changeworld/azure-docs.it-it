@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: c09f8c5ae4a742e6caa489ee29043f500617bb24
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 4196515463611f51dddb79438b1d4e827f1b32c2
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746489"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165400"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Domande frequenti sugli standard di protezione DDoS di Azure
 
@@ -27,6 +27,11 @@ Un attacco di tipo Denial of Service, o DDoS, è un tipo di attacco in cui un ut
 
 ## <a name="what-is-azure-ddos-protection-standard-service"></a>Che cos'è il servizio protezione DDoS standard di Azure?
 Protezione DDoS di Azure standard, in combinazione con le procedure consigliate per la progettazione di applicazioni, fornisce funzionalità avanzate di mitigazione DDoS per la difesa da attacchi DDoS. Viene ottimizzata automaticamente per aiutare a proteggere le risorse di Azure specifiche in una rete virtuale. La protezione è semplice da abilitare in qualsiasi rete virtuale nuova o esistente e non richiede alcuna modifica di applicazioni o risorse. Presenta diversi vantaggi rispetto al servizio Basic, compresa la registrazione, gli avvisi e i dati di telemetria. Per altri dettagli, vedere [Panoramica di protezione DDoS di Azure standard](ddos-protection-overview.md) . 
+
+## <a name="how-does-pricing-work"></a>Quali sono i prezzi?
+I piani di protezione DDoS hanno un costo mensile fisso di $2.944 al mese che copre fino a 100 indirizzi IP pubblici. La protezione per le risorse aggiuntive costerà altri $30 per ogni risorsa al mese. 
+
+In un tenant, un singolo piano di protezione DDoS può essere usato in più sottoscrizioni, quindi non è necessario creare più di un piano di protezione DDoS.
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E per quanto riguarda la protezione a livello di servizio (livello 7)?
 I clienti possono usare il servizio protezione DDoS di Azure in combinazione con un Web Application Firewall (WAF) a per la protezione a livello di rete (livello 3 e 4, offerto da Azure DDoS Protection standard) e a livello di applicazione (livello 7, offerto da WAF). Le offerte WAF includono lo [SKU WAF del gateway applicazione](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure e le offerte di Web Application Firewall di terze parti disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).

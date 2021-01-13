@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: ba4e6b8b5e9db494ab4c0c372c2086087a2d58cb
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133175"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165791"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processori di telemetria (anteprima)-Application Insights di monitoraggio di Azure per Java
 
@@ -23,58 +23,48 @@ Java 3,0 Agent per Application Insights ora offre le funzionalità per elaborare
 Di seguito sono riportati alcuni casi d'uso dei processori di telemetria:
  * Maschera dati sensibili
  * Aggiungere dimensioni personalizzate in modo condizionale
- * Aggiornare il nome della telemetria usato per l'aggregazione e la visualizzazione
- * Elimina o Filtra attributi span per controllare il costo di inserimento
+ * Aggiornare il nome usato per l'aggregazione e la visualizzazione nella portale di Azure
+ * Attributi drop span per controllare il costo di inserimento
 
 ## <a name="terminology"></a>Terminologia
 
-Prima di passare ai processori di telemetria, è importante comprendere quali sono le tracce e gli intervalli.
+Prima di passare ai processori di telemetria, è importante comprendere a cosa si riferisce l'intervallo di termini.
 
-### <a name="traces"></a>Tracce
+Un intervallo è un termine generale per uno di questi tre elementi:
 
-Traces tiene traccia dell'avanzamento di una singola richiesta, denominata a `trace` , perché viene gestita da servizi che costituiscono un'applicazione. La richiesta può essere avviata da un utente o da un'applicazione. Ogni unità di lavoro in un `trace` viene chiamata `span` ; un `trace` è un albero di intervalli. Un oggetto `trace` è costituito dall'intervallo radice singolo e da qualsiasi numero di intervalli figlio.
+* Una richiesta in ingresso
+* Dipendenza in uscita (ad esempio, una chiamata remota a un altro servizio)
+* Dipendenza in-process, ad esempio il lavoro eseguito dai sottocomponenti del servizio.
 
-### <a name="span"></a>Intervallo
+Ai fini dei processori di telemetria, i componenti importanti di un intervallo sono i seguenti:
 
-Gli intervalli sono oggetti che rappresentano il lavoro eseguito dai singoli servizi o componenti interessati da una richiesta mentre passano attraverso un sistema. Un oggetto `span` contiene un oggetto `span context` , ovvero un set di identificatori univoci globali che rappresentano la richiesta univoca a cui appartiene ogni intervallo. 
+* Nome
+* Attributi
 
-Incapsulamento di span:
+Il nome dell'intervallo è lo schermo principale utilizzato per le richieste e le dipendenze nella portale di Azure.
 
-* Nome dell'intervallo
-* Oggetto non modificabile `SpanContext` che identifica in modo univoco l'intervallo
-* Un intervallo padre nel formato `Span` , `SpanContext` o null
-* Elemento `SpanKind`
-* Timestamp di inizio
-* Timestamp di fine
-* [`Attributes`](#attributes)
-* Elenco di eventi con timestamp
-* Oggetto `Status`.
+Gli attributi span rappresentano proprietà standard e personalizzate di una determinata richiesta o dipendenza.
 
-In genere, il ciclo di vita di un intervallo è simile al seguente:
+## <a name="telemetry-processor-types"></a>Tipi di processori di telemetria
 
-* Una richiesta viene ricevuta da un servizio. Il contesto di intervallo viene estratto dalle intestazioni della richiesta, se esistente.
-* Un nuovo intervallo viene creato come elemento figlio del contesto di estensione Estratto; Se non ne esiste alcuno, viene creato un nuovo intervallo radice.
-* Il servizio gestisce la richiesta. Gli attributi e gli eventi aggiuntivi vengono aggiunti all'intervallo che sono utili per comprendere il contesto della richiesta, ad esempio il nome host del computer che gestisce la richiesta o gli identificatori del cliente.
-* È possibile creare nuovi span per rappresentare il lavoro eseguito dai componenti secondari del servizio.
-* Quando il servizio effettua una chiamata remota a un altro servizio, il contesto dell'intervallo corrente viene serializzato e inviato al servizio successivo inserendo il contesto dell'intervallo nelle intestazioni o nella busta del messaggio.
-* Il lavoro eseguito dal servizio viene completato correttamente o meno. Lo stato dell'intervallo è impostato in modo appropriato e l'intervallo è contrassegnato come completato.
+Attualmente esistono due tipi di processori di telemetria.
 
-### <a name="attributes"></a>Attributi
+#### <a name="attribute-processor"></a>Processore di attributi
 
-`Attributes` elenco di zero o più coppie chiave-valore incapsulate in un oggetto `span` . Un attributo deve avere le proprietà seguenti:
+Un processore di attributi è in grado di inserire, aggiornare, eliminare o gli attributi hash.
+Può inoltre estrarre (tramite un'espressione regolare) uno o più nuovi attributi da un attributo esistente.
 
-Chiave dell'attributo, che deve essere una stringa non null e non vuota.
-Il valore dell'attributo, che è uno dei seguenti:
-* Tipo primitivo: String, Boolean, A virgola mobile A precisione doppia (IEEE 754-1985) o signed Integer a 64 bit.
-* Matrice di valori di tipo primitivi. La matrice deve essere omogenea, ovvero non deve contenere valori di tipi diversi. Per i protocolli che non supportano in modo nativo i valori di matrice, questi valori devono essere rappresentati come stringhe JSON.
+#### <a name="span-processor"></a>Processore span
 
-## <a name="supported-processors"></a>Processori supportati:
- * Processore di attributi
- * Processore span
+Un processore span è in grado di aggiornare il nome della telemetria.
+Può inoltre estrarre (tramite un'espressione regolare) uno o più nuovi attributi dal nome dell'estensione.
 
-## <a name="to-get-started"></a>Per iniziare
+> [!NOTE]
+> Si noti che attualmente i processori di telemetria elaborano solo gli attributi di tipo stringa e non elaborano gli attributi di tipo booleano o numero.
 
-Creare un file di configurazione denominato `applicationinsights.json` e posizionarlo nella stessa directory di `applicationinsights-agent-***.jar` , con il modello seguente.
+## <a name="getting-started"></a>Introduzione
+
+Creare un file di configurazione denominato `applicationinsights.json` e posizionarlo nella stessa directory di `applicationinsights-agent-*.jar` , con il modello seguente.
 
 ```json
 {
@@ -98,9 +88,14 @@ Creare un file di configurazione denominato `applicationinsights.json` e posizio
 }
 ```
 
-## <a name="includeexclude-spans"></a>Includi/Escludi span
+## <a name="includeexclude-criteria"></a>Includi/Escludi criteri
 
-Il processore di attributi e il processore span espongono l'opzione per fornire un set di proprietà di un intervallo in base al quale eseguire la corrispondenza, per determinare se l'intervallo deve essere incluso o escluso dal processore di telemetria. Per configurare questa opzione, in `include` e/o almeno `exclude` uno `matchType` e uno di `spanNames` o `attributes` è obbligatorio. La configurazione di inclusione/esclusione è supportata per avere più di una condizione specificata. Tutte le condizioni specificate devono restituire true perché si verifichi una corrispondenza. 
+Entrambi i processori di attributi e di intervallo supportano facoltativo `include` e i `exclude` criteri.
+Un processore verrà applicato solo a questi intervalli che corrispondono ai `include` criteri (se specificati) _e_ non corrispondono ai `exclude` criteri (se specificati).
+
+Per configurare questa opzione, in `include` e/o almeno `exclude` uno `matchType` e uno di `spanNames` o `attributes` è obbligatorio.
+La configurazione di inclusione/esclusione è supportata per avere più di una condizione specificata.
+Tutte le condizioni specificate devono restituire true perché si verifichi una corrispondenza. 
 
 **Campo obbligatorio**: 
 * `matchType` Controlla la modalità di interpretazione degli elementi nelle `spanNames` `attributes` matrici e. I possibili valori sono `regexp` o `strict`. 
@@ -150,7 +145,7 @@ Il processore di attributi e il processore span espongono l'opzione per fornire 
 ```
 Per ulteriori informazioni, vedere la documentazione relativa agli [esempi di processori di telemetria](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="attribute-processor"></a>Processore di attributi 
+## <a name="attribute-processor"></a>Processore di attributi
 
 Il processore degli attributi modifica gli attributi di un intervallo. Supporta facoltativamente la possibilità di includere/escludere gli intervalli. Accetta un elenco di azioni che vengono eseguite nell'ordine specificato nel file di configurazione. Le azioni supportate sono:
 
@@ -167,7 +162,7 @@ Inserisce un nuovo attributo in spans in cui la chiave non esiste già.
         "key": "attribute1",
         "value": "value1",
         "action": "insert"
-      },
+      }
     ]
   }
 ]
@@ -190,7 +185,7 @@ Aggiorna un attributo in intervalli in cui esiste la chiave
         "key": "attribute1",
         "value": "newValue",
         "action": "update"
-      },
+      }
     ]
   }
 ]
@@ -213,7 +208,7 @@ Elimina un attributo da un intervallo
       {
         "key": "attribute1",
         "action": "delete"
-      },
+      }
     ]
   }
 ]
@@ -234,7 +229,7 @@ Hash (SHA1) valore di attributo esistente
       {
         "key": "attribute1",
         "action": "hash"
-      },
+      }
     ]
   }
 ]
@@ -259,7 +254,7 @@ Estrae i valori usando una regola di espressione regolare dalla chiave di input 
         "key": "attribute1",
         "pattern": "<regular pattern with named matchers>",
         "action": "extract"
-      },
+      }
     ]
   }
 ]
@@ -271,7 +266,7 @@ Per l' `extract` azione, sono necessari i seguenti elementi
 
 Per ulteriori informazioni, vedere la documentazione relativa agli [esempi di processori di telemetria](./java-standalone-telemetry-processors-examples.md) .
 
-## <a name="span-processors"></a>Processori span
+## <a name="span-processor"></a>Processore span
 
 Il processore span modifica il nome dell'intervallo o gli attributi di un intervallo in base al nome dell'estensione. Supporta facoltativamente la possibilità di includere/escludere gli intervalli.
 

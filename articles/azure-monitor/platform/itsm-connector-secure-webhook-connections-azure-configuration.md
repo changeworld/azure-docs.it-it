@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 5eb58c48acc7974a4379cf1993a73228c99f5e6d
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 03a16bfbcb3a8d46a6cb4faa03aa6b6e96cf3db3
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857572"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165961"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configurare Azure per la connessione di strumenti ITSM tramite l'esportazione sicura
 
@@ -39,9 +39,9 @@ Per registrare l'applicazione con Azure AD, attenersi alla procedura seguente:
 
 ## <a name="define-service-principal"></a>Definire l'entità servizio
 
-Il servizio del gruppo di azioni dovrà disporre dell'autorizzazione per acquisire i token di autenticazione dall'applicazione AAD per l'autenticazione con il servizio. Per concedere tali autorizzazioni, sarà necessario creare un'entità servizio per il servizio del gruppo di azioni nel tenant.
-Per questo scopo, è possibile usare i [comandi di PowerShell](./action-groups.md#secure-webhook-powershell-script) . (Richiede privilegi di amministratore del tenant).
-Come passaggio facoltativo, è possibile definire il ruolo applicazione nel manifesto dell'app creata, che consente di limitare ulteriormente l'accesso, in modo che solo determinate applicazioni con quel ruolo specifico possano inviare messaggi. Questo ruolo deve quindi essere assegnato all'entità servizio del gruppo di azioni. \
+Il servizio del gruppo di azioni è un'applicazione di prima entità, quindi è autorizzato ad acquisire i token di autenticazione dall'applicazione AAD per l'autenticazione con il servizio.
+Come passaggio facoltativo, è possibile definire il ruolo applicazione nel manifesto dell'app creata, che consente di limitare ulteriormente l'accesso, in modo che solo determinate applicazioni con quel ruolo specifico possano inviare messaggi. Questo ruolo deve essere quindi assegnato all'entità servizio del gruppo di azioni (sono necessari i privilegi di amministratore del tenant).
+
 Questo passaggio può essere eseguito tramite gli stessi [comandi di PowerShell](./action-groups.md#secure-webhook-powershell-script).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Creare un gruppo di azione di Webhook sicuro

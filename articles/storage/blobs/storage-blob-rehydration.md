@@ -4,17 +4,17 @@ description: Riattivare i BLOB dalla risorsa di archiviazione dell'archivio per 
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/08/2020
+ms.date: 01/08/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f74d4ffdd724039354a311234317dac889cd7cfe
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5a89e5a9eca653a2d15e5b09605b78bc18d76b8f
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545934"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165672"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Riattivare i dati BLOB dal livello archivio
 
@@ -29,9 +29,13 @@ Quando un BLOB si trova nel livello di accesso archivio, viene considerato offli
 
 [!INCLUDE [storage-blob-rehydration](../../../includes/storage-blob-rehydrate-include.md)]
 
+## <a name="monitor-rehydration-progress"></a>Monitorare lo stato di reidratazione
+
+Durante la riattivazione, usare l'operazione Get Blob Properties per verificare l'attributo di **stato dell'archivio** e confermare il completamento della modifica del livello. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **livello di accesso** riflette il nuovo livello ad accesso frequente o ad accesso sporadico.
+
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>Copiare un BLOB archiviato in un livello online
 
-Se non si vuole riattivare il BLOB di archivio, è possibile scegliere di eseguire l'operazione [Copia BLOB](/rest/api/storageservices/copy-blob). Il BLOB originale rimarrà invariato nell'archivio, mentre nel livello di accesso frequente o sporadico verrà creato un nuovo BLOB su cui poter operare. Nell'operazione di copia del BLOB è possibile anche impostare la proprietà facoltativa *x-ms-rehydrate-priority* su Standard o Alta per specificare la priorità in base alla quale si vuole creare la copia BLOB.
+Se non si vuole riattivare il BLOB di archivio, è possibile scegliere di eseguire l'operazione [Copia BLOB](/rest/api/storageservices/copy-blob). Il BLOB originale rimarrà invariato nell'archivio, mentre nel livello di accesso frequente o sporadico verrà creato un nuovo BLOB su cui poter operare. Nell'operazione **Copy Blob** , è anche possibile impostare la proprietà facoltativa *x-ms-reidratate-Priority* su standard o High per specificare la priorità in base alla quale si vuole creare la copia BLOB.
 
 Per completare la copia di un BLOB dall'archivio possono essere necessarie alcune ore, a seconda della priorità di riattivazione selezionata. Dietro le quinte, l'operazione **Copia BLOB** legge il BLOB di origine dell'archivio per creare un nuovo BLOB online nel livello di destinazione selezionato. È possibile che il nuovo BLOB sia visibile quando si elencano i BLOB, ma i dati non risultano disponibili finché non viene completata la lettura dal BLOB di archiviazione di origine e la scrittura dei dati nel nuovo BLOB di destinazione online. Il nuovo BLOB è una copia indipendente e, pertanto, qualsiasi modifica o eliminazione apportata non viene riprodotta nel BLOB di archiviazione di origine.
 
