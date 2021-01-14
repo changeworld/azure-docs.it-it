@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto IRS 1075
 description: Procedura di distribuzione per l'esempio di progetto IRS 1075 (rev. 11-2016), inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 08/19/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 5f2c58b69519f27f759ddfc79d3333e55ed4eb54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653733"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045207"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Distribuire l'esempio di progetto IRS 1075
 

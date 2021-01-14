@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Media
 description: Mapping dei controlli dell'esempio di progetto Media. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 08/13/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: ec4850b4e3061d267610bfd9c2c0e33c670472b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e1356acfd7b6b9693322000077b221781b58681f
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931870"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035037"
 ---
 # <a name="control-mapping-of-the-media-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Media
 

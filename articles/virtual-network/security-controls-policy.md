@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Rete virtuale di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Rete virtuale di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: ff3486e1ed4e38aa04c745c2a37f07eab7c87c33
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6ea9e56270ce0422724c20ec03e2dfc579acfcbc
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94992650"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046848"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-network"></a>Controlli di conformità alle normative di Criteri di Azure per Rete virtuale di Azure
 

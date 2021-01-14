@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
-ms.date: 04/20/2018
+ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfcf9568f37a26f234a417a86eebf1b0bde67ab0
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76845215"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98014502"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
 
@@ -95,7 +95,7 @@ Azure crea automaticamente le route per le destinazioni predefinite. È possibil
 
     Dopo alcuni secondi, il risultato indica che il tipo di Hop successivo è **Internet** e che l'**ID tabella di route** è **System Route**. Questo risultato informa l'utente che è presente una route di sistema valida per la destinazione.
 
-3. Modificare l'**Indirizzo IP di destinazione** in *172.31.0.100* e selezionare nuovamente **Hop successivo**. Il risultato informa l'utente che **Nessuno** è il **Tipo di hop successivo**e che l'**ID tabella di route** è **System Route**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
+3. Modificare l'**Indirizzo IP di destinazione** in *172.31.0.100* e selezionare nuovamente **Hop successivo**. Il risultato informa l'utente che **Nessuno** è il **Tipo di hop successivo** e che l'**ID tabella di route** è **System Route**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 

@@ -1,19 +1,18 @@
 ---
 title: "Esercitazione: Scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso di Azure in Visual Studio (anteprima)"
 description: Questa esercitazione mostra come scrivere funzioni C# definite dall'utente per i processi di Analisi di flusso in Visual Studio.
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d53f13cb740b3feb39dc64ce012ff320afbb1db5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 851229e441aa2fbdf7b6eec05390c0ce2b149da2
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130494"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98020469"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Esercitazione: Scrivere una funzione C# definita dall'utente per un processo di Analisi di flusso di Azure (anteprima)
 
@@ -46,7 +45,7 @@ Il contenitore creato verrà usato per archiviare il pacchetto C# compilato. Se 
 
 3. Nell'elenco dei modelli a sinistra selezionare **Analisi di flusso** e quindi **Azure Stream Analytics Edge Application** (Applicazione Edge di Analisi di flusso di Azure) o **Azure Stream Analytics Application** (Applicazione di Analisi di flusso di Azure).
 
-4.  Inserire i valori appropriati per il progetto in **Nome** , **Percorso** e **Nome soluzione** e scegliere **OK**.
+4.  Inserire i valori appropriati per il progetto in **Nome**, **Percorso** e **Nome soluzione** e scegliere **OK**.
 
     ![Creare un progetto Edge di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-create-edge-app.png)
 
@@ -111,7 +110,7 @@ Un file CodeBehind è un file C# associato a un singolo script di query di Anali
 
 1. Scaricare il [file di dati di esempio di simulatore di temperatura](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Sample%20Data/TemperatureSampleData.json).
 
-2. In **Esplora soluzioni** espandere **Input** , fare clic con il pulsante destro del mouse su **Input.json** e quindi scegliere **Aggiungi input locale**.
+2. In **Esplora soluzioni** espandere **Input**, fare clic con il pulsante destro del mouse su **Input.json** e quindi scegliere **Aggiungi input locale**.
 
    ![Aggiungere un input locale al processo di Analisi di flusso in Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 

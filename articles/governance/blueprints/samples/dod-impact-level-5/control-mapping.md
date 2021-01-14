@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 5
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 5. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 09/17/2020
+ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 01f786684e5f8d73f57eb9f4741593c01fe1c8d4
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929490"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98034782"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 5
 

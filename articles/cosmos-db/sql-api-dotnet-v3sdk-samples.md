@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 37ecca6829f348137bbbc8b76fb1934c024550fd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e605c10a765379c8f7d33dbd4d1f884d0e08734e
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097261"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98018650"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Azure Cosmos DB: esempi di .NET V3 SDK (Microsoft.Azure.Cosmos) per l'API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,7 +93,7 @@ Il metodo [RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/ma
 
 ## <a name="indexing-examples"></a>Esempi di indicizzazione
 
-Il metodo [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) del progetto *IndexManagement* di esempio illustra come eseguire queste attività. Per informazioni sull'indicizzazione in Azure Cosmos DB prima di eseguire questi esempi, vedere i [criteri di indicizzazione](index-policy.md), i [tipi di indice](index-overview.md#index-kinds) e i [percorsi degli indici](index-policy.md#include-exclude-paths). 
+Il metodo [RunIndexDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/IndexManagement/Program.cs#L108-L122) del progetto *IndexManagement* di esempio illustra come eseguire queste attività. Per informazioni sull'indicizzazione in Azure Cosmos DB prima di eseguire questi esempi, vedere i [criteri di indicizzazione](index-policy.md), i [tipi di indice](index-overview.md#index-types) e i [percorsi degli indici](index-policy.md#include-exclude-paths). 
 
 | Attività | Informazioni di riferimento sulle API |
 | --- | --- |
