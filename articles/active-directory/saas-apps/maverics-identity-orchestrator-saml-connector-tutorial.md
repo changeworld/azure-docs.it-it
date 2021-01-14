@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: a4bfe2b87f3f2242189a78d9a31a89d82720fd37
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 31392c1fa3d14d6f1e01a8b302575e9b592e42cd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862072"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183150"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Esercitazione: Integrare l'accesso Single Sign-On di Azure AD con Maverics Identity Orchestrator SAML Connector
 
@@ -167,27 +167,27 @@ secrets:
 
 1. Aprire l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e quindi immettere il comando seguente:
 
-    ```shell
+    ```azurecli
     az login
     ```
 
 1. Creare un nuovo insieme di credenziali delle chiavi eseguendo il comando seguente:
-    ```shell
+    ```azurecli
     az keyvault create --name "[VAULT_NAME]" --resource-group "[RESOURCE_GROUP]" --location "[REGION]"
     ```
 
 1. Aggiungere i segreti all'insieme di credenziali delle chiavi eseguendo il comando seguente:
-    ```shell
+    ```azurecli
     az keyvault secret set --vault-name "[VAULT_NAME]" --name "[SECRET_NAME]" --value "[SECRET_VALUE]"
     ```
 
 1. Registrare un'applicazione in Azure AD eseguendo il comando seguente:
-    ```shell
+    ```azurecli
     az ad sp create-for-rbac -n "MavericsKeyVault" --skip-assignment > azure-credentials.json
     ```
 
 1. Autorizzare un'applicazione a usare un segreto eseguendo il comando seguente:
-    ```shell
+    ```azurecli
     az keyvault set-policy --name "[VAULT_NAME]" --spn [APPID] --secret-permissions list get
     #APPID can be found in the azure-credentials.json
     generated in the previous step
@@ -239,7 +239,7 @@ Maverics Identity Orchestrator Azure AD Connector supporta OpenID Connect e SAML
 
 1. Generare una chiave di firma JWT (JSON Web Token), che viene usata per proteggere le informazioni sulla sessione di Maverics Identity Orchestrator usando lo strumento [OpenSSL](https://www.openssl.org/source/):
 
-    ```shell 
+    ```console 
     openssl rand 64 | base64
     ```
 1. Copiare la risposta nella proprietà di configurazione `jwtSigningKey`: `jwtSigningKey: TBHPvTtu6NUqU84H3Q45grcv9WDJLHgTioqRhB8QGiVzghKlu1mHgP1QHVTAZZjzLlTBmQwgsSoWxGHRcT4Bcw==`.

@@ -3,12 +3,12 @@ title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: ba055970a8fac71b798fca9d3c76550cb7d482a7
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 1daf95945f619d0e904880d8a8a778810a685d9a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178994"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183983"
 ---
 # <a name="subscription-deployments-with-arm-templates"></a>Distribuzioni di sottoscrizioni con modelli ARM
 
@@ -182,6 +182,8 @@ Per un esempio di distribuzione in un gruppo di risorse, vedere [creare risorse 
 In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/subscription-create-mg.json" highlight="12,15":::
+
+Per ulteriori informazioni, vedere [gruppo di gestione](deploy-to-management-group.md#management-group).
 
 ## <a name="resource-groups"></a>Gruppi di risorse
 

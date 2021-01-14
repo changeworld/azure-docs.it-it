@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: 01bd3b1e945ee7c9ac16af7048536c0a9e2d731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 502533b69058eacd4ad18a3b29a33fbc4a3715a5
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401589"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183779"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-powershell"></a>Override della subnet di gestione traffico con Azure PowerShell
 
@@ -43,7 +43,7 @@ Per creare una sostituzione della subnet di gestione traffico, è possibile usar
 
 1. **Recuperare l'endpoint di gestione traffico:**
 
-    Per abilitare l'override della subnet, recuperare l'endpoint a cui si vuole aggiungere la sostituzione e archiviarlo in una variabile usando [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Per abilitare l'override della subnet, recuperare l'endpoint a cui si vuole aggiungere la sostituzione e archiviarlo in una variabile usando [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Sostituire il nome, ProfileName e ResourceGroupName con i valori dell'endpoint che si sta modificando.
 
@@ -54,7 +54,7 @@ Per creare una sostituzione della subnet di gestione traffico, è possibile usar
     ```
 2. **Aggiungere l'intervallo di indirizzi IP all'endpoint:**
     
-    Per aggiungere l'intervallo di indirizzi IP all'endpoint, usare [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) per aggiungere l'intervallo.
+    Per aggiungere l'intervallo di indirizzi IP all'endpoint, usare [Add-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) per aggiungere l'intervallo.
 
     ```powershell
 
@@ -68,18 +68,18 @@ Per creare una sostituzione della subnet di gestione traffico, è possibile usar
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
  
     ```
-    Una volta aggiunti gli intervalli, usare [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) per aggiornare l'endpoint.
+    Una volta aggiunti gli intervalli, usare [set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) per aggiornare l'endpoint.
 
     ```powershell
 
     Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
 
     ```
-Per completare la rimozione dell'intervallo di indirizzi IP, è possibile usare [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+Per completare la rimozione dell'intervallo di indirizzi IP, è possibile usare [Remove-AzTrafficManagerIpAddressRange](/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
 
 1.  **Recuperare l'endpoint di gestione traffico:**
 
-    Per abilitare l'override della subnet, recuperare l'endpoint a cui si vuole aggiungere la sostituzione e archiviarlo in una variabile usando [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    Per abilitare l'override della subnet, recuperare l'endpoint a cui si vuole aggiungere la sostituzione e archiviarlo in una variabile usando [Get-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
     Sostituire il nome, ProfileName e ResourceGroupName con i valori dell'endpoint che si sta modificando.
 
@@ -102,7 +102,7 @@ Per completare la rimozione dell'intervallo di indirizzi IP, è possibile usare 
     Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
 
     ```
-     Una volta rimossi gli intervalli, usare [set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) per aggiornare l'endpoint.
+     Una volta rimossi gli intervalli, usare [set-AzTrafficManagerEndpoint](/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) per aggiornare l'endpoint.
 
     ```powershell
 
@@ -113,4 +113,4 @@ Per completare la rimozione dell'intervallo di indirizzi IP, è possibile usare 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sui [metodi di routing](traffic-manager-routing-methods.md)di Gestione traffico.
 
-Informazioni sul [metodo di routing del traffico della subnet](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
+Informazioni sul [metodo di routing del traffico della subnet](./traffic-manager-routing-methods.md#subnet-traffic-routing-method)

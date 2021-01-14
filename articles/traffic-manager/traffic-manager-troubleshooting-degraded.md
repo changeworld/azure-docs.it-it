@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: duau
-ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b76eab5771d724e4f0ec56b7d5acd5cf5f91edc0
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003855"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183456"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
-In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Come primo passaggio per la risoluzione dei problemi relativi allo stato danneggiato di gestione traffico di Azure, è necessario abilitare la registrazione.  Per ulteriori informazioni, vedere [abilitare i log delle risorse](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-diagnostic-logs) . Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
+In questo articolo viene descritto come risolvere i problemi relativi al profilo di Gestione traffico di Azure che mostra uno stato danneggiato. Come primo passaggio per la risoluzione dei problemi relativi allo stato danneggiato di gestione traffico di Azure, è necessario abilitare la registrazione.  Per ulteriori informazioni, vedere [abilitare i log delle risorse](./traffic-manager-diagnostic-logs.md) . Si supponga di aver configurato un profilo di Gestione traffico che punta ad alcuni dei servizi ospitati cloudapp.net. Se lo stato di integrità di Gestione traffico è **Danneggiato**, anche lo stato di uno o più endpoint può essere **Danneggiato**:
 
 ![Stato degli endpoint Danneggiato](./media/traffic-manager-troubleshooting-degraded/traffic-manager-degradedifonedegraded.png)
 
@@ -31,8 +31,8 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 
 ## <a name="understanding-traffic-manager-probes"></a>Informazioni sui probe di Gestione traffico
 
-* Gestione traffico considera un endpoint Online solo se il probe ottiene una risposta HTTP 200 dal percorso probe. Se l'applicazione restituisce qualsiasi altro codice di risposta HTTP, è necessario aggiungere il codice di risposta agli [intervalli di codice di stato previsti](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del profilo di gestione traffico.
-* Una risposta di reindirizzamento 30x viene considerata come un errore a meno che non sia stato specificato come codice di risposta valido negli [intervalli di codice di stato previsti](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) del profilo di gestione traffico. Gestione traffico non esegue il probe della destinazione di reindirizzamento.
+* Gestione traffico considera un endpoint Online solo se il probe ottiene una risposta HTTP 200 dal percorso probe. Se l'applicazione restituisce qualsiasi altro codice di risposta HTTP, è necessario aggiungere il codice di risposta agli [intervalli di codice di stato previsti](./traffic-manager-monitoring.md#configure-endpoint-monitoring) del profilo di gestione traffico.
+* Una risposta di reindirizzamento 30x viene considerata come un errore a meno che non sia stato specificato come codice di risposta valido negli [intervalli di codice di stato previsti](./traffic-manager-monitoring.md#configure-endpoint-monitoring) del profilo di gestione traffico. Gestione traffico non esegue il probe della destinazione di reindirizzamento.
 * Per i probe HTTPS, gli errori di certificati vengono ignorati.
 * Il contenuto effettivo del percorso probe non è importante, purché venga restituito 200. Una tecnica comune consiste nell'impostare il percorso su un valore simile a "/favicon.ico". Il contenuto dinamico, ad esempio le pagine ASP, non può sempre restituire 200, anche quando l'applicazione è integra.
 * Una procedura consigliata consiste nell'impostare il percorso Probe su un elemento con una logica sufficiente per determinare se il sito è attivo o inattivo. Nell'esempio precedente, impostando il percorso su "/favicon.ico", si verifica solo che w3wp.exe risponda. Questo probe non indica necessariamente che l'applicazione Web è integra. Un'opzione migliore prevede di impostare un percorso su un valore simile a "/Probe.aspx", che è dotato della logica necessaria a determinare l'integrità del sito. Ad esempio, si potrebbero usare i contatori delle prestazioni per verificare l'utilizzo della CPU o misurare il numero di richieste con esito negativo, o tentare di accedere a risorse come lo stato del database o della sessione per assicurarsi che l'applicazione Web funzioni correttamente.
@@ -87,12 +87,12 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Informazioni su Gestione traffico](traffic-manager-overview.md)
 
-[Servizi cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
+[Servizi cloud](/previous-versions/azure/jj155995(v=azure.100))
 
 [Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per Gestione traffico (informazioni di riferimento API REST)](/previous-versions/azure/reference/hh758255(v=azure.100))
 
 [Cmdlet di Gestione traffico di Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
+[1]: /powershell/module/az.trafficmanager

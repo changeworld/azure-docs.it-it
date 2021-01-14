@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 27cd35eba7320022ea9b137a7b8bb079a1226751
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427285"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98131934"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Creare un agente processo elastico con PowerShell (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -59,7 +59,7 @@ Import-Module Az.Sql
 Get-Module Az.Sql
 ```
 
-Oltre al modulo **Az.Sql** , questa esercitazione richiede anche il modulo *SqlServer* di PowerShell. Per i dettagli, vedere [Installare il modulo SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
+Oltre al modulo **Az.Sql**, questa esercitazione richiede anche il modulo *SqlServer* di PowerShell. Per i dettagli, vedere [Installare il modulo SQL Server PowerShell](/sql/powershell/download-sql-server-ps-module).
 
 ## <a name="create-required-resources"></a>Creare le risorse necessarie
 
@@ -123,19 +123,11 @@ $db2 = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $targ
 $db2
 ```
 
-## <a name="use-elastic-jobs"></a>Usare i processi elastici
-
-Per usare i processi elastici, registrare la funzionalità nella sottoscrizione di Azure eseguendo il comando seguente, una volta sola per la sottoscrizione in cui si intende effettuare il provisioning dell'agente di processo elastico. Le sottoscrizioni che contengono solo database di destinazione del processo non devono essere registrate.
-
-```powershell
-Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
-```
-
 ### <a name="create-the-elastic-job-agent"></a>Creare l'agente processo elastico
 
 Un agente processo elastico è una risorsa di Azure per la creazione, l'esecuzione e la gestione dei processi. L'agente esegue i processi in base a una pianificazione o come processo unico.
 
-Il cmdlet **New-AzSqlElasticJobAgent** richiede un database già esistente nel database SQL di Azure, quindi i parametri *resourceGroupName* , *serverName* e *databaseName* devono puntare tutti a risorse esistenti.
+Il cmdlet **New-AzSqlElasticJobAgent** richiede un database già esistente nel database SQL di Azure, quindi i parametri *resourceGroupName*, *serverName* e *databaseName* devono puntare tutti a risorse esistenti.
 
 ```powershell
 Write-Output "Creating job agent..."
@@ -205,7 +197,7 @@ $jobCred = $jobAgent | New-AzSqlElasticJobCredential -Name "jobuser" -Credential
 
 Un [gruppo di destinazione](job-automation-overview.md#target-group) definisce il set di uno o più database in cui verrà eseguito il passaggio di un processo.
 
-Il frammento di codice seguente crea due gruppi di destinazione: *serverGroup* e *serverGroupExcludingDb2* . *serverGroup* ha come destinazione tutti i database esistenti nel server durante la fase di esecuzione, mentre *serverGroupExcludingDb2* ha come destinazione tutti i database nel server, ad eccezione di *targetDb2* :
+Il frammento di codice seguente crea due gruppi di destinazione: *serverGroup* e *serverGroupExcludingDb2*. *serverGroup* ha come destinazione tutti i database esistenti nel server durante la fase di esecuzione, mentre *serverGroupExcludingDb2* ha come destinazione tutti i database nel server, ad eccezione di *targetDb2*:
 
 ```powershell
 Write-Output "Creating test target groups..."
@@ -221,7 +213,7 @@ $serverGroupExcludingDb2 | Add-AzSqlElasticJobTarget -ServerName $targetServerNa
 
 ### <a name="create-a-job-and-steps"></a>Creare un processo e i passaggi
 
-Questo esempio definisce un processo e due passaggi di processo per l'esecuzione del processo. Il primo passaggio di processo ( *step1* ) crea una nuova tabella ( *Step1Table* ) in ogni database nel gruppo di destinazione *ServerGroup* . Il secondo passaggio di processo ( *step2* ) crea una nuova tabella ( *Step2Table* ) in ogni database ad eccezione di *targetDb2* , perché nel gruppo di destinazione definito in precedenza ne è stata specificata l'esclusione.
+Questo esempio definisce un processo e due passaggi di processo per l'esecuzione del processo. Il primo passaggio di processo (*step1*) crea una nuova tabella (*Step1Table*) in ogni database nel gruppo di destinazione *ServerGroup*. Il secondo passaggio di processo (*step2*) crea una nuova tabella (*Step2Table*) in ogni database ad eccezione di *targetDb2*, perché nel gruppo di destinazione definito in precedenza ne è stata specificata l'esclusione.
 
 ```powershell
 Write-Output "Creating a new job..."

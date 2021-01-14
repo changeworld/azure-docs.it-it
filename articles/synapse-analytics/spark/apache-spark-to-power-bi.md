@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
-ms.openlocfilehash: 791cab369dcbf9cab8d1256377cfee4a433c21b9
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 53fb256d3a0fba1cc10cafb239ff7f7bb21ac4eb
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450894"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121074"
 ---
 # <a name="tutorial-create-a-power-bi-report-using-apache-spark-and-azure-synapse-analytics"></a>Esercitazione: Creare un report di Power BI con Apache Spark e Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Le organizzazioni hanno spesso l'esigenza di elaborare grandi quantità di dati 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 - [Area di lavoro di Azure Synapse Analytics](../quickstart-create-workspace.md) con un account di archiviazione di ADLS Gen2 configurato come risorsa archiviazione predefinita. 
-- Area di lavoro di Power BI e Power BI Desktop per visualizzare i dati. Per i dettagli, vedere [Creare un'area di lavoro di Power BI](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces) e [Installare Power BI Desktop](https://powerbi.microsoft.com/downloads/)
+- Area di lavoro di Power BI e Power BI Desktop per visualizzare i dati. Per i dettagli, vedere [Creare un'area di lavoro di Power BI](/power-bi/service-create-the-new-workspaces) e [Installare Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - Servizio collegato per connettere le aree di lavoro di Azure Synapse Analytics e Power BI. Per i dettagli, vedere [Collegamento a un'area di lavoro di Power BI](../quickstart-power-bi.md)
 - Pool di Apache Spark serverless nell'area di lavoro di Synapse Analytics. Per i dettagli, vedere [Creare un pool di Apache Spark serverless](../quickstart-create-apache-spark-pool-studio.md)
   
@@ -89,7 +89,7 @@ Per eseguire query sulla tabella di Apache Spark con il pool SQL serverless:
 Il pool SQL serverless verrà ora connesso all'area di lavoro di Power BI. Una volta connessa l'area di lavoro, sarà possibile creare report di Power BI sia direttamente da Azure Synapse Analytics sia da Power BI Desktop.
 
 >[!Note]
-> Prima di iniziare, è necessario configurare un servizio collegato per l'[area di lavoro di Power BI](../quickstart-power-bi.md) e scaricare [Power BI Desktop](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces).  
+> Prima di iniziare, è necessario configurare un servizio collegato per l'[area di lavoro di Power BI](../quickstart-power-bi.md) e scaricare [Power BI Desktop](/power-bi/service-create-the-new-workspaces).  
 
 Per connettere il pool SQL serverless all'area di lavoro di Power BI:
 

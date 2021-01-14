@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d80b8f41e11f2fffa86dc7597fdf44dd27825fc
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: c169847c96d10d1c9fb47b210bc85a15e0690e32
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028897"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183116"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
@@ -31,7 +31,7 @@ Si è verificato un problema noto corrente che causa la latenza nel flusso di ri
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
-### <a name="why-is-a-user-is-at-risk"></a>Perché un utente è a rischio?
+### <a name="why-is-a-user-at-risk"></a>Perché un utente è a rischio?
 
 Se si è un cliente Azure AD Identity Protection, passare alla visualizzazione [utenti a rischio](howto-identity-protection-investigate-risk.md#risky-users) e fare clic su un utente a rischio. Nel cassetto nella parte inferiore della scheda ' cronologia dei rischi ' visualizzerà tutti gli eventi che hanno portato a una modifica dei rischi dell'utente. Per visualizzare tutti gli accessi a rischio per l'utente, fare clic su "accessi a rischio utente". Per visualizzare tutti i rilevamenti dei rischi per questo utente, fare clic su "rilevamento rischi utente".
 

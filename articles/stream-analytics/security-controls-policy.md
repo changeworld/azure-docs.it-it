@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Analisi di flusso di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure per Analisi di flusso di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.topic: sample
-author: mamccrea
-ms.author: mamccrea
+author: sidramadoss
+ms.author: sidram
 ms.service: stream-analytics
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 5f0d5fd7f3926919740cbfb108171e9910f94957
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 10fc21cf2e5dceeb3441fa538958b74ae79fccb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94984344"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98050842"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-stream-analytics"></a>Controlli di conformità alle normative di Criteri di Azure per Analisi di flusso di Azure
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 9b9390b498f28fc8f9029f1c11805b970aaca73d
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: de011fb0f827ea90efe33e237bbf1c5100dc76a7
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014561"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183473"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Procedura: distribuire un'applicazione Web per il conteggio di persone
 
@@ -63,12 +63,12 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Distribuire il contenitore in Azure IoT Edge nel computer host
 
-Distribuire il contenitore di analisi spaziale come modulo di Internet delle cose nel computer host usando l'interfaccia della riga di comando di Azure. Il processo di distribuzione richiede un file manifesto di distribuzione che descrive i contenitori, le variabili e le configurazioni necessari per la distribuzione. In GitHub è disponibile un esempio di un [manifesto di distribuzione specifico di Azure stack Edge](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) , oltre a un [manifesto di distribuzione specifico di un bordo non Azure stack](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) , che include una configurazione di distribuzione di base per il contenitore di *analisi spaziale* . 
+Distribuire il contenitore di analisi spaziale come modulo di Internet delle cose nel computer host usando l'interfaccia della riga di comando di Azure. Il processo di distribuzione richiede un file manifesto di distribuzione che descrive i contenitori, le variabili e le configurazioni necessari per la distribuzione. È possibile trovare un esempio di un [manifesto di distribuzione specifico di Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), un [manifesto di distribuzione specifico di Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2152189)e una [macchina virtuale di Azure con un manifesto di distribuzione specifico della GPU](https://go.microsoft.com/fwlink/?linkid=2152189) su GitHub, che include una configurazione di distribuzione di base per il contenitore di *analisi spaziale* . 
 
 In alternativa, è possibile usare le estensioni Azure per Visual Studio Code per eseguire operazioni con l'hub Internet delle cose. Per altre informazioni, vedere [distribuire moduli Azure IOT Edge da Visual Studio Code](../../iot-edge/how-to-deploy-modules-vscode.md) .
 
 > [!NOTE] 
-> I contenitori *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* sono facoltativi. È possibile decidere di rimuoverli dalla *DeploymentManifest.jssu* file. Per altre informazioni, vedere l'articolo [telemetria e risoluzione dei problemi](./spatial-analysis-logging.md) . È possibile trovare dueDeploymentManifest.jsdi esempio *sui* file in GitHub, per un [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
+> I contenitori *Spatial-Analysis-Telegraf* e *Spatial-Analysis-Diagnostics* sono facoltativi. È possibile decidere di rimuoverli dalla *DeploymentManifest.jssu* file. Per altre informazioni, vedere l'articolo [telemetria e risoluzione dei problemi](./spatial-analysis-logging.md) . È possibile trovare treDeploymentManifest.jsdi esempio *sui* file in GitHub, per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), per un [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152189)o per una [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189)
 
 ### <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
@@ -185,7 +185,7 @@ Attendere il completamento dell'installazione e passare alla risorsa nella porta
 * `EventHubConsumerGroup` : Il nome di stringa del gruppo di consumer dall'hub di Azure, è possibile creare un nuovo gruppo di consumer nell'hub Internet o usare il gruppo predefinito. 
 * `IotHubConnectionString` : La stringa di connessione all'hub di Azure, che può essere recuperata dalla sezione chiavi della risorsa Hub Azure per ![ configurare i parametri](./media/spatial-analysis/solution-app-config-page.png)
 
-Una volta aggiunte queste due impostazioni, fare clic su **Salva**. Quindi fare clic su **autenticazione/autorizzazione** nel menu di spostamento a sinistra e aggiornarlo con il livello di autenticazione desiderato. È consigliabile usare Azure Active Directory (Azure AD) Express. 
+Una volta aggiunte queste due impostazioni, fare clic su **Salva**. Quindi fare clic su **autenticazione/autorizzazione** nel menu di spostamento a sinistra e aggiornarlo con il livello di autenticazione desiderato. È consigliabile Azure Active Directory (Azure AD) Express. 
 
 ### <a name="test-the-app"></a>Testare l'app
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e73f11ec178c067941ee33e02f37c96605460ee0
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658588"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051514"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -72,7 +72,7 @@ Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 Questa rete virtuale conterrà tre subnet.
 
 > [!NOTE]
-> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+> La dimensione della subnet AzureFirewallSubnet è /26. Per altre informazioni sulle dimensioni delle subnet, vedere le [domande frequenti su Firewall di Azure](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 1. Selezionare **Rete** > **Rete virtuale**.
@@ -105,7 +105,7 @@ Creare ora la macchina virtuale del carico di lavoro e inserirla nella subnet **
 3. Selezionare **Windows Server 2016 Datacenter** nell'elenco In primo piano.
 4. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Resource group     |**Test-FW-RG**|
    |Nome macchina virtuale     |**Srv-Work**|
@@ -132,7 +132,7 @@ Distribuire il firewall nella rete virtuale.
 3. Selezionare **Firewall**, quindi **Crea**.
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |

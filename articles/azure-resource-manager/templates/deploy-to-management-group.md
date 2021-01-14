@@ -3,12 +3,12 @@ title: Distribuire le risorse al gruppo di gestione
 description: Viene descritto come distribuire le risorse nell'ambito del gruppo di gestione in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: f847e481670d7f9afd4b40cfb8fcbec65d1e28c8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d6c6b925ad1533fc1f3bf490a9b996280164bd57
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178926"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184017"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Distribuzioni del gruppo di gestione con i modelli ARM
 
@@ -44,6 +44,8 @@ Per i modelli annidati che vengono distribuiti nelle sottoscrizioni o nei gruppi
 Per la gestione delle risorse, usare:
 
 * [tag](/azure/templates/microsoft.resources/tags)
+
+I gruppi di gestione sono risorse a livello di tenant. Tuttavia, è possibile creare gruppi di gestione in una distribuzione del gruppo di gestione impostando l'ambito del nuovo gruppo di gestione sul tenant. Vedere [gruppo di gestione](#management-group).
 
 ## <a name="schema"></a>SCHEMA
 
@@ -168,9 +170,55 @@ Per usare una distribuzione del gruppo di gestione per creare un gruppo di risor
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-to-tenant.json" highlight="9,10,14":::
 
-In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione.
+In alternativa, è possibile impostare l'ambito su `/` per alcuni tipi di risorse, ad esempio i gruppi di gestione. La creazione di un nuovo gruppo di gestione viene descritta nella sezione successiva.
+
+## <a name="management-group"></a>Gruppo di gestione
+
+Per creare un gruppo di gestione in una distribuzione del gruppo di gestione, è necessario impostare l'ambito su `/` per il gruppo di gestione.
+
+Nell'esempio seguente viene creato un nuovo gruppo di gestione nel gruppo di gestione radice.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/management-group-create-mg.json" highlight="12,15":::
+
+Nell'esempio seguente viene creato un nuovo gruppo di gestione nel gruppo di gestione specificato come elemento padre. Si noti che l'ambito è impostato su `/` .
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string",
+            "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+        },
+        "parentMG": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('mgName')]",
+            "type": "Microsoft.Management/managementGroups",
+            "apiVersion": "2020-05-01",
+            "scope": "/",
+            "location": "eastus",
+            "properties": {
+                "details": {
+                    "parent": {
+                        "id": "[tenantResourceId('Microsoft.Management/managementGroups', parameters('parentMG'))]"
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "output": {
+            "type": "string",
+            "value": "[parameters('mgName')]"
+        }
+    }
+}
+```
 
 ## <a name="azure-policy"></a>Criteri di Azure
 

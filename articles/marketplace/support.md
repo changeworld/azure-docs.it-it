@@ -6,19 +6,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 09/18/2020
-ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 01/14/2020
+ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94488894"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183439"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
 Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare il team di supporto giusto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato:
 
 - Se si è un editore e si ha una domanda da parte di un cliente, chiedere al cliente di richiedere supporto tramite i collegamenti di supporto nella [portale di Azure](https://portal.azure.com/).
+- Se si è un editore e si è rilevato un problema di sicurezza con un'applicazione in esecuzione in Azure, vedere [come registrare un ticket di supporto per gli eventi di sicurezza](/azure/security/fundamentals/event-support-ticket). Gli editori sono tenuti a segnalare tempestivamente a Microsoft qualsiasi evento sospetto di violazione della sicurezza, inclusi incidenti di sicurezza e vulnerabilità relativamente al software Azure Marketplace e alle offerte di servizi.
 - Se si è un editore e si ha una domanda relativa all'app o al servizio, esaminare le opzioni di supporto seguenti.
 
 ## <a name="support-options-for-publishers"></a>Opzioni di supporto per gli editori
@@ -62,12 +63,12 @@ Verranno rese disponibili le opzioni seguenti:
 
 - Per selezionare un argomento diverso, selezionare un altro collegamento all'argomento in **problema selezionato**.
 - Esaminare la descrizione del problema, se disponibile.  È il testo visualizzato sopra i **passaggi consigliati**.
-- Esaminare le **procedure consigliate** , se disponibili.
-- Esaminare i **documenti consigliati** , se disponibili.
+- Esaminare le **procedure consigliate**, se disponibili.
+- Esaminare i **documenti consigliati**, se disponibili.
 
 ![Soluzioni consigliate](./media/support/recommended-solutions.png)
 
-Se non è possibile trovare la risposta nelle **soluzioni consigliate** , selezionare **Fornisci i dettagli del problema**. Completare tutti i campi obbligatori per velocizzare il processo di risoluzione, quindi selezionare **Invia**.
+Se non è possibile trovare la risposta nelle **soluzioni consigliate**, selezionare **Fornisci i dettagli del problema**. Completare tutti i campi obbligatori per velocizzare il processo di risoluzione, quindi selezionare **Invia**.
 
 >[!Note]
 >Se non è stato effettuato l'accesso al centro per i partner e l'argomento richiede l'autenticazione, verrà richiesto di effettuare l'accesso prima di procedere.  Per gli argomenti pubblici, l'autenticazione non è obbligatoria.
@@ -85,10 +86,10 @@ Per consentire agli agenti di supportare la risoluzione del problema, prendere i
 
 ### <a name="microsoft-edge-and-google-chrome"></a>Microsoft Edge e Google Chrome
 
-Per generare un file HAR usando **Microsoft Edge** o **Google Chrome** :
+Per generare un file HAR usando **Microsoft Edge** o **Google Chrome**:
 
 1. Passare alla pagina Web in cui si è verificato il problema.
-2. Nell'angolo superiore destro della finestra fare clic sull'icona con i puntini di sospensione, quindi su strumenti di sviluppo per **altri strumenti**  >  **Developer tools**. È possibile premere F12 come collegamento.
+2. Nell'angolo superiore destro della finestra fare clic sull'icona con i puntini di sospensione, quindi su strumenti di sviluppo per **altri strumenti**  >  . È possibile premere F12 come collegamento.
 3. Nel riquadro strumenti di sviluppo selezionare la scheda **rete** .
 4. Selezionare **Interrompi registrazione log di rete** e **Cancella** per rimuovere i log esistenti. L'icona del record diventerà grigio.
 
@@ -100,16 +101,16 @@ Per generare un file HAR usando **Microsoft Edge** o **Google Chrome** :
 
 6. Riprodurre il problema che si desidera risolvere.
 7. Dopo aver riprodotto il problema, selezionare **Interrompi registrazione log di rete**.
-8. Selezionare **Esporta har** , contrassegnato con un'icona con la freccia rivolta verso il basso e salvare il file.
+8. Selezionare **Esporta har**, contrassegnato con un'icona con la freccia rivolta verso il basso e salvare il file.
 
     ![Come esportare un file HAR in Microsoft Edge o Google Chrome](media/support/chromium-network-export-har.png)
 
 ### <a name="mozilla-firefox"></a>Mozilla Firefox
 
-Per generare un file HAR usando **Mozilla Firefox** :
+Per generare un file HAR usando **Mozilla Firefox**:
 
 1. Passare alla pagina Web in cui si è verificato il problema.
-1. Nell'angolo in alto a destra della finestra fare clic sull'icona con i puntini di sospensione e quindi su strumenti per lo **sviluppo Web**  >  **Toggle Tools**. È possibile premere F12 come collegamento.
+1. Nell'angolo in alto a destra della finestra fare clic sull'icona con i puntini di sospensione e quindi su strumenti per lo **sviluppo Web**  >  . È possibile premere F12 come collegamento.
 1. Selezionare la scheda **rete** , quindi **deselezionare** per rimuovere i log esistenti.
 
     ![Come rimuovere i log esistenti in Mozilla Firefox](media/support/firefox-clear-session.png)
@@ -121,9 +122,9 @@ Per generare un file HAR usando **Mozilla Firefox** :
 
 ### <a name="apple-safari"></a>Apple Safari
 
-Per generare un file HAR usando **Safari** :
+Per generare un file HAR usando **Safari**:
 
-1. Abilitare gli strumenti di sviluppo in Safari: **Safari** selezionare  >  **Preferenze** Safari. Passare alla scheda **Avanzate** , quindi selezionare **Mostra menu sviluppa nella barra dei menu**.
+1. Abilitare gli strumenti di sviluppo in Safari: selezionare  >  **Preferenze** Safari. Passare alla scheda **Avanzate** , quindi selezionare **Mostra menu sviluppa nella barra dei menu**.
 1. Passare alla pagina Web in cui si è verificato il problema.
 1. Selezionare **Develop** (Sviluppo), quindi selezionare **Show Web Inspector** (Mostra Web Inspector).
 1. Selezionare la scheda **rete** , quindi selezionare **Cancella elementi di rete** per rimuovere i log esistenti.

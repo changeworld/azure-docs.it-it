@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 75cc23df41741a95e87ad64d168aea4fa4f45733
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 39f39b6f53944510b5f3692bb8b3fdd472004454
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451053"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121227"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Esercitazione: Creare un'applicazione Apache Spark con IntelliJ usando un'area di lavoro di Synapse
 
@@ -36,7 +36,7 @@ In questa esercitazione verranno illustrate le procedure per:
 - [IntelliJ IDEA versione Community](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC).
 - Plug-in Azure Toolkit versione 3.27.0-2019.2 - Eseguire l'installazione dal [repository di plug-in IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-installation?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [JDK (versione 1.8)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-- Plug-in Scala - Eseguire l'installazione dal [repository di plug-in IntelliJ](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
+- Plug-in Scala - Eseguire l'installazione dal [repository di plug-in IntelliJ](../../hdinsight/spark/apache-spark-intellij-tool-plugin.md#install-scala-plugin-for-intellij-idea).
 - Il prerequisito seguente si applica solo agli utenti di Windows:
 
   Quando si esegue l'applicazione Spark Scala locale in un computer Windows, potrebbe essere restituita un'eccezione, come spiegato in [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356), che si verifica a causa di un file WinUtils.exe mancante in Windows.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 4196515463611f51dddb79438b1d4e827f1b32c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: e87fd8724ab9a967bf3b75579eb0e375a324a7b1
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165400"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183099"
 ---
 # <a name="azure-ddos-protection-standard-frequent-asked-questions"></a>Domande frequenti sugli standard di protezione DDoS di Azure
 
@@ -32,6 +32,8 @@ Protezione DDoS di Azure standard, in combinazione con le procedure consigliate 
 I piani di protezione DDoS hanno un costo mensile fisso di $2.944 al mese che copre fino a 100 indirizzi IP pubblici. La protezione per le risorse aggiuntive costerà altri $30 per ogni risorsa al mese. 
 
 In un tenant, un singolo piano di protezione DDoS può essere usato in più sottoscrizioni, quindi non è necessario creare più di un piano di protezione DDoS.
+
+Per altri dettagli, vedere la pagina relativa ai [prezzi standard di protezione DDoS di Azure](https://azure.microsoft.com/pricing/details/ddos-protection/) .
 
 ## <a name="what-about-protection-at-the-service-layer-layer-7"></a>E per quanto riguarda la protezione a livello di servizio (livello 7)?
 I clienti possono usare il servizio protezione DDoS di Azure in combinazione con un Web Application Firewall (WAF) a per la protezione a livello di rete (livello 3 e 4, offerto da Azure DDoS Protection standard) e a livello di applicazione (livello 7, offerto da WAF). Le offerte WAF includono lo [SKU WAF del gateway applicazione](../web-application-firewall/ag/ag-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure e le offerte di Web Application Firewall di terze parti disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1&search=web%20application%20firewall).

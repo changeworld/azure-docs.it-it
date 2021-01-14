@@ -4,15 +4,15 @@ description: Risolvere i problemi comuni in una distribuzione in Sincronizzazion
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 6/12/2020
+ms.date: 1/13/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: c7405ada800bd5fb9161e9d96bd4c8b0484be620
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b84256188cf5df3ddf389f763e669a2b2ca00852
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005327"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183337"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -199,10 +199,27 @@ Sul server che viene visualizzato come "Risulta offline" nel portale, esaminare 
 - Se **GetNextJob completato con lo stato: 0** è registrato, il server può comunicare con il servizio Sincronizzazione file di Azure. 
     - Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare all'ultima[versione dell'agente](./storage-files-release-notes.md) della Sincronizzazione file di Azure. 
 
-- Se **GetNextJob completato con lo stato:-2134347756** è registrato, il server non è in grado di comunicare con il servizio Sincronizzazione file di Azure a causa di un firewall o un proxy. 
+- Se **GetNextJob è stato completato con lo stato:-2134347756** viene registrato, il server non è in grado di comunicare con il servizio sincronizzazione file di Azure a causa di un firewall, un proxy o una configurazione dell'ordine del pacchetto di crittografia TLS. 
     - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](./storage-sync-files-firewall-and-proxy.md#firewall) del firewall siano accessibili.
     - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](./storage-sync-files-firewall-and-proxy.md#proxy) del proxy.
     - Usare il cmdlet Test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [Testare la connettività di rete agli endpoint di servizio](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
+    - Per aggiungere pacchetti di crittografia nel server, usare i cmdlet di criteri di gruppo o TLS:
+        - Per usare i criteri di gruppo, vedere [configurazione dell'ordine dei pacchetti di crittografia TLS con criteri di gruppo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Per usare i cmdlet TLS, vedere [Configuring TLS cipher Suite order by using TLS PowerShell cmdlets](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+    
+        Sincronizzazione file di Azure attualmente supporta i pacchetti di crittografia seguenti per il protocollo TLS 1,2:  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256  
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384_P384  
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_RSA_WITH_AES_256_GCM_SHA384  
+        - TLS_RSA_WITH_AES_128_GCM_SHA256  
+        - TLS_RSA_WITH_AES_256_CBC_SHA256  
+        - TLS_RSA_WITH_AES_128_CBC_SHA256  
 
 - Se **GetNextJob completato con lo stato:-2134347764** è registrato, il server non è in grado di comunicare con il servizio Sincronizzazione file di Azure a causa di un certificato eliminato o scaduto.  
     - Eseguire il comando di PowerShell seguente sul server per ripristinare il certificato usato per l'autenticazione:

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 50e199d2d56016086bb409f8690e9828f1d19984
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 0cdb82bbf38244bc91ed54ffb7d7d734cefe9dd2
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881510"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98183320"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usare l'analisi delle modifiche dell'applicazione (anteprima) in monitoraggio di Azure
 
@@ -194,6 +194,27 @@ Se è la prima volta che si visualizza la cronologia delle modifiche dopo l'inte
 ### <a name="azure-lighthouse-subscription-is-not-supported"></a>La sottoscrizione di Azure Lighthouse non è supportata
 
 - Non è **stato possibile eseguire una query sul provider di risorse Microsoft. ChangeAnalysis** con messaggio *la sottoscrizione di Azure Lighthouse non è supportata. le modifiche sono disponibili solo nel tenant principale della sottoscrizione*. Attualmente esiste una limitazione per la registrazione del provider di risorse di analisi delle modifiche tramite la sottoscrizione di Azure Lighthouse per gli utenti che non si trova nel tenant Home. Questa limitazione verrà risolta nel prossimo futuro. Se si tratta di un problema di blocco, esiste una soluzione alternativa che prevede la creazione di un'entità servizio e l'assegnazione esplicita del ruolo per consentire l'accesso.  Per ulteriori informazioni, contattare il contatto changeanalysishelp@microsoft.com .
+
+### <a name="an-error-occurred-while-getting-changes-please-refresh-this-page-or-come-back-later-to-view-changes"></a>Si è verificato un errore durante il recupero delle modifiche. Aggiornare questa pagina o tornare più tardi per visualizzare le modifiche
+
+Questo è il messaggio di errore generale presentato dal servizio di analisi delle modifiche dell'applicazione quando non è stato possibile caricare le modifiche. Di seguito sono riportate alcune cause note:
+- Errore di connettività Internet dal dispositivo client
+- Il servizio di analisi delle modifiche temporaneamente non disponibile aggiorna la pagina dopo alcuni minuti in genere corregge questo problema. Se l'errore è permanente, contattare changeanalysishelp@micorosoft.com
+
+### <a name="you-dont-have-enough-permissions-to-view-some-changes-contact-your-azure-subscription-administrator"></a>Le autorizzazioni disponibili non sono sufficienti per visualizzare alcune modifiche. Contattare l'amministratore della sottoscrizione di Azure
+
+Questo è il messaggio di errore generale non autorizzato, che indica che l'utente corrente non dispone di autorizzazioni sufficienti per visualizzare la modifica. Per visualizzare le modifiche dell'infrastruttura restituite da Azure Resource Graph e Azure Resource Manager è necessario almeno l'accesso in lettura per la risorsa. Per le modifiche apportate all'app Web in-Guest e le modifiche alla configurazione, è necessario almeno il ruolo Collaboratore.
+
+### <a name="failed-to-register-microsoftchangeanalysis-resource-provider"></a>Non è stato possibile registrare il provider di risorse Microsoft. ChangeAnalysis
+ 
+**Non si dispone delle autorizzazioni sufficienti per registrare il provider di risorse Microsoft. ChangeAnalysis. Contattare l'amministratore della sottoscrizione di Azure.** Questo messaggio di errore indica che il ruolo nella sottoscrizione corrente non ha l'ambito **Microsoft. support/register/Action** associato. Questo problema può verificarsi se non si è il proprietario di una sottoscrizione e si hanno le autorizzazioni di accesso condiviso tramite un collega. ovvero visualizzare l'accesso a un gruppo di risorse. Per risolvere il problema, è possibile contattare il proprietario della sottoscrizione per registrare il provider di risorse **Microsoft. ChangeAnalysis** . Questa operazione può essere eseguita in portale di Azure tramite **sottoscrizioni | Provider di risorse** e ricerca ```Microsoft.ChangeAnalysis``` e registrazione nell'interfaccia utente o tramite Azure PowerShell o l'interfaccia della riga di comando di Azure.
+
+Registrare il provider di risorse tramite PowerShell: 
+
+```PowerShell
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
