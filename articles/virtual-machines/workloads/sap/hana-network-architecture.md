@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b18e1cd20a4b0a886258fd56003cd273d92381fa
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: c1403c514f5a278fd406769f1d5271cc95a5c1df
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093979"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195739"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -47,9 +47,9 @@ Se SAP HANA in Azure (istanze large) viene distribuita in più aree di Azure div
 
 ## <a name="additional-virtual-network-information"></a>Informazioni aggiuntive sulle reti virtuali
 
-Per connettere una rete virtuale a ExpressRoute, è necessario creare un gateway ExpressRoute di Azure. Per ulteriori informazioni, vedere [informazioni sui gateway Expressroute per Expressroute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Per connettere una rete virtuale a ExpressRoute, è necessario creare un gateway ExpressRoute di Azure. Per ulteriori informazioni, vedere [informazioni sui gateway Expressroute per Expressroute](../../../expressroute/expressroute-about-virtual-network-gateways.md). 
 
-Un gateway Azure ExpressRoute viene usato con ExpressRoute a un'infrastruttura esterna ad Azure o a un indicatore di istanze large di Azure. È possibile connettere il gateway Azure ExpressRoute a un massimo di quattro circuiti ExpressRoute diversi, purché tali connessioni provengano da router perimetrali Microsoft Enterprise differenti. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Un gateway Azure ExpressRoute viene usato con ExpressRoute a un'infrastruttura esterna ad Azure o a un indicatore di istanze large di Azure. È possibile connettere il gateway Azure ExpressRoute a un massimo di quattro circuiti ExpressRoute diversi, purché tali connessioni provengano da router perimetrali Microsoft Enterprise differenti. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md). 
 
 > [!NOTE] 
 > La velocità effettiva massima che è possibile ottenere con un gateway ExpressRoute è 10 Gbps usando una connessione ExpressRoute. La copia di file tra una VM che si trova in una rete virtuale e un sistema locale (come singolo flusso di copia) non raggiunge la totale velocità effettiva dei diversi SKU del gateway. Per sfruttare l'intera larghezza di banda del gateway ExpressRoute, usare più flussi. In alternativa, è necessario copiare file diversi in flussi paralleli di un singolo file.
@@ -60,7 +60,7 @@ L'architettura di rete per le istanze Large di HANA può essere suddivisa in qua
 
 - Rete locale e connessione ExpressRoute ad Azure. Questa parte è costituita dal dominio del cliente ed è connessa ad Azure tramite ExpressRoute. Questo circuito Expressroute viene completamente pagato dal cliente. La larghezza di banda deve essere sufficientemente grande da poter gestire il traffico di rete tra le risorse locali e l'area di Azure in cui si esegue la connessione. Nell'immagine seguente è riportata in basso a destra.
 - Servizi di rete di Azure, come descritto in precedenza, con le reti virtuali, che richiedono di nuovo l'aggiunta di gateway ExpressRoute. Questa parte è costituita da un'area che richiede una progettazione adatta ai propri requisiti in termini di applicazioni, sicurezza e conformità. L'eventuale uso di istanze Large di HANA è un altro aspetto da tenere in considerazione nella scelta del numero di reti virtuali e di SKU del gateway di Azure. Nell'immagine questa parte è riportata in alto a destra.
-- Connettività delle istanze Large di HANA ad Azure tramite la tecnologia ExpressRoute. Questa parte è distribuita e gestita da Microsoft. Il cliente deve solo specificare alcuni intervalli di indirizzi IP e dopo la distribuzione degli asset nelle istanze Large di HANA connettere il circuito ExpressRoute alle reti virtuali. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Non sono previsti costi aggiuntivi come cliente per la connettività tra l'infrastruttura di rete data center di Azure e le unità di istanze large di HANA.
+- Connettività delle istanze Large di HANA ad Azure tramite la tecnologia ExpressRoute. Questa parte è distribuita e gestita da Microsoft. Il cliente deve solo specificare alcuni intervalli di indirizzi IP e dopo la distribuzione degli asset nelle istanze Large di HANA connettere il circuito ExpressRoute alle reti virtuali. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md). Non sono previsti costi aggiuntivi come cliente per la connettività tra l'infrastruttura di rete data center di Azure e le unità di istanze large di HANA.
 - Funzionalità di rete all'interno del timbro di istanze large di HANA, che è per lo più trasparente.
 
 ![Rete virtuale connessa a SAP HANA in Azure (istanze Large) e in locale](./media/hana-overview-architecture/image1-architecture.png)
@@ -98,7 +98,7 @@ Per altre informazioni su come configurare il percorso rapido di ExpressRoute, v
 
 ## <a name="single-sap-system"></a>Sistema SAP singolo
 
-L'infrastruttura locale illustrata in precedenza è connessa ad Azure tramite ExpressRoute. Il circuito ExpressRoute si connette a un router Microsoft Enterprise Edge (MSEE). Per altre informazioni, vedere [Panoramica tecnica di ExpressRoute](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Una volta stabilita la route, si connette al backbone di Azure.
+L'infrastruttura locale illustrata in precedenza è connessa ad Azure tramite ExpressRoute. Il circuito ExpressRoute si connette a un router Microsoft Enterprise Edge (MSEE). Per altre informazioni, vedere [Panoramica tecnica di ExpressRoute](../../../expressroute/expressroute-introduction.md). Una volta stabilita la route, si connette al backbone di Azure.
 
 > [!NOTE] 
 > Per eseguire panorami applicativi SAP in Azure, connettersi al router Enterprise Edge più vicino all'area di Azure nel panorama applicativo SAP. I timbri delle istanze large di HANA sono connessi tramite dispositivi router perimetrali aziendali dedicati per ridurre al minimo la latenza di rete tra le macchine virtuali in IaaS di Azure e gli indicatori di istanze large
@@ -136,7 +136,7 @@ Per impostazione predefinita, sono importanti tre considerazioni sul routing di 
 
 * Se si dispone di unità di istanze large di HANA distribuite in due aree di Azure diverse per il ripristino di emergenza, vengono applicate in passato le stesse restrizioni di routing temporaneo. In altre parole, gli indirizzi IP di un'unità di istanze large di HANA in un'area, ad esempio Stati Uniti occidentali, non sono stati instradati a un'unità di istanze large di HANA distribuita in un'altra area (ad esempio, Stati Uniti orientali). Questa restrizione era indipendente dall'uso del peering di rete di Azure tra le aree o dalla connessione incrociata dei circuiti ExpressRoute che connettono le unità di istanze large di HANA alle reti virtuali. Per una rappresentazione grafica, vedere la figura nella sezione "Usare le unità di istanze Large di HANA in più aree". Questa restrizione, fornita con l'architettura distribuita, non ha consentito l'uso immediato della replica di sistema HANA come funzionalità di ripristino di emergenza. Per le modifiche recenti, cercare la sezione "usare unità di istanze large di HANA in più aree". 
 
-* SAP HANA nelle unità di Azure (istanze large) hanno un indirizzo IP assegnato dall'intervallo di indirizzi del pool IP del server inviato quando si richiede la distribuzione di istanze large di HANA. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questo indirizzo IP è accessibile tramite le sottoscrizioni di Azure e il circuito che connette le reti virtuali di Azure alle istanze large di HANA. L'indirizzo IP assegnato al di fuori dell'intervallo di indirizzi del pool IP del server viene assegnato direttamente all'unità hardware. *Non* viene più assegnato tramite NAT, come avveniva nelle prime distribuzioni di questa soluzione. 
+* SAP HANA nelle unità di Azure (istanze large) hanno un indirizzo IP assegnato dall'intervallo di indirizzi del pool IP del server inviato quando si richiede la distribuzione di istanze large di HANA. Per altre informazioni, vedere [infrastruttura e connettività di SAP Hana (istanze large) in Azure](hana-overview-infrastructure-connectivity.md). Questo indirizzo IP è accessibile tramite le sottoscrizioni di Azure e il circuito che connette le reti virtuali di Azure alle istanze large di HANA. L'indirizzo IP assegnato al di fuori dell'intervallo di indirizzi del pool IP del server viene assegnato direttamente all'unità hardware. *Non* viene più assegnato tramite NAT, come avveniva nelle prime distribuzioni di questa soluzione. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Routing diretto a istanze large di HANA
 

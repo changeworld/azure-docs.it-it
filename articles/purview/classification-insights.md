@@ -1,18 +1,18 @@
 ---
-title: Creazione di report di classificazione sui dati con la funzionalità Insights (anteprima)
-description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report di classificazione di informazioni dettagliate sui dati.
+title: Creazione di report di classificazione sui dati in Azure, uso di Insights
+description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report di classificazione di competenza sui dati.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: bb3c7cc3f51eae90c5b712d224407e639b232fbc
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: a0eed27636a3f65d68489d1f2249db784ba1d722
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938886"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196538"
 ---
 # <a name="classification-insights-about-your-data-from-azure-purview"></a>Informazioni dettagliate sulla classificazione dei dati di Azure
 
@@ -33,7 +33,9 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 
 - Configurare le risorse di Azure e popolare gli account pertinenti con i dati di test
 
-- Configurare e completare un'analisi sui dati di test in ogni origine dati 
+- Configurare e completare un'analisi sui dati di test in ogni origine dati
+
+- Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
 
 Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md).
 

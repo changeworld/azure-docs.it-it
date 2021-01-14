@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c242bbb803e359664eb2fb63262f0c540723f9c6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c14dfadfb7e8724c196b125e9b93c439fac249c3
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94424648"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98109404"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -46,7 +46,7 @@ Prima di inizializzare un oggetto `IntentRecognizer`, è necessario creare una c
 Inserire questo codice nel metodo `RecognizeIntentAsync()`. Assicurarsi di aggiornare questi valori:
 
 * Sostituire `"YourLanguageUnderstandingSubscriptionKey"` con la chiave di previsione di LUIS.
-* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l' **identificatore di area** corrispondente all' [area](../../../../regions.md).
+* Sostituire `"YourLanguageUnderstandingServiceRegion"` con l'area di LUIS. Usare l'**identificatore di area** corrispondente all'[area](../../../../regions.md).
 
 >[!TIP]
 > Per informazioni su come trovare questi valori, vedere [Creare un'app LUIS per il riconoscimento delle finalità](#create-a-luis-app-for-intent-recognition).
@@ -73,6 +73,13 @@ Creare ora un oggetto `IntentRecognizer`. Questo oggetto viene creato all'intern
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 Questo esempio usa la funzione `AddIntent()` per aggiungere le finalità singolarmente. Se si vogliono aggiungere tutte le finalità da un modello, usare `AddAllIntents(model)` e passare il modello. 
+
+> [!NOTE]
+> Speech SDK supporta solo gli endpoint LUIS v2.0.
+> È necessario modificare manualmente l'URL dell'endpoint v3.0 trovato nel campo della query di esempio per usare un modello di URL v2.0.
+> Gli endpoint LUIS v2.0 seguono sempre uno di questi due modelli:
+> * `https://{AzureResourceName}.cognitiveservices.azure.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
+> * `https://{Region}.api.cognitive.microsoft.com/luis/v2.0/apps/{app-id}?subscription-key={subkey}&verbose=true&q=`
 
 ## <a name="recognize-an-intent"></a>Riconoscere una finalità
 
@@ -103,9 +110,9 @@ A questo punto il codice dovrà avere questo aspetto:
 
 A questo punto è possibile compilare l'app e testare il riconoscimento vocale con il servizio Voce.
 
-1. **Compilare il codice** : dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
-2. **Avviare l'app** : dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere <kbd>F5</kbd>.
-3. **Avviare il riconoscimento** : verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
+1. **Compilare il codice**: dalla barra dei menu di Visual Studio scegliere **Compila** > **Compila soluzione**.
+2. **Avviare l'app**: dalla barra dei menu scegliere **Debug** > **Avvia debug** o premere <kbd>F5</kbd>.
+3. **Avviare il riconoscimento**: verrà richiesto di pronunciare una frase in inglese. La voce viene inviata al servizio Voce, trascritta come testo e visualizzata nella console.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

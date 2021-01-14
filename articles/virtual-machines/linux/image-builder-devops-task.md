@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: a3016900b6265bfd56ad1a5a71f70efc01181af5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499255"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196504"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
 
@@ -55,7 +55,7 @@ Sono disponibili due attività DevOps di Azure VM Image Builder (AIB):
 
 ## <a name="add-task-to-release-pipeline"></a>Aggiungi attività alla pipeline di rilascio
 
-Selezionare **modifica pipeline di rilascio**  >  **Edit**
+Selezionare **modifica pipeline di rilascio**  >  
 
 Nell'agente utente selezionare *+* per aggiungere quindi Cerca **Generatore di immagini**. Selezionare **Aggiungi**.
 
@@ -194,7 +194,7 @@ L'esempio seguente illustra come funziona:
     
 #### <a name="total-length-of-image-build"></a>Lunghezza totale della compilazione dell'immagine
 
-Non è ancora possibile modificare la lunghezza totale nell'attività della pipeline DevOps. Usa il valore predefinito di 240 minuti. Se si vuole aumentare il valore di [buildTimeoutInMinutes](./image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-buildtimeoutinminutes), è possibile usare un'attività AZ CLI nella pipeline di rilascio. Configurare l'attività per copiare un modello e inviarlo. Per un esempio, vedere questa [soluzione](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)o usare AZ PowerShell.
+Non è ancora possibile modificare la lunghezza totale nell'attività della pipeline DevOps. Usa il valore predefinito di 240 minuti. Se si vuole aumentare il valore di [buildTimeoutInMinutes](./image-builder-json.md#properties-buildtimeoutinminutes), è possibile usare un'attività AZ CLI nella pipeline di rilascio. Configurare l'attività per copiare un modello e inviarlo. Per un esempio, vedere questa [soluzione](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder)o usare AZ PowerShell.
 
 
 #### <a name="storage-account"></a>Account di archiviazione
@@ -218,7 +218,7 @@ Sono supportati 3 tipi di distribuzione.
     /subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>
     ```
 
-* Percorsi
+* Posizioni
 
 #### <a name="azure-shared-image-gallery"></a>Raccolta di immagini condivise di Azure
 

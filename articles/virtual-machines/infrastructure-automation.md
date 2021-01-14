@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: dfa0efaa49fbca0b927bfd32511348f3ded7e6c7
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302812"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198000"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 
@@ -88,7 +88,7 @@ Gli script possono essere scaricati da una risorsa di archiviazione di Azure o d
 Viene illustrato come:
 
 - [Creare una VM Linux con l'interfaccia della riga di comando di Azure e usare l'estensione di script personalizzata](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Creare una VM Windows con Azure PowerShell e usare l'estensione di script personalizzata](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Creare una VM Windows con Azure PowerShell e usare l'estensione di script personalizzata](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
 
 
 ## <a name="packer"></a>Packer
@@ -138,7 +138,7 @@ Viene illustrato come:
 
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) è il servizio di distribuzione e gestione per Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md) è il servizio di distribuzione e gestione di Azure. Fornisce un livello di gestione che consente di creare, aggiornate ed eliminare risorse nella sottoscrizione di Azure. È possibile usare funzionalità di gestione, come il controllo di accesso, i blocchi e i tag, per proteggere e organizzare le risorse dopo la distribuzione.
 
 Viene illustrato come:
 

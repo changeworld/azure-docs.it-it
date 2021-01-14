@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 6e3eea4b5f44203b68c1263c0fb3ae843cabbe72
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895988"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197761"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -25,7 +25,7 @@ Questo articolo illustra quanto segue:
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
-- Questa funzionalità consente di crittografare solo i nuovi insiemi di credenziali **dei servizi di ripristino** . Gli insiemi di credenziali contenenti gli elementi esistenti registrati o tentati di essere registrati non sono supportati.
+- Questa funzionalità consente di crittografare solo i nuovi insiemi di credenziali **dei servizi di ripristino**. Gli insiemi di credenziali contenenti gli elementi esistenti registrati o tentati di essere registrati non sono supportati.
 
 - Una volta abilitata per un insieme di credenziali di servizi di ripristino, la crittografia con chiavi gestite dal cliente non può essere ripristinata usando chiavi gestite dalla piattaforma (impostazione predefinita). È possibile modificare le chiavi di crittografia in base ai propri requisiti.
 
@@ -33,7 +33,7 @@ Questo articolo illustra quanto segue:
 
 - Questa funzionalità non è correlata a [crittografia dischi di Azure](../security/fundamentals/azure-disk-encryption-vms-vmss.md), che usa la crittografia basata su Guest dei dischi di una macchina virtuale con BitLocker (per Windows) e DM-Crypt (per Linux)
 
-- L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area** . Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
+- L'insieme di credenziali di servizi di ripristino può essere crittografato solo con chiavi archiviate in un Azure Key Vault, che si trova nella **stessa area**. Inoltre, le chiavi devono essere solo **chiavi RSA 2048** e devono essere in stato **abilitato** .
 
 - Lo stato di CMK dell'insieme di credenziali di servizi di ripristino crittografati tra gruppi di risorse e sottoscrizioni
 
@@ -66,7 +66,7 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 
     ![Impostazioni di identità](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Modificare lo **stato** **su on** e selezionare **Salva** .
+1. Modificare lo **stato** **su on** e selezionare **Salva**.
 
 1. Viene generato un ID oggetto, ovvero l'identità gestita assegnata dal sistema dell'insieme di credenziali.
 
@@ -74,11 +74,11 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 
 A questo punto è necessario consentire all'insieme di credenziali dei servizi di ripristino di accedere ai Azure Key Vault che contengono la chiave di crittografia. Questa operazione viene eseguita consentendo all'identità gestita dell'insieme di credenziali di servizi di ripristino di accedere al Key Vault.
 
-1. Passare ai **criteri di accesso** Azure Key Vault->. Continuare con **+ Aggiungi criteri di accesso** .
+1. Passare ai **criteri di accesso** Azure Key Vault->. Continuare con **+ Aggiungi criteri di accesso**.
 
     ![Aggiungi criteri di accesso](./media/encryption-at-rest-with-cmk/access-policies.png)
 
-1. In **autorizzazioni chiave** selezionare le operazioni **Get** , **List** , **Unwrap Key** e **Wrap Key** . Specifica le azioni sulla chiave che saranno consentite.
+1. In **autorizzazioni chiave** selezionare le operazioni **Get**, **List**, **Unwrap Key** e **Wrap Key** . Specifica le azioni sulla chiave che saranno consentite.
 
     ![Assegnazione di autorizzazioni per chiavi](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
@@ -148,25 +148,33 @@ Per assegnare la chiave:
 
     ![Impostazioni di crittografia](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Selezionare **Aggiorna** in **impostazioni di crittografia** .
+1. Selezionare **Aggiorna** in **impostazioni di crittografia**.
 
 1. Nel riquadro impostazioni di crittografia selezionare **Usa una chiave personalizzata** e continuare a specificare la chiave usando uno dei modi seguenti. **Verificare che la chiave che si vuole usare sia una chiave RSA 2048, che si trova in uno stato abilitato.**
 
     1. Immettere l' **URI della chiave** con cui si vogliono crittografare i dati in questo insieme di credenziali di servizi di ripristino. È anche necessario specificare la sottoscrizione in cui è presente la Azure Key Vault (che contiene la chiave). Questo URI chiave può essere ottenuto dalla chiave corrispondente nell'Azure Key Vault. Verificare che l'URI della chiave sia copiato correttamente. È consigliabile usare il pulsante **copia negli Appunti** fornito con l'identificatore di chiave.
 
+        >[!NOTE]
+        >Quando si specifica la chiave di crittografia usando l'URI della chiave, la chiave non verrà ruotata automaticamente. Pertanto, gli aggiornamenti delle chiavi dovranno essere eseguiti manualmente, specificando la nuova chiave quando necessario.
+
         ![Immettere l'URI della chiave](./media/encryption-at-rest-with-cmk/key-uri.png)
 
     1. Individuare e selezionare la chiave dal Key Vault nel riquadro Selezione chiave.
 
+        >[!NOTE]
+        >Quando si specifica la chiave di crittografia tramite il riquadro Selezione chiave, la chiave verrà ruotata automaticamente ogni volta che viene abilitata una nuova versione della chiave.
+
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selezionare **Salva** .
+1. Selezionare **Save** (Salva).
 
-1. **Rilevamento dello stato di avanzamento dell'aggiornamento della chiave di crittografia:** È possibile tenere traccia dello stato di avanzamento dell'assegnazione della chiave usando il **log attività** nell'insieme di credenziali di servizi di ripristino. Lo stato dovrebbe presto essere modificato in **riuscito** . L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
-
-    ![Tenere traccia dello stato di avanzamento con il log attività](./media/encryption-at-rest-with-cmk/activity-log.png)
+1. **Rilevamento dello stato di avanzamento e dello stato dell'aggiornamento della chiave di crittografia**: è possibile tenere traccia dello stato di avanzamento e dello stato dell'assegnazione della chiave di crittografia usando la visualizzazione **processi di backup** sulla barra di spostamento a sinistra. Lo stato sarà presto modificato in **completato**. L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
 
     ![Stato completato](./media/encryption-at-rest-with-cmk/status-succeeded.png)
+
+    Gli aggiornamenti delle chiavi di crittografia vengono registrati anche nel log attività dell'insieme di credenziali.
+
+    ![Log attività](./media/encryption-at-rest-with-cmk/activity-log.png)
 
 >[!NOTE]
 > Questo processo rimane invariato quando si desidera aggiornare o modificare la chiave di crittografia. Se si desidera aggiornare e utilizzare una chiave da un'altra Key Vault (diversa da quella attualmente in uso), verificare che:
@@ -192,7 +200,7 @@ Prima di procedere alla configurazione della protezione, è consigliabile assicu
 >
 >Se tutti i passaggi precedenti sono stati confermati, procedere solo con la configurazione del backup.
 
-Il processo per configurare ed eseguire i backup in un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente è identico a quello di un insieme di credenziali che usa chiavi gestite dalla piattaforma, **senza modifiche all'esperienza** . Questo vale per il [backup di macchine virtuali di Azure](./quick-backup-vm-portal.md) e per il backup dei carichi di lavoro in esecuzione all'interno di una macchina virtuale, ad esempio [SAP Hana](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) database.
+Il processo per configurare ed eseguire i backup in un insieme di credenziali di servizi di ripristino crittografato con chiavi gestite dal cliente è identico a quello di un insieme di credenziali che usa chiavi gestite dalla piattaforma, **senza modifiche all'esperienza**. Questo vale per il [backup di macchine virtuali di Azure](./quick-backup-vm-portal.md) e per il backup dei carichi di lavoro in esecuzione all'interno di una macchina virtuale, ad esempio [SAP Hana](./tutorial-backup-sap-hana-db.md) [SQL Server](./tutorial-sql-backup.md) database.
 
 ## <a name="restoring-data-from-backup"></a>Ripristino dei dati dal backup
 
@@ -214,7 +222,7 @@ I dati archiviati nell'insieme di credenziali di servizi di ripristino possono e
 
 Il set di crittografia del disco viene specificato in impostazioni di crittografia nel riquadro ripristino, come illustrato di seguito:
 
-1. In **Crittografa dischi con la chiave** selezionare **Sì** .
+1. In **Crittografa dischi con la chiave** selezionare **Sì**.
 
 1. Nell'elenco a discesa selezionare la DES da usare per i dischi ripristinati. **Assicurarsi di avere accesso al DES.**
 

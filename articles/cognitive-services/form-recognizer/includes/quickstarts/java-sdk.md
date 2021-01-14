@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6768f46f39920c975e7eccef72563fc0bb7e5180
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 93552d203508fb893bd2e85d27a3a991fc539472
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808590"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132328"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -156,8 +156,8 @@ Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il pri
 `FormRecognizerClient` fornisce le operazioni per:
 
 - Riconoscere campi modulo e contenuti, usando modelli personalizzati sottoposti a training per riconoscere i moduli personalizzati.  Questi valori vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Analizzare moduli personalizzati](#analyze-forms-with-a-custom-model).
-- Riconoscere i contenuti dei moduli, incluse tabelle, righe e parole, senza la necessità di eseguire il training di un modello.  I contenuti dei moduli vengono restituiti in una raccolta di oggetti `FormPage`. Vedere l'esempio [Riconoscere il contenuto di un modulo](#recognize-form-content).
-- Riconoscere i campi comuni delle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare nel servizio Riconoscimento modulo.  Questi campi e i metadati vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Riconoscere le ricevute](#recognize-receipts).
+- Riconoscere i contenuti dei moduli, incluse tabelle, righe e parole, senza la necessità di eseguire il training di un modello.  I contenuti dei moduli vengono restituiti in una raccolta di oggetti `FormPage`. Vedere l'esempio [Analizzare il layout](#analyze-layout).
+- Riconoscere i campi comuni delle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare nel servizio Riconoscimento modulo.  Questi campi e i metadati vengono restituiti in una raccolta di oggetti `RecognizedForm`. Vedere l'esempio [Analizzare ricevute](#analyze-receipts).
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 
@@ -177,17 +177,17 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 * [Autenticare il client](#authenticate-the-client)
-* [Riconoscere il contenuto di un modulo](#recognize-form-content)
-* [Riconoscere le ricevute](#recognize-receipts)
+* [Analizzare il layout](#analyze-layout)
+* [Analizzare ricevute](#analyze-receipts)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
 #### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 * [Autenticare il client](#authenticate-the-client)
-* [Riconoscere il contenuto di un modulo](#recognize-form-content)
-* [Riconoscere le ricevute](#recognize-receipts)
-* [Riconoscere i biglietti da visita](#recognize-business-cards)
-* [Riconoscere le fatture](#recognize-invoices)
+* [Analizzare il layout](#analyze-layout)
+* [Analizzare ricevute](#analyze-receipts)
+* [Analizzare biglietti da visita](#analyze-business-cards)
+* [Analizzare fatture](#analyze-invoices)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
@@ -200,7 +200,7 @@ All'inizio del metodo **principale**, aggiungere il codice seguente. In questo c
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 
-## <a name="recognize-form-content"></a>Riconoscere il contenuto di un modulo
+## <a name="analyze-layout"></a>Analizzare il layout
 
 È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello.
 
@@ -233,7 +233,7 @@ Cell has text $89,024.34.
 Cell has text ET.
 ```
 
-## <a name="recognize-receipts"></a>Riconoscere le ricevute
+## <a name="analyze-receipts"></a>Analizzare ricevute
 
 Questa sezione mostra come riconoscere ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare.
 
@@ -269,7 +269,7 @@ Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
 
-## <a name="recognize-business-cards"></a>Riconoscere i biglietti da visita
+## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
 
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
@@ -293,7 +293,7 @@ Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni
 
 ---
 
-## <a name="recognize-invoices"></a>Riconoscere le fatture
+## <a name="analyze-invoices"></a>Analizzare fatture
 
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 

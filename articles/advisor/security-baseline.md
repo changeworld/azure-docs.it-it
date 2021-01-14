@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 30da040a977f8052f227f19e975915cbbe915102
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 4b737c570f7f4b56f387b60fad180ddd89b84ebe
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532568"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196028"
 ---
 # <a name="azure-security-baseline-for-azure-advisor"></a>Baseline della sicurezza di Azure per Azure Advisor
 
@@ -157,7 +157,7 @@ Usare workstation utente altamente sicure e/o un bastione di Azure per le attivi
 
 È possibile gestire centralmente le workstation protette per applicare la configurazione sicura, tra cui l'autenticazione avanzata, le linee di base software e hardware, l'accesso logico e di rete limitato.
 
-- [Informazioni sulle workstation con accesso con privilegi](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
  
 - [Distribuire una workstation con accesso con privilegi](../active-directory/devices/howto-azure-managed-workstation.md)
 

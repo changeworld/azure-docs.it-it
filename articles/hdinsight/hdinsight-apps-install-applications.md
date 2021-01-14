@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 3c1c7ac8fe8b7adf287bcde30a054df5ebaa63d7
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 2b6ea68d069b90293ab35024bebf3fbdc8acb592
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337441"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197677"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight
 
@@ -37,7 +37,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 |[Starburst Presto for Azure HDInsight](https://azuremarketplace.microsoft.com/marketplace/apps/starburstdatainc1579800938563.starburst-presto?tab=Overview) |Hadoop |Presto è un motore di query SQL distribuito veloce e scalabile. Progettato per separare l'archiviazione dal calcolo, Presto è perfetto per eseguire query sui dati in Azure Data Lake Storage, Archiviazione BLOB di Azure, database SQL e NoSQL e altre origini dati. |
 |[StreamSets Data Collector for HDInsight Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/streamsets.streamsets-data-collector-hdinsight) |Hadoop,HBase,Spark,Kafka |StreamSets Data Collector è un motore leggero e potente che trasmette i dati in tempo reale. Usare l'agente di raccolta dati per instradare ed elaborare i dati nei flussi di dati. Viene fornito con una licenza di valutazione di 30 giorni. |
 |[Trifacta Wrangler Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/trifacta.trifacta-db?tab=Overview) |Hadoop, Spark,HBase |Trifacta Wrangler Enterprise per HDInsight supporta il data wrangling a livello aziendale per qualsiasi scala di dati. Il costo dell'esecuzione di Trifacta su Azure è costituito da una combinazione di costi di sottoscrizione Trifacta oltre ai costi dell'infrastruttura di Azure per le macchine virtuali. |
-|[Unifi Data Platform](https://unifisoftware.com/platform/) |Hadoop,HBase,Storm,Spark |Unifi Data Platform è una semplice suite integrata di strumenti di dati self-service progettati per consentire all'utente aziendale di usare i dati in modo da aumentare il fatturato in modo incrementale, ridurre i costi o la complessità operativa. |
+|[Unifi Data Platform](https://www.crunchbase.com/organization/unifi-software) |Hadoop,HBase,Storm,Spark |Unifi Data Platform è una semplice suite integrata di strumenti di dati self-service progettati per consentire all'utente aziendale di usare i dati in modo da aumentare il fatturato in modo incrementale, ridurre i costi o la complessità operativa. |
 |[Unraveldata APM](https://azuremarketplace.microsoft.com/marketplace/apps/unravel-data.unravel-app) |Spark |App Unravel Data per il cluster HDInsight Spark. |
 |[Waterline AI-Driven Data Catalog](https://azuremarketplace.microsoft.com/marketplace/apps/waterline_data.waterline_data) |Spark |Waterline cataloga, organizza e amministra i dati usando l'intelligenza artificiale per inserire automaticamente tag nei dati con termini aziendali. Il ricco catalogo aziendale di Waterline è un componente critico e di successo per il self-service di analisi, conformità, governance e iniziative di gestione dell'IT. |
 

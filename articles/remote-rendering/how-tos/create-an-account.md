@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83bd4a7ae0082d24f7ac617719e628f4db4baeb9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998533"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197634"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creare un account di Rendering remoto di Azure
 
@@ -71,35 +71,26 @@ Il valore di **`arrAccountKey`** può essere una chiave primaria o secondaria.
 
 Questo paragrafo spiega come collegare gli account di archiviazione all'account di Rendering remoto. Quando si collega un account di archiviazione, non è necessario generare un URI di firma di accesso condiviso ogni volta che si vuole interagire con i dati dell'account, ad esempio durante il caricamento di un modello. È invece possibile usare direttamente i nomi degli account di archiviazione, come descritto nella sezione [Caricare una sezione del modello](../concepts/models.md#loading-models).
 
-Per ogni account di archiviazione che deve usare questo metodo di accesso alternativo, è necessario eseguire la procedura descritta in questo paragrafo. Se gli account di archiviazione non sono ancora stati creati, è possibile esaminare il passaggio corrispondente in [Convertire un modello per l'avvio rapido del rendering](../quickstarts/convert-model.md#storage-account-creation).
+Per ogni account di archiviazione che deve usare questo metodo di accesso, è necessario eseguire i passaggi descritti in questo paragrafo. Se gli account di archiviazione non sono ancora stati creati, è possibile esaminare il passaggio corrispondente in [Convertire un modello per l'avvio rapido del rendering](../quickstarts/convert-model.md#storage-account-creation).
 
 A questo punto si presuppone che si disponga di un account di archiviazione. Passare all'account di archiviazione nel portale e passare alla scheda **Controllo di accesso (IAM)** per l'account di archiviazione:
 
 ![IAM dell'account di archiviazione](./media/azure-storage-account.png)
 
- Assicurarsi di disporre delle autorizzazioni di proprietario per questo account di archiviazione per assicurarsi che sia possibile aggiungere assegnazioni di ruolo. Se non si dispone dell'accesso, l'opzione **Aggiungi assegnazione di ruolo** verrà disabilitata.
+Assicurarsi di disporre delle autorizzazioni di proprietario per questo account di archiviazione per assicurarsi che sia possibile aggiungere assegnazioni di ruolo. Se non si dispone dell'accesso, l'opzione **Aggiungi assegnazione di ruolo** verrà disabilitata.
 
- È necessario aggiungere tre ruoli distinti, come descritto nei passaggi successivi. Se non si forniscono tutti e tre i livelli di accesso, si verificano problemi di autorizzazione durante il tentativo di accesso all'account di archiviazione.
-
- Fare clic sul pulsante **Aggiungi** nel riquadro "Aggiungi un'assegnazione di ruolo" per aggiungere il primo ruolo:
+Fare clic sul pulsante **Aggiungi** nel riquadro "Aggiungi assegnazione ruolo" per aggiungere il ruolo.
 
 ![L'account di archiviazione IAM aggiungere l'assegnazione di ruolo](./media/azure-add-role-assignment.png)
 
-* Il primo ruolo da assegnare è **Proprietario**, come illustrato nella schermata precedente.
-* Selezionare **Account di Rendering remoto** dall'elenco a discesa **Assegna accesso a**.
+* Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** come illustrato nella schermata precedente.
+* Selezionare il sistema di account per il **rendering remoto**  identità gestita assegnata dall'elenco **a discesa assegna accesso a** .
 * Selezionare la sottoscrizione e l'account per il Rendering remoto negli ultimi elenchi a discesa.
+* Fare clic su "Salva" per salvare le modifiche.
 
 > [!WARNING]
 > Nel caso in cui l'account di Rendering remoto non sia elencato, fare riferimento a questa [sezione di risoluzione dei problemi](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Ripetere l'aggiunta di nuovi ruoli altre due volte per le rispettive selezioni dall'elenco a discesa **Ruolo**:
-
-* **Collaboratore account di archiviazione**
-* **Collaboratore ai dati del BLOB di archiviazione**
-
-Gli altri elenchi a discesa vengono selezionati come nel primo passaggio.
-
-Se sono stati aggiunti tutti e tre i ruoli, l'account di Rendering remoto di Azure ha accesso all'account di archiviazione usando le Identità del servizio gestito assegnate dal sistema.
 > [!IMPORTANT]
 > Le assegnazioni di ruolo di Azure vengono memorizzate nella cache da archiviazione di Azure, pertanto potrebbe verificarsi un ritardo di un massimo di 30 minuti tra il momento in cui si concede l'accesso all'account di rendering remoto e quando può essere usato per accedere all'account di archiviazione. Per informazioni dettagliate, vedere la [documentazione sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
 

@@ -7,16 +7,16 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalizza esperienze, Personalizza esperienze di Azure, Machine Learning
-ms.openlocfilehash: 28aae130d062eaf57a66a9b90a6602c3874f1494
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33c1770c5c8722a55d8f1df4aff9b1637d903977
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094149"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028778"
 ---
 # <a name="what-is-personalizer"></a>Informazioni su Personalizza esperienze
 
-Personalizza esperienze di Azure è un servizio basato sul cloud che consente alle applicazioni di scegliere l'elemento di contenuto migliore da mostrare agli utenti. È possibile usare il servizio Personalizza esperienze per determinare il prodotto da suggerire ai clienti o per individuare la posizione ottimale per un annuncio pubblicitario. Una volta che il contenuto viene presentato all'utente, il sistema monitora il comportamento degli utenti in tempo reale e segnala un punteggio di ricompensa al servizio Personalizza esperienze. Questo garantisce il miglioramento continuo del modello di Machine Learning e la capacità di Personalizza esperienze di selezionare l'elemento di contenuto migliore in base alle informazioni contestuali ricevute.
+Personalizza esperienze di Azure è un servizio basato sul cloud che consente alle applicazioni di scegliere l'elemento di contenuto migliore da mostrare agli utenti. È possibile usare il servizio Personalizza esperienze per determinare il prodotto da suggerire ai clienti o per individuare la posizione ottimale per un annuncio pubblicitario. Quando il contenuto viene presentato all'utente, l'applicazione ne monitora la reazione e segnala un punteggio di ricompensa al servizio Personalizza esperienze. Questo garantisce il miglioramento continuo del modello di Machine Learning e la capacità di Personalizza esperienze di selezionare l'elemento di contenuto migliore in base alle informazioni contestuali ricevute.
 
 > [!TIP]
 > Il contenuto è qualsiasi unità di informazioni, ad esempio testo, immagini, URL, messaggi di posta elettronica o qualsiasi altro elemento da selezionare e mostrare agli utenti.
@@ -65,7 +65,7 @@ L'[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-a
 
 Usare Personalizza esperienze quando il contenuto:
 
-* Include un set limitato di elementi (massimo circa 50) tra cui selezionare. Se l'elenco è più lungo, [usare un motore di raccomandazioni](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) per ridurlo a 50 elementi.
+* Include un set limitato di azioni o elementi (approssimativamente un massimo di 50) tra cui selezionare in ogni evento di personalizzazione. Se l'elenco è più lungo, [usare un motore di raccomandazioni](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) per ridurlo a 50 elementi ogni volta che si chiama il servizio Classificazione o Personalizza esperienze.
 * Include informazioni che descrivono il contenuto da classificare: _azioni con caratteristiche_ e _caratteristiche del contesto_.
 * Include almeno circa 1000 eventi correlati al contenuto al giorno affinché Personalizza esperienze sia efficace. Se Personalizza esperienze non riceve il traffico minimo richiesto, il servizio impiega più tempo a determinare il singolo elemento di contenuto migliore.
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: c824e0abea7320a20441e51caa2a05d534ff61b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092687"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196589"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -33,8 +33,9 @@ In ambito, le classificazioni sono simili ai tag Subject e vengono usate per con
 La competenza usa le stesse classificazioni, note anche come tipi di informazioni riservate, come Microsoft 365.  Le etichette di riservatezza MIP vengono create nel centro sicurezza e conformità di Microsoft 365 (SCC). In questo modo è possibile estendere le etichette di riservatezza esistenti tra le risorse di competenza di Azure.
 
 > [!NOTE]
-> Mentre le classificazioni vengono confrontate direttamente (un numero di previdenza sociale ha una classificazione di un **numero di previdenza sociale**), le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e scenari. 
-> 
+> Le classificazioni vengono confrontate direttamente, ad esempio un numero di previdenza sociale, che ha una classificazione del **codice fiscale**. 
+>
+> Al contrario, le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e condizioni. In questo contesto, le [condizioni](/microsoft-365/compliance/apply-sensitivity-label-automatically) si riferiscono a tutti i parametri che è possibile definire per i dati non strutturati, ad esempio la **vicinanza a un'altra classificazione** e la **percentuale di confidenza**. 
 
 Le etichette di riservatezza in Azure possono essere usate per applicare automaticamente le etichette ai file e alle colonne del database.
 
@@ -92,16 +93,11 @@ Estendendo le etichette di riservatezza del MIP con ambito Azure, le organizzazi
 >
 > Per questo motivo, le etichette e i tipi di informazioni riservate personalizzate non vengono condivisi in Azure per impostazione predefinita e richiedono il consenso per usarli in Azure.
 
-> [!IMPORTANT]
-> Il consenso consente a Microsoft di condividere il nome dell'etichetta e il nome del tipo di informazioni riservate personalizzate sia in Azure *sia* in Azure Security Center (ASC). Microsoft usa le informazioni sulle etichette di Azure per arricchire le raccomandazioni e gli avvisi in ASC. 
->
-> Il consenso in Microsoft 365 Compliance Center si applica alla condivisione di questi dati con entrambi i servizi. Attualmente non è possibile condividere le informazioni sull'etichetta solo con l'ambito di competenza di Azure.
-
 **Per estendere le etichette di riservatezza alle competenze:**
 
 In Microsoft 365 passare alla pagina **Information Protection** . Nella finestra di dialogo **Estendi etichetta per asset in Azure**, selezionare il pulsante **attiva** , quindi selezionare **Sì** nella finestra di conferma visualizzata.
 
-Esempio:
+Ad esempio:
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="Selezionare * * Attiva * * per estendere le etichette di riservatezza alla competenza" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -159,7 +155,7 @@ Definire le regole di etichettatura automatica per i file nella procedura guidat
 
 Nella pagina **etichetta automatica per le app di Office** abilitare l' **etichettatura automatica per le app di Office** e quindi definire le condizioni in cui si vuole che l'etichetta venga applicata automaticamente ai dati.
 
-Esempio:
+Ad esempio:
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Definire le regole di etichetta automatica per i file nel centro sicurezza e conformità di Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -175,7 +171,7 @@ Nell'opzione **asset di Azure (anteprima)** :
 
 1. Selezionare **Controlla tipi di informazioni riservate** per scegliere i tipi di informazioni riservate che si desidera applicare all'etichetta.
 
-Esempio:
+Ad esempio:
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definire le regole di etichetta automatica per le colonne SQL nel centro sicurezza e conformità di Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -185,11 +181,11 @@ Analizza i dati in Azure per applicare automaticamente le etichette create, in b
 
 Per altre informazioni su come configurare le analisi in diversi asset in Azure, vedere:
 
-|Source (Sorgente)  |Informazioni di riferimento  |
+|Source (Sorgente)  |Riferimento  |
 |---------|---------|
 |**Archiviazione BLOB di Azure**     |[Registrare e analizzare l'archivio BLOB di Azure](register-scan-azure-blob-storage-source.md)         |
 |**Archiviazione di Azure Data Lake**     |[Registra e analizza Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registra e analizza Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |
-|**Database SQL di Azure**|[Registrare e analizzare un database SQL di Azure](register-scan-azure-sql-database.md) </br>[Registrare e analizzare un Istanza gestita di database SQL di Azure](register-scan-azure-sql-database-managed-instance.md)|
+|**Database SQL di Azure**|[Registrare e analizzare Database SQL di Azure](register-scan-azure-sql-database.md) </br>[Registrare e analizzare un'istanza gestita di database SQL di Azure](register-scan-azure-sql-database-managed-instance.md)|
 | | |
 
 ## <a name="view-labels-on-assets"></a>Visualizzare le etichette negli asset
@@ -198,11 +194,11 @@ Una volta definite le regole di etichetta automatica per le etichette in Microso
 
 **Per visualizzare le etichette applicate agli asset nel catalogo di competenze di Azure:**
 
-Nel catalogo di Azure per le competenze usare le opzioni di filtro **etichette** per visualizzare solo i file con etichette specifiche. Esempio: 
+Nel catalogo di Azure per le competenze usare le opzioni di filtro **etichette** per visualizzare solo i file con etichette specifiche. Ad esempio: 
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Cerca asset per etichetta" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-Esempio:
+Ad esempio:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Visualizzare un'etichetta di riservatezza in un file nell'archivio BLOB di Azure" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 

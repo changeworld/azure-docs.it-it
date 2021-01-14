@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: a677623c030ff26567f14a4526f6d07bc6631a37
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 31e1a0d912c6623f57d4ea256968102604ce42ff
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853719"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132345"
 ---
 > [!NOTE]
 > Questa guida usa cURL per eseguire chiamate alle API REST. È anche disponibile un [codice di esempio in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/FormRecognizer/rest) che illustra come chiamare le API REST con Python.
@@ -32,7 +32,7 @@ ms.locfileid: "97853719"
 * Un URL dell'immagine di una fattura. Per questa guida di avvio rapido, è possibile usare un [documento di esempio](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf).
 
 
-## <a name="recognize-form-content"></a>Riconoscere il contenuto di un modulo
+## <a name="analyze-layout"></a>Analizzare il layout
 
 È possibile usare Riconoscimento modulo per riconoscere ed estrarre tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Prima di eseguire il comando, apportare queste modifiche:
 
@@ -319,7 +319,7 @@ Vedere l'immagine di fattura seguente e il corrispondente output JSON. L'output 
 
 ---
 
-## <a name="recognize-receipts"></a>Riconoscere le ricevute
+## <a name="analyze-receipts"></a>Analizzare ricevute
 
 Per iniziare ad analizzare una ricevuta, chiamare l'API **[Analyze Receipt](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeReceiptAsync)** usando il comando cURL seguente. Prima di eseguire il comando, apportare queste modifiche:
 
@@ -699,7 +699,7 @@ Il nodo `"readResults"` contiene tutto il testo riconosciuto, se si imposta il p
 }
 ```
 
-## <a name="recognize-business-cards"></a>Riconoscere i biglietti da visita
+## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 
@@ -861,7 +861,7 @@ Lo script visualizzerà le risposte sulla console fino al completamento dell'ope
 
 ---
 
-## <a name="recognize-invoices"></a>Riconoscere le fatture
+## <a name="analyze-invoices"></a>Analizzare fatture
 
 # <a name="version-20"></a>[versione 2.0](#tab/v2-0)
 

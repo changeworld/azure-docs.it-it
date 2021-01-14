@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: cddc7f4f453f22b0cb36b1d3a1e9c2fba2dcabaf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 577b8527d95a6410deca8002cddfaae31be1fc97
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455087"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197490"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Creare una macchina virtuale Windows da un disco specializzato usando PowerShell
 
@@ -54,7 +54,7 @@ Sarà quindi possibile collegare questo disco come disco del sistema operativo a
 ### <a name="prepare-the-vm"></a>Preparare la macchina virtuale
 Usare il disco rigido virtuale così com'è per creare una nuova macchina virtuale. 
   
-  * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). **Non** generalizzare la macchina Virtuale usando Sysprep.
+  * [Preparare un disco rigido virtuale (VHD) di Windows per il caricamento in Azure](prepare-for-upload-vhd-image.md). **Non** generalizzare la macchina Virtuale usando Sysprep.
   * Rimuovere tutti gli strumenti di virtualizzazione guest e gli agenti installati nella macchina virtuale, ad esempio gli strumenti VMware.
   * Verificare che la macchina virtuale sia configurata per ottenere l'indirizzo IP e le impostazioni DNS da DHCP. In questo modo il server ottiene un indirizzo IP all'interno della rete virtuale all'avvio. 
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
     
 ```
 
-Per altre informazioni sugli endpoint e sulle regole dei gruppi di sicurezza di rete, vedere [Apertura di porte in una macchina virtuale tramite PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per altre informazioni sugli endpoint e sulle regole dei gruppi di sicurezza di rete, vedere [Apertura di porte in una macchina virtuale tramite PowerShell](nsg-quickstart-powershell.md).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Creare un indirizzo IP pubblico e NIC
 Per abilitare la comunicazione con la macchina virtuale nella rete virtuale, saranno necessari un [indirizzo IP pubblico](../../virtual-network/public-ip-addresses.md) e un'interfaccia di rete.

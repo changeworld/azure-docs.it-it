@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: bf593eab54233ab65435585485dd8e3940f5addb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489820"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98197592"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -275,7 +275,7 @@ Richiedere Azure AD Multi-Factor Authentication all'accesso per tutti i singoli 
 **Dettagli**: usare una workstation di amministrazione. Scegliere un livello di sicurezza della workstation:
 
 - I dispositivi di produzione con sicurezza elevata garantiscono sicurezza avanzata per l'esplorazione e altre attività di produzione.
-- Per le attività sensibili, le [workstation dotate di accesso con privilegi (PAW, Privileged Access Workstation)](/windows-server/identity/securing-privileged-access/privileged-access-workstations) forniscono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce.
+- Per le attività sensibili, le [workstation dotate di accesso con privilegi (PAW, Privileged Access Workstation)](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) forniscono un sistema operativo dedicato, protetto dagli attacchi provenienti da Internet e dai vettori di minacce.
 
 **Procedura consigliata**: effettuare il deprovisioning degli account amministratore quando i dipendenti lasciano l'organizzazione.
 **Dettagli**: predisporre un processo che disabilita o elimina gli account amministratore quando i dipendenti lasciano l'organizzazione.

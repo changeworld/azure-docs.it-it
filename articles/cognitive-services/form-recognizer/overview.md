@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione dati automatica, elaborazione di documenti, immissione automatica di dati, elaborazione di moduli
-ms.openlocfilehash: ed940622f72271ef3e606c5068babcb6366c31b6
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845534"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98044765"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -42,11 +42,11 @@ Per provare il servizio Riconoscimento modulo, passare allo strumento dell'inter
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)
 > [!div class="nextstepaction"]
-> [Provare i modelli predefiniti](https://fott.azurewebsites.net/)
+> [Provare Riconoscimento modulo](https://fott.azurewebsites.net/)
 
 # <a name="v21-preview"></a>[v2.1.preview](#tab/v2-1)
 > [!div class="nextstepaction"]
-> [Provare i modelli predefiniti](https://fott-preview.azurewebsites.net/)
+> [Provare Riconoscimento modulo](https://fott-preview.azurewebsites.net/)
 
 ---
 
@@ -152,7 +152,18 @@ Per altre informazioni, esplorare la [documentazione di riferimento dell'API RES
 
 ## <a name="deploy-on-premises-using-docker-containers"></a>Distribuire in locale con i contenitori Docker
 
-[Usare i contenitori di Riconoscimento modulo (anteprima)](form-recognizer-container-howto.md) per distribuire le funzionalità dell'API in locale. Questo contenitore Docker consente di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo.
+[Usare i contenitori di Riconoscimento modulo (anteprima)](form-recognizer-container-howto.md) per distribuire le funzionalità dell'API in locale. Questo contenitore Docker consente di avvicinare il servizio ai dati per motivi di conformità, sicurezza o di altro tipo. 
+
+## <a name="service-availability-and-redundancy"></a>Disponibilità e ridondanza del servizio
+
+### <a name="is-form-recognizer-service-zone-resilient"></a>Il servizio Riconoscimento modulo offre resilienza della zona?
+
+Sì. Il servizio Riconoscimento è con resilienza della zona per impostazione predefinita.
+
+### <a name="how-do-i-configure-the-form-recognizer-service-to-be-zone-resilient"></a>Come si configura il servizio Riconoscimento modulo in modo da abilitare la resilienza della zona?
+
+Non è necessaria alcuna configurazione del cliente per abilitare la resilienza della zona. La resilienza della zona per le risorse di Riconoscimento modulo è disponibile per impostazione predefinita e viene gestita dal servizio stesso.
+
 
 ## <a name="data-privacy-and-security"></a>Sicurezza e privacy dei dati
 

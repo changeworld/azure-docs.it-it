@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: c88a2cf33cf1149a17af4a82dcf2858822f0c6d4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696150"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98196079"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza e la crittografia dei dati.
@@ -74,7 +74,7 @@ Usare il controllo degli accessi in base al ruolo di Azure Se ad esempio si vuol
 Poiché la maggior parte degli attacchi prende di mira l'utente finale, l'endpoint diventa uno dei principali punti di attacco. Un utente malintenzionato che compromette l'endpoint può usare le credenziali dell'utente per accedere ai dati dell'organizzazione. Nella maggior parte dei casi, gli attacchi agli endpoint sfruttano il fatto che gli utenti finali sono amministratori delle workstation locali.
 
 **Procedura consigliata**: usare una workstation di gestione sicura per proteggere gli account, le attività e i dati sensibili.   
-**Dettagli**: usare una [workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations) per ridurre la superficie di attacco nelle workstation. Queste workstation di gestione sicure consentono di contenere alcuni di questi attacchi e contribuiscono a proteggere i dati.
+**Dettagli**: usare una [workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) per ridurre la superficie di attacco nelle workstation. Queste workstation di gestione sicure consentono di contenere alcuni di questi attacchi e contribuiscono a proteggere i dati.
 
 **Procedura consigliata**: assicurare la protezione di endpoint.   
 **Dettagli**: applicare criteri di sicurezza in tutti i dispositivi che consentono di utilizzare i dati, indipendentemente dal fatto che i dati si trovino nel cloud o in locale.

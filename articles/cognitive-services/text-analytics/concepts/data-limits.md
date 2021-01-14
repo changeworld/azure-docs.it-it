@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/19/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: c60adb09da05ba945bcf6ccb55e71c395f064211
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2adca03a820d02731bca252dee99c76debc85e2e
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965103"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028132"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limiti dei dati e di velocità per l'API Analisi del testo
 <a name="data-limits"></a>
@@ -35,7 +35,15 @@ Usare questo articolo per informazioni sui limiti di dimensioni e velocità per 
 | Dimensioni massime di un singolo documento (endpoint `/analyze`)  | 125.000 caratteri misurati in base a [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Non si applica ad Analisi del testo per la sanità. |
 | Dimensioni massime dell'intera richiesta | 1 MB. Si applica anche ad Analisi del testo per la sanità. |
 
-Il numero massimo di documenti che è possibile inviare in una singola richiesta dipende dalla versione dell'API e dalla funzionalità in uso. L'endpoint `/analyze` rifiuterà l'intera richiesta se qualsiasi documento supera le dimensioni massime (125.000 caratteri)
+
+Se un documento supera il limite di caratteri, l'API avrà un comportamento diverso a seconda dell'endpoint in uso:
+
+* Endpoint `/analyze`:
+  * L'API rifiuterà l'intera richiesta e restituirà un errore `400 bad request` se un documento al suo interno supera le dimensione massime.
+* Tutti gli altri endpoint:  
+  * L'API non elaborerà un documento che supera le dimensioni massime e restituirà un errore di documento non valido. Se una richiesta API include più documenti, l'API continuerà a elaborarli se rispettano il limite di caratteri.
+
+Il numero massimo di documenti che è possibile inviare in una singola richiesta dipende dalla versione dell'API e dalla funzionalità in uso, come descritto nella tabella seguente.
 
 #### <a name="version-3"></a>[Versione 3](#tab/version-3)
 

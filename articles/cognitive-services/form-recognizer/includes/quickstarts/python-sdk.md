@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 9762ca79f73b3333045d1c11376ab315aac2d55e
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: fb9d74da6030c430cce4a2a3c4c5e4299183ca15
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97808658"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132306"
 ---
 > [!IMPORTANT]
 > * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Vedere la documentazione di riferimento di seguito. 
@@ -100,8 +100,8 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
 * [Autenticare il client](#authenticate-the-client)
-* [Riconoscere il contenuto di un modulo](#recognize-form-content)
-* [Riconoscere le ricevute](#recognize-receipts)
+* [Analizzare il layout](#analyze-layout)
+* [Analizzare ricevute](#analyze-receipts)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
@@ -109,10 +109,10 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 #### <a name="version-21-preview"></a>[versione 2.1-preview](#tab/preview)
 
 * [Autenticare il client](#authenticate-the-client)
-* [Riconoscere il contenuto di un modulo](#recognize-form-content)
-* [Riconoscere le ricevute](#recognize-receipts)
-* [Riconoscere i biglietti da visita](#recognize-business-cards)
-* [Riconoscere le fatture](#recognize-invoices)
+* [Analizzare il layout](#analyze-layout)
+* [Analizzare ricevute](#analyze-receipts)
+* [Analizzare biglietti da visita](#analyze-business-cards)
+* [Analizzare fatture](#analyze-invoices)
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
@@ -137,7 +137,7 @@ Sarà necessario aggiungere riferimenti agli URL per i dati di training e di tes
 > [!NOTE]
 > I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si desidera elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](/python/api/azure-ai-formrecognizer) e negli [esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
-## <a name="recognize-form-content"></a>Riconoscere il contenuto di un modulo
+## <a name="analyze-layout"></a>Analizzare il layout
 
 È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello.
 
@@ -171,7 +171,7 @@ Confidence score: 1.0
 
 ```
 
-## <a name="recognize-receipts"></a>Riconoscere le ricevute
+## <a name="analyze-receipts"></a>Analizzare ricevute
 
 Questa sezione mostra come riconoscere ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare. Per riconoscere le ricevute a partire da un URL, usare il metodo `begin_recognize_receipts_from_url`. 
 
@@ -203,7 +203,7 @@ Total: 1203.39 has confidence 0.774
 ```
 
 
-## <a name="recognize-business-cards"></a>Riconoscere i biglietti da visita
+## <a name="analyze-business-cards"></a>Analizzare biglietti da visita
 
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
@@ -221,7 +221,7 @@ Questa sezione illustra come riconoscere ed estrarre i campi comuni dai bigliett
 
 ---
 
-## <a name="recognize-invoices"></a>Riconoscere le fatture
+## <a name="analyze-invoices"></a>Analizzare fatture
 
 #### <a name="version-20"></a>[versione 2.0](#tab/ga)
 
