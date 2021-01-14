@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bd312f64bd04f4aff6623aa2b911d5e4bffe9f9a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978595"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201927"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Salva i costi con le prenotazioni host dedicato di Azure
 
@@ -22,9 +22,9 @@ Quando si esegue il commit in un'istanza riservata di host dedicati di Azure, è
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determinare lo SKU host dedicato corretto prima di acquistare
 
 
-Prima di acquistare una prenotazione, è necessario determinare quale host dedicato è necessario. Uno SKU viene definito per un host dedicato che rappresenta la serie di macchine virtuali e il tipo. 
+Prima di acquistare una prenotazione, è necessario determinare quale host dedicato è necessario. Uno SKU viene definito per un host dedicato che rappresenta la serie di macchine virtuali e il tipo. 
 
-Per identificare la serie di macchine virtuali, è innanzitutto necessario passare alle dimensioni supportate per la [macchina virtuale Windows](./sizes.md) o [Linux](./sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+Per identificare la serie di macchine virtuali, è innanzitutto necessario passare alle dimensioni supportate per la [macchina virtuale Windows](./sizes.md) o [Linux](./sizes.md) .
 
 Controllare quindi se è supportato in host dedicati di Azure. La pagina dei [prezzi di host dedicati di Azure](https://aka.ms/ADHPricing) include l'elenco completo di SKU host dedicati, le informazioni sulla CPU e varie opzioni di prezzo, incluse le istanze riservate.
 
@@ -38,56 +38,56 @@ Le istanze riservate sono disponibili per la maggior parte delle dimensioni host
 
 Gli sconti per le prenotazioni non si applicano a quanto segue:
 
-- **Cloud**   -Le prenotazioni non sono disponibili per l'acquisto in paesi della Germania o della Cina.
+- **Cloud** : le prenotazioni non sono disponibili per l'acquisto nelle aree Germania o Cina.
 
-- **Quota**   insufficiente -Una prenotazione con ambito limitato a una singola sottoscrizione deve avere una quota di vCPU disponibile nella sottoscrizione per la nuova istanza riservata. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota di 10 vCPU per la serie DSv3, non è possibile acquistare un host dedicato di prenotazione che supporti questa serie. Il controllo della quota per le prenotazioni include le macchine virtuali e gli host dedicati già distribuiti nella sottoscrizione. Per risolvere il problema, è possibile creare una [richiesta di aumento della quota](../azure-portal/supportability/resource-manager-core-quotas-request.md)   .
+- **Quota insufficiente** : una prenotazione con ambito per una singola sottoscrizione deve avere una quota di vCPU disponibile nella sottoscrizione per la nuova istanza riservata. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota di 10 vCPU per la serie DSv3, non è possibile acquistare un host dedicato di prenotazione che supporti questa serie. Il controllo della quota per le prenotazioni include le macchine virtuali e gli host dedicati già distribuiti nella sottoscrizione. Per risolvere il problema, è possibile [creare una richiesta di aumento della quota](../azure-portal/supportability/resource-manager-core-quotas-request.md) .
 
-- **Limitazioni**   di capacità In rari casi, Azure limita l'acquisto di nuove prenotazioni per sottoinsiemi di SKU host dedicati, a causa della capacità ridotta in un'area.
+- **Restrizioni di capacità** : in rari casi, Azure limita l'acquisto di nuove prenotazioni per sottoinsiemi di SKU host dedicati, a causa della capacità ridotta in un'area.
 
 ## <a name="buy-a-reservation"></a>Acquistare una prenotazione
 
-È possibile acquistare un'istanza riservata di un'istanza host dedicata di Azure nell' [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+È possibile acquistare un'istanza riservata di un'istanza host dedicata di Azure nell' [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Pagare per la prenotazione [prima o con pagamenti mensili](../cost-management-billing/reservations/prepare-buy-reservation.md). Questi requisiti si applicano all'acquisto di un'istanza host dedicata riservata:
+Usare [pagamenti anticipati o mensili](../cost-management-billing/reservations/prepare-buy-reservation.md) per acquistare la prenotazione. Questi requisiti si applicano all'acquisto di un'istanza host dedicata riservata:
 
 - È necessario avere un ruolo proprietario per almeno una sottoscrizione EA o una sottoscrizione con pagamento in base al consumo.
 
-- Per le sottoscrizioni EA, l'opzione **Aggiungi istanze riservate**   deve essere abilitata nel [portale EA](https://ea.azure.com/). Se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
+- Per le sottoscrizioni EA, l'opzione **Aggiungi istanze riservate** deve essere abilitata nel [portale EA](https://ea.azure.com/). Se tale impostazione è disabilitata, è necessario essere un amministratore del contratto EA della sottoscrizione.
 
 - Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o gli agenti di vendita possono acquistare le prenotazioni.
 
 Per acquistare un'istanza:
 
-1. Accedere al  [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Selezionare **tutte le prenotazioni dei servizi**   \>  **Reservations**.
+2. Selezionare **Tutti i servizi** \> **Prenotazioni**.
 
-3. Selezionare **Aggiungi**   per acquistare una nuova prenotazione e quindi fare clic su **host dedicati**.
+3. Selezionare **Aggiungi** per acquistare una nuova prenotazione e quindi fare clic su **host dedicati**.
 
 4. Compilare i campi obbligatori. L'esecuzione di istanze host dedicate che corrispondono agli attributi selezionati è idonea per ottenere lo sconto per la prenotazione. Il numero effettivo delle istanze host dedicate che ottengono lo sconto dipendono dall'ambito e dalla quantità selezionati.
 
-Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione Aggiungi ulteriore**   per aggiungere rapidamente ulteriori istanze. L'opzione non è disponibile per altri tipi di sottoscrizione.
+Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione Aggiungi ulteriore** per aggiungere rapidamente ulteriori istanze. L'opzione non è disponibile per altri tipi di sottoscrizione.
 
 | **Campo**           | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Subscription        | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione. |
-| Scope               | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Ambito               | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | Region              | L'area di Azure coperta dalla prenotazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Dimensioni host dedicate | Dimensioni delle istanze host dedicate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Termine                | Un anno o tre anni.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Quantità            | Il numero di istanze acquistate all'interno della prenotazione. La quantità è il numero di istanze dell'host dedicato in esecuzione che possono ottenere lo sconto per la fatturazione.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-- Ambito del gruppo di **risorse singolo**   : Applica lo sconto di prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.
+- **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
 
-- **Ambito**   singola sottoscrizione : Applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.
+- **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.
 
-- **Ambito condiviso**   : Applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
+- **Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.
 
 ## <a name="usage-data-and-reservation-utilization"></a>Utilizzo prenotazione e dati di utilizzo
 
 I dati di utilizzo hanno un prezzo effettivo pari a zero per l'utilizzo che ottiene uno sconto sulla prenotazione. È possibile visualizzare l'istanza di macchina virtuale che ha ricevuto lo sconto di prenotazione per ogni prenotazione.
 
-Per altre informazioni su come vengono visualizzati gli sconti di prenotazione nei dati di utilizzo, vedere informazioni [sull'utilizzo delle prenotazioni di Azure per la registrazione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)   se si è clienti con contratto Enterprise. Se si ha una sottoscrizione singola, vedere [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Per altre informazioni su come vengono visualizzati gli sconti di prenotazione nei dati di utilizzo, vedere informazioni [sull'utilizzo delle prenotazioni di Azure per la registrazione Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) se si è clienti con contratto Enterprise. Se si ha una sottoscrizione singola, vedere [informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Modificare una prenotazione dopo l'acquisto
 
@@ -109,21 +109,21 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 
 - Quantità
 
-- Duration
+- Durata
 
-Tuttavia, *exchange*   se si desidera apportare modifiche, è possibile scambiare una prenotazione.
+Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso
 
-È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+È possibile annullare o scambiare le prenotazioni oppure chiederne il rimborso con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande o per assistenza,  [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come gestire una prenotazione, vedere [gestire le prenotazioni di Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
+Per informazioni su come gestire una prenotazione, vedere [Gestire le prenotazioni di Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 

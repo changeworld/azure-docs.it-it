@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23a177945316bca89aa5cbcc46f840213dbe832
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: cd81139c15e6bba65fe9b9a53a2e8e950ebd754b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964814"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201757"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Architettura di SAP HANA (istanze Large) in Azure
 
@@ -43,7 +43,7 @@ L'architettura illustrata è suddivisa in tre sezioni.
    Per le applicazioni e i database SAP NetWeaver che supportano l'esecuzione in Azure, vedere [SAP Support Note #1928533 - SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) (Nota di supporto SAP 1928533 - Applicazioni SAP in Azure: prodotti supportati e tipi di VM di Azure). Per informazioni su come distribuire soluzioni SAP in Azure, vedere:
 
   -  [Usare SAP nelle macchine virtuali Windows](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
-  -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Usare soluzioni SAP nelle macchine virtuali di Azure](get-started.md)
 
 - **Sezione sinistra**: mostra l'hardware con certificazione SAP HANA TDI nel modulo per istanze Large in Azure. Le unità di istanze large di HANA sono connesse alle reti virtuali della sottoscrizione di Azure usando la stessa tecnologia della connettività da locale ad Azure. Al 2019 maggio è stata introdotta un'ottimizzazione che consente di comunicare tra le unità di istanze large di HANA e le macchine virtuali di Azure senza coinvolgere il gateway ExpressRoute. Questa ottimizzazione denominata percorso rapido ExpressRoute viene visualizzata in questa architettura (linee rosse). 
 

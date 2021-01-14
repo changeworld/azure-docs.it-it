@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a2cbd2dd4dd32be137e461985e9f10fd07ed8a60
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: ee4c364012b32ff8ee938dec2a7446853c32ba0b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325639"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203083"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -26,7 +26,7 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 *Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o Firewall di Azure nella rete virtuale
+### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
 **Linee guida**: non applicabile; non è possibile associare una rete virtuale, una subnet o un gruppo di sicurezza di rete a un insieme di credenziali di servizi di ripristino. Quando si esegue il backup di una macchina virtuale di Azure, i dati vengono trasferiti tramite la backbone di Azure. Quando si esegue il backup da un computer locale, viene creato un tunnel crittografato con un endpoint specifico in Azure e le credenziali vengono usate per la pre-crittografia dei dati prima che vengano inviati tramite il tunnel crittografato.
 
@@ -302,7 +302,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - [Multi-Factor Authentication in backup di Azure](./backup-azure-security-feature.md)
 
-- [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -312,9 +312,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare una workstation con accesso con privilegi (Paw) con Azure ad multi-factor authentication (multi-factor authentication) configurata per l'accesso e la configurazione delle risorse abilitate per il backup di Azure.
 
-- [Workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-- [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -408,7 +408,7 @@ Inoltre, usare i rilevamenti di rischi di Azure AD per visualizzare gli avvisi e
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -454,7 +454,7 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Condiviso
+**Responsibilità**: Condiviso
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 

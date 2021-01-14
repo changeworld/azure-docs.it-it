@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/05/2021
 ms.author: abhishgu
 ms.reviewer: abhishgu
-ms.openlocfilehash: 24714b185b0f666770b306a7e80a97a3f8f868a3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 0038219ee8c1721ff5ab2be76231d33d2bd9064d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98052624"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203066"
 ---
 # <a name="migrate-data-from-postgresql-to-azure-cosmos-db-cassandra-api-account-using-apache-kafka"></a>Migrare i dati da PostgreSQL a Azure Cosmos DB account API Cassandra usando Apache Kafka
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -107,7 +107,7 @@ bin/kafka-server-start.sh config/server.properties
 
 ### <a name="setup-connectors"></a>Connettori di installazione
 
-Installare Debezium PostgreSQL e DataStax Apache Kafka Connector. Scaricare l'archivio plug-in del connettore Debezium PostgreSQL. Ad esempio, per scaricare la versione 1.3.0 del connettore (più recente al momento della stesura), usare [questo collegamento](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz). Scaricare DataStax Apache Kafka Connector da [questo collegamento](https://downloads.datastax.com/#akc).
+Installare Debezium PostgreSQL e DataStax Apache Kafka Connector. Scaricare l'archivio plug-in del connettore Debezium PostgreSQL. Ad esempio, per scaricare la versione 1.3.0 del connettore (più recente al momento della stesura), usare [questo collegamento](https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.3.0.Final/debezium-connector-postgres-1.3.0.Final-plugin.tar.gz). Scaricare DataStax Apache Kafka Connector da [questo collegamento](https://downloads.datastax.com/#akc).
 
 Decomprimere entrambi gli archivi del connettore e copiare i file JAR nel plug-in [Kafka Connect. Path](https://kafka.apache.org/documentation/#connectconfigs).
 

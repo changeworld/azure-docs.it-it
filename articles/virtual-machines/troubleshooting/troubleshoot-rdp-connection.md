@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: ba6dda86475456b6797d27e11727d70261be2e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e4ea622f546981d1f0651b20368590e59056d3
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439990"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201621"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Risolvere i problemi di connessione con Desktop remoto di una macchina virtuale di Azure
 La mancata connessione Remote Desktop Protocol (RDP) alla macchina virtuale di Azure basata su Windows può avere varie cause, impedendo l'accesso alla VM. Il problema può dipendere dal servizio di desktop remoto nella VM, dalla connessione di rete o dal client di desktop remoto nel computer host. Questo articolo illustra alcuni dei metodi più comuni per risolvere i problemi di connessione RDP. 
@@ -101,7 +101,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
 
 10. Assicurarsi che ogni firewall locale o firewall nel computer consenta il traffico TCP 3389 in uscita verso Azure.
 
-Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-using-azure-powershell"></a>Risoluzione dei problemi con Azure PowerShell
 Se non è già stato fatto, [installare e configurare la versione più recente di Azure PowerShell](/powershell/azure/).
@@ -154,7 +154,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
     Direction                : Inbound
     ```
    
-    Se non è presente una regola che consente il traffico RDP, [creare una regola del gruppo di sicurezza di rete](../windows/nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Consentire il traffico sulla porta TCP 3389.
+    Se non è presente una regola che consente il traffico RDP, [creare una regola del gruppo di sicurezza di rete](../windows/nsg-quickstart-powershell.md). Consentire il traffico sulla porta TCP 3389.
 3. **Reimpostare le credenziali utente**. Questa procedura di risoluzione dei problemi consente di reimpostare la password dell'account amministratore locale specificata se non si è sicuri o si sono dimenticate le credenziali.
    
     Innanzitutto specificare il nome utente e una nuova password assegnando le credenziali alla variabile `$cred`, come indicato di seguito:
@@ -190,7 +190,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, ritentare di co
 
 7. Assicurarsi che ogni firewall locale o firewall nel computer consenta il traffico TCP 3389 in uscita verso Azure.
 
-Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Risolvere i problemi delle VM create con il modello di distribuzione classica
 
@@ -234,7 +234,7 @@ Dopo ogni passaggio della procedura di risoluzione dei problemi, tentare la rico
 
 7. Assicurarsi che ogni firewall locale o firewall nel computer consenta il traffico TCP 3389 in uscita verso Azure.
 
-Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se continuano a verificarsi errori RDP, è possibile [aprire una richiesta di supporto](https://azure.microsoft.com/support/options/) o leggere i [passaggi e concetti relativi alla risoluzione dettagliata dei problemi RDP](detailed-troubleshoot-rdp.md).
 
 ## <a name="troubleshoot-specific-rdp-errors"></a>Risolvere errori specifici della connessione RDP
 Quando si tenta di connettersi alla VM tramite RDP, potrebbe essere visualizzato un messaggio di errore specifico. Di seguito sono riportati i messaggi di errore più comuni:
@@ -246,6 +246,6 @@ Quando si tenta di connettersi alla VM tramite RDP, potrebbe essere visualizzato
 * [Il computer non è in grado di connettersi al computer remoto](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
-Se non si è verificato alcuno di questi errori e non è ancora possibile connettersi alla VM tramite Desktop remoto, leggere [la guida dettagliata alla risoluzione dei problemi per Desktop remoto](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se non si è verificato alcuno di questi errori e non è ancora possibile connettersi alla VM tramite Desktop remoto, leggere [la guida dettagliata alla risoluzione dei problemi per Desktop remoto](detailed-troubleshoot-rdp.md).
 * Per la risoluzione dei problemi di accesso alle applicazioni in esecuzione in una VM, vedere [Troubleshoot access to an application running on an Azure VM](./troubleshoot-app-connection.md?toc=/azure/virtual-machines/linux/toc.json) (Risolvere i problemi di accesso a un'applicazione in esecuzione in una macchina virtuale di Azure).
 * Se si verificano problemi relativi all'uso di SSH (Secure Shell) per la connessione a una VM Linux in Azure, vedere [Risoluzione dei problemi di connessione SSH a una macchina virtuale Linux di Azure](./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

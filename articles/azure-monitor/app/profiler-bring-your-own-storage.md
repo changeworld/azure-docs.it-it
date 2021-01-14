@@ -4,21 +4,21 @@ description: Configurare BYOS (Bring your own Storage) per il profiler & Snapsho
 ms.topic: conceptual
 author: renatosalas
 ms.author: regutier
-ms.date: 04/14/2020
+ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 719f0cfa0a1f80568acf3231ce3ffab441e5f6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f82432c1dd8c66e8ce845831ff35d534a34e3e04
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87117394"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202539"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configurare Bring your own Storage (BYOS) per Application Insights Profiler e Snapshot Debugger
 
 ## <a name="what-is-bring-your-own-storage-byos-and-why-might-i-need-it"></a>Che cos'è Bring your own Storage (BYOS) e perché potrebbe essere necessario? 
 Quando si usa Application Insights Profiler o Snapshot Debugger, gli artefatti generati dall'applicazione vengono caricati negli account di archiviazione di Azure tramite la rete Internet pubblica. Tali account sono pagati e controllati da Microsoft per l'elaborazione e l'analisi. Microsoft controlla i criteri di crittografia inattivi e di gestione della durata per tali artefatti.
 
-Con Bring your own storage, questi elementi vengono caricati in un account di archiviazione controllato dall'utente. Ciò significa che è possibile controllare i criteri di crittografia inattivi, i criteri di gestione della durata e l'accesso alla rete. Si sarà tuttavia responsabili dei costi associati all'account di archiviazione.
+Con Bring your own storage, questi elementi vengono caricati in un account di archiviazione controllato dall'utente. Ciò significa che è possibile controllare i criteri di crittografia inattivi, i criteri di gestione della durata e l'accesso alla rete. Si sarà tuttavia responsabili dei costi associati a tale account di archiviazione.
 
 > [!NOTE]
 > Se si Abilita il collegamento privato, è necessario disporre di una risorsa di archiviazione personalizzata. Per ulteriori informazioni sul collegamento privato per Application Insights, [vedere la documentazione di.](../platform/private-link-security.md)
@@ -30,8 +30,8 @@ Con Bring your own storage, questi elementi vengono caricati in un account di ar
 1. Il servizio Application Insights Profiler o Snapshot Debugger analizzerà il BLOB in ingresso e riscriverà i risultati dell'analisi e i file di log nell'archivio BLOB. A seconda della capacità di calcolo disponibile, questo processo può verificarsi in qualsiasi momento dopo il caricamento.
 1. Quando si visualizzano le tracce del profiler o l'analisi del debugger snapshot, il servizio recupererà i risultati dell'analisi dall'archiviazione BLOB.
 
-## <a name="prerequisites"></a>Prerequisiti 
-* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Ex. Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
+## <a name="prerequisites"></a>Prerequisiti
+* Assicurarsi di creare l'account di archiviazione nello stesso percorso della risorsa Application Insights. Esempio: Se la risorsa Application Insights si trova negli Stati Uniti occidentali 2, l'account di archiviazione deve essere anche negli Stati Uniti occidentali 2. 
 * Concedere il ruolo "collaboratore dati BLOB di archiviazione" all'applicazione AAD "accesso all'archiviazione Trusted dei servizi di diagnostica" nell'account di archiviazione tramite l'interfaccia utente di controllo di accesso (IAM).
 * Se il collegamento privato è abilitato, configurare l'impostazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. 
 
@@ -53,11 +53,11 @@ Passaggi:
 1. Eseguire la ricerca & selezionare l'app "accesso all'archiviazione attendibile dei servizi diagnostici" 
 1. Salvare le modifiche
 
-_ ![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
+_![ Figura 1,0](media/profiler-bring-your-own-storage/figure-10.png)_ 
  _Figura 1,0_ 
 
 Una volta aggiunto, il ruolo verrà visualizzato nella sezione "assegnazioni di ruolo", come illustrato nella figura seguente 1,1. 
-_ ![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
+_![ Figura 1,1](media/profiler-bring-your-own-storage/figure-11.png)_ 
  _Figura 1,1_ 
 
 Se si usa anche un collegamento privato, è necessaria una configurazione aggiuntiva per consentire la connessione al servizio Microsoft attendibile dalla rete virtuale. Vedere la [documentazione sulla sicurezza della rete di archiviazione](../../storage/common/storage-network-security.md#trusted-microsoft-services).
@@ -91,7 +91,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
 
     Criterio:
     ```powershell
-    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{storage_account_name}"
+    $appInsights = Get-AzApplicationInsights -ResourceGroupName "{resource_group_name}" -Name "{application_insights_name}"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
@@ -226,7 +226,7 @@ Per configurare BYOS per la diagnostica a livello di codice (Profiler/Debugger),
     DeploymentDebugLogLevel :
     ```
 
-1. Abilitare la diagnostica a livello di codice (Profiler/Debugger) nel carico di lavoro di interesse tramite la portale di Azure. (Servizio app > Application Insights) _ ![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
+1. Abilitare la diagnostica a livello di codice (Profiler/Debugger) nel carico di lavoro di interesse tramite la portale di Azure. (Servizio app > Application Insights) _![ Figura 2,0](media/profiler-bring-your-own-storage/figure-20.png)_ 
  _Figura 2,0_
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi

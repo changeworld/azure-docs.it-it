@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f3f66209b2d0a1bae18364e38790c237952e729f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96458259"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202641"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -365,7 +365,7 @@ Azure Machine Learning fornisce ruoli predefiniti per gli scenari di gestione co
 
 **Linee guida**: usare una workstation protetta gestita da Azure (nota anche come workstation di accesso con privilegi o Paw) per le attività amministrative che richiedono privilegi elevati.
 
-- [Informazioni sulle workstation sicure gestite da Azure](../active-directory/devices/concept-azure-managed-workstation.md)
+- [Informazioni sulle workstation sicure gestite da Azure](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Come abilitare l'autenticazione a più fattori Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -462,7 +462,7 @@ Usare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per
 
 **Responsabilità**: non applicabile
 
-## <a name="data-protection"></a>Protezione dati
+## <a name="data-protection"></a>Protezione dei dati
 
 *Per altre informazioni, vedere [benchmark di sicurezza di Azure: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
@@ -911,7 +911,7 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 
 - [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Panoramica sulla raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md)
+- [Panoramica di raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md)
 
 - [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
 

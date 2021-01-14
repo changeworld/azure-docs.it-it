@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 9e5e96d97494f4ba9aa28e84b046cd057fe8eba7
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033409"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202964"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definire un nuovo tipo di dispositivo IoT nell'applicazione Azure IoT Central
 
@@ -42,8 +42,16 @@ In un'applicazione IoT Central, un modello di dispositivo usa un modello di disp
 
 - Progettare il modello di dispositivo in IoT Central, quindi [implementare il modello di dispositivo nel codice del dispositivo](concepts-telemetry-properties-commands.md).
 - Importare un modello di dispositivo dal [Catalogo dei dispositivi Azure Certified per](https://aka.ms/iotdevcat)l'it. Personalizzare il modello di dispositivo in modo che siano necessari in IoT Central.
+> [!NOTE]
+> IoT Central richiede il modello completo con tutte le interfacce a cui si fa riferimento nello stesso file, quando si importa un modello dal repository del modello, usare la parola chiave "Expanded" per ottenere la versione completa.
+Ad esempio, https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
+
 - Creare un modello di dispositivo con il [linguaggio DTDL (Digital Gemini Definition Language)-versione 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Visual Studio Code ha un'estensione che supporta la creazione di modelli di DTDL. Per altre informazioni, vedere [Installare e usare gli strumenti di creazione di DTDL](../../iot-pnp/howto-use-dtdl-authoring-tools.md). Pubblicare quindi il modello nel repository del modello pubblico. Per altre informazioni, vedere [repository del modello di dispositivo](../../iot-pnp/concepts-model-repository.md). Implementare il codice del dispositivo dal modello e connettere il dispositivo reale all'applicazione IoT Central. IoT Central trova e importa il modello di dispositivo dal repository pubblico e genera un modello di dispositivo. È quindi possibile aggiungere al modello di dispositivo le proprietà cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
 - Creare un modello di dispositivo usando DTDL. Implementare il codice del dispositivo dal modello. Importare manualmente il modello di dispositivo nell'applicazione IoT Central e quindi aggiungere le proprietà del cloud, le personalizzazioni e i dashboard necessari per l'applicazione IoT Central.
+
+> [!TIP]
+> IoT Central richiede il modello completo con tutte le interfacce a cui si fa riferimento nello stesso file. Quando si importa un modello dal repository del modello, usare la parola chiave *Expanded* per ottenere la versione completa.
+> ad esempio [https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json](https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json).
 
 È anche possibile aggiungere modelli di dispositivo a un'applicazione IoT Central usando l' [API REST](/learn/modules/manage-iot-central-apps-with-rest-api/) o l' [interfaccia](howto-manage-iot-central-from-cli.md)della riga di comando.
 
@@ -122,7 +130,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore di telemetria usato nei dashboard e nei moduli. |
-| Name | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Nome | Nome del campo nel messaggio di telemetria. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Telemetria. |
 | Tipo semantico | Tipo semantico dei dati di telemetria, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati di telemetria, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
@@ -142,7 +150,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà usato nei dashboard e nei moduli. |
-| Name | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Nome | Nome della proprietà. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Proprietà. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. Lo schema non è disponibile per i tipi semantici stato ed evento. |
@@ -154,7 +162,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Commento | Eventuali commenti sulla funzionalità della proprietà. |
 | Descrizione | Descrizione della funzionalità della proprietà. |
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 È possibile chiamare i comandi del dispositivo da IoT Central. I comandi passano facoltativamente i parametri al dispositivo e ricevono una risposta dal dispositivo. Ad esempio, è possibile chiamare un comando per riavviare un dispositivo entro 10 secondi.
 
@@ -163,7 +171,7 @@ La tabella seguente illustra le impostazioni di configurazione per una funzional
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il comando usato nei dashboard e nei moduli. |
-| Name | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
+| Nome | Nome del comando. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. Questo campo deve essere alfanumerico. |
 | Tipo di funzionalità | Comando. |
 | Commento | Eventuali commenti sulla funzionalità del comando. |
 | Descrizione | Descrizione della funzionalità del comando. |
@@ -202,7 +210,7 @@ La tabella seguente illustra le impostazioni di configurazione per una propriet�
 | Campo | Descrizione |
 | ----- | ----------- |
 | Nome visualizzato | Nome visualizzato per il valore della proprietà cloud usato nei dashboard e nei moduli. |
-| Name | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
+| Nome | Nome della proprietà cloud. IoT Central genera un valore per questo campo dal nome visualizzato, ma è possibile scegliere un valore personalizzato, se necessario. |
 | Tipo semantico | Tipo semantico della proprietà, ad esempio temperatura, stato o evento. La scelta del tipo semantico determina quali tra i campi seguenti sono disponibili. |
 | SCHEMA | Tipo di dati della proprietà cloud, ad esempio double, stringa o vettore. Le scelte disponibili sono determinate dal tipo semantico. |
 

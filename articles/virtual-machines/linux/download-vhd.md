@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c5e51665b4b1d31e7d2b3e25e7be31b481d0d9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87761059"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203168"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -32,7 +32,7 @@ Un disco rigido virtuale non può essere scaricato da Azure se è collegato a un
 
 Per scaricare il file VHD, è necessario generare un URL di [firma di accesso condiviso (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Quando viene generato, all'URL viene assegnata una scadenza.
 
-1. Scegliere **dischi**dal menu della pagina per la macchina virtuale.
+1. Scegliere **dischi** dal menu della pagina per la macchina virtuale.
 2. Selezionare il disco del sistema operativo per la macchina virtuale e quindi selezionare **esportazione disco**.
 1. Se necessario, aggiornare il valore di **URL scade in (secondi)** per fornire tempo sufficiente per il completamento del download. Il valore predefinito è 3600 secondi (un'ora).
 3. Selezionare **genera URL**.
@@ -42,11 +42,11 @@ Per scaricare il file VHD, è necessario generare un URL di [firma di accesso co
 
 1.  In URL generato selezionare **scaricare il file VHD**.
 
-    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Mostra il pulsante di menu per arrestare la macchina virtuale.":::
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Consente di visualizzare il pulsante per il download del disco rigido virtuale.":::
 
 2.  Potrebbe essere necessario selezionare **Salva** nel browser per avviare il download. Il nome predefinito per il file VHD è *abcd*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Apprendere come [caricare e creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-- [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Apprendere come [caricare e creare una macchina virtuale Linux da un disco personalizzato usando l'interfaccia della riga di comando di Azure](upload-vhd.md). 
+- [Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure](tutorial-manage-disks.md).

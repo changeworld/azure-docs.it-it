@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 9a6ae1581b3958495010b032980b0de2e267088b
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203133"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Usare i filtri funzionalità per abilitare i flag delle funzionalità condizionali
 
@@ -56,19 +56,19 @@ Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad ese
     > [!div class="mx-imgBorder"]
     > ![Modifica flag funzionalità beta](./media/edit-beta-feature-flag.png)
 
-1. Nella schermata di **modifica** selezionare il pulsante **di** opzione se non è già selezionato. Fare quindi clic sul pulsante **Aggiungi filtro** . L'etichetta del pulsante di opzione **on** cambierà in Read **Conditional**.
+1. Nella schermata di **modifica** selezionare il pulsante **Abilita flag funzionalità** se non è già selezionato. Fare quindi clic sul pulsante **Usa filtro funzionalità** e selezionare **personalizzato**. 
 
 1. Nel campo **chiave** immettere *Microsoft. percentuale*.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungi filtro funzionalità](./media/feature-flag-add-filter.png)
 
-1. Fare clic sul menu di scelta rapida accanto alla chiave del filtro funzionalità. Fare clic su **modifica parametri**.
+1. Fare clic sul menu di scelta rapida accanto alla chiave del filtro funzionalità. Fare clic su **modifica parametri filtro**.
 
     > [!div class="mx-imgBorder"]
-    > ![Modifica parametri filtro funzionalità](./media/feature-flag-edit-filter-parameters.png)
+    > ![Modifica parametri filtro funzionalità](./media/feature-flags-edit-filter-parameters.png)
 
-1. Passare il puntatore del mouse sotto l'intestazione del **nome** in modo che le caselle di testo vengano visualizzate nella griglia. Immettere un **nome** e *un* **valore** di 50. Il campo **valore** indica la percentuale di richieste per le quali abilitare il filtro funzionalità.
+1. Immettere un **nome** e *un* **valore** di 50. Il campo **valore** indica la percentuale di richieste per le quali abilitare il filtro funzionalità.
 
     > [!div class="mx-imgBorder"]
     > ![Imposta parametri filtro funzionalità](./media/feature-flag-set-filter-parameters.png)

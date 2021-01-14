@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: c2999d5bd6d780d5815f22d18e6e8cdd580987af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23abc86e26686d9a23ed94d0311a44ffe3012657
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87020169"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201774"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Eseguire gli script nella macchina virtuale Windows
 
@@ -34,13 +34,13 @@ L'[Estensione dello Script personalizzata](../extensions/custom-script-windows.m
 La funzione [Eseguire comando](run-command.md) abilita la macchina virtuale e la gestione delle applicazioni e della risoluzione dei problemi tramite gli script ed è disponibile anche quando il computer non è raggiungibile, ad esempio se il firewall guest non ha la porta RDP o SSH aperta.
 
 * Eseguire script nelle macchine virtuali di Azure.
-* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* È possibile eseguirlo tramite [portale di Azure](run-command.md), [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az-vm-run-command-invoke), o [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Eseguire velocemente uno script e visualizzare l'output e ripetere come richiesto nel portale di Azure.
 * Lo script può essere digitato direttamente oppure è possibile eseguire script incorporati.
 * Eseguire uno script di PowerShell nei computer Windows e gli Script Bash nei computer Linux.
 * Utile per la gestione della macchina virtuale e delle applicazioni e per l'esecuzione degli script e delle macchine virtuali che non sono raggiungibili.
 
-## <a name="hybrid-runbook-worker"></a>ruolo di lavoro ibrido per runbook
+## <a name="hybrid-runbook-worker"></a>Ruolo di lavoro ibrido per runbook
 
 Il [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) fornisce il computer generale, l'applicazione e un ambiente generale con script personalizzati dell'utente archiviati in un account di automazione.
 
@@ -70,5 +70,5 @@ Altre informazioni sulle diverse funzioni che sono disponibili per eseguire scri
 
 * [Estensione di script personalizzati](../extensions/custom-script-windows.md)
 * [Eseguire un comando](run-command.md)
-* [ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
+* [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md)
 * [console seriale](../troubleshooting/serial-console-windows.md)

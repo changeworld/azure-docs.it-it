@@ -11,20 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2020
+ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: 3b5a586b5db4fb15a32090e601bac5610ece1427
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832575"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201477"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
-Questo articolo descrive l'architettura del sistema funzionale della soluzione Defender for Internet.
+Questo articolo descrive l'architettura del sistema funzionale della soluzione Defender for Internet. Azure Defender per Internet delle cose offre due set di funzionalità che soddisfano le esigenze dell'ambiente, la soluzione senza agenti per le organizzazioni e la soluzione basata su agenti per i generatori di dispositivi.
 
-## <a name="defender-for-iot-components"></a>Defender per i componenti dell'it
+## <a name="agentless-solution-for-organizations"></a>Soluzione senza agenti per le organizzazioni
+### <a name="defender-for-iot-components"></a>Defender per i componenti dell'it
 
 Defender for Internet è connesso al cloud di Azure e ai componenti locali. La soluzione è progettata per la scalabilità in ambienti di grandi dimensioni e distribuiti geograficamente con più posizioni remote. Questa soluzione Abilita un'architettura distribuita a più livelli per paese, area, business unit o zona. 
 
@@ -79,12 +80,12 @@ La gestione di Azure Defender per tutti gli ambienti ibridi viene eseguita trami
 - Console di gestione locale
 - Portale di Azure
 
-#### <a name="sensor-console"></a>Console del sensore
+### <a name="sensor-console"></a>Console del sensore
 I rilevamenti dei sensori vengono visualizzati nella console dei sensori, dove possono essere visualizzati, analizzati e analizzati in una mappa di rete, un inventario delle risorse e in una vasta gamma di report, ad esempio report di valutazione dei rischi, data mining query e vettori di attacco. È anche possibile usare la console di per visualizzare e gestire le minacce rilevate dai motori dei sensori, inviare le informazioni ai sistemi partner, gestire gli utenti e altro ancora.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender per la console del sensore Internet":::
 
-#### <a name="on-premises-management-console"></a>Console di gestione locale
+### <a name="on-premises-management-console"></a>Console di gestione locale
 La console di gestione locale consente agli operatori di Security Operations Center (SOC) di gestire e analizzare gli avvisi aggregati da più sensori in un unico dashboard e fornisce una visualizzazione complessiva dell'integrità delle reti OT.
 
 Questa architettura offre una visualizzazione unificata completa della rete a livello di SOC, la gestione degli avvisi ottimizzata e il controllo della sicurezza della rete operativa, assicurando che il processo decisionale e la gestione dei rischi rimangano impeccabili.
@@ -103,20 +104,23 @@ Strettamente integrato con i flussi di lavoro SOC ed eseguire libri, consente di
 
    :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Gestire tutti gli avvisi e le informazioni.":::
 
-#### <a name="azure-portal"></a>Portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 Il portale di Defender per Internet delle cose in Azure viene usato per semplificare le operazioni seguenti:
 
 - Acquistare appliance della soluzione
+
 - Installare e aggiornare il software
 - Caricare i sensori in Azure
 - Aggiornare i pacchetti di intelligence per le minacce
 
-## <a name="embedded-security-agent-built-in-mode"></a>Agente sicurezza incorporato: modalità predefinita
+## <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agente per integratori di dispositivi
+
+### <a name="embedded-security-agent-built-in-mode"></a>Agente sicurezza incorporato: modalità predefinita
 
 In modalità **predefinita** , Defender for Internet è abilitato quando si sceglie di attivare l'opzione di **sicurezza** nell'hub Internet delle cose. Il monitoraggio, le raccomandazioni e gli avvisi in tempo reale, la modalità predefinita offre visibilità dei dispositivi in un singolo passaggio e sicurezza senza corrispondenza. La modalità di compilazione non richiede l'installazione dell'agente su tutti i dispositivi e usa l'analisi avanzata sulle attività registrate per analizzare e proteggere il dispositivo Field e l'hub Internet.
 
-## <a name="embedded-security-agent-enhanced-mode"></a>Agente sicurezza incorporato: modalità avanzata
+### <a name="embedded-security-agent-enhanced-mode"></a>Agente sicurezza incorporato: modalità avanzata
 
 In modalità **avanzata** , dopo l'attivazione dell'opzione di **sicurezza** nell'hub Internet e l'installazione di Defender per gli agenti di dispositivi di tutto il dispositivo, gli agenti raccolgono, aggregano e analizzano gli eventi di sicurezza non elaborati dai dispositivi. Gli eventi di sicurezza non elaborati possono includere connessioni IP, creazione di processi, account di accesso utente e altre informazioni rilevanti per la sicurezza. Il difensore degli agenti del dispositivo Internet gestisce anche l'aggregazione di eventi per evitare una elevata velocità effettiva della rete. Gli agenti sono altamente personalizzabili e possono essere usati per attività specifiche, ad esempio per l'invio di informazioni importanti al contratto di servizio più veloce o per l'aggregazione di informazioni e contesto di sicurezza estese in segmenti più grandi, evitando i costi di servizio più elevati.
 
@@ -130,7 +134,9 @@ Con la pipeline di analisi, Defender for Internet usa tutti i flussi di informaz
 
 Il servizio Defender per gli avvisi e le raccomandazioni per l'it (output della pipeline di analisi) viene scritto nell'area di lavoro Log Analytics di ogni cliente. L'inclusione degli eventi non elaborati nell'area di lavoro e degli avvisi e delle raccomandazioni consente l'analisi approfondita e le query usando i dettagli esatti delle attività sospette rilevate.
 
-## <a name="see-also"></a>Vedere anche
+:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="Architettura di micro Agent.":::
+
+## <a name="see-also"></a>Vedi anche
 
 [Domande frequenti su Defender](resources-frequently-asked-questions.md)
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71d64552520db28b3fe38cc354a30ee5470ee091
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 97893dece068dfdde85159f734095401288231d2
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060740"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201349"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>Protezione Microsoft 365 da attacchi locali
 
@@ -131,7 +131,7 @@ Il provisioning si riferisce alla creazione di account utente e gruppi in applic
 
    *  Limitare l'accesso Guest ai gruppi di esplorazione e ad altre proprietà della directory. Usare le impostazioni di collaborazione esterna per limitare la capacità Guest di leggere i gruppi di cui non sono membri. 
 
-    *   Blocca l'accesso al portale di Azure. È possibile eseguire rare eccezioni necessarie.  Creare un criterio di accesso condizionale che includa tutti i guest e gli utenti esterni, quindi [implementare i criteri per bloccare l'accesso](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management.md). 
+    *   Blocca l'accesso al portale di Azure. È possibile eseguire rare eccezioni necessarie.  Creare un criterio di accesso condizionale che includa tutti i guest e gli utenti esterni, quindi [implementare i criteri per bloccare l'accesso](/azure/role-based-access-control/conditional-access-azure-management). 
 
 * **Foreste disconnesse:** Usare [Azure ad il provisioning cloud](../cloud-provisioning/what-is-cloud-provisioning.md). Ciò consente di connettersi a foreste disconnesse, eliminando la necessità di stabilire la connettività tra foreste o i trust, che possono ampliare l'effetto di una violazione locale. * 
  

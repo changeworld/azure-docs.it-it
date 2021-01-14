@@ -1,19 +1,19 @@
 ---
-title: Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
+title: Uso di account di archiviazione gestiti dal cliente in Log Analytics di Monitoraggio di Azure
 description: Usare il proprio account di archiviazione per scenari di Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: bb5c6439f2e0b919e422c7a72f98468f0efc01f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 706392d95e371fe303bb9f2c18f59e4a224d83c0
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901315"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201060"
 ---
-# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in Log Analytics di Monitoraggio di Azure
 
 Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utilizzo viene in genere gestito automaticamente. Tuttavia, in alcuni casi è necessario fornire e gestire il proprio account di archiviazione, noto anche come account di archiviazione gestito dal cliente. Questo documento illustra l'uso dell'archiviazione gestita dal cliente per log WAD/LAD, collegamento privato e crittografia della chiave gestita dal cliente (CMK). 
 
@@ -23,7 +23,7 @@ Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utili
 ## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Inserimento di log estensioni di Diagnostica di Azure (WAD/LAD)
 Gli agenti di estensione Diagnostica di Azure (detti anche WAD e LAD per gli agenti Windows e Linux rispettivamente) raccolgono vari log del sistema operativo e li archiviano in un account di archiviazione gestito dal cliente. È quindi possibile inserire questi log in Log Analytics per esaminarli e analizzarli.
 ### <a name="how-to-collect-azure-diagnostics-extension-logs-from-your-storage-account"></a>Come raccogliere i log di estensione Diagnostica di Azure dall'account di archiviazione
-Connettere l'account di archiviazione all'area di lavoro di Log Analytics come origine dati di archiviazione usando [il portale di Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o chiamando l' [API di archiviazione Insights](/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
+Connettere l'account di archiviazione all'area di lavoro di Log Analytics come origine dati di archiviazione usando [il portale di Azure](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) o chiamando l' [API di archiviazione Insights](/rest/api/loganalytics/storage%20insights/createorupdate).
 
 Tipi di dati supportati:
 * syslog

@@ -1,18 +1,18 @@
 ---
-title: Creazione di report sull'estensione di file sui dati con informazioni dettagliate
-description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report per l'estensione di file di Insights per i dati.
+title: Creazione di report sull'estensione di file per i dati in Azure con informazioni dettagliate
+description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report dell'estensione di file di competenza sui dati.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: 222106f5838a1eb237987afaa93924f1efe4a1f4
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 246a9dcfa35498d99fd403f10e5c17d7707efe84
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746285"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202624"
 ---
 # <a name="file-extension-insights-about-your-data-from-azure-purview"></a>Approfondimenti sui dati di Azure per l'estensione di file 
 
@@ -33,6 +33,9 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 - Configurare le risorse di Azure e popolare gli account pertinenti con i dati di test
 
 - Configurare e completare un'analisi sui dati di test in ogni origine dati
+
+- Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 
 Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md).
 

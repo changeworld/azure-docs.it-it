@@ -7,16 +7,16 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320014"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202845"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Anteprima: creare una VM Windows con Azure Image Builder
 
-Questo articolo illustra come creare un'immagine di Windows personalizzata usando il generatore di immagini di VM di Azure. L'esempio in questo articolo usa i [personalizzatori](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#properties-customize) per personalizzare l'immagine:
+Questo articolo illustra come creare un'immagine di Windows personalizzata usando il generatore di immagini di VM di Azure. L'esempio in questo articolo usa i [personalizzatori](../linux/image-builder-json.md#properties-customize) per personalizzare l'immagine:
 - PowerShell (ScriptUri): scaricare ed eseguire uno [script di PowerShell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testPsScript.ps1).
 - Riavvio di Windows-riavvia la macchina virtuale.
 - PowerShell (inline): eseguire un comando specifico. In questo esempio viene creata una directory nella macchina virtuale usando `mkdir c:\\buildActions` .
@@ -211,7 +211,7 @@ Attendere il completamento della compilazione. Questa operazione può richiedere
 Se si verificano errori, esaminare le procedure per la [risoluzione dei problemi](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) .
 
 
-## <a name="create-the-vm"></a>Creare la VM
+## <a name="create-the-vm"></a>Creare la macchina virtuale
 
 Creare la macchina virtuale usando l'immagine compilata. Sostituire *\<password>* con la propria password per nella `aibuser` macchina virtuale.
 
@@ -271,4 +271,4 @@ az group delete -n $imageResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui componenti del file con estensione JSON usato in questo articolo, vedere informazioni di [riferimento sui modelli di generatore di immagini](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Per altre informazioni sui componenti del file con estensione JSON usato in questo articolo, vedere informazioni di [riferimento sui modelli di generatore di immagini](../linux/image-builder-json.md).

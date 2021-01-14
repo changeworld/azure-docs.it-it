@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6cf106f6d7aef4324eeeaf232a28cdd91a8a774b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: c2595d75acfacf3d501b6efb83b383d9a56215a6
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843129"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203287"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Baseline della sicurezza di Azure per Customer Lockbox per Microsoft Azure
 
@@ -285,9 +285,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Indicazioni**: usare una workstation con accesso con privilegi (Paw) con Azure ad multi-factor authentication (multi-factor authentication) abilitata per l'accesso e la configurazione delle richieste di Customer Lockbox.
 
-* [Workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Pianificazione di una distribuzione di Multi-Factor Authentication Azure AD basata sul cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
+* [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

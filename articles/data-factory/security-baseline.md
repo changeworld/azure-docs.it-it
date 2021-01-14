@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e48b1357b8576baca0e8defca94f4c5248c6f74e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4e82b4adbfde7623de9497c94e56a9ae303131ad
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461279"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202777"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -331,7 +331,7 @@ Inoltre, a livello di tenant, Azure Active Directory (AD) include ruoli predefin
 
 Sebbene Azure AD sia il metodo consigliato per amministrare l'accesso utente, tenere presente che se si esegue Integration Runtime in una macchina virtuale (VM) di Azure, è possibile che anche la VM disponga di account locali. Sia gli account locali che quelli di dominio devono essere rivisti e gestiti, in genere con un footprint minimo. Si consiglia inoltre di verificare che Privileged Identity Manager venga esaminato per la funzionalità Just-in-time per ridurre la disponibilità delle autorizzazioni amministrative.
 
-* [Roles and permissions for Azure Data Factory](./concepts-roles-permissions.md) (Ruoli e autorizzazioni per Azure Data Factory)
+* [Ruoli e autorizzazioni per Azure Data Factory](./concepts-roles-permissions.md)
 
 * [Informazioni su Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
@@ -370,7 +370,7 @@ Se si esegue la Integration Runtime in una macchina virtuale di Azure, è anche 
 
 * [Informazioni su Privileged Identity Manager](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Roles and permissions for Azure Data Factory](./concepts-roles-permissions.md) (Ruoli e autorizzazioni per Azure Data Factory)
+* [Ruoli e autorizzazioni per Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -408,7 +408,7 @@ Se si esegue la Integration Runtime in una macchina virtuale di Azure, è anche 
 
 **Indicazioni**: usare workstation con accesso con privilegi insieme a Multi-Factor Authentication (MFA) configurato per l'accesso e la configurazione delle risorse di Azure.
 
-* [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -608,7 +608,7 @@ Per le origini dati Data Factory, ad esempio il database SQL di Azure, fare rife
 
 * [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
-* [Roles and permissions for Azure Data Factory](./concepts-roles-permissions.md) (Ruoli e autorizzazioni per Azure Data Factory)
+* [Ruoli e autorizzazioni per Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -900,7 +900,7 @@ Si noti che questo vale solo se il Integration Runtime è in esecuzione in una m
 
 * [Gruppi di sicurezza di rete](../virtual-network/network-security-groups-overview.md)
 
-* [Che cos'è la rete virtuale di Azure?](../virtual-network/virtual-networks-overview.md)
+* [Che cos'è Rete virtuale di Azure?](../virtual-network/virtual-networks-overview.md)
 
 * [Organizzare le risorse con i gruppi di gestione di Azure ](../governance/management-groups/overview.md)
 
@@ -994,7 +994,7 @@ Il ruolo Collaboratore Data Factory può essere usato per creare e gestire Data 
 
 * [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-* [Roles and permissions for Azure Data Factory](./concepts-roles-permissions.md) (Ruoli e autorizzazioni per Azure Data Factory)
+* [Ruoli e autorizzazioni per Azure Data Factory](./concepts-roles-permissions.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

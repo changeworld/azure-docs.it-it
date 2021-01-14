@@ -6,23 +6,23 @@ ms.service: virtual-machines-linux
 ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: guybo
-ms.openlocfilehash: ef4175d24cfd02bb5cb6470b6334fea190b5bec2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9888cde8bca9fb0646dbdc8bb601b0887908ad1d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500598"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203236"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 
-Il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando viene usata una delle [distribuzioni approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per queste distribuzioni approvate, in Azure Marketplace vengono fornite immagini Linux preconfigurate.
+Il contratto di servizio della piattaforma Azure si applica alle macchine virtuali che eseguono il sistema operativo Linux solo quando viene usata una delle [distribuzioni approvate](endorsed-distros.md). Per queste distribuzioni approvate, in Azure Marketplace vengono fornite immagini Linux preconfigurate.
 
-* [Linux in Azure-distribuzioni approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Linux in Azure-distribuzioni approvate](endorsed-distros.md)
 * [Supporto delle immagini Linux in Microsoft Azure](https://support.microsoft.com/kb/2941892)
 
 Tutte le distribuzioni in esecuzione in Azure devono soddisfare alcuni prerequisiti. Questo articolo non può essere esaustivo, perché ogni distribuzione è diversa. Pur soddisfacendo i criteri seguenti, potrebbe essere necessario modificare in modo significativo il sistema Linux perché funzioni correttamente.
 
-È consigliabile iniziare con una delle [distribuzioni Linux in Azure approvate](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Gli articoli seguenti descrivono come preparare le diverse distribuzioni approvate supportate in Azure:
+È consigliabile iniziare con una delle [distribuzioni Linux in Azure approvate](endorsed-distros.md). Gli articoli seguenti descrivono come preparare le diverse distribuzioni approvate supportate in Azure:
 
 - [Distribuzioni basate su CentOS](create-upload-centos.md)
 - [Debian Linux](debian-create-upload-vhd.md)
@@ -38,7 +38,7 @@ Questo articolo è incentrato sulle linee guida generali per l'esecuzione della 
 * Il formato di disco rigido virtuale di Hyper-V (VHDX) non è supportato in Azure, ma sono supportati solo *dischi rigidi virtuali fissi*.  È possibile convertire il disco in formato VHD usando la console di gestione di Hyper-V o il cmdlet [Convert-VHD](/powershell/module/hyper-v/convert-vhd) . Se si usa VirtualBox, selezionare **dimensioni fisse** anziché il valore predefinito allocato in modo dinamico durante la creazione del disco.
 * Azure supporta le macchine virtuali Gen1 (BIOS boot) & Gen2 (UEFI Boot).
 * La dimensione massima consentita per il disco rigido virtuale è 1023 GB.
-* Quando si installa il sistema operativo Linux, è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. In questo modo, sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se sarà mai necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. È possibile usare [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) su dischi di dati.
+* Quando si installa il sistema operativo Linux, è consigliabile usare partizioni standard anziché LVM (Logical Volume Manager), che è spesso l'impostazione predefinita per numerose installazioni. In questo modo, sarà possibile evitare conflitti di nome LVM con le macchine virtuali clonate, in particolare se sarà mai necessario collegare un disco del sistema operativo a un'altra macchina virtuale identica per la risoluzione dei problemi. È possibile usare [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) o [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid) su dischi di dati.
 * Per il montaggio di file system UDF, è necessario il supporto del kernel. Al primo avvio in Azure la configurazione del provisioning viene passata alla macchina virtuale Linux tramite supporti di memorizzazione formattati con UDF, collegati al guest. È necessario che l'agente Linux di Azure possa montare il file system UDF per leggerne la configurazione ed effettuare il provisioning della macchina virtuale.
 * I kernel Linux con versione precedente a 2.6.37 non supportano NUMA in Hyper-V con macchine virtuali di dimensioni maggiori. Questo problema incide principalmente sulle distribuzioni precedenti che usano il kernel upstream Red Hat 2.6.32. Il problema è stato risolto in Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504). I sistemi che eseguono kernel personalizzati con versione precedente a 2.6.37 o kernel basati su RHEL con versione precedente a 2.6.32-504 devono impostare il parametro di avvio `numa=off` nella riga di comando del kernel in rub.conf. Per altre informazioni, vedere l'articolo [KB 436883](https://access.redhat.com/solutions/436883) di Red Hat.
 * Non configurare una partizione swap nel disco del sistema operativo. L'agente Linux può essere configurato in modo da creare un file swap nel disco temporaneo delle risorse, come descritto nei passaggi seguenti.
@@ -67,7 +67,7 @@ Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 M
 
 * Il disco rigido virtuale http: \/ / \<mystorageaccount> . blob.Core.Windows.NET/vhds/MyLinuxVM.vhd ha una dimensione virtuale non supportata di 21475270656 byte. La dimensione deve essere un numero intero (in MB).
 
-In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd?view=win10-ps) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
+In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](/powershell/module/hyper-v/resize-vhd) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
 
 > [!NOTE]
 > Esiste un [bug noto nelle versioni di qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1 che produce un disco rigido virtuale non formattato correttamente. Il problema è stato risolto in QEMU 2.6. È consigliabile usare `qemu-img` 2.2.0 o versione precedente o 2.6 o versione successiva.
@@ -114,7 +114,7 @@ In questo caso, ridimensionare la macchina virtuale usando la console di gestion
 
 ## <a name="linux-kernel-requirements"></a>Requisiti del kernel Linux
 
-I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (ad esempio, 3.x) questi driver sono già disponibili o, in alternativa, forniscono versioni backport dei driver con i rispettivi kernel.  Poiché questi driver vengono costantemente aggiornati nel kernel upstream con nuove correzioni e funzionalità, se possibile è consigliabile eseguire una [distribuzione approvata](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) che includa questi aggiornamenti e correzioni.
+I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (ad esempio, 3.x) questi driver sono già disponibili o, in alternativa, forniscono versioni backport dei driver con i rispettivi kernel.  Poiché questi driver vengono costantemente aggiornati nel kernel upstream con nuove correzioni e funzionalità, se possibile è consigliabile eseguire una [distribuzione approvata](endorsed-distros.md) che includa questi aggiornamenti e correzioni.
 
 Se si esegue una variante di Red Hat Enterprise Linux versioni dalla 6.0 alla 6.3, è necessario installare i [driver LIS più recenti per Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partire da RHEL 6.4 e versioni successive (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e di conseguenza non sono necessari pacchetti di installazione aggiuntivi.
 

@@ -7,18 +7,18 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: e986348c063626bd6a0b5a834854bad09d73c952
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0bf27d44746ff9cf688df179ad3b602353907
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814196"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201162"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Obiettivi di scalabilità e prestazioni per i dischi delle VM in Linux
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../../includes/azure-storage-limits-vm-disks.md)]
 
-Per altri dettagli, vedere [Dimensioni per le macchine virtuali Linux](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Per altri dettagli, vedere [Dimensioni per le macchine virtuali Linux](../sizes.md).
 
 ## <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 
@@ -31,6 +31,6 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima. Vedere la
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../../azure-resource-manager/management/azure-subscription-service-limits.md)

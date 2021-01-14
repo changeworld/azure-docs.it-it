@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: 2388d4be0f7d51f9d5897998049b445595648c0a
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: eac6201f45b11cae223e2293644bd9d0144e6e31
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763979"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203355"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -65,7 +65,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Windows di Azure.
+L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Windows di Azure.
 
 ```azurecli-interactive
 # script.ps1

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: fdde7613627c9fec0694f3985f78cf10e52f59c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4052a9c8614a17c3b5cdd871ad78be8cc3258c5a
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397097"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202590"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
 PostgreSQL è un database open source avanzato simile a Oracle e DB2. Questo database include funzionalità aziendali quali la conformità ACID completa, l'elaborazione transazionale affidabile e il controllo della concorrenza per più versioni. Supporta anche standard come ANSI SQL e SQL/MED (compresi wrapper di dati esterni per Oracle, MySQL, MongoDB e molti altri). È inoltre altamente estendibile, supportando oltre 12 linguaggi procedurali, gli indici GIN e GIST, i dati spaziali e più funzionalità di tipo NoSQL per le applicazioni basate su chiave-valore o JSON.
@@ -24,13 +24,13 @@ Questo articolo illustrerà come installare e configurare PostgreSQL in una macc
 
 ## <a name="install-postgresql"></a>Installare PostgreSQL
 > [!NOTE]
-> Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l' [esercitazione relativa alle macchine virtuali Linux di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)per creare e impostare una macchina virtuale Linux.
+> Per poter completare questa esercitazione, è necessario disporre già di una macchina virtuale di Microsoft Azure che esegue Linux. Prima di procedere, vedere l' [esercitazione relativa alle macchine virtuali Linux di Azure](quick-create-cli.md)per creare e impostare una macchina virtuale Linux.
 > 
 > 
 
 In questo caso, usare la porta 1999 come porta di PostgreSQL.  
 
-Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la prima volta che si sta usando una macchina virtuale Linux di Azure, vedere [usare SSH con Linux in Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per imparare a usare PuTTY per connettersi a una VM Linux.
+Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la prima volta che si sta usando una macchina virtuale Linux di Azure, vedere [usare SSH con Linux in Azure](mac-create-ssh-keys.md) per imparare a usare PuTTY per connettersi a una VM Linux.
 
 1. Eseguire il comando seguente per passare alla directory radice (admin):
 
@@ -205,7 +205,7 @@ Controllare se l'endpoint di PostgreSQL è attivo:
 # netstat -tunlp|grep 1999
 ```
 
-Viene visualizzato l'output seguente:
+Dovrebbe venire visualizzato l'output seguente:
 
 ![Screenshot che mostra l'endpoint di PostgreSQL è on.](./media/postgresql-install/no3.png)
 
@@ -259,7 +259,7 @@ Inserire innanzitutto le informazioni in una riga:
 INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
 ```
 
-Dovrebbe essere visualizzato questo output:
+Dovrebbe venire visualizzato questo output:
 
 ![Screenshot che mostra le informazioni sulle righe aggiunte.](./media/postgresql-install/no6.png)
 

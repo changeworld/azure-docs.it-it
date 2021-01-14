@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 505176758e1dbba1d6bf262554568edd8a197a4d
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: bdda89483661eb6f6d006c3d8ea42b46d162de05
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707674"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201655"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guida alla risoluzione dei problemi comuni relativi al servizio Azure SignalR
 
@@ -26,7 +26,7 @@ Questa guida è utile per fornire una guida alla risoluzione dei problemi in bas
 * 413 Payload Too Large (413 Payload troppo grande)
 * Il token di accesso non deve essere più lungo di 4K. 413 Entità della richiesta troppo grande
 
-### <a name="root-cause"></a>Causa radice:
+### <a name="root-cause"></a>Causa principale:
 
 Per HTTP/2, la lunghezza massima per una singola intestazione è **4 K**, quindi se si usa browser per accedere al servizio di Azure, si verifica un errore `ERR_CONNECTION_` per questa limitazione.
 
@@ -73,7 +73,7 @@ services.MapAzureSignalR(GetType().FullName, options =>
 * ASP.NET "la connessione non è attiva. Impossibile inviare i dati al servizio". errore [#324](https://github.com/Azure/azure-signalr/issues/324)
 * "Si è verificato un errore durante l'esecuzione della richiesta HTTP a https:// <API endpoint> . Questo errore potrebbe essere dovuto al fatto che il certificato del server non è configurato correttamente con HTTP.SYS nel caso HTTPS. Questo errore può anche essere causato da una mancata corrispondenza tra il client e il server e il binding di sicurezza.
 
-### <a name="root-cause"></a>Causa radice:
+### <a name="root-cause"></a>Causa principale:
 
 Il servizio Azure supporta solo TLS 1.2 per motivi di sicurezza. Con .NET Framework è possibile che TLS 1.2 non sia il protocollo predefinito. Di conseguenza, non è possibile stabilire correttamente le connessioni server a ASRS.
 
@@ -242,7 +242,7 @@ Quando il client è connesso ad Azure SignalR, la connessione permanente tra il 
 * `{"type":7,"error":"Connection closed with an error."}`
 * `{"type":7,"error":"Internal server error."}`
 
-### <a name="root-cause"></a>Causa radice:
+### <a name="root-cause"></a>Causa principale:
 
 Le connessioni client possono essere rilasciate in diverse circostanze:
 * Quando `Hub` genera eccezioni con la richiesta in ingresso.
@@ -268,7 +268,7 @@ Le connessioni client aumentano costantemente per molto tempo nelle metriche di 
 
 :::image type="content" source="./media/signalr-howto-troubleshoot-guide/client-connection-increasing-constantly.jpg" alt-text="Aumento costante della connessione client":::
 
-### <a name="root-cause"></a>Causa radice:
+### <a name="root-cause"></a>Causa principale:
 
 `DisposeAsync`Non è mai possibile chiamare la connessione del client SignalR, la connessione viene aperta.
 
@@ -330,7 +330,7 @@ In questa sezione vengono descritte diverse possibilità che comportano l'elimin
 * `The remote party closed the WebSocket connection without completing the close handshake`
 * `Service timeout. 30.00ms elapsed without receiving a message from service.`
 
-### <a name="root-cause"></a>Causa radice:
+### <a name="root-cause"></a>Causa principale:
 
 **La** connessione del servizio Server è chiusa da **ASRS**(Zure **s** ignal **R** **s** ervizio).
 
@@ -368,7 +368,7 @@ Prendere ASP.NET Core uno, ad esempio (ASP.NET uno è simile):
 
     * [ASP.NET Core client C#](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample.CSharpClient/Program.cs#L64)
 
-    * [ASP.NET Core client JavaScript](https://github.com/Azure/azure-signalr/tree/dev/samples/ChatSample/ChatSample/wwwroot/index.html#L164)
+    * [ASP.NET Core client JavaScript](https://github.com/Azure/azure-signalr/blob/release/1.0.0-preview1/samples/ChatSample/wwwroot/index.html#L164)
 
     * [Client C# ASP.NET](https://github.com/Azure/azure-signalr/tree/dev/samples/AspNet.ChatSample/AspNet.ChatSample.CSharpClient/Program.cs#L78)
 

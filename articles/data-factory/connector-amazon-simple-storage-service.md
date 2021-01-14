@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 925a0270c50d20790c093eaf193d66e0acd4cd11
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.date: 01/14/2021
+ms.openlocfilehash: 82871a09916b2b64f74e25088f5e75ac60a40678
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347405"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202505"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copiare i dati dal servizio di archiviazione semplice di Amazon usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -71,6 +71,7 @@ Per un servizio collegato Amazon S3 sono supportate le proprietà seguenti:
 | secretAccessKey | La stessa chiave di accesso segreta. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì |
 | sessionToken | Applicabile quando si usa l'autenticazione con [credenziali di sicurezza temporanee](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) . Informazioni su come [richiedere credenziali di sicurezza temporanee](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) da AWS.<br>Nota le credenziali temporanee AWS scadono tra 15 minuti e 36 ore in base alle impostazioni. Assicurarsi che le credenziali siano valide quando viene eseguita l'attività, specialmente per il carico di lavoro operativo, ad esempio, è possibile aggiornarlo periodicamente e archiviarlo in Azure Key Vault.<br>Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |No |
 | serviceUrl | Specificare l'endpoint S3 personalizzato se si copiano dati da un provider di archiviazione compatibile con S3 diverso dal servizio ufficiale Amazon S3. Per copiare dati da Google Cloud Storage, ad esempio, specificare `https://storage.googleapis.com`. | No |
+| forcePathStyle | Indica se utilizzare [l'accesso in stile percorso](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#path-style-access) S3 anziché l'accesso in stile host virtuale. I valori consentiti sono: **false** (impostazione predefinita), **true**.<br>Se ci si connette a un provider di archiviazione compatibile con S3 diverso dal servizio ufficiale Amazon S3 e l'archivio dati richiede l'accesso in stile percorso (ad esempio, [Oracle Cloud Storage](https://docs.oracle.com/iaas/Content/Object/Tasks/s3compatibleapi.htm)), impostare questa proprietà su true. Controllare la documentazione di ogni archivio dati in se è necessario o meno l'accesso in stile percorso. |No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
 
 >[!TIP]

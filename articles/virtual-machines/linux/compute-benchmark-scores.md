@@ -5,15 +5,15 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.reviewer: davberg
-ms.openlocfilehash: efbd90eee8d072c1979565209c8c04a4ee5c55f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939b5f6005dcb0b320852aece60db5bcf36dddbd
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830530"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201179"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcolare i punteggi di benchmark per le VM Linux
-I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](../windows/compute-benchmark-scores.md).
 
 ## <a name="standard_das_v4"></a>Standard_Das_v4
 (12/11/2019 2:28:52 AM PBI 5851281)
@@ -171,17 +171,17 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_DS1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 3.4 | 14.808 | 904 | 6,10% | 434 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 6.8 | 28.654 | 877 | 3,06% | 301 |
 | Standard_DS2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 6.8 | 29.089 | 1.421 | 4,89% | 406 |
-| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 13,7 | 57.255 | 1.633 | 2,85% | 238 |
-| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 13,7 | 57.255 | 2.265 | 3,96% | 462 |
+| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 13.7 | 57.255 | 1.633 | 2,85% | 238 |
+| Standard_DS3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 13.7 | 57.255 | 2.265 | 3,96% | 462 |
 | Standard_DS4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 27,5 | 116.681 | 1.097 | 0,94% | 231 |
 | Standard_DS4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 27,5 | 112.512 | 1.261 | 1,12% | 462 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 1 | 55,0 | 225.661 | 2.370 | 1,05% | 189 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 2 | 55,0 | 229.145 | 2.878 | 1,26% | 21 |
 | Standard_DS5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 55,0 | 226.818 | 1.797 | 0,79% | 497 |
-| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 13,7 | 28.571 | 920 | 3,22% | 238 |
-| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 13,7 | 29.049 | 1.614 | 5,56% | 469 |
-| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 13,7 | 14.594 | 617 | 4,23% | 287 |
-| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 13,7 | 14.951 | 852 | 5,70% | 413 |
+| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 13.7 | 28.571 | 920 | 3,22% | 238 |
+| Standard_DS11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 13.7 | 29.049 | 1.614 | 5,56% | 469 |
+| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 13.7 | 14.594 | 617 | 4,23% | 287 |
+| Standard_DS11-1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 13.7 | 14.951 | 852 | 5,70% | 413 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 27,5 | 57.503 | 1.398 | 2,43% | 217 |
 | Standard_DS12_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 27,5 | 57.082 | 2.372 | 4,16% | 483 |
 | Standard_DS12-1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 1 | 1 | 27,5 | 14.698 | 564 | 3,84% | 238 |
@@ -211,15 +211,15 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_D1_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 1 | 1 | 3.4 | 15.057 | 1.319 | 8,76% | 322 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 6.8 | 29.395 | 1.073 | 3,65% | 329 |
 | Standard_D2_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 6.8 | 29.564 | 2.145 | 7,26% | 378 |
-| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 13,7 | 58.150 | 1.340 | 2,30% | 343 |
-| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 13,7 | 57.820 | 2.944 | 5,09% | 364 |
+| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 13.7 | 58.150 | 1.340 | 2,30% | 343 |
+| Standard_D3_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 13.7 | 57.820 | 2.944 | 5,09% | 364 |
 | Standard_D4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 27,5 | 117.448 | 1.612 | 1,37% | 308 |
 | Standard_D4_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 8 | 1 | 27,5 | 114.082 | 3.369 | 2,95% | 399 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 1 | 55,0 | 226.370 | 4.722 | 2,09% | 147 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 16 | 2 | 55,0 | 225.035 | 5.026 | 2,23% | 119 |
 | Standard_D5_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 16 | 1 | 55,0 | 227.883 | 3.259 | 1,43% | 441 |
-| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 13,7 | 29.260 | 1.012 | 3,46% | 308 |
-| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 13,7 | 29.306 | 1.763 | 6,02% | 399 |
+| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 2 | 1 | 13.7 | 29.260 | 1.012 | 3,46% | 308 |
+| Standard_D11_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 2 | 1 | 13.7 | 29.306 | 1.763 | 6,02% | 399 |
 | Standard_D12_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 4 | 1 | 27,5 | 58.322 | 1.391 | 2,39% | 329 |
 | Standard_D12_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 4 a 2,30 GHz | 4 | 1 | 27,5 | 57.999 | 3.533 | 6,09% | 371 |
 | Standard_D13_v2 | Intel(R) Xeon(R) CPU E5-2673 vers. 3 a 2,40 GHz | 8 | 1 | 55,0 | 117.218 | 1.514 | 1,29% | 329 |
@@ -469,5 +469,5 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 I numeri di Linux sono stati calcolati eseguendo [CoreMark](https://www.eembc.org/coremark/faq.php) su Ubuntu. CoreMark è stato configurato con il numero di thread impostato sul numero di CPU virtuali e la concorrenza impostata su PThreads. Il numero di iterazioni è stato rettificato in base alle prestazioni previste per fornire un runtime di almeno 20 secondi (ma in genere molto di più). Il punteggio finale rappresentava il numero di iterazioni completate, diviso per la durata del test espressa in secondi. Ogni test è stato eseguito almeno sette volte per ogni VM. Le date di esecuzione dei test sono indicate sopra. Test eseguiti su più macchine virtuali in più aree di Azure pubbliche: le macchine virtuali erano supportate alla data di esecuzione. Le serie di base A e B (con possibilità di burst) non sono indicate perché le prestazioni sono variabili. La serie N non è indicata perché è incentrata su GPU e Coremark non misura le prestazioni della GPU.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](../sizes.md).
 * Per eseguire gli script CoreMark nelle VM Linux, scaricare il [pacchetto di script CoreMark](https://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip).

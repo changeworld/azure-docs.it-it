@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 33ba816227db4cf958fd30c9dac1a0745505c504
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a6971bce2ba4cb3e18455aad34e2d10b73dc066
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513690"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203423"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Azioni rapide: Creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure
 
@@ -47,9 +47,9 @@ az vm create --name VMname --resource-group RGname --image UbuntuLTS --generate-
 
 Per creare una macchina virtuale Linux che usa le chiavi SSH per l'autenticazione, specificare la chiave SSH pubblica quando si crea la macchina virtuale tramite il portale di Azure, l'interfaccia della riga di comando di Azure, i modelli di Azure Resource Manager o altri metodi:
 
-* [Creare una macchina virtuale Linux con il portale di Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare una VM Linux usando un modello di Azure](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creare una macchina virtuale Linux con il portale di Azure](quick-create-portal.md)
+* [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](quick-create-cli.md)
+* [Creare una VM Linux usando un modello di Azure](create-ssh-secured-vm-from-template.md)
 
 Se non si ha familiarità con il formato di una chiave pubblica SSH, è possibile visualizzare la chiave pubblica con il comando `cat` seguente, sostituendo `~/.ssh/id_rsa.pub` con il percorso e il nome del proprio file di chiave pubblica, se necessario:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8d2901e71a3c638e25899803ff9b24e20fdf1969
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 08ba75b5160acb20cb5e2d172203ae48b546f17d
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412664"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202233"
 ---
 # <a name="security-control-identity-and-access-control"></a>Controllo di sicurezza: identità e controllo di accesso
 
@@ -80,7 +80,7 @@ Abilitare l'autenticazione a più fattori Azure AD e seguire le indicazioni per 
 
 Usare le workstation Paw (Privileged Access workstation) con multi-factor authentication configurato per accedere e configurare le risorse di Azure.
 
-- [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 - [Come abilitare MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -100,7 +100,7 @@ Usare Azure Active Directory report di sicurezza per la generazione di log e avv
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 3.8 | 11,7 | Customer |
+| 3.8 | 11.7 | Customer |
 
 Usare i percorsi denominati di accesso condizionale per consentire l'accesso solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree geografiche.
 

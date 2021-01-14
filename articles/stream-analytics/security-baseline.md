@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0a0756c0beeb752e69703119a300bf4cc85f621b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c1e61e9434d96148fbce840f4bad7f6a3b2ecb6b
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485179"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202726"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
 
@@ -260,7 +260,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Indicazioni**: creare un piano di sicurezza per la gestione delle identità e i ruoli, seguendo le procedure consigliate, incluso il principio dell'accesso con privilegi minimi per i ruoli di amministratore. Usare Azure Privileged Identity Management (PIM) per fornire accesso con privilegi JIT per Azure AD e risorse di Azure. Usare gli avvisi e la cronologia di controllo di Azure PIM per monitorare l'attività degli account amministrativi. Utilizzare Azure AD report di sicurezza per identificare gli account amministrativi che potrebbero essere stati compromessi.
 
-* [Altre informazioni](../active-directory/privileged-identity-management/index.yml)
+* [Scopri di più](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -292,7 +292,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Indicazioni**: usare le workstation Paw (Privileged Access workstation) con multi-factor authentication (autenticazione a più fattori) configurate per accedere e configurare le risorse di analisi di flusso.
 
-* [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 5ba5c6799db6a32bce64a730f4888f59080300dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 14c8584699ddc981fc24cc29b78c187288c6fb57
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657176"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203389"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -21,7 +21,7 @@ Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non n
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
-[Unità di calcolo di Azure](./acu.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): varia *<br>
+[Unità di calcolo di Azure](./acu.md): varia *<br>
 [Archiviazione Premium](premium-storage-performance.md): supportata<br>
 [Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
 [Live Migration](maintenance-and-updates.md): supportato<br>
@@ -59,7 +59,7 @@ Baseline: 270%
 
 ![Grafico dei dati relativi al traffico orario](./media/b-series-burstable/office-workload.png)
 
-| Scenario | Ora | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
+| Scenario | Tempo | Utilizzo CPU (%) | Crediti accumulati<sup>1</sup> | Crediti disponibili |
 | --- | --- | --- | --- | --- |
 | Distribuzione di B16ms | Distribuzione | Distribuzione  | 480 (crediti iniziali) | 480 |
 | Nessun traffico | 0:00 | 0 | 162 | 642 |

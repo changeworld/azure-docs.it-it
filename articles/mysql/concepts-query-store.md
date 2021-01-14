@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 82482b260233994672e603c16fe8cf919c92337f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94535079"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201026"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitorare le prestazioni di Database di Azure per MySQL con Query Store
 
@@ -69,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Ricerca di query in relazione all'attesa
 
 > [!NOTE]
-> Le statistiche di attesa non devono essere abilitate durante le ore di picco del carico di lavoro o essere attivate per un periodo illimitato per carichi di lavoro sensibili. <br>Per i carichi di lavoro in esecuzione con utilizzo elevato della CPU o su server configurati con vCore inferiori, prestare attenzione quando si abilitano le statistiche di attesa. Non devono essere attivate per un periodo illimitato. 
+> Le statistiche di attesa non devono essere abilitate durante le ore di picco del carico di lavoro o essere attivate per un periodo illimitato per carichi di lavoro sensibili. <br>Per i carichi di lavoro in esecuzione con utilizzo elevato della CPU o su server configurati con vCore inferiori, prestare attenzione quando si abilitano le statistiche di attesa. Non devono essere attivate per un periodo illimitato.
 
 I tipi di eventi di attesa combinano diversi eventi di attesa in bucket in base alla somiglianza. Query Store indica il tipo di evento di attesa, il nome dello specifico evento di attesa e la query in questione. La possibilità di correlare queste informazioni sulle attese alle statistiche di runtime delle query consente di comprendere in modo più approfondito ciò che contribuisce alle caratteristiche di prestazioni delle query.
 
@@ -79,7 +79,7 @@ Di seguito sono riportati alcuni esempi di come è possibile ottenere informazio
 |---|---|
 |Attese di blocco elevate | Controllare il testo delle query interessate e identificare le entità di destinazione. Cercare in Query Store altre query che modificano la stessa entità e che vengono eseguite spesso e/o hanno durata elevata. Dopo aver identificato tali query, valutare la possibilità di modificare la logica dell'applicazione per migliorare la concorrenza o usare un livello di isolamento meno restrittivo. |
 |Attese di I/O del buffer elevate | Trovare le query con un numero elevato di letture fisiche in Query Store. Se corrispondono alle query con attese di I/O elevate, valutare la possibilità di introdurre un indice sull'entità sottostante per eseguire ricerche anziché analisi. Questo ridurrebbe al minimo il sovraccarico di I/O delle query. Controllare le **raccomandazioni per le prestazioni** relative al server nel portale per verificare se sono presenti raccomandazioni sugli indici per il server che ottimizzerebbero le query. |
-|Attese di memoria elevate | Trovare le query con il maggiore utilizzo di memoria in Query Store. Queste query probabilmente ritardano l'avanzamento delle query interessate. Controllare le **raccomandazioni per le prestazioni** relative al server nel portale per verificare se sono presenti raccomandazioni sugli indici che ottimizzerebbero queste query.|
+|Attese di memoria elevate | Trovare le query con il maggiore utilizzo di memoria in Query Store. Queste query probabilmente ritardano l'avanzamento delle query interessate. Controllare le **raccomandazioni per le prestazioni** relative al server nel portale per verificare se sono presenti raccomandazioni sugli indici che ottimizzerebbero queste query. |
 
 ## <a name="configuration-options"></a>Opzioni di configurazione
 
@@ -108,7 +108,7 @@ Per ottenere o impostare un diverso valore per un parametro, usare il [portale d
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 
-Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Queste viste possono essere usate da qualsiasi membro del [ruolo pubblico con privilegi selezionati](howto-create-users.md#to-create-additional-admin-users-in-azure-database-for-mysql) per visualizzare i dati in Query Store e sono disponibili solo nel database **mysql**.
+Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Queste viste possono essere usate da qualsiasi membro del [ruolo pubblico con privilegi selezionati](howto-create-users.md#to-create-more-admin-users-in-azure-database-for-mysql) per visualizzare i dati in Query Store e sono disponibili solo nel database **mysql**.
 
 Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
 

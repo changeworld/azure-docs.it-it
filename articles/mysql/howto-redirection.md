@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 199810f835924ccbb51948169244622a19c5e8ed
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541811"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201434"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Connettersi a Database di Azure per MySQL con reindirizzamento
 
@@ -21,6 +21,9 @@ Questo argomento descrive come connettere un'applicazione al server di Database 
 Accedere al [portale di Azure](https://portal.azure.com). Creare un server Database di Azure per MySQL con motore versione 5.6, 5.7 o 8.0. 
 
 Per informazioni dettagliate, vedere come creare un database di Azure per il server MySQL usando il [portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md) o l'interfaccia della riga di comando di [Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT]
+> Il reindirizzamento non è al momento supportato con il [collegamento privato per database di Azure per MySQL](concepts-data-access-security-private-link.md).
 
 ## <a name="enable-redirection"></a>Abilita reindirizzamento
 
