@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 038d19270fbdb672d397eb2bd56bd27e17ea7af9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f407f9ee2ea0ca73b29e4fde9d542c005f78a929
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200448"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Procedure consigliate per la configurazione di app Azure
 
@@ -41,7 +41,7 @@ Le *etichette* sono un attributo delle chiavi. Sono usati per creare varianti di
 
 La configurazione dell'app considera tutte le chiavi archiviate come entità indipendenti. La configurazione dell'app non tenta di dedurre alcuna relazione tra le chiavi o di ereditare i valori delle chiavi in base alla gerarchia. È possibile aggregare più insiemi di chiavi, tuttavia, usando etichette abbinate al corretto stack di configurazione nel codice dell'applicazione.
 
-Esaminiamo un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1** e si inserisce un valore specifico per "Development" nel secondo.
+Di seguito è descritto un esempio. Si supponga di avere un'impostazione denominata **Asset1**, il cui valore può variare in base all'ambiente di sviluppo. Si crea una chiave denominata "Asset1" con un'etichetta vuota e un'etichetta denominata "Development". Nella prima etichetta si inserisce il valore predefinito per **Asset1** e si inserisce un valore specifico per "Development" nel secondo.
 
 Nel codice è necessario innanzitutto recuperare i valori della chiave senza alcuna etichetta e quindi recuperare la stessa serie di valori di chiave una seconda volta con l'etichetta "Development". Quando si recuperano i valori la seconda volta, i valori precedenti delle chiavi vengono sovrascritti. Il sistema di configurazione di .NET Core consente di "stack" più set di dati di configurazione uno sull'altro. Se una chiave è presente in più di un set, viene usato l'ultimo set che lo contiene. Con un Framework di programmazione moderno, ad esempio .NET Core, questa funzionalità di stacking è disponibile gratuitamente se si usa un provider di configurazione nativo per accedere alla configurazione dell'app. Il frammento di codice seguente mostra come è possibile implementare lo stack in un'applicazione .NET Core:
 
@@ -89,6 +89,10 @@ La configurazione dell'app offre la possibilità di [importare](./howto-import-e
 ## <a name="multi-region-deployment-in-app-configuration"></a>Distribuzione in più aree nella configurazione dell'app
 
 La configurazione dell'app è servizio a livello di area. Per le applicazioni con diverse configurazioni per area, l'archiviazione di queste configurazioni in un'istanza può creare un singolo punto di errore. La distribuzione di una sola istanza di configurazione dell'app per area geografica in più aree può essere un'opzione migliore. Può essere utile per il ripristino di emergenza a livello di area, le prestazioni e il silo di sicurezza. La configurazione in base all'area migliora anche la latenza e USA quote di limitazione separate, poiché la limitazione è per istanza. Per applicare la mitigazione del ripristino di emergenza, è possibile usare [più archivi di configurazione](./concept-disaster-recovery.md). 
+
+## <a name="client-applications-in-app-configuration"></a>Applicazioni client nella configurazione dell'app 
+
+Richieste eccessive alla configurazione dell'app possono comportare una limitazione o addebiti in eccedenza. Le applicazioni sfruttano i vantaggi della memorizzazione nella cache e dell'aggiornamento intelligente attualmente disponibile per ottimizzare il numero di richieste inviate. È possibile eseguire il mirroring di questo processo in applicazioni client a volume elevato evitando connessioni dirette all'archivio di configurazione. Al contrario, le applicazioni client si connettono a un servizio personalizzato e questo servizio comunica con l'archivio di configurazione. Questa soluzione proxy può garantire che le applicazioni client non affrontino il limite di limitazione nell'archivio di configurazione. Per ulteriori informazioni sulla limitazione, vedere [le domande frequenti](https://docs.microsoft.com/azure/azure-app-configuration/faq#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

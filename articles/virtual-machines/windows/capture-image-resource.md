@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d06dc03a016f057a9a3407a82a114f8df6757599
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047293"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200686"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -33,7 +33,7 @@ Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da 
 >
 >Sysprep richiede che le unità siano completamente decrittografate. Se è stata abilitata la crittografia nella macchina virtuale, disabilitare la crittografia prima di eseguire Sysprep.
 >
-> Se si prevede di eseguire Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Se si prevede di eseguire Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md).  
 > 
 > 
 
@@ -250,4 +250,4 @@ Per creare un'immagine gestita da una macchina virtuale che non usa dischi gesti
 
     
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare una macchina virtuale da un'immagine gestita](create-vm-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)    
+- [Creare una macchina virtuale da un'immagine gestita](create-vm-generalized-managed.md) 

@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a7304ffbb7718205ead48e27989d4a169375997
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: c981bde4e0699c4da33ada7e287b16e54b899a58
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861987"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198918"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -255,7 +255,7 @@ Gli utenti malintenzionati potrebbero provare a individuare gli account con priv
 * Attacchi con sostituzione di persona
 * Attacchi con furto delle credenziali, ad esempio registrazione delle digitazioni, Pass-the-Hash e Pass-the-Ticket
 
-La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano le proprie credenziali in un ambiente desktop senza sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations) (Workstation con accesso con privilegi).
+La distribuzione di workstation con accesso con privilegi consente di ridurre il rischio che gli amministratori immettano le proprie credenziali in un ambiente desktop senza sicurezza avanzata. Per altre informazioni, vedere [Privileged Access Workstations](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) (Workstation con accesso con privilegi).
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>Esaminare le indicazioni del National Institute of Standards and Technology per la gestione degli eventi imprevisti
 

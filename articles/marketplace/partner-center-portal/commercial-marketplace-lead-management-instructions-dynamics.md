@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 5d07dda82361ff59a43aa6753669bf38f4463059
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: d996a2e0732ad9b4da104265710970e04cdbd368
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491138"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199776"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 Customer Engagement
 
@@ -37,19 +37,19 @@ Per completare le procedure descritte in questo articolo, sono necessarie le aut
 1. Aprire Dynamics 365 Customer Engagement passando all'URL dell'istanza di Dynamics, ad esempio `https://tenant.crm.dynamics.com`.
 
 1. Selezionare l'icona a forma di ingranaggio nella barra superiore e quindi selezionare **Impostazioni avanzate**.
- 
-    ![Voce di menu Impostazioni avanzate di Dynamics 365](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
+
+    ![Voce di menu Impostazioni avanzate di Dynamics 365](media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
 1. Nella pagina **Impostazioni** aprire il menu **Impostazioni** sulla barra superiore e selezionare **Soluzioni**.
 
     >[!NOTE]
     >Se non vengono visualizzate le opzioni nella schermata successiva, significa che non si possiedono le autorizzazioni necessarie per continuare. Contattare un amministratore per l'istanza di Dynamics 365 Customer Engagement.
 
-    ![Opzione Soluzioni di Dynamics 365](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-solutions.png)
+    ![Opzione Soluzioni di Dynamics 365](media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-solutions.png)
 
 1. Nella pagina **Soluzioni** selezionare **Importa** e passare al percorso in cui si è salvata la soluzione **Microsoft Marketplace Lead Writer** scaricata nel passaggio 1.
 
-    ![Pulsante Importa](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-crm-import.png)
+    ![Pulsante Importa](media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-crm-import.png)
 
 1. Completare l'importazione della soluzione seguendo la procedura guidata Importa soluzione.
 
@@ -72,43 +72,43 @@ Per configurare Azure Active Directory per Dynamics 365 Customer Engagement:
 
 1. Selezionare **Proprietà** e copiare il valore di **ID directory** nella pagina **Proprietà directory**. Salvare questo valore perché sarà necessario specificarlo nel portale di pubblicazione per ricevere i lead per l'offerta del marketplace.
 
-    ![Voce di menu Proprietà di Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
+    ![Voce di menu Proprietà di Azure Active Directory](media/commercial-marketplace-lead-management-instructions-dynamics/aad-properties.png)
 
 1. Selezionare **Registrazioni app** nel riquadro sinistro di Azure Active Directory e quindi selezionare **Nuova registrazione** nella pagina.
 1. Immettere un nome significativo per l'applicazione.
 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory dell'organizzazione**.
-1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere un URI, ad esempio `https://contosoapp1/auth`. 
+1. In **URI di reindirizzamento (facoltativo)** selezionare **Web** e immettere un URI, ad esempio `https://contosoapp1/auth`.
 1. Selezionare **Registra**.
 
-    ![Pagina Registra un'applicazione](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
+    ![Pagina Registra un'applicazione](media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
 1. Ora che l'applicazione è stata registrata, accedere alla pagina di panoramica dell'applicazione. Copiare il valore di **ID applicazione (client)** nella pagina. Salvare questo valore perché sarà necessario specificarlo nel portale di pubblicazione e in Dynamics 365 per ricevere i lead per l'offerta del marketplace.
 
-    ![Casella ID applicazione (client)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
+    ![Casella ID applicazione (client)](media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
 1. Selezionare **Certificati e segreti** nel riquadro sinistro dell'app e selezionare il pulsante **Nuovo segreto client**. Immettere una descrizione significativa per il segreto client e selezionare l'opzione **Mai** in **Scade**. Selezionare **Aggiungi** per creare il segreto client.
 
-    ![Voce di menu Certificati e segreti](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
+    ![Voce di menu Certificati e segreti](media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
 1. Non appena la creazione del segreto client viene completata, copiare il valore di **Segreto client**. Non sarà possibile recuperare il valore dopo aver chiuso la pagina. Salvare questo valore perché sarà necessario specificarlo nel portale di pubblicazione per ricevere i lead per l'offerta del marketplace. 
 1. Selezionare **Autorizzazioni API** nel riquadro sinistro dell'app e quindi selezionare **+ Aggiungi un'autorizzazione**.
 1. Selezionare **API Microsoft** e quindi selezionare **Dynamics CRM** come API.
-1. In **Indicare le autorizzazioni necessarie per l'applicazione** verificare che l'opzione **Autorizzazioni delegate** sia selezionata. 
+1. In **Indicare le autorizzazioni necessarie per l'applicazione** verificare che l'opzione **Autorizzazioni delegate** sia selezionata.
 1. In **Autorizzazioni** selezionare la casella di controllo **user_impersonation** per **Access Common Data Service as organization users** (Accesso a Common Data Service come utenti dell'organizzazione). Selezionare quindi **Aggiungi autorizzazioni**.
 
-    ![Pulsante Aggiungi autorizzazioni](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
+    ![Pulsante Aggiungi autorizzazioni](media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
 1. Dopo aver completato i passaggi da 1 a 14 nel portale di Azure, accedere all'istanza di Dynamics 365 Customer Engagement passando all'URL, ad esempio `https://tenant.crm.dynamics.com`.
 1. Selezionare l'icona a forma di ingranaggio nella barra superiore e quindi selezionare **Impostazioni avanzate**.
 1. Nella pagina **Impostazioni** aprire il menu **Impostazioni** sulla barra superiore e selezionare **Sicurezza**.
 1. Nella pagina **Sicurezza** selezionare  **Utenti**. Nella pagina **Utenti** selezionare l'elenco a discesa **Utenti abilitati** e quindi selezionare **Utenti applicazioni**.
-1. Selezionare **Nuovo** per creare un nuovo utente. 
+1. Selezionare **Nuovo** per creare un nuovo utente.
 
-    ![Creare un nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
+    ![Creare un nuovo utente](media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-1. Nel riquadro **Nuovo utente** verificare che l'opzione **UTENTE: UTENTE APPLICAZIONE** sia selezionata. Specificare nome utente, nome e cognome e indirizzo di posta elettronica per l'utente che si vuole usare con la connessione. Incollare anche l' **ID applicazione** per l'app creata nel portale di Azure nel passaggio 8. Selezionare **Salva e chiudi** per completare l'aggiunta dell'utente.
+1. Nel riquadro **Nuovo utente** verificare che l'opzione **UTENTE: UTENTE APPLICAZIONE** sia selezionata. Specificare nome utente, nome e cognome e indirizzo di posta elettronica per l'utente che si vuole usare con la connessione. Incollare anche l'**ID applicazione** per l'app creata nel portale di Azure nel passaggio 8. Selezionare **Salva e chiudi** per completare l'aggiunta dell'utente.
 
-    ![Riquadro Nuovo utente](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
+    ![Riquadro Nuovo utente](media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
 1. Passare alla sezione "Impostazioni di sicurezza" di questo articolo per completare la configurazione della connessione per l'utente corrente.
 
@@ -122,7 +122,7 @@ Per configurare Office 365 per Dynamics 365 Customer Engagement:
 
 1. Selezionare **Aggiungi utente**.
 
-    ![Opzione Aggiungi utente dell'interfaccia di amministrazione di Microsoft 365](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
+    ![Opzione Aggiungi utente dell'interfaccia di amministrazione di Microsoft 365](media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
 
 1. Creare un nuovo utente per il servizio Lead Writer. Configurare le seguenti impostazioni:
 
@@ -133,7 +133,7 @@ Per configurare Office 365 per Dynamics 365 Customer Engagement:
 
 Salvare questi valori perché sarà necessario specificare i valori **Nome utente** e **Password** nel portale di pubblicazione per ricevere i lead per l'offerta del marketplace.
 
-![Riquadro nuovo utente dell'interfaccia di amministrazione di Microsoft 365](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-new-user.png)
+![Riquadro nuovo utente dell'interfaccia di amministrazione di Microsoft 365](media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-new-user.png)
 
 ## <a name="security-settings"></a>Impostazioni di sicurezza
 
@@ -142,32 +142,32 @@ Il passaggio finale consente all'utente creato di scrivere i lead.
 1. Aprire Dynamics 365 Customer Engagement passando all'URL dell'istanza di Dynamics, ad esempio `https://tenant.crm.dynamics.com`.
 1. Selezionare l'icona a forma di ingranaggio nella barra superiore e quindi selezionare **Impostazioni avanzate**.
 1. Nella pagina **Impostazioni** aprire il menu **Impostazioni** sulla barra superiore e selezionare **Sicurezza**.
-1. Nella pagina **Sicurezza** selezionare **Utenti** e selezionare l'utente creato nella sezione "Configurare le autorizzazioni utente" di questo documento, quindi selezionare **Gestisci ruoli**. 
+1. Nella pagina **Sicurezza** selezionare **Utenti** e selezionare l'utente creato nella sezione "Configurare le autorizzazioni utente" di questo documento, quindi selezionare **Gestisci ruoli**.
 
-    ![Scheda Gestisci ruoli](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
+    ![Scheda Gestisci ruoli](media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
 1. Cercare il nome del ruolo **Microsoft Marketplace Lead Writer** e selezionarlo per assegnare l'utente al ruolo.
 
-    ![Riquadro Gestisci ruoli utente](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
+    ![Riquadro Gestisci ruoli utente](media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!NOTE]
     >Questo ruolo viene creato dalla soluzione importata. Dispone solo di autorizzazioni per la scrittura dei lead e dell'individuazione della versione della soluzione per garantirne la compatibilità.
 
 1. Tornare alla pagina **Sicurezza** e selezionare **Ruoli di sicurezza**. Cercare il ruolo **Microsoft Marketplace Lead Writer** e selezionarlo.
 
-    ![Riquadro Ruoli di sicurezza](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
+    ![Riquadro Ruoli di sicurezza](media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-1. Nel ruolo di sicurezza selezionare la scheda **Record principali**. Cercare l'elemento **Impostazioni interfaccia utente entità utente**. Abilitare le autorizzazioni di creazione, lettura e scrittura per l'utente (1/4 di cerchio giallo) per tale entità facendo clic una volta in ognuno dei cerchi corrispondenti.
+1. Nel ruolo di sicurezza selezionare la scheda **Record principali**. Cercare l'elemento **Impostazioni interfaccia utente entità utente**. Abilitare le autorizzazioni di creazione, lettura e scrittura per l'utente (1/4 cerchio giallo) per tale entità selezionando i pulsanti di opzione corrispondenti.
 
-    ![Scheda Record principali di Microsoft Marketplace Lead Writer](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
+    ![Scheda Record principali di Microsoft Marketplace Lead Writer](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-1. Nella scheda **Personalizzazione** cercare l'elemento **Processo di sistema**. Abilitare le autorizzazioni di lettura, scrittura e aggiunta per l'organizzazione (cerchi verdi pieni) per tale entità facendo clic quattro volte in ognuno dei cerchi corrispondenti.
+1. Nella scheda **Personalizzazione** cercare l'elemento **Processo di sistema**. Abilitare le autorizzazioni di lettura, scrittura e AppendTo per l'organizzazione (pulsanti di opzione verde tinta unita) per tale entità selezionando i pulsanti di opzione corrispondenti.
 
-    ![Scheda Personalizzazione di Microsoft Marketplace Lead Writer](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
+    ![Scheda Personalizzazione di Microsoft Marketplace Lead Writer](media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
 1. Selezionare **Salva e chiudi**.
 
-## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Configurare l'offerta per inviare lead a Dynamics 365 Customer Engagement 
+## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Configurare l'offerta per inviare lead a Dynamics 365 Customer Engagement
 
 Per configurare le informazioni di gestione dei lead per l'offerta nel portale di pubblicazione:
 
@@ -178,25 +178,25 @@ Per configurare le informazioni di gestione dei lead per l'offerta nel portale d
 
 1. Nella finestra popup Dettagli connessione selezionare **Dynamics 365 Customer Engagement** come destinazione del lead.
 
-    ![Casella della destinazione del lead](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
+    ![Casella della destinazione del lead](media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-1. Immettere l' **URL** per l'istanza di Dynamics 365, ad esempio `https://contoso.crm4.dynamics.com`.
+1. Immettere l'**URL** per l'istanza di Dynamics 365, ad esempio `https://contoso.crm4.dynamics.com`.
 
-1. Come metodo di **autenticazione** selezionare Azure Active Directory o Office 365. 
-1. Se si è selezionato **Azure Active Directory** , immettere l' **ID applicazione (client)** (ad esempio, `23456052-aaaa-bbbb-8662-1234df56788f`), l' **ID directory** (ad esempio, `12345678-8af1-4asf-1234-12234d01db47`) e il **segreto client** (ad esempio, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+1. Come metodo di **autenticazione** selezionare Azure Active Directory o Office 365.
+1. Se si è selezionato **Azure Active Directory**, immettere l'**ID applicazione (client)** (ad esempio, `23456052-aaaa-bbbb-8662-1234df56788f`), l'**ID directory** (ad esempio, `12345678-8af1-4asf-1234-12234d01db47`) e il **segreto client** (ad esempio, `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
 
-    ![Autenticazione con Azure Active Directory selezionata](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
+    ![Autenticazione con Azure Active Directory selezionata](media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. Se si è selezionato **Office 365** , immettere il **nome utente** (ad esempio, `contoso@contoso.onmicrosoft.com`) e la **password** (ad esempio, `P@ssw0rd`).
+1. Se si è selezionato **Office 365**, immettere il **nome utente** (ad esempio, `contoso@contoso.onmicrosoft.com`) e la **password** (ad esempio, `P@ssw0rd`).
 
-    ![Casella Nome utente di Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
+    ![Casella Nome utente di Office 365](media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. Per **Indirizzo posta elettronica contatto** immettere gli indirizzi delle persone dell'organizzazione che dovranno ricevere le notifiche tramite posta elettronica quando si riceve un nuovo lead. È possibile immettere più indirizzi di posta elettronica separandoli con un punto e virgola.
 1. Selezionare **OK**.
 
 Per assicurarsi di avere eseguito la connessione a una destinazione del lead, selezionare il pulsante **Convalida**. In caso di esito positivo, sarà presente un lead di test nella destinazione del lead.
 
-![Casella Indirizzo di posta elettronica contatto](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
+![Casella Indirizzo di posta elettronica contatto](media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-connection-details.png)
 
 >[!NOTE]
 >È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i lead per l'offerta.

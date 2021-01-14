@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832451"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200924"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Reimpostare Servizi Desktop remoto o la relativa password di amministratore in una macchina virtuale Windows
 Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione di Servizi Desktop remoto (opzione non supportata nei controller di dominio Windows). Per reimpostare la password, usare il portale di Azure o l'estensione di accesso alla macchina virtuale in Azure PowerShell. Dopo aver effettuato l'accesso alla macchina virtuale, reimpostare la password per l'amministratore locale.  
@@ -86,14 +86,14 @@ Innanzitutto, verificare che il [modulo di PowerShell più recente sia installat
     > [!TIP]
     > In qualsiasi momento una VM può avere un solo agente di accesso. Per impostare le proprietà dell'agente di accesso alla macchina virtuale, usare l'opzione `-ForceRerun`. Quando si usa `-ForceRerun`, assicurarsi di usare lo stesso nome per l'agente di accesso alla macchina virtuale usato nei comandi precedenti.
 
-1. Se non è ancora possibile connettersi in remoto alla macchina virtuale, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Se la connessione al controller di dominio Windows viene interrotta, sarà necessario ripristinarla da un backup del controller di dominio.
+1. Se non è ancora possibile connettersi in remoto alla macchina virtuale, vedere [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md). Se la connessione al controller di dominio Windows viene interrotta, sarà necessario ripristinarla da un backup del controller di dominio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se l'estensione di accesso alla macchina virtuale di Azure non risponde e non è possibile reimpostare la password, provare a [reimpostare la password di Windows locale offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Questo metodo è un processo più avanzato e richiede di connettere il disco rigido virtuale della macchina virtuale problematica a un'altra macchina virtuale. Seguire prima i passaggi illustrati in questo articolo e provare il metodo di reimpostazione della password offline solo se questi passaggi non funzionano.
+- Se l'estensione di accesso alla macchina virtuale di Azure non risponde e non è possibile reimpostare la password, provare a [reimpostare la password di Windows locale offline](reset-local-password-without-agent.md). Questo metodo è un processo più avanzato e richiede di connettere il disco rigido virtuale della macchina virtuale problematica a un'altra macchina virtuale. Seguire prima i passaggi illustrati in questo articolo e provare il metodo di reimpostazione della password offline solo se questi passaggi non funzionano.
 
-- Informazioni [sulle estensioni e sulle funzionalità delle macchine virtuali di Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Informazioni [sulle estensioni e sulle funzionalità delle macchine virtuali di Azure](../extensions/features-windows.md).
 
 - [Connettersi a una macchina virtuale di Azure con RDP o SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
-- [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md).

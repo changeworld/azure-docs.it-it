@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: e3a48fa9f84a047a08e73bbaa239563dca541541
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978366"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200771"
 ---
 # <a name="deploy-spot-vms-using-the-azure-cli"></a>Distribuire macchine virtuali con l'interfaccia della riga di comando di Azure
 
@@ -85,4 +85,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 Eseguire query sulle informazioni sui prezzi correnti usando l' [API prezzi di vendita al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
-Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md).

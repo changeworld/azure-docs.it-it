@@ -1,18 +1,18 @@
 ---
-title: Segnalazione dell'etichetta di riservatezza sui dati nell'archivio BLOB di Azure
-description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report delle etichette di riservatezza di competenza sui dati nell'archivio BLOB di Azure.
+title: Etichetta di riservatezza creazione di report sui dati in Azure (competenza) con Insights
+description: Questa guida dettagliata descrive come visualizzare e usare la creazione di report delle etichette di riservatezza di competenza sui dati.
 author: batamig
 ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/24/2020
-ms.openlocfilehash: e6a92282d2bcd316a771742048dacd9a7181de4f
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: dffecb48a8faa869cb3df450cc220e86195bbc87
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746183"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199377"
 ---
 # <a name="sensitivity-label-insights-about-your-data-in-azure-purview"></a>Informazioni approfondite sull'etichetta di riservatezza sui dati in Azure
 
@@ -27,6 +27,11 @@ In questa guida dettagliata si apprenderà come:
 > - Visualizza informazioni dettagliate sull'etichettatura dei dati
 > - Esegui il drill-down per ottenere ulteriori informazioni sull'etichettatura dei dati
 
+> [!NOTE]
+> Le etichette di riservatezza trovate in [Power bi asset](register-scan-power-bi-tenant.md) sottoposti a scansione da ambito non sono attualmente visualizzate nel report delle informazioni sulle etichette di riservatezza. 
+>
+> Per visualizzare le etichette di riservatezza negli asset Power BI, visualizzare l'asset nel [Data Catalog di competenza](how-to-search-catalog.md).
+> 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completato i passaggi seguenti:
@@ -37,6 +42,8 @@ Prima di iniziare a usare informazioni dettagliate, assicurarsi di aver completa
 
 - Configurare e completare un'analisi sui dati di test in ogni origine dati
 
+- Accesso a competenza con un [ruolo di lettore di dati o di data Curator](catalog-permissions.md#azure-purviews-pre-defined-data-plane-roles).
+
 Per altre informazioni, vedere [gestire le origini dati in Azure (anteprima)](manage-data-sources.md) ed [etichettare automaticamente i dati in Azure](create-sensitivity-label.md).
 
 ## <a name="use-purview-sensitivity-labeling-insights"></a>Usare la riservatezza di competenza per le etichette Insights
@@ -45,9 +52,11 @@ In ambito, le classificazioni sono simili ai tag Subject e vengono usate per con
 
 Le etichette di riservatezza consentono di indicare quanto sono sensibili determinati dati nell'organizzazione. Ad esempio, un nome di progetto specifico può essere altamente riservato all'interno dell'organizzazione, mentre lo stesso termine non è riservato ad altre organizzazioni. 
 
-Mentre le classificazioni vengono confrontate direttamente (un numero di previdenza sociale ha una classificazione di un **numero di previdenza sociale**), le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e scenari. 
+Le classificazioni vengono confrontate direttamente, ad esempio un numero di previdenza sociale, che ha una classificazione del **codice fiscale**. 
 
-La competenza usa le stesse classificazioni, note anche come tipi di informazioni riservate, come Microsoft 365. In questo modo è possibile estendere le etichette di riservatezza esistenti tra le risorse di competenza di Azure.
+Al contrario, le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e condizioni. In questo contesto, le [condizioni](/microsoft-365/compliance/apply-sensitivity-label-automatically) si riferiscono a tutti i parametri che è possibile definire per i dati non strutturati, ad esempio la **vicinanza a un'altra classificazione** e la **percentuale di confidenza**. 
+
+La competenza usa le stesse classificazioni, note anche come [tipi di informazioni riservate](/microsoft-365/compliance/sensitive-information-type-entity-definitions), come Microsoft 365. In questo modo è possibile estendere le etichette di riservatezza esistenti tra le risorse di competenza di Azure.
 
 > [!NOTE]
 > Dopo aver analizzato i tipi di origine, è possibile assegnare all' **etichetta** informazioni approfondite un paio di ore per riflettere i nuovi asset.

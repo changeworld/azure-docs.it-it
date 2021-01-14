@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: 38f231e63ad4974a23a1201aad4d290685860b50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d68ac7aa9927e62011c58b17139d7232ce4a10c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292150"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200754"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Creare schede di interfaccia di rete virtuale e usare DNS interni per la risoluzione dei nomi di VM in Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come impostare nomi DNS interni statici per VM Linux us
 I requisiti sono:
 
 * [un account Azure](https://azure.microsoft.com/pricing/free-trial/)
-* [File di chiavi SSH pubbliche e private](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [File di chiavi SSH pubbliche e private](mac-create-ssh-keys.md)
 
 ## <a name="quick-commands"></a>Comandi rapidi
 Se si vuole eseguire rapidamente l'attività, la sezione seguente indica dettagliatamente i comandi necessari. Le informazioni più dettagliate e il contesto per ogni passaggio sono disponibili nel resto del documento, [a partire da qui](#detailed-walkthrough). Per eseguire questi passaggi è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e aver effettuato l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index).
@@ -71,7 +71,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-Il passaggio successivo è creare una rete virtuale in cui avviare le VM. Ai fini di questa procedura, la rete virtuale contiene una subnet. Per altre informazioni sulle reti virtuali di Azure, vedere [Create a virtual network](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network) (Creare una rete virtuale). 
+Il passaggio successivo è creare una rete virtuale in cui avviare le VM. Ai fini di questa procedura, la rete virtuale contiene una subnet. Per altre informazioni sulle reti virtuali di Azure, vedere [Create a virtual network](../../virtual-network/manage-virtual-network.md#create-a-virtual-network) (Creare una rete virtuale). 
 
 Creare la rete virtuale con [az network vnet create](/cli/azure/network/vnet). L'esempio seguente creata una rete virtuale denominata `myVnet` e una sottorete denominata `mySubnet`:
 
@@ -85,7 +85,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>Creare il gruppo di sicurezza di rete
-I gruppi di sicurezza di rete di Azure sono analoghi a un firewall a livello di rete. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+I gruppi di sicurezza di rete di Azure sono analoghi a un firewall a livello di rete. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Come creare gruppi di sicurezza di rete nell'interfaccia della riga di comando di Azure](../../virtual-network/tutorial-filter-network-traffic-cli.md). 
 
 Creare il gruppo di sicurezza di rete con [az network nsg create](/cli/azure/network/nsg). Nell'esempio seguente viene creato un gruppo di sicurezza di rete denominato `myNetworkSecurityGroup`:
 
@@ -157,5 +157,5 @@ az vm create \
 Usando i flag dell'interfaccia della riga di comando per chiamare le risorse esistenti, si indica ad Azure di distribuire la macchina virtuale all'interno della rete esistente. Come già detto, dopo essere state distribuite la rete virtuale e la subnet possono essere usate come risorse statiche o permanenti nell'area di Azure.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Creare una VM Linux in Azure usando i modelli](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creare un ambiente Linux completo mediante l'interfaccia della riga di comando di Azure](create-cli-complete.md)
+* [Creare una VM Linux in Azure usando i modelli](create-ssh-secured-vm-from-template.md)

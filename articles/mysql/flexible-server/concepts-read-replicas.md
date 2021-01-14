@@ -5,13 +5,13 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/26/2020
-ms.openlocfilehash: 3fe63deb8115c0043023301c6d0dc3731e97743f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/14/2021
+ms.openlocfilehash: ccae7b3f201e55af0e9e6b4ca9e7fd4ffb9c4897
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492626"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200975"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leggere le repliche nel database di Azure per MySQL-server flessibile
 
@@ -31,7 +31,7 @@ Per altre informazioni sulle funzionalità di replica di MySQL e sui relativi pr
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alle parole _Master_ e _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) li riconosce come parole di esclusione. Le parole vengono usate in questo articolo per coerenza perché sono attualmente parole visualizzate nel software. Quando il software viene aggiornato per rimuovere le parole, questo articolo verrà aggiornato in modo da essere in linea.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casi d'uso comuni per la replica di lettura
@@ -40,7 +40,7 @@ La funzionalità di replica in lettura aiuta a migliorare prestazioni e scalabil
 
 Scenari comuni:
 
-* Ridimensionamento dei carichi di lavoro di lettura provenienti dall'applicazione usando proxy di connessione Lightweight come [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) o uso del modello basato su microservizi per scalare le query di lettura provenienti dall'applicazione per leggere le repliche
+* Ridimensionamento dei carichi di lavoro di lettura provenienti dall'applicazione usando proxy di connessione Lightweight come [ProxySQL](https://aka.ms/ProxySQLLoadBalanceReplica) o uso del modello basato su microservizi per scalare in orizzontale le query di lettura provenienti dall'applicazione per leggere le repliche
 * I carichi di lavoro di report analitici o BI possono usare le repliche di lettura come origine dati per la creazione di report
 * Per gli scenari di produzione o di tutto, in cui le informazioni di telemetria vengono inserite nel motore di database MySQL mentre vengono usate più repliche di lettura per la creazione di report
 
@@ -93,24 +93,24 @@ Informazioni su come [arrestare la replica in una replica](how-to-read-replicas-
 
 ## <a name="failover"></a>Failover
 
-Non esiste un failover automatico tra i server di origine e di replica. 
+Non esiste un failover automatico tra i server di origine e di replica.
 
 Le repliche di lettura sono destinate al ridimensionamento dei carichi di lavoro con utilizzo intensivo di lettura e non sono progettate per soddisfare le esigenze di disponibilità elevata di un server. Non esiste un failover automatico tra i server di origine e di replica. L'arresto della replica sulla replica di lettura per portarlo online in modalità lettura/scrittura è il modo in cui viene eseguito il failover manuale.
 
-Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica* metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
+Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da molti fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica* metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
 > [!Tip]
 > Se si esegue il failover alla replica, il ritardo nel momento in cui si scollega la replica dall'origine indicherà la quantità di dati persi.
 
-Dopo aver deciso di voler eseguire il failover a una replica, 
+Dopo aver deciso di voler eseguire il failover a una replica:
 
 1. Arrestare la replica nella replica<br/>
-   Questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà decollegato dall'origine. Una volta avviata l'arresto della replica, il completamento del processo back-end richiede in genere circa 2 minuti. Per comprendere le implicazioni di questa azione, vedere la sezione [arrestare la replica](#stop-replication) di questo articolo.
-    
+   Questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà decollegato dall'origine. Dopo l'avvio della replica di arresto, il completamento del processo back-end richiede in genere circa 2 minuti. Per comprendere le implicazioni di questa azione, vedere la sezione [arrestare la replica](#stop-replication) di questo articolo.
+
 2. Puntare l'applicazione alla replica (precedente)<br/>
    Ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che all'origine.
-    
-Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
+
+Dopo che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
 
 ## <a name="considerations-and-limitations"></a>Considerazioni e limitazioni
 
@@ -130,5 +130,5 @@ Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](how-to-read-replicas-portal.md)
-- Leggere le informazioni su come [creare e gestire repliche in lettura tramite l'interfaccia della riga di comando di Azure](how-to-read-replicas-cli.md)
+* Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](how-to-read-replicas-portal.md)
+* Leggere le informazioni su come [creare e gestire repliche in lettura tramite l'interfaccia della riga di comando di Azure](how-to-read-replicas-cli.md)

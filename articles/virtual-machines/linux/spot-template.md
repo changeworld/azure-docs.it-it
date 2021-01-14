@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0a56cfe8e282b7fb7e618dcadda5beff7c4e3f43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825389"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200788"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuire le VM spot usando un modello di Gestione risorse
 
@@ -194,4 +194,4 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 Eseguire query sulle informazioni sui prezzi correnti usando l' [API prezzi di vendita al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices) per informazioni sui prezzi spot. `meterName`E `skuName` conterranno entrambi `Spot` .
 
-Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Se si verifica un errore, vedere [codici di errore](../error-codes-spot.md).

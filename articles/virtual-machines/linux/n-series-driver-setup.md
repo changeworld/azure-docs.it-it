@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c3443abaa1157122f7bcd43277a0ae00a2cd4407
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 7af13147804fd1e50a033635985c08b9c62f76ba
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059093"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200992"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
 Per usufruire delle funzionalità GPU delle macchine virtuali serie N di Azure che si servono di GPU NVIDIA, è necessario installare i driver GPU NVIDIA. L'[estensione del driver NVIDIA GPU](../extensions/hpccompute-gpu-linux.md) consente di installare i driver NVIDIA CUDA o GRID appropriati in una macchina virtuale serie N. Installare o gestire l'estensione usando il portale di Azure o strumenti come l'interfaccia della riga di comando di Azure o Azure Resource Manager. Vedere le [documentazione dell'estensione dei driver GPU NVIDIA](../extensions/hpccompute-gpu-linux.md) per le distribuzioni supportate e i passaggi di distribuzione.
 
-Se si sceglie di installare manualmente i driver GPU NVIDIA, questo articolo descrive i driver e le distribuzioni supportate, nonché passaggi di installazione e verifica. Le informazioni di configurazione manuale dei driver sono disponibili anche per le [macchine virtuali Windows](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Se si sceglie di installare manualmente i driver GPU NVIDIA, questo articolo descrive i driver e le distribuzioni supportate, nonché passaggi di installazione e verifica. Le informazioni di configurazione manuale dei driver sono disponibili anche per le [macchine virtuali Windows](../windows/n-series-driver-setup.md).
 
 Per conoscere le specifiche, le capacità di archiviazione e i dettagli dei dischi delle macchine virtuali serie N, vedere [Dimensioni delle macchine virtuali Linux GPU](../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json). 
 
@@ -388,4 +388,4 @@ Creare quindi una voce per lo script di aggiornamento in `/etc/rc.d/rc3.d`, in m
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Se si intende acquisire un'immagine di una VM Linux in cui sono installati driver NVIDIA, vedere [Come generalizzare e acquisire una macchina virtuale Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Se si intende acquisire un'immagine di una VM Linux in cui sono installati driver NVIDIA, vedere [Come generalizzare e acquisire una macchina virtuale Linux](capture-image.md).

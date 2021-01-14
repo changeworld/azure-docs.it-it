@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8f69f94c53227dc86fbbf9e9936a2fc3c97ec55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: af248b4ee3ccd079d41317fdb1db3de82ad0f835
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967874"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98199037"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connessione di macchine virtuali di Azure a istanze Large di HANA
 
@@ -41,7 +41,7 @@ Guardando più vicino al lato rete virtuale di Azure, è necessario:
 >[!Note]
 >La rete virtuale di Azure per istanze Large di HANA deve essere creata usando il modello di distribuzione Azure Resource Manager. Il vecchio modello di distribuzione di Azure, comunemente noto come modello di distribuzione classico, non è supportato dalle istanze Large di HANA.
 
-La rete virtuale può essere creata mediante il portale di Azure, PowerShell, un modello di Azure o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network)). L'esempio seguente illustra una rete virtuale creata tramite il portale di Azure.
+La rete virtuale può essere creata mediante il portale di Azure, PowerShell, un modello di Azure o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network)). L'esempio seguente illustra una rete virtuale creata tramite il portale di Azure.
 
 Quando si fa riferimento allo **spazio degli indirizzi** in questa documentazione, allo spazio degli indirizzi che la rete virtuale di Azure è autorizzato a usare. nonché l'intervallo di indirizzi che verrà usato dalla rete virtuale per la propagazione della route BGP. Questo **spazio di indirizzi** può essere visualizzato qui:
 

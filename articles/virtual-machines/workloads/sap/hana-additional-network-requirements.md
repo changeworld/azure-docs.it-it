@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44e9712466734c0e42fd2bea05c5110cbff6924b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 308d30118349e020d3b407243f106d9ad8368118
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964797"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198986"
 ---
 # <a name="additional-network-requirements-for-large-instances"></a>Requisiti di rete aggiuntivi per istanze Large
 
@@ -31,7 +31,7 @@ Usare il portale di Azure, PowerShell o l'interfaccia della riga di comando di A
 
 Aggiungere il nuovo intervallo di indirizzi IP allo spazio di indirizzi della rete virtuale come nuovo intervallo anziché generare un nuovo intervallo aggregato. Inviare la modifica a Microsoft. In questo modo è possibile connettersi dal nuovo intervallo di indirizzi IP alle unità di istanze Large di HANA nel client. È possibile aprire una richiesta di supporto tecnico di Azure per ottenere il nuovo spazio di indirizzi della rete virtuale aggiunto. Dopo aver ricevuto la conferma, eseguire i passaggi successivi.
 
-Per creare una subnet aggiuntiva dal portale di Azure, vedere [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). Per crearne una da PowerShell, vedere [Creare una rete virtuale usando PowerShell](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network).
+Per creare una subnet aggiuntiva dal portale di Azure, vedere [Creare una rete virtuale usando il portale di Azure](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network). Per crearne una da PowerShell, vedere [Creare una rete virtuale usando PowerShell](../../../virtual-network/manage-virtual-network.md#create-a-virtual-network).
 
 ## <a name="add-virtual-networks"></a>Aggiungere reti virtuali
 
@@ -51,11 +51,11 @@ Una volta creato il nuovo circuito e completata la configurazione da parte del t
 
 Per rimuovere una subnet di rete virtuale, è possibile usare il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Se l'intervallo di indirizzi IP o lo spazio di indirizzi della rete virtuale di Azure è un intervallo aggregato, non è necessario contattare Microsoft. Si noti, tuttavia, che la rete virtuale sta ancora propagando lo spazio di indirizzi della route BGP che include la subnet eliminata. È possibile che sia stato definito l'intervallo di indirizzi della rete virtuale di Azure o lo spazio di indirizzi come più intervalli di indirizzi IP, di cui uno è stato assegnato alla subnet eliminata. assicurarsi di eliminarlo dallo spazio di indirizzi della rete virtuale. Comunicare quindi al team di gestione dei servizi di SAP HANA in Microsoft di rimuoverlo anche dagli intervalli con cui SAP HANA in Azure (istanze Large) può comunicare.
 
-Per altre informazioni, vedere [Eliminare una subnet](../../../virtual-network/virtual-network-manage-subnet.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-subnet).
+Per altre informazioni, vedere [Eliminare una subnet](../../../virtual-network/virtual-network-manage-subnet.md#delete-a-subnet).
 
 ## <a name="delete-a-virtual-network"></a>Eliminare una rete virtuale
 
-Per informazioni, vedere [Eliminare una rete virtuale](../../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#delete-a-virtual-network).
+Per informazioni, vedere [Eliminare una rete virtuale](../../../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 Il team di gestione dei servizi di SAP HANA in Microsoft rimuove le autorizzazioni esistenti nel circuito ExpressRoute per SAP HANA in Azure (istanze Large) e l'intervallo di indirizzi IP o lo spazio di indirizzi della rete virtuale di Azure per le comunicazioni con istanze Large di HANA.
 

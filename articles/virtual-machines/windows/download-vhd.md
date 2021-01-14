@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: 5c57ac0fb0ab377f00770e3c9c03a413dcb345bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6f7b461d205478d6a3fe3eecbbb933d0533ec9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291028"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200516"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Scaricare un disco rigido virtuale Linux da Azure
 
@@ -27,7 +27,7 @@ Se si desidera utilizzare il disco rigido virtuale come [immagine](tutorial-cust
 Per usare il disco rigido virtuale come immagine per creare altre macchine virtuali, generalizzare la VM.
 
 1. Se non è già stato fatto, accedere al [portale di Azure](https://portal.azure.com/).
-2. [Connettersi alla macchina virtuale](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+2. [Connettersi alla macchina virtuale](connect-logon.md). 
 3. Nella VM aprire la finestra del prompt dei comandi come amministratore.
 4. Passare alla directory *%windir%\system32\sysprep* e quindi eseguire sysprep.exe.
 5. Nella finestra di dialogo Utilità preparazione sistema selezionare **Passare alla Configurazione guidata** e verificare che la casella di controllo **Generalizza** sia selezionata.
@@ -65,6 +65,6 @@ Per scaricare il file VHD, è necessario generare un URL di [firma di accesso co
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [caricare un file VHD in Azure](upload-generalized-managed.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-- [Creare dischi gestiti da dischi non gestiti in un account di archiviazione](attach-disk-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- [Gestire i dischi di Azure con PowerShell](tutorial-manage-data-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Informazioni su come [caricare un file VHD in Azure](upload-generalized-managed.md). 
+- [Creare dischi gestiti da dischi non gestiti in un account di archiviazione](attach-disk-ps.md).
+- [Gestire i dischi di Azure con PowerShell](tutorial-manage-data-disk.md).

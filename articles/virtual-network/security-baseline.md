@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d183edbe82d59b9d0c1ebe075dd2639137d5081c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514442"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200873"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Baseline della sicurezza di Azure per la rete virtuale
 
@@ -306,7 +306,7 @@ Abilitare l'accesso just-in-time/just-enough usando Azure AD Privileged Identity
 
 **Linee guida**: usare workstation con accesso con privilegi (Paw) con multi-factor authentication (multi-factor authentication) configurato per accedere alle risorse di rete di Azure e accedervi.
 
-- [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations) 
+- [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -812,9 +812,9 @@ Contrassegnare chiaramente le sottoscrizioni, ad esempio produzione o non di pro
 
 **Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usa la strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.
 
-- [Regole di coinvolgimento dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+- [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-- [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+- [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

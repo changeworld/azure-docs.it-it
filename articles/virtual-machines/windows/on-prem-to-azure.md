@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32cbfbcc8feeff66101ab5e2c95f476a4a4215e9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 55f7c68df1e339f0f9eda809bbb0acbb2e9131b5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973904"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200890"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Eseguire la migrazione da Amazon Web Services (AWS) e altre piattaforme a Managed Disks in Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "91973904"
 - **Disco rigido virtuale specializzato**: gestisce gli account utente, le applicazioni e altri dati di stato dalla macchina virtuale originale. 
 
 > [!IMPORTANT]
-> Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md)
 >
 >
 
@@ -49,7 +49,7 @@ Questa sezione consente di prendere le decisioni migliori sui tipi di macchina v
 
 Se si intende pianificare la migrazione da dischi non gestiti a dischi gestiti, occorre tener presente che gli utenti con il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) non saranno in grado di modificare le dimensioni della macchina virtuale com'era possibile prima della conversione. Il motivo è che le macchine virtuali con dischi gestiti richiedono che gli utenti abbiano l'autorizzazione Microsoft.Compute/disks/write per i dischi del sistema operativo.
 
-### <a name="location"></a>Posizione
+### <a name="location"></a>Location
 
 Selezionare una posizione in cui Azure Managed Disks è disponibile. Se si esegue la migrazione a Managed Disks Premium, assicurarsi anche che l'Archiviazione Premium sia disponibile nell'area di destinazione della migrazione. Per informazioni aggiornate sulle località disponibili, vedere [Prodotti in base all'area](https://azure.microsoft.com/regions/#services) .
 
@@ -64,20 +64,20 @@ Esaminare le caratteristiche delle prestazioni delle Macchine virtuali che usano
 
 È possibile usare sette tipi di dischi gestiti della versione Premium con la macchina virtuale, ognuno con limiti IOP e di velocità effettiva specifici. Tenere in considerazione questi limiti nella scelta del tipo di disco Premium per la macchina virtuale in base alle esigenze dell’applicazione in termini di capacità, prestazioni, scalabilità e carichi di picco.
 
-| Tipo di disco Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+| Tipo di disco Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Dimensioni del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| IOPS per disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
-| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 125 MB al secondo |150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo |
+| Dimensioni del disco           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| IOPS per disco       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 125 MB al secondo |150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo |
 
 **Managed Disks standard**
 
 Esistono sette tipi di dischi gestiti della versione Standard che possono essere usati con la macchina virtuale. Si differenziano per capacità ma presentano gli stessi limiti IOP e di velocità effettiva. Scegliere il tipo di disco gestito della versione Standard in base alle esigenze in termini di capacità dell'applicazione.
 
-| Tipo di disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+| Tipo di disco Standard  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
 |---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
-| Dimensioni del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
-| IOPS per disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Dimensioni del disco           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2 TB)    | 4095 GB (4 TB)   | 
+| IOPS per disco       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
 | Velocità effettiva per disco | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo |60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 60 MB al secondo | 
 
 ### <a name="disk-caching-policy"></a>Criteri di memorizzazione nella cache su disco 
@@ -93,4 +93,4 @@ Esaminare i [prezzi per Managed Disks](https://azure.microsoft.com/pricing/detai
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Prima di caricare un disco rigido virtuale in Azure, è necessario seguire [la procedura di preparazione di un disco rigido virtuale Windows o VHDX per il caricamento in Azure](prepare-for-upload-vhd-image.md)

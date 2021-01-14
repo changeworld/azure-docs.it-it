@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24dc41493ff48aeba362137347c44cbf0fd20c7a
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3012b1283688a9a680a5a4d0607ca135eab7b0f5
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134212"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200414"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Baseline della sicurezza di Azure per la configurazione di app Azure
 
@@ -363,7 +363,7 @@ Nota: le identità gestite sono suggerite laddove possibile per l'autenticazione
 
 **Linee guida**: le workstation protette e isolate sono di fondamentale importanza per la sicurezza dei ruoli sensibili, ad esempio amministratori, sviluppatori e operatori di servizi critici. Usare workstation utente altamente sicure e/o il Bastione di Azure per le attività amministrative correlate alla configurazione dell'app. Usare Azure Active Directory, Microsoft Defender Advanced Threat Protection (ATP) e/o Microsoft Intune per distribuire una workstation utente protetta e gestita per le attività amministrative. Le workstation protette possono essere gestite centralmente per applicare una configurazione sicura che include l'autenticazione avanzata, le baseline software e hardware, l'accesso logico e di rete limitato.
 
-- [Informazioni sulle workstation con accesso con privilegi](../active-directory/devices/concept-azure-managed-workstation.md) 
+- [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/) 
 
 - [Distribuire una workstation con accesso con privilegi](../active-directory/devices/howto-azure-managed-workstation.md)
 

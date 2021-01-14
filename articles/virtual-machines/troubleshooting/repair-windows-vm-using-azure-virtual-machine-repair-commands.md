@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 82bebcbda3110d51ae72df1fb4b18fedaa6c2f4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7763c1d856a09acf2523a7073c3d300be6b70b37
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597700"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200703"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Riparare una macchina virtuale Windows usando i comandi di riparazione della macchina virtuale di Azure
 
@@ -60,7 +60,7 @@ Per ulteriori documenti e istruzioni, vedere [az vm repair](/cli/azure/ext/vm-re
 
    Se si preferisce installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire ``az --version`` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
    
-   Se è necessario eseguire l'accesso a Cloud Shell con un account diverso da quello attualmente connesso al portale di Azure con, è possibile usare il comando ``az login`` [AZ login Reference](/cli/azure/reference-index?view=azure-cli-latest#az-login&preserve-view=true).  Per spostarsi tra le sottoscrizioni associate all'account, è possibile usare ``az account set --subscription`` [AZ account Set Reference](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true).
+   Se è necessario eseguire l'accesso a Cloud Shell con un account diverso da quello attualmente connesso al portale di Azure con, è possibile usare il comando ``az login`` [AZ login Reference](/cli/azure/reference-index#az-login&preserve-view=true).  Per spostarsi tra le sottoscrizioni associate all'account, è possibile usare ``az account set --subscription`` [AZ account Set Reference](/cli/azure/account#az-account-set&preserve-view=true).
 
 2. Se si usano i comandi `az vm repair` per la prima volta, aggiungere l'estensione dell'interfaccia della riga di comando per la riparazione della macchina virtuale.
 

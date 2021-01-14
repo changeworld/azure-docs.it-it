@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e07e9035dc55f77a2e76b4f4ee306deab829980a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1626ee074d51048dbf45c629f261a550822d746c
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182751"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200839"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -402,7 +402,7 @@ Tuttavia, quando si usa la funzionalità Hybrid Runbook Worker, il Centro sicure
 
 **Linee guida**: usare paw con l'autenticazione a più fattori configurata per accedere e configurare le risorse dell'account di automazione di Azure negli ambienti di produzione.
 
-* [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -556,7 +556,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 * [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
-* [Applicazione TLS 1,2 di automazione di Azure](https://azure.microsoft.com/updates/azure-automation-tls12-enforcement/)
+* [Applicazione TLS 1,2 di automazione di Azure](/azure/active-directory/hybrid/reference-connect-tls-enforcement)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1280,11 +1280,11 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
-**Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia Microsoft e l'esecuzione dei test di penetrazione del sito live e Red Teaming sull'infrastruttura cloud gestita da Microsoft, sui servizi e sulle applicazioni.
+**Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft. Usare la strategia di Microsoft e le attività di red team e i test di penetrazione di siti live nell'infrastruttura cloud, nei servizi e nelle applicazioni gestiti da Microsoft.
 
-* [Regole di ingaggio per i test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
+* [Regole di partecipazione dei test di penetrazione](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [Attività di red team per il cloud Microsoft](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

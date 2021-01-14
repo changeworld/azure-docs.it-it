@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1430b32c0e74be7a0e50fa4c5c183018b2b55e0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 81d44dae0fed45d4a4df76973c7e233fd71baff1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006303"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98198969"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze Large) in Azure
 
@@ -129,7 +129,7 @@ Per SAP HANA in Azure (istanze Large), la sincronizzazione dell'ora eseguita in 
 Si presuppone che siano state seguite le indicazioni relative alla progettazione delle reti virtuali di Azure e alla connessione di queste reti virtuali alle istanze Large di HANA come descritto nei documenti seguenti:
 
 - [Panoramica e architettura di SAP HANA (istanza large) in Azure](./hana-overview-architecture.md)
-- [Infrastruttura e connettività di SAP HANA (istanze large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Infrastruttura e connettività di SAP HANA (istanze large) in Azure](hana-overview-infrastructure-connectivity.md)
 
 È opportuno citare alcuni dettagli in relazione alla rete delle singole unità. Ogni unità di istanza Large di HANA include due o tre indirizzi IP assegnati a due o tre porte NIC. Tre indirizzi IP vengono usati nelle configurazioni con scalabilità orizzontale HANA e nello scenario di replica di sistema HANA. Uno degli indirizzi IP assegnati alla scheda di interfaccia di rete dell'unità è esterno al pool di indirizzi IP del server che è stato descritto in [SAP HANA in Azure (istanze Large)](./hana-overview-architecture.md).
 
@@ -139,7 +139,7 @@ Per altre informazioni sui dettagli Ethernet per l'architettura, vedere [Scenari
 
 Il layout di archiviazione per SAP HANA in Azure (istanze large) viene configurato da SAP HANA in Azure `service management` tramite le linee guida consigliate per SAP. come illustrato nel white paper [SAP HANA storage requirements](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Requisiti per le risorse di archiviazione di SAP HANA). 
 
-Le dimensioni approssimative dei diversi volumi delle diverse SKU di istanze Large di HANA sono illustrate in [SAP HANA in Azure (istanze Large)](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Le dimensioni approssimative dei diversi volumi delle diverse SKU di istanze Large di HANA sono illustrate in [SAP HANA in Azure (istanze Large)](hana-overview-architecture.md).
 
 Le convenzioni di denominazione dei volumi di archiviazione sono elencate nella tabella seguente:
 
@@ -161,7 +161,7 @@ Per ambienti con scalabilità orizzontale i volumi relativi a dati, log e backup
 
 Quando si esamina un'unità di istanze Large di HANA, si nota che le unità hanno un volume del disco piuttosto grande per HANA/data e che è presente un volume per HANA/log/backup. Ciò è dovuto al fatto che gli snapshot di archiviazione offerti ai clienti usano lo stesso volume del disco. Maggiore è il numero di snapshot di archiviazione creati, maggiore è la quantità di spazio usata dagli snapshot nei volumi di archiviazione assegnati. 
 
-Il volume HANA/log/backup non è il volume in cui salvare i backup dei database. Le dimensioni sono appropriate per l'uso come volume di backup per i backup dei log delle transazioni HANA. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Il volume HANA/log/backup non è il volume in cui salvare i backup dei database. Le dimensioni sono appropriate per l'uso come volume di backup per i backup dei log delle transazioni HANA. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md). 
 
 Oltre alle risorse di archiviazione offerte, è possibile acquistare capacità di archiviazione aggiuntiva per incrementi di 1 TB. Questo ulteriore spazio di archiviazione può essere aggiunto come nuovi volumi alle istanze Large di HANA.
 

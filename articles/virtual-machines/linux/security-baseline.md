@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8893daaf73a15cdc0baf8eeb339e794f6f1da64
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913448"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200805"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -398,7 +398,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Indicazioni**: usare workstation con accesso con privilegi insieme a Multi-Factor Authentication (MFA) configurato per l'accesso e la configurazione delle risorse di Azure.
 
-* [Informazioni sulle workstation con accesso con privilegi](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
 * [Come abilitare MFA in Azure](../../active-directory/authentication/howto-mfa-getstarted.md)
 
@@ -602,7 +602,7 @@ Microsoft usa il protocollo Transport Layer Security (TLS) per proteggere i dati
 
 * [Come creare avvisi per gli eventi del log attività di Azure](../../azure-monitor/platform/alerts-activity-log.md)
 
-* [Registrazione di Analisi archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
+* [Registrazione di Analisi di archiviazione di Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 

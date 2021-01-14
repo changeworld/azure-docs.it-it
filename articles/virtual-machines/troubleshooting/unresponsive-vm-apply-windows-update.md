@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 76c3f729a8520c7bff7b49a1d2200d7950f8a9f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55dcd65e901a5ce8665ef8d3a2a29d7943581df9
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074295"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98200720"
 ---
 # <a name="vm-is-unresponsive-with-c01a001d-error-when-applying-windows-update"></a>La macchina virtuale non risponde con l'errore "C01A001D" quando si applica Windows Update
 
@@ -56,7 +56,7 @@ Non è possibile creare un file principale nella file system. Il sistema operati
 
 Se il disco non è già 1 TB, è necessario ridimensionarlo. Quando il disco è di 1 TB, eseguire una pulizia del disco e una deframmentazione dell'unità.
 
-1. Controllare se il disco è pieno. Se il disco è inferiore a 1 TB, [espanderlo fino a un massimo di 1 TB usando PowerShell](../windows/expand-os-disk.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json).
+1. Controllare se il disco è pieno. Se il disco è inferiore a 1 TB, [espanderlo fino a un massimo di 1 TB usando PowerShell](../windows/expand-os-disk.md).
 2. Quando il disco è di 1 TB, eseguire una pulitura del disco.
     - [Scollegare il disco dati dalla macchina virtuale interruppe](../windows/detach-disk.md).
     - [Alleghi il disco dati a una macchina virtuale funzionante](../windows/attach-disk-ps.md#attach-an-existing-data-disk-to-a-vm).
