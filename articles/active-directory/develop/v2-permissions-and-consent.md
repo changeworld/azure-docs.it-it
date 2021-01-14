@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: d3edadd4878dbd6e06648f7fb67a0c3e111665d1
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: da432ee3877af4de931ee6d55860b647090d8e3d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178127"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208778"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -31,8 +31,7 @@ Microsoft Identity Platform implementa il protocollo di autorizzazione [OAuth 2.
 * API di posta elettronica Microsoft 365: `https://outlook.office.com`
 * Azure Key Vault: `https://vault.azure.net`
 
-> [!NOTE]
-> Si consiglia di usare Microsoft Graph anziché Microsoft 365 API di posta elettronica e così via.
+Si consiglia di usare Microsoft Graph anziché Microsoft 365 API di posta elettronica e così via.
 
 Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Platform. Tali risorse possono anche definire un set di autorizzazioni che può essere usato per suddividere le funzionalità di tale risorsa in blocchi più piccoli. Ad esempio, [Microsoft Graph](https://graph.microsoft.com) ha definito le autorizzazioni per eseguire le attività seguenti, tra le altre:
 
@@ -115,8 +114,7 @@ Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi r
 
 Dopo che l'utente immette le proprie credenziali, l'endpoint della piattaforma di identità Microsoft verifica la presenza di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato, né dispone di un amministratore autorizzato a queste autorizzazioni per conto dell'intera organizzazione, l'endpoint della piattaforma Microsoft Identity chiede all'utente di concedere le autorizzazioni richieste.
 
-> [!NOTE]
->Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.
+Attualmente, le autorizzazioni `offline_access` ("Mantieni l'accesso ai dati per cui hai concesso l'accesso a") e `user.read` ("Accedi e visualizza il profilo personale") vengono automaticamente incluse nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per il corretto funzionamento dell'app: `offline_access` consente all'app di accedere a token di aggiornamento, essenziali per le app Web e native, mentre `user.read` consente di accedere all'attestazione `sub`, permettendo al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni utente elementari.
 
 ![Schermata di esempio che mostra il consenso dell'account di lavoro](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -148,8 +146,7 @@ Se l'applicazione richiede le autorizzazioni dell'applicazione e un amministrato
 
 ## <a name="using-the-admin-consent-endpoint"></a>Uso dell'endpoint di consenso dell'amministratore
 
-> [!NOTE]
-> Si noti che dopo aver concesso il consenso dell'amministratore tramite l'endpoint di consenso dell'amministratore, l'utente ha terminato di concedere il consenso dell'amministratore e gli utenti non devono eseguire altre azioni aggiuntive. Dopo aver concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione e il token di accesso risultante avrà le autorizzazioni consentite.
+Dopo aver concesso il consenso dell'amministratore tramite l'endpoint di consenso dell'amministratore, l'utente ha completato la concessione del consenso dell'amministratore e gli utenti non devono eseguire altre azioni aggiuntive. Dopo aver concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione e il token di accesso risultante avrà le autorizzazioni consentite.
 
 Quando un amministratore aziendale usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, Microsoft Identity Platform rileverà il ruolo dell'utente e chiederà se vuole fornire il consenso per conto dell'intero tenant per le autorizzazioni richieste. Tuttavia, è disponibile anche un endpoint di consenso amministratore dedicato utilizzabile per richiedere in modo proattivo che un amministratore conceda l'autorizzazione per conto dell'intero tenant. L'uso di questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione, che non possono essere richieste usando l'endpoint di autorizzazione.
 
@@ -263,8 +260,7 @@ Per ulteriori informazioni sul protocollo OAuth 2,0 e su come ottenere i token d
 
 L'ambito/.default può essere usato in qualsiasi flusso OAuth 2,0, ma è necessario per il flusso di [credenziali client](v2-oauth2-client-creds-grant-flow.md)e [di flusso per conto di](v2-oauth2-on-behalf-of-flow.md) , nonché quando si usa l'endpoint di consenso dell'amministratore V2 per richiedere le autorizzazioni dell'applicazione.
 
-> [!NOTE]
-> I client non possono combinare `/.default` il consenso statico () e dinamico in un'unica richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.
+I client non possono combinare `/.default` il consenso statico () e dinamico in un'unica richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.
 
 ### <a name="default-and-consent"></a>/.default e consenso
 

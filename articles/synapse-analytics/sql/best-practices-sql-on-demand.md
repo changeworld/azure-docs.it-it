@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93ac8cd3e462c244840a5ed569d685a9d67fa6c2
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c752bc6ae49f009056067545fde292dc29027d5d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165876"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208132"
 ---
 # <a name="best-practices-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Procedure consigliate per il pool SQL senza server in Azure sinapsi Analytics
 
@@ -129,7 +129,7 @@ Quando si eseguono query su file CSV, è possibile usare un parser ottimizzato p
 
 ## <a name="manually-create-statistics-for-csv-files"></a>Creare manualmente le statistiche per i file CSV
 
-Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Controllare [statistiche nel pool SQL senza server] (develop-Tables-Statistics. MD # Statistics-in-server senza server-SQL-pool per informazioni dettagliate.
+Il pool SQL senza server si basa sulle statistiche per generare piani di esecuzione di query ottimali. Quando necessario, le statistiche vengono create automaticamente per le colonne nei file parquet. In questo momento, le statistiche non vengono create automaticamente per le colonne nei file CSV ed è necessario creare manualmente le statistiche per le colonne utilizzate nelle query, in particolare quelle utilizzate in DISTINCT, JOIN, WHERE, ORDER BY e GROUP BY. Per informazioni dettagliate, controllare le [statistiche nel pool SQL senza server](develop-tables-statistics.md#statistics-in-serverless-sql-pool) .
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Usare CETAS per ottimizzare le prestazioni e i join delle query
 

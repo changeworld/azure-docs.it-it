@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 018d67b3e4e730cd46eb524a8927b3a6d68d74e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958661"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208849"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0
 
@@ -27,8 +27,8 @@ Il flusso On-Behalf-Of (OBO) di OAuth 2.0 viene usato quando un'applicazione ric
 
 Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
-> [!NOTE]
-> A partire da maggio 2018, non è possibile usare un `id_token` derivato da flusso implicito per il flusso OBO. Le applicazioni a pagina singola dovrebbero invece passare un token di **accesso** a un client riservato di livello intermedio per eseguire i flussi OBO. Per altre informazioni su quali client possono eseguire chiamate OBO, vedere le [limitazioni](#client-limitations).
+
+A partire da maggio 2018, non è possibile usare un `id_token` derivato da flusso implicito per il flusso OBO. Le applicazioni a pagina singola dovrebbero invece passare un token di **accesso** a un client riservato di livello intermedio per eseguire i flussi OBO. Per altre informazioni su quali client possono eseguire chiamate OBO, vedere le [limitazioni](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagramma di protocollo
 
@@ -42,10 +42,9 @@ I passaggi che seguono costituiscono il flusso OBO e vengono descritti con l'aiu
 1. L'API A esegue l'autenticazione all'endpoint di rilascio del token di Microsoft Identity Platform e richiede un token per accedere all'API B.
 1. L'endpoint di rilascio del token di Microsoft Identity Platform convalida le credenziali dell'API A con il token A ed emette il token di accesso per l'API B (token B) all'API A.
 1. Il token B viene impostato dall'API A nell'intestazione dell'autorizzazione della richiesta all'API B.
-1. I dati della risorsa protetta vengono restituiti dall'API B all'API A e da qui al client.
+1. I dati della risorsa protetta vengono restituiti dall'API B all'API a, quindi al client.
 
-> [!NOTE]
-> In questo scenario, il servizio di livello intermedio non ha alcuna interazione utente per ottenere il consenso dell'utente per accedere all'API downstream. Pertanto, l'opzione per la concessione dell'accesso all'API downstream viene presentata in anticipo come parte della fase del consenso durante l'autenticazione. Per altre informazioni su questa impostazione per l'app, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
+In questo scenario, il servizio di livello intermedio non ha alcuna interazione con l'utente per ottenere il consenso dell'utente per accedere all'API downstream. Pertanto, l'opzione per la concessione dell'accesso all'API downstream viene presentata in anticipo come parte della fase del consenso durante l'autenticazione. Per altre informazioni su questa impostazione per l'app, vedere [Ottenere il consenso per l'applicazione di livello intermedio](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="middle-tier-access-token-request"></a>Richiesta di token di accesso di livello intermedio
 
@@ -152,10 +151,9 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 }
 ```
 
-> [!NOTE]
-> Il token di accesso precedente è un token in formato v 1.0 per Microsoft Graph. Questo perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlato agli endpoint usati per richiederlo. L'API Microsoft Graph è configurata per accettare token v1.0, di conseguenza Microsoft Identity Platform genera i token di accesso v1.0 quando un client richiede i token per Microsoft Graph. Altre app possono indicare che vogliono usare i token di formato v 2.0, i token di formato v 1.0 o anche i formati di token crittografati o proprietari.  Entrambi gli endpoint v 1.0 e v 2.0 possono emettere uno dei due formati di token. in questo modo, la risorsa può ottenere sempre il formato corretto del token indipendentemente dalla modalità o dal punto in cui il token è stato richiesto dal client. 
->
-> Solo le applicazioni devono esaminare i token di accesso. I client **non devono** esaminarli. Esaminando i token di accesso per le altre app nel codice, l'app si interrompe in modo imprevisto quando tale app modifica il formato dei token o inizia a crittografarli. 
+Il token di accesso precedente è un token in formato v 1.0 per Microsoft Graph. Questo perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlato agli endpoint usati per richiederlo. L'API Microsoft Graph è configurata per accettare token v1.0, di conseguenza Microsoft Identity Platform genera i token di accesso v1.0 quando un client richiede i token per Microsoft Graph. Altre app possono indicare che vogliono usare i token di formato v 2.0, i token di formato v 1.0 o anche i formati di token crittografati o proprietari.  Entrambi gli endpoint v 1.0 e v 2.0 possono emettere uno dei due formati di token. in questo modo, la risorsa può ottenere sempre il formato corretto del token indipendentemente dalla modalità o dal punto in cui il token è stato richiesto dal client. 
+
+Solo le applicazioni devono esaminare i token di accesso. I client **non devono** esaminarli. Esaminando i token di accesso per le altre app nel codice, l'app si interrompe in modo imprevisto quando tale app modifica il formato dei token o inizia a crittografarli. 
 
 ### <a name="error-response-example"></a>Esempio di risposta con errore
 
@@ -189,8 +187,7 @@ Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 
 Alcuni servizi Web di OAuth devono accedere ad altre API di servizi Web che accettano le asserzioni SAML in flussi non interattivi. Azure AD può fornire un'asserzione SAML in risposta a un flusso on-behalf-of che usa un servizio Web SAML come risorsa di destinazione.
 
->[!NOTE]
->Si tratta di un'estensione non standard del flusso on-behalf-of di OAuth 2.0 che consente a un'applicazione OAuth2 di accedere agli endpoint API del servizio Web che usano token SAML.
+Si tratta di un'estensione non standard del flusso on-behalf-of di OAuth 2.0 che consente a un'applicazione OAuth2 di accedere agli endpoint API del servizio Web che usano token SAML.
 
 > [!TIP]
 > Se un servizio Web protetto con SAML viene chiamato da un'applicazione Web front-end, è sufficiente chiamare l'API e avviare un flusso di autenticazione interattiva normale con la sessione esistente degli utenti. È necessario usare un flusso OBO quando una chiamata da servizio a servizio richiede un token SAML per fornire il contesto utente.

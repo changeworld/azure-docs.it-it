@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: cea4503c4e3b9dd58cc475aaec355a2bb2e0bd29
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 9a6e46c0b52c22df0682034deaebd58bbfeb34a7
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065186"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210068"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Risolvere i problemi di Connettore di Gestione dei servizi IT
 
@@ -53,6 +53,25 @@ Per visualizzare gli errori nel dashboard, attenersi alla procedura seguente:
 
 5. Con questo dashboard sarà possibile esaminare lo stato e gli errori nel connettore.
     ![Screenshot che mostra lo stato del connettore.](media/itsmc-resync-servicenow/connector-dashboard.png)
+
+### <a name="dashboard-elements"></a>Elementi del dashboard
+
+Il dashboard contiene informazioni sugli avvisi che sono stati inviati allo strumento ITSM usando questo connettore.
+Il dashboard è suddiviso in quattro parti:
+
+1. Elemento di lavoro creato: il grafico e la tabella riportata di seguito contengono il numero di elementi di lavoro per tipo. Se si fa clic sul grafico o sulla tabella, è possibile visualizzare altri dettagli sugli elementi di lavoro.
+    ![Screenshot che mostra l'elemento di lavoro creato.](media/itsmc-resync-servicenow/itsm-dashboard-workitems.png)
+2. Computer interessati: le tabelle contengono informazioni dettagliate sugli elementi di configurazione che hanno creato elementi di configurazione.
+    Facendo clic sulle righe delle tabelle è possibile ottenere ulteriori informazioni sugli elementi di configurazione.
+    La tabella contiene un numero limitato di righe se si desidera visualizzare tutti gli elenchi su cui è possibile fare clic su "Visualizza tutto".
+    ![Screenshot che mostra i computer interessati.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
+3. Stato del connettore: il grafico e la tabella riportata di seguito contengono messaggi sullo stato del connettore. Facendo clic sul grafico sulle righe della tabella, è possibile ottenere altre informazioni sui messaggi dello stato del connettore.
+    La tabella contiene un numero limitato di righe se si desidera visualizzare tutti gli elenchi su cui è possibile fare clic su "Visualizza tutto".
+    ![Screenshot che mostra lo stato del connettore.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
+4. Regole di avviso: le tabelle contengono le informazioni sul numero di regole di avviso rilevate.
+    Facendo clic sulle righe delle tabelle è possibile ottenere ulteriori dettagli sulle regole rilevate.
+    La tabella contiene un numero limitato di righe se si desidera visualizzare tutti gli elenchi su cui è possibile fare clic su "Visualizza tutto".
+    ![Screenshot che mostra le regole di avviso.](media/itsmc-resync-servicenow/itsm-dashboard-alert-rules.png)
 
 ### <a name="service-map"></a>Mappa del servizio
 

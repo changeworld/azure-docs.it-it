@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e2c632de3d602fe2d3e5bfa74f78e90f48412067
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444062"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208914"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurare un'app per dispositivi mobili che chiama API Web
 
@@ -148,9 +148,9 @@ Per altre informazioni, vedere [considerazioni specifiche di UWP con MSAL.NET](m
 
 In Android e iOS i broker abilitano:
 
-- **Single Sign-on (SSO)** : è possibile usare SSO per i dispositivi registrati con Azure Active Directory (Azure ad). Quando si usa SSO, gli utenti non devono accedere a ogni applicazione.
-- **Identificazione del dispositivo** : questa impostazione Abilita i criteri di accesso condizionale correlati ai dispositivi Azure ad. Il processo di autenticazione usa il certificato del dispositivo creato quando il dispositivo è stato aggiunto all'area di lavoro.
-- **Verifica dell'identificazione dell'applicazione** : quando un'applicazione chiama il broker, passa l'URL di reindirizzamento. Quindi il broker la verifica.
+- **Single Sign-on (SSO)**: è possibile usare SSO per i dispositivi registrati con Azure Active Directory (Azure ad). Quando si usa SSO, gli utenti non devono accedere a ogni applicazione.
+- **Identificazione del dispositivo**: questa impostazione Abilita i criteri di accesso condizionale correlati ai dispositivi Azure ad. Il processo di autenticazione usa il certificato del dispositivo creato quando il dispositivo è stato aggiunto all'area di lavoro.
+- **Verifica dell'identificazione dell'applicazione**: quando un'applicazione chiama il broker, passa l'URL di reindirizzamento. Quindi il broker la verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Abilitare Service Broker in Novell
 
@@ -249,8 +249,8 @@ Per registrare lo schema dell'URL dell'app, seguire questa procedura:
 
    Qui, `BundleId` identifica in modo univoco il dispositivo. Ad esempio, se `BundleId` è `yourcompany.xforms` , lo schema dell'URL è `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Questo schema URL diventerà parte dell'URI di reindirizzamento che identifica in modo univoco l'app quando riceve la risposta del broker.
+  
+      Questo schema URL diventerà parte dell'URI di reindirizzamento che identifica in modo univoco l'app quando riceve la risposta del broker.
 
    ```XML
     <key>CFBundleURLTypes</key>
@@ -310,10 +310,9 @@ Quando MSAL per iOS e macOS chiama il broker, il broker richiama l'applicazione 
     }
 ```
 
-> [!NOTE]
-> Se è stata adottata `UISceneDelegate` in iOS 13 o versioni successive, inserire il callback MSAL in in `scene:openURLContexts:` `UISceneDelegate` alternativa. MSAL `handleMSALResponse:sourceApplication:` deve essere chiamato una sola volta per ogni URL.
->
-> Per ulteriori informazioni, vedere la [documentazione di Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
+Se è stata adottata `UISceneDelegate` in iOS 13 o versioni successive, inserire il callback MSAL in in `scene:openURLContexts:` `UISceneDelegate` alternativa. MSAL `handleMSALResponse:sourceApplication:` deve essere chiamato una sola volta per ogni URL.
+
+Per ulteriori informazioni, vedere la [documentazione di Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc).
 
 #### <a name="step-2-register-a-url-scheme"></a>Passaggio 2: registrare uno schema URL
 
@@ -329,8 +328,7 @@ Per registrare uno schema per l'app:
 
    Qui, `BundleId` identifica in modo univoco il dispositivo. Ad esempio, se `BundleId` è `yourcompany.xforms` , lo schema dell'URL è `msauth.com.yourcompany.xforms` .
 
-   > [!NOTE]
-   > Questo schema URL diventerà parte dell'URI di reindirizzamento che identifica in modo univoco l'app quando riceve la risposta del broker. Verificare che l'URI di reindirizzamento nel formato `msauth.(BundleId)://auth` sia registrato per l'applicazione nel [portale di Azure](https://portal.azure.com).
+    Questo schema URL diventerà parte dell'URI di reindirizzamento che identifica in modo univoco l'app quando riceve la risposta del broker. Verificare che l'URI di reindirizzamento nel formato `msauth.(BundleId)://auth` sia registrato per l'applicazione nel [portale di Azure](https://portal.azure.com).
 
    ```XML
    <key>CFBundleURLTypes</key>

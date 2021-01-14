@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b29d8007ba7c6fb41209ad4f792069667416616b
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d855e124c84dee8554073d05fa04fe078b92ddaa
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011544"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208890"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -115,17 +115,6 @@ Esempio:
     "allowPublicClient": false,
 ```
 
-### <a name="availabletoothertenants-attribute"></a>Attributo availableToOtherTenants
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-| availableToOtherTenants | Boolean |
-
-Impostare su true se l'applicazione è condivisa con altri tenant. In caso contrario, false.
-
-> [!NOTE]
-> Questo attributo è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituito da `signInAudience` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="appid-attribute"></a>Attributo appId
 
 | Chiave | Tipo di valore |
@@ -165,17 +154,6 @@ Esempio:
     ],
 ```
 
-### <a name="displayname-attribute"></a>Attributo displayName
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-| displayName | string |
-
-Nome visualizzato dell'app.
-
-> [!NOTE]
-> Questo attributo è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituito da `name` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="errorurl-attribute"></a>Attributo errorUrl
 
 | Chiave | Tipo di valore |
@@ -203,33 +181,6 @@ Esempio:
     "groupMembershipClaims": "SecurityGroup",
 ```
 
-### <a name="homepage-attribute"></a>Attributo homepage
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-| homepage |string |
-
-URL della home page dell'applicazione.
-
-> [!NOTE]
-> Questo attributo è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituito da `signInUrl` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-### <a name="objectid-attribute"></a>Attributo objectId
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-|objectId | string |
-
-Identificatore univoco per l'app nella directory.
-
-Questo attributo è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituito da `id` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
-
-Esempio:
-
-```json
-    "objectId": "f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd",
-```
-
 ### <a name="optionalclaims-attribute"></a>Attributo optionalClaims
 
 | Chiave | Tipo di valore |
@@ -245,7 +196,6 @@ Esempio:
 ```json
     "optionalClaims": null,
 ```
-
 
 
 ### <a name="identifieruris-attribute"></a>Attributo identifierUris
@@ -489,16 +439,6 @@ Esempio:
     ],
 ```
 
-### <a name="publicclient-attribute"></a>Attributo publicClient
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-| publicClient | Boolean|
-
-Specifica se l'applicazione è un client pubblico, ad esempio un'applicazione installata in esecuzione in un dispositivo mobile.
-
-Questa proprietà è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituita da `allowPublicClient` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
-
 ### <a name="publisherdomain-attribute"></a>Attributo publisherDomain
 
 | Chiave | Tipo di valore |
@@ -511,17 +451,7 @@ Esempio:
 
 ```json
     "publisherDomain": "https://www.contoso.com",
-````
-
-### <a name="replyurls-attribute"></a>Attributo replyUrls
-
-| Chiave | Tipo di valore |
-| :--- | :--- |
-| replyUrls | Matrice di stringhe |
-
-Questa proprietà multivalore contiene l'elenco dei valori redirect_uri registrati che Azure AD accetta come destinazioni in fase di restituzione dei token.
-
-Questa proprietà è disponibile solo nell'esperienza **Registrazioni app (legacy)** . Sostituita da `replyUrlsWithType` nell'esperienza [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908).
+```
 
 ### <a name="replyurlswithtype-attribute"></a>Attributo replyUrlsWithType
 

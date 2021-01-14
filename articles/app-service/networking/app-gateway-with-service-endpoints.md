@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 58886a8f7dc505a7e68d69eb00b4a2ebd776dd5a
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560894"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209858"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integrazione del gateway applicazione con gli endpoint di servizio
 Sono disponibili tre varianti di servizio app che richiedono una configurazione leggermente diversa dell'integrazione con applicazione Azure gateway. Le varianti includono il servizio app normale, noto anche come ambiente del servizio app (ASE) multi-tenant, Internal Load Balancer (ILB) e ambiente del servizio app esterno. Questo articolo illustra come configurarlo con il servizio app (multi-tenant) e come discutere le considerazioni su ILB e l'ambiente del servizio app esterno.
@@ -27,20 +27,20 @@ Sono disponibili tre varianti di servizio app che richiedono una configurazione 
 ## <a name="integration-with-app-service-multi-tenant"></a>Integrazione con il servizio app (multi-tenant)
 Il servizio app (multi-tenant) ha un endpoint pubblico con connessione Internet. Usando gli [endpoint di servizio](../../virtual-network/virtual-network-service-endpoints-overview.md) è possibile consentire il traffico solo da una subnet specifica in una rete virtuale di Azure e bloccare tutti gli altri elementi. Nello scenario seguente verrà usata questa funzionalità per garantire che un'istanza del servizio app possa ricevere solo traffico da una specifica istanza del gateway applicazione.
 
-![Il diagramma mostra il flusso di Internet verso un gateway applicazione in una rete virtuale di Azure e la propagazione da questa posizione attraverso un'icona del firewall per le istanze delle app nel servizio app.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+:::image type="content" source="./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png" alt-text="Il diagramma mostra il flusso di Internet verso un gateway applicazione in una rete virtuale di Azure e la propagazione da questa posizione attraverso un'icona del firewall per le istanze delle app nel servizio app.":::
 
 Questa configurazione è costituita da due parti, oltre alla creazione del servizio app e del gateway applicazione. La prima parte consiste nell'abilitare gli endpoint di servizio nella subnet della rete virtuale in cui viene distribuito il gateway applicazione. Gli endpoint di servizio garantiranno che tutto il traffico di rete che lascia la subnet verso il servizio app verrà contrassegnato con l'ID subnet specifico. La seconda parte consiste nell'impostare una restrizione di accesso dell'app Web specifica, in modo da garantire che sia consentito solo il traffico contrassegnato con questo ID subnet specifico. È possibile configurarlo utilizzando diversi strumenti a seconda delle preferenze.
 
 ## <a name="using-azure-portal"></a>Uso del portale di Azure
 Con portale di Azure, seguire quattro passaggi per eseguire il provisioning e configurare la configurazione. Se si dispone di risorse esistenti, è possibile ignorare i primi passaggi.
-1. Creare un servizio app usando una delle guide introduttive nella documentazione del servizio app, ad esempio [.NET Core avvio rapido](../quickstart-dotnetcore.md)
+1. Creare un servizio app usando una delle guide introduttive nella documentazione del servizio app, ad esempio [Guida introduttiva a .NET Core](../quickstart-dotnetcore.md)
 2. Creare un gateway applicazione usando la [Guida introduttiva del portale](../../application-gateway/quick-create-portal.md), ma ignorare la sezione Aggiungi destinazioni backend.
 3. Configurare il [servizio app come back-end nel gateway applicazione](../../application-gateway/configure-web-app-portal.md), ma ignorare la sezione limita accesso.
-4. Infine, creare la [restrizione di accesso usando gli endpoint di servizio](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
+4. Infine, creare la [restrizione di accesso usando gli endpoint di servizio](../../app-service/app-service-ip-restrictions.md#set-a-service-endpoint-based-rule).
 
 È ora possibile accedere al servizio app tramite il gateway applicazione, ma se si tenta di accedere direttamente al servizio app, si dovrebbe ricevere un errore HTTP 403 che indica che il sito Web è stato arrestato.
 
-![Screenshot mostra il testo di un errore 403-l'app Web è stata arrestata.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![Screenshot mostra il testo di un errore 403-accesso negato.](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Uso del modello di Azure Resource Manager
 Il [modello di distribuzione gestione risorse][template-app-gateway-app-service-complete] effettuerà il provisioning di uno scenario completo. Lo scenario è costituito da un'istanza del servizio app bloccata con gli endpoint di servizio e la restrizione di accesso per ricevere solo traffico dal gateway applicazione. Il modello include molte impostazioni predefinite intelligenti e postcorrezioni univoche aggiunte ai nomi delle risorse affinché risultino semplici. Per eseguire l'override, è necessario clonare il repository o scaricare il modello e modificarlo. 

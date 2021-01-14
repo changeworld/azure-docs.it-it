@@ -3,15 +3,15 @@ title: Monitorare i servizi di Archiviazione di Azure con Monitoraggio di Azure 
 description: Questo articolo descrive la funzionalità Monitoraggio di Azure per l'archiviazione, che consente agli amministratori dell'archiviazione di comprendere rapidamente i problemi di prestazioni e utilizzo degli account di archiviazione di Azure.
 ms.subservice: ''
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 2538bc91be59ff12b39ee3f5f629e4c016480a97
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 47799898251923b327954c764dcccb8157ba5119
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296336"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208642"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 

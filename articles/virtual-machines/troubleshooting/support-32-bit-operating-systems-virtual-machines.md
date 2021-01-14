@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 1b801bac28b131ff43c47024649bfe0986f768c7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 81b7efdd6bca0471719c11d130be95405f4d54e1
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202896"
+ms.locfileid: "98210189"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Supporto per sistemi operativi a 32 bit nelle macchine virtuali di Azure
 
 Microsoft Azure consente ora agli utenti di portare i sistemi operativi Windows a 32 bit in Azure. Sono supportati solo i dischi rigidi virtuali specializzati e le immagini generalizzate non funzioneranno in Azure. Poiché alcuni di questi sistemi operativi hanno già raggiunto la scadenza del contratto di supporto, Microsoft potrebbe non offrire un supporto aggiuntivo. Il supporto non è inoltre disponibile per i sistemi operativi basati su Linux o Berkeley Software Distribution (BSD) eseguiti in una macchina virtuale Microsoft Azure (VM).
 
 > [!NOTE]
-> La piattaforma Azure presenta una limitazione dello spazio degli indirizzi di memoria imposta sulle VM che eseguono sistemi operativi a 32 bit in cui solo 1 GB di memoria è disponibile per la macchina virtuale e il resto della memoria per la macchina virtuale verrà visualizzato come riservato all'interno della macchina virtuale guest. Si tratta di un problema noto e attualmente non è disponibile un ETA per una correzione. È consigliabile eseguire il passaggio a versioni del sistema operativo a 64 bit.
+> La piattaforma Azure presenta una limitazione dello spazio degli indirizzi di memoria imposta sulle macchine virtuali che eseguono sistemi operativi a 32 bit in cui è possibile rendere disponibili solo 1 GB di memoria per la macchina virtuale (*soprattutto su SKU client come Win7 o WIN10*) e il resto della memoria per la macchina virtuale verrà visualizzato come riservato all'interno della macchina virtuale guest. Si tratta di un problema noto e attualmente non è disponibile un ETA per una correzione. È consigliabile eseguire il passaggio a versioni del sistema operativo a 64 bit.
 > 
 
 ## <a name="more-information"></a>Ulteriori informazioni

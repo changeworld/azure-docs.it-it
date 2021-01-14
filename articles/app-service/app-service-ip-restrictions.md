@@ -4,15 +4,15 @@ description: Informazioni su come proteggere l'app nel servizio app Azure impost
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
-ms.date: 06/06/2019
+ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 1bcd0ea253db01d626ef1887ef0983d30ca794b9
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010181"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209984"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurare le restrizioni di accesso al servizio app Azure
 
@@ -20,7 +20,7 @@ Se si configurano restrizioni di accesso, è possibile definire un elenco Consen
 
 La funzionalità di restrizione dell'accesso funziona con tutti i carichi di lavoro ospitati dal servizio app Azure. I carichi di lavoro possono includere app Web, app per le API, app Linux, app contenitore Linux e funzioni.
 
-Quando viene effettuata una richiesta all'app, l'indirizzo FROM viene valutato in base alle regole degli indirizzi IP nell'elenco di restrizioni di accesso. Se l'indirizzo FROM si trova in una subnet configurata con gli endpoint di servizio in Microsoft. Web, la subnet di origine viene confrontata con le regole della rete virtuale nell'elenco di restrizioni di accesso. Se l'indirizzo non è consentito per l'accesso in base alle regole nell'elenco, il servizio risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) .
+Quando viene effettuata una richiesta all'app, l'indirizzo FROM viene valutato in base alle regole nell'elenco di restrizioni di accesso. Se l'indirizzo FROM si trova in una subnet configurata con gli endpoint di servizio in Microsoft. Web, la subnet di origine viene confrontata con le regole della rete virtuale nell'elenco di restrizioni di accesso. Se l'indirizzo non è consentito per l'accesso in base alle regole nell'elenco, il servizio risponde con un codice di stato [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) .
 
 La funzionalità di restrizione dell'accesso è implementata nei ruoli front-end del servizio app, che sono upstream degli host di lavoro in cui viene eseguito il codice. Pertanto, le restrizioni di accesso sono in effetti elenchi di controllo di accesso di rete (ACL).
 
@@ -30,9 +30,9 @@ La possibilità di limitare l'accesso all'app Web da una rete virtuale di Azure 
 > Gli endpoint di servizio devono essere abilitati sia sul lato rete sia per il servizio di Azure con cui sono abilitati. Per un elenco dei servizi di Azure che supportano gli endpoint di servizio, vedere [endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 >
 
-![Diagramma del flusso di restrizioni di accesso.](media/app-service-ip-restrictions/access-restrictions-flow.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-flow.png" alt-text="Diagramma del flusso di restrizioni di accesso.":::
 
-## <a name="add-or-edit-access-restriction-rules-in-the-portal"></a>Aggiungere o modificare le regole di restrizione dell'accesso nel portale
+## <a name="manage-access-restriction-rules-in-the-portal"></a>Gestire le regole di restrizione dell'accesso nel portale
 
 Per aggiungere una regola di restrizione di accesso all'app, seguire questa procedura:
 
@@ -42,47 +42,53 @@ Per aggiungere una regola di restrizione di accesso all'app, seguire questa proc
 
 1. Nel riquadro **rete** , in **restrizioni di accesso**, selezionare **configura restrizioni di accesso**.
 
-   ![Screenshot del riquadro Opzioni di rete del servizio app nel portale di Azure.](media/app-service-ip-restrictions/access-restrictions.png)  
+    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions.png" alt-text="Screenshot del riquadro Opzioni di rete del servizio app nel portale di Azure.":::
 
-1. Nella pagina **restrizioni di accesso** esaminare l'elenco di regole di restrizione dell'accesso definite per l'app.
+1. Nella pagina **restrizioni di accesso** esaminare l'elenco di regole di restrizione di accesso definite per l'app.
 
-   ![Screenshot della pagina restrizioni di accesso nella portale di Azure, che mostra l'elenco delle regole di restrizione dell'accesso definite per l'app selezionata.](media/app-service-ip-restrictions/access-restrictions-browse.png)
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-browse.png" alt-text="Screenshot della pagina restrizioni di accesso nella portale di Azure, che mostra l'elenco delle regole di restrizione di accesso definite per l'app selezionata.":::
 
-   L'elenco Visualizza tutte le restrizioni correnti applicate all'app. Se si dispone di una restrizione della rete virtuale nell'app, nella tabella viene indicato se gli endpoint di servizio sono abilitati per Microsoft. Web. Se non è stata definita alcuna restrizione nell'app, l'app è accessibile da qualsiasi posizione.  
+   L'elenco Visualizza tutte le restrizioni correnti applicate all'app. Se si dispone di una restrizione della rete virtuale nell'app, nella tabella viene indicato se gli endpoint di servizio sono abilitati per Microsoft. Web. Se non è stata definita alcuna restrizione nell'app, l'app è accessibile da qualsiasi posizione.
 
-### <a name="add-an-access-restriction-rule"></a>Aggiungere una regola di restrizione dell'accesso
+### <a name="add-an-access-restriction-rule"></a>Aggiungere una regola di restrizione di accesso
 
 Per aggiungere una regola di restrizione di accesso all'app, nel riquadro **restrizioni di accesso** selezionare **Aggiungi regola**. Dopo aver aggiunto una regola, questa diventa effettiva immediatamente. 
 
 Le regole vengono applicate in ordine di priorità, a partire dal numero più basso nella colonna **priorità** . Un'istruzione *Deny* implicita All è attiva dopo aver aggiunto anche una singola regola.
 
-Quando si crea una regola nel riquadro **Aggiungi restrizione IP** , procedere come segue:
+Quando si crea una regola nel riquadro **Aggiungi restrizione di accesso** , procedere come segue:
 
 1. In **azione** selezionare **Consenti** o **Nega**.  
 
-   ![Screenshot del riquadro "Aggiungi restrizione IP".](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
-   
-1. Facoltativamente, immettere un nome e una descrizione per la regola.  
-1. Nell'elenco a discesa **tipo** selezionare il tipo di regola.  
-1. Nella casella **priorità** immettere un valore di priorità.  
-1. Negli elenchi a discesa **sottoscrizione**, **rete virtuale** e **subnet** selezionare gli elementi a cui si vuole limitare l'accesso.  
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-add.png?v2" alt-text="Screenshot del riquadro ' Aggiungi restrizione di accesso '.":::
 
-### <a name="set-an-ip-address-based-rule"></a>Impostare una regola basata sull'indirizzo IP
+1. Facoltativamente, immettere un nome e una descrizione per la regola.
+1. Nella casella **priorità** immettere un valore di priorità.
+1. Nell'elenco a discesa **tipo** selezionare il tipo di regola.
 
-Attenersi alla procedura descritta nella sezione precedente, ma con la variante seguente:
-* Per il passaggio 3, nell'elenco a discesa **tipo** selezionare **IPv4** o **IPv6**. 
+Le sezioni seguenti illustrano i diversi tipi di regole.
 
-Specificare l'indirizzo IP nella notazione CIDR (Classy Inter-Domain routing) per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo, è possibile usare qualcosa come *1.2.3.4/32*, in cui i primi quattro ottetti rappresentano l'indirizzo IP e */32* è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, vedere [Routing Inter-Domain di classi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+> [!NOTE]
+> - È previsto un limite di 512 regole di restrizione dell'accesso. Se sono necessarie più di 512 regole di restrizione dell'accesso, si consiglia di prendere in considerazione l'installazione di un prodotto di sicurezza autonomo, ad esempio front-end di Azure, app Azure gateway o una WAF alternativa.
+>
+#### <a name="set-an-ip-address-based-rule"></a>Impostare una regola basata sull'indirizzo IP
 
-## <a name="use-service-endpoints"></a>Usare endpoint di servizio
+Attenersi alla procedura illustrata nella sezione precedente, ma con l'aggiunta seguente:
+* Per il passaggio 4, nell'elenco a discesa **tipo** selezionare **IPv4** o **IPv6**. 
 
-Usando gli endpoint di servizio, è possibile limitare l'accesso alle subnet della rete virtuale di Azure selezionate. Per limitare l'accesso a una subnet specifica, creare una regola di restrizione con un tipo di **rete virtuale** . È quindi possibile selezionare la sottoscrizione, la rete virtuale e la subnet a cui si vuole concedere o negare l'accesso. 
+Specificare il **blocco di indirizzi IP** nella notazione CIDR (classy Inter-Domain routing) per gli indirizzi IPv4 e IPv6. Per specificare un indirizzo, è possibile usare qualcosa come *1.2.3.4/32*, in cui i primi quattro ottetti rappresentano l'indirizzo IP e */32* è la maschera. La notazione CIDR IPv4 per tutti gli indirizzi è 0.0.0.0/0. Per ulteriori informazioni sulla notazione CIDR, vedere [Routing Inter-Domain di classi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
 
-Se gli endpoint di servizio non sono già abilitati con Microsoft. Web per la subnet selezionata, verranno abilitati automaticamente a meno che non si selezioni la casella di controllo **Ignora endpoint dei servizi Microsoft. Web mancanti** . Lo scenario in cui potrebbe essere necessario abilitare gli endpoint di servizio nell'app, ma non la subnet, dipende principalmente dal fatto che siano disponibili le autorizzazioni per abilitarle nella subnet. 
+#### <a name="set-a-service-endpoint-based-rule"></a>Impostare una regola basata sull'endpoint di servizio
+
+* Per il passaggio 4, nell'elenco a discesa **tipo** selezionare **rete virtuale**.
+
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-vnet-add.png?v2" alt-text="Screenshot del riquadro ' Aggiungi restrizione ' con il tipo di rete virtuale selezionato.":::
+
+Specificare gli elenchi a discesa **sottoscrizione**, **rete virtuale** e **subnet** , corrispondenti a ciò a cui si vuole limitare l'accesso.
+
+Usando gli endpoint di servizio, è possibile limitare l'accesso alle subnet della rete virtuale di Azure selezionate. Se gli endpoint di servizio non sono già abilitati con Microsoft. Web per la subnet selezionata, verranno abilitati automaticamente a meno che non si selezioni la casella di controllo **Ignora endpoint dei servizi Microsoft. Web mancanti** . Lo scenario in cui potrebbe essere necessario abilitare gli endpoint di servizio nell'app, ma non la subnet, dipende principalmente dal fatto che siano disponibili le autorizzazioni per abilitarle nella subnet. 
 
 Se è necessario un altro utente per abilitare gli endpoint di servizio nella subnet, selezionare la casella di controllo **Ignora endpoint dei servizi Microsoft. Web mancanti** . L'app verrà configurata per gli endpoint di servizio in previsione di essere abilitata in un secondo momento nella subnet. 
-
-![Screenshot del riquadro "Aggiungi restrizione IP" con il tipo di rete virtuale selezionato.](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Non è possibile usare gli endpoint di servizio per limitare l'accesso alle app eseguite in un ambiente del servizio app. Quando l'app si trova in una ambiente del servizio app, è possibile controllarne l'accesso applicando regole di accesso IP. 
 
@@ -90,72 +96,100 @@ Con gli endpoint di servizio è possibile configurare l'app con gateway applicaz
 
 > [!NOTE]
 > - Gli endpoint di servizio non sono attualmente supportati per le app Web che usano IP virtuale (VIP) IP Secure Sockets Layer (SSL).
-> - È previsto un limite di 512 righe di restrizioni IP o di endpoint del servizio. Se sono necessarie più di 512 righe di restrizioni, è consigliabile prendere in considerazione l'installazione di un prodotto di sicurezza autonomo, ad esempio front door di Azure, app Azure gateway o un WAF.
 >
+#### <a name="set-a-service-tag-based-rule-preview"></a>Impostare una regola basata su tag di servizio (anteprima)
 
-## <a name="manage-access-restriction-rules"></a>Gestire le regole di restrizione dell'accesso
+* Per il passaggio 4, nell'elenco a discesa **tipo** selezionare **tag servizio (anteprima)**.
 
-È possibile modificare o eliminare una regola di restrizione dell'accesso esistente.
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png" alt-text="Screenshot del riquadro ' Aggiungi restrizione ' con il tipo di tag del servizio selezionato.":::
+
+Ogni tag di servizio rappresenta un elenco di intervalli di indirizzi IP dai servizi di Azure. Un elenco di questi servizi e collegamenti a intervalli specifici è disponibile nella [documentazione relativa ai tag del servizio][servicetags].
+
+Il seguente elenco di tag di servizio è supportato nelle regole di restrizione dell'accesso durante la fase di anteprima:
+* ActionGroup
+* AzureCloud
+* AzureCognitiveSearch
+* AzureConnectors
+* AzureEventGrid
+* AzureFrontDoor.Backend
+* AzureMachineLearning
+* AzureSignalR
+* AzureTrafficManager
+* LogicApps
+* ServiceFabric
 
 ### <a name="edit-a-rule"></a>Modificare una regola
 
-1. Per iniziare a modificare una regola di restrizione dell'accesso esistente, nella pagina **restrizioni di accesso** fare doppio clic sulla regola che si desidera modificare.
+1. Per iniziare a modificare una regola di restrizione dell'accesso esistente, nella pagina **restrizioni di accesso** selezionare la regola che si desidera modificare.
 
-1. Nel riquadro **Modifica restrizione IP** apportare le modifiche e quindi selezionare **Aggiorna regola**. Le modifiche hanno effetto immediato, incluse le modifiche nell'ordine di priorità.
+1. Nel riquadro **Modifica restrizione di accesso** apportare le modifiche e quindi selezionare **Aggiorna regola**. Le modifiche hanno effetto immediato, incluse le modifiche nell'ordine di priorità.
 
-   ![Screenshot del riquadro "Modifica restrizione IP" nella portale di Azure, che mostra i campi per una regola di restrizione dell'accesso esistente.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+   :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-ip-edit.png?v2" alt-text="Screenshot del riquadro ' Modifica restrizione di accesso ' nel portale di Azure, che mostra i campi di una regola di restrizione dell'accesso esistente.":::
 
    > [!NOTE]
-   > Quando si modifica una regola, non è possibile passare tra una regola di indirizzo IP e una regola della rete virtuale. 
-
-   ![Screenshot del riquadro "Modifica restrizione IP" in portale di Azure, che mostra le impostazioni per una regola della rete virtuale.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+   > Quando si modifica una regola, non è possibile spostarsi tra i tipi di regole. 
 
 ### <a name="delete-a-rule"></a>Eliminare una regola
 
 Per eliminare una regola, nella pagina **restrizioni di accesso** selezionare i puntini di sospensione (**...**) accanto alla regola che si desidera eliminare, quindi selezionare **Rimuovi**.
 
-![Screenshot della pagina "restrizioni di accesso", che mostra i puntini di sospensione "Rimuovi" accanto alla regola di restrizione dell'accesso da eliminare.](media/app-service-ip-restrictions/access-restrictions-delete.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-delete.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot;, che mostra i puntini di sospensione &quot;Rimuovi&quot; accanto alla regola di restrizione dell'accesso da eliminare.":::
 
-## <a name="block-a-single-ip-address"></a>Blocca un singolo indirizzo IP
+## <a name="access-restriction-advanced-scenarios"></a>Scenari avanzati di restrizione dell'accesso
+Le sezioni seguenti descrivono alcuni scenari avanzati che usano restrizioni di accesso.
+### <a name="block-a-single-ip-address"></a>Blocca un singolo indirizzo IP
 
-Quando si aggiunge la prima regola di restrizione IP, il servizio aggiunge una regola esplicita *Deny All* con una priorità pari a 2147483647. In pratica, la regola esplicita *Deny All* è la regola finale da eseguire e blocca l'accesso a qualsiasi indirizzo IP non consentito in modo esplicito da una regola di *autorizzazione* .
+Quando si aggiunge la prima regola di restrizione dell'accesso, il servizio aggiunge una regola esplicita *Deny All* con una priorità di 2147483647. In pratica, la regola esplicita *Deny All* è la regola finale da eseguire e blocca l'accesso a qualsiasi indirizzo IP non consentito in modo esplicito da una regola di *autorizzazione* .
 
 Per uno scenario in cui si desidera bloccare in modo esplicito un singolo indirizzo IP o un blocco di indirizzi IP, ma consentire l'accesso a tutti gli altri elementi, aggiungere una regola *Consenti tutto* esplicitamente.
 
-![Screenshot della pagina "restrizioni di accesso" nella portale di Azure, che mostra un singolo indirizzo IP bloccato.](media/app-service-ip-restrictions/block-single-address.png)
+:::image type="content" source="media/app-service-ip-restrictions/block-single-address.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che mostra un singolo indirizzo IP bloccato.":::
 
-## <a name="restrict-access-to-an-scm-site"></a>Limitazione dell'accesso a un sito SCM 
+### <a name="restrict-access-to-an-scm-site"></a>Limitazione dell'accesso a un sito SCM 
 
 Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare l'accesso al sito SCM usato dall'app. Il sito SCM è sia l'endpoint di distribuzione Web che la console Kudu. È possibile assegnare restrizioni di accesso al sito SCM dall'app separatamente oppure usare lo stesso set di restrizioni sia per l'app che per il sito SCM. Quando si selezionano le **stesse restrizioni \<app name>** della casella di controllo, tutti gli elementi sono vuoti. Se si deseleziona la casella di controllo, le impostazioni del sito SCM verranno riapplicate. 
 
-![Screenshot della pagina "restrizioni di accesso" nella portale di Azure, che indica che non è stata impostata alcuna restrizione di accesso per il sito SCM o l'app.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+:::image type="content" source="media/app-service-ip-restrictions/access-restrictions-scm-browse.png" alt-text="Screenshot della pagina &quot;restrizioni di accesso&quot; nella portale di Azure, che indica che non è stata impostata alcuna restrizione di accesso per il sito SCM o l'app.":::
 
-## <a name="manage-access-restriction-rules-programatically"></a>Gestire le regole di restrizione dell'accesso a livello
+### <a name="restrict-access-to-a-specific-azure-front-door-instance-preview"></a>Limitare l'accesso a una specifica istanza di front door di Azure (anteprima)
+Il traffico dalla porta anteriore di Azure all'applicazione ha origine da un set noto di intervalli di indirizzi IP definiti nel tag del servizio AzureFrontDoor. backend. Usando una regola di restrizione dei tag del servizio, è possibile limitare il traffico solo a originare da Azure front door. Per garantire che il traffico provenga solo da un'istanza specifica, sarà necessario filtrare ulteriormente le richieste in ingresso in base all'intestazione HTTP univoca inviata da Azure front door. Durante l'anteprima è possibile ottenere questo risultato con PowerShell o REST/ARM. 
 
-È possibile aggiungere restrizioni di accesso a livello eseguendo una delle operazioni seguenti: 
+* Esempio di PowerShell (l'ID della porta anteriore è reperibile nella portale di Azure):
+
+   ```azurepowershell-interactive
+    $frontdoorId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName" `
+      -Name "Front Door example rule" -Priority 100 -Action Allow -ServiceTag AzureFrontDoor.Backend `
+      -HttpHeader @{'x-azure-fdid' = $frontdoorId}
+    ```
+## <a name="manage-access-restriction-rules-programmatically"></a>Gestire le regole di restrizione dell'accesso a livello di codice
+
+È possibile aggiungere restrizioni di accesso a livello di codice effettuando una delle operazioni seguenti: 
 
 * Usare [l'interfaccia della riga di comando di Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest&preserve-view=true). Ad esempio:
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
-  --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* Usare [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0&preserve-view=true). Ad esempio:
+* Usare [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-5.2.0&preserve-view=true). Ad esempio:
 
 
   ```azurepowershell-interactive
   Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
+   > [!NOTE]
+   > L'uso di tag di servizio, intestazioni HTTP o regole di più origini richiede almeno la versione 5.1.0. È possibile verificare la versione del modulo installato con: **Get-InstalledModule-Name AZ**
 
 È anche possibile impostare manualmente i valori eseguendo una delle operazioni seguenti:
 
 * Usare un'operazione di inserimento dell' [API REST di Azure](/rest/api/azure/) nella configurazione dell'app in Azure Resource Manager. Il percorso di queste informazioni in Azure Resource Manager è:
 
-  management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
+  management.azure.com/subscriptions/**ID sottoscrizione**/resourceGroups/**gruppi di risorse**/Providers/Microsoft.Web/sites/**nome app Web**/config/Web? API-Version = 2020-06-01
 
-* Usare un modello ARM. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
+* Usare un modello di Gestione risorse. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
 
   La sintassi JSON per l'esempio precedente è:
 
@@ -173,7 +207,27 @@ Oltre a essere in grado di controllare l'accesso all'app, è possibile limitare 
     }
   }
   ```
-
+  La sintassi JSON per un esempio avanzato usando il tag del servizio e la restrizione dell'intestazione HTTP è:
+  ```json
+  {
+    "properties": {
+      "ipSecurityRestrictions": [
+        {
+          "ipAddress": "AzureFrontDoor.Backend",
+          "tag": "ServiceTag",
+          "action": "Allow",
+          "priority": 100,
+          "name": "Azure Front Door example",
+          "headers": {
+            "x-azure-fdid": [
+              "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            ]
+          }
+        }
+      ]
+    }
+  }
+  ```
 ## <a name="set-up-azure-functions-access-restrictions"></a>Configurare le restrizioni di accesso alle funzioni di Azure
 
 Le restrizioni di accesso sono disponibili anche per le app per le funzioni con le stesse funzionalità dei piani di servizio app. Quando si abilitano le restrizioni di accesso, si disabilita anche l'editor di codice portale di Azure per gli indirizzi IP non consentiti.
@@ -184,3 +238,4 @@ Le restrizioni di accesso sono disponibili anche per le app per le funzioni con 
 
 <!--Links-->
 [serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
+[servicetags]: ../virtual-network/service-tags-overview.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: df2d74701e21c3773d96564f1b06d80ddb9fce9d
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022956"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209220"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 ## <a name="overview"></a>Panoramica
@@ -52,7 +52,7 @@ Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono 
 |:--- |:--- |
 | Nome |La colonna **Nome** contiene il nome del gruppo di volumi. |
 | Applicazione |La colonna **Applicazioni** mostra il numero di writer VSS attualmente installati e in esecuzione nell'host Windows. |
-| Selezionato |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
+| Opzione selezionata |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importato** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |
 
 > [!NOTE]
@@ -107,7 +107,7 @@ Utilizzare la procedura seguente per modificare un gruppo di volumi.
 #### <a name="to-edit-a-volume-group"></a>Per modificare un gruppo di volumi
 1. Fare clic sull’icona del desktop per avviare StorSimple Snapshot Manager.
 2. Nel riquadro **Ambito** espandere il nodo **Gruppi di volumi**, fare clic con il pulsante destro del mouse sul nome di un gruppo di volumi, quindi scegliere **Modifica**.
-3. Viene visualizzata la finestra di dialogo Crea un gruppo di volumi. È possibile modificare le voci dei campi **Nome**, **Applicazioni** e **Volumi**.
+3. Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**. È possibile modificare le voci dei campi **Nome**, **Applicazioni** e **Volumi**.
 4. Fare clic su **OK** per salvare le modifiche.
 
 ## <a name="delete-a-volume-group"></a>Eliminare un gruppo di volumi

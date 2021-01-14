@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5e33a7adc7b529df8c7c821cbfdcb0ad5709803b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839965"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208761"
 ---
 # <a name="defender-for-iot-installation"></a>Defender per l'installazione di Internet.
 
@@ -230,9 +230,9 @@ Questo articolo descrive come configurare il BIOS usando il file di configurazio
 
 4. Le credenziali dell'appliance sono:
 
-   - Nome utente: **CyberX**
+   - Nome utente: **xxx**
 
-   - Password: **xhxvhttju, @4338**
+   - Password: **xxx**
 
      L'operazione import server profile è stata avviata.
 
@@ -274,7 +274,7 @@ Per configurare manualmente:
 
    - Se il dispositivo non è un Defender per l'appliance Internet, aprire un browser e passare all'indirizzo IP configurato in precedenza. Accedere con i privilegi di amministratore predefinito dell. Utilizzare la **radice** per il nome utente e **Calvin** per la password.
 
-   - Se l'appliance è un Defender per l'appliance Internet, accedere usando **CyberX** per nome utente e **xhxvhttju, @4338** per la password.
+   - Se l'appliance è un Defender per l'appliance per le cose, accedere usando **xxx** come nome utente e **xxx** per la password.
 
 2. Dopo aver eseguito l'accesso al BIOS, passare a **Impostazioni dispositivo**.
 

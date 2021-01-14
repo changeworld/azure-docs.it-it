@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c0ceae8727681c045c3bbf3e6626937633b38997
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013533"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209730"
 ---
 # <a name="using-an-app-service-environment"></a>Uso di un ambiente del servizio app
 
@@ -51,7 +51,7 @@ Per creare un'app in un ambiente del servizio app:
     > Le app Linux e le app di Windows non possono trovarsi nello stesso piano di servizio app, ma possono trovarsi nello stesso ambiente del servizio app.
     >
 
-1. Selezionare * * Avanti: monitoraggio * * se si vuole abilitare App Insights con l'app, è possibile eseguire questa operazione durante il flusso di creazione. 
+1. Selezionare **Avanti: monitoraggio**  se si vuole abilitare App Insights con l'app, è possibile eseguire questa operazione durante il flusso di creazione. 
 
 1.  Selezionare **Avanti: i tag** aggiungono i tag desiderati all'app  
 
@@ -116,7 +116,7 @@ Un ambiente del servizio app ha 1 TB di spazio di archiviazione per tutte le app
 
 È possibile integrare l'ambiente del servizio app con monitoraggio di Azure per inviare i log relativi all'ambiente del servizio app ad archiviazione di Azure, Hub eventi di Azure o Log Analytics. Questi elementi vengono registrati oggi:
 
-| Situazione | Messaggio |
+| Situazione | Message |
 |---------|----------|
 | Ambiente del servizio app non integro | L'ambiente del servizio app specificato non è integro a causa di una configurazione di rete virtuale non valida. L'ambiente del servizio app verrà sospeso se lo stato non integro continua. Verificare che siano seguite le linee guida definite in questo articolo: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | La subnet dell'ambiente del servizio app è quasi esaurita | L'ambiente del servizio app specificato si trova in una subnet quasi esaurita. Sono presenti {0} indirizzi rimanenti. Una volta esauriti questi indirizzi, l'ambiente del servizio app non sarà in grado di eseguire la scalabilità.  |

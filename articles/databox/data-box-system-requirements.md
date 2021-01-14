@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 12/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f1623ef4dde59e816e3afe5a5f5894c49469580
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0190e295c2ab206242ab8a44a09ffb42746d75bd
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767879"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209552"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
-Questo articolo descrive i requisiti di sistema importanti per la Microsoft Azure Data Box e per i client che si connettono al Data Box. È consigliabile esaminare attentamente le informazioni prima di distribuire il Data Box e quindi farvi riferimento in base alle esigenze durante la distribuzione e il funzionamento.
+Questo articolo descrive i requisiti di sistema importanti per la Microsoft Azure Data Box e per i client che si connettono al Data Box. È consigliabile esaminare attentamente le informazioni prima di distribuire il Data Box e quindi farvi riferimento quando necessario durante la distribuzione e il funzionamento.
 
 I requisiti di sistema includono:
 
 * **Requisiti software:** Per gli host che si connettono al Data Box, descrive i sistemi operativi supportati, i protocolli di trasferimento di file, gli account di archiviazione, i tipi di archiviazione e i browser per l'interfaccia utente Web locale.
-* **Requisiti di rete:** Per la Data Box, descrive i requisiti di connessione di rete e porta per un funzionamento ottimale del Data Box.
+* **Requisiti di rete:** Per la Data Box, descrive i requisiti per le connessioni di rete e le porte per il funzionamento ottimale del Data Box.
 
 
 ## <a name="software-requirements"></a>Requisiti software
@@ -55,11 +55,11 @@ I requisiti software includono i sistemi operativi supportati, i protocolli di t
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
-Il data center disponga di una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. Se non è disponibile una connessione 10 GbE, è possibile usare un collegamento dati da 1 GbE per copiare i dati, ma le velocità di copia sono interessate.
+Il data center disponga di una rete ad alta velocità. Si consiglia di avere almeno una connessione 1 10-GbE. Se non è disponibile una connessione 10 GbE, è possibile usare un collegamento dati da 1 GbE per copiare i dati, ma le velocità di copia sono interessate.
 
 ### <a name="port-requirements"></a>Requisiti delle porte
 
-La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in (in* *ingresso*) si riferisce alla direzione da cui il client in ingresso richiede l'accesso al dispositivo. *Out* *(o in uscita)* si riferisce alla direzione in cui il dispositivo data box invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
+La tabella seguente elenca le porte che devono essere aperte nel firewall per consentire il traffico SMB o NFS. In questa tabella, *in (in* *ingresso*) si riferisce alla direzione da cui il client in ingresso richiede l'accesso al dispositivo. *Out* *(o in uscita)* si riferisce alla direzione in cui il dispositivo data box invia i dati all'esterno, oltre la distribuzione. Ad esempio, i dati potrebbero essere in uscita verso Internet.
 
 [!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 

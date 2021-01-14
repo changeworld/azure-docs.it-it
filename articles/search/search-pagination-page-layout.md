@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
-ms.openlocfilehash: 182ec758a8764a959b39296163e63e800cf5108c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008485"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209832"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
@@ -103,7 +103,7 @@ I punteggi di ricerca comportano un senso generale di rilevanza, riflettendo la 
 
 ### <a name="how-to-get-consistent-ordering"></a>Come ottenere un ordinamento coerente
 
-Se l'ordinamento coerente è un requisito dell'applicazione, è possibile definire in modo esplicito un' **`$orderby`** espressione [] (query-OData-Filter-OrderBy-Syntax.MD) in un campo. Solo i campi indicizzati come **`sortable`** possono essere usati per ordinare i risultati. I campi usati comunemente in un campo **`$orderby`** include classificazione, data e posizione se si specifica il valore del **`orderby`** parametro per includere i nomi dei campi e le chiamate alla [**`geo.distance()` funzione**](query-odata-filter-orderby-syntax.md) per i valori geospaziali.
+Se l'ordinamento coerente è un requisito dell'applicazione, è possibile definire in modo esplicito un' [ **`$orderby`** espressione](query-odata-filter-orderby-syntax.md) in un campo. Solo i campi indicizzati come **`sortable`** possono essere usati per ordinare i risultati. I campi usati comunemente in un campo **`$orderby`** include classificazione, data e posizione se si specifica il valore del **`orderby`** parametro per includere i nomi dei campi e le chiamate alla [**`geo.distance()` funzione**](query-odata-filter-orderby-syntax.md) per i valori geospaziali.
 
 Un altro approccio che promuove la coerenza consiste nell'usare un [profilo di Punteggio personalizzato](index-add-scoring-profiles.md). I profili di Punteggio consentono un maggiore controllo sulla classificazione degli elementi nei risultati della ricerca, con la possibilità di incrementare le corrispondenze trovate in campi specifici. La logica di assegnazione dei punteggi aggiuntiva consente di eseguire l'override delle differenze minime tra le repliche perché i punteggi di ricerca per ogni documento sono più lontani. Per questo approccio è consigliabile usare l' [algoritmo di classificazione](index-ranking-similarity.md) .
 

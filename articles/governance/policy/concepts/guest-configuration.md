@@ -1,14 +1,14 @@
 ---
 title: Informazioni su come controllare i contenuti delle macchine virtuali
 description: Informazioni su come i criteri di Azure usano il client di configurazione Guest per controllare le impostazioni all'interno delle macchine virtuali.
-ms.date: 10/14/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5ec43516c60d2fe5d923a7b87cddbea0ad640453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071834"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210121"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Informazioni su Configurazione guest di Criteri di Azure
 
@@ -101,11 +101,11 @@ Per i server con connessione ARC nei data center privati, consentire il traffico
 
 ## <a name="managed-identity-requirements"></a>Requisiti delle identità gestite
 
-Le definizioni dei criteri nell'iniziativa [Distribuisci prerequisiti per abilitare i criteri di configurazione Guest nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) abilitano un'identità gestita assegnata dal sistema, se non ne esiste una. Nell'iniziativa sono presenti due definizioni di criteri che gestiscono la creazione di identità. Le condizioni IF nelle definizioni dei criteri garantiscono il comportamento corretto in base allo stato corrente della risorsa del computer in Azure.
+Le definizioni dei criteri nell'iniziativa _Distribuisci prerequisiti per abilitare i criteri di configurazione Guest nelle macchine virtuali_ abilitano un'identità gestita assegnata dal sistema, se non ne esiste una. Nell'iniziativa sono presenti due definizioni di criteri che gestiscono la creazione di identità. Le condizioni IF nelle definizioni dei criteri garantiscono il comportamento corretto in base allo stato corrente della risorsa del computer in Azure.
 
-Se al computer non sono attualmente associate identità gestite, i criteri validi saranno: [ \[ Anteprima \] : aggiungere l'identità gestita assegnata dal sistema per abilitare le assegnazioni di configurazione Guest nelle macchine virtuali senza identità](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+Se al computer non sono attualmente associate identità gestite, i criteri validi saranno: aggiungere l' [identità gestita assegnata dal sistema per abilitare le assegnazioni di configurazione Guest nelle macchine virtuali senza identità](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
 
-Se il computer dispone attualmente di un'identità di sistema assegnata dall'utente, i criteri validi saranno: [ \[ Anteprima \] : Aggiungi identità gestita assegnata dal sistema per abilitare le assegnazioni di configurazione Guest nelle macchine virtuali con un'identità assegnata dall'utente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
+Se il computer dispone attualmente di un'identità di sistema assegnata dall'utente, i criteri validi saranno: [aggiungere l'identità gestita assegnata dal sistema per abilitare le assegnazioni di configurazione Guest nelle macchine virtuali con un'identità assegnata dall'utente](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisiti per la definizione di Configurazione guest
 
@@ -120,7 +120,7 @@ Criteri di Azure usa la proprietà **complianceStatus** del provider di risorse 
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Controllo delle impostazioni del sistema operativo secondo le impostazioni di base del settore
 
-Un'iniziativa in Criteri di Azure consente di controllare le impostazioni del sistema operativo seguendo le "impostazioni di base". La definizione, _\[Anteprima\]: Controlla le macchine virtuali Windows che non corrispondono alle impostazioni di base di sicurezza di Azure_ include un set di regole basate su Criteri di gruppo di Active Directory.
+Una delle iniziative di Azure Policy controlla le impostazioni del sistema operativo dopo una "baseline". La definizione, _\[ Anteprima \] : i computer Windows devono soddisfare i requisiti per la linea di base di sicurezza di Azure_ include un set di regole basate su Active Directory Criteri di gruppo.
 
 La maggior parte delle impostazioni è disponibile sotto forma di parametri. I parametri consentono di personalizzare gli elementi controllati.
 Allineare i criteri ai propri requisiti o eseguire il mapping dei criteri a informazioni di terze parti, ad esempio standard normativi del settore.

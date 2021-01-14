@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5d950598e4a0af86ac37b53722e80eb4ef0a71a4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 53c0d37d4a25c2f2092a9e52bcae8ea494046bb0
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183057"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210019"
 ---
 # <a name="app-service-networking-features"></a>Funzionalità di rete del servizio app
 
@@ -43,7 +43,7 @@ Oltre alle eccezioni indicate, è possibile utilizzare tutte queste funzionalit�
 
 Per qualsiasi caso d'uso specifico, potrebbero essere disponibili alcuni modi per risolvere il problema. La scelta della funzionalità migliore a volte va oltre il caso d'uso. I seguenti casi di utilizzo in ingresso suggeriscono come usare le funzionalità di rete del servizio app per risolvere i problemi relativi al controllo del traffico verso l'app:
  
-| Caso di utilizzo in ingresso | Feature |
+| Caso di utilizzo in ingresso | Funzionalità |
 |---------------------|-------------------|
 | Supportare le esigenze SSL basate su IP per l'app | Indirizzo assegnato dall'app |
 | Supporto dell'indirizzo in ingresso dedicato non condiviso per l'app | Indirizzo assegnato dall'app |
@@ -56,7 +56,7 @@ Per qualsiasi caso d'uso specifico, potrebbero essere disponibili alcuni modi pe
 
 I seguenti casi di utilizzo in uscita suggeriscono come usare le funzionalità di rete del servizio app per risolvere le esigenze di accesso in uscita per l'app:
 
-| Caso di utilizzo in uscita | Feature |
+| Caso di utilizzo in uscita | Funzionalità |
 |---------------------|-------------------|
 | Accedere alle risorse in una rete virtuale di Azure nella stessa area | Integrazione rete virtuale </br> ASE |
 | Accedere alle risorse in una rete virtuale di Azure in un'area diversa | Integrazione rete virtuale richiesta dal gateway </br> Ambiente del servizio app e peering di rete virtuale |
@@ -110,7 +110,7 @@ Questa funzionalità consente di compilare un elenco di regole di autorizzazione
 
 La funzionalità restrizioni di accesso basato su IP consente di limitare gli indirizzi IP che possono essere usati per raggiungere l'app. IPv4 e IPv6 sono entrambi supportati. Alcuni casi d'uso per questa funzionalità:
 * Limitare l'accesso all'app da un set di indirizzi ben definiti. 
-* Limitare l'accesso al traffico in arrivo attraverso un servizio di bilanciamento del carico, ad esempio il front-end di Azure. Se si vuole bloccare il traffico in ingresso verso la porta anteriore di Azure, creare regole per consentire il traffico da 147.243.0.0/16 e 2a01:111:2050::/44. 
+* Limitare l'accesso al traffico in arrivo attraverso un servizio di bilanciamento del carico esterno o altre appliance di rete con indirizzi IP in uscita noti. 
 
 Per informazioni su come abilitare questa funzionalità, vedere [Configuring Access Restrictions][iprestrictions].
 
@@ -126,7 +126,20 @@ Alcuni casi d'uso per questa funzionalità:
 ![Diagramma che illustra l'uso degli endpoint di servizio con il gateway applicazione.](media/networking-features/service-endpoints-appgw.png)
 
 Per altre informazioni sulla configurazione degli endpoint di servizio con l'app, vedere [restrizioni di accesso al servizio app Azure][serviceendpoints].
+#### <a name="access-restriction-rules-based-on-service-tags-preview"></a>Regole di restrizione di accesso in base ai tag del servizio (anteprima)
+I tag dei servizi di [Azure][servicetags] sono set di indirizzi IP ben definiti per i servizi di Azure. I tag di servizio raggruppano gli intervalli IP usati nei vari servizi di Azure e spesso sono ulteriormente inclusi nell'ambito di aree specifiche. In questo modo è possibile filtrare il traffico in *ingresso* da servizi specifici di Azure. 
 
+Per un elenco completo dei tag e altre informazioni, vedere il collegamento al tag del servizio sopra riportato. Per informazioni su come abilitare questa funzionalità, vedere [Configuring Access Restrictions][iprestrictions].
+#### <a name="http-header-filtering-for-access-restriction-rules-preview"></a>Filtro dell'intestazione HTTP per le regole di restrizione di accesso (anteprima)
+Per ogni regola di restrizione dell'accesso, è possibile aggiungere altri filtri di intestazioni HTTP. In questo modo è possibile esaminare ulteriormente la richiesta in ingresso e applicare un filtro in base a specifici valori di intestazione HTTP. Ogni intestazione può avere fino a 8 valori per regola. Il seguente elenco di intestazioni HTTP è attualmente supportato: 
+* X-Forwarded-For
+* X-Forwarded-Host
+* X-Azure-FDID
+* X-FD-HealthProbe
+
+Alcuni casi d'uso per il filtro dell'intestazione HTTP sono:
+* Limitare l'accesso al traffico dai server proxy che inviano il nome host
+* Limitare l'accesso a un'istanza di Azure front door specifica con una regola di tag del servizio e una restrizione dell'intestazione X-Azure-FDID
 ### <a name="private-endpoint"></a>Endpoint privato
 
 L'endpoint privato è un'interfaccia di rete che si connette privatamente e in modo sicuro all'app Web dal collegamento privato di Azure. L'endpoint privato usa un indirizzo IP privato della rete virtuale, portando in realtà l'app Web nella rete virtuale. Questa funzionalità è solo per i flussi in *ingresso* per l'app Web.
@@ -243,7 +256,7 @@ Questo stile di distribuzione non fornisce un indirizzo dedicato per il traffico
 
 ### <a name="create-multitier-applications"></a>Creare applicazioni multilivello
 
-Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. È possibile scegliere:
+Un'applicazione multilivello è un'applicazione in cui è possibile accedere alle app back-end dell'API solo dal livello front-end. Esistono due modi per creare un'applicazione multilivello. Per iniziare, usare l'integrazione VNet per connettere l'app Web front-end a una subnet in una rete virtuale. Questa operazione consentirà all'app Web di effettuare chiamate alla rete virtuale. Dopo che l'app front-end è connessa alla rete virtuale, è necessario decidere come bloccare l'accesso all'applicazione per le API. è possibile:
 
 * Ospitare sia il front-end che l'app per le API nello stesso ambiente del servizio app ILB ed esporre l'app front-end a Internet usando un gateway applicazione.
 * Ospitare il front-end nel servizio multi-tenant e il back-end in un ambiente del servizio app ILB.
@@ -280,7 +293,7 @@ La configurazione degli endpoint privati esporrà le app in un indirizzo privato
 
 Se si analizza il servizio app, sono disponibili diverse porte esposte per le connessioni in ingresso. Non è possibile bloccare o controllare l'accesso a queste porte nel servizio multi-tenant. Ecco l'elenco delle porte esposte:
 
-| Uso | Porta o porte |
+| Usa | Porta o porte |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  Gestione | 454, 455 |
@@ -299,3 +312,4 @@ Se si analizza il servizio app, sono disponibili diverse porte esposte per le co
 [networkinfo]: ./environment/network-info.md
 [appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
 [privateendpoints]: ./networking/private-endpoint.md
+[servicetags]: ../virtual-network/service-tags-overview.md
