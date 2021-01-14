@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: duau
-ms.openlocfilehash: 997e2e97161e6db7cdca04c1b79f5149a2e4c409
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bd3588c207fe8828744a665539830d81805bd7b3
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003532"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184272"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
 
@@ -58,10 +58,10 @@ Questa metrica può essere visualizzata sia come valore aggregato che rappresent
 
 *Figura 4: visualizzazione suddivisa delle metriche di stato degli endpoint*
 
-È possibile utilizzare queste metriche tramite il portale del [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md), l'[API REST](https://docs.microsoft.com/rest/api/monitor/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights) oppure tramite la sezione delle metriche dell'esperienza del portale di Gestione traffico.
+È possibile utilizzare queste metriche tramite il portale del [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md), l'[API REST](/rest/api/monitor/), l'[interfaccia della riga di comando di Azure](/cli/azure/monitor) e [Azure PowerShell](/powershell/module/az.applicationinsights) oppure tramite la sezione delle metriche dell'esperienza del portale di Gestione traffico.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Avvisi sulle metriche di Gestione traffico
-Oltre all'elaborazione e alla visualizzazione delle metriche di Gestione traffico, Monitoraggio di Azure consente ai clienti di configurare e ricevere avvisi associati a tali metriche. È possibile scegliere quali condizioni debbano essere soddisfatte in queste metriche per generare un avviso, la frequenza con cui tali condizioni debbano essere monitorate e le modalità di invio degli avvisi. Per altre informazioni, vedere la [documentazione degli avvisi di Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Oltre all'elaborazione e alla visualizzazione delle metriche di Gestione traffico, Monitoraggio di Azure consente ai clienti di configurare e ricevere avvisi associati a tali metriche. È possibile scegliere quali condizioni debbano essere soddisfatte in queste metriche per generare un avviso, la frequenza con cui tali condizioni debbano essere monitorate e le modalità di invio degli avvisi. Per altre informazioni, vedere la [documentazione degli avvisi di Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sul [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md)

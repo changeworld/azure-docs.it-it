@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 849afe54125588cb7664ee221e4f229e83be8f96
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304296"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185479"
 ---
 # <a name="camera-placement-guide"></a>Guida al posizionamento della fotocamera
 
@@ -52,7 +52,7 @@ Nella figura seguente viene illustrata la visualizzazione dell'elevazione per la
 
 ## <a name="camera-height"></a>Altezza della fotocamera
 
-In genere, le fotocamere devono essere montate 12-14 metri dalla superficie. Quando si pianifica il montaggio della fotocamera in questo intervallo, prendere in considerazione gli ostacoli (ad esempio, la scaffale, le luci appese, la disconnessione e le visualizzazioni) che potrebbero influire sulla visualizzazione della fotocamera, quindi regolare l'altezza in modo necessario.
+In genere, le fotocamere devono essere montate 12-14 metri dalla superficie. Per il rilevamento dei visi mask, è consigliabile montare le fotocamere da 8-12 metri. Quando si pianifica il montaggio della fotocamera in questo intervallo, prendere in considerazione gli ostacoli (ad esempio, la scaffale, le luci appese, la disconnessione e le visualizzazioni) che potrebbero influire sulla visualizzazione della fotocamera, quindi regolare l'altezza in modo necessario.
 
 ## <a name="camera-to-focal-point-distance"></a>Distanza da fotocamera a punto focale
 
@@ -68,7 +68,7 @@ Dal precedente, l'aspetto è simile al seguente:
 
 ![Modalità di misurazione della distanza dal punto di partenza dalla fotocamera al punto focale](./media/spatial-analysis/camera-focal-point-above.png)
 
-Usare la tabella seguente per determinare la distanza della fotocamera dal punto focale in base a altezze di montaggio specifiche. Queste distanze sono per la selezione host ottimale. Si noti che la tabella fornisce indicazioni sotto la raccomandazione 12'-14' poiché alcuni massimali possono limitare l'altezza.
+Usare la tabella seguente per determinare la distanza della fotocamera dal punto focale in base a altezze di montaggio specifiche. Queste distanze sono per la selezione host ottimale. Si noti che la tabella fornisce indicazioni sotto la raccomandazione 12'-14' poiché alcuni massimali possono limitare l'altezza. Per il rilevamento della maschera faccia, la distanza consigliata tra la fotocamera e il punto focale (min/max) è 4'-10' per l'altezza della fotocamera tra 8' e 12'.
 
 | Altezza della fotocamera | Distanza da fotocamera a punto focale (min/max) |  
 | ------------- | ---------------------------------------- |  
@@ -91,7 +91,7 @@ Questa sezione descrive gli intervalli di montaggio dell'angolo della fotocamera
 
 ### <a name="line-configuration"></a>Configurazione linea
 
-La tabella seguente illustra le raccomandazioni per le fotocamere configurate per l'operazione **cognitiveservices. Vision. spatialanalysis-personcrossingline** . 
+La tabella seguente illustra le raccomandazioni per le fotocamere configurate per l'operazione **cognitiveservices. Vision. spatialanalysis-personcrossingline** . Per il rilevamento della maschera dei visi, +/-30 gradi è l'angolo di montaggio della fotocamera ottimale per l'altezza della fotocamera compreso tra 8 e 12.
 
 | Altezza della fotocamera | Distanza da fotocamera a punto focale | Angolo di montaggio della fotocamera ottimale (min/max) |  
 | ------------- | ------------------------------ | ------------------------------------------ |  
@@ -127,7 +127,7 @@ Nella figura seguente vengono illustrate le simulazioni per le visualizzazioni d
 
 #### <a name="queues"></a>Code
 
-Per monitorare le code, è possibile usare le competenze **cognitiveservices. Vision. spatialanalysis-PersonCount**, **cognitiveservices. Visio. spatialanalysis-persondistance**e **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** . Per ottimizzare la qualità dei dati della coda, è preferibile ridurre al minimo l'occlusione delle persone nella coda e garantire che la posizione delle code sia coerente nel tempo.
+Per monitorare le code, è possibile usare le competenze **cognitiveservices. Vision. spatialanalysis-PersonCount**, **cognitiveservices. Visio. spatialanalysis-persondistance** e **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** . Per ottimizzare la qualità dei dati della coda, è preferibile ridurre al minimo l'occlusione delle persone nella coda e garantire che la posizione delle code sia coerente nel tempo.
 
 ![Coda cinture ritirabile](./media/spatial-analysis/retractable-belt-queue.png)
 

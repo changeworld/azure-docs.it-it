@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: duau
-ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: eaf50f3bdacaf5680bc5ecb1379faff20133b5ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021691"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184374"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -92,11 +92,11 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 4. Definire le configurazioni della rete virtuale, della subnet, dell'IP front-end e del listener per il gateway applicazione. In questo scenario l'indirizzo IP front-end è **Pubblico**. Questo consente, in un secondo tempo, di aggiungerlo come endpoint al profilo di Gestione traffico.
 5. Configurare il listener con una delle opzioni seguenti:
     * Se si usa HTTP, non sono necessarie configurazioni. Fare clic su **OK**.
-    * Se si usa HTTPS sono necessarie operazioni di configurazione aggiuntive. Fare riferimento a [Creare un gateway applicazione](../application-gateway/application-gateway-create-gateway-portal.md), a partire dal passaggio 9. Una volta completata la configurazione, fare clic su **OK**.
+    * Se si usa HTTPS sono necessarie operazioni di configurazione aggiuntive. Fare riferimento a [Creare un gateway applicazione](../application-gateway/quick-create-portal.md), a partire dal passaggio 9. Una volta completata la configurazione, fare clic su **OK**.
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Configurare il routing degli URL per i gateway applicazione
 
-Quando si sceglie un pool back-end, un gateway applicazione configurato con una regola basata sul percorso tiene conto non solo della distribuzione round robin ma anche del modello di percorso dell'URL della richiesta. In questo scenario viene aggiunta una regola basata sul percorso per indirizzare qualsiasi URL con "/images/\*" al pool di server di immagine. Per altre informazioni sulla configurazione del routing degli URL in base al percorso per un gateway applicazione, vedere [Creare una regola basata sul percorso per un gateway applicazione](../application-gateway/application-gateway-create-url-route-portal.md).
+Quando si sceglie un pool back-end, un gateway applicazione configurato con una regola basata sul percorso tiene conto non solo della distribuzione round robin ma anche del modello di percorso dell'URL della richiesta. In questo scenario viene aggiunta una regola basata sul percorso per indirizzare qualsiasi URL con "/images/\*" al pool di server di immagine. Per altre informazioni sulla configurazione del routing degli URL in base al percorso per un gateway applicazione, vedere [Creare una regola basata sul percorso per un gateway applicazione](../application-gateway/create-url-route-portal.md).
 
 ![Diagramma di livello Web del gateway applicazione](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -156,7 +156,7 @@ In questo scenario Load Balancer distribuisce le connessioni dal livello Web al 
 
 Se il cluster di database a disponibilità elevata usa SQL Server AlwaysOn, per istruzioni dettagliate vedere [Configurare uno o più listener nei gruppi di disponibilità AlwaysOn](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md).
 
-Per altri dettagli sulla configurazione di un servizio di bilanciamento del carico interno, vedere [Creare un servizio di bilanciamento del carico interno nel portale di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+Per altri dettagli sulla configurazione di un servizio di bilanciamento del carico interno, vedere [Creare un servizio di bilanciamento del carico interno nel portale di Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md).
 
 1. Nel riquadro sinistro della portale di Azure fare clic su **Crea una risorsa**  >  **rete**  >  **bilanciamento del carico**.
 2. Scegliere un nome per il bilanciamento del carico.
@@ -210,5 +210,5 @@ Vengono ora configurati l'indirizzo IP e la porta font-end del servizio di bilan
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Gestione traffico](traffic-manager-overview.md)
-* [Panoramica del gateway applicazione](../application-gateway/application-gateway-introduction.md)
+* [Panoramica del gateway applicazione](../application-gateway/overview.md)
 * [Panoramica di Azure Load Balancer](../load-balancer/load-balancer-overview.md)

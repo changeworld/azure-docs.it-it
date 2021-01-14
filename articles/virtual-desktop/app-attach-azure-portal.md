@@ -6,14 +6,14 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d8ed429003a9da7ae93fb93f4218cd66767dcd7b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562277"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185955"
 ---
-# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione dell'app MSIX con il portale di Azure
+# <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurare la connessione all'app MSIX con il portale di Azure
 
 > [!IMPORTANT]
 > La connessione all'app MSIX è attualmente disponibile in anteprima pubblica.
@@ -54,19 +54,10 @@ reg add HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager /v
 
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug /v ContentDeliveryAllowedOverride /t REG_DWORD /d 0x2 /f
 
-rem Disable Windows Update:
-
-sc config wuauserv start=disabled
-```
-
-Dopo aver disabilitato gli aggiornamenti automatici, è necessario abilitare Hyper-V perché si userà il `Mount-VHD` comando per la gestione temporanea e il smontaggio del disco rigido virtuale per la fase di disinstallazione.
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 >[!NOTE]
->Questa modifica richiede il riavvio della macchina virtuale.
+>Si consiglia di riavviare la macchina virtuale dopo l'abilitazione di Hyper-V.
 
 ## <a name="configure-the-msix-app-attach-management-interface"></a>Configurare l'interfaccia di gestione di associazione app MSIX
 
@@ -87,7 +78,7 @@ Sarà quindi necessario aggiungere l'immagine MSIX al pool host.
 
 Per aggiungere l'immagine MSIX:
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 
 2. Immettere **desktop virtuale Windows** nella barra di ricerca, quindi selezionare il nome del servizio.
 

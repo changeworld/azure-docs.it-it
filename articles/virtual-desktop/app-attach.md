@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f625b7dd68d4b5a5e1af68aeb53dac453ff8cbfd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 5e45c51735e0b7ab4b263d3f3047b5848c82439d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400829"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185768"
 ---
 # <a name="create-powershell-scripts-for-msix-app-attach-preview"></a>Creare script di PowerShell per la connessione all'app MSIX (anteprima)
 
@@ -39,6 +39,17 @@ Se l'app usa un certificato che non è pubblico o è autofirmato, di seguito vie
 6. Selezionare **Colloca tutti i certificati nel seguente archivio**, quindi selezionare **Sfoglia**.
 7. Quando viene visualizzata la finestra Seleziona archivio certificati, selezionare **Persone attendibili**, quindi selezionare **OK**.
 8. Selezionare **Avanti** e **fine**.
+
+## <a name="enable-microsoft-hyper-v"></a>Abilita Microsoft Hyper-V
+
+È necessario abilitare Microsoft Hyper-V perché il `Mount-VHD` comando è necessario per eseguire il staging ed `Dismount-VHD` è necessario per eseguire la fase di destaging.
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+```
+
+>[!NOTE]
+>Questa modifica richiede il riavvio della macchina virtuale.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparare uno script di PowerShell per la connessione all'app MSIX
 

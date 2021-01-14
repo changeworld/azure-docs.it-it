@@ -1,26 +1,26 @@
 ---
-title: Come e dove distribuire i modelli
+title: Come distribuire modelli di Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come e dove distribuire i modelli di Azure Machine Learning, tra cui istanze di contenitore di Azure, servizio Azure Kubernetes, Azure IoT Edge e FPGA.
+description: Informazioni su come e dove distribuire i modelli di machine learning. Eseguire la distribuzione in istanze di contenitore di Azure, servizio Azure Kubernetes, Azure IoT Edge e FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 195f1c527185fbd55450b6151f26525074db75f7
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: e9c691485eb0ec1a0b3c0564f9a8f9a5d2aa255d
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070423"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185802"
 ---
-# <a name="deploy-models-with-azure-machine-learning"></a>Distribuire modelli con Azure Machine Learning
+# <a name="deploy-machine-learning-models-to-azure"></a>Distribuire modelli di Machine Learning in Azure
 
-Informazioni su come distribuire un modello di machine learning come servizio Web nel cloud di Azure o per Azure IoT Edge dispositivi.
+Informazioni su come distribuire un modello di apprendimento automatico o Deep learning come servizio Web nel cloud di Azure. È anche possibile eseguire la distribuzione in dispositivi Azure IoT Edge.
 
 Il flusso di lavoro è simile indipendentemente dal punto in cui si distribuisce il modello:
 
@@ -31,7 +31,7 @@ Il flusso di lavoro è simile indipendentemente dal punto in cui si distribuisce
 1. Distribuire il modello nella destinazione di calcolo.
 1. Testare il servizio Web risultante.
 
-Per ulteriori informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [gestire, distribuire e monitorare i modelli con Azure Machine Learning](concept-model-management-and-deployment.md).
+Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzione di Machine Learning, vedere [gestire, distribuire e monitorare i modelli con Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -197,7 +197,7 @@ Una configurazione di inferenza minima può essere scritta come segue:
 }
 ```
 
-Questo specifica che la distribuzione userà il file `score.py` nella `./working_dir` Directory per elaborare le richieste in ingresso.
+Questo specifica che la distribuzione di Machine Learning userà il file `score.py` nella `./working_dir` Directory per elaborare le richieste in ingresso.
 
 Per una descrizione più approfondita delle configurazioni di inferenza, [vedere questo articolo](./reference-azure-machine-learning-cli.md#inference-configuration-schema) . 
 
@@ -269,7 +269,7 @@ from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservic
 
 ---
 
-## <a name="deploy-your-model"></a>Distribuire il modello
+## <a name="deploy-your-machine-learning-model"></a>Distribuire il modello di Machine Learning
 
 A questo punto è possibile distribuire il modello. 
 

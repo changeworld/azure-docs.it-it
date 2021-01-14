@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 2418a8813e7b9de603b7e7cdc11fc756d73ac2a4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2a1455c5956297a19d640146879f93b61d035139
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350756"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185904"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Elenchi di controllo di accesso (ACL) in Azure Data Lake Storage Gen2
 
@@ -34,7 +34,7 @@ Per impostare le autorizzazioni a livello di file e directory, vedere gli artico
 
 | Ambiente | Articolo |
 |--------|-----------|
-|Esplora archivi Azure |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|Azure Storage Explorer |[Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Usare .NET per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md#manage-access-control-lists-acls)|
 |Java|[Utilizzare Java per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md#manage-access-control-lists-acls)|
 |Python|[Usare Python per gestire directory, file e ACL in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md#manage-access-control-lists-acls)|
@@ -60,7 +60,7 @@ Sia gli ACL di accesso che gli ACL predefiniti presentano la stessa struttura.
 
 ## <a name="levels-of-permission"></a>Livelli di autorizzazione
 
-Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura** ed **esecuzione** e possono essere usate nei file e nelle directory, come illustrato nella tabella seguente:
+Le autorizzazioni per directory e file in un contenitore sono di **lettura**, **scrittura** ed **esecuzione** e possono essere usate su file e directory, come illustrato nella tabella seguente:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
@@ -69,7 +69,7 @@ Le autorizzazioni per un oggetto contenitore sono di **lettura**, **scrittura** 
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen2 | È necessaria per attraversare gli elementi figlio di una directory |
 
 > [!NOTE]
-> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo di Azure), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** al contenitore e a ogni cartella nella gerarchia di cartelle che portano al file.
+> Se si concedono le autorizzazioni usando solo ACL (nessun controllo degli accessi in base al ruolo di Azure), per concedere a un'entità di sicurezza l'accesso in lettura o scrittura a un file, è necessario assegnare all'entità di sicurezza le autorizzazioni di **esecuzione** per la cartella radice del contenitore e per ogni cartella nella gerarchia di cartelle che portano al file.
 
 ### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
 
@@ -204,7 +204,7 @@ Per un nuovo contenitore di Data Lake Storage Gen2, la maschera per l'ACL di acc
 |--|--|--|
 |utente proprietario|`rwx`|`r-w`|
 |gruppo proprietario|`r-x`|`r--`|
-|Altri|`---`|`---`|
+|Altro|`---`|`---`|
 
 File non ricevono il bit X perché è irrilevante per i file in un sistema solo di archiviazione. 
 
@@ -289,7 +289,7 @@ Gli ACL predefiniti possono essere usati per impostare gli ACL per le nuove sott
 
 - Il chiamante ha autorizzazioni ' superuser ',
 
-Or
+Oppure
 
 - Sono necessarie autorizzazioni di Scrittura + Esecuzione per la directory padre.
 - Sono necessarie autorizzazioni di Lettura + Scrittura + Esecuzione per la directory da eliminare e per ogni directory al suo interno.

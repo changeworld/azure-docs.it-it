@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/9/2020
 ms.author: yitoh
-ms.openlocfilehash: 5e633b5e4b2ff2ce884bfaf99e3730968150cbed
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: e76086db36642664ca15acee26f4e0aca85ff272
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746372"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184460"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Panoramica di Protezione DDoS di Azure Standard
 
@@ -45,6 +45,10 @@ Protezione DDoS di Azure non archivia i dati dei clienti.
 - **Garanzia di costo:** Ricevere il credito per il trasferimento dei dati e il servizio di scalabilità orizzontale dell'applicazione per i costi delle risorse causati da attacchi DDoS documentati.
 
 ## <a name="pricing"></a>Prezzi
+
+I piani di protezione DDoS hanno un costo mensile fisso di $2.944 al mese che copre fino a 100 indirizzi IP pubblici. La protezione per le risorse aggiuntive costerà altri $30 per ogni risorsa al mese.
+
+In un tenant, un singolo piano di protezione DDoS può essere usato in più sottoscrizioni, quindi non è necessario creare più di un piano di protezione DDoS.
 
 Per informazioni sui prezzi standard di protezione DDoS di Azure, vedere la pagina relativa ai [prezzi standard di protezione DDoS di Azure](https://azure.microsoft.com/pricing/details/ddos-protection/).
 

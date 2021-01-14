@@ -5,12 +5,12 @@ services: automation
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c6d0f38eaa25f2fe033a5e2cf48ee6daa51fcbe6
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929277"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184918"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -425,7 +425,7 @@ Questo errore può verificarsi per uno dei motivi seguenti:
 
 Se applicabili, usare i [gruppi dinamici](../update-management/configure-groups.md) per le distribuzioni degli aggiornamenti. Inoltre, è possibile eseguire i passaggi seguenti.
 
-1. Verificare che il computer o il server soddisfi i [requisiti](../update-management/overview.md#client-requirements).
+1. Verificare che il computer o il server soddisfi i [requisiti](../update-management/overview.md#system-requirements).
 2. Verificare la connettività al ruolo di lavoro ibrido per runbook usando lo strumento di risoluzione dei problemi dell'agente del ruolo lavoro ibrido per runbook. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenario: gli aggiornamenti vengono installati senza una distribuzione

@@ -2,32 +2,37 @@
 title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsoft Docs
 description: Questo articolo illustra come è possibile rilevare i duplicati nei messaggi del bus di servizio di Azure. Il messaggio duplicato può essere ignorato e eliminato.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083889"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184680"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
 Se un'applicazione si arresta a causa di un errore irreversibile subito dopo l'invio di un messaggio e l'istanza riavviata dell'applicazione ritiene erroneamente che il recapito del messaggio precedente non sia stato eseguito, il successivo invio provoca la doppia visualizzazione del messaggio nel sistema.
 
-È anche possibile che in un momento precedente si verifichi un errore a livello di client o di rete e che venga eseguito il commit nella coda di un messaggio inviato senza che il client riceva correttamente l'acknowledgement del recapito. Questo scenario lascia il client in dubbio sull'esito dell'operazione di invio.
+È anche possibile che si verifichi un errore a livello di client o di rete in un momento precedente e che venga eseguito il commit di un messaggio inviato nella coda, con il riconoscimento non correttamente restituito al client. Questo scenario lascia il client in dubbio sull'esito dell'operazione di invio.
 
 Il rilevamento dei duplicati consente di evitare queste situazioni, consentendo al mittente di inviare nuovamente lo stesso messaggio che, se duplicato, verrà rimosso automaticamente dalla coda o dall'argomento.
 
+## <a name="how-it-works"></a>Funzionamento 
 Abilitare il rilevamento dei duplicati consente di tenere traccia del *MessageId* controllato dall'applicazione di tutti i messaggi inviati a una coda o un argomento durante un intervallo di tempo specificato. Se viene inviato un nuovo messaggio con *MessageId* già registrato durante l'intervallo di tempo specificato, il messaggio viene segnalato come accettato (l'operazione di invio ha esito positivo), ma viene immediatamente ignorato ed eliminato. Viene presa in considerazione esclusivamente la parte *MessageId* del messaggio.
 
 Il controllo dell'identificatore da parte dell'applicazione è essenziale, perché è solo questo che consente all'applicazione di associare il *MessageId* al contesto di un processo di business da cui possa essere ricostruito in modo prevedibile in caso di errore.
 
 Per un processo di business in cui vengono inviati più messaggi durante la gestione di un contesto applicazione, il *MessageId* può essere composto dall'identificatore di contesto a livello di applicazione, ad esempio un numero d'ordine di acquisto, e dall'oggetto del messaggio, ad esempio **12345.2017/pagamento**.
 
-Il *MessageId* può sempre essere un GUID, ma ancorare l'identificatore al processo di business garantisce una ripetibilità prevedibile, necessaria per sfruttare la funzionalità di rilevamento dei duplicati in modo efficace.
+Il *MessageID* può sempre essere un GUID, ma l'ancoraggio dell'identificatore al processo di business produce una ripetibilità prevedibile, che è necessario per l'utilizzo efficace della funzionalità di rilevamento dei duplicati.
 
-> [!NOTE]
-> Se il rilevamento dei duplicati è abilitato e l'ID di sessione o la chiave di partizione non sono impostati, l'ID del messaggio viene usato come chiave di partizione. Se anche l'ID del messaggio non è impostato, le librerie .NET e AMQP generano automaticamente un ID di messaggio per il messaggio. Per altre informazioni, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+> [!IMPORTANT]
+>- Quando il **partizionamento** è **abilitato**, `MessageId+PartitionKey` viene usato per determinare l'univocità. Quando le sessioni sono abilitate, la chiave di partizione e l'ID di sessione devono essere uguali. 
+>- Quando il **partizionamento** è **disabilitato** (impostazione predefinita), `MessageId` viene usato solo per determinare l'univocità.
+>- Per informazioni su SessionId, PartitionKey e MessageId, vedere [uso delle chiavi di partizione](service-bus-partitioning.md#use-of-partition-keys).
+>- Il [livello Premier](service-bus-premium-messaging.md) non supporta il partizionamento, quindi è consigliabile usare ID di messaggio univoci nelle applicazioni e non basarsi sulle chiavi di partizione per il rilevamento dei duplicati. 
+
 
 ## <a name="enable-duplicate-detection"></a>Abilitare il rilevamento dei duplicati
 
@@ -58,7 +63,7 @@ Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argom
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
-Negli scenari in cui il codice client non è in grado di inviare di nuovo un messaggio con lo stesso *MessageID* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di Blog su l'idempotenza](https://particular.net/blog/what-does-idempotent-mean) descrive le varie tecniche per eseguire questa operazione.
+Negli scenari in cui il codice client non è in grado di inviare nuovamente un messaggio con lo stesso *MessageID* di prima, è importante progettare messaggi che possono essere rielaborati in modo sicuro. Questo [post di Blog su l'idempotenza](https://particular.net/blog/what-does-idempotent-mean) descrive le varie tecniche per eseguire questa operazione.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

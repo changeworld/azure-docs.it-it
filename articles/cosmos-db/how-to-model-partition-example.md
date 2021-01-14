@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: d2f35ae7a6110acb2ca89bdaeb487eddabf84923
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616247"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185819"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -60,7 +60,7 @@ Ecco l'elenco di richieste che la piattaforma dovrà esporre:
 
 In questa fase, non sono stati considerati i dettagli relativi a ogni entità (utente, post e così via) che conterrà. Questo passaggio è in genere tra le prime da affrontare quando si progetta in un archivio relazionale, perché è necessario determinare il modo in cui tali entità verranno convertite in termini di tabelle, colonne, chiavi esterne e così via. È molto meno problematico per un database di documenti che non impone alcuno schema in fase di scrittura.
 
-Il motivo principale per cui è importante identificare i modelli di accesso sin dall'inizio è che questo elenco di richieste diventerà il gruppo di test. Ogni volta che si esegue l'iterazione del modello di dati, si verificheranno le prestazioni e la scalabilità di ciascuna richiesta.
+Il motivo principale per cui è importante identificare i modelli di accesso sin dall'inizio è che questo elenco di richieste diventerà il gruppo di test. Ogni volta che si esegue l'iterazione del modello di dati, si verificheranno le prestazioni e la scalabilità di ciascuna richiesta. Vengono calcolate le unità di richiesta utilizzate in ogni modello e ottimizzate. Tutti questi modelli usano i criteri di indicizzazione predefiniti ed è possibile eseguirne l'override indicizzando proprietà specifiche, che possono migliorare ulteriormente il consumo e la latenza di ur.
 
 ## <a name="v1-a-first-version"></a>V1: una prima versione
 
@@ -149,7 +149,7 @@ Per recuperare un utente si legge l'elemento corrispondente dal contenitore `use
 
 ### <a name="c2-createedit-a-post"></a>[C2] Creare/modificare un post
 
-Analogamente a **[C1]** , occorre solo scrivere nel contenitore `posts`.
+Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore post" border="false":::
 
@@ -208,7 +208,7 @@ Anche se la query principale filtra la chiave di partizione del contenitore, agg
 
 ### <a name="c4-like-a-post"></a>[C4] Aggiungere Mi piace a un post
 
-Come per **[C3]** , basta scrivere l'elemento corrispondente nel contenitore `posts`.
+Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore post" border="false":::
 
@@ -218,7 +218,7 @@ Come per **[C3]** , basta scrivere l'elemento corrispondente nel contenitore `po
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Elencare i Mi piace ricevuti da un post
 
-Analogamente a **[Q4]** , si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
+Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recupero di tutti i Mi piace ricevuti da un post e aggregazione dei dati aggiuntivi" border="false":::
 
@@ -295,7 +295,7 @@ Si modificano anche i commenti e i Mi piace aggiungendo il nome utente del relat
 
 L'obiettivo in questo caso è incrementare il `commentCount` o il `likeCount` nel post corrispondente ogni volta che si aggiunge un commento o un Mi piace. Dal momento che il contenitore `posts` è partizionato per `postId`, il nuovo elemento (commento o Mi piace) e il post corrispondente si trovano nella medesima partizione logica. Di conseguenza, è possibile usare una [stored procedure](stored-procedures-triggers-udfs.md) per eseguire tale operazione.
 
-A questo punto, quando si crea un commento ( **[C3]** ), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
+A questo punto, quando si crea un commento (**[C3]**), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
 
 ```javascript
 function createComment(postId, comment) {

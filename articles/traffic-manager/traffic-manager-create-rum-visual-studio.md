@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
 ms.custom: devx-track-js
-ms.openlocfilehash: c49672ad38ac8cf80214d03870b5876d741e76ec
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f9e8cdd3eb5c9f441444683fb5efaccc880b2757
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994877"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184612"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Come inviare Misurazioni utente reale a Gestione traffico con Visual Studio Mobile Center
 
@@ -52,7 +52,7 @@ Per ottenere la chiave RUM usando il portale di Azure attenersi alla procedura s
 
 ## <a name="step-2-instrument-your-app-with-the-rum-package-of-mobile-center-sdk"></a>Passaggio 2: Instrumentare un'app con il pacchetto RUM del Mobile Center SDK
 
-Se non si ha familiarità con Visual Studio Mobile Center, visitare il relativo [sito Web](https://mobile.azure.com). Per istruzioni dettagliate sull'integrazione SDK, vedere [Introduzione ad Android SDK](https://docs.microsoft.com/mobile-center/sdk/getting-started/Android).
+Se non si ha familiarità con Visual Studio Mobile Center, visitare il relativo [sito Web](https://mobile.azure.com). Per istruzioni dettagliate sull'integrazione SDK, vedere [Introduzione ad Android SDK](/mobile-center/sdk/getting-started/Android).
 
 Per usare Misurazioni utente reale, completare la procedura seguente:
 
@@ -98,8 +98,7 @@ Per usare Misurazioni utente reale, completare la procedura seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Misurazioni utente reale](traffic-manager-rum-overview.md)
 - Informazioni [sul funzionamento di gestione traffico](traffic-manager-overview.md)
-- Altre informazioni su [Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Altre informazioni su [Mobile Center](/mobile-center/)
 - [Iscriversi](https://mobile.azure.com) a Mobile Center
 - Ulteriori informazioni sui [metodi di routing del traffico](traffic-manager-routing-methods.md) supportati da Gestione traffico
-- Informazioni su come [creare un profilo di Gestione traffico](traffic-manager-create-profile.md)
-
+- Informazioni su come [creare un profilo di Gestione traffico](./quickstart-create-traffic-manager-profile.md)

@@ -7,12 +7,13 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a8b2fdf99b33df3322748b7e073cc4ab18957c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045241"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185496"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -52,9 +53,6 @@ Seguendo questo metodo, è possibile scegliere di definire i modelli per il repa
 ## <a name="upload-models"></a>Caricare i modelli
 
 Una volta creati i modelli, è possibile caricarli nell'istanza di Azure Digital gemelli.
-
-> [!TIP]
-> È consigliabile convalidare i modelli offline prima di caricarli nell'istanza di Azure Digital gemelli. È possibile usare la [libreria del parser lato client DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e l' [esempio di validator DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) descritto in [*procedura: analizzare e convalidare i modelli*](how-to-parse-models.md) per verificare i modelli prima di caricarli nel servizio.
 
 Quando si è pronti per caricare un modello, è possibile usare il frammento di codice seguente:
 

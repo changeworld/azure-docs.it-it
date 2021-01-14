@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 86758c355566fb67ebd8a606068e2044e0b8bd64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400178"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184578"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -96,7 +96,7 @@ La differenza essenziale tra questi due metodi di routing molto diffusi consiste
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quali sono le aree supportate da Gestione traffico per il routing geografico?
 
-La gerarchia di paese/area geografica utilizzata da Gestione traffico è reperibile [qui](traffic-manager-geographic-regions.md). La pagina viene aggiornata con ogni modifica apportata, ma è possibile recuperare le stesse informazioni anche a livello programmatico usando l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+La gerarchia di paese/area geografica utilizzata da Gestione traffico è reperibile [qui](traffic-manager-geographic-regions.md). La pagina viene aggiornata con ogni modifica apportata, ma è possibile recuperare le stesse informazioni anche a livello programmatico usando l'[API REST di Gestione traffico di Azure](/rest/api/trafficmanager/). 
 
 ### <a name="how-does-traffic-manager-determine-where-a-user-is-querying-from"></a>In che modo Gestione traffico determina da dove un utente sta eseguendo una query?
 
@@ -116,11 +116,11 @@ No, il percorso dell'endpoint non impone alcuna restrizione in merito alle aree 
 
 ### <a name="can-i-assign-geographic-regions-to-endpoints-in-a-profile-that-is-not-configured-to-do-geographic-routing"></a>È possibile assegnare aree geografiche agli endpoint in un profilo che non è configurato per eseguire il routing geografico?
 
-Sì, se il metodo di routing di un profilo non è Geografico è possibile usare l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) per assegnare aree geografiche agli endpoint del profilo. Nel caso di profili con un tipo di routing non geografico, questa configurazione viene ignorata. Se si cambia un profilo di questo tipo nel tipo a routing geografico in un secondo momento, Gestione traffico userà quei mapping.
+Sì, se il metodo di routing di un profilo non è Geografico è possibile usare l'[API REST di Gestione traffico di Azure](/rest/api/trafficmanager/) per assegnare aree geografiche agli endpoint del profilo. Nel caso di profili con un tipo di routing non geografico, questa configurazione viene ignorata. Se si cambia un profilo di questo tipo nel tipo a routing geografico in un secondo momento, Gestione traffico userà quei mapping.
 
 ### <a name="why-am-i-getting-an-error-when-i-try-to-change-the-routing-method-of-an-existing-profile-to-geographic"></a>Perché si riceve un errore quando si tenta di cambiare il metodo di routing di un profilo esistente in geografico?
 
-Deve esserci almeno un'area mappata per tutti gli endpoint in un profilo con routing geografico. Per convertire un profilo esistente al tipo di routing geografico è innanzitutto necessario associare aree geografiche a tutti gli endpoint tramite l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/) prima di cambiare il tipo di routing in geografico. Se si usa il portale, eliminare innanzitutto gli endpoint, cambiare il metodo di routing del profilo in geografico e quindi aggiungere gli endpoint con i relativi mapping di area geografica.
+Deve esserci almeno un'area mappata per tutti gli endpoint in un profilo con routing geografico. Per convertire un profilo esistente al tipo di routing geografico è innanzitutto necessario associare aree geografiche a tutti gli endpoint tramite l'[API REST di Gestione traffico di Azure](/rest/api/trafficmanager/) prima di cambiare il tipo di routing in geografico. Se si usa il portale, eliminare innanzitutto gli endpoint, cambiare il metodo di routing del profilo in geografico e quindi aggiungere gli endpoint con i relativi mapping di area geografica.
 
 ### <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Perché è decisamente consigliato che i clienti creino profili nidificati anziché endpoint in un profilo con il routing geografico abilitato?
 
@@ -306,7 +306,7 @@ La determinazione dei prezzi di Visualizzazione traffico è basata sul numero di
 
 L'uso di endpoint di più sottoscrizioni non è possibile con app Web di Azure. Per le app Web di Azure è necessario che ogni nome di dominio personalizzato usato con app Web venga usato solo all'interno di una singola sottoscrizione. Non è possibile usare app Web da più sottoscrizioni con lo stesso nome di dominio.
 
-Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Gli endpoint di altre sottoscrizioni possono essere aggiunti usando [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
+Per altri tipi di endpoint, è possibile utilizzare Gestione traffico con gli endpoint da più di una sottoscrizione. In Resource Manager è possibile aggiungere endpoint di qualsiasi sottoscrizione a Gestione traffico, purché la persona che configura il profilo di Gestione traffico abbia accesso in lettura all'endpoint. Queste autorizzazioni possono essere concesse usando il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/role-assignments-portal.md). Gli endpoint di altre sottoscrizioni possono essere aggiunti usando [Azure PowerShell](/powershell/module/az.trafficmanager/new-aztrafficmanagerendpoint) o l'interfaccia della riga di comando di [Azure](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create).
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>È possibile usare Gestione traffico con slot di "staging" del servizio cloud?
 
@@ -345,9 +345,9 @@ Azure Resource Manager richiede che tutti i gruppi di risorse specifichino una p
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Come si determina lo stato di integrità corrente di ogni endpoint?
 
-Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) di Gestione traffico, i [cmdlet PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) e l'[interfaccia della riga di comando multipiattaforma di Azure](../cli-install-nodejs.md).
+Lo stato di monitoraggio corrente di ogni endpoint viene visualizzato nel portale di Azure, insieme al profilo complessivo. Queste informazioni sono anche disponibili con l'[API REST](/rest/api/trafficmanager/) di Gestione traffico, i [cmdlet PowerShell](/powershell/module/az.trafficmanager) e l'[interfaccia della riga di comando multipiattaforma di Azure](/cli/azure/install-classic-cli).
 
-È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+È anche possibile usare Monitoraggio di Azure per monitorare l'integrità degli endpoint e vedere una rappresentazione visiva dei risultati. Per altre informazioni su Monitoraggio di Azure, vedere la [documentazione del Monitoraggio di Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>È possibile monitorare gli endpoint HTTPS?
 
@@ -385,10 +385,10 @@ Per i profili con metodo di routing diverso da Multivalore:
 |Richiesta query in ingresso|     Tipo di endpoint|     Risposta specificata|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Endpoint di destinazione| 
-|Una |    A / CNAME |    Endpoint di destinazione|
+|A |    A / CNAME |    Endpoint di destinazione|
 |A |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Endpoint di destinazione|
-|AAAA |    Una |    NODATA |
+|AAAA |    A |    NODATA |
 |CNAME |    CNAME |    Endpoint di destinazione|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ Per i profili con metodo di routing impostato su Multivalore:
 |Richiesta query in ingresso|     Tipo di endpoint |    Risposta specificata|
 |--|--|--|
 |ANY |    Combinazione di A e AAAA |    Endpoint di destinazione|
-|Una |    Combinazione di A e AAAA |    Solo endpoint di destinazione di tipo A|
+|A |    Combinazione di A e AAAA |    Solo endpoint di destinazione di tipo A|
 |AAAA    |Combinazione di A e AAAA|     Solo endpoint di destinazione di tipo AAAA|
 |CNAME |    Combinazione di A e AAAA |    NODATA |
 
@@ -458,7 +458,7 @@ Il numero di controlli di integrità eseguiti da Gestione traffico sull'endpoint
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Come si possono ricevere notifiche se uno degli endpoint risulta inattivo?
 
-Una delle metriche fornite da Gestione traffico è costituita dallo stato di integrità degli endpoint in un profilo. È possibile visualizzare questo scenario come aggregazione di tutti gli endpoint all'interno di un profilo, ad esempio il 75% degli endpoint è integro, oppure a livello di singolo endpoint. Le metriche di Gestione traffico vengono esposte tramite Monitoraggio di Azure ed è possibile usare le rispettive [funzionalità per gli avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) per ottenere notifiche in caso di modifica dello stato di integrità dell'endpoint. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).  
+Una delle metriche fornite da Gestione traffico è costituita dallo stato di integrità degli endpoint in un profilo. È possibile visualizzare questo scenario come aggregazione di tutti gli endpoint all'interno di un profilo, ad esempio il 75% degli endpoint è integro, oppure a livello di singolo endpoint. Le metriche di Gestione traffico vengono esposte tramite Monitoraggio di Azure ed è possibile usare le rispettive [funzionalità per gli avvisi](../azure-monitor/platform/alerts-metric.md) per ottenere notifiche in caso di modifica dello stato di integrità dell'endpoint. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profili annidati di Gestione traffico
 

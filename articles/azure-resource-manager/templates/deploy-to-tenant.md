@@ -3,12 +3,12 @@ title: Distribuire le risorse nel tenant
 description: Descrive come distribuire le risorse nell'ambito del tenant in un modello di Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: a397678488921744f076d93235304c8d217d961f
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 0b3ddc63e49b272c93349ada91e9a1599ea4be4f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178960"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186210"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>Distribuzioni tenant con modelli ARM
 
@@ -185,6 +185,8 @@ Per fare riferimento a un gruppo di risorse all'interno del tenant, usare una di
 Il modello seguente crea un gruppo di gestione.
 
 :::code language="json" source="~/quickstart-templates/tenant-deployments/new-mg/azuredeploy.json":::
+
+Se l'account non è autorizzato a eseguire la distribuzione nel tenant, è comunque possibile creare gruppi di gestione distribuendo in un altro ambito. Per ulteriori informazioni, vedere [gruppo di gestione](deploy-to-management-group.md#management-group).
 
 ## <a name="assign-role"></a>Assegnare il ruolo
 

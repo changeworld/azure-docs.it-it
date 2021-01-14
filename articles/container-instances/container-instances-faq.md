@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 5de1188ee018e796f918d7559c0e2c24c77834f4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516971"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186193"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Domande frequenti sulle istanze di contenitore di Azure
 
@@ -54,6 +54,10 @@ Vedere informazioni [aggiuntive più dettagliate](container-instances-troublesho
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>Quale livello immagine .NET o .NET Core è consigliabile usare nel contenitore? 
 
 Usare l'immagine più piccola che soddisfa i requisiti. Per Linux, è possibile usare un'immagine di *Runtime* di .NET Core, supportata dalla versione di .net core 2,1. Per Windows, se si usa la .NET Framework completa, è necessario usare un'immagine di Windows Server Core (solo di runtime, ad esempio  *4.7.2-windowsservercore-ltsc2016*). Le immagini solo in fase di esecuzione sono più piccole ma non supportano i carichi di lavoro che richiedono .NET SDK.
+
+### <a name="what-types-of-container-registries-are-compatible-with-aci"></a>Quali tipi di registri contenitori sono compatibili con ACI?
+
+ACI supporta il pull di immagini da ACR e altri registri di contenitori di terze parti, ad esempio DockerHub. ACI supporta inoltre pull di immagini da registri locali, purché siano compatibili con l'OCR e dispongano di un endpoint esposto pubblicamente a Internet.
 
 ## <a name="availability-and-quotas"></a>Disponibilità e quote
 

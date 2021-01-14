@@ -2,17 +2,17 @@
 title: Informazioni sull'anteprima dell'area perimetrale di Azure
 description: 'Informazioni sulle offerte di calcolo Edge da Microsoft: area perimetrale di Azure.'
 services: vnf-manager
-author: ganesr
+author: cherylmc
 ms.service: vnf-manager
 ms.topic: article
-ms.date: 07/07/2020
-ms.author: ganesr
-ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.author: cherylmc
+ms.openlocfilehash: 04555303d5128db6c183d27a0c5fcb69063fdc28
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329574"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185411"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Informazioni sull'anteprima dell'area perimetrale di Azure
 
@@ -38,7 +38,7 @@ Sono disponibili tre tipi di zone perimetrali di Azure:
 
 ![Zone perimetrali di Azure](./media/edge-zones-overview/edge-zones.png "Zone perimetrali di Azure")
 
-Le zone perimetrali di Azure sono estensioni con footprint ridotto di Azure situate in centri di popolazione lontani dalle aree di Azure. Le zone perimetrali di Azure supportano macchine virtuali, contenitori e un set selezionato di servizi di Azure che consentono di eseguire applicazioni dipendenti dalla latenza e a elevato utilizzo di velocità effettiva vicino agli utenti finali. Le zone perimetrali di Azure fanno parte della rete globale di Microsoft. Forniscono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni eseguite all'area perimetrale vicina all'utente. E offrono il set completo di servizi di Azure in esecuzione all'interno delle aree di Azure. Le zone di Azure Edge sono di proprietà e gestite da Microsoft. È possibile usare lo stesso set di strumenti di Azure e lo stesso portale per gestire e distribuire i servizi in zone perimetrali.
+Le zone perimetrali di Azure sono estensioni con footprint ridotto di Azure situate in centri di popolazione lontani dalle aree di Azure. Le zone perimetrali di Azure supportano macchine virtuali, contenitori e un set selezionato di servizi di Azure che consentono di eseguire applicazioni dipendenti dalla latenza e a elevato utilizzo di velocità effettiva vicino agli utenti finali. Le zone perimetrali di Azure fanno parte della rete globale di Microsoft. Forniscono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni eseguite all'area perimetrale vicina all'utente. Le zone di Azure Edge sono di proprietà e gestite da Microsoft. È possibile usare lo stesso set di strumenti di Azure e lo stesso portale per gestire e distribuire i servizi in zone perimetrali.
 
 I casi d'uso tipici includono:
 
@@ -61,7 +61,7 @@ Per ulteriori informazioni, [contattare il team dell'area perimetrale](https://a
 
 Le zone perimetrali di Azure con carrier sono estensioni con footprint ridotto di Azure inserite nei data center degli operatori mobili nei centri di popolazione. L'area di Azure Edge con l'infrastruttura del vettore viene posizionata un hop dalla rete 5G dell'operatore mobile. Questo posizionamento offre una latenza inferiore a 10 millisecondi per le applicazioni dei dispositivi mobili.
 
-Le zone perimetrali di Azure con vettore vengono distribuite nei data center degli operatori mobili e connesse alla rete globale di Microsoft. Forniscono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni che vengono eseguite vicino all'utente. E offrono il set completo di servizi di Azure in esecuzione all'interno delle aree di Azure. Gli sviluppatori possono usare lo stesso set di strumenti familiari per creare e distribuire servizi nelle zone perimetrali.
+Le zone perimetrali di Azure con vettore vengono distribuite nei data center degli operatori mobili e connesse alla rete globale di Microsoft. Forniscono connettività sicura, affidabile e a larghezza di banda elevata tra le applicazioni che vengono eseguite vicino all'utente. Gli sviluppatori possono usare lo stesso set di strumenti familiari per creare e distribuire servizi nelle zone perimetrali.
 
 I casi d'uso tipici includono:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
-ms.openlocfilehash: 656f8a0e0530a20807fc8fddd4cd96d1d955c8ac
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: fa83c51469636eb269aa5dc3192ff7e65b53ce89
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912700"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186142"
 ---
 # <a name="what-is-routing-preference-preview"></a>Che cos'è la preferenza di routing (anteprima)?
 
@@ -74,7 +74,7 @@ La differenza di prezzo tra le due opzioni si riflette nei prezzi del trasferime
 
 ## <a name="limitations"></a>Limitazioni
 
-* La preferenza di routing è compatibile solo con lo SKU Standard dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.
+* La preferenza di routing è compatibile solo con lo SKU standard con ridondanza della zona dell'indirizzo IP pubblico. Lo SKU Basic dell'indirizzo IP pubblico non è supportato.
 * Attualmente, la preferenza di routing supporta solo indirizzi IP pubblici IPv4. Gli indirizzi IP pubblici IPv6 non sono supportati.
 * Le macchine virtuali con più schede di interfaccia di rete possono avere un solo tipo di preferenza di routing.
 

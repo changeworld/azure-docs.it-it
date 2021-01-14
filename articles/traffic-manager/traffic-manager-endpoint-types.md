@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: duau
-ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55c2115edef684f38aa53172596beffd101ef59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401283"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184391"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
@@ -92,15 +92,15 @@ Se tutti gli endpoint di un profilo sono disabilitati o se il profilo stesso è 
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [È possibile usare Gestione traffico con endpoint di più sottoscrizioni?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+* [È possibile usare Gestione traffico con endpoint di più sottoscrizioni?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
 
-* [È possibile usare Gestione traffico con slot di "staging" del servizio cloud?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+* [È possibile usare Gestione traffico con slot di "staging" del servizio cloud?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-cloud-service-staging-slots)
 
-* [Gestione traffico supporta endpoint IPv6?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+* [Gestione traffico supporta endpoint IPv6?](./traffic-manager-faqs.md#does-traffic-manager-support-ipv6-endpoints)
 
-* [È possibile usare Gestione traffico con più app Web nella stessa area?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+* [È possibile usare Gestione traffico con più app Web nella stessa area?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [Qual è la procedura per spostare gli endpoint di Azure del profilo di Gestione traffico in un gruppo di risorse diverso?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
+* [Qual è la procedura per spostare gli endpoint di Azure del profilo di Gestione traffico in un gruppo di risorse diverso?](./traffic-manager-faqs.md#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

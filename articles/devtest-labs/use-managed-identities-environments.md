@@ -3,12 +3,12 @@ title: Usare le identità gestite di Azure per creare ambienti in DevTest Labs |
 description: Informazioni su come usare le identità gestite in Azure per distribuire gli ambienti in un Lab in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e5bac4210afee6db1c7617dac1cd6d2ff9149439
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f3e4b4d7030eb26c25b291e03caaa430d1979c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88718978"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185785"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Usare le identità gestite di Azure per distribuire gli ambienti in un Lab 
 
@@ -42,7 +42,7 @@ In questa sezione, in qualità di proprietario del Lab, usare il portale di Azur
 
 Il proprietario del Lab non deve eseguire alcuna operazione speciale durante la distribuzione di un ambiente purché l'identità aggiunta al lab disponga delle autorizzazioni per le risorse esterne a cui l'ambiente deve accedere. 
 
-Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima l'identità collegata al Lab, quindi aggiungerne un'altra al Lab. Per rimuovere un'identità collegata al Lab, selezionare **... (puntini**di sospensione) e fare clic su **Rimuovi**. 
+Per modificare l'identità gestita dall'utente assegnata al Lab, rimuovere prima l'identità collegata al Lab, quindi aggiungerne un'altra al Lab. Per rimuovere un'identità collegata al Lab, selezionare **... (puntini** di sospensione) e fare clic su **Rimuovi**. 
 
 ## <a name="use-api"></a>USA API
 

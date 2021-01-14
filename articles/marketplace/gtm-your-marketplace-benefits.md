@@ -4,15 +4,15 @@ description: "Servizi per l'immissione sul mercato: in questa sezione vengono de
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: ad86ebe1ca397004745e75dd279ea0a7cfe8348e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 263c038cf5003d950cf500ccc13cf562ac71db0c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94746568"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185005"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -104,16 +104,16 @@ Gli editori di offerte di [inserzione e valutazione](determine-your-listing-type
 
 Microsoft si riserva il diritto di revocare e terminare i vantaggi Marketplace Rewards per gli editori che:
 
-* Coinvolgere un'attività illecita usando la relativa inserzione nel Marketplace.
-* Ricevere un acquisto noto o considerato fraudolento.
-* Sono deselezionate dal Marketplace commerciale.
-* Usare l'offerta per visualizzare il marketing o altri contenuti che violano il copyright o le leggi sui marchi.
-* Violare i criteri del [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), incluso, ma non limitato, l'uso del finanziamento di Azure Sponsorship per le proprie operazioni interne o il data mining Bitcoin.
+- Coinvolgere un'attività illecita usando la relativa inserzione nel Marketplace.
+- Ricevere un acquisto noto o considerato fraudolento.
+- Sono deselezionate dal Marketplace commerciale.
+- Usare l'offerta per visualizzare il marketing o altri contenuti che violano il copyright o le leggi sui marchi.
+- Violare i criteri del [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/), incluso, ma non limitato, l'uso del finanziamento di Azure Sponsorship per le proprie operazioni interne o il data mining Bitcoin.
 
 Microsoft si riserva il diritto di revocare e terminare i premi del Marketplace nei casi seguenti:
 
-* Il cliente che ha effettuato l'acquisto è stato inavvertitamente e desidera annullare l'acquisto.
-* Il cliente annulla prima di utilizzare il prodotto del partner.
+- Il cliente che ha effettuato l'acquisto è stato inavvertitamente e desidera annullare l'acquisto.
+- Il cliente annulla prima di utilizzare il prodotto del partner.
 
 ### <a name="offer-availability"></a>Disponibilità offerta
 

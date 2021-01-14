@@ -13,17 +13,17 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 12/01/2020
 tags: azure-synapse
-ms.openlocfilehash: ece76f0017a72484f5c4e66b2ab8c7e71d32f1a7
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132036"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185358"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'etichettatura e la segnalazione dei dati sensibili nei database.
+L'individuazione dei dati & classificazione è incorporata nel database SQL di Azure, in Azure SQL Istanza gestita e in Azure sinapsi Analytics. Fornisce funzionalità di base per l'individuazione, la classificazione, l'assegnazione di etichette e la segnalazione dei dati sensibili nei database.
 
 I dati più sensibili possono includere informazioni aziendali, finanziarie, sanitarie o personali. L'individuazione e la classificazione di questi dati possono svolgere un ruolo fondamentale nell'approccio di protezione delle informazioni dell'organizzazione. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
@@ -36,11 +36,11 @@ I dati più sensibili possono includere informazioni aziendali, finanziarie, san
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>Che cos'è l'individuazione dei dati & classificazione?
 
-Individuazione dati & classificazione introduce un set di servizi avanzati e nuove funzionalità in Azure. Costituisce un nuovo paradigma di protezione delle informazioni per il database SQL, il Istanza gestita SQL e la sinapsi di Azure, finalizzata alla protezione dei dati e non solo del database. Il paradigma include:
+Individuazione dati & classificazione introduce un set di servizi di base e nuove funzionalità in Azure. Costituisce un nuovo paradigma di protezione delle informazioni per il database SQL, il Istanza gestita SQL e la sinapsi di Azure, finalizzata alla protezione dei dati e non solo del database. Il paradigma include:
 
 - **Individuazione e consigli:** Il motore di classificazione esegue l'analisi del database e identifica le colonne che contengono dati potenzialmente sensibili. Viene quindi fornito un modo semplice per esaminare e applicare la classificazione consigliata tramite il portale di Azure.
 
-- **Assegnazione di etichette:** È possibile applicare le etichette di classificazione di riservatezza in modo permanente alle colonne usando nuovi attributi di metadati aggiunti al motore di database SQL Server. Questi metadati possono quindi essere utilizzati per scenari avanzati di controllo e protezione basati sulla sensibilità.
+- **Assegnazione di etichette:** È possibile applicare le etichette di classificazione di riservatezza in modo permanente alle colonne usando nuovi attributi di metadati aggiunti al motore di database SQL Server. Questi metadati possono quindi essere utilizzati per gli scenari di controllo e protezione basati sulla sensibilità.
 
 - **Risultato della query: impostare la sensibilità:** La sensibilità di un set di risultati della query viene calcolata in tempo reale a scopo di controllo.
 

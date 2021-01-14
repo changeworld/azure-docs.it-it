@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dd1b6d216f6225a13d86aa2435b5b1c807547ec3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95014578"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186023"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e risoluzione dei problemi
 
@@ -68,7 +68,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-Nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare il modulo *Telegraf* e sostituire i valori seguenti con le informazioni sull'entità servizio del passaggio precedente e ridistribuire.
+Nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), il [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152270)o la [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189), cercare il modulo *Telegraf* e sostituire i valori seguenti con le informazioni sull'entità servizio del passaggio precedente e ridistribuire.
 
 ```json
 
@@ -129,7 +129,7 @@ Una volta distribuito il modulo Telegraf, è possibile accedere alle metriche se
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Raccogliere i file di log con il contenitore di diagnostica
 
-L'analisi spaziale genera log di debug Docker che è possibile usare per diagnosticare i problemi di runtime o includere nei ticket di supporto. Il modulo di diagnostica di analisi spaziale è disponibile nel Container Registry Microsoft da scaricare. Nel file di distribuzione del manifesto per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare il modulo *diagnostica* .
+L'analisi spaziale genera log di debug Docker che è possibile usare per diagnosticare i problemi di runtime o includere nei ticket di supporto. Il modulo di diagnostica di analisi spaziale è disponibile nel Container Registry Microsoft da scaricare. Nel file di distribuzione del manifesto per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), il [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152270)o la [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) cercare il modulo di *diagnostica* .
 
 Nella sezione "ENV" aggiungere la configurazione seguente:
 
@@ -188,13 +188,13 @@ Può anche essere impostato tramite il documento di IoT Edge modulo gemello a li
 > Il `diagnostics` modulo non influisce sul contenuto di registrazione, ma solo per la raccolta, il filtraggio e il caricamento dei log esistenti.
 > Per usare questo modulo, è necessario avere l'API Docker versione 1,40 o successiva.
 
-Il file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  include un modulo denominato `diagnostics` che raccoglie e carica i log. Questo modulo è disabilitato per impostazione predefinita e deve essere abilitato tramite la configurazione del modulo IoT Edge quando è necessario accedere ai log. 
+Il file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), il [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152270)o la [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) include un modulo denominato `diagnostics` che raccoglie e carica i log. Questo modulo è disabilitato per impostazione predefinita e deve essere abilitato tramite la configurazione del modulo IoT Edge quando è necessario accedere ai log. 
 
 La `diagnostics` raccolta è su richiesta e controllata tramite un metodo diretto IOT Edge e può inviare i log a un archivio BLOB di Azure.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configurare le destinazioni di caricamento di diagnostica
 
-Dal portale di IoT Edge selezionare il dispositivo e quindi il modulo di **diagnostica** . Nel file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o altri [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), cercare la sezione **variabili di ambiente** per diagnostica, denominata `env` e aggiungere le informazioni seguenti:
+Dal portale di IoT Edge selezionare il dispositivo e quindi il modulo di **diagnostica** . Nel file manifesto di distribuzione di esempio per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), i [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152270)o la [macchina virtuale di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) cercare la sezione **variabili di ambiente** per la diagnostica, denominata `env` e aggiungere le informazioni seguenti:
 
 **Configurare il caricamento nell'archiviazione BLOB di Azure**
 
@@ -239,7 +239,7 @@ La tabella seguente elenca i parametri che è possibile usare quando si eseguono
 | ContainerId | Contenitore di destinazione per il recupero dei log.| `null`, quando non è presente alcun ID contenitore. L'API restituisce tutte le informazioni sui contenitori disponibili con ID.|
 | DoPost | Eseguire l'operazione di caricamento. Quando è impostato su `false` , viene eseguita l'operazione richiesta e vengono restituite le dimensioni di caricamento senza eseguire il caricamento. Se impostato su `true` , avvierà il caricamento asincrono dei log selezionati | `false`, non caricare.|
 | Limitazione | Indica il numero di righe di log da caricare per batch | `1000`, Usare questo parametro per modificare la velocità post. |
-| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . ad esempio `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
+| Filtri | Filtra i log da caricare | `null`, i filtri possono essere specificati come coppie chiave-valore in base alla struttura dei log di analisi spaziale: `[UTC, LocalTime, LOGLEVEL,PID, CLASS, DATA]` . Ad esempio: `{"TimeFilter":[-1,1573255761112]}, {"TimeFilter":[-1,1573255761112]}, {"CLASS":["myNode"]`|
 
 Nella tabella seguente sono elencati gli attributi nella risposta alla query.
 

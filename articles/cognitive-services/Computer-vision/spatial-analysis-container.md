@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 11/06/2020
+ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: f41e513ee0f2755c446a9cb95465c1f636fe5a7a
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606267"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98186090"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -24,7 +24,7 @@ Il contenitore analisi spaziale consente di analizzare i video in streaming in t
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="creare una risorsa Visione artificiale"  target="_blank">creare una risorsa Visione artificiale <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" creare una risorsa di visione artificiale "  target="_blank"> creare una risorsa visione artificiale <span class="docon docon-navigate-external x-hidden-focus"></span> </a> per il livello standard S1 nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * Per eseguire il contenitore di analisi spaziale sono necessari la chiave e l'endpoint della risorsa creata. La chiave e l'endpoint verranno usati in un secondo momento.
 
 
@@ -61,6 +61,9 @@ In questo articolo vengono scaricati e installati i pacchetti software seguenti.
 * [Docker CE](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1) e [NVIDIA-Docker2](https://github.com/NVIDIA/nvidia-docker) 
 * [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) Runtime.
 
+#### <a name="azure-vm-with-gpu"></a>[VM di Azure con GPU](#tab/virtual-machine)
+In questo esempio, si utilizzerà una [VM serie NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) con una GPU K80.
+
 ---
 
 | Requisito | Descrizione |
@@ -85,7 +88,7 @@ Non sarà possibile eseguire il contenitore se la sottoscrizione di Azure non è
 
 ## <a name="set-up-the-host-computer"></a>Configurare il computer host
 
-Si consiglia di usare un dispositivo Azure Stack Edge per il computer host. Se si sta configurando un dispositivo diverso, fare clic su **computer desktop** .
+Si consiglia di usare un dispositivo Azure Stack Edge per il computer host. Fare clic su **computer desktop** se si sta configurando un dispositivo diverso o una **macchina virtuale** se si usa una VM.
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
@@ -99,7 +102,7 @@ L'analisi spaziale USA le funzionalità di calcolo di Azure Stack Edge per esegu
   1. Abilitare la funzionalità di calcolo sul dispositivo Azure Stack Edge. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia Web del dispositivo. 
   2. Selezionare un'interfaccia di rete che si vuole abilitare per il calcolo, quindi fare clic su **Abilita**. Verrà creato un commutire virtuale sul dispositivo su tale interfaccia di rete.
   3. Lasciare vuoti gli indirizzi IP del nodo di test Kubernetes e gli indirizzi IP dei servizi esterni di Kubernetes.
-  4. Fare clic su **Apply**. Questa operazione può richiedere circa due minuti. 
+  4. Fare clic su **Applica**. Questa operazione può richiedere circa due minuti. 
 
 ![Configurare il calcolo](media/spatial-analysis/configure-compute.png)
 
@@ -111,7 +114,7 @@ Nella [portale di Azure](https://portal.azure.com/)passare alla risorsa di Azure
 
 Nella pagina **Configura calcolo Edge**   scegliere un hub Internet esistente oppure scegliere di crearne uno nuovo. Per impostazione predefinita, viene usato un piano tariffario standard (S1) per creare una risorsa dell'hub Internet. Per usare una risorsa dell'hub per le cose di livello gratuito, crearne una e selezionarla. La risorsa dell'hub Internet usa la stessa sottoscrizione e il gruppo di risorse usato dalla risorsa Azure Stack Edge 
 
-Scegliere **Crea**. La creazione di risorse dell'hub Internet può richiedere un paio di minuti. Dopo la creazione della risorsa hub Internet, il riquadro **Configura calcolo Edge** verrà aggiornato per mostrare la nuova configurazione. Per verificare che il ruolo di calcolo perimetrale sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**   .
+Fare clic su **Crea**. La creazione di risorse dell'hub Internet può richiedere un paio di minuti. Dopo la creazione della risorsa hub Internet, il riquadro **Configura calcolo Edge** verrà aggiornato per mostrare la nuova configurazione. Per verificare che il ruolo di calcolo perimetrale sia stato configurato, selezionare **Visualizza configurazione** nel riquadro **Configura calcolo**   .
 
 Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Il runtime di Azure IoT Edge sarà già in esecuzione nel dispositivo IoT Edge.
 
@@ -252,13 +255,13 @@ Usare l'interfaccia della riga di comando di Azure per creare un'istanza dell'hu
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-az login
-az account set --subscription <name or ID of Azure Subscription>
-az group create --name "test-resource-group" --location "WestUS"
+sudo az login
+sudo az account set --subscription <name or ID of Azure Subscription>
+sudo az group create --name "test-resource-group" --location "WestUS"
 
-az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
+sudo az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-resource-group"
 
-az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
+sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
 Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
@@ -297,7 +300,7 @@ Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'h
 È necessario connettere il dispositivo IoT Edge all'hub Azure. È necessario copiare la stringa di connessione dal dispositivo IoT Edge creato in precedenza. In alternativa, è possibile eseguire il comando seguente nell'interfaccia della riga di comando di Azure.
 
 ```bash
-az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
+sudo az iot hub device-identity show-connection-string --device-id my-edge-device --hub-name test-iot-hub-123
 ```
 
 Sul computer host aperto  `/etc/iotedge/config.yaml` per la modifica. Sostituire `ADD DEVICE CONNECTION STRING HERE` con la stringa di connessione. Salvare e chiudere il file. Eseguire questo comando per riavviare il servizio IoT Edge nel computer host.
@@ -306,19 +309,104 @@ Sul computer host aperto  `/etc/iotedge/config.yaml` per la modifica. Sostituire
 sudo systemctl restart iotedge
 ```
 
-Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](../../iot-edge/how-to-deploy-modules-cli.md). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
+Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
 
 Usare i passaggi seguenti per distribuire il contenitore usando l'interfaccia della riga di comando di Azure.
+
+#### <a name="azure-vm-with-gpu"></a>[VM di Azure con GPU](#tab/virtual-machine)
+
+Una macchina virtuale di Azure con una GPU può essere usata anche per eseguire l'analisi spaziale. Nell'esempio seguente viene usata una VM [serie NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) con una GPU K80.
+
+#### <a name="create-the-vm"></a>Creare la macchina virtuale
+
+Aprire la creazione guidata [macchina virtuale](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) nell'portale di Azure.
+
+Assegnare un nome alla VM e selezionare l'area (Stati Uniti) Stati Uniti occidentali 2. Assicurarsi di impostare `Availability Options` su "nessuna ridondanza dell'infrastruttura obbligatoria". Vedere la figura seguente per la configurazione completa e il passaggio successivo per individuare le dimensioni corrette della macchina virtuale. 
+
+:::image type="content" source="media/spatial-analysis/virtual-machine-instance-details.png" alt-text="Dettagli di configurazione della macchina virtuale." lightbox="media/spatial-analysis/virtual-machine-instance-details.png":::
+
+Per individuare le dimensioni della macchina virtuale, selezionare "Visualizza tutte le dimensioni" e quindi visualizzare l'elenco "dimensioni della macchina virtuale di archiviazione non Premium", come illustrato di seguito.
+
+:::image type="content" source="media/spatial-analysis/virtual-machine-sizes.png" alt-text="Dimensioni delle macchine virtuali." lightbox="media/spatial-analysis/virtual-machine-sizes.png":::
+
+Quindi selezionare **Nc6** o **NC6_Promo**.
+
+:::image type="content" source="media/spatial-analysis/promotional-selection.png" alt-text="selezione promozionale" lightbox="media/spatial-analysis/promotional-selection.png":::
+
+Successivamente, creare la macchina virtuale. Una volta creato, passare alla risorsa della macchina virtuale nella portale di Azure e selezionare `Extensions` dal riquadro sinistro. La finestra estensioni verrà visualizzata con tutte le estensioni disponibili. Selezionare `NVIDIA GPU Driver Extension` , fare clic su Crea e completare la procedura guidata.
+
+Una volta completata l'applicazione, passare alla pagina principale della macchina virtuale nella portale di Azure e fare clic su `Connect` . È possibile accedere alla macchina virtuale tramite SSH o RDP. Il protocollo RDP sarà utile in quanto consente di visualizzare la finestra del Visualizzatore (illustrata più avanti). Configurare l'accesso RDP attenendosi alla [procedura](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) seguente e aprendo una connessione Desktop remoto alla macchina virtuale.
+
+### <a name="verify-graphics-drivers-are-installed"></a>Verificare che i driver grafici siano installati
+
+Eseguire il comando seguente per verificare che i driver grafici siano stati installati correttamente. 
+
+```bash
+nvidia-smi
+```
+
+Viene visualizzato l'output seguente.
+
+![Output driver NVIDIA](media/spatial-analysis/nvidia-driver-output.png)
+
+### <a name="install-docker-ce-and-nvidia-docker2-on-the-vm"></a>Installare Docker CE e NVIDIA-docker2 nella macchina virtuale
+
+Eseguire i comandi seguenti uno alla volta per installare Docker CE e NVIDIA-docker2 nella macchina virtuale.
+
+Installare Docker CE nel computer host.
+
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+```
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+```
+
+
+Installare il pacchetto software *NVIDIA-Docker-2* .
+
+```bash
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+```
+```bash
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+```
+```bash
+sudo apt-get update
+```
+```bash
+sudo apt-get install -y docker-ce nvidia-docker2
+```
+```bash
+sudo systemctl restart docker
+```
+
+Ora che è stata impostata e configurata la VM, attenersi alla procedura seguente per distribuire il contenitore di analisi spaziale. 
 
 ---
 
 ### <a name="iot-deployment-manifest"></a>Manifesto della distribuzione di Internet delle cose
 
-Per semplificare la distribuzione di contenitori in più computer host, è possibile creare un file manifesto di distribuzione per specificare le opzioni di creazione del contenitore e le variabili di ambiente. È possibile trovare un esempio di un manifesto di distribuzione [per Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) e  [altre macchine desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) su GitHub.
+Per semplificare la distribuzione di contenitori in più computer host, è possibile creare un file manifesto di distribuzione per specificare le opzioni di creazione del contenitore e le variabili di ambiente. È possibile trovare un esempio di un manifesto di distribuzione [per Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [altre macchine desktop](https://go.microsoft.com/fwlink/?linkid=2152270)e [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) su GitHub.
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | valore | Descrizione|
+| Nome dell'impostazione | Valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -326,21 +414,24 @@ La tabella seguente illustra le diverse variabili di ambiente usate dal modulo I
 | ARCHON_NODES_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | OMP_WAIT_POLICY | PASSIVO | Non modificare|
 | QT_X11_NO_MITSHM | 1 | Non modificare|
-| API_KEY | Chiave API| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa. |
-| BILLING_ENDPOINT | URI dell'endpoint| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa.|
+| APIKEY | Chiave API| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa. |
+| FATTURAZIONE | URI dell'endpoint| Raccogliere questo valore da portale di Azure dalla risorsa Visione artificiale. È possibile trovarlo nella sezione **chiave ed endpoint** per la risorsa.|
 | CONTRATTO DI LICENZA | accettare | Questo valore deve essere impostato in modo da *accettare* l'esecuzione del contenitore |
 | VISUALIZZARE | : 1 | Questo valore deve corrispondere all'output di `echo $DISPLAY` nel computer host. I dispositivi Azure Stack Edge non dispongono di una visualizzazione. Questa impostazione non è applicabile|
-
+| ARCHON_GRAPH_READY_TIMEOUT | 600 | Aggiungere questa variabile di ambiente se la GPU **non** è T4 o NVIDIA 2080 ti|
+| ORT_TENSORRT_ENGINE_CACHE_ENABLE | 0 | Aggiungere questa variabile di ambiente se la GPU **non** è T4 o NVIDIA 2080 ti|
+| KEY_ENV | Chiave di crittografia dell'ambiente del servizio app | Aggiungere questa variabile di ambiente se Video_URL è una stringa offuscata |
+| IV_ENV | Vettore di inizializzazione | Aggiungere questa variabile di ambiente se Video_URL è una stringa offuscata|
 
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o [un computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando dell'interfaccia della riga di comando di [Azure](../../iot-edge/how-to-deploy-modules-cli.md) seguente per distribuire il contenitore nel computer host, come modulo di IOT Edge.
+Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [un computer desktop o una](https://go.microsoft.com/fwlink/?linkid=2152270) [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando seguente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) per distribuire il contenitore nel computer host, come modulo di IOT Edge.
 
 ```azurecli
-az login
-az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
+sudo az login
+sudo az extension add --name azure-iot
+sudo az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parametro  |Descrizione  |
@@ -366,7 +457,7 @@ Una volta completata la distribuzione e il contenitore è in esecuzione, il **co
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ridistribuire o eliminare la distribuzione
 
-Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Usare l'output generato dal contenitore
 
@@ -385,25 +476,25 @@ Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizz
 
 Fare clic su **genera token SAS e URL** e copiare l'URL SAS BLOB. Sostituire l'oggetto iniziando `https` con `http` e testare l'URL in un browser che supporta la riproduzione video.
 
-Sostituire `VIDEO_URL` nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o un altro [computer desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) con l'URL creato per tutti i grafici. Impostare `VIDEO_IS_LIVE` su `false` e ridistribuire il contenitore di analisi spaziale con il manifesto aggiornato. Vedere l'esempio seguente.
+Sostituire `VIDEO_URL` nel manifesto di distribuzione per il [dispositivo Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), il [computer desktop](https://go.microsoft.com/fwlink/?linkid=2152270)o la [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) con l'URL creato per tutti i grafici. Impostare `VIDEO_IS_LIVE` su `false` e ridistribuire il contenitore di analisi spaziale con il manifesto aggiornato. Vedere l'esempio seguente.
 
 Il modulo di analisi spaziale inizierà a utilizzare il file video e continuerà a riprodursi automaticamente.
 
 
 ```json
 "zonecrossing": {
-  "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon",
-  "version": 1,
-  "enabled": true,
-  "parameters": {
-      "VIDEO_URL": "Replace http url here",
-      "VIDEO_SOURCE_ID": "personcountgraph",
-      "VIDEO_IS_LIVE": false,
-        "VIDEO_DECODE_GPU_INDEX": 0,
-      "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
-      "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"threshold\":35.0}]}"
+    "operationId" : "cognitiveservices.vision.spatialanalysis-personcrossingpolygon",
+    "version": 1,
+    "enabled": true,
+    "parameters": {
+        "VIDEO_URL": "Replace http url here",
+        "VIDEO_SOURCE_ID": "personcountgraph",
+        "VIDEO_IS_LIVE": false,
+      "VIDEO_DECODE_GPU_INDEX": 0,
+        "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0, \"do_calibration\": true }",
+        "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.3,0.3],[0.3,0.9],[0.6,0.9],[0.6,0.3],[0.3,0.3]], \"events\": [{\"type\": \"zonecrossing\", \"config\": {\"threshold\": 16.0, \"focus\": \"footprint\"}}]}]}"
     }
-  },
+   },
 
 ```
 

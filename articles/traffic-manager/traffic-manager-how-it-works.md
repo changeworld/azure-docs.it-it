@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: 471895f1a615770521584a627e6bca850b87d0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462633"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184340"
 ---
 # <a name="how-traffic-manager-works"></a>Funzionamento di Gestione traffico
 
@@ -71,27 +71,27 @@ Il servizio DNS ricorsivo memorizza nella cache le risposte DNS ricevute. Il res
 
 ## <a name="faqs"></a>Domande frequenti
 
-* [Quale indirizzo IP viene usato da Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+* [Quale indirizzo IP viene usato da Gestione traffico?](./traffic-manager-faqs.md#what-ip-address-does-traffic-manager-use)
 
-* [Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+* [Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?](./traffic-manager-faqs.md#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* [Gestione traffico supporta le sessioni "permanenti"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+* [Gestione traffico supporta le sessioni "permanenti"?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
-* [Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+* [Quando si usa Gestione traffico, viene visualizzato un errore HTTP. Perché?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
-* [Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+* [Qual è l'impatto sulle prestazioni dell'uso di Gestione traffico?](./traffic-manager-faqs.md#what-is-the-performance-impact-of-using-traffic-manager)
 
-* [Quali protocolli di applicazione possono essere usati con Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+* [Quali protocolli di applicazione possono essere usati con Gestione traffico?](./traffic-manager-faqs.md#what-application-protocols-can-i-use-with-traffic-manager)
 
-* [È possibile usare gestione traffico con un nome di dominio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+* [È possibile usare gestione traffico con un nome di dominio "Naked"?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
 
-* [Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+* [Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS?](./traffic-manager-faqs.md#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 
-* [Cos'è la durata TTL del DNS e che impatto ha sugli utenti?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+* [Cos'è la durata TTL del DNS e che impatto ha sugli utenti?](./traffic-manager-faqs.md#what-is-dns-ttl-and-how-does-it-impact-my-users)
 
-* [Come impostare una durata TTL maggiore o minore per le risposte di Gestione traffico?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+* [Come impostare una durata TTL maggiore o minore per le risposte di Gestione traffico?](./traffic-manager-faqs.md#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
 
-* [Come si può verificare il volume delle query destinate al profilo personale?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
+* [Come si può verificare il volume delle query destinate al profilo personale?](./traffic-manager-faqs.md#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -102,4 +102,3 @@ Altre informazioni sui [metodi di routing](traffic-manager-routing-methods.md)di
 <!--Image references-->
 [1]: ./media/traffic-manager-how-traffic-manager-works/dns-configuration.png
 [2]: ./media/traffic-manager-how-traffic-manager-works/flow.png
-

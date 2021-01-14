@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4b557c9772e76b6b61cdf01799ee30ba6bc11807
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: d66d4d32c788317d8b0781f9f24120fbce2f6f8f
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928427"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185615"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -65,16 +65,16 @@ Non è consentito avere un computer registrato per Gestione aggiornamenti in pi�
 
 ## <a name="clients"></a>Client
 
-### <a name="supported-client-types"></a>Tipi di client supportati
+### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-Nella tabella seguente sono elencati i sistemi operativi supportati per la valutazione degli aggiornamenti e l'applicazione di patch. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook, che viene installato automaticamente quando si Abilita la macchina virtuale o il server per la gestione tramite Gestione aggiornamenti. Per informazioni sui requisiti di sistema del ruolo di lavoro ibrido per Runbook, vedere distribuire un ruolo di lavoro [ibrido per Runbook Windows](../automation-windows-hrw-install.md) e [distribuire un](../automation-linux-hrw-install.md)ruolo di lavoro ibrido per Runbook
+Nella tabella seguente sono elencati i sistemi operativi supportati per la valutazione degli aggiornamenti e l'applicazione di patch. L'applicazione di patch richiede un ruolo di lavoro ibrido per Runbook di sistema, che viene installato automaticamente quando si Abilita la macchina virtuale o il server per la gestione tramite Gestione aggiornamenti. Per informazioni sui requisiti di sistema del ruolo di lavoro ibrido per Runbook, vedere distribuire un ruolo di lavoro [ibrido per Runbook Windows](../automation-windows-hrw-install.md) e [distribuire un](../automation-linux-hrw-install.md)ruolo di lavoro ibrido per Runbook
 
 > [!NOTE]
 > La valutazione degli aggiornamenti dei computer Linux è supportata solo in determinate aree, come elencato nella [tabella di mapping](../how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics.
 
 |Sistema operativo  |Note  |
 |---------|---------|
-|Windows Server 2019 (Data center/Data center Core/Standard)<br><br>Windows Server 2016 (Data center/Data center Core/Standard)<br><br>Windows Server 2012 R2(Data center/Standard)<br><br>Windows Server 2012 ||
+|Windows Server 2019 (Data center/Data center Core/Standard)<br>Windows Server 2016 (Data center/Data center Core/Standard)<br>Windows Server 2012 R2(Data center/Standard)<br>Windows Server 2012 |
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta le valutazioni e l'applicazione di patch per questo sistema operativo. Il ruolo di [lavoro ibrido per Runbook](../automation-windows-hrw-install.md) è supportato per Windows Server 2008 R2. |
 |CentOS 6 e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
@@ -84,9 +84,9 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per la valut
 > [!NOTE]
 > I set di scalabilità di macchine virtuali di Azure possono essere gestiti tramite Gestione aggiornamenti. Gestione aggiornamenti viene applicato alle istanze stesse, non all'immagine di base. Sarà necessario pianificare gli aggiornamenti in modo incrementale, affinché non vengano aggiornate contemporaneamente tutte le istanze. È possibile aggiungere nodi per i set di scalabilità di macchine virtuali seguendo la procedura disponibile in [Aggiungere un computer non di Azure a Rilevamento modifiche e inventario](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
-### <a name="unsupported-client-types"></a>Tipi di client non supportati
+### <a name="unsupported-operating-systems"></a>Sistemi operativi non supportati
 
-La tabella seguente elenca i sistemi operativi non supportati:
+Nella tabella seguente sono elencati i sistemi operativi non supportati da Gestione aggiornamenti:
 
 |Sistema operativo  |Note  |
 |---------|---------|
@@ -94,15 +94,20 @@ La tabella seguente elenca i sistemi operativi non supportati:
 |Windows Server 2016 Nano Server     | Non supportato.       |
 |Nodi del Servizio Azure Kubernetes | Non supportato. Usare il processo di applicazione di patch illustrato in [Applicare gli aggiornamenti di sicurezza e kernel ai nodi Linux nel servizio Azure Kubernetes](../../aks/node-updates-kured.md)|
 
-### <a name="client-requirements"></a>Requisiti per i client
+### <a name="system-requirements"></a>Requisiti di sistema
 
-Le informazioni seguenti illustrano i requisiti per il client specifici per un sistema operativo. Per altro materiale sussidiario, vedere [Pianificazione della rete](#ports). Per informazioni sui requisiti dei client per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+Le informazioni seguenti descrivono i requisiti specifici del sistema operativo. Per altro materiale sussidiario, vedere [Pianificazione della rete](#ports). Per informazioni sui requisiti per TLS 1,2, vedere [tls 1,2 Enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="windows"></a>Windows
 
+Requisiti software:
+
+- È necessario .NET Framework 4.6 o versione successiva. [Scaricare il .NET Framework](/dotnet/framework/install/guide-for-developers).
+- È necessario Windows PowerShell 5,1 ([scaricare Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616)).
+
 Gli agenti Windows devono essere configurati per comunicare con un server WSUS o devono avere accesso a Microsoft Update. Per le macchine ibride, è consigliabile installare l'agente di Log Analytics per Windows connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usare i criteri di Azure per assegnare i criteri predefiniti [distribuisci agente log Analytics a computer Windows Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . In alternativa, se si prevede di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
-Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](mecmintegration.md). L'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager. 
+Gestione aggiornamenti può essere usato con Microsoft Endpoint Configuration Manager. Per altre informazioni sugli scenari di integrazione, vedere [Integrare Gestione aggiornamenti con Windows Endpoint Configuration Manager](mecmintegration.md). L'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md) è necessario per i server Windows gestiti dai siti nell'ambiente di Configuration Manager.
 
 Per impostazione predefinita, le macchine virtuali Windows distribuite da Azure Marketplace sono impostate per ricevere aggiornamenti automatici dal servizio Windows Update. Questo comportamento non cambia quando si aggiungono VM Windows all'area di lavoro. Se gli aggiornamenti non vengono gestiti attivamente con Gestione aggiornamenti, è applicabile il comportamento predefinito, ovvero gli aggiornamenti vengono applicati automaticamente.
 
@@ -111,7 +116,11 @@ Per impostazione predefinita, le macchine virtuali Windows distribuite da Azure 
 
 #### <a name="linux"></a>Linux
 
-Per Linux, il computer deve avere accesso a un repository degli aggiornamenti, pubblico o privato. Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2. Gestione aggiornamenti non supporta l'agente di Log Analytics per Linux configurato per l'invio di report a più di un'area di lavoro di Log Analytics. È inoltre necessario che nel computer sia installato Python 2.x.
+Requisiti software:
+
+- Il computer richiede l'accesso a un repository di aggiornamento, privato o pubblico.
+- Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2.
+- Python 2. x installato.
 
 > [!NOTE]
 > La valutazione degli aggiornamenti dei computer Linux è supportata solo in alcune aree. Vedere la [tabella di mapping](../how-to/region-mappings.md#supported-mappings) dell'account di Automazione e dell'area di lavoro Log Analytics.
@@ -130,11 +139,11 @@ Gestione aggiornamenti usa le risorse descritte in questa sezione. Queste risors
 
 ### <a name="hybrid-runbook-worker-groups"></a>Gruppi di computer di lavoro runbook ibridi
 
-Dopo l'abilitazione di Gestione aggiornamenti, qualsiasi computer Windows direttamente connesso all'area di lavoro Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per runbook per supportare i runbook che supportano Gestione aggiornamenti.
+Dopo aver abilitato Gestione aggiornamenti, qualsiasi computer Windows direttamente connesso all'area di lavoro di Log Analytics viene configurato automaticamente come ruolo di lavoro ibrido per Runbook di sistema per supportare manuali operativi che supportano Gestione aggiornamenti.
 
 Ogni computer Windows gestito da Gestione aggiornamenti è elencato nella pagina dei gruppi di ruoli di lavoro ibridi come gruppo di ruoli di lavoro ibridi per il sistema per l'account di Automazione. I gruppi usano la convenzione di denominazione `Hostname FQDN_GUID`. Non è possibile applicare runbook a questi gruppi nell'account. Se si prova, il tentativo avrà esito negativo. Questi gruppi sono destinati solo al supporto di Gestione aggiornamenti. Per altre informazioni sulla visualizzazione dell'elenco dei computer Windows configurati come ruolo di lavoro ibrido per Runbook, vedere visualizzare i ruoli di lavoro [ibridi per Runbook](../automation-hybrid-runbook-worker.md#view-system-hybrid-runbook-workers).
 
-È possibile aggiungere i computer Windows a un gruppo di ruoli di lavoro ibridi per runbook nell'account di Automazione per supportare i runbook di Automazione, se si usa lo stesso account sia per Gestione aggiornamenti che per l'appartenenza al gruppo di ruoli di lavoro ibridi per runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
+È possibile aggiungere il computer Windows a un gruppo di ruolo di lavoro ibrido per Runbook utente nell'account di automazione per supportare manuali operativi di automazione se si usa lo stesso account per Gestione aggiornamenti e l'appartenenza al gruppo di ruolo di lavoro ibrido per Runbook. Questa funzionalità è stata aggiunta alla versione 7.2.12024.0 del ruolo di lavoro ibrido per runbook.
 
 ### <a name="management-packs"></a>Management Pack
 

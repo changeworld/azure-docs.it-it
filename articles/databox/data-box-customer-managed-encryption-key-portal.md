@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/19/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: f75907dc1fa079cebb3b80874090c658fd7b8174
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 80a6824edb92d8337481f592cbbf5eb23255b383
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302824"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185530"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box
 
@@ -57,7 +57,7 @@ Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente 
 
       ![Esaminare e creare Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+      Esaminare le informazioni per l'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti mentre viene completata la creazione dell'insieme di credenziali delle chiavi.
 
        ![Creare Azure Key Vault con le impostazioni](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
@@ -65,7 +65,7 @@ Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente 
 
     ![Selezionare la chiave da Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-   Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario utilizzare una chiave RSA. La dimensione può essere 2048 o successiva.
+   Se si vuole creare una nuova chiave, selezionare **Crea nuovo**. È necessario usare una chiave RSA. Le dimensioni possono essere maggiori o uguali a 2048.
 
     ![Crea nuova chiave in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
@@ -79,9 +79,9 @@ Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente 
 
     Se si vuole generare una nuova versione della chiave, selezionare **Crea nuovo**.
 
-    ![Aprire una finestra di dialogo per la creazione di una nuova versione della chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
+    ![Aprire una finestra di dialogo per creare una nuova versione della chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-a.png)
 
-    Scegliere impostazioni per la nuova versione della chiave e selezionare **Crea**.
+    Scegliere le impostazioni per la nuova versione della chiave, quindi selezionare **Crea**.
 
     ![Creare una nuova versione della chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8-b.png)
 
@@ -91,11 +91,11 @@ Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente 
 
     Le impostazioni del **tipo di crittografia** mostrano l'insieme di credenziali delle chiavi e la chiave scelti.
 
-    ![Chiave e Key Vault per una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
+    ![Chiave e insieme di credenziali delle chiavi per una chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
 7. Consente di selezionare il tipo di identità da utilizzare per gestire la chiave gestita dal cliente per la risorsa. È possibile usare l'identità **assegnata dal sistema** generata durante la creazione dell'ordine o scegliere un'identità assegnata dall'utente.
 
-    Un'identità assegnata dall'utente è una risorsa indipendente che è possibile usare per gestire l'accesso alle risorse. Per altre informazioni, vedere [tipi di identità gestiti](/azure/active-directory/managed-identities-azure-resources/overview).
+    Un'identità assegnata dall'utente è una risorsa indipendente che è possibile usare per gestire l'accesso alle risorse. Per altre informazioni, vedere [Tipi di identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).
 
     ![Selezionare il tipo di identità](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-13.png)
 
@@ -107,7 +107,7 @@ Per abilitare una chiave gestita dal cliente per l'ordine di Data Box esistente 
 
     L'identità utente selezionata viene visualizzata nelle impostazioni del **tipo di crittografia** .
 
-    ![Identità utente selezionata visualizzata nelle impostazioni del tipo di crittografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
+    ![Un'identità utente selezionata mostrata nelle impostazioni di Tipo di crittografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-15.png)
 
  9. Selezionare **Save (Salva** ) per salvare le impostazioni del **tipo di crittografia** aggiornate.
 
@@ -201,5 +201,5 @@ Se si ricevono errori correlati alla chiave gestita dal cliente, usare la tabell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Cos'è l'insieme di credenziali chiave di Azure?](../key-vault/general/overview.md)
+- [Che cos'è Azure Key Vault?](../key-vault/general/overview.md)
 - [Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure](../key-vault/secrets/quick-create-portal.md)

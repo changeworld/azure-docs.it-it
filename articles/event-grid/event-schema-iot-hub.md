@@ -2,13 +2,13 @@
 title: Hub Azure Internet come origine griglia di eventi
 description: Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Vengono elencati i tipi di evento disponibili, un evento di esempio e le proprietà dell'evento.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 02ecf8d4df55aa6b4319e40892778f85f94e29a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/13/2021
+ms.openlocfilehash: 7e1c480bd2a662a2ee3418b35dc9c3b50d412a60
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113650"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185836"
 ---
 # <a name="azure-iot-hub-as-an-event-grid-source"></a>Hub Azure Internet come origine di griglia di eventi
 Questo articolo illustra le proprietà e lo schema per gli eventi dell'hub IoT di Azure. Per un'introduzione agli schemi di eventi, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). 
@@ -26,8 +26,6 @@ L'hub IoT genera i tipi di eventi seguenti:
 | Microsoft.Devices.DeviceConnected | Pubblicato quando un dispositivo è connesso a un hub IoT. |
 | Microsoft.Devices.DeviceDisconnected | Pubblicato quando un dispositivo è disconnesso da un hub IoT. | 
 | Microsoft.Devices.DeviceTelemetry | Pubblicato quando un messaggio di telemetria viene inviato a un hub Internet. |
-
-Tutti gli eventi dispositivo tranne gli eventi di telemetria del dispositivo sono disponibili a livello generale in tutte le aree supportate da griglia di eventi. L'evento di telemetria del dispositivo è in anteprima pubblica ed è disponibile in tutte le aree, ad eccezione degli Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale, [Azure per enti pubblici](../azure-government/documentation-government-welcome.md), [Azure Cina 21ViaNet](/azure/china/china-welcome)e [Azure Germania](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ### <a name="example-event"></a>Evento di esempio
 
@@ -188,12 +186,12 @@ Per gli eventi **Device Created** e **Device Deleted** dell'hub IoT, l'oggetto d
 | statusUpdateTime | string | Timestamp ISO8601 dell'ultimo aggiornamento di stato del dispositivo gemello. |
 | connectionState | string | Indica se il dispositivo è connesso o disconnesso. | 
 | lastActivityTime | string | Timestamp ISO8601 dell'ultima attività. | 
-| cloudToDeviceMessageCount | numero intero | Conteggio dei messaggi da cloud a dispositivo inviati al dispositivo. | 
+| cloudToDeviceMessageCount | integer | Conteggio dei messaggi da cloud a dispositivo inviati al dispositivo. | 
 | authenticationType | string | Tipo di autenticazione usato per questo dispositivo: `SAS`, `SelfSigned` o `CertificateAuthority`. |
 | x509Thumbprint | string | L'identificazione personale è un valore univoco per il certificato x509, usato in genere per trovare un certificato specifico in un archivio certificati. L'identificazione personale viene generata in modo dinamico mediante l'algoritmo SHA1 e non esiste fisicamente nel certificato. | 
 | primaryThumbprint | string | Identificazione personale primaria per il certificato x509. |
 | secondaryThumbprint | string | Identificazione personale secondaria per il certificato x509. | 
-| version | numero intero | Valore intero che viene incrementato di un'unità a ogni aggiornamento del dispositivo gemello. |
+| version | integer | Valore intero che viene incrementato di un'unità a ogni aggiornamento del dispositivo gemello. |
 | desired | object | Parte delle proprietà che può essere scritta solo dal back-end dell'applicazione e letta dal dispositivo. | 
 | reported | object | Parte delle proprietà che può essere scritta solo dal dispositivo e letta dal back-end dell'applicazione. |
 | lastUpdated | string | Timestamp ISO8601 dell'ultimo aggiornamento delle proprietà del dispositivo gemello. | 

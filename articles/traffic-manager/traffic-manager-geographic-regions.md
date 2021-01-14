@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 83300a5c518a3acf853968164031a80e1c882187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d4b4ba6830fd573a545eb6308fe15a4781873c4
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401238"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98184323"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
 
-In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](/rest/api/trafficmanager/). 
 
 - WORLD (mondo)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: duau
-ms.openlocfilehash: 86151efdc6d2b17c9eef722f2dc3c6306d5aa1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abac2e5b1fcba65db92edd2bcc2f390ec0114f59
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400229"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185343"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Instradare il traffico per la disponibilità elevata delle applicazioni con l'interfaccia della riga di comando di Azure
 
@@ -49,14 +49,14 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, un'App Web
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
-| [az webapp web create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Crea un profilo di Gestione traffico di Azure. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Aggiunge un endpoint a un profilo di Gestione traffico di Azure. |
+| [az group create](/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az appservice plan create](/cli/azure/appservice/plan) | Consente di creare un piano di servizio app. Equivale a una server farm per l'App Web di Azure. |
+| [az webapp web create](/cli/azure/webapp#az-webapp-create) | Consente di creare un'App Web di Azure all'interno del piano di servizio app. |
+| [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile) | Crea un profilo di Gestione traffico di Azure. |
+| [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint) | Aggiunge un endpoint a un profilo di Gestione traffico di Azure. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando del servizio app sono disponibili nella [documentazione della rete di Azure](../cli-samples.md).
