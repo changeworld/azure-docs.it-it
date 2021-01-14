@@ -102,6 +102,8 @@
   items:
     - name: Piani di servizio app
       href: overview-hosting-plans.md
+    - name: Gestione dei costi
+      href: overview-manage-costs.md
     - name: Funzionalità del sistema operativo
       href: operating-system-functionality.md
     - name: Procedura consigliate per la distribuzione
