@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 52d6bc97245423a4add392ab05634d21bcf83a0d
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358011"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223160"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -68,7 +68,7 @@ In un cluster di failover di macchine virtuali di Azure è consigliabile usare u
 Inserire entrambe le macchine virtuali:
 
 - Nello stesso gruppo di risorse di Azure del set di disponibilità, se si usano i set di disponibilità.
-- Nella stessa rete virtuale del controller di dominio.
+- Nella stessa rete virtuale del controller di dominio o in una rete virtuale con connettività adatta al controller di dominio.
 - In una subnet con spazio indirizzi IP sufficiente per entrambe le macchine virtuali e tutte le istanze del cluster di failover che si potrebbero usare nel cluster.
 - Nel set di disponibilità o nella zona di disponibilità di Azure.
 

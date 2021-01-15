@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70410e58acb30c7694e6fe4a6dcaff57bee98607
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836106"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223432"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Risolvere i problemi di connettività del servizio NAT di rete virtuale di Azure
 
@@ -68,10 +68,10 @@ _**Soluzione:**_ Usare procedure consigliate e modelli appropriati
 L'esaurimento SNAT può anche essere amplificato con altri anti-modelli nell'applicazione sottostante. Esaminare questi modelli e queste procedure consigliate per migliorare la scalabilità e l'affidabilità del servizio.
 
 - Analizzare l'impatto della riduzione del [timeout di inattività TCP](nat-gateway-resource.md#timers) a valori inferiori, incluso il timeout di inattività predefinito di 4 minuti, per liberare prima l'inventario delle porte SNAT.
-- Valutare l'uso di [modelli di polling asincroni](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) per le operazioni a esecuzione prolungata per liberare risorse di connessione per altre operazioni.
+- Valutare l'uso di [modelli di polling asincroni](/azure/architecture/patterns/async-request-reply) per le operazioni a esecuzione prolungata per liberare risorse di connessione per altre operazioni.
 - I flussi di lunga durata, ad esempio le connessioni TCP riutilizzate, devono usare i keep-alive TCP o i keep-alive del livello dell'applicazione per evitare il timeout dei sistemi intermedi. L'aumento del timeout di inattività è un'ultima risorsa e potrebbe non risolvere la causa radice. Un timeout lungo può generare errori a bassa frequenza quando scade, oltre a introdurre un ritardo ed errori non necessari.
-- È consigliabile usare i [criteri di ripetizione](https://docs.microsoft.com/azure/architecture/patterns/retry) dei tentativi per evitare tentativi o picchi aggressivi durante errori temporanei o ripristini da errori.
-La creazione di una nuova connessione TCP per ogni operazione HTTP (nota anche come "connessioni atomiche") è un anti-pattern.  Le connessioni atomiche impediscono il ridimensionamento ottimale dell'applicazione e generano uno spreco di risorse.  Concatenare sempre più operazioni nella stessa connessione.  L'applicazione otterrà un vantaggio in termini di velocità delle transazioni e costi delle risorse.  Quando l'applicazione usa la crittografia Transport Layer Security (TLS), l'elaborazione delle nuove connessioni comporta un costo significativo.  Vedere [Schemi progettuali per il cloud di Azure](https://docs.microsoft.com/azure/architecture/patterns/) per altri modelli di procedure consigliate.
+- È consigliabile usare i [criteri di ripetizione](/azure/architecture/patterns/retry) dei tentativi per evitare tentativi o picchi aggressivi durante errori temporanei o ripristini da errori.
+La creazione di una nuova connessione TCP per ogni operazione HTTP (nota anche come "connessioni atomiche") è un anti-pattern.  Le connessioni atomiche impediscono il ridimensionamento ottimale dell'applicazione e generano uno spreco di risorse.  Concatenare sempre più operazioni nella stessa connessione.  L'applicazione otterrà un vantaggio in termini di velocità delle transazioni e costi delle risorse.  Quando l'applicazione usa la crittografia Transport Layer Security (TLS), l'elaborazione delle nuove connessioni comporta un costo significativo.  Vedere [Schemi progettuali per il cloud di Azure](/azure/architecture/patterns/) per altri modelli di procedure consigliate.
 
 #### <a name="additional-possible-mitigations"></a>Altre possibili procedure di mitigazione
 
@@ -96,7 +96,7 @@ La tabella seguente può essere usata come punto di partenza per gli strumenti d
 | Sistema operativo | Test di connessione TCP generico | Test del livello dell'applicazione TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test di connessione generico) | curl (test del livello dell'applicazione TCP) | specifico dell'applicazione |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) di PowerShell | specifico dell'applicazione |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) di PowerShell | specifico dell'applicazione |
 
 ### <a name="connectivity-failures"></a>Errori di connettività
 
@@ -113,7 +113,7 @@ Usare strumenti come i seguenti per verificare la connettività. [Il ping ICMP n
 | Sistema operativo | Test di connessione TCP generico | Test del livello dell'applicazione TCP | UDP |
 |---|---|---|---|
 | Linux | nc (test di connessione generico) | curl (test del livello dell'applicazione TCP) | specifico dell'applicazione |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) di PowerShell | specifico dell'applicazione |
+| Windows | [PsPing](/sysinternals/downloads/psping) | [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) di PowerShell | specifico dell'applicazione |
 
 #### <a name="configuration"></a>Configurazione
 
@@ -202,4 +202,3 @@ Se si verificano ancora problemi, aprire un caso di supporto per un'ulteriore in
 * Informazioni sulla [risorsa gateway NAT](nat-gateway-resource.md)
 * Informazioni su [metriche e avvisi per le risorse gateway NAT](nat-metrics.md).
 * [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).
-

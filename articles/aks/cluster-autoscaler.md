@@ -4,12 +4,12 @@ description: Informazioni su come usare il componente di scalabilità automatica
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: e644a931152c83a5232c8233d519f7807ab708af
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542642"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223143"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Ridimensionare automaticamente un cluster per soddisfare le richieste delle applicazioni nel servizio Azure Kubernetes (AKS)
 
@@ -97,7 +97,7 @@ Sono necessari alcuni minuti per aggiornare il cluster e configurare le impostaz
 > [!IMPORTANT]
 > Se nel cluster AKS sono presenti più pool di nodi, passare alla [sezione della scalabilità automatica con più pool di agenti](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). I cluster con più pool di agenti richiedono l'uso del set di comandi `az aks nodepool` per modificare le proprietà specifiche del pool di nodi anziché `az aks`.
 
-Nel passaggio precedente per creare un cluster AKS o aggiornare un pool di nodi esistente, il numero minimo di nodi del componente di scalabilità automatica del cluster è stato impostato su *1* e il numero massimo di nodi è stato impostato su *3* . Se le richieste delle applicazioni cambiano, potrebbe essere necessario regolare il numero di nodi del componente di scalabilità automatica del cluster.
+Nel passaggio precedente per creare un cluster AKS o aggiornare un pool di nodi esistente, il numero minimo di nodi del componente di scalabilità automatica del cluster è stato impostato su *1* e il numero massimo di nodi è stato impostato su *3*. Se le richieste delle applicazioni cambiano, potrebbe essere necessario regolare il numero di nodi del componente di scalabilità automatica del cluster.
 
 Per modificare il numero di nodi, usare il comando [az aks update][az-aks-update].
 
@@ -110,7 +110,7 @@ az aks update \
   --max-count 5
 ```
 
-L'esempio precedente aggiorna il componente di scalabilità automatica del cluster nel pool a nodo singolo in *myAKSCluster* impostando il numero minimo di nodi su *1* e il numero massimo su *5* .
+L'esempio precedente aggiorna il componente di scalabilità automatica del cluster nel pool a nodo singolo in *myAKSCluster* impostando il numero minimo di nodi su *1* e il numero massimo su *5*.
 
 > [!NOTE]
 > Il servizio di scalabilità automatica del cluster prende le decisioni di scalabilità in base ai conteggi minimi e massimi impostati in ogni pool di nodi, ma non li impone dopo l'aggiornamento dei conteggi min o max. Se, ad esempio, si imposta un numero minimo di 5 quando il numero di nodi corrente è 3, il pool non verrà ridimensionato immediatamente fino a 5. Se il conteggio minimo nel pool di nodi ha un valore maggiore del numero corrente dei nodi, le nuove impostazioni min o Max verranno rispettate quando sono presenti Pod non pianificabili sufficienti che richiederebbero due nuovi nodi aggiuntivi e attiverà un evento di scalabilità automatica. Dopo l'evento di ridimensionamento, vengono rispettati i limiti del nuovo conteggio.
@@ -130,14 +130,15 @@ Monitorare le prestazioni delle applicazioni e dei servizi e modificare il numer
 | scale-down-unneeded-time         | Per quanto tempo un nodo non deve essere necessario prima di essere idoneo per la riduzione                  | 10 minuti    |
 | scale-down-unready-time          | Per quanto tempo un nodo unready non deve essere necessario prima di essere idoneo per la riduzione         | 20 minuti    |
 | scale-down-utilization-threshold | Livello di utilizzo del nodo, definito come somma delle risorse richieste divisa per la capacità, al di sotto del quale un nodo può essere preso in considerazione per la riduzione | 0.5 |
-| max-graceful-termination-sec     | Numero massimo di secondi di attesa del componente di scalabilità automatica del cluster prima della terminazione del pod durante il tentativo di riduzione di un nodo. | 600 secondi   |
+| max-graceful-termination-sec     | Numero massimo di secondi di attesa del servizio di scalabilità automatica del cluster per la terminazione del Pod durante il tentativo di ridimensionare un nodo | 600 secondi   |
 | balance-similar-node-groups      | Rileva pool di nodi simili e bilancia il numero di nodi tra di essi                 | false         |
-| Expander                         | Tipo di [espansore](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) del pool di nodi da utilizzare per la scalabilità verticale. Valori possibili: `most-pods` , `random` , `least-waste` | random | 
-| ignorare i nodi con archiviazione locale    | Se true cluster AutoScaler non eliminerà mai i nodi con i pod con archiviazione locale, ad esempio EmptyDir o HostPath | True |
-| Skip-nodes-with-System-Pod      | Se true cluster AutoScaler non eliminerà mai i nodi con pod da Kube-System (ad eccezione di DaemonSet o di Pod mirror) | True | 
-| Max-Empty-Bulk-Delete            | Numero massimo di nodi vuoti che possono essere eliminati nello stesso momento.                      | 10 nodi      |
-| New-Pod-scale-up-Delay           | Per gli scenari come la scalabilità in modalità di espansione/batch in cui non si vuole che la CA agisca prima che l'utilità di pianificazione kubernetes possa pianificare tutti i pod, è possibile indicare a CA di ignorare i Pod non pianificati prima che siano di una determinata età ".                                                                                                                | 10 secondi    |
-| max-totale-non letti-percentuale     | Percentuale massima di nodi non letti nel cluster. Una volta superata questa percentuale, la CA interrompe le operazioni | 45% | 
+| Expander                         | Tipo di [espansore](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) del pool di nodi da utilizzare per la scalabilità verticale. Valori possibili: `most-pods` , `random` , `least-waste` , `priority` | random | 
+| ignorare i nodi con archiviazione locale    | Se true cluster AutoScaler non eliminerà mai i nodi con i pod con archiviazione locale, ad esempio EmptyDir o HostPath | true |
+| Skip-nodes-with-System-Pod      | Se true cluster AutoScaler non eliminerà mai i nodi con pod da Kube-System (ad eccezione di DaemonSet o di Pod mirror) | true | 
+| Max-Empty-Bulk-Delete            | Numero massimo di nodi vuoti che possono essere eliminati nello stesso momento                       | 10 nodi      |
+| New-Pod-scale-up-Delay           | Per gli scenari come la scalabilità in modalità di espansione/batch in cui non si vuole che la CA agisca prima che l'utilità di pianificazione di kubernetes possa pianificare tutti i pod, è possibile indicare a CA di ignorare i Pod non pianificati prima che siano di una determinata età.                                                                                                                | 0 secondi    |
+| max-totale-non letti-percentuale     | Percentuale massima di nodi non letti nel cluster. Una volta superata questa percentuale, la CA interrompe le operazioni | 45% |
+| Max-node-provisioning-tempo          | Tempo massimo di attesa del ridimensionamento automatico per il provisioning di un nodo                           | 15 minuti    |   
 | OK-totale-non leggibile-conteggio           | Numero di nodi non letti consentiti, indipendentemente dalla percentuale massima-totale-non leggibile            | 3 nodi       |
 
 > [!IMPORTANT]
@@ -147,7 +148,7 @@ Monitorare le prestazioni delle applicazioni e dei servizi e modificare il numer
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Impostare il componente di scalabilità automatica del cluster in un cluster AKS esistente
 
-Per impostare il profilo di scalabilità automatica del cluster nel cluster in uso, usare il [comando az aks update][az-aks-update-preview] con il parametro *cluster-autoscaler-profile* . Nell'esempio seguente l'intervallo di analisi viene impostato su 30 secondi nel profilo.
+Per impostare il profilo di scalabilità automatica del cluster nel cluster in uso, usare il [comando az aks update][az-aks-update-preview] con il parametro *cluster-autoscaler-profile*. Nell'esempio seguente l'intervallo di analisi viene impostato su 30 secondi nel profilo.
 
 ```azurecli-interactive
 az aks update \
@@ -249,7 +250,7 @@ Per altre informazioni sugli elementi registrati dal componente di scalabilità 
 
 Il componente di scalabilità automatica del cluster può essere usato insieme a [più pool di nodi][aks-multiple-node-pools] abilitati. Consultare questo documento per informazioni su come abilitare più pool di nodi e aggiungere altri pool di nodi a un cluster esistente. Quando si usano entrambe le funzionalità insieme, si abilita il componente di scalabilità automatica del cluster per ogni singolo pool di nodi del cluster e si possono passare regole di scalabilità automatica univoche a ognuno di essi.
 
-Il comando seguente presuppone che l'utente si sia attenuto alle [istruzioni iniziali](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) contenute in questo documento e voglia aggiornare il numero massimo di un pool di nodi esistente da *3* a *5* . Usare il comando [az aks nodepool update][az-aks-nodepool-update] per aggiornare le impostazioni di un pool di nodi esistente.
+Il comando seguente presuppone che l'utente si sia attenuto alle [istruzioni iniziali](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) contenute in questo documento e voglia aggiornare il numero massimo di un pool di nodi esistente da *3* a *5*. Usare il comando [az aks nodepool update][az-aks-nodepool-update] per aggiornare le impostazioni di un pool di nodi esistente.
 
 ```azurecli-interactive
 az aks nodepool update \

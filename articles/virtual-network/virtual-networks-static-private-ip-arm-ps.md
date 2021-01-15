@@ -17,18 +17,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: ced76b73a8a08e6886cf0cef04c74a82d05c75dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708128"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222599"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP privato statico tramite PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile creare una macchina virtuale (VM) con un indirizzo IP privato statico. Assegnare un indirizzo IP privato statico, anziché un indirizzo dinamico, se si vuole selezionare l'indirizzo da una subnet assegnato a una macchina virtuale. Altre informazioni sugli [indirizzi IP privati statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare un indirizzo IP privato assegnato a una macchina virtuale esistente da dinamico a statico o per usare indirizzi IP pubblici, vedere [aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md).
+È possibile creare una macchina virtuale (VM) con un indirizzo IP privato statico. Assegnare un indirizzo IP privato statico, anziché un indirizzo dinamico, se si vuole selezionare l'indirizzo da una subnet assegnato a una macchina virtuale. Altre informazioni sugli [indirizzi IP privati statici](./public-ip-addresses.md#allocation-method). Per modificare un indirizzo IP privato assegnato a una macchina virtuale esistente da dinamico a statico o per usare indirizzi IP pubblici, vedere [aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md).
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
@@ -109,5 +109,5 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.
+- Altre informazioni sugli [indirizzi IP privati](./private-ip-addresses.md) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.
 - Altre informazioni sulla creazione di macchine virtuali [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .

@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 57b2955f8cec059cd20d353eba31dc39ad992d50
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 3f9dd35959980eef4e1bec550bf7e9f583cf30d2
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97506305"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225289"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -48,7 +48,6 @@ Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali 
 * Per la funzionalità è necessaria una subnet inutilizzata/28 o superiore in un Azure Resource Manager VNet.
 * L'app e il VNet devono trovarsi nella stessa area.
 * Non è possibile eliminare un VNet con un'app integrata. Rimuovere l'integrazione prima di eliminare il VNet.
-* È possibile eseguire l'integrazione solo con reti virtuali nella stessa sottoscrizione dell'app.
 * È possibile avere una sola integrazione VNet a livello di area per ogni piano di servizio app. Più app nello stesso piano di servizio app possono usare lo stesso VNet.
 * Non è possibile modificare la sottoscrizione di un'app o di un piano mentre è presente un'app che usa l'integrazione VNet a livello di area.
 * L'app non può risolvere gli indirizzi in Zone private di DNS di Azure senza modifiche alla configurazione

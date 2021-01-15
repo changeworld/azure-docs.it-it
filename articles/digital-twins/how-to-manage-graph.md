@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dd5197f99f7187e21eb466bfa213f68a7638e24d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045343"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222548"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -157,7 +157,7 @@ Ecco l'output della console del programma precedente:
 > [!TIP]
 > Il grafo gemello è un concetto di creazione di relazioni tra due gemelli. Se si vuole visualizzare la rappresentazione visiva del grafo gemello, vedere la sezione [*visualizzazione*](how-to-manage-graph.md#visualization) di questo articolo. 
 
-### <a name="create-a-twin-graph-from-a-csv-file"></a>Creare un grafico gemello da un file CSV
+## <a name="create-graph-from-a-csv-file"></a>Creare un grafico da un file CSV
 
 Nei casi d'uso pratici, le gerarchie gemelle vengono spesso create dai dati archiviati in un database diverso o eventualmente in un foglio di calcolo o in un file CSV. In questa sezione viene illustrato come leggere i dati da un file CSV e creare un grafico gemello.
 

@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: e13164c3ec6049a8ae3954528a02d20e313dd883
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bc504034f8d4565dd365b8d92dc2b2e6eadc1dae
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008124"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223330"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Spostare una rete virtuale di Azure in un'altra area usando Azure PowerShell
 
 Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esistente da un'area a un'altra. Ad esempio, potrebbe essere necessario creare una rete virtuale con la stessa configurazione per il test e la disponibilità della rete virtuale esistente. In alternativa, potrebbe essere necessario spostare una rete virtuale di produzione in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [esportare gruppi di risorse nei modelli](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [esportare gruppi di risorse nei modelli](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esis
 
 - Verificare che la sottoscrizione di Azure consenta di creare reti virtuali nell'area di destinazione. Per abilitare la quota richiesta, contattare il supporto tecnico.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparare lo spostamento
@@ -42,19 +42,19 @@ In questa sezione si prepara la rete virtuale per lo spostamento usando un model
 
 Per esportare la rete virtuale e distribuire la rete virtuale di destinazione usando PowerShell, eseguire le operazioni seguenti:
 
-1. Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e quindi seguire le istruzioni visualizzate:
+1. Accedere alla sottoscrizione di Azure con il comando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) e quindi seguire le istruzioni visualizzate:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
 
-1. Ottenere l'ID risorsa della rete virtuale che si vuole spostare nell'area di destinazione e quindi posizionarlo in una variabile usando [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Ottenere l'ID risorsa della rete virtuale che si vuole spostare nell'area di destinazione e quindi posizionarlo in una variabile usando [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
     ```
 
-1. Esportare la rete virtuale di origine in un file con estensione JSON nella directory in cui si esegue il comando [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+1. Esportare la rete virtuale di origine in un file con estensione JSON nella directory in cui si esegue il comando [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
@@ -98,7 +98,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
     ```
   
-1. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet di Azure PowerShell [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo questo comando:
+1. Per ottenere i codici di posizione dell'area, è possibile usare il cmdlet di Azure PowerShell [Get-AzLocation](/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) eseguendo questo comando:
 
     ```azurepowershell-interactive
 
@@ -195,20 +195,20 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Salvare il file *\<resource-group-name>.json*.
 
-1. Creare un gruppo di risorse nell'area di destinazione per la distribuzione della rete virtuale di destinazione usando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
+1. Creare un gruppo di risorse nell'area di destinazione per la distribuzione della rete virtuale di destinazione usando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuire il file *\<resource-group-name> JSON* modificato nel gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuire il file *\<resource-group-name> JSON* modificato nel gruppo di risorse creato nel passaggio precedente usando [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     ```
 
-1. Per verificare che le risorse siano state create nell'area di destinazione, usare [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Per verificare che le risorse siano state create nell'area di destinazione, usare [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) e [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
     
     ```azurepowershell-interactive
 
@@ -224,7 +224,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 Dopo aver distribuito la rete virtuale, per avviare o rimuovere la rete virtuale nell'area di destinazione, eliminare il gruppo di risorse creato nell'area di destinazione e la rete virtuale spostata verrà eliminata. 
 
-Per rimuovere il gruppo di risorse, usare [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Per rimuovere il gruppo di risorse, usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
 ```azurepowershell-interactive
 
@@ -235,14 +235,14 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 Per eseguire il commit delle modifiche e completare lo spostamento della rete virtuale, eseguire una delle operazioni seguenti:
 
-* Eliminare il gruppo di risorse usando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+* Eliminare il gruppo di risorse usando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
     Remove-AzResourceGroup -Name <source-resource-group-name>
     ```
 
-* Eliminare la rete virtuale di origine usando [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):  
+* Eliminare la rete virtuale di origine usando [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):  
     ``` azurepowershell-interactive
 
     Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>
@@ -252,5 +252,5 @@ Per eseguire il commit delle modifiche e completare lo spostamento della rete vi
 
 In questa esercitazione è stata spostata una rete virtuale da un'area a un'altra usando PowerShell e quindi sono state rimosse le risorse di origine non necessarie. Per ulteriori informazioni sullo stato di trasferimento delle risorse tra le aree e il ripristino di emergenza in Azure, vedere:
 
-- [Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../site-recovery/azure-to-azure-tutorial-migrate.md)

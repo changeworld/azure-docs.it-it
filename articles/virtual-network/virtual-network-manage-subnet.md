@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 15fe5d6d16948875253d65e70d9d440214a4a2e8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995659"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220576"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -44,7 +44,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al ru
 
 2. Selezionare il nome della rete virtuale a cui si vuole aggiungere una subnet.
 
-3. In **Impostazioni** **selezionare Subnet Subnet**  >  **Subnet**.
+3. In **Impostazioni** **selezionare Subnet Subnet**  >  .
 
 4. Nella finestra di dialogo **Aggiungi subnet** immettere i valori per le impostazioni seguenti:
 
@@ -52,7 +52,7 @@ L'account a cui si accede o che si connette ad Azure deve essere assegnato al ru
     | --- | --- |
     | **Nome** | Il nome deve essere univoco all'interno della rete virtuale. Per la massima compatibilità con altri servizi di Azure, è consigliabile usare una lettera come primo carattere del nome. Il gateway applicazione di Azure, ad esempio, non verrà distribuito in una subnet con un nome che inizia con un numero. |
     | **Intervallo di indirizzi** | <p>L'intervallo deve essere univoco all'interno dello spazio di indirizzi della rete virtuale. L'intervallo non può sovrapporsi ad altri intervalli di indirizzi della subnet all'interno della rete virtuale. Lo spazio degli indirizzi deve essere specificato usando la notazione Classless Interdomain Routing (CIDR).</p><p>Ad esempio, in una rete virtuale con spazio di indirizzi *10.0.0.0/16*, è possibile definire uno spazio di indirizzi della subnet di *10.0.0.0/22*. L'intervallo più piccolo che è possibile specificare è */29*, che fornisce otto indirizzi IP per la subnet. Azure riserva il primo e l'ultimo indirizzo in ogni subnet per conformità al protocollo. Altri tre indirizzi sono riservati per l'uso da parte del servizio di Azure. Di conseguenza, la definizione di una subnet con un intervallo di indirizzi */29* comporta tre indirizzi IP utilizzabili nella subnet.</p><p>Se si prevede di connettere una rete virtuale a un gateway VPN, è necessario creare una subnet per il gateway. Altre informazioni su [considerazioni specifiche sugli intervalli di indirizzi per le subnet di gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Dopo aver aggiunto la subnet, in determinate condizioni è possibile modificare l'intervallo di indirizzi. Per informazioni su come modificare l'intervallo di indirizzi di una subnet, vedere [Cambiare le impostazioni della subnet](#change-subnet-settings).</p> |
-    | **Gruppo di sicurezza di rete** | Per filtrare il traffico di rete in ingresso e in uscita per la subnet, è possibile associare un gruppo di sicurezza di rete esistente a una subnet. Il gruppo di sicurezza di rete deve esistere nello stesso percorso e nella stessa sottoscrizione della rete virtuale. Per altre informazioni, vedere [Gruppi di sicurezza di rete](security-overview.md) e [Creare gruppi di sicurezza di rete mediante il portale di Azure](tutorial-filter-network-traffic.md). |
+    | **Gruppo di sicurezza di rete** | Per filtrare il traffico di rete in ingresso e in uscita per la subnet, è possibile associare un gruppo di sicurezza di rete esistente a una subnet. Il gruppo di sicurezza di rete deve esistere nello stesso percorso e nella stessa sottoscrizione della rete virtuale. Per altre informazioni, vedere [Gruppi di sicurezza di rete](./network-security-groups-overview.md) e [Creare gruppi di sicurezza di rete mediante il portale di Azure](tutorial-filter-network-traffic.md). |
     | **Tabella di route** | Per controllare il routing del traffico di rete ad altre reti, è possibile associare facoltativamente una tabella di route esistente a una subnet. La tabella di route deve esistere nello stesso percorso e nella stessa sottoscrizione della rete virtuale. Altre informazioni sul [routing di Azure](virtual-networks-udr-overview.md) e su [come creare una tabella di route](tutorial-create-route-table-portal.md). |
     | **Endpoint servizio** | <p>Una subnet può facoltativamente avere uno o più endpoint servizio abilitati. Per abilitare un endpoint di servizio per un servizio, selezionare i servizi per i quali si vogliono abilitare gli endpoint di servizio nell'elenco **Servizi**. Azure configura automaticamente il percorso per un endpoint. Per impostazione predefinita, Azure configura gli endpoint di servizio per l'area della rete virtuale. Per supportare gli scenari di failover a livello di area, Azure configura automaticamente gli endpoint in [aree abbinate di Azure](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions) per archiviazione di Azure.</p><p>Per rimuovere un endpoint di servizio, deselezionare il servizio per cui si vuole rimuovere l'endpoint di servizio. Per ulteriori informazioni sugli endpoint di servizio e sui servizi per i quali è possibile abilitare, vedere [endpoint del servizio di rete virtuale](virtual-network-service-endpoints-overview.md). Dopo aver abilitato un endpoint di servizio per un servizio, è necessario abilitare anche l'accesso alla rete per la subnet per una risorsa creata con il servizio. Ad esempio, se si abilita l'endpoint di servizio per **Microsoft.Storage**, è necessario abilitare anche l'accesso alla rete per tutti gli account di Archiviazione di Azure a cui si vuole concedere l'accesso alla rete. Per abilitare l'accesso di rete alle subnet per cui è abilitato un endpoint di servizio, vedere la documentazione per il singolo servizio per cui è stato abilitato l'endpoint del servizio.</p><p>Per controllare che un endpoint di servizio sia attivato per una subnet, visualizzare le [route valide](diagnose-network-routing-problem.md) per qualsiasi interfaccia di rete nella subnet. Quando si configura un endpoint, viene visualizzata una route *predefinita* con i prefissi degli indirizzi del servizio e un tipo di hop successivo **VirtualNetworkServiceEndpoint**. Per altre informazioni sul routing, vedere [routing del traffico di rete virtuale](virtual-networks-udr-overview.md).</p> |
     | **Delega subnet** | Una subnet può facoltativamente disporre di una o più delega abilitata. La delega della subnet fornisce le autorizzazioni esplicite al servizio per creare risorse specifiche del servizio nella subnet usando un identificatore univoco durante la distribuzione del servizio. Per la delega per un servizio, selezionare il servizio che si desidera delegare dall'elenco **Servizi**. |
@@ -132,4 +132,4 @@ Per eseguire attività nelle subnet, l'account deve essere assegnato al [ruolo C
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una rete virtuale e le subnet usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Resource Manager](template-samples.md)
-- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](./policy-reference.md) per le reti virtuali

@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: deb1f74902fe28d53a5180e4f341547f339a83ac
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741985"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220287"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -99,7 +99,7 @@ Si applicano i requisiti di base seguenti:
 
 I requisiti seguenti si applicano all'agente di controller di dominio Azure AD password protection:
 
-* In tutti i computer in cui verrà installato il software dell'agente di Azure AD password protection controller di dominio deve essere eseguito Windows Server 2012 o versione successiva.
+* In tutti i computer in cui verrà installato il software dell'agente di Azure AD password protection controller di dominio è necessario eseguire Windows Server 2012 o versione successiva, incluse le edizioni di Windows Server Core.
     * Il dominio o la foresta Active Directory non deve trovarsi nel livello di funzionalità del dominio di Windows Server 2012 (DFL) o nel livello di funzionalità della foresta (FFL). Come indicato nei [principi di progettazione](concept-password-ban-bad-on-premises.md#design-principles), non è necessario alcun valore minimo di DFL o FFL per l'esecuzione del software proxy o dell'agente DC.
 * Per tutti i computer in cui è in esecuzione Azure AD Password Protection Agent è necessario che sia installato .NET 4,5.
 * Qualsiasi Active Directory dominio in cui è in esecuzione il servizio agente di Azure AD password protection controller di dominio deve utilizzare la replica file system distribuito (DFSR) per la replica SYSVOL.
@@ -116,7 +116,7 @@ I requisiti seguenti si applicano all'agente di controller di dominio Azure AD p
 
 I requisiti seguenti si applicano al servizio proxy Azure AD password protection:
 
-* Tutti i computer in cui verrà installato il servizio proxy Azure AD Password Protection devono eseguire Windows Server 2012 R2 o versione successiva.
+* Tutti i computer in cui verrà installato il servizio proxy Azure AD Password Protection devono eseguire Windows Server 2012 R2 o versione successiva, incluse le edizioni di Windows Server Core.
 
     > [!NOTE]
     > La distribuzione del servizio proxy Azure AD Password Protection è un requisito obbligatorio per la distribuzione di Azure AD la protezione con password anche se il controller di dominio potrebbe avere connettività Internet diretta in uscita.

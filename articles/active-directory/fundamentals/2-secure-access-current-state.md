@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff656887081681a804285e9a96352feef15fc675
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 7557985b23991f1a53d45f6f2d2283500c0d73f3
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97744039"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222412"
 ---
 # <a name="discover-the-current-state-of-external-collaboration-in-your-organization"></a>Scopri lo stato attuale della collaborazione esterna nell'organizzazione 
 
@@ -46,9 +46,9 @@ Le organizzazioni esterne possono essere determinate dai nomi di dominio degli i
 
 ### <a name="use-allow-or-deny-lists"></a>Usare gli elenchi Consenti o nega
 
-Un altro modo per individuare gli utenti con cui si collabora o con cui è stata bloccata la collaborazione consiste nel verificare se sono state aggiunte organizzazioni agli [elenchi Consenti o nega](../external-identities/allow-deny-list.md).
+Valutare se l'organizzazione desidera consentire la collaborazione solo con organizzazioni specifiche. In alternativa, valutare se l'organizzazione vuole bloccare la collaborazione con organizzazioni specifiche.  A livello di tenant è disponibile un [elenco Consenti o nega](../external-identities/allow-deny-list.md), che può essere usato per controllare gli inviti e i riscatti B2B complessivi indipendentemente dall'origine, ad esempio teams, SharePoint e il portale di Azure.
+Se si usa la gestione dei diritti, è anche possibile definire l'ambito dei pacchetti di accesso a un subset di partner usando le specifiche organizzazioni connesse, come illustrato di seguito.
 
-Valutare se l'organizzazione desidera consentire la collaborazione solo con organizzazioni specifiche. Considerare anche se l'organizzazione vuole bloccare la collaborazione con organizzazioni specifiche. Queste impostazioni possono essere applicate per il riscatto globale B2B o solo per un pacchetto di accesso specifico.
 
 ![Screenshot dell'elenco Consenti negazione per la creazione di un nuovo pacchetto di accesso.](media/secure-external-access/2-new-access-package.png)
 

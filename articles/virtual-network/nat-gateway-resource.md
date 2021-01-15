@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441769"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223381"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
@@ -60,7 +60,7 @@ Il diagramma seguente mostra i riferimenti scrivibili tra le diverse risorse di 
 
 NAT è consigliato per la maggior parte dei carichi di lavoro, a meno che non esista una dipendenza specifica dalla [connettività in uscita con Load Balancer basata sul pool](../load-balancer/load-balancer-outbound-connections.md).  
 
-È possibile eseguire la migrazione da scenari di bilanciamento del carico standard, con [regole in uscita](../load-balancer/load-balancer-outbound-rules-overview.md), al gateway NAT. Per eseguire la migrazione, spostare le risorse di indirizzi IP pubblici e prefissi di indirizzi IP pubblici dai front-end del servizio di bilanciamento del carico al gateway NAT. Per il gateway NAT, non sono necessari nuovi indirizzi IP. È possibile riutilizzare risorse indirizzo IP pubblico e la risorsa prefisso di indirizzo IP pubblico standard, purché il totale non superi 16 indirizzi IP. Pianificare la migrazione tenendo presente l'interruzione del servizio durante la transizione.  Per ridurre l'interruzione, è possibile automatizzare il processo. Testare prima la migrazione in un ambiente di staging.  Durante la transizione, i flussi originati in ingresso non sono interessati.
+È possibile eseguire la migrazione da scenari di bilanciamento del carico standard, con [regole in uscita](../load-balancer/load-balancer-outbound-connections.md#outboundrules), al gateway NAT. Per eseguire la migrazione, spostare le risorse di indirizzi IP pubblici e prefissi di indirizzi IP pubblici dai front-end del servizio di bilanciamento del carico al gateway NAT. Per il gateway NAT, non sono necessari nuovi indirizzi IP. È possibile riutilizzare risorse indirizzo IP pubblico e la risorsa prefisso di indirizzo IP pubblico standard, purché il totale non superi 16 indirizzi IP. Pianificare la migrazione tenendo presente l'interruzione del servizio durante la transizione.  Per ridurre l'interruzione, è possibile automatizzare il processo. Testare prima la migrazione in un ambiente di staging.  Durante la transizione, i flussi originati in ingresso non sono interessati.
 
 
 L'esempio seguente è un frammento di un modello di Azure Resource Manager.  Questo modello distribuisce diverse risorse, incluso un gateway NAT.  In questo esempio si useranno i parametri seguenti per il modello:
@@ -230,7 +230,7 @@ Anche se lo scenario sembra funzionare, il modello di integrità e la modalità 
 
 Ogni risorsa gateway NAT può garantire fino a 50 Gbps di velocità effettiva. È possibile suddividere le distribuzioni in più subnet e assegnare a ogni subnet o gruppo di subnet un gateway NAT per aumentare il numero di istanze.
 
-Ogni gateway NAT può supportare i flussi 64.000 per TCP e UDP rispettivamente per ogni indirizzo IP in uscita assegnato.  Per informazioni dettagliate, vedere la sezione seguente relativa a SNAT (Source Network Address Translation), oltre all'articolo sulla [risoluzione dei problemi](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) per indicazioni specifiche sulla risoluzione dei problemi.
+Ogni gateway NAT può supportare i flussi 64.000 per TCP e UDP rispettivamente per ogni indirizzo IP in uscita assegnato.  Per informazioni dettagliate, vedere la sezione seguente relativa a SNAT (Source Network Address Translation), oltre all'articolo sulla [risoluzione dei problemi](./troubleshoot-nat.md) per indicazioni specifiche sulla risoluzione dei problemi.
 
 ## <a name="source-network-address-translation"></a>Source Network Address Translation
 
@@ -264,7 +264,7 @@ Gateway NAT opportunisticamente riutilizza le porte di origine (SNAT).  Di segui
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-Un gateway NAT convertirà probabilmente il flusso 4 in una porta che può essere usata anche per altre destinazioni.  Per ulteriori informazioni sul dimensionamento corretto del provisioning degli indirizzi IP, vedere [ridimensionamento](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) .
+Un gateway NAT convertirà probabilmente il flusso 4 in una porta che può essere usata anche per altre destinazioni.  Per ulteriori informazioni sul dimensionamento corretto del provisioning degli indirizzi IP, vedere [ridimensionamento](#scaling) .
 
 | Flusso | Tupla di origine | Tupla di origine con SNAT | Tupla di destinazione | 
 |:---:|:---:|:---:|:---:|
@@ -307,7 +307,7 @@ Risorse del gateway NAT opportunisticamente riutilizzo delle porte di origine (S
 
 È probabile che le porte SNAT a destinazioni diverse vengano riutilizzate quando possibile. E come si avvicina l'esaurimento delle porte SNAT, i flussi potrebbero non riuscire.  
 
-Vedere [nozioni fondamentali su SNAT](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) , ad esempio.
+Vedere [nozioni fondamentali su SNAT](#source-network-address-translation) , ad esempio.
 
 
 ### <a name="protocols"></a>Protocolli
@@ -359,10 +359,10 @@ Ci interessa sapere come possiamo migliorare il servizio. Manca una funzionalit�
   - [Portale](./quickstart-create-nat-gateway-portal.md)
   - [Modello](./quickstart-create-nat-gateway-template.md)
 * Informazioni sull'API della risorsa gateway NAT
-  - [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
-  - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
+  - [REST API](/rest/api/virtualnetwork/natgateways)
+  - [Interfaccia della riga di comando di Azure](/cli/azure/network/nat/gateway)
+  - [PowerShell](/powershell/module/az.network/new-aznatgateway)
 * Informazioni sulle [zone di disponibilità](../availability-zones/az-overview.md).
-* Informazioni su [Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md).
+* Informazioni su [Azure Load Balancer Standard](../load-balancer/load-balancer-overview.md).
 * Informazioni su [zone di disponibilità e Load Balancer Standard](../load-balancer/load-balancer-standard-availability-zones.md).
 * [Segnalare le nuove funzionalità richieste per NAT di rete virtuale in UserVoice](https://aka.ms/natuservoice).

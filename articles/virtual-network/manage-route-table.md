@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c38f4e84a6a653c3a4d887c82340409fc363af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291008"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220593"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Creare, modificare o eliminare una tabella di route
 
@@ -125,7 +125,7 @@ Facoltativamente, è possibile associare una tabella di route a una subnet. Una 
 
 1. Selezionare la subnet a cui si vuole associare la tabella di route.
 
-1. In **tabella di route**scegliere la tabella di route che si desidera associare alla subnet.
+1. In **tabella di route** scegliere la tabella di route che si desidera associare alla subnet.
 
 1. Selezionare **Salva**.
 
@@ -150,7 +150,7 @@ Quando si annulla l'associazione di una tabella di route da una subnet, Azure in
 
 1. Selezionare la subnet da cui si vuole annullare l'associazione della tabella di route.
 
-1. In **tabella di route**scegliere **nessuno**.
+1. In **tabella di route** scegliere **nessuno**.
 
 1. Selezionare **Salva**.
 
@@ -169,7 +169,7 @@ Non è possibile eliminare una tabella di route associata a una subnet. [Annulla
 
 1. Nell'elenco tabella di route scegliere la tabella di route che si desidera eliminare.
 
-1. Selezionare **Elimina**e quindi fare clic su **Sì** nella finestra di dialogo di conferma.
+1. Selezionare **Elimina** e quindi fare clic su **Sì** nella finestra di dialogo di conferma.
 
 ### <a name="delete-a-route-table---commands"></a>Eliminare una tabella di route-comandi
 
@@ -348,4 +348,4 @@ Per eseguire attività nelle tabelle e nelle route di route, l'account deve esse
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una tabella di route usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'interfaccia della riga di comando di [azure](cli-samples.md) o Azure [Gestione risorse](template-samples.md)
-- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](./policy-reference.md) per le reti virtuali

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: mnayak
-ms.openlocfilehash: 65f5b27ecc7b526c4b3e4f5ed62ac90149df1ce1
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: cdd86984e5594d330f0080ee5f4cf0e9a8374652
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96510608"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223544"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Configurare le preferenze di routing per una macchina virtuale con Azure PowerShell
 
@@ -150,5 +150,5 @@ Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni su [preferenze di routing negli indirizzi IP pubblici](routing-preference-overview.md).
-* Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+* Altre informazioni sugli [indirizzi IP pubblici](./public-ip-addresses.md#public-ip-addresses) in Azure.
 * Altre informazioni sull'[impostazione dell'indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address).

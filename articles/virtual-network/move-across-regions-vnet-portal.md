@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: ed3da649ba65484a79b42ba5bb45431839e123d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a80c731e4245b1a295364e5b8c87f90290f7f74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711443"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223309"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-the-azure-portal"></a>Spostare una rete virtuale di Azure in un'altra area usando il portale di Azure
 
 Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esistente da un'area a un'altra. Ad esempio, potrebbe essere necessario creare una rete virtuale con la stessa configurazione per il test e la disponibilità della rete virtuale esistente. In alternativa, potrebbe essere necessario spostare una rete virtuale di produzione in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+È possibile usare un modello di Azure Resource Manager per completare lo spostamento della rete virtuale in un'altra area. A tale scopo, esportare la rete virtuale in un modello, modificare i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area. Per ulteriori informazioni sui modelli di Gestione risorse, vedere [Guida introduttiva: creare e distribuire modelli di Azure Resource Manager tramite il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ Esistono diversi scenari per lo trasferimento di una rete virtuale di Azure esis
 
 - Verificare che la sottoscrizione di Azure consenta di creare reti virtuali nell'area di destinazione. Per abilitare la quota richiesta, contattare il supporto tecnico.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di reti virtuali per questo processo. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Preparare lo spostamento
@@ -85,7 +85,7 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
     ```
 
-1. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice di un'area è il nome dell'area, senza spazi, ad esempio **Stati Uniti centrali**  =  **centralus**.
+1. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/). Il codice di un'area è il nome dell'area, senza spazi, ad esempio **Stati Uniti centrali**  =  .
 
 1. Opzionale È anche possibile modificare altri parametri nel modello, a seconda dei requisiti:
 
@@ -178,15 +178,15 @@ Per esportare la rete virtuale e distribuire la rete virtuale di destinazione us
 
 1. Nell'editor online selezionare **Salva**.
 
-1. Per scegliere la sottoscrizione in cui verrà distribuita la rete virtuale di destinazione, selezionare sottoscrizione di **base**  >  **Subscription**.
+1. Per scegliere la sottoscrizione in cui verrà distribuita la rete virtuale di destinazione, selezionare sottoscrizione di **base**  >  .
 
-1. Per scegliere il gruppo di risorse in cui verrà distribuita la rete virtuale di destinazione, selezionare gruppo di risorse **nozioni di base**  >  **Resource group**. 
+1. Per scegliere il gruppo di risorse in cui verrà distribuita la rete virtuale di destinazione, selezionare gruppo di risorse **nozioni di base**  >  . 
 
     Se è necessario creare un nuovo gruppo di risorse per la rete virtuale di destinazione, selezionare **Crea nuovo**. Verificare che il nome non sia uguale al nome del gruppo di risorse di origine nella rete virtuale esistente.
 
-1. Verificare che **Basics**il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
+1. Verificare che il  >  **percorso** di base sia impostato sul percorso di destinazione in cui si desidera distribuire la rete virtuale.
 
-1. In **Impostazioni**verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
+1. In **Impostazioni** verificare che il nome corrisponda al nome immesso in precedenza nell'editor dei parametri.
 
 1. Selezionare la casella di controllo **termini e condizioni** .
 
@@ -209,5 +209,5 @@ Per eseguire il commit delle modifiche e completare lo spostamento della rete vi
 In questa esercitazione è stata spostata una rete virtuale di Azure da un'area a un'altra usando il portale di Azure e quindi puliti le risorse di origine non necessarie. Per ulteriori informazioni sullo stato di trasferimento delle risorse tra le aree e il ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../site-recovery/azure-to-azure-tutorial-migrate.md)

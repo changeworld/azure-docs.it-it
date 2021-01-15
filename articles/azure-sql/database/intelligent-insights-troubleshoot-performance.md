@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
-ms.openlocfilehash: c42db1445c939069f334d04ea26d54cdb843c336
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 3b57172daeffd1766da456e56cb5e445427a4858
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488834"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220389"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Risolvere i problemi relativi alle prestazioni del database SQL di Azure e di Azure SQL Istanza gestita con Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,7 +36,7 @@ Intelligent Insights rileva automaticamente i problemi di prestazioni in base ai
 | :------------------- | ------------------- | ------------------- |
 | [Raggiungimento dei limiti delle risorse](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Il consumo di risorse disponibili (DTU), dei thread di lavoro del database o delle sessioni di accesso al database disponibili nella sottoscrizione monitorata ha raggiunto i limiti delle risorse. Questa operazione influisce sulle prestazioni. | Il consumo di risorse della CPU sta raggiungendo i limiti delle risorse. Questo influisce sulle prestazioni del database. |
 | [Aumento del carico di lavoro](intelligent-insights-troubleshoot-performance.md#workload-increase) | È stato rilevato un aumento o un accumulo continuo di carico di lavoro nel database. Questa operazione influisce sulle prestazioni. | È stato rilevato un aumento del carico di lavoro. Questo influisce sulle prestazioni del database. |
-| [Pressione della memoria](intelligent-insights-troubleshoot-performance.md#memory-pressure) | I thread di lavoro che hanno richiesto concessioni di memoria devono attendere le allocazioni di memoria per una quantità di tempo statisticamente significativa o un aumento dell'accumulo di ruoli di lavoro che hanno richiesto concessioni di memoria. Questa operazione influisce sulle prestazioni. | I thread di lavoro che hanno richiesto concessioni di memoria devono attendere le allocazioni di memoria per una quantità di tempo statisticamente significativa. Questo influisce sulle prestazioni del database. |
+| [Utilizzo elevato di memoria](intelligent-insights-troubleshoot-performance.md#memory-pressure) | I thread di lavoro che hanno richiesto concessioni di memoria devono attendere le allocazioni di memoria per una quantità di tempo statisticamente significativa o un aumento dell'accumulo di ruoli di lavoro che hanno richiesto concessioni di memoria. Questa operazione influisce sulle prestazioni. | I thread di lavoro che hanno richiesto concessioni di memoria devono attendere le allocazioni di memoria per una quantità di tempo statisticamente significativa. Questo influisce sulle prestazioni del database. |
 | [Blocco](intelligent-insights-troubleshoot-performance.md#locking) | È stato rilevato un blocco eccessivo del database che influisce sulle prestazioni. | È stato rilevato un blocco eccessivo del database con effetti sulle prestazioni del database. |
 | [Valore di MAXDOP aumentato](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | L'opzione relativa al massimo grado di parallelismo (MAXDOP) è stata modificata, con effetti sull'efficienza di esecuzione delle query. Questa operazione influisce sulle prestazioni. | L'opzione relativa al massimo grado di parallelismo (MAXDOP) è stata modificata, con effetti sull'efficienza di esecuzione delle query. Questa operazione influisce sulle prestazioni. |
 | [Contesa di latch di pagina](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Più thread tentano di accedere contemporaneamente alle stesse pagine di buffer di dati in memoria provocando un aumento dei tempi di attesa e causando una contesa di latch di pagina. Questa operazione influisce sulle prestazioni. | Più thread tentano di accedere contemporaneamente alle stesse pagine di buffer di dati in memoria provocando un aumento dei tempi di attesa e causando una contesa di latch di pagina. Questo influisce sulle prestazioni del database. |
@@ -92,7 +92,7 @@ Il log di diagnostica riporta il numero di query la cui esecuzione è aumentata 
 
 Si potrebbe valutare una distribuzione più uniforme dei carichi di lavoro nel database. Prendere in considerazione l'ottimizzazione della query che influisce sulle prestazioni tramite l'aggiunta di indici. Si può anche distribuire il carico di lavoro tra più database. Se queste soluzioni non sono possibili, è consigliabile aumentare il piano tariffario della sottoscrizione del database per aumentare la quantità di risorse disponibili.
 
-## <a name="memory-pressure"></a>Utilizzo elevato della memoria
+## <a name="memory-pressure"></a>Utilizzo elevato di memoria
 
 ### <a name="what-is-happening"></a>Situazione
 
@@ -128,7 +128,9 @@ Il log di diagnostica restituisce dettagli di blocchi che è possibile usare com
 
 Il modo più semplice e sicuro per attenuare il problema consiste nel mantenere brevi le transazioni e nel ridurre l'impatto del blocco causato dalle query più dispendiose. È possibile suddividere un batch di grandi dimensioni di operazioni in operazioni più piccole. È buona norma ridurre l'impatto del blocco aumentando il più possibile l'efficienza della query. Ridurre le analisi di grandi dimensioni perché aumentano le possibilità di deadlock e influiscono negativamente sulle prestazioni generali del database. Per le query identificate che causano il blocco, è possibile creare nuovi indici o aggiungere colonne all'indice esistente per evitare scansioni di tabella.
 
-Per altre informazioni, vedere [How to resolve blocking problems that are caused by lock escalation in SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in) (Come risolvere i problemi di blocco causati dall'escalation blocchi in SQL Server).
+Per altri suggerimenti, vedere:
+- [Comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md)
+- [Come risolvere i problemi di blocco causati dall'escalation dei blocchi in SQL Server](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)
 
 ## <a name="increased-maxdop"></a>Valore di MAXDOP aumentato
 

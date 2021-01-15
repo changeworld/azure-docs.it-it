@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 459cb1f7ea6c756b8cf6eba70af5ebabe76cc8b0
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.custom: responsible-ml
+ms.openlocfilehash: 29e29e73aa1094a2941592655af78a24d95c53b5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335759"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223092"
 ---
 # <a name="mitigate-fairness-in-machine-learning-models-preview"></a>Attenuare l'equità nei modelli di Machine Learning (anteprima)
 
@@ -51,7 +52,7 @@ Insieme, questi componenti consentono a data scientist e leader aziendali di sce
 
 ## <a name="assess-fairness-in-machine-learning-models"></a>Valutazione dell'equità nei modelli di Machine Learning
 
-Nel pacchetto open source di Fairlearn, l'equità viene concettuale anche se si tratta di un approccio noto come **equità del gruppo** , che chiede: quali gruppi di persone rischiano di subire danni? I gruppi rilevanti, anche noti come sottopopolazioni, vengono definiti tramite **caratteristiche sensibili** o attributi sensibili. Le funzionalità sensibili vengono passate a uno strumento di stima nel pacchetto open source Fairlearn come vettore o matrice denominata  `sensitive_features` . Il termine suggerisce che la finestra di progettazione del sistema debba essere sensibile a queste caratteristiche durante la valutazione dell'equità di gruppo. 
+Nel pacchetto open source di Fairlearn, l'equità viene concettuale anche se si tratta di un approccio noto come **equità del gruppo**, che chiede: quali gruppi di persone rischiano di subire danni? I gruppi rilevanti, anche noti come sottopopolazioni, vengono definiti tramite **caratteristiche sensibili** o attributi sensibili. Le funzionalità sensibili vengono passate a uno strumento di stima nel pacchetto open source Fairlearn come vettore o matrice denominata  `sensitive_features` . Il termine suggerisce che la finestra di progettazione del sistema debba essere sensibile a queste caratteristiche durante la valutazione dell'equità di gruppo. 
 
 Un aspetto da tenere presente è se queste funzionalità contengono implicazioni sulla privacy dovute a dati privati. Tuttavia, la parola "sensibile" non implica che queste caratteristiche non debbano essere usate per realizzare stime.
 

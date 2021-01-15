@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 12/03/2020
+ms.date: 01/14/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e940c6eb2710ea43e756e4ea7956a39df9e0ce8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: bf2d0d3335468147575eb53a99940866baa18375
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575551"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222522"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory
 
@@ -139,15 +139,16 @@ Supportato, significa che l'esperienza è come previsto. in particolare, è ugua
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Pianificazione nei team
+- App Web di Planner
 
 ### <a name="services-currently-not-supported"></a>Servizi attualmente non supportati
 
 Il servizio senza supporto tecnico corrente potrebbe avere problemi di compatibilità con la nuova impostazione di restrizione Guest.
 
 - Moduli
-- Pianificazione nei team
-- App Planner
-- Progetto
+- App per dispositivi mobili Planner
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
@@ -158,7 +159,7 @@ Dove si applicano queste autorizzazioni? | Queste autorizzazioni a livello di di
 In che modo le autorizzazioni limitate influiscono sui gruppi che possono essere visualizzati dagli utenti Guest? | Indipendentemente dalle autorizzazioni Guest predefinite o limitate, i guest non possono enumerare l'elenco di gruppi o utenti. I guest possono visualizzare i gruppi di cui sono membri sia nel portale di Azure che nel portale app personali, a seconda delle autorizzazioni:<li>**Autorizzazioni predefinite**: per trovare i gruppi di cui sono membri nel portale di Azure, il guest deve cercare l'ID oggetto nell'elenco **tutti gli utenti** e quindi selezionare **gruppi**. Qui è possibile visualizzare l'elenco dei gruppi di cui sono membri, inclusi tutti i dettagli del gruppo, inclusi il nome, la posta elettronica e così via. Nel portale app personali è possibile visualizzare un elenco di gruppi di cui sono proprietari e i gruppi di cui sono membri.</li><li>**Autorizzazioni Guest limitate**: nella portale di Azure possono comunque trovare l'elenco dei gruppi di cui sono membri cercando l'ID oggetto nell'elenco tutti gli utenti e quindi selezionare gruppi. Possono visualizzare solo dettagli molto limitati sul gruppo, in particolare l'ID oggetto. Per impostazione predefinita, le colonne nome e indirizzo di posta elettronica sono vuote e il tipo di gruppo non è riconosciuto. Nel portale app personali non è possibile accedere all'elenco dei gruppi di cui sono proprietari o ai gruppi di cui è membro.</li><br>Per un confronto più dettagliato delle autorizzazioni della directory che provengono dalla API Graph, vedere [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md#member-and-guest-users).
 Quali parti del portale delle app personali avranno effetto su questa funzionalità? | Le funzionalità dei gruppi nel portale app personali rispetteranno queste nuove autorizzazioni. Sono inclusi tutti i percorsi per visualizzare l'elenco dei gruppi e le appartenenze ai gruppi nelle app personali. Non sono state apportate modifiche alla disponibilità dei riquadri del gruppo. La disponibilità dei riquadri di gruppo è ancora controllata dall'impostazione del gruppo esistente nell'portale di Azure.
 Queste autorizzazioni eseguono l'override delle impostazioni guest di SharePoint o Microsoft Teams? | No. Le impostazioni esistenti controllano ancora l'esperienza e l'accesso a tali applicazioni. Se, ad esempio, si riscontrano problemi in SharePoint, verificare le impostazioni di condivisione esterna.
-Quali sono i problemi di compatibilità noti in Planner e Yammer? | <li>Con le autorizzazioni impostate su' restricted ', i guest registrati nell'app Planner o l'accesso a Planner in Microsoft teams non saranno in grado di accedere ai piani o alle attività.<li>Con le autorizzazioni impostate su' restricted ', i guest registrati in Yammer non saranno in grado di uscire dal gruppo.
+Quali sono i problemi di compatibilità noti in Planner e Yammer? | <li>Con le autorizzazioni impostate su' restricted ', i guest connessi all'app Planner per dispositivi mobili non saranno in grado di accedere ai piani o alle attività.<li>Con le autorizzazioni impostate su' restricted ', i guest che hanno eseguito l'accesso a Yammer non saranno in grado di uscire dal gruppo.
 Le autorizzazioni Guest esistenti verranno modificate nel tenant? | Non sono state apportate modifiche alle impostazioni correnti. Manteniamo la compatibilità con le impostazioni esistenti. Decidere quando si desidera apportare modifiche.
 Queste autorizzazioni verranno impostate per impostazione predefinita? | No. Le autorizzazioni predefinite esistenti rimangono invariate. Facoltativamente, è possibile impostare le autorizzazioni in modo che siano più restrittive.
 Sono previsti requisiti di licenza per questa funzionalità? | No, non sono previsti nuovi requisiti di licenza per questa funzionalità.

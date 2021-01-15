@@ -1,8 +1,6 @@
 ---
-title: Aggiornamento automatico e scadenza della notifica del runtime di integrazione self-hosted
+title: Aggiornamento automatico e notifica di scadenza del runtime di integrazione self-hosted
 description: Informazioni sulle notifiche di aggiornamento automatico e scadenza del runtime di integrazione self-hosted
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -11,14 +9,14 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 6a6c897d92d469fd6247dd51f2bacb91032ac123
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 8c51839e760dcca32bfc0d150c5e4d10767d95a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98122436"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222684"
 ---
-# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Aggiornamento automatico e scadenza della notifica del runtime di integrazione self-hosted
+# <a name="self-hosted-integration-runtime-auto-update-and-expire-notification"></a>Aggiornamento automatico e notifica di scadenza del runtime di integrazione self-hosted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -33,7 +31,7 @@ Il modo più pratico consiste nell'abilitare l'aggiornamento automatico quando s
 
 È possibile controllare l'ultimo valore DateTime dell'aggiornamento nel client di Integration Runtime self-hosted.
 
-![Abilita aggiornamento automatico](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
+![Screenshot della verifica dell'ora di aggiornamento](media/create-self-hosted-integration-runtime/shir-auto-update-2.png)
 
 > [!NOTE]
 > Per garantire la stabilità del runtime di integrazione self-hosted, sebbene vengano rilasciate due versioni, verrà aggiornata automaticamente solo una volta al mese. Quindi, a volte si noterà che la versione aggiornata automaticamente è la versione precedente della versione più recente effettiva. Se si vuole ottenere la versione più recente, è possibile passare all' [area download](https://www.microsoft.com/download/details.aspx?id=39717).

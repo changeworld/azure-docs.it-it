@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 13688b73c0cd73e13e407f1b75beb8dda61a754f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36db885cab734c037b0032c714de28b905595ef0
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84172256"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223262"
 ---
 # <a name="private-ip-addresses"></a>Indirizzi IP privati
 Gli indirizzi IP privati consentono la comunicazione tra le risorse in Azure. 
@@ -82,8 +82,8 @@ Le macchine virtuali configurate con DNS gestito da Azure risolvono i nomi host 
 
 È possibile assegnare un indirizzo IP privato alla configurazione **front-end** di un:
 
-* Servizio di [bilanciamento del carico interno di Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
-* [Gateway applicazione di Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
+* Servizio di [bilanciamento del carico interno di Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB)
+* [Gateway applicazione di Azure](../application-gateway/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 
 Questo indirizzo IP privato funge da endpoint interno. L'endpoint interno è accessibile solo alle risorse all'interno della rete virtuale e alle reti remote connesse. È possibile assegnare un indirizzo IP statico o dinamico.
 

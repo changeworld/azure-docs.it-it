@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd04d24e0e46b053381858be037a009b1987f8e9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 40738f8fcb14c48ccfe3bc7869e5176c4ab63165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97932521"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222331"
 ---
 # <a name="3-create-a-security-plan-for-external-access"></a>3. creare un piano di sicurezza per l'accesso esterno 
 
@@ -134,7 +134,7 @@ Sebbene i criteri vengano personalizzati in base alle proprie esigenze, tenere p
 
 * **Gruppi di Microsoft 365**. Impostare [criteri di scadenza](https://docs.microsoft.com/microsoft-365/solutions/microsoft-365-groups-expiration-policy?view=o365-worldwide) dei gruppi per Microsoft 365 gruppi a cui gli utenti esterni vengono invitati. 
 
-* **Altre opzioni**. Se gli utenti esterni possono accedere al di fuori dei pacchetti di accesso alla gestione dei diritti o dei gruppi di Microsoft 365, configurare il processo di business da verificare quando gli account devono essere resi inattivi o eliminati. Esempio:
+* **Altre opzioni**. Se gli utenti esterni possono accedere al di fuori dei pacchetti di accesso alla gestione dei diritti o dei gruppi di Microsoft 365, configurare il processo di business da verificare quando gli account devono essere resi inattivi o eliminati. Ad esempio:
 
    * Rimuovere la funzionalità di accesso per qualsiasi account non connesso a per 90 giorni.
 

@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7bd991bd709bb4be69325afe967d7e5600a9e1a4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678047"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222565"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Il database SQL e SQL Istanza gestita offrono inoltre diverse funzionalità di c
 
 - [Le tabelle temporali](../temporal-tables.md) consentono di ripristinare le versioni delle righe da qualsiasi punto nel tempo.
 - I [backup automatici predefiniti](automated-backups-overview.md) e il [ripristino temporizzato](recovery-using-backups.md#point-in-time-restore) consentono di ripristinare il database completo fino a un determinato punto nel tempo entro il periodo di conservazione configurato fino a 35 giorni.
-- È possibile [ripristinare un database eliminato](recovery-using-backups.md#deleted-database-restore) fino al momento in cui è stato eliminato se il **Server non è stato eliminato** .
+- È possibile [ripristinare un database eliminato](recovery-using-backups.md#deleted-database-restore) fino al momento in cui è stato eliminato se il **Server non è stato eliminato**.
 - [La conservazione backup a lungo termine](long-term-retention-overview.md) consente di conservare i backup fino a 10 anni. Si tratta di una versione di anteprima pubblica limitata per SQL Istanza gestita
 - La [replica geografica attiva](active-geo-replication-overview.md) consente di creare repliche leggibili e di eseguire manualmente il failover a qualsiasi replica in caso di interruzione del Data Center o di aggiornamento dell'applicazione.
 - Il [gruppo di failover automatico](auto-failover-group-overview.md#terminology-and-capabilities) consente all'applicazione di eseguire automaticamente il ripristino in caso di interruzione del Data Center.
@@ -88,7 +88,7 @@ Metodi di ripristino diversi offrono livelli diversi di RPO e RTO. È possibile 
 
 | Metodo di ripristino | RTO | RPO |
 | --- | --- | --- |
-| Ripristino geografico dai backup con replica geografica | 12 ore | 1 ora |
+| Ripristino geografico dai backup con replica geografica | 12 h | 1 ora |
 | Gruppi di failover automatico | 1 ora | 5 s |
 | Failover manuale del database | 30 s | 5 s |
 

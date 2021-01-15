@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 340ca07ba605359f71c1dbf23ca38abd75d84416
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: bbaf2fb99f1268a752fab4322078b0566a054d30
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937050"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222854"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Risoluzione dei nomi per le risorse in reti virtuali di Azure
 
@@ -57,7 +57,7 @@ La risoluzione dei nomi fornita da Azure fornisce solo funzionalità DNS autorev
 Oltre alla risoluzione dei nomi DNS pubblici, Azure offre la risoluzione dei nomi interni per VM e istanze del ruolo che si trovano all'interno della stessa rete virtuale o dello stesso servizio cloud. Le macchine virtuali e le istanze di un servizio cloud condividono lo stesso suffisso DNS, pertanto è sufficiente il solo nome host. Nelle reti virtuali implementate tramite il modello di distribuzione classica, invece, servizi cloud diversi hanno suffissi DNS diversi. In questo caso, è necessario il nome di dominio completo per la risoluzione dei nomi tra servizi cloud diversi. Nelle reti virtuali distribuite con il modello di distribuzione Azure Resource Manager il suffisso DNS è coerente in tutte le macchine virtuali all'interno di una rete virtuale, quindi il nome di dominio completo non è necessario. I nomi DNS possono essere assegnati sia alle macchine virtuali che alle interfacce di rete. Sebbene la risoluzione dei nomi fornita da Azure non richieda alcuna configurazione, non è la scelta più appropriata per tutti gli scenari di distribuzione, come illustrato nel dettaglio nella tabella precedente.
 
 > [!NOTE]
-> In caso di uso di ruoli Web e di lavoro basati su servizi cloud, è possibile accedere anche gli indirizzi IP interni delle istanze del ruolo con l'API REST di gestione del servizio Azure. Per altre informazioni, vedere [Riferimento all'API REST di gestione dei servizi](https://msdn.microsoft.com/library/azure/ee460799.aspx). L'indirizzo si basa sul nome del ruolo e sul numero di istanza. 
+> In caso di uso di ruoli Web e di lavoro basati su servizi cloud, è possibile accedere anche gli indirizzi IP interni delle istanze del ruolo con l'API REST di gestione del servizio Azure. Per altre informazioni, vedere [Riferimento all'API REST di gestione dei servizi](/previous-versions/azure/ee460799(v=azure.100)). L'indirizzo si basa sul nome del ruolo e sul numero di istanza. 
 >
 
 ### <a name="features"></a>Funzionalità
@@ -88,7 +88,7 @@ Il DNS inverso è supportato in tutte le reti virtuali basate su ARM. È possibi
 * La ricerca diretta su FQDN del modulo \[ VMName \] . Internal.cloudapp.NET risolverà l'indirizzo IP assegnato alla macchina virtuale.
 * Se la rete virtuale è collegata a una [zona privata di DNS di Azure](../dns/private-dns-overview.md) come rete virtuale di registrazione, le query DNS inverse restituiranno due record. Il formato di un record sarà \[ VMName \] . [ privatednszonename] e l'altro sarà nel formato \[ VMName \] . Internal.cloudapp.NET
 * La ricerca DNS inversa ha come ambito una determinata rete virtuale, anche se ne è stato assegnato il peering ad altre reti virtuali. Le query DNS inverse (query PTR) per gli indirizzi IP delle macchine virtuali che si trovano in reti virtuali con peering restituiranno NXDOMAIN.
-* Se si vuole disattivare la funzione DNS inverso in una rete virtuale, è possibile creare una zona di ricerca inversa usando [zone private di DNS di Azure](../dns/private-dns-overview.md) e collegare questa zona alla rete virtuale. Ad esempio, se lo spazio di indirizzi IP della rete virtuale è 10.20.0.0/16, è possibile creare una zona DNS privata vuota 20.10.in-addr. arpa e collegarla alla rete virtuale. Quando si collega la zona alla rete virtuale, è necessario disabilitare la registrazione automatica sul collegamento. Questa zona sostituisce le zone di ricerca inversa predefinite per la rete virtuale e poiché quest'area è vuota, si otterrà NXDOMAIN per le query DNS inverse. Per informazioni dettagliate su come creare una zona DNS privata e collegarla a una rete virtuale, vedere la [Guida introduttiva](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) .
+* Se si vuole disattivare la funzione DNS inverso in una rete virtuale, è possibile creare una zona di ricerca inversa usando [zone private di DNS di Azure](../dns/private-dns-overview.md) e collegare questa zona alla rete virtuale. Ad esempio, se lo spazio di indirizzi IP della rete virtuale è 10.20.0.0/16, è possibile creare una zona DNS privata vuota 20.10.in-addr. arpa e collegarla alla rete virtuale. Quando si collega la zona alla rete virtuale, è necessario disabilitare la registrazione automatica sul collegamento. Questa zona sostituisce le zone di ricerca inversa predefinite per la rete virtuale e poiché quest'area è vuota, si otterrà NXDOMAIN per le query DNS inverse. Per informazioni dettagliate su come creare una zona DNS privata e collegarla a una rete virtuale, vedere la [Guida introduttiva](../dns/private-dns-getstarted-portal.md) .
 
 > [!NOTE]
 > Se si vuole che la ricerca DNS inversa si estenda attraverso la rete virtuale, è possibile creare una zona di ricerca inversa (in-addr. arpa) [zone private di DNS di Azure](../dns/private-dns-overview.md) e collegarla a più reti virtuali. Sarà tuttavia necessario gestire manualmente i record DNS inversi per le macchine virtuali.
@@ -164,7 +164,7 @@ I server DNS all'interno di una rete virtuale possono inoltrare query DNS ai res
 L'inoltro DNS consente anche la risoluzione DNS tra reti virtuali e permette ai computer locali di risolvere i nomi host forniti da Azure. Per risolvere il nome host di una macchina virtuale, la macchina virtuale del server DNS deve trovarsi nella stessa rete virtuale ed essere configurata per l'inoltro di query relative ai nomi host ad Azure. Poiché il suffisso DNS è diverso in ogni rete virtuale, è possibile usare le regole di inoltro condizionale per inviare le query DNS alla rete virtuale corretta per la risoluzione. L'immagine seguente illustra due reti virtuali e una rete locale che gestiscono la risoluzione DNS tra reti virtuali con il metodo descritto. Un esempio di server di inoltro DNS è disponibile nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/301-dns-forwarder/) e su [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/301-dns-forwarder).
 
 > [!NOTE]
-> Un'istanza del ruolo può eseguire la risoluzione dei nomi di macchine virtuali all'interno della stessa rete virtuale. A tale scopo, usa il nome di dominio completo, costituito dal nome host della macchina virtuale e dal suffisso DNS **internal.cloudapp.net**. Tuttavia, in questo caso, la risoluzione dei nomi ha esito positivo solo se per l'istanza del ruolo il nome della VM è definito nello [schema Role (file con estensione cscfg)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
+> Un'istanza del ruolo può eseguire la risoluzione dei nomi di macchine virtuali all'interno della stessa rete virtuale. A tale scopo, usa il nome di dominio completo, costituito dal nome host della macchina virtuale e dal suffisso DNS **internal.cloudapp.net**. Tuttavia, in questo caso, la risoluzione dei nomi ha esito positivo solo se per l'istanza del ruolo il nome della VM è definito nello [schema Role (file con estensione cscfg)](/previous-versions/azure/reference/jj156212(v=azure.100)).
 > `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Le istanze del ruolo che devono eseguire la risoluzione dei nomi delle macchine virtuali in un'altra rete virtuale (nome di dominio completo con il suffisso **internal.cloudapp.net**) devono usare il metodo descritto in questa sezione (server DNS personalizzati per l'inoltro tra le due reti virtuali).
@@ -176,8 +176,8 @@ Quando si usa la risoluzione dei nomi fornita da Azure, il protocollo DHCP (Dyna
 
 Se necessario, è possibile determinare il suffisso DNS interno usando PowerShell o l'API:
 
-* Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite l' [API REST dell'interfaccia di rete](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), il cmdlet di PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) e il comando [AZ Network NIC Show](/cli/azure/network/nic#az-network-nic-show) Azure cli.
-* Nei modelli di distribuzione classica il suffisso è disponibile tramite la chiamata all'[API Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) o il cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
+* Per le reti virtuali nei modelli di distribuzione Azure Resource Manager, il suffisso è disponibile tramite l' [API REST dell'interfaccia di rete](/rest/api/virtualnetwork/networkinterfaces), il cmdlet di PowerShell [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) e il comando [AZ Network NIC Show](/cli/azure/network/nic#az-network-nic-show) Azure cli.
+* Nei modelli di distribuzione classica il suffisso è disponibile tramite la chiamata all'[API Get Deployment](/previous-versions/azure/reference/ee460804(v=azure.100)) o il cmdlet [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure.service/get-azurevm).
 
 Se l'inoltro delle query ad Azure non soddisfa le esigenze specifiche, sarà necessario offrire una soluzione DNS personalizzata. La soluzione DNS deve:
 
@@ -215,7 +215,7 @@ Quando si usa il modello di distribuzione Azure Resource Manager, è possibile s
 > [!NOTE]
 > Se si opta per il server DNS personalizzato per la rete virtuale, è necessario specificare almeno un indirizzo IP del server DNS. In caso contrario, la rete virtuale ignorerà la configurazione e userà invece il server DNS fornito da Azure.
 
-Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](https://msdn.microsoft.com/library/azure/jj157100). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](https://msdn.microsoft.com/library/azure/ee758710) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
+Quando si usa il modello di distribuzione classica, è possibile specificare i server DNS per la rete virtuale nel portale di Azure o nel [file di configurazione della rete](/previous-versions/azure/reference/jj157100(v=azure.100)). Per i servizi cloud, è possibile specificare i server DNS nel [file di configurazione del servizio](/previous-versions/azure/reference/ee758710(v=azure.100)) o tramite PowerShell con [New-AzureVM](/powershell/module/servicemanagement/azure.service/new-azurevm).
 
 > [!NOTE]
 > Se si modificano le impostazioni DNS per una rete virtuale o una macchina virtuale già distribuita, per rendere effettive le nuove impostazioni DNS è necessario eseguire un rinnovo del lease DHCP in tutte le VM interessate nella rete virtuale. Per le macchine virtuali che eseguono il sistema operativo Windows, è possibile eseguire questa operazione digitando `ipconfig /renew` direttamente nella macchina virtuale. La procedura varia a seconda del sistema operativo. Vedere la documentazione pertinente per il tipo di sistema operativo.
@@ -229,6 +229,6 @@ Modello di distribuzione Azure Resource Manager:
 
 Modello di distribuzione classica:
 
-* [Schema di configurazione dei servizi di Azure](https://msdn.microsoft.com/library/azure/ee758710)
-* [Schema di configurazione di Rete virtuale](https://msdn.microsoft.com/library/azure/jj157100)
-* [Configurare una rete virtuale usando un file di configurazione di rete](virtual-networks-using-network-configuration-file.md)
+* [Schema di configurazione dei servizi di Azure](/previous-versions/azure/reference/ee758710(v=azure.100))
+* [Schema di configurazione di Rete virtuale](/previous-versions/azure/reference/jj157100(v=azure.100))
+* [Configurare una rete virtuale usando un file di configurazione di rete](/previous-versions/azure/virtual-network/virtual-networks-using-network-configuration-file)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 12/16/2020
-ms.openlocfilehash: d987d21700e5f19ad8228b08508e8da842cc39eb
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.date: 01/14/2020
+ms.openlocfilehash: 983e037376be48f497118b06cce8b23c430b1501
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914111"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223075"
 ---
 # <a name="open-source-integration-with-azure-machine-learning-projects"></a>Integrazione open source con progetti Azure Machine Learning
 
@@ -42,11 +42,11 @@ Gli algoritmi di apprendimento automatico Open Source noti come reti neurali, un
 
 I Framework di apprendimento avanzato e le guide alle procedure open source includono:
 
- *  [PyTorch](https://github.com/pytorch/pytorch): eseguire [il training di un modello di classificazione di immagini Deep Learning usando Transfer Learning in PyTorch](how-to-train-pytorch.md) 
+ *  [PyTorch](https://github.com/pytorch/pytorch): eseguire [il training di un modello di classificazione di immagini Deep Learning usando Transfer Learning](how-to-train-pytorch.md) 
  *  [TensorFlow](https://github.com/tensorflow/tensorflow): [riconosce le cifre scritte a mano usando TensorFlow](how-to-train-tensorflow.md)
  *  [Keras](https://github.com/keras-team/keras): [creare una rete neurale per analizzare le immagini tramite keras](how-to-train-keras.md)
 
-Il training di un modello di apprendimento avanzato da zero spesso richiede grandi quantità di tempo, dati e risorse di calcolo. È possibile abbreviare il processo di training usando Transfer Learning. Il trasferimento dell'apprendimento è una tecnica che applica le informazioni ottenute dalla risoluzione di un problema a un problema diverso ma correlato. Ciò significa che è possibile riutilizzare un modello esistente. Per ulteriori informazioni sull'apprendimento del trasferimento, vedere l' [articolo Deep Learning](concept-deep-learning-vs-machine-learning.md#transfer-learning) .
+Il training di un modello di apprendimento avanzato da zero spesso richiede grandi quantità di tempo, dati e risorse di calcolo. È possibile abbreviare il processo di training usando Transfer Learning. Il trasferimento dell'apprendimento è una tecnica che applica le informazioni ottenute dalla risoluzione di un problema a un problema diverso ma correlato. Ciò significa che è possibile riutilizzare un modello esistente. Per altre informazioni sull'apprendimento del trasferimento, vedere l'articolo sull'apprendimento [automatico di Visual](concept-deep-learning-vs-machine-learning.md#what-is-transfer-learning) Studio.
 
 ### <a name="reinforcement-learning-ray-rllib"></a>Apprendimento per rinforzo: Ray RLLib
 

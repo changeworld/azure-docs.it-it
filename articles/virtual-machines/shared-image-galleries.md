@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 4156308fa58ea1f02e6e3f2c5174839dc1cd381c
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 2731a7f263db223c258ddfc434bc84f59632d1f5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841447"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223364"
 ---
 # <a name="shared-image-galleries-overview"></a>Informazioni generali sulle raccolte di immagini condivise
 
@@ -316,6 +316,11 @@ Per le distribuzioni di macchine virtuali e set di scalabilità di macchine virt
 ### <a name="can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images"></a>È possibile aggiornare il set di scalabilità di macchine virtuali creato con un'immagine gestita per usare immagini di Raccolta immagini condivise?
 
 Sì, è possibile aggiornare il riferimento all'immagine del set di scalabilità da un'immagine gestita a un'immagine della raccolta immagini condivise, purché il tipo di sistema operativo, la generazione Hyper-V e il layout del disco dati corrispondano tra le immagini.
+
+## <a name="troubleshoot-shared-image-gallery-issues"></a>Risolvere i problemi della raccolta di immagini condivise
+In caso di problemi con l'esecuzione di qualsiasi operazione sulle risorse della raccolta di immagini condivise, consultare l'elenco degli errori comuni nella [Guida alla risoluzione dei problemi](troubleshooting-shared-images.md).
+
+Inoltre, è possibile pubblicare e contrassegnare la domanda con `azure-virtual-machines-images` [Q&a](/answers/topics/azure-virtual-machines-images.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
