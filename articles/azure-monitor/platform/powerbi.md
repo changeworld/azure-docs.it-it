@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2019
-ms.openlocfilehash: 53277f64c3d1b03572732157756da1fececbcd43
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f00416f180f83c761be5ed444e80903e9fcbb6
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184570"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234444"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importare i dati di log di monitoraggio di Azure in Power BI
 
@@ -28,6 +28,9 @@ Per importare dati da un' [area di lavoro log Analytics](manage-access.md) in mo
 ## <a name="export-query"></a>Esportare la query
 Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che restituisca i dati per i quali si desidera popolare il set di dati Power bi.  Esportare quindi la query nella [lingua di Power Query (M)](/powerquery-m/power-query-m-language-specification), in modo che possa essere usata da Power BI Desktop.
 
+> [!WARNING]
+> Prestare attenzione a [ottimizzare la query](../log-query/query-optimization.md) in modo che non imprenda troppo tempo per l'esecuzione o che si verifichi il timeout. Si noti il valore **TimeSpan** nella query esportata che definisce l'intervallo di dati che la query recupererà. Utilizzare l'intervallo di tempo più piccolo necessario per limitare la quantità di dati restituiti dalla query.
+
 1. [Creare la query di log in log Analytics](../log-query/log-analytics-tutorial.md) per estrarre i dati per il set di dati.
 2. Selezionare **Esporta**  >  **Power bi query (M)**.  Questa operazione consente di esportare la query in un file di testo denominato **PowerBIQuery.txt**. 
 
@@ -39,7 +42,7 @@ Per iniziare, creare una [query di log](../log-query/log-query-overview.md) che 
 Power BI Desktop è un'applicazione desktop che consente di creare set di dati e report che possono essere pubblicati in Power BI.  È anche possibile usarlo per creare una query usando il linguaggio di Power Query esportato da monitoraggio di Azure. 
 
 1. Installare [Power BI Desktop](https://powerbi.microsoft.com/desktop/), se non è già stato installato, e aprire quindi l'applicazione.
-2. Selezionare **Get Data**  >  **blank query** per aprire una nuova query.  Selezionare quindi **Editor avanzato** e incollare il contenuto del file esportato nella query. Fare clic su **Done**.
+2. Selezionare **Get Data**  >  **blank query** per aprire una nuova query.  Selezionare quindi **Editor avanzato** e incollare il contenuto del file esportato nella query. Fare clic su **Fine**.
 
     ![Query di Power BI Desktop](media/powerbi/desktop-new-query.png)
 

@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 9670178a9c9d772d8966413371f998aa1f0cf5f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: e2cbea433d56d4c1290a5d1cdc54b56e81b4cd73
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968299"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234325"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -195,10 +195,10 @@ Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Suppor
 Immagini della raccolta di Azure - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
-Criteri RBAC di Azure | Non supportate | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
+Criteri RBAC di Azure | Non supportato | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. L'estensione deve essere installata manualmente dopo il failover.
-Gruppi di posizionamento di prossimità | Funzionalità supportata | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
-Tag  | Funzionalità supportata | I tag generati dall'utente applicati alle macchine virtuali di origine vengono trasferiti alle macchine virtuali di destinazione dopo il failover o il failover di test.
+Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
+Tag  | Supportato | I tag generati dall'utente applicati alle macchine virtuali di origine vengono trasferiti alle macchine virtuali di destinazione dopo il failover o il failover di test.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Computer replicati - Azioni del disco
@@ -233,9 +233,10 @@ SSD Standard | Supportato |
 Ridondanza | Sono supportate le archiviazioni con ridondanza locale e geografica.<br/><br/> L'archiviazione con ridondanza della zona non è supportata.
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
 Spazi di archiviazione | Supportato |
+Interfaccia di archiviazione NVMe | Non supportato
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.
 Crittografia dei dati inattivi (CMK) | Supportato | Sono supportate le chiavi s e le chiavi dei moduli di protezione hardware (HSM) per i dischi gestiti
-Crittografia a doppio inattivo | Funzionalità supportata | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md)
+Crittografia a doppio inattivo | Supportato | Altre informazioni sulle aree supportate per [Windows](../virtual-machines/disk-encryption.md) e [Linux](../virtual-machines/disk-encryption.md)
 Crittografia dischi di Azure (ADE) per sistema operativo Windows | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. |
 Crittografia dischi di Azure (ADE) per sistema operativo Linux | Supportato per le macchine virtuali con dischi gestiti. | Le macchine virtuali che usano dischi non gestiti non sono supportate. <br/><br/> Le chiavi con protezione HSM non sono supportate. <br/><br/> La crittografia dei singoli volumi in un unico disco non è supportata. <br><br> Problema noto relativo all'abilitazione della replica. [Altre informazioni.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotazione della chiave SAS | Non supportato | Se la chiave SAS per gli account di archiviazione viene ruotata, il cliente deve disabilitare e riabilitare la replica. |
@@ -254,9 +255,9 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limit
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
-Dischi condivisi di Azure | Non supportate
-Opzione di trasferimento sicuro | Funzionalità supportata
-Dischi abilitati per l'acceleratore di scrittura | Non supportate
+Dischi condivisi di Azure | Non supportato
+Opzione di trasferimento sicuro | Supportato
+Dischi abilitati per l'acceleratore di scrittura | Non supportato
 Tag  | I tag generati dall'utente vengono replicati ogni 24 ore.
 
 >[!IMPORTANT]
@@ -284,7 +285,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 NIC | Numero massimo supportato per una specifica dimensione di macchina virtuale di Azure | Vengono create schede di interfaccia di rete contestualmente alla creazione della VM durante il failover.<br/><br/> Il numero di schede di interfaccia di rete sulla macchina virtuale di failover dipende dal numero di schede di rete sulla VM di origine quando è stata abilitata la replica. L'aggiunta o la rimozione di una scheda di interfaccia di rete dopo l'abilitazione della replica non influisce sul numero di schede sulla VM replicata dopo il failover. <br/><br/> Non è garantito che l'ordine delle schede di rete dopo il failover sia uguale a quello originale. <br/><br/> È possibile rinominare le schede di rete nell'area di destinazione in base alle convenzioni di denominazione dell'organizzazione. La ridenominazione NIC è supportata tramite PowerShell.
-Servizio di bilanciamento del carico Internet | Non supportate | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
+Servizio di bilanciamento del carico Internet | Non supportato | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
 Servizio di bilanciamento del carico interno | Supportato | Associare il servizio di bilanciamento del carico preconfigurato tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP pubblico | Supportato | Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete. In alternativa, creare un indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Associare il gruppo di sicurezza di rete alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
@@ -304,7 +305,7 @@ Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una m
 Palo Alto Network Appliance | Non supportate | Con appliance di terze parti, vengono spesso imposte restrizioni dal provider all'interno della macchina virtuale. Azure Site Recovery richiede che agente, estensioni e connettività in uscita siano disponibili. Tuttavia, l'appliance non consente la configurazione di alcuna attività in uscita all'interno della macchina virtuale.
 IPv6  | Non supportate | Anche le configurazioni miste che includono IPv4 e IPv6 non sono supportate. Liberare la subnet dell'intervallo IPv6 prima di qualsiasi operazione di Site Recovery.
 Accesso a collegamento privato al servizio Site Recovery | Supportato | [Altre informazioni](azure-to-azure-how-to-enable-replication-private-endpoints.md)
-Tag  | Funzionalità supportata | I tag generati dall'utente sulle schede di interfaccia di rete vengono replicati ogni 24 ore.
+Tag  | Supportato | I tag generati dall'utente sulle schede di interfaccia di rete vengono replicati ogni 24 ore.
 
 
 
