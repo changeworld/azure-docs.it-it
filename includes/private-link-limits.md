@@ -1,5 +1,5 @@
 ---
-title: includere file
+title: File di inclusione
 description: includere file
 services: virtual-network
 author: KumudD
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 49a9917d925ebc7a36d14ff6679ad4b1737f9627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: defcce3a00a38c88e1bff944075f0987fbdedd4b
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515878"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98225321"
 ---
  I limiti seguenti si applicano al collegamento privato di Azure:
 
@@ -26,4 +26,6 @@ ms.locfileid: "86515878"
 |Numero di endpoint privati nello stesso servizio di collegamento privato   |  1000       |
 |Numero di endpoint privati per insieme di credenziali delle chiavi | 64 |
 |Numero di insiemi di credenziali delle chiavi con endpoint privati per sottoscrizione | 400 |
+|Numero di gruppi di zone DNS privato che è possibile collegare a un endpoint privato | 1 |
+|Numero di zone DNS in ogni gruppo | 5 |
 

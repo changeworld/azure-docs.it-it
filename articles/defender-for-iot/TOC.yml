@@ -201,6 +201,10 @@
       items:
         - name: Usare le API di Defender per IoT
           href: references-work-with-defender-for-iot-apis.md
+        - name: API Horizon
+          href: references-horizon-api.md
+        - name: Horizon SDK
+          href: references-horizon-sdk.md
         - name: Usare i comandi dell'interfaccia della riga di comando di Defender per IoT
           href: references-work-with-defender-for-iot-cli-commands.md
         - name: Gestire i protocolli proprietari (Horizon)

@@ -179,6 +179,8 @@
               href: database/performance-guidance.md
             - name: Usare le viste a gestione dinamica per monitorare le prestazioni
               href: database/monitoring-with-dmvs.md
+            - name: Identificare e risolvere gli errori bloccanti
+              href: database/understand-resolve-blocking.md
             - name: Registrare i dati di telemetria di diagnostica
               href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
             - name: OLTP in memoria
