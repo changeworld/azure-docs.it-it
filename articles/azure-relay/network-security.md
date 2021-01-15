@@ -3,17 +3,17 @@ title: Sicurezza di rete per l'inoltro di Azure
 description: Questo articolo descrive come usare le regole del firewall IP ed endpoint privati con il servizio di inoltro di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 608224f42fac8cd2d8ff06ab84989b1f675d418c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 735a0b7dc303ad63cb301151e3e14e4488c856b1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134467"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217244"
 ---
 # <a name="network-security-for-azure-relay"></a>Sicurezza di rete per l'inoltro di Azure 
 Questo articolo descrive come usare le funzionalità di sicurezza seguenti con il servizio di inoltro di Azure: 
 
-- Regole del firewall IP (anteprima)
+- Regole del firewall IP
 - Endpoint privati 
 
 > [!NOTE]
@@ -28,9 +28,6 @@ Questa funzionalità è utile negli scenari in cui Inoltro di Azure deve essere 
 Le regole del firewall IP vengono applicate a livello di spazio dei nomi di inoltro. Vengono pertanto applicate a tutte le connessioni provenienti dai client con qualsiasi protocollo supportato. Qualsiasi tentativo di connessione da un indirizzo IP che non corrisponde a una regola IP consentita nello spazio dei nomi di inoltro viene rifiutato come non autorizzato. Nella risposta non viene fatto riferimento alla regola IP. Le regole del filtro IP vengono applicate in ordine e la prima regola corrispondente all'indirizzo IP determina l'azione di accettazione o rifiuto.
 
 Per ulteriori informazioni, vedere [come configurare un firewall IP per uno spazio dei nomi di inoltro](ip-firewall-virtual-networks.md)
-
-> [!NOTE]
-> Questa funzionalità è attualmente disponibile in **anteprima**. 
 
 ## <a name="private-endpoints"></a>Endpoint privati
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 13535a82f8aca741a1e25755e5a2d971ce45514e
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 9766379807e6d2708fd6935dd2ffbd7660f9988f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739298"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216649"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Criteri degli endpoint servizio di rete virtuale per Archiviazione di Azure
 
@@ -32,7 +32,7 @@ I criteri degli endpoint servizio di rete virtuale offrono i vantaggi seguenti:
 
 - __Sicurezza migliorata per il traffico di rete virtuale in archiviazione di Azure__
 
-  [I tag dei servizi di Azure per i gruppi di sicurezza di rete](https://aka.ms/servicetags) consentono di limitare il traffico in uscita della rete virtuale a specifiche aree di archiviazione di Azure. Tuttavia, ciò consente il traffico a qualsiasi account nell'area di archiviazione di Azure selezionata.
+  [I tag dei servizi di Azure per i gruppi di sicurezza di rete](./network-security-groups-overview.md) consentono di limitare il traffico in uscita della rete virtuale a specifiche aree di archiviazione di Azure. Tuttavia, ciò consente il traffico a qualsiasi account nell'area di archiviazione di Azure selezionata.
   
   I criteri endpoint consentono di specificare gli account di archiviazione di Azure a cui è consentito l'accesso in uscita alla rete virtuale e limitano l'accesso a tutti gli altri account di archiviazione. Questo offre un controllo di sicurezza molto più granulare per la protezione dei dati exfiltration dalla rete virtuale.
 

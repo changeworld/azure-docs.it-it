@@ -10,13 +10,13 @@ ms.topic: troubleshooting
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: 6ea17f04538e3444b1baddaa8862add2cfbbaa9c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: 4d0f5404a64eae99ced0dd797954ba042b50060f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493424"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217227"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -90,7 +90,7 @@ Di seguito è riportato un esempio di una query con parametri parziale:
 ```sql
 SELECT *
 FROM t1 JOIN t2 ON t1.c1 = t2.c1
-WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
+WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F';
 ```
 
 In questo esempio, `t1.c1` accetta `@p1` , ma `t2.c2` continua a assumere il GUID come valore letterale. In questo caso, se si modifica il valore di `c2` , la query viene considerata come una query diversa e verrà eseguita una nuova compilazione. Per ridurre le compilazioni in questo esempio, è necessario parametrizzare anche il GUID.
@@ -115,7 +115,7 @@ WHERE
   rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
   AND query_parameterization_type_desc IN ('User', 'None')
 GROUP BY q.query_hash
-ORDER BY count (distinct p.query_id) DESC
+ORDER BY count (distinct p.query_id) DESC;
 ```
 
 ### <a name="factors-that-affect-query-plan-changes"></a>Fattori che influiscono sulle modifiche al piano di query
@@ -130,7 +130,7 @@ Una ricompilazione del piano di esecuzione della query può comportare un piano 
 
 - Riavvii istanza
 - Modifiche della configurazione con ambito database
-- Utilizzo elevato della memoria
+- Utilizzo elevato di memoria
 - Richieste esplicite di cancellazione della cache
 
 Se si usa un hint RECOMPILE, un piano non verrà memorizzato nella cache.
@@ -187,7 +187,7 @@ Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* co
 
 - **Blocco**:
 
-  Una query può mantenere il blocco sugli oggetti nel database mentre altri tentano di accedere agli stessi oggetti. È possibile identificare le query di blocco usando [DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) o [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
+  Una query può mantenere il blocco sugli oggetti nel database mentre altri tentano di accedere agli stessi oggetti. È possibile identificare le query di blocco usando [DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) o [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking). Per altre informazioni, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](database/understand-resolve-blocking.md).
 - **Problemi di IO**
 
   È possibile che le query attendano la scrittura delle pagine nei file di dati o di log. In tal caso, controllare le `INSTANCE_LOG_RATE_GOVERNOR` `WRITE_LOG` `PAGEIOLATCH_*` statistiche di attesa, o nella DMV. Vedere uso di DMV per [identificare i problemi di prestazioni](database/monitoring-with-dmvs.md#identify-io-performance-issues)di i/o.

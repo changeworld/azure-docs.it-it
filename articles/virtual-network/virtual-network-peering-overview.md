@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: feea2d54edd8a93e6e0effbef03389ef895d5ffb
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004977"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216751"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -48,7 +48,7 @@ La latenza di rete tra macchine virtuali presenti in reti virtuali di cui è sta
 Il traffico tra macchine virtuali presenti in reti virtuali di cui è stato eseguito il peering viene direttamente instradato attraverso l'infrastruttura backbone Microsoft, non attraverso un gateway né tramite la rete Internet pubblica.
 
 È possibile applicare gruppi di sicurezza di rete in entrambe le reti virtuali per bloccare l'accesso ad altre reti o subnet virtuali.
-Quando si configura il peering di rete virtuale, aprire o chiudere le regole del gruppo di sicurezza di rete tra le reti virtuali. Se si apre la connettività completa tra reti virtuali con peering, è possibile applicare gruppi di sicurezza di rete per bloccare o negare un accesso specifico. La connettività completa è l'opzione predefinita. Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppi di sicurezza](security-overview.md).
+Quando si configura il peering di rete virtuale, aprire o chiudere le regole del gruppo di sicurezza di rete tra le reti virtuali. Se si apre la connettività completa tra reti virtuali con peering, è possibile applicare gruppi di sicurezza di rete per bloccare o negare un accesso specifico. La connettività completa è l'opzione predefinita. Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppi di sicurezza](./network-security-groups-overview.md).
 
 ## <a name="service-chaining"></a>Concatenamento dei servizi
 

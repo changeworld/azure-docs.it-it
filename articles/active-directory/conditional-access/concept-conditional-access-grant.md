@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536a9641b68ccd2510a7891b46483a322fb6ecb7
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900927"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219947"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -139,7 +139,7 @@ Questa impostazione è valida solo per le app client seguenti:
 - Nove messaggi di posta elettronica & calendario
 
 > [!NOTE]
-> Microsoft Kaizala, Microsoft Skype for business e Microsoft Visio non supportano la concessione per la **richiesta dei criteri di protezione delle app** . Se è necessario che queste app funzionino, usare l'autorizzazione Richiedi solo le **app approvate** . L'uso della clausola OR tra le due concessioni non funzionerà per queste tre applicazioni.
+> Microsoft teams, Microsoft Kaizala, Microsoft Skype for business e Microsoft Visio non supportano il **richiedere** la concessione dei criteri di protezione delle app. Se è necessario che queste app funzionino, usare l'autorizzazione Richiedi solo le **app approvate** . L'uso della clausola OR tra le due concessioni non funzionerà per queste tre applicazioni.
 
 **Osservazioni:**
 

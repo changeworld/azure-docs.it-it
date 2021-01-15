@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
-ms.openlocfilehash: 265ed0f4cb58a321bde78714f36123bf197d42f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd0cfe644ad78059e25d5386cd1a01f56ad9fba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711001"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216989"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Aggiungere, modificare o rimuovere indirizzi IP per un'interfaccia di rete di Azure
 
@@ -44,7 +44,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
 ## <a name="add-ip-addresses"></a>Aggiungere indirizzi IP
 
-È possibile aggiungere tutti gli indirizzi IPv4 [pubblici](#public) [IPv4](#ipv4) e [privati](#private) necessari a un'interfaccia di rete, entro i limiti elencati nell'articolo relativo ai [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . È possibile aggiungere un indirizzo IPv6 privato a una [configurazione IP secondaria](#secondary) (purché non esistano configurazioni IP secondarie esistenti) per un'interfaccia di rete esistente. Ogni interfaccia di rete può avere al massimo un indirizzo privato IPv6. Facoltativamente, è possibile aggiungere un indirizzo IPv6 pubblico a una configurazione dell'interfaccia di rete IPv6. Vedere [IPv6](#ipv6) per informazioni dettagliate sull'uso di indirizzi IPv6.
+È possibile aggiungere tutti gli indirizzi IPv4 [pubblici](#public) [](#ipv4) e [privati](#private) necessari a un'interfaccia di rete, entro i limiti elencati nell'articolo relativo ai [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) . È possibile aggiungere un indirizzo IPv6 privato a una [configurazione IP secondaria](#secondary) (purché non esistano configurazioni IP secondarie esistenti) per un'interfaccia di rete esistente. Ogni interfaccia di rete può avere al massimo un indirizzo privato IPv6. Facoltativamente, è possibile aggiungere un indirizzo IPv6 pubblico a una configurazione dell'interfaccia di rete IPv6. Vedere [IPv6](#ipv6) per informazioni dettagliate sull'uso di indirizzi IPv6.
 
 1. Nella casella che contiene il testo *Cerca risorse* nella parte superiore del portale di Azure digitare *interfacce di rete*. Selezionare **Interfacce di rete** quando viene visualizzato nei risultati della ricerca.
 2. Selezionare l'interfaccia di rete a cui si desidera aggiungere un indirizzo IPv4 dall'elenco.
@@ -130,7 +130,7 @@ Oltre a una configurazione IP primaria, un'interfaccia di rete può avere più c
 
 È possibile assegnare i tipi seguenti di indirizzi IP per una [configurazione IP](#ip-configurations):
 
-### <a name="private"></a>Private
+### <a name="private"></a>Privato
 
 Gli indirizzi [IPv4](#ipv4) o IPv6 privati consentono a una macchina virtuale di comunicare con altre risorse in una rete virtuale o in altre reti connesse. 
 
@@ -200,7 +200,7 @@ Non è possibile assegnare un indirizzo IPv6 pubblico a una configurazione IP pr
 Viene creato un indirizzo IP pubblico con lo SKU di base o standard. Per altre informazioni sulle differenze tra gli SKU, vedere [Gestire gli indirizzi IP pubblici](virtual-network-public-ip-address.md).
 
 > [!NOTE]
-> Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](security-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.
+> Quando si assegna un indirizzo IP pubblico con SKU Standard all'interfaccia di rete di una macchina virtuale, è necessario consentire in modo esplicito il traffico previsto con un [gruppo di sicurezza di rete](./network-security-groups-overview.md#network-security-groups). La comunicazione con la risorsa non riesce finché non si crea e si associa un gruppo di sicurezza di rete e si consente in modo esplicito il traffico desiderato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per creare una macchina virtuale con diverse configurazioni IP, vedere gli articoli seguenti:

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
-ms.openlocfilehash: 207679ad5b508b687c9cad372d144839fcaa501d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: cb0fd5464f7025d71dd384c56233aefa6a6cd364
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94743848"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218723"
 ---
 # <a name="quickstart-transform-data-using-mapping-data-flows"></a>Guida introduttiva: trasformare i dati usando il mapping dei flussi di dati
 
@@ -39,7 +39,7 @@ In questa Guida introduttiva vengono eseguiti i passaggi seguenti:
 
 Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
 
-* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://ms.portal.azure.com/#home). Selezionare **Apri** nella scheda Open sinapsi studio in Guida introduttiva.
+* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://ms.portal.azure.com/#home). Selezionare **Apri** nella scheda Apri Synapse Studio sotto Attività iniziali.
 * Aprire [Azure Synapse Analytics](https://web.azuresynapse.net/) e accedere all'area di lavoro.
 
 In questo argomento di avvio rapido viene usata come esempio l'area di lavoro denominata "adftest2020". Si verrà indirizzati automaticamente alla home page di Synapse Studio.
@@ -58,7 +58,7 @@ Una pipeline contiene il flusso logico per un'esecuzione di un set di attività.
 
 1. In *spostamento e trasformazione* nel riquadro *attività* trascinare il **flusso di dati** nell'area di disegno della pipeline.
 
-1. Nella finestra popup aggiunta della pagina **flusso di dati** selezionare **Crea nuovo** flusso di dati flusso di dati  ->  **Data flow**. Fare clic su **OK** al termine dell'operazione.
+1. Nella finestra popup aggiunta della pagina **flusso di dati** selezionare **Crea nuovo** flusso di dati flusso di dati  ->  . Fare clic su **OK** al termine dell'operazione.
 
    ![Creazione di un flusso di dati](media/quickstart-data-flow/new-data-flow.png)
 
@@ -68,7 +68,7 @@ Una pipeline contiene il flusso logico per un'esecuzione di un set di attività.
 
 Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di disegno del flusso di dati. In questo passaggio verrà compilato un flusso di dati che accetta il MoviesDB.csv nell'archiviazione ADLS e aggrega la valutazione media di Comedie da 1910 a 2000. Il file verrà quindi scritto nuovamente nell'archivio ADLS.
 
-1. Sopra l'area di disegno del flusso di dati, far scorrere il dispositivo di scorrimento **debug del flusso di dati** . La modalità di debug consente il test interattivo della logica di trasformazione in un cluster Spark attivo. I cluster di flussi di dati impiegano 5-7 minuti per il riscaldamento e si consiglia agli utenti di attivare prima il debug se pianificano lo sviluppo del flusso di dati. Per altre informazioni, vedere [Modalità di debug](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-debug-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+1. Sopra l'area di disegno del flusso di dati, far scorrere il dispositivo di scorrimento **debug del flusso di dati** . La modalità di debug consente il test interattivo della logica di trasformazione in un cluster Spark attivo. I cluster di flussi di dati impiegano 5-7 minuti per il riscaldamento e si consiglia agli utenti di attivare prima il debug se pianificano lo sviluppo del flusso di dati. Per altre informazioni, vedere [Modalità di debug](../data-factory/concepts-data-flow-debug-mode.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
     ![Scorrere il debug su](media/quickstart-data-flow/debug-on.png)
 
@@ -104,7 +104,7 @@ Dopo aver creato il flusso di dati, verrà inviato automaticamente all'area di d
 
 1. Assegnare un nome alla trasformazione filtro **FilterYears**. Fare clic sulla casella espressione accanto a applica **filtro** per aprire Generatore di espressioni. Qui si specificherà la condizione di filtro.
 
-1. Il generatore di espressioni del flusso di dati consente di compilare in modo interattivo espressioni da usare in diverse trasformazioni. Le espressioni possono includere funzioni predefinite, colonne dello schema di input e parametri definiti dall'utente. Per ulteriori informazioni su come compilare espressioni, vedere [Generatore di espressioni del flusso di dati](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+1. Il generatore di espressioni del flusso di dati consente di compilare in modo interattivo espressioni da usare in diverse trasformazioni. Le espressioni possono includere funzioni predefinite, colonne dello schema di input e parametri definiti dall'utente. Per ulteriori informazioni su come compilare espressioni, vedere [Generatore di espressioni del flusso di dati](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
     In questa Guida introduttiva si vogliono filtrare i film di genere Comedy che si sono rivelati tra gli anni 1910 e 2000. Come Year è attualmente una stringa, è necessario convertirla in un Integer usando la ```toInteger()``` funzione. Utilizzare gli operatori maggiore di o uguale a (>=) e minore o uguale a (<=) per confrontare i valori letterali anno 1910 e 200-. Unire queste espressioni con l'operatore and (&&). L'espressione viene visualizzata come segue:
 
@@ -190,6 +190,6 @@ Se questa Guida introduttiva è stata eseguita correttamente, è necessario aver
 Per informazioni sul supporto di analisi sinapsi di Azure, passare agli articoli seguenti:
 
 > [!div class="nextstepaction"]
-> [Pipeline e attività](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  [Cenni preliminari](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) 
->  sul flusso di dati mapping [Linguaggio delle espressioni del flusso di dati](https://docs.microsoft.com/azure/data-factory/data-flow-expression-functions?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> [Pipeline e attività](../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  [Cenni preliminari](../data-factory/concepts-data-flow-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) 
+>  sul flusso di dati mapping [Linguaggio delle espressioni del flusso di dati](../data-factory/data-flow-expression-functions.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json)

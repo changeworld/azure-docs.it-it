@@ -11,12 +11,12 @@ ms.author: lle
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 12/25/2020
-ms.openlocfilehash: 76d53458154a7e66589c16f955373975bb04b25b
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: fd56ef74a7641a01eae2354f149f45e84ff56833
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121624"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217448"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -157,21 +157,21 @@ Ecco i dettagli delle azioni e degli argomenti dell'applicazione:
 
 |ACTION|args|Descrizione|
 |------|----|-----------|
-|RN<br/>-RegisterNewNode|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione e il nome del nodo specificati.|
-|era<br/>-EnableRemoteAccess|"`<port>`" ["`<thumbprint>`"]|Abilitare l'accesso remoto nel nodo corrente per configurare un cluster a disponibilità elevata. In alternativa, abilitare l'impostazione delle credenziali direttamente sul runtime di integrazione Self-Hosted senza passare attraverso Azure Data Factory. Per eseguire quest'ultima operazione, usare il cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** da un computer remoto nella stessa rete.|
-|ERAC<br/>-EnableRemoteAccessInContainer|"`<port>`" ["`<thumbprint>`"]|Abilitare l'accesso remoto al nodo corrente quando il nodo viene eseguito in un contenitore.|
-|DRA<br/>-DisableRemoteAccess||Disabilitare l'accesso remoto al nodo corrente. Per la configurazione a più nodi è necessario l'accesso remoto. Il cmdlet **di PowerShell New-AzDataFactoryV2LinkedServiceEncryptedCredential** funziona ancora anche quando l'accesso remoto è disabilitato. Questo comportamento è true purché il cmdlet venga eseguito nello stesso computer del nodo IR self-hosted.|
-|k<br/>-Chiave|"`<AuthenticationKey>`"|Sovrascrivere o aggiornare la chiave di autenticazione precedente. Prestare attenzione a questa azione. Il nodo del runtime di integrazione self-hosted precedente può passare offline se la chiave è di un nuovo runtime di integrazione.|
-|GBF<br/>-GenerateBackupFile|"`<filePath>`" "`<password>`"|Genera un file di backup per il nodo corrente. Il file di backup include la chiave del nodo e le credenziali dell'archivio dati.|
-|IBF<br/>-ImportBackupFile|"`<filePath>`" "`<password>`"|Ripristinare il nodo da un file di backup.|
-|r<br/>-Restart||Riavviare il servizio host del runtime di integrazione self-hosted.|
-|s<br/>-Avvio||Avviare il servizio host del runtime di integrazione self-hosted.|
-|t<br/>-Arresta||Arrestare il servizio host del runtime di integrazione self-hosted.|
-|SUS<br/>-StartUpgradeService||Avviare il servizio di aggiornamento del runtime di integrazione self-hosted.|
-|unità elaborate<br/>-StopUpgradeService||Arrestare il servizio di aggiornamento del runtime di integrazione self-hosted.|
-|-tonau,<br/>-TurnOnAutoUpdate||Attivare l'aggiornamento automatico del runtime di integrazione self-hosted.|
-|-toffau,<br/>-TurnOffAutoUpdate||Disattivare l'aggiornamento automatico del runtime di integrazione self-hosted.|
-|ssa<br/>-SwitchServiceAccount|"`<domain\user>`" ["`<password>`"]|Impostare DIAHostService per l'esecuzione come nuovo account. Utilizzare la password vuota "" per gli account di sistema e gli account virtuali.|
+|`-rn`,<br/>`-RegisterNewNode`|"`<AuthenticationKey>`" ["`<NodeName>`"]|Registrare un nodo del runtime di integrazione self-hosted con la chiave di autenticazione e il nome del nodo specificati.|
+|`-era`,<br/>`-EnableRemoteAccess`|"`<port>`" ["`<thumbprint>`"]|Abilitare l'accesso remoto nel nodo corrente per configurare un cluster a disponibilità elevata. In alternativa, abilitare l'impostazione delle credenziali direttamente sul runtime di integrazione Self-Hosted senza passare attraverso Azure Data Factory. Per eseguire quest'ultima operazione, usare il cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** da un computer remoto nella stessa rete.|
+|`-erac`,<br/>`-EnableRemoteAccessInContainer`|"`<port>`" ["`<thumbprint>`"]|Abilitare l'accesso remoto al nodo corrente quando il nodo viene eseguito in un contenitore.|
+|`-dra`,<br/>`-DisableRemoteAccess`||Disabilitare l'accesso remoto al nodo corrente. Per la configurazione a più nodi è necessario l'accesso remoto. Il cmdlet **di PowerShell New-AzDataFactoryV2LinkedServiceEncryptedCredential** funziona ancora anche quando l'accesso remoto è disabilitato. Questo comportamento è true purché il cmdlet venga eseguito nello stesso computer del nodo IR self-hosted.|
+|`-k`,<br/>`-Key`|"`<AuthenticationKey>`"|Sovrascrivere o aggiornare la chiave di autenticazione precedente. Prestare attenzione a questa azione. Il nodo del runtime di integrazione self-hosted precedente può passare offline se la chiave è di un nuovo runtime di integrazione.|
+|`-gbf`,<br/>`-GenerateBackupFile`|"`<filePath>`" "`<password>`"|Genera un file di backup per il nodo corrente. Il file di backup include la chiave del nodo e le credenziali dell'archivio dati.|
+|`-ibf`,<br/>`-ImportBackupFile`|"`<filePath>`" "`<password>`"|Ripristinare il nodo da un file di backup.|
+|`-r`,<br/>`-Restart`||Riavviare il servizio host del runtime di integrazione self-hosted.|
+|`-s`,<br/>`-Start`||Avviare il servizio host del runtime di integrazione self-hosted.|
+|`-t`,<br/>`-Stop`||Arrestare il servizio host del runtime di integrazione self-hosted.|
+|`-sus`,<br/>`-StartUpgradeService`||Avviare il servizio di aggiornamento del runtime di integrazione self-hosted.|
+|`-tus`,<br/>`-StopUpgradeService`||Arrestare il servizio di aggiornamento del runtime di integrazione self-hosted.|
+|`-tonau`,<br/>`-TurnOnAutoUpdate`||Attivare l'aggiornamento automatico del runtime di integrazione self-hosted.|
+|`-toffau`,<br/>`-TurnOffAutoUpdate`||Disattivare l'aggiornamento automatico del runtime di integrazione self-hosted.|
+|`-ssa`,<br/>`-SwitchServiceAccount`|"`<domain\user>`" ["`<password>`"]|Impostare DIAHostService per l'esecuzione come nuovo account. Utilizzare la password vuota "" per gli account di sistema e gli account virtuali.|
 
 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installare e registrare un runtime di integrazione self-hosted dall'area download Microsoft
@@ -205,9 +205,9 @@ L'account di servizio di accesso predefinito del runtime di integrazione self-ho
 
 Assicurarsi che l'account disponga dell'autorizzazione di accesso come servizio. In caso contrario non è possibile avviare il runtime di integrazione self-hosted. È possibile controllare l'autorizzazione in **criteri di sicurezza locali-> impostazioni di sicurezza-> criteri locali-> assegnazione diritti utente-> accesso come servizio**
 
-![Autorizzazione dell'account del servizio](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
+![Screenshot dei criteri di sicurezza locali-Assegnazione dei diritti utente](media/create-self-hosted-integration-runtime/shir-service-account-permission.png)
 
-![Autorizzazione dell'account del servizio](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
+![Screenshot dell'assegnazione dei diritti utente Accedi come servizio](media/create-self-hosted-integration-runtime/shir-service-account-permission-2.png)
 
 
 ## <a name="notification-area-icons-and-notifications"></a>Icone e notifiche dell'area di notifica

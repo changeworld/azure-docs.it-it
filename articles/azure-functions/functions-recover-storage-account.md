@@ -3,12 +3,12 @@ title: 'Errore di risoluzione dei problemi: runtime di Funzioni di Azure non è 
 description: Informazioni su come risolvere il problema di un account di archiviazione non valido.
 ms.topic: article
 ms.date: 09/05/2018
-ms.openlocfilehash: 0b6778a08bf04367f2a0ef10f7cd4fe29a52dd61
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 9f6592b6d5ef88127a9dfca1e868564be0aa4ed5
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579012"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217295"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Errore di risoluzione dei problemi: "runtime di Funzioni di Azure non è raggiungibile"
 
@@ -16,15 +16,15 @@ Questo articolo consente di risolvere i problemi relativi alla stringa di errore
 
 > "Errore: runtime di Funzioni di Azure non è raggiungibile. Per informazioni dettagliate sulla configurazione dell'archiviazione, fare clic qui.
 
-Questo problema si verifica quando non è possibile avviare il runtime di Funzioni di Azure. La causa più comune del problema è che l'app per le funzioni ha perso l'accesso al proprio account di archiviazione. Per altre informazioni, vedere [requisiti dell'account di archiviazione](./functions-create-function-app-portal.md#storage-account-requirements).
+Questo problema si verifica quando non è possibile avviare il runtime di funzioni. Il motivo più comune è che l'app per le funzioni ha perso l'accesso al proprio account di archiviazione. Per altre informazioni, vedere [requisiti dell'account di archiviazione](storage-considerations.md#storage-account-requirements).
 
-Nella parte restante di questo articolo vengono illustrate le cause seguenti di questo errore, tra cui come identificare e risolvere ogni caso.
+Il resto di questo articolo consente di risolvere i problemi specifici di questo errore, tra cui come identificare e risolvere ogni caso.
 
 ## <a name="storage-account-was-deleted"></a>L'account di archiviazione è stato eliminato
 
-Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se tale account viene eliminato, la funzione non funzionerà.
+Ogni app per le funzioni richiede un account di archiviazione per funzionare. Se tale account viene eliminato, le funzioni non funzioneranno.
 
-Per iniziare, cercare il nome dell'account di archiviazione nelle impostazioni dell'applicazione. `AzureWebJobsStorage`O `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiene il nome dell'account di archiviazione incluso in una stringa di connessione. Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzioni di Azure](./functions-app-settings.md#azurewebjobsstorage).
+Per iniziare, cercare il nome dell'account di archiviazione nelle impostazioni dell'applicazione. `AzureWebJobsStorage`O `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiene il nome dell'account di archiviazione come parte di una stringa di connessione. Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzioni di Azure](./functions-app-settings.md#azurewebjobsstorage).
 
 Cercare l'account di archiviazione nell'portale di Azure per verificare se esiste ancora. Se è stato eliminato, ricreare l'account di archiviazione e sostituire le stringhe di connessione di archiviazione. Il codice della funzione viene perso ed è necessario ridistribuirlo.
 
@@ -44,7 +44,7 @@ Per altre informazioni, vedere [riferimento alle impostazioni dell'app per funzi
 
 ### <a name="guidance"></a>Indicazioni
 
-* Non selezionare "impostazione slot" per una di queste impostazioni. Se si scambiano gli slot di distribuzione, l'app per le funzioni si interrompe.
+* Non selezionare l' **impostazione dello slot** per nessuna di queste impostazioni. Se si scambiano gli slot di distribuzione, l'app per le funzioni si interrompe.
 * Non modificare queste impostazioni come parte delle distribuzioni automatiche.
 * Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatica che non contiene queste impostazioni genera un'app per le funzioni che non verrà eseguita, anche se le impostazioni vengono aggiunte in un secondo momento.
 
@@ -56,7 +56,7 @@ Se si rigenerano le chiavi di archiviazione, è necessario aggiornare le stringh
 
 L'app per le funzioni deve essere in grado di accedere all'account di archiviazione. I problemi comuni che bloccano l'accesso di un'app per le funzioni a un account di archiviazione sono:
 
-* L'app per le funzioni viene distribuita nel ambiente del servizio app senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione.
+* L'app per le funzioni viene distribuita nel ambiente del servizio app (ASE) senza le regole di rete corrette per consentire il traffico da e verso l'account di archiviazione.
 
 * Il firewall dell'account di archiviazione è abilitato e non è configurato per consentire il traffico da e verso le funzioni. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
@@ -72,7 +72,7 @@ Per risolvere il problema, rimuovere o aumentare la quota giornaliera, quindi ri
 
 ## <a name="app-is-behind-a-firewall"></a>L'app è dietro un firewall
 
-Il runtime della funzione potrebbe non essere raggiungibile per uno dei motivi seguenti:
+L'app per le funzioni potrebbe non essere raggiungibile per uno dei motivi seguenti:
 
 * L'app per le funzioni è ospitata in un [ambiente del servizio app con carico bilanciato internamente](../app-service/environment/create-ilb-ase.md) ed è configurato per bloccare il traffico Internet in ingresso.
 
@@ -80,8 +80,8 @@ Il runtime della funzione potrebbe non essere raggiungibile per uno dei motivi s
 
 Il portale di Azure effettua chiamate dirette all'app in esecuzione per recuperare l'elenco di funzioni e effettua chiamate HTTP all'endpoint Kudu. Le impostazioni a livello di piattaforma nella scheda **funzionalità della piattaforma** sono ancora disponibili.
 
-Per verificare la configurazione del ambiente del servizio app:
-1. Passare al gruppo di sicurezza di rete (NSG) della subnet in cui risiede il ambiente del servizio app.
+Per verificare la configurazione dell'ambiente del servizio app:
+1. Passare al gruppo di sicurezza di rete (NSG) della subnet in cui risiede l'ambiente del servizio app.
 1. Convalidare le regole in entrata per consentire il traffico proveniente dall'IP pubblico del computer a cui si sta accedendo all'applicazione. 
    
 È anche possibile usare il portale da un computer connesso alla rete virtuale che esegue l'app o a una macchina virtuale in esecuzione nella rete virtuale. 

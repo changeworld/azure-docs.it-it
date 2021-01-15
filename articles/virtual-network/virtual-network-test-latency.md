@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f167a7947c42ce837ec83b336ae636f593f2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84687804"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219259"
 ---
 # <a name="test-vm-network-latency"></a>Testare la latenza di rete delle macchine virtuali
 
@@ -55,7 +55,7 @@ Usando questi strumenti, è possibile garantire che vengano misurati solo i temp
 Quando si crea la configurazione della macchina virtuale, tenere presenti le raccomandazioni seguenti:
 - Usare la versione più recente di Windows o Linux.
 - Abilitare la rete accelerata per ottenere risultati ottimali.
-- Distribuire le VM con un [gruppo di posizionamento di prossimità di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+- Distribuire le VM con un [gruppo di posizionamento di prossimità di Azure](../virtual-machines/co-location.md).
 - Le macchine virtuali di dimensioni maggiori offrono in genere prestazioni migliori rispetto alle VM più piccole
 
 ### <a name="tips-for-analysis"></a>Suggerimenti per l'analisi
@@ -77,7 +77,7 @@ Provare a inserire latte.exe in una cartella separata, ad esempio *c:\Tools*.
 
 ### <a name="allow-latteexe-through-windows-defender-firewall"></a>Consenti latte.exe tramite Windows Defender Firewall
 
-Nel *ricevitore*creare una regola di accesso in Windows Defender Firewall per consentire l'arrivo del traffico latte.exe. È più semplice consentire l'intero programma di latte.exe in base al nome, anziché consentire porte TCP specifiche in ingresso.
+Nel *ricevitore* creare una regola di accesso in Windows Defender Firewall per consentire l'arrivo del traffico latte.exe. È più semplice consentire l'intero programma di latte.exe in base al nome, anziché consentire porte TCP specifiche in ingresso.
 
 Consentire latte.exe tramite Windows Defender Firewall eseguendo il comando seguente:
 
@@ -105,13 +105,13 @@ Se, ad esempio, si è copiato latte.exe nella cartella *c:\Tools* , il comando s
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* Sul *mittente*avviare latte.exe (eseguirlo dalla finestra cmd, non da PowerShell):
+* Sul *mittente* avviare latte.exe (eseguirlo dalla finestra cmd, non da PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Il comando risultante è identico a quello del ricevitore, eccetto con l'aggiunta di &nbsp; *-c* per indicare che si tratta del *client*o del *mittente*:
+    Il comando risultante è identico a quello del ricevitore, eccetto con l'aggiunta di &nbsp; *-c* per indicare che si tratta del *client* o del *mittente*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 
@@ -200,7 +200,7 @@ Questo esempio di SockPerf usa una dimensione del messaggio di 350 byte, che è 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Migliorare la latenza con un [gruppo di posizionamento di prossimità di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location).
+* Migliorare la latenza con un [gruppo di posizionamento di prossimità di Azure](../virtual-machines/co-location.md).
 * Informazioni su come [ottimizzare la rete per le macchine virtuali](../virtual-network/virtual-network-optimize-network-bandwidth.md) per lo scenario.
 * Leggere le informazioni sull' [allocazione della larghezza di banda alle macchine virtuali](../virtual-network/virtual-machine-network-throughput.md).
 * Per altre informazioni, vedere [domande frequenti sulla rete virtuale di Azure](../virtual-network/virtual-networks-faq.md).

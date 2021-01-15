@@ -6,18 +6,18 @@ ms.service: virtual-network
 ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
-ms.openlocfilehash: a22dc6dc0c4fc199d3f262b18aeeae5090a06dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11b0260eb6c1f5edfb246dcf97a43bdd874bf337
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689317"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217278"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Spostare il gruppo di sicurezza di rete di Azure (NSG) in un'altra area usando il portale di Azure
 
 Esistono diversi scenari in cui si vuole spostare il gruppi esistente da un'area a un'altra. Ad esempio, è possibile creare un NSG con le stesse regole di configurazione e sicurezza per il test. Potrebbe anche essere necessario spostare un NSG in un'altra area nell'ambito della pianificazione del ripristino di emergenza.
 
-I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare le regole di sicurezza e configurazione esistenti di un NSG.  È quindi possibile organizzare la risorsa in un'altra area esportando il NSG in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra. È tuttavia possibile usare un modello di Azure Resource Manager per esportare le regole di sicurezza e configurazione esistenti di un NSG.  È quindi possibile organizzare la risorsa in un'altra area esportando il NSG in un modello, modificando i parametri in modo che corrispondano all'area di destinazione e quindi distribuire il modello nella nuova area.  Per altre informazioni su Resource Manager e sui modelli, vedere [Avvio rapido: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -32,7 +32,7 @@ I gruppi di sicurezza di Azure non possono essere spostati da un'area all'altra.
 
 - Verificare che la sottoscrizione di Azure consenta di creare gruppi nell'area di destinazione usata. Contattare il supporto tecnico per abilitare la quota necessaria.
 
-- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di gruppi per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Assicurarsi che la sottoscrizione disponga di risorse sufficienti per supportare l'aggiunta di gruppi per questo processo.  Vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Preparazione e spostamento
@@ -41,7 +41,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Esportare il modello e distribuirlo dal portale
 
-1. Accedere ai [Azure portal](https://portal.azure.com)  >  **gruppi di risorse**portale di Azure.
+1. Accedere ai [](https://portal.azure.com)  >  **gruppi di risorse** portale di Azure.
 2. Individuare il gruppo di risorse che contiene il NSG di origine e fare clic su di esso.
 3. Selezionare > **Impostazioni**  >  **Esporta modello**.
 4. Scegliere **Distribuisci** nel pannello **Esporta modello** .
@@ -84,7 +84,7 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
     ```
 
-11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti**centrali  =  **centralus**.
+11. Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  .
 
 12. Se lo si desidera, è anche possibile modificare altri parametri nel modello, che sono facoltativi in base ai requisiti:
 
@@ -153,11 +153,11 @@ I passaggi seguenti illustrano come preparare il gruppo di sicurezza di rete per
 
 13. Fare clic su **Salva** nell'editor online.
 
-14. Fare **BASICS**clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuita la NSG di destinazione.
+14. Fare clic su  >  **sottoscrizione** di base per scegliere la sottoscrizione in cui verrà distribuita la NSG di destinazione.
 
-15. Fare **BASICS**clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente.
+15. Fare clic su  >  **gruppo di risorse** nozioni di base per scegliere il gruppo di risorse in cui verrà distribuito il NSG di destinazione.  È possibile fare clic su **Crea nuovo** per creare un nuovo gruppo di risorse per il NSG di destinazione.  Verificare che il nome non sia uguale al gruppo di risorse di origine del NSG esistente.
 
-16. Il percorso di **base**della verifica  >  **Location** è impostato sul percorso di destinazione in cui si desidera distribuire il NSG.
+16. Il percorso di **base** della verifica  >   è impostato sul percorso di destinazione in cui si desidera distribuire il NSG.
 
 17. Verificare in **Impostazioni** che il nome corrisponda al nome immesso nell'editor di parametri precedente.
 
@@ -178,5 +178,5 @@ Per eseguire il commit delle modifiche e completare lo spostamento del NSG, elim
 In questa esercitazione è stato spostato un gruppo di sicurezza di rete di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../site-recovery/azure-to-azure-tutorial-migrate.md)

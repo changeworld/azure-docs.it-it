@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: eb94b67b026ed108f31f6cd802010577665ec0d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ece3e639e0ef3516696e2a0bad7deeb833433a6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87286088"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219199"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Risoluzione dei problemi di connettività tra macchine virtuali di Azure
 
@@ -49,7 +49,7 @@ Seguire questa procedura per risolvere il problema. Dopo avere completato ogni p
 
 ### <a name="step-1-check-whether-nic-is-misconfigured"></a>Passaggio 1: Controllare che NIC sia configurato correttamente
 
-Seguire i passaggi illustrati in [Come reimpostare l'interfaccia di rete per la VM Windows Azure](../virtual-machines/windows/reset-network-interface.md). 
+Seguire i passaggi illustrati in [Come reimpostare l'interfaccia di rete per la VM Windows Azure](../virtual-machines/troubleshooting/reset-network-interface.md). 
 
 Se il problema si verifica dopo aver modificato l'interfaccia di rete, procedere come segue:
 
@@ -62,8 +62,8 @@ Per altre informazioni, vedere [Aggiungere o rimuovere interfacce di rete da mac
 
 **Macchina virtuale con una sola scheda di rete** 
 
-- [Ridistribuire una VM Windows](../virtual-machines/windows/redeploy-to-new-node.md)
-- [Ridistribuire una VM Linux](../virtual-machines/linux/redeploy-to-new-node.md)
+- [Ridistribuire una VM Windows](../virtual-machines/troubleshooting/redeploy-to-new-node-windows.md)
+- [Ridistribuire una VM Linux](../virtual-machines/troubleshooting/redeploy-to-new-node-linux.md)
 
 ### <a name="step-2-check-whether-network-traffic-is-blocked-by-nsg-or-udr"></a>Passaggio 2: Controllare se il traffico è bloccato dal gruppo di sicurezza di rete o UDR
 
@@ -103,7 +103,7 @@ Un elenco di controllo di accesso offre la possibilità di consentire o negare i
 
 ### <a name="step-7-check-whether-the-endpoint-is-created-for-the-classic-vm"></a>Passaggio 7: Controllare che l'endpoint per la macchina virtuale classica sia stato creato
 
-Tutte le macchine virtuali create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in altre reti virtuali richiedono degli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale. Per altre informazioni, vedere [Come configurare gli endpoint](../virtual-machines/windows/classic/setup-endpoints.md).
+Tutte le macchine virtuali create in Azure con il modello di distribuzione classico possono comunicare automaticamente mediante un canale di rete privato con altre macchine virtuali dello stesso servizio cloud o nella stessa rete virtuale. Tuttavia, i computer in altre reti virtuali richiedono degli endpoint per indirizzare il traffico di rete in ingresso a una macchina virtuale. Per altre informazioni, vedere [Come configurare gli endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Passaggio 8: Provare a connettersi a una condivisione di rete della macchina virtuale
 

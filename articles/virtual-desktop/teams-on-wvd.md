@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 85026092e513ecc9ec3c23e292a416297774a2e4
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505547"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217839"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
 >[!IMPORTANT]
->L'ottimizzazione dei supporti per i team è supportata per gli ambienti Microsoft 365 Government (GCC). L'ottimizzazione dei supporti per i team non è supportata per GCC-High o DoD.
+>L'ottimizzazione dei supporti per i team è supportata per gli ambienti Microsoft 365 Government (GCC) e GCC-High. L'ottimizzazione dei supporti per i team non è supportata per GCC-High o DoD.
 
 >[!NOTE]
 >L'ottimizzazione dei supporti per Microsoft teams è disponibile solo per il client desktop di Windows nei computer Windows 10. Per le ottimizzazioni dei supporti è necessario Windows desktop client versione 1.2.1026.0 o successiva.
@@ -45,7 +45,7 @@ Per abilitare l'ottimizzazione dei supporti per i team, impostare la seguente ch
 
 2. Creare il valore seguente per la chiave teams:
 
-| Nome             | Tipo   | Dati/valore  |
+| Nome             | Type   | Dati/valore  |
 |------------------|--------|-------------|
 | IsWVDEnvironment | DWORD  | 1           |
 
@@ -120,15 +120,15 @@ Dopo aver installato il servizio WebSocket e l'app desktop teams, attenersi alla
 
 3. Selezionare la **versione**.
 
-      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi** , chiudere l'app teams e riprovare.
+      Se le ottimizzazioni dei supporti sono state caricate, il banner visualizzerà **Wvd media optimized**. Se il banner mostra che i **supporti Wvd non sono connessi**, chiudere l'app teams e riprovare.
 
 4. Selezionare l'immagine del profilo utente e quindi selezionare **Impostazioni**.
 
-      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto** , chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le **Settings**  >  **Privacy**  >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano **On** attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
+      Se le ottimizzazioni del supporto sono state caricate, i dispositivi audio e le fotocamere disponibili localmente verranno enumerati nel menu dispositivo. Se il menu Mostra **audio remoto**, chiudere l'app teams e riprovare. Se i dispositivi non vengono ancora visualizzati nel menu, verificare le impostazioni di privacy nel PC locale. Verificare che le   >    >  **autorizzazioni** per l'app privacy dell'impostazione **Consenti alle app di accedere al microfono** siano attivate. Disconnettersi dalla sessione remota, quindi riconnettersi e controllare di nuovo i dispositivi audio e video. Per partecipare a chiamate e riunioni con video, è inoltre necessario concedere l'autorizzazione per l'accesso delle app alla fotocamera.
 
       Se le ottimizzazioni non vengono caricate, disinstallare e reinstallare i team e verificare di nuovo.
 
-## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
 L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team in un ambiente non virtualizzato. Per ulteriori informazioni sulle limitazioni dei team negli ambienti virtualizzati, consultare i [team per l'infrastruttura desktop virtualizzata](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
 
@@ -140,7 +140,7 @@ L'utilizzo di team in un ambiente virtualizzato è diverso dall'utilizzo di team
 
 ### <a name="calls-and-meetings"></a>Chiamate e riunioni
 
-- Il client desktop dei team negli ambienti desktop virtuali Windows non supporta gli eventi live. Per il momento, è consigliabile unire gli eventi live dal [client Web teams](https://teams.microsoft.com) nella sessione remota.
+- Il client desktop dei team negli ambienti desktop virtuali Windows non supporta la creazione di eventi live, ma è possibile partecipare a eventi live. Per il momento, è consigliabile creare eventi live dal [client Web teams](https://teams.microsoft.com) nella sessione remota.
 - Le chiamate o le riunioni non supportano attualmente la condivisione delle applicazioni. Le sessioni desktop supportano la condivisione desktop.
 - Dare al controllo e assumere il controllo non sono attualmente supportati.
 - I team nel desktop virtuale Windows supportano solo un input video in entrata alla volta. Ciò significa che ogni volta che un utente tenta di condividere lo schermo, viene visualizzata la schermata invece della schermata del leader della riunione.

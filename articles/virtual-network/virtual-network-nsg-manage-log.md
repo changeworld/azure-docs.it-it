@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d06c251ce16aff56a3645f5032cce4e27d5fc9e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89319441"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216887"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registrazione delle risorse per un gruppo di sicurezza di rete
 
@@ -26,7 +26,7 @@ Quando si Abilita la registrazione per un NSG, è possibile raccogliere i tipi d
 * **Evento:** vengono registrate voci relative alle regole dei gruppi di sicurezza di rete applicate alle macchine virtuali in base all'indirizzo MAC.
 * **Contenitore di regole:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico. Lo stato di queste regole viene raccolto ogni 300 secondi.
 
-I log delle risorse sono disponibili solo per gruppi distribuiti tramite il modello di distribuzione Azure Resource Manager. Non è possibile abilitare la registrazione delle risorse per gruppi distribuite tramite il modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sui modelli di distribuzione di Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+I log delle risorse sono disponibili solo per gruppi distribuiti tramite il modello di distribuzione Azure Resource Manager. Non è possibile abilitare la registrazione delle risorse per gruppi distribuite tramite il modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 La registrazione delle risorse è abilitata separatamente per *ogni* NSG di cui si vogliono raccogliere i dati di diagnostica. Se invece si è interessati ai log attività (operativi), vedere [registrazione attività](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)di Azure.
 
@@ -87,7 +87,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Se si vogliono registrare i dati solo per una categoria o l'altra, anziché entrambe, aggiungere l'opzione `-Categories` al comando precedente, seguita da *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se si vogliono registrare i dati solo per una categoria o l'altra, anziché entrambe, aggiungere l'opzione `-Categories` al comando precedente, seguita da *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
 
@@ -122,16 +122,16 @@ az monitor diagnostic-settings create \
 
 Se non si dispone di un'area di lavoro, è possibile crearne una usando il [portale di Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Esistono due categorie di registrazione per cui è possibile abilitare i log.
 
-Per registrare i dati di una sola categoria, rimuovere la categoria per la quale non si vogliono registrare i dati nel comando precedente. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Per registrare i dati di una sola categoria, rimuovere la categoria per la quale non si vogliono registrare i dati nel comando precedente. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro Log Analytics, usare i parametri appropriati per un [account di archiviazione](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) di Azure oppure per [Hub eventi](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
 
 ## <a name="log-destinations"></a>Destinazioni dei log
 
 I dati di diagnostica possono essere:
-- [Scritti in un account di archiviazione di Azure](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
-- [Trasmessi in streaming a un hub eventi](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
-- [Scritto nei log di monitoraggio di Azure](../azure-monitor/platform/resource-logs-collect-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- [Scritti in un account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
+- [Trasmessi in streaming a un hub eventi](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
+- [Scritto nei log di monitoraggio di Azure](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
 
 ## <a name="log-categories"></a>Categorie di log
 

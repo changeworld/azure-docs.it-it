@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 5581a4c43f0b78dc8c14c44bfb1ded371a925fd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88706031"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218910"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Creare, modificare o eliminare una rete virtuale
 
@@ -37,7 +37,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-1. Selezionare **+ Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
+1. Selezionare **+ Crea una risorsa**  >    >  **rete rete virtuale**.
 2. Immettere o selezionare i valori per le impostazioni seguenti e quindi selezionare **Crea**:
    - **Nome**: il nome deve essere univoco nell'ambito del [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) selezionato per la creazione della rete virtuale al suo interno. Dopo la creazione della rete virtuale non è possibile modificarne il nome. È possibile creare più reti virtuali in momenti diversi. Per alcuni suggerimenti sull'assegnazione del nome, vedere [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) (Convenzioni di denominazione). Il rispetto di una convenzione di denominazione consente una gestione più semplice di più reti virtuali.
    - **Spazio indirizzi**: lo spazio indirizzi per una rete virtuale è costituito da uno o più intervalli di indirizzi non sovrapposti, specificati con la notazione CIDR. L'intervallo di indirizzi definito può essere pubblico o privato (RFC 1918). Indipendentemente dalla sua definizione come pubblico o privato, l'intervallo di indirizzi è raggiungibile solo all'interno della rete virtuale, da reti virtuali interconnesse e da eventuali reti locali connesse alla rete virtuale. Non è possibile aggiungere gli intervalli di indirizzi seguenti:
@@ -56,7 +56,7 @@ Prima di completare i passaggi di qualsiasi sezione di questo articolo, eseguire
      - **Nome subnet**: il nome della subnet deve essere univoco all'interno della rete virtuale. Dopo la creazione della subnet non è possibile modificarne il nome. Al momento della creazione di una rete virtuale il portale richiede la definizione di una subnet, anche se una rete virtuale non deve necessariamente avere una o più subnet. Quando si crea una rete virtuale nel portale, è possibile definire una sola subnet. Dopo la creazione della rete virtuale è possibile aggiungerne altre. Per aggiungere una subnet a una rete virtuale, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md). Per creare una rete virtuale con più subnet, è possibile usare l'interfaccia della riga di comando di Azure o PowerShell.
 
        >[!TIP]
-       >Talvolta gli amministratori creano subnet diverse per filtrare o controllare il routing del traffico tra queste. Prima di definire le subnet, tenere conto dell'eventuale necessità di filtrare e instradare il traffico tra le subnet stesse. Per altre informazioni sull'applicazione di filtri al traffico tra le subnet, vedere [Gruppi di sicurezza di rete](security-overview.md). Azure effettua il routing automatico del traffico tra le subnet. È tuttavia possibile eseguire l'override delle route predefinite di Azure. Per altre informazioni sul routing del traffico delle subnet predefinito, vedere [Routing del traffico di rete virtuale](virtual-networks-udr-overview.md).
+       >Talvolta gli amministratori creano subnet diverse per filtrare o controllare il routing del traffico tra queste. Prima di definire le subnet, tenere conto dell'eventuale necessità di filtrare e instradare il traffico tra le subnet stesse. Per altre informazioni sull'applicazione di filtri al traffico tra le subnet, vedere [Gruppi di sicurezza di rete](./network-security-groups-overview.md). Azure effettua il routing automatico del traffico tra le subnet. È tuttavia possibile eseguire l'override delle route predefinite di Azure. Per altre informazioni sul routing del traffico delle subnet predefinito, vedere [Routing del traffico di rete virtuale](virtual-networks-udr-overview.md).
        >
 
      - **Intervallo di indirizzi subnet**: l'intervallo deve essere compreso nello spazio indirizzi immesso in precedenza per la rete virtuale. L'intervallo più piccolo che è possibile specificare è /29, che fornisce otto indirizzi IP per subnet. Azure riserva il primo e l'ultimo indirizzo in ogni subnet per conformità al protocollo. Altri tre indirizzi sono riservati per l'uso da parte del servizio di Azure. Di conseguenza, una rete virtuale con un intervallo di indirizzi di subnet /29 ha solo tre indirizzi IP utilizzabili. Se si prevede di connettere una rete virtuale a un gateway VPN, è necessario creare una subnet per il gateway. Altre informazioni su [considerazioni specifiche sugli intervalli di indirizzi per le subnet di gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Dopo aver creato la subnet, in determinate condizioni è possibile modificare l'intervallo di indirizzi. Per informazioni su come modificare un intervallo di indirizzi della subnet, vedere [Aggiungere, modificare o eliminare le subnet di rete virtuale](virtual-network-manage-subnet.md).
@@ -121,7 +121,7 @@ Per aggiungere o rimuovere un intervallo di indirizzi:
 3. Fare clic su **Spazio indirizzi** in **Impostazioni**.
 4. Compilare le informazioni per una delle opzioni seguenti:
     - **Add an address range** (Aggiungere un intervallo di indirizzi): immettere il nuovo intervallo di indirizzi. L'intervallo di indirizzi non può sovrapporsi a un intervallo di indirizzi esistente definito per la rete virtuale.
-    - **Remove an address range** (Rimuovere un intervallo di indirizzi): a destra dell'intervallo di indirizzi da rimuovere, selezionare **... ** e quindi selezionare **Rimuovi**. Se è presente una subnet nell'intervallo di indirizzi, non è possibile rimuoverlo. Prima di rimuovere un intervallo di indirizzi è necessario eliminare tutte le subnet presenti nell'intervallo e le eventuali risorse nelle subnet.
+    - **Remove an address range** (Rimuovere un intervallo di indirizzi): a destra dell'intervallo di indirizzi da rimuovere, selezionare **...** e quindi selezionare **Rimuovi**. Se è presente una subnet nell'intervallo di indirizzi, non è possibile rimuoverlo. Prima di rimuovere un intervallo di indirizzi è necessario eliminare tutte le subnet presenti nell'intervallo e le eventuali risorse nelle subnet.
 5. Selezionare **Salva**.
 
 **Comandi**
@@ -135,10 +135,10 @@ Tutte le macchine virtuali connesse alla rete virtuale vengono registrate presso
 
 1. Nella casella di ricerca nella parte superiore del portale immettere *reti virtuali*. Selezionare **Reti virtuali** quando viene visualizzato nei risultati della ricerca.
 2. Nell'elenco delle reti virtuali selezionare la rete virtuale per cui si vogliono modificare i server DNS.
-3. Selezionare **server DNS**in **Impostazioni**.
+3. Selezionare **server DNS** in **Impostazioni**.
 4. Selezionare una delle opzioni seguenti:
    - **Predefinito (fornito da Azure)**: tutti i nomi delle risorse e gli indirizzi IP privati vengono registrati automaticamente presso i server DNS di Azure. È possibile risolvere i nomi tra tutte le risorse connesse alla stessa rete virtuale. Non è possibile usare questa opzione per la risoluzione dei nomi tra reti virtuali diverse. Per risolvere i nomi tra reti virtuali diverse è necessario usare un server DNS personalizzato.
-   - **Personalizzato**: è possibile aggiungere uno o più server, fino al limite di Azure per le reti virtuali. Per altre informazioni sui limiti dei server DNS, vedere i [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Sono disponibili le opzioni seguenti:
+   - **Personalizzato**: è possibile aggiungere uno o più server, fino al limite di Azure per le reti virtuali. Per altre informazioni sui limiti dei server DNS, vedere i [limiti di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Sono disponibili le seguenti opzioni:
    - **Aggiungere un indirizzo**: consente di aggiungere un server all'elenco dei server DNS della rete virtuale. Questa opzione consente anche di registrare il server DNS in Azure. Se un server DNS è già stato registrato in Azure, è possibile selezionarlo nell'elenco.
    - **Rimuovere un indirizzo**: accanto al server che si vuole rimuovere selezionare **...** e quindi **Rimuovi**. Questa operazione rimuove il server solo dall'elenco della rete virtuale attiva. Il server DNS resta registrato in Azure in modo che venga usato dalle altre reti virtuali.
    - **Riordinare gli indirizzi dei server DNS**: è importante verificare che siano elencati nell'ordine corretto per l'ambiente. Gli elenchi di server DNS vengono usati nell'ordine in cui sono specificati e non rappresentano una configurazione di tipo round robin. Se il primo server DNS nell'elenco è raggiungibile, il client lo usa, indipendentemente dal fatto che funzioni correttamente o meno. Rimuovere tutti i server DNS elencati e quindi aggiungerli di nuovo nell'ordine desiderato.
@@ -179,4 +179,4 @@ Per eseguire attività nelle reti virtuali, l'account deve essere assegnato al r
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Creare una rete virtuale usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
-- Creare e assegnare [definizioni di criteri di Azure](policy-samples.md) per le reti virtuali
+- Creare e assegnare [definizioni di criteri di Azure](./policy-reference.md) per le reti virtuali

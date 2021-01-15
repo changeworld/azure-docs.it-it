@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 3cf7b069d6f010a4461b22c5326589ad3ec31204
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0b0e26262f75ba8030188a2bffbce8282b38bca8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186261"
+ms.locfileid: "98219641"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS nel servizio Azure Kubernetes
 
@@ -262,7 +262,7 @@ kubectl apply -f aks-helloworld-two.yaml --namespace ingress-basic
 
 Entrambe le applicazioni sono in esecuzione nel cluster Kubernetes. Tuttavia, sono configurati con un servizio di tipo `ClusterIP` e non sono accessibili da Internet. Per renderle disponibili pubblicamente, creare una risorsa di ingresso Kubernetes. La risorsa di ingresso configura le regole che instradano il traffico a una delle due applicazioni.
 
-Nell'esempio seguente, il traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN* viene indirizzato al servizio *AKS-HelloWorld* . Traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* viene indirizzato al servizio *AKS-HelloWorld-Two* . Traffico verso *Hello-World-ingress. MY_CUSTOM_DOMAIN/routing statico* viene indirizzato al servizio denominato *AKS-HelloWorld* per gli asset statici.
+Nell'esempio seguente, il traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN* viene indirizzato al servizio *AKS-HelloWorld-One* . Traffico verso l'indirizzo *Hello-World-ingress. MY_CUSTOM_DOMAIN/Hello-World-Two* viene indirizzato al servizio *AKS-HelloWorld-Two* . Traffico verso *Hello-World-ingress. MY_CUSTOM_DOMAIN/routing statico* viene indirizzato al servizio denominato *AKS-HelloWorld-One* per gli asset statici.
 
 > [!NOTE]
 > Se è stato configurato un FQDN per l'indirizzo IP del controller di ingresso anziché un dominio personalizzato, usare il nome di dominio completo anziché *Hello-World-ingress. MY_CUSTOM_DOMAIN*. Se, ad esempio, il nome di dominio completo è *demo-AKS-ingress.eastus.cloudapp.Azure.com*, sostituire *Hello-World-ingress. MY_CUSTOM_DOMAIN* con *demo-AKS-ingress.eastus.cloudapp.Azure.com* in `hello-world-ingress.yaml` .

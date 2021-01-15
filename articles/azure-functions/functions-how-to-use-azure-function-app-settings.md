@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 2526fd60d6e07ecf43864945f2b05858b41ca567
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035207"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217363"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -19,11 +19,6 @@ In Funzioni di Azure un'app per le funzioni fornisce il contesto di esecuzione p
 Le singole funzioni in un'app per le funzioni vengono distribuite insieme e vengono ridimensionate insieme. Tutte le funzioni nella stessa app per le funzioni condividono le risorse, per ogni istanza, di ridimensionamento dell'app per le funzioni. 
 
 Le stringhe di connessione, le variabili di ambiente e altre impostazioni dell'applicazione sono definite separatamente per ogni app per le funzioni. Tutti i dati che devono essere condivisi tra app per le funzioni devono essere archiviati esternamente in un archivio permanente.
-
-Questo articolo descrive come configurare e gestire le app per le funzioni. 
-
-> [!TIP]  
-> Molte opzioni di configurazione possono essere gestite anche tramite l' [interfaccia]della riga di comando di Azure. 
 
 ## <a name="get-started-in-the-azure-portal"></a>Attività iniziali nel portale di Azure
 
@@ -37,15 +32,17 @@ Questo articolo descrive come configurare e gestire le app per le funzioni.
 
 ## <a name="work-with-application-settings"></a><a name="settings"></a>Usare le impostazioni dell'applicazione
 
-La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. Queste impostazioni vengono archiviate crittografate ed è necessario selezionare **Mostra valori** per visualizzare i valori nel portale. È anche possibile accedere alle impostazioni dell'applicazione usando l'interfaccia della riga di comando di Azure.
+Le impostazioni dell'applicazione possono essere gestite dal [portale di Azure](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) e usando l' [interfaccia](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) della riga di comando di Azure e [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). È anche possibile gestire le impostazioni dell'applicazione da [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) e da [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
-### <a name="portal"></a>Portale
+Queste impostazioni vengono archiviate crittografate. Per altre informazioni, vedere [sicurezza delle impostazioni dell'applicazione](security-concepts.md#application-settings).
 
-Per aggiungere un'impostazione nel portale, selezionare **nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
+# <a name="portal"></a>[Portale](#tab/portal)
+
+La scheda **Impostazioni applicazione** mantiene le impostazioni usate dall'app per le funzioni. È necessario selezionare **Mostra valori** per visualizzare i valori nel portale. Per aggiungere un'impostazione nel portale, selezionare **nuova impostazione applicazione** e aggiungere la nuova coppia chiave-valore.
 
 ![Impostazioni dell'app per le funzioni nella portale di Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
 Il [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-list) comando restituisce le impostazioni dell'applicazione esistenti, come nell'esempio seguente:
 
@@ -62,6 +59,22 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --resource-group <RESOURCE_GROUP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Il [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet restituisce le impostazioni dell'applicazione esistenti, come nell'esempio seguente: 
+
+```azurepowershell-interactive
+Get-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+```
+
+Il [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfunctionappsetting) comando aggiunge o aggiorna un'impostazione dell'applicazione. Nell'esempio seguente viene creata un'impostazione con una chiave denominata `CUSTOM_FUNCTION_APP_SETTING` e un valore `12345` :
+
+```azurepowershell-interactive
+Update-AzFunctionAppSetting -Name <FUNCTION_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME> -AppSetting @{"CUSTOM_FUNCTION_APP_SETTING" = "12345"}
+```
+
+---
 
 ### <a name="use-application-settings"></a>Usare le impostazioni dell'applicazione
 

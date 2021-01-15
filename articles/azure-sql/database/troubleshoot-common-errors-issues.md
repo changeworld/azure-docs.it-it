@@ -9,13 +9,13 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
-ms.date: 01/14/2020
-ms.openlocfilehash: bcf11ef9b64a02383aad5175c19c5db58c3c39cf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/14/2021
+ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791342"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219063"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Risoluzione dei problemi di connettività e di altri errori con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,11 +24,11 @@ Si ricevono messaggi di errore quando la connessione al database SQL di Azure o 
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messaggi di errore temporanei di errore (40197, 40613 e altri)
 
-L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quando si verificano carichi di lavoro intensi nel servizio del database SQL.  Questo comportamento dinamico potrebbe causare la perdita della connessione del programma client al database o all'istanza. Questo tipo di errore è chiamato *errore temporaneo* . Gli eventi di riconfigurazione del database avvengono in seguito a eventi pianificati (ad esempio nel caso degli aggiornamenti software) o non pianificati (ad esempio per l'arresto anomalo di un processo o per il bilanciamento del carico). La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata. La tabella seguente elenca diversi errori temporanei che le applicazioni possono ricevere durante la connessione al database SQL
+L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quando si verificano carichi di lavoro intensi nel servizio del database SQL.  Questo comportamento dinamico potrebbe causare la perdita della connessione del programma client al database o all'istanza. Questo tipo di errore è chiamato *errore temporaneo*. Gli eventi di riconfigurazione del database avvengono in seguito a eventi pianificati (ad esempio nel caso degli aggiornamenti software) o non pianificati (ad esempio per l'arresto anomalo di un processo o per il bilanciamento del carico). La maggior parte degli eventi di riconfigurazione è di breve durata e deve essere completata in meno di 60 secondi al massimo. Tuttavia, il completamento di questi eventi in alcuni casi può richiedere più tempo, ad esempio quando una transazione di grandi dimensioni provoca un ripristino a esecuzione prolungata. La tabella seguente elenca diversi errori temporanei che le applicazioni possono ricevere durante la connessione al database SQL
 
 ### <a name="list-of-transient-fault-error-codes"></a>Elenco di codici di errore di errore temporanei
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. Per ulteriori informazioni, vedere gli [errori 4000 in 4999](/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>La riconnessione si connette automaticamente a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. Per ulteriori informazioni, vedere [errori temporanei](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -119,19 +119,19 @@ In genere, l'amministratore del servizio può utilizzare la procedura seguente p
 4. Se il nome utente dell'account di accesso SQL non esiste, crearlo attenendosi alla procedura seguente:
 
    1. In SSMS fare doppio clic su **sicurezza** per espanderla.
-   2. Fare clic con il pulsante destro del mouse su **accessi** , quindi scegliere **nuovo account di accesso** .
+   2. Fare clic con il pulsante destro del mouse su **accessi**, quindi scegliere **nuovo account di accesso**.
    3. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = ‘<password, sysname, Change_Password>’
+   WITH PASSWORD = '<password, sysname, Change_Password>'
    GO
    ```
 
-5. Fare doppio clic su **database** .
+5. Fare doppio clic su **database**.
 6. Selezionare il database a cui si desidera concedere l'autorizzazione utente.
-7. Fare doppio clic su **sicurezza** .
-8. Fare clic con il pulsante destro del mouse su **utenti** e quindi scegliere **nuovo utente** .
+7. Fare doppio clic su **sicurezza**.
+8. Fare clic con il pulsante destro del mouse su **utenti** e quindi scegliere **nuovo utente**.
 9. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
 
    ```sql
@@ -141,7 +141,7 @@ In genere, l'amministratore del servizio può utilizzare la procedura seguente p
    GO
    -- Add user to the database owner role
 
-   EXEC sp_addrolemember N’db_owner’, N’<user_name, sysname, user_name>’
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
    GO
    ```
 
@@ -183,22 +183,20 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
 - Verificare se sono presenti query con esecuzione prolungata.
 
   > [!NOTE]
-  > Si tratta di un approccio minimalista che potrebbe non risolvere il problema.
+  > Si tratta di un approccio minimalista che potrebbe non risolvere il problema. Per informazioni dettagliate sulla risoluzione dei problemi relativi al blocco delle query, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
 
 1. Eseguire la query SQL seguente per controllare la visualizzazione [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare tutte le richieste di blocco:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determinare il **buffer di input** per il blocco Head.
 3. Ottimizzare la query del blocco Head.
 
-   Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+   Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
 
 Se il database raggiunge costantemente il limite nonostante l'indirizzamento delle query di blocco e con esecuzione prolungata, provare a eseguire l'aggiornamento a un'edizione con più [edizioni](https://azure.microsoft.com/pricing/details/sql-database/)di risorse.
-
-Per altre informazioni sulle viste a gestione dinamica, vedere [viste a gestione dinamica del sistema](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
 Per ulteriori informazioni sui limiti dei database, vedere  [limiti delle risorse del database SQL per i server](./resource-limits-logical-server.md).
 
@@ -234,7 +232,7 @@ I passaggi seguenti possono essere utili per aggirare il problema o fornire opzi
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
-   ORDER BY [Table Size (MB)] DESC
+   ORDER BY [Table Size (MB)] DESC;
    ```
 
 2. Se le dimensioni correnti non superano le dimensioni massime supportate per l'edizione, è possibile utilizzare ALTER DATABASE per aumentare l'impostazione MAXSIZE.
@@ -253,7 +251,7 @@ Se si verifica ripetutamente questo errore, provare a risolvere il problema atte
 1. Controllare la visualizzazione sys.dm_exec_requests per visualizzare tutte le sessioni aperte con un valore elevato per la colonna total_elapsed_time. Eseguire questo controllo eseguendo lo script SQL seguente:
 
    ```sql
-   SELECT * FROM dm_exec_requests
+   SELECT * FROM sys.dm_exec_requests;
    ```
 
 2. Determinare il buffer di input per la query con esecuzione prolungata.
@@ -296,7 +294,7 @@ Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina 
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabella dei messaggi di errore di governance delle risorse aggiuntivi
 
-| Codice errore | Gravità | Descrizione |
+| Codice di errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](resource-limits-logical-server.md).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). |
 | 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2. Per altre informazioni, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). <br/>In caso contrario, riprovare più tardi. |
@@ -311,7 +309,7 @@ Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina 
 
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
-| Codice errore | Gravità | Descrizione | Azione correttiva |
+| Codice di errore | Gravità | Descrizione | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento dei pool elastici, vedere [ridimensionare le risorse del pool elastico](elastic-pool-scale.md).|
 | 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
@@ -320,7 +318,7 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool ela
 | 40858 | 16 |Il pool elastico '%ls' esiste già nel server: '%ls'. Il pool elastico specificato esiste già nel server specificato. | Fornire un nuovo nome pool elastico. |
 | 40859 | 16 |Il pool elastico non supporta il livello di servizio '%ls'. Il livello di servizio specificato non è supportato per il provisioning del pool elastico. |Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
 | 40860 | 16 |La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. Il pool elastico e il livello di servizio possono essere specificati insieme solo se il tipo di risorsa specificato è 'ElasticPool'. |Specificare la combinazione corretta di pool elastico e livello di servizio. |
-| 40861 | 16 |L'edizione del database "%. *ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.* ls". L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
+| 40861 | 16 |L'edizione del database "%.*ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.* ls". L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
 | 40862 | 16 |Il nome del pool elastico deve essere specificato se viene specificato l'obiettivo di servizio del pool elastico. L’obiettivo di servizio del pool elastico non identifica in modo univoco un pool elastico. |Specificare il nome del pool elastico se si usa l'obiettivo di servizio del pool elastico. |
 | 40864 | 16 |Le DTU per il pool elastico devono essere almeno (%d) DTU per il livello di servizio '%.*ls'. Tentativo di impostare le DTU per il pool elastico al di sotto del limite minimo. |Riprovare a impostare le DTU per il pool elastico almeno al limite minimo. |
 | 40865 | 16 |Le DTU per il pool elastico non possono superare (%d) DTU per il livello di servizio '%.*ls'. Tentativo di impostare le DTU per il pool elastico al di sopra del limite massimo. |Riprovare a impostare le DTU per il pool elastico non oltre il limite massimo. |
@@ -340,8 +338,8 @@ Questo problema si verifica perché l'account non dispone dell'autorizzazione pe
 
 Per risolvere questo problema, seguire questa procedura:
 
-1. Nella schermata di accesso di SSMS selezionare **Opzioni** e quindi selezionare **Proprietà connessione** .
-2. Nel campo **Connetti al database** immettere il nome del database predefinito dell'utente come database di accesso predefinito, quindi selezionare **Connetti** .
+1. Nella schermata di accesso di SSMS selezionare **Opzioni** e quindi selezionare **Proprietà connessione**.
+2. Nel campo **Connetti al database** immettere il nome del database predefinito dell'utente come database di accesso predefinito, quindi selezionare **Connetti**.
 
    ![Proprietà di connessione](./media/troubleshoot-common-errors-issues/cannot-open-database-master.png)
 

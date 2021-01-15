@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 062bd41b0803cbb08f74fbcbcebb89bbddeb0d45
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 4c58968cb6a38a10433915ec8fa00336ccad301e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559804"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216411"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -88,15 +88,13 @@ Quando si stima il costo di una soluzione di ricerca, tenere presente che i prez
 
 ### <a name="bandwidth-charges"></a>Tariffe per la larghezza di banda
 
-L'uso di [indicizzatori](search-indexer-overview.md) può influire sulla fatturazione se l'origine dati di Azure si trova in un'area diversa da Azure ricerca cognitiva. In questo scenario, si tratta di un costo per lo trasferimento dei dati in uscita dall'origine dati di Azure ad Azure ricerca cognitiva. 
+L'uso di [indicizzatori](search-indexer-overview.md) può influire sulla fatturazione se l'origine dati di Azure si trova in un'area diversa da Azure ricerca cognitiva. In questo scenario potrebbe essere previsto un costo per lo trasferimento dei dati in uscita dall'origine dati di Azure ad Azure ricerca cognitiva. Per informazioni dettagliate, vedere le pagine relative ai prezzi della piattaforma dati di Azure in questione.
 
 È possibile eliminare completamente i dati in uscita se si crea il servizio ricerca cognitiva di Azure nella stessa area dei dati. Di seguito sono riportate alcune informazioni della [pagina dei prezzi della larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
-+ Microsoft non prevede alcun addebito per i dati in ingresso per nessun servizio in Azure.
-+ Non è previsto alcun addebito per i dati in uscita da Azure ricerca cognitiva. Ad esempio, se il servizio di ricerca si trova negli Stati Uniti occidentali e un'app Web di Azure si trova negli Stati Uniti orientali, Microsoft non addebita alcun costo per i payload di risposta alle query originati dagli Stati Uniti occidentali.
-+ Nelle soluzioni multiservizio non viene addebitato alcun costo per i dati in transito quando tutti i servizi si trovano nella stessa area.
++ Dati in ingresso: Microsoft non prevede alcun addebito per i dati in ingresso per nessun servizio in Azure. 
 
-Gli addebiti si applicano ai dati in uscita se i servizi si trovano in aree diverse. Questi costi non sono in realtà parte della fattura di Azure ricerca cognitiva. Sono citati qui perché se si usano dati o indicizzatori arricchiti con intelligenza artificiale per eseguire il pull dei dati da diverse aree, si noterà che i costi sono riportati nella fattura complessiva.
++ Dati in uscita: i dati in uscita fanno riferimento ai risultati della query. Ricerca cognitiva non viene addebitato alcun costo per i dati in uscita, ma sono possibili addebiti in uscita da Azure se i servizi si trovano in aree diverse. Questi costi non sono in realtà parte della fattura di Azure ricerca cognitiva. Sono citati qui perché se si inviano risultati ad altre aree o app non di Azure, è possibile che si verifichino i costi riportati nella fattura complessiva.
 
 ### <a name="ai-enrichment-with-cognitive-services"></a>Arricchimento di intelligenza artificiale con servizi cognitivi
 

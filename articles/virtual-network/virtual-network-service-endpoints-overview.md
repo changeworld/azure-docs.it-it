@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004943"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216530"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -33,14 +33,14 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *
 - **[Analisi delle sinapsi di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
 - **[Database di Azure per il server PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per il server MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
-- **[Database di Azure per MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
-- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureCosmosDB*): disponibile a livello generale in tutte le aree di Azure.
+- **[Database di Azure per MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
+- **[Azure Cosmos DB](../cosmos-db/how-to-configure-vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureCosmosDB*): disponibile a livello generale in tutte le aree di Azure.
 - **[Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)** (*Microsoft. Vault*): disponibile a livello generale in tutte le aree di Azure.
 - **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. ServiceBus*): disponibile a livello generale in tutte le aree di Azure.
 - **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): disponibile a livello generale in tutte le aree di Azure.
 - **[Azure Data Lake Store generazione 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile ADLS Gen1.
-- **[Servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile il servizio app.
-- **[Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft. CognitiveServices*): disponibile a livello generale in tutte le aree di Azure in cui sono disponibili servizi cognitivi.
+- **[Servizio app Azure](../app-service/app-service-ip-restrictions.md)** (*Microsoft. Web*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile il servizio app.
+- **[Servizi cognitivi di Azure](../cognitive-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft. CognitiveServices*): disponibile a livello generale in tutte le aree di Azure in cui sono disponibili servizi cognitivi.
 
 **Anteprima pubblica**
 
@@ -98,7 +98,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 - Gruppi di sicurezza di rete (NGS) con gli endpoint di servizio:
   - Per impostazione predefinita, gruppi consente il traffico Internet in uscita e consente anche il traffico dalla VNet ai servizi di Azure. Questo traffico continua a funzionare con gli endpoint del servizio così come sono. 
-  - Se si vuole negare tutto il traffico Internet in uscita e consentire solo il traffico verso servizi di Azure specifici, è possibile usare i [tag di servizio](security-overview.md#service-tags) in gruppi. È possibile specificare i servizi di Azure supportati come destinazione nelle regole NSG e Azure fornisce anche la manutenzione degli indirizzi IP sottostanti ogni tag. Per altre informazioni, vedere [Tag del servizio di Azure per i gruppi di sicurezza di rete](security-overview.md#service-tags). 
+  - Se si vuole negare tutto il traffico Internet in uscita e consentire solo il traffico verso servizi di Azure specifici, è possibile usare i [tag di servizio](./network-security-groups-overview.md#service-tags) in gruppi. È possibile specificare i servizi di Azure supportati come destinazione nelle regole NSG e Azure fornisce anche la manutenzione degli indirizzi IP sottostanti ogni tag. Per altre informazioni, vedere [Tag del servizio di Azure per i gruppi di sicurezza di rete](./network-security-groups-overview.md#service-tags). 
 
 ### <a name="scenarios"></a>Scenari
 
@@ -138,18 +138,18 @@ Alcuni servizi di Azure, ad esempio gli account di archiviazione di Azure, posso
 
 ## <a name="vnet-service-endpoint-policies"></a>Criteri dell'endpoint del servizio VNet 
 
-I criteri dell'endpoint del servizio VNet consentono di filtrare il traffico di rete virtuale ai servizi di Azure. Questo filtro consente solo risorse specifiche del servizio di Azure sugli endpoint di servizio. I criteri degli endpoint di servizio forniscono un controllo granulare dell'accesso per il traffico di rete virtuale verso i servizi di Azure. Per ulteriori informazioni, vedere [criteri di endpoint del servizio rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
+I criteri dell'endpoint del servizio VNet consentono di filtrare il traffico di rete virtuale ai servizi di Azure. Questo filtro consente solo risorse specifiche del servizio di Azure sugli endpoint di servizio. I criteri degli endpoint di servizio forniscono un controllo granulare dell'accesso per il traffico di rete virtuale verso i servizi di Azure. Per ulteriori informazioni, vedere [criteri di endpoint del servizio rete virtuale](./virtual-network-service-endpoint-policies-overview.md).
 
 ## <a name="faqs"></a>Domande frequenti
 
-Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints).
+Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di rete virtuale](./virtual-networks-faq.md#virtual-network-service-endpoints).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare gli endpoint servizio di rete virtuale](tutorial-restrict-network-access-to-resources.md)
+- [Configurare gli endpoint del servizio rete virtuale](tutorial-restrict-network-access-to-resources.md)
 - [Proteggere un account di archiviazione di Azure in una rete virtuale](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un database SQL di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un'analisi delle sinapsi di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integrazione di servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
-- [Criteri degli endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Criteri degli endpoint servizio di rete virtuale](./virtual-network-service-endpoint-policies-overview.md)
 - [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 2f1fe7c25327e8ecab9b450cab167391d8949b0a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008165"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219743"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controllo del codice sorgente in Azure sinapsi Studio
 
@@ -77,7 +77,7 @@ Il riquadro Configurazione Mostra le impostazioni git DevOps di Azure seguenti:
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Usare un tenant di Azure Active Directory diverso
 
-Il repository Azure Repos Git può essere posizionato in un diverso tenant di Azure Active Directory. Per specificare un tenant di Azure AD diverso, è necessario avere autorizzazioni di amministratore per la sottoscrizione di Azure usata. Per altre informazioni, vedere [modificare l'amministratore della sottoscrizione](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator) .
+Il repository Azure Repos Git può essere posizionato in un diverso tenant di Azure Active Directory. Per specificare un tenant di Azure AD diverso, è necessario avere autorizzazioni di amministratore per la sottoscrizione di Azure usata. Per altre informazioni, vedere [modificare l'amministratore della sottoscrizione](../../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator) .
 
 > [!IMPORTANT]
 > Per connettersi a un'altra Azure Active Directory, l'utente che ha eseguito l'accesso deve appartenere a tale Active Directory. 
@@ -86,7 +86,7 @@ Il repository Azure Repos Git può essere posizionato in un diverso tenant di Az
 
 Per usare un account Microsoft personale per l'integrazione con Git, è possibile collegare il repository di Azure personale con l'istanza di Active Directory dell'organizzazione.
 
-1. Aggiungere come guest l'account Microsoft personale all'istanza di Active Directory dell'organizzazione. Per altre informazioni, vedere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](https://docs.microsoft.com/azure/active-directory/external-identities/add-users-administrator).
+1. Aggiungere come guest l'account Microsoft personale all'istanza di Active Directory dell'organizzazione. Per altre informazioni, vedere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](../../active-directory/external-identities/add-users-administrator.md).
 
 2. Accedere al portale di Azure con l'account Microsoft personale. Passare quindi all'istanza di Active Directory dell'organizzazione.
 

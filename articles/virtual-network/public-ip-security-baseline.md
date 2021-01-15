@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8dd49125dc54403328fe53ae1aa0112ab2005501
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d625cb8e0d0fa0f2fff55fbd41818057b7e9cb89
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201128"
+ms.locfileid: "98217652"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Baseline della sicurezza di Azure per IP pubblico di Azure
 
@@ -30,7 +30,7 @@ Per informazioni sul modo in cui l'indirizzo IP pubblico di Azure è completamen
 
 Azure PowerShell o l'interfaccia della riga di comando di Azure può essere usata per cercare o eseguire azioni sulle risorse in base ai tag. 
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md) 
 
 - [Come creare una rete virtuale di Azure](quick-create-portal.md) 
 
@@ -64,7 +64,7 @@ IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le me
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche per le istanze IP pubbliche. Oltre che nel piano di controllo (ad esempio, portale di Azure), l'indirizzo IP pubblico stesso non genera log di controllo. IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure.
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -88,7 +88,7 @@ Usare log attività di Azure per monitorare le configurazioni e rilevare le modi
 
 L'IP pubblico stesso non genera log relativi al traffico di rete diverso dal piano di controllo (ad esempio, portale di Azure).
 
-- [Come visualizzare e recuperare gli eventi del log attività di Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -114,9 +114,9 @@ L'IP pubblico stesso non genera log relativi al traffico di rete diverso dal pia
 
 I ruoli predefiniti di Azure di inventario o di query sono disponibili per determinate risorse tramite strumenti come l'interfaccia della riga di comando di Azure, Azure PowerShell o l'portale di Azure.
 
-- [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -128,7 +128,7 @@ I ruoli predefiniti di Azure di inventario o di query sono disponibili per deter
 
 Abilitare l'accesso just-in-Time usando Azure Active Directory (Azure AD) Privileged Identity Management (PIM) e Azure Resource Manager. 
 
-- [Altre informazioni su Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -164,9 +164,9 @@ Abilitare l'accesso just-in-Time usando Azure Active Directory (Azure AD) Privil
 
 Esaminare e agire Azure AD rilevamento dei rischi per gli avvisi e i report sul comportamento utente rischioso.
 
-- [Come distribuire Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Come distribuire Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Informazioni sui rilevamenti di rischi di Azure AD](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Informazioni sui rilevamenti di rischi di Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -198,7 +198,7 @@ Esaminare e agire Azure AD rilevamento dei rischi per gli avvisi e i report sul 
 
 Usare le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso utente può essere esaminato a intervalli regolari per assicurarsi che gli utenti abbiano approvato e continuato l'accesso.
 
-- [Informazioni sulla creazione di report Azure AD](/azure/active-directory/reports-monitoring/)
+- [Informazioni sulla creazione di report Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -211,7 +211,7 @@ Usare le verifiche di accesso alle identità di Azure per gestire in modo effici
 **Linee guida**: implementare l'integrazione con qualsiasi strumento di Siem/monitoraggio basato sull'accesso alle origini del registro eventi per l'attività di accesso, il controllo e il rischio di Azure Active Directory (Azure ad).
 Semplificare questo processo creando impostazioni di diagnostica per Azure AD account utente e inviando i log di controllo e i log di accesso a un'area di lavoro di Log Analytics. Configurare gli avvisi desiderati nell'area di lavoro Log Analytics. 
 
-- [Come integrare i log attività di Azure con monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Come integrare i log attività di Azure con monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -220,7 +220,7 @@ Semplificare questo processo creando impostazioni di diagnostica per Azure AD ac
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
 
 **Indicazioni**: usare le funzionalità di protezione delle identità Azure Active Directory (Azure ad) per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inserire i dati in Sentinel di Azure per un'analisi più approfondita desiderata e in base ai requisiti aziendali.
-- [Come visualizzare gli accessi a rischio per Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Come visualizzare gli accessi a rischio per Azure AD](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -242,7 +242,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Graph d
 
 - [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -254,7 +254,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Graph d
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -269,11 +269,11 @@ Usare inoltre i criteri di Azure per applicare restrizioni al tipo di risorse ch
 - Tipi di risorse non consentiti
 - Tipi di risorse consentiti
 
-- [Come creare sottoscrizioni di Azure aggiuntive](/azure/billing/billing-create-subscription)
+- [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-- [Come creare gruppi di gestione](/azure/governance/management-groups/create)
+- [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-- [Come creare e usare i tag](/azure/azure-resource-manager/resource-group-using-tags)
+- [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -302,7 +302,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-- [Come negare un tipo di risorsa specifico con Criteri di Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -350,9 +350,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-- [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentazione di Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -408,7 +408,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 - [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md) 
 
-- [Usare tag per organizzare le risorse di Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usare tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -474,5 +474,5 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

@@ -8,16 +8,16 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: f26b54a18ff137575cac208d70e4693c0b9914a8
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572287"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218196"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Come gestire le assegnazioni di ruolo RBAC in sinapsi Studio
 
-Il controllo degli accessi in base al ruolo consente di assegnare autorizzazioni a utenti, gruppi e altre entità di sicurezza per consentire l'accesso e l'uso delle risorse e degli elementi di codice della sinapsi.  [Altre informazioni](./synapse-workspace-synapse-rbac.md)
+Il controllo degli accessi in base al ruolo consente di assegnare autorizzazioni a utenti, gruppi e altre entità di sicurezza per consentire l'accesso e l'uso delle risorse e degli elementi di codice della sinapsi.  [Scopri di più](./synapse-workspace-synapse-rbac.md)
 
 Questo articolo illustra come aggiungere ed eliminare le assegnazioni di ruolo RBAC RBAC.
 
@@ -65,7 +65,7 @@ Per assegnare un ruolo a un ambito con granularità fine, selezionare **elemento
 
 ![Aggiungi assegnazione ruolo elemento area di lavoro-Seleziona tipo di elemento](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-item-type.png) 
 
-Selezionare l' **elemento** specifico da usare come ambito, quindi selezionare il **ruolo** da assegnare dall'elenco a discesa.  Nell'elenco a discesa sono elencati solo i ruoli validi per il tipo di elemento selezionato. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2148306)  
+Selezionare l' **elemento** specifico da usare come ambito, quindi selezionare il **ruolo** da assegnare dall'elenco a discesa.  Nell'elenco a discesa sono elencati solo i ruoli validi per il tipo di elemento selezionato. [Altre informazioni](./synapse-workspace-synapse-rbac.md)  
 
 ![Aggiungi assegnazione ruolo elemento area di lavoro-Seleziona ruolo](./media/how-to-manage-synapse-rbac-role-assignments/access-control-add-workspace-item-assignment-select-role.png) 
  
@@ -81,4 +81,4 @@ Tenere presente che le modifiche apportate alle assegnazioni di ruolo verranno a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Comprendere i ruoli di controllo degli accessi in base al ruolo necessari per eseguire attività comuni](./synapse-workspace-understand-what-role-you-need.md) 
+[Comprendere i ruoli di controllo degli accessi in base al ruolo necessari per eseguire attività comuni](./synapse-workspace-understand-what-role-you-need.md)

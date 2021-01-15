@@ -8,20 +8,20 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 699a7321646167b0a9fb20a77a40999ec33b14f0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9782cce4165487b612c0295dc893d120ed043225
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461341"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218264"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati
 
-In questo articolo viene illustrato come creare un endpoint privato per l'area di lavoro di Azure sinapsi. Per altre informazioni fare riferimento ai [collegamenti e agli endpoint privati](https://docs.microsoft.com/azure/private-link/).
+In questo articolo viene illustrato come creare un endpoint privato per l'area di lavoro di Azure sinapsi. Per altre informazioni fare riferimento ai [collegamenti e agli endpoint privati](../../private-link/index.yml).
 
 ## <a name="step-1-register-network-resource-provider"></a>Passaggio 1: Registrare il provider di risorse di rete
 
-Se non è già stato fatto, registrare il provider di risorse di rete. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Scegliere *Microsoft.Network* dall'elenco dei provider di risorse quando si [esegue la registrazione](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se il provider di risorse di rete è già stato registrato, procedere con il Passaggio 2.
+Se non è già stato fatto, registrare il provider di risorse di rete. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Scegliere *Microsoft.Network* dall'elenco dei provider di risorse quando si [esegue la registrazione](../../azure-resource-manager/management/resource-providers-and-types.md). Se il provider di risorse di rete è già stato registrato, procedere con il Passaggio 2.
 
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Passaggio 2: Aprire l'area di lavoro di Azure Synapse nel portale di Azure
 

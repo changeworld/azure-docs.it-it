@@ -8,24 +8,24 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: edd1549ddabef0ae1ba37150ad75a371ac6e6d85
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 55d1b7171201c962278d7c526528b36848c19449
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94365517"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217890"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Le caratteristiche sono informazioni su azioni e contesto
 
 Il servizio Personalizza esperienze funziona identificando i contenuti che l'applicazione dovrà mostrare agli utenti in un determinato contesto.
 
-Personalizza esperienze usa le **caratteristiche** , ossia informazioni sul **contesto corrente** per scegliere l' **azione** ottimale. Le caratteristiche rappresentano tutte le informazioni che si ritiene sarebbe utile personalizzare per ottenere ricompense più alte. Possono essere molto generiche o specifiche di un elemento. 
+Personalizza esperienze usa le **caratteristiche**, ossia informazioni sul **contesto corrente** per scegliere l'**azione** ottimale. Le caratteristiche rappresentano tutte le informazioni che si ritiene sarebbe utile personalizzare per ottenere ricompense più alte. Possono essere molto generiche o specifiche di un elemento. 
 
 Ad esempio, una **caratteristica** potrebbe riguardare:
 
 * _Persona utente_ , ad esempio `Sports_Shopper` . Questo non deve essere un ID utente singolo. 
-* Il _contenuto_ , ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
-* Il periodo di tempo _corrente_ , ad esempio il giorno della settimana.
+* Il _contenuto_, ad esempio se un video è di tipo `Documentary`, `Movie` o `TV Series` oppure se un articolo è o meno disponibile per la vendita nel negozio.
+* Il periodo di tempo _corrente_, ad esempio il giorno della settimana.
 
 Il Personalizzatore non prescrive, limita o corregge le funzionalità che è possibile inviare per le azioni e il contesto:
 
@@ -37,12 +37,12 @@ Il Personalizzatore non prescrive, limita o corregge le funzionalità che è pos
 
 ## <a name="supported-feature-types"></a>Tipi di caratteristiche supportate
 
-Personalizza esperienze supporta caratteristiche di tipo stringa, numerico e booleano.
+Personalizza esperienze supporta caratteristiche di tipo stringa, numerico e booleano. È molto probabile che l'applicazione usi principalmente le funzionalità di stringa, con alcune eccezioni.
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Effetti della scelta del tipo di funzionalità sui Machine Learning in personalizzatore
 
-* **Stringhe** : per i tipi di stringa, ogni combinazione di chiave e valore crea nuovi pesi nel modello di apprendimento automatico di personalizzazione. 
-* **Numeric** : è consigliabile usare valori numerici quando il numero deve influenzare proporzionalmente il risultato della personalizzazione. Si tratta di uno scenario molto dipendente. In un esempio semplificato, ad esempio, quando si Personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità che è numerica perché si vuole che gli utenti con 2 o 3 animali possano influenzare il risultato della personalizzazione due volte o tre volte più che avere 1 animale. Le funzionalità basate su unità numeriche ma in cui il significato non è lineare, ad esempio età, temperatura o altezza della persona, sono codificate in modo ottimale come stringhe e la qualità della funzionalità può in genere essere migliorata usando gli intervalli. Ad esempio, Age può essere codificato come "Age": "0-5", "Age": "6-10" e così via.
+* **Stringhe**: per i tipi di stringa, ogni combinazione di chiave e valore viene considerata come una funzionalità di One-Hot, ad esempio genere: "Sciencefiction" e genere: "documentario" creerebbe due nuove funzionalità di input per il modello di machine learning.
+* **Numeric**: è consigliabile usare valori numerici quando il numero è una grandezza che deve influenzare proporzionalmente il risultato della personalizzazione. Si tratta di uno scenario molto dipendente. In un esempio semplificato, ad esempio, quando si Personalizza un'esperienza di vendita al dettaglio, NumberOfPetsOwned potrebbe essere una funzionalità che è numerica perché si vuole che gli utenti con 2 o 3 animali possano influenzare il risultato della personalizzazione due volte o tre volte più che avere 1 animale. Le funzionalità basate su unità numeriche ma in cui il significato non è lineare, ad esempio età, temperatura o altezza della persona, sono codificate in modo ottimale come stringhe. Ad esempio, DayOfMonth è una stringa con "1", "2"... "31". Se si dispone di molte categorie, la qualità della funzionalità può in genere essere migliorata usando gli intervalli. Ad esempio, Age può essere codificato come "Age": "0-5", "Age": "6-10" e così via.
 * I valori **booleani** inviati con il valore "false" agiscono come se non fossero stati inviati.
 
 Le caratteristiche non presenti dovranno essere omesse dalla richiesta. Evitare di inviare caratteristiche con un valore Null, perché verrà elaborato come esistente e con un valore "null" quando si esegue il training del modello.
@@ -80,12 +80,14 @@ Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà sem
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6", "-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -93,6 +95,13 @@ Gli oggetti JSON possono includere oggetti JSON annidati e valori/proprietà sem
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "userActivity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -112,6 +121,8 @@ La stringa utilizzata per la denominazione dello spazio dei nomi deve seguire al
 Con un set di caratteristiche efficace, Personalizza esperienze sarà in grado di prevedere l'azione che genererà la massima ricompensa. 
 
 È consigliabile inviare all'API Personalizza esperienze caratteristiche che seguono queste raccomandazioni:
+
+* Usare i tipi categorici e stringa per le funzionalità che non sono Magnitude. 
 
 * Il numero di caratteristiche disponibili è sufficiente per la personalizzazione. Quanto più accuratamente mirato deve risultare il contenuto, tante più caratteristiche sono necessarie.
 
@@ -179,7 +190,7 @@ Le azioni da inviare all'API Classifica cambiano in base a quello che si prova a
 
 Ecco alcuni esempi:
 
-|Scopo|Action|
+|Scopo|Azione|
 |--|--|
 |Personalizzare l'articolo da evidenziare in un sito Web di notizie.|Ogni azione è un potenziale articolo di notizie.|
 |Ottimizzare il posizionamento degli annunci in un sito Web.|Ogni azione sarà costituita da un layout o da regole per creare un layout per gli annunci (ad esempio in alto, a destra, immagini piccole, immagini grandi).|
@@ -205,7 +216,7 @@ Le caratteristiche delle azioni derivano in genere da sistemi di gestione di con
 
 In alcuni casi è possibile che non si vogliano mostrare determinate azioni agli utenti. Il modo migliore per evitare che un'azione venga classificata come più importante consiste nel non includerla affatto nell'elenco di azioni dell'API Classifica.
 
-In alcuni casi, è possibile determinare solo in seguito nella logica di business se mostrare o meno a un utente un' _azione_ risultante da una chiamata all'API Classifica. In questi casi, è consigliabile usare _eventi inattivi_.
+In alcuni casi, è possibile determinare solo in seguito nella logica di business se mostrare o meno a un utente un'_azione_ risultante da una chiamata all'API Classifica. In questi casi, è consigliabile usare _eventi inattivi_.
 
 ## <a name="json-format-for-actions"></a>Formato JSON per le azioni
 

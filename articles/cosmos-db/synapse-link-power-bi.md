@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: be2657d9606f260fcea06d2535be87fc6976577c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915675"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218672"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Usare Power BI e il pool SQL sinapsi senza server (anteprima) per analizzare i dati Azure Cosmos DB con il collegamento sinapsi 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ Prima di iniziare, assicurarsi di creare le risorse seguenti:
 
 ## <a name="create-a-database-and-views"></a>Creazione di un database e di viste
 
-Dall'area di lavoro sinapsi passare alla scheda **sviluppo** , selezionare l' **+** icona e selezionare **script SQL**.
+La creazione di viste nei database master o predefiniti non è consigliata né supportata. È quindi necessario avviare questo passaggio creando un database. Dall'area di lavoro sinapsi passare alla scheda **sviluppo** , selezionare l' **+** icona e selezionare **script SQL**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Aggiungere uno script SQL all'area di lavoro di sinapsi Analytics":::
 

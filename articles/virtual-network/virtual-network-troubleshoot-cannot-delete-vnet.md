@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: b974af343907c98ebd7a318bc60a0e553a07a233
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335695"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219352"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: non è possibile eliminare una rete virtuale in Azure
 
@@ -64,7 +64,7 @@ Se è presente un gateway applicazione, è necessario rimuoverlo prima di poter 
 ### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Controllare se le istanze di contenitore di Azure sono ancora presenti nella rete virtuale
 
 1. Nella portale di Azure passare alla pagina **Panoramica** del gruppo di risorse.
-1. Nell'intestazione per l'elenco delle risorse del gruppo di risorse selezionare **Mostra tipi nascosti**. Il tipo di profilo di rete è nascosto nel portale di Azure per impostazione predefinita.
+1. Nell'intestazione dell'elenco di risorse del gruppo di risorse selezionare **Mostra tipi nascosti**. Il tipo di profilo di rete è nascosto nel portale di Azure per impostazione predefinita.
 1. Selezionare il profilo di rete correlato ai gruppi di contenitori.
 1. Selezionare **Elimina**.
 
@@ -72,7 +72,7 @@ Se è presente un gateway applicazione, è necessario rimuoverlo prima di poter 
 
 1. Eliminare di nuovo la subnet o la rete virtuale.
 
-Se questi passaggi non consentono di risolvere il problema, usare i comandi dell'interfaccia della riga di [comando di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) per pulire le risorse. 
+Se questi passaggi non consentono di risolvere il problema, usare i comandi dell'interfaccia della riga di [comando di Azure](../container-instances/container-instances-vnet.md#clean-up-resources) per pulire le risorse. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service
 

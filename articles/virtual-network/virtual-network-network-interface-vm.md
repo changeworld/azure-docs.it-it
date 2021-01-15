@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: f7253be2844f40ca52df2f9b3bc9cbba552fea2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b45bd2e2b9ad971891cbcb944286f40b4f66883
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480134"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98216955"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Aggiungere o rimuovere interfacce di rete da macchine virtuali
 
@@ -61,7 +61,7 @@ Per aggiungere un'interfaccia di rete alla macchina virtuale:
 
 1. Passare alla [portale di Azure](https://portal.azure.com) per trovare una macchina virtuale esistente. Cercare e selezionare **Macchine virtuali**.
 
-2. Selezionare il nome della macchina virtuale. La macchina virtuale deve supportare il numero di interfacce di rete da aggiungere. Per conoscere il numero di interfacce di rete supportate da ogni dimensione di macchina virtuale, vedere le dimensioni in Azure per [VM Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [VM Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+2. Selezionare il nome della macchina virtuale. La macchina virtuale deve supportare il numero di interfacce di rete da aggiungere. Per conoscere il numero di interfacce di rete supportate da ogni dimensione di macchina virtuale, vedere le dimensioni in Azure per [VM Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [VM Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Nella barra dei comandi della macchina virtuale selezionare **Arresta**, quindi **OK** nella finestra di dialogo di conferma. Attendere quindi che lo **stato** della macchina virtuale venga modificato in **arrestato (deallocato)**.
 
@@ -117,7 +117,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 5. Dalla barra dei menu della macchina virtuale scegliere **rete**  >  **Scollega interfaccia di rete**.
 
-6. Nella finestra di dialogo **Scollega interfaccia di rete** selezionare l'interfaccia di rete che si desidera scollegare. Quindi scegliere **OK**.
+6. Nella finestra di dialogo **Scollega interfaccia di rete** selezionare l'interfaccia di rete che si desidera scollegare. Selezionare **OK**.
 
     >[!NOTE]
     >Se è elencata una sola interfaccia di rete, non è possibile scollegarla perché a una macchina virtuale deve essere sempre associata almeno un'interfaccia di rete.
@@ -133,7 +133,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 - Una macchina virtuale deve avere almeno un'interfaccia di rete collegata,
 
-- fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa. Per altre informazioni sul numero di interfacce di rete supportate da ogni dimensione di macchina virtuale, vedere le dimensioni in Azure per [macchine virtuali Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Tutte le dimensioni supportano almeno due interfacce di rete.
+- fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa. Per altre informazioni sul numero di interfacce di rete supportate da ogni dimensione di macchina virtuale, vedere le dimensioni in Azure per [macchine virtuali Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [macchine virtuali Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Tutte le dimensioni supportano almeno due interfacce di rete.
 
 - Le interfacce di rete aggiunte a una macchina virtuale non possono attualmente essere collegate a un'altra macchina virtuale. Per altre informazioni su come creare interfacce di rete, vedere [Creare un'interfaccia di rete](virtual-network-network-interface.md#create-a-network-interface).
 
@@ -143,7 +143,7 @@ Per informazioni sulle impostazioni dell'interfaccia di rete e su come modificar
 
 - È possibile controllare l'interfaccia di rete a cui si invia il traffico in uscita. Tuttavia, per impostazione predefinita, una macchina virtuale Invia tutto il traffico in uscita all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria.
 
-- In passato, tutte le macchine virtuali nello stesso set di disponibilità dovevano avere una o più interfacce di rete. Ora possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. Una macchina virtuale può essere aggiunta a un set di disponibilità solo in fase di creazione. Per altre informazioni sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
+- In passato, tutte le macchine virtuali nello stesso set di disponibilità dovevano avere una o più interfacce di rete. Ora possono esistere macchine virtuali con un numero qualsiasi di interfacce di rete nello stesso set di disponibilità, fino al numero supportato dalla dimensione della macchina virtuale. Una macchina virtuale può essere aggiunta a un set di disponibilità solo in fase di creazione. Per altre informazioni sui set di disponibilità, vedere [Gestire la disponibilità delle macchine virtuali Windows in Azure](../virtual-machines/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
 - È possibile connettere le interfacce di rete nella stessa macchina virtuale a subnet diverse all'interno di una rete virtuale. Tuttavia, le interfacce di rete devono essere tutte connesse alla stessa rete virtuale.
 

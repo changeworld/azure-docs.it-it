@@ -7,46 +7,40 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 0e67a316b012eda61607c84edfd8e10d6aa3318d
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0ceee3c65e8c4df5d843bb441fb6426a0f4eb696
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589169"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220253"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Risolvere i problemi di orchestrazione e trigger della pipeline in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Una esecuzione di pipeline in Azure Data Factory definisce un'istanza dell'esecuzione di una pipeline. Si dispone, ad esempio, di una pipeline che viene eseguita alle ore 8:00, 9:00 e 10:00. In questo caso, sono presenti tre esecuzioni separate della pipeline o delle esecuzioni della pipeline. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un GUID (Globally Unique Identifier) che definisce l'esecuzione della pipeline specifica.
+Una esecuzione di pipeline in Azure Data Factory definisce un'istanza dell'esecuzione di una pipeline. Si immagini, ad esempio, di avere una pipeline che viene eseguita alle ore 8:00, 9:00 e 10:00. In questo caso, sono presenti tre esecuzioni di pipeline separate. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un identificatore univoco globale (GUID) che definisce l'esecuzione della pipeline specifica.
 
 Le istanze delle esecuzioni di pipeline vengono in genere create passando argomenti ai parametri definiti nelle pipeline. È possibile eseguire una pipeline manualmente o tramite un trigger. Per informazioni dettagliate, vedere [esecuzione e trigger della pipeline in Azure Data Factory](concepts-pipeline-execution-triggers.md) .
 
 ## <a name="common-issues-causes-and-solutions"></a>Problemi comuni, cause e soluzioni
 
-### <a name="pipeline-with-azure-function-throws-error-with-private-end-point-connectivity"></a>La pipeline con la funzione di Azure genera un errore con connettività di endpoint privata
+### <a name="an-azure-functions-app-pipeline-throws-an-error-with-private-endpoint-connectivity"></a>Una pipeline dell'app funzioni di Azure genera un errore con la connettività degli endpoint privati
  
-#### <a name="issue"></a>Problema
-Per un certo contesto, sono presenti Data Factory e app per le funzioni di Azure in esecuzione in un endpoint privato. Si sta tentando di ottenere una pipeline che interagisce con il app per le funzioni di Azure per funzionare. Sono stati provati tre metodi diversi, ma uno restituisce un errore `Bad Request` , gli altri due metodi restituiscono `103 Error Forbidden` .
+Sono presenti Data Factory e un'app per le funzioni di Azure in esecuzione in un endpoint privato. Si sta provando a eseguire una pipeline che interagisce con l'app per le funzioni. Sono stati tentati tre metodi diversi, ma uno restituisce l'errore "richiesta non valida" e gli altri due metodi restituiscono "errore 103 non consentito".
 
-#### <a name="cause"></a>Causa 
-Data Factory attualmente non supporta un connettore di endpoint privato per app per le funzioni di Azure. Questo dovrebbe essere il motivo per cui Azure app per le funzioni rifiuta le chiamate perché verrebbe configurato per consentire solo le connessioni da un collegamento privato.
+**Motivo**: data factory attualmente non supporta un connettore di endpoint privato per le app per le funzioni. Funzioni di Azure rifiuta le chiamate perché è configurato per consentire solo le connessioni da un collegamento privato.
 
-#### <a name="resolution"></a>Soluzione
-È possibile creare un endpoint privato di tipo **PrivateLinkService** e fornire il DNS dell'app per le funzioni e la connessione dovrebbe funzionare.
+**Soluzione**: creare un endpoint **PrivateLinkService** e fornire il DNS dell'app per le funzioni.
 
-### <a name="pipeline-run-is-killed-but-the-monitor-still-shows-progress-status"></a>L'esecuzione della pipeline viene terminata, ma il monitoraggio Mostra ancora lo stato di avanzamento
+### <a name="a-pipeline-run-is-canceled-but-the-monitor-still-shows-progress-status"></a>Un'esecuzione della pipeline viene annullata, ma il monitoraggio Mostra ancora lo stato di avanzamento
 
-#### <a name="issue"></a>Problema
-Spesso quando si termina l'esecuzione di una pipeline, il monitoraggio della pipeline Mostra ancora lo stato di avanzamento. Ciò si verifica a causa del problema della cache nel browser e non si dispone dei filtri corretti per il monitoraggio.
+Quando si annulla l'esecuzione di una pipeline, il monitoraggio della pipeline Visualizza spesso lo stato di avanzamento. Ciò si verifica a causa di un problema relativo alla cache del browser. È anche possibile che non si disponga dei filtri di monitoraggio corretti.
 
-#### <a name="resolution"></a>Soluzione
-Aggiornare il browser e applicare i filtri corretti per il monitoraggio.
+**Soluzione**: aggiornare il browser e applicare i filtri di monitoraggio corretti.
  
-### <a name="copy-pipeline-failure--found-more-columns-than-expected-column-count-delimitedtextmorecolumnsthandefined"></a>Errore della pipeline di copia: sono state trovate più colonne del numero di colonne previsto (DelimitedTextMoreColumnsThanDefined)
-
-#### <a name="issue"></a>Problema  
-Se i file in una particolare cartella che si sta copiando contengono file con schemi diversi, ad esempio un numero variabile di colonne, delimitatori diversi, impostazioni carattere virgolette o alcuni problemi di dati, la pipeline Data Factory verrà eseguita in questo errore:
+### <a name="you-see-a-delimitedtextmorecolumnsthandefined-error-when-copying-a-pipeline"></a>Viene visualizzato un errore "DelimitedTextMoreColumnsThanDefined" durante la copia di una pipeline
+ 
+Se una cartella che si sta copiando contiene file con schemi diversi, ad esempio un numero variabile di colonne, delimitatori diversi, impostazioni carattere virgolette o alcuni problemi di dati, la pipeline Data Factory potrebbe generare questo errore:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -56,51 +50,41 @@ Message=Error found when processing 'Csv/Tsv Format Text' source '0_2020_11_09_1
 Source=Microsoft.DataTransfer.Common,'
 `
 
-#### <a name="resolution"></a>Soluzione
-Selezionare l'opzione "copia binaria" durante la creazione dell'attività Copia dati. In questo modo, per la copia bulk o la migrazione dei dati da un Data Lake a un altro, con l'opzione **binary** data factory non aprirà i file per la lettura dello schema, ma considererà tutti i file come binari e li copierà nell'altra posizione.
+**Soluzione**: selezionare l'opzione **copia binaria** durante la creazione dell'attività di copia. In questo modo, per le copie bulk o la migrazione dei dati da un data Lake a un altro, Data Factory non aprirà i file per leggere lo schema. Al contrario, Data Factory considererà ogni file come binario e lo copierà nell'altra posizione.
 
-### <a name="pipeline-run-fails-when-capacity-limit-of-integration-runtime-is-reached"></a>L'esecuzione della pipeline non riesce quando viene raggiunto il limite di capacità del runtime di integrazione
+### <a name="a-pipeline-run-fails-when-you-reach-the-capacity-limit-of-the-integration-runtime"></a>L'esecuzione di una pipeline ha esito negativo quando si raggiunge il limite di capacità del runtime di integrazione
 
-#### <a name="issue"></a>Problema
 Messaggio di errore:
 
 `
 Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are substantial concurrent MappingDataflow executions which is causing failures due to throttling under Integration Runtime 'AutoResolveIntegrationRuntime'.
 `
 
-L'errore indica la limitazione di per Runtime di integrazione, che attualmente è 50. Per informazioni dettagliate, vedere [limiti](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) .
+**Motivo**: è stato raggiunto il limite di capacità del runtime di integrazione. È possibile che sia in esecuzione una grande quantità di flusso di dati usando lo stesso runtime di integrazione nello stesso momento. Per informazioni dettagliate, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#version-2) .
 
-Se si esegue una grande quantità di dati con lo stesso runtime di integrazione nello stesso momento, è possibile che si verifichi questo tipo di errore.
+**Risoluzione**:
+ 
+- Eseguire le pipeline in momenti di trigger diversi.
+- Creare un nuovo runtime di integrazione e suddividere le pipeline tra più runtime di integrazione.
 
-#### <a name="resolution"></a>Soluzione 
-- Separare queste pipeline per un tempo di attivazione diverso per l'esecuzione.
-- Creare un nuovo runtime di integrazione e suddividere queste pipeline tra più runtime di integrazione.
+### <a name="you-have-activity-level-errors-and-failures-in-pipelines"></a>Sono presenti errori ed errori a livello di attività nelle pipeline
 
-### <a name="how-to-monitor-pipeline-failures-on-regular-interval"></a>Come monitorare gli errori della pipeline a intervalli regolari
+Azure Data Factory orchestrazione consente la logica condizionale e consente agli utenti di eseguire percorsi diversi in base al risultato di un'attività precedente. Consente quattro percorsi condizionali: **dopo l'esito positivo** (passaggio predefinito), in caso di **errore**, **al completamento** e in caso di **Skip**. 
 
-#### <a name="issue"></a>Problema
-Spesso è necessario monitorare Data Factory pipeline a intervalli, ad indicare 5 minuti. È possibile eseguire query e filtrare le esecuzioni della pipeline da un data factory usando l'endpoint. 
+Azure Data Factory valuta il risultato di tutte le attività a livello foglia. I risultati della pipeline sono riusciti solo se tutte le foglie hanno esito positivo. Se un'attività foglia è stata ignorata, viene invece valutata l'attività padre. 
 
-#### <a name="recommendation"></a>Recommendation
-1. Configurare un'app per la logica di Azure per eseguire una query su tutte le pipeline non riuscite ogni 5 minuti.
-2. Quindi, è possibile segnalare eventi imprevisti al sistema di ticket in base a ogni [QueryByFactory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+**Risoluzione**
 
-#### <a name="reference"></a>Informazioni di riferimento
-- [External-Invia notifiche da Data Factory](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/)
+1. Implementare i controlli a livello di attività attenendosi [alla gestione degli errori e degli errori della pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
+1. Usare app per la logica di Azure per monitorare le pipeline a intervalli regolari dopo le [query in base alla Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
 
-### <a name="how-to-handle-activity-level-errors-and-failures-in-pipelines"></a>Come gestire errori ed errori a livello di attività nelle pipeline
+## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorare gli errori della pipeline a intervalli regolari
 
-#### <a name="issue"></a>Problema
-Azure Data Factory orchestrazione consente la logica condizionale e consente all'utente di eseguire percorsi diversi in base ai risultati di un'attività precedente. Consente quattro percorsi condizionali: "in caso di esito positivo (passaggio predefinito)", "in caso di esito negativo", "al termine" e "su Ignora". È consentito l'utilizzo di percorsi diversi.
+Potrebbe essere necessario monitorare le pipeline di Data Factory non riuscite, ad intervalli di 5 minuti. È possibile eseguire una query e filtrare le esecuzioni della pipeline da un data factory usando l'endpoint. 
 
-Azure Data Factory definisce l'esito positivo e negativo dell'esecuzione della pipeline come indicato di seguito:
+Configurare un'app per la logica di Azure per eseguire una query su tutte le pipeline non riuscite ogni 5 minuti, come descritto in [query by Factory](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory). Quindi, è possibile segnalare eventi imprevisti al nostro sistema di ticket.
 
-- Valutare il risultato per tutte le attività a livello foglia. Se un'attività foglia è stata ignorata, viene invece valutata l'attività padre.
-- Il risultato della pipeline viene eseguito correttamente se e solo se tutte le foglie hanno esito positivo.
-
-#### <a name="recommendation"></a>Recommendation
-- Implementare i controlli a livello [di attività in seguito alla gestione degli errori e degli errori della pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
-- Usare l'app per la logica di Azure per monitorare le pipeline a intervalli regolari in [base alle query di datafactory]( https://docs.microsoft.com/rest/api/datafactory/pipelineruns/querybyfactory).
+Per ulteriori informazioni, vedere [inviare notifiche da Data Factory, parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

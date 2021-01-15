@@ -11,18 +11,18 @@ ms.topic: how-to
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
-ms.date: 04/19/2020
-ms.openlocfilehash: 480e9f9031481621ac9d568a7bd97b942f47b947
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: b87d0a2446eb2b65c20ae0bef408320686cb5165
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493642"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219131"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitoraggio di database SQL di Microsoft Azure e delle prestazioni di Istanza gestita di SQL di Azure tramite le viste a gestione dinamica
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Database SQL di Microsoft Azure e Azure SQL Istanza gestita consentono un subset di viste a gestione dinamica per diagnosticare problemi di prestazioni, che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. Questo argomento fornisce informazioni su come rilevare problemi comuni relativi alle prestazioni tramite le DMV.
+Database SQL di Microsoft Azure e Azure SQL Istanza gestita consentono un subset di viste a gestione dinamica per diagnosticare problemi di prestazioni, che potrebbero essere causati da query bloccate o con esecuzione prolungata, colli di bottiglia delle risorse, piani di query insufficienti e così via. In questo articolo vengono fornite informazioni su come rilevare i problemi di prestazioni comuni mediante le viste a gestione dinamica.
 
 Database SQL di Microsoft Azure e Azure SQL Istanza gestita supportano parzialmente tre categorie di viste a gestione dinamica:
 
@@ -254,12 +254,12 @@ GO
 
 Quando si identificano i problemi di prestazioni di IO, il tipo di attesa più frequente associato a problemi di `tempdb` è `PAGELATCH_*` (non `PAGEIOLATCH_*`). Tuttavia, le attese `PAGELATCH_*` non indicano sempre una contesa di `tempdb`.  Questo tipo di attesa può anche indicare una contesa della pagina di dati utente-oggetto causata da richieste simultanee che puntano alla stessa pagina di dati. Per confermare ulteriormente la `tempdb` contesa, utilizzare [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per confermare che il valore wait_resource inizia con `2:x:y` dove 2 è l'ID del `tempdb` database, `x` è l'ID del file e `y` è l'ID della pagina.  
 
-Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb`.  Le aree di utilizzo di `tempdb` comuni includono:
+Per la contesa di tempdb, un metodo comune consiste nel ridurre o riscrivere il codice dell'applicazione che si basa su `tempdb` .  Le aree di utilizzo di `tempdb` comuni includono:
 
 - Tabelle temporanee
 - Variabili di tabella
 - Parametri con valori di tabella
-- Utilizzo dell'archivio versioni (associato in modo specifico alle transazioni a esecuzione prolungata)
+- Utilizzo dell'archivio versioni (associato a transazioni a esecuzione prolungata)
 - Query con piani di query che usano ordinamenti, hash join e spool
 
 ### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Query con maggior utilizzo di variabili di tabella e tabelle temporanee
@@ -563,14 +563,14 @@ SELECT resource_name, AVG(avg_cpu_percent) AS Average_Compute_Utilization
 FROM sys.server_resource_stats
 WHERE start_time BETWEEN @s AND @e  
 GROUP BY resource_name  
-HAVING AVG(avg_cpu_percent) >= 80
+HAVING AVG(avg_cpu_percent) >= 80;
 ```
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
 Nella visualizzazione [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) nel database **Master** sono disponibili informazioni aggiuntive che consentono di monitorare le prestazioni del database a livello di servizio e di calcolo specifici. I dati vengono raccolti ogni 5 minuti e conservati per circa 14 giorni. Questa vista è utile per un'analisi cronologica a lungo termine del modo in cui il database usa le risorse.
 
-Il grafico seguente illustra l'uso di risorse della CPU per un database Premium con dimensioni di calcolo P2 per ogni ora nell'arco di una settimana. Questo grafico inizia di lunedì, con 5 giorni lavorativi e un fine settimana in cui l'uso di risorse nell'applicazione è molto inferiore.
+Il grafico seguente illustra l'uso di risorse della CPU per un database Premium con dimensioni di calcolo P2 per ogni ora nell'arco di una settimana. Questo grafico inizia il lunedì, mostra cinque giorni lavorativi, quindi Mostra un fine settimana, quando si verificano molto meno sull'applicazione.
 
 ![Utilizzo risorse database](./media/monitoring-with-dmvs/sql_db_resource_utilization.png)
 
@@ -589,7 +589,7 @@ Questo esempio illustra la modalità di esposizione dei dati in questa vista:
 SELECT TOP 10 *
 FROM sys.resource_stats
 WHERE database_name = 'resource1'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ![Vista del catalogo sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
@@ -624,7 +624,7 @@ Nell'esempio seguente vengono illustrati diversi modi per utilizzare la vista de
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità delle dimensioni di calcolo scelte in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con le dimensioni di calcolo S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database può rientrare in dimensioni di calcolo inferiori prendendo in considerazione la CPU e le operazioni di lettura e scrittura, è sufficiente dividere il numero di DTU delle dimensioni di calcolo inferiori per il numero di DTU delle dimensioni di calcolo correnti e moltiplicare il risultato per 100:
+3. Con queste informazioni sui valori medi e massimi di ogni metrica delle risorse è possibile valutare l'idoneità delle dimensioni di calcolo scelte in rapporto al carico di lavoro. I valori medi di **sys.resource_stats** offrono in genere una buona baseline da usare nelle dimensioni di destinazione. Deve trattarsi dello strumento di misurazione principale. È ad esempio possibile che si usi il livello di servizio Standard con le dimensioni di calcolo S2. Le percentuali medie di uso per la CPU e per le operazioni I/O di scrittura e lettura sono inferiori al 40%, il numero medio di ruoli di lavoro è inferiore a 50 e il numero medio di sessioni è inferiore a 200. Il carico di lavoro potrebbe essere idoneo per le dimensioni di calcolo S1. È facile verificare se il database rientra nei limiti dei thread di lavoro e delle sessioni. Per verificare se un database si inserisce in una dimensione di calcolo inferiore per quanto riguarda CPU, letture e scritture, dividere il numero di DTU della dimensione di calcolo inferiore per il numero di DTU della dimensione di calcolo corrente e quindi moltiplicare il risultato per 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -699,7 +699,7 @@ Per visualizzare il numero di sessioni attive correnti, eseguire questa query Tr
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
-FROM sys.dm_exec_connections
+FROM sys.dm_exec_connections;
 ```
 
 Se si sta analizzando un carico di lavoro SQL Server, modificare la query per concentrarsi su un database specifico. Questa query consente di determinare le possibili esigenze di sessione per il database se si sta valutando lo stato di trasferimento in Azure.
@@ -709,7 +709,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections C
 INNER JOIN sys.dm_exec_sessions S ON (S.session_id = C.session_id)
 INNER JOIN sys.databases D ON (D.database_id = S.database_id)
-WHERE D.name = 'MyDatabase'
+WHERE D.name = 'MyDatabase';
 ```
 
 Queste query restituiscono un conteggio temporizzato. Se si raccolgono più campioni nel tempo, si avrà la migliore comprensione dell'uso della sessione.
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Monitoraggio delle query bloccate
 
-Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la vista sys.dm_tran_locks per ottenere informazioni sull'attività di blocco corrente nel database. Per un esempio di codice, vedere [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql).
+Le query lente o con esecuzione prolungata possono contribuire al consumo eccessivo delle risorse ed essere la conseguenza di query bloccate. Le cause del blocco possono essere una progettazione povera dell'applicazione, dei piani di query non validi, la mancanza di indici utili e così via. È possibile utilizzare la vista sys.dm_tran_locks per ottenere informazioni sull'attività di blocco corrente nel database. Per un esempio di codice, vedere [sys.dm_tran_locks (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-locks-transact-sql). Per altre informazioni sulla risoluzione dei problemi relativi al blocco, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
 
 ### <a name="monitoring-query-plans"></a>Monitoraggio dei piani di query
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 
 [Introduzione al database SQL di Azure e Istanza gestita SQL di Azure](sql-database-paas-overview.md)

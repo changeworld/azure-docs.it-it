@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c79367ca8cf9e4a4884c829c675d794b2e734737
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126757"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220266"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
 
@@ -52,7 +52,7 @@ Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Sceg
 
 Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Gruppo di risorse
 
 Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
 
@@ -119,7 +119,7 @@ Quando sono state create tutte le risorse necessarie, il gruppo di risorse **Det
 È possibile configurare un'applicazione IoT Central per esportare continuamente i dati di telemetria in un hub eventi. In questa sezione viene creato un hub eventi per ricevere i dati di telemetria dall'applicazione IoT Central. L'hub eventi recapita i dati di telemetria al processo di analisi di flusso per l'elaborazione.
 
 1. Nella portale di Azure passare allo spazio dei nomi di hub eventi e selezionare **+ Hub eventi**.
-1. Denominare il **centralexport**dell'hub eventi e selezionare **Crea**.
+1. Denominare il **centralexport** dell'hub eventi e selezionare **Crea**.
 
 Lo spazio dei nomi di hub eventi è simile allo screenshot seguente:
 
@@ -157,7 +157,7 @@ Per inviare messaggi di posta elettronica con SendGrid, è necessario configurar
 1. Selezionare **integrazione**, scegliere il http di output **($Return)**, quindi selezionare **Elimina**.
 1. Scegliere **+ nuovo output**, quindi scegliere **SendGrid**, quindi scegliere **Seleziona**. Scegliere **Installa** per installare l'estensione SendGrid.
 1. Al termine dell'installazione, selezionare **Usa valore restituito della funzione**. Aggiungere un **indirizzo valido per** ricevere le notifiche tramite posta elettronica.  Aggiungere un **Indirizzo from valido da** usare come mittente del messaggio di posta elettronica.
-1. Selezionare **nuovo** accanto a **impostazione app chiave API SendGrid**. Immettere **SendGridAPIKey** come chiave e la chiave API SendGrid annotata in precedenza come valore. Selezionare quindi **Crea**.
+1. Selezionare **nuovo** accanto a **impostazione app chiave API SendGrid**. Immettere **SendGridAPIKey** come chiave e la chiave API SendGrid annotata in precedenza come valore. Quindi selezionare **Crea**
 1. Scegliere **Salva** per salvare le associazioni SendGrid per la funzione.
 
 Le impostazioni di integrazione hanno un aspetto simile allo screenshot seguente:
@@ -249,7 +249,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
     | Spazio dei nomi dell'hub eventi | Spazio dei nomi dell'hub eventi |
     | Nome dell'hub eventi | USA **centralexport** esistente |
 
-1. In **topologia processi**selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
+1. In **topologia processi** selezionare **output**, fare clic su **+ Aggiungi**, quindi scegliere **funzione di Azure**.
 1. Usare le informazioni nella tabella seguente per configurare l'output, quindi scegliere **Salva**:
 
     | Impostazione | Valore |
@@ -259,7 +259,7 @@ Questa soluzione USA una query di analisi di flusso per rilevare quando un dispo
     | App per le funzioni | App per le funzioni |
     | Funzione  | HttpTrigger1 |
 
-1. In **topologia processi**selezionare **query** e sostituire la query esistente con la seguente SQL:
+1. In **topologia processi** selezionare **query** e sostituire la query esistente con la seguente SQL:
 
     ```sql
     with

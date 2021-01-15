@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 06/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43e4027c9d88b209ed0606e045dd5b4d47d3ff6e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a35cdebe5ff4db562b19dc4ceed069a831af4305
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088517"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219998"
 ---
 # <a name="analyze-complex-data-types-in-azure-synapse-analytics"></a>Analizzare i tipi di dati complessi in Azure sinapsi Analytics
 
@@ -28,7 +28,7 @@ Gli ingegneri dei dati devono comprendere come elaborare in modo efficiente i ti
 
 ## <a name="what-are-arrays-and-nested-structures"></a>Che cosa sono le matrici e le strutture annidate?
 
-Il seguente oggetto deriva da [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). In questo oggetto sono presenti strutture annidate e matrici che contengono strutture annidate.
+Il seguente oggetto deriva da [Application Insights](../azure-monitor/app/app-insights-overview.md). In questo oggetto sono presenti strutture annidate e matrici che contengono strutture annidate.
 
 ```json
 {
@@ -221,4 +221,4 @@ Esistono due tipi diversi di operazioni:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni su come eseguire query sul collegamento sinapsi per Azure Cosmos DB con Spark](./synapse-link/how-to-query-analytical-store-spark.md)
-* [Eseguire query su tipi annidati di Parquet](./sql/query-parquet-nested-types.md) 
+* [Eseguire query su tipi annidati di Parquet](./sql/query-parquet-nested-types.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368588"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219250"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -127,7 +127,7 @@ Se l'utilizzo della rete della VM presenta picchi o periodi di utilizzo elevato,
 ## <a name="advanced-network-administrator-troubleshooting"></a>Risoluzione avanzata dei problemi dell'amministratore di rete
 
 ### <a name="capture-network-trace"></a>Acquisire la traccia di rete
-Acquisire una traccia di rete simultanea nella macchina virtuale di origine, nell'appliance virtuale di rete e nella VM di destinazione durante l'esecuzione di **[PsPing](https://docs.microsoft.com/sysinternals/downloads/psping)** o **Nmap** e quindi arrestare la traccia.
+Acquisire una traccia di rete simultanea nella macchina virtuale di origine, nell'appliance virtuale di rete e nella VM di destinazione durante l'esecuzione di **[PsPing](/sysinternals/downloads/psping)** o **Nmap** e quindi arrestare la traccia.
 
 1. Per acquisire una traccia di rete simultanea, eseguire questo comando:
 

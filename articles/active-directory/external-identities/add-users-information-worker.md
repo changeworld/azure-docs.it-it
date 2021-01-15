@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352d5218f91fa55134a7515b6aeee49857847468
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 345cbe2efb644fe2b84d4a6021ff962337e29285
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96173210"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219913"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Informazioni sul modo in cui utenti nell'organizzazione possono invitare utenti guest a un'app
 
@@ -28,8 +28,8 @@ Dopo che un utente guest è stato aggiunto alla directory in Azure AD, un propri
  - Configurare l'app per la gestione self-service e assegnare il gruppo all'app
 
 > [!NOTE]
-> Questo articolo descrive come impostare la gestione self-service per le app basate su SAML e raccolte che sono state aggiunte al tenant di Azure AD. È anche possibile [configurare gruppi di Microsoft 365 self-service](../enterprise-users/groups-self-service-management.md) in modo che gli utenti possano gestire l'accesso ai propri gruppi di Microsoft 365. Per altri modi in cui gli utenti possono condividere i file di Office e le app con gli utenti guest, vedere [accesso guest in gruppi di Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [condividere file o cartelle di SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
-
+> * Questo articolo descrive come impostare la gestione self-service per le app basate su SAML e raccolte che sono state aggiunte al tenant di Azure AD. È anche possibile [configurare gruppi di Microsoft 365 self-service](../enterprise-users/groups-self-service-management.md) in modo che gli utenti possano gestire l'accesso ai propri gruppi di Microsoft 365. Per altri modi in cui gli utenti possono condividere i file di Office e le app con gli utenti guest, vedere [accesso guest in gruppi di Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) e [condividere file o cartelle di SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> * Gli utenti possono invitare i guest solo se hanno il ruolo di **invito Guest** .
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Invitare un utente guest a un'app dal pannello di accesso
 
 Dopo che un'app è stata configurata per la gestione self-service, i proprietari di applicazioni possono usare il proprio pannello di accesso per invitare un utente guest all'app che vogliono condividere. L'utente guest non deve necessariamente essere aggiunto ad Azure AD in anticipo. 
