@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6eab1803bf5adab42be87b5f8567682c6d75947e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74483526"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234155"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
 
@@ -45,7 +45,7 @@ La maggior parte dei clienti aziendali sceglie un'architettura distribuita su pi
     
     *Figura: Configurazione di ripristino di emergenza di tipo Attivo-Passivo con warm standby*
     
-Per altre informazioni sul failover e sulla disponibilità elevata, vedere [Ripristino di emergenza per le applicazioni basate su Microsoft Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Per altre informazioni sul failover e sulla disponibilità elevata, vedere [Ripristino di emergenza per le applicazioni basate su Microsoft Azure](/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 
 ## <a name="planning-your-disaster-recovery-architecture"></a>Pianificazione di un'architettura di ripristino di emergenza
@@ -54,7 +54,7 @@ Per configurare un'architettura di ripristino di emergenza è possibile adottare
 -  Uso di un meccanismo di distribuzione per replicare le istanze, i dati e le configurazioni tra l'ambiente primario e quello di standby. Questo tipo di ripristino di emergenza può essere eseguito in modalità nativa tramite Azure Site Recovery con appliance o servizi di partner Microsoft Azure come Veritas o NetApp. 
 - Sviluppo di una soluzione per deviare il traffico Web o di rete dal sito primario a quello di standby. Questo tipo di ripristino di emergenza può essere ottenuto tramite DNS di Azure, Gestione traffico di Azure (DNS) o software di bilanciamento del carico globale di terze parti.
 
-Questo articolo si limita a illustrare gli approcci basati sul reindirizzamento del traffico Web e di rete. Per istruzioni su come configurare Azure Site Recovery, vedere la [documentazione di Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+Questo articolo si limita a illustrare gli approcci basati sul reindirizzamento del traffico Web e di rete. Per istruzioni su come configurare Azure Site Recovery, vedere la [documentazione di Azure Site Recovery](../site-recovery/index.yml).
 DNS è uno dei meccanismi più efficienti per deviare il traffico di rete poiché è spesso un servizio globale ed esterno al data center ed è quindi isolato da eventuali errori a livello di area o di zona di disponibilità. Se si sceglie di adottare un meccanismo di failover basato su DNS, in Azure sono disponibili due servizi DNS che consentono di raggiungere lo stesso risultato: DNS di Azure (DNS autorevole) e Gestione traffico di Azure (routing intelligente del traffico basato su DNS). 
 
 È importante comprendere alcuni concetti relativi a DNS che vengono ampiamente usati in questo articolo per illustrare le soluzioni disponibili:
@@ -170,12 +170,3 @@ Durante un'emergenza, l'endpoint primario viene sottoposto a sondaggio tramite p
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni su [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md).
 - Altre informazioni su [DNS di Azure](../dns/dns-overview.md).
-
-
-
-
-
-
-
-
-

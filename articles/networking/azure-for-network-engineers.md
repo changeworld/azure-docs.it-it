@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
-ms.openlocfilehash: e13dc868512dba15c5b335c1774aaa540eef8157
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 9a22e58e4407897fb9418cae0ba9f32408cda8e1
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861400"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234206"
 ---
 # <a name="azure-for-network-engineers"></a>Azure per tecnici di rete
 In qualità di progettista di rete convenzionale, le risorse fisiche, ad esempio router, commutatori, cavi e firewall per la creazione dell'infrastruttura, sono state distribuite. A un livello logico è stata configurata la LAN virtuale (VLAN), lo Spanning Tree Protocol (STP), i protocolli di routing (RIP, OSPF, BGP). La rete è stata gestita usando gli strumenti di gestione e l'interfaccia della riga di comando. La rete nel cloud è diversa, in cui gli endpoint di rete sono logici e l'uso dei protocolli di routing è minimo. Si collaborerà con Azure Resource Manager API, l'interfaccia della riga di comando di Azure e PowerShell per la configurazione e la gestione degli asset in Azure. Si inizierà il percorso di rete nel cloud comprendendo i tenant di base della rete di Azure. 
@@ -39,7 +39,7 @@ Come per gli host o i dispositivi fisici, è possibile allocare un indirizzo IP 
 
 Gli indirizzi IP privati vengono allocati dalle subnet definite all'interno di una rete virtuale. Per una macchina virtuale, è possibile scegliere una subnet per l'allocazione IP. Se una macchina virtuale contiene più schede di interfaccia di rete, è possibile scegliere una subnet diversa per ogni scheda di interfaccia di rete.
 
-## <a name="routing"></a>Routing.
+## <a name="routing"></a>Routing
 Quando si crea una rete virtuale, Azure crea una tabella di routing per la rete. Questa tabella di routing contiene i tipi di route seguenti.
 - Route di sistema
 - Route predefinite subnet
@@ -88,7 +88,6 @@ Informazioni sul [routing di rete virtuale][vnet-routing].
 Informazioni sui [gruppi di sicurezza di rete][network-security].
 
 <!--Link References-->
-[VNet]: https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal
-[vnet-routing]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview
-[network-security]: https://docs.microsoft.com/azure/virtual-network/security-overview
-
+[VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
+[vnet-routing]: ../virtual-network/virtual-networks-udr-overview.md
+[network-security]: ../virtual-network/network-security-groups-overview.md

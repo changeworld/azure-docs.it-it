@@ -10,17 +10,17 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: sstein,vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 7c797c7e002f40a28e4be674c125c6ea5d60a13f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ec61f2c67576d6e144d8d4bb7e8ecaaa157db0a9
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219063"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233373"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Risoluzione dei problemi di connettività e di altri errori con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Si ricevono messaggi di errore quando la connessione al database SQL di Azure o al Istanza gestita SQL di Azure non riesce. Questi problemi di connessione possono essere causati dalla riconfigurazione, dalle impostazioni del firewall, da un timeout di connessione, da informazioni di accesso non corrette o dalla mancata applicazione delle procedure consigliate e delle linee guida di progettazione durante il processo di [progettazione](develop-overview.md) Inoltre, se viene raggiunto il limite massimo per alcune risorse del database SQL di Azure o di SQL Istanza gestita, non è più possibile connettersi.
+Si ricevono messaggi di errore quando la connessione al database SQL di Azure o al Istanza gestita SQL di Azure non riesce. Questi problemi di connessione possono essere causati dalla riconfigurazione, dalle impostazioni del firewall, da un timeout di connessione, da informazioni di accesso non corrette o dalla mancata applicazione di procedure consigliate e linee guida di progettazione durante il processo di [progettazione dell'applicazione](develop-overview.md) Inoltre, se viene raggiunto il limite massimo per alcune risorse del database SQL di Azure o di SQL Istanza gestita, non è più possibile connettersi.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Messaggi di errore temporanei di errore (40197, 40613 e altri)
 
@@ -42,13 +42,13 @@ L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quand
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>Passaggi per risolvere problemi di connettività temporanei
 
 1. Controllare nel [Dashboard dei servizi di Microsoft Azure](https://azure.microsoft.com/status) le eventuali interruzioni note che si sono verificate durante il periodo nel quale sono stati segnalati errori dall'applicazione.
-2. Le applicazioni che si connettono a un servizio cloud, come il database SQL di Azure, devono prevedere il verificarsi periodico di eventi di riconfigurazione e implementare la logica di ripetizione per gestire gli errori, invece di lasciare che vengano visualizzati dagli utenti come errori dell'applicazione.
+2. Le applicazioni che si connettono a un servizio cloud, ad esempio il database SQL di Azure, devono prevedere eventi di riconfigurazione periodici e implementare la logica di ripetizione dei tentativi per gestire questi errori anziché esporre gli errori dell'applicazione agli utenti
 3. Quando un database sta per raggiungere i limiti delle risorse, può sembrare che si stia verificando un problema di connettività temporaneo. Vedere [Limiti delle risorse](resource-limits-logical-server.md#what-happens-when-database-resource-limits-are-reached).
 4. Se i problemi di connettività persistono oppure se l'applicazione rileva l'errore per più di 60 secondi o se vengono visualizzate più occorrenze dell'errore in un dato giorno, inoltrare una richiesta di supporto tecnico di Azure selezionando **Ottieni supporto** nel sito [Supporto tecnico di Azure](https://azure.microsoft.com/support/options) .
 
 #### <a name="implementing-retry-logic"></a>Implementare della logica di riesecuzione
 
-È consigliabile dotare il programma client di logica di ripetizione dei tentativi, in modo che sia in grado di ristabilire una connessione dopo aver concesso all'errore temporaneo un tempo sufficiente per correggersi.  È consigliabile attendere 5 secondi prima di riprovare. Al primo tentativo con un ritardo inferiore a 5 secondi, si rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
+È consigliabile dotare il programma client di logica di ripetizione dei tentativi, in modo che sia in grado di ristabilire una connessione dopo aver concesso all'errore temporaneo un tempo sufficiente per correggersi.  È consigliabile attendere 5 secondi prima di riprovare. Un nuovo tentativo dopo un ritardo inferiore a 5 secondi rischia di sovraccaricare il servizio cloud. Per ogni tentativo successivo, aumentare in modo esponenziale il ritardo, fino a un massimo di 60 secondi.
 
 Per esempi di codice relativi alla logica di ripetizione dei tentativi, vedere:
 
@@ -104,49 +104,46 @@ Per risolvere questo problema, contattare l'amministratore del servizio per forn
 In genere, l'amministratore del servizio può utilizzare la procedura seguente per aggiungere le credenziali di accesso:
 
 1. Accedere al server usando SQL Server Management Studio (SSMS).
-2. Eseguire la query SQL seguente per verificare se il nome dell'account di accesso è disabilitato:
+2. Eseguire la query SQL seguente nel database master per verificare se il nome dell'account di accesso è disabilitato:
 
    ```sql
-   SELECT name, is_disabled FROM sys.sql_logins
+   SELECT name, is_disabled FROM sys.sql_logins;
    ```
 
 3. Se il nome corrispondente è disabilitato, abilitarlo usando l'istruzione seguente:
 
    ```sql
-   Alter login <User name> enable
+   ALTER LOGIN <User name> ENABLE;
    ```
 
-4. Se il nome utente dell'account di accesso SQL non esiste, crearlo attenendosi alla procedura seguente:
-
-   1. In SSMS fare doppio clic su **sicurezza** per espanderla.
-   2. Fare clic con il pulsante destro del mouse su **accessi**, quindi scegliere **nuovo account di accesso**.
-   3. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
+4. Se il nome utente dell'account di accesso SQL non esiste, modificare ed eseguire la query SQL seguente per creare un nuovo account di accesso SQL:
 
    ```sql
    CREATE LOGIN <SQL_login_name, sysname, login_name>
-   WITH PASSWORD = '<password, sysname, Change_Password>'
+   WITH PASSWORD = '<password, sysname, Change_Password>';
    GO
    ```
 
-5. Fare doppio clic su **database**.
+5. In SSMS Esplora oggetti espandere **database**.
 6. Selezionare il database a cui si desidera concedere l'autorizzazione utente.
-7. Fare doppio clic su **sicurezza**.
-8. Fare clic con il pulsante destro del mouse su **utenti** e quindi scegliere **nuovo utente**.
-9. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
+7. Fare clic con il pulsante destro del mouse su **sicurezza**, quindi scegliere **nuovo**, **utente**.
+8. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
 
    ```sql
    CREATE USER <user_name, sysname, user_name>
    FOR LOGIN <login_name, sysname, login_name>
-   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>
+   WITH DEFAULT_SCHEMA = <default_schema, sysname, dbo>;
    GO
-   -- Add user to the database owner role
 
-   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>'
+   -- Add user to the database owner role
+   EXEC sp_addrolemember N'db_owner', N'<user_name, sysname, user_name>';
    GO
    ```
 
+   È inoltre possibile utilizzare `sp_addrolemember` per eseguire il mapping di utenti specifici a ruoli specifici del database.
+
    > [!NOTE]
-   > È inoltre possibile utilizzare `sp_addrolemember` per eseguire il mapping di utenti specifici a ruoli specifici del database.
+   > Nel database SQL di Azure prendere in considerazione la nuova sintassi [ALTER ROLE](/sql/t-sql/statements/alter-role-transact-sql) per la gestione dell'appartenenza ai ruoli del database.  
 
 Per altre informazioni, vedere [gestione di database e account di accesso nel database SQL di Azure](./logins-create-manage.md).
 
@@ -183,7 +180,7 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
 - Verificare se sono presenti query con esecuzione prolungata.
 
   > [!NOTE]
-  > Si tratta di un approccio minimalista che potrebbe non risolvere il problema. Per informazioni dettagliate sulla risoluzione dei problemi relativi al blocco delle query, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
+  > Si tratta di un approccio minimalista che potrebbe non risolvere il problema. Per informazioni più dettagliate sulla risoluzione dei problemi relativi alle query con esecuzione prolungata o sul blocco, vedere [comprendere e risolvere i problemi di blocco del database SQL di Azure](understand-resolve-blocking.md)
 
 1. Eseguire la query SQL seguente per controllare la visualizzazione [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per visualizzare tutte le richieste di blocco:
 
@@ -191,10 +188,13 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determinare il **buffer di input** per il blocco Head.
-3. Ottimizzare la query del blocco Head.
+1. Determinare il **buffer di input** per il blocco Head utilizzando la funzione a gestione dinamica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) e il session_id della query che ha causato il danneggiamento, ad esempio:
 
-   Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud). 
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
+1. Ottimizzare la query del blocco Head.
 
 Se il database raggiunge costantemente il limite nonostante l'indirizzamento delle query di blocco e con esecuzione prolungata, provare a eseguire l'aggiornamento a un'edizione con più [edizioni](https://azure.microsoft.com/pricing/details/sql-database/)di risorse.
 
@@ -254,12 +254,18 @@ Se si verifica ripetutamente questo errore, provare a risolvere il problema atte
    SELECT * FROM sys.dm_exec_requests;
    ```
 
-2. Determinare il buffer di input per la query con esecuzione prolungata.
+2. Determinare il **buffer di input** per il blocco Head utilizzando la funzione a gestione dinamica [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) e il session_id della query che ha causato il danneggiamento, ad esempio:
+
+   ```sql 
+   SELECT * FROM sys.dm_exec_input_buffer (100,0);
+   ```
+
 3. Ottimizzare la query.
 
-Prendere in considerazione anche l'invio in batch delle query. Per informazioni sull'invio in batch, vedere [come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL](../performance-improve-use-batching.md).
+    > [!Note]
+    > Per altre informazioni sulla risoluzione dei problemi di blocco nel database SQL di Azure, vedere [comprendere e risolvere i problemi di blocco del database SQL di Azure](understand-resolve-blocking.md).
 
-Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
+Prendere in considerazione anche l'invio in batch delle query. Per informazioni sull'invio in batch, vedere [come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL](../performance-improve-use-batching.md).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Errore 40551: la sessione è stata terminata a causa di un utilizzo eccessivo di TEMPDB
 
@@ -311,7 +317,7 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool ela
 
 | Codice di errore | Gravità | Descrizione | Azione correttiva |
 |:--- |:--- |:--- |:--- |
-| 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento dei pool elastici, vedere [ridimensionare le risorse del pool elastico](elastic-pool-scale.md).|
+| 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento dei pool elastici, vedere [ridimensionare le risorse del pool elastico](elastic-pool-scale.md). Per altre informazioni sulla rimozione dello spazio inutilizzato dai database, vedere [gestire lo spazio file per i database nel database SQL di Azure](file-space-manage.md).|
 | 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
 | 40844 | 16 |Il database '%ls' sul Server '%ls' è un database versione '%ls' in un pool elastico e non può avere una relazione di copia continua.  |N/D |
 | 40857 | 16 |Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. Il pool elastico specificato non esiste nel server specificato. | Fornire un nome pool elastico valido. |

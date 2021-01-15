@@ -3,16 +3,19 @@ title: Bus di servizio di Azure con .NET e AMQP 1.0 | Microsoft Docs
 description: Questo articolo descrive come usare il bus di servizio di Azure da un'applicazione .NET usando AMQP (Advanced Messaging Queuing Protocol).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a67ab74efc700e16f5b1689e9cc1f459ecf14bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6d7d01a56d2e7068f9c4ccb8ec505914a31ecf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067104"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233934"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Usare il bus di servizio da .NET con AMQP 1.0
 
 Il supporto per AMQP 1.0 è disponibile nel pacchetto Service Bus versione 2.1 o successiva. È possibile assicurarsi di avere la versione più recente scaricando l'ultima versione del bus di servizio da [NuGet][NuGet].
+
+> [!NOTE]
+> È possibile usare Advance Message Queueing Protocol (AMQP) o il protocollo di messaggistica del bus di servizio (SBMP) con la libreria .NET per il bus di servizio. AMQP è il protocollo predefinito usato dalla libreria .NET. È consigliabile usare il protocollo AMQP (impostazione predefinita) e non eseguirne l'override. 
 
 ## <a name="configure-net-applications-to-use-amqp-10"></a>Configurare le applicazioni .NET per l'uso di AMQP 1.0
 
@@ -42,6 +45,14 @@ Dove `namespace` e `SAS key` si ottengono dal [portale di Azure][Azure portal] q
 
 Quando si usa AMQP, aggiungere `;TransportType=Amqp` alla fine della stringa di connessione. Questa notazione indica alla libreria client di effettuare la connessione al bus di servizio tramite AMQP 1.0.
 
+### <a name="amqp-over-websockets"></a>AMQP su WebSockets
+Per usare AMQP su WebSocket, impostare `TransportType` nella stringa di connessione su `AmqpWebSockets` . Ad esempio: `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=AmqpWebSockets`. 
+
+Se si usa la libreria .NET Microsoft. Azure. ServiceBus, impostare [ServiceBusConnection. TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype) su AmqpWebSockets di [TransportType enum](/dotnet/api/microsoft.azure.servicebus.transporttype).
+
+Se si usa la libreria .NET Azure. Messaging. ServiceBus, impostare [ServiceBusClient. TransportType](/dotnet/api/azure.messaging.servicebus.servicebusclient.transporttype) su AmqpWebSockets di [ServiceBusTransportType enum](/dotnet/api/azure.messaging.servicebus.servicebustransporttype).
+
+
 ## <a name="message-serialization"></a>Serializzazione dei messaggi
 
 Quando si usa il protocollo predefinito, il comportamento di serializzazione predefinito della libreria client .NET consiste nell'usare il tipo [DataContractSerializer][DataContractSerializer] per serializzare un'istanza di [BrokeredMessage][BrokeredMessage] per il trasporto tra la libreria client e il servizio del bus di servizio. Quando si usa la modalità di trasporto AMQP, la libreria client usa il sistema di tipi AMQP per la serializzazione del [messaggio negoziato][BrokeredMessage] in un messaggio AMQP. Questa serializzazione consente la ricezione e l'interpretazione dei messaggi da parte di un'applicazione ricevente che è potenzialmente in esecuzione in una piattaforma diversa, ad esempio un'applicazione Java che usa l'API JMS per accedere al bus di servizio.
@@ -65,7 +76,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | double |double |Valore AMQP |
 | decimal |decimal128 |Valore AMQP |
 | char |char |Valore AMQP |
-| Datetime | timestamp |Valore AMQP |
+| Datetime |timestamp |Valore AMQP |
 | Guid |uuid |Valore AMQP |
 | byte[] |BINARY |Valore AMQP |
 | string |string |Valore AMQP |
@@ -75,7 +86,7 @@ Per semplificare l'interoperabilità con client non .NET, usare solo tipi .NET c
 | Uri |Stringa descritta (vedere la tabella seguente) |Valore AMQP |
 | DateTimeOffset |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
 | TimeSpan |Elemento Long descritto (vedere la tabella seguente) |Valore AMQP |
-| STREAM |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
+| Flusso |BINARY |Dati AMQP (possono essere multipli). Le sezioni Data contengono i byte non elaborati dall'oggetto Stream. |
 | Altro oggetto |BINARY |Dati AMQP (possono essere multipli). Contiene i dati binari serializzati dell'oggetto che usa DataContractSerializer o un serializzatore fornito dall'applicazione. |
 
 | Tipo di .NET | Tipo descritto AMQP mappato | Note |

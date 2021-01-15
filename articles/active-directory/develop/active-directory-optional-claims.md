@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1debeab6e420d9021ebba1cecb2d551cf21c9fe2
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028472"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232472"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -45,7 +45,7 @@ Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0
 Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](#configuring-directory-extension-optional-claims) più avanti in questo articolo. Si noti che quando si aggiungono attestazioni al **token di accesso**, le attestazioni si applicano ai token di accesso richiesti *per* l'applicazione (un'API Web), non alle attestazioni richieste *dall*'applicazione. Indipendentemente dalla modalità di accesso del client all'API, i dati corretti sono presenti nel token di accesso usato per l'autenticazione con l'API.
 
 > [!NOTE]
-> La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Gli account personali supportano un subset di tali attestazioni, come indicato nella colonna "Tipo utente".  Molte delle attestazioni elencate non si applicano agli utenti consumer (non hanno tenant, quindi `tenant_ctry` non presenta alcun valore).
+>La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Gli account personali supportano un subset di tali attestazioni, come indicato nella colonna "Tipo utente".  Molte delle attestazioni elencate non si applicano agli utenti consumer (non hanno tenant, quindi `tenant_ctry` non presenta alcun valore).
 
 **Tabella 2: set di attestazioni facoltative v1.0 e v2.0**
 
@@ -148,13 +148,13 @@ Questo oggetto OptionalClaims fa sì che il token ID restituito al client includ
 [![Configurare attestazioni facoltative nell'interfaccia utente](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. In **Gestisci** selezionare **configurazione del token**.
+   - Il pannello di **configurazione del token** di opzione dell'interfaccia utente non è disponibile per le app registrate in un tenant di Azure ad B2C che possono essere configurate modificando il manifesto dell'applicazione. Per altre informazioni  [, vedere aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md)  
+
 1. Selezionare **Aggiungi un'attestazione facoltativa**.
 1. Selezionare il tipo di token da configurare.
 1. Selezionare le attestazioni facoltative da aggiungere.
 1. Selezionare **Aggiungi**.
 
-> [!NOTE]
-> Il pannello di **configurazione del token** di opzione dell'interfaccia utente non è attualmente disponibile per le app registrate in un tenant Azure ad B2C. Per le applicazioni registrate in un tenant B2C, le attestazioni facoltative possono essere configurate modificando il manifesto dell'applicazione. Per altre informazioni [, vedere aggiungere attestazioni e personalizzare l'input utente usando criteri personalizzati in Azure Active Directory B2C](../../active-directory-b2c/configure-user-input.md) 
 
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
@@ -201,7 +201,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Type                       | Descrizione                                           |
+| Nome          | Tipo                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -214,7 +214,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -227,8 +227,7 @@ Oltre al set di attestazioni facoltative standard, è anche possibile configurar
 
 Le estensioni aperte e dello schema non sono supportate dalle attestazioni facoltative, ma solo dalle estensioni della directory di tipo AAD-Graph. Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. Per un esempio, vedere la parte inferiore di questa pagina.
 
-> [!NOTE]
-> Le estensioni dello schema della directory sono una funzionalità esclusiva di Azure AD. Se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente con account del servizio gestito accede all'app, queste estensioni non verranno restituite.
+Le estensioni dello schema della directory sono una funzionalità esclusiva di Azure AD. Se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente con account del servizio gestito accede all'app, queste estensioni non verranno restituite.
 
 ### <a name="directory-extension-formatting"></a>Formattazione dell'estensione della directory
 
@@ -290,8 +289,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
    - accessToken per il token di accesso OAuth
    - Saml2Token per i token SAML.
 
-   > [!NOTE]
-   > Il tipo Saml2Token si applica ai token di formato SAML 1.1 e SAML 2.0.
+   Il tipo Saml2Token si applica ai token di formato SAML 1.1 e SAML 2.0.
 
    Per ogni tipo di token pertinente, modificare l'attestazione dei gruppi affinché usi la sezione OptionalClaims nel manifesto. Lo schema OptionalClaims è il seguente:
 
@@ -315,8 +313,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
    Per alcune applicazioni sono necessarie informazioni sul gruppo relative all'utente nell'attestazione del ruolo.  Per modificare il tipo di attestazione da un'attestazione di gruppo a un'attestazione di ruolo, aggiungere "emit_as_roles" alle proprietà aggiuntive.  I valori del gruppo verranno restituiti nell'attestazione del ruolo.
 
-   > [!NOTE]
-   > Se si utilizza "emit_as_roles", tutti i ruoli applicazione configurati a cui viene assegnato l'utente non verranno visualizzati nell'attestazione del ruolo.
+   Se si utilizza "emit_as_roles", tutti i ruoli applicazione configurati a cui viene assegnato l'utente non verranno visualizzati nell'attestazione del ruolo.
 
 **Esempi:**
 

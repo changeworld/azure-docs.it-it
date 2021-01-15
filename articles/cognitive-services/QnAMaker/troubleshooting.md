@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e8b1d985fcb2852df52382e005ec0f0266e23d9d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aea205bee41aed232b8453417dca521d2dfc83ab
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345645"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233781"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Risoluzione dei problemi per QnA Maker
 
@@ -265,7 +265,7 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 <details>
 <summary><b>Quando è consigliabile riavviare un servizio app?</b></summary>
 
-**Risposta**: aggiornare il servizio app quando l'icona di attenzione è accanto al valore della versione per la Knowledge base nella tabella **chiavi endpoint** nella pagina **impostazioni utente** [page](https://www.qnamaker.ai/UserSettings).
+**Risposta**: aggiornare il servizio app quando l'icona di attenzione è accanto al valore della versione per la Knowledge base nella tabella **chiavi endpoint** nella pagina **impostazioni utente** [](https://www.qnamaker.ai/UserSettings).
 
 </details>
 
@@ -323,6 +323,29 @@ Se sono presenti contenuti in più lingue, assicurarsi di creare un servizio sep
 
 1. Avviare il servizio app.
 1. Accedere alla Knowledge base per verificarne il funzionamento.
+
+</details>
+<details>
+<summary><b>Perché il Application Insights non funziona?</b></summary>
+
+**Risposta**: per risolvere il problema, eseguire il controllo incrociato e aggiornare i passaggi seguenti:
+
+1. Nel servizio app-> impostazioni gruppo-> sezione di configurazione-> impostazioni applicazione-> nome "UserAppInsightsKey" i parametri sono configurati correttamente e impostati sulla rispettiva scheda Panoramica di Application Insights ("chiave di strumentazione"). 
+
+1. Nel servizio app-gruppo di impostazioni >-> sezione "Application Insights"-> assicurarsi che App Insights sia abilitato e connesso alla risorsa di Application Insights corrispondente.
+
+</details>
+
+<details>
+<summary><b>Il Application Insights è abilitato, ma perché non funziona correttamente?</b></summary>
+
+**Risposta**: attenersi ai passaggi indicati di seguito: 
+
+1.  Copiare il valore di "" APPINSIGHTS_INSTRUMENTATIONKEY "Name" nel nome "UserAppInsightsKey" eseguendo l'override se è già presente un valore. 
+
+1.  Se la chiave ' UserAppInsightsKey ' non esiste nelle impostazioni dell'app, aggiungere una nuova chiave con tale nome e copiare il valore.
+
+1.  Salvarlo e il servizio app verrà riavviato automaticamente. Questa operazione dovrebbe risolvere il problema. 
 
 </details>
 

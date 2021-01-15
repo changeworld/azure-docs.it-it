@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 118bdcb6929abfc162ff05e91f1621f087b6c50c
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186729"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234053"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Come eseguire query sui log da Monitoraggio di Azure per le macchine virtuali
 
@@ -92,7 +92,7 @@ Ecco alcuni punti importanti da considerare:
 
 #### <a name="naming-and-classification"></a>Denominazione e classificazione
 
-Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incluso nella proprietà RemoteIp. Per le connessioni in ingresso, RemoteIp corrisponde a SourceIp, mentre per le connessioni in uscita corrisponde a DestinationIp. La proprietà RemoteDnsCanonicalNames rappresenta i nomi canonici DNS segnalati dal computer per RemoteIp. Le proprietà RemoteDnsQuestions e RemoteClassification sono riservate per l'uso futuro. 
+Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incluso nella proprietà RemoteIp. Per le connessioni in ingresso, RemoteIp corrisponde a SourceIp, mentre per le connessioni in uscita corrisponde a DestinationIp. La proprietà RemoteDnsCanonicalNames rappresenta i nomi canonici DNS segnalati dal computer per RemoteIp. La proprietà RemoteDnsQuestions rappresenta le domande DNS segnalate dal computer per RemoteIp. La proprietà RemoveClassification è riservata per un utilizzo futuro. 
 
 #### <a name="geolocation"></a>Georilevazione
 
@@ -446,7 +446,7 @@ I record con un tipo di *InsightsMetrics* hanno dati sulle prestazioni del siste
 |Val | Valore raccolto | 
 |Tag | Dettagli correlati sul record. Vedere la tabella seguente per i tag usati con tipi di record diversi.  |
 |AgentId | Identificatore univoco per l'agente di ogni computer |
-|Type | *InsightsMetrics* |
+|Tipo | *InsightsMetrics* |
 |_ResourceId_ | ID risorsa della macchina virtuale |
 
 Nella tabella seguente sono elencati i contatori delle prestazioni attualmente raccolti nella tabella *InsightsMetrics* :

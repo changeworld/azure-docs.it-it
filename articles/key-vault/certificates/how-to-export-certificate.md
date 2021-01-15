@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 0925b51ed960b8007d2df86115ea7e5cf627fe7e
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: b3c917c9652954783fcddd92b9a7370c358ab3cc
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826126"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233645"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Esportare certificati da Azure Key Vault
 
-Informazioni su come esportare i certificati da Azure Key Vault. Per esportare i certificati, è possibile usare l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure. È possibile usare il portale di Azure anche per esportare i certificati di Servizio app di Azure.
+Informazioni su come esportare i certificati da Azure Key Vault. Per esportare i certificati, è possibile usare l'interfaccia della riga di comando di Azure, Azure PowerShell o il portale di Azure. 
 
 ## <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -114,7 +114,7 @@ Per scaricare il certificato, selezionare **Scarica in formato CER** o **Scarica
 
 **Esportare i certificati di Servizio app di Azure**
 
-I certificati di Servizio app di Azure costituiscono una soluzione pratica per acquistare certificati SSL. È possibile assegnarli alle app Azure dall'interno del portale. È anche possibile esportare questi certificati dal portale come file PFX e usarli altrove. Dopo l'importazione, i certificati di Servizio app di Azure si trovano in **segreti**.
+I certificati di Servizio app di Azure costituiscono una soluzione pratica per acquistare certificati SSL. È possibile assegnarli alle app Azure dall'interno del portale. Dopo l'importazione, i certificati di Servizio app di Azure si trovano in **segreti**.
 
 Per altre informazioni, vedere la procedura per [esportare i certificati di Servizio app di Azure](https://social.technet.microsoft.com/wiki/contents/articles/37431.exporting-azure-app-service-certificates.aspx).
 

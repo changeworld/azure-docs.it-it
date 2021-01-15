@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: bc1ae4bc2cf64c3e2f996709c086eb23cb8b8385
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602598"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233832"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -35,7 +35,7 @@ Per risolvere questo problema, recuperare l'immagine da Azure Marketplace e appo
 - [Immagini di Windows](azure-vm-create-using-approved-base.md)
 
 > [!Note]
-> Se si usa un'immagine di base Linux non ricavata da Azure Marketplace, è possibile sfalsare la prima partizione di 2048 KB. Questo consente di usare lo spazio non formattato per l'aggiunta di nuove informazioni di fatturazione e consente ad Azure di procedere con la pubblicazione della VM in Azure Marketplace.  
+> Se si usa un'immagine di base Linux non ricavata da Azure Marketplace, assicurarsi che i primi 2048 settori (ogni settore sia di 512 byte) sul disco rigido virtuale siano vuoti, in modo che Azure proceda con la pubblicazione della VM in Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
@@ -224,7 +224,7 @@ Per evitare un potenziale attacco correlato al virus WannaCry, verificare che tu
 
 La tabella seguente illustra la versione minima con patch di Windows Server: 
 
-|Sistema operativo|Versione|
+|OS|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
@@ -328,14 +328,14 @@ Vedere la tabella seguente per eventuali problemi che si verificano quando si sc
 |6|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
 |7|Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
 
-## <a name="first-mb-2048-kb-partition-linux-only"></a>Prima partizione MB (2048 KB) (solo Linux)
+## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Primo 1 MB (settori 2048, ogni settore di 512 byte) partizione (solo Linux)
 
-Quando si invia il disco rigido virtuale, assicurarsi che i primi 2048 KB del disco rigido virtuale siano vuoti. In caso contrario, la richiesta avrà esito negativo.
+Quando si invia il disco rigido virtuale, assicurarsi che i primi 2048 settori (1 MB) del disco rigido virtuale siano vuoti. In caso contrario, la richiesta avrà esito negativo. Si noti che questo sarà applicabile al disco di avvio/sistema operativo e non a eventuali dischi dati aggiuntivi.
 
 >[!NOTE]
->Per alcune immagini speciali, ad esempio quelle basate sulle immagini di base di Windows di Azure ricavate da Azure Marketplace, viene verificata la presenza di un tag di fatturazione e viene ignorata la partizione MB se il tag di fatturazione è presente e corrisponde ai valori interni disponibili.
+>Per alcune immagini speciali, ad esempio quelle basate sulle immagini di base di Windows di Azure ricavate da Azure Marketplace o verificare che il primo 1 MB (2048 settori) del disco rigido virtuale sia vuoto. 
 
-### <a name="create-a-first-mb-2048-kb-partition-on-an-empty-vhd"></a>Creare una partizione di prima MB (2048 KB) in un disco rigido virtuale vuoto
+### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Creare una partizione del primo 1 MB (2048 settori, ogni settore di 512 byte) in un disco rigido virtuale vuoto
 
 Questi passaggi si applicano solo a Linux.
 
@@ -386,7 +386,7 @@ Questi passaggi si applicano solo a Linux.
    1. Immettere 2048 come _primo valore settore_ . È possibile lasciare l' _ultimo settore_ come valore predefinito.
 
       >[!IMPORTANT]
-      >Tutti i dati esistenti verranno cancellati fino a 2048 KB. Backup del disco rigido virtuale prima di creare una nuova partizione.
+      >Tutti i dati esistenti verranno cancellati fino a 2048 settori (ogni settore di 512 byte). Backup del disco rigido virtuale prima di creare una nuova partizione.
 
       ![Schermata della riga di comando del client putty che mostra i comandi e l'output per i dati cancellati.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
@@ -400,7 +400,7 @@ Questi passaggi si applicano solo a Linux.
 
 1. Scollegare il disco rigido virtuale dalla macchina virtuale ed eliminare la macchina virtuale.
 
-### <a name="create-a-first-mb-2048-kb-partition-by-moving-existing-data-on-vhd"></a>Creare una partizione di prima MB (2048 KB) spostando i dati esistenti nel disco rigido virtuale
+### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Creare una partizione per i primi MB (2048 settori, ogni settore di 512 byte) spostando i dati esistenti nel disco rigido virtuale
 
 Questi passaggi si applicano solo a Linux.
 

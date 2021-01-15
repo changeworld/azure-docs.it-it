@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ceb5acbee2e572b1859a5577b58dd586fc924b3b
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 4a798443560f62673ef8fcf0bce970a66071d011
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653283"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232387"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -292,10 +292,7 @@ Un account di accesso *non basato su password* è quello in cui l'utente non ha 
 - Chiamata vocale
 - PIN
 
-> [!NOTE]
-> I token di aggiornamento primari in Windows 10 vengono separati in base alle credenziali. Ad esempio, Windows Hello e le password hanno i rispettivi token di aggiornamento primari, isolati uno dall'altro. Quando un utente accede con le credenziali di Hello (PIN o biometria) e poi cambia la password, il token di aggiornamento primario basato su password ottenuto in precedenza verrà revocato. Se si accede di nuovo con una password, il token di aggiornamento primario precedente viene invalidato e ne viene richiesto uno nuovo.
->
-> I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  Tuttavia, l'app deve rimuovere quello precedente non appena viene usato e sostituirlo con quello nuovo, perché il nuovo token include una nuova data di scadenza.
+Per altri dettagli sui token di aggiornamento primari, vedere [token di aggiornamento primario](../devices/concept-primary-refresh-token.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

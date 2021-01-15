@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: bca995f8b2cea33266e032b543abb18ee7140f3f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 01/15/2021
+ms.openlocfilehash: 164285b1fea3dce18161066e643aa165e47cc496
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541182"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233987"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorare le prestazioni del database di Azure per MariaDB con Query Store
 
@@ -21,7 +21,7 @@ La funzionalità Query Store nel database di Azure per MariaDB offre un modo per
 
 ## <a name="common-scenarios-for-using-query-store"></a>Scenari comuni per l'uso di Query Store
 
-È possibile usare Query Store in numerosi scenari, inclusi i seguenti:
+Archivio query può essere usato in molti scenari, inclusi i seguenti:
 
 - Rilevamento di query regredite
 - Determinazione del numero di volte in cui una query è stata eseguita in un determinato intervallo di tempo
@@ -34,14 +34,14 @@ Query Store è una funzionalità con consenso esplicito e non è quindi attivo p
 ### <a name="enable-query-store-using-the-azure-portal"></a>Abilitare Query Store con il portale di Azure
 
 1. Accedere al portale di Azure e selezionare il database di Azure per il server MariaDB.
-1. Selezionare **Parametri del server** nella sezione **Impostazioni** del menu.
-1. Cercare il parametro query_store_capture_mode.
-1. Impostare il valore su TUTTO e selezionare **Salva**.
+2. Selezionare **Parametri del server** nella sezione **Impostazioni** del menu.
+3. Cercare il parametro query_store_capture_mode.
+4. Impostare il valore su TUTTO e selezionare **Salva**.
 
 Per abilitare le statistiche di attesa in Query Store:
 
 1. Cercare il parametro query_store_wait_sampling_capture_mode.
-1. Impostare il valore su TUTTO e selezionare **Salva**.
+2. Impostare il valore su TUTTO e selezionare **Salva**.
 
 Per il salvataggio permanente del primo batch di dati nel database mysql possono essere necessari fino a 20 minuti.
 
@@ -108,9 +108,9 @@ Usare il [portale di Azure](howto-server-parameters.md) per ottenere o impostare
 
 ## <a name="views-and-functions"></a>Viste e funzioni
 
-Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Queste viste possono essere usate da qualsiasi membro del [ruolo pubblico con privilegi selezionati](howto-create-users.md#create-additional-admin-users) per visualizzare i dati in Query Store e sono disponibili solo nel database **mysql**.
+Visualizzare e gestire Query Store usando le viste e le funzioni seguenti. Queste viste possono essere usate da qualsiasi membro del [ruolo pubblico con privilegi selezionati](howto-create-users.md#create-more-admin-users) per visualizzare i dati in Query Store e sono disponibili solo nel database **mysql**.
 
-Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Due query identiche tranne per i valori letterali avranno lo stesso hash.
+Le query vengono normalizzate esaminandone la struttura dopo la rimozione di valori letterali e costanti. Se due query sono identiche, ad eccezione dei valori letterali, avranno lo stesso hash.
 
 ### <a name="mysqlquery_store"></a>mysql.query_store
 
@@ -138,8 +138,8 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 | `sum_select_full_join` | bigint(20)| NO| Numero di join completi|
 | `sum_select_scan` | bigint(20)| NO| Numero di analisi di selezione |
 | `sum_sort_rows` | bigint(20)| NO| Numero di righe ordinate|
-| `sum_no_index_used` | bigint(20)| NO| Numero di volte in cui la query non ha usato indici|
-| `sum_no_good_index_used` | bigint(20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha usato indici validi|
+| `sum_no_index_used` | bigint(20)| NO| Numero di volte in cui la query non ha utilizzato indici|
+| `sum_no_good_index_used` | bigint(20)| NO| Numero di volte in cui il motore di esecuzione delle query non ha utilizzato indici validi|
 | `sum_created_tmp_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create|
 | `sum_created_tmp_disk_tables` | bigint(20)| NO| Numero totale di tabelle temporanee create nel disco (genera I/O)|
 | `first_seen` | timestamp| NO| Prima occorrenza (UTC) della query durante la finestra di aggregazione|
@@ -147,7 +147,7 @@ Questa vista restituisce tutti i dati in Query Store. Contiene una riga per ogni
 
 ### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
-Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene una riga per ogni specifico ID database, ID utente, ID query ed evento.
+Questa vista restituisce i dati degli eventi di attesa in Query Store. È presente una riga per ogni ID database, ID utente, ID query ed evento distinti.
 
 | **Nome**| **Tipo di dati** | **IS_NULLABLE** | **Descrizione** |
 |---|---|---|---|
@@ -171,7 +171,7 @@ Questa vista restituisce i dati degli eventi di attesa in Query Store. Contiene 
 
 ## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-- Se un server MariaDB dispone del parametro `default_transaction_read_only` on, query Store non è in grado di acquisire i dati.
+- Se un server MariaDB dispone del parametro `default_transaction_read_only` on, query Store possibile acquisire i dati.
 - La funzionalità Query Store può essere interrotta se si verificano query Unicode lunghe (\> = 6000 byte).
 - Il periodo di conservazione per le statistiche di attesa è di 24 ore.
 - Per le statistiche di attesa viene usato Sample ti Capture a frazione di eventi. La frequenza può essere modificata usando il parametro `query_store_wait_sampling_frequency`.

@@ -3,12 +3,12 @@ title: Versioni cluster supportate in Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: abf9900e9749a1b21d927e0315076b38848bea10
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c2ea2b53649cf148a19df46835c8936345aa20e5
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132648"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234342"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -37,18 +37,18 @@ Si consiglia di effettuare un'azione per eseguire l'aggiornamento alle versioni 
 Eseguire l'aggiornamento a Service Fabric versioni supportate elencate di seguito per evitare tempi di inattività o perdita di funzionalità correlate a questa modifica. Assicurarsi che i cluster eseguano almeno queste versioni per evitare problemi nell'ambiente.
 
   ###### <a name="supported-service-fabric-runtime-versions"></a>Versioni di Runtime Service Fabric supportate
-   Se il servizio non è disponibile nelle versioni di Service Fabric supportate elencate di seguito, eseguire l'aggiornamento a una di queste versioni che contengono già le modifiche necessarie per evitare tempi di inattività per il cluster.  
+   Se il servizio non è disponibile nelle versioni di Service Fabric supportate elencate di seguito, eseguire l'aggiornamento a una di queste versioni che contengono già le modifiche necessarie per evitare tempi di inattività per il cluster. **Nota:** Tutte le versioni di rilascio di 7,2 includono le modifiche necessarie.
   
-  | OS | Runtime Service Fabric corrente nel cluster | Versione CU/patch  | 
+  | Sistema operativo | Runtime Service Fabric corrente nel cluster | Versione CU/patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Ubuntu 16 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18,04 | 7,2. * | 7,2. * |
  
 ### <a name="upgrade-alert-for-versions-greater-than-63"></a>Avviso di aggiornamento per versioni superiori a 6,3 
 Per migliorare la sicurezza e la disponibilità, l'infrastruttura di Azure apporterà una modifica che potrebbe influire sui clienti Service Fabric. **Tutti i cluster Service fabric che usano [la funzionalità di rete aperta per i contenitori](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode), vengono eseguiti su versioni non supportate maggiori di 6,3 e inferiori a 7,0 e le versioni supportate non compatibili a partire da 7,0 in poi sono interessate**. Per risolvere il cambiamento è necessario un aggiornamento del Service Fabric Runtime, che è già disponibile per tutte le versioni di Service Fabric supportate in tutte le aree.
@@ -58,24 +58,24 @@ Per migliorare la sicurezza e la disponibilità, l'infrastruttura di Azure appor
  
   - **Per i cluster che eseguono una versione di Service Fabric maggiore di 6,3 senza la funzionalità di rete aperta**, il cluster rimarrà attivo, ma la funzionalità di rete aperta per i cluster di contenitori smette di funzionare, causando interruzioni del servizio per i carichi di lavoro.
 
- - **Per i cluster che eseguono una versione di Service Fabric maggiore di 6,3 e usano la [funzionalità di rete aperta per i contenitori](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , il cluster rimarrà attivo, ma smette di funzionare, causando interruzioni del servizio per i carichi di lavoro.
+ - **Per i cluster che eseguono una versione di Service Fabric superiore a 6,3 e usano la [funzionalità di rete aperta per i contenitori](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , il cluster potrebbe non essere più disponibile e cesserà di funzionare, causando interruzioni del servizio per i carichi di lavoro.
   
 #### <a name="required-action"></a>Azione richiesta
 Eseguire l'aggiornamento a Service Fabric versioni supportate elencate di seguito per evitare tempi di inattività o perdita di funzionalità correlate a questa modifica. Assicurarsi che i cluster eseguano almeno queste versioni per evitare problemi nell'ambiente. 
  
  ###### <a name="supported-service-fabric-runtime-versions"></a>Versioni di Runtime Service Fabric supportate
- Se non si dispone delle seguenti versioni supportate di Service Fabric, eseguire l'aggiornamento a una di queste versioni che contengono già le modifiche necessarie per evitare la perdita di funzionalità.  
+ Se non si dispone delle seguenti versioni supportate di Service Fabric, eseguire l'aggiornamento a una di queste versioni che contengono già le modifiche necessarie per evitare la perdita di funzionalità.  **Nota:** Tutte le versioni di rilascio di 7,2 includono le modifiche necessarie.
  
-  | OS | Runtime Service Fabric corrente nel cluster | Versione CU/patch  | 
+  | Sistema operativo | Runtime Service Fabric corrente nel cluster | Versione CU/patch  | 
   | --- | --- |--- | 
   | Windows | 7,0. * | 7.0.478.9590 |
   | Windows | 7,1. * | 7.1.503.9590 |
-  | Windows | 7,2. * | 7.2.445.9590 |
+  | Windows | 7,2. * | 7,2. * |
   | Linux Ubuntu 16.04 | 7,0. * | 7.0.472.1  |
   | Linux Ubuntu 16.04 | 7,1. * | 7.1.455.1  |
   | Linux Ubuntu 18,04 | 7,1. * | 7.1.455.1804 |
-  | Linux Ubuntu 16.04 | 7,2. * | 7.2.447.1 |
-  | Linux Ubuntu 18,04 | 7,2. * | 7.2.447.1804 |
+  | Linux Ubuntu 16.04 | 7,2. * | 7,2. * |
+  | Linux Ubuntu 18,04 | 7,2. * | 7,2. * |
 
 ## <a name="supported-versions"></a>Versioni supportate
 Nella tabella seguente sono elencate le versioni di Service Fabric e le date di fine del supporto.

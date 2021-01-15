@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: jlian
-ms.openlocfilehash: e569cbe9030b2ac5a42bd99233b4fefc925a5662
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d36a7917693aef9063ade473759f2f451d3a677f
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220312"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234019"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>Supporto di Transport Layer Security (TLS) nell'hub Internet
 
@@ -48,7 +48,7 @@ Per una maggiore sicurezza, configurare gli hub Internet per consentire *solo* l
 * US Gov Arizona
 * US Gov Virginia (il supporto di TLS 1.0/1.1 non è disponibile in questa area-l'imposizione di TLS 1,2 deve essere abilitata o la creazione dell'hub Internet non riesce)
 
-Per abilitare l'imposizione di TLS 1,2, seguire i passaggi descritti in [creare un hub Internet in portale di Azure](/.iot-hub-create-through-portal.md), eccetto
+Per abilitare l'imposizione di TLS 1,2, seguire i passaggi descritti in [creare un hub Internet in portale di Azure](iot-hub-create-through-portal.md), eccetto
 
 - Scegliere un' **area** da uno nell'elenco precedente.
 - In **Management-> Advanced-> Transport Layer Security (TLS)-> versione minima di TLS** selezionare **1,2**. Questa impostazione viene visualizzata solo per l'hub Internet delle cose creato nell'area supportata.

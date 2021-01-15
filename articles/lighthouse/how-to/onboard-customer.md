@@ -1,14 +1,14 @@
 ---
 title: Eseguire l'onboarding dei clienti in Azure Lighthouse
 description: Informazioni su come caricare un cliente in Azure Lighthouse, consentendo l'accesso e la gestione delle risorse tramite il proprio tenant mediante la gestione delle risorse delegate di Azure.
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 023b44a77cb38a14df8aa6a885ff137c02942061
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516136"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232676"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Eseguire l'onboarding dei clienti in Azure Lighthouse
 
@@ -62,14 +62,17 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definire ruoli e autorizzazioni
 
-Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) appropriati agli utenti nel tenant.
+Il provider di servizi può eseguire più attività per un singolo cliente, per cui deve avere un accesso diverso per ambiti diversi. È possibile definire tutte le autorizzazioni necessarie per assegnare i [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md)appropriati. Ogni autorizzazione include un **PrincipalId** che fa riferimento a un utente Azure ad, un gruppo o un'entità servizio nel tenant di gestione.
 
-Per semplificare la gestione, è consigliabile usare Azure AD gruppi di utenti per ogni ruolo. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
+> [!NOTE]
+> A meno che non venga specificato in modo esplicito, i riferimenti a un "utente" nella documentazione di Azure Lighthouse possono essere applicati a un utente Azure AD, a un gruppo o a un'entità servizio in un'autorizzazione.
+
+Per semplificare la gestione, è consigliabile utilizzare Azure AD gruppi di utenti per ogni ruolo, laddove possibile, anziché ai singoli utenti. In questo modo è possibile aggiungere o rimuovere singoli utenti nel gruppo che ha accesso, in modo da non dover ripetere il processo di caricamento per apportare modifiche agli utenti. È anche possibile assegnare ruoli a un'entità servizio, che può essere utile per gli scenari di automazione.
 
 > [!IMPORTANT]
 > Per aggiungere autorizzazioni per un gruppo di Azure AD, il **tipo di gruppo** deve essere impostato su **sicurezza**. Questa opzione è selezionata quando viene creato il gruppo. Per altre informazioni, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Quando si definiscono le autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti dispongano solo delle autorizzazioni necessarie per completare il processo. Per le linee guida e le informazioni sui ruoli supportati, vedere [tenant, utenti e ruoli negli scenari di Azure Lighthouse](../concepts/tenants-users-roles.md).
+Quando si definiscono le autorizzazioni, assicurarsi di seguire il principio dei privilegi minimi, in modo che gli utenti dispongano solo delle autorizzazioni necessarie per completare il processo. Per informazioni sui ruoli supportati e sulle procedure consigliate, vedere [tenant, utenti e ruoli negli scenari del Faro di Azure](../concepts/tenants-users-roles.md).
 
 Per definire le autorizzazioni, è necessario essere a conoscenza dei valori ID per ogni utente, gruppo di utenti o entità servizio nel tenant del provider di servizi a cui si vuole concedere l'accesso. È anche necessario l'ID di definizione del ruolo per ogni ruolo predefinito che si vuole assegnare. Se non sono già presenti, è possibile recuperarli eseguendo i comandi seguenti dall'interno del tenant del provider di servizi.
 
@@ -195,7 +198,7 @@ L'esempio seguente illustra un file **delegatedResourceManagement.parameters.jso
 }
 ```
 
-L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti. L'utente creato in questa autorizzazione sarà in grado di assegnare questi ruoli predefiniti alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, che è necessario per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md).  L'utente è inoltre in grado di creare interventi di supporto.  Nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
+L'ultima autorizzazione nell'esempio precedente aggiunge un **principalId** con il ruolo Amministratore Accesso utenti (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Quando si assegna questo ruolo, è necessario includere la proprietà **delegatedRoleDefinitionIds** e uno o più ruoli predefiniti di Azure supportati. L'utente creato in questa autorizzazione sarà in grado di assegnare questi ruoli alle [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) nel tenant del cliente, che è necessario per [distribuire i criteri che possono essere corretti](deploy-policy-remediation.md).  L'utente è inoltre in grado di creare interventi di supporto. Non verranno applicate altre autorizzazioni normalmente associate al ruolo amministratore accesso utenti per questo **PrincipalId**.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuire i modelli di Azure Resource Manager
 
@@ -278,7 +281,7 @@ Nel tenant del cliente:
 3. Verificare che sia possibile visualizzare le sottoscrizioni con il nome dell'offerta specificato nel modello di Resource Manager.
 
 > [!NOTE]
-> Potrebbero essere necessari alcuni minuti dopo il completamento della distribuzione prima che gli aggiornamenti siano visibili nel portale di Azure.
+> Potrebbero essere necessari fino a 15 minuti dopo il completamento della distribuzione prima che gli aggiornamenti vengano riflessi nel portale di Azure. Se si aggiorna il token di Azure Resource Manager, è possibile visualizzare gli aggiornamenti in modo più tempestivo aggiornando il browser, effettuando l'accesso e la disconnessione o richiedendo un nuovo token.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -312,6 +315,7 @@ Se non si è in grado di caricare correttamente il cliente o se gli utenti hanno
 - Il provider di risorse **Microsoft. ManagedServices** deve essere registrato per la sottoscrizione delegata. Questa operazione dovrebbe essere eseguita automaticamente durante la distribuzione, ma in caso contrario è possibile [registrarla manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Le autorizzazioni non devono includere utenti con il ruolo predefinito [proprietario](../../role-based-access-control/built-in-roles.md#owner) o i ruoli predefiniti con le [azioni dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - I gruppi devono essere creati con il [**tipo di gruppo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) impostato su **sicurezza** e non **Microsoft 365**.
+- Potrebbe verificarsi un ulteriore ritardo prima che l'accesso sia abilitato per i [gruppi annidati](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Gli utenti che hanno la necessità di visualizzare le risorse nel portale di Azure necessario avere il ruolo [lettore](../../role-based-access-control/built-in-roles.md#reader) (o un altro ruolo predefinito che include l'accesso in lettura).
 
 ## <a name="next-steps"></a>Passaggi successivi

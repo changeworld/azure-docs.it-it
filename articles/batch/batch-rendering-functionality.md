@@ -3,14 +3,14 @@ title: Funzionalità di rendering
 description: Le funzionalità standard di Azure Batch vengono usate per eseguire app e carichi di lavoro di rendering. Batch include funzionalità specifiche per supportare i carichi di lavoro di rendering.
 author: mscurrell
 ms.author: markscu
-ms.date: 08/02/2018
+ms.date: 01/14/2021
 ms.topic: how-to
-ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d9d196897800467fd02397bb774af0bbb9ebabf0
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107471"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234274"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funzionalità di rendering di Azure Batch
 
@@ -18,7 +18,15 @@ Le funzionalità standard di Azure Batch vengono usate per eseguire applicazioni
 
 Per una panoramica dei concetti di Batch, inclusi pool, processi e attività, vedere [questo articolo](./batch-service-workflow-features.md).
 
-## <a name="batch-pools"></a>Pool di Batch
+## <a name="batch-pools-using-custom-vm-images-and-standard-application-licensing"></a>Pool di batch con immagini di VM personalizzate e licenze di applicazioni standard
+
+Come per altri carichi di lavoro e tipi di applicazione, è possibile creare un'immagine di macchina virtuale personalizzata con le applicazioni e i plug-in necessari per il rendering. L'immagine di macchina virtuale personalizzata viene inserita nella [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md) e [può essere usata per creare pool di batch](batch-sig-images.md).
+
+Le stringhe della riga di comando dell'attività dovranno fare riferimento alle applicazioni e ai percorsi usati durante la creazione dell'immagine di macchina virtuale personalizzata.
+
+Per la maggior parte delle applicazioni di rendering sono necessarie licenze ottenute da un server licenze. Se è presente un server licenze locale esistente, il pool e il server licenze devono trovarsi nella stessa [rete virtuale](../virtual-network/virtual-networks-overview.md). È anche possibile eseguire un server licenze in una macchina virtuale di Azure, con il pool di batch e la VM del server licenze che si trova nella stessa rete virtuale.
+
+## <a name="batch-pools-using-rendering-vm-images"></a>Pool di batch che usano il rendering delle immagini di VM
 
 ### <a name="rendering-application-installation"></a>Installazione delle applicazioni di rendering
 
@@ -71,13 +79,13 @@ Riga di comando di Arnold 2017|kick.exe|ARNOLD_2017_EXEC|
 |Riga di comando di Arnold 2018|kick.exe|ARNOLD_2018_EXEC|
 |Blender|blender.exe|BLENDER_2018_EXEC|
 
-### <a name="azure-vm-families"></a>Famiglie di VM di Azure
+## <a name="azure-vm-families"></a>Famiglie di VM di Azure
 
 Come con altri carichi di lavoro, i requisiti di sistema delle applicazioni di rendering sono diversi e i requisiti delle prestazioni variano a seconda dei progetti e dei processi.  In Azure è disponibile un'ampia gamma di famiglie di VM a seconda dei requisiti: costo più basso, miglior rapporto prezzo/prestazioni, migliori prestazioni e così via.
 Alcune applicazioni di rendering, ad esempio Arnold, sono basate sulla CPU, altre, ad esempio V-Ray e Blender Cycles, possono usare CPU e/o GPU.
 Per una descrizione delle famiglie di VM e delle dimensioni di VM disponibili, [vedere i tipi e le dimensioni delle VM](../virtual-machines/sizes.md).
 
-### <a name="low-priority-vms"></a>Macchine virtuali con priorità bassa
+## <a name="low-priority-vms"></a>Macchine virtuali con priorità bassa
 
 Come con altri carichi di lavoro, le VM con priorità bassa possono essere utilizzate nei pool di Batch per il rendering.  Le VM con priorità bassa funzionano come le normali VM dedicate, ma utilizzano la capacità in eccesso di Azure e sono disponibili a un prezzo fortemente scontato.  Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono non essere disponibili per l'allocazione o essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le VM con priorità bassa non saranno idonee per tutti i processi di rendering. Se ad esempio il rendering delle immagini richiede diverse ore, è probabile che l'interruzione e il riavvio del rendering di tali immagini a causa della terminazione delle VM non sarà accettabile.
 

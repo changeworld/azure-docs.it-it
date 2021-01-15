@@ -3,12 +3,12 @@ title: Analisi dell'utilizzo con Azure Application Insights | Documentazione Mic
 description: Informazioni sugli utenti e le operazioni eseguite con l'app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633d35ec16f5eb9de664421c38cd4c824dc240cf
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532104"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233849"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -65,7 +65,7 @@ Informazioni approfondite sui modelli di segnalazione corretti nel set di dati.
 
 ## <a name="retention---how-many-users-come-back"></a>Conservazione: numero di utenti che ritornano
 
-La conservazione consente di comprendere la frequenza con cui gli utenti tornano a usare l'app, in base alle coorti di utenti che hanno eseguito un'azione aziendale in un determinato intervallo di tempo. 
+La conservazione consente di comprendere la frequenza con cui gli utenti tornano a usare l'app, in base alle coorti di utenti che hanno eseguito un'azione aziendale in un determinato intervallo di tempo. 
 
 - Comprendere le funzionalità specifiche per cui alcuni utenti ritornano di più rispetto ad altri 
 - Fare ipotesi in base a dati utente reali 
@@ -79,7 +79,9 @@ I controlli di conservazione nella parte superiore consentono di definire l'inte
 
 ## <a name="custom-business-events"></a>Eventi aziendali personalizzati
 
-Per ottenere una descrizione chiara delle operazioni che gli utenti eseguono con l'app, è utile inserire righe di codice per registrare eventi personalizzati. Questi eventi possono tenere traccia di qualsiasi operazione, da azioni dell'utente dettagliate, ad esempio fare clic su pulsanti specifici, agli eventi aziendali più importanti, ad esempio effettuare un acquisto o vincere a un gioco. 
+Per ottenere una descrizione chiara delle operazioni che gli utenti eseguono con l'app, è utile inserire righe di codice per registrare eventi personalizzati. Questi eventi possono tenere traccia di qualsiasi operazione, da azioni dell'utente dettagliate, ad esempio fare clic su pulsanti specifici, agli eventi aziendali più importanti, ad esempio effettuare un acquisto o vincere a un gioco.
+
+È anche possibile usare il [plug-](javascript-click-analytics-plugin.md) in per la raccolta automatica di Analytics per raccogliere eventi personalizzati.
 
 Sebbene in alcuni casi, le visualizzazioni della pagina possano rappresentare eventi utili, questo non è vero in generale. Un utente può aprire la pagina di un prodotto senza acquistarlo. 
 

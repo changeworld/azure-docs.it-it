@@ -7,12 +7,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: rambala
-ms.openlocfilehash: e0e5806ec59cd2d75111db213d8511488d043eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 835be5b867826d75732c9482743ad6a4ca2900e7
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80982855"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231843"
 ---
 # <a name="working-remotely-using-azure-networking-services"></a>Lavorare in remoto usando i servizi di rete di Azure
 
@@ -66,7 +66,7 @@ I servizi di Azure seguenti consentono ai dipendenti di accedere alle risorse di
 
 - **ExpressRoute**: uso del peering privato di ExpressRoute è possibile abilitare la connettività privata tra le distribuzioni di Azure e l'infrastruttura locale o l'infrastruttura in una struttura di condivisione percorso. ExpressRoute, tramite il peering Microsoft, consente anche l'accesso agli endpoint pubblici in Microsoft dalla rete locale. Le connessioni ExpressRoute non sfruttano la rete Internet pubblica. Offrono connettività sicura, affidabilità, velocità effettiva superiore, con latenze inferiori e coerenti rispetto alle connessioni Internet tipiche. Per altre informazioni, vedere la [panoramica di ExpressRoute][ExR]. Sfruttando il provider di rete esistente che fa già parte dell' [ecosistema di partner ExpressRoute][ExR-eco] , è possibile ridurre il tempo necessario per ottenere connessioni con larghezza di banda elevata a Microsoft.  Con [ExpressRoute Direct][ExR-D] è possibile connettere direttamente la rete locale al backbone Microsoft. ExpressRoute Direct offre due diverse opzioni di frequenza di riga di doppio 10 Gbps o 100 Gbps. 
 
-- **Rete WAN virtuale**di Azure: la rete WAN virtuale di Azure consente l'interoperabilità senza problemi tra le connessioni VPN e i circuiti ExpressRoute. Come accennato in precedenza, la rete WAN virtuale di Azure supporta anche le connessioni any-to-any tra le risorse in posizioni globali locali diverse, in diverse reti virtuali di hub e spoke
+- **Rete WAN virtuale** di Azure: la rete WAN virtuale di Azure consente l'interoperabilità senza problemi tra le connessioni VPN e i circuiti ExpressRoute. Come accennato in precedenza, la rete WAN virtuale di Azure supporta anche le connessioni any-to-any tra le risorse in posizioni globali locali diverse, in diverse reti virtuali di hub e spoke
 
 ## <a name="scale-customer-connectivity-to-frontend-resources"></a>Ridimensionare la connettività dei clienti alle risorse front-end
 
@@ -86,15 +86,15 @@ Gli articoli seguenti illustrano come usare le diverse funzionalità di rete di 
 | [Si fatica a soddisfare le esigenze del lavoro da casa? Ecco dove è possibile aiutare la rete WAN virtuale di Azure](../virtual-wan/work-remotely-support.md) | Usare la rete WAN virtuale di Azure per soddisfare le esigenze di connettività remota della propria organizzazione.|
 | [Supporto del traffico elevato nel gateway applicazione](../application-gateway/high-traffic-support.md) | Usare il gateway applicazione con Web Application Firewall (WAF) per gestire il traffico verso le applicazioni Web in modo sicuro e scalabile. |
 | [Considerazioni sull'appliance virtuale di rete per il lavoro remoto](../vpn-gateway/nva-work-remotely-support.md)|Vedere le indicazioni sull'uso di appliance virtuali in Azure per fornire soluzioni di accesso remoto. |
-| [Transizione al protocollo OpenVPN o IKEv2 da SSTP](https://go.microsoft.com/fwlink/?linkid=2124112) | Superare il limite di 128 della connessione simultanea di SSTP eseguendo la transizione al protocollo OpenVPN o a IKEv2.|
+| [Transizione al protocollo OpenVPN o IKEv2 da SSTP](../vpn-gateway/ikev2-openvpn-from-sstp.md) | Superare il limite di 128 della connessione simultanea di SSTP eseguendo la transizione al protocollo OpenVPN o a IKEv2.|
 | [Lavorare in remoto con Azure Bastion](../bastion/work-remotely-support.md) | Fornire connettività RDP/SSH sicura e trasparente alle macchine virtuali all'interno della rete virtuale di Azure, direttamente nel portale di Azure, senza l'uso di un indirizzo IP pubblico. |
 | [Uso di Azure ExpressRoute per creare una connettività ibrida per supportare gli utenti remoti](../expressroute/work-remotely-support.md) | Usare ExpressRoute per la connettività ibrida per consentire agli utenti dell'organizzazione di lavorare in modalità remota.|
 | [Supporto per lavoro remoto del firewall di Azure](../firewall/remote-work-support.md)|Proteggi le risorse della rete virtuale di Azure usando il firewall di Azure. |
 
 <!--Link References-->
-[VNet-peer]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview
-[S2S]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[ExR]: https://docs.microsoft.com/azure/expressroute/expressroute-introduction
-[ExR-eco]: https://docs.microsoft.com/azure/expressroute/expressroute-locations
-[ExR-D]: https://docs.microsoft.com/azure/expressroute/expressroute-erdirect-about
-[Az-OCI]: https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+[VNet-peer]: ../virtual-network/virtual-network-peering-overview.md
+[S2S]: ../vpn-gateway/tutorial-site-to-site-portal.md
+[ExR]: ../expressroute/expressroute-introduction.md
+[ExR-eco]: ../expressroute/expressroute-locations.md
+[ExR-D]: ../expressroute/expressroute-erdirect-about.md
+[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md

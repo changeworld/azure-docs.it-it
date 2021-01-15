@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 63b91194c9ffb10fd8f4c5f1341eaf74bc81f5e1
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94694882"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232761"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Uso di Insights per monitorare e configurare la Azure Load Balancer
 
@@ -68,7 +68,7 @@ La scheda velocità effettiva dati consente di esaminare la velocità effettiva 
 ### <a name="flow-distribution"></a>Distribuzione del flusso
 La scheda distribuzione flusso consente di visualizzare e gestire il numero di flussi che le istanze back-end ricevono e producono. Mostra la velocità di creazione del flusso e il numero di flussi per il traffico in ingresso e in uscita, nonché il traffico di rete ricevuto da ogni macchina virtuale e istanza del set di scalabilità di macchine virtuali. 
 
-Queste visualizzazioni possono fornire commenti e suggerimenti su come la configurazione del Load Balancer o i modelli di traffico stiano causando il traffico sbilanciato. Se, ad esempio, è configurata l'affinità di sessione e un singolo client sta effettuando un numero sproporzionato di richieste. Consente inoltre di verificare se si sta per raggiungere il [limite di flusso per VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) per le dimensioni del computer.
+Queste visualizzazioni possono fornire commenti e suggerimenti su come la configurazione del Load Balancer o i modelli di traffico stiano causando il traffico sbilanciato. Se, ad esempio, è configurata l'affinità di sessione e un singolo client sta effettuando un numero sproporzionato di richieste. Consente inoltre di verificare se si sta per raggiungere il [limite di flusso per VM](../virtual-network/virtual-machine-network-throughput.md#flow-limits-and-active-connections-recommendations) per le dimensioni del computer.
 
 ### <a name="connection-monitors"></a>Monitoraggi della connessione
 Nella scheda monitoraggi connessione viene visualizzata la latenza di round trip su una mappa globale per tutti i [monitoraggi di connessione](../network-watcher/connection-monitor.md)  configurati. Questi oggetti visivi forniscono informazioni utili per i servizi con requisiti di latenza rigidi. Per soddisfare i requisiti, potrebbe essere necessario aggiungere altre distribuzioni a livello di area o passare a un modello di [bilanciamento del carico tra](./cross-region-overview.md) più aree

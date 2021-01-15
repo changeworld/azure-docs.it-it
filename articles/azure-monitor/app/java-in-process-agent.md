@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 2011d013cce43eaf471d61936d5c34c318360381
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 32d906bf96a0ad5cf798f68bf83f2d6af1064361
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97616644"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231741"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights
 
@@ -25,7 +25,7 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 L'agente 3,0 supporta Java 8 e versioni successive.
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
 **1. scaricare l'agente**
 
@@ -34,11 +34,11 @@ L'agente 3,0 supporta Java 8 e versioni successive.
 >
 > Controllare attentamente tutte le [Opzioni di configurazione](./java-standalone-config.md) , in quanto la struttura JSON è stata modificata completamente, oltre al nome del file stesso, che è andato in minuscolo.
 
-Scaricare [applicationinsights-Agent-3.0.0. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0/applicationinsights-agent-3.0.0.jar)
+Scaricare [applicationinsights-Agent-3.0.1. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.1/applicationinsights-agent-3.0.1.jar)
 
 **2. puntare la JVM all'agente**
 
-Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.0.jar` agli argomenti JVM dell'applicazione
+Aggiungere `-javaagent:path/to/applicationinsights-agent-3.0.1.jar` agli argomenti JVM dell'applicazione
 
 Gli argomenti JVM tipici includono `-Xmx512m` e `-XX:+UseG1GC` . Quindi, se si conosce la posizione in cui aggiungere questi, si sa già dove aggiungere questa.
 
@@ -54,7 +54,7 @@ Puntare l'agente alla risorsa Application Insights impostando una variabile di a
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Oppure creando un file di configurazione denominato `applicationinsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0.jar` , con il contenuto seguente:
+Oppure creando un file di configurazione denominato `applicationinsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.1.jar` , con il contenuto seguente:
 
 ```json
 {
@@ -255,7 +255,7 @@ try {
 ### <a name="add-request-custom-dimensions-using-the-2x-sdk"></a>Aggiungere dimensioni personalizzate della richiesta con l'SDK 2. x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.1-BETA e versioni successive
+> Questa funzionalità è solo in 3.0.1 e versioni successive
 
 Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
 
@@ -279,7 +279,7 @@ requestTelemetry.getProperties().put("mydimension", "myvalue");
 ### <a name="set-the-request-telemetry-user_id-using-the-2x-sdk"></a>Impostare la user_Id di telemetria delle richieste con l'SDK 2. x
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.1-BETA e versioni successive
+> Questa funzionalità è solo in 3.0.1 e versioni successive
 
 Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
 
@@ -303,7 +303,7 @@ requestTelemetry.getContext().getUser().setId("myuser");
 ### <a name="override-the-request-telemetry-name-using-the-2x-sdk"></a>Eseguire l'override del nome di telemetria della richiesta usando 2. x SDK
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.1-BETA e versioni successive
+> Questa funzionalità è solo in 3.0.1 e versioni successive
 
 Aggiungere `applicationinsights-web-2.6.2.jar` all'applicazione (tutte le versioni 2. x sono supportate da Application Insights Java 3,0, ma è opportuno usare la versione più recente se è possibile scegliere):
 

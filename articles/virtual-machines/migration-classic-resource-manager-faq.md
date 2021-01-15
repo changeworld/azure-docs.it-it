@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 24e52f517f46de06fef8aa52e889185826c20d44
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: abf4e4621a7e42829032923a67d21c5322f432ec
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498396"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232727"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Domande frequenti sulla migrazione dalla distribuzione classica alla distribuzione Azure Resource Manager
 
@@ -82,11 +82,11 @@ Durante la migrazione le risorse si trasformano dal modello di distribuzione cla
 
 Quando si sposta una macchina virtuale dalla modalità classica alla modalità Resource Manager, i backup eseguiti prima della migrazione non verranno spostati nella macchina virtuale di Resource Manager appena migrata. Tuttavia, se si vogliono conservare i backup delle macchine virtuali classiche, seguire questi passaggi prima della migrazione. 
 
-1. Nell'insieme di credenziali di Servizi di ripristino passare alla scheda **Elementi protetti** e selezionare la macchina virtuale. 
-2. Fare clic su Arresta protezione. Lasciare *deselezionata* l'opzione **Elimina i dati di backup associati**.
+1. Nell'insieme di credenziali di servizi di ripristino passare al pannello **elementi di backup** e selezionare la macchina virtuale. 
+2. Fare clic su Interrompi backup. Selezionare "Mantieni i dati di backup" nel menu a discesa.
 
 > [!NOTE]
-> I costi dell'istanza di backup verranno addebitati finché si conserveranno i dati. Le copie di backup saranno eliminate in base all'intervallo di conservazione. Tuttavia, l'ultima copia di backup viene sempre mantenuta finché non si eliminano in modo esplicito i dati di backup. È consigliabile controllare l'intervallo di conservazione della macchina virtuale e attivare "Eliminare i dati di backup" sull'elemento protetto nell'insieme di credenziali al termine del periodo di conservazione. 
+> Questa opzione consente di arrestare tutti i processi di backup futuri dalla protezione della macchina virtuale. Tuttavia, il servizio backup di Azure manterrà i punti di ripristino di cui è stato eseguito il backup.  È necessario pagare per i punti di ripristino nell'insieme di credenziali. per informazioni dettagliate, vedere [prezzi di backup di Azure](https://azure.microsoft.com/pricing/details/backup/) . Se necessario, sarà possibile ripristinare la macchina virtuale. Se si decide di riprendere la protezione della macchina virtuale, è possibile usare l'opzione *Riprendi backup* .
 >
 >
 

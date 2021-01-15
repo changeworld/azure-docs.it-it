@@ -9,12 +9,12 @@ ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviwer: mimckitt
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a0dd7f020c9a8e720aacf34b1719ee2094fa223
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e4b5248ecb47c9456836aa9c4d7ebb2ad122c1dd
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788809"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98231872"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Windows
 
@@ -55,6 +55,7 @@ Gli eventi pianificati vengono recapitati a:
 - Macchine virtuali autonome.
 - Tutte le macchine virtuali in un servizio cloud.
 - Tutte le macchine virtuali in un set di disponibilità.
+- Tutte le macchine virtuali in una zona di disponibilità.
 - Tutte le macchine virtuali in un gruppo di posizionamento di un set di scalabilità. 
 
 > [!NOTE]

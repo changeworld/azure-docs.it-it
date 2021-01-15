@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: 2eb3564153734ff70b7df69da568966e29747863
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: c70de186468eb3efacc82c1d5c8802612475fd4d
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202437"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232795"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver
 
@@ -912,8 +912,8 @@ Per altre informazioni sulle route definite dall'utente, vedere [Route definite 
 ### <a name="configure-the-azure-extension-for-sap"></a><a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configurare l'estensione Azure per SAP
 
 > [!NOTE]
-> Dichiarazione del supporto generale: aprire sempre un evento imprevisto con SAP sul componente BC-OP-NT-AZR per Windows o BC-OP-LNX-AZR se è necessario il supporto per l'estensione di Azure per SAP.
-> Sono disponibili tecnici del supporto tecnico Microsoft dedicati che lavorano al sistema di supporto SAP per aiutare i nostri clienti Uniti.
+> Informativa generale sul supporto:  
+> Il supporto per l'estensione Azure per SAP viene fornito tramite i canali di supporto SAP. Per assistenza sull'estensione Azure per SAP, aprire un caso di supporto con il [supporto SAP](https://support.sap.com/). 
 
 Dopo avere preparato la VM come descritto in [Scenari di distribuzione di VM per SAP in Azure][deployment-guide-3], l'agente di macchine virtuali di Azure è installato nella macchina virtuale. Il passaggio successivo consiste nel distribuire l'estensione Azure per SAP, disponibile nel repository di estensioni Azure nei data center di Azure globali. Per altre informazioni, vedere [Pianificazione e implementazione di Macchine virtuali di Azure per SAP NetWeaver][planning-guide-9.1].
 
@@ -1510,7 +1510,7 @@ Seguire i passaggi nel capitolo [configurare l'estensione di Azure per SAP][depl
 
 Se gli errori non vengono rimossi, [contattare il supporto tecnico][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contatta il supporto tecnico
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contattare il supporto tecnico
 
 Errore imprevisto oppure nessuna soluzione nota. Raccogliere il file AzureEnhancedMonitoring_service. log che si trova nella cartella C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \Drop (Windows) o/var/log/Azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux (Linux) e contattare il supporto SAP per ulteriore assistenza.
 

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 4e83cca79a4dc99533ab17cca7e96e1ac802d598
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ee13b2fbe4abbaf9bddf4975f8e25d746dc78f5e
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020794"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232183"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Origini eventi Azure Time Series Insights Gen2
 
@@ -45,13 +45,25 @@ Quando si connette un'origine evento, l'ambiente Azure Time Series Insights Gen2
 
 - Non superare il [limite di velocità effettiva](./concepts-streaming-ingress-throughput-limits.md) dell'ambiente o il limite per partizione.
 
-- Configurare un [avviso](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente.
+- Configurare un [avviso](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts) di ritardo per ricevere una notifica nel caso in cui si verifichino problemi di elaborazione dei dati nell'ambiente. Vedere [carichi di lavoro di produzione](./concepts-streaming-ingestion-event-sources.md#production-workloads) di seguito per le condizioni di avviso suggerite. 
 
 - Usare l'inserimento streaming solo per i dati near real-time e recenti. I dati cronologici di streaming non sono supportati.
 
 - Comprendere in che modo le proprietà verranno sottoposte a escape e [i dati JSON appiattiti e archiviati.](./concepts-json-flattening-escaping-rules.md)
 
 - Seguire il principio dei privilegi minimi quando si forniscono stringhe di connessione all'origine evento. Per hub eventi, configurare un criterio di accesso condiviso con l'attestazione di *invio* e per l'hub Internet usare solo l'autorizzazione per la *connessione al servizio* .
+
+## <a name="production-workloads"></a>Carichi di lavoro di produzione
+
+Oltre alle procedure consigliate descritte in precedenza, è consigliabile implementare quanto segue per i carichi di lavoro aziendali critici. 
+
+- Aumentare il periodo di conservazione dei dati dell'hub eventi o dell'hub eventi fino a un massimo di 7 giorni.
+
+- Creare avvisi di ambiente nell'portale di Azure. Gli avvisi basati sulle [metriche](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) della piattaforma consentono di convalidare il comportamento della pipeline end-to-end. Le istruzioni per la creazione e la gestione degli avvisi sono disponibili [qui](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Condizioni di avviso consigliate:
+
+     - IngressReceivedMessagesTimeLag è maggiore di 5 minuti
+     - IngressReceivedBytes è 0
+- Mantieni il bilanciamento del carico di inserimento tra le partizioni dell'hub eventi o dell'hub eventi.
 
 ### <a name="historical-data-ingestion"></a>Inserimento dei dati cronologici
 

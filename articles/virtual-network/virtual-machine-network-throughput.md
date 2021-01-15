@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: b11bdf9b82352c15b7f7236168494f32fe4a4f9f
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221511"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233866"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Larghezza di banda della rete di macchine virtuali
 
@@ -52,15 +52,13 @@ Il trasferimento dei dati tra endpoint richiede la creazione di più flussi, olt
 
 ![Numero di flussi per la conversazione TCP tramite un'appliance di invio](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
 
-## <a name="flow-limits-and-recommendations"></a>Limiti e raccomandazioni per il flusso
+## <a name="flow-limits-and-active-connections-recommendations"></a>Indicazioni sui limiti di flusso e sulle connessioni attive
 
-Attualmente, lo stack di rete di Azure supporta 250K totali dei flussi di rete con prestazioni ottimali per le macchine virtuali con più di 8 core CPU e 100.000 flussi totali con prestazioni ottimali per le macchine virtuali con meno di 8 core CPU. Oltre questo limite, le prestazioni di rete diminuiscono normalmente per i flussi aggiuntivi fino a un limite rigido dei flussi totali 500.000, 250K in ingresso e 250K in uscita, dopo il quale vengono eliminati i flussi aggiuntivi.
+Attualmente, lo stack di rete di Azure supporta 1 milione di flussi totali (500.000 in ingresso e 500.000 in uscita) per una macchina virtuale. Di seguito sono riportate le connessioni attive totali che possono essere gestite da una macchina virtuale in scenari diversi.
+- Le macchine virtuali appartenenti a VNET possono gestire le connessioni 500.000 **_attive_* _ per tutte le dimensioni delle macchine virtuali con _*_flussi attivi 500.000 in ogni direzione_*_.  
+- Le VM con appliance virtuali di rete (appliance virtuali) come gateway, proxy e firewall possono gestire le _*_connessioni attive_*_ 250K con 500.000 _ *_flussi attivi in ogni direzione_** a causa dell'inoltro e della creazione di un nuovo flusso aggiuntivo per la configurazione della nuova connessione all'hop successivo, come illustrato nel diagramma precedente. 
 
-| Livello di prestazioni | VM con <8 core CPU | VM con più di 8 core CPU |
-| ----------------- | --------------------- | --------------------- |
-|<b>Prestazioni ottimali</b>|100K flussi |Flussi 250K|
-|<b>Prestazioni ridotte</b>|Oltre 100.000 flussi|Sopra i flussi 250K|
-|<b>Limite di flusso</b>|Flussi 500.000|Flussi 500.000|
+Una volta raggiunto questo limite, vengono eliminate ulteriori connessioni. La definizione della connessione e i tassi di terminazione possono anche influire sulle prestazioni di rete durante la creazione e la terminazione della connessione CPU con routine di elaborazione pacchetti. È consigliabile eseguire il benchmark dei carichi di lavoro in base ai modelli di traffico previsti e scalare i carichi di lavoro in modo appropriato per soddisfare le esigenze di prestazioni.
 
 Le metriche sono disponibili in [monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) per tenere traccia del numero di flussi di rete e della velocità di creazione del flusso nelle istanze della macchina virtuale o vmss.
 

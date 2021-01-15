@@ -4,12 +4,12 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ae64888669fb9a3c053802ee4f7ad7db6316265d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780502"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233747"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -146,7 +146,9 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventi personalizzati in Analytics
 
-I dati di telemetria sono disponibili nella tabella `customEvents` in [Analytics di Application Insights](../log-query/log-query-overview.md). Ogni riga rappresenta una chiamata a `trackEvent(..)` nell'app in uso.
+I dati di telemetria sono disponibili nella `customEvents` tabella [Application Insights scheda log](../log-query/log-query-overview.md) o [esperienza di utilizzo](usage-overview.md). Gli eventi possono derivare da `trackEvent(..)` o [fare clic su Analytics auto-Collection plugin](javascript-click-analytics-plugin.md).
+
+ 
 
 Se il [campionamento](./sampling.md) è attivo, la proprietà itemCount mostra un valore maggiore di 1. Per esempio itemCount==10 indica che su 10 chiamate a trackEvent(), il processo di campionamento ne trasmette solo una. Per ottenere un conteggio corretto degli eventi personalizzati, è pertanto necessario utilizzare codice come `customEvents | summarize sum(itemCount)` .
 
@@ -935,7 +937,7 @@ L'[applicazione di filtri](./api-filtering-sampling.md#filtering) consente di mo
 
 Il [campionamento](./api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](./api-filtering-sampling.md).
+[Altre informazioni](./api-filtering-sampling.md)
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 
@@ -1122,4 +1124,3 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * [Cercare eventi e log](./diagnostic-search.md)
 * [Risoluzione dei problemi](../faq.md)
-

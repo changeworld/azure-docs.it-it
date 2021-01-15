@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: d5f5e1098b688fc307bae5ea3538c818cb529b0a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962398"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98232302"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -420,8 +420,8 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
 - L'autenticazione integrata di Windows è utilizzabile solo per gli utenti *federati*, ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD senza supporto per Active Directory, noti anche come utenti *gestiti* non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul flusso di nome utente e password.
 - L'autenticazione integrata di Windows è destinata alle app scritte per .NET Framework, .NET Core e piattaforme UWP (Universal Windows Platform).
 - L'autenticazione integrata di Windows non ignora l'[autenticazione a più fattori (MFA)](../authentication/concept-mfa-howitworks.md). Se è configurata l'autenticazione a più fattori, l'autenticazione integrata di Windows potrebbe avere esito negativo se è necessaria una richiesta di verifica di autenticazione a più fattori, in quanto richiede l'interazione dell'utente.
-  > [!NOTE]
-  > Si tratta di un problema complesso. L'autenticazione integrata di Windows è non interattiva, ma l'autenticazione a più fattori richiede l'interattività dell'utente. L'utente non controlla quando il provider di identità richiede l'esecuzione dell'autenticazione a più fattori. Questa operazione viene gestita dall'amministratore del tenant. In base a quanto osservato, l'autenticazione a più fattori è necessaria quando si accede da un paese o un'area geografica diversa, quando non si è connessi tramite VPN a una rete aziendale e talvolta anche quando si è connessi tramite VPN. Non è previsto un set di regole deterministico. Azure AD usa l'intelligenza artificiale per apprendere continuamente se è necessaria l'autenticazione a più fattori. Eseguire il fallback a una richiesta utente come l'autenticazione interattiva o il flusso del codice del dispositivo in caso di errore dell'autenticazione integrata di Windows.
+  
+    L'autenticazione integrata di Windows è non interattiva, ma l'autenticazione a più fattori richiede l'interattività dell'utente. L'utente non controlla quando il provider di identità richiede l'esecuzione dell'autenticazione a più fattori. Questa operazione viene gestita dall'amministratore del tenant. In base a quanto osservato, l'autenticazione a più fattori è necessaria quando si accede da un paese o un'area geografica diversa, quando non si è connessi tramite VPN a una rete aziendale e talvolta anche quando si è connessi tramite VPN. Non è previsto un set di regole deterministico. Azure AD usa l'intelligenza artificiale per apprendere continuamente se è necessaria l'autenticazione a più fattori. Eseguire il fallback a una richiesta utente come l'autenticazione interattiva o il flusso del codice del dispositivo in caso di errore dell'autenticazione integrata di Windows.
 
 - L'autorità passata in `PublicClientApplicationBuilder` deve essere:
   - Con tenant nel formato `https://login.microsoftonline.com/{tenant}/`, dove `tenant` è il GUID che rappresenta l'ID tenant o un dominio associato al tenant.
@@ -602,14 +602,13 @@ Questo flusso non si applica a macOS.
 
 ### <a name="this-flow-isnt-recommended"></a>Questo flusso non è consigliato
 
-Questo flusso *non è consigliato* perché non è sicuro che l'applicazione richieda la password a un utente. Per altre informazioni, vedere [Qual è la soluzione per il problema crescente delle password?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Il flusso preferito per acquisire un token in modo invisibile all'utente nei computer Windows aggiunti a un dominio è l'[autenticazione integrata di Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). È anche possibile usare il [flusso del codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
+Il flusso di nome utente e password *non è consigliato* perché l'applicazione richiede che la password dell'utente non sia sicura. Per ulteriori informazioni, vedere [Qual è la soluzione per il problema crescente delle password?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/) Il flusso preferito per acquisire un token in modo invisibile all'utente nei computer Windows aggiunti a un dominio è l'[autenticazione integrata di Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). È anche possibile usare il [flusso del codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-> [!NOTE]
-> L'uso di un nome utente e di una password è utile in alcuni casi, ad esempio in scenari DevOps. Tuttavia, se si vuole usare un nome utente e una password in scenari interattivi in cui si fornisce un'interfaccia utente personalizzata, è necessario valutare soluzioni alternative. Usando un nome utente e una password, è necessario rinunciare a numerosi aspetti:
->
-> - Principi fondamentali dell'identità moderna. Una password può essere oggetto di phishing e riprodotta perché un segreto condiviso può essere intercettato. Non è compatibile con l'accesso senza password.
-> - Gli utenti che devono eseguire l'autenticazione a più fattori non possono accedere perché non esiste alcuna interazione.
-> - Gli utenti possono usufruire dell'accesso Single Sign-On (SSO).
+L'uso di un nome utente e di una password è utile in alcuni casi, ad esempio in scenari DevOps. Tuttavia, se si vuole usare un nome utente e una password in scenari interattivi in cui si fornisce un'interfaccia utente personalizzata, è necessario valutare soluzioni alternative. Usando un nome utente e una password, è necessario rinunciare a numerosi aspetti:
+
+- Principi fondamentali dell'identità moderna. Una password può essere oggetto di phishing e riprodotta perché un segreto condiviso può essere intercettato. Non è compatibile con l'accesso senza password.
+- Gli utenti che devono eseguire l'autenticazione a più fattori non possono accedere perché non esiste alcuna interazione.
+- Gli utenti possono usufruire dell'accesso Single Sign-On (SSO).
 
 ### <a name="constraints"></a>Vincoli
 

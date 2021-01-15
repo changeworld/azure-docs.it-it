@@ -1,14 +1,14 @@
 ---
 title: Tenant, utenti e ruoli negli scenari di Azure Lighthouse
 description: Informazioni sui concetti di tenant, utenti e ruoli di Azure Active Directory, nonché su come possono essere usati negli scenari di Azure Lighthouse.
-ms.date: 10/29/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 411b9bae19166e1875011360aa011c05d590b237
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d78828cc739030f8e456c64885d77ddf59dd13fb
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023943"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233917"
 ---
 # <a name="tenants-users-and-roles-in-azure-lighthouse-scenarios"></a>Tenant, utenti e ruoli negli scenari di Azure Lighthouse
 
@@ -18,7 +18,10 @@ Un *tenant* è un'istanza dedicata e attendibile di Azure AD. Un tenant di Azure
 
 Per ottenere questa proiezione logica *, è necessario* caricare in Azure Lighthouse una sottoscrizione, o uno o più gruppi di risorse all'interno di una sottoscrizione, nel tenant del cliente. Questo processo di onboarding può essere eseguito [tramite modelli di Azure Resource Manager](../how-to/onboard-customer.md) o [pubblicando un'offerta pubblica o privata in Azure Marketplace](../how-to/publish-managed-services-offers.md).
 
-Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le *autorizzazioni*. Ogni autorizzazione specifica un account utente nel tenant di gestione che avrà accesso alle risorse delegate e un ruolo predefinito che imposta le autorizzazioni di cui ognuno di tali utenti disporrà per queste risorse.
+Indipendentemente dal metodo di onboarding scelto, sarà necessario definire le *autorizzazioni*. Ogni autorizzazione specifica un **PrincipalId** che avrà accesso alle risorse delegate e un ruolo incorporato che imposta le autorizzazioni che ognuno di questi utenti avrà per queste risorse. Questo **PrincipalId** definisce un utente Azure ad, un gruppo o un'entità servizio nel tenant di gestione.
+
+> [!NOTE]
+> A meno che non venga specificato in modo esplicito, i riferimenti a un "utente" nella documentazione di Azure Lighthouse possono essere applicati a un utente Azure AD, a un gruppo o a un'entità servizio in un'autorizzazione.
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Procedure consigliate per la definizione di utenti e ruoli
 

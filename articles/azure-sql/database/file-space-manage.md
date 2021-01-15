@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, sstein
-ms.date: 03/12/2019
-ms.openlocfilehash: 3a46e47d6e12d52113bf63342c84a58ca98743d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 12/22/2020
+ms.openlocfilehash: 08cab806d6ad8b75821a92994dde0fa07db8b960
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789608"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98233594"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gestire lo spazio file per i database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ Modificare la query seguente per restituire la quantità di spazio dati del data
 SELECT TOP 1 storage_in_megabytes AS DatabaseDataSpaceUsedInMB
 FROM sys.resource_stats
 WHERE database_name = 'db1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del database allocato e spazio allocato non usato
@@ -98,7 +98,7 @@ SELECT SUM(size/128.0) AS DatabaseDataSpaceAllocatedInMB,
 SUM(size/128.0 - CAST(FILEPROPERTY(name, 'SpaceUsed') AS int)/128.0) AS DatabaseDataSpaceAllocatedUnusedInMB
 FROM sys.database_files
 GROUP BY type_desc
-HAVING type_desc = 'ROWS'
+HAVING type_desc = 'ROWS';
 ```
 
 ### <a name="database-data-max-size"></a>Dimensioni massime dei dati del database
@@ -108,7 +108,7 @@ Modificare la query seguente per restituire le dimensioni massime dei dati del d
 ```sql
 -- Connect to database
 -- Database data max size in bytes
-SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
+SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes;
 ```
 
 ## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Informazioni sui tipi di spazio di archiviazione per un pool elastico
@@ -121,6 +121,9 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati allocato**|Somma dello spazio dati allocato da tutti i database nel pool elastico.||
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato da tutti i database nel pool elastico.|Questa quantità rappresenta la quantità massima di spazio allocato per il pool elastico che può essere recuperata compattando i file di dati del database.|
 |**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica questa condizione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
+
+> [!NOTE]
+> Il messaggio di errore "il pool elastico ha raggiunto il limite di archiviazione" indica che agli oggetti di database è stato allocato spazio sufficiente per soddisfare il limite di archiviazione del pool elastico, ma potrebbe esserci spazio inutilizzato nell'allocazione dello spazio dati. Si consiglia di aumentare il limite di archiviazione del pool elastico o come soluzione a breve termine, liberando lo spazio dei dati usando la sezione [**recuperare lo spazio allocato non usato**](#reclaim-unused-allocated-space) riportato di seguito. È inoltre necessario essere a conoscenza dell'impatto potenziale negativo sulle prestazioni della compattazione dei file di database. vedere la sezione [**ricompilazione degli indici**](#rebuild-indexes) .
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Eseguire una query su un pool elastico per ottenere informazioni sullo spazio di archiviazione
 
@@ -136,7 +139,7 @@ Modificare la query seguente per restituire la quantità di spazio dati del pool
 SELECT TOP 1 avg_storage_percent / 100.0 * elastic_pool_storage_limit_mb AS ElasticPoolDataSpaceUsedInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Spazio di dati del pool elastico allocato e spazio allocato non usato
@@ -187,7 +190,7 @@ Lo screenshot seguente mostra un esempio di output dello script:
 
 ### <a name="elastic-pool-data-max-size"></a>Dimensioni massime dei dati del pool elastico
 
-Modificare la query T-SQL seguente per restituire le dimensioni massime dei dati del pool elastico.  L'unità di misura dei risultati di query è costituita da MB.
+Modificare la query T-SQL seguente per restituire le dimensioni massime massime dei dati del pool elastico registrato.  L'unità di misura dei risultati di query è costituita da MB.
 
 ```sql
 -- Connect to master
@@ -195,13 +198,13 @@ Modificare la query T-SQL seguente per restituire le dimensioni massime dei dati
 SELECT TOP 1 elastic_pool_storage_limit_mb AS ElasticPoolMaxSizeInMB
 FROM sys.elastic_pool_resource_stats
 WHERE elastic_pool_name = 'ep1'
-ORDER BY end_time DESC
+ORDER BY end_time DESC;
 ```
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperare lo spazio allocato non usato
 
 > [!NOTE]
-> Questo comando può influire sulle prestazioni del database mentre è in esecuzione e quindi, se possibile, dovrebbe essere eseguito in periodi di utilizzo ridotto.
+> I comandi Shrink influiscano sulle prestazioni del database durante l'esecuzione e, se possibile, devono essere eseguiti durante i periodi di basso utilizzo.
 
 ### <a name="dbcc-shrink"></a>Compattazione tramite DBCC
 
@@ -209,24 +212,28 @@ Dopo l'identificazione dei database per il recupero di spazio allocato non usato
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'db1')
+DBCC SHRINKDATABASE (N'db1');
 ```
 
-Questo comando può influire sulle prestazioni del database mentre è in esecuzione e quindi, se possibile, dovrebbe essere eseguito in periodi di utilizzo ridotto.  
+I comandi Shrink influiscano sulle prestazioni del database durante l'esecuzione e, se possibile, devono essere eseguiti durante i periodi di basso utilizzo.  
 
-Per altre informazioni su questo comando, vedere [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+È inoltre necessario essere a conoscenza dell'impatto potenziale negativo sulle prestazioni della compattazione dei file di database. vedere la sezione [**ricompilazione degli indici**](#rebuild-indexes) .
+
+Per altre informazioni su questo comando, vedere [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql.md).
 
 ### <a name="auto-shrink"></a>Compattazione automatica
 
 In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a `SHRINKDATABASE` o `SHRINKFILE`.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  Può essere però meno efficace nel recupero dello spazio file rispetto a `SHRINKDATABASE` e `SHRINKFILE`.
+Per impostazione predefinita, compattazione automatica è disabilitato come consigliato per la maggior parte dei database. Per ulteriori informazioni, vedere [considerazioni per AUTO_SHRINK](/troubleshoot/sql/admin/considerations-autogrow-autoshrink#considerations-for-auto_shrink).
+
 Per abilitare la compattazione automatica, modificare il nome del database nel comando seguente.
 
 ```sql
 -- Enable auto-shrink for the database.
-ALTER DATABASE [db1] SET AUTO_SHRINK ON
+ALTER DATABASE [db1] SET AUTO_SHRINK ON;
 ```
 
-Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ### <a name="rebuild-indexes"></a>Ricompilazione degli indici
 
