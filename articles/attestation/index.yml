@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: d461fb946eeb7a0913162ec164f75b63101cfe97
-  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+  ms.openlocfilehash: 9740c315333d3f24e43a35b476243f323b6e3821
+  ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/11/2021
-  ms.locfileid: "98070253"
+  ms.lasthandoff: 01/14/2021
+  ms.locfileid: "98209917"
 landingContent:
 - title: Informazioni su Attestazione di Microsoft Azure
   linkLists:
@@ -27,12 +27,14 @@ landingContent:
   linkLists:
   - linkListType: deploy
     links:
-    - text: Avvio rapido per PowerShell
-      url: quickstart-powershell.md
-    - text: Avvio rapido per l'interfaccia della riga di comando
-      url: quickstart-azure-cli.md
     - text: Avvio rapido per il modello di Resource Manager
       url: quickstart-template.md
+    - text: Avvio rapido per PowerShell
+      url: quickstart-powershell.md
+    - text: Avvio rapido del portale
+      url: quickstart-portal.md
+    - text: Avvio rapido per l'interfaccia della riga di comando
+      url: quickstart-azure-cli.md
 - title: Concetti
   linkLists:
   - linkListType: concept

@@ -3,12 +3,12 @@ title: Creare i criteri per le proprietà della matrice nelle risorse
 description: Informazioni su come usare i parametri della matrice e le espressioni del linguaggio della matrice, valutare l'alias [*] e aggiungere elementi con le regole di definizione di Criteri di Azure.
 ms.date: 10/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 60044d4a599c14088ea923a6a14cb46543646995
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 650b2ec6bc1bbd12cd10abb1917ef5ea2d6029e9
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920458"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220746"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creare i criteri per le proprietà della matrice nelle risorse di Azure
 
@@ -16,10 +16,8 @@ Le proprietà di Azure Resource Manager sono comunemente definite come stringhe 
 
 - Tipo di un [parametro della definizione](../concepts/definition-structure.md#parameters) per offrire più opzioni
 - Parte di una [regola dei criteri](../concepts/definition-structure.md#policy-rule) che usa le condizioni **in** o **notIn**
-- Parte di una regola dei criteri che valuta l'[alias\[\*\]](../concepts/definition-structure.md#understanding-the--alias) per:
-  - Scenari, ad esempio di tipo **None**, **Any** o **All**
-  - Scenari complessi con l'espressione **count**
-- Nell'[effetto Append](../concepts/effects.md#append) per sostituire o aggiungere a una matrice esistente
+- Parte di una regola dei criteri che conta il numero di membri della matrice che soddisfano una condizione
+- In [aggiungere](../concepts/effects.md#append) e [modificare](../concepts/effects.md#modify) gli effetti per aggiornare una matrice esistente
 
 Questo articolo descrive tutti gli usi di Criteri di Azure e offre diverse definizioni di esempio.
 
@@ -99,48 +97,121 @@ Per usare questa stringa con ogni SDK, usare i comandi seguenti:
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
 - API REST: durante l'operazione di [creazione](/rest/api/resources/policyassignments/create) di tipo _PUT_ come parte del corpo della richiesta, come valore della proprietà **properties.parameters**
 
-## <a name="array-conditions"></a>Condizioni delle matrici
+## <a name="using-arrays-in-conditions"></a>Utilizzo di matrici in condizioni
 
-Le [condizioni](../concepts/definition-structure.md#conditions) della regola dei criteri per cui poter usare un parametro di _array_
-**type** sono `in` e `notIn`. Usare la definizione dei criteri seguente con la condizione `equals` come esempio:
+### <a name="in-and-notin"></a>`In` e `notIn`
+
+Le `in` `notIn` condizioni e funzionano solo con valori di matrice. Verificano l'esistenza di un valore in una matrice. La matrice può essere una matrice JSON letterale o un riferimento a un parametro di matrice. Ad esempio:
 
 ```json
 {
-  "policyRule": {
-    "if": {
-      "not": {
-        "field": "location",
-        "equals": "[parameters('allowedLocations')]"
-      }
-    },
-    "then": {
-      "effect": "audit"
-    }
-  },
-  "parameters": {
-    "allowedLocations": {
-      "type": "Array",
-      "metadata": {
-        "description": "The list of allowed locations for resources.",
-        "displayName": "Allowed locations",
-        "strongType": "location"
-      }
-    }
-  }
+      "field": "tags.environment",
+      "in": [ "dev", "test" ]
 }
 ```
 
-Il tentativo di creare questa definizione dei criteri tramite il portale di Azure genera un errore, ad esempio il messaggio di errore seguente:
+```json
+{
+      "field": "location",
+      "notIn": "[parameters('allowedLocations')]"
+}
+```
 
-- "Non è stato possibile applicare i parametri ai criteri '{GUID}' a causa di errori di convalida. Controllare che i parametri dei criteri siano definiti correttamente. Eccezione interna: "Il risultato della valutazione dell'espressione '[parameters('allowedLocations')]' del linguaggio è di tipo "Array", ma il tipo previsto è "String".
+### <a name="value-count"></a>Conteggio valori
 
-Il valore **type** previsto della condizione `equals` è _string_. Poiché **allowedLocations** è definito come **type** _array_, il motore dei criteri valuta l'espressione del linguaggio e genera l'errore. Con le condizioni `in` e `notIn`, il motore dei criteri prevede la presenza di **type** _array_ nell'espressione del linguaggio. Per correggere questo messaggio di errore, modificare `equals` in `in` o `notIn`.
+L'espressione di [conteggio dei valori](../concepts/definition-structure.md#value-count) conta il numero di membri della matrice che soddisfano una condizione. Fornisce un modo per valutare la stessa condizione più volte, usando valori diversi per ogni iterazione. Ad esempio, la condizione seguente controlla se il nome della risorsa corrisponde a qualsiasi modello di una matrice di modelli:
+
+```json
+{
+    "count": {
+        "value": [ "test*", "dev*", "prod*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Per valutare l'espressione, i criteri di Azure valutano la `where` condizione 3 volte, una volta per ogni membro di `[ "test*", "dev*", "prod*" ]` , conteggiando il numero di volte in cui è stato valutato `true` . A ogni iterazione, il valore del membro della matrice corrente viene abbinato al `pattern` nome di indice definito da `count.name` . È possibile fare riferimento a questo valore all'interno della `where` condizione chiamando una funzione di modello speciale: `current('pattern')` .
+
+| Iterazione | `current('pattern')` valore restituito |
+|:---|:---|
+| 1 | `"test*"` |
+| 2 | `"dev*"` |
+| 3 | `"prod*"` |
+
+La condizione è true solo se il conteggio risultante è maggiore di 0.
+
+Per rendere la condizione sopra più generica, usare il riferimento al parametro anziché una matrice di valori letterali:
+
+ ```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Quando l'espressione di **conteggio dei valori** non si trova sotto nessun'altra espressione **count** , `count.name` è facoltativa e la `current()` funzione può essere usata senza argomenti:
+
+```json
+{
+    "count": {
+        "value": "[parameters('patterns')]",
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Il **conteggio dei valori** supporta inoltre matrici di oggetti complessi, consentendo condizioni più complesse. Ad esempio, la condizione seguente definisce un valore di tag desiderato per ogni modello di nome e controlla se il nome della risorsa corrisponde al modello, ma non ha il valore del tag necessario:
+
+```json
+{
+    "count": {
+        "value": [
+            { "pattern": "test*", "envTag": "dev" },
+            { "pattern": "dev*", "envTag": "dev" },
+            { "pattern": "prod*", "envTag": "prod" },
+        ],
+        "name": "namePatternRequiredTag",
+        "where": {
+            "allOf": [
+                {
+                    "field": "name",
+                    "like": "[current('namePatternRequiredTag').pattern]"
+                },
+                {
+                    "field": "tags.env",
+                    "notEquals": "[current('namePatternRequiredTag').envTag]"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+Per esempi utili, vedere [esempi di conteggio dei valori](../concepts/definition-structure.md#value-count-examples).
 
 ## <a name="referencing-array-resource-properties"></a>Riferimento alle proprietà delle risorse della matrice
 
 Molti casi d'uso richiedono l'utilizzo di proprietà di matrice nella risorsa valutata. Per alcuni scenari è necessario fare riferimento a un'intera matrice, ad esempio per verificarne la lunghezza. Altri richiedono l'applicazione di una condizione a ogni singolo membro della matrice (ad esempio, assicurarsi che tutte le regole del firewall blocchino l'accesso da Internet). Informazioni sui diversi modi in cui i criteri di Azure possono fare riferimento alle proprietà delle risorse e sul comportamento di questi riferimenti quando fanno riferimento a proprietà di matrice è la chiave per la scrittura di condizioni che coprono questi scenari.
 
 ### <a name="referencing-resource-properties"></a>Riferimento alle proprietà delle risorse
+
 I criteri di Azure possono fare riferimento alle proprietà delle risorse usando gli [alias](../concepts/definition-structure.md#aliases) . Esistono due modi per fare riferimento ai valori di una proprietà di risorsa all'interno di criteri di Azure:
 
 - Usare la condizione di [campo](../concepts/definition-structure.md#fields) per verificare se **tutte le** proprietà della risorsa selezionata soddisfano una condizione. Esempio:
@@ -219,9 +290,9 @@ Se la matrice contiene oggetti, `[*]` è possibile utilizzare un alias per selez
 }
 ```
 
-Questa condizione è true se i valori di tutte le `property` Proprietà in `objectArray` sono uguali a `"value"` .
+Questa condizione è true se i valori di tutte le `property` Proprietà in `objectArray` sono uguali a `"value"` . Per altri esempi, vedere [ \[ \* \] esempi di alias aggiuntivi](#appendix--additional--alias-examples).
 
-Quando si usa la `field()` funzione per fare riferimento a un alias di matrice, il valore restituito è una matrice di tutti i valori selezionati. Questo comportamento indica che il caso di utilizzo comune della `field()` funzione, la possibilità di applicare funzioni modello ai valori delle proprietà delle risorse, è molto limitato. Le uniche funzioni di modello che è possibile usare in questo caso sono quelle che accettano argomenti di matrice. Ad esempio, è possibile ottenere la lunghezza della matrice con `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . Tuttavia, scenari più complessi, ad esempio l'applicazione di una funzione di modello a ogni membro della matrice e il confronto con un valore desiderato, sono possibili solo quando si usa l' `count` espressione. Per altre informazioni, vedere [espressione count](#count-expressions).
+Quando si usa la `field()` funzione per fare riferimento a un alias di matrice, il valore restituito è una matrice di tutti i valori selezionati. Questo comportamento indica che il caso di utilizzo comune della `field()` funzione, la possibilità di applicare funzioni modello ai valori delle proprietà delle risorse, è molto limitato. Le uniche funzioni di modello che è possibile usare in questo caso sono quelle che accettano argomenti di matrice. Ad esempio, è possibile ottenere la lunghezza della matrice con `[length(field('Microsoft.Test/resourceType/objectArray[*].property'))]` . Tuttavia, scenari più complessi, ad esempio l'applicazione di una funzione di modello a ogni membro della matrice e il confronto con un valore desiderato, sono possibili solo quando si usa l' `count` espressione. Per altre informazioni, vedere [espressione del conteggio dei campi](#field-count-expressions).
 
 Per riepilogare, vedere il contenuto della risorsa di esempio seguente e i valori selezionati restituiti da diversi alias:
 
@@ -275,9 +346,9 @@ Quando si usa la `field()` funzione nel contenuto della risorsa di esempio, i ri
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray')]` | `[[ 1, 2 ], [ 3, 4 ]]` |
 | `[field('Microsoft.Test/resourceType/objectArray[*].nestedArray[*]')]` | `[1, 2, 3, 4]` |
 
-## <a name="count-expressions"></a>Espressioni di conteggio
+### <a name="field-count-expressions"></a>Espressioni di conteggio campi
 
-Le espressioni [count](../concepts/definition-structure.md#count) contano il numero di membri della matrice che soddisfano una condizione e confrontano il conteggio con un valore di destinazione. `Count` è più intuitivo e versatile per la valutazione delle matrici rispetto alle `field` condizioni. La sintassi è:
+Le espressioni di [conteggio dei campi](../concepts/definition-structure.md#field-count) consentono di contare il numero di membri della matrice che soddisfano una condizione e confrontare il conteggio con un valore di destinazione. `Count` è più intuitivo e versatile per la valutazione delle matrici rispetto alle `field` condizioni. La sintassi è:
 
 ```json
 {
@@ -289,7 +360,7 @@ Le espressioni [count](../concepts/definition-structure.md#count) contano il num
 }
 ```
 
-Se utilizzata senza una condizione ' Where ', `count` restituisce semplicemente la lunghezza di una matrice. Con il contenuto della risorsa di esempio della sezione precedente, l' `count` espressione seguente viene valutata `true` perché `stringArray` ha tre membri:
+Se utilizzata senza una `where` condizione, `count` restituisce semplicemente la lunghezza di una matrice. Con il contenuto della risorsa di esempio della sezione precedente, l' `count` espressione seguente viene valutata `true` perché `stringArray` ha tre membri:
 
 ```json
 {
@@ -314,6 +385,7 @@ Questo comportamento funziona anche con matrici annidate. L'espressione seguente
 La potenza di `count` si trova nella `where` condizione. Quando viene specificato, criteri di Azure enumera i membri della matrice e ne valuta ognuno rispetto alla condizione, conteggiando il numero di membri della matrice valutati `true` . In particolare, in ogni iterazione della `where` valutazione della condizione, criteri di Azure seleziona un singolo membro della matrice ***i** _ e valuta il contenuto della risorsa rispetto alla `where` condizione _* come se **_i_*_ fosse l'unico membro del array_ *. Se è disponibile un solo membro della matrice in ogni iterazione, è possibile applicare condizioni complesse a ogni singolo membro della matrice.
 
 Esempio:
+
 ```json
 {
   "count": {
@@ -326,7 +398,7 @@ Esempio:
   "equals": 1
 }
 ```
-Per valutare l' `count` espressione, i criteri di Azure valutano la `where` condizione 3 volte, una volta per ogni membro di `stringArray` , conteggiando il numero di volte in cui è stato valutato `true` . Quando la `where` condizione fa riferimento ai `Microsoft.Test/resourceType/stringArray[*]` membri della matrice, anziché selezionare tutti i membri di `stringArray` , seleziona ogni volta un singolo membro della matrice:
+Per valutare l' `count` espressione, i criteri di Azure valutano la `where` condizione 3 volte, una volta per ogni membro di `stringArray` , conteggiando il numero di volte in cui è stato valutato `true` . Quando la `where` condizione si riferisce ai `Microsoft.Test/resourceType/stringArray[*]` membri della matrice, anziché selezionare tutti i membri di `stringArray` , verrà selezionato ogni volta un singolo membro della matrice:
 
 | Iterazione | `Microsoft.Test/resourceType/stringArray[*]`Valori selezionati | `where` Risultato della valutazione |
 |:---|:---|:---|
@@ -337,6 +409,7 @@ Per valutare l' `count` espressione, i criteri di Azure valutano la `where` cond
 E pertanto `count` restituirà `1` .
 
 Ecco un'espressione più complessa:
+
 ```json
 {
   "count": {
@@ -366,6 +439,7 @@ Ecco un'espressione più complessa:
 E quindi `count` restituisce `1` .
 
 Il fatto che l' `where` espressione venga valutata rispetto all' **intero** contenuto della richiesta (con modifiche solo al membro della matrice attualmente in corso di enumerazione) significa che la `where` condizione può anche fare riferimento a campi all'esterno della matrice:
+
 ```json
 {
   "count": {
@@ -384,6 +458,7 @@ Il fatto che l' `where` espressione venga valutata rispetto all' **intero** cont
 | 2 | `tags.env` => `"prod"` | `true` |
 
 Sono consentite anche le espressioni di conteggio nidificate:
+
 ```json
 {
   "count": {
@@ -417,9 +492,33 @@ Sono consentite anche le espressioni di conteggio nidificate:
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 1 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3` |
 | 2 | `Microsoft.Test/resourceType/objectArray[*].property` => `"value2`</br> `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `3`, `4` | 2 | `Microsoft.Test/resourceType/objectArray[*].nestedArray[*]` => `4` |
 
-### <a name="the-field-function-inside-where-conditions"></a>`field()`Funzione all'interno delle `where` condizioni
+#### <a name="accessing-current-array-member-with-template-functions"></a>Accesso al membro della matrice corrente con funzioni di modello
 
-Il funzionamento delle `field()` funzioni quando si trova all'interno di una `where` condizione si basa sui concetti seguenti:
+Quando si usano le funzioni modello, usare la `current()` funzione per accedere al valore del membro della matrice corrente o ai valori di una delle relative proprietà. Per accedere al valore del membro della matrice corrente, passare l'alias definito in `count.field` o uno qualsiasi degli alias figlio come argomento della `current()` funzione. Ad esempio:
+
+```json
+{
+  "count": {
+    "field": "Microsoft.Test/resourceType/objectArray[*]",
+    "where": {
+        "value": "[current('Microsoft.Test/resourceType/objectArray[*].property')]",
+        "like": "value*"
+    }
+  },
+  "equals": 2
+}
+
+```
+
+| Iterazione | `current()` valore restituito | `where` Risultato della valutazione |
+|:---|:---|:---|
+| 1 | Valore di `property` nel primo membro di `objectArray[*]` : `value1` | `true` |
+| 2 | Valore di `property` nel primo membro di `objectArray[*]` : `value2` | `true` |
+
+#### <a name="the-field-function-inside-where-conditions"></a>Funzione Field all'interno delle condizioni WHERE
+
+La `field()` funzione può essere usata anche per accedere al valore del membro della matrice corrente, purché l'espressione **count** non si trovi all'interno di una **condizione di esistenza** (la `field()` funzione fa sempre riferimento alla risorsa valutata nella condizione **if** ).
+Il comportamento di `field()` quando si fa riferimento alla matrice valutata è basato sui concetti seguenti:
 1. Gli alias di matrice vengono risolti in una raccolta di valori selezionati da tutti i membri della matrice.
 1. `field()` le funzioni che fanno riferimento agli alias di matrice restituiscono una matrice con i valori selezionati.
 1. Se si fa riferimento all'alias di matrice conteggiato all'interno della `where` condizione, viene restituita una raccolta con un solo valore selezionato dal membro della matrice valutato nell'iterazione corrente.
@@ -465,7 +564,7 @@ Pertanto, quando è necessario accedere al valore dell'alias della matrice conte
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-Per esempi utili, vedere [esempi di conteggio](../concepts/definition-structure.md#count-examples).
+Per esempi utili, vedere [esempi di conteggio dei campi](../concepts/definition-structure.md#field-count-examples).
 
 ## <a name="modifying-arrays"></a>Modifica di matrici
 
@@ -487,6 +586,59 @@ Per esempi utili, vedere [esempi di conteggio](../concepts/definition-structure.
 | `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | `modify``addOrReplace`operazione with | Criteri di Azure aggiunge o sostituisce la `action` proprietà esistente di ogni membro della matrice. |
 
 Per altre informazioni, vedere gli [esempi di Append](../concepts/effects.md#append-examples).
+
+## <a name="appendix--additional--alias-examples"></a>Appendice-Esempi di alias [*] aggiuntivi
+
+È consigliabile usare le espressioni di [conteggio dei campi](#field-count-expressions) per verificare se tutti i membri di una matrice nel contenuto della richiesta soddisfano una condizione. Tuttavia, per alcune semplici condizioni è possibile ottenere lo stesso risultato usando una funzione di accesso Field con un alias di matrice, come descritto in [riferimento alla raccolta di membri della matrice](#referencing-the-array-members-collection). Questa operazione può essere utile nelle regole dei criteri che superano il limite di espressioni di **conteggio** consentito. Ecco alcuni esempi per i casi d'uso comuni:
+
+Esempio di regola dei criteri per la tabella dello scenario seguente:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            <-- Condition (see table below) -->
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+La matrice **ipRules** per la tabella dello scenario è la seguente:
+
+```json
+"ipRules": [
+    {
+        "value": "127.0.0.1",
+        "action": "Allow"
+    },
+    {
+        "value": "192.168.1.1",
+        "action": "Allow"
+    }
+]
+```
+
+Per ogni condizione di esempio riportata di seguito, sostituire `<field>` con `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+
+Di seguito sono riportati i risultati della combinazione della condizione, la regola dei criteri di esempio e la matrice di valori esistenti precedenti:
+
+|Condizione |Risultato | Scenario |Spiegazione |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Nessuno |Nessuna corrispondenza |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Effetto dei criteri |Nessuna corrispondenza |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_ e l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effetto dei criteri |Una o più corrispondenze |Un elemento della matrice restituisce false (127.0.0.1! = 127.0.0.1) e uno true (127.0.0.1! = 192.168.1.1), quindi la condizione **notEquals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nessuno |Una o più corrispondenze |Entrambi gli elementi della matrice restituiscono true (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), quindi la condizione **notEquals** è _true_. L'operatore logico restituisce false (**non** _true_), quindi l'effetto non viene attivato. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Effetto dei criteri |Corrispondenza non totale |Un elemento della matrice restituisce true (127.0.0.1 == 127.0.0.1) e uno false (127.0.0.1 == 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Effetto dei criteri |Corrispondenza non totale |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), quindi la condizione **Equals** è _false_. L'operatore logico restituisce true (**non** _false_), quindi l'effetto viene attivato. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nessuno |Corrispondenza totale |Un elemento della matrice restituisce true (127.0.0.1 == 127.0.0.1) e uno false (127.0.0.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nessuno |Corrispondenza totale |Entrambi gli elementi della matrice restituiscono false (10.0.4.1 == 127.0.0.1 e 10.0.4.1 == 192.168.1.1), quindi la condizione **Equals** è _false_ e l'effetto non viene attivato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
