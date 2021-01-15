@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 99e79e4d094fe6e93510d139d2f4d08f260102df
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5b79a777ba8f7e615e4637f94311cba39e8a7f6c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010045"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223704"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Guida introduttiva: creare un indirizzo IP pubblico usando Azure PowerShell
 
-Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando Azure PowerShell. Per altre informazioni sulle risorse a cui questo può essere associato, sulla differenza tra lo SKU Basic e standard e altre informazioni correlate, vedere [indirizzi IP pubblici](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses).  Per questo esempio, si concentrerà solo sugli indirizzi IPv4; per altre informazioni sugli indirizzi IPv6, vedere [IPv6 per Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+Questo articolo illustra come creare una risorsa indirizzo IP pubblico usando Azure PowerShell. Per altre informazioni sulle risorse a cui questo può essere associato, sulla differenza tra lo SKU Basic e standard e altre informazioni correlate, vedere [indirizzi IP pubblici](./public-ip-addresses.md).  Per questo esempio, si concentrerà solo sugli indirizzi IPv4; per altre informazioni sugli indirizzi IPv6, vedere [IPv6 per Azure VNet](./ipv6-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku---using-zones"></a>[**SKU standard-uso di zone**](#tab/option-create-public-ip-standard-zones)
 
 >[!NOTE]
->Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md).
 
 Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico con ridondanza della zona standard denominato **myStandardZRPublicIP** in **myResourceGroup**.
 
@@ -84,12 +84,12 @@ $zone = 2
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku -zone $zone
 ```
 
-Si noti che le opzioni precedenti per le zone sono selezioni valide solo nelle aree con [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Si noti che le opzioni precedenti per le zone sono selezioni valide solo nelle aree con [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="standard-sku---no-zones"></a>[**SKU standard-nessuna zona**](#tab/option-create-public-ip-standard)
 
 >[!NOTE]
->Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+>Il comando seguente funziona per l'API versione 2020-08-01 o successiva.  Per altre informazioni sulla versione API attualmente in uso, vedere [provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md).
 
 Usare [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) per creare un indirizzo IP pubblico standard come risorsa non di zona denominata **myStandardPublicIP** in **myResourceGroup**.
 
@@ -104,7 +104,7 @@ $alloc = 'Static'
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $alloc -SKU $sku
 ```
 
-Questa selezione è valida in tutte le aree ed è la selezione predefinita per gli indirizzi IP pubblici standard in aree senza [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).
+Questa selezione è valida in tutte le aree ed è la selezione predefinita per gli indirizzi IP pubblici standard in aree senza [zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones).
 
 # <a name="basic-sku"></a>[**SKU Basic**](#tab/option-create-public-ip-basic)
 
@@ -126,9 +126,9 @@ Se è accettabile che l'indirizzo IP cambi nel tempo, è possibile selezionare l
 
 ## <a name="additional-information"></a>Informazioni aggiuntive 
 
-Per altri dettagli sulle singole variabili elencate in precedenza, vedere [gestire gli indirizzi IP pubblici](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
+Per altri dettagli sulle singole variabili elencate in precedenza, vedere [gestire gli indirizzi IP pubblici](./virtual-network-public-ip-address.md#create-a-public-ip-address).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Associare un [indirizzo IP pubblico a una macchina virtuale](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
-- Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Associare un [indirizzo IP pubblico a una macchina virtuale](./associate-public-ip-address-vm.md#azure-portal)
+- Altre informazioni sugli [indirizzi IP pubblici](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Altre informazioni su tutte le [impostazioni relative agli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address).

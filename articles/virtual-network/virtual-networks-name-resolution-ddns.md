@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad91eb94aedcdd0e4e715162e3ae064a1d2fb1ea
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710950"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220423"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Usare DNS dinamico per registrare i nomi host nel proprio server DNS
 
@@ -28,7 +28,7 @@ ms.locfileid: "84710950"
 Quando i server DNS personalizzati vengono ospitati come VM di Azure, è possibile inoltrare query per i nomi host per la stessa rete virtuale ad Azure per risolvere i nomi host. Se non si vuole usare questa opzione, è possibile registrare i nomi host delle VM nel server DNS tramite DNS dinamico (DDNS). Poiché Azure non ha le credenziali per creare direttamente i record nei server DNS, è spesso necessario ricorrere a soluzioni alternative. Di seguito sono riportati alcuni scenari comuni con alternative:
 
 ## <a name="windows-clients"></a>Client Windows
-I client Windows non di dominio cercano di eseguire aggiornamenti DDNS non protetti all'avvio o alla modifica dell'indirizzo IP. Il nome DNS è il nome host unito al suffisso DNS primario. Azure lascia vuoto il suffisso DNS primario, ma è possibile impostare il suffisso nella VM tramite l'[interfaccia utente](https://technet.microsoft.com/library/cc794784.aspx) o [PowerShell](/powershell/module/dnsclient/set-dnsclient).
+I client Windows non di dominio cercano di eseguire aggiornamenti DDNS non protetti all'avvio o alla modifica dell'indirizzo IP. Il nome DNS è il nome host unito al suffisso DNS primario. Azure lascia vuoto il suffisso DNS primario, ma è possibile impostare il suffisso nella VM tramite l'[interfaccia utente](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc794784(v=ws.10)) o [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 I client Windows appartenenti a un dominio registrano i relativi indirizzi IP con il controller di dominio usando DDNS sicuro. Il processo appartenente a un dominio imposta il suffisso DNS primario nel client e crea e gestisce la relazione di trust.
 

@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: e582415d9a83dc506b77d506f3e0803002129a07
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 24487d3028b90d28f302a6f259096ba68c964541
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180048"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222123"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -31,7 +31,7 @@ Questa procedura comprende:
     * Si estenderà questo dispositivo gemello con un endpoint e una route aggiuntivi. Si aggiungerà anche un'altra funzione all'app per le funzioni da questa esercitazione. 
 * Seguire l'esercitazione sulle mappe di Azure [*: usare Azure Maps Creator per creare mappe interne*](../azure-maps/tutorial-creator-indoor-maps.md) per creare una mappa di Azure Maps indoor con uno *stato di funzionalità*.
     * Le [funzionalità statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) sono raccolte di proprietà dinamiche (Stati) assegnate alle funzionalità del set di dati, ad esempio sale o apparecchiature. Nell'esercitazione sulle mappe di Azure precedente, lo stato della funzionalità archivia lo stato della chat in una mappa.
-    * Sono necessari l'ID *degli Stati* della funzionalità e l' *ID sottoscrizione* di Azure maps.
+    * Sono necessari l' *ID degli Stati* della funzionalità e la *chiave di sottoscrizione* di Azure maps.
 
 ### <a name="topology"></a>Topologia
 
@@ -43,7 +43,7 @@ L'immagine seguente illustra il punto in cui gli elementi di integrazione di Map
 
 In primo luogo, verrà creata una route nei dispositivi gemelli digitali di Azure per inoltrare tutti gli eventi di aggiornamento gemelli a un argomento di griglia di eventi. Si userà quindi una funzione per leggere i messaggi di aggiornamento e aggiornare un stato di funzionalità in Maps di Azure. 
 
-## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare le notifiche di aggiornamento del dispositivo gemello
+## <a name="create-a-route-and-filter-to-twin-update-notifications"></a>Creare una route e filtrare gli eventi per le notifiche di aggiornamento dei gemelli
 
 Le istanze dei dispositivi gemelli digitali di Azure possono generare eventi di aggiornamento gemelli ogni volta che viene aggiornato lo stato di un dispositivo Esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](./tutorial-end-to-end.md) collegata in precedenza illustra uno scenario in cui un termometro viene usato per aggiornare un attributo di temperatura collegato al dispositivo gemello di una stanza. Si estenderà la soluzione sottoscrivendo le notifiche di aggiornamento per i dispositivi gemelli e usando tali informazioni per aggiornare le mappe.
 
@@ -59,7 +59,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
-3. Creare una route nei dispositivi gemelli digitali di Azure per inviare eventi di aggiornamento dei dispositivi gemelli all'endpoint.
+3. Creare una route in Gemelli digitali di Azure per inviare gli eventi di aggiornamento dei gemelli all'endpoint.
 
     >[!NOTE]
     >Esiste attualmente un **problema noto** in Cloud Shell che interessa questi gruppi di comandi: `az dt route`, `az dt model`, `az dt twin`.
@@ -72,7 +72,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
 
 ## <a name="create-a-function-to-update-maps"></a>Creare una funzione per aggiornare le mappe
 
-Verrà creata una funzione attivata da griglia di eventi all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
+Verrà creata una *funzione attivata da griglia di eventi* all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
 
 Vedere il documento seguente per informazioni di riferimento: [*trigger di griglia di eventi di Azure per funzioni di Azure*](../azure-functions/functions-bindings-event-grid-trigger.md).
 
@@ -83,8 +83,8 @@ Sostituire il codice della funzione con il codice seguente. Escluderà solo gli 
 È necessario impostare due variabili di ambiente nell'app per le funzioni. Una è la [chiave di sottoscrizione primaria di Azure Maps](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)e l'altra è l' [ID degli Stati di Azure Maps](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
 ```azurecli-interactive
-az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
-az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name> --resource-group <your-resource-group> --settings "subscription-key=<your-Azure-Maps-primary-subscription-key>"
+az functionapp config appsettings set --name <your-App-Service-(function-app)-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
 ### <a name="view-live-updates-on-your-map"></a>Visualizza gli aggiornamenti dinamici sulla mappa
@@ -94,7 +94,7 @@ Per visualizzare la temperatura di aggiornamento Live, attenersi alla procedura 
 1. Iniziare a inviare i dati delle cose simulate eseguendo il progetto **DeviceSimulator** dall'esercitazione sui dispositivi gemelli digitali di Azure [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Le istruzioni per questa operazione sono disponibili nella sezione [*configurare ed eseguire la simulazione*](././tutorial-end-to-end.md#configure-and-run-the-simulation) .
 2. Usare [il modulo **Azure Maps indoor**](../azure-maps/how-to-use-indoor-module.md) per eseguire il rendering delle mappe interne create in Azure Maps Creator.
     1. Copiare il codice HTML dall' [*esempio: usare la sezione del modulo Maps*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) indoor dell'esercitazione sulle mappe interne [*: usare il modulo mappe interne di Azure Maps*](../azure-maps/how-to-use-indoor-module.md) in un file locale.
-    1. Sostituire *tilesetId* e *STATESETID* nel file HTML locale con i valori.
+    1. Sostituire la *chiave della sottoscrizione*, *tilesetId* e *statesetID*  nel file HTML locale con i valori.
     1. Aprire il file nel browser.
 
 Entrambi gli esempi inviano la temperatura in un intervallo compatibile, quindi dovrebbe essere visualizzato il colore della stanza 121 aggiornamento sulla mappa ogni 30 secondi.

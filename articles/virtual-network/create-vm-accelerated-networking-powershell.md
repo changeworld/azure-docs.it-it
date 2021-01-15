@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289626"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223636"
 ---
-# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una VM Windows con rete accelerata usando Azure PowerShell
+# <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una macchina virtuale Windows con rete accelerata usando Azure PowerShell
 
 Questa esercitazione illustra come creare una macchina virtuale (VM) Windows con rete accelerata.
 
@@ -65,7 +65,7 @@ La funzionalità rete accelerata è supportata per la maggior parte delle istanz
 
 Nelle istanze che supportano l'Hyper-Threading, la rete accelerata è supportata nelle istanze di VM con quattro o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
 
-Per altre informazioni sulle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Per altre informazioni sulle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="custom-images"></a>Immagini personalizzate
 
@@ -85,7 +85,7 @@ Le macchine virtuali (classiche) non possono essere distribuite con la rete acce
 
 ## <a name="vm-creation-using-the-portal"></a>Creazione di macchine virtuali tramite il portale
 
-Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata usando Azure PowerShell, ma è anche possibile [usare la portale di Azure per creare una macchina virtuale](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) che consente la rete accelerata. Quando si crea una VM nel portale, nella pagina **Crea una macchina virtuale** scegliere la scheda **rete** . Questa scheda include un'opzione per la **rete accelerata**. Se è stato scelto un [sistema operativo supportato](#supported-operating-systems) e le [dimensioni della macchina virtuale](#supported-vm-instances), questa opzione viene impostata automaticamente **su on**. In caso contrario, l'opzione è impostata su **off**e Azure Visualizza il motivo per cui non è possibile abilitarlo.
+Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata usando Azure PowerShell, ma è anche possibile [usare la portale di Azure per creare una macchina virtuale](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) che consente la rete accelerata. Quando si crea una VM nel portale, nella pagina **Crea una macchina virtuale** scegliere la scheda **rete** . Questa scheda include un'opzione per la **rete accelerata**. Se è stato scelto un [sistema operativo supportato](#supported-operating-systems) e le [dimensioni della macchina virtuale](#supported-vm-instances), questa opzione viene impostata automaticamente **su on**. In caso contrario, l'opzione è impostata su **off** e Azure Visualizza il motivo per cui non è possibile abilitarlo.
 
 > [!NOTE]
 > Solo i sistemi operativi supportati possono essere abilitati tramite il portale. Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, creare la VM usando l'interfaccia della riga di comando o PowerShell. 
@@ -104,7 +104,7 @@ Nelle informazioni sull'interfaccia di rete, accanto all'etichetta **rete accele
 
 Prima di procedere, installare [Azure PowerShell](/powershell/azure/install-az-ps) versione 1.0.0 o successiva. Per trovare la versione attualmente installata, eseguire `Get-Module -ListAvailable Az`. Se è necessario installare o aggiornare, installare la versione più recente del modulo AZ dal [PowerShell Gallery](https://www.powershellgallery.com/packages/Az). In una sessione di PowerShell accedere a un account Azure usando [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic*e *myVM*.
+Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
 
@@ -134,7 +134,7 @@ Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori de
 
 ### <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-1. Creare una regola del gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
+1. Creare una regola di gruppo di sicurezza di rete con [New-AzNetworkSecurityRuleConfig](/powershell/module/az.Network/New-azNetworkSecurityRuleConfig).
 
     ```azurepowershell
     $rdp = New-AzNetworkSecurityRuleConfig `
@@ -208,7 +208,7 @@ Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori de
     $vmConfig = New-AzVMConfig -VMName "myVm" -VMSize "Standard_DS4_v2"
     ```
 
-    Per un elenco di tutte le dimensioni e le caratteristiche delle VM, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    Per un elenco di tutte le dimensioni e le caratteristiche delle VM, vedere [Dimensioni per le macchine virtuali Windows](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 3. Creare la parte restante della configurazione della macchina virtuale con [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem) e [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage). Il comando seguente crea una macchina virtuale Windows Server 2016:
 

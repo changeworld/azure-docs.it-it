@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
-ms.openlocfilehash: ca6460497fa026feca503df741ad6811a95fb9e3
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936931"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221015"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -80,12 +80,12 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
 
 * **Appliance virtuale**: un'appliance virtuale è una macchina virtuale che generalmente esegue un'applicazione di rete, ad esempio un firewall. Per informazioni su una serie di appliance virtuali di rete preconfigurate distribuibili in una rete virtuale, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Quando si crea una route con il tipo hop **appliance virtuale**, si specifica anche un indirizzo IP hop successivo. L'indirizzo IP può essere:
 
-    * L'[indirizzo IP privato](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) di un'interfaccia di rete collegata a una macchina virtuale. Per un'interfaccia di rete collegata a una macchina virtuale che inoltra il traffico di rete a un indirizzo diverso dal proprio è necessario abilitare l'opzione di *inoltro IP* di Azure. Questa impostazione disabilita il controllo di origine e destinazione di Azure per l'interfaccia di rete. Vedere altre informazioni su come [abilitare l'inoltro IP per un'interfaccia di rete](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Anche se l'*abilitazione dell'inoltro IP* è un'impostazione di Azure, può essere necessario abilitare l'inoltro IP anche nel sistema operativo della macchina virtuale affinché l'appliance inoltri il traffico tra gli indirizzi IP assegnati alle interfacce di rete di Azure. Se l'appliance deve instradare il traffico a un indirizzo IP pubblico, deve usare un proxy per il traffico o convertire con NAT (Network Address Translation) l'indirizzo IP privato dell'origine nel proprio indirizzo IP privato, che Azure convertirà quindi con NAT in un indirizzo IP pubblico prima di inviare il traffico in Internet. Per determinare le impostazioni necessarie nella macchina virtuale, vedere la documentazione del sistema operativo o dell'applicazione di rete. Per informazioni sulle connessioni in uscita, vedere [Informazioni sulle connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
+    * L'[indirizzo IP privato](./private-ip-addresses.md) di un'interfaccia di rete collegata a una macchina virtuale. Per un'interfaccia di rete collegata a una macchina virtuale che inoltra il traffico di rete a un indirizzo diverso dal proprio è necessario abilitare l'opzione di *inoltro IP* di Azure. Questa impostazione disabilita il controllo di origine e destinazione di Azure per l'interfaccia di rete. Vedere altre informazioni su come [abilitare l'inoltro IP per un'interfaccia di rete](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Anche se l'*abilitazione dell'inoltro IP* è un'impostazione di Azure, può essere necessario abilitare l'inoltro IP anche nel sistema operativo della macchina virtuale affinché l'appliance inoltri il traffico tra gli indirizzi IP assegnati alle interfacce di rete di Azure. Se l'appliance deve instradare il traffico a un indirizzo IP pubblico, deve usare un proxy per il traffico o convertire con NAT (Network Address Translation) l'indirizzo IP privato dell'origine nel proprio indirizzo IP privato, che Azure convertirà quindi con NAT in un indirizzo IP pubblico prima di inviare il traffico in Internet. Per determinare le impostazioni necessarie nella macchina virtuale, vedere la documentazione del sistema operativo o dell'applicazione di rete. Per informazioni sulle connessioni in uscita, vedere [Informazioni sulle connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).<br>
 
         > [!NOTE]
         > Distribuire un'appliance virtuale in una subnet diversa da quella in cui sono distribuite le risorse instradate attraverso l'appliance stessa. La distribuzione di un'appliance virtuale nella stessa subnet, con la successiva applicazione di una tabella di route alla subnet che instrada il traffico attraverso l'appliance, può comportare loop di routing che impediscono al traffico di uscire dalla subnet.
 
-    * L'indirizzo IP privato di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Un servizio di bilanciamento del carico viene spesso usato nell'ambito di una [strategia di disponibilità elevata per le appliance virtuali di rete](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    * L'indirizzo IP privato di un [servizio di bilanciamento del carico interno di Azure](../load-balancer/quickstart-load-balancer-standard-internal-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Un servizio di bilanciamento del carico viene spesso usato nell'ambito di una [strategia di disponibilità elevata per le appliance virtuali di rete](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     È possibile definire una route con 0.0.0.0/0 come prefisso degli indirizzi e un tipo di hop successivo Appliance virtuale, per consentire all'appliance di ispezionare il traffico e determinare se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente che contiene il prefisso degli indirizzi 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route).
 

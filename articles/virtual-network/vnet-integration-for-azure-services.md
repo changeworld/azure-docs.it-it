@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/01/2020
 ms.author: kumud
-ms.openlocfilehash: a25d6d0d1990682287b5962a7bd93a0c525db133
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: a29454f09268406511730c63dcc3bc3063b909c6
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882365"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218655"
 ---
 # <a name="integrate-azure-services-with-virtual-networks-for-network-isolation"></a>Integrare i servizi di Azure con reti virtuali per l'isolamento rete
 
@@ -66,7 +66,7 @@ Per altre informazioni, vedere [endpoint del servizio rete virtuale](virtual-net
 
 ## <a name="service-tags"></a>Tag di servizio
 
-Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Usando i tag del servizio, è possibile definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o nel firewall di [Azure](https://docs.microsoft.com/azure/firewall/service-tags). Specificando il nome del tag di servizio (ad esempio, AzureEventGrid) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Usando i tag del servizio, è possibile definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](./network-security-groups-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). Specificando il nome del tag di servizio (ad esempio, AzureEventGrid) nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 ![Consentire o negare il traffico tramite tag di servizio](./media/network-isolation/service-tags.png)
 
@@ -78,4 +78,4 @@ Per altre informazioni sui tag di servizio e i servizi di Azure che li supportan
 
 - Informazioni su come [integrare l'app con una rete di Azure](../app-service/web-sites-integrate-with-vnet.md).
 - Informazioni su come [limitare l'accesso alle risorse usando i tag del servizio](tutorial-restrict-network-access-to-resources.md).
-- Informazioni su come [connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure](../private-link/create-private-endpoint-cosmosdb-portal.md).
+- Informazioni su come [connettersi privatamente a un account Azure Cosmos usando il collegamento privato di Azure](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

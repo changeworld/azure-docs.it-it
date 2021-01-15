@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 2e559d574413b8eb0be2303798e0b16bfffad2cb
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695402"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222990"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer domande frequenti
 
@@ -36,7 +36,7 @@ Le regole NAT vengono usate per specificare una risorsa back-end a cui indirizza
 ## <a name="what-is-ip-1686312916"></a>Che cos'è IP 168.63.129.16?
 Indirizzo IP virtuale per l'host contrassegnato come infrastruttura di Azure Load Balancer da cui hanno origine i probe di integrità di Azure. Quando si configurano le istanze back-end, è necessario consentire il traffico da questo indirizzo IP per rispondere correttamente ai Probe di integrità. Questa regola non interagisce con l'accesso al front-end Load Balancer. Se non si usa la Azure Load Balancer, è possibile eseguire l'override di questa regola. Altre informazioni sui tag di servizio sono disponibili [qui](../virtual-network/service-tags-overview.md#available-service-tags).
 
-## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>È possibile usare il peering VNET globale con Load Balancer di base?
+## <a name="can-i-use-global-vnet-peering-with-basic-load-balancer"></a>È possibile usare il peering VNet globale con Load Balancer di base?
 No. Il Load Balancer di base non supporta il peering VNET globale. In alternativa, è possibile usare un Load Balancer Standard. Per un aggiornamento semplice, vedere l'articolo relativo all' [aggiornamento da Basic a standard](upgrade-basic-standard.md) .
 
 ## <a name="how-can-i-discover-the-public-ip-that-an-azure-vm-uses"></a>Come è possibile individuare l'indirizzo IP pubblico usato da una macchina virtuale di Azure?
@@ -45,6 +45,9 @@ Esistono molti modi per determinare l'indirizzo IP di origine pubblica di una co
 Usando il comando nslookup è possibile inviare una query DNS per il nome myip.opendns.com al resolver OpenDNS. Il servizio restituisce l'indirizzo IP di origine usato per inviare la query. Quando si esegue la query seguente dalla macchina virtuale, la risposta è l'indirizzo IP pubblico usato per tale VM:
 
  ```nslookup myip.opendns.com resolver1.opendns.com```
+ 
+## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>È possibile aggiungere una VM dallo stesso set di disponibilità a diversi pool back-end di un Load Balancer?
+No, non è possibile.
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Come funzionano le connessioni ad archiviazione di Azure nella stessa area?
 La connettività in uscita tramite gli scenari precedenti non è necessaria per connettersi ad Archiviazione nella stessa area della macchina virtuale. Se non lo si desidera, usare i gruppi di sicurezza di rete (NSG) come illustrato in precedenza. Per la connettività ad Archiviazione in altre aree, è necessaria la connettività in uscita. Si noti che quando ci si connette ad Archiviazione da una macchina virtuale nella stessa area, l'indirizzo IP di origine nei log di diagnostica di Archiviazione sarà un indirizzo di provider interno e non l'indirizzo IP pubblico della macchina virtuale. Se si vuole limitare l'accesso all'account di Archiviazione alle macchine virtuali in una o più subnet della rete virtuale nella stessa area, usare [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e non l'indirizzo IP pubblico quando si configura il firewall dell'account di archiviazione. Una volta configurati gli endpoint di servizio, verrà visualizzato l'indirizzo IP privato della rete virtuale nei log di diagnostica di Archiviazione e non l'indirizzo del provider interno.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: d38c57a8c8504e1e03406f7cd8a0b61725cb0511
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008087"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223687"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -21,7 +21,7 @@ ms.locfileid: "97008087"
 
 Integrazione continua (CI) è il processo di automazione della compilazione e del test del codice ogni volta che un membro del team eseguirà il commit delle modifiche al controllo della versione. La distribuzione continua (CD) è il processo per compilare, testare, configurare e distribuire da più ambienti di test o di gestione temporanea in un ambiente di produzione.
 
-Per l'area di lavoro di Azure sinapsi, l'integrazione e la distribuzione continua (CI/CD) spostano tutte le entità da un ambiente (sviluppo, test, produzione) a un altro. Per innalzare di livello l'area di lavoro a un'altra area di lavoro, sono disponibili due parti: usare [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) per creare o aggiornare le risorse dell'area di lavoro eseguire la migrazione di elementi (script SQL, notebook, definizione del processo Spark, pipeline, set di dati, flussi di dati e così via) con gli strumenti di integrazione continua/recapito continuo sinapsi in Azure DevOps. 
+Per l'area di lavoro di Azure sinapsi, l'integrazione e la distribuzione continua (CI/CD) spostano tutte le entità da un ambiente (sviluppo, test, produzione) a un altro. Per innalzare di livello l'area di lavoro a un'altra area di lavoro, sono disponibili due parti: usare [modelli di Azure Resource Manager](../../azure-resource-manager/templates/overview.md) per creare o aggiornare le risorse dell'area di lavoro eseguire la migrazione di elementi (script SQL, notebook, definizione del processo Spark, pipeline, set di dati, flussi di dati e così via) con gli strumenti di integrazione continua/recapito continuo sinapsi in Azure DevOps. 
 
 Questo articolo descrive come usare la pipeline di rilascio di Azure per automatizzare la distribuzione di un'area di lavoro sinapsi in più ambienti.
 
@@ -46,7 +46,7 @@ Questo articolo descrive come usare la pipeline di rilascio di Azure per automat
 
 1.  Nella casella **Nome fase** immettere il nome dell'ambiente.
 
-1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository git configurato con lo sviluppo sinapsi Studio. Selezionare il repository git usato per la gestione del modello ARM dei pool e dell'area di lavoro. Se si usa GitHub come origine, è necessario creare una connessione del servizio per l'account GitHub e i repository di pull. Per ulteriori informazioni sulla [connessione al servizio](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) 
+1.  Selezionare **Aggiungi artefatto**, quindi selezionare il repository git configurato con lo sviluppo sinapsi Studio. Selezionare il repository git usato per la gestione del modello ARM dei pool e dell'area di lavoro. Se si usa GitHub come origine, è necessario creare una connessione del servizio per l'account GitHub e i repository di pull. Per ulteriori informazioni sulla [connessione al servizio](/azure/devops/pipelines/library/service-endpoints) 
 
     ![Aggiungi ramo di pubblicazione](media/release-creation-github.png)
 
@@ -87,7 +87,7 @@ Aggiungere un'attività di distribuzione Azure Resource Manager per creare o agg
     ![Concedi autorizzazione](media/release-creation-grant-permission.png)
 
  > [!WARNING]
-> In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate**. Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes)
+> In modalità di distribuzione completa, le risorse esistenti nel gruppo di risorse, ma non specificate nel nuovo modello di Gestione risorse verranno **eliminate**. Per altre informazioni, vedere [Azure Resource Manager modalità di distribuzione](../../azure-resource-manager/templates/deployment-modes.md)
 
 ## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>Configurare un'attività di gestione temporanea per la distribuzione di artefatti 
 
@@ -122,7 +122,7 @@ Usare l'estensione per la [distribuzione dell'area](https://marketplace.visualst
 
 ## <a name="create-release-for-deployment"></a>Crea versione per la distribuzione 
 
-Dopo aver salvato tutte le modifiche, è possibile selezionare **Crea versione** per creare manualmente una versione. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/release/triggers)
+Dopo aver salvato tutte le modifiche, è possibile selezionare **Crea versione** per creare manualmente una versione. Per automatizzare la creazione di versioni, vedere [Trigger versione di Azure DevOps](/azure/devops/pipelines/release/triggers)
 
    ![Selezionare Crea versione](media/release-creation-manually.png)
 
@@ -133,6 +133,4 @@ Se si usa l'integrazione git con l'area di lavoro sinapsi e si ha una pipeline d
 -   **Integrazione di Git**. Configurare solo l'area di lavoro sinapsi di sviluppo con l'integrazione git. Le modifiche alle aree di lavoro di test e produzione vengono distribuite tramite CI/CD e non richiedono l'integrazione git.
 -   **Preparare i pool prima della migrazione degli artefatti**. Se è presente un notebook o uno script SQL collegato ai pool nell'area di lavoro di sviluppo, è previsto lo stesso nome dei pool in ambienti diversi. 
 -   **Infrastruttura come codice (IaC)**. La gestione dell'infrastruttura (reti, macchine virtuali, bilanciamenti del carico e topologia di connessione) in un modello descrittivo usa lo stesso controllo delle versioni usato dal team di DevOps per il codice sorgente. 
--   **Altre**. Vedere le [procedure consigliate per gli artefatti ADF](/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)
-
-
+-   **Altre**. Vedere le [procedure consigliate per gli artefatti ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)

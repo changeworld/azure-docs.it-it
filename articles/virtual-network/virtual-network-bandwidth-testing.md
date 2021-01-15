@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/06/2020
 ms.author: steveesp
-ms.openlocfilehash: 0b009b7c44084e76194c1447fefdb2ff59f8086a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2f6750a4d0a48c6971f60241976fb55410b65c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812285"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221443"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Test della larghezza di banda/velocità effettiva (NTTTCP)
 
@@ -26,7 +26,7 @@ Durante il test della velocità di rete effettiva in Azure, è preferibile usare
 Copiare lo strumento in due macchine virtuali di Azure delle stesse dimensioni. Una macchina virtuale funge da MITTENTE, l'altra da RICEVITORE.
 
 #### <a name="deploying-vms-for-testing"></a>Distribuzione di macchine virtuali per i test
-Ai fini di questo test, le due macchine virtuali devono trovarsi nello stesso [gruppo di posizionamento di prossimità](../virtual-machines/windows/co-location.md) o nello stesso set di disponibilità, in modo da poter usare i relativi indirizzi IP interni ed escludere i bilanciamenti del carico dal test. È possibile eseguire il test con un indirizzo VIP, ma questa tipologia di test non rientra nell'ambito di questo documento.
+Ai fini di questo test, le due macchine virtuali devono trovarsi nello stesso [gruppo di posizionamento di prossimità](../virtual-machines/co-location.md) o nello stesso set di disponibilità, in modo da poter usare i relativi indirizzi IP interni ed escludere i bilanciamenti del carico dal test. È possibile eseguire il test con un indirizzo VIP, ma questa tipologia di test non rientra nell'ambito di questo documento.
 
 Prendere nota dell'indirizzo IP del RICEVITORE. In questo esempio verrà definito "a.b.c.r."
 
@@ -59,13 +59,13 @@ Se il file è stato spostato, eseguire una ricerca: da <https://www.bing.com/sea
 È consigliabile inserire NTTTCP in una cartella separata, ad esempio, ad esempio c:\\strumenti
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Consentire NTTTCP in Windows Firewall
-Nella macchina RICEVITORE, creare una regola di assenso in Windows Firewall per consentire l'ingresso del traffico NTTTCP. È più semplice consentire l'intero programma NTTTCP usando il nome invece di consentire porte TCP in ingresso specifiche.
+Nella macchina RICEVITORE, creare una regola di assenso in Windows Firewall per consentire l'ingresso del traffico NTTTCP. È più semplice consentire l'intero programma NTTTCP usando il nome anziché consentire porte TCP in entrata specifiche.
 
 Consentire NTTTCP in Windows Firewall nel modo seguente:
 
 netsh advfirewall firewall add rule Program = \<PATH\> \\ntttcp.exe Name = "NTTTCP" Protocol = any dir = in action = allow Enable = Yes profile = any
 
-Ad esempio, se è stato copiato ntttcp.exe nella cartella "c:\\tools", il comando sarà il seguente: 
+Ad esempio, se è stato copiato ntttcp.exe nella cartella "c:\\strumenti" cartella, il comando sarà il seguente: 
 
 netsh advfirewall firewall add rule program=c:\\strumenti\\ntttcp.exe name="ntttcp" protocol=any dir=in action=allow enable=yes profile=ANY
 
@@ -82,7 +82,7 @@ ntttcp -r –m 8,\*,10.0.0.4 -t 300
 
 Avviare NTTTCP nel MITTENTE (**da CMD**, non da PowerShell):
 
-ntttcp -s –m 8,\*,10.0.0.4 -t 300 
+ntttcp -s –m 8,\*,10.0.0.4 -t 300 
 
 Attendere i risultati.
 
@@ -91,23 +91,23 @@ Attendere i risultati.
 
 Usare nttcp-for-linux, È disponibile in <https://github.com/Microsoft/ntttcp-for-linux>
 
-Nelle macchine virtuali Linux (MITTENTE e RICEVITORE), eseguire i comandi seguenti per preparare ntttcp-for-linux nelle macchine virtuali:
+Nelle macchine virtuali Linux (MITTENTE e RICEVITORE), eseguire i comandi seguenti per preparare ntttcp-for-linux:
 
 CentOS - Installare Git:
 ``` bash
-  yum install gcc -y  
-  yum install git -y
+  yum install gcc -y  
+  yum install git -y
 ```
 Ubuntu - Installare Git:
 ``` bash
- apt-get -y install build-essential  
- apt-get -y install git
+ apt-get -y install build-essential  
+ apt-get -y install git
 ```
-Verificare e installare in entrambe le macchine virtuali:
+Verificare e installare in entrambie le macchine virtuali:
 ``` bash
- git clone https://github.com/Microsoft/ntttcp-for-linux
- cd ntttcp-for-linux/src
- make && make install
+ git clone https://github.com/Microsoft/ntttcp-for-linux
+ cd ntttcp-for-linux/src
+ make && make install
 ```
 
 Come illustrato nell'esempio di Windows, si presuppone che l'indirizzo IP del RICEVITORE Linux sia 10.0.0.4
@@ -123,7 +123,7 @@ Nel MITTENTE, eseguire:
 ``` bash
 ntttcp -s10.0.0.4 -t 300
 ```
- 
+ 
 Il test ha una lunghezza predefinita di 60 secondi se non viene specificato un parametro di tempo
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>Test tra macchine virtuali che eseguono Windows e LINUX:
@@ -167,5 +167,5 @@ ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300
 
 ## <a name="next-steps"></a>Passaggi successivi
 * In base ai risultati, potrebbe esserci la possibilità di [ottimizzare la velocità di rete effettiva dei computer](virtual-network-optimize-network-bandwidth.md) per lo scenario specifico.
-* Sono disponibili informazioni sull'[allocazione di larghezza di banda alle macchine virtuali](virtual-machine-network-throughput.md)
+* Informazioni sulle modalità di [allocazione della larghezza di banda alle macchine virtuali](virtual-machine-network-throughput.md)
 * Altre informazioni sono disponibili nell'articolo [Domande frequenti sulla rete virtuale di Azure](virtual-networks-faq.md).

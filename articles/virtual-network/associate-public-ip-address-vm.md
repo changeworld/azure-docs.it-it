@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 9b5fc9e4118d98905138b7f205f61d85a96b60b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88035468"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223024"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associare un indirizzo IP pubblico a una macchina virtuale
 
@@ -30,7 +30,7 @@ In questo articolo si apprenderà come associare un indirizzo IP pubblico a una 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Individuare o cercare la macchina virtuale a cui si vuole aggiungere l'indirizzo IP pubblico e quindi selezionarla.
-3. In **Impostazioni**selezionare **rete**e quindi selezionare l'interfaccia di rete a cui si vuole aggiungere l'indirizzo IP pubblico, come illustrato nell'immagine seguente:
+3. In **Impostazioni** selezionare **rete** e quindi selezionare l'interfaccia di rete a cui si vuole aggiungere l'indirizzo IP pubblico, come illustrato nell'immagine seguente:
 
    ![Selezionare l'interfaccia di rete](./media/associate-public-ip-address-vm/select-nic.png)
 
@@ -214,4 +214,4 @@ Prima di connettersi all'indirizzo IP pubblico da Internet, assicurarsi che le p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consentire il traffico Internet in ingresso alla macchina virtuale con un gruppo di sicurezza di rete. Per informazioni su come creare un gruppo di sicurezza di rete, vedere [usare i gruppi di sicurezza di rete](manage-network-security-group.md#work-with-network-security-groups). Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppi di sicurezza](security-overview.md).
+Consentire il traffico Internet in ingresso alla macchina virtuale con un gruppo di sicurezza di rete. Per informazioni su come creare un gruppo di sicurezza di rete, vedere [usare i gruppi di sicurezza di rete](manage-network-security-group.md#work-with-network-security-groups). Per altre informazioni sui gruppi di sicurezza di rete, vedere [gruppi di sicurezza](./network-security-groups-overview.md).

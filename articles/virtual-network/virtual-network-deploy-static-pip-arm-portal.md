@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/12/2020
 ms.author: allensu
-ms.openlocfilehash: 1ae0b869b24c4e05c88b936eceb1b9b1db3a9405
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: d416af3d3a8eb8ab8057f13cc0d9a133adcb849a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506312"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221157"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando il portale di Azure
 
@@ -34,7 +34,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale** oppure cercare **Macchina virtuale** nella casella di ricerca.
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
 
     | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
@@ -53,7 +53,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -68,7 +68,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
     | Selezionare le porte in ingresso | Selezionare **RDP (3389)** |
 
     > [!WARNING]
-    > La porta 3389 è selezionata per consentire l'accesso remoto alla macchina virtuale Windows Server da Internet. Non è consigliabile aprire la porta 3389 a Internet per gestire i carichi di lavoro di produzione. </br> Per un accesso sicuro alle macchine virtuali di Azure, vedere **[che cos'è Azure Bastion?](/azure/bastion/bastion-overview)**
+    > La porta 3389 è selezionata per consentire l'accesso remoto alla macchina virtuale Windows Server da Internet. Non è consigliabile aprire la porta 3389 a Internet per gestire i carichi di lavoro di produzione. </br> Per un accesso sicuro alle macchine virtuali di Azure, vedere **[che cos'è Azure Bastion?](../bastion/bastion-overview.md)**
    
 5. Selezionare **Rivedi e crea**. 
   
@@ -95,7 +95,7 @@ Lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere all
 
 È possibile scaricare l'elenco degli intervalli (prefissi) per i cloud [Pubblico](https://www.microsoft.com/download/details.aspx?id=56519), [US Government](https://www.microsoft.com/download/details.aspx?id=57063), [Cina](https://www.microsoft.com/download/details.aspx?id=57062) e [Germania](https://www.microsoft.com/download/details.aspx?id=57064) di Azure.
 
-- Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method).
-- Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
+- Altre informazioni sugli [indirizzi IP pubblici statici](./public-ip-addresses.md#allocation-method).
+- Altre informazioni sugli [indirizzi IP pubblici](./public-ip-addresses.md#public-ip-addresses) in Azure.
 - Altre informazioni su tutte le [impostazioni relative agli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.
+- Altre informazioni sugli [indirizzi IP privati](./private-ip-addresses.md) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure.

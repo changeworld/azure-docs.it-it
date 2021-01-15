@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a0458264b6ea0c741244531fc104a7637108b06e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121346"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222106"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
 
@@ -205,6 +205,8 @@ Il risultato di questa query potrebbe essere simile a quello della tabella segue
 Per ulteriori informazioni sui tipi SQL da utilizzare per i valori Azure Cosmos DB, vedere le [regole per i mapping dei tipi SQL](#azure-cosmos-db-to-sql-type-mappings) alla fine dell'articolo.
 
 ## <a name="create-view"></a>Crea vista
+
+La creazione di viste nei database master o predefiniti non è consigliata né supportata. Quindi, è necessario creare un database utente per le visualizzazioni.
 
 Una volta identificato lo schema, è possibile preparare una visualizzazione sopra i dati Azure Cosmos DB. È necessario inserire la chiave dell'account Azure Cosmos DB in una credenziale separata e fare riferimento a questa credenziale dalla `OPENROWSET` funzione. Non tenere la chiave dell'account nella definizione della vista.
 

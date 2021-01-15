@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 12/15/2020
+ms.date: 01/14/2020
 ms.custom: contperf-fy21q1,contperfq1
-ms.openlocfilehash: 17c5cc265b4199d745325bf2c9d9fbca24cc6506
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 61305e4f9ba45cb7c13a96bee9d1aab81108bb4d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617120"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220695"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
@@ -57,7 +57,7 @@ Nella tabella seguente vengono confrontate le due tecniche in modo più dettagli
 |  **Tempo di esecuzione** | Richiede tempo relativamente breve per eseguire il training, che varia da pochi secondi ad alcune ore. | Il training richiede in genere molto tempo perché un algoritmo di apprendimento avanzato comporta molti livelli. |
 |  **Output** | L'output è in genere un valore numerico, ad esempio un punteggio o una classificazione. | L'output può avere più formati, ad esempio un testo, un punteggio o un suono. |
 
-## <a name="transfer-learning"></a>Transfer Learning
+## <a name="what-is-transfer-learning"></a>Informazioni sull'apprendimento del trasferimento
 
 Il training di modelli di apprendimento avanzato spesso richiede grandi quantità di dati di training, risorse di calcolo di fascia alta (GPU, TPU) e tempi di training più lunghi. Negli scenari in cui non è disponibile alcuna di queste informazioni, è possibile eseguire il collegamento del processo di training usando una tecnica nota come *apprendimento del trasferimento.*
 
@@ -65,7 +65,7 @@ Il trasferimento dell'apprendimento è una tecnica che applica le informazioni o
 
 A causa della struttura delle reti neurali, il primo set di livelli contiene in genere funzionalità di livello inferiore, mentre il set di livelli finale contiene funzionalità di livello superiore più vicine al dominio in questione. Grazie al riutilizzo dei livelli finali da usare in un nuovo dominio o problema, è possibile ridurre significativamente il tempo, i dati e le risorse di calcolo necessari per eseguire il training del nuovo modello. Se, ad esempio, si dispone già di un modello che riconosce le automobili, è possibile reimpiegare il modello usando Transfer learning per riconoscere anche camion, motocicli e altri tipi di veicoli.
 
-Informazioni su come applicare il trasferimento learning per la classificazione delle immagini usando un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
+Informazioni su come applicare il trasferimento learning per la classificazione delle immagini usando un framework open source in Azure Machine Learning: eseguire [il training di un modello PyTorch di apprendimento avanzato usando il trasferimento di formazione](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-use-cases"></a>Casi d'uso di Deep Learning
 

@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 65985e05be1061bb69eb160cf5be559cb271d5cd
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 89a437504394797b8cbed5325210186248082c33
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202930"
+ms.locfileid: "98218231"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Baseline della sicurezza di Azure per Azure sinapsi Analytics
 
 La linea di base di sicurezza di Azure per Azure sinapsi Analytics contiene raccomandazioni che consentono di migliorare il comportamento di sicurezza della distribuzione.
 
-La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
+La baseline per questo servizio è tratta dal [benchmark di sicurezza di Azure versione 1.0](../security/benchmarks/overview.md), che fornisce raccomandazioni su come proteggere le soluzioni cloud in Azure seguendo le indicazioni delle procedure consigliate Microsoft.
 
-Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](/azure/security/benchmarks/security-control-network-security).*
+*Per altre informazioni, vedere [Controllo di sicurezza: sicurezza di rete](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: proteggere le risorse di Azure nelle reti virtuali
 
@@ -33,13 +33,13 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito della connessione in uscita al database SQL usando un gruppo di sicurezza di rete. Disabilitare tutto il traffico del servizio di Azure nel database SQL tramite l'endpoint pubblico impostando Consenti i servizi di Azure su disattivato. Assicurarsi che non siano consentiti indirizzi IP pubblici nelle regole del firewall.
 
-* [Informazioni sul collegamento privato di Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* [Informazioni sul collegamento privato di Azure](../private-link/private-link-overview.md)
 
-* [Informazioni sul collegamento privato per SQL sinapsi di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Informazioni sul collegamento privato per SQL sinapsi di Azure](../azure-sql/database/private-endpoint-overview.md)
 
-* [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
-* [Come creare una NSG con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Come creare una NSG con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -51,13 +51,13 @@ In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito del
 
 È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
-* [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
-* [Come abilitare e usare Analisi del traffico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+* [Come abilitare e usare Analisi del traffico](../network-watcher/traffic-analytics.md)
 
-* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+* [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -77,15 +77,15 @@ In alternativa, quando ci si connette al pool SQL sinapsi, limitare l'ambito del
 
 Abilitare protezione DDoS standard nelle reti virtuali associate ad Azure sinapsi SQL per la protezione da attacchi Denial of Service distribuiti. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
-* [Informazioni su ATP per sinapsi SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Informazioni su ATP per sinapsi SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
-* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Panoramica degli annunci](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Panoramica degli annunci](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Come configurare la protezione DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+* [Come configurare la protezione DDoS](../ddos-protection/manage-ddos-protection.md)
 
-* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-data-services)
+* [Informazioni sull'intelligence sulle minacce integrata nel Centro sicurezza di Azure](../security-center/azure-defender.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -95,9 +95,9 @@ Abilitare protezione DDoS standard nelle reti virtuali associate ad Azure sinaps
 
 **Linee guida**: quando ci si connette al pool SQL dedicato e sono stati abilitati i log dei flussi del gruppo di sicurezza di rete (NSG), inviare i log in un account di archiviazione di Azure per il controllo del traffico. È anche possibile inviare i log di flusso a un'area di lavoro di Log Analytics o trasmetterli a hub eventi. Se necessario per l'analisi dell'attività anomala, abilitare Network Watcher acquisizione pacchetti.
 
-* [Come abilitare i log dei flussi NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+* [Come abilitare i log dei flussi NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-* [Come abilitare Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+* [Come abilitare Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -107,7 +107,7 @@ Abilitare protezione DDoS standard nelle reti virtuali associate ad Azure sinaps
 
 **Indicazioni**: usare Advanced Threat Protection (ATP) per SQL sinapsi di Azure. ATP rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare diversi avvisi, ad esempio "potenziale attacco SQL injection" e "accesso da una posizione insolita". ATP fa parte dell'offerta Advanced Data Security (ADS) ed è possibile accedervi e gestirlo tramite il portale SQL ADS centrale. ATP integra anche gli avvisi con il Centro sicurezza di Azure.
 
-* [Informazioni su ATP per sinapsi SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Informazioni su ATP per sinapsi SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -127,9 +127,9 @@ Abilitare protezione DDoS standard nelle reti virtuali associate ad Azure sinaps
 
 Quando si usa un endpoint di servizio per il pool SQL dedicato, è necessario aprire indirizzi IP pubblici in uscita per database SQL di Azure: i gruppi di sicurezza di rete (gruppi) devono essere aperti agli IP del database SQL di Azure per consentire la connettività. A tale scopo, è possibile usare i tag del servizio NSG per il database SQL di Azure.
 
-* [Informazioni sui tag del servizio con gli endpoint di servizio per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+* [Informazioni sui tag del servizio con gli endpoint di servizio per il database SQL di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#limitations)
 
-* [Comprendere e usare i tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+* [Comprendere e usare i tag di servizio](../virtual-network/service-tags-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -141,9 +141,9 @@ Quando si usa un endpoint di servizio per il pool SQL dedicato, è necessario ap
 
 USA i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure (RBAC) e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come creare un progetto di Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+* [Come creare un progetto di Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -157,7 +157,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 È possibile usare Azure PowerShell o l'interfaccia della riga di comando di Azure per cercare o eseguire azioni su risorse basate sui rispettivi tag.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -167,9 +167,9 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Linee guida**: usare il log attività di Azure per monitorare le configurazioni delle risorse di rete e rilevare le modifiche per le risorse di rete correlate al pool SQL dedicato. In Monitoraggio di Azure creare avvisi che si attiveranno quando vengono apportate modifiche alle risorse di rete critiche.
 
-* [Come visualizzare e recuperare gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+* [Come visualizzare e recuperare gli eventi del log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-* [Come creare avvisi in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Come creare avvisi in Monitoraggio di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -177,13 +177,13 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 ## <a name="logging-and-monitoring"></a>Registrazione e monitoraggio
 
-*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Per altre informazioni, vedere [Controllo di sicurezza: Registrazione e monitoraggio](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: usare origini di sincronizzazione ora approvate
 
 **Linee guida**: Microsoft gestisce le origini temporali per le risorse di Azure. È possibile aggiornare la sincronizzazione dell'ora per le distribuzioni di calcolo.
 
-* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+* [Come configurare la sincronizzazione dell'ora per le risorse di calcolo di Azure](../virtual-machines/windows/time-sync.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -199,9 +199,9 @@ Quando si Abilita il controllo, è possibile scriverli in un log di controllo ne
 
 In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-* [Come configurare il controllo per le risorse SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#server-vs-database-level)
+* [Come configurare il controllo per le risorse SQL di Azure](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -213,11 +213,11 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 È possibile abilitare il controllo a livello di database o di server ed è consigliabile abilitarlo solo a livello di server, a meno che non sia necessario configurare un sink di dati separato o una conservazione per un database specifico.
 
-* [Come abilitare il controllo per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)
+* [Come abilitare il controllo per il database SQL di Azure](../azure-sql/database/auditing-overview.md)
 
-* [Come abilitare il controllo per il server](https://docs.microsoft.com/azure/azure-sql/database/auditing-overview#setup-auditing)
+* [Come abilitare il controllo per il server](../azure-sql/database/auditing-overview.md#setup-auditing)
 
-* [Differenze tra i criteri di controllo a livello di server e di database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing#server-vs-database-level)
+* [Differenze tra i criteri di controllo a livello di server e di database](../azure-sql/database/auditing-overview.md#server-vs-database-level)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -235,11 +235,11 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 **Linee guida**: quando si archiviano i log correlati al pool SQL dedicato in un account di archiviazione, log Analytics area di lavoro o hub eventi, impostare il periodo di conservazione dei log in base alle normative di conformità dell'organizzazione.
 
-* [Gestire il ciclo di vita di Archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+* [Gestire il ciclo di vita di Archiviazione BLOB di Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)
 
-* [Come impostare i parametri di conservazione dei log in un'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Come impostare i parametri di conservazione dei log in un'area di lavoro Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Acquisire eventi di streaming in hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Acquisire eventi di streaming in hub eventi](../event-hubs/event-hubs-capture-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -251,13 +251,13 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
 
-* [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
-* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Come configurare gli avvisi personalizzati per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-portal?view=azps-1.4.0&preserve-view=true)
+* [Come configurare gli avvisi personalizzati per il database SQL di Azure](../azure-sql/database/alerts-insights-configure-portal.md?preserve-view=true&view=azps-1.4.0)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -269,13 +269,13 @@ In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azur
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
-* [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview)
+* [Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
-* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Come gestire gli avvisi nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+* [Come gestire gli avvisi nel centro sicurezza di Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Come eseguire l'onboarding di Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -307,7 +307,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 ## <a name="identity-and-access-control"></a>Identità e controllo di accesso
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](/azure/security/benchmarks/security-control-identity-access-control).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione delle identità e controllo di accesso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
@@ -317,19 +317,19 @@ Quando si distribuisce per la prima volta SQL di Azure, è necessario specificar
 
 Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono essere assegnati in modo esplicito. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-* [Autenticazione per il database SQL](https://docs.microsoft.com/azure/azure-sql/database/security-overview#authentication)
+* [Autenticazione per il database SQL](../azure-sql/database/security-overview.md#authentication)
 
-* [Creare account per utenti non amministratori](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-accounts-for-non-administrator-users)
+* [Creare account per utenti non amministratori](../azure-sql/database/logins-create-manage.md#create-accounts-for-non-administrator-users)
 
-* [Usare un account Azure Active Directory per l'autenticazione](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#create-additional-logins-and-users-having-administrative-permissions)
+* [Usare un account Azure Active Directory per l'autenticazione](../azure-sql/database/logins-create-manage.md#create-additional-logins-and-users-having-administrative-permissions)
 
-* [Come ottenere un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true)
+* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true)
+* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-* [Come gestire gli account di accesso e gli account amministratore esistenti in SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Come gestire gli account di accesso e gli account amministratore esistenti in SQL di Azure](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
-* [Ruoli predefiniti di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+* [Ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -339,9 +339,9 @@ Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono ess
 
 **Linee guida**: Azure Active Directory non ha il concetto di password predefinite. Quando si esegue il provisioning di un pool SQL dedicato, è consigliabile scegliere di integrare l'autenticazione con Azure Active Directory. Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio utilizzi le informazioni sulle credenziali archiviate nel Azure Active Directory (Azure AD).
 
-* [Come configurare e gestire l'autenticazione Azure Active Directory con SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#active-directory-password-authentication)
+* [Come configurare e gestire l'autenticazione Azure Active Directory con SQL di Azure](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#active-directory-password-authentication)
 
-* [Informazioni sull'autenticazione in SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Informazioni sull'autenticazione in SQL di Azure](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -353,9 +353,9 @@ Per le operazioni di gestione, usare i ruoli predefiniti di Azure che devono ess
 
 Per identificare gli account amministratore per un database, aprire il portale di Azure e passare alla scheda proprietà del server o dell'istanza gestita.
 
-* [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Informazioni sull'identità e sull'accesso del Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-* [Come gestire gli account di accesso e gli account amministratore esistenti in SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage#existing-logins-and-user-accounts-after-creating-a-new-database)
+* [Come gestire gli account di accesso e gli account amministratore esistenti in SQL di Azure](../azure-sql/database/logins-create-manage.md#existing-logins-and-user-accounts-after-creating-a-new-database)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -365,11 +365,11 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Indicazioni**: usare una registrazione di app di Azure (entità servizio) per recuperare un token che può essere usato per interagire con il data warehouse nel piano di controllo (portale di Azure) tramite chiamate API.
 
-* [Come chiamare le API REST di Azure](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
+* [Come chiamare le API REST di Azure](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
-* [Come registrare l'applicazione client (entità servizio) con Azure AD](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad)
+* [Come registrare l'applicazione client (entità servizio) con Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad)
 
-* [Informazioni sull'API REST SQL di Azure sinapsi](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api)
+* [Informazioni sull'API REST SQL di Azure sinapsi](./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -379,11 +379,11 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 **Indicazioni**: abilitare Azure Active Directory (AD) Multi-Factor Authentication (MFA) e seguire le raccomandazioni sulla gestione delle identità e degli accessi nel Centro sicurezza di Azure.
 
-* [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità e l'accesso nel Centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-* [Informazioni sull'autenticazione a più fattori in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/authentication-mfa-ssms-overview)
+* [Informazioni sull'autenticazione a più fattori in Azure SQL](../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -395,7 +395,7 @@ Per identificare gli account amministratore per un database, aprire il portale d
 
 * [Informazioni sulle workstation con accesso con privilegi](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-* [Come abilitare MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Come abilitare MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -409,15 +409,15 @@ Usare Advanced Threat Protection per il database SQL di Azure insieme al centro 
 
 SQL Server Audit consente di creare controlli del server che possono contenere specifiche di controllo del server per gli eventi a livello di server e specifiche di controllo del database per gli eventi a livello di database. Gli eventi controllati possono essere scritti nei log eventi o in file di controllo.
 
-* [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Come identificare gli utenti di Azure AD contrassegnati per le attività rischiose](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Come monitorare l'identità degli utenti e l'attività di accesso nel centro sicurezza di Azure](../security-center/security-center-identity-access.md)
 
-* [Esaminare Advanced Threat Protection e potenziali avvisi](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts)
+* [Esaminare Advanced Threat Protection e potenziali avvisi](../azure-sql/database/threat-detection-overview.md#alerts)
 
-* [Informazioni sugli account di accesso e gli account utente in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informazioni sugli account di accesso e gli account utente in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
-* [Informazioni sul controllo SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15&preserve-view=true)
+* [Informazioni sul controllo SQL Server](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?preserve-view=true&view=sql-server-ver15)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -427,7 +427,7 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 **Linee guida**: usare i percorsi denominati di accesso condizionale per consentire l'accesso al portale e alla gestione delle risorse di Azure solo da specifici raggruppamenti logici di intervalli di indirizzi IP o paesi/aree.
 
-* [Come configurare località denominate in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -437,9 +437,9 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 **Indicazioni**: creare un amministratore di Azure Active Directory (ad) per il server di database SQL di Azure nel pool SQL dedicato.
 
-* [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Come configurare e gestire l'autenticazione Azure AD con SQL di Azure](../azure-sql/database/authentication-aad-configure.md)
 
-* [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+* [Come creare e configurare un'istanza di Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -451,9 +451,9 @@ SQL Server Audit consente di creare controlli del server che possono contenere s
 
 Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti di database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
 
-* [Come usare le verifiche di accesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Come usare le verifiche di accesso](../active-directory/governance/access-reviews-overview.md)
 
-* [Informazioni sugli account di accesso e gli account utente in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informazioni sugli account di accesso e gli account utente in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -465,13 +465,13 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti di database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
 
-* [Come usare le verifiche di accesso](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Come usare le verifiche di accesso](../active-directory/governance/access-reviews-overview.md)
 
-* [Come configurare e gestire l'autenticazione di Azure AD con il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
+* [Come configurare e gestire l'autenticazione di Azure AD con il database SQL di Azure](../azure-sql/database/authentication-aad-configure.md)
 
-* [Come integrare i log attività di Azure in Monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Come integrare i log attività di Azure in Monitoraggio di Azure](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Informazioni sugli account di accesso e gli account utente in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informazioni sugli account di accesso e gli account utente in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -483,13 +483,13 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel database. Assicurarsi di inserire uno o più utenti di database in un ruolo del database personalizzato con autorizzazioni specifiche appropriate per il gruppo di utenti.
 
-* [Come visualizzare gli accessi ai rischi Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Come visualizzare gli accessi ai rischi Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Come configurare e abilitare i criteri di rischio di Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Come configurare e abilitare i criteri di rischio di Identity Protection](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Come caricare dati in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources)
+* [Come caricare dati in Azure Sentinel](../sentinel/connect-data-sources.md)
 
-* [Informazioni sugli account di accesso e gli account utente in Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informazioni sugli account di accesso e gli account utente in Azure SQL](../azure-sql/database/logins-create-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -499,7 +499,7 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 **Indicazioni**: in scenari di supporto in cui Microsoft deve accedere ai dati correlati al database SQL di Azure nel pool SQL dedicato, Azure Customer Lockbox fornisce un'interfaccia per esaminare e approvare o rifiutare le richieste di accesso ai dati.
 
-* [Informazioni Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+* [Informazioni Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -507,7 +507,7 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 ## <a name="data-protection"></a>Protezione dei dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](/azure/security/benchmarks/security-control-data-protection).*
+*Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: gestire un inventario delle informazioni riservate
 
@@ -515,9 +515,9 @@ Quando si usa l'autenticazione SQL, creare utenti di database indipendente nel d
 
 La classificazione di individuazione dei dati &amp; è incorporata in SQL sinapsi di Azure. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'etichettatura e la segnalazione dei dati sensibili nei database.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Informazioni sulla classificazione di individuazione dati &amp;](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [Informazioni sulla classificazione di individuazione dati &amp;](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -527,13 +527,13 @@ La classificazione di individuazione dei dati &amp; è incorporata in SQL sinaps
 
 **Indicazioni**: implementare sottoscrizioni e/o gruppi di gestione distinti per lo sviluppo, il test e la produzione. Le risorse devono essere separate da rete virtuale/subnet, contrassegnate in modo appropriato e protette in un gruppo di sicurezza di rete o in un firewall di Azure. Le risorse che archiviano o elaborano dati sensibili devono essere isolate. USA collegamento privato; distribuire il SQL Server di Azure all'interno di una rete virtuale e connettersi in modo sicuro usando un collegamento privato.
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Come configurare Collegamento privato per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+* [Come configurare Collegamento privato per il database SQL di Azure](../azure-sql/database/private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -547,11 +547,11 @@ Inoltre, Advanced Threat Protection per il database SQL di Azure, Azure SQL Ista
 
 Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i contenuti dei clienti come sensibili e si impegna per difendersi dalla perdita di dati e dall'esposizione dei clienti. Per garantire che i dati dei clienti in Azure rimangano protetti, Microsoft ha implementato e applica un gruppo di controlli e funzionalità affidabili per la protezione dei dati.
 
-* [Come configurare il collegamento privato e gruppi per impedire il exfiltration dei dati nelle istanze del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)
+* [Come configurare il collegamento privato e gruppi per impedire il exfiltration dei dati nelle istanze del database SQL di Azure](../azure-sql/database/private-endpoint-overview.md)
 
-* [Informazioni sulla protezione avanzata dalle minacce per il database SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview)
+* [Informazioni sulla protezione avanzata dalle minacce per il database SQL di Azure](../azure-sql/database/threat-detection-overview.md)
 
-* [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -561,7 +561,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Linee guida**: il database SQL di Azure protegge i dati mediante la crittografia dei dati in movimento con Transport Layer Security. SQL Server impone sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di Encrypt o TrustServerCertificate nella stringa di connessione.
 
-* [Informazioni sulla crittografia SQL di Azure in transito](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview#information-protection-and-encryption)
+* [Informazioni sulla crittografia SQL di Azure in transito](../azure-sql/database/security-overview.md#information-protection-and-encryption)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -575,9 +575,9 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 Inoltre, è possibile configurare un criterio di maschera dati dinamica (DDM) nel portale di Azure. Il motore di raccomandazioni DDM contrassegna determinati campi dal database come campi potenzialmente sensibili che possono essere candidati validi per la maschera.
 
-* [Come usare l'individuazione e la classificazione dei dati per Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification)
+* [Come usare l'individuazione e la classificazione dei dati per Azure SQL Server](../azure-sql/database/data-discovery-and-classification-overview.md)
 
-* [Informazioni sulla maschera dati dinamica per SQL sinapsi di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started)
+* [Informazioni sulla maschera dati dinamica per SQL sinapsi di Azure](../azure-sql/database/dynamic-data-masking-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -589,11 +589,11 @@ Inoltre, è possibile configurare un criterio di maschera dati dinamica (DDM) ne
 
 L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e dalle autorizzazioni a livello di oggetto dell'account utente. È consigliabile concedere agli utenti i privilegi minimi necessari.
 
-* [Come integrare SQL Server di Azure con Azure Active Directory per l'autenticazione](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+* [Come integrare SQL Server di Azure con Azure Active Directory per l'autenticazione](../azure-sql/database/authentication-aad-overview.md)
 
-* [Come controllare l'accesso in Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-control-access)
+* [Come controllare l'accesso in Azure SQL Server](../azure-sql/database/logins-create-manage.md)
 
-* [Informazioni su autorizzazione e autenticazione in SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+* [Informazioni su autorizzazione e autenticazione in SQL di Azure](../azure-sql/database/logins-create-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -603,7 +603,7 @@ L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e da
 
 **Linee guida**: non applicabile; Microsoft gestisce l'infrastruttura sottostante per SQL sinapsi di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-* [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -613,11 +613,11 @@ L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e da
 
 **Linee guida**: Transparent Data Encryption (Transparent Data Encryption) consente di proteggere SQL sinapsi di Azure dalla minaccia di attività offline dannose mediante la crittografia dei dati inattivi. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione. In Azure, l'impostazione predefinita per Transparent Data Encryption è che la chiave di crittografia è protetta da un certificato server incorporato. In alternativa, è possibile utilizzare Transparent Data Encryption gestito dal cliente, noto anche come supporto Bring Your Own Key (BYOK) per Transparent Data Encryption. In questo scenario, la protezione Transparent Data Encryption che crittografa la chiave di crittografia è una chiave asimmetrica gestita dal cliente, archiviata in un Azure Key Vault gestito e di proprietà del cliente (sistema di gestione delle chiavi esterne basato sul cloud di Azure) senza mai lasciare l'insieme di credenziali delle chiavi.
 
-* [Informazioni sulla crittografia Transparent Data Encryption gestita dal servizio](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal)
+* [Informazioni sulla crittografia Transparent Data Encryption gestita dal servizio](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal)
 
-* [Informazioni sulla crittografia trasparente dei dati gestita dal cliente](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
+* [Informazioni sulla crittografia trasparente dei dati gestita dal cliente](../azure-sql/database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key)
 
-* [Come attivare Transparent Data Encryption usando la propria chiave](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure)
+* [Come attivare Transparent Data Encryption usando la propria chiave](../azure-sql/database/transparent-data-encryption-byok-configure.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -629,9 +629,9 @@ L'autorizzazione viene controllata dalle appartenenze ai ruoli del database e da
 
 Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
 
-* [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Come creare avvisi per gli eventi del log attività di Azure](../azure-monitor/platform/alerts-activity-log.md)
 
-* [Come creare avvisi per la sinapsi SQL di Azure](https://docs.microsoft.com/azure/azure-sql/database/alerts-insights-configure-portal)
+* [Come creare avvisi per la sinapsi SQL di Azure](../azure-sql/database/alerts-insights-configure-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -639,17 +639,17 @@ Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi
 
 ## <a name="vulnerability-management"></a>Gestione vulnerabilità
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione della vulnerabilità](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
 **Linee guida**: abilitare la sicurezza dei dati avanzata e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nei database SQL di Azure.
 
-* [Come eseguire valutazioni delle vulnerabilità nei database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Come eseguire valutazioni delle vulnerabilità nei database SQL di Azure](../azure-sql/database/sql-vulnerability-assessment.md)
 
-* [Come abilitare la sicurezza avanzata dei dati](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+* [Come abilitare la sicurezza avanzata dei dati](../azure-sql/database/azure-defender-for-sql.md)
 
-* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+* [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -675,7 +675,7 @@ Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi
 
 **Linee guida**: la valutazione della vulnerabilità è un servizio di analisi integrato in SQL sinapsi di Azure. Il servizio usa una Knowledge base di regole che contrassegnano le vulnerabilità della sicurezza. Evidenzia le deviazioni dalle procedure consigliate, ad esempio configurazioni errate, autorizzazioni eccessive e dati sensibili non protetti. È possibile accedere alla valutazione della vulnerabilità e gestirla tramite il portale di SQL Advanced Data Security (ADS) centrale.
 
-* [Gestire ed esportare le analisi della valutazione della vulnerabilità nel portale SQL ADS](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment)
+* [Gestire ed esportare le analisi della valutazione della vulnerabilità nel portale SQL ADS](../azure-sql/database/sql-vulnerability-assessment.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -687,9 +687,9 @@ Inoltre, è possibile configurare gli avvisi per i database nel pool SQL sinapsi
 
 La classificazione di individuazione dei dati &amp; è incorporata in SQL sinapsi di Azure. Fornisce funzionalità avanzate per l'individuazione, la classificazione, l'etichettatura e la segnalazione dei dati sensibili nei database.
 
-* [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+* [Informazioni sul punteggio sicuro del Centro sicurezza di Azure](../security-center/secure-score-security-controls.md)
 
-* [Informazioni sulla classificazione di individuazione dati &amp;](https://docs.microsoft.com/azure/azure-sql/database/data-discovery-and-classification-overview)
+* [Informazioni sulla classificazione di individuazione dati &amp;](../azure-sql/database/data-discovery-and-classification-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -697,7 +697,7 @@ La classificazione di individuazione dei dati &amp; è incorporata in SQL sinaps
 
 ## <a name="inventory-and-asset-management"></a>Gestione di asset e inventario
 
-*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Per altre informazioni, vedere [Controllo di sicurezza: gestione di asset e inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: usare la soluzione automazione Asset Discovery
 
@@ -705,11 +705,11 @@ La classificazione di individuazione dei dati &amp; è incorporata in SQL sinaps
 
 Sebbene le risorse di Azure classiche possano essere individuate tramite Azure Resource Graph, è consigliabile creare e usare Azure Resource Manager risorse in futuro.
 
-* [Come creare query con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-3.0.0)
 
-* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -719,7 +719,7 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 **Indicazioni**: applicare i tag alle risorse di Azure che contengono metadati per organizzarle in modo logico in categorie in una tassonomia.
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -729,11 +729,11 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 **Indicazioni**: usare l'assegnazione di tag, i gruppi di gestione e le sottoscrizioni separate, laddove appropriato, per organizzare e tenere traccia degli asset. Riconciliare l'inventario a intervalli regolari e assicurarsi che le risorse non autorizzate vengano eliminate in modo tempestivo dalla sottoscrizione.
 
-* [Come creare sottoscrizioni di Azure aggiuntive](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Come creare sottoscrizioni di Azure aggiuntive](../cost-management-billing/manage/create-subscription.md)
 
-* [Come creare gruppi di gestione](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Come creare gruppi di gestione](../governance/management-groups/create-management-group-portal.md)
 
-* [Come creare e usare i tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -755,9 +755,9 @@ Sebbene le risorse di Azure classiche possano essere individuate tramite Azure R
 
 Usare il grafico risorse di Azure per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come creare query con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -795,9 +795,9 @@ Usare il grafico risorse di Azure per eseguire query e individuare le risorse al
 
 Usare Azure Resource Graph per eseguire query e individuare le risorse all'interno delle sottoscrizioni. Verificare che tutte le risorse di Azure presenti nell'ambiente siano approvate.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Come negare un tipo di risorsa specifico con Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Come negare un tipo di risorsa specifico con Criteri di Azure](../governance/policy/samples/index.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -815,7 +815,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare l'accesso condizionale di Azure per limitare la capacità degli utenti di interagire con Azure Resource Manager configurando "Blocca accesso" per l'app di gestione di Microsoft Azure.
 
-* [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -833,9 +833,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: tutte le risorse correlate al pool SQL dedicato necessario per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate all'interno della propria macchina virtuale e/o della rete virtuale e sufficientemente protette con un firewall di Azure o un gruppo di sicurezza di rete.
 
-* [Come creare una rete virtuale](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+* [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
-* [Come creare una NSG con una configurazione di sicurezza](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+* [Come creare una NSG con una configurazione di sicurezza](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -843,7 +843,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
-*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](/azure/security/benchmarks/security-control-secure-configuration).*
+*Per altre informazioni, vedere [Controllo di sicurezza: configurazione sicura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Definire configurazioni sicure per tutte le risorse di Azure
 
@@ -851,9 +851,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 - Distribuisci Rilevamento minacce nelle istanze di SQL Server
 - I server SQL devono usare un endpoint servizio di rete virtuale
 
-* [Come visualizzare gli alias di Criteri di Azure disponibili](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true)
+* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-3.3.0)
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -871,9 +871,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
 
-* [Come configurare e gestire Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni sugli effetti di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Informazioni sugli effetti di Criteri di Azure](../governance/policy/concepts/effects.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -891,9 +891,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate, usare Azure DevOps o Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-* [Come archiviare il codice in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-* [Documentazione di Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true)
+* [Documentazione di Azure Repos](/azure/devops/repos/index?preserve-view=true&view=azure-devops)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -927,7 +927,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: sfruttare il Centro sicurezza di Azure per eseguire analisi di base per tutte le risorse correlate al pool SQL dedicato.
 
-* [Come correggere le raccomandazioni nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+* [Come correggere le raccomandazioni nel centro sicurezza di Azure](../security-center/security-center-remediate-recommendations.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -945,9 +945,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: Transparent Data Encryption (Transparent Data Encryption) con chiavi gestite dal cliente in Azure Key Vault consente di crittografare la chiave di crittografia del database generata automaticamente con una chiave asimmetrica gestita dal cliente denominata protezione Transparent Data Encryption. Questo è anche comunemente noto come supporto Bring Your Own Key (BYOK) per Transparent Data Encryption. Nello scenario BYOK, la protezione Transparent Data Encryption è archiviata in un Azure Key Vault gestito e di proprietà del cliente. Assicurarsi inoltre che l'eliminazione temporanea sia abilitata in Azure Key Vault.
 
-* [Come abilitare Transparent Data Encryption con la chiave gestita dal cliente da Azure Key Vault](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-configure?tabs=azure-powershell)
+* [Come abilitare Transparent Data Encryption con la chiave gestita dal cliente da Azure Key Vault](../azure-sql/database/transparent-data-encryption-byok-configure.md?tabs=azure-powershell)
 
-* [Come abilitare l'eliminazione temporanea in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+* [Come abilitare l'eliminazione temporanea in Azure Key Vault](../key-vault/general/key-vault-recovery.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -957,9 +957,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: usare identità gestite per fornire servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (ad). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Azure Key Vault, senza credenziali nel codice.
 
-* [Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql)
+* [Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure SQL](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md)
 
-* [Come configurare le identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+* [Come configurare le identità gestite](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -977,7 +977,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ## <a name="malware-defense"></a>Difesa da malware
 
-*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](/azure/security/benchmarks/security-control-malware-defense).*
+*Per altre informazioni, vedere [Controllo di sicurezza: difesa da malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: usare il software antimalware gestito centralmente
 
@@ -993,7 +993,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio il servizio app, Data Lake Storage, archiviazione BLOB, Azure SQL Server e così via. Microsoft non è in grado di accedere ai dati in tali istanze.
 
-* [Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+* [Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure](../security/fundamentals/antimalware.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1009,13 +1009,13 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 ## <a name="data-recovery"></a>Recupero dati
 
-*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](/azure/security/benchmarks/security-control-data-recovery).*
+*Per altre informazioni, vedere [Controllo di sicurezza: ripristino dei dati](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: garantire il backup automatico regolare
 
 **Linee guida**: gli snapshot del pool SQL dedicato vengono eseguiti automaticamente durante la giornata creando punti di ripristino disponibili per sette giorni. Questo periodo di conservazione non può essere modificato. Il pool SQL dedicato supporta un obiettivo del punto di ripristino (RPO) di otto ore. È possibile ripristinare il data warehouse nell'area primaria da uno qualsiasi degli snapshot acquisiti negli ultimi sette giorni. Si noti che, se necessario, è anche possibile attivare manualmente gli snapshot.
 
-* [Eseguire il backup e il ripristino in un pool SQL dedicato](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino in un pool SQL dedicato](./sql-data-warehouse/backup-and-restore.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1027,9 +1027,9 @@ Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio
 
 Se si usa una chiave gestita dal cliente per crittografare la chiave di crittografia del database, assicurarsi che venga eseguito il backup della chiave.
 
-* [Eseguire il backup e il ripristino in un pool SQL dedicato](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino in un pool SQL dedicato](./sql-data-warehouse/backup-and-restore.md)
 
-* [Come eseguire il backup di chiavi di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Come eseguire il backup di chiavi di Azure Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1039,11 +1039,11 @@ Se si usa una chiave gestita dal cliente per crittografare la chiave di crittogr
 
 **Linee guida**: testare periodicamente i punti di ripristino per assicurarsi che gli snapshot siano validi. Per ripristinare un pool SQL dedicato esistente da un punto di ripristino, è possibile usare il portale di Azure o PowerShell. Testare il ripristino delle chiavi gestite dal cliente sottoposte a backup.
 
-* [Come ripristinare chiavi di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true)
+* [Come ripristinare chiavi di Azure Key Vault](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?preserve-view=true&view=azurermps-6.13.0)
 
-* [Eseguire il backup e il ripristino in un pool SQL dedicato](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/backup-and-restore)
+* [Eseguire il backup e il ripristino in un pool SQL dedicato](./sql-data-warehouse/backup-and-restore.md)
 
-* [Come ripristinare un pool SQL dedicato esistente](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw)
+* [Come ripristinare un pool SQL dedicato esistente](./sql-data-warehouse/sql-data-warehouse-restore-active-paused-dw.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1055,11 +1055,11 @@ Se si usa una chiave gestita dal cliente per crittografare la chiave di crittogr
 
 Per impostazione predefinita, i dati in un account di archiviazione vengono crittografati con chiavi gestite da Microsoft. È possibile utilizzare chiavi gestite da Microsoft per la crittografia dei dati oppure è possibile gestire la crittografia con chiavi personalizzate. Se si gestiscono chiavi personalizzate con Key Vault, assicurarsi che l'eliminazione temporanea sia abilitata.
 
-* [Gestire la conservazione a lungo termine dei backup del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure)
+* [Gestire la conservazione a lungo termine dei backup del database SQL di Azure](../azure-sql/database/long-term-backup-retention-configure.md)
 
-* [Crittografia del servizio di archiviazione di Azure per dati inattivi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+* [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
 
-* [Come abilitare l'eliminazione temporanea in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+* [Come abilitare l'eliminazione temporanea in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -1067,13 +1067,13 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 ## <a name="incident-response"></a>Risposta agli eventi imprevisti
 
-*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](/azure/security/benchmarks/security-control-incident-response).*
+*Per altre informazioni, vedere [Controllo di sicurezza: risposta agli eventi imprevisti](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: creare un piano di risposta agli eventi imprevisti
 
 **Indicazioni**: assicurarsi che siano stati scritti piani di risposta agli eventi imprevisti che definiscono i ruoli del personale, nonché le fasi di gestione/gestione degli eventi imprevisti.
 
-* [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+* [Come configurare le automazioni del flusso di lavoro nel Centro sicurezza di Azure](../security-center/security-center-planning-and-operations-guide.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1083,7 +1083,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Linee guida**: il Centro sicurezza assegna un livello di gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che, quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
 
-* [Avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Avvisi di sicurezza nel Centro sicurezza di Azure](../security-center/security-center-alerts-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1103,7 +1103,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Indicazioni**: le informazioni di contatto per gli eventi imprevisti della sicurezza verranno usate da Microsoft per contattare l'utente se il Microsoft Security Response Center (MSRC) rileva che un'entità illegale o non autorizzata ha effettuato l'accesso ai propri dati.
 
-* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Come impostare il contatto di sicurezza del Centro sicurezza di Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1113,9 +1113,9 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Indicazioni**: esportare gli avvisi e le raccomandazioni del Centro sicurezza di Azure usando la funzionalità di esportazione continua. Tale funzionalità consente di esportare avvisi e raccomandazioni manualmente o in modo continuo. È possibile usare il connettore dati del Centro sicurezza di Azure per trasmettere gli avvisi a Sentinel.
 
-* [Come configurare l'esportazione continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Come configurare l'esportazione continua](../security-center/continuous-export.md)
 
-* [Come trasmettere gli avvisi in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Come trasmettere gli avvisi in Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1125,7 +1125,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 **Indicazioni**: usare la funzionalità di automazione del flusso di lavoro nel Centro sicurezza di Azure per attivare automaticamente le risposte tramite App per la logica negli avvisi di sicurezza e nelle raccomandazioni.
 
-* [Come configurare l'automazione del flusso di lavoro e App per la logica](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Come configurare l'automazione del flusso di lavoro e App per la logica](../security-center/workflow-automation.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1133,7 +1133,7 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
-*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Per altre informazioni, vedere [Controllo di sicurezza: test di penetrazione ed esercizi Red Team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: eseguire test di penetrazione regolari delle risorse di Azure e garantire la correzione di tutti i risultati critici della sicurezza
 
@@ -1147,5 +1147,5 @@ Per impostazione predefinita, i dati in un account di archiviazione vengono crit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Azure Security Benchmark](/azure/security/benchmarks/overview)
-- Altre informazioni su [Baseline di sicurezza di Azure](/azure/security/benchmarks/security-baselines-overview)
+- Vedere [Azure Security Benchmark](../security/benchmarks/overview.md)
+- Altre informazioni su [Baseline di sicurezza di Azure](../security/benchmarks/security-baselines-overview.md)

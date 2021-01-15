@@ -10,13 +10,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
-ms.date: 03/10/2020
-ms.openlocfilehash: a016781e5b05c8f43c043bf1f3368a58064e43ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 1/14/2021
+ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501261"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222344"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Informazioni dettagliate prestazioni query per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,7 +55,7 @@ Query Performance Insight è facile da usare:
 
 3. Nella prima scheda, esaminare l'elenco delle query principali a livello di utilizzo delle risorse.
 4. Selezionare una singola query per visualizzarne i dettagli.
-5. Aprire suggerimenti sulle prestazioni **intelligenti**  >  **Performance recommendations** e verificare se sono disponibili raccomandazioni per le prestazioni. Per ulteriori informazioni sulle raccomandazioni per le prestazioni predefinite, vedere [Advisor per database SQL di Azure](database-advisor-implement-performance-recommendations.md).
+5. Aprire suggerimenti sulle prestazioni **intelligenti**  >   e verificare se sono disponibili raccomandazioni per le prestazioni. Per ulteriori informazioni sulle raccomandazioni per le prestazioni predefinite, vedere [Advisor per database SQL di Azure](database-advisor-implement-performance-recommendations.md).
 6. Usare i dispositivi di scorrimento o le icone dello zoom per modificare l'intervallo osservato.
 
    ![Dashboard delle prestazioni](./media/query-performance-insight-use/performance.png)
@@ -85,7 +85,7 @@ Per impostazione predefinita, alla prima apertura Informazioni dettagliate prest
    >
    > Per un confronto più preciso (fino a 1 minuto), è consigliabile creare un grafico dell'uso DTU personalizzato:
    >
-   > 1. Nella portale di Azure selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
+   > 1. Nella portale di Azure selezionare monitoraggio del **database SQL di Azure**  >  .
    > 2. Selezionare **Metriche**.
    > 3. Selezionare **+Aggiungi grafico**.
    > 4. Selezionare la percentuale DTU nel grafico.
@@ -155,7 +155,7 @@ Per visualizzare i dettagli relativi alle query:
 
 Due metriche in Informazioni dettagliate prestazioni query consentono di individuare i potenziali colli di bottiglia: durata e conteggio delle esecuzioni.
 
-Le query con esecuzione prolungata hanno le maggiori probabilità di bloccare gli altri utenti e le risorse più a lungo, nonché di limitare la scalabilità. Sono anche i candidati ideali per l'ottimizzazione.
+Le query con esecuzione prolungata hanno le maggiori probabilità di bloccare gli altri utenti e le risorse più a lungo, nonché di limitare la scalabilità. Sono anche i candidati ideali per l'ottimizzazione. Per altre informazioni, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
 
 Per identificare le query con esecuzione prolungata:
 
@@ -177,7 +177,7 @@ Per identificare le query con esecuzione prolungata:
    >
    > Per comprendere più in dettaglio il consumo di DTU del database (fino a 1 minuto), è consigliabile creare un grafico personalizzato nel portale di Azure:
    >
-   > 1. Selezionare monitoraggio del **database SQL di Azure**  >  **Monitoring**.
+   > 1. Selezionare monitoraggio del **database SQL di Azure**  >  .
    > 2. Selezionare **Metriche**.
    > 3. Selezionare **+Aggiungi grafico**.
    > 4. Selezionare la percentuale DTU nel grafico.

@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 52adaf9522e4690c4c44a72ed47592f5b1d6471e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 6e04551a2ef2f890844693fec71d2d3232a456f2
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883249"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98220814"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -261,7 +261,7 @@ La sintassi **not** inverte il risultato della condizione. La sintassi **allOf**
 
 ### <a name="conditions"></a>Condizioni
 
-Una condizione valuta se una funzione di accesso **field** o **value** soddisfa determinati criteri. Le condizioni supportate sono:
+Una condizione valuta se un valore soddisfa determinati criteri. Le condizioni supportate sono:
 
 - `"equals": "stringValue"`
 - `"notEquals": "stringValue"`
@@ -291,12 +291,9 @@ Il valore non deve contenere più di un carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per rappresentare una lettera, `.` per rappresentare tutti i caratteri e qualunque altro carattere per rappresentare il carattere effettivo. Mentre **match** e **notMatch** fanno distinzione tra maiuscole e minuscole, tutte le altre condizioni che valutano un _StringValue_ non fanno distinzione tra maiuscole e minuscole. Alternative senza distinzione tra maiuscole e minuscole sono disponibili in **matchInsensitively** e **notMatchInsensitively**.
 
-In un valore campo matrice **alias \[\*\]** , ogni elemento nella matrice viene valutato singolarmente con **and** logico tra gli elementi. Per altre informazioni, vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
-
 ### <a name="fields"></a>Campi
 
-Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse e descrive lo stato della risorsa.
-
+Condizioni che valutano se i valori delle proprietà nel payload della richiesta di risorse soddisfano determinati criteri possono essere creati usando un'espressione di **campo** .
 Sono supportati i seguenti campi:
 
 - `name`
@@ -305,6 +302,7 @@ Sono supportati i seguenti campi:
 - `kind`
 - `type`
 - `location`
+  - I campi del percorso vengono normalizzati per supportare vari formati. Ad esempio, `East US 2` è considerato uguale a `eastus2` .
   - Usare **global** per le risorse che sono indipendenti dalla posizione.
 - `id`
   - Restituisce l'ID risorsa della risorsa in fase di valutazione.
@@ -324,6 +322,10 @@ Sono supportati i seguenti campi:
 
 > [!NOTE]
 > `tags.<tagName>`, `tags[tagName]` e `tags[tag.with.dots]` sono comunque modi accettabili per dichiarare un campo tags. Tuttavia, le espressioni preferibili sono quelle elencate in precedenza.
+
+> [!NOTE]
+> Nelle espressioni di **campo** che fanno riferimento a un **\[ \* \] alias**, ogni elemento nella matrice viene valutato singolarmente con gli elementi Logical **e** between.
+> Per altre informazioni, vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="use-tags-with-parameters"></a>Usare tag con parametri
 
@@ -355,7 +357,7 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 
 ### <a name="value"></a>valore
 
-Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali. **value** è associato a qualsiasi [condizione](#conditions) supportata.
+Le condizioni che valutano se un valore soddisfa determinati criteri possono essere create usando un'espressione **valore** . I valori possono essere valori letterali, valori dei [parametri](#parameters)o valori restituiti di qualsiasi [funzione di modello supportata](#policy-functions).
 
 > [!WARNING]
 > Se il risultato di una _funzione modello_ è un errore, la valutazione dei criteri non riesce. Una valutazione non riuscita è un risultato **deny** implicito. Per altre informazioni, vedere come [evitare errori dei modelli](#avoiding-template-failures). Usare [enforcementMode](./assignment-structure.md#enforcement-mode) di **DoNotEnforce** per evitare l'effetto di una valutazione non riuscita su risorse nuove o aggiornate durante il test e la convalida di una nuova definizione dei criteri.
@@ -440,9 +442,11 @@ Con la regola dei criteri modificata, `if()` controlla la lunghezza di **name** 
 
 ### <a name="count"></a>Conteggio
 
-Le condizioni che contano il numero di membri di una matrice nel payload di risorse che soddisfano un'espressione di condizione possono essere create usando l'espressione **count**. Gli scenari comuni controllano se "almeno uno", "esattamente uno", "tutti" o "nessuno" dei membri della matrice soddisfano la condizione. **count** valuta ogni [alias \[\*\]](#understanding-the--alias) membro della matrice per un'espressione della condizione e somma i risultati _true_, che vengono quindi confrontati con l'operatore dell'espressione. Le espressioni **count** possono essere aggiunte fino a tre volte a una singola definizione **policyRule** .
+Le condizioni che contano il numero di membri di una matrice che soddisfano determinati criteri possono essere create utilizzando un'espressione **count** . Gli scenari comuni controllano se ' almeno uno dei ',' esattamente uno tra',' tutti ' o ' nessuno di ' i membri della matrice soddisfano una condizione. **Count** valuta ogni membro della matrice per un'espressione di condizione e somma i risultati _reali_ , che viene quindi confrontato con l'operatore Expression.
 
-La struttura dell'espressione **count** è:
+#### <a name="field-count"></a>Conteggio campi
+
+Contare il numero di membri di una matrice nel payload della richiesta che soddisfano un'espressione di condizione. La struttura delle espressioni di **conteggio dei campi** è la seguente:
 
 ```json
 {
@@ -456,16 +460,62 @@ La struttura dell'espressione **count** è:
 }
 ```
 
-Le proprietà seguenti vengono usate con **count**:
+Con il **conteggio dei campi** vengono usate le proprietà seguenti:
 
-- **count.field** (obbligatorio): Contiene il percorso della matrice e deve essere un alias di matrice. Se la matrice non è presente, l'espressione viene valutata come _false_ senza considerare l'espressione della condizione.
-- **count.where** (facoltativo): L'espressione della condizione per valutare individualmente ogni membro della matrice [alias \[\*\]](#understanding-the--alias) di **count.field**. Se questa proprietà non viene specificata, tutti i membri della matrice con il percorso ' Field ' verranno valutati come _true_. All'interno di questa proprietà è possibile usare qualunque [condizione](../concepts/definition-structure.md#conditions).
+- **count.field** (obbligatorio): Contiene il percorso della matrice e deve essere un alias di matrice.
+- **Count. Where** (facoltativo): espressione della condizione da valutare singolarmente per ogni membro della matrice di [ \[ \* \] alias](#understanding-the--alias) di `count.field` . Se questa proprietà non viene specificata, tutti i membri della matrice con il percorso ' Field ' verranno valutati come _true_. All'interno di questa proprietà è possibile usare qualunque [condizione](../concepts/definition-structure.md#conditions).
   [Gli operatori logici](#logical-operators) possono essere usati all'interno di questa proprietà per creare requisiti di valutazione complessi.
 - **\<condition\>** (obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l'espressione della condizione **Count. Where** . È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
 
-Per altre informazioni su come usare le proprietà di matrice in criteri di Azure, inclusa una spiegazione dettagliata sul modo in cui viene valutata l'espressione count, vedere [riferimento alle proprietà delle risorse della matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+Le espressioni di **conteggio dei campi** possono enumerare la stessa matrice di campi fino a tre volte in una singola definizione **policyRule** .
 
-#### <a name="count-examples"></a>Esempi di count
+Per altre informazioni su come usare le proprietà di matrice in criteri di Azure, inclusa una spiegazione dettagliata su come viene valutata l'espressione di **conteggio dei campi** , vedere [riferimento alle proprietà delle risorse di matrice](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+
+#### <a name="value-count"></a>Conteggio valori
+Contare il numero di membri di una matrice che soddisfano una condizione. La matrice può essere una matrice di valori letterali o un [riferimento a un parametro di matrice](#using-a-parameter-value). La struttura delle espressioni di **conteggio dei valori** è:
+
+```json
+{
+    "count": {
+        "value": "<literal array | array parameter reference>",
+        "name": "<index name>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+Con il **conteggio dei valori** vengono usate le proprietà seguenti:
+
+- **Count. Value** (obbligatorio): matrice da valutare.
+- **Count.Name** (obbligatorio): nome dell'indice, composto da lettere e cifre inglesi. Definisce un nome per il valore del membro della matrice valutato nell'iterazione corrente. Il nome viene usato per fare riferimento al valore corrente all'interno della `count.where` condizione. Facoltativo quando l'espressione **count** non è in un elemento figlio di un'altra espressione **count** . Quando non viene specificato, il nome dell'indice viene impostato in modo implicito su `"default"` .
+- **Count. Where** (facoltativo): espressione della condizione da valutare singolarmente per ogni membro della matrice di `count.value` . Se questa proprietà non viene specificata, tutti i membri della matrice vengono valutati come _true_. All'interno di questa proprietà è possibile usare qualunque [condizione](../concepts/definition-structure.md#conditions). [Gli operatori logici](#logical-operators) possono essere usati all'interno di questa proprietà per creare requisiti di valutazione complessi. È possibile accedere al valore del membro della matrice attualmente enumerato chiamando la funzione [corrente](#the-current-function) .
+- **\<condition\>** (obbligatorio): il valore viene confrontato con il numero di elementi che soddisfano l' `count.where` espressione della condizione. È necessario usare una [condizione](../concepts/definition-structure.md#conditions) numerica.
+
+Vengono applicati i limiti seguenti:
+- In una singola definizione **policyRule** è possibile usare fino a 10 espressioni di **conteggio valori** .
+- Ogni espressione di **conteggio valori** può eseguire fino a 100 iterazioni. Questo numero include il numero di iterazioni eseguite dalle espressioni di **conteggio dei valori** padre.
+
+#### <a name="the-current-function"></a>Funzione corrente
+
+La `current()` funzione è disponibile solo all'interno della `count.where` condizione. Restituisce il valore del membro della matrice attualmente enumerato da una valutazione dell'espressione **count** .
+
+**Utilizzo conteggio valori**
+
+- `current(<index name defined in count.name>)`. Ad esempio: `current('arrayMember')`.
+- `current()`. Consentito solo quando l'espressione **conteggio valori** non è un elemento figlio di un'altra espressione **count** . Restituisce lo stesso valore precedente.
+
+Se il valore restituito dalla chiamata è un oggetto, le funzioni di accesso alle proprietà sono supportate. Ad esempio: `current('objectArrayMember').property`.
+
+**Utilizzo conteggio campi**
+
+- `current(<the array alias defined in count.field>)`. Ad esempio: `current('Microsoft.Test/resource/enumeratedArray[*]')`.
+- `current()`. Consentito solo quando l'espressione **conteggio campi** non è un elemento figlio di un'altra espressione **count** . Restituisce lo stesso valore precedente.
+- `current(<alias of a property of the array member>)`. Ad esempio: `current('Microsoft.Test/resource/enumeratedArray[*].property')`.
+
+#### <a name="field-count-examples"></a>Esempi di conteggio campi
 
 Esempio 1: Verificare se una matrice è vuota
 
@@ -550,18 +600,162 @@ Esempio 5: verificare che almeno un membro della matrice corrisponda a più prop
 }
 ```
 
-Esempio 6: usare la `field()` funzione all'interno delle `where` condizioni per accedere al valore letterale del membro della matrice attualmente valutato. Questa condizione verifica che non esistano regole di sicurezza con un valore di _priorità_ pari.
+Esempio 6: usare la `current()` funzione all'interno delle `where` condizioni per accedere al valore del membro della matrice attualmente enumerato in una funzione di modello. Questa condizione controlla se una rete virtuale contiene un prefisso di indirizzo non incluso nell'intervallo CIDR 10.0.0.0/24.
 
 ```json
 {
     "count": {
-        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
         "where": {
-          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
-          "equals": 0
+          "value": "[ipRangeContains('10.0.0.0/24', current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+          "equals": false
         }
     },
     "greater": 0
+}
+```
+
+Esempio 7: usare la `field()` funzione all'interno delle `where` condizioni per accedere al valore del membro della matrice attualmente enumerato. Questa condizione controlla se una rete virtuale contiene un prefisso di indirizzo non incluso nell'intervallo CIDR 10.0.0.0/24.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+          "value": "[ipRangeContains('10.0.0.0/24', first(field(('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]')))]",
+          "equals": false
+        }
+    },
+    "greater": 0
+}
+```
+
+#### <a name="value-count-examples"></a>Esempi di conteggio valori
+
+Esempio 1: verificare se il nome della risorsa corrisponde a uno dei modelli di nome specificati.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Esempio 2: verificare se il nome della risorsa corrisponde a uno dei modelli di nome specificati. La `current()` funzione non specifica un nome di indice. Il risultato è lo stesso dell'esempio precedente.
+
+```json
+{
+    "count": {
+        "value": [ "prefix1_*", "prefix2_*" ],
+        "where": {
+            "field": "name",
+            "like": "[current()]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Esempio 3: verificare se il nome della risorsa corrisponde a uno dei modelli di nome specificati forniti da un parametro di matrice.
+
+```json
+{
+    "count": {
+        "value": "[parameters('namePatterns')]",
+        "name": "pattern",
+        "where": {
+            "field": "name",
+            "like": "[current('pattern')]"
+        }
+    },
+    "greater": 0
+}
+```
+
+Esempio 4: controllare se uno dei prefissi di indirizzo della rete virtuale non è presente nell'elenco dei prefissi approvati.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]",
+        "where": {
+            "count": {
+                "value": "[parameters('approvedPrefixes')]",
+                "name": "approvedPrefix",
+                "where": {
+                    "value": "[ipRangeContains(current('approvedPrefix'), current('Microsoft.Network/virtualNetworks/addressSpace.addressPrefixes[*]'))]",
+                    "equals": true
+                },
+            },
+            "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
+Esempio 5: verificare che tutte le regole NSG riservate siano definite in un NSG. Le proprietà delle regole NSG riservate sono definite in un parametro di matrice contenente oggetti.
+
+Valore parametro:
+
+```json
+[
+    {
+        "priority": 101,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 22
+    },
+    {
+        "priority": 102,
+        "access": "deny",
+        "direction": "inbound",
+        "destinationPortRange": 3389
+    }
+]
+```
+
+Criteri:
+```json
+{
+    "count": {
+        "value": "[parameters('reservedNsgRules')]",
+        "name": "reservedNsgRule",
+        "where": {
+            "count": {
+                "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+                "where": {
+                    "allOf": [
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].priority",
+                            "equals": "[current('reservedNsgRule').priority]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                            "equals": "[current('reservedNsgRule').access]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                            "equals": "[current('reservedNsgRule').direction]"
+                        },
+                        {
+                            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                            "equals": "[current('reservedNsgRule').destinationPortRange]"
+                        }
+                    ]
+                }
+            },
+            "equals": 1
+        }
+    },
+    "equals": "[length(parameters('reservedNsgRules'))]"
 }
 ```
 
@@ -627,7 +821,6 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
   }
   ```
 
-
 - `ipRangeContains(range, targetRange)`
     - **Range**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
     - **targetRange proviene**: [Required] stringa-stringa che specifica un intervallo di indirizzi IP.
@@ -639,6 +832,8 @@ Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
     - Intervallo CIDR (esempi: `10.0.0.0/24` , `2001:0DB8::/110` )
     - Intervallo definito dagli indirizzi IP di inizio e fine (esempi: `192.168.0.1-192.168.0.9` , `2001:0DB8::-2001:0DB8::3:FFFF` )
 
+- `current(indexName)`
+    - Funzione speciale che può essere usata solo all'interno delle [espressioni count](#count).
 
 #### <a name="policy-function-example"></a>Esempio di funzione dei criteri
 

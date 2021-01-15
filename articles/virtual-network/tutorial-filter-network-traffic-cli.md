@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7589b13dc517a23e8d9d65907fb3342e4e2490a9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d2cabecfb2a70e6d325129335c066bb35aeb02ba
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000590"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221881"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Filtrare il traffico di rete con un gruppo di sicurezza di rete usando l'interfaccia della riga di comando di Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "96000590"
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
@@ -231,7 +231,7 @@ curl myVmWeb
 
 Disconnettersi dalla VM *myVmMgmt*. Per verificare di poter accedere al server Web *myVmWeb* dall'esterno di Azure, digitare `curl <publicIpAddress>` dal proprio computer. La connessione ha esito positivo, perché la porta 80 è consentita in ingresso da Internet al gruppo di sicurezza delle applicazioni *myAsgWebServers* in cui si trova l'interfaccia di rete collegata alla VM *myVmWeb* .
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Quando il gruppo di risorse e tutte le risorse in esso contenute non sono più necessari, usare [az group delete](/cli/azure/group) per rimuoverli.
 
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato creato un gruppo di sicurezza di rete, che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md) e [Gestire un gruppo di sicurezza di rete](manage-network-security-group.md).
+In questo articolo è stato creato un gruppo di sicurezza di rete, che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](./network-security-groups-overview.md) e [Gestire un gruppo di sicurezza di rete](manage-network-security-group.md).
 
 Per impostazione predefinita, Azure instrada il traffico tra subnet. È anche possibile ad esempio scegliere di instradare il traffico tra subnet tramite una VM che funge da firewall. Per altre informazioni, vedere [Creare una tabella di route](tutorial-create-route-table-cli.md).

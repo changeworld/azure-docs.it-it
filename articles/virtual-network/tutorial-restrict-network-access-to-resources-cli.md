@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1a1eab081a7c1e83a57ef4735c6eb5248d92defc
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734111"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221766"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -39,9 +39,9 @@ Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
 Prima di creare una rete virtuale, è necessario creare un gruppo di risorse per la rete virtuale e tutte le altre risorse create in questo articolo. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -120,7 +120,7 @@ az network nsg rule create \
   --destination-port-range "*"
 ```
 
-Ogni gruppo di sicurezza di rete contiene diverse [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue sostituisce una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L' `destination-address-prefix "Internet"` opzione Nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
+Ogni gruppo di sicurezza di rete contiene diverse [regole di sicurezza predefinite](./network-security-groups-overview.md#default-security-rules). La regola che segue sostituisce una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. L' `destination-address-prefix "Internet"` opzione Nega l'accesso in uscita a tutti gli indirizzi IP pubblici. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
 
 ```azurecli-interactive
 az network nsg rule create \

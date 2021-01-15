@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57df05918b590cedbf4af0464690ef2524f8ba79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6986f6f16cbd32d44223bba4f4be4577fa11258c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650511"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222905"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurare indirizzi IP privati per una macchina virtuale (classica) mediante il portale di Azure
 
@@ -35,7 +35,7 @@ In questo articolo viene illustrato il modello di distribuzione classica. È ino
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si desidera eseguire la procedura illustrata in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](virtual-networks-create-vnet-classic-pportal.md).
+La procedura di esempio seguente prevede che un ambiente semplice sia già creato. Se si desidera eseguire la procedura illustrata in questo documento, creare innanzitutto l'ambiente di prova descritto in [creare una rete virtuale](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Come specificare un indirizzo IP statico privato durante la creazione di una macchina virtuale
 Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtuale denominata *TestVNet* con un indirizzo IP statico privato di *192.168.1.101*, seguire la procedura seguente:
@@ -47,7 +47,7 @@ Per creare una VM denominata *DNS01* nella subnet *FrontEnd* di una rete virtual
 3. In **Crea macchina virtuale** immettere il nome della macchina virtuale da creare (*DNS01* nello scenario), l'account amministratore locale e la password.
    
     ![Screenshot che illustra come creare una macchina virtuale immettendo il nome della macchina virtuale, il nome utente dell'amministratore locale e la password.](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. Selezionare **configurazione facoltativa**  >  **Network**  >  **rete rete virtuale**e quindi selezionare **TestVNet**. Se **TestVNet** non è disponibile, verificare che si utilizzi la posizione *Stati Uniti centrali* e di aver creato l'ambiente di prova descritto all'inizio di questo articolo.
+4. Selezionare **configurazione facoltativa**  >    >  **rete rete virtuale** e quindi selezionare **TestVNet**. Se **TestVNet** non è disponibile, verificare che si utilizzi la posizione *Stati Uniti centrali* e di aver creato l'ambiente di prova descritto all'inizio di questo articolo.
    
     ![Screenshot che mostra l'opzione di configurazione facoltativa > rete > rete virtuale > TestVNet evidenziata.](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. In **Rete** assicurarsi che la subnet attualmente selezionata sia *FrontEnd*, selezionare **Indirizzi IP**, in **Assegnazione indirizzi IP** selezionare **Statico** e quindi immettere *192.168.1.101* per **Indirizzo IP** come indicato di seguito.
@@ -81,7 +81,6 @@ In **Indirizzi IP** selezionare **Dinamica** a destra di **Assegnazione indirizz
 È consigliabile non assegnare staticamente l'indirizzo IP privato assegnato alla macchina virtuale di Azure all'interno del sistema operativo di una macchina virtuale, se non necessario. Se si imposta manualmente l'indirizzo IP privato all'interno del sistema operativo, assicurarsi che sia uguale all'indirizzo IP privato assegnato alla macchina virtuale di Azure. In caso contrario, si può perdere la connettività alla macchina virtuale. Non assegnare mai manualmente l'indirizzo IP pubblico assegnato a una macchina virtuale di Azure all'interno del sistema operativo della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni su [indirizzi IP pubblici riservati](virtual-networks-reserved-public-ip.md) .
-* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) .
-* Consultare le [API REST dell'indirizzo IP riservato](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-
+* Informazioni su [indirizzi IP pubblici riservati](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) .
+* Informazioni su [indirizzi IP pubblici a livello di istanza (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) .
+* Consultare le [API REST dell'indirizzo IP riservato](/previous-versions/azure/reference/dn722420(v=azure.100)).

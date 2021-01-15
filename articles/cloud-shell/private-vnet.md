@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: a820fb4ec5d6c2053b1104b68dbda0ae70f624c0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 58f6c7a3b5d68d2825cead545ba1b683d1faf1af
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179198"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222803"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Distribuire Cloud Shell in una rete virtuale di Azure
 
@@ -87,9 +87,6 @@ Se **RegistrationState** è `Registered` , non è richiesta alcuna azione. In ca
 Se si dispone già di un VNET desiderato a cui si desidera connettersi, ignorare questa sezione.
 
 Nel portale di Azure o usando l'interfaccia della riga di comando di Azure, Azure PowerShell e così via. creare un gruppo di risorse e una rete virtuale nel nuovo gruppo di risorse, **il gruppo di risorse e la rete virtuale devono trovarsi nella stessa area**.
-
-> [!NOTE]
-> Durante l'anteprima pubblica, il gruppo di risorse e la rete virtuale devono trovarsi in WestCentralUS o Westus.
 
 ### <a name="arm-templates"></a>Modelli di Gestione risorse di Azure
 Usare il [modello di avvio rapido di Azure](https://aka.ms/cloudshell/docs/vnet/template) per la creazione di cloud Shell risorse in una rete virtuale e il modello di [avvio rapido di Azure](https://aka.ms/cloudshell/docs/vnet/template/storage) per la creazione dell'archiviazione necessaria. Prendere nota dei nomi delle risorse, principalmente il nome della condivisione file.

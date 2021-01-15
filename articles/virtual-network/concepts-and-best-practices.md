@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: d279516c1c9c08512c850a0f70eb84c0c1f63166
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 0a9945a58aa6ec49ad58f3a0a0d03ea75e30f6d8
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97111218"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98223619"
 ---
 # <a name="azure-virtual-network-concepts-and-best-practices"></a>Concetti e procedure consigliate per la rete virtuale di Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive i concetti chiave e le procedure consigliate per la ret
 ## <a name="vnet-concepts"></a>Concetti di VNet
 
 - **Spazio indirizzi**: quando si crea una rete virtuale, è necessario specificare uno spazio indirizzi IP privato personalizzato con indirizzi pubblici e privati (RFC 1918). Azure assegna alle risorse di una rete virtuale un indirizzo IP privato dello spazio indirizzi specificato. Se, ad esempio, si distribuisce una macchina virtuale in una rete virtuale con spazio indirizzi 10.0.0.0/16, alla macchina virtuale verrà assegnato un indirizzo IP privato come 10.0.0.4.
-- **Subnet:** le subnet consentono di segmentare la rete virtuale in una o più reti secondarie e di allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza di rete](security-overview.md).
+- **Subnet:** le subnet consentono di segmentare la rete virtuale in una o più reti secondarie e di allocare una parte dello spazio indirizzi della rete virtuale a ogni subnet. È quindi possibile distribuire le risorse di Azure in una subnet specifica. Proprio come le reti tradizionali, le subnet consentono di segmentare lo spazio indirizzi della rete virtuale in segmenti appropriati per la rete interna dell'organizzazione. In questo modo, anche l'allocazione degli indirizzi risulta più efficiente. È possibile proteggere le risorse all'interno delle subnet con i gruppi di sicurezza di rete. Per altre informazioni, vedere [Gruppi di sicurezza di rete](./network-security-groups-overview.md).
 - **Aree di Azure**: l'ambito di una rete virtuale è una singola area/località; tuttavia, è possibile connettere più reti virtuali da diverse aree di Azure usando il peering di rete virtuale.
 - **Sottoscrizione:** l'ambito di una rete virtuale è una sottoscrizione. È possibile implementare più reti virtuali in ogni [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) e [area](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) di Azure.
 

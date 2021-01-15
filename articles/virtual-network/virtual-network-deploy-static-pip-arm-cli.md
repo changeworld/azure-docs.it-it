@@ -16,16 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 110f5ab4f0912ae264eb1dc4b649a40cc40f4e12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4062dd086eeee712376a402da2792352fa3c3ae
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84703090"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221343"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Creare una macchina virtuale con un indirizzo IP pubblico statico usando l'interfaccia della riga di comando di Azure
 
-È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](virtual-network-ip-addresses-overview-arm.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
+È possibile creare una macchina virtuale con un indirizzo IP pubblico statico. Un indirizzo IP pubblico consente di comunicare con una macchina virtuale da Internet. Assegnare un indirizzo IP pubblico statico, anziché un indirizzo dinamico, per assicurarsi che l'indirizzo non cambi mai. Altre informazioni sugli [indirizzi IP pubblici statici](./public-ip-addresses.md#allocation-method). Per modificare da dinamico a statico un indirizzo IP pubblico assegnato a una macchina virtuale esistente o per usare indirizzi IP privati, vedere [Aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md). Gli indirizzi IP pubblici hanno un [costo nominale](https://azure.microsoft.com/pricing/details/ip-addresses)ed esiste un [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) al numero di indirizzi IP pubblici che è possibile usare per ogni sottoscrizione.
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
@@ -51,7 +51,7 @@ ms.locfileid: "84703090"
      --public-ip-address-allocation static
    ```
 
-   Se l'indirizzo IP pubblico deve essere uno SKU standard, aggiungere `--public-ip-sku Standard` al comando precedente. Altre informazioni sugli [SKU di indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/skus.md).
+   Se l'indirizzo IP pubblico deve essere uno SKU standard, aggiungere `--public-ip-sku Standard` al comando precedente. Altre informazioni sugli [SKU di indirizzi IP pubblici](./public-ip-addresses.md#sku). Se la macchina virtuale verrà aggiunta al pool back-end di un Azure Load Balancer pubblico, lo SKU dell'indirizzo IP pubblico della macchina virtuale deve corrispondere allo SKU dell'indirizzo IP pubblico del bilanciamento del carico. Per informazioni dettagliate, vedere [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Visualizzare l'indirizzo IP pubblico assegnato e confermare che sia stato creato come indirizzo statico SKU Basic con [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
@@ -78,7 +78,7 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sugli [indirizzi IP pubblici](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
+- Altre informazioni sugli [indirizzi IP pubblici](./public-ip-addresses.md#public-ip-addresses) in Azure
 - Altre informazioni su tutte [le impostazioni degli indirizzi IP pubblici](virtual-network-public-ip-address.md#create-a-public-ip-address)
-- Altre informazioni sugli [indirizzi IP privati](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure
+- Altre informazioni sugli [indirizzi IP privati](./private-ip-addresses.md) e sull'assegnazione di un [indirizzo IP privato statico](virtual-network-network-interface-addresses.md#add-ip-addresses) a una macchina virtuale di Azure
 - Altre informazioni sulla creazione di macchine virtuali [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

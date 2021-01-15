@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 09/15/2020
-ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 1/14/2021
+ms.openlocfilehash: e21a5a5be03ffa4ada362247c488ee7d12bd50f7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308822"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222225"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ In caso di uso elevato di risorse di elaborazione, le opzioni di mitigazione inc
 - Aumento delle dimensioni di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'utilizzo delle risorse della CPU di ogni query. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 Quando la quantità di spazio del database usato raggiunge il limite di dimensioni massime, gli inserimenti e gli aggiornamenti del database che aumentano la dimensione dei dati hanno esito negativo e i clienti ricevono un [messaggio di errore](troubleshoot-common-errors-issues.md). Le istruzioni SELECT e DELETE continuano ad avere esito positivo.
 
@@ -80,7 +80,7 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Aumento del livello di servizio o delle dimensioni di calcolo del database o del pool elastico. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'uso delle risorse di ogni query, se l'aumento dell'uso di ruoli di lavoro è dovuto a un conflitto delle risorse di elaborazione. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](performance-guidance.md#query-tuning-and-hinting).
 - Riduzione dell'impostazione di [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (massimo grado di parallelismo).
-- Ottimizzazione del carico di lavoro delle query per ridurre il numero di occorrenze e la durata del blocco di query.
+- Ottimizzazione del carico di lavoro delle query per ridurre il numero di occorrenze e la durata del blocco di query. Per altre informazioni, vedere [comprendere e risolvere i problemi di blocco di SQL Azure](understand-resolve-blocking.md).
 
 ### <a name="memory"></a>Memory
 
