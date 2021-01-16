@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 08e07ac3a8079d725611f9b072e8d21dabb32867
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: c769fd86f432d135542c1f09b83ea5a01c6ab0a6
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011561"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250605"
 ---
 # <a name="desktop-app-that-calls-web-apis-app-registration"></a>App desktop che chiama le API Web: registrazione dell'app
 
@@ -42,7 +42,7 @@ Gli URI di Reindirizzamento da usare in un'applicazione desktop dipendono dal fl
 - Se si usa l'autenticazione interattiva o il flusso del codice del dispositivo, usare `https://login.microsoftonline.com/common/oauth2/nativeclient` . Per ottenere questa configurazione, selezionare l'URL corrispondente nella sezione **autenticazione** per l'applicazione.
 
   > [!IMPORTANT]
-  > Attualmente, MSAL.NET usa un altro URI di reindirizzamento per impostazione predefinita nelle applicazioni desktop eseguite in Windows ( `urn:ietf:wg:oauth:2.0:oob` ). In futuro, sarà necessario modificare questa impostazione predefinita, quindi è consigliabile usare `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+  > `https://login.microsoftonline.com/common/oauth2/nativeclient`L'uso di come URI di reindirizzamento è consigliato come procedura di sicurezza consigliata.  Se non viene specificato alcun URI di reindirizzamento, MSAL.NET usa `urn:ietf:wg:oauth:2.0:oob` per impostazione predefinita, che non è consigliati.  Questa impostazione predefinita verrà aggiornata come modifica sostanziale nella prossima versione principale.
 
 - Se si compila un'app Objective-C o SWIFT nativa per macOS, registrare l'URI di reindirizzamento in base all'identificatore del bundle dell'applicazione nel formato seguente: `msauth.<your.app.bundle.id>://auth` . Sostituire `<your.app.bundle.id>` con l'identificatore del bundle dell'applicazione.
 - Se l'app usa solo l'autenticazione integrata di Windows o un nome utente e una password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questi flussi eseguono una round trip all'endpoint della piattaforma Microsoft Identity Platform v 2.0. L'applicazione non verrà richiamata su un URI specifico.

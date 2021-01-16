@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 06/17/2020
-ms.openlocfilehash: ce528e268e0ed1e34f53e32196bceef5ad8a2fcb
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9fe0c79a2f65b27b35aa5029d0a53de62ef08078
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452486"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251659"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e della sinapsi di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -270,7 +270,7 @@ Quando l'accesso al database SQL di Azure non si comporta come previsto, conside
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Verificare che l'ambiente di rete aziendale consenta le comunicazioni in ingresso dagli intervalli di indirizzi IP di calcolo (inclusi gli intervalli SQL) usati dai Data Center di Azure. Potrebbe essere necessario aggiungere gli indirizzi IP all'elenco Consenti. Vedere [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653).  
-- Per una guida introduttiva sulla creazione di una regola del firewall IP a livello di server, vedere [creare un database singolo nel database SQL di Azure](single-database-create-quickstart.md).
+- Vedere la Guida introduttiva sulla [creazione di un database singolo nel database SQL di Azure](single-database-create-quickstart.md).
 - Per informazioni sulla connessione a un database nel database SQL di Azure da applicazioni open source o di terze parti, vedere [esempi di codice di avvio rapido del client per il database SQL di Azure](connect-query-content-reference-guide.md#libraries).
 - Per informazioni sulle porte aggiuntive che potrebbe essere necessario aprire, vedere la sezione "database SQL: all'esterno rispetto all'interno" di [porte oltre 1433 per ADO.NET 4,5 e database SQL](adonet-v12-develop-direct-route-ports.md)
 - Per una panoramica della sicurezza del database SQL di Azure, vedere [protezione del database](security-overview.md).

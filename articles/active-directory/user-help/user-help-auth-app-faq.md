@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 12/09/2020
+ms.date: 01/15/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: a1307aa19c66e3f6fcb71f677e6c67551d2a01f9
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: f799ed5c18537b862a4971075ae9107b7a722fdd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928325"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251506"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -33,13 +33,17 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 
 **R**: la registrazione di un dispositivo consente al dispositivo di accedere ai servizi dell'organizzazione e non consente all'organizzazione di accedere al dispositivo.
 
-## <a name="too-many-app-permissions"></a>Troppe autorizzazioni per le app
+### <a name="too-many-app-permissions"></a>Troppe autorizzazioni per le app
 
 **D**: perché l'app richiede così tante autorizzazioni?
 
-**R**: di seguito è riportato l'elenco completo delle autorizzazioni che potrebbero essere richieste e il modo in cui vengono usate dall'app. Le autorizzazioni specifiche visualizzate dipendono dal tipo di telefono in uso.
+**R**: di seguito è riportato l'elenco completo delle autorizzazioni che potrebbero essere richieste e il modo in cui vengono usate dall'app. Le autorizzazioni specifiche visualizzate dipendono dal tipo di telefono in uso. A volte l'organizzazione vuole conoscere la propria **posizione** prima di consentire l'accesso ad alcune risorse. L'app richiederà questa autorizzazione solo se l'organizzazione dispone di criteri che richiedono la posizione.
 
-- **Località**. A volte l'organizzazione vuole conoscere la propria posizione prima di consentire l'accesso ad alcune risorse. L'app richiederà questa autorizzazione solo se l'organizzazione dispone di criteri che richiedono la posizione. 
+### <a name="error-adding-account"></a>Errore durante l'aggiunta dell'account
+
+**D**: quando si tenta di aggiungere l'account, viene ricevuto un messaggio di errore che informa che l'account che si sta provando ad aggiungere non è valido in questo momento. Contattare l'amministratore per risolvere il problema (convalida dell'univocità). " Cosa devo fare?
+
+**R**: contattare l'amministratore e indicare che non è possibile aggiungere l'account all'autenticatore a causa di un problema di convalida dell'univocità. È necessario fornire il nome utente di accesso in modo che l'amministratore possa cercare l'utente nell'organizzazione.
 
 ### <a name="legacy-apns-support-deprecated"></a>Supporto di APNs legacy deprecato
 
@@ -232,7 +236,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è l'ap
 
 1. Aprire **Impostazioni** di autenticazione e in **beta** attivare **riempimento automatico**.
 1. Nella scheda **password** nell'app accedere usando [il account Microsoft](https://account.microsoft.com/account).
-1. Eseguire una di queste operazioni:
+1. Eseguire una delle operazioni seguenti:
 
    - In iOS, in **Impostazioni**, selezionare **come attivare il riempimento automatico** nella sezione Impostazioni riempimento automatico per informazioni su come impostare Authenticator come provider di riempimento automatico predefinito.
    - In Android in **Impostazioni** selezionare **Imposta come provider di riempimento automatico** nella sezione Impostazioni riempimento automatico per impostare Authenticator come provider di riempimento automatico predefinito.

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
-ms.openlocfilehash: adec2a85373d33d08fe9aa16895d03229e40f475
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825820"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250129"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi di Azure per Funzioni di Azure
 
@@ -603,7 +603,7 @@ Si riceverà prima la richiesta di convalida della sottoscrizione. Ignorare tutt
 
 ### <a name="manually-post-the-request"></a>Inviare manualmente la richiesta
 
-Eseguire la funzione di Griglia di eventi in locale.
+Eseguire la funzione di Griglia di eventi in locale. `Content-Type` `aeg-event-type` È necessario impostare manualmente le intestazioni e, mentre tutti gli altri valori possono essere lasciati come predefiniti.
 
 Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](https://curl.haxx.se/docs/httpscripting.html), per creare una richiesta HTTP POST:
 

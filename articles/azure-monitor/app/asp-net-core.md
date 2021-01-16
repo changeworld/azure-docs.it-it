@@ -4,12 +4,12 @@ description: Monitorare le applicazioni Web ASP.NET Core per identificare dispon
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 2921c6379b34e002013b5f0087cefd502ab0ab84
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 2f17f4fbed196932ad7a5680338c459740e4d3bd
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904534"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249109"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -53,7 +53,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 3. Selezionare **Attività iniziali**. Il testo di questa selezione può variare a seconda della versione di Visual Studio. Alcune versioni precedenti usano invece un pulsante **Start Free** .
 
-4. Selezionare la propria sottoscrizione. Selezionare quindi **Resource**  >  **Registro** risorse.
+4. Selezionare la propria sottoscrizione. Selezionare quindi   >  **Registro** risorse.
 
 5. Dopo aver aggiunto Application Insights al progetto, verificare che si stia usando la versione stabile più recente dell'SDK. Passare a **progetto**  >  **Gestisci pacchetti NuGet**  >  **Microsoft. ApplicationInsights. AspNetCore**. Se necessario, scegliere **Aggiorna**.
 
@@ -69,7 +69,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.16.0" />
         </ItemGroup>
     ```
 
@@ -125,7 +125,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio, `services.AddApplicationInsightsTelemetry(Configuration);`.
 A partire da Microsoft. ApplicationInsights. AspNetCore versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore), `services.AddApplicationInsightsTelemetry()` la chiamata a leggerà automaticamente la chiave di strumentazione dall' `Microsoft.Extensions.Configuration.IConfiguration` applicazione. Non è necessario fornire esplicitamente `IConfiguration` .
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
@@ -232,7 +232,7 @@ Per l'elenco più aggiornato, vedere le [impostazioni configurabili in `Applicat
 
 ### <a name="configuration-recommendation-for-microsoftapplicationinsightsaspnetcore-sdk-2150--above"></a>Raccomandazione di configurazione per Microsoft. ApplicationInsights. AspNetCore SDK 2.15.0 & precedente
 
-A partire da Microsoft. ApplicationInsights. AspNetCore SDK versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) è consigliabile configurare tutte le impostazioni disponibili in `ApplicationInsightsServiceOptions` , incluso instrumentationkey usando l'istanza di Applications `IConfiguration` . Le impostazioni devono trovarsi nella sezione "ApplicationInsights", come illustrato nell'esempio seguente. La sezione seguente da appsettings.json configura la chiave di strumentazione e disabilita anche il campionamento adattivo e la raccolta dei contatori delle prestazioni.
+A partire da Microsoft. ApplicationInsights. AspNetCore SDK versione [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0), è consigliabile configurare tutte le impostazioni disponibili in `ApplicationInsightsServiceOptions` , incluso instrumentationkey usando l'istanza di Applications `IConfiguration` . Le impostazioni devono trovarsi nella sezione "ApplicationInsights", come illustrato nell'esempio seguente. La sezione seguente da appsettings.json configura la chiave di strumentazione e disabilita anche il campionamento adattivo e la raccolta dei contatori delle prestazioni.
 
 ```json
 {

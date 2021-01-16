@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
-ms.date: 11/18/2020
+ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3023991c76d94dc8aa87cfe950c18ab5d6a07ba9
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883062"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251727"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -26,16 +26,19 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 
 Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resource Manager tipi di risorse e le relative proprietà. Alcune tabelle possono essere utilizzate con `join` `union` operatori o per ottenere proprietà dai tipi di risorse correlati. Di seguito è riportato l'elenco di tabelle disponibili in Resource Graph:
 
-|Tabella Graph delle risorse |È possibile `join` ? |Descrizione |
+|Tabella Graph delle risorse |È possibile disporre di `join` altre tabelle? |Descrizione |
 |---|---|
 |Risorse |Sì |Tabella predefinita se non ne è stata definita alcuna nella query. In questa tabella sono contenuti quasi tutti i tipi di risorsa di Resource Manager e le relative proprietà. |
 |ResourceContainers |Sì |Include i dati e i tipi di risorsa delle sottoscrizioni (in anteprima, `Microsoft.Resources/subscriptions`) e dei gruppi di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
-|AdvisorResources |No |Include le risorse _relative_ a `Microsoft.Advisor`. |
-|AlertsManagementResources |No |Include le risorse _relative_ a `Microsoft.AlertsManagement`. |
+|AdvisorResources |Sì (anteprima) |Include le risorse _relative_ a `Microsoft.Advisor`. |
+|AlertsManagementResources |Sì (anteprima) |Include le risorse _relative_ a `Microsoft.AlertsManagement`. |
 |GuestConfigurationResources |No |Include le risorse _relative_ a `Microsoft.GuestConfiguration`. |
-|MaintenanceResources |No |Include le risorse _relative_ a `Microsoft.Maintenance`. |
+|MaintenanceResources |Partial, join solo _a_ . (anteprima) |Include le risorse _relative_ a `Microsoft.Maintenance`. |
+|PatchAssessmentResources|No |Include risorse _correlate_ alla valutazione delle patch per le macchine virtuali di Azure. |
+|PatchInstallationResources|No |Include risorse _correlate_ all'installazione delle patch per macchine virtuali di Azure. |
 |PolicyResources |No |Include le risorse _relative_ a `Microsoft.PolicyInsights`. (**Anteprima**)|
-|SecurityResources |No |Include le risorse _relative_ a `Microsoft.Security`. |
+|RecoveryServicesResources |Partial, join solo _a_ . (anteprima) |Include le risorse _correlate_ a `Microsoft.DataProtection` e `Microsoft.RecoveryServices` . |
+|SecurityResources |Partial, join solo _a_ . (anteprima) |Include le risorse _relative_ a `Microsoft.Security`. |
 |ServiceHealthResources |No |Include le risorse _relative_ a `Microsoft.ResourceHealth`. |
 
 Per un elenco completo, inclusi i tipi di risorsa, vedere [Informazioni di riferimento: tabelle e tipi di risorsa supportati](../reference/supported-tables-resources.md).
@@ -45,7 +48,7 @@ Per un elenco completo, inclusi i tipi di risorsa, vedere [Informazioni di rifer
 
 Usare Resource Graph Explorer nel portale per individuare i tipi di risorsa disponibili in ogni tabella. In alternativa, usare una query, ad esempio `<tableName> | distinct type`, per ottenere un elenco dei tipi di risorsa supportati dalla tabella di Resource Graph specificata che sono presenti nell'ambiente in uso.
 
-La query seguente include un operatore `join` semplice. Il risultato della query combina insieme le colonne e a tutti i nomi di colonna duplicati della tabella unita in join, _ResourceContainers_ in questo esempio, viene aggiunto **1**. Poiché la tabella _ResourceContainers_ contiene tipi sia per le sottoscrizioni sia per i gruppi di risorse, è possibile usare entrambi i tipi per creare un join con la risorsa dalla tabella _resources_.
+La query seguente include un operatore `join` semplice. Il risultato della query combina insieme le colonne e a tutti i nomi di colonna duplicati della tabella unita in join, _ResourceContainers_ in questo esempio, viene aggiunto **1**. Poiché la tabella _ResourceContainers_ include tipi per le sottoscrizioni e i gruppi di risorse, è possibile usare entrambi i tipi per unire in join la risorsa dalla tabella _risorse_ .
 
 ```kusto
 Resources
@@ -53,13 +56,14 @@ Resources
 | limit 1
 ```
 
-La query seguente illustra un uso più complesso di `join`. La query limita la tabella aggiunta alle risorse della sottoscrizione e usa `project` per includere solo il campo _subscriptionId_ originale e il campo _name_ rinominato in _SubName_. La ridenominazione del campo evita che `join` lo aggiunga come _name1_ dal momento che il campo esiste già in _Resources_. La tabella originale viene filtrata con `where` e l'elemento `project` seguente include colonne di entrambe le tabelle. Il risultato della query è un singolo insieme di credenziali delle chiavi che visualizza il tipo, il nome dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui è incluso.
+La query seguente illustra un uso più complesso di `join`. In primo luogo, la query USA `project` per ottenere i campi dalle _risorse_ per il tipo di risorsa di insiemi di credenziali Azure Key Vault. Il passaggio successivo usa `join` per unire i risultati con _ResourceContainers_ , in cui il tipo è una sottoscrizione _di_ una proprietà che si trova sia nella prima tabella che nella `project` tabella unita in join `project` . La ridenominazione dei campi evita `join` di aggiungerla come _name1_ , perché la proprietà è già proiettata dalle _risorse_. Il risultato della query è un singolo insieme di credenziali delle chiavi che Visualizza il tipo, il nome, la posizione e il gruppo di risorse dell'insieme di credenziali delle chiavi e il nome della sottoscrizione in cui si trova.
 
 ```kusto
 Resources
 | where type == 'microsoft.keyvault/vaults'
+| project name, type, location, subscriptionId, resourceGroup
 | join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
-| project type, name, SubName
+| project type, name, location, resourceGroup, SubName
 | limit 1
 ```
 
@@ -125,7 +129,7 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 |[count](/azure/kusto/query/countoperator) |[Contare gli insiemi di credenziali delle chiavi](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
 |[extend](/azure/kusto/query/extendoperator) |[Contare le macchine virtuali per tipo di sistema operativo](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[Insieme di credenziali delle chiavi con il nome della sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query. Strategie di join personalizzate, ad esempio il join di trasmissione, non sono consentite. Per informazioni sulle tabelle che è possibile usare `join` , vedere [tabelle di grafici delle risorse](#resource-graph-tables). |
+|[join](/azure/kusto/query/joinoperator) |[Insieme di credenziali delle chiavi con il nome della sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query, 1 di che può essere una tabella incrociata `join` . Se l'uso di tutte le tabelle `join` è compreso tra _Resource_ e _ResourceContainers_, sono consentite 3 incrociate tra tabelle `join` . Strategie di join personalizzate, ad esempio il join di trasmissione, non sono consentite. Per informazioni sulle tabelle che è possibile usare `join` , vedere [tabelle di grafici delle risorse](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `take` . Non funziona con [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operatore legacy. In sostituzione usare `mv-expand`. _RowLimit_ max 400. Il valore predefinito è 128. |
 |[mv-expand](/azure/kusto/query/mvexpandoperator) |[Visualizzare Cosmos DB con specifiche posizioni di scrittura](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max 400. Il valore predefinito è 128. |

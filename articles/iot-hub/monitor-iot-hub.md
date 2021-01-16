@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 11/06/2020
-ms.openlocfilehash: 2fabf75f74ccf57f57e7b47720ceda8885420842
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 35134f3ee4946d294ba6c6f71bd3953823d6d138
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460917"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250029"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitoraggio dell'hub Azure
 
@@ -87,7 +87,7 @@ Per un elenco delle metriche della piattaforma raccolte per l'hub Azure, vedere 
 
 Per le metriche della piattaforma dell'hub Internet che vengono raccolte in unità di conteggio, alcune aggregazioni potrebbero non essere disponibili o utilizzabili. Per altre informazioni, vedere [le aggregazioni supportate nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#supported-aggregations).
 
-Alcune metriche dell'hub, come le [metriche di routing](monitor-iot-hub-reference.md#routing-metrics), sono multidimensionali. Per queste metriche, è possibile applicare [filtri](../azure-monitor/platform/metrics-charts.md#apply-filters-to-charts) e [dividere](../azure-monitor/platform/metrics-charts.md#apply-splitting-to-a-chart) i grafici in base a una dimensione.
+Alcune metriche dell'hub, come le [metriche di routing](monitor-iot-hub-reference.md#routing-metrics), sono multidimensionali. Per queste metriche, è possibile applicare [filtri](../azure-monitor/platform/metrics-charts.md#filters) e [dividere](../azure-monitor/platform/metrics-charts.md#apply-splitting) i grafici in base a una dimensione.
 
 ## <a name="analyzing-logs"></a>Analisi dei log
 
@@ -133,7 +133,7 @@ La tabella seguente mostra il nome dell'SDK usato per i diversi SDK di Azure:
 | com. Microsoft. Azure. iothub. Service. SDK | Java Service SDK |
 | com. Microsoft. Azure. Sdk. Internet | SDK per dispositivi Java |
 | com. Microsoft. Azure. Sdk. Internet | Java Service SDK |
-| C | C incorporato |
+| C | Embedded C |
 | C + (OSSimplified = Azure RTO) | Azure RTOS |
 
 È possibile estrarre la proprietà versione SDK quando si eseguono query sui log delle risorse dell'hub Internet. Ad esempio, la query seguente estrae la proprietà della versione dell'SDK (e l'ID del dispositivo) dalle proprietà restituite dalle operazioni di connessione. Queste due proprietà vengono scritte nei risultati con l'ora dell'operazione e l'ID della risorsa dell'hub Internet a cui si connette il dispositivo.

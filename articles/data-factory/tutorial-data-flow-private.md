@@ -7,13 +7,13 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/19/2019
-ms.openlocfilehash: 9a4b57f3813adfeee53891f733dd4d303dbbef8d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 01/15/2021
+ms.openlocfilehash: a5c93244862d72f9c8ea2928c41e699302b1752b
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497130"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249440"
 ---
 # <a name="transform-data-securely-by-using-mapping-data-flow"></a>Trasformare i dati in modo sicuro utilizzando il flusso di dati di mapping
 
@@ -34,6 +34,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Monitorare un'attività del flusso di dati.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Account di archiviazione di Azure**. Usare Data Lake Storage come archivi dati di *origine* e *sink* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) per informazioni su come crearne uno. *Assicurarsi che l'account di archiviazione consenta l'accesso solo da reti selezionate.* 
 
@@ -64,12 +65,14 @@ In questo passaggio si crea una data factory e si apre l'interfaccia utente di D
 1. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 
 ## <a name="create-an-azure-ir-in-data-factory-managed-virtual-network"></a>Creare un Azure IR in Data Factory rete virtuale gestita
+
 In questo passaggio si crea una Azure IR e si Abilita Data Factory rete virtuale gestita.
 
 1. Nel portale di Data Factory passare a **Gestisci** e selezionare **nuovo** per creare una nuova Azure IR.
 
    ![Screenshot che mostra la creazione di una nuova Azure IR.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Selezionare l'opzione **Azure** IR.
+1. Nella pagina di **installazione di Integration Runtime** scegliere il runtime di integrazione da creare in base alle funzionalità necessarie. In questa esercitazione selezionare **Azure, self-hosted** e quindi fare clic su **continue (continua**). 
+1. Selezionare **Azure** e quindi fare clic su **continua** per creare un runtime di integrazione di Azure.
 
    ![Screenshot che mostra un nuovo Azure IR.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 
@@ -77,7 +80,7 @@ In questo passaggio si crea una Azure IR e si Abilita Data Factory rete virtuale
 
    ![Screenshot che mostra l'abilitazione di un nuovo Azure IR.](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
 
-1. Selezionare **Create** (Crea).
+1. Selezionare **Crea**.
 
 ## <a name="create-a-pipeline-with-a-data-flow-activity"></a>Creare una pipeline con un'attività flusso di dati
 

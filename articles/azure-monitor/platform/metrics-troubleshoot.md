@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 7c3af0865282475ded0172d18aecad1dfb61721b
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 5219553fe300d607212af1ef6cedf72ce6506762
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814262"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250333"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -48,7 +48,7 @@ Alcune risorse non generano costantemente metriche. Ad esempio, Azure non raccog
 
 ### <a name="all-metric-values-were-outside-of-the-locked-y-axis-range"></a>Tutti i valori delle metriche erano al di fuori dell'intervallo bloccato dell'asse y
 
-[Bloccando i limiti dell'asse y del grafico](metrics-charts.md#lock-boundaries-of-chart-y-axis), è possibile impedire involontariamente all'area di visualizzazione dei grafici di mostrare la linea del grafico. Ad esempio, se l'asse y è bloccato su un intervallo compreso tra 0% e 50% e le metriche hanno un valore costante del 100%, il rendering della linea viene sempre eseguito fuori dall'area visibile, facendo apparire vuoto il grafico.
+[Bloccando i limiti dell'asse y del grafico](metrics-charts.md#locking-the-range-of-the-y-axis), è possibile impedire involontariamente all'area di visualizzazione dei grafici di mostrare la linea del grafico. Ad esempio, se l'asse y è bloccato su un intervallo compreso tra 0% e 50% e le metriche hanno un valore costante del 100%, il rendering della linea viene sempre eseguito fuori dall'area visibile, facendo apparire vuoto il grafico.
 
 **Soluzione:** Verificare che i limiti dell'asse y del grafico non siano bloccati al di fuori dell'intervallo dei valori della metrica. Se i limiti dell'asse y sono bloccati, è possibile reimpostarli temporaneamente per garantire che i valori delle metriche non siano al di fuori dell'intervallo del grafico. È sconsigliabile bloccare l'intervallo dell'asse y con granularità automatica per i grafici con aggregazione **sum**, **min** e **max** perché i valori cambiano con granularità ridimensionando la finestra del browser o cambiando risoluzione dello schermo. Con la modifica della granularità, l'area visualizzata del grafico potrebbe restare vuota.
 

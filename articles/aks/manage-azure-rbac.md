@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a2a385b2be4e1005a7aabd76261b3190ecd2a506
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: af8d0300b533d9f25cddf225f4ffbe78ca6bf2cb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684220"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249636"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -115,7 +115,7 @@ AKS fornisce i quattro ruoli predefiniti seguenti:
 
 | Ruolo                                | Descrizione  |
 |-------------------------------------|--------------|
-| Visualizzatore RBAC del servizio Kubernetes di Azure  | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Non consente la visualizzazione di ruoli o associazioni di ruolo. Questo ruolo non consente la visualizzazione `Secrets` perché la lettura del contenuto dei segreti consente l'accesso alle credenziali ServiceAccount nello spazio dei nomi, che consente l'accesso all'API come qualsiasi ServiceAccount nello spazio dei nomi (un tipo di escalation dei privilegi)  |
+| Lettore RBAC del servizio Kubernetes di Azure  | Consente l'accesso in sola lettura per visualizzare la maggior parte degli oggetti in uno spazio dei nomi. Non consente la visualizzazione di ruoli o associazioni di ruolo. Questo ruolo non consente la visualizzazione `Secrets` perché la lettura del contenuto dei segreti consente l'accesso alle credenziali ServiceAccount nello spazio dei nomi, che consente l'accesso all'API come qualsiasi ServiceAccount nello spazio dei nomi (un tipo di escalation dei privilegi)  |
 | Writer RBAC del servizio Kubernetes di Azure | Consente l'accesso in lettura/scrittura alla maggior parte degli oggetti in uno spazio dei nomi. Questo ruolo non consente la visualizzazione o la modifica di ruoli o associazioni di ruolo. Tuttavia, questo ruolo consente l'accesso `Secrets` e l'esecuzione di pod come qualsiasi ServiceAccount nello spazio dei nomi, quindi può essere usato per ottenere i livelli di accesso all'API di qualsiasi ServiceAccount nello spazio dei nomi. |
 | Amministratore RBAC del servizio Kubernetes di Azure  | Consente l'accesso dell'amministratore, che deve essere concesso all'interno di uno spazio dei nomi. Consente l'accesso in lettura/scrittura alla maggior parte delle risorse in uno spazio dei nomi (o ambito del cluster), inclusa la possibilità di creare ruoli e associazioni di ruolo all'interno dello spazio dei nomi. Questo ruolo non consente l'accesso in scrittura alla quota di risorse o allo spazio dei nomi stesso. |
 | Amministrazione del cluster RBAC del servizio Kubernetes di Azure  | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. |
@@ -272,8 +272,8 @@ az group delete -n MyResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sull'autenticazione, l'autorizzazione, il controllo degli accessi in [here](concepts-identity.md)base al ruolo e il controllo di Kubernetes di Azure
-- Scopri di più sul controllo [here](../role-based-access-control/overview.md)degli accessi in base al ruolo
+- Altre informazioni sull'autenticazione, l'autorizzazione, il controllo degli accessi in [](concepts-identity.md)base al ruolo e il controllo di Kubernetes di Azure
+- Scopri di più sul controllo [](../role-based-access-control/overview.md)degli accessi in base al ruolo
 - Scopri di più su tutte le azioni che puoi usare per definire in modo granulare i ruoli personalizzati di Azure per l'autorizzazione Kubernetes [qui](../role-based-access-control/resource-provider-operations.md#microsoftcontainerservice).
 
 

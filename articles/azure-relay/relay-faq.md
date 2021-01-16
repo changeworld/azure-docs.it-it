@@ -3,12 +3,12 @@ title: Domande frequenti sul servizio di inoltro di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 77d3122942289654c0f651f9f648307123b23546
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 83cbc4b02bb8b63878abd046ed2314728546e87a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131849"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250053"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -70,7 +70,7 @@ Gli inoltri aperti con il binding WCF **netTCPRelay** considerano i messaggi non
 ## <a name="quotas"></a>Quote
 | Nome della quota | Scope |  Note | valore |
 | --- | --- | --- | --- |
-| Listener simultanei per un inoltro |Entità |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
+| Listener simultanei per un inoltro |Entità (connessione ibrida o inoltro WCF) |Le richieste successive di connessioni aggiuntive vengono rifiutate e il codice chiamante riceverà un'eccezione. |25 |
 | Connessioni di inoltro simultanee per tutti gli endpoint di inoltro in uno spazio dei nomi del servizio |Spazio dei nomi |- |5\.000 |
 | Endpoint di inoltro per ogni spazio dei nomi del servizio |Spazio dei nomi |- |10,000 |
 | Dimensione dei messaggi per gli inoltri [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Spazio dei nomi |I messaggi in ingresso che superano queste quote vengono rifiutati e il codice chiamante riceve un'eccezione. |64 kB |

@@ -3,15 +3,15 @@ title: Proteggere l'accesso ai dati
 description: Proteggere l'accesso a input, output, trigger basati su richiesta, cronologia di esecuzione, attività di gestione e accesso ad altre risorse in App per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: rarayudu, logicappspm
+ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 01/09/2020
-ms.openlocfilehash: 5ad01e31cb9af18fa018d99424b25dee338981d7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.date: 01/15/2021
+ms.openlocfilehash: c889498d6341875682055e9d67b8d2b958bac70a
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034510"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251064"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -911,6 +911,10 @@ Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trig
 > Per proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario.
 > Per altre informazioni sull'uso e sulla protezione dei parametri, vedere [Accesso agli input dei parametri](#secure-action-parameters).
 
+<a name="authentication-types-supported-triggers-actions"></a>
+
+#### <a name="authentication-types-for-triggers-and-actions-that-support-authentication"></a>Tipi di autenticazione per trigger e azioni che supportano l'autenticazione
+
 Questa tabella identifica i tipi di autenticazione disponibili per i trigger e le azioni in cui è possibile selezionare un tipo di autenticazione:
 
 | Tipo di autenticazione | Trigger e azioni supportati |
@@ -919,12 +923,12 @@ Questa tabella identifica i tipi di autenticazione disponibili per i trigger e l
 | [Certificato client](#client-certificate-authentication) | Gestione API di Azure, servizio app di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, webhook HTTP |
+| [Identità gestita](#managed-identity-authentication) | **Trigger e azioni predefiniti** <p><p>Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, webhook HTTP <p><p>**Connettori gestiti** <p><p>Azure AD Identity Protection, automazione di Azure, istanza di contenitore di Azure, Esplora dati di Azure, Azure Data Factory, Azure Data Lake, griglia di eventi di Azure, Azure IoT Central V3, Azure Key Vault, Azure Log Analytics, log di monitoraggio di Azure, Azure Resource Manager, Azure Sentinel, HTTP con Azure AD <p><p>**Nota**: il supporto per i connettori gestiti è attualmente in fase di anteprima. |
 |||
 
 <a name="basic-authentication"></a>
 
-### <a name="basic-authentication"></a>Autenticazione di base
+#### <a name="basic-authentication"></a>Autenticazione di base
 
 Se è disponibile l'opzione [Basic](../active-directory-b2c/secure-rest-api.md), specificare i valori delle proprietà seguenti:
 
@@ -955,7 +959,7 @@ Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e 
 
 <a name="client-certificate-authentication"></a>
 
-### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
+#### <a name="client-certificate-authentication"></a>Autenticazione con certificato client
 
 Se è disponibile l'opzione [Certificato client](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md), specificare i valori delle proprietà seguenti:
 
@@ -994,7 +998,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
-### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
+#### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
 Sui trigger di richiesta, è possibile usare [Azure Active Directory autenticazione Open (Azure ad OAuth)](../active-directory/develop/index.yml)per autenticare le chiamate in ingresso dopo aver [configurato Azure ad i criteri di autorizzazione](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
 
@@ -1034,7 +1038,7 @@ Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e 
 
 <a name="raw-authentication"></a>
 
-### <a name="raw-authentication"></a>Autenticazione con dati non elaborati
+#### <a name="raw-authentication"></a>Autenticazione con dati non elaborati
 
 Se l'opzione **Raw** è disponibile, è possibile usare questo tipo di autenticazione quando è necessario usare gli [schemi di autenticazione](https://iana.org/assignments/http-authschemes/http-authschemes.xhtml) che non seguono il [protocollo OAuth 2.0](https://oauth.net/2/). Con questo tipo, si crea manualmente il valore dell'intestazione di autorizzazione inviato con la richiesta in uscita e si specifica il valore dell'intestazione nel trigger o nell'azione.
 
@@ -1077,15 +1081,17 @@ Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e 
 
 <a name="managed-identity-authentication"></a>
 
-### <a name="managed-identity-authentication"></a>Autenticazione identità gestita
+#### <a name="managed-identity-authentication"></a>Autenticazione identità gestita
 
-Se l'opzione [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) è disponibile in un' [azione o un trigger specifico](#add-authentication-outbound), l'app per la logica può usare l'identità assegnata dal sistema o una *singola* identità assegnata dall'utente creata manualmente per autenticare l'accesso ad altre risorse protette da Azure Active Directory (Azure ad) senza accesso. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Sono disponibili altre informazioni sui [servizi di Azure che supportano le identità gestite per l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Quando l'opzione di [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) è disponibile nel [trigger o nell'azione che supporta l'autenticazione dell'identità gestita](#add-authentication-outbound), l'app per la logica può usare l'identità assegnata dal sistema o una *singola* identità assegnata dall'utente creata manualmente per autenticare l'accesso alle risorse di Azure protette da Azure Active Directory (Azure ad), anziché da credenziali, segreti o Azure ad token. Azure gestisce questa identità per l'utente e consente di proteggere le credenziali perché non si ha la gestione dei segreti o si usano direttamente i token di Azure AD. Sono disponibili altre informazioni sui [servizi di Azure che supportano le identità gestite per l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 1. Prima che l'app per la logica possa usare un'identità gestita, seguire la procedura descritta in [Autenticare l'accesso alle risorse di Azure usando identità gestite in App per la logica di Azure](../logic-apps/create-managed-service-identity.md). Questa procedura abilita l'identità gestita nell'app per la logica e imposta l'accesso dell'identità sulla risorsa di destinazione.
 
 1. Prima che una funzione di Azure possa usare un'identità gestita, [abilitare l'autenticazione per le funzioni di Azure](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-functions).
 
-1. Nel trigger o nell'azione in cui si vuole usare l'identità gestita specificare i valori delle proprietà seguenti:
+1. Nel trigger o nell'azione che supporta l'uso di un'identità gestita, fornire queste informazioni:
+
+   **Trigger e azioni predefiniti**
 
    | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
@@ -1094,7 +1100,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
    | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante**: assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per l'automazione della distribuzione, è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica l'autenticazione `type` come `ManagedServiceIdentity` e usa la [funzione dei parametri()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
+   Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per l'automazione della distribuzione, è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione HTTP, ad esempio, specifica l'autenticazione `type` come `ManagedServiceIdentity` e usa la [funzione Parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
 
    ```json
    "HTTP": {
@@ -1111,6 +1117,15 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
       "runAfter": {}
    }
    ```
+
+   **Trigger e azioni del connettore gestito**
+
+   | Proprietà (progettazione) | Obbligatoria | valore | Descrizione |
+   |---------------------|----------|-------|-------------|
+   | **Nome connessione** | Sì | <*Nome connessione*> ||
+   | **Identità gestita** | Sì | **Identità gestita assegnata dal sistema** <br>oppure <br> <*assegnato dall'utente-gestito-identità-nome*> | Tipo di autenticazione da usare |
+   |||||
+
 
 <a name="block-connections"></a>
 

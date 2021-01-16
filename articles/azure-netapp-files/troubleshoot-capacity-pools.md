@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/06/2020
+ms.date: 01/14/2021
 ms.author: b-juche
-ms.openlocfilehash: a07898692c8af70fab0d2634ed1513f0f3666a4d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 759759b67582b241d0bab1e043dd15e54a804faf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505461"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251540"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Risolvere i problemi relativi ai pool di capacità
 
@@ -34,9 +34,6 @@ Questo articolo descrive le soluzioni ai problemi che potrebbero verificarsi dur
 | Creazione o modifica del volume non riuscita con `Requested throughput not available` errore | La velocità effettiva disponibile per un volume è determinata dalle dimensioni del pool di capacità e dal livello di servizio. Se la velocità effettiva non è sufficiente, è necessario aumentare le dimensioni del pool o regolare la velocità effettiva del volume esistente. | 
 
 ## <a name="issues-when-changing-the-capacity-pool-of-a-volume"></a>Problemi durante la modifica del pool di capacità di un volume 
-
-> [!IMPORTANT] 
-> Il [modificare dinamicamente il livello di servizio di una registrazione di](dynamic-change-volume-service-level.md) anteprima pubblica del volume è in attesa fino a un ulteriore avviso.
 
 |     Condizione di errore    |     Soluzione    |
 |-|-|

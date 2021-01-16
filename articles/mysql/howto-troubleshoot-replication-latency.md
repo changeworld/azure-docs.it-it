@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 01/13/2021
-ms.openlocfilehash: 34210d08ad5328f200f5b92c13bfcf85cfead3ec
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 92513a8c24b5106e3a59c8cfa4d743e900b957bf
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199479"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249772"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Risolvere i problemi di latenza di replica in Database di Azure per MySQL
 
@@ -32,9 +32,7 @@ L'intervallo di replica sulle repliche di lettura secondarie dipende da diversi 
 Questo articolo illustra come risolvere i problemi relativi alla latenza di replica nel database di Azure per MySQL. Si comprenderanno anche alcune cause più comuni di una maggiore latenza di replica nei server di replica.
 
 > [!NOTE]
-> Comunicazione senza distorsione
->
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alle parole _Master_ e _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) li riconosce come parole di esclusione. Le parole vengono usate in questo articolo per coerenza perché sono attualmente parole visualizzate nel software. Quando il software viene aggiornato per rimuovere le parole, questo articolo verrà aggiornato in modo da essere in linea.
+> Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 >
 
 ## <a name="replication-concepts"></a>Concetti relativi alla replica

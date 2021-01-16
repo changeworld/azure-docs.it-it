@@ -11,12 +11,12 @@ ms.date: 06/22/2020
 ms.author: procha
 ms.reviewer: charlesf
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4d45343c071a6a01981f8de87ee0efea409241b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b01eb78d6dfb0d1629eb73bf86c76e3dc4e32f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85368159"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249151"
 ---
 # <a name="azure-synapse-analytics-machine-learning-and-ai-partners"></a>Azure sinapsi Analytics Machine Learning e partner per intelligenza artificiale
 
@@ -26,6 +26,7 @@ Questo articolo illustra i partner Microsoft con strumenti di apprendimento auto
 | Partner | Descrizione | Collegamento a sito Web/prodotto |
 | ------- | ----------- | -------------------- |
 | ![Dataiku](./media/sql-data-warehouse-partner-machine-learning-and-ai/dataiku-logo.png) |**Dataiku**<br>Dataiku è la piattaforma di dati centralizzata che sposta le aziende lungo il percorso dei dati da Analytics su larga scala ad intelligenza artificiale aziendale, potenziando le analisi self-service garantendo al tempo stesso la messa in funzione dei modelli di Machine Learning in produzione. |[Pagina del prodotto](https://www.dataiku.com/partners/microsoft/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dataiku-data-science-studio)<br> |
+| ![MATLAB](./media/sql-data-warehouse-partner-machine-learning-and-ai/mathworks-logo.png) |**MATLAB**<br>MATLAB® è una piattaforma di programmazione progettata per ingegneri e scienziati. Combina un ambiente desktop ottimizzato per i processi di analisi e progettazione iterativi con un linguaggio di programmazione che esprime direttamente i calcoli di matrici e matrici. Milioni di tutto il mondo usano MATLAB per una vasta gamma di applicazioni, tra cui Machine Learning, apprendimento avanzato, elaborazione di segnali e immagini, sistemi di controllo e finanza computazionale. |[Pagina del prodotto](https://www.mathworks.com/products/database.html)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/mathworks-inc.matlab-byol?tab=Overview)<br> |
 | ![Qubole](./media/sql-data-warehouse-partner-data-integration/qubole_logo.png) |**Qubole**<br>Qubole offre una piattaforma nativa del cloud che consente agli utenti di eseguire carichi di lavoro ETL, di analisi e di intelligenza artificiale/Machine Learning. Supporta diversi tipi di motori open source: Apache Spark, TensorFlow, Presto, Airflow, Hadoop, Hive e altro ancora. Offre strumenti per gli utenti finali di facile utilizzo per l'elaborazione dei dati da strumenti di query SQL a notebook e dashboard che sfruttano motori open source avanzati.|[Pagina del prodotto](https://www.qubole.com/company/partners/partners-microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qubole-inc.qubole-data-service?tab=Overview) 
 
 ## <a name="next-steps"></a>Passaggi successivi

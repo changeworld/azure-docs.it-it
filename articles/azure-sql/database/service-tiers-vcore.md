@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 09/30/2020
-ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/15/2021
+ms.openlocfilehash: 6589f451d4db8f2ed77ce70a2bdfa9d76927c1e2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793144"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251217"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |-|**Utilizzo generico**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione orientate al budget, bilanciate e scalabili. |Offre alle applicazioni aziendali la massima resilienza agli errori usando diverse repliche isolate e fornisce le massime prestazioni di I/O per ogni replica di database.|La maggior parte dei carichi di lavoro aziendali con requisiti di archiviazione e scalabilità a scalabilità elevata.  Offre una maggiore resilienza agli errori consentendo la configurazione di più di una replica di database isolata. |
-|Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning del database SQL** :<br/>5 GB - 4 TB<br/>**Calcolo senza server** :<br/>5 GB-3 TB<br/>**Istanza gestita SQL** : 32 GB-8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning del database SQL** :<br/>5 GB - 4 TB<br/>**Istanza gestita SQL** :<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
-|IOPS e velocità effettiva (approssimativa)|**Database SQL** : vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL** : vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
+|Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Calcolo senza server**:<br/>5 GB-3 TB<br/>**Istanza gestita SQL**: 32 GB-8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Istanza gestita SQL**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
+|IOPS e velocità effettiva (approssimativa)|**Database SQL**: vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL**: vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
 |In memoria|Non supportato|Supportato|Non supportato|
@@ -69,7 +69,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) consente di ri
 
 ## <a name="hardware-generations"></a>Generazioni hardware
 
-Le opzioni di generazione hardware nel modello vCore includono gen 4/5, serie M e serie Fsv2. La generazione hardware definisce in genere i limiti di calcolo e memoria e altre caratteristiche che influiscano sulle prestazioni del carico di lavoro.
+Le opzioni di generazione hardware nel modello vCore includono gen 4/5, serie M, serie Fsv2 e DC. La generazione hardware definisce in genere i limiti di calcolo e memoria e altre caratteristiche che influiscano sulle prestazioni del carico di lavoro.
 
 ### <a name="gen4gen5"></a>Gen4/quinta generazione
 
@@ -84,7 +84,6 @@ Per le aree in cui è disponibile Gen4/quinta generazione, vedere [disponibilit�
 - Fsv2 fornisce meno memoria e tempdb per vCore rispetto ad altri componenti hardware, quindi i carichi di lavoro sensibili a tali limiti possono invece considerare la serie quinta generazione o M.  
 
 La serie Fsv2 è supportata solo nel livello per utilizzo generico. Per le aree in cui è disponibile la serie Fsv2, vedere [disponibilità della serie Fsv2](#fsv2-series-1).
-
 
 ### <a name="m-series"></a>Serie M
 
@@ -101,6 +100,22 @@ Per accedere alla serie M, la sottoscrizione deve essere un tipo di offerta a pa
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
 -->
 
+### <a name="dc-series"></a>Serie DC
+
+> [!NOTE]
+> La serie DC è attualmente disponibile in **anteprima pubblica**.
+
+- L'hardware della serie DC USA processori Intel con la tecnologia software Guard Extensions (Intel SGX).
+- La serie DC è necessaria per [Always Encrypted con enclave sicure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves), che non è supportata con altre configurazioni hardware.
+- La serie DC è progettata per carichi di lavoro che elaborano dati sensibili e richiedono funzionalità di elaborazione di query riservate, fornite da Always Encrypted con enclave sicure.
+- L'hardware della serie DC fornisce risorse di calcolo e di memoria bilanciate.
+
+La serie DC è supportata solo per il calcolo di cui è stato effettuato il provisioning (senza server non è supportata) e non supporta la ridondanza della zona. Per le aree in cui è disponibile la serie DC, vedere [disponibilità della serie DC](#dc-series-1).
+
+#### <a name="azure-offer-types-supported-by-dc-series"></a>Tipi di offerta di Azure supportati dalla serie DC
+
+Per accedere alla serie DC, la sottoscrizione deve essere un tipo di offerta a pagamento, ad esempio con pagamento in base al consumo o Enterprise Agreement (EA).  Per un elenco completo dei tipi di offerta di Azure supportati dalla serie DC, vedere [offerte correnti senza limiti di spesa](https://azure.microsoft.com/support/legal/offer-details).
+
 ### <a name="compute-and-memory-specifications"></a>Specifiche di calcolo e memoria
 
 
@@ -110,6 +125,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Quinta generazione     |**Calcolo con provisioning**<br>-Intel® E5-2673 V4 (Broadwell) 2,3 GHz, Intel® SP-8160 (Skylake) \* e intel® 8272CL (Cascade Lake) 2,5 GHz \* Processor<br>-Provisioning fino a 80 Vcore (1 vCore = 1 Hyper-thread)<br><br>**Calcolo serverless**<br>-Processori Intel® E5-2673 V4 (Broadwell) a 2,3 GHz e Intel® SP-8160 (Skylake) *<br>-Scalabilità automatica fino a 40 Vcore (1 vCore = 1 Hyper-thread)|**Calcolo con provisioning**<br>-5,1 GB per vCore<br>-Effettuare il provisioning fino a 408 GB<br><br>**Calcolo serverless**<br>-Scalabilità automatica fino a 24 GB per vCore<br>-Scalabilità automatica fino a 120 GB max|
 |Serie Fsv2     |-Processori Intel® 8168 (Skylake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning fino a 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Effettuare il provisioning fino a 136 GB|
 |Serie M     |-Intel® E7-8890 V3 2,5 GHz e processori Intel® 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning fino a 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Effettuare il provisioning fino a 3,7 TB|
+|Serie DC     | -Processori Intel XEON E-2288G<br>-Featuring Intel Software Guard Extension (Intel SGX))<br>-Provisioning fino a 8 Vcore (1 vCore = 1 core fisico) | 4,5 GB per vCore |
 
 \* Nella vista a gestione dinamica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione di hardware per i database che usano processori Intel® SP-8160 (Skylake) viene visualizzata come Gen6, mentre la generazione hardware per i database che usano Intel® 8272CL (Cascade Lake) viene visualizzata come GEN7. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell, Skylake o Cascade Lake).
 
@@ -138,7 +154,7 @@ Per un database, nella pagina Panoramica selezionare il collegamento piano **tar
 
   ![modifica dell'hardware](./media/service-tiers-vcore/change-hardware.png)
 
-Per un pool, nella pagina Overview (panoramica) selezionare **Configure (Configura** ).
+Per un pool, nella pagina Overview (panoramica) selezionare **Configure (Configura**).
 
 Seguire i passaggi per modificare la configurazione e selezionare la generazione hardware come descritto nei passaggi precedenti.
 
@@ -225,6 +241,15 @@ On the **Details** page, provide the following:
 
 Approved support requests are typically fulfilled within 5 business days.
 -->
+
+#### <a name="dc-series"></a>Serie DC
+
+> [!NOTE]
+> La serie DC è attualmente disponibile in **anteprima pubblica**.
+
+La serie DC è disponibile nelle aree geografiche seguenti: Canada centrale, Canada orientale, Stati Uniti orientali, Europa settentrionale, Regno Unito meridionale, Europa occidentale, Stati Uniti occidentali.
+
+Se è necessaria una serie di controller di dominio in un'area attualmente non supportata, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) seguendo le istruzioni in [aumento della quota di richieste per il database SQL di Azure e SQL istanza gestita](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

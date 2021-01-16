@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a47126a48ea63efd4e49097428679b85b7a95a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667164"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251455"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Creare un pool host di desktop virtuali Windows con PowerShell
 
@@ -124,7 +124,7 @@ Per registrare gli agenti Desktop virtuale Windows, eseguire le operazioni segue
 
 Se ci si trova in una delle situazioni seguenti, è necessario aggiornare l'agente:
 
-- Si desidera eseguire la migrazione di una sessione registrata in precedenza a un nuovo pool di host
+- Si desidera eseguire la migrazione di un host sessione precedentemente registrato a un nuovo pool di host
 - L'host sessione non viene visualizzato nel pool host dopo un aggiornamento
 
 Per aggiornare l'agente:

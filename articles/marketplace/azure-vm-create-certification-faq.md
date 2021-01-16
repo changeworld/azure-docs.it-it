@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 61bd23c74fd7960317dff17175b355b473cd6dc7
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233832"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251438"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -23,19 +23,6 @@ Questo articolo illustra i messaggi di errore comuni durante la pubblicazione di
 > [!NOTE]
 > Per domande su questo articolo o suggerimenti per migliorare, contattare il [supporto tecnico del centro](https://aka.ms/marketplacepublishersupport)per i partner.
 
-## <a name="approved-base-image"></a>Immagine di base approvata
-
-Quando si invia una richiesta per ripubblicare l'immagine con gli aggiornamenti, la verifica del numero di parte test case potrebbe non riuscire. In caso di errore, l'immagine non verrà approvata.
-
-Questo errore si verifica quando si usa un'immagine di base che appartiene a un altro server di pubblicazione ed è stata aggiornata l'immagine. In questa situazione non sarà consentito pubblicare l'immagine.
-
-Per risolvere questo problema, recuperare l'immagine da Azure Marketplace e apportare le modifiche. Per altre informazioni, vedere gli articoli seguenti:
-
-- [Immagini di Linux](../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
-- [Immagini di Windows](azure-vm-create-using-approved-base.md)
-
-> [!Note]
-> Se si usa un'immagine di base Linux non ricavata da Azure Marketplace, assicurarsi che i primi 2048 settori (ogni settore sia di 512 byte) sul disco rigido virtuale siano vuoti, in modo che Azure proceda con la pubblicazione della VM in Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
@@ -170,7 +157,7 @@ Fare riferimento alla tabella seguente per gli errori comuni che possono essere 
 Nella tabella seguente sono elencati i test case di Windows che verranno eseguiti dal Toolkit, insieme a una descrizione della convalida dei test:
 
 |Scenario |Test case|Descrizione|
-|---|---|---|---|
+|---|---|---|
 |1|Architettura del sistema operativo|Azure supporta solo i sistemi operativi a 64 bit.|
 |2|Dipendenza account utente|L'esecuzione dell'applicazione non deve dipendere dall'account Administrator.|
 |3|Cluster di failover|La funzionalità clustering di failover di Windows Server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
@@ -250,7 +237,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 |Famiglia del sistema operativo|Versione|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
-||14.04 LTS|4.15.0-1049-*-Azure|
+||14.04 LTS|4.15.0-1049- \* -Azure|
 ||16.04 LTS|4.15.0-1049|
 ||18.04 LTS|4.18.0-1023|
 ||18.04 LTS|5.0.0-1025|
@@ -283,9 +270,9 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 |Oracle|6.10|UEK2 2.6.39-400.312.2<br>UEK3 3.8.13-118.35.2<br>RHCK 2.6.32-754.15.3 
 ||7.0-7.5|UEK3 3.8.13-118.35.2<br>UEK4 4.1.12-124.28.3<br>RHCK segue RHEL|
 ||7.6|RHCK 3.10.0-957.21.3<br>UEK5 4.14.35-1902.2.0|
-|2079.6.0 stabile CoreOS|4.19.43*|
-||2135.3.1 beta|4.19.50*|
-||2163.2.1 alfa|4.19.50*|
+|2079.6.0 stabile CoreOS|4.19.43\*|
+||2135.3.1 beta|4.19.50\*|
+||2163.2.1 alfa|4.19.50\*|
 |Debian|Jessie (sicurezza)|3.16.68-2|
 ||backport Jessie|4.9.168-1 + deb9u3|
 ||Stretch (sicurezza)|4.9.168-1 + deb9u3|
@@ -328,14 +315,11 @@ Vedere la tabella seguente per eventuali problemi che si verificano quando si sc
 |6|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
 |7|Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
 
-## <a name="first-1mb-2048-sectors-each-sector-of-512-bytes-partition-linux-only"></a>Primo 1 MB (settori 2048, ogni settore di 512 byte) partizione (solo Linux)
+## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Prima partizione da 1 MB (2.048 settori, ogni settore di 512 byte)
 
-Quando si invia il disco rigido virtuale, assicurarsi che i primi 2048 settori (1 MB) del disco rigido virtuale siano vuoti. In caso contrario, la richiesta avrà esito negativo. Si noti che questo sarà applicabile al disco di avvio/sistema operativo e non a eventuali dischi dati aggiuntivi.
+Se si sta [creando un'immagine personalizzata](azure-vm-create-using-own-image.md), assicurarsi che i primi 2.048 settori (1 MB) del disco del sistema operativo siano vuoti. In caso contrario, la pubblicazione avrà esito negativo. Questo requisito è applicabile solo al disco del sistema operativo, non ai dischi dati. Se si compila l'immagine [da una base approvata](azure-vm-create-using-approved-base.md), è possibile ignorare questo requisito. 
 
->[!NOTE]
->Per alcune immagini speciali, ad esempio quelle basate sulle immagini di base di Windows di Azure ricavate da Azure Marketplace o verificare che il primo 1 MB (2048 settori) del disco rigido virtuale sia vuoto. 
-
-### <a name="create-a-first-1mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Creare una partizione del primo 1 MB (2048 settori, ogni settore di 512 byte) in un disco rigido virtuale vuoto
+### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Creare una partizione da 1 MB (2.048 settori, ogni settore di 512 byte) in un disco rigido virtuale vuoto (passaggi solo per Linux)
 
 Questi passaggi si applicano solo a Linux.
 
@@ -400,7 +384,7 @@ Questi passaggi si applicano solo a Linux.
 
 1. Scollegare il disco rigido virtuale dalla macchina virtuale ed eliminare la macchina virtuale.
 
-### <a name="create-a-first-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Creare una partizione per i primi MB (2048 settori, ogni settore di 512 byte) spostando i dati esistenti nel disco rigido virtuale
+### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Creare una prima partizione da 1 MB (2.048 settori, ogni settore di 512 byte) spostando i dati esistenti nel disco rigido virtuale
 
 Questi passaggi si applicano solo a Linux.
 

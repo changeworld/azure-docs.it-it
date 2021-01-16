@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 8937272f8b6ef945d80076732ea38523f7b475a1
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802542"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98248429"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -177,7 +177,7 @@ Scopri di più su [immersive Reader SDK](../cognitive-services/immersive-reader/
 
 ## <a name="improve-vm-performance-by-changing-the-maximum-session-limit"></a>Migliorare le prestazioni della macchina virtuale modificando il limite massimo della sessione
 
-Advisor rileva che si dispone di un pool di host con un primo set di profondità come algoritmo di bilanciamento del carico e che il limite massimo della sessione del pool host è maggiore o uguale a 99999. Il bilanciamento del carico in profondità usa il limite massimo di sessioni per determinare il numero massimo di utenti che possono disporre di sessioni simultanee in un singolo host della sessione. Se il limite massimo della sessione è troppo elevato, tutte le sessioni utente verranno indirizzate allo stesso host di sessione e ciò causerà problemi di prestazioni e affidabilità. Pertanto, quando si imposta un pool di host in modo da avere un primo bilanciamento del carico di profondità, è necessario impostare un limite massimo di sessioni appropriato in base alla configurazione della distribuzione e della capacità delle macchine virtuali. 
+Advisor rileva che si dispone di un pool di host con un primo set di profondità come algoritmo di bilanciamento del carico e che il limite massimo della sessione del pool host è maggiore o uguale a 999999. Il bilanciamento del carico in profondità usa il limite massimo di sessioni per determinare il numero massimo di utenti che possono disporre di sessioni simultanee in un singolo host della sessione. Se il limite massimo della sessione è troppo elevato, tutte le sessioni utente verranno indirizzate allo stesso host di sessione e ciò causerà problemi di prestazioni e affidabilità. Pertanto, quando si imposta un pool di host in modo da avere un primo bilanciamento del carico di profondità, è necessario impostare un limite massimo di sessioni appropriato in base alla configurazione della distribuzione e della capacità delle macchine virtuali. 
 
 Per ulteriori informazioni sul bilanciamento del carico in desktop virtuali Windows, vedere [configurare il metodo di bilanciamento del carico per desktop virtuali Windows](/azure/virtual-desktop/troubleshoot-set-up-overview).
 

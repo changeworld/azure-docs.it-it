@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: b62621a77f383b5c6413e7c187e7ba3d60beabad
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5e608d38ff70d51b569088629a6d80cb08e74ed4
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732088"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251625"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
@@ -21,9 +21,9 @@ Con le mappe sinonimi, è possibile associare termini equivalenti, espandendo l'
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Una mappa di sinonimi è un asset che può essere creato una volta e usato da molti indici. Il [livello di servizio](search-limits-quotas-capacity.md#synonym-limits) determina il numero di mappe sinonimi che è possibile creare, comprese tra 3 mappe sinonimi per i livelli gratuito e Basic, fino a 20 per i livelli standard. 
+Una mappa di sinonimi è un asset che può essere creato una volta e usato da molti indici. Il [livello di servizio](search-limits-quotas-capacity.md#synonym-limits) determina il numero di mappe sinonimi che è possibile creare, comprese tra tre mappe sinonimi per i livelli gratuito e Basic, fino a 20 per i livelli standard. 
 
-È possibile creare più mappe sinonimo per lingue diverse, ad esempio versioni in inglese e in francese, oppure lessico se il contenuto include una terminologia tecnica o nascosta. Sebbene sia possibile creare più mappe sinonimo, attualmente un campo può utilizzarne solo uno.
+È possibile creare più mappe sinonimo per lingue diverse, ad esempio versioni in inglese e in francese, oppure lessico se il contenuto include una terminologia tecnica o nascosta. Sebbene sia possibile creare più mappe sinonimo nel servizio di ricerca, un campo può utilizzarne solo uno.
 
 Una mappa di sinonimi è costituita da nome, formato e regole che funzionano come voci di mapping sinonimo. L'unico formato supportato è `solr` e il `solr` formato determina la costruzione di regole.
 
@@ -50,7 +50,7 @@ Le regole di mapping sono conformi alla specifica del filtro di sinonimi open so
 
 Ogni regola deve essere delimitata dal carattere di nuova riga ( `\n` ). È possibile definire fino a 5.000 regole per ogni mappa di sinonimi in un servizio gratuito e 20.000 regole per mappa in altri livelli. Ogni regola può avere fino a 20 espansioni (o elementi in una regola). Per ulteriori informazioni, vedere [limiti dei sinonimi](search-limits-quotas-capacity.md#synonym-limits).
 
-Gli analizzatori di query risulteranno in minuscolo eventuali termini maiuscoli o misti, ma se si desidera mantenere i caratteri speciali nella stringa, ad esempio una virgola o un trattino, aggiungere i caratteri di escape appropriati durante la creazione della mappa di sinonimi. 
+Gli analizzatori di query risulteranno in minuscolo eventuali termini maiuscoli o misti, ma se si desidera mantenere i caratteri speciali nella stringa, ad esempio una virgola o un trattino, aggiungere i caratteri di escape appropriati durante la creazione della mappa di sinonimi.
 
 ### <a name="equivalency-rules"></a>Regole di equivalenza
 
@@ -85,7 +85,7 @@ Nel caso esplicito, una query per `Washington` `Wash.` o `WA` verrà riscritta c
 
 ### <a name="escaping-special-characters"></a>Escape dei caratteri speciali
 
-Se è necessario definire sinonimi che contengono virgole o altri caratteri speciali, è possibile eseguire l'escape con una barra rovesciata, come in questo esempio:
+I sinonimi vengono analizzati durante l'elaborazione delle query. Se è necessario definire sinonimi che contengono virgole o altri caratteri speciali, è possibile eseguire l'escape con una barra rovesciata, come in questo esempio:
 
 ```json
 {
@@ -143,11 +143,15 @@ POST /indexes?api-version=2020-06-30
 
 L'aggiunta di sinonimi non impone nuovi requisiti per la creazione delle query. È possibile eseguire query su termini e frasi esattamente come prima dell'aggiunta di sinonimi. L'unica differenza è che se un termine di query è presente nella mappa dei sinonimi, il motore di query espanderà o riscriverà il termine o la frase, a seconda della regola.
 
-## <a name="how-synonyms-interact-with-other-features"></a>Interazione tra sinonimi e altre funzionalità
+## <a name="how-synonyms-are-used-during-query-execution"></a>Modalità di utilizzo di sinonimi durante l'esecuzione di query
 
-La funzionalità relativa ai sinonimi riscrive la query originale con sinonimi usando l'operatore OR. Per questo motivo, l'evidenziazione dei risultati e i profili di punteggio trattano il termine originale e i sinonimi come equivalenti.
+I sinonimi sono una tecnica di espansione delle query che integra il contenuto di un indice con termini equivalenti, ma solo per i campi che dispongono di un'assegnazione di sinonimo. Se una query con ambito campo *esclude* un campo abilitato per sinonimi, non verranno visualizzate corrispondenze dalla mappa dei sinonimi.
 
-I sinonimi sono validi solo per le query di ricerca e non sono supportati per i filtri, i facet, il completamento automatico o i suggerimenti. Il completamento automatico e i suggerimenti sono basati solo sul termine originale; le corrispondenze sinonimo non vengono visualizzate nella risposta.
+Per i campi abilitati per sinonimi, i sinonimi sono soggetti alla stessa analisi del testo del campo associato. Se, ad esempio, un campo viene analizzato usando l'analizzatore Lucene standard, i termini del sinonimo saranno anche soggetti all'analizzatore di Lucene standard in fase di query. Se si vuole mantenere la punteggiatura, ad esempio punti o trattini, nel termine del sinonimo, applicare un analizzatore che conserva il contenuto nel campo.
+
+Internamente, la funzionalità sinonimi riscrive la query originale con sinonimi con l'operatore OR. Per questo motivo, l'evidenziazione dei risultati e i profili di punteggio trattano il termine originale e i sinonimi come equivalenti.
+
+I sinonimi si applicano solo alle query di testo in formato libero e non sono supportati per i filtri, i facet, il completamento automatico o i suggerimenti. Il completamento automatico e i suggerimenti sono basati solo sul termine originale; le corrispondenze sinonimo non vengono visualizzate nella risposta.
 
 Le espansioni dei sinonimi non si applicano ai termini di ricerca con caratteri jolly; i termini con prefisso, fuzzy e regex non vengono espansi.
 

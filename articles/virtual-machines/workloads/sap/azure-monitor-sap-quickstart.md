@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 08/17/2020
 ms.reviewer: cynthn
-ms.openlocfilehash: c3b3848e4e4f7b0445f882265dbe66bb10b48833
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0bb0a7833e9ee3b499ae013b665ecf137c667005
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968588"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250996"
 ---
 # <a name="deploy-azure-monitor-for-sap-solutions-with-azure-portal"></a>Distribuire monitoraggio di Azure per le soluzioni SAP con portale di Azure
 
@@ -77,6 +77,18 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea** per completare la distribuzione.
 
    :::image type="content" source="./media/azure-monitor-sap/azure-monitor-quickstart-5.png" alt-text="Image Mostra le opzioni correlate al provider pacemaker del cluster a disponibilità elevata." lightbox="./media/azure-monitor-sap/azure-monitor-quickstart-5.png":::
+
+
+### <a name="os-linux-provider"></a>Provider del sistema operativo (Linux) 
+
+1. Selezionare sistema operativo (Linux) nell'elenco a discesa 
+
+> [!IMPORTANT]
+> Per configurare il provider del sistema operativo (Linux), assicurarsi che Node_Exporter sia installato in ogni istanza di BareMetal. Per ulteriori informazioni, vedere [Node_Exporter](https://github.com/prometheus/node_exporter)
+
+2. Immettere un nome, che sarà l'identificatore per l'istanza di BareMetal.
+3. Immettere l'endpoint dell'utilità di esportazione del nodo nel formato http://IP:9100/metrics .
+4. Al termine, selezionare **Aggiungi provider**. Continuare ad aggiungere altri provider in base alle esigenze oppure selezionare **Verifica + crea**   per completare la distribuzione. 
 
 
 ### <a name="microsoft-sql-server-provider"></a>Provider Microsoft SQL Server

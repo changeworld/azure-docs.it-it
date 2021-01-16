@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: de4e7959a5778c7275427450ead876338f052882
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 9a6346a2b62c81dd74cf0ebe9a85df12d3488679
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196776"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251251"
 ---
 # <a name="create-databases-and-users-in-azure-database-for-mysql"></a>Creare database e utenti in database di Azure per MySQL
 
@@ -20,9 +20,7 @@ ms.locfileid: "98196776"
 Questo articolo descrive come creare utenti in database di Azure per MySQL.
 
 > [!NOTE]
-> Comunicazione senza distorsione
->
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alle parole _Master_ e _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) li riconosce come parole di esclusione. Le parole vengono usate in questo articolo per coerenza perché sono attualmente parole visualizzate nel software. Quando il software viene aggiornato per rimuovere le parole, questo articolo verrà aggiornato in modo da essere in linea.
+> Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 >
 
 Al momento della creazione del database di Azure per il server MySQL, sono stati specificati un nome utente e una password di amministratore del server. Per ulteriori informazioni, vedere questa [Guida introduttiva](quickstart-create-mysql-server-database-using-azure-portal.md). È possibile determinare il nome utente dell'amministratore del server nel portale di Azure.

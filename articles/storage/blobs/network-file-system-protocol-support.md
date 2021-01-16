@@ -9,12 +9,12 @@ ms.date: 08/04/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: c48a7f4b5b1512ec5bcd289e4fb8bd7884ca7394
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922560"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250809"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Supporto del protocollo NFS (Network File System) 3,0 nell'archivio BLOB di Azure (anteprima)
 
@@ -102,6 +102,8 @@ Le funzionalità di NFS 3,0 seguenti non sono ancora supportate con Azure Data L
 - Elencare i montaggi (ad esempio, usando il comando `showmount -a` )
 
 - Elenco delle esportazioni (ad esempio, tramite il comando `showmount -e` )
+
+- Collegamento reale
 
 - Esportazione di un contenitore come di sola lettura
 

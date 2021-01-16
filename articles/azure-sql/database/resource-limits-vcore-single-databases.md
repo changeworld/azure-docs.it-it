@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/15/2020
-ms.openlocfilehash: 4ffe663c1a1651891af5f6e65ee231cbe3e8d650
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.date: 01/15/2021
+ms.openlocfilehash: db3b168826223e4eb958f7700e65623a115e5779
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882306"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251472"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto vCore
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: |--: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
+|Memoria (GB)|83|93.4|103.8|124,6|166,1|207,6|415,2|
 |[RBPEX](service-tier-hyperscale.md#compute) Dimensioni|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -226,6 +226,37 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 \* Oltre all'i/o SSD locale, i carichi di lavoro utilizzeranno i/o del [server della pagina](service-tier-hyperscale.md#page-server) remota I IOPS effettivi dipendono dal carico di lavoro. Per informazioni dettagliate, vedere la pagina relativa alla [governance](resource-limits-logical-server.md#resource-governance)dei dati e i/o [dei dati nelle statistiche sull'utilizzo delle risorse](hyperscale-performance-diagnostics.md#data-io-in-resource-utilization-statistics).
 
 #### <a name="notes"></a>Note
+
+**Nota 1**: l'iperscalabilità è un'architettura a più livelli con componenti di calcolo e archiviazione distinti: [architettura del livello di servizio con iperscalabilità](service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Nota 2**: la latenza è 1-2 ms per i dati nell'unità SSD della replica di calcolo locale, che memorizza nella cache le pagine di dati più usate. Latenza più elevata per i dati recuperati dai server delle pagine.
+
+## <a name="hyperscale---provisioned-compute---dc-series"></a>Calcolo con provisioning iperscalare-serie DC
+
+|Dimensioni di calcolo (obiettivo di servizio)|HS_DC_2|HS_DC_4|HS_DC_6|HS_DC_8|
+|:--- | --: |--: |--: |--: |---: | 
+|Generazione di calcolo|Serie DC|Serie DC|Serie DC|Serie DC|
+|vCore|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|[RBPEX](service-tier-hyperscale.md#compute) Dimensioni|Memoria 3X|Memoria 3X|Memoria 3X|Memoria 3X|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (TB)|100 |100 |100 |100 |
+|Dimensioni massime del log (TB)|Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |Nessuna limitazione |
+|Dimensioni massime dati TempDB (GB)|64|128|192|256|
+|Tipo di archiviazione| [Nota 1](#notes) |[Nota 1](#notes)|[Nota 1](#notes) |[Nota 1](#notes) |
+|Numero massimo di IOPS SSD locali *|8000 |16000 |24000 |32000 |
+|Velocità massima log (MBps)|100 |100 |100 |100 |
+|Latenza di I/O (approssimativa)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|[Nota 2](#notes)|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|160|320|480|640|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|
+|Repliche secondarie|0-4|0-4|0-4|0-4|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|
+|Conservazione dell'archiviazione di backup|7 giorni|7 giorni|7 giorni|7 giorni|
+|||
+
+### <a name="notes"></a>Note
 
 **Nota 1**: l'iperscalabilità è un'architettura a più livelli con componenti di calcolo e archiviazione distinti: [architettura del livello di servizio con iperscalabilità](service-tier-hyperscale.md#distributed-functions-architecture)
 
@@ -276,7 +307,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)
 |Numero massimo di IOPS dati *|2240|2560|2880|3200|5120|7680|
-|Velocità massima log (MBps)|31,5|36|36|36|36|36|
+|Velocità massima log (MBps)|31.5|36|36|36|36|36|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|30.000|30.000|
 |Numero di repliche|1|1|1|1|1|1|
@@ -319,7 +350,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
+|Memoria (GB)|83|93.4|103.8|124,6|166,1|207,6|415,2|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -346,7 +377,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:---| ---:|---:|---:|---:|---:|
 |Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
 |vCore|8|10|12|14|16|
-|Memoria (GB)|15.1|18,9|22,7|26,5|30,2|
+|Memoria (GB)|15.1|18.9|22,7|26.5|30,2|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1536|
@@ -372,7 +403,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:---| ---:|---:|---:|---:|---:|---:|
 |Generazione di calcolo|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
 |vCore|18|20|24|32|36|72|
-|Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Memoria (GB)|34.0|37,8|45,4|60,5|68.0|136,0|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Dimensioni massime dei dati (GB)|1536|1536|1536|3072|3072|4096|
@@ -389,6 +420,32 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
+
+## <a name="general-purpose---provisioned-compute---dc-series"></a>Calcolo per utilizzo generico-serie DC
+
+|Dimensioni di calcolo (obiettivo di servizio)|GP_DC_2|GP_DC_4|GP_DC_6|GP_DC_8| 
+|:---| ---:|---:|---:|---:|
+|Generazione di calcolo|Serie DC|Serie DC|Serie DC|Serie DC|
+|vCore|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|
+|Dimensioni massime dei dati (GB)|1024|1536|3072|3072|
+|Dimensioni massime del log (GB)|307|461|922|922|
+|Dimensioni massime dati TempDB (GB)|64|128|192|256|
+|Tipo di archiviazione|Unità SSD remota|Unità SSD remota|Unità SSD remota|Unità SSD remota|
+|Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
+|Numero massimo di IOPS dati *|640|1280|1920|2560|
+|Velocità massima log (MBps)|9|18|27|36|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|160|320|480|640|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|
+|Numero di repliche|1|1|1|1|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
 
 \* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
@@ -483,7 +540,7 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generazione di calcolo|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|Quinta generazione|
 |vCore|16|18|20|24|32|40|80|
-|Memoria (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
+|Memoria (GB)|83|93.4|103.8|124,6|166,1|207,6|415,2|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|15,77|18,14|20,51|25,25|37,94|52,23|131.64|
 |Dimensioni massime dei dati (GB)|3072|3072|3072|4096|4096|4096|4096|
@@ -563,6 +620,31 @@ Il [livello di calcolo senza server](serverless-tier-overview.md) è attualmente
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [gestire lo spazio di file nel database SQL di Azure](file-space-manage.md).
 
+## <a name="business-critical---provisioned-compute---dc-series"></a>Calcolo con provisioning critico per il business-serie DC
+
+|Dimensioni di calcolo (obiettivo di servizio)|BC_DC_2|BC_DC_4|BC_DC_6|BC_DC_8|
+|:--- | --: |--: |--: |--: |
+|Generazione di calcolo|Serie DC|Serie DC|Serie DC|Serie DC|
+|vCore|2|4|6|8|
+|Memoria (GB)|9|18|27|36|
+|Supporto per columnstore|Sì|Sì|Sì|Sì|
+|Archiviazione OLTP in memoria (GB)|1.7|3,7|5.9|8.2|
+|Dimensioni massime dei dati (GB)|768|768|768|768|
+|Dimensioni massime del log (GB)|230|230|230|230|
+|Dimensioni massime dati TempDB (GB)|64|128|192|256|
+|Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|
+|Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
+|Numero massimo di IOPS dati *|14000|28000|42000|56000|
+|Velocità massima log (MBps)|24|48|72|96|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|600|800|
+|Numero massimo di accessi simultanei|200|400|600|800|
+|Numero massimo di sessioni simultanee|30.000|30.000|30.000|30.000|
+|Numero di repliche|4|4|4|4|
+|Zone di disponibilità multiple|No|No|No|No|
+|Scalabilità orizzontale in lettura|No|No|No|No|
+|Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
+
+\* Il valore massimo per le dimensioni di i/o comprese tra 8 KB e 64 KB. Gli IOPS effettivi sono dipendenti dal carico di lavoro. Per informazioni dettagliate, vedere [governance io di dati](resource-limits-logical-server.md#resource-governance).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

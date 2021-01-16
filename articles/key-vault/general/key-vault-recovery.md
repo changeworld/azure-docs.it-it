@@ -8,12 +8,12 @@ ms.author: mbaldwin
 author: msmbaldwin
 manager: rkarlin
 ms.date: 09/30/2020
-ms.openlocfilehash: a9a783333d8edd40556b7744eb7cf7dfb52953a7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4a6b3e4c6354c292d000a307bc25f8532aa9a096
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933983"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250792"
 ---
 # <a name="azure-key-vault-recovery-management-with-soft-delete-and-purge-protection"></a>Gestione del ripristino Azure Key Vault con eliminazione e ripulitura soft
 
@@ -29,6 +29,8 @@ Per ulteriori informazioni su Key Vault, vedere.
 * [Modulo di PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 * Un insieme di credenziali delle chiavi. È possibile crearne uno con il [portale di Azure](../general/quick-create-portal.md), l'[interfaccia della riga di comando di Azure](../general/quick-create-cli.md) o [Azure PowerShell](../general/quick-create-powershell.md).
+* Per eseguire operazioni sugli insiemi di credenziali eliminati temporaneamente, l'utente dovrà disporre delle autorizzazioni seguenti (a livello di sottoscrizione): | Microsoft. insieme di credenziali/località/deletedVaults/lettura | Visualizzare le proprietà di un Key Vault eliminato temporaneamente | | Microsoft. insieme di credenziali/località/deletedVaults/ripulitura/azione | Ripulire un insieme di credenziali delle chiavi eliminato temporaneamente |
+
 
 ## <a name="what-are-soft-delete-and-purge-protection"></a>Che cosa sono la protezione eliminazione temporanea e ripulitura
 

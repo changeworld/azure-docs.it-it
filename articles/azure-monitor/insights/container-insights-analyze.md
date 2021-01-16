@@ -3,12 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: a1f661089b3a6357abb3eed584401e6a8ae2e2fb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 68d0ac03ae0f6029e0f984e296a89048536f4eb7
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905707"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251285"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -88,7 +88,7 @@ Dall'elenco dei cluster è possibile eseguire il drill-down nella pagina del **c
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Visualizzare le prestazioni direttamente da un cluster
 
-L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando il cluster **Insights**  >  **Cluster** nel riquadro a sinistra oppure quando è stato selezionato un cluster dalla visualizzazione a più cluster. Le informazioni sul cluster sono organizzate in quattro prospettive:
+L'accesso a monitoraggio di Azure per i contenitori è disponibile direttamente da un cluster AKS selezionando il cluster **Insights**  >   nel riquadro a sinistra oppure quando è stato selezionato un cluster dalla visualizzazione a più cluster. Le informazioni sul cluster sono organizzate in quattro prospettive:
 
 - Cluster
 - Nodi
@@ -130,7 +130,7 @@ In Esplora metriche è possibile visualizzare le metriche di utilizzo dei nodi e
 | Insights. container/Pod | |
 | | PodCount | Numero di pod da Kubernetes.|
 
-È possibile [suddividere](../platform/metrics-charts.md#apply-splitting-to-a-chart) una metrica per visualizzarla in base alla dimensione e visualizzare il modo in cui i diversi segmenti si confrontano tra loro. Per un nodo è possibile segmentare il grafico in base alla dimensione *host* . Da un pod è possibile segmentarlo per le dimensioni seguenti:
+È possibile [suddividere](../platform/metrics-charts.md#apply-splitting) una metrica per visualizzarla in base alla dimensione e visualizzare il modo in cui i diversi segmenti si confrontano tra loro. Per un nodo è possibile segmentare il grafico in base alla dimensione *host* . Da un pod è possibile segmentarlo per le dimensioni seguenti:
 
 * Controller
 * Spazio dei nomi Kubernetes

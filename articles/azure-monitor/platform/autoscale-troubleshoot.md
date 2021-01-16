@@ -4,12 +4,12 @@ description: Rilevamento di problemi con la scalabilità automatica di Azure usa
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4589acd17e76d1341d5aceada67e565c8f8c37
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979047"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251268"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
  
@@ -51,20 +51,20 @@ Esaminiamo le metriche dal servizio di scalabilità automatica.
 
 ![Esempio di CPU percentuale del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
-***Figura 1a-percentuale di metrica della CPU per il set di scalabilità di macchine virtuali e la metrica del valore metrica osservato per l'impostazione di scalabilità automatica***
+**_Figura 1a-percentuale di metrica della CPU per il set di scalabilità di macchine virtuali e la metrica del valore metrica osservata per l'impostazione di scalabilità automatica_*
 
 ![Soglia metrica e capacità osservata](media/autoscale-troubleshoot/autoscale-metric-threshold-capacity-ex-full.png)
 
-***Figura 1B-soglia metrica e capacità osservata***
+_*_Figura 1B-soglia metrica e capacità osservata_*_
 
-Nella figura 1b la **soglia della metrica** (linea blu chiaro) per la regola di scalabilità orizzontale è 70.  La **capacità osservata** (linea blu scuro) Mostra il numero di istanze attive, che è attualmente 3. 
+Nella figura 1b, la *soglia _ metrica** (linea blu chiaro) per la regola di scalabilità orizzontale è 70.  La **capacità osservata** (linea blu scuro) Mostra il numero di istanze attive, che è attualmente 3. 
 
 > [!NOTE]
 > Per visualizzare la soglia di scalabilità orizzontale e la regola di scalabilità orizzontale (riduzione), è necessario filtrare la **soglia della metrica** per la regola del trigger della dimensione scale out (aumento). 
 
 ## <a name="example-2---advanced-autoscaling-for-a-virtual-machine-scale-set"></a>Esempio 2: scalabilità automatica avanzata per un set di scalabilità di macchine virtuali
 
-È presente un'impostazione di scalabilità automatica che consente la scalabilità orizzontale di una risorsa del set di scalabilità di macchine virtuali in base ai **flussi in uscita**della metrica. Si noti che l'opzione **divide metrica per numero di istanze** per la soglia della metrica è selezionata. 
+È presente un'impostazione di scalabilità automatica che consente la scalabilità orizzontale di una risorsa del set di scalabilità di macchine virtuali in base ai **flussi in uscita** della metrica. Si noti che l'opzione **divide metrica per numero di istanze** per la soglia della metrica è selezionata. 
 
 La regola dell'azione di ridimensionamento è: 
 
@@ -76,18 +76,18 @@ In questo caso, il valore della metrica osservato del motore di scalabilità aut
 
 ![Esempio di grafici di metriche di scalabilità automatica del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
-***Figura 2: esempio di grafici delle metriche di scalabilità automatica del set di scalabilità di macchine virtuali***
+**_Figura 2: esempio di grafici delle metriche di scalabilità automatica del set di scalabilità di macchine virtuali_*
 
 Nella figura 2 è possibile visualizzare due grafici di metrica. 
 
-Il grafico in alto mostra il valore effettivo della metrica dei **flussi in uscita** . Il valore effettivo è 6. 
+Il grafico in alto mostra il valore effettivo della metrica _ *flussi in uscita**. Il valore effettivo è 6. 
 
 Il grafico nella parte inferiore mostra alcuni valori. 
  - Il **valore della metrica osservata** (blu chiaro) è 3 perché sono presenti 2 istanze attive e 6 divise per 2 è 3. 
  - La **capacità osservata** (viola) Mostra il numero di istanze visualizzato dal motore di scalabilità automatica. 
  - La **soglia della metrica** (verde chiaro) è impostata su 10. 
 
-Se sono presenti più regole di azione di ridimensionamento, è possibile usare la suddivisione o l'opzione **Aggiungi filtro** nel grafico di Esplora metriche per esaminare la metrica in base a un'origine o una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico delle metriche, vedere [Advanced Features of Metric Charts-spliting](metrics-charts.md#apply-splitting-to-a-chart)
+Se sono presenti più regole di azione di ridimensionamento, è possibile usare la suddivisione o l'opzione **Aggiungi filtro** nel grafico di Esplora metriche per esaminare la metrica in base a un'origine o una regola specifica. Per ulteriori informazioni sulla suddivisione di un grafico delle metriche, vedere [Advanced Features of Metric Charts-spliting](metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Esempio 3: informazioni sugli eventi di scalabilità automatica
 

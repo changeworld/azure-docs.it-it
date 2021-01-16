@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: f729c00d3b78631a32013ec9453302584cecbd16
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962432"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250979"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -345,7 +345,7 @@ Per abilitare le zone in un set di scalabilità di macchine virtuali, è necessa
 
 * Il primo valore è la proprietà **Zones** , che specifica il zone di disponibilità presente nel set di scalabilità di macchine virtuali.
 * Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true. **Il set di scalabilità in 3 AZ può essere ridimensionato fino a 300 VM anche con "singlePlacementGroup = true".**
-* Il terzo valore è "zoneBalance" ed è facoltativo, che garantisce un rigido bilanciamento della zona se impostato su true. Vedere informazioni su [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Il terzo valore è "zoneBalance", che garantisce un rigido bilanciamento della zona se impostato su true. È consigliabile impostare questo valore su true per evitare la distribuzione sbilanciata delle macchine virtuali tra le zone. Vedere informazioni su [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 * Non è necessario configurare gli override di FaultDomain e UpgradeDomain.
 
 ```json
@@ -357,7 +357,7 @@ Per abilitare le zone in un set di scalabilità di macchine virtuali, è necessa
     "zones": ["1", "2", "3"],
     "properties": {
         "singlePlacementGroup": "true",
-        "zoneBalance": false
+        "zoneBalance": true
     }
 }
 ```

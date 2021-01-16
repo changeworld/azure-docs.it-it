@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 70b7042e4006cc59419d0ea6798fe7626a82c086
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 872a67d8d9f41c0c809df54304352b2a5f58e011
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621077"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251761"
 ---
 # <a name="required-url-list"></a>Elenco di URL necessari
 
@@ -32,6 +32,7 @@ Le macchine virtuali di Azure create per desktop virtuale Windows devono avere a
 |* xt.blob.core.windows.net|443|Traffico dell'agente|AzureCloud|
 |* eh.servicebus.windows.net|443|Traffico dell'agente|AzureCloud|
 |* xt.table.core.windows.net|443|Traffico dell'agente|AzureCloud|
+|* xt.queue.core.windows.net|443|Traffico dell'agente|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Attivazione di Windows|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Aggiornamenti dello stack dell'agente e di SXS|AzureCloud|
@@ -72,8 +73,8 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 |login.windows.net|443|Accedere a Microsoft Online Services, Microsoft 365|login.microsoftonline.us|
 |*.sfx.ms|443|Aggiornamenti per il software client di OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verifica della revoca del certificato|nessuno|
-|*. azure-dns.com|443|Risoluzione DNS di Azure|nessuno|
-|*. azure-dns.net|443|Risoluzione DNS di Azure|nessuno|
+|*. azure-dns.com|443|Risoluzione DNS di Azure|Nessuno|
+|*. azure-dns.net|443|Risoluzione DNS di Azure|Nessuno|
 
 >[!NOTE]
 >Desktop virtuale di Windows attualmente non dispone di un elenco di intervalli di indirizzi IP che è possibile sbloccare per consentire il traffico di rete. Al momento è supportato solo l'sblocco di URL specifici.
@@ -100,7 +101,7 @@ Tutti i client Desktop remoto utilizzati devono avere accesso agli URL seguenti:
 |aka.ms|443|Abbreviazione URL Microsoft|Tutti|nessuno|
 |docs.microsoft.com|443|Documentazione|Tutti|nessuno|
 |privacy.microsoft.com|443|Informativa sulla privacy|Tutti|nessuno|
-|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|nessuno|
+|query.prod.cms.rt.microsoft.com|443|Aggiornamenti client|Desktop di Windows|Nessuno|
 
 >[!IMPORTANT]
 >L'apertura di questi URL è essenziale per un'esperienza client affidabile. Il blocco dell'accesso a questi URL non è supportato e influirà sulle funzionalità del servizio.

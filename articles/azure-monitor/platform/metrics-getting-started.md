@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 710de93a24037031784ca8d37a8ae0be76bff9e6
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614594"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250401"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -38,7 +38,7 @@ Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una 
 
     > ![Selezionare una metrica](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Facoltativamente, è possibile [modificare l'aggregazione delle metriche](metrics-charts.md#changing-aggregation). È ad esempio possibile fare in modo che il grafico mostri i valori minimo, massimo o medio della metrica.
+4. Facoltativamente, è possibile [modificare l'aggregazione delle metriche](metrics-charts.md#aggregation). È ad esempio possibile fare in modo che il grafico mostri i valori minimo, massimo o medio della metrica.
 
 > [!TIP]
 > Usare il pulsante **Aggiungi metrica** e ripetere questi passaggi per visualizzare più metriche tracciate nello stesso grafico. Per più grafici in una visualizzazione, selezionare il pulsante **Aggiungi grafico** nella parte superiore.
@@ -57,7 +57,7 @@ Per impostazione predefinita, il grafico mostra le ultime 24 ore di dati della m
 
 ## <a name="apply-dimension-filters-and-splitting"></a>Applicare i filtri e la divisione delle dimensioni
 
-Il [filtro](metrics-charts.md#apply-filters-to-charts) e la [suddivisione](metrics-charts.md#apply-splitting-to-a-chart) sono strumenti di diagnostica avanzati per le metriche con dimensioni. Queste funzionalità mostrano il modo in cui i vari segmenti di metrica ("valori di dimensione") influiscano sul valore complessivo della metrica e consentono di identificare possibili outlier.
+Il [filtro](metrics-charts.md#filters) e la [suddivisione](metrics-charts.md#apply-splitting) sono strumenti di diagnostica avanzati per le metriche con dimensioni. Queste funzionalità mostrano il modo in cui i vari segmenti di metrica ("valori di dimensione") influiscano sul valore complessivo della metrica e consentono di identificare possibili outlier.
 
 - Il **filtro** consente di scegliere i valori di dimensione inclusi nel grafico. Ad esempio, potrebbe essere necessario visualizzare le richieste riuscite quando si crea un grafico della metrica del *tempo di risposta del server* . È necessario applicare il filtro in caso *di esito positivo della dimensione della richiesta* . 
 

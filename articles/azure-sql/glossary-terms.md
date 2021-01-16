@@ -11,18 +11,18 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 01/22/2020
-ms.openlocfilehash: 18ff2c9690de1708cd8382d83a0c01662a8e6fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 12/09/2020
+ms.openlocfilehash: 8bd1e312463cf89ae30d54bc4a32a497fc7a9a78
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619781"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249653"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossario dei termini relativi al database SQL di Azure
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
 
-## <a name="azure-sql-database"></a>database SQL di Azure
+## <a name="azure-sql-database"></a>Database SQL di Azure
 
 |Context|Termine|Ulteriori informazioni|
 |:---|:---|:---|
@@ -34,10 +34,10 @@ ms.locfileid: "91619781"
 |Livello di servizio|Basic, standard, Premium, per utilizzo generico, iperscalabile, business critical|Per i livelli di servizio nel modello vCore, vedere [livelli di servizio del database SQL](database/service-tiers-vcore.md#service-tiers). Per i livelli di servizio nel modello DTU, vedere [modello DTU](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
 |Livello di calcolo|Calcolo serverless|[Calcolo serverless](database/service-tiers-vcore.md#compute-tiers)
 ||Calcolo con provisioning|[Calcolo con provisioning](database/service-tiers-vcore.md#compute-tiers)
-|Generazione di calcolo|Quinta generazione, serie M, serie Fsv2|[Generazioni hardware](database/service-tiers-vcore.md#hardware-generations)
+|Generazione di calcolo|Quinta generazione, serie M, serie Fsv2, serie DC|[Generazioni hardware](database/service-tiers-vcore.md#hardware-generations)
 |Entità server| Server |[Server SQL logici](database/logical-servers.md)|
 |Tipo di risorsa|vCore|Un core CPU fornito alla risorsa di calcolo per un singolo database, un pool elastico. |
-||Dimensioni di calcolo e quantità di risorse di archiviazione|Dimensioni di calcolo è la quantità massima di CPU, memoria e altre risorse non correlate all'archiviazione disponibili per un singolo database o un pool elastico.  Dimensioni di archiviazione è la quantità massima di spazio di archiviazione disponibile per un singolo database o un pool elastico. Per le opzioni di ridimensionamento nel modello Vcore, vedere [Vcore Single databases](database/resource-limits-vcore-single-databases.md)e [Vcore Elastic pools](database/resource-limits-vcore-elastic-pools.md).  (.. /managed-instance/resource-limits.md).  Per le opzioni di ridimensionamento nel modello DTU, vedere [database singoli DTU](database/resource-limits-dtu-single-databases.md) e [pool elastici DTU](database/resource-limits-dtu-elastic-pools.md).
+||Dimensioni di calcolo e quantità di risorse di archiviazione|Dimensioni di calcolo è la quantità massima di CPU, memoria e altre risorse non correlate all'archiviazione disponibili per un singolo database o un pool elastico.  Dimensioni di archiviazione è la quantità massima di spazio di archiviazione disponibile per un singolo database o un pool elastico. Per le opzioni di ridimensionamento nel modello vCore, vedere [vCore Single databases](database/resource-limits-vcore-single-databases.md)e [vCore Elastic pools](database/resource-limits-vcore-elastic-pools.md).  (.. /managed-instance/resource-limits.md).  Per le opzioni di ridimensionamento nel modello DTU, vedere [database singoli DTU](database/resource-limits-dtu-single-databases.md) e [pool elastici DTU](database/resource-limits-dtu-elastic-pools.md).
 
 ## <a name="azure-sql-managed-instance"></a>Istanza gestita di SQL di Azure
 
@@ -53,7 +53,3 @@ ms.locfileid: "91619781"
 |Entità server|Istanza o istanza gestita| N/A perché il Istanza gestita SQL si trova nel server |
 |Tipo di risorsa|vCore|Un core CPU fornito alla risorsa di calcolo per SQL Istanza gestita.|
 ||Dimensioni di calcolo e quantità di risorse di archiviazione|Dimensioni di calcolo è la quantità massima di CPU, memoria e altre risorse non correlate all'archiviazione per SQL Istanza gestita.  Dimensioni di archiviazione è la quantità massima di spazio di archiviazione disponibile per un Istanza gestita SQL.  Per le opzioni di ridimensionamento, [istanze gestite di SQL](managed-instance/resource-limits.md). |
-
-## <a name="sql-on-azure-vm"></a>SQL in macchine virtuali di Azure
-
-sono necessarie altre informazioni
