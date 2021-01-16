@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 853c71ed4803f717188568ec051c40c4f73afe95
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cefd00609062c30b036f87a0a01a75dc2afb868b
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202872"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246146"
 ---
 # <a name="graphics-binding"></a>Binding di grafica
 
@@ -29,7 +29,7 @@ In Unity il binding viene interamente gestito dallo struct `RemoteUnityClientIni
 
 * **HoloLens 2**: viene sempre usato il binding di grafica [Windows Mixed Reality](#windows-mixed-reality).
 * **App desktop per la piattaforma UWP flat**: [viene sempre usata la simulazione](#simulation).
-* **Editor di Unity**: viene sempre usata la[simulazione](#simulation), a meno che non sia connessa una cuffia per la realtà virtuale Windows Mixed Reality, nel qual caso ARR (Application Request Routing) viene disabilitato per consentire il debug delle parti correlate non ARR dell'applicazione. Vedere anche la [comunicazione remota olografica](../how-tos/unity/holographic-remoting.md).
+* **Editor di Unity**: viene sempre usata la [simulazione](#simulation), a meno che non sia connessa una cuffia per la realtà virtuale Windows Mixed Reality, nel qual caso ARR (Application Request Routing) viene disabilitato per consentire il debug delle parti correlate non ARR dell'applicazione. Vedere anche la [comunicazione remota olografica](../how-tos/unity/holographic-remoting.md).
 
 L'unica altra parte pertinente per Unity è l'accesso al [binding di base](#access). Tutte le altre sezioni riportate di seguito possono essere ignorate.
 
@@ -150,13 +150,13 @@ Sono necessarie due fotocamere:
 
 L'approccio di base è che l'immagine remota e il contenuto locale vengono sottoposti a rendering in una destinazione fuori schermo usando la fotocamera del proxy. L'immagine proxy viene quindi riproiettata nello spazio locale della fotocamera, descritta ulteriormente nella [riproiezione della fase finale](../overview/features/late-stage-reprojection.md).
 
-La configurazione è un po' più complessa e funziona nel modo seguente:
+`GraphicsApiType.SimD3D11` supporta anche il rendering stereoscopico, che deve essere abilitato durante la `InitSimulation` chiamata di installazione riportata di seguito. La configurazione è un po' più complessa e funziona nel modo seguente:
 
 #### <a name="create-proxy-render-target"></a>Creare la destinazione di rendering proxy
 
 È necessario eseguire il rendering del contenuto remoto e locale in una destinazione di rendering di colore/profondità fuori schermo denominata 'proxy' usando i dati della camera proxy forniti dalla funzione `GraphicsBindingSimD3d11.Update`.
 
-Il proxy deve corrispondere alla risoluzione del buffer nascosto e deve essere int il formato *DXGI_FORMAT_R8G8B8A8_UNORM* o *DXGI_FORMAT_B8G8R8A8_UNORM* . Quando la sessione è pronta, è necessario chiamare `GraphicsBindingSimD3d11.InitSimulation` prima della connessione:
+Il proxy deve corrispondere alla risoluzione del buffer nascosto e deve essere int il formato *DXGI_FORMAT_R8G8B8A8_UNORM* o *DXGI_FORMAT_B8G8R8A8_UNORM* . Nel caso del rendering stereoscopico, sia la trama del proxy del colore che, se si usa la profondità, la trama del proxy di profondità deve avere due livelli di matrice anziché uno. Quando la sessione è pronta, è necessario chiamare `GraphicsBindingSimD3d11.InitSimulation` prima della connessione:
 
 ```cs
 AzureSession currentSession = ...;
@@ -166,8 +166,9 @@ IntPtr depth = ...; // native pointer to ID3D11Texture2D
 float refreshRate = 60.0f; // Monitor refresh rate up to 60hz.
 bool flipBlitRemoteFrameTextureVertically = false;
 bool flipReprojectTextureVertically = false;
+bool stereoscopicRendering = false;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
-simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
+simBinding.InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically, stereoscopicRendering);
 ```
 
 ```cpp
@@ -178,8 +179,9 @@ void* depth = ...; // native pointer to ID3D11Texture2D
 float refreshRate = 60.0f; // Monitor refresh rate up to 60hz.
 bool flipBlitRemoteFrameTextureVertically = false;
 bool flipReprojectTextureVertically = false;
+bool stereoscopicRendering = false;
 ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
-simBinding->InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically);
+simBinding->InitSimulation(d3dDevice, depth, color, refreshRate, flipBlitRemoteFrameTextureVertically, flipReprojectTextureVertically, stereoscopicRendering);
 ```
 
 La funzione init deve essere dotata di puntatori al dispositivo D3D nativo, nonché alla texture di colore e profondità della destinazione di rendering proxy. Dopo l'inizializzazione, `AzureSession.ConnectToRuntime` e `DisconnectFromRuntime` possono essere chiamate più volte, ma quando si passa a una sessione diversa è necessario chiamare prima `GraphicsBindingSimD3d11.DeinitSimulation` nella sessione precedente per poter chiamare `GraphicsBindingSimD3d11.InitSimulation` in un'altra sessione.
@@ -196,13 +198,14 @@ Se `SimulationUpdate.frameId` dell'aggiornamento proxy restituito è Null, non s
 ```cs
 AzureSession currentSession = ...;
 GraphicsBindingSimD3d11 simBinding = (currentSession.GraphicsBinding as GraphicsBindingSimD3d11);
-SimulationUpdate update = new SimulationUpdate();
+SimulationUpdateParameters updateParameters = new SimulationUpdateParameters();
 // Fill out camera data with current camera data
+// (see "Simulation Update structures" section below)
 ...
-SimulationUpdate proxyUpdate = new SimulationUpdate();
-simBinding.Update(update, out proxyUpdate);
+SimulationUpdateResult updateResult = new SimulationUpdateResult();
+simBinding.Update(updateParameters, out updateResult);
 // Is the frame data valid?
-if (proxyUpdate.frameId != 0)
+if (updateResult.frameId != 0)
 {
     // Bind proxy render target
     simBinding.BlitRemoteFrameToProxy();
@@ -223,13 +226,14 @@ else
 ApiHandle<AzureSession> currentSession;
 ApiHandle<GraphicsBindingSimD3d11> simBinding = currentSession->GetGraphicsBinding().as<GraphicsBindingSimD3d11>();
 
-SimulationUpdate update;
+SimulationUpdateParameters updateParameters;
 // Fill out camera data with current camera data
+// (see "Simulation Update structures" section below)
 ...
-SimulationUpdate proxyUpdate;
-simBinding->Update(update, &proxyUpdate);
+SimulationUpdateResult updateResult;
+simBinding->Update(updateParameters, &updateResult);
 // Is the frame data valid?
-if (proxyUpdate.frameId != 0)
+if (updateResult.frameId != 0)
 {
     // Bind proxy render target
     simBinding->BlitRemoteFrameToProxy();
@@ -245,6 +249,112 @@ else
     ...
 }
 ```
+
+#### <a name="simulation-update-structures"></a>Strutture di aggiornamento della simulazione
+
+Ogni frame, l' **aggiornamento del ciclo di rendering** della sezione precedente richiede l'immissione di un intervallo di parametri della fotocamera corrispondente alla fotocamera locale e restituisce un set di parametri della fotocamera che corrispondono alla fotocamera del frame successiva disponibile. Questi due set vengono acquisiti rispettivamente in `SimulationUpdateParameters` e nelle `SimulationUpdateResult` strutture:
+
+```cs
+public struct SimulationUpdateParameters
+{
+    public UInt32 frameId;
+    public StereoMatrix4x4 viewTransform;
+    public StereoCameraFOV fieldOfView;
+};
+
+public struct SimulationUpdateResult
+{
+    public UInt32 frameId;
+    public float nearPlaneDistance;
+    public float farPlaneDistance;
+    public StereoMatrix4x4 viewTransform;
+    public StereoCameraFOV fieldOfView;
+};
+```
+
+I membri della struttura hanno il significato seguente:
+
+| Membro | Descrizione |
+|--------|-------------|
+| frameId | Identificatore del frame continuo. Necessaria per l'input di SimulationUpdateParameters e deve essere incrementata continuamente per ogni nuovo frame. Sarà 0 in SimulationUpdateResult se non sono ancora disponibili dati del frame. |
+| viewTransform | Coppia Left-Right-stereo delle matrici di trasformazione della visualizzazione della fotocamera del frame. Per il rendering monoscopiche, solo il `left` membro è valido. |
+| fieldOfView | Coppia Left-Right-stereo dei campi di visualizzazione della fotocamera frame in [OpenXR campo della convenzione di visualizzazione](https://www.khronos.org/registry/OpenXR/specs/1.0/html/xrspec.html#angles). Per il rendering monoscopiche, solo il `left` membro è valido. |
+| nearPlaneDistance | distanza in prossimità del piano utilizzata per la matrice di proiezione del frame remoto corrente. |
+| farPlaneDistance | distanza del piano lontano utilizzata per la matrice di proiezione del frame remoto corrente. |
+
+Le coppie stereo `viewTransform` e `fieldOfView` consentono di impostare entrambi i valori della fotocamera a occhio in caso di abilitazione del rendering stereoscopico. In caso contrario, i `right` membri verranno ignorati. Come si può notare, solo la trasformazione della fotocamera viene passata come matrici di trasformazione 4x4 semplici, mentre non sono specificate matrici di proiezione. Le matrici effettive vengono calcolate tramite il rendering remoto di Azure internamente usando i campi di visualizzazione specificati e il set di piani e di livello più vicino attualmente disponibili nell' [API CameraSettings](../overview/features/camera.md).
+
+Poiché è possibile modificare il piano e il piano più vicino in [CameraSettings](../overview/features/camera.md) durante la fase di esecuzione in base alle esigenze e il servizio applica queste impostazioni in modo asincrono, ogni SimulationUpdateResult porta anche il piano e l'estremo piano specifici usati durante il rendering del frame corrispondente. È possibile usare questi valori del piano per adattare le matrici di proiezione per il rendering di oggetti locali in modo che corrispondano al rendering del frame remoto.
+
+Infine, sebbene la chiamata di **aggiornamento della simulazione** richieda il campo di visualizzazione nella convenzione OpenXR, per motivi di standardizzazione e sicurezza algoritmica, è possibile usare le funzioni di conversione illustrate negli esempi di popolamento della struttura seguenti:
+
+```cs
+public SimulationUpdateParameters CreateSimulationUpdateParameters(UInt32 frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
+{
+    SimulationUpdateParameters parameters;
+    parameters.frameId = frameId;
+    parameters.viewTransform.left = viewTransform;
+    if(parameters.fieldOfView.left.fromProjectionMatrix(projectionMatrix) != Result.Success)
+    {
+        // Invalid projection matrix
+        return null;
+    }
+    return parameters;
+}
+
+public void GetCameraSettingsFromSimulationUpdateResult(SimulationUpdateResult result, out Matrix4x4 projectionMatrix, out Matrix4x4 viewTransform, out UInt32 frameId)
+{
+    if(result.frameId == 0)
+    {
+        // Invalid frame data
+        return;
+    }
+    
+    // Use the screenspace depth convention you expect for your projection matrix locally
+    if(result.fov.left.toProjectionMatrix(result.nearPlaneDistance, result.farPlaneDistance, DepthConvention.ZeroToOne, projectionMatrix) != Result.Success)
+    {
+        // Invalid field-of-view
+        return;
+    }
+    viewTransform = result.viewTransform.left;
+    frameId = result.frameId;
+}
+```
+
+```cpp
+SimulationUpdateParameters CreateSimulationUpdateParameters(uint32_t frameId, Matrix4x4 viewTransform, Matrix4x4 projectionMatrix)
+{
+    SimulationUpdateParameters parameters;
+    parameters.frameId = frameId;
+    parameters.viewTransform.left = viewTransform;
+    if(FovFromProjectionMatrix(projectionMatrix, parameters.fieldOfView.left) != Result::Success)
+    {
+        // Invalid projection matrix
+        return {};
+    }
+    return parameters;
+}
+
+void GetCameraSettingsFromSimulationUpdateResult(const SimulationUpdateResult& result, Matrix4x4& projectionMatrix, Matrix4x4& viewTransform, uint32_t& frameId)
+{
+    if(result.frameId == 0)
+    {
+        // Invalid frame data
+        return;
+    }
+    
+    // Use the screenspace depth convention you expect for your projection matrix locally
+    if(FovToProjectionMatrix(result.fieldOfView.left, result.nearPlaneDistance, result.farPlaneDistance, DepthConvention::ZeroToOne, projectionMatrix) != Result::Success)
+    {
+        // Invalid field-of-view
+        return;
+    }
+    viewTransform = result.viewTransform.left;
+    frameId = result.frameId;
+}
+```
+
+Queste funzioni di conversione consentono lo spostamento rapido tra la specifica del campo di visualizzazione e una matrice di proiezione prospettica semplice 4x4, a seconda delle esigenze per il rendering locale. Queste funzioni di conversione contengono la logica di verifica e restituiscono errori, senza impostare un risultato valido, nel caso in cui le matrici di proiezione di input o i campi di input della visualizzazione non siano validi.
 
 ## <a name="api-documentation"></a>Documentazione dell'API
 

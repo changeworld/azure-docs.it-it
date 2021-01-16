@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: acomet
-ms.openlocfilehash: 8a3142199502b912f20ebe05c625aa40be9fab11
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f0111228b9b0030cbbceb9fc70d829a7a22fda01
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218672"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247013"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-preview-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Usare Power BI e il pool SQL sinapsi senza server (anteprima) per analizzare i dati Azure Cosmos DB con il collegamento sinapsi 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -41,7 +41,7 @@ Prima di iniziare, assicurarsi di creare le risorse seguenti:
 
 ## <a name="create-a-database-and-views"></a>Creazione di un database e di viste
 
-La creazione di viste nei database master o predefiniti non è consigliata né supportata. È quindi necessario avviare questo passaggio creando un database. Dall'area di lavoro sinapsi passare alla scheda **sviluppo** , selezionare l' **+** icona e selezionare **script SQL**.
+Dall'area di lavoro sinapsi passare alla scheda **sviluppo** , selezionare l' **+** icona e selezionare **script SQL**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Aggiungere uno script SQL all'area di lavoro di sinapsi Analytics":::
 
@@ -49,7 +49,7 @@ Ogni area di lavoro viene fornita con un endpoint SQL senza server. Dopo aver cr
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Abilitare lo script SQL per l'uso dell'endpoint SQL senza server nell'area di lavoro":::
 
-Creare un nuovo database, denominato **RetailCosmosDB**, e una vista SQL sui contenitori abilitati per il collegamento sinapsi. Il seguente comando Mostra come creare un database:
+La creazione di viste nei database **Master** o **predefiniti** non è consigliata né supportata. Creare un nuovo database, denominato **RetailCosmosDB**, e una vista SQL sui contenitori abilitati per il collegamento sinapsi. Il seguente comando Mostra come creare un database:
 
 ```sql
 -- Create database

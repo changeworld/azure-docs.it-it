@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b51be165d3d05ae753c7e0e5536a157fbbacf1ab
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938631"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247489"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -215,8 +215,12 @@ La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calco
 | | |Fattura per la velocità effettiva per 2 aree aggiuntive: Stati Uniti orientali, Europa settentrionale (tutte le aree sono scrivibili)  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$ 224  |
 || |**Costo mensile totale**  | |**$38.688**   |
 
-## <a name="billing-examples-with-free-tier-accounts"></a>Esempi di fatturazione con account livello gratuito
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Esempi di fatturazione con Azure Cosmos DB account di livello gratuito
+
 Azure Cosmos DB livello gratuito offre i primi 400 UR/sec e 5 GB di spazio di archiviazione nell'account gratuiti, applicati a livello di account. Eventuali UR/sec superiori a 400 RU/sec e spazio di archiviazione superiore a 5 GB saranno fatturati in base ai normali prezzi, come illustrato nella relativa pagina. Nella fattura non verrà riportato alcun addebito o alcuna voce per le 400 UR/sec e per i 5 GB, ma solo le UR/sec e lo spazio di archiviazione che superano quelli forniti gratuitamente. 400 ur/s si applica a qualsiasi tipo di unità elaborate con provisioning, scalabilità automatica e scrittura in più aree.  
+
+> [!NOTE]
+> Azure Cosmos DB livello gratuito è diverso dall'account Azure gratuito. L'account gratuito di Azure offre gratuitamente crediti e risorse di Azure per un periodo di tempo limitato. Quando si usa Azure Cosmos DB come parte di questo account gratuito, si ottengono 25 GB di spazio di archiviazione e 400 ur/sec di velocità effettiva con provisioning per 12 mesi.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>Esempio di fatturazione - Contenitore o database con velocità effettiva di provisioning
 - Si supponga di creare un database o un contenitore in un account di livello gratuito con 400 UR/sec e 5 GB di spazio di archiviazione.

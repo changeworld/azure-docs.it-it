@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/11/2020
-ms.openlocfilehash: a740ad62dacc9a29cab1cc144f1789e125ec2e89
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 31b96f03a8519b068eaa816443be0a0f374a4a8c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368580"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247030"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Sì. Quando si acquista la capacità riservata per gli account con singole aree 
 La capacità riservata dell'area con più scritture funziona allo stesso tempo per la scalabilità automatica e la velocità effettiva con provisioning standard (manuale). Vedere [Capacità riservata di Azure Cosmos DB](cosmos-db-reserved-capacity.md)
 
 ### <a name="does-autoscale-work-with-free-tier"></a>La scalabilità automatica funziona con il livello gratuito?
-Sì. Nel livello gratuito è possibile usare la velocità effettiva con scalabilità automatica in un contenitore. Il supporto per i database con velocità effettiva condivisa con scalabilità automatica con numero massimo di UR/s personalizzato non è ancora disponibile. Vedere come [funziona la fatturazione del livello gratuito con la scalabilità automatica](understand-your-bill.md#billing-examples-with-free-tier-accounts).
+Sì. Nel livello gratuito è possibile usare la velocità effettiva con scalabilità automatica in un contenitore. Il supporto per i database con velocità effettiva condivisa con scalabilità automatica con numero massimo di UR/s personalizzato non è ancora disponibile. Vedere come [funziona la fatturazione del livello gratuito con la scalabilità automatica](understand-your-bill.md#azure-free-tier).
 
 ### <a name="is-autoscale-supported-for-all-apis"></a>La scalabilità automatica è supportata per tutte le API?
 Sì, la scalabilità automatica è supportata per tutte le API: Core (SQL), Gremlin, Tabella, Cassandra e API per MongoDB.

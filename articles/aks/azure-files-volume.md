@@ -5,12 +5,12 @@ description: Informazioni su come creare manualmente un volume con i File di Azu
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 89976211763f5d4729718c4e4c6503650f27f7cc
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: a6e28464df2ff9c9dcc7734a127cc00f887e08dd
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126274"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246962"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-files-share-in-azure-kubernetes-service-aks"></a>Creare manualmente e usare un volume con la condivisione di File di Azure nel servizio Azure Kubernetes
 
@@ -26,7 +26,7 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 
-Prima di poter usare i File di Azure come volume Kubernetes, è necessario creare un account di archiviazione di Azure e la condivisione file. I comandi seguenti creano un gruppo di risorse denominato *myAKSShare* , un account di archiviazione e una condivisione file denominata *aksshare* :
+Prima di poter usare i File di Azure come volume Kubernetes, è necessario creare un account di archiviazione di Azure e la condivisione file. I comandi seguenti creano un gruppo di risorse denominato *myAKSShare*, un account di archiviazione e una condivisione file denominata *aksshare*:
 
 ```azurecli-interactive
 # Change these four parameters as needed for your own environment
@@ -69,7 +69,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## <a name="mount-the-file-share-as-a-volume"></a>Montare la condivisione file come un volume
 
-Per montare la condivisione File di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName* . Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod. Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
+Per montare la condivisione File di Azure nel pod, configurare il volume nella specifica del contenitore. Creare un nuovo file denominato `azure-files-pod.yaml` con il contenuto seguente. Se è stato modificato il nome della condivisione file o nome del segreto, aggiornare il *shareName* e *secretName*. Se lo si desidera, annotare `mountPath`, che è il percorso in cui la condivisione file viene montata nel pod. Per i contenitori Windows Server specificare un valore per *mountPath* usando la convenzione di percorso di Windows, ad esempio *'D:'* .
 
 ```yaml
 apiVersion: v1
@@ -104,7 +104,7 @@ Usare il comando `kubectl` per creare il pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-A questo punto è disponibile un pod in esecuzione con una condivisione File di Azure montata in */mnt/azure* . È possibile usare `kubectl describe pod mypod` per verificare che la condivisione sia montata correttamente. L'esempio sintetico di output seguente illustra il volume montato nel contenitore:
+A questo punto è disponibile un pod in esecuzione con una condivisione File di Azure montata in */mnt/azure*. È possibile usare `kubectl describe pod mypod` per verificare che la condivisione sia montata correttamente. L'esempio sintetico di output seguente illustra il volume montato nel contenitore:
 
 ```
 Containers:
@@ -133,7 +133,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opzioni di montaggio
 
-Il valore predefinito per *FileMode* e *dirMode* è *0755* per Kubernetes versione 1.9.1 e successive. Se si usa un cluster con Kubernetes versione 1.8.5 o successiva e si crea in modo statico l'oggetto volume permanente, è necessario specificare le opzioni di montaggio nell'oggetto *PersistentVolume* . L'esempio seguente imposta *0777* :
+Il valore predefinito per *FileMode* e *dirMode* è *0755* per Kubernetes versione 1.9.1 e successive. Se si usa un cluster con Kubernetes versione 1.8.5 o successiva e si crea in modo statico l'oggetto volume permanente, è necessario specificare le opzioni di montaggio nell'oggetto *PersistentVolume* . L'esempio seguente imposta *0777*:
 
 ```yaml
 apiVersion: v1
@@ -145,7 +145,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -159,9 +158,9 @@ spec:
   - nobrl
 ```
 
-Se si usa un cluster di una versione da 1.8.0 a 1.8.4, è possibile specificare un contesto di protezione con il valore *runAsUser* impostato su *0* . Per altre informazioni sul contesto di sicurezza Pod, vedere [Configure a Security Context][kubernetes-security-context] (Configurazione di un contesto di protezione).
+Se si usa un cluster di una versione da 1.8.0 a 1.8.4, è possibile specificare un contesto di protezione con il valore *runAsUser* impostato su *0*. Per altre informazioni sul contesto di sicurezza Pod, vedere [Configure a Security Context][kubernetes-security-context] (Configurazione di un contesto di protezione).
 
-Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume* . Ad esempio:
+Per aggiornare le opzioni di montaggio, creare un file *azurefile-Mount-Options-PV. YAML* con una *PersistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -173,7 +172,6 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
   azureFile:
     secretName: azure-secret
     shareName: aksshare
@@ -187,7 +185,7 @@ spec:
   - nobrl
 ```
 
-Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume* . Ad esempio:
+Creare un file *azurefile-Mount-Options-PVC. YAML* con un *PersistentVolumeClaim* che usa *PersistentVolume*. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -197,20 +195,20 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: azurefile
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi
 ```
 
-Usare i `kubectl` comandi per creare *PersistentVolume* e *PersistentVolumeClaim* .
+Usare i `kubectl` comandi per creare *PersistentVolume* e *PersistentVolumeClaim*.
 
 ```console
 kubectl apply -f azurefile-mount-options-pv.yaml
 kubectl apply -f azurefile-mount-options-pvc.yaml
 ```
 
-Verificare che *PersistentVolumeClaim* sia stato creato e associato a *PersistentVolume* .
+Verificare che *PersistentVolumeClaim* sia stato creato e associato a *PersistentVolume*.
 
 ```console
 $ kubectl get pvc azurefile

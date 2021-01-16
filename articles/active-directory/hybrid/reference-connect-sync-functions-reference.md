@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6c8be064ade8182355c320e948b3b60b846033d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 7454733233f1fd487d774d52a6f46187354ae05c
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348059"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246707"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -114,7 +114,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
   * [RandomNum](#randomnum)
 * **Con valori più ***
   * [Contiene](#contains)
-  * [Numero](#count)
+  * [Count](#count)
   * [Item](#item)
   * [ItemOrNull](#itemornull)
   * [Join](#join).
@@ -664,14 +664,14 @@ I valori possibili per il formato sono disponibili qui: [formati di data e ora p
 
 **Esempio:**  
 
-`FormatDateTime(CDate("12/25/2007"),"yyyy-mm-dd")`  
+`FormatDateTime(CDate("12/25/2007"),"yyyy-MM-dd")`  
  Il risultato è "2007-12-25".
 
 `FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")`  
  Può restituire "20140905081453.0Z"
 
 ---
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Descrizione:**  
 La funzione Guid genera un nuovo GUID casuale
 

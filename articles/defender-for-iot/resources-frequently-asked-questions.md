@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: rkarlin
-ms.openlocfilehash: 0c303adb4ee7c7551c6b389ec169d92a661a63bc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835024"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247466"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Domande frequenti su Azure Defender
 
@@ -38,7 +38,7 @@ Azure Defender per l'it offre un supporto completo del protocollo. Oltre al supp
 Questa soluzione univoca per lo sviluppo di protocolli come plug-in non richiede team di sviluppo dedicati o versioni di versione per supportare un nuovo protocollo. Sviluppatori, partner e clienti possono sviluppare protocolli in modo sicuro e condividere informazioni e conoscenze usando Horizon. 
 
 ## <a name="do-i-have-to-purchase-hardware-appliances-from-microsoft-partners"></a>È necessario acquistare appliance hardware dai partner Microsoft?
-Azure Defender per il sensore Internet viene eseguito su specifiche hardware specifiche, come descritto nella [Guida alle specifiche hardware](https://aka.ms/AzureDefenderforIoTBareMetalAppliance), i clienti possono acquistare hardware certificato da partner Microsoft oppure usare la fattura di materiali (BOM) fornita e acquistarla autonomamente. 
+Azure Defender per il sensore Internet viene eseguito su specifiche hardware specifiche, come descritto nella [Guida alle specifiche hardware](./how-to-identify-required-appliances.md), i clienti possono acquistare hardware certificato da partner Microsoft oppure usare la fattura di materiali (BOM) fornita e acquistarla autonomamente. 
 
 L'hardware certificato è stato testato nei nostri laboratori per la stabilità dei driver, le gocce di pacchetti e il dimensionamento di rete.
 

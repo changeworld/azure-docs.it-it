@@ -2,15 +2,15 @@
 title: Risolvere i problemi relativi a Gestione aggiornamenti di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alla Gestione aggiornamenti di Automazione di Azure.
 services: automation
-ms.date: 12/04/2020
+ms.date: 01/13/2021
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: f00002c7374e0c35c7bb91c28b2dd87ad71e3350
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 55e58c92004f4f4cf4ba6a96620b4f037c80cdb4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184918"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246265"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Risolvere i problemi relativi a Gestione aggiornamenti
 
@@ -144,13 +144,11 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
    | summarize by Computer, Solutions
    ```
 
-4. Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
+    Se il computer non viene visualizzato nei risultati della query, non è stato sincronizzato di recente. Probabilmente si è verificato un problema di configurazione locale ed è necessario [reinstallare l'agente](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
-5. Se il computer viene visualizzato nei risultati della query, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti.
+    Se il computer è elencato nei risultati della query, verificare nella proprietà **Solutions** che **gli aggiornamenti** siano elencati. Questo verifica che sia registrato con Gestione aggiornamenti. In caso contrario, verificare la presenza di problemi di configurazione dell'ambito. La [configurazione ambito](../update-management/scope-configuration.md) determina quali computer sono configurati per Gestione aggiornamenti. Per configurare la configurazione dell'ambito per il computer di destinazione, vedere [abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
-6. Se il computer viene visualizzato nell'area di lavoro ma non in Gestione aggiornamenti, è necessario impostare la configurazione dell'ambito per usare i computer come destinazione. Per informazioni su come eseguire questa operazione, vedere [Abilitare i computer nell'area di lavoro](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
-
-7. Eseguire la query nell'area di lavoro.
+4. Eseguire la query nell'area di lavoro.
 
    ```kusto
    Operation
@@ -158,9 +156,9 @@ Questo problema può essere causato da anomalie relative alla configurazione loc
    | sort by TimeGenerated desc
    ```
 
-8. Se si ottiene il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, vuol dire che è stata raggiunta la quota definita nell'area di lavoro, interrompendo il salvataggio dei dati. Nell'area di lavoro passare a **gestione del volume dati** in **Utilizzo e costi stimati** e modificare o rimuovere la quota.
+   Se si ottiene il risultato `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota`, vuol dire che è stata raggiunta la quota definita nell'area di lavoro, interrompendo il salvataggio dei dati. Nell'area di lavoro passare a **gestione del volume dati** in **Utilizzo e costi stimati** e modificare o rimuovere la quota.
 
-9. Se il problema persiste, seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows. Per Linux, seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Linux](../automation-linux-hrw-install.md).
+5. Se il problema persiste, seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido per Windows. Per Linux, seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Linux](../automation-linux-hrw-install.md).
 
 ## <a name="scenario-unable-to-register-automation-resource-provider-for-subscriptions"></a><a name="rp-register"></a>Scenario: impossibile registrare il provider di risorse di Automazione per le sottoscrizioni
 

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 11/23/2020
 ms.author: aahi
-ms.openlocfilehash: d79c52c05d09eedab2dd964acb544c9cdb405380
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: b3e1bb3f418f21c75e29b5a1cad337c6f3c10145
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562600"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246639"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usare Visione artificiale contenitore con Kubernetes e Helm
 
@@ -168,7 +168,7 @@ spec:
 Nella stessa cartella *templates* copiare e incollare le funzioni helper seguenti in `helpers.tpl` . `helpers.tpl` definisce funzioni utili per la generazione del modello Helm.
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine slave, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine slave, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ```yaml
 {{- define "rabbitmq.hostname" -}}
@@ -258,6 +258,8 @@ Per impostazione predefinita, ogni contenitore V3 ha un dispatcher e un ruolo di
 
 Il contenitore che riceve la richiesta può suddividere l'attività in sottoattività a pagina singola e aggiungerle alla coda universale. Qualsiasi ruolo di lavoro di riconoscimento da un contenitore meno occupato può utilizzare sottoattività a pagina singola dalla coda, eseguire il riconoscimento e caricare il risultato nella risorsa di archiviazione. La velocità effettiva può essere migliorata fino a `n` volte, a seconda del numero di contenitori distribuiti.
 
+Il contenitore V3 espone l'API Probe di Livezza sotto il `/ContainerLiveness` percorso. Usare l'esempio di distribuzione seguente per configurare un probe di liveity per Kubernetes. 
+
 Copiare e incollare il codice YAML seguente in un file denominato `deployment.yaml` . Sostituire i `# {ENDPOINT_URI}` `# {API_KEY}` commenti e con i propri valori. Sostituire il `# {AZURE_STORAGE_CONNECTION_STRING}` commento con la stringa di connessione di archiviazione di Azure. Configurare `replicas` il numero desiderato, che è impostato su `3` nell'esempio seguente.
 
 ```yaml
@@ -293,6 +295,13 @@ spec:
           value: # {AZURE_STORAGE_CONNECTION_STRING}
         - name: Queue__Azure__ConnectionString
           value: # {AZURE_STORAGE_CONNECTION_STRING}
+        livenessProbe:
+          httpGet:
+            path: /ContainerLiveness
+            port: 5000
+          initialDelaySeconds: 60
+          periodSeconds: 60
+          timeoutSeconds: 20
 --- 
 apiVersion: v1
 kind: Service
@@ -307,7 +316,7 @@ spec:
     app: read-app
 ```
 
-Eseguire il comando seguente. 
+Eseguire il comando indicato di seguito. 
 
 ```console
 kubectl apply -f deployment.yaml

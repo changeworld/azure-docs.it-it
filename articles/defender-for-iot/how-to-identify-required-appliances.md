@@ -1,20 +1,20 @@
 ---
-title: Identificare le appliance obbligatorie
+title: Identificare le appliance necessarie
 description: Informazioni su hardware e appliance virtuali per il Defender certificato per i sensori Internet e la console di gestione locale.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/21/2020
+ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b22f880eee1b691b6b50b8151a64a2d501b891b3
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840341"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246571"
 ---
-# <a name="identify-required-appliances"></a>Identificare le appliance obbligatorie
+# <a name="identify-required-appliances"></a>Identificare le appliance necessarie
 
 Questo articolo fornisce informazioni su Certified Defender per appliance di sensori. Defender Forts può essere distribuito in appliance fisiche e virtuali.
 
@@ -50,7 +50,7 @@ Vedere [specifiche di appliance](#appliance-specifications) per i dettagli del f
 
 Informazioni sui sensori preconfigurati: Microsoft ha collaborato con Arrow per fornire sensori preconfigurati. Per acquistare un sensore preconfigurato, contattare la freccia all'indirizzo seguente: <hardware.sales@arrow.com>
 
-Informazioni su come portare il proprio Appliance: esaminare i modelli supportati descritti qui. Dopo aver acquisito il dispositivo, passare a **Defender per**  >  i **sensori di rete**  >  dell'**installazione** ISO per scaricare il software.
+Informazioni sul Bring your own Appliance: esaminare i modelli supportati descritti qui. Dopo aver acquisito il dispositivo, passare a **Defender per**  >  i **sensori di rete**  >  dell'**installazione** ISO per scaricare il software.
 
 :::image type="content" source="media/how-to-prepare-your-network/azure-defender-for-iot-sensor-download-software-screen.png" alt-text="Sensori di rete ISO.":::
 
@@ -255,30 +255,8 @@ Dopo aver acquistato il dispositivo, passare a **Defender per** i  >  **sensori 
 
 :::image type="content" source="media/how-to-prepare-your-network/enterprise-deployment-for-azure-defender-for-iot-dell-r340-bom.png" alt-text="Dell R340 supplementare BOM.":::
 
-## <a name="smb-deployment-neousys-nuvo-5006lp"></a>Distribuzione SMB: Neousys Nuvo-5006LP
-
-| Componente | Specifiche tecniche |
-|--|--|
-| Edilizia | Progettazione di alluminio, assenza di ventole e a prova di polvere |
-| Dimensioni | 240 mm (W) x 225 mm (D) x 77 mm (H) |
-| Peso | 3,1 kg (inclusi CPU, memoria e HDD) |
-| CPU | Intel Core i5-6500TE (6M Cache, fino a 3,30 GHz) S1151 |
-| Chipset | Hub controller Intel Q170 Platform |
-| Memoria | SODIMM a temperatura larga DDR4 2133 MHz da 8 GB |
-| Archiviazione | 128-GB 3ME3 a temperatura larga mSATA SSD |
-| Controller di rete | porte Ethernet 6x Gigabit da Intel I219 |
-| Accesso al dispositivo | 4 USBs: due fronti, due posteriori, uno interno |
-| Alimentatore | 120/240VAC-20VDC/6A |
-| Montaggio | Kit di montaggio, guida DIN |
-| Temperatura operativa | \-25 ° C ~ 70 ° C |
-| Temperatura di archiviazione | \-40 ° C ~ 85 ° C |
-| Umidità | 10% ~ 90%, non condensato |
-| Vibrazione | Operativo, 5 grms, 5-500 Hz, 3 assi <br>(w/SSD, in base a IEC60068-2-64) |
-| Shock | Operating, 50 Grms, Half-seno 11-ms Duration (w/SSD, in base a IEC60068-2-27) |
-| EMC | EC/FCC Class A, in base a EN 55022, EN 55024 e EN 55032 |
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni su Azure Defender per l'installazione di Internet](how-to-install-software.md)
 
-[Informazioni su Azure Defender per la configurazione della rete Internet](how-to-set-up-your-network.md)
+[Informazioni sulla configurazione della rete di Azure Defender per IoT](how-to-set-up-your-network.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/27/2019
 ms.author: shhazam
-ms.openlocfilehash: d3b50d909fb167ee123b548603628bae7d844c5b
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2b1cd131e578b1d16fabee99b8de536e4a48ece0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841248"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247302"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-security-agents"></a>Introduzione ad Azure Defender per gli agenti di sicurezza dei dispositivi
 
@@ -31,7 +31,7 @@ Gli agenti di sicurezza Defender for Internet gestiscono la raccolta di eventi n
 Usare il flusso di lavoro seguente per distribuire e testare il Defender per gli agenti di sicurezza:
 
 1. [Abilitare Defender per il servizio Internet delle cose nell'hub Internet delle cose](quickstart-onboard-iot-hub.md)
-1. Se l'hub Internet delle cose non ha dispositivi registrati, [registrare un nuovo dispositivo](../iot-accelerators/quickstart-device-simulation-deploy.md).
+1. Se l'hub Internet delle cose non ha dispositivi registrati, [registrare un nuovo dispositivo](../iot-accelerators/iot-accelerators-device-simulation-overview.md).
 1. [Creare un modulo di sicurezza azureiotsecurity](quickstart-create-security-twin.md) per i dispositivi.
 1. Per installare l'agente in un dispositivo simulato di Azure anziché installare in un dispositivo effettivo, [creare una nuova macchina virtuale (VM) di Azure](../virtual-machines/linux/quick-create-portal.md) in una zona disponibile.
 1. [Distribuire un Defender per l'agente sicurezza di Internet delle](how-to-deploy-linux-cs.md) cose nel dispositivo Internet delle cose o in una nuova macchina virtuale.

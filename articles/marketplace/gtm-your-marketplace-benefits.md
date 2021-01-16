@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/13/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 8843bc803cdad07d8b66f9aeb87688c816158200
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 07535add495484abae06fc6ac8ac435d84bccc52
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202276"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246248"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vantaggi del marketplace commerciale
 
@@ -26,7 +26,7 @@ Marketplace Rewards è pensato per supportare gli utenti in ogni fase della cres
 
 Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita sono pensati per agevolare il passaggio alla fase successiva, consentendo di far crescere il proprio business verso i clienti Microsoft, con il supporto di Microsoft e tramite il canale di Microsoft, sfruttando il marketplace commerciale come piattaforma.
 
-I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](determine-your-listing-type.md#available-listing-options-by-offer-type).
+I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](determine-your-listing-type.md).
 
 Si verrà contattati da un membro del team Rewards quando l'offerta sarà live, in base all'idoneità.
 

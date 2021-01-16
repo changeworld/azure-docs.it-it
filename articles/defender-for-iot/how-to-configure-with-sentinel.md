@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/28/2020
 ms.author: shhazam
-ms.openlocfilehash: d4686f1d7192d1469e52e653185f1fc9389764de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2d82aaadf158e45cb8faaeee0b9b4e0fc80a3420
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832319"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247336"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel"></a>Connetti i tuoi dati da Defender for Internet ad Azure Sentinel 
 
@@ -65,5 +65,5 @@ Dopo la connessione di una **sottoscrizione**, i dati dell'hub sono disponibili 
 
 In questo documento si è appreso come connettere Defender per le cose a sentinella di Azure. Per ulteriori informazioni sul rilevamento delle minacce e sull'accesso ai dati di sicurezza, vedere gli articoli seguenti:
 
-- Informazioni su come usare Sentinel di Azure per [ottenere visibilità dei dati e potenziali minacce](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility).
+- Informazioni su come usare Sentinel di Azure per [ottenere visibilità dei dati e potenziali minacce](../sentinel/quickstart-get-visibility.md).
 - Informazioni su come [accedere ai dati sulla sicurezza](how-to-security-data-access.md)

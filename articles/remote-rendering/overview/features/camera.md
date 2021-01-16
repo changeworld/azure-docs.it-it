@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/07/2020
 ms.topic: article
-ms.openlocfilehash: fc82d046caa3663cffcda585258642813ab3a7d8
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 76bb9d289e984dd8c229bdaaab09e679e11283fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207258"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246282"
 ---
 # <a name="camera"></a>Fotocamera
 
@@ -32,7 +32,7 @@ Le proprietà seguenti possono essere modificate nelle impostazioni della fotoca
 
 **Piano vicino e lontano:**
 
-Per assicurarsi che non sia possibile impostare intervalli non validi, le proprietà **NearPlane** e **FarPlane** sono di sola lettura e per modificare l'intervallo esiste una funzione separata **SetNearAndFarPlane** . Questi dati verranno inviati al server al termine del frame.
+Per assicurarsi che non sia possibile impostare intervalli non validi, le proprietà **NearPlane** e **FarPlane** sono di sola lettura e per modificare l'intervallo esiste una funzione separata **SetNearAndFarPlane** . Questi dati verranno inviati al server al termine del frame. Quando si impostano questi valori, **NearPlane** deve essere minore di **FarPlane**. In caso contrario, si verificherà un errore.
 
 > [!IMPORTANT]
 > In Unity, questo viene gestito automaticamente quando si modifica la videocamera principale vicino a un piano e un altro.
@@ -44,6 +44,21 @@ A volte è utile disabilitare la scrittura del buffer di profondità dell'immagi
 > [!TIP]
 > In Unity è disponibile un componente di debug denominato **EnableDepthComponent** che può essere usato per abilitare o disabilitare questa funzionalità nell'interfaccia utente dell'editor.
 
+**InverseDepth**:
+
+> [!NOTE]
+> Questa impostazione è importante solo se `EnableDepth` è impostato su `true` . In caso contrario, questa impostazione non ha alcun effetto.
+
+I buffer di profondità registrano in genere i valori z in un intervallo a virgola mobile di [0; 1], con 0 che indica la profondità del piano più vicino e 1 che indica la profondità del piano lontano. È anche possibile invertire questo intervallo e i valori di profondità record nell'intervallo [1; 0], ovvero la profondità del piano più vicino diventa 1 e la profondità del piano lontano diventa 0. In genere, il secondo miglioramento della distribuzione della precisione a virgola mobile nell'intervallo z non lineare.
+
+> [!WARNING]
+> Un approccio comune consiste nell'invertire i valori dei piani vicini e lontani sugli oggetti della fotocamera. Questa operazione avrà esito negativo per il rendering remoto di Azure con un errore durante il tentativo di eseguire questa operazione su `CameraSettings` .
+
+L'API per il rendering remoto di Azure deve conoscere la convenzione del buffer di profondità del renderer locale per comporre correttamente la profondità remota nel buffer di profondità locale. Se l'intervallo del buffer di profondità è [0; 1] lasciare questo flag come `false` . Se si usa un buffer di profondità invertito con un intervallo [1; 0], impostare il `InverseDepth` flag su `true` .
+
+> [!NOTE]
+> Per Unity, l'impostazione corretta è già applicata da, `RemoteManager` quindi non è necessario l'intervento manuale.
+
 La modifica delle impostazioni della fotocamera può essere eseguita come indicato di seguito:
 
 ```cs
@@ -53,6 +68,7 @@ void ChangeCameraSetting(AzureSession session)
 
     settings.SetNearAndFarPlane(0.1f, 20.0f);
     settings.EnableDepth = false;
+    settings.InverseDepth = false;
 }
 ```
 
@@ -63,6 +79,7 @@ void ChangeStageSpace(ApiHandle<AzureSession> session)
 
     settings->SetNearAndFarPlane(0.1f, 20.0f);
     settings->SetEnableDepth(false);
+    settings->SetInverseDepth(false);
 }
 ```
 

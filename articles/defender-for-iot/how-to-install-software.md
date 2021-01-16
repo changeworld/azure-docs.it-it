@@ -7,18 +7,18 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2bd994f14863715274e137bce2dd6873eeec1135
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 49a0129ff26d4a12392066aa6304317d71fdb0f1
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208761"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247591"
 ---
 # <a name="defender-for-iot-installation"></a>Defender per l'installazione di Internet.
 
 Questo articolo descrive come installare gli elementi seguenti di Azure Defender per l'it:
 
-- **Sensore**: il Defender per i sensori di Internet delle cose raccoglie il traffico di rete ICS usando il monitoraggio passivo (senza agenti). Passiva e non intrusiva, i sensori hanno un impatto zero sulle reti e sui dispositivi OT e Internet. Il sensore si connette a una porta SPAN o a un TAP di rete e inizia immediatamente a monitorare la rete. I rilevamenti vengono visualizzati nella console del sensore. Qui è possibile visualizzarli, analizzarli e analizzarli in una mappa di rete, un inventario dei dispositivi e un'ampia gamma di report. Gli esempi includono report di valutazione dei rischi, query data mining e vettori di attacco. Per altre informazioni sulle funzionalità dei sensori, vedere la [Guida dell'utente del sensore Defender for Internet (download diretto)](https://aka.ms/AzureDefenderforIoTUserGuide).
+- **Sensore**: il Defender per i sensori di Internet delle cose raccoglie il traffico di rete ICS usando il monitoraggio passivo (senza agenti). Passiva e non intrusiva, i sensori hanno un impatto zero sulle reti e sui dispositivi OT e Internet. Il sensore si connette a una porta SPAN o a un TAP di rete e inizia immediatamente a monitorare la rete. I rilevamenti vengono visualizzati nella console del sensore. Qui è possibile visualizzarli, analizzarli e analizzarli in una mappa di rete, un inventario dei dispositivi e un'ampia gamma di report. Gli esempi includono report di valutazione dei rischi, query data mining e vettori di attacco. Per altre informazioni sulle funzionalità dei sensori, vedere la [Guida dell'utente del sensore Defender for Internet (download diretto)](./getting-started.md).
 
 - **Console di gestione locale**: la console di gestione locale consente di eseguire la gestione dei dispositivi, la gestione dei rischi e la gestione delle vulnerabilità. È anche possibile usarlo per eseguire il monitoraggio delle minacce e la risposta agli eventi imprevisti nell'azienda. Fornisce una visualizzazione unificata di tutti i dispositivi di rete, delle chiavi e degli indicatori di rischio OT e degli avvisi rilevati nelle strutture in cui vengono distribuiti i sensori. Usare la console di gestione locale per visualizzare e gestire i sensori nelle reti gapped.
 

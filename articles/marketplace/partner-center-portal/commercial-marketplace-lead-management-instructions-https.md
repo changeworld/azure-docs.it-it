@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: b4dabee6a725fd02b7be6dd12c8a032e3d816835
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 5bea2cf256e30bd896957bbee0e0ad824057a569
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489370"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247183"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Usare un endpoint HTTPS per gestire i lead del marketplace commerciale
 
@@ -43,7 +43,7 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
     ![Espandere il passaggio del flusso](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-1. Usare uno dei metodi seguenti per configurare l'opzione **Schema JSON del corpo della richiesta** :
+1. Usare uno dei metodi seguenti per configurare l'opzione **Schema JSON del corpo della richiesta**:
 
     - Copiare lo schema JSON riportato nella casella di testo **Schema JSON del corpo della richiesta**.
     - Selezionare **Usare il payload di esempio per generare lo schema**. Nella casella di testo **Immettere o incollare un payload JSON di esempio** incollare l'esempio di JSON. Selezionare **Fine** per creare lo schema.
@@ -66,6 +66,10 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
         },
         "LeadSource": {
           "id": "/properties/LeadSource",
+          "type": "string"
+        },
+        "Description": {
+          "id": "/properties/Description",
           "type": "string"
         },
         "UserDetails": {
@@ -162,15 +166,15 @@ Questo articolo illustra come creare un nuovo flusso in Power Automate per gener
 
 1. Nella finestra **Invia un messaggio di posta elettronica** configurare i campi obbligatori seguenti:
 
-   - **A** : immettere almeno un indirizzo di posta elettronica valido a cui verranno inviati i lead.
-   - **Soggetto** : Power Automate offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource** , come mostrato nella schermata seguente. Per iniziare, immettere un nome di campo. Selezionare quindi l'elenco di selezione di contenuto dinamico nella finestra popup. 
+   - **A**: immettere almeno un indirizzo di posta elettronica valido a cui verranno inviati i lead.
+   - **Soggetto**: Power Automate offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource**, come mostrato nella schermata seguente. Per iniziare, immettere un nome di campo. Selezionare quindi l'elenco di selezione di contenuto dinamico nella finestra popup. 
 
         >[!NOTE] 
         > Quando si aggiungono i nomi dei campi, è aggiungere due punti (:) dopo ogni nome e quindi premere **INVIO** per creare una nuova riga. Una volta aggiunti i nomi dei campi, è possibile aggiungere ogni parametro associato dall'elenco di selezione di contenuto dinamico.
 
         ![Aggiungere un'azione di posta elettronica usando contenuto dinamico](./media/commercial-marketplace-lead-management-instructions-https/add-email-using-dynamic-content.png)
 
-   - **Corpo** : dall'elenco di selezione di contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica, ad esempio LastName, FirstName, Email e Company. Una volta configurata, la notifica tramite posta elettronica avrà un aspetto simile a quello dell'esempio della schermata seguente.
+   - **Corpo**: dall'elenco di selezione di contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica, ad esempio LastName, FirstName, Email e Company. Una volta configurata, la notifica tramite posta elettronica avrà un aspetto simile a quello dell'esempio della schermata seguente.
 
 
        ![Esempio di notifica tramite posta elettronica](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)

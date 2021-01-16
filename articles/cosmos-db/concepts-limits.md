@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 9d351bc945c08c82e96791059b00dc94eb94b918
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368739"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247425"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -256,7 +256,8 @@ La tabella seguente elenca i limiti relativi alla versione di valutazione gratui
 
 La versione di valutazione gratuita di Cosmos DB supporta la distribuzione globale solo nelle aree Stati Uniti centrali, Europa settentrionale e Asia sud-orientale. Non è possibile creare ticket di supporto di Azure per gli account della versione di valutazione gratuita di Azure Cosmos DB. Viene tuttavia fornito il supporto per i sottoscrittori con piani di supporto esistenti.
 
-## <a name="free-tier-account-limits"></a>Limiti dell'account di livello gratuito
+## <a name="azure-cosmos-db-free-tier-account-limits"></a>Limiti dell'account del livello gratuito Azure Cosmos DB
+
 La tabella seguente elenca i limiti relativi agli [account Azure Cosmos DB di livello gratuito](optimize-dev-test.md#azure-cosmos-db-free-tier).
 
 | Risorsa | Limite predefinito |
@@ -268,7 +269,10 @@ La tabella seguente elenca i limiti relativi agli [account Azure Cosmos DB di li
 | Numero massimo di database con velocità effettiva condivisa | 5 |
 | Numero massimo di contenitori in un database con velocità effettiva condivisa | 25 <br>Negli account di livello gratuito, il numero minimo di UR/sec per un database con velocità effettiva condivisa contenente fino a 25 contenitori è 400 UR/sec. |
 
-  Oltre a quanto sopra riportato, i [limiti per account](#per-account-limits) si applicano anche agli account di livello gratuito.
+Oltre a quanto sopra riportato, i [limiti per account](#per-account-limits) si applicano anche agli account di livello gratuito.
+
+> [!NOTE]
+> Azure Cosmos DB livello gratuito è diverso dall'account Azure gratuito. L'account gratuito di Azure offre gratuitamente crediti e risorse di Azure per un periodo di tempo limitato. Quando si usa Azure Cosmos DB come parte di questo account gratuito, si ottengono 25 GB di spazio di archiviazione e 400 ur/sec di velocità effettiva con provisioning per 12 mesi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

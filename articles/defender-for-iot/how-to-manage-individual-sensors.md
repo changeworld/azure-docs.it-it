@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/10/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b61bef89d53da280961b818425d11a6f81bbf5ea
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210240"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246690"
 ---
 # <a name="manage-individual-sensors"></a>Gestire singoli sensori
 
@@ -84,7 +84,7 @@ Se non è stato possibile caricare il file di attivazione, verrà visualizzato u
 
 - **Per i sensori connessi localmente**: il file di attivazione non è valido. Se il file non è valido, passare al portale di Defender per le cose. Nella pagina **Gestione sensori** selezionare il sensore con il file non valido e scaricare un nuovo file di attivazione.
 
-- **Per i sensori connessi al cloud**: il sensore non è in grado di connettersi a Internet. Controllare la configurazione di rete del sensore. Se il sensore deve connettersi tramite un proxy Web per accedere a Internet, verificare che il server proxy sia configurato correttamente nella schermata di **configurazione della rete del sensore** . Verificare che \* l'estensione Azure-Devices.NET:443 sia consentita nel firewall e/o nel proxy. Se i caratteri jolly non sono supportati o si desidera un maggiore controllo, il nome di dominio completo per il Defender specifico per l'hub Internet deve essere aperto nel firewall e/o nel proxy. Per informazioni dettagliate, vedere [endpoint dell'hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints)degli elementi di riferimento.  
+- **Per i sensori connessi al cloud**: il sensore non è in grado di connettersi a Internet. Controllare la configurazione di rete del sensore. Se il sensore deve connettersi tramite un proxy Web per accedere a Internet, verificare che il server proxy sia configurato correttamente nella schermata di **configurazione della rete del sensore** . Verificare che \* l'estensione Azure-Devices.NET:443 sia consentita nel firewall e/o nel proxy. Se i caratteri jolly non sono supportati o si desidera un maggiore controllo, il nome di dominio completo per il Defender specifico per l'hub Internet deve essere aperto nel firewall e/o nel proxy. Per informazioni dettagliate, vedere [endpoint dell'hub](../iot-hub/iot-hub-devguide-endpoints.md)degli elementi di riferimento.  
 
 - **Per i sensori connessi al cloud**: il file di attivazione è valido, ma il Defender per l'it ha rifiutato. Se non è possibile risolvere questo problema, è possibile scaricare un'altra attivazione dalla pagina di **gestione dei sensori** del portale Defender for Internet. Se questa operazione non funziona, contattare supporto tecnico Microsoft.
 
@@ -397,7 +397,7 @@ Nella console vengono visualizzati gli errori di ripristino.
 
 La procedura seguente descrive come aggiornare un sensore autonomo usando la console del sensore. Il processo di aggiornamento richiede circa 30 minuti.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Passare al [portale di Azure](https://portal.azure.com/).
 
 2. Passa a Defender for Internet.
 

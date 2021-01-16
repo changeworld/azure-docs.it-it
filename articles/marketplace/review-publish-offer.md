@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/27/2020
-ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8b63dfb015c7337e36dac3812e92ddc53914206d
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188752"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247166"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Come rivedere e pubblicare un'offerta nel Marketplace commerciale
 
@@ -150,7 +150,7 @@ Lo screenshot seguente mostra la pagina di **Panoramica dell'offerta** per un'of
 ### <a name="previewing-and-approving-your-offer"></a>Visualizzazione in anteprima e approvazione dell'offerta
 
 > [!IMPORTANT]
-> Per convalidare il flusso di acquisto e configurazione end-to-end, acquistare l'offerta mentre è in anteprima. Invia prima una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito.
+> Per convalidare il flusso di acquisto e configurazione end-to-end, acquistare l'offerta mentre è in anteprima. Invia prima una notifica a Microsoft con un [ticket di supporto](https://aka.ms/marketplacesupport) per assicurarsi che non venga elaborato alcun addebito. Se l'offerta è un elenco di contatti, verificare che venga creato un lead come previsto fornendo i dettagli per il contatto durante l'anteprima.
 
 Nella pagina **Panoramica dell'offerta** verranno visualizzati i collegamenti di anteprima nel pulsante **Vai in diretta** . Sarà disponibile un collegamento per l'anteprima di AppSource, per l'anteprima di Azure Marketplace o per entrambi, a seconda delle opzioni selezionate durante la creazione dell'offerta. Se si sceglie di vendere l'offerta tramite Microsoft, tutti gli utenti che sono stati aggiunti ai destinatari dell'anteprima possono testare l'acquisizione e la distribuzione dell'offerta per garantire che soddisfi i requisiti durante questa fase.
 
@@ -197,7 +197,7 @@ Per visualizzare la cronologia dell'offerta:
 
 |Event    |Descrizione    |
 |---------|---------------|
-|Offerta creata    |L'offerta è stata creata nel centro per i partner. Un utente ha selezionato il tipo di offerta, l'ID offerta e l'alias offerta in panoramica sul **Marketplace commerciale**  >  **Overview**.    |
+|Offerta creata    |L'offerta è stata creata nel centro per i partner. Un utente ha selezionato il tipo di offerta, l'ID offerta e l'alias offerta in panoramica sul **Marketplace commerciale**  >  .    |
 |Piano creato: *nome del piano*    |Un utente ha creato un nuovo piano immettendo l'ID del piano e il nome del piano nella scheda **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
 |Piano eliminato    |Un utente ha eliminato un piano bozza che non è stato pubblicato selezionando **Elimina bozza** dalla pagina **panoramica piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
 |Piano di interruzione vendita avviato: *nome del piano*    |Un utente ha avviato un piano stop-sell selezionando **stop selling** dalla pagina di **Panoramica del piano** .</br>*Questo evento si applica solo ai tipi di offerta che supportano i piani*.    |
@@ -226,7 +226,7 @@ Sono disponibili quattro filtri:
 * Eventi
 * Utenti
 * Data
-* .NET
+* Pagine
 
 Quando si sceglie il filtro **pagine** , è possibile selezionare qualsiasi pagina del centro per i partner applicabile al tipo di offerta. Quando applicato, il filtro **pagine** Mostra tutta l' **offerta inviata per visualizzare in anteprima** gli eventi con le modifiche apportate alla pagina selezionata.
 

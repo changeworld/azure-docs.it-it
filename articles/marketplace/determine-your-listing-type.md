@@ -6,21 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 12/18/2020
-ms.openlocfilehash: 091af70383eb3cab32a0453d7f7542d8a4395d0b
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.date: 01/14/2021
+ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107396"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247549"
 ---
 # <a name="introduction-to-listing-options"></a>Introduzione alle opzioni di elenco
-
-È possibile utilizzare le _Opzioni di inserzione_ disponibili nel Marketplace commerciale per coinvolgere i clienti potenziali in diversi modi. Dopo la pubblicazione dell'offerta, le opzioni di elenco selezionate per l'offerta vengono visualizzate come un pulsante nell'angolo superiore sinistro della pagina di presentazione dell'offerta negli archivi online. Ad esempio, nella schermata seguente viene illustrata una pagina di presentazione dell'offerta nell'archivio online Microsoft AppSource con i pulsanti **contattami** e **test drive** .
-
-:::image type="content" source="./media/listing-options.png" alt-text="Viene illustrata la pagina di inserzione per un'offerta. Vengono visualizzati i pulsanti contattami e test drive.":::
-
-## <a name="available-listing-options-by-offer-type"></a>Opzioni di elenco disponibili per tipo di offerta
 
 Quando si crea un tipo di offerta, è possibile scegliere una o più opzioni di elenco. Queste opzioni determinano i pulsanti che i clienti visualizzano nella pagina di inserzione dell'offerta negli archivi online. Le opzioni di elenco includono _versione di valutazione gratuita_, _test drive_, _contattami_ e _Ottieni subito_.
 
@@ -42,7 +36,7 @@ Questa tabella mostra le opzioni di elenco disponibili per ogni tipo di offerta.
 | Software come un servizio | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-`*` L'opzione Get it now Listing include Get it Now (gratuito), Bring your own License (BYOL), sottoscrizione e prezzi basati sull'utilizzo. Per informazioni dettagliate, vedere [Get it now](#get-it-now).
+&#42; l'opzione Get it now Listing include Get it Now (gratuito), Bring your own License (BYOL), sottoscrizione e prezzi basati sull'utilizzo. Per informazioni dettagliate, vedere [Get it now](#get-it-now).
 
 ### <a name="free-trial"></a>Versione di valutazione gratuita
 
@@ -102,9 +96,15 @@ Questa tabella mostra i tipi di offerta che supportano le opzioni di prezzo aggi
 
 Usare questa opzione di elenco per offrire gratuitamente l'applicazione. I clienti usano il pulsante _Get it now_ per ottenere l'offerta gratuita.
 
-#### <a name="byol"></a>BYOL
+> [!NOTE]
+> Ottenere le offerte ora (gratuite) non sono idonee per i vantaggi del Marketplace per le offerte transazionali. Dal momento che non è presente alcuna transazione tramite la vetrina, questi vengono categorizzati come "versione di valutazione". Vedere le [premiazioni del Marketplace](#marketplace-rewards) di seguito.
 
-Usa il Marketplace commerciale per migliorare l'individuabilità, automatizzare il provisioning della soluzione e completare la transazione finanziaria separata dal Marketplace. L'opzione Bring your own License (BYOL) è ideale per le migrazioni da sito locale a cloud. I clienti usano il pulsante _Get it now_ per acquistare l'offerta usando una licenza acquistata in precedenza.
+#### <a name="bring-your-own-license-byol"></a>Bring Your Own License (BYOL)
+
+Usare questa opzione per consentire ai clienti di distribuire l'offerta usando una licenza acquistata al di fuori del Marketplace commerciale. Questa opzione è ideale per le migrazioni da locale a cloud. I clienti usano il pulsante _Get it now_ per acquistare l'offerta usando una licenza acquistata in precedenza.
+
+> [!NOTE]
+> Le offerte BYOL non sono idonee per i vantaggi dei premi di Marketplace per le offerte transazionali. Poiché questi richiedono che un cliente acquisisca la licenza dal partner e non vi sia alcuna transazione tramite la vetrina del Marketplace commerciale, questi vengono categorizzati come "list". Vedere le [premiazioni del Marketplace](#marketplace-rewards) di seguito.
 
 #### <a name="subscription"></a>Sottoscrizione
 
@@ -117,11 +117,17 @@ Usa il Marketplace commerciale per migliorare l'individuabilità, automatizzare 
 
 I tipi di offerta seguenti supportano i prezzi basati sull'utilizzo:
 
-- L'offerta applicazione Azure (app gestita) supporta la fatturazione a consumo. Per informazioni dettagliate, vedere [fatturazione a consumo delle applicazioni gestite](./partner-center-portal/azure-app-metered-billing.md).
-- Le offerte SaaS supportano la fatturazione a consumo e i prezzi per utente (per postazione). Per altre informazioni sulla fatturazione a consumo, vedere [fatturazione a consumo per Saas usando il servizio di misurazione del Marketplace commerciale](./partner-center-portal/saas-metered-billing.md).
+- L'offerta applicazione Azure (app gestita) supporta la fatturazione a consumo. Per informazioni dettagliate, vedere [fatturazione a consumo delle applicazioni gestite](partner-center-portal/azure-app-metered-billing.md).
+- Le offerte SaaS supportano la fatturazione a consumo e i prezzi per utente (per postazione). Per altre informazioni sulla fatturazione a consumo, vedere [fatturazione a consumo per Saas usando il servizio di misurazione del Marketplace commerciale](partner-center-portal/saas-metered-billing.md).
 - Macchine virtuali di Azure offre supporto per core, dimensioni per core e prezzi per mercato e dimensioni core. Queste opzioni di prezzo sono prezzi per ora e fatturate mensilmente.
 
 Quando si crea un'offerta transazionale, è importante comprendere le considerazioni relative a prezzi, fatturazione, fatturazione e pagamento prima di selezionare un tipo di offerta e creare l'offerta. Per altre informazioni, vedere [negozi online di Marketplace commerciali](overview.md#commercial-marketplace-online-stores).
+
+## <a name="sample-offer"></a>Offerta di esempio
+
+Dopo la pubblicazione dell'offerta, le opzioni di inserzione selezionate vengono visualizzate come pulsante nell'angolo in alto a sinistra della pagina di presentazione negli archivi online. La schermata seguente, ad esempio, Mostra una pagina di presentazione dell'offerta nell'archivio online Microsoft AppSource con i pulsanti **Get it now** e **test drive** :
+
+:::image type="content" source="media/listing-options.png" alt-text="Viene illustrata la pagina di presentazione per un'offerta con i pulsanti contattami e test drive.":::
 
 ## <a name="listing-and-pricing-options-by-online-store"></a>Elenco e opzioni di prezzo per negozio online
 
@@ -149,10 +155,14 @@ Nella tabella seguente vengono illustrate le opzioni disponibili per diversi tip
 
 &#42;&#42; Microsoft 365 i componenti aggiuntivi sono disponibili per l'installazione e possono essere monetizzati usando un'offerta SaaS. Per altre informazioni, vedere [Monetizzare il componente aggiuntivo Office 365 tramite il marketplace commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="marketplace-rewards"></a>Vantaggi del Marketplace
+## <a name="marketplace-rewards"></a>Marketplace Rewards
 
 I premi del Marketplace si differenziano in base all'opzione di inserzione scelta. Per altre informazioni, vedere [i vantaggi del Marketplace commerciale](gtm-your-marketplace-benefits.md).
 
+Se la tua offerta è transazionale, otterrai vantaggi quando aumenti le vendite fatturate.
+
+Le offerte non transazionali ottengono vantaggi a seconda che sia collegata una versione di valutazione gratuita.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per scegliere un tipo di offerta da creare, vedere [Guida alla pubblicazione in base al tipo di offerta](./publisher-guide-by-offer-type.md).
+- Per scegliere un tipo di offerta da creare, vedere [Guida alla pubblicazione in base al tipo di offerta](publisher-guide-by-offer-type.md).

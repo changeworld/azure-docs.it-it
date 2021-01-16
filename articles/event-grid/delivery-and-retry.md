@@ -3,12 +3,12 @@ title: Recapito di Griglia di eventi di Azure e nuovi tentativi
 description: Viene descritto in che modo Griglia di eventi di Azure recapita gli eventi e come gestisce i messaggi non recapitati.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 51473cf457a1c713e6694edd23c344be8c4d439e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463241"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247370"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi
 
@@ -67,7 +67,7 @@ Di seguito sono riportati i tipi di endpoint per i quali non si verifica alcun n
 | webhook | 400 richiesta non valida, entità richiesta 413 troppo grande, 403 non consentito, 404 non trovato, 401 non autorizzato |
  
 > [!NOTE]
-> Se Dead-Letter non è configurato per l'endpoint, gli eventi verranno eliminati quando si verificano sopra gli errori, quindi considerare la possibilità di configurare i messaggi non recapitabili, se non si vuole che questi tipi di eventi vengano eliminati.
+> Se Dead-Letter non è configurato per l'endpoint, gli eventi verranno eliminati quando si verificano gli errori precedenti. Prendere in considerazione la configurazione dei messaggi non recapitabili, se non si vuole che questi tipi di eventi vengano eliminati.
 
 Se l'errore restituito dall'endpoint sottoscritto non è incluso nell'elenco precedente, EventGrid esegue il tentativo usando i criteri descritti di seguito:
 
@@ -80,7 +80,10 @@ Griglia di eventi attende 30 secondi per una risposta dopo il recapito di un mes
 - 10 minuti
 - 30 minuti
 - 1 ora
-- Ogni ora per un massimo di 24 ore
+- 3 ore
+- 6 ore
+- Ogni 12 ore fino a 24 ore
+
 
 Se l'endpoint risponde entro 3 minuti, griglia di eventi tenterà di rimuovere l'evento dalla coda dei tentativi in base a un massimo sforzo, ma i duplicati potrebbero comunque essere ricevuti.
 
@@ -104,7 +107,7 @@ Quando griglia di eventi non è in grado di recapitare un evento entro un determ
 
 Se viene soddisfatta una delle condizioni, l'evento viene eliminato o non recapitabile.  Per impostazione predefinita, Griglia di eventi non attiva l'inserimento nella coda di eventi non recapitabili. Per abilitarlo, è necessario specificare che un account di archiviazione deve contenere gli eventi non recapitati durante la sottoscrizione di eventi. Per risolvere le operazioni di recapito, viene eseguito il pull degli eventi da questo account di archiviazione.
 
-Griglia di eventi invia un evento nel percorso dell'evento non recapitato quando ha eseguito tutti i tentativi di ripetizione. Se Griglia di eventi riceve un codice di risposta 400 (Richiesta non valida) o 413 (Entità richiesta troppo grande), invia immediatamente l'evento per l'endpoint di messaggi non recapitabili. Questi codici di risposta indicano che recapito dell'evento non avrà mai esito positivo.
+Griglia di eventi invia un evento nel percorso dell'evento non recapitato quando ha eseguito tutti i tentativi di ripetizione. Se griglia di eventi riceve un codice di risposta 400 (richiesta non valida) o 413 (entità richiesta troppo grande), pianifica immediatamente l'evento per i messaggi non recapitabili. Questi codici di risposta indicano che recapito dell'evento non avrà mai esito positivo.
 
 La scadenza della durata (TTL) viene controllata solo al successivo tentativo di recapito pianificato. Pertanto, anche se la durata (TTL) scade prima del successivo tentativo di recapito pianificato, la scadenza dell'evento viene verificata solo al momento del successivo recapito e successivamente a un messaggio non recapitabile. 
 
@@ -119,7 +122,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="event-grid-schema"></a>Schema di Griglia di eventi
 
-#### <a name="event"></a>Event 
+#### <a name="event"></a>Evento 
 ```json
 {
     "id": "93902694-901e-008f-6f95-7153a806873c",
@@ -178,7 +181,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="cloudevents-10-schema"></a>Schema CloudEvents 1,0
 
-#### <a name="event"></a>Event
+#### <a name="event"></a>Evento
 
 ```json
 {
@@ -219,7 +222,7 @@ In questa sezione vengono forniti esempi di eventi e di eventi non recapitabili 
 
 ### <a name="custom-schema"></a>Schema personalizzato
 
-#### <a name="event"></a>Event
+#### <a name="event"></a>Evento
 
 ```json
 {

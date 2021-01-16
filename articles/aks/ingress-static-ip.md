@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 14835f7d332b1fcc6e1afabec9a6ee6e55d699e7
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: e6777946b0c83eb7f7eb6f3230bb95da2313e741
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219862"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246231"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso con un indirizzo IP pubblico statico nel servizio Azure Kubernetes
 
@@ -103,7 +103,7 @@ Non sono ancora state create regole di ingresso, quindi se si passa all'indirizz
 È possibile verificare che l'etichetta del nome DNS sia stata applicata eseguendo una query sul nome di dominio completo nell'indirizzo IP pubblico, come indicato di seguito:
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?name=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query "[?ipAddress=='myAKSPublicIP'].[dnsSettings.fqdn]" -o tsv
 ```
 
 Il controller di ingresso è ora accessibile tramite l'indirizzo IP o il nome di dominio completo.
