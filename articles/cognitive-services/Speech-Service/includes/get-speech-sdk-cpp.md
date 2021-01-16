@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 5a06a0663601c221dd456b9cf4437cb9f32a18f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99bc49dfe7b3f7b6a9d49c2947d8d8c01ad98dac
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81400026"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256500"
 ---
 :::row:::
     :::column span="3":::
@@ -30,20 +30,6 @@ ms.locfileid: "81400026"
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
 ```
-
-#### <a name="c-binaries-and-header-files"></a>File binari e file di intestazione C++
-
-In alternativa, è possibile installare C++ Speech SDK da file binari. Scaricare l'SDK come <a href="https://aka.ms/csspeech/linuxbinary" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> pacchetto con estensione tar</a> e decomprimere i file in una directory di propria scelta. Il contenuto di questo pacchetto, che include i file di intestazione per le architetture di destinazione x86 e x64, è strutturato nel modo seguente:
-
-  | Path                   | Descrizione                                          |
-  |------------------------|------------------------------------------------------|
-  | `license.md`           | Licenza                                              |
-  | `ThirdPartyNotices.md` | Comunicazioni di terze parti                                  |
-  | `include`              | File di intestazione per C++                                 |
-  | `lib/x64`              | Libreria x64 nativa per il collegamento all'applicazione |
-  | `lib/x86`              | Libreria x86 nativa per il collegamento all'applicazione |
-
-  Per creare un'applicazione, copiare o spostare i file binari e le librerie necessari nell'ambiente di sviluppo e includerli nel processo di compilazione come richiesto.
 
 #### <a name="additional-resources"></a>Risorse aggiuntive
 

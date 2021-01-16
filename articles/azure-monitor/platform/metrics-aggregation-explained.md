@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: 79728e53c1d53a8a4463fc0bd1ddee5db89fc013
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 1d83ef07714e0ce69f01aa240cc3058195c7b1af
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234808"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251982"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Spiegazione della metrica di metriche di monitoraggio di Azure per l'aggregazione e la visualizzazione
 
@@ -125,7 +125,7 @@ L'uso del filtro consente di eseguire la pulizia del grafico per vedere cosa acc
 
 :::image type="content" source="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png" alt-text="Screenshot che mostra i byte scritti su disco per tutte le macchine virtuali nel gruppo di risorse di Contoso Hotels Split e filtrate in base al nome della macchina virtuale" border="true" lightbox="media/metrics-aggregation-explained/split-filter-total-disk write-bytes-all-VMs.png":::
 
-Per altre informazioni su come visualizzare i dati delle dimensioni divise in un grafico di Esplora metriche, vedere [funzionalità avanzate di Esplora metriche-filtri e suddivisione](metrics-charts.md#apply-filters-to-charts).
+Per altre informazioni su come visualizzare i dati delle dimensioni divise in un grafico di Esplora metriche, vedere [funzionalità avanzate di Esplora metriche-filtri e suddivisione](metrics-charts.md#filters).
 
 ### <a name="null-and-zero-values"></a>Valori NULL e zero
 
@@ -266,7 +266,7 @@ Prendere in considerazione il minuto 6 per l'aggregazione di 1 minuto, come evid
 
 Dal minuto 6 precedente, i tipi di aggregazione calcolati di 1 minuto sono: 
 
-| Tipo di aggregazione | valore        | Note |
+| Tipo di aggregazione | Valore        | Note |
 |------------------|--------------|-------|
 | Sum              | 53 + 20 = 73 | |
 | Conteggio            | 2            | Mostra l'effetto dei valori NULL.  Il valore sarebbe stato 3 Se il server fosse stato online.  |

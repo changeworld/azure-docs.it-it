@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 85172e2430a3e65edb0c5ec119c920e2c7d20217
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234855"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251829"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Monitoraggio di Azure per i clienti esistenti di Operations Manager
 Questo articolo fornisce indicazioni per i clienti che attualmente usano [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) e pianificano una transizione a [monitoraggio di Azure](overview.md) durante la migrazione di applicazioni aziendali e altre risorse in Azure. Si presuppone che l'obiettivo finale sia una transizione completa nel cloud, sostituendo il maggior Operations Manager possibile le funzionalità con monitoraggio di Azure, senza compromettere i requisiti operativi aziendali e IT. 
@@ -63,7 +63,7 @@ Per ogni applicazione aziendale si Abilita Application Insights. Identifica i di
 Man mano che si acquisisce familiarità con monitoraggio di Azure, si inizia a creare regole di avviso in grado di sostituire alcune funzionalità di Management Pack e iniziare a sviluppare i processi aziendali per l'uso della nuova piattaforma di monitoraggio. In questo modo è possibile iniziare a rimuovere computer e Management Pack dal gruppo di gestione Operations Manager. Si continuerà a utilizzare i Management Pack per il software server critico e l'infrastruttura locale, ma si continuerà a osservare le nuove funzionalità di monitoraggio di Azure che consentono di ritirare le funzionalità aggiuntive.
 
 ## <a name="monitor-azure-services"></a>Monitorare i servizi di Azure
-I servizi di Azure richiedono effettivamente monitoraggio di Azure per raccogliere i dati di telemetria e sono abilitati al momento della creazione di una sottoscrizione di Azure. Il [log attività](platform/activity-log.md) viene raccolto automaticamente per la sottoscrizione e le [metriche della piattaforma](platform/data-platform-metrics.md) vengono raccolte automaticamente da tutte le risorse di Azure create. È possibile iniziare immediatamente a usare [Esplora metriche](platform/metrics-getting-started.md), che è simile alle visualizzazioni prestazioni nella console operatore, ma fornisce analisi interattive e [aggregazioni avanzate](platform/metrics-charts.md) di dati. [Creare un avviso di metrica](platform/alerts-metric.md) per ricevere una notifica quando un valore supera una soglia o [aggiungere un grafico a un dashboard di Azure](platform/metrics-charts.md#pin-charts-to-dashboards) per la visibilità.
+I servizi di Azure richiedono effettivamente monitoraggio di Azure per raccogliere i dati di telemetria e sono abilitati al momento della creazione di una sottoscrizione di Azure. Il [log attività](platform/activity-log.md) viene raccolto automaticamente per la sottoscrizione e le [metriche della piattaforma](platform/data-platform-metrics.md) vengono raccolte automaticamente da tutte le risorse di Azure create. È possibile iniziare immediatamente a usare [Esplora metriche](platform/metrics-getting-started.md), che è simile alle visualizzazioni prestazioni nella console operatore, ma fornisce analisi interattive e [aggregazioni avanzate](platform/metrics-charts.md) di dati. [Creare un avviso di metrica](platform/alerts-metric.md) per ricevere una notifica quando un valore supera una soglia o [aggiungere un grafico a un dashboard di Azure](platform/metrics-charts.md#pinning-to-dashboards) per la visibilità.
 
 [![Esplora metriche](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 
