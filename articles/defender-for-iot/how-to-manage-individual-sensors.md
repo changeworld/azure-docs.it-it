@@ -4,15 +4,15 @@ description: Informazioni su come gestire i singoli sensori, tra cui la gestione
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/10/2021
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 25f47be98b11f05ee6ac27018152ece05c0de4e4
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246690"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539573"
 ---
 # <a name="manage-individual-sensors"></a>Gestire singoli sensori
 
@@ -90,7 +90,7 @@ Se non è stato possibile caricare il file di attivazione, verrà visualizzato u
 
 ## <a name="manage-certificates"></a>Gestire i certificati
 
-Dopo l'installazione del sensore, viene generato un certificato autofirmato locale che viene usato per accedere all'applicazione Web del sensore. Quando si accede al sensore per la prima volta, agli utenti amministratori viene richiesto di specificare un certificato SSL/TLS.  Per altre informazioni sulla prima configurazione, vedere [accedere e attivare un sensore](how-to-activate-and-set-up-your-sensor.md).
+Dopo l'installazione del sensore, viene generato un certificato autofirmato locale che viene usato per accedere all'applicazione Web del sensore. Quando si accede al sensore per la prima volta, agli utenti amministratori viene richiesto di specificare un certificato SSL/TLS.  Per altre informazioni sull'installazione per la prima volta, vedere [accedere e attivare un sensore](how-to-activate-and-set-up-your-sensor.md).
 
 Questo articolo fornisce informazioni sull'aggiornamento dei certificati, sull'uso dei comandi dell'interfaccia della riga di comando del certificato e sui certificati supportati e sui parametri del certificato.
 
@@ -98,11 +98,34 @@ Questo articolo fornisce informazioni sull'aggiornamento dei certificati, sull'u
 
 Azure Defender per Internet delle cose usa i certificati SSL/TLS per:
 
-1. Soddisfare i requisiti specifici di certificato e crittografia richiesti dall'organizzazione caricando il certificato firmato da un'autorità di certificazione.
+- Soddisfare i requisiti specifici di certificato e crittografia richiesti dall'organizzazione caricando il certificato firmato da un'autorità di certificazione.
 
-1. Consentire la convalida tra la console di gestione e i sensori connessi e tra una console di gestione e una console di gestione a disponibilità elevata. Le convalide vengono valutate in base a un elenco di revoche di certificati e alla data di scadenza del certificato. **Se la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console. Questa opzione è abilitata per impostazione predefinita dopo l'installazione.**
+- Consentire la convalida tra la console di gestione e i sensori connessi e tra una console di gestione e una console di gestione a disponibilità elevata. Le convalide vengono valutate in base a un elenco di revoche di certificati e alla data di scadenza del certificato. *Se la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console*. Questa opzione è abilitata per impostazione predefinita dopo l'installazione.
 
- Regole di invio di terze parti, ad esempio le informazioni sugli avvisi inviate a SYSLOG, Splunk o ServiceNow; o la comunicazione con Active Directory non viene convalidata.
+ Regole di invio di terze parti, ad esempio le informazioni sugli avvisi inviate a SYSLOG, Splunk o ServiceNow; o le comunicazioni con Active Directory non vengono convalidate.
+
+#### <a name="ssl-certificates"></a>Certificati SSL
+
+Defender for Internet e la console di gestione locale usano SSL e i certificati TLS per le funzioni seguenti: 
+
+ - Proteggere le comunicazioni tra gli utenti e la console Web dell'appliance. 
+ 
+ - Proteggere le comunicazioni con l'API REST nel sensore e nella console di gestione locale.
+ 
+ - Proteggere le comunicazioni tra i sensori e una console di gestione locale. 
+
+Una volta installato, l'appliance genera un certificato autofirmato locale per consentire l'accesso preliminare alla console Web. SSL Enterprise e i certificati TLS possono essere installati usando lo [`cyberx-xsense-certificate-import`](#cli-commands) strumento da riga di comando. 
+
+ > [!NOTE]
+ > Per le integrazioni e le regole di invio in cui l'appliance è il client e l'initiator della sessione, vengono usati certificati specifici e non sono correlati ai certificati di sistema.  
+ >
+ >In questi casi, i certificati vengono in genere ricevuti dal server o utilizzano la crittografia asimmetrica, in cui verrà fornito un certificato specifico per configurare l'integrazione.
+
+Le appliance possono usare file di certificato univoci. Se è necessario sostituire un certificato, è stato caricato;
+
+- Dalla versione 10,0, il certificato può essere sostituito dal menu Impostazioni sistema.
+
+- Per le versioni precedenti alla 10,0, il certificato SSL può essere sostituito mediante lo strumento da riga di comando.
 
 ### <a name="update-certificates"></a>Aggiornare i certificati
 
@@ -111,15 +134,19 @@ Gli utenti dell'amministratore dei sensori possono aggiornare i certificati.
 Per aggiornare un certificato:  
 
 1. Selezionare **impostazioni di sistema**.
+
 1. Selezionare **certificati SSL/TLS.**
 1. Eliminare o modificare il certificato e aggiungerne uno nuovo.
+
     - Aggiungere un nome di certificato.
+    
     - Caricare un file CRT e un file di chiave e immettere una passphrase.
     - Se necessario, caricare un file PEM.
 
 Per modificare l'impostazione di convalida:
 
 1. Abilitare o disabilitare l'attivazione/disattivazione della **convalida del certificato** .
+
 1. Selezionare **Salva**.
 
 Se l'opzione è abilitata e la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console.
@@ -128,76 +155,122 @@ Se l'opzione è abilitata e la convalida ha esito negativo, la comunicazione tra
 
 Sono supportati i certificati seguenti:
 
-- Infrastruttura a chiave privata/Enterprise (PKI privata) 
-- Infrastruttura a chiave pubblica (PKI pubblico) 
-- Generato localmente nel dispositivo (autofirmato locale). **Non è consigliabile usare certificati autofirmati.** Questa connessione non è *protetta* e deve essere usata solo per gli ambienti di test. Il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema. I certificati autofirmati non devono mai essere usati per le reti di produzione.  
+- Infrastruttura a chiave privata ed Enterprise (PKI privata)
 
-Sono supportati i seguenti parametri. CRT certificato
+- Infrastruttura a chiave pubblica (PKI pubblico) 
+
+- Generato localmente nel dispositivo (autofirmato locale). 
+
+> [!IMPORTANT]
+> Non è consigliabile usare certificati autofirmati. Questo tipo di connessione non è sicuro e deve essere usato solo per gli ambienti di test. Poiché il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema, i certificati autofirmati non devono mai essere usati per le reti di produzione.
+
+### <a name="supported-ssl-certificates"></a>Certificati SSL supportati 
+
+Sono supportati i seguenti parametri. 
+
+**CRT certificato**
 
 - Il file di certificato primario per il nome di dominio
+
 - Algoritmo di firma = SHA256RSA
 - Algoritmo hash della firma = SHA256
 - Valido da = data passata valida
 - Valido per = data futura valida
-- Chiave pubblica = RSA 2048bits (minima) o 4096bits
+- Chiave pubblica = RSA 2048 bit (minimo) o 4096 bit
 - Punto di distribuzione CRL = URL del file con estensione CRL
-- Subject CN = URL, può essere un certificato con caratteri jolly, ad esempio example.contoso.com o  *contoso.com**
+- Subject CN = URL, può essere un certificato con caratteri jolly; ad esempio, Sensor. contoso. <span> com o *. contoso. <span> com
 - Subject (C) ountry = defined, ad esempio US
 - Subject (OU) org Unit = defined, ad esempio contoso Labs
 - Subject (O) ganizzazione = defined, ad esempio Contoso Inc.
 
-File codice
+**File di chiave**
 
-- Il file di chiave generato al momento della creazione di CSR
-- RSA 2048bits (minimo) o 4096bits
+- Il file di chiave generato al momento della creazione di CSR.
 
-Catena di certificati
+- RSA 2048 bit (minimo) o 4096 bit.
+
+ > [!Note]
+ > Utilizzando una lunghezza della chiave di 4096bits:
+ > - L'handshake SSL all'inizio di ogni connessione sarà più lento.  
+ > - Si è verificato un aumento dell'utilizzo della CPU durante gli handshake. 
+
+**Catena di certificati**
 
 - Il file di certificato intermedio, se presente, fornito dalla CA
+
 - Il certificato della CA che ha emesso il certificato del server deve essere il primo nel file, seguito da qualsiasi altro fino alla radice. 
 - Può includere gli attributi del contenitore.
 
-Passphrase
+**Passphrase**
 
-- 1 chiave supportata
-- Installazione durante l'importazione del certificato
+- È supportata una chiave.
 
-I certificati con altri parametri possono funzionare, ma non possono essere supportati da Microsoft.
+- Configurare durante l'importazione del certificato.
+
+I certificati con altri parametri potrebbero funzionare, ma Microsoft non li supporta.
 
 #### <a name="encryption-key-artifacts"></a>Elementi chiave di crittografia
 
 **. pem: file contenitore di certificati**
 
-Il nome è da Privacy Enhanced Mail (PEM), un metodo cronologico per la posta elettronica sicura, ma il formato del contenitore in cui si trovano e è una conversione Base64 delle chiavi X509 ASN. 1.  
+I file Privacy Enhanced Mail (PEM) erano il tipo di file generale usato per proteggere i messaggi di posta elettronica. Attualmente, i file PEM vengono usati con i certificati e usano le chiavi ASN1 di X509.  
 
-Definito in RFC da 1421 a 1424: un formato di contenitore che può includere solo il certificato pubblico (ad esempio con le installazioni Apache e i file di certificato CA/etc/ssl/certs) oppure può includere un'intera catena di certificati, tra cui la chiave pubblica, la chiave privata e i certificati radice.  
+Il file contenitore è definito in RFC da 1421 a 1424, un formato contenitore che può includere solo il certificato pubblico. Ad esempio, Apache installa, un certificato CA, file e così via, SSL o certificati. Può includere un'intera catena di certificati, tra cui la chiave pubblica, la chiave privata e i certificati radice.  
 
-Può anche codificare un CSR perché il formato PKCS10 può essere convertito in PEM.
+Può anche codificare un CSR come formato PKCS10, che può essere convertito in PEM.
 
 **. cert. cer. CRT-file contenitore di certificati**
 
-File con estensione PEM (o raramente) formattato con un'estensione diversa. Viene riconosciuta da Esplora risorse come un certificato. Il file con estensione PEM non è riconosciuto da Esplora risorse.
+Oggetto `.pem` o `.der` file formattato con un'estensione diversa. Il file viene riconosciuto da Esplora risorse come un certificato. Il `.pem`   file non è riconosciuto da Esplora risorse.
 
 **. Key-file di chiave privata**
 
-Un file di chiave è lo stesso "Format" di un file PEM, ma ha un'estensione diversa.
-##### <a name="use-cli-commands-to-deploy-certificates"></a>Usare i comandi dell'interfaccia della riga di comando per distribuire certificati
+Un file di chiave è nello stesso formato di un file PEM, ma ha un'estensione diversa.
 
-Usare il comando dell'interfaccia della riga di comando *CyberX-xsense-certificate-Import* per importare i certificati. Per usare questo strumento, è necessario caricare i file di certificato nel dispositivo (usando strumenti come WinSCP o wget).
+#### <a name="additional-commonly-available-key-artifacts"></a>Elementi chiave aggiuntivi comunemente disponibili
+
+**. CSR: richiesta di firma del certificato**.  
+
+Questo file viene usato per l'invio alle autorità di certificazione. Il formato effettivo è PKCS10, definito in RFC 2986, e può includere alcuni o tutti i dettagli chiave del certificato richiesto. Ad esempio, Subject, Organization e state. Si tratta della chiave pubblica del certificato che viene firmata dalla CA e riceve un certificato restituito.  
+
+Il certificato restituito è il certificato pubblico, che include la chiave pubblica ma non la chiave privata. 
+
+**. Pkcs12. pfx. P12-contenitore di password**. 
+
+Originariamente definito da RSA in Public-Key Cryptography Standards (PKCS), il 12 Variant è stato originariamente migliorato da Microsoft e successivamente inviato come RFC 7292.  
+
+Questo formato del contenitore richiede una password che contenga sia coppie di certificati pubbliche che private. A differenza dei `.pem`   file, questo contenitore è completamente crittografato.  
+
+È possibile usare OpenSSL per trasformarlo in un `.pem`   file con chiavi pubbliche e private: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
+
+**. der: PEM con codifica binaria**.
+
+Per codificare la sintassi ASN. 1 in formato binario, è possibile usare un `.pem`   file, che è solo un file con codifica Base64 `.der` . 
+
+OpenSSL può convertire questi file in `.pem` :  `openssl x509 -inform der -in to-convert.der -out converted.pem` .  
+
+Windows rileverà questi file come file di certificato. Per impostazione predefinita, Windows esporterà `.der` i certificati come file formattati con un'estensione diversa.  
+
+**. CRL-elenco di revoche di certificati**.  
+Le autorità di certificazione producono questi file come un modo per annullare l'autorizzazione dei certificati prima della scadenza.
+ 
+##### <a name="cli-commands"></a>Comandi dell'interfaccia della riga di comando
+
+Usare il `cyberx-xsense-certificate-import` comando dell'interfaccia della riga di comando per importare i certificati. Per usare questo strumento, è necessario caricare i file di certificato nel dispositivo usando strumenti come WinSCP o wget.
 
 Il comando supporta i flag di input seguenti:
 
--h Mostra la sintassi della guida della riga di comando
+- `-h`: Mostra la sintassi della guida della riga di comando.
 
---CRT percorso del file di certificato (estensione CRT)
+- `--crt`: Percorso di un file di certificato (estensione CRT).
 
---Key *. file di chiave, la lunghezza della chiave deve essere minima di 2048 bit
+- `--key`:  \* . file di chiave. La lunghezza della chiave deve essere almeno di 2.048 bit.
 
---catena percorso del file di catena di certificati (facoltativo)
+- `--chain`: Percorso di un file della catena di certificati (facoltativo).
 
---Passphrase passata usata per crittografare il certificato (facoltativo)
+- `--pass`: Passphrase utilizzata per crittografare il certificato (facoltativo).
 
---passphrase-set default = false, non usato. Impostare su TRUE per usare la passphrase precedente fornita con il certificato precedente (facoltativo)
+- `--passphrase-set`: Valore predefinito = `False` , non utilizzato. Impostare su `True` per usare la passphrase precedente fornita con il certificato precedente (facoltativo).
 
 Quando si usa il comando CLI:
 
@@ -205,10 +278,44 @@ Quando si usa il comando CLI:
 
 - Verificare che il nome di dominio e l'IP nel certificato corrispondano alla configurazione pianificata dal reparto IT.
 
+### <a name="use-openssl-to-manage-certificates"></a>Usare OpenSSL per gestire i certificati
+
+Gestire i certificati con i comandi seguenti:
+
+| Descrizione | Comando CLI |
+|--|--|
+| Genera una nuova chiave privata e una richiesta di firma del certificato | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
+| Generare un certificato autofirmato | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
+| Generare una richiesta di firma del certificato (CSR) per una chiave privata esistente | `openssl req -out CSR.csr -key privateKey.key -new` |
+| Genera una richiesta di firma del certificato basata su un certificato esistente | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
+| Rimuovere una passphrase da una chiave privata | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
+
+Se è necessario controllare le informazioni all'interno di un certificato, CSR o chiave privata, usare i comandi seguenti:
+
+| Descrizione | Comando CLI |
+|--|--|
+| Verificare una richiesta di firma del certificato (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
+| Controllare una chiave privata | `openssl rsa -in privateKey.key -check` |
+| Controllare un certificato | `openssl x509 -in certificate.crt -text -noout`  |
+
+Se viene visualizzato un errore che indica che la chiave privata non corrisponde al certificato o che un certificato installato in un sito non è attendibile, usare questi comandi per correggere l'errore.
+
+| Descrizione | Comando CLI |
+|--|--|
+| Controllare un hash MD5 della chiave pubblica per assicurarsi che corrisponda a ciò che si trova in una CSR o una chiave privata | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
+
+Per convertire i certificati e le chiavi in formati diversi per renderli compatibili con tipi specifici di server o software, usare questi comandi;
+
+| Descrizione | Comando CLI |
+|--|--|
+| Convertire un file DER (. CRT. cer. der) in PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
+| Convertire un file PEM in DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
+| Convertire un file PKCS # 12 (. pfx. P12) contenente una chiave privata e i certificati per PEM | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />È possibile aggiungere `-nocerts` solo l'output della chiave privata oppure aggiungere `-nokeys` solo i certificati. |
+| Convertire un file di certificato PEM e una chiave privata in PKCS # 12 (. pfx. P12) | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Connettere un sensore alla console di gestione
 
-Questa sezione descrive come garantire la connessione tra il sensore e la console di gestione locale. È necessario eseguire questa operazione se si sta lavorando in una rete gapped e si desidera inviare informazioni sugli asset e sugli avvisi alla console di gestione dal sensore. Questa connessione consente inoltre alla console di gestione di effettuare il push delle impostazioni di sistema al sensore ed eseguire altre attività di gestione sul sensore.
+Questa sezione descrive come garantire la connessione tra il sensore e la console di gestione locale. Eseguire questa operazione se si sta lavorando in una rete gapped e si desidera inviare informazioni sugli asset e sugli avvisi alla console di gestione dal sensore. Questa connessione consente inoltre alla console di gestione di effettuare il push delle impostazioni di sistema al sensore ed eseguire altre attività di gestione sul sensore.
 
 Per connettersi:
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 327dce053c38fdb7b03e7ceb0d7a62ec8b8e7248
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96993011"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540477"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -59,11 +59,11 @@ Seguire questa procedura per installare l'interfaccia della riga di comando di V
 
 1. <a href="https://www.docker.com/get-started" target="_blank">Installare Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> per la piattaforma se non è già stato fatto.
 2. In un nuovo prompt dei comandi o terminale digitare questo comando: 
-   ```shell   
+   ```console   
    docker pull msftspeech/spx
    ```
 3. Digitare il comando seguente. Dovrebbero essere visualizzate informazioni della Guida per l'interfaccia della riga di comando di Voce: 
-   ```shell 
+   ```console 
    docker run -it --rm msftspeech/spx help
    ```
 
@@ -93,27 +93,27 @@ Quando si chiama il comando `spx` in un contenitore Docker, è necessario montar
 
 In Windows i comandi inizieranno come segue:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
 In Linux o macOS i comandi saranno simili all'esempio seguente. Sostituire `ABSOLUTE_PATH` con il percorso assoluto della directory montata. Questo percorso è stato restituito dal comando `pwd` nella sezione precedente. 
 
 Se si esegue questo comando prima di impostare la chiave e l'area, si riceverà un messaggio di errore indicante che è necessario eseguire queste impostazioni:
-```shell   
+```console   
 sudo docker run -it -v ABSOLUTE_PATH:/data --rm msftspeech/spx
 ```
 
 Per usare il comando `spx` installato in un contenitore, immettere sempre il comando completo mostrato sopra, seguito dai parametri della richiesta specifica.
 Ad esempio, in Windows questo comando configura la chiave:
 
-```shell
+```console
 docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Per un'interazione più estesa con lo strumento da riga di comando, è possibile avviare un contenitore con una shell bash interattiva aggiungendo un parametro entrypoint.
 In Windows, immettere questo comando per avviare un contenitore che espone un'interfaccia della riga di comando interattiva in cui è possibile immettere più comandi `spx`:
-```shell
+```console
 docker run -it --entrypoint=/bin/bash -v c:\spx-data:/data --rm msftspeech/spx
 ```
 
@@ -160,7 +160,7 @@ Follow these instructions to create a shortcut:
 Per iniziare a usare l'interfaccia della riga di comando di Voce, è necessario immettere la chiave della sottoscrizione e l'identificatore di area del servizio Voce. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../overview.md#try-the-speech-service-for-free).
 Dopo aver ottenuto l’identificatore dell’area e della chiave di sottoscrizione (ad esempio, `eastus`, `westus`), eseguire i comandi seguenti.
 
-```shell
+```console
 spx config @key --set SUBSCRIPTION-KEY
 spx config @region --set REGION
 ```

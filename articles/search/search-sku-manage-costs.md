@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: a708fb76b5a3d0fd0683cdb8915d1a5e1824a57c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4ad362b983f81e2cdc10cdbccafd8dda951482d7
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251669"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539553"
 ---
 # <a name="how-to-estimate-and-manage-costs-of-an-azure-cognitive-search-service"></a>Come stimare e gestire i costi di un servizio ricerca cognitiva di Azure
 
@@ -25,7 +25,12 @@ L'architettura di scalabilità in Azure ricerca cognitiva si basa su combinazion
 
 La quantità di risorse usate dal servizio di ricerca, moltiplicata per la tariffa di fatturazione stabilita dal livello di servizio, determina il costo di esecuzione del servizio. I costi e la capacità sono strettamente associati. Quando si stimano i costi, comprendere la capacità necessaria per eseguire i carichi di lavoro di indicizzazione e query ti offre la migliore idea dei costi previsti.
 
-Ai fini della fatturazione, ricerca cognitiva ha il concetto di *unità di ricerca* (su). Una SU è il prodotto delle *repliche* e delle *partizioni* usate da un servizio: **(R x P = su)**. Il numero di unità di streaming moltiplicato per la tariffa di fatturazione **(su * tasso = spesa mensile)** è il fattore principale dei costi correlati alla ricerca. 
+Ai fini della fatturazione, è necessario tenere presenti due semplici formule:
+
+| Formula | Descrizione |
+|---------|-------------|
+| **R x P = SU** | Il numero di repliche utilizzate, moltiplicato per il numero di partizioni utilizzate, equivale alla quantità di *unità di ricerca* (su) utilizzata da un servizio. Un SU è un'unità di risorsa e può essere una partizione o una replica. |
+| **Velocità di fatturazione SU * = spesa mensile** | Il numero di unità di streaming moltiplicate per la tariffa di fatturazione del livello in cui è stato effettuato il provisioning del servizio è il fattore principale della fattura mensile complessiva. Alcune funzionalità o carichi di lavoro hanno dipendenze da altri servizi di Azure, che possono aumentare il costo della soluzione a livello di sottoscrizione. La sezione eventi fatturabili seguente identifica le funzionalità che possono essere aggiunte alla fattura. |
 
 Ogni servizio inizia con una SU (una replica moltiplicata per una partizione) come valore minimo. Il valore massimo per qualsiasi servizio è 36 unità di streaming. Questo valore massimo può essere raggiunto in diversi modi: 6 partizioni x 6 repliche o 3 partizioni x 12 repliche, ad esempio. È normale usare una capacità inferiore alla capacità totale (ad esempio, un servizio a 3 repliche, a 3 partizioni fatturato come 9 unità di streaming). Vedere il grafico delle [combinazioni di partizioni e replica](search-capacity-planning.md#chart) per le combinazioni valide.
 

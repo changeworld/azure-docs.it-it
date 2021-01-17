@@ -4,15 +4,15 @@ description: Informazioni sulle opzioni di console di gestione locali come backu
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/12/2020
+ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 34efef4a01b58cc26fd1567336184837a703ade2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839893"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539344"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gestire la console di gestione locale
 
@@ -49,9 +49,26 @@ Azure Defender per Internet usa i certificati SSL e TLS per:
 
 - Soddisfare i requisiti specifici di certificato e crittografia richiesti dall'organizzazione caricando il certificato firmato da un'autorità di certificazione.
 
-- Consentire la convalida tra la console di gestione e i sensori connessi e tra una console di gestione e una console di gestione a disponibilità elevata. La convalida viene valutata in base a un elenco di revoche di certificati e alla data di scadenza del certificato. *Se la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console.* Questa opzione è abilitata per impostazione predefinita dopo l'installazione.
+- Consentire la convalida tra la console di gestione e i sensori connessi e tra una console di gestione e una console di gestione a disponibilità elevata. La convalida viene valutata in base a un elenco di revoche di certificati e alla data di scadenza del certificato. *Se la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console*. Questa opzione è abilitata per impostazione predefinita dopo l'installazione.
 
 Le regole di invio di terze parti non vengono convalidate. Gli esempi sono le informazioni di avviso inviate a SYSLOG, Splunk o ServiceNow; e la comunicazione con Active Directory.
+
+#### <a name="ssl-certificates"></a>Certificati SSL
+
+Defender for Internet e la console di gestione locale usano SSL e i certificati TLS per le funzioni seguenti: 
+
+ - Proteggere le comunicazioni tra gli utenti e la console Web dell'appliance. 
+ 
+ - Proteggere le comunicazioni con l'API REST nel sensore e nella console di gestione locale.
+ 
+ - Proteggere le comunicazioni tra i sensori e una console di gestione locale. 
+
+Una volta installato, l'appliance genera un certificato autofirmato locale per consentire l'accesso preliminare alla console Web. SSL Enterprise e i certificati TLS possono essere installati utilizzando lo [`cyberx-xsense-certificate-import`](#cli-commands) strumento da riga di comando. 
+
+ > [!NOTE]
+ > Per le integrazioni e le regole di invio in cui l'appliance è il client e l'initiator della sessione, vengono usati certificati specifici e non sono correlati ai certificati di sistema.  
+ >
+ >In questi casi, i certificati vengono in genere ricevuti dal server o utilizzano la crittografia asimmetrica, in cui verrà fornito un certificato specifico per configurare l'integrazione. 
 
 ### <a name="update-certificates"></a>Aggiornare i certificati
 
@@ -60,16 +77,19 @@ Gli utenti amministratori della console di gestione locale possono aggiornare i 
 Per aggiornare un certificato:  
 
 1. Selezionare **impostazioni di sistema**.
+
 1. Selezionare **certificati SSL/TLS**.
 1. Eliminare o modificare il certificato e aggiungerne uno nuovo.
    
    - Aggiungere un nome di certificato.
+   
    - Caricare un file CRT e un file di chiave e immettere una passphrase.
    - Se necessario, caricare un file PEM.
 
 Per modificare l'impostazione di convalida:
 
 1. Attivare o disattivare l'interruttore **Abilita convalida certificati** .
+
 1. Selezionare **Salva**.
 
 Se l'opzione è abilitata e la convalida ha esito negativo, la comunicazione tra la console di gestione e il sensore viene interrotta e viene visualizzato un errore di convalida nella console di.
@@ -78,25 +98,30 @@ Se l'opzione è abilitata e la convalida ha esito negativo, la comunicazione tra
 
 Sono supportati i certificati seguenti:
 
-- Infrastruttura a chiave privata ed Enterprise (PKI privata) 
+- Infrastruttura a chiave privata ed Enterprise (PKI privata)
+ 
 - Infrastruttura a chiave pubblica (PKI pubblico) 
+
 - Generato localmente nel dispositivo (autofirmato locale) 
 
   > [!IMPORTANT]
-  > Non è consigliabile usare certificati autofirmati. Questa connessione non è sicura e deve essere usata solo per gli ambienti di test. Il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema. I certificati autofirmati non devono mai essere usati per le reti di produzione.  
+  > Non è consigliabile usare certificati autofirmati. Questo tipo di connessione non è sicuro e deve essere usato solo per gli ambienti di test. Poiché il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema, i certificati autofirmati non devono mai essere usati per le reti di produzione.
+
+### <a name="supported-ssl-certificates"></a>Certificati SSL supportati 
 
 Sono supportati i seguenti parametri: 
 
 **CRT certificato**
 
 - Il file di certificato primario per il nome di dominio
+
 - Algoritmo di firma = SHA256RSA
 - Algoritmo hash della firma = SHA256
 - Valido da = data passata valida
 - Valido per = data futura valida
 - Chiave pubblica = RSA 2048 bit (minimo) o 4096 bit
 - Punto di distribuzione CRL = URL del file con estensione CRL
-- Subject CN = URL, può essere un certificato con caratteri jolly; ad esempio, www.contoso.com o \* . contoso.com
+- Subject CN = URL, può essere un certificato con caratteri jolly; ad esempio, Sensor. contoso. <span> com o *. contoso. <span> com
 - Subject (C) ountry = defined, ad esempio US
 - Oggetto (OU) unità organizzativa = definito; ad esempio, contoso Labs
 - Subject (O) ganizzazione = defined; ad esempio, Contoso Inc.
@@ -104,17 +129,25 @@ Sono supportati i seguenti parametri:
 **File di chiave**
 
 - Il file di chiave generato al momento della creazione del CSR
+
 - RSA 2048 bit (minimo) o 4096 bit
+
+ > [!Note]
+ > Utilizzando una lunghezza della chiave di 4096bits:
+ > - L'handshake SSL all'inizio di ogni connessione sarà più lento.  
+ > - Si è verificato un aumento dell'utilizzo della CPU durante gli handshake. 
 
 **Catena di certificati**
 
 - Il file di certificato intermedio, se presente, fornito dalla CA.
+
 - Il certificato della CA che ha emesso il certificato del server deve essere il primo nel file, seguito da qualsiasi altro fino alla radice. 
 - La catena può includere attributi del contenitore.
 
 **Passphrase**
 
 - È supportata una chiave.
+
 - Configurare durante l'importazione del certificato.
 
 I certificati con altri parametri potrebbero funzionare, ma Microsoft non li supporta.
@@ -123,23 +156,51 @@ I certificati con altri parametri potrebbero funzionare, ma Microsoft non li sup
 
 **. pem: file contenitore di certificati**
 
-Il nome è da Privacy Enhanced Mail (PEM), un metodo cronologico per la posta elettronica sicura. Il formato del contenitore è una conversione Base64 delle chiavi X509 ASN. 1.  
+I file Privacy Enhanced Mail (PEM) erano il tipo di file generale usato per proteggere i messaggi di posta elettronica. Attualmente, i file PEM vengono usati con i certificati e usano le chiavi ASN1 di X509.  
 
-Questo file è definito in RFC da 1421 a 1424: un formato contenitore che può includere solo il certificato pubblico, ad esempio con le installazioni Apache, i file di certificato della CA e i certificati SSL e così via. Oppure può includere un'intera catena di certificati, tra cui una chiave pubblica, una chiave privata e i certificati radice.  
+Il file contenitore è definito in RFC da 1421 a 1424, un formato contenitore che può includere solo il certificato pubblico. Ad esempio, Apache installa, un certificato CA, file e così via, SSL o certificati. Può includere un'intera catena di certificati, tra cui la chiave pubblica, la chiave privata e i certificati radice.  
 
-Potrebbe anche codificare un CSR, perché il formato PKCS10 può essere convertito in PEM.
+Può anche codificare un CSR come formato PKCS10, che può essere convertito in PEM.
 
 **. cert. cer. CRT: file contenitore di certificati**
 
-Si tratta di un file con estensione PEM (o raramente, der) con un'estensione diversa. Esplora file di Windows lo riconosce come un certificato. Esplora file non riconosce il file con estensione PEM.
+Oggetto `.pem` o `.der` file formattato con un'estensione diversa. Il file viene riconosciuto da Esplora risorse come un certificato. Il `.pem`   file non è riconosciuto da Esplora risorse.
 
 **. Key: file di chiave privata**
 
-Un file di chiave è dello stesso formato di un file PEM, ma ha un'estensione diversa. 
+Un file di chiave è nello stesso formato di un file PEM, ma ha un'estensione diversa. 
+
+#### <a name="additional-commonly-available-key-artifacts"></a>Elementi chiave aggiuntivi comunemente disponibili
+
+**. CSR: richiesta di firma del certificato**.  
+
+Questo file viene usato per l'invio alle autorità di certificazione. Il formato effettivo è PKCS10, definito in RFC 2986, e può includere alcuni o tutti i dettagli chiave del certificato richiesto. Ad esempio, Subject, Organization e state. Si tratta della chiave pubblica del certificato che viene firmata dalla CA e riceve un certificato restituito.  
+
+Il certificato restituito è il certificato pubblico, che include la chiave pubblica ma non la chiave privata. 
+
+**. Pkcs12. pfx. P12-contenitore di password**. 
+
+Originariamente definito da RSA in Public-Key Cryptography Standards (PKCS), il 12 Variant è stato originariamente migliorato da Microsoft e successivamente inviato come RFC 7292.  
+
+Questo formato del contenitore richiede una password che contenga sia coppie di certificati pubbliche che private. A differenza dei `.pem`   file, questo contenitore è completamente crittografato.  
+
+È possibile usare OpenSSL per convertire il file in un `.pem`   file con chiavi pubbliche e private: `openssl pkcs12 -in file-to-convert.p12 -out converted-file.pem -nodes`  
+
+**. der: PEM con codifica binaria**.
+
+Per codificare la sintassi ASN. 1 in formato binario, è possibile usare un `.pem`   file, che è solo un file con codifica Base64 `.der` . 
+
+OpenSSL può convertire questi file in `.pem` :  `openssl x509 -inform der -in to-convert.der -out converted.pem` .  
+
+Windows rileverà questi file come file di certificato. Per impostazione predefinita, Windows esporterà `.der` i certificati come file formattati con un'estensione diversa.
+
+**. CRL-elenco di revoche di certificati**.  
+
+Le autorità di certificazione producono questi metodi per annullare l'autorizzazione dei certificati prima della scadenza. 
 
 #### <a name="cli-commands"></a>Comandi dell'interfaccia della riga di comando
 
-Usare il `cyberx-xsense-certificate-import` comando dell'interfaccia della riga di comando per importare i certificati. Per usare questo strumento, è necessario caricare i file di certificato nel dispositivo (usando strumenti come WinSCP o wget).
+Usare il `cyberx-xsense-certificate-import` comando dell'interfaccia della riga di comando per importare i certificati. Per usare questo strumento, è necessario caricare i file di certificato nel dispositivo usando strumenti come WinSCP o wget.
 
 Il comando supporta i flag di input seguenti:
 
@@ -160,6 +221,41 @@ Quando si usa il comando CLI:
 - Verificare che i file di certificato siano leggibili nell'appliance.
 
 - Verificare che il nome di dominio e l'IP nel certificato corrispondano alla configurazione pianificata dal reparto IT.
+
+### <a name="use-openssl-to-manage-certificates"></a>Usare OpenSSL per gestire i certificati
+
+Gestire i certificati con i comandi seguenti:
+
+| Descrizione | Comando CLI |
+|--|--|
+| Genera una nuova chiave privata e una richiesta di firma del certificato | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
+| Generare un certificato autofirmato | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
+| Generare una richiesta di firma del certificato (CSR) per una chiave privata esistente | `openssl req -out CSR.csr -key privateKey.key -new` |
+| Genera una richiesta di firma del certificato basata su un certificato esistente | `openssl x509 -x509toreq -in certificate.crt -out CSR.csr -signkey privateKey.key` |
+| Rimuovere una passphrase da una chiave privata | `openssl rsa -in privateKey.pem -out newPrivateKey.pem` |
+
+Se è necessario controllare le informazioni all'interno di un certificato, CSR o chiave privata, usare i comandi seguenti:
+
+| Descrizione | Comando CLI |
+|--|--|
+| Verificare una richiesta di firma del certificato (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
+| Controllare una chiave privata | `openssl rsa -in privateKey.key -check` |
+| Controllare un certificato | `openssl x509 -in certificate.crt -text -noout`  |
+
+Se viene visualizzato un errore che indica che la chiave privata non corrisponde al certificato o che un certificato installato in un sito non è attendibile, usare questi comandi per correggere l'errore.
+
+| Descrizione | Comando CLI |
+|--|--|
+| Controllare un hash MD5 della chiave pubblica per assicurarsi che corrisponda a ciò che si trova in una CSR o una chiave privata | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
+
+Per convertire i certificati e le chiavi in formati diversi per renderli compatibili con tipi specifici di server o software, usare questi comandi;
+
+| Descrizione | Comando CLI |
+|--|--|
+| Convertire un file DER (. CRT. cer. der) in PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
+| Convertire un file PEM in DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
+| Convertire un file PKCS # 12 (. pfx. P12) contenente una chiave privata e i certificati per PEM | `openssl pkcs12 -in keyStore.pfx -out keyStore.pem -nodes` <br />È possibile aggiungere `-nocerts` solo l'output della chiave privata oppure aggiungere `-nokeys` solo i certificati. |
+| Convertire un file di certificato PEM e una chiave privata in PKCS # 12 (. pfx. P12) | `openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile CACert.crt` |
 
 ## <a name="define-backup-and-restore-settings"></a>Definire le impostazioni di backup e ripristino
 
@@ -298,6 +394,26 @@ Per reimpostare la password:
 
 > [!NOTE]
 > Il sensore è collegato alla sottoscrizione a cui è stata originariamente connessa. È possibile recuperare la password solo utilizzando la stessa sottoscrizione a cui è collegata.
+
+## <a name="update-the-software-version"></a>Aggiornare la versione del software
+
+Nella procedura seguente viene descritto come aggiornare la versione del software della console di gestione locale. Il processo di aggiornamento richiede circa 30 minuti.
+
+1. Passare al [portale di Azure](https://portal.azure.com/).
+
+1. Passa a Defender for Internet.
+
+1. Passare alla pagina **aggiornamenti** .
+
+1. Selezionare una versione dalla sezione console di gestione locale.
+
+1. Selezionare **Download** e salvare il file.
+
+1. Accedere alla console di gestione locale e selezionare **impostazioni di sistema** dal menu laterale.
+
+1. Nel riquadro **aggiornamento versione** selezionare **Aggiorna**.
+
+1. Selezionare il file scaricato dalla pagina Defender for Internet **Updates** .
 
 ## <a name="see-also"></a>Vedere anche
 
