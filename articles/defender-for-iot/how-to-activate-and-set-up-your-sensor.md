@@ -4,15 +4,15 @@ description: Questo articolo descrive come eseguire l'accesso e attivare una con
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/26/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9305609b624a96e4d785657dfb63af6639e132c4
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840325"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538571"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Attivare e configurare il sensore
 
@@ -65,10 +65,13 @@ Sono disponibili due livelli di sicurezza:
 La console supporta i tipi di certificato seguenti:
 
 - Infrastruttura a chiave privata ed Enterprise (PKI privata)
+
 - Infrastruttura a chiave pubblica (PKI pubblico)
+
 - Generato localmente nel dispositivo (autofirmato locale) 
 
-  > IMPORTANTE Si consiglia di non usare il certificato autofirmato predefinito. Il certificato non è sicuro e deve essere usato solo per gli ambienti di test. Il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema. Non usare mai questa opzione per le reti di produzione.
+  > [!IMPORTANT]
+  > Si consiglia di non usare il certificato autofirmato predefinito. Il certificato non è sicuro e deve essere usato solo per gli ambienti di test. Il proprietario del certificato non può essere convalidato e non è possibile mantenere la sicurezza del sistema. Non usare mai questa opzione per le reti di produzione.
 
 ### <a name="sign-in-and-activate-the-sensor"></a>Accedere e attivare il sensore
 
@@ -205,7 +208,7 @@ Prima di eseguire l'accesso, verificare di avere:
 | Impostazioni di sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Configurare le impostazioni di sistema. Ad esempio, definire le impostazioni DHCP, fornire i dettagli del server di posta o creare alias di porta. |
 | Importare impostazioni | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Visualizzare la finestra **Importa impostazioni** . È possibile eseguire modifiche manuali nelle informazioni di un dispositivo.<br /> Per informazioni dettagliate, vedere [importare informazioni sul dispositivo](how-to-import-device-information.md) . |
 
-**Supporto tecnico**
+**Supporto**
 
 | Finestra| Icona | Descrizione |
 |----|---|---|
@@ -217,4 +220,4 @@ Prima di eseguire l'accesso, verificare di avere:
 
 [Gestire i file di attivazione dei sensori](how-to-manage-individual-sensors.md#manage-sensor-activation-files)
 
-[Controllare il traffico monitorato](how-to-control-what-traffic-is-monitored.md)
+[Controllare quale traffico viene monitorato](how-to-control-what-traffic-is-monitored.md)

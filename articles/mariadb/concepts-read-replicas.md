@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 01/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: c91aab2bf59f93cf897f9a1b9109172523ae4e57
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 39547e3156a684293a0624f974a8b0930f656485
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251404"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540007"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliche in lettura in Database di Azure per MariaDB
 
@@ -27,13 +27,13 @@ Per ulteriori informazioni sulla replica GTID, vedere la [documentazione relativ
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usare una replica in lettura
 
-La funzionalità di replica in lettura aiuta a migliorare prestazioni e scalabilità dei carichi di lavoro con utilizzo elevato della lettura. I carichi di lavoro di lettura possono essere isolati alle repliche, mentre i carichi di lavoro di scrittura possono essere indirizzati al master.
+La funzionalità di replica in lettura aiuta a migliorare prestazioni e scalabilità dei carichi di lavoro con utilizzo elevato della lettura. I carichi di lavoro di lettura possono essere isolati con le repliche, mentre i carichi di lavoro di scrittura possono essere indirizzati al database primario.
 
 Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e analitici usino le repliche in lettura come origine dati per la creazione di report.
 
-Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri per la capacità di scrittura sul master. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
+Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri di capacità di scrittura nel database primario. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
 
-La funzionalità di lettura della replica utilizza la replica asincrona. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
+La funzionalità di lettura della replica utilizza la replica asincrona. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano infine coerenti con i dati nel database primario. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
 
 ## <a name="cross-region-replication"></a>Replica tra più aree
 
@@ -44,11 +44,13 @@ La funzionalità di lettura della replica utilizza la replica asincrona. La funz
 [![Leggere le aree di replica](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Aree di replica universali
+
 È possibile creare una replica di lettura in una delle aree seguenti, indipendentemente dalla posizione in cui si trova il server di origine. Le aree di replica universali supportate includono:
 
 Australia orientale, Australia sudorientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali
 
 ### <a name="paired-regions"></a>Aree abbinate
+
 Oltre alle aree di replica universale, è possibile creare una replica di lettura nell'area abbinata di Azure del server di origine. Se non si conosce la coppia di aree di appartenenza, vedere l'[articolo Aree associate di Azure](../best-practices-availability-paired-regions.md) per altre informazioni.
 
 Se si usano repliche tra più aree per la pianificazione del ripristino di emergenza, è consigliabile creare la replica nell'area associata anziché in una delle altre aree. Le aree associate evitano aggiornamenti simultanei e assegnano priorità all'isolamento fisico e alla residenza dei dati.  
@@ -56,7 +58,7 @@ Se si usano repliche tra più aree per la pianificazione del ripristino di emerg
 È tuttavia necessario considerare due limitazioni: 
 
 * Disponibilità a livello di area: database di Azure per MariaDB è disponibile in Francia centrale, Emirati Arabi Uniti settentrionali e Germania centrale. Tuttavia, le relative aree associate non sono disponibili.
-    
+
 * Coppie unidirezionali: alcune aree di Azure sono associate in una sola direzione. Queste aree includono India occidentale, Brasile meridionale e US Gov Virginia. 
    Ciò significa che un server di origine nell'India occidentale può creare una replica nell'India meridionale. Tuttavia, un server di origine in India meridionale non è in grado di creare una replica nell'India occidentale. Questo si verifica perché l'area secondaria dell'India occidentale è l'India meridionale, mentre l'area secondaria dell'India meridionale non è l'India occidentale.
 
@@ -110,7 +112,7 @@ Informazioni su come [arrestare la replica in una replica](howto-read-replicas-p
 
 ## <a name="failover"></a>Failover
 
-Non esiste un failover automatico tra i server di origine e di replica. 
+Non esiste un failover automatico tra i server di origine e di replica.
 
 Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. La quantità di ritardo può essere influenzata da diversi fattori, ad esempio la quantità di carico di lavoro in esecuzione nel server di origine e la latenza tra i Data Center. Nella maggior parte dei casi il ritardo della replica è compreso tra pochi secondi e un paio di minuti. È possibile tenere traccia dell'effettivo ritardo di replica usando l' *intervallo di replica* metrica, disponibile per ogni replica. Questa metrica indica il tempo trascorso dall'ultima transazione riprodotta. Si consiglia di identificare il ritardo medio osservando il ritardo della replica in un periodo di tempo. È possibile impostare un avviso per il ritardo di replica, in modo che se non rientra nell'intervallo previsto, è possibile intervenire.
 
@@ -119,13 +121,13 @@ Poiché la replica è asincrona, esiste un ritardo tra l'origine e la replica. L
 
 Dopo aver deciso di voler eseguire il failover a una replica,
 
-1. Arrestare la replica nella replica<br/>
+1. Arrestare la replica nella replica.
 
-   Questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà decollegato dal master. Dopo l'avvio della replica di arresto, il completamento del processo back-end richiede in genere circa 2 minuti. Per comprendere le implicazioni di questa azione, vedere la sezione [arrestare la replica](#stop-replication) di questo articolo.
+   Questo passaggio è necessario per consentire al server di replica di accettare le Scritture. Come parte di questo processo, il server di replica verrà decollegato dal database primario. Dopo l'avvio della replica di arresto, il completamento del processo back-end richiede in genere circa 2 minuti. Per comprendere le implicazioni di questa azione, vedere la sezione [arrestare la replica](#stop-replication) di questo articolo.
 
-2. Puntare l'applicazione alla replica (precedente)
+2. Puntare l'applicazione alla replica (precedente).
 
-   Ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che al database master.
+   Ogni server dispone di una stringa di connessione univoca. Aggiornare l'applicazione in modo che punti alla replica (precedente) invece che al database primario.
 
 Dopo che l'applicazione ha elaborato correttamente le operazioni di lettura e scrittura, il failover è stato completato. La quantità di tempo di inattività di cui l'applicazione dipenderà quando si rileva un problema e si completano i passaggi 1 e 2 precedenti.
 
@@ -148,10 +150,10 @@ Una replica di lettura viene creata come un nuovo database di Azure per il serve
 
 ### <a name="replica-configuration"></a>Configurazione della replica
 
-Una replica viene creata usando la stessa configurazione server del master. Dopo la creazione di una replica, è possibile modificare diverse impostazioni indipendentemente dal server di origine: generazione di calcolo, Vcore, archiviazione, periodo di conservazione dei backup e versione del motore MariaDB. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
+Una replica viene creata utilizzando la stessa configurazione del server del database primario. Dopo la creazione di una replica, è possibile modificare diverse impostazioni indipendentemente dal server di origine: generazione di calcolo, Vcore, archiviazione, periodo di conservazione dei backup e versione del motore MariaDB. È anche possibile modificare in modo indipendente il piano tariffario, tranne da o verso il livello Basic.
 
 > [!IMPORTANT]
-> Prima che la configurazione del server di origine venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che le repliche siano sempre aggiornate con le modifiche apportate al master.
+> Prima che la configurazione del server di origine venga aggiornata con nuovi valori, la configurazione delle repliche deve essere aggiornata impostandola su valori uguali o superiori. Questa azione garantisce che la replica sia in grado di gestire tutte le modifiche apportate al database primario.
 
 Le regole del firewall e le impostazioni dei parametri vengono ereditate dal server di origine alla replica quando viene creata la replica. Successivamente le regole della replica sono indipendenti.
 
@@ -172,20 +174,21 @@ Gli utenti nel server di origine vengono replicati nelle repliche di lettura. È
 Per evitare che i dati siano esclusi dalla sincronizzazione e scongiurarne potenziali perdite o danneggiamenti, alcuni parametri del server vengono bloccati dall'aggiornamento quando si usano repliche di lettura.
 
 I parametri del server seguenti sono bloccati nel server di origine e di replica:
-- [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
-- [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
+
+* [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
+* [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
 Il parametro [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) è bloccato nei server di replica.
 
-Per aggiornare uno dei parametri indicati in precedenza nel server di origine, eliminare i server di replica, aggiornare il valore del parametro nel database master e ricreare le repliche.
+Per aggiornare uno dei parametri indicati in precedenza nel server di origine, eliminare i server di replica, aggiornare il valore del parametro nel database primario e ricreare le repliche.
 
 ### <a name="other"></a>Altro
 
-- La creazione di una replica di replica non è supportata.
-- Le tabelle in memoria possono impedire la sincronizzazione delle repliche. Si tratta di una limitazione della tecnologia di replica di MariaDB.
-- Verificare che le tabelle del server di origine dispongano di chiavi primarie. La mancanza di chiavi primarie può causare latenza di replica tra l'origine e le repliche.
+* La creazione di una replica di replica non è supportata.
+* Le tabelle in memoria possono impedire la sincronizzazione delle repliche. Si tratta di una limitazione della tecnologia di replica di MariaDB.
+* Verificare che le tabelle del server di origine dispongano di chiavi primarie. La mancanza di chiavi primarie può causare latenza di replica tra l'origine e le repliche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](howto-read-replicas-portal.md)
-- Informazioni su come [creare e gestire le repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST](howto-read-replicas-cli.md)
+* Informazioni su come [creare e gestire le repliche in lettura tramite il portale di Azure](howto-read-replicas-portal.md)
+* Informazioni su come [creare e gestire le repliche in lettura con l'interfaccia della riga di comando di Azure e l'API REST](howto-read-replicas-cli.md)

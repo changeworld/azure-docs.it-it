@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
-ms.openlocfilehash: 06a06d275ba6f5ded475ffd693ee61e7a72b9516
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 26097408d0b83b043f4a25183146c892fc4b48ad
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127703"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538551"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Risolvere i problemi comuni nell'API Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -36,7 +36,7 @@ L'articolo seguente descrive gli errori comuni e le soluzioni per le distribuzio
 | 67 | CannotCreateIndex | Non è possibile completare la richiesta di creazione di un indice. | In un contenitore è possibile creare fino a 500 indici di campo singolo. È possibile includere fino a otto campi in un indice composto (gli indici composti sono supportati nella versione 3.6 +). |
 | 115 | CommandNotSupported | Il tentativo di richiesta non è supportato. | Nell'errore è necessario fornire ulteriori dettagli. Se questa funzionalità è importante per le distribuzioni, segnalare il problema creando un ticket di supporto nella [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). |
 | 11000 | DuplicateKey | La chiave di partizione (Azure Cosmos DB chiave di partizione) del documento che si sta inserendo esiste già nella raccolta oppure è stato violato un vincolo di campo indice univoco. | Utilizzare la funzione Update () per aggiornare un documento esistente. Se il vincolo di campo indice univoco è stato violato, inserire o aggiornare il documento con un valore di campo che non esiste ancora nella partizione/partizione. |
-| 16500 | TooManyRequests  | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di dimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. Se si Abilita SSR (nuovo tentativo lato server), Azure Cosmos DB ritenta automaticamente le richieste non riuscite a causa di questo errore. |
+| 16500 | TooManyRequests  | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di dimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. Se si [Abilita SSR](prevent-rate-limiting-errors.md) (nuovo tentativo lato server), Azure Cosmos DB ritenta automaticamente le richieste non riuscite a causa di questo errore. |
 | 16501 | ExceededMemoryLimit | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Esempio: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | 40324 | Nome della fase della pipeline non riconosciuto. | Il nome della fase nella richiesta della pipeline di aggregazione non è stato riconosciuto. | Verificare che tutti i nomi delle pipeline di aggregazione siano validi nella richiesta. |
 | - | Problemi con la versione protocollo di collegamento di MongoDB | Le versioni precedenti dei driver MongoDB non sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Aggiungere *appname = @**AccountName** @* alla fine della stringa di connessione dell'API Cosmos DB per MongoDB, dove ***AccountName*** è il nome dell'account Cosmos DB. |

@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b497176deff896e785387f4b64a8e66ff4d6d58e
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 5b7c6a229cfee5b543d1169b30be336cc97ba7ed
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654320"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538098"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account QQ tramite Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ ms.locfileid: "97654320"
 
 ## <a name="create-a-qq-application"></a>Creare un'applicazione QQ
 
-Per usare un account QQ come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si ha già un account QQ, è possibile iscriversi all'indirizzo [https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
+Per abilitare l'accesso per gli utenti con un account QQ in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel [portale per sviluppatori QQ](http://open.qq.com). Se non si ha già un account QQ, è possibile iscriversi all'indirizzo [https://ssl.zc.qq.com](https://ssl.zc.qq.com/en/index.html?type=1&ptlang=1033) .
 
 ### <a name="register-for-the-qq-developer-program"></a>Registrazione per il programma per sviluppatori QQ
 
@@ -64,7 +64,7 @@ Per usare un account QQ come provider di identità in Azure Active Directory B2C
 1. Immettere un **Nome**. Ad esempio, *QQ*.
 1. Per **ID client** immettere l'ID app dell'applicazione QQ creata in precedenza.
 1. Per il **segreto client**, immettere la chiave dell'app registrata.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
 ::: zone-end
 
@@ -189,9 +189,9 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 ## <a name="add-qq-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità QQ a un flusso utente 
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
-1. Fare clic sul flusso utente che si vuole usare per il provider di identità QQ.
+1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità QQ.
 1. In provider di identità basati su **Social Network** selezionare **QQ**.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

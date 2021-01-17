@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360174"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539884"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -42,7 +42,7 @@ Quando si è pronti per usare i dati nella soluzione di archiviazione basata su 
 
     1. È sufficiente utilizzarlo direttamente in soluzioni Azure Machine Learning come, esecuzioni di esperimenti automatizzati di Machine Learning (automatico ML), pipeline di Machine Learning o [progettazione Azure Machine Learning](concept-designer.md).
 
-4. Creare [monitoraggi del set](#data-drift) di dati per il set di dati di output del modello per rilevare la tendenza dei dati. 
+4. Creare [monitoraggi del set](#drift) di dati per il set di dati di output del modello per rilevare la tendenza dei dati. 
 
 5. Se viene rilevata la deriva dei dati, aggiornare il set di dati di input e ripetere il training del modello di conseguenza.
 
@@ -50,7 +50,8 @@ Il diagramma seguente fornisce una dimostrazione visiva di questo flusso di lavo
 
 ![Il diagramma mostra il servizio di archiviazione di Azure che scorre in un archivio dati, che scorre in un set di dati. Il set di dati passa al training del modello, che passa alla deviazione dei dati, che esegue il flusso al set di dati.](./media/concept-data/data-concept-diagram.svg)
 
-## <a name="datastores"></a>Archivi dati
+<a name="datastores"></a>
+## <a name="connect-to-storage-with-datastores"></a>Connettersi all'archiviazione con archivi dati
 
 Azure Machine Learning archivi dati conservano in modo sicuro le informazioni di connessione per l'archiviazione di Azure, quindi non è necessario codificarle negli script. [Registrare e creare un archivio](how-to-access-data.md) dati per connettersi facilmente all'account di archiviazione e accedere ai dati nel servizio di archiviazione di Azure sottostante. 
 
@@ -65,7 +66,8 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 + File system di Databricks
 + Database di Azure per MySQL
 
-## <a name="datasets"></a>Set di dati
+<a name="datasets"></a>
+## <a name="reference-data-in-storage-with-datasets"></a>Riferimenti ai dati nell'archiviazione con DataSet
 
 Azure Machine Learning set di dati non sono copie dei dati. Creando un set di dati, si crea un riferimento ai dati nel relativo servizio di archiviazione, insieme a una copia dei relativi metadati. 
 
@@ -105,7 +107,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
 
 <a name="label"></a>
 
-## <a name="data-labeling"></a>Etichettatura dei dati
+## <a name="label-data-with-data-labeling-projects"></a>Etichettare i dati con i progetti di etichettatura dei dati
 
 L'etichettatura di grandi quantità di dati nei progetti di Machine Learning è spesso stata considerata un'attività molto complessa. Quelli con un componente visione artificiale, ad esempio la classificazione delle immagini o il rilevamento di oggetti, richiedono in genere migliaia di immagini e etichette corrispondenti.
 
@@ -115,7 +117,7 @@ Creare un [progetto di assegnazione di etichette dei dati](how-to-create-labelin
 
 <a name="drift"></a>
 
-## <a name="data-drift"></a>Drift dei dati
+## <a name="monitor-model-performance-with-data-drift"></a>Monitorare le prestazioni del modello con la tendenza dei dati
 
 Nel contesto di Machine Learning, la deriva dei dati è la modifica dei dati di input del modello che comporta un peggioramento delle prestazioni del modello. Si tratta di uno dei motivi principali per cui l'accuratezza del modello diminuisce nel tempo, di conseguenza il monitoraggio della deriva dei dati consente di rilevare problemi di prestazioni del modello.
 

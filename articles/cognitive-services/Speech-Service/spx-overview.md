@@ -8,28 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 01/13/2021
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6b852186834fba858e8a049a8230b38f3d69164d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f1e5f38e97a1b51a2d919deebbdc452e9daf993
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067427"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539768"
 ---
 # <a name="what-is-the-speech-cli"></a>Che cos'è l'interfaccia della riga di comando per Voce?
 
 L'interfaccia della riga di comando vocale è uno strumento da riga di comando per l'uso del servizio di riconoscimento vocale senza scrivere codice. L'interfaccia della riga di comando vocale richiede una configurazione minima ed è facile iniziare subito a sperimentare le funzionalità chiave del servizio di riconoscimento vocale per verificare se i casi d'uso possono essere soddisfatti. In pochi minuti, è possibile eseguire semplici flussi di lavoro di test come il riconoscimento vocale in batch da una directory di file o una sintesi vocale su una raccolta di stringhe da un file. Oltre ai semplici flussi di lavoro, l'interfaccia della riga di comando vocale è pronta per l'ambiente di produzione e può essere ridimensionata per eseguire processi di dimensioni maggiori usando `.bat` script automatici o Shell.
 
-La maggior parte delle funzionalità principali nell'SDK per i dialoghi è disponibile nell'interfaccia della riga di comando vocale, mentre alcune funzionalità e personalizzazioni avanzate sono semplificate nell'interfaccia della riga di comando vocale. Prendere in considerazione le linee guida seguenti per decidere quando usare l'interfaccia della riga di comando vocale o l'SDK di riconoscimento vocale.
+La maggior parte delle funzionalità dell'SDK per i dialoghi è disponibile nell'interfaccia della riga di comando vocale e alcune funzionalità avanzate e personalizzazioni sono semplificate nell'interfaccia della riga di comando. Prendere in considerazione le linee guida seguenti per decidere quando usare l'interfaccia della riga di comando vocale o l'SDK di riconoscimento vocale.
 
 Usare l'interfaccia della riga di comando vocale nei casi seguenti:
 * Si desidera sperimentare le funzionalità del servizio di riconoscimento vocale con configurazione minima e senza codice
 * Per un'applicazione di produzione con il servizio riconoscimento vocale sono necessari requisiti relativamente semplici
 
 Usare l'SDK di riconoscimento vocale nei casi seguenti:
-* Si desidera integrare la funzionalità del servizio di riconoscimento vocale in una lingua o una piattaforma specifica, ad esempio C#, Python, C++
+* Si desidera integrare la funzionalità del servizio vocale in una lingua o una piattaforma specifica (ad esempio, C#, Python, C++)
 * Sono presenti requisiti complessi che possono richiedere richieste di servizio avanzate o lo sviluppo di comportamenti personalizzati, incluso il flusso delle risposte
 
 ## <a name="core-features"></a>Funzionalità di base
@@ -42,11 +42,12 @@ Usare l'SDK di riconoscimento vocale nei casi seguenti:
 
 * Eseguire sulle risorse di calcolo di Azure: inviare i comandi dell'interfaccia della riga di comando per l'esecuzione in una risorsa di calcolo remota di Azure usando `spx webjob` .
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
-Per iniziare a usare l'interfaccia della riga di comando vocale, vedere l' [articolo Nozioni di base](spx-basics.md). Questo articolo illustra come eseguire alcuni comandi di base e Mostra anche comandi leggermente più avanzati per l'esecuzione di operazioni batch per sintesi vocale e sintesi vocale. Dopo aver letto l'articolo Nozioni di base, è necessario avere una conoscenza della sintassi per iniziare a scrivere alcuni comandi personalizzati o automatizzare semplici operazioni del servizio di sintesi vocale.
+Per iniziare a usare l'interfaccia della riga di comando vocale, vedere la [Guida introduttiva](spx-basics.md). Questo articolo illustra come eseguire alcuni comandi di base e Mostra anche comandi leggermente più avanzati per l'esecuzione di operazioni batch per sintesi vocale e sintesi vocale. Dopo aver letto l'articolo Nozioni di base, è necessario avere una conoscenza della sintassi per iniziare a scrivere alcuni comandi personalizzati o automatizzare semplici operazioni del servizio di sintesi vocale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Nozioni fondamentali sull'interfaccia vocale](spx-basics.md)
-- Se il caso d'uso è più complesso, [ottenere l'SDK di riconoscimento vocale](speech-sdk.md)
+- Introduzione alla [Guida introduttiva dell'interfaccia](spx-basics.md) della riga di comando vocale
+- [Configurare l'archivio dati](./spx-data-store-configuration.md)
+- Informazioni su come [eseguire operazioni batch con l'interfaccia della riga](./spx-batch-operations.md) di comando vocale

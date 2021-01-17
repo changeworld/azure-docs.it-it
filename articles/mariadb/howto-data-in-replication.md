@@ -5,13 +5,13 @@ author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
-ms.date: 01/15/2021
-ms.openlocfilehash: 5ebae41e68633eb10959c56011dd71952f9564bd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/18/2021
+ms.openlocfilehash: 67e4da13d6954342b9979eb57a35c812cb63bb3e
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250418"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98540002"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurare Replica dei dati in ingresso nel database di Azure per MariaDB
 
@@ -23,6 +23,9 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
 
 > [!NOTE]
 > Se la versione del server di origine è 10,2 o successiva, è consigliabile configurare Replica dei dati in ingresso usando l' [ID transazione globale](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Creare un server MariaDB da usare come replica
 
@@ -40,10 +43,6 @@ Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitat
 3. Aggiungere l'indirizzo IP del server di origine alle regole del firewall della replica. 
 
    Aggiornare le regole firewall usando il [portale di Azure](howto-manage-firewall-portal.md) o l'[interfaccia della riga di comando di Azure](howto-manage-firewall-cli.md).
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine _slave_, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
->
 
 ## <a name="configure-the-source-server"></a>Configurare il server di origine
 
@@ -95,7 +94,7 @@ I passaggi seguenti preparano e configurano il server MariaDB ospitato in locale
 
 3. Attivare la registrazione binaria.
 
-    Per verificare se nel database master è abilitata la registrazione binaria, immettere il comando seguente:
+    Per verificare se la registrazione binaria è abilitata nel database primario, immettere il comando seguente:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';

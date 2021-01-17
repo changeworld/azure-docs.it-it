@@ -4,15 +4,15 @@ description: Risolvere i problemi comuni in una distribuzione in Sincronizzazion
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 1/13/2021
+ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a262c2b4351c96217001ba42e8c745f7d71c7d45
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233900"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539254"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -916,6 +916,22 @@ Questo errore si verifica perché Sincronizzazione file di Azure non supporta il
 | **Rimedio necessario** | No |
 
 Questo errore si verifica quando un'operazione di inserimento di dati supera il timeout. Questo errore può essere ignorato se la sincronizzazione sta procedendo (AppliedItemCount è maggiore di 0). Vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+<a id="-2134375814"></a>**Sincronizzazione non riuscita perché il percorso dell'endpoint server non è stato trovato nel server.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8027a |
+| **HRESULT (decimale)** | -2134375814 |
+| **Stringa di errore** | ECS_E_SYNC_ROOT_DIRECTORY_NOT_FOUND |
+| **Rimedio necessario** | Sì |
+
+Questo errore si verifica se la directory utilizzata come percorso dell'endpoint server è stata rinominata o eliminata. Se la directory è stata rinominata, rinominare la directory con il nome originale e riavviare il servizio dell'agente di sincronizzazione archiviazione (FileSyncSvc).
+
+Se la directory è stata eliminata, attenersi alla procedura seguente per rimuovere l'endpoint server esistente e creare un nuovo endpoint server usando un nuovo percorso:
+
+1. Rimuovere l'endpoint server nel gruppo di sincronizzazione attenendosi ai passaggi descritti in [rimuovere un endpoint server](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
+2. Per creare un nuovo endpoint server nel gruppo di sincronizzazione, seguire i passaggi descritti in [aggiungere un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
 <a id="troubleshoot-storage-account"></a>**Verificare l'esistenza dell'account di archiviazione.**  

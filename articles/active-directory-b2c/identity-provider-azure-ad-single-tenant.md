@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 05c4d36f266fb526a1d0232cc32f0408e4322c80
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 2b640730bac410136ef8fdd4ea8e0261f68a3284
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654388"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538140"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurare l'accesso per un'organizzazione Azure Active Directory specifica in Azure Active Directory B2C
 
@@ -38,13 +38,13 @@ Questo articolo illustra come consentire l'accesso agli utenti di una specifica 
 
 ## <a name="register-an-azure-ad-app"></a>Registrare un'app di Azure AD
 
-Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
+Per abilitare l'accesso per gli utenti con un account Azure AD da un'organizzazione Azure AD specifica, in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [registrare un'applicazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi di usare la directory che contiene il tenant del Azure AD aziendale (ad esempio, contoso.com). Selezionare il **filtro directory + sottoscrizione** nel menu in alto e quindi scegliere la directory che contiene il tenant Azure ad.
 1. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 1. Selezionare **Nuova registrazione**.
-1. Immettere un **nome** per l'applicazione. Ad esempio: `Azure AD B2C App`.
+1. Immettere un **nome** per l'applicazione. Ad esempio, `Azure AD B2C App`.
 1. Accetta la selezione predefinita degli **account in questa directory organizzativa solo** per questa applicazione.
 1. Per l' **URI di reindirizzamento** accettare il valore di **Web** e immettere l'URL seguente in lettere minuscole, dove `your-B2C-tenant-name` viene sostituito con il nome del tenant Azure ad B2C.
 
@@ -52,7 +52,7 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Ad esempio: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+    Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
 
 1. Selezionare **Registra**. Prendere nota del valore di **ID applicazione (client)** , che sarà necessario in un passaggio successivo.
 1. Selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
@@ -101,7 +101,7 @@ Se si desidera ottenere le attestazioni `family_name` e `given_name` da Azure AD
     - **Cognome**: *family_name*
     - **Posta elettronica**: *preferred_username*
 
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
 ::: zone-end
 
@@ -172,7 +172,7 @@ Per consentire agli utenti di accedere con Azure AD, è necessario definire Azur
     </ClaimsProvider>
     ```
 
-4. Nell'elemento **ClaimsProvider** aggiornare il valore di **Domain** con un valore univoco che ne consenta la distinzione rispetto ad altri provider di identità. Ad esempio `Contoso`. Non aggiungere `.com` alla fine dell'impostazione del dominio.
+4. Nell'elemento **ClaimsProvider** aggiornare il valore di **Domain** con un valore univoco che ne consenta la distinzione rispetto ad altri provider di identità. Ad esempio, `Contoso`. Non aggiungere `.com` alla fine dell'impostazione del dominio.
 5. Nell'elemento **ClaimsProvider** aggiornare il valore di **DisplayName** con un nome descrittivo per il provider di attestazioni. Questo valore non è attualmente usato.
 
 ### <a name="update-the-technical-profile"></a>Aggiornare il profilo tecnico
@@ -183,9 +183,9 @@ Per ottenere un token dall'endpoint di Azure AD, è necessario definire i protoc
 1. Aggiornare il valore di **DisplayName**. Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso.
 1. Aggiornare il valore di **Description**.
 1. Azure AD usa il protocollo OpenID Connect, pertanto è necessario verificare che il valore di **Protocol** sia `OpenIdConnect`.
-1. Impostare il valore di **METADATA** su `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, dove `tenant-name` è il nome del tenant di Azure AD. Ad esempio, usare `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
+1. Impostare il valore di **METADATA** su `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, dove `tenant-name` è il nome del tenant di Azure AD. Ad esempio: `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Impostare **client_id** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
-1. In **CryptographicKeys** aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio: `B2C_1A_ContosoAppSecret`.
+1. In **CryptographicKeys** aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio, `B2C_1A_ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
 
@@ -238,9 +238,9 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Aggiungere Azure AD provider di identità a un flusso utente 
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
-1. Fare clic sul flusso utente che si desidera Azure AD provider di identità.
+1. Fare clic sul flusso utente per cui si desidera aggiungere il provider di identità Azure AD.
 1. In provider di identità basati su **Social Network** selezionare **Contoso Azure ad**.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**
@@ -256,7 +256,7 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInContoso.xml*.
 1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInContoso`.
-1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio: `http://contoso.com/B2C_1A_signup_signin_contoso`.
+1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del percorso utente creato in precedenza. Ad esempio, *SignUpSignInContoso*.
 1. Salvare le modifiche e caricare il file.
 1. In **criteri personalizzati** selezionare il nuovo criterio nell'elenco.

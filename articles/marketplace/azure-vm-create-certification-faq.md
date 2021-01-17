@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/19/2020
-ms.openlocfilehash: 921c05b76640935a1bd9e65d556933c23093e5b2
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/15/2021
+ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251438"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539855"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -22,7 +22,6 @@ Questo articolo illustra i messaggi di errore comuni durante la pubblicazione di
 
 > [!NOTE]
 > Per domande su questo articolo o suggerimenti per migliorare, contattare il [supporto tecnico del centro](https://aka.ms/marketplacepublishersupport)per i partner.
-
 
 ## <a name="vm-extension-failure"></a>Errore di estensione della macchina virtuale
 
@@ -60,12 +59,12 @@ I problemi di provisioning possono includere gli scenari di errore seguenti:
 |1|Disco rigido virtuale (VHD) non valido|Se il valore del cookie specificato nel piè di pagina del disco rigido virtuale non è corretto, il disco rigido virtuale verrà considerato non valido.|Ricreare l'immagine e inviare la richiesta.|
 |2|Tipo di BLOB non valido|Il provisioning della macchina virtuale non è riuscito perché il blocco usato è un tipo di BLOB anziché un tipo di pagina.|Ricreare l'immagine e inviare la richiesta.|
 |3|Timeout del provisioning o generalizzato in modo non corretto|Si è verificato un problema con la generalizzazione delle macchine virtuali.|Ricreare l'immagine con generalizzazione e inviare la richiesta.|
+|
 
 > [!NOTE]
 > Per ulteriori informazioni sulla generalizzazione delle macchine virtuali, vedere:
 > - [Documentazione di Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentazione di Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
-
 
 ## <a name="vhd-specifications"></a>Specifiche VHD
 
@@ -93,7 +92,7 @@ Checksum|4
 ID univoco|16
 Stato salvato|1
 Riservato|427
-
+|
 
 ### <a name="vhd-specifications"></a>Specifiche VHD
 
@@ -139,6 +138,7 @@ La tabella seguente elenca i test case di Linux che verranno eseguiti dal Toolki
 |8|Intervallo di client attivo|Impostare ClientAliveInterval su 180. Per quanto necessario, l'applicazione può essere impostata da 30 a 235. Se si Abilita SSH per gli utenti finali, questo valore deve essere impostato come illustrato.|
 |9|Architettura del sistema operativo|Sono supportati solo i sistemi operativi a 64 bit.|
 |10|Aggiornamento automatico|Indica se l'aggiornamento automatico dell'agente Linux è abilitato.|
+|
 
 ### <a name="common-test-case-errors"></a>Errori comuni di test case
 
@@ -150,7 +150,7 @@ Fare riferimento alla tabella seguente per gli errori comuni che possono essere 
 | 2 | Cronologia bash test case | Si verifica un errore se la dimensione della cronologia bash nell'immagine inviata è superiore a 1 kilobyte (KB). La dimensione è limitata a 1 KB per garantire che il file di cronologia bash non contenga informazioni potenzialmente riservate. | Risolvere montando il disco rigido virtuale in un'altra VM funzionante e apportare modifiche per ridurre le dimensioni a 1 KB o meno. Ad esempio, eliminare i `.bash` file della cronologia. |
 | 3 | Parametro kernel obbligatorio test case | Questo errore viene visualizzato quando il valore di `console` non è impostato su `ttyS0` . Verificare eseguendo il comando seguente: <br /> `cat /proc/cmdline` | Impostare il valore per `console` su `ttyS0` e inviare nuovamente la richiesta. |
 | 4 | test case intervallo ClientAlive | Se il Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per `ClientAliveInterval` . | Impostare il valore per `ClientAliveInterval` su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta. |
-
+|
 
 ### <a name="windows-test-cases"></a>Test case di Windows
 
@@ -175,8 +175,9 @@ Nella tabella seguente sono elencati i test case di Windows che verranno eseguit
 |15|Servizi SNMP|La funzionalità Servizi di Simple Network Management Protocol (SNMP) non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
 |16|Windows Internet Name Service|Windows Internet Name Service. Questa funzionalità server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
 |17|Servizio LAN Wireless|Servizio LAN wireless. Questa funzionalità server non è ancora supportata. L'applicazione non deve dipendere da questa funzionalità.|
+|
 
-Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Per ulteriori informazioni, contattare il team di supporto. 
+Se vengono rilevati errori con i test case precedenti, fare riferimento alla colonna **Descrizione** nella tabella per la soluzione. Per ulteriori informazioni, contattare il team di supporto.
 
 ## <a name="data-disk-size-verification"></a>Verifica delle dimensioni del disco dati
 
@@ -192,6 +193,7 @@ Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferi
 |---|---|
 |Linux|da 1 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
+|
 
 Poiché le macchine virtuali consentono l'accesso al sistema operativo sottostante, verificare che le dimensioni del disco rigido virtuale siano sufficientemente grandi per il disco rigido virtuale. I dischi non sono espandibili senza tempi di inattività. Usare una dimensione del disco da 30 GB a 50 GB.
 
@@ -199,6 +201,7 @@ Poiché le macchine virtuali consentono l'accesso al sistema operativo sottostan
 |---|---|---|
 |>500 TB (TiB)|n/d|Contattare il team di supporto per l'approvazione di un'eccezione.|
 |250-500 TiB|Differenza >200 gibibyte (GiB) dalle dimensioni del BLOB|Contattare il team di supporto per l'approvazione di un'eccezione.|
+|
 
 > [!NOTE]
 > Dimensioni maggiori del disco comportano costi maggiori e comporteranno un ritardo durante il processo di installazione e di replica. A causa di questo ritardo e costo, il team di supporto potrebbe cercare di giustificare l'approvazione dell'eccezione.
@@ -209,7 +212,7 @@ Per evitare un potenziale attacco correlato al virus WannaCry, verificare che tu
 
 È possibile verificare la versione del file di immagine da `C:\windows\system32\drivers\srv.sys` o `srv2.sys` .
 
-La tabella seguente illustra la versione minima con patch di Windows Server: 
+La tabella seguente illustra la versione minima con patch di Windows Server:
 
 |OS|Versione|
 |---|---|
@@ -218,6 +221,7 @@ La tabella seguente illustra la versione minima con patch di Windows Server:
 |Windows Server 2012 R2|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|N/D|
+|
 
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
@@ -230,8 +234,8 @@ Aggiornare il kernel con una versione approvata e inviare nuovamente la richiest
 
 Se l'immagine non è installata con una delle seguenti versioni del kernel, aggiornarla con le patch corrette. Richiedere l'approvazione necessaria al team di supporto dopo che l'immagine è stata aggiornata con le patch richieste seguenti:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |Famiglia del sistema operativo|Versione|Kernel|
@@ -278,6 +282,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 ||Stretch (sicurezza)|4.9.168-1 + deb9u3|
 ||Debian GNU/Linux 10 (Buster)|Debian 6.3.0-18 + deb9u1|
 ||Buster, SID (backports stretch)|4.19.37-5|
+|
 
 ## <a name="image-size-should-be-in-multiples-of-megabytes"></a>Le dimensioni dell'immagine devono essere in multipli di megabyte
 
@@ -303,7 +308,7 @@ Per inviare la richiesta con l'immagine SSH disabilitata per il processo di cert
 3. Inviare nuovamente la richiesta di certificazione.
 
 ## <a name="download-failure"></a>Errore di download
-    
+
 Vedere la tabella seguente per eventuali problemi che si verificano quando si scarica l'immagine di macchina virtuale con un URL di firma di accesso condiviso (SAS).
 
 |Scenario|Errore|Motivo|Soluzione|
@@ -314,12 +319,13 @@ Vedere la tabella seguente per eventuali problemi che si verificano quando si sc
 |4|Firma non valida|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
 |6|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
 |7|Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
+|
 
-## <a name="first-1-mb-partition-2048-sectors-each-sector-of-512-bytes"></a>Prima partizione da 1 MB (2.048 settori, ogni settore di 512 byte)
+## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primi 1 MB (2048 settori, ogni settore di 512 byte) partizione
 
-Se si sta [creando un'immagine personalizzata](azure-vm-create-using-own-image.md), assicurarsi che i primi 2.048 settori (1 MB) del disco del sistema operativo siano vuoti. In caso contrario, la pubblicazione avrà esito negativo. Questo requisito è applicabile solo al disco del sistema operativo, non ai dischi dati. Se si compila l'immagine [da una base approvata](azure-vm-create-using-approved-base.md), è possibile ignorare questo requisito. 
+Se si [Crea un'immagine personalizzata](azure-vm-create-using-own-image.md), assicurarsi che i primi 2048 settori (1 MB) del disco del sistema operativo siano vuoti. In caso contrario, la pubblicazione avrà esito negativo. Questo requisito è applicabile solo al disco del sistema operativo, non ai dischi dati. Se si compila l'immagine [da una base approvata](azure-vm-create-using-approved-base.md), è possibile ignorare questo requisito.
 
-### <a name="create-a-1-mb-partition-2048-sectors-each-sector-of-512-bytes-on-an-empty-vhd-linux-only-steps"></a>Creare una partizione da 1 MB (2.048 settori, ogni settore di 512 byte) in un disco rigido virtuale vuoto (passaggi solo per Linux)
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-on-an-empty-vhd"></a>Creare una partizione da 1 MB (2048 settori, ogni settore di 512 byte) in un disco rigido virtuale vuoto
 
 Questi passaggi si applicano solo a Linux.
 
@@ -374,17 +380,17 @@ Questi passaggi si applicano solo a Linux.
 
       ![Schermata della riga di comando del client putty che mostra i comandi e l'output per i dati cancellati.](./media/create-vm/vm-certification-issues-solutions-22.png)
 
-   1. Digitare `w` per confermare la creazione della partizione. 
+   1. Digitare `w` per confermare la creazione della partizione.
 
       ![Schermata della riga di comando del client putty che mostra i comandi per la creazione di una partizione.](./media/create-vm/vm-certification-issues-solutions-23.png)
 
-   1. È possibile verificare la tabella di partizione eseguendo il comando `n fdisk /dev/sdb` e digitando `p` . Si noterà che la partizione viene creata con il valore di offset 2048. 
+   1. È possibile verificare la tabella di partizione eseguendo il comando `n fdisk /dev/sdb` e digitando `p` . Si noterà che la partizione viene creata con il valore di offset 2048.
 
       ![Schermata della riga di comando del client putty che mostra i comandi per la creazione dell'offset 2048.](./media/create-vm/vm-certification-issues-solutions-24.png)
 
 1. Scollegare il disco rigido virtuale dalla macchina virtuale ed eliminare la macchina virtuale.
 
-### <a name="create-a-first-1-mb-partition-2048-sectors-each-sector-of-512-bytes-by-moving-existing-data-on-vhd"></a>Creare una prima partizione da 1 MB (2.048 settori, ogni settore di 512 byte) spostando i dati esistenti nel disco rigido virtuale
+### <a name="create-a-1-mb-2048-sectors-each-sector-of-512-bytes-partition-by-moving-existing-data-on-vhd"></a>Creare una partizione da 1 MB (2048 settori, ogni settore di 512 byte) spostando i dati esistenti nel disco rigido virtuale
 
 Questi passaggi si applicano solo a Linux.
 
@@ -452,11 +458,11 @@ Quando viene creata un'immagine, è possibile che venga eseguito il mapping a o 
 
 Se tutte le immagini tratte da Azure Marketplace devono essere riutilizzate, il disco rigido virtuale del sistema operativo deve essere generalizzato.
 
-* Per **Linux**, il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.
+- Per **Linux**, il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce come macchina virtuale separata.
 
   Nella finestra SSH digitare il comando seguente: `sudo waagent -deprovision+user`.
 
-* Per **Windows**, le immagini di Windows vengono generalizzate mediante `sysreptool` .
+- Per **Windows**, le immagini di Windows vengono generalizzate mediante `sysreptool` .
 
   Per ulteriori informazioni sullo `sysreptool` strumento, vedere [Cenni preliminari sulla preparazione del sistema (Sysprep)](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 

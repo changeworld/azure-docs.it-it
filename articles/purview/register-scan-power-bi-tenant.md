@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3d8107e980b9cad9bc55cb51cc78b63985986ba5
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696228"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539691"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -55,7 +55,7 @@ Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'
     > [!Important]
     > Per visualizzare la pagina delle impostazioni del tenant, è necessario essere un amministratore Power BI.
 
-1. Selezionare **le impostazioni per gli sviluppatori**  >  **Consenti alle entità servizio di usare Power BI di sola lettura API di amministrazione (anteprima)**.
+1. Selezionare **le impostazioni dell'API**  >  **di amministrazione Consenti alle entità servizio di usare Power BI di sola lettura API di amministrazione (anteprima)**.
 1. Selezionare **gruppi di sicurezza specifici**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Immagine che illustra come consentire alle entità servizio di ottenere le autorizzazioni di sola lettura Power BI API di amministrazione":::

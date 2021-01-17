@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 123b36ba854bec8b363d59bbed5e70f18da1e578
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: d9cba08e5b6650edc0decd3ff9df4060e9ad815c
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653708"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538011"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Microsoft tramite Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97653708"
 
 ## <a name="create-a-microsoft-account-application"></a>Creare un'applicazione di account Microsoft
 
-Per usare un account Microsoft come [provider di identità](openid-connect.md) in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione nel tenant di Azure AD. Il tenant di Azure AD non corrisponde al tenant di Azure AD B2C. Se non si possiede già un account Microsoft, è possibile crearne uno sul sito [https://www.live.com/](https://www.live.com/).
+Per abilitare l'accesso per gli utenti con un account Microsoft in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [registrare un'applicazione con la piattaforma di identità Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Se non si possiede già un account Microsoft, è possibile crearne uno sul sito [https://www.live.com/](https://www.live.com/).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD. A tale scopo, selezionare il filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD.
@@ -210,9 +210,9 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 ## <a name="add-microsoft-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità Microsoft a un flusso utente 
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
-1. Fare clic sul flusso utente che si vuole usare come provider di identità Microsoft.
+1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità Microsoft.
 1. In provider di identità basati su **Social Network** selezionare **account Microsoft**.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

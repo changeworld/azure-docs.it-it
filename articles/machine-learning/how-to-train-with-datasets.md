@@ -1,7 +1,7 @@
 ---
-title: Eseguire il training con azureml-DataSets
+title: Eseguire il training con i set di impostazioni di Machine Learning
 titleSuffix: Azure Machine Learning
-description: Informazioni su come rendere i dati disponibili per il calcolo locale o remoto per il training del modello ML con Azure Machine Learning set di dati.
+description: Informazioni su come rendere disponibili i dati per il calcolo locale o remoto per il training del modello con set di dati Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,14 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 52b52c4c19b22fb1afd76d1e8dfa4163326c0244
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108591"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539674"
 ---
-# <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
-
+# <a name="train-models-with-azure-machine-learning-datasets"></a>Eseguire il training dei modelli con set di impostazioni Azure Machine Learning 
 
 Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) per eseguire il training dei modelli di machine learning.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati. 
 
@@ -41,7 +40,7 @@ Per creare ed eseguire il training con i set di impostazioni, è necessario:
 > [!Note]
 > Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
-## <a name="use-datasets-directly-in-training-scripts"></a>Usare i set di impostazioni direttamente negli script di training
+## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Usare i set di impostazioni negli script di training di Machine Learning
 
 Se i dati strutturati non sono ancora registrati come set di dati, creare un TabularDataset e usarlo direttamente nello script di training per l'esperimento locale o remoto.
 
@@ -90,6 +89,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Configurare l'esecuzione del training
+
 Un oggetto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) viene usato per configurare e inviare l'esecuzione del training.
 
 Questo codice crea un oggetto ScriptRunConfig, `src` , che specifica
@@ -141,6 +141,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 ```
 
 ### <a name="configure-the-training-run"></a>Configurare l'esecuzione del training
+
 È consigliabile passare il set di dati come argomento durante il montaggio tramite il `arguments` parametro del `ScriptRunConfig` costruttore. In questo modo si otterrà il percorso dei dati (punto di montaggio) nello script di training tramite argomenti. In questo modo, sarà possibile usare lo stesso script di training per il debug locale e il training remoto in qualsiasi piattaforma cloud.
 
 Nell'esempio seguente viene creato un ScriptRunConfig che passa il filedataset tramite `arguments` . Dopo aver inviato l'esecuzione, i file di dati a cui fa riferimento il set `mnist_ds` di dati verranno montati nella destinazione di calcolo.
@@ -160,7 +161,7 @@ run = experiment.submit(src)
 run.wait_for_completion(show_output=True)
 ```
 
-### <a name="retrieve-the-data-in-your-training-script"></a>Recuperare i dati nello script di training
+### <a name="retrieve-data-in-your-training-script"></a>Recuperare dati nello script di training
 
 Nel codice seguente viene illustrato come recuperare i dati nello script.
 
@@ -222,10 +223,9 @@ print(os.listdir(mounted_path))
 print (mounted_path)
 ```
 
+## <a name="get-datasets-in-machine-learning-scripts"></a>Ottenere set di DataSet negli script di Machine Learning
 
-## <a name="directly-access-datasets-in-your-script"></a>Accedere direttamente ai set di impostazioni nello script
-
-I set di impostazioni registrati sono accessibili sia localmente che in remoto nei cluster di calcolo, ad esempio il calcolo Azure Machine Learning. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per accedere all'area di lavoro e al set di dati registrato in base al nome. Per impostazione predefinita, il [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) metodo della `Dataset` classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
+I set di impostazioni registrati sono accessibili sia localmente che in remoto nei cluster di calcolo, ad esempio il calcolo Azure Machine Learning. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per accedere all'area di lavoro e ottenere il set di dati usato nell'esecuzione inviata in precedenza. Per impostazione predefinita, il [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) metodo della `Dataset` classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
 
 ```Python
 %%writefile $script_folder/train.py
@@ -244,7 +244,7 @@ titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 df = titanic_ds.to_pandas_dataframe()
 ```
 
-## <a name="accessing-source-code-during-training"></a>Accesso al codice sorgente durante il training
+## <a name="access-source-code-during-training"></a>Accedere al codice sorgente durante il training
 
 Archiviazione BLOB di Azure offre velocità effettive più elevate rispetto a una condivisione file di Azure e la scalabilità per avviare in parallelo un numero elevato di processi. Per questo motivo, è consigliabile configurare le esecuzioni in modo da usare l'archiviazione BLOB per il trasferimento di file di codice sorgente.
 

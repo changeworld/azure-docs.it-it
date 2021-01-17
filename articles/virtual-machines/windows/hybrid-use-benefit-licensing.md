@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: 43784fe2bb94d5abd012f22ed530e4631a304614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13203c076378e1ff8f213971466eb5f63dfc4f4
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335987"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539168"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Vantaggio Azure Hybrid per Windows Server
 Per i clienti con Software Assurance, il vantaggio Azure Hybrid per Windows Server consente di usare le licenze di Windows Server locali e di eseguire macchine virtuali di Windows in Azure a costi ridotti. È possibile usare il vantaggio Azure Hybrid per Windows Server per distribuire nuove macchine virtuali con il sistema operativo Windows. Questo articolo illustra la procedura necessaria per distribuire nuove macchine virtuali con il vantaggio Azure Hybrid per Windows Server e per aggiornare le macchine virtuali in esecuzione esistenti. Per altre informazioni sulle licenze e i risparmi associati al vantaggio Azure Hybrid per Windows Server, vedere la pagina sulle [licenze disponibili per il vantaggio Azure Hybrid per Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -42,10 +42,9 @@ Esistono più modi per usare macchine virtuali di Windows con il vantaggio Azure
 Tutte le immagini basate sul sistema operativo Windows Server sono supportate con il vantaggio Azure Hybrid per Windows Server. È possibile usare le immagini di supporto della piattaforma Azure o caricare le immagini di Windows Server personalizzate. 
 
 ### <a name="portal"></a>Portale
-Per creare una macchina virtuale con il vantaggio Azure Hybrid per Windows Server, usare l'interruttore nella sezione Risparmio sui costi.
+Per creare una macchina virtuale con Vantaggio Azure Hybrid per Windows Server, scorrere fino alla fine della scheda **nozioni di base** durante il processo di creazione e in **Gestione licenze** Selezionare la casella per usare una licenza di Windows Server esistente. 
 
 ### <a name="powershell"></a>PowerShell
-
 
 ```powershell
 New-AzVm `

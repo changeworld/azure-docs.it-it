@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24e267b66d11cb3c5ca2b70ed09b7acb3653da99
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 36b7618fbacc18ec506f12eabc642246d3148ce0
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653606"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537926"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Weibo tramite Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ ms.locfileid: "97653606"
 
 ## <a name="create-a-weibo-application"></a>Creare un'applicazione Weibo
 
-Per usare un account Weibo come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si dispone già di un account Weibo, è possibile iscriversi all'indirizzo [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) .
+Per abilitare l'accesso per gli utenti con un account Weibo in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione in [Weibo Developer Portal](https://open.weibo.com/). Se non si dispone già di un account Weibo, è possibile iscriversi all'indirizzo [https://weibo.com](https://weibo.com/signup/signup.php?lang=en-us) .
 
 1. Accedere al [portale per sviluppatori Weibo](https://open.weibo.com/) con le credenziali dell'account Weibo.
 1. Dopo l'accesso, selezionare il nome visualizzato nell'angolo superiore destro.
@@ -263,9 +263,9 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 ## <a name="add-weibo-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità Weibo a un flusso utente 
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
-1. Fare clic sul flusso utente che si vuole usare come provider di identità Weibo.
+1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità Weibo.
 1. In provider di identità basati su **Social Network** selezionare **Weibo**.
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.
 1. Per **applicazione**, selezionare l'applicazione Web denominata *testapp1* registrata in precedenza. L'**URL di risposta** dovrebbe mostrare `https://jwt.ms`.
 1. Fare clic su **Esegui flusso utente**

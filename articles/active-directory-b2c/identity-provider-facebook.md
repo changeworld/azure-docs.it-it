@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 01/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 37fc33ae8084a2b4e99e7b5dc417eac70060eef5
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 02c3890a9aca03d9d79b55098297174401cab37d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516194"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98537961"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ ms.locfileid: "97516194"
 
 ## <a name="create-a-facebook-application"></a>Creare un'applicazione Facebook
 
-Per usare un account Facebook come [provider di identità](authorization-code-flow.md) in Azure Active Directory B2C (Azure ad B2C), è necessario creare un'applicazione nel tenant che la rappresenta. Se non si possiede già un account Facebook, è possibile crearlo sul sito [https://www.facebook.com/](https://www.facebook.com/).
+Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione nel [Dashboard dell'app Facebook](https://developers.facebook.com/). Per altre informazioni, vedere [sviluppo di app](https://developers.facebook.com/docs/development). Se non si possiede già un account Facebook, è possibile crearlo sul sito [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Accedere al [sito Web Facebook for developers](https://developers.facebook.com/) con le credenziali dell'account Facebook.
 1. Se non è ancora stato fatto, è necessario registrarsi come sviluppatore Facebook. A tale scopo, selezionare **Accedi** nell'angolo in alto a destra della pagina, accettare le condizioni di Facebook e completare la procedura di registrazione.
@@ -93,7 +93,7 @@ Per usare un account Facebook come [provider di identità](authorization-code-fl
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità Facebook a un flusso utente 
 
 1. Nel tenant di Azure AD B2C selezionare **Flussi utente**.
-1. Fare clic sul flusso utente che si vuole usare per il provider di identità Facebook.
+1. Fare clic sul flusso utente per cui si vuole aggiungere il provider di identità Facebook.
 1. In provider di identità basati su **Social Network** selezionare **Facebook**.
 1. Selezionare **Salva**.
 1. Per testare i criteri, selezionare **Esegui flusso utente**.

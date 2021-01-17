@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: yelevin
-ms.openlocfilehash: b5d98a834ed4f87fb95a13e666967a7b2d80975d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: c54b5b785f6da1bb651d8b1f508da42ab0fb802d
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94656055"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538377"
 ---
 # <a name="connect-data-from-azure-ddos-protection"></a>Connettere i dati da protezione DDoS di Azure
 
@@ -38,7 +38,7 @@ Gli attacchi Distributed Denial of Service (DDoS) tentano di esaurire le risorse
 
 1. Selezionare **protezione DDoS di Azure** dalla raccolta Data Connector e quindi selezionare **Apri pagina connettore** nel riquadro di anteprima.
 
-1. Abilitare i **log di diagnostica** in tutti i firewall i cui log si desidera connettere:
+1. Abilitare i **log di diagnostica** in tutti gli indirizzi IP pubblici i cui log si desidera connettere:
 
     1. Selezionare il collegamento **Apri impostazioni di diagnostica >** e scegliere una risorsa **indirizzo IP pubblico** dall'elenco.
 

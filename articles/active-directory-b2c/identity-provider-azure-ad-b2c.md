@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 01/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b8be516051f8eed0649064ae0f7c29a4dde85675
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 8a0d69ea57eb5b8b2a074c37d4798a99c576ce95
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224465"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538179"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurare l'iscrizione e l'accesso con un account di Azure AD B2C da un altro tenant Azure AD B2C
 
@@ -43,7 +43,7 @@ Questo articolo descrive come configurare una federazione con un altro tenant Az
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
 
-Per usare un account Azure AD B2C come [provider di identità](openid-connect.md) nel tenant di Azure ad B2C (ad esempio, contoso), nell'altra Azure ad B2C (ad esempio, Fabrikam):
+Per abilitare l'accesso per gli utenti con un account di un altro tenant Azure AD B2C (ad esempio, Fabrikam), nella Azure AD B2C (ad esempio, contoso):
 
 1. Creare un [flusso utente](tutorial-create-user-flows.md)o un [criterio personalizzato](custom-policy-get-started.md).
 1. Quindi, creare un'applicazione nel Azure AD B2C, come descritto in questa sezione. 
@@ -62,7 +62,7 @@ Per creare un'applicazione.
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
-    Ad esempio: `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
+    Ad esempio, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 1. In autorizzazioni selezionare la casella **di controllo Concedi il consenso dell'amministratore a OpenID e offline_access le autorizzazioni** .
 1. Selezionare **Registra**.
@@ -184,8 +184,8 @@ Se si desidera che gli utenti possano accedere utilizzando l'altro Azure AD B2C 
     |ClaimsProvider\Domain  | Nome di dominio utilizzato per l' [accesso diretto](direct-signin.md?pivots=b2c-custom-policy#redirect-sign-in-to-a-social-provider). Immettere il nome di dominio che si vuole usare nell'accesso diretto. Ad esempio, *Fabrikam.com*. |
     |TechnicalProfile\DisplayName|Questo valore verrà visualizzato sul pulsante di accesso nella schermata di accesso. Ad esempio, *Fabrikam*. |
     |Metadati \ client_id|L'identificatore dell'attestazione del provider di identità. Aggiornare l'ID client con l'ID applicazione creato in precedenza nell'altro tenant del Azure AD B2C.|
-    |Metadata\METADATA|Un URL che punta a un documento di configurazione del provider di identità OpenID Connect, noto anche come endpoint di configurazione OpenID noto. Immettere l'URL seguente sostituendo `{tenant}` con il nome di dominio dell'altro tenant di Azure ad B2C (Fabrikam). Sostituire `{tenant}` con il nome dei criteri configurati nell'altro tenant e `{policy]` con il nome del criterio: `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . Ad esempio: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`.|
-    |CryptographicKeys| Aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio: `B2C_1A_FabrikamAppSecret`.| 
+    |Metadata\METADATA|Un URL che punta a un documento di configurazione del provider di identità OpenID Connect, noto anche come endpoint di configurazione OpenID noto. Immettere l'URL seguente sostituendo `{tenant}` con il nome di dominio dell'altro tenant di Azure ad B2C (Fabrikam). Sostituire `{tenant}` con il nome dei criteri configurati nell'altro tenant e `{policy]` con il nome del criterio: `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/v2.0/.well-known/openid-configuration` . Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/B2C_1_susi/v2.0/.well-known/openid-configuration`.|
+    |CryptographicKeys| Aggiornare il valore di **ID riferimento archiviazione** con il nome della chiave dei criteri creata in precedenza. Ad esempio, `B2C_1A_FabrikamAppSecret`.| 
     
 
 ### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
@@ -258,7 +258,7 @@ Aggiornare il file della relying party (RP) che avvierà il percorso utente appe
 
 1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, rinominarlo in *SignUpSignInFabrikam.xml*.
 1. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInFabrikam`.
-1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio: `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
+1. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_fabrikam`.
 1. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del percorso utente creato in precedenza. Ad esempio, *SignUpSignInFabrikam*.
 1. Salvare le modifiche e caricare il file.
 1. In **criteri personalizzati** selezionare il nuovo criterio nell'elenco.

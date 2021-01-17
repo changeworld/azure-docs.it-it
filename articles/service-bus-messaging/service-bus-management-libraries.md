@@ -5,24 +5,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/13/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 97d89db17af9cde3afadee430b3d0c2a434e12c9
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 57192ab2ee1624cb18de832ac91c95290da727df
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210138"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539883"
 ---
 # <a name="dynamically-provision-service-bus-namespaces-and-entities"></a>Eseguire il provisioning dinamico di spazi dei nomi ed entità del bus di servizio 
 Le librerie di gestione del bus di servizio di Azure possono eseguire il provisioning di entità e spazi dei nomi del bus di servizio in modo dinamico, per consentire distribuzioni complesse e scenari di messaggistica e permettere di determinare a livello di codice le entità di cui eseguire il provisioning. Queste librerie sono attualmente disponibili per .NET.
 
-## <a name="supported-functionality"></a>Funzionalità supportate
+## <a name="overview"></a>Panoramica
+Sono disponibili tre librerie di gestione per creare e gestire entità del bus di servizio. Ad esempio:
 
-* Creazione, aggiornamento, eliminazione di spazi dei nomi
-* Creazione, aggiornamento, eliminazione di code
-* Creazione, aggiornamento, eliminazione di argomenti
-* Creazione, aggiornamento, eliminazione di sottoscrizioni
+- [Azure. Messaging. ServiceBus. Administration](#azuremessagingservicebusadministration)
+- [Microsoft. Azure. ServiceBus. Management](#microsoftazureservicebusmanagement)
+- [Microsoft.Azure.Management.ServiceBus](#microsoftazuremanagementservicebus)
 
-## <a name="azuremessagingservicebusadministration-recommended"></a>Azure. Messaging. ServiceBus. Administration (scelta consigliata)
+Tutti questi pacchetti supportano le operazioni di creazione, Get, elenco, eliminazione, aggiornamento, eliminazione e aggiornamento su **code, argomenti e sottoscrizioni**. Tuttavia, solo [Microsoft. Azure. Management. ServiceBus](#microsoftazuremanagementservicebus) supporta le operazioni create, Update, List, Get e Delete sugli **spazi dei nomi**, elencando e rigenerando le chiavi di firma di accesso condiviso e altro ancora. 
+
+La libreria Microsoft. Azure. Management. ServiceBus funziona solo con l'autenticazione Azure Active Directory (Azure AD) e non supporta l'uso di una stringa di connessione. Mentre le altre due librerie (Azure. Messaging. ServiceBus e Microsoft. Azure. ServiceBus) supportano l'uso di una stringa di connessione per l'autenticazione con il servizio e sono più facili da usare. Tra queste librerie, Azure. Messaging. ServiceBus è il più recente ed è quello che si consiglia di usare.
+
+Le sezioni seguenti forniscono altri dettagli su queste librerie. 
+
+## <a name="azuremessagingservicebusadministration"></a>Azure. Messaging. ServiceBus. Administration
 È possibile usare la classe [ServiceBusAdministrationClient](/dotnet/api/azure.messaging.servicebus.administration.servicebusadministrationclient) nello spazio dei nomi [Azure. Messaging. ServiceBus. Administration](/dotnet/api/azure.messaging.servicebus.administration) per gestire spazi dei nomi, code, argomenti e sottoscrizioni. Ecco il codice di esempio. Per un esempio completo, vedere [esempio CRUD](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/tests/Samples/Sample07_CrudOperations.cs).
 
 ```csharp
@@ -89,7 +95,7 @@ namespace adminClientTrack2
 È possibile usare la classe [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) nello spazio dei nomi [Microsoft. Azure. ServiceBus. Management](/dotnet/api/microsoft.azure.servicebus.management) per gestire spazi dei nomi, code, argomenti e sottoscrizioni. Ecco il codice di esempio: 
 
 > [!NOTE]
-> Si consiglia di usare la `ServiceBusAdministrationClient` classe dalla `Azure.Messaging.ServiceBus.Administration` libreria, che è l'SDK più recente. Per informazioni dettagliate, vedere la [prima sezione](#azuremessagingservicebusadministration-recommended). 
+> Si consiglia di usare la `ServiceBusAdministrationClient` classe dalla `Azure.Messaging.ServiceBus.Administration` libreria, che è l'SDK più recente. Per informazioni dettagliate, vedere la [prima sezione](#azuremessagingservicebusadministration). 
 
 ```csharp
 using System;
@@ -156,7 +162,7 @@ Per iniziare a usare questa libreria, è necessario eseguire l'autenticazione co
 
 * [Usare il portale di Azure per creare Active Directory applicazione e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
 * [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+* [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](/cli/azure/create-an-azure-service-principal-azure-cli)
 
 Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. Per il gruppo di risorse in cui si desidera eseguire, è necessario disporre almeno delle autorizzazioni di proprietario o [**collaboratore**](../role-based-access-control/built-in-roles.md#contributor) [**dei dati del bus di servizio di Azure**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) .
 

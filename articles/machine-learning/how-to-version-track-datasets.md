@@ -1,7 +1,7 @@
 ---
 title: Controllo delle versioni del set di dati
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ottimizzare la versione dei set di impostazioni e sul funzionamento del controllo delle versioni con le pipeline di machine learning.
+description: Informazioni su come eseguire la versione dei set di impostazioni di machine learning e sul funzionamento del controllo delle versioni con le pipeline di machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 7eb8010853ba370f4502b6bc155c6a098e64965b
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 3290574b26abe544c8c749165e22bef41a83ecf3
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133447"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538156"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Set di impostazioni di versione e di rilevamento negli esperimenti
+# <a name="version-and-track-azure-machine-learning-datasets"></a>Set di impostazioni della versione e della traccia Azure Machine Learning
 
 Questo articolo illustra come eseguire la versione e tenere traccia dei set di impostazioni di Azure Machine Learning per la riproducibilità. Il controllo delle versioni del set di dati consente di contrassegnare lo stato dei dati in modo da poter applicare una versione specifica del set di dati per esperimenti futuri.
 

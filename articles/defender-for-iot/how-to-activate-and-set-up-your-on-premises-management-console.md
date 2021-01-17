@@ -4,15 +4,15 @@ description: L'attivazione e l'installazione della console di gestione garantisc
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/24/2020
+ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 56092d61e1eed4e4ebe4f8cb7f97d01e91e8543e
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841333"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98538585"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Attivare e configurare la console di gestione locale 
 
@@ -51,7 +51,7 @@ Dopo l'attivazione iniziale, il numero di dispositivi monitorati può superare i
 
 ## <a name="set-up-a-certificate"></a>Configurare un certificato
 
-Dopo l'installazione della console di gestione, viene generato e utilizzato un certificato autofirmato locale per accedere alla console. Quando un amministratore accede alla console di gestione per la prima volta, all'utente viene richiesto di caricare un certificato SSL/TLS. Si consiglia di utilizzare un certificato firmato da un'autorità di certificazione attendibile senza utilizzare il certificato autofirmato generato localmente.
+Dopo l'installazione della console di gestione, viene generato e utilizzato un certificato autofirmato locale per accedere alla console. Quando un amministratore accede alla console di gestione per la prima volta, all'utente viene richiesto di caricare un certificato SSL/TLS. 
 
 Sono disponibili due livelli di sicurezza:
 
@@ -61,7 +61,9 @@ Sono disponibili due livelli di sicurezza:
 La console supporta i tipi di certificati seguenti:
 
 - Infrastruttura a chiave privata ed Enterprise (PKI privata)
+
 - Infrastruttura a chiave pubblica (PKI pubblico)
+
 - Generato localmente nel dispositivo (autofirmato locale) 
 
   > [!IMPORTANT]
