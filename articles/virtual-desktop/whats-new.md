@@ -3,17 +3,17 @@ title: Novità di Desktop virtuale Windows - Azure
 description: Nuove funzionalità e aggiornamenti del prodotto per Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 12/02/2020
+ms.date: 01/06/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: e42e49f69a159bf3bfdc732d41dc66a9a707f42f
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: df3dd8b5b18ec2997ee20ad4955ffd7bc1dc573d
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617358"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955009"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Novità di Desktop virtuale Windows
 
@@ -25,6 +25,44 @@ Desktop virtuale Windows viene aggiornato regolarmente. Questo articolo include 
 - Correzioni di bug
 
 Questo articolo viene aggiornato ogni mese. Controllare spesso l'articolo per ottenere informazioni sui nuovi aggiornamenti.
+
+## <a name="december-2020"></a>Dicembre 2020
+
+Ecco cosa è cambiato a dicembre 2020: 
+
+### <a name="azure-monitor-for-windows-virtual-desktop"></a>Monitoraggio di Azure per Desktop virtuale Windows
+
+È ora disponibile l'anteprima pubblica di Monitoraggio di Azure per Desktop virtuale Windows. Questa nuova funzionalità include un dashboard affidabile basato sulle cartelle di lavoro di Monitoraggio di Azure per offrire ai professionisti IT informazioni sugli ambienti di Desktop virtuale Windows. Per altri dettagli, vedere l'[annuncio nel blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/azure-monitor-for-windows-virtual-desktop-public-preview/m-p/1946587). 
+
+### <a name="azure-resource-manager-template-change"></a>Modifica dei modelli di Azure Resource Manager 
+
+Nell'ultimo aggiornamento sono stati rimossi tutti i parametri di indirizzi IP pubblici dal modello di Resource Manager per la creazione e il provisioning di pool di host. Per garantire la sicurezza della distribuzione, è consigliabile evitare di usare indirizzi IP pubblici per Desktop virtuale Windows. Se la distribuzione è basata su indirizzi IP pubblici, è necessario riconfigurarla per l'uso di indirizzi IP privati. In caso contrario, la distribuzione non funzionerà correttamente.
+
+### <a name="msix-app-attach-public-preview"></a>Anteprima pubblica di MSIX app attach 
+
+MSIX app attach è un altro servizio per cui è stata avviata l'anteprima pubblica questo mese. Si tratta di un servizio che presenta dinamicamente le applicazioni MSIX nelle VM host di sessione di Desktop virtuale Windows. Per altri dettagli, vedere l'[annuncio nel blog](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-azure-portal-integration-public-preview/m-p/1986231). 
+
+### <a name="screen-capture-protection"></a>Protezione dall'acquisizione schermo 
+
+Questo mese è stata anche avviata l'anteprima pubblica della protezione dall'acquisizione schermo. È possibile usare questa funzionalità per impedire l'acquisizione di informazioni riservate sugli endpoint client. Per provare questa funzionalità, passare a [questa pagina](https://aka.ms/WVDScreenCaptureProtection).  
+
+### <a name="built-in-roles"></a>Ruoli predefiniti
+
+Sono stati aggiunti nuovi ruoli predefiniti per le autorizzazioni di amministratore per Desktop virtuale Windows. Per altre informazioni, vedere [Ruoli predefiniti per Desktop virtuale Windows](rbac.md). 
+
+### <a name="application-group-limit-increase"></a>Aumento del limite di gruppi di applicazioni
+
+Il limite predefinito di gruppi di applicazioni per ogni tenant di Azure Active Directory è stato aumentato a 200.
+
+### <a name="client-updates-for-december-2020"></a>Aggiornamenti dei client di dicembre 2020
+
+Sono state rilasciate nuove versioni dei client seguenti: 
+
+- Android
+- macOS
+- Windows
+
+Per altre informazioni, vedere [Aggiornamenti dei client](whats-new.md#client-updates).
 
 ## <a name="november-2020"></a>Novembre 2020
 

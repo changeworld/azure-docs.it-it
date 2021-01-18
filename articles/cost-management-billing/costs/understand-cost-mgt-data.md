@@ -3,18 +3,18 @@ title: Informazioni sui dati di Gestione costi di Azure
 description: Questo articolo fornisce informazioni sui dati inclusi in Gestione costi di Azure e sulla frequenza di elaborazione, raccolta, visualizzazione e chiusura dei dati.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 97ae2ba26818bbc306da71af814d9b4f95858b6a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e6096c259ec1870a711a515bf02d5d00b4f75345
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032576"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97964151"
 ---
 # <a name="understand-cost-management-data"></a>Informazioni sui dati di Gestione costi
 
@@ -112,13 +112,13 @@ Gestione costi di Azure riceve i tag come parte di ogni record di utilizzo invia
 - I tag devono essere applicati direttamente alle risorse e non vengono ereditati in modo implicito dal gruppo di risorse padre.
 - I tag di risorsa sono supportati solo per le risorse distribuite in gruppi di risorse.
 - Alcune risorse distribuite potrebbero non supportare i tag o non includere i tag nei dati di utilizzo.
-- I tag di risorsa vengono inclusi solo nei dati di utilizzo quando il tag viene applicato. I tag non vengono applicati ai dati cronologici.
+- I tag delle risorse vengono inclusi nei dati di utilizzo solo fintanto che sono applicati. I tag non vengono applicati ai dati cronologici.
 - I tag di risorsa sono disponibili in Gestione costi solo dopo l'aggiornamento dei dati.
-- I tag di risorsa sono disponibili in Gestione costi solo quando la risorsa è attiva o in esecuzione e produce record di utilizzo, quindi non quando una macchina virtuale viene deallocata, ad esempio.
+- I tag delle risorse sono disponibili in Gestione costi solo quando la risorsa è attiva o in esecuzione e produce record di utilizzo, ad esempio quando una macchina virtuale viene deallocata.
 - Per la gestione dei tag è necessario l'accesso come collaboratore a ogni risorsa.
 - Per la gestione dei criteri di tag è necessario l'accesso come proprietario o collaboratore ai criteri a un gruppo di gestione, una sottoscrizione o un gruppo di risorse.
     
-Se non si trova un tag specifico in gestione costi, considerare quanto segue:
+Se non si trova un tag specifico in Gestione costi, considerare le domande seguenti:
 
 - Il tag è stato applicato direttamente alla risorsa?
 - Il tag è stato applicato più di 24 ore fa?
@@ -141,7 +141,6 @@ Ecco alcuni suggerimenti per l'uso dei tag:
 - Usare Criteri di Azure per copiare i tag dei gruppi di risorse nelle singole risorse e applicare la strategia di assegnazione di tag.
 - Usare l'API Tag insieme a Query o UsageDetails per ottenere tutti i costi in base ai tag correnti.
 
-
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Aggiornamenti e conservazione dei dati relativi a costi e utilizzo
 
 I dati sui costi e sull'utilizzo sono in genere disponibili in Gestione costi e fatturazione nel portale di Azure e nelle API di supporto entro 8-24 ore. Durante l'analisi dei costi, tenere presente quanto segue:
@@ -151,17 +150,18 @@ I dati sui costi e sull'utilizzo sono in genere disponibili in Gestione costi e 
 - Gli addebiti stimati per il periodo di fatturazione corrente possono variare a causa di un aumento dell'utilizzo.
 - Ogni aggiornamento è cumulativo e comprende tutte le voci e le informazioni relative all'aggiornamento precedente.
 - Azure finalizza o _chiude_ il periodo di fatturazione corrente fino a 72 ore (tre giorni di calendario) dopo il termine del periodo di fatturazione.
+- Durante il periodo del mese di apertura (non fatturato), i dati di gestione costi devono essere considerati solo una stima. In alcuni casi, è possibile che gli addebiti arrivino in ritardo nel sistema dopo l'utilizzo effettivo.
 
 Gli esempi seguenti illustrano come possono terminare i periodi di fatturazione:
 
 * Sottoscrizioni Enterprise Agreement (EA) - Se il mese di fatturazione termina il 31 marzo, gli addebiti stimati vengono aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 4 aprile.
 * Sottoscrizioni con pagamento in base al consumo - Se il mese di fatturazione termina il 15 maggio, gli addebiti stimati potrebbero essere aggiornati fino a 72 ore dopo. In questo esempio, entro la mezzanotte (UTC) del 19 maggio.
 
-Quando i dati relativi ai costi e all'utilizzo diventano disponibili in Gestione costi e fatturazione, verranno conservati per almeno 7 anni.
+Quando i dati relativi ai costi e all'utilizzo diventano disponibili in Gestione dei costi e fatturazione, verranno conservati per almeno sette anni.
 
 ### <a name="rerated-data"></a>Dati rivalutati
 
-Quando si usano le API di gestione dei costi, PowerBI o il portale di Azure per recuperare i dati, prevedere una rivalutazione, e quindi una modifica, degli addebiti del periodo di fatturazione corrente, fino alla chiusura della fattura.
+Sia che si usino le API di Gestione costi, Power BI o il portale di Azure per recuperare i dati, prevedere una rivalutazione, e quindi una modifica, degli addebiti del periodo di fatturazione corrente, fino alla chiusura della fattura.
 
 ## <a name="cost-rounding"></a>Arrotondamento dei costi
 
@@ -184,6 +184,6 @@ I dati cronologici per le offerte basate su crediti e con pagamento anticipato p
 - MSDN (MS-AZR-0062P)
 - Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 
 - Se non è stata ancora completata la prima guida introduttiva di Gestione costi, esaminarla in [Avviare l’analisi dei costi](./quick-acm-cost-analysis.md).

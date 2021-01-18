@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: billgib
 ms.reviewer: jrasnick
-ms.openlocfilehash: 256fec97819cde0f6f62d59b34416c92e1edfd20
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 30cc917e2db3a7c4c6d5d6ebd5a8a47afff5d505
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109607"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133141"
 ---
 # <a name="synapse-access-control"></a>Controllo di accesso a Synapse 
 
@@ -30,7 +30,7 @@ Synapse offre un sistema di controllo di accesso completo e granulare che integr
 
 I ruoli di Synapse forniscono set di autorizzazioni che possono essere applicati in ambiti diversi. Grazie a questa granularità, è facile concedere ad amministratori, sviluppatori, addetti alla sicurezza e operatori l'accesso appropriato a risorse di calcolo e dati.
 
-Il controllo di accesso può essere semplificato usando gruppi di sicurezza allineati ai ruoli lavorativi delle persone.  Per gestire l'accesso è sufficiente aggiungere e rimuovere utenti dai gruppi di sicurezza appropriati.
+Il controllo di accesso può essere semplificato usando gruppi di sicurezza allineati ai ruoli lavorativi delle persone. Per gestire l'accesso è sufficiente aggiungere e rimuovere utenti dai gruppi di sicurezza appropriati.
 
 ## <a name="access-control-elements"></a>Elementi del controllo di accesso
 
@@ -41,16 +41,16 @@ I ruoli di Azure vengono usati per controllare la gestione di:
 - Pool di Apache Spark 
 - Runtime di integrazione 
 
-Per *creare* queste risorse, è necessario avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse.  Per *gestirle* dopo la creazione, occorre avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse o sulle singole risorse. 
+Per *creare* queste risorse, è necessario avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse. Per *gestirle* dopo la creazione, occorre avere il ruolo di Proprietario o Collaboratore di Azure sul gruppo di risorse o sulle singole risorse. 
 
 ### <a name="developing-and-executing-code-in-synapse"></a>Sviluppo ed esecuzione di codice in Synapse 
 
 Synapse supporta due modelli di sviluppo.
 
-- **Sviluppo attivo di Synapse**.  Lo sviluppo e il debug del codice avvengono in Synapse Studio, quindi il codice viene **pubblicato** per salvarlo ed eseguirlo.  Il servizio Synapse è la fonte più attendibile per la modifica e l'esecuzione di codice.  Qualsiasi lavoro non pubblicato viene perso quando si chiude Synapse Studio.  
-- **Sviluppo abilitato per Git**. Lo sviluppo e il debug del codice avvengono in Synapse Studio, quindi viene eseguito il **commit** delle modifiche in un ramo di lavoro di un repository Git. Il lavoro di uno o più rami è integrato in un ramo di collaborazione, da cui viene **pubblicato** nel servizio.  Il repository Git è la fonte più attendibile per la modifica del codice, mentre il servizio lo è per l'esecuzione. Occorre eseguire il commit delle modifiche nel repository Git oppure pubblicarle nel servizio prima di chiudere Synapse Studio. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2150100) sull'uso di Synapse Analytics con Git.
+- **Sviluppo attivo di Synapse**. Lo sviluppo e il debug del codice avvengono in Synapse Studio, quindi il codice viene **pubblicato** per salvarlo ed eseguirlo.  Il servizio Synapse è la fonte più attendibile per la modifica e l'esecuzione di codice.  Qualsiasi lavoro non pubblicato viene perso quando si chiude Synapse Studio.  
+- **Sviluppo abilitato per Git**. Lo sviluppo e il debug del codice avvengono in Synapse Studio, quindi viene eseguito il **commit** delle modifiche in un ramo di lavoro di un repository Git. Il lavoro di uno o più rami è integrato in un ramo di collaborazione, da cui viene **pubblicato** nel servizio. Il repository Git è la fonte più attendibile per la modifica del codice, mentre il servizio lo è per l'esecuzione. Occorre eseguire il commit delle modifiche nel repository Git oppure pubblicarle nel servizio prima di chiudere Synapse Studio. [Altre informazioni](../cicd/continuous-integration-deployment.md) sull'uso di Synapse Analytics con Git.
 
-In entrambi i modelli di sviluppo, qualsiasi utente che abbia accesso a Synapse Studio può creare artefatti di codice.  Sono però necessarie autorizzazioni aggiuntive per pubblicare gli artefatti nel servizio, leggere gli artefatti pubblicati, eseguire il commit delle modifiche in Git, eseguire il codice e accedere ai dati collegati protetti da credenziali.
+In entrambi i modelli di sviluppo, qualsiasi utente che abbia accesso a Synapse Studio può creare artefatti di codice. Sono però necessarie autorizzazioni aggiuntive per pubblicare gli artefatti nel servizio, leggere gli artefatti pubblicati, eseguire il commit delle modifiche in Git, eseguire il codice e accedere ai dati collegati protetti da credenziali.
 
 ### <a name="synapse-roles"></a>Ruoli di Synapse
 
@@ -72,7 +72,7 @@ Se si usa lo sviluppo abilitato per Git in modalità Git, le autorizzazioni Git 
 
 Quando si usano pool SQL dedicati e serverless, l'accesso al piano dati viene controllato tramite le autorizzazioni SQL. 
 
-All'autore di un'area di lavoro viene assegnato il ruolo di amministratore di Active Directory nell'area di lavoro.  Dopo la creazione, questo ruolo può essere assegnato a un altro utente o a un gruppo di sicurezza nel portale di Azure.
+All'autore di un'area di lavoro viene assegnato il ruolo di amministratore di Active Directory nell'area di lavoro. Dopo la creazione, questo ruolo può essere assegnato a un altro utente o a un gruppo di sicurezza nel portale di Azure.
 
 **Pool SQL serverless**: agli amministratori di Synapse vengono concesse le autorizzazioni `db_owner` (`DBO`) sul pool SQL serverless predefinito. Per concedere ad altri utenti l'accesso a pool SQL serverless, gli amministratori di Synapse devono eseguire script SQL su ogni pool serverless.  
 
@@ -82,7 +82,7 @@ Per esempi di script SQL per la concessione di autorizzazioni SQL in pool SQL, v
 
  ### <a name="accessing-system-managed-data-in-storage"></a>Accesso a dati gestiti dal sistema nell'archiviazione
 
-I pool SQL serverless e le tabelle di Apache Spark archiviano i dati in un contenitore di ADLS Gen2 associato all'area di lavoro. Anche le librerie Apache Spark installate dall'utente vengono gestite nello stesso account di archiviazione.  Per abilitare questi casi d'uso, agli utenti e all'identità del servizio gestita dell'area di lavoro deve essere assegnato il ruolo di **Collaboratore ai dati dei BLOB di archiviazione** per poter accedere a questo contenitore di archiviazione di ADLS Gen2.  
+I pool SQL serverless e le tabelle Apache Spark archiviano i dati in un contenitore di ADLS Gen2 associato all'area di lavoro. Anche le librerie di Apache Spark installate dall'utente vengono gestite nello stesso account di archiviazione. Per abilitare questi casi d'uso, agli utenti e all'identità del servizio gestita dell'area di lavoro deve essere assegnato il ruolo di **Collaboratore ai dati dei BLOB di archiviazione** per poter accedere a questo contenitore di archiviazione di ADLS Gen2.  
 
 ## <a name="using-security-groups-as-a-best-practice"></a>Uso dei gruppi di sicurezza come procedura consigliata
 
@@ -97,9 +97,9 @@ Il comportamento di Synapse Studio cambia in base alle autorizzazioni e alla mod
 - **Modalità attiva di Synapse:** Synapse Studio impedisce agli utenti senza le autorizzazioni necessarie di visualizzare i contenuti pubblicati, di pubblicare contenuti o di eseguire altre azioni.  In alcuni casi, impedisce di creare artefatti di codice che non possono essere usati o salvati. 
 - **Modalità Git:** se si hanno autorizzazioni Git che consentono di eseguire il commit delle modifiche al ramo corrente, l'azione di commit sarà consentita anche se non si dispone dell'autorizzazione per pubblicare le modifiche nel servizio attivo.  
 
-In alcuni casi è consentito creare artefatti di codice anche senza l'autorizzazione per la pubblicazione o il commit.  In questo modo è possibile eseguire il codice, con le autorizzazioni di esecuzione necessarie.[Altre informazioni](./synapse-workspace-understand-what-role-you-need.md) sui ruoli necessari per le attività comuni. 
+In alcuni casi è consentito creare artefatti di codice anche senza l'autorizzazione per la pubblicazione o il commit. In questo modo è possibile eseguire il codice (con le autorizzazioni di esecuzione necessarie). Vedere [altre informazioni](./synapse-workspace-understand-what-role-you-need.md) sui ruoli necessari per le attività comuni. 
 
-Se una funzionalità è disabilitata in Synapse Studio, una descrizione comando indicherà l'autorizzazione necessaria.  Usare la [guida ai ruoli di controllo degli accessi in base al ruolo di Synapse](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) per sapere qual è il ruolo necessario per fornire l'autorizzazione mancante.
+Se una funzionalità è disabilitata in Synapse Studio, una descrizione comando indicherà l'autorizzazione necessaria. Usare la [guida ai ruoli di controllo degli accessi in base al ruolo di Synapse](./synapse-workspace-synapse-rbac-roles.md#synapse-rbac-actions-and-the-roles-that-permit-them) per sapere qual è il ruolo necessario per fornire l'autorizzazione mancante.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

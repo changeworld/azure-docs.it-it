@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: d5cf39cf91b69574fc1423cfe0942b567cf9a278
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548206"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556308"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Risolvere i problemi relativi a CI-CD, Azure DevOps e GitHub in ADF 
 
@@ -72,7 +72,7 @@ La pipeline di rilascio CI/CD ha esito negativo con l'errore seguente:
 2020-07-06T09:50:50.8771655Z ##[error]Details:
 2020-07-06T09:50:50.8772837Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
 2020-07-06T09:50:50.8774148Z ##[error]DataFactoryPropertyUpdateNotSupported: Updating property type is not supported.
-2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops#troubleshooting
+2020-07-06T09:50:50.8775530Z ##[error]Check out the troubleshooting guide to see if your issue is addressed: https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment#troubleshooting
 2020-07-06T09:50:50.8776801Z ##[error]Task failed while creating or updating the template deployment.
 `
 
@@ -107,7 +107,7 @@ Quando si tenta di pubblicare le modifiche in un Data Factory, viene riportato i
 
 La configurazione di Git è stata scollegata e configurata di nuovo con il flag "Importa risorse" selezionato, che imposta il Data Factory come "sincronizzato". Ciò significa che non viene modificata la pubblicazione.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Scollegare la configurazione git e configurarla di nuovo e assicurarsi di non selezionare la casella di controllo "Importa risorse esistenti".
 
@@ -131,7 +131,7 @@ Non è possibile spostare Data Factory da un gruppo di risorse a un altro, senza
 }
 `
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Per consentire l'operazione di spostamento, è necessario eliminare i componenti SSIS-IR e l'IRs condiviso. Se non si vuole eliminare l'IRs, il modo migliore consiste nel seguire il documento di copia e clonazione per eseguire la copia e, al termine dell'operazione, eliminare la data factory precedente.
 
@@ -147,7 +147,7 @@ Non è possibile esportare e importare il modello ARM. Tuttavia, nella traccia d
 
 È stato creato un ruolo del cliente come utente e non dispone dell'autorizzazione necessaria. Quando la factory viene caricata nell'interfaccia utente, viene controllata una serie di valori di controllo dell'esposizione per la factory. In questo caso, il ruolo di accesso dell'utente non è autorizzato ad accedere all'API *queryFeaturesValue* . Per accedere a questa API, la funzionalità parametri globali è disattivata. Il percorso del codice di esportazione ARM si basa in parte sulla funzionalità parametri globali.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, è necessario aggiungere l'autorizzazione seguente al ruolo: *Microsoft. DataFactory/factorys/queryFeaturesValue/Action*. Per impostazione predefinita, questa autorizzazione deve essere inclusa nel ruolo "collaboratore Data Factory".
 

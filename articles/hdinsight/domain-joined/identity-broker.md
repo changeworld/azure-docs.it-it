@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 11/03/2020
-ms.openlocfilehash: c6bc5ca748a35b17c61d314e96f7284d30e7fc3b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b8dfe9a23e5c6697323142212156006cb65d2f9b
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96338130"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556529"
 ---
 # <a name="azure-hdinsight-id-broker-hib"></a>Broker ID Azure HDInsight (HIB)
 
@@ -126,9 +126,9 @@ Per risolvere i problemi di autenticazione, vedere [questa guida](./domain-joine
 
 Nel programma di installazione di HDInsight ID Broker, è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. Per acquisire il token con le informazioni seguenti, attenersi alla procedura descritta in [questo documento](../../storage/common/storage-auth-aad-app.md) :
 
-*   URI risorsa OAuth: `https://hib.azurehdinsight.net` 
+*    URI risorsa OAuth: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-F040-46cc-875f-831a1ef6a28a
-*   Autorizzazione: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+*    Autorizzazione: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
 Dopo aver acquisito il token OAuth, usarlo nell'intestazione dell'autorizzazione della richiesta HTTP per il gateway del cluster (ad esempio, https:// <clustername> -int.azurehdinsight.NET). Un comando curl di esempio per l'API Apache Livio potrebbe avere un aspetto simile a questo esempio:
     
@@ -146,7 +146,7 @@ Per ogni cluster, un'applicazione di terze parti verrà registrata in AAD con l'
 In AAD, il consenso è necessario per tutte le applicazioni di terze parti prima di poter autenticare gli utenti o accedere ai dati.
 
 ### <a name="can-the-consent-be-approved-programatically"></a>Il consenso può essere approvato a livello?
-Microsoft Graph API consente di automatizzare il consenso, vedere la [documentazione dell'API](/graph/api/resources/oauth2permissiongrant?view=graph-rest-1.0) la sequenza per automatizzare il consenso è:
+Microsoft Graph API consente di automatizzare il consenso, vedere la [documentazione dell'API](/graph/api/resources/oauth2permissiongrant) la sequenza per automatizzare il consenso è:
 
 * Registrare un'app e concedere all'app le autorizzazioni Application. ReadWrite. all per accedere Microsoft Graph
 * Dopo aver creato un cluster, eseguire una query per l'app cluster in base all'URI dell'identificatore

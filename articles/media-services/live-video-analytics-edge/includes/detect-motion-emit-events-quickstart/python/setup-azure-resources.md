@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 5fa8377b3cdddb2818c04c5a75e347ff73dc07d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509215"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060610"
 ---
 Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 
@@ -26,12 +26,15 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Se lo script viene completato correttamente, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
+    Dopo il completamento dello script, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
 1. Al termine dello script, selezionare le parentesi graffe per esporre la struttura della cartella. Vengono visualizzati alcuni file nella directory *~/clouddrive/lva-sample*. I file rilevanti per questo avvio rapido sono:
 
      * * **~/clouddrive/lva-sample/edge-deployment/.env** _ - Questo file contiene le proprietà usate da Visual Studio Code per distribuire moduli a un dispositivo perimetrale.
-     ***~/clouddrive/lva-sample/appsetting.json*** - Visual Studio Code usa questo file per eseguire il codice di esempio.
+     _ * **~/clouddrive/lva-sample/appsetting.json** _ - Visual Studio Code usa questo file per eseguire il codice di esempio.
      
     Questi file saranno necessari per configurare l'ambiente di sviluppo in Visual Studio Code nella sezione successiva. È consigliabile copiarli in un file locale per il momento.
     
     ![Impostazioni app](../../../media/quickstarts/clouddrive.png)
+
+> [!TIP]
+> Se si verificano problemi con le risorse di Azure create, vedere la _ *[guida alla risoluzione dei problemi](../../../troubleshoot-how-to.md#common-error-resolutions)* * più comuni rilevati.

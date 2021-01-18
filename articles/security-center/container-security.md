@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7265195f9614928a2150a56a780ea7b36bc2e266
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030867"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132717"
 ---
 # <a name="container-security-in-security-center"></a>Sicurezza dei contenitori nel Centro sicurezza
 
@@ -48,7 +48,7 @@ Lo screenshot seguente mostra la pagina dell'inventario delle risorse e i vari t
 
 Per monitorare le immagini nei registri contenitori di Azure basati su Azure Resource Manager, abilitare [Azure Defender per registri contenitori](defender-for-container-registries-introduction.md). Il Centro sicurezza analizza le immagini che sono state estratte negli ultimi 30 giorni o che sono state inserite nel registro o importate. La funzionalità di analisi integrata è fornita da Qualys, leader nel settore dell'analisi delle vulnerabilità.
 
-Quando viene rilevato un problema, da Qualys o dal Centro sicurezza, viene visualizzata una notifica nel [dashboard di Azure Defender](azure-defender-dashboard.md). Per ogni vulnerabilità il Centro sicurezza offre raccomandazioni pratiche, una classificazione della gravità e istruzioni per la risoluzione del problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l'[elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-containers).
+Quando viene rilevato un problema, da Qualys o dal Centro sicurezza, viene visualizzata una notifica nel [dashboard di Azure Defender](azure-defender-dashboard.md). Per ogni vulnerabilità il Centro sicurezza offre raccomandazioni pratiche, una classificazione della gravità e istruzioni per la risoluzione del problema. Per informazioni dettagliate sulle raccomandazioni del Centro sicurezza per i contenitori, vedere l'[elenco di riferimento delle raccomandazioni](recommendations-reference.md#recs-compute).
 
 Il Centro sicurezza filtra e classifica i risultati restituiti dalla funzionalità di analisi. Quando un'immagine è integra, il Centro sicurezza la contrassegna come tale. Il Centro sicurezza genera raccomandazioni sulla sicurezza solo per le immagini che presentano problemi da risolvere. Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza riduce il rischio di avvisi informativi indesiderati.
 
@@ -60,7 +60,7 @@ Il Centro sicurezza di Azure identifica i contenitori non gestiti ospitati in VM
 
 Il Centro sicurezza include l'intero set di regole di CIS Docker Benchmark e invia avvisi se i contenitori non soddisfano i controlli. Quando rileva errori di configurazione, il Centro sicurezza genera raccomandazioni sulla sicurezza. Usare la **pagina delle raccomandazioni** del Centro sicurezza per visualizzare le raccomandazioni e correggere i problemi. I controlli di CIS Benchmark non vengono eseguiti nelle istanze gestite dal servizio Azure Kubernetes o nelle macchine virtuali gestite da Databricks.
 
-Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione [Consigli per i contenitori](recommendations-reference.md#recs-containers) della tabella di riferimento per le raccomandazioni.
+Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione [Raccomandazioni per le istanze di calcolo](recommendations-reference.md#recs-compute) della tabella di riferimento.
 
 Quando si esplorano i problemi di sicurezza di una VM, il Centro sicurezza fornisce informazioni aggiuntive sui contenitori nella macchina virtuale. Queste informazioni includono la versione di Docker e il numero di immagini in esecuzione nell'host. 
 
@@ -74,7 +74,7 @@ Questo servizio fornisce controlli di sicurezza e visibilità sul comportamento 
 * Monitorare in modo costante la configurazione dei cluster del servizio Azure Kubernetes
 * Generare raccomandazioni sulla sicurezza in linea con gli standard del settore
 
-Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione [Consigli per i contenitori](recommendations-reference.md#recs-containers) della tabella di riferimento per le raccomandazioni.
+Per informazioni dettagliate sulle raccomandazioni pertinenti del Centro sicurezza che potrebbero essere visualizzate per questa funzionalità, vedere la sezione [Raccomandazioni per le istanze di calcolo](recommendations-reference.md#recs-compute) della tabella di riferimento.
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes
 

@@ -11,12 +11,12 @@ author: dcstwh
 ms.author: weetok
 manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: e7b435080fda48e1df0bb31d16dafed30ac3d3db
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497861"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556563"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorare a livello di codice una data factory di Azure
 
@@ -68,7 +68,7 @@ Per una descrizione completa di creazione e monitoraggio di una pipeline con .NE
     Console.ReadKey();
     ```
 
-Per la documentazione completa su .NET SDK, vedere le [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet) (Informazioni di riferimento su .NET SDK di Data Factory).
+Per la documentazione completa su .NET SDK, vedere le [Data Factory .NET SDK reference](/dotnet/api/microsoft.azure.management.datafactory) (Informazioni di riferimento su .NET SDK di Data Factory).
 
 ## <a name="python"></a>Python
 Per una descrizione completa di creazione e monitoraggio di una pipeline con Python SDK, vedere [Creare una data factory e una pipeline con Python](quickstart-create-data-factory-python.md).
@@ -86,7 +86,7 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Per la documentazione completa su Python SDK, vedere [Data Factory](/python/api/overview/azure/datafactory?view=azure-python).
+Per la documentazione completa su Python SDK, vedere [Data Factory](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API REST
 Per una descrizione completa sulla creazione e sul monitoraggio di una pipeline con API REST, vedere [Creare una data factory di Azure e una pipeline usando l'API REST](quickstart-create-data-factory-rest-api.md).

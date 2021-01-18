@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/18/2020
-ms.openlocfilehash: 9003366ec0d64057ca7426d5b6b99986bc21fc9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d282ee805ac61ba17ceb3ecc6a3d8179ea7b319
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920288"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555900"
 ---
 # <a name="register-and-scan-an-on-premises-sql-server"></a>Registrare e analizzare un'istanza di SQL Server locale
 
@@ -34,7 +34,7 @@ L'origine dati locale di SQL Server supporta:
 
 ### <a name="known-limitations"></a>Limitazioni note
 
-Azure non supporta l'analisi delle [visualizzazioni](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15) in SQL Server. 
+Azure non supporta l'analisi delle [visualizzazioni](/sql/relational-databases/views/views) in SQL Server.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,7 +42,7 @@ Azure non supporta l'analisi delle [visualizzazioni](https://docs.microsoft.com/
 
 - Configurare un [runtime di integrazione self-hosted](manage-integration-runtimes.md) per analizzare l'origine dati.
 
-## <a name="setting-up-authentication-for-a-scan"></a>Impostazione dell'autenticazione per un'analisi
+## <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
 È disponibile un solo modo per configurare l'autenticazione per SQL Server locale:
 
@@ -88,20 +88,20 @@ Se si desidera creare un nuovo account di accesso e un nuovo utente per poter es
 
 #### <a name="storing-your-sql-login-password-in-a-key-vault-and-creating-a-credential-in-purview"></a>Archiviazione della password dell'account di accesso di SQL in un insieme di credenziali delle chiavi e creazione di credenziali in ambito
 
-1. Passare all'insieme di credenziali delle chiavi nella portale di Azure
-1. Selezionare **le impostazioni > segreti**
+1. Passare all'insieme di credenziali delle chiavi nel portale di Azure
+1. Selezionare **Impostazioni > Segreti**
 1. Selezionare **+ genera/importa** e immettere il **nome** e il **valore** come *password* dell'account di accesso di SQL Server
 1. Selezionare **Crea** per completare
-1. Se l'insieme di credenziali delle chiavi non è ancora connesso alla propria competenza, sarà necessario [creare una nuova connessione](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) dell'insieme di credenziali delle chiavi
-1. Infine, [creare una nuova credenziale](manage-credentials.md#create-a-new-credential) usando il **nome utente** e la **password** per configurare l'analisi
+1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Infine, [creare nuove credenziali](manage-credentials.md#create-a-new-credential) usando il **nome utente** e la **password** per configurare l'analisi
 
 ## <a name="register-a-sql-server-data-source"></a>Registrare un'origine dati di SQL Server
 
-1. Passa all'account di competenza
+1. Passare all'account Purview
 
-1. In origini e analisi nel percorso di spostamento a sinistra selezionare **runtime di integrazione**. Verificare che sia configurato un runtime di integrazione self-hosted. Se non è configurata, seguire la procedura descritta [qui](manage-integration-runtimes.md) per creare un runtime di integrazione self-hosted per l'analisi in una macchina virtuale locale o di Azure che ha accesso alla rete locale.
+1. In origini e analisi nel percorso di spostamento a sinistra selezionare **runtime di integrazione**. Assicurasi che sia configurato un runtime di integrazione self-hosted. Se non è configurata, seguire la procedura descritta [qui](manage-integration-runtimes.md) per creare un runtime di integrazione self-hosted per l'analisi in una macchina virtuale locale o di Azure che ha accesso alla rete locale.
 
-1. Selezionare le **origini** nel percorso di spostamento a sinistra
+1. Selezionare **Origini** nel riquadro di spostamento sinistro
 
 1. Selezionare **Registra**
 
@@ -115,5 +115,5 @@ Se si desidera creare un nuovo account di accesso e un nuovo utente per poter es
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: bb9efa3fde0ed840589b66db7b28392de67ee8dd
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0ca1f1222881a2b4ca640fa31192bd1c151ebd9f
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635593"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028846"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.6): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -23,11 +23,14 @@ Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantag
 
 ## <a name="protocol-support"></a>Protocolli supportati
 
-Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione **3.6** del server MongoDB per i nuovi account. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. Si noti che quando si usa l'API di Azure Cosmos DB per gli account MongoDB, la versione 3.6 degli account ha l'endpoint nel formato `*.mongo.cosmos.azure.com` mentre la versione 3.2 degli account ha l'endpoint nel formato `*.documents.azure.com`.
+Per impostazione predefinita, l'API di Azure Cosmos DB per MongoDB è compatibile con la versione **3.6** del server MongoDB per i nuovi account. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. Si noti che quando si usa l'API di Azure Cosmos DB per gli account MongoDB, per la versione 3.6 degli account il formato dell'endpoint è `*.mongo.cosmos.azure.com`, mentre per la versione 3.2 il formato dell'endpoint è `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Linguaggi di query supportati
 
-L'API di Azure Cosmos DB per MongoDB offre il supporto completo dei costrutti del linguaggio di query MongoDB. Di seguito è possibile trovare l'elenco dettagliato di operazioni, operatori, fasi, comandi e opzioni attualmente supportati.
+L'API di Azure Cosmos DB per MongoDB offre il supporto completo dei costrutti del linguaggio di query MongoDB. Le sezioni seguenti contengono l'elenco dettagliato di operazioni, operatori, fasi, comandi e opzioni per server attualmente supportati da Azure Cosmos DB.
+
+> [!NOTE]
+> Questo articolo elenca solo i comandi server supportati e non le funzioni wrapper lato client. Le funzioni wrapper lato client come `deleteMany()` e `updateMany()` utilizzano internamente i comandi server `delete()` e `update()`. Le funzioni che utilizzano i comandi server supportati sono compatibili con l'API di Azure Cosmos DB per MongoDB.
 
 ## <a name="database-commands"></a>Comandi del database
 

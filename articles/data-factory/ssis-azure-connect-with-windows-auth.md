@@ -10,12 +10,12 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 545f698f444e99d3f3807f22b308963172018fcb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77283596e4b0d7e25d757c9de76c284ca4f5d4f2
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746657"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556395"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Accedere ad archivi dati e condivisioni file con l'autenticazione di Windows da pacchetti SSIS in Azure
 
@@ -170,4 +170,4 @@ Per accedere a una condivisione file in File di Azure dai pacchetti in esecuzion
 
 - Distribuire i pacchetti. Per altre informazioni, vedere [Distribuire un progetto SSIS con SQL Server Management Studio (SSMS)](/sql/integration-services/ssis-quickstart-deploy-ssms).
 - Eseguire i pacchetti. Per altre informazioni, vedere [Eseguire pacchetti SSIS in Azure con SSMS](/sql/integration-services/ssis-quickstart-run-ssms).
-- Pianificare i pacchetti. Per altre informazioni, vedere [pianificare pacchetti SSIS in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15).
+- Pianificare i pacchetti. Per altre informazioni, vedere [pianificare pacchetti SSIS in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).

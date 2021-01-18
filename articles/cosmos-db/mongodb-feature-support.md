@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 60e806be85a36c2e8a64d731c8794d806a4fcae4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d9e01ee8b1f6c1cd04e665ad9f7bc57155abfaab
+ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096530"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98028982"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.2): funzionalità e sintassi supportate
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -37,6 +37,9 @@ L'API di Azure Cosmos DB per MongoDB offre il supporto completo dei costrutti de
 ## <a name="database-commands"></a>Comandi del database
 
 L'API di Azure Cosmos DB per MongoDB supporta i comandi di database seguenti:
+
+> [!NOTE]
+> Questo articolo elenca solo i comandi server supportati e non le funzioni wrapper lato client. Le funzioni wrapper lato client come `deleteMany()` e `updateMany()` utilizzano internamente i comandi server `delete()` e `update()`. Le funzioni che utilizzano i comandi server supportati sono compatibili con l'API di Azure Cosmos DB per MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandi per le operazioni di query e scrittura
 
@@ -309,7 +312,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 
 Quando si usa l'operazione `findOneAndUpdate`, sono supportate le operazioni di ordinamento in un singolo campo, ma non quelle su più campi.
 
-## <a name="additional-operators"></a>Altri operatori
+## <a name="other-operators"></a>Altri operatori
 
 Operatore | Esempio | Note
 --- | --- | --- |
@@ -353,7 +356,7 @@ Cosmos DB supporta la replica automatica e nativa ai livelli più bassi. Questa 
 
 ## <a name="write-concern"></a>Write concern
 
-Alcune applicazioni usano un [write concern](https://docs.mongodb.com/manual/reference/write-concern/) che definisce il numero di risposte necessarie durante un'operazione di scrittura. A causa della modalità in cui Cosmos DB gestisce la replica in background, per impostazione predefinita tutte le operazioni di scrittura sono automaticamente Quorum. Qualsiasi write concern specificato dal codice client viene ignorato. Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
+Alcune applicazioni si basano su un [Write concern](https://docs.mongodb.com/manual/reference/write-concern/) che definisce il numero di risposte necessarie durante un'operazione di scrittura. A causa della modalità in cui Cosmos DB gestisce la replica in background, per impostazione predefinita tutte le operazioni di scrittura sono automaticamente Quorum. Qualsiasi write concern specificato dal codice client viene ignorato. Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
 
 ## <a name="sharding"></a>Partizionamento orizzontale
 

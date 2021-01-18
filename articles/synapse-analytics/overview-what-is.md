@@ -9,18 +9,18 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c315dae7e5f02f112dfdfbec02e1ebaaa5e48a9f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e5b12632a60ad5580325fbcda294e1a600bb2b6b
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445784"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121703"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
 L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che siano dati non elaborati, perfezionati o altamente curati. Per ottenere questo risultato, le aziende devono unire tecnologie di Big Data e di data warehousing in pipeline di dati complesse in grado di elaborare i dati di archivi relazionali e data lake. Questi tipi di soluzioni sono difficili da creare, gestire e proteggere. La loro complessità comporta un ritardo nella disponibilità delle informazioni dettagliate necessarie per le aziende.
 
-**Azure Synapse** è un servizio di analisi integrato che riduce il tempo necessario per estrarre informazioni dettagliate da data warehouse e sistemi di Big Data. Raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per i Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT. **Synapse Studio** offre un'esperienza unificata per la gestione, il monitoraggio, la codifica e la sicurezza. Synapse prevede la piena integrazione con altri servizi di Azure, come **Power BI**, **CosmosDB** e **AzureML**.
+**Azure Synapse** è un servizio di analisi integrato che riduce il tempo necessario per estrarre informazioni dettagliate da data warehouse e sistemi di Big Data. In pratica raggruppa il meglio delle tecnologie **SQL** usate nel data warehousing aziendale, le tecnologie **Spark** usate per Big Data e le **pipeline** per l'integrazione dei dati e le operazioni ETL/ELT, oltre a essere pienamente integrato con altri servizi di Azure, come **Power BI**, **CosmosDB** e **AzureML**.
 
 ## <a name="key-features--benefits"></a>Principali funzionalità e vantaggi
 

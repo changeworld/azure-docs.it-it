@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: 4741053acdefe27eadc380d9144c548af4b5143c
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: a29cf81a6e074f680fc9c04337a07d273ac456cf
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346113"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555373"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiare dati da e in un file system usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -151,7 +151,7 @@ Le proprietà seguenti sono supportate per il file system nelle impostazioni `st
 | type                     | La proprietà type in `storeSettings` deve essere impostata su **FileServerReadSettings**. | Sì                                           |
 | **_Individuare i file da copiare:_* _ |  |  |
 | OPZIONE 1: percorso statico<br> | Copia dal percorso di cartella/file specificato nel set di dati. Se si desidera copiare tutti i file da una cartella, specificare anche `wildcardFileName` come `_`. |  |
-| OPZIONE 2: filtro lato server<br>-FileFilter  | Filtro nativo lato file server, che offre prestazioni migliori rispetto al filtro con caratteri jolly OPTION 3. Usare `*` per trovare la corrispondenza con zero o più caratteri e `?` per trovare la corrispondenza con zero o un carattere singolo. Per altre informazioni sulla sintassi **e sulle note** , vedere [questa sezione](/dotnet/api/system.io.directory.getfiles?view=netframework-4.7.2#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
+| OPZIONE 2: filtro lato server<br>-FileFilter  | Filtro nativo lato file server, che offre prestazioni migliori rispetto al filtro con caratteri jolly OPTION 3. Usare `*` per trovare la corrispondenza con zero o più caratteri e `?` per trovare la corrispondenza con zero o un carattere singolo. Per altre informazioni sulla sintassi **e sulle note** , vedere [questa sezione](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
 | OPZIONE 3: filtro lato client<br>- wildcardFolderPath | Percorso della cartella con caratteri jolly per filtrare le cartelle di origine. Tale filtro si verifica sul lato ADF, ADF enumera le cartelle e i file nel percorso specificato, quindi applica il filtro con caratteri jolly.<br>I caratteri jolly consentiti sono: `*` (corrisponde a zero o più caratteri) e `?` (corrisponde a zero caratteri o a un carattere singolo). Usare `^` come carattere di escape se il nome effettivo della cartella include caratteri jolly o questo carattere di escape. <br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | No                                            |
 | OPZIONE 3: filtro lato client<br>- wildcardFileName | Nome file con caratteri jolly nel percorso folderPath/wildcardFolderPath specificato per filtrare i file di origine. Tale filtro si verifica sul lato ADF, ADF enumera i file nel percorso specificato, quindi applica il filtro con caratteri jolly.<br>I caratteri jolly consentiti sono: `*` (corrispondenza di zero o più caratteri) e `?` (corrispondenza di zero caratteri o di un carattere singolo). Usare `^` per il carattere escape se il nome effettivo del file include caratteri jolly o escape.<br>Vedere altri esempi in [Esempi di filtro file e cartelle](#folder-and-file-filter-examples). | Sì |
 | OPZIONE 3: un elenco di file<br>- fileListPath | Indica di copiare un determinato set di file. Puntare a un file di testo che include un elenco di file da copiare, un file per riga, che rappresenta il percorso relativo del percorso configurato nel set di dati.<br/>Quando si usa questa opzione, non specificare il nome del file nel set di dati. Per altri esempi, vedere [Esempi di elenco di file](#file-list-examples). |No |

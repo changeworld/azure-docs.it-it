@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: dd989d5925da864728e944e84962086c0cfb08ea
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 12841c747116cc9e14f348dfcf81acaa5da5e8c9
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462315"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165366"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Archiviare i risultati delle query nell'archiviazione tramite il pool SQL serverless in Azure Synapse Analytics
 
@@ -74,6 +74,9 @@ FROM
 
 ```
 
+> [!NOTE]
+> È necessario modificare questo script e cambiare la posizione di destinazione per eseguirlo di nuovo. Non è possibile creare tabelle esterne nella posizione in cui sono già disponibili dati.
+
 ## <a name="use-the-external-table"></a>Usare la tabella esterna
 
 È possibile usare la tabella esterna creata tramite CETAS come una normale tabella esterna.
@@ -93,6 +96,14 @@ WHERE
 ORDER BY
     [population] DESC;
 ```
+
+## <a name="remarks"></a>Commenti
+
+Una volta archiviati i risultati, non è possibile modificare i dati nella tabella esterna. Non è possibile ripetere questo script perché CETAS non sovrascriverà i dati sottostanti creati nell'esecuzione precedente. Esprimere un voto per gli elementi di feedback seguenti se sono necessari nei propri scenari oppure proporre nuove funzionalità nel sito di feedback di Azure:
+- [Abilitare l'inserimento di nuovi dati in una tabella esterna](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/32981347-polybase-allow-insert-new-data-to-existing-exteran)
+- [Abilitare l'eliminazione di dati da una tabella esterna](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
+- [Specificare partizioni in CETAS](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
+- [Specificare dimensioni e numeri di file](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

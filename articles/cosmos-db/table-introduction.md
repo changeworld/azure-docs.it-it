@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/25/2020
+ms.date: 01/08/2021
 ms.author: sngun
-ms.openlocfilehash: 98b1db18b72aad0c68f2faee031cc040a2a1f369
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1cf3bf30b37a09b5dfe94bf1e754a7f8e9dcd82c
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181238"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98045666"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduzione ad Azure Cosmos DB: API di tabella
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "96181238"
 [Azure Cosmos DB](introduction.md) offre l'API Tabelle per applicazioni scritte per l'archivio tabelle di Azure e che necessitano di funzionalità Premium come:
 
 * [Distribuzione globale chiavi in mano](distribute-data-globally.md).
-* [Velocità effettiva dedicata](partitioning-overview.md) in tutto il mondo.
+* [Velocità effettiva dedicata](partitioning-overview.md) in tutto il mondo (quando si usa la velocità effettiva con provisioning).
 * Latenze pari a singole unità di millisecondi al 99° percentile.
 * Disponibilità elevata garantita.
 * Indicizzazione secondaria automatica.
@@ -44,7 +44,7 @@ Se attualmente si usa l'archivio tabelle di Azure, passando all'API Tabelle di A
 | Indicizzazione | Solo indice primario in PartitionKey e RowKey. Nessun indice secondario. | Indicizzazione automatica e completa su tutte le proprietà per impostazione predefinita, senza gestione degli indici. |
 | Query | L'esecuzione di query usa l'indice per la chiave primaria ed esegue l'analisi negli altri casi. | Le query possono trarre vantaggio dall'indicizzazione automatica sulle proprietà, per query con durata ridotta. |
 | Consistenza | Assoluta entro l'area primaria. Eventuale entro l'area secondaria. | [Cinque livelli di coerenza ben definiti](consistency-levels.md) per bilanciare disponibilità, latenza, velocità effettiva e coerenza in base alle esigenze dell'applicazione. |
-| Prezzi | Ottimizzati per l'archiviazione. | Ottimizzati per la velocità effettiva. |
+| Prezzi | In base al consumo. | Disponibile sia in modalità [basata sul consumo](serverless.md) che con [capacità di provisioning](set-throughput.md). |
 | Contratti di servizio | Disponibilità dal 99,9% al 99,99%, a seconda della strategia di replica. | Disponibilità del 99,999% in lettura, disponibilità del 99,99% in scrittura per gli account di una singola area e disponibilità del 99,999% in scrittura per gli account di più aree. [Contratti di servizio completi](https://azure.microsoft.com/support/legal/sla/cosmos-db/) relativi a disponibilità, latenza, velocità effettiva e coerenza. |
 
 ## <a name="get-started"></a>Introduzione

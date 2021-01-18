@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 01/05/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 242e0e4614994c30d0a14b8fe3d7a5c2b217bb5a
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
+ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033341"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97955400"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -49,13 +49,16 @@ Identity Protection consente di identificare i rischi suddivisi nelle classifica
 
 | Tipo di rilevamento dei rischi | Descrizione |
 | --- | --- |
-| Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). |
-| Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. |
+| Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. |
 | Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware. |
+| Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. |
 | Credenziali perse | Indica che le credenziali valide dell'utente sono andate perse. |
 | Password spraying | Indica che è in corso un attacco unificato di forza bruta contro più nomi utente usando password comuni. |
 | Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto. |
+| Nuovo paese | Questo rilevamento viene individuato da [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country). |
+| Attività da indirizzi IP anonimi | Questo rilevamento viene individuato da [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses). |
+| Inoltro sospetto della Posta in arrivo | Questo rilevamento viene individuato da [Microsoft Cloud App Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding). |
 
 Per maggiori dettagli su questi rischi e su come/quando vengono calcolati, vedere l'articolo [Che cosa sono i rischi?](concept-identity-protection-risks.md).
 

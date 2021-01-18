@@ -188,16 +188,6 @@
               href: manage/pay-by-invoice.md
             - name: Creare sottoscrizioni aggiuntive
               href: manage/create-subscription.md
-            - name: Creare sottoscrizioni EA a livello di codice
-              href: manage/programmatically-create-subscription-enterprise-agreement.md
-            - name: Creare sottoscrizioni MCA a livello di codice
-              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
-            - name: Creare sottoscrizioni MPA a livello di codice
-              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
-            - name: Creare sottoscrizioni - Modello di Resource Manager
-              href: manage/create-subscription-template.md
-            - name: Creare sottoscrizioni a livello di codice (anteprima)
-              href: manage/programmatically-create-subscription-preview.md
             - name: Concedere l'accesso per la creazione di sottoscrizioni EA
               href: manage/grant-access-to-create-subscription.md
             - name: Esportare le informazioni sulla sottoscrizione
@@ -214,6 +204,20 @@
               href: manage/transfer-subscriptions-subscribers-csp.md
             - name: Annullare la sottoscrizione
               href: manage/cancel-azure-subscription.md
+        - name: Creare sottoscrizioni a livello di codice
+          items:
+            - name: Creare sottoscrizioni a livello di codice
+              href: manage/programmatically-create-subscription.md
+            - name: Creare sottoscrizioni EA a livello di codice
+              href: manage/programmatically-create-subscription-enterprise-agreement.md
+            - name: Creare sottoscrizioni MCA a livello di codice
+              href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+            - name: Creare sottoscrizioni MPA a livello di codice
+              href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
+            - name: Creare sottoscrizioni - Modello di Resource Manager
+              href: manage/create-subscription-template.md
+            - name: Creare sottoscrizioni a livello di codice - API in anteprima
+              href: manage/programmatically-create-subscription-preview.md
         - name: Gestire le sottoscrizioni con Contratto Enterprise
           items:
             - name: Ruoli del Contratto Enterprise in Azure

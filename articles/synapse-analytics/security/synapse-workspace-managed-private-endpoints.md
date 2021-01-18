@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 10/16/2020
+ms.date: 01/12/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5258b1eab48f71d8d17f52849b5e57b467e7a2da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2d2b65261e09d056ec76b25d6fcb6627bc54770b
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460377"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165723"
 ---
 # <a name="synapse-managed-private-endpoints"></a>Endpoint privati gestiti di Synapse
 
@@ -21,27 +21,20 @@ Questo articolo illustra gli endpoint privati gestiti in Azure Synapse Analytics
 
 ## <a name="managed-private-endpoints"></a>Endpoint privati gestiti
 
-Gli endpoint privati gestiti sono endpoint privati creati nella rete virtuale di Microsoft Azure dell'area di lavoro gestita che consentono di stabilire un collegamento privato alle risorse di Azure. Azure Synapse gestisce questi endpoint privati per conto dell'utente.
+Gli endpoint privati gestiti sono endpoint privati creati in una rete virtuale gestita associata all'area di lavoro di Azure Synapse. Gli endpoint privati gestiti stabiliscono un collegamento privato con le risorse di Azure. Azure Synapse gestisce questi endpoint privati per conto dell'utente. È possibile creare endpoint privati gestiti nell'area di lavoro di Azure Synapse per accedere ai servizi di Azure, come Archiviazione di Azure o Azure Cosmos DB, e ai servizi di clienti/partner ospitati in Azure.
 
-Azure Synapse supporta i collegamenti privati. Il collegamento privato consente di accedere in modo sicuro a servizi di Azure, ad esempio Archiviazione di Azure e Azure Cosmos DB, nonché a servizi di clienti/partner ospitati in Azure da Rete virtuale di Azure.
+Con gli endpoint privati gestiti, il traffico tra l'area di lavoro di Azure Synapse e altre risorse di Azure viaggia interamente sulla rete backbone di Azure. Gli endpoint privati gestiti proteggono dall'esfiltrazione di dati. Un endpoint privato gestito usa l'indirizzo IP privato della rete virtuale gestita per introdurre effettivamente il servizio di Azure comunicato dall'area di lavoro di Azure Synapse nella rete virtuale. Gli endpoint privati gestiti sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. 
 
-Quando si usa un collegamento privato, il traffico tra la rete virtuale e l'area di lavoro attraversa interamente la rete backbone Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
-
-L'endpoint privato usa un indirizzo IP privato della rete virtuale per introdurre in modo efficace il servizio nella rete virtuale. Gli endpoint privati sono associati a una risorsa specifica in Azure e non all'intero servizio. I clienti possono limitare la connettività a una risorsa specifica approvata dall'organizzazione. 
-
-Altre informazioni su [collegamenti ed endpoint privati](https://docs.microsoft.com/azure/private-link/).
+Altre informazioni su [collegamenti ed endpoint privati](../../private-link/index.yml).
 
 >[!IMPORTANT]
 >Gli endpoint privati gestiti sono supportati solo nelle aree di lavoro di Azure Synapse con una rete virtuale dell'area di lavoro gestita.
 
 >[!NOTE]
->Tutto il traffico in uscita dalla rete virtuale dell'area di lavoro gestita, eccetto quello tramite gli endpoint privati gestiti, verrà bloccato in futuro. È consigliabile creare endpoint privati gestiti per connettersi a tutte le origini dati di Azure esterne all’area di lavoro. 
+>Durante la creazione di un'area di lavoro di Azure Synapse, è possibile scegliere di associarvi una rete virtuale gestita. Se si sceglie di associare una rete virtuale gestita all'area di lavoro, è anche possibile scegliere di limitare il traffico in uscita dall'area di lavoro solo verso destinazioni approvate. È necessario creare endpoint privati gestiti in queste destinazioni. 
 
-Quando si crea un endpoint privato gestito in Azure Synapse, viene creata una connessione all'endpoint privato con lo stato "In sospeso". Viene avviato un flusso di lavoro di approvazione. Il proprietario della risorsa del collegamento privato ha la responsabilità di approvare la connessione.
 
-Se il proprietario approva la connessione, il collegamento privato viene stabilito. Se tuttavia il proprietario non approva la connessione, il collegamento privato non verrà stabilito. In entrambi i casi, l'endpoint privato gestito verrà aggiornato con lo stato della connessione.
-
-Solo un endpoint privato gestito in uno stato approvato può inviare il traffico a una risorsa del collegamento privato specificata.
+Quando si crea un endpoint privato gestito in Azure Synapse, viene creata una connessione all'endpoint privato con lo stato "In sospeso". Viene avviato un flusso di lavoro di approvazione. Il proprietario della risorsa del collegamento privato ha la responsabilità di approvare la connessione. Se il proprietario approva la connessione, il collegamento privato viene stabilito. Se tuttavia il proprietario non approva la connessione, il collegamento privato non verrà stabilito. In entrambi i casi, l'endpoint privato gestito verrà aggiornato con lo stato della connessione. Per inviare traffico alla risorsa di collegamento privato collegata all'endpoint privato gestito, è possibile usare solo un endpoint privato gestito con lo stato approvato.
 
 ## <a name="managed-private-endpoints-for-dedicated-sql-pool-and-serverless-sql-pool"></a>Endpoint privati gestiti per il pool SQL dedicato e il pool SQL serverless
 

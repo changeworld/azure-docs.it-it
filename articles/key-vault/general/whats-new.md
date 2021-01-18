@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: reference
-ms.date: 10/01/2020
+ms.date: 01/12/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dbbde397ab235068ea90280da721e3e3dc38866a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ef2c42ae76dc5e1511494635904228a8b574d483
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792362"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98132189"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novità di Azure Key Vault
 
@@ -37,7 +37,7 @@ Per supportare l'[eliminazione temporanea ora attiva per impostazione predefinit
 
 ### <a name="soft-delete-on-by-default"></a>Eliminazione temporanea attivata per impostazione predefinita
 
-Entro la fine del 2020, **l'eliminazione temporanea sarà attivata per impostazione predefinita per tutti gli insiemi di credenziali delle chiavi** , sia nuovi che preesistenti. Per informazioni dettagliate su questa modifica di rilievo, oltre che sulla procedura per trovare gli insiemi di credenziali delle chiavi interessati e aggiornarli in anticipo, vedere l'articolo[L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi](soft-delete-change.md).
+**È necessario abilitare l'eliminazione temporanea per tutti gli insiemi di credenziali delle chiavi**, sia nuovi che preesistenti. Nei prossimi mesi la possibilità di rifiutare esplicitamente l'eliminazione temporanea verrà deprecata. Per informazioni dettagliate su questa modifica di rilievo, oltre che sulla procedura per trovare gli insiemi di credenziali delle chiavi interessati e aggiornarli in anticipo, vedere l'articolo[L'eliminazione temporanea verrà abilitata in tutti gli insiemi di credenziali delle chiavi](soft-delete-change.md).
 
 ### <a name="azure-tls-certificate-changes"></a>Modifiche ai certificati TLS di Azure
 

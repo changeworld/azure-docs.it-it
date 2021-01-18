@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 244f8a446e33102e018881b3ec8f32ba9d8cbcc6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 7d624f2dd2c0c9b4c7e99d5628a1d47e4303da7f
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014146"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555594"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-or-azure-synapse-analytics-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure o a Azure sinapsi Analytics da un processo di analisi di flusso di Azure (anteprima)
 
@@ -123,7 +123,7 @@ Dopo aver creato un utente di database indipendente e avere concesso l'accesso a
 
 Dopo aver creato un utente di database indipendente e avere concesso l'accesso ai servizi di Azure nel portale, come descritto nella sezione precedente, il processo di analisi di flusso dispone dell'autorizzazione dall'identità gestita per **connettersi** alla risorsa del database di Azure sinapsi tramite l'identità gestita. Si consiglia di concedere altre autorizzazioni per le operazioni BULK del DATABASE SELECT, INSERT e AMMINISTRAte al processo di analisi di flusso, perché saranno necessarie in un secondo momento nel flusso di lavoro di analisi di flusso. L'autorizzazione **Select** consente al processo di testare la connessione alla tabella nel database di sinapsi di Azure. Le autorizzazioni per **operazioni bulk** di **inserimento** e amministrazione del database consentono di testare le query di analisi di flusso end-to-end dopo aver configurato un input e l'output del database di Azure sinapsi.
 
-Per concedere l'autorizzazione GESTISCi operazioni BULK del DATABASE, è necessario concedere tutte le autorizzazioni etichettate come **controllo** in [implicito dall'autorizzazione database](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest#remarks) per il processo di analisi di flusso. Questa autorizzazione è necessaria perché il processo di analisi di flusso esegue l'istruzione COPY, che richiede l' [amministrazione delle operazioni bulk del database e l'inserimento](/sql/t-sql/statements/copy-into-transact-sql).
+Per concedere l'autorizzazione GESTISCi operazioni BULK del DATABASE, è necessario concedere tutte le autorizzazioni etichettate come **controllo** in [implicito dall'autorizzazione database](/sql/t-sql/statements/grant-database-permissions-transact-sql?view=azure-sqldw-latest&preserve-view=true#remarks) per il processo di analisi di flusso. Questa autorizzazione è necessaria perché il processo di analisi di flusso esegue l'istruzione COPY, che richiede l' [amministrazione delle operazioni bulk del database e l'inserimento](/sql/t-sql/statements/copy-into-transact-sql).
 
 ---
 

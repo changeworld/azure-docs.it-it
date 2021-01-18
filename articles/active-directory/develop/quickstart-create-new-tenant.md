@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: f43cb80a148f5dadb409f506f237cb1210a2000a
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 869b37aea823cf91dc59211b23fcaccd7646afb9
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934000"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98012020"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Avvio rapido: Configurare un tenant
 
@@ -47,7 +47,7 @@ La guida introduttiva è suddivisa in due scenari a seconda del tipo di app che 
 
 Molti sviluppatori dispongono già di tenant attraverso sottoscrizioni o servizi associati ai tenant di Azure AD, ad esempio gli abbonamenti di Microsoft 365 o le sottoscrizioni di Azure.
 
-1. Per controllare il tenant, accedere al [portale di Azure](https://portal.azure.com) con l'account che si vuole usare per gestire l'applicazione.
+1. Per controllare il tenant, accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> con l'account da usare per gestire l'applicazione.
 1. Controllare nell'angolo in alto a destra. Se si dispone già di un tenant, verrà effettuata automaticamente la connessione e si vedrà il nome del tenant direttamente sotto il nome dell'account.
    * Se si passa il puntatore sul nome dell'account nella parte superiore destra del portale di Azure, verranno visualizzati il nome utente, l'indirizzo di posta elettronica, un ID di directory/tenant (GUID) e il dominio.
    * Se l'account è associato a più tenant, è possibile selezionare il nome dell'account per aprire un menu che consente di spostarsi tra i tenant. Ogni tenant ha un proprio ID.

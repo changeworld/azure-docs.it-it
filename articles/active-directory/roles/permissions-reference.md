@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568584b849b2c5977d4bbb6216697dce3c498cfd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98107923"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555730"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -56,7 +56,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 gli utenti in questo ruolo possono creare e gestire tutti gli aspetti delle applicazioni aziendali, le registrazioni delle applicazioni e le impostazioni proxy dell'applicazione. Si noti che gli utenti assegnati a questo ruolo non vengono aggiunti come proprietari durante la creazione di nuove registrazioni di applicazione o nelle applicazioni aziendali.
 
-Questo ruolo concede anche la possibilità di _fornire il consenso_ per le autorizzazioni delegate e le autorizzazioni dell'applicazione, con l'eccezione delle autorizzazioni per l'API Microsoft Graph.
+Questo ruolo consente inoltre di concedere il _consenso_ alle autorizzazioni delegate e alle autorizzazioni dell'applicazione, fatta eccezione per le autorizzazioni dell'applicazione nell'API Microsoft Graph.
 
 > [!IMPORTANT]
 > Questa eccezione indica che è ancora possibile fornire il consenso per le autorizzazioni per _altre_ app, ad esempio app non Microsoft o app registrate, ma non per Azure AD stesso. È comunque possibile _richiedere_ queste autorizzazioni nell'ambito della registrazione dell'app, ma per _concedere_ (ovvero fornire il consenso per) queste autorizzazioni è richiesto un amministratore di Azure AD. Questo significa che un utente malintenzionato non può facilmente elevare le proprie autorizzazioni, ad esempio creando e fornendo il consenso per un'app che può scrivere nell'intera directory e tramite le autorizzazioni di tale app elevare i privilegi per diventare un amministratore globale.

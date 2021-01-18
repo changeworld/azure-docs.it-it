@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/30/2020
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: d73a8d743a948cbd94a3af81fe2e77c45c0eeb67
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c6352ee9d29e4e45aa4be449046a0715fee06047
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996234"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165910"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 
@@ -35,7 +35,7 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
     | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |
     | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *CDNQuickstart-rg* come nome del gruppo di risorse oppure selezionare **Usa esistente** e scegliere *CDNQuickstart-rg* se il gruppo è già disponibile. | 
     | **Località del gruppo di risorse** | Selezionare una località vicina nell'elenco a discesa. |
-    | **Piano tariffario** | Selezionare l'opzione **Akamai standard** nell'elenco a discesa. Il tempo di distribuzione per il livello Akamai è di circa un minuto. Il livello Microsoft richiede circa 10 minuti e il livello Verizon circa 90 minuti. |
+    | **Piano tariffario** | Selezionare l'opzione **Akamai standard** nell'elenco a discesa. Il tempo di distribuzione per il livello Akamai è di circa un minuto. Il livello Microsoft richiede circa 10 minuti e il livello Verizon circa 30 minuti. |
     | **Crea un nuovo endpoint rete CDN ora** | Non selezionare alcun elemento. |  
    
     ![Nuovo profilo di rete CDN](./media/cdn-create-profile/cdn-new-profile.png)

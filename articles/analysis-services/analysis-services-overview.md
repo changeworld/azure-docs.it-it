@@ -4,16 +4,16 @@ description: Informazioni su Azure Analysis Services, una piattaforma distribuit
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 12/01/2020
+ms.date: 01/07/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: e70d02c02ba9a3f14d1659851919fbccf71776d1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c4a14ab1e5b52eb36a532c6d69713d588864d288
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96487355"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98019075"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -91,6 +91,7 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centrali     |    S8v2, S9v2     |    1     |
 |Stati Uniti centro-meridionali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Stati Uniti centro-meridionali     |    S8v2, S9v2     |    1     |
 |Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Stati Uniti occidentali     |    S8v2, S9v2   |    2  |
@@ -115,6 +116,7 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Australia orientale     |    S8v2, S9v2    |    1     |
 |Australia sud-orientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Giappone orientale     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Giappone orientale     |    S8v2, S9v2    |    1     |
 |Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
 |Asia sud-orientale     |     S8v2, S9v2     |   1      |
 |India occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -160,7 +162,7 @@ Il termine livello di compatibilità fa riferimento a comportamenti specifici di
 
 ## <a name="your-data-is-secure"></a>I dati sono protetti
 
-Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. Essendo un servizio di Azure, Analysis Services prevede che il livello **Basic** degli attacchi Distributed Denial of Service (DDoS) sia automaticamente abilitato come parte della piattaforma Azure. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../ddos-protection/ddos-protection-overview.md). 
+Azure Analysis Services fornisce la sicurezza per i dati sensibili a più livelli. Essendo un servizio di Azure, Analysis Services prevede che il livello di protezione **Basic** degli attacchi Distributed Denial of Service (DDoS) sia automaticamente abilitato come parte della piattaforma Azure. Per altre informazioni, vedere [Panoramica di Protezione DDoS di Azure Standard](../ddos-protection/ddos-protection-overview.md). 
 
 A livello di server, Analysis Services fornisce firewall, autenticazione di Azure, ruoli di amministratore del server e crittografia sul lato server. A livello di modello di dati, i ruoli utente e la sicurezza a livello di riga e a livello di oggetto assicurano che i dati siano sicuri e vengano visualizzati solo dagli utenti autorizzati.
 

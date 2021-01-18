@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
+ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "82996212"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98165927"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure
 
@@ -68,7 +68,7 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
     
    ![Endpoint della rete CDN](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Il tempo necessario per la propagazione dell'endpoint dipende dal piano tariffario selezionato al momento della creazione del profilo. **Akamai standard** in genere viene completato entro un minuto **Microsoft Standard** in 10 minuti e **Verizon standard** e **Verizon premium** in un massimo di 90 minuti.
+   Il tempo necessario per la propagazione dell'endpoint dipende dal piano tariffario selezionato al momento della creazione del profilo. **Akamai standard** in genere viene completato entro un minuto **Microsoft Standard** in 10 minuti e **Verizon standard** e **Verizon premium** in un massimo di 30 minuti.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

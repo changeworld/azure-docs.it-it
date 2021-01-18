@@ -308,10 +308,10 @@
       items:
         - name: Scegliere un livello
           href: search-sku-tier.md
-        - name: Stimare capacità e costi
-          href: search-sku-manage-costs.md
-        - name: Regolare la capacità
+        - name: Stimare e gestire la capacità
           href: search-capacity-planning.md
+        - name: Stimare i costi
+          href: search-sku-manage-costs.md
         - name: Limiti del servizio
           href: search-limits-quotas-capacity.md
         - name: Ridimensionare in base alle prestazioni

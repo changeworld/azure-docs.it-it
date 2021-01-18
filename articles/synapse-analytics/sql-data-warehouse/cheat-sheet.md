@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a236cf99d3131e83619cfab06e8ec028938a87ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cc54ae66cda6bf8ecde07d1830448ec39a15cc29
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96454600"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98120224"
 ---
 # <a name="cheat-sheet-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytic"></a>Foglio informativo sul pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 ## <a name="data-migration"></a>Migrazione dei dati
 
-Prima di tutto, caricare i dati in [Azure Data Lake Store](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o in Archiviazione BLOB di Azure. Usare quindi l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (anteprima) per caricare i dati nelle tabelle di staging. Usare la configurazione seguente:
+Prima di tutto, caricare i dati in [Azure Data Lake Store](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o in Archiviazione BLOB di Azure. Usare quindi l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per caricare i dati nelle tabelle di staging. Usare la configurazione seguente:
 
 | Progettazione | Recommendation |
 |:--- |:--- |
@@ -46,7 +46,7 @@ Prima di tutto, caricare i dati in [Azure Data Lake Store](../../data-factory/co
 | Partizionamento | nessuno |
 | Classe di risorse | largerc o xlargerc |
 
-Sono disponibili altre informazioni sulla [migrazione dei dati](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), sul [caricamento dei dati](design-elt-data-loading.md) e sul [processo di estrazione, caricamento e trasformazione (ELT - Extract, Load, and Transform)](design-elt-data-loading.md).
+Sono disponibili altre informazioni sulla [migrazione dei dati](/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), sul [caricamento dei dati](design-elt-data-loading.md) e sul [processo di estrazione, caricamento e trasformazione (ELT - Extract, Load, and Transform)](design-elt-data-loading.md).
 
 ## <a name="distributed-or-replicated-tables"></a>Tabelle distribuite o replicate
 
@@ -137,7 +137,7 @@ Procedere ora al ridimensionamento automatico in corrispondenza del momento desi
 
 È consigliabile prendere in considerazione il database SQL e Azure Analysis Services in un'architettura hub-spoke. Questa soluzione può fornire l'isolamento del carico di lavoro tra gruppi di utenti diversi, usando anche alcune funzionalità di protezione avanzate del database SQL e di Azure Analysis Services. Anche questo è un modo per fornire concorrenza illimitata agli utenti.
 
-Vedere altre informazioni sulle [architetture tipiche che traggono vantaggio dal pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/).
+Vedere altre informazioni sulle [architetture tipiche che traggono vantaggio dal pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics](/archive/blogs/sqlcat/common-isv-application-patterns-using-azure-sql-data-warehouse).
 
 Distribuire con un clic del mouse gli spoke nei database SQL dal pool SQL dedicato (in precedenza SQL Data Warehouse):
 

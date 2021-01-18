@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: 643305057490cc550a5a8e39a892297b000cbc8e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: c9aa73767fcb9d57ada11f5830fec00b10eee812
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169410"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98017341"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -29,38 +29,29 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice che 
 - [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="register-your-application"></a>Registrare l'applicazione
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account è presente in più di un tenant di Azure AD:
-    - Selezionare il profilo dal menu nell'angolo superiore destro della pagina e quindi fare clic su **Cambia directory**.
-    - Impostare la sessione sul tenant di Azure AD in cui si vuole creare l'applicazione.
 
-1. Passare a [Azure Active Directory > Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) per registrare l'app.
-
-1. Selezionare **Nuova registrazione**.
-
-1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'app:
-    - Nella sezione **Nome** immettere un nome significativo che verrà visualizzato agli utenti dell'app. Ad esempio: MyWebApp
-    - Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+1. Cercare e selezionare **Azure Active Directory**.
+1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
+1. Immettere un **Nome** per l'applicazione, ad esempio `MyWebApp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
+1. Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 
     Se sono presenti più URI di reindirizzamento, è necessario aggiungerli in un secondo momento dalla scheda **Autenticazione** dopo la creazione dell'app.
 
 1. Selezionare **Registra** per creare l'app.
-
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Questo valore sarà necessario per configurare l'applicazione più avanti in questo progetto.
+1. In **Gestisci** selezionare **Autenticazione**.
+1. Selezionare **Aggiungi una piattaforma** > **Web** 
+1. Nella sezione **URI di reindirizzamento** immettere `http://localhost:3000/auth/openid/return`.
+1. Immettere `https://localhost:3000` per **URI di disconnessione**.
+1. Nella sezione Concessione implicita selezionare **Token ID** perché con questo esempio è necessario che il [flusso di concessione implicito](./v2-oauth2-implicit-grant-flow.md) sia abilitato per consentire all'utente di accedere.
+1. Selezionare **Configura**.
+1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.
+1. Immettere una descrizione della chiave, ad esempio segreto dell'app.
+1. Selezionare una durata per la chiave, ovvero **Tra 1 anno, Tra 2 anni** oppure **Non scade mai**.
+1. Selezionare **Aggiungi**. Verrà visualizzato il valore della chiave. Copiare il valore della chiave e conservarlo in un luogo sicuro per un uso successivo.
 
-1. Nell'elenco delle pagine per l'app selezionare **Autenticazione**.
-    - Nella sezione **URI di reindirizzamento** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: `http://localhost:3000/auth/openid/return`
-    - Nella sezione **Impostazioni avanzate** impostare **URL disconnessione** su `https://localhost:3000`.
-    - Nella sezione **Impostazioni avanzate > Concessione implicita** selezionare **Token ID** perché con questo esempio è richiesta l'abilitazione del [flusso di concessione implicito](./v2-oauth2-implicit-grant-flow.md) per consentire all'utente di accedere.
-
-1. Selezionare **Salva**.
-
-1. Nella sezione **Segreti client** della pagina **Certificati e segreti** scegliere **Nuovo segreto client**.
-    - Immettere una descrizione della chiave, ad esempio segreto dell'app.
-    - Selezionare una durata per la chiave, ovvero **Tra 1 anno, Tra 2 anni** oppure **Non scade mai**.
-    - Quando si fa clic sul pulsante **Aggiungi**, viene visualizzato il valore della chiave. Copiare il valore della chiave e conservarlo in un luogo sicuro.
-
-    Questa chiave sarà necessaria più avanti per configurare l'applicazione. Il valore della chiave non viene visualizzato di nuovo, né può essere recuperato in altro modo, di conseguenza è opportuno prenderne nota non appena viene visualizzato nel portale di Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Scaricare l'applicazione e i moduli di esempio
 

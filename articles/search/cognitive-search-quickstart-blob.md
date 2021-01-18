@@ -7,23 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: be45292552a7ac62c7131c637b044edc477328e2
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.date: 01/12/2021
+ms.openlocfilehash: 8151c9ce177d0cd54826603d1a395a8d5828b623
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396791"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98133821"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Avvio rapido: Creare un set di competenze cognitive di Ricerca cognitiva di Azure nel portale di Azure
 
-Un set di competenze è una funzionalità basata su intelligenza artificiale che estrae le informazioni e la struttura da file di testo o di immagine non differenziati di grandi dimensioni e rende il contenuto indicizzabile e ricercabile in Ricerca cognitiva di Azure. 
+Un set di competenze è una funzionalità basata su intelligenza artificiale che usa modelli di Deep Learning per estrarre informazioni e struttura da file di testo o di immagine non differenziati di grandi dimensioni, rendendo il contenuto indicizzabile e ricercabile in Ricerca cognitiva di Azure. 
 
 In questa guida di avvio rapido verranno combinati servizi e dati nel cloud di Azure per creare il set di competenze. Si userà quindi la procedura guidata **Importa dati** nel portale di Azure per riunire tutti i dati ottenuti. Il risultato finale è un indice ricercabile popolato con i dati creati dall'elaborazione di intelligenza artificiale su cui è possibile eseguire query nel portale ([Esplora ricerche](search-explorer.md)).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire le procedure descritte è necessario:
+Prima di iniziare, creare i servizi seguenti:
 
 + Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
 
@@ -60,13 +60,13 @@ A questo punto è possibile procedere con la procedura guidata Importa dati.
 
 1. [Trovare il servizio di ricerca](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/), quindi nella pagina Panoramica fare clic su **Importa dati** sulla barra dei comandi per configurare l'arricchimento cognitivo in quattro passaggi.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/import-data-cmd2.png" alt-text="Comando Importa dati" border="false":::
 
 ### <a name="step-1---create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
 1. In **Definisci la connessione ai dati** scegliere **Archiviazione BLOB di Azure** e selezionare l'account di archiviazione e il contenitore creati. Assegnare un nome origine dati e utilizzare i valori predefiniti per il resto. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Configurazione del BLOB di Azure" border="false":::
 
     Passare alla pagina successiva.
 
@@ -76,7 +76,7 @@ Configurare quindi l'arricchimento tramite intelligenza artificiale per richiama
 
 1. Per questa guida di avvio rapido si usa la risorsa Servizi cognitivi **gratuita**. I dati di esempio sono costituiti da 14 file, pertanto l'allocazione gratuita di 20 transazioni su Servizi cognitivi è sufficiente per questa guida di avvio rapido. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Collega Servizi cognitivi - Collegamento del servizio di base" border="false":::
 
 1. Espandere **Aggiungi arricchimenti** ed effettuare quattro selezioni. 
 
@@ -86,7 +86,7 @@ Configurare quindi l'arricchimento tramite intelligenza artificiale per richiama
 
    Scegliere le competenze di riconoscimento entità (persone, organizzazioni e località) e di analisi delle immagini.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Collega Servizi cognitivi - Selezione dei servizi per il set di competenze" border="false":::
 
    Passare alla pagina successiva.
 
@@ -102,7 +102,7 @@ Per questa Guida introduttiva, la procedura guidata ha imposta valori predefinit
 
 + Gli attributi predefiniti sono **Recuperabile** e **Ricercabile**. L'attributo **Ricercabile** indica che è possibile eseguire ricerche full-text in un campo. L'attributo **Recuperabile** indica che i valori dei campi possono essere restituiti nei risultati. La procedura guidata presuppone che si voglia rendere questi campi recuperabili e ricercabili perché sono stati creati con un insieme di competenze.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Campi indice" border="false":::
 
 Osservare il testo barrato e il punto interrogativo sull'attributo **Recuperabile** accanto al campo `content`. Per i documenti BLOB a elevato utilizzo di testo, il campo `content` contiene la maggior parte del contenuto del file, eseguito potenzialmente in migliaia di righe. Un campo come questo è scomodo nei risultati della ricerca ed è opportuno escluderlo per questa demo. 
 
@@ -118,7 +118,7 @@ L'indicizzatore è una risorsa di alto livello che guida il processo di indicizz
 
 1. Nella pagina **Indicizzatore** si può accettare il nome predefinito e fare clic sull'opzione di pianificazione **Una sola volta** per l'esecuzione immediata. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Definizione di indicizzatore" border="false":::
 
 1. Fare clic su **Invia** per creare e contemporaneamente eseguire l'indicizzatore.
 
@@ -126,7 +126,7 @@ L'indicizzatore è una risorsa di alto livello che guida il processo di indicizz
 
 Il completamento dell'indicizzazione delle competenze cognitive richiede più tempo rispetto all'indicizzazione tipica basata su testo, in particolare nel caso dell'OCR e dell'analisi delle immagini. Per monitorare lo stato, passare alla pagina Panoramica e fare clic su **Indicizzatori** al centro della pagina.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Notifica di Ricerca cognitiva di Azure" border="false":::
 
 Gli avvisi sono normali in considerazione all'ampia gamma di tipi di contenuto. Alcuni tipi di contenuto non sono validi per determinate competenze e a livelli più bassi è facile riscontrare [limiti dell'indicizzatore](search-limits-quotas-capacity.md#indexer-limits). Ad esempio, le notifiche di troncamento a 32.000 caratteri sono un limite dell'indicizzatore per il livello gratuito. Se si esegue la demo con un livello superiore, numerosi avvisi di troncamento non vengono visualizzati.
 
@@ -134,11 +134,11 @@ Per controllare avvisi o errori, fare clic sullo stato Avviso nell'elenco Indici
 
 In questa pagina fare di nuovo clic sullo stato Avviso per visualizzare l'elenco di avvisi simile a quello mostrato di seguito. 
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-warnings.png" alt-text="Elenco di avvisi dell'indicizzatore" border="false":::
 
 Quando si fa clic su una riga di stato specifica, vengono visualizzati i dettagli. Questo avviso indica che il merge è stato interrotto in seguito al raggiungimento di una soglia massima (le dimensioni di questo particolare PDF sono notevoli).
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/warning-detail.png" alt-text="Dettagli dell'avviso" border="false":::
 
 ## <a name="query-in-search-explorer"></a>Eseguire query in Esplora ricerche
 
@@ -157,7 +157,7 @@ I risultati vengono restituiti in formato JSON, che può essere dettagliato e di
 
 Le stringhe di query fanno distinzione tra maiuscole e minuscole. Se quindi viene visualizzato un messaggio di campo sconosciuto, controllare **Campi** o **Definizione di indice (JSON)** per verificare il nome e l'uso delle maiuscole/minuscole. 
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="File di origine nell'archivio BLOB di Azure" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Esempio di Esplora ricerche" border="false":::
 
 ## <a name="takeaways"></a>Risultati
 

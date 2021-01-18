@@ -6,12 +6,12 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: 9f9805c25955384e7ca5b3f1d560581a7ca4a638
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: ed2bd3f3bab81f6be56508a203600ec479cc20b6
+ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614660"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98134484"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -105,13 +105,13 @@ L'esempio contiene codice specifico del framework che il servizio app di Azure r
 Distribuire il codice nella cartella locale (*python-docs-hello-world*) usando il comando `az webapp up`:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name>
+az webapp up --sku B1 --name <app-name>
 ```
 
 - Se il comando `az` non viene riconosciuto, verificare di aver installato l'interfaccia della riga di comando di Azure come descritto in [Configurare l'ambiente iniziale](#set-up-your-initial-environment).
 - Se il comando `webapp` non viene riconosciuto, assicurarsi che la versione dell'interfaccia della riga di comando di Azure sia 2.0.80 o successiva. Se non lo è, [installare l'ultima versione](/cli/azure/install-azure-cli).
 - Sostituire `<app_name>` con un nome univoco nell'ambito di Azure (*i caratteri validi sono `a-z`, `0-9` e `-`* ). Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.
-- Con l'argomento `--sku F1` l'app Web viene creata nel piano tariffario Gratuito. Omettere questo argomento per usare un livello Premium più rapido, che però comporta un costo orario.
+- L'argomento `--sku B1` crea l'app Web nel piano tariffario Basic, che comporta un costo orario ridotto. Omettere questo argomento per usare un livello Premium più veloce.
 - Facoltativamente, è possibile includere l'argomento `--location <location-name>`, dove `<location_name>` è un'area di Azure disponibile. Per recuperare un elenco di aree consentite per l'account Azure, è possibile eseguire il comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
 - Se viene visualizzato un messaggio di errore analogo a "Non è stato possibile rilevare automaticamente lo stack di runtime dell'app", assicurarsi che il comando venga eseguito nella cartella *python-docs-hello-world* (Flask) o *python-docs-hello-django* (Django) che contiene il file *requirements.txt*. Vedere l'articolo sulla [risoluzione dei problemi di rilevamento automatico con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).
 
@@ -281,7 +281,7 @@ Nel menu del Servizio app sono disponibili varie pagine per la configurazione de
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Nei passaggi precedenti sono state create risorse di Azure in un gruppo di risorse. Il gruppo di risorse ha un nome simile a "appsvc_rg_Linux_CentralUS", a seconda della località scelta. Se si usa uno SKU del servizio app diverso dal livello F1 gratuito, per queste risorse verranno addebitati costi su base continuativa. Vedere [Prezzi di Servizio app](https://azure.microsoft.com/pricing/details/app-service/linux/).
+Nei passaggi precedenti sono state create risorse di Azure in un gruppo di risorse. Il gruppo di risorse ha un nome simile a "appsvc_rg_Linux_CentralUS", a seconda della località scelta. Se si mantiene l'app Web in esecuzione, verranno addebitati costi ricorrenti. Vedere [Prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 Se non si prevede di usare queste risorse in futuro, eliminare i gruppi di risorse eseguendo questo comando:
 

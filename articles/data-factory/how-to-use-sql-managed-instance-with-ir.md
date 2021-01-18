@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 86bff161e29384b10030ed3d524301f6dea6037e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: fb622bdb1d7aa485c421122cdfbd2493a32cf5db
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634165"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555663"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usare Istanza gestita SQL di Azure con SQL Server Integration Services (SSIS) in Azure Data Factory
 
@@ -41,7 +41,7 @@ ms.locfileid: "92634165"
     - Tramite endpoint privato (scelta consigliata)
 
         1. Scegliere la rete virtuale a cui aggiungere Azure-SSIS IR:
-            - All'interno della stessa rete virtuale dell'istanza gestita, con una **subnet diversa** .
+            - All'interno della stessa rete virtuale dell'istanza gestita, con una **subnet diversa**.
             - All'interno di una rete virtuale diversa da quella dell'istanza gestita, tramite il peering di rete virtuale (che è limitato alla stessa area a causa dei vincoli di peering VNet globali) o una connessione dalla rete virtuale alla rete virtuale.
 
             Per altre informazioni sulla connettività di SQL Istanza gestita, vedere [connettere l'applicazione al istanza gestita SQL di Azure](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
@@ -64,7 +64,7 @@ ms.locfileid: "92634165"
 
         - Azure-SSIS IR all'interno di una rete virtuale
 
-            Esiste uno scenario speciale quando SQL Istanza gestita si trova in un'area non supportata da Azure-SSIS IR, Azure-SSIS IR si trova all'interno di una rete virtuale senza peering VNet a causa della limitazione del peering VNet globale. In questo scenario, **Azure-SSIS IR all'interno di una rete virtuale** connette SQL istanza gestita **su un endpoint pubblico** . Usare le regole del gruppo di sicurezza di rete (NSG) per consentire il traffico tra SQL Istanza gestita e Azure-SSIS IR:
+            Esiste uno scenario speciale quando SQL Istanza gestita si trova in un'area non supportata da Azure-SSIS IR, Azure-SSIS IR si trova all'interno di una rete virtuale senza peering VNet a causa della limitazione del peering VNet globale. In questo scenario, **Azure-SSIS IR all'interno di una rete virtuale** connette SQL istanza gestita **su un endpoint pubblico**. Usare le regole del gruppo di sicurezza di rete (NSG) per consentire il traffico tra SQL Istanza gestita e Azure-SSIS IR:
 
             1. **Requisito in ingresso di SQL istanza gestita** per consentire il traffico in ingresso da Azure-SSIS IR.
 
@@ -80,12 +80,12 @@ ms.locfileid: "92634165"
 
 ### <a name="configure-virtual-network"></a>Configurare la rete virtuale
 
-1. **Autorizzazione utente** . Per l'utente che crea l'istanza di Azure-SSIS IR è necessaria un'[assegnazione di ruolo](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) almeno nella risorsa Azure Data Factory, con una delle opzioni descritte di seguito.
+1. **Autorizzazione utente**. Per l'utente che crea l'istanza di Azure-SSIS IR è necessaria un'[assegnazione di ruolo](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope) almeno nella risorsa Azure Data Factory, con una delle opzioni descritte di seguito.
 
     - Usare il ruolo predefinito Collaboratore Rete. Questo ruolo richiede l'autorizzazione _Microsoft.Network/\*_ , la quale ha un ambito molto maggiore del necessario.
-    - Creare un ruolo personalizzato che include solo l'autorizzazione _Microsoft.Network/virtualNetworks/\*/join/action_ necessaria. Se si vogliono usare indirizzi IP pubblici personalizzati per Azure-SSIS IR, quando viene aggiunto a una rete virtuale di Azure Resource Manager, includere nel ruolo anche l'autorizzazione _Microsoft.Network/publicIPAddresses/*/join/action_ .
+    - Creare un ruolo personalizzato che include solo l'autorizzazione _Microsoft.Network/virtualNetworks/\*/join/action_ necessaria. Se si vogliono usare indirizzi IP pubblici personalizzati per Azure-SSIS IR, quando viene aggiunto a una rete virtuale di Azure Resource Manager, includere nel ruolo anche l'autorizzazione _Microsoft.Network/publicIPAddresses/*/join/action_.
 
-1. **Rete virtuale** .
+1. **Rete virtuale**.
 
     1. Verificare che il gruppo di risorse della rete virtuale possa creare ed eliminare determinate risorse di rete di Azure.
 
@@ -107,19 +107,19 @@ ms.locfileid: "92634165"
 
             | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
             |---|---|---|---|---|---|
-            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Se il criterio di connessione del server di database SQL è impostato su **Proxy** anziché su **Reindirizzamento** , è necessaria solo la porta 1433.|
+            |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|Se il criterio di connessione del server di database SQL è impostato su **Proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433.|
 
-        1. **Requisito in uscita di Azure-SSIS IR** , per consentire il traffico in uscita a SQL istanza gestita e altro traffico necessario per Azure-SSIS IR.
+        1. **Requisito in uscita di Azure-SSIS IR**, per consentire il traffico in uscita a SQL istanza gestita e altro traffico necessario per Azure-SSIS IR.
 
         | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Consentire il traffico in uscita a SQL Istanza gestita. Se il criterio di connessione è impostato su **Proxy** anziché su **Reindirizzamento** , è necessaria solo la porta 1433. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Consentire il traffico in uscita a SQL Istanza gestita. Se il criterio di connessione è impostato su **Proxy** anziché su **Reindirizzamento**, è necessaria solo la porta 1433. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | I nodi di Azure-SSIS IR nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio Archiviazione di Azure e Hub eventi di Azure. |
         | TCP | VirtualNetwork | * | Internet | 80 | (Facoltativo) I nodi di Azure-SSIS IR nella rete virtuale usano questa porta per scaricare un elenco di revoche di certificati da Internet. Se si blocca questo traffico, si potrebbe verificare un downgrade delle prestazioni all'avvio del runtime di integrazione e si potrebbe perdere la possibilità di controllare l'elenco di revoche per l'utilizzo dei certificati. Se si vuole limitare ulteriormente la destinazione a determinati nomi di dominio completi (FQDN), vedere [Usare Azure ExpressRoute o una route definita dall'utente](./join-azure-ssis-integration-runtime-virtual-network.md#route).|
         | TCP | VirtualNetwork | * | Archiviazione | 445 | (Facoltativo) Questa regola è necessaria solo quando si vuole eseguire un pacchetto SSIS archiviato in File di Azure. |
         |||||||
 
-        1. **Requisito in ingresso di Azure-SSIS IR** , per consentire il traffico necessario per Azure-SSIS IR:
+        1. **Requisito in ingresso di Azure-SSIS IR**, per consentire il traffico necessario per Azure-SSIS IR:
 
         | Protocollo di trasporto | Source (Sorgente) | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
         |---|---|---|---|---|---|
@@ -163,7 +163,7 @@ Per altre informazioni su come creare Azure-SSIS IR, vedere [Creare un runtime d
 
 ## <a name="clean-up-ssisdb-logs"></a>Eseguire la pulizia dei log di SSISDB
 
-I criteri di conservazione dei log di SSISDB sono definiti dalle proprietà seguenti in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database?view=sql-server-ver15):
+I criteri di conservazione dei log di SSISDB sono definiti dalle proprietà seguenti in [catalog.catalog_properties](/sql/integration-services/system-views/catalog-catalog-properties-ssisdb-database):
 
 - OPERATION_CLEANUP_ENABLED
 

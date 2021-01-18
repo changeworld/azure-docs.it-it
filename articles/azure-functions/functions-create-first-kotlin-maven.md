@@ -1,18 +1,18 @@
 ---
-title: Creare la prima funzione in Azure con Kotlin e Maven
-description: Creare e pubblicare una funzione attivata da HTTP in Azure con Kotlin e Maven.
+title: Creare una funzione Kotlin in Funzioni di Azure usando Maven
+description: Creare e pubblicare un'app per le funzioni attivata da HTTP in Funzioni di Azure con Kotlin e Maven.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 167e7c447fe43851255677a44043c508cbdc4239
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6f7b79b6e3e72b34a27e5b4f0e1fb5426c539699
+ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934833"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98035241"
 ---
 # <a name="quickstart-create-your-first-function-with-kotlin-and-maven"></a>Guida di avvio rapido: Creare la prima funzione con Kotlin e Maven
 
@@ -32,9 +32,9 @@ Per sviluppare funzioni con Kotlin, è necessario che siano installati gli eleme
 > [!IMPORTANT]
 > Per completare questa guida di avvio rapido, è necessario impostare la variabile di ambiente JAVA_HOME sul percorso di installazione di JDK.
 
-## <a name="generate-a-new-functions-project"></a>Generare un nuovo progetto di Funzioni
+## <a name="generate-a-new-azure-functions-project"></a>Generare un nuovo progetto di Funzioni di Azure
 
-In una cartella vuota eseguire il comando seguente per generare il progetto di Funzioni da un [archetipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+In una cartella vuota eseguire il comando seguente per generare il progetto di Funzioni di Azure da un [archetipo Maven](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 # <a name="bash"></a>[Bash](#tab/bash)
 ```bash
@@ -167,13 +167,13 @@ az login
 Distribuire il codice in una nuova app per le funzioni usando la destinazione Maven `azure-functions:deploy`.
 
 > [!NOTE]
-> Quando si usa Visual Studio Code per distribuire l'app per le funzioni, scegliere una sottoscrizione non gratuita, altrimenti si verificherà un errore. È possibile individuare la sottoscrizione sul lato sinistro dell'IDE.
+> Se si usa Visual Studio Code per distribuire l'app per le funzioni, assicurarsi di scegliere una sottoscrizione non gratuita, altrimenti si verificherà un errore. È possibile individuare la sottoscrizione sul lato sinistro dell'IDE.
 
 ```
 mvn azure-functions:deploy
 ```
 
-Quando la distribuzione è stata completata, viene visualizzato l'URL da usare per accedere all'app per le funzioni di Azure:
+Al termine della distribuzione, viene visualizzato l'URL da usare per accedere all'app per le funzioni:
 
 <pre>
 [INFO] Successfully deployed Function App with package.
@@ -231,7 +231,7 @@ Hi, AzureFunctionsTest
 
 ## <a name="reference-bindings"></a>Associazioni di riferimento
 
-Per usare [trigger e associazioni di Funzioni](functions-triggers-bindings.md) diversi dal trigger HTTP e dal trigger Timer, è necessario installare le estensioni di binding. Anche se non è richiesto per questo articolo, è necessario saper abilitare le estensioni quando si usano altri tipi di binding.
+Per usare [trigger e binding di Funzioni di Azure](functions-triggers-bindings.md) diversi dal trigger HTTP e dal trigger Timer, è necessario installare le estensioni di binding. Anche se non è richiesto per questo articolo, è necessario saper abilitare le estensioni quando si usano altri tipi di binding.
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

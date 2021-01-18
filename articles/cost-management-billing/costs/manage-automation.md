@@ -3,17 +3,17 @@ title: Gestire i costi di Azure con l'automazione
 description: Questo articolo illustra come gestire i costi di Azure con l'automazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/19/2020
+ms.date: 01/06/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 47d9c2838c5c806214e3be2f9ba7ce335bc0af67
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 02215bace693ac5ac36f9fc29758215d45b23eb1
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94956093"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98051786"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -56,6 +56,22 @@ L'[API Dettagli utilizzo ](/rest/api/consumption/usageDetails) offre un modo sem
 **Scegliere ambiti di primo livello senza filtro**
 
 Usare l'API per ottenere tutti i dati necessari nell'ambito di livello più alto disponibile. Attendere che vengano inseriti tutti i dati necessari prima di eseguire operazioni di filtro, raggruppamento o analisi aggregate. L'API è ottimizzata specificamente per fornire grandi quantità di dati sui costi non elaborati e non aggregati. Per altre informazioni sugli ambiti disponibili in Gestione costi, vedere [Informazioni e utilizzo degli ambiti](./understand-work-scopes.md). Una volta scaricati i dati necessari per un ambito, usare Excel per analizzare ulteriormente i dati con i filtri e le tabelle pivot.
+
+### <a name="notes-about-pricing"></a>Note sui prezzi
+
+Per riconciliare l'utilizzo e gli addebiti con l'elenco prezzi o la fattura, tenere presenti le informazioni seguenti.
+
+Prezzi dell'elenco prezzi: i prezzi indicati nell'elenco prezzi sono quelli che si ricevono da Azure. Sono dimensionati in base a un'unità di misura specifica. Purtroppo, l'unità di misura non è sempre allineata a quella in cui vengono emessi gli addebiti e i dati di utilizzo effettivo delle risorse.
+
+Prezzi nei dettagli di utilizzo: i file sull'utilizzo mostrano informazioni dimensionate che potrebbero non corrispondere esattamente all'elenco prezzi. In particolare:
+
+- Prezzo unitario: il prezzo è dimensionato in base all'unità di misura in cui vengono effettivamente emessi gli addebiti dalle risorse di Azure. Con il dimensionamento, il prezzo non corrisponderà a quello indicato nell'elenco prezzi.
+- Unità di misura: rappresenta l'unità di misura in cui vengono effettivamente emessi gli addebiti dalle risorse di Azure.
+- Prezzo effettivo/tariffa per le risorse: il prezzo rappresenta la tariffa effettiva del pagamento unitario, al netto degli sconti. Si tratta del prezzo da usare con la quantità per i calcoli di prezzo x quantità in modo da riconciliare gli addebiti. Il prezzo tiene conto degli scenari seguenti e nel file è presente anche il prezzo unitario dimensionato. Di conseguenza, potrebbe essere diverso dal prezzo unitario dimensionato.
+  - Livelli di prezzo diversi, ad esempio: $ 10 per le prime 100 unità, $ 8 per le unità 100 successive.
+  - Quantità inclusa, ad esempio: le prime 100 unità sono gratuite e poi vengono addebitati $ 10 per unità.
+  - Prenotazioni
+  - Arrotondamento durante il calcolo: l'arrotondamento tiene conto della quantità consumata, dei prezzi della quantità inclusa/a livelli e del prezzo unitario dimensionato.
 
 ## <a name="example-usage-details-api-requests"></a>Esempi di richieste all'API Dettagli utilizzo
 
@@ -325,7 +341,7 @@ URL richiesta: `PUT https://management.azure.com/subscriptions/{SubscriptionId} 
 
 ## <a name="data-latency-and-rate-limits"></a>Latenza dei dati e limiti di velocità
 
-È consigliabile chiamare le API non più di una volta al giorno. I dati di Gestione costi vengono aggiornati ogni quattro ore man mano che vengono ricevuti dati di utilizzo dai provider di risorse di Azure. Le chiamate più frequenti non forniranno dati aggiuntivi, ma al contrario genereranno un aumento del carico. Per altre informazioni sulla frequenza con cui cambiano i dati e su come viene gestita la latenza, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md).
+È consigliabile chiamare le API non più di una volta al giorno. I dati di Gestione costi vengono aggiornati ogni quattro ore man mano che vengono ricevuti dati di utilizzo dai provider di risorse di Azure. Se si effettuano chiamate più frequenti, non si ricevono più dati, ma si crea solo un carico maggiore. Per altre informazioni sulla frequenza con cui cambiano i dati e su come viene gestita la latenza, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md).
 
 ### <a name="error-code-429---call-count-has-exceeded-rate-limits"></a>Codice di errore 429 - Il numero di chiamate ha superato i limiti di velocità
 

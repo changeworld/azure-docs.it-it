@@ -1,14 +1,16 @@
 ---
-ms.openlocfilehash: 84a456b1efeb73459a8bae33222f0716175fb956
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4b6e89d6a4a89927e6e9942f0b4aaa842bab3b0a
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682228"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98061083"
 ---
 * Un account Azure con una sottoscrizione attiva. Se non si ha un account, [crearne uno gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) con le estensioni seguenti:
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+        > [!TIP]
+        > Quando si installa Azure IoT Tools, è possibile che venga chiesto di installare Docker. Ignorare tranquillamente questa richiesta.
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 * Se non è stato completato l'argomento di avvio rapido [Rilevare il movimento e generare eventi](../../../detect-motion-emit-events-quickstart.md), eseguire questi passaggi:
@@ -18,4 +20,4 @@ ms.locfileid: "88682228"
      1. [Preparare il monitoraggio degli eventi](../../../detect-motion-emit-events-quickstart.md#prepare-to-monitor-events)
 
 > [!TIP]
-> Quando si installa Azure IoT Tools, è possibile che venga chiesto di installare Docker. Ignorare tranquillamente questa richiesta.
+> Se si verificano problemi con le risorse di Azure create, vedere la **[guida alla risoluzione dei problemi](../../../troubleshoot-how-to.md#common-error-resolutions)** più comuni rilevati.
