@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 08/19/2020
-  ms.openlocfilehash: 772fa134eabc45dcbaa9e9b05c573aec493dd57b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 01/15/2020
+  ms.openlocfilehash: 3aaf42935e292bda64d9227d01f498c83f4c9f7a
+  ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89438159"
+  ms.lasthandoff: 01/16/2021
+  ms.locfileid: "98250775"
 landingContent:
 - title: Informazioni sulla rete WAN virtuale
   linkLists:
@@ -75,12 +75,14 @@ landingContent:
       url: about-virtual-hub-routing.md
     - text: Scenario - Routing del traffico tramite un'appliance virtuale di rete
       url: scenario-route-through-nva.md
-    - text: Scenario - Any-to-any
+    - text: Scenario - Da qualsiasi spoke a qualsiasi spoke
       url: scenario-any-to-any.md
-    - text: Scenario - Isolare reti virtuali
+    - text: Scenario - Isolate a VNet
       url: scenario-isolate-vnets.md
-    - text: Scenario - Reti virtuali di servizi condivisi
+    - text: Scenario - Routing a una rete virtuale di servizi condivisi
       url: scenario-shared-services-vnet.md
+    - text: Scenario - Routing personalizzato tramite Firewall di Azure
+      url: scenario-route-between-vnets-firewall.md
   - linkListType: how-to-guide
     links:
     - text: Configurare il routing dell'hub virtuale

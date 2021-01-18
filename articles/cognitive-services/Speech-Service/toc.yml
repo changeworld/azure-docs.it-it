@@ -467,11 +467,19 @@
       displayName: SPX
       items:
         - name: Panoramica dell'interfaccia della riga di comando per Voce
-          displayName: What is SPX?
+          displayName: 'What is SPX?, spx, spx overview'
           href: spx-overview.md
-        - name: Nozioni di base sull'interfaccia della riga di comando per Voce
-          displayName: SPX basics
+        - name: Guida di avvio rapido sull'interfaccia della riga di comando di Voce
+          displayName: 'spx basics, spx quickstart, spx get started, speech cli get started'
           href: spx-basics.md
+        - name: Guide pratiche
+          items:
+            - name: Opzioni di configurazione dell'interfaccia della riga di comando di Voce
+              displayName: 'SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore'
+              href: spx-data-store-configuration.md
+            - name: Operazioni in batch nell'interfaccia della riga di comando di Voce
+              displayName: 'spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch'
+              href: spx-batch-operations.md
     - name: Speech Studio
       items:
         - name: Panoramica dell'interfaccia della riga di comando per Speech Studio

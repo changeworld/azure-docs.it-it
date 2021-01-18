@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-nov-2020
 ms.topic: tutorial
 ms.date: 09/25/2019
-ms.openlocfilehash: 6a13d0a0ac0b37b5faf59e19cd13e5c3c2ee94dc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fed568d67c688a8c2adab979eb68eaf384a72172
+ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965562"
+ms.lasthandoff: 01/17/2021
+ms.locfileid: "98539273"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database
 
@@ -53,7 +53,7 @@ Questo articolo descrive una migrazione online da MongoDB all'API di Azure Cosmo
 Per completare questa esercitazione, è necessario:
 
 * [Completare la procedura di pre-migrazione](../cosmos-db/mongodb-pre-migration.md), ad esempio stimare la velocità effettiva, scegliere una chiave di partizione e i criteri di indicizzazione.
-* [Creare un account dell'API di Azure Cosmos DB per MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+* [Creare un'API di Azure Cosmos DB per l'account MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB) e assicurarsi che l'opzione [SSR (Server Side Retry)](../cosmos-db/prevent-rate-limiting-errors.md) sia abilitata.
 * Creare una rete virtuale di Microsoft Azure per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](../expressroute/expressroute-introduction.md) o [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
     > [!NOTE]
