@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: sideeksh
-ms.openlocfilehash: 599ad76f38833e06cc458fd0687921e6975e190b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f63021275574e294fa372357d6e62724f5efe0f7
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426368"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541191"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personalizzare le configurazioni di rete della VM di Azure di destinazione
 
@@ -44,7 +44,7 @@ Informazioni sul ripristino di emergenza fornito da Site Recovery per [questo sc
 
      ![Personalizzare le configurazioni di rete di failover](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. Selezionare una rete virtuale di failover di test. È possibile scegliere di lasciarlo vuoto e selezionarne uno al momento del failover di test.
+4. Selezionare una rete virtuale di failover di test.
 5. Rete di failover è selezionato **modifica** accanto alla scheda di interfaccia di rete che si desidera configurare. Nel pannello successivo visualizzato selezionare le risorse create in precedenza corrispondenti nel failover di test e nel percorso di failover.
 
     ![Modificare la configurazione della scheda di interfaccia di rete](media/azure-to-azure-customize-networking/nic-drilldown.png) 
