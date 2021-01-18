@@ -1094,25 +1094,26 @@
     - name: Esercitazioni
       items:
         - name: Visualizzare dati con Apache Spark
+          displayname: machine learning
           href: ./spark/apache-spark-data-visualization-tutorial.md
-          displayname: machine learning
         - name: Usare la procedura guidata di assegnazione di punteggi per i pool SQL dedicati
-          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
           displayname: machine learning
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
         - name: Eseguire il training di un modello senza codice con ML automatizzato
+          displayname: machine learning
           href: ./machine-learning/tutorial-automl.md
         - name: Eseguire il training di un modello in Python con ML automatizzato
+          displayname: machine learning
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-          displayname: machine learning
         - name: Creare un modello con MLlib di Apache Spark
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
           displayname: machine learning
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+        - name: Configurare Servizi cognitivi per Azure Synapse
+          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
         - name: Analisi del sentiment con Servizi cognitivi
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Rilevamento anomalie con Servizi cognitivi
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Configurare Servizi cognitivi per Azure Synapse
-          href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
 - name: Data Catalog e governance
   items:
     - name: Avvi rapidi
