@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6c1f323828eb48b61b38370bc2fe56d4c93bf036
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127210"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562744"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -81,7 +81,7 @@ La configurazione della chiave gestita dal cliente non è attualmente supportata
 
 Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. La `status` risposta in può essere una delle seguenti:' InProgress ',' Updating ',' deleting ',' Success o ' failed ' con codice di errore.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -95,7 +95,7 @@ N/D
 
 # <a name="rest"></a>[REST](#tab/rest)
 
-Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 200 (OK) e un'intestazione con la proprietà *Azure-AsyncOperation* quando accettata:
+Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 202 (accettato) e un'intestazione con la proprietà *Azure-AsyncOperation* :
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
 ```
@@ -158,7 +158,7 @@ Aggiornare KeyVaultProperties nel cluster con i dettagli dell'identificatore di 
 
 L'operazione è asincrona e può richiedere del tempo per il completamento.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -194,13 +194,13 @@ Content-type: application/json
 }
 ```
 
-**Response**.
+**Risposta**
 
 Il completamento della propagazione della chiave richiede alcuni minuti. È possibile controllare lo stato di aggiornamento in due modi:
 1. Copiare il valore dell'URL di Azure-AsyncOperation dalla risposta e seguire la [verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
 2. Inviare una richiesta GET nel cluster ed esaminare le proprietà *KeyVaultProperties* . La chiave aggiornata di recente dovrebbe restituire nella risposta.
 
-Una risposta alla richiesta GET avrà un aspetto simile al seguente quando l'aggiornamento della chiave è completato: 200 OK e header
+Una risposta alla richiesta GET dovrebbe avere un aspetto simile al seguente quando l'aggiornamento della chiave è completo: 202 (accettato) e l'intestazione
 ```json
 {
   "identity": {
@@ -281,7 +281,7 @@ Quando si porta la propria risorsa di archiviazione (BYOS) e la si collega all'a
 
 Collegare un account di archiviazione per la *query* all'area di lavoro: le query *salvate* vengono salvate nell'account di archiviazione. 
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -325,7 +325,7 @@ Dopo la configurazione, qualsiasi nuova query di *ricerca salvata* verrà salvat
 
 Collegare un account di archiviazione per gli *avvisi* all'area di lavoro: le query *log-alerts* vengono salvate nell'account di archiviazione. 
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -445,7 +445,7 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
   1. Quando si usa REST, copiare il valore di Azure-AsyncOperation URL dalla risposta e seguire la [Verifica dello stato delle operazioni asincrone](#asynchronous-operations-and-status-check).
   2. Inviare una richiesta GET a un cluster o a un'area di lavoro e osservare la risposta. Ad esempio, l'area di lavoro scollegata non avrà *clusterResourceId* in *funzionalità*.
 
-- Messaggi di errore
+- messaggi di errore
   
   **Creazione cluster**
   -  400--il nome del cluster non è valido. Il nome del cluster può contenere i caratteri a-z, A-Z, 0-9 e la lunghezza di 3-63.

@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: cc6ad2f67b84bcd62bcc18566a4ac5d159ea32c4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197761"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562761"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -37,7 +37,10 @@ Questo articolo illustra quanto segue:
 
 - Lo stato di CMK dell'insieme di credenziali di servizi di ripristino crittografati tra gruppi di risorse e sottoscrizioni
 
-- Questa funzionalità è attualmente configurabile solo dal portale di Azure.
+- Questa funzionalità può essere configurata tramite il portale di Azure e PowerShell.
+
+    >[!NOTE]
+    >Usare AZ Module 5.3.0 o versione successiva per usare le chiavi gestite dal cliente per i backup nell'insieme di credenziali di servizi di ripristino.
 
 Se non è stato creato e configurato l'insieme di credenziali di servizi di ripristino, è possibile [leggere qui](backup-create-rs-vault.md).
 
@@ -62,6 +65,8 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 >[!NOTE]
 >Una volta abilitata, l'identità gestita **non** deve essere disabilitata (anche temporaneamente). La disabilitazione dell'identità gestita può causare un comportamento incoerente.
 
+**Nel portale:**
+
 1. Passare all'insieme di credenziali dei servizi di ripristino-> **identità**
 
     ![Impostazioni di identità](./media/encryption-at-rest-with-cmk/managed-identity.png)
@@ -70,9 +75,33 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 
 1. Viene generato un ID oggetto, ovvero l'identità gestita assegnata dal sistema dell'insieme di credenziali.
 
+**Con PowerShell:**
+
+Usare il comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) per abilitare l'identità gestita assegnata dal sistema per l'insieme di credenziali di servizi di ripristino.
+
+Esempio:
+
+```AzurePowerShell
+$vault=Get-AzRecoveryServicesVault -ResourceGroupName "testrg" -Name "testvault"
+
+Update-AzRecoveryServicesVault -IdentityType SystemAssigned -VaultId $vault.ID
+
+$vault.Identity | fl
+```
+
+Output:
+
+```output
+PrincipalId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+TenantId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Type        : SystemAssigned
+```
+
 ### <a name="assign-permissions-to-the-recovery-services-vault-to-access-the-encryption-key-in-the-azure-key-vault"></a>Assegnare le autorizzazioni all'insieme di credenziali dei servizi di ripristino per accedere alla chiave di crittografia nel Azure Key Vault
 
 A questo punto è necessario consentire all'insieme di credenziali dei servizi di ripristino di accedere ai Azure Key Vault che contengono la chiave di crittografia. Questa operazione viene eseguita consentendo all'identità gestita dell'insieme di credenziali di servizi di ripristino di accedere al Key Vault.
+
+**Nel portale**:
 
 1. Passare ai **criteri di accesso** Azure Key Vault->. Continuare con **+ Aggiungi criteri di accesso**.
 
@@ -89,6 +118,32 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 1. Al termine, selezionare **Aggiungi** per aggiungere i nuovi criteri di accesso.
 
 1. Selezionare **Save (Salva** ) per salvare le modifiche apportate ai criteri di accesso del Azure Key Vault.
+
+**Con PowerShell**:
+
+Usare il comando [set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
+
+Esempio:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Output:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
@@ -166,7 +221,7 @@ Per assegnare la chiave:
 
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 
 1. **Rilevamento dello stato di avanzamento e dello stato dell'aggiornamento della chiave di crittografia**: è possibile tenere traccia dello stato di avanzamento e dello stato dell'assegnazione della chiave di crittografia usando la visualizzazione **processi di backup** sulla barra di spostamento a sinistra. Lo stato sarà presto modificato in **completato**. L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
 
@@ -220,6 +275,8 @@ I dati archiviati nell'insieme di credenziali di servizi di ripristino possono e
 
 #### <a name="select-a-disk-encryption-set-while-restoring-from-vault-recovery-point"></a>Selezionare un set di crittografia del disco durante il ripristino dal punto di ripristino dell'insieme di credenziali
 
+**Nel portale**:
+
 Il set di crittografia del disco viene specificato in impostazioni di crittografia nel riquadro ripristino, come illustrato di seguito:
 
 1. In **Crittografa dischi con la chiave** selezionare **Sì**.
@@ -230,6 +287,21 @@ Il set di crittografia del disco viene specificato in impostazioni di crittograf
 >La possibilità di scegliere un DES durante il ripristino non è disponibile se si sta ripristinando una VM che usa crittografia dischi di Azure.
 
 ![Crittografare il disco usando la chiave](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
+
+**Con PowerShell**:
+
+Usare il comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con il parametro [ `-DiskEncryptionSetId <string>` ] per [specificare la des](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) da usare per crittografare il disco ripristinato. Per altre informazioni sul ripristino dei dischi dal backup delle macchine virtuali, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+
+Esempio:
+
+```azurepowershell
+$namedContainer = Get-AzRecoveryServicesBackupContainer  -ContainerType "AzureVM" -Status "Registered" -FriendlyName "V2VM" -VaultId $vault.ID
+$backupitem = Get-AzRecoveryServicesBackupItem -Container $namedContainer  -WorkloadType "AzureVM" -VaultId $vault.ID
+$startDate = (Get-Date).AddDays(-7)
+$endDate = Get-Date
+$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $backupitem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime() -VaultId $vault.ID
+$restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -DiskEncryptionSetId “testdes1” -VaultId $vault.ID
+```
 
 #### <a name="restoring-files"></a>Ripristino di file
 

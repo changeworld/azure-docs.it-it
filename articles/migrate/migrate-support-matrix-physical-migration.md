@@ -6,16 +6,16 @@ ms.author: rahugup
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: a1203133d8749b43a92d89e7251539a1e002bfd8
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: a3e8b19810a58031b4d11cc6e361215afbc85de2
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968569"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562641"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Matrice di supporto per la migrazione di server fisici
 
-Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la migrazione dei server fisici con [Azure migrate: migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool) . Per informazioni sulla valutazione dei server fisici per la migrazione in Azure, vedere la [matrice di supporto](migrate-support-matrix-physical.md)per la valutazione.
+Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la migrazione dei server fisici ad Azure con [Azure migrate: migrazione del server](migrate-services-overview.md#azure-migrate-server-migration-tool) . Per informazioni sulla valutazione dei server fisici per la migrazione in Azure, vedere la [matrice di supporto](migrate-support-matrix-physical.md)per la valutazione.
 
 ## <a name="migrating-machines-as-physical"></a>Migrazione di computer come fisici
 
@@ -25,7 +25,7 @@ Questo articolo riepiloga le impostazioni di supporto e le limitazioni per la mi
 - Macchine virtuali virtualizzate da piattaforme come Xen, KVM.
 - Macchine virtuali Hyper-V o VM VMware se per qualche motivo non si vogliono usare i flussi standard di [Hyper-v](tutorial-migrate-hyper-v.md) o [VMware](server-migrate-overview.md) .
 - Macchine virtuali in esecuzione in cloud privati.
-- Macchine virtuali in esecuzione in cloud pubblici, ad esempio Amazon Web Services (AWS) o Google Cloud Platform (GCP).
+- Macchine virtuali in esecuzione in cloud pubblici, tra cui Amazon Web Services (AWS) o Google Cloud Platform (GCP).
 
 
 ## <a name="migration-limitations"></a>Limitazioni della migrazione
@@ -51,15 +51,14 @@ Nella tabella viene riepilogato il supporto per i server fisici di cui si deside
 **Dimensioni disco** | disco del sistema operativo da 2 TB; 32 TB per i dischi dati.
 **Limiti del disco** |  Fino a 63 dischi per computer.
 **Dischi/volumi crittografati** |  I computer con volumi o dischi crittografati non sono supportati per la migrazione.
-**Cluster di dischi condivisi** | Non supportata.
+**Cluster di dischi condivisi** | Non supportato.
 **Dischi indipendenti** | Supportata.
 **Dischi pass-through** | Supportata.
 **NFS** | I volumi NFS montati come volumi nei computer non verranno replicati.
 **destinazioni iSCSI** | I computer con destinazioni iSCSI non sono supportati per la migrazione senza agenti.
-**I/o a percorsi multipli** | Non supportata.
-**Storage vMotion** | Funzionalità supportata
-**NIC raggruppate** | Non supportata.
-**IPv6** | Non supportata.
+**I/o a percorsi multipli** | Non supportato.
+**NIC raggruppate** | Non supportato.
+**IPv6** | Non supportato.
 
 
 
@@ -84,9 +83,9 @@ Conteggio dischi del sistema operativo | 1 | Il controllo ha esito negativo se n
 Conteggio dischi dati | 64 o un numero inferiore. | Il controllo ha esito negativo se non supportato.
 Dimensioni del disco dati | Fino a 4.095 GB | Il controllo ha esito negativo se non supportato.
 Schede di rete | Sono supportate più schede. |
-VHD condiviso | Non supportata. | Il controllo ha esito negativo se non supportato.
-Disco FC | Non supportata. | Il controllo ha esito negativo se non supportato.
-BitLocker | Non supportata. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
+VHD condiviso | Non supportato. | Il controllo ha esito negativo se non supportato.
+Disco FC | Non supportato. | Il controllo ha esito negativo se non supportato.
+BitLocker | Non supportato. | Prima di abilitare la replica per un computer, occorre disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. |  Aggiornare il valore nelle proprietà del computer in Site Recovery.
 Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/> -Prima della migrazione Abilita RDP nella macchina virtuale locale. Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** . Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md) |
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa. Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale. |  

@@ -1,6 +1,6 @@
 ---
-title: Assegnare ruoli personalizzati usando Azure PowerShell-Azure AD | Microsoft Docs
-description: Gestire i membri di un ruolo personalizzato amministratore di Azure AD con Azure PowerShell.
+title: Assegnare ruoli personalizzati usando Azure AD PowerShell-Azure AD | Microsoft Docs
+description: Gestire i membri di un ruolo personalizzato amministratore di Azure AD con Azure AD PowerShell.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4695d0844ef8b707edce53a05de611c91223a46
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 8b155ccd7f8f0d7f6d63d906d7d0baaa3243512b
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861953"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562778"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Assegnare ruoli personalizzati con ambito di risorse usando PowerShell in Azure Active Directory
 
@@ -32,26 +32,26 @@ Connettersi all'organizzazione Azure AD usando un account di amministratore glob
 
 ## <a name="prepare-powershell"></a>Preparare PowerShell
 
-Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importare quindi il modulo di anteprima di Azure AD PowerShell usando questo comando:
+Installare il modulo Azure AD PowerShell dal [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureADPreview). Importare quindi il modulo di anteprima di Azure AD PowerShell usando questo comando:
 
 ``` PowerShell
-import-module azureadpreview
+Import-Module AzureADPreview
 ```
 
 Per verificare che il modulo sia pronto per l'uso, la versione restituita dal comando seguente deve corrispondere a quella elencata qui:
 
 ``` PowerShell
-get-module azureadpreview
+Get-Module AzureADPreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
   Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descrizione completa dei cmdlet nel modulo Azure AD, vedere la documentazione di riferimento online per il [modulo Azure ad Preview](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
+A questo punto è possibile iniziare a usare i cmdlet nel modulo. Per una descrizione completa dei cmdlet nel modulo Azure AD, vedere la documentazione di riferimento online per il [modulo Azure ad Preview](https://www.powershellgallery.com/packages/AzureADPreview).
 
-## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Assegnare un ruolo a un utente o a un'entità servizio con ambito di risorsa
+## <a name="assign-a-directory-role-to-a-user-or-service-principal-with-resource-scope"></a>Assegnare un ruolo della directory a un utente o a un'entità servizio con ambito di risorsa
 
-1. Aprire il modulo di PowerShell Azure AD Preview.
+1. Caricare il modulo Azure AD PowerShell (anteprima).
 1. Eseguire l'accesso eseguendo il comando `Connect-AzureAD` .
 1. Creare un nuovo ruolo usando lo script di PowerShell seguente.
 
@@ -69,13 +69,13 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-Per assegnare il ruolo a un'entità servizio anziché a un utente, usare il [cmdlet Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal).
+Per assegnare il ruolo a un'entità servizio anziché a un utente, usare il cmdlet [Get-AzureADMSServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) .
 
-## <a name="operations-on-roledefinition"></a>Operazioni su RoleDefinition
+## <a name="role-definitions"></a>Definizioni dei ruoli
 
-Gli oggetti di definizione dei ruoli contengono la definizione del ruolo predefinito o personalizzato, insieme alle autorizzazioni concesse da tale assegnazione di ruolo. Questa risorsa consente di visualizzare le definizioni di ruolo personalizzate e directoryRoles predefinite (visualizzate in formato equivalente roleDefinition). Attualmente, un'organizzazione Azure AD può avere un massimo di 30 RoleDefinitions personalizzati definiti.
+Gli oggetti di definizione dei ruoli contengono la definizione del ruolo predefinito o personalizzato, insieme alle autorizzazioni concesse da tale assegnazione di ruolo. Questa risorsa consente di visualizzare le definizioni di ruolo personalizzate e i ruoli della directory predefiniti (che vengono visualizzati in formato equivalente roleDefinition). Attualmente, un'organizzazione Azure AD può avere un massimo di 30 definizioni di ruolo personalizzate univoche definite.
 
-### <a name="create-operations-on-roledefinition"></a>Creare operazioni su RoleDefinition
+### <a name="create-a-role-definition"></a>Creare una definizione di ruolo
 
 ``` PowerShell
 # Basic information
@@ -83,32 +83,32 @@ $description = "Can manage credentials of application registrations"
 $displayName = "Application Registration Credential Administrator"
 $templateId = (New-Guid).Guid
 
-# Set of actions to grant
-$allowedResourceAction =
-@(
-    "microsoft.directory/applications/standard/read",
-    "microsoft.directory/applications/credentials/update"
-)
-$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+# Set of actions to include
+$rolePermissions = @{
+    "allowedResourceActions" = @(
+        "microsoft.directory/applications/standard/read",
+        "microsoft.directory/applications/credentials/update"
+    )
+}
 
-# Create new custom admin role
+# Create new custom directory role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
 
-### <a name="read-operations-on-roledefinition"></a>Operazioni di lettura su RoleDefinition
+### <a name="read-and-list-role-definitions"></a>Lettura ed elenco di definizioni di ruolo
 
 ``` PowerShell
 # Get all role definitions
 Get-AzureADMSRoleDefinitions
 
-# Get single role definition by objectId
+# Get single role definition by ID
 Get-AzureADMSRoleDefinition -Id 86593cfc-114b-4a15-9954-97c3494ef49b
 
 # Get single role definition by templateId
 Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb160da0071f'"
 ```
 
-### <a name="update-operations-on-roledefinition"></a>Operazioni di aggiornamento in RoleDefinition
+### <a name="update-a-role-definition"></a>Aggiornare una definizione di ruolo
 
 ``` PowerShell
 # Update role definition
@@ -117,18 +117,18 @@ Get-AzureADMSRoleDefinition -Filter "templateId eq 'c4e39bd9-1100-46d3-8c65-fb16
 Set-AzureADMSRoleDefinition -Id c4e39bd9-1100-46d3-8c65-fb160da0071f -DisplayName "Updated DisplayName"
 ```
 
-### <a name="delete-operations-on-roledefinition"></a>Operazioni DELETE in RoleDefinition
+### <a name="delete-a-role-definition"></a>Eliminare una definizione di ruolo
 
 ``` PowerShell
 # Delete role definition
 Remove-AzureADMSRoleDefinitions -Id c4e39bd9-1100-46d3-8c65-fb160da0071f
 ```
 
-## <a name="operations-on-roleassignment"></a>Operazioni su RoleAssignment
+## <a name="role-assignments"></a>Assegnazioni di ruoli
 
-Le assegnazioni di ruolo contengono informazioni che collegano una determinata entità di sicurezza (un'entità servizio dell'utente o dell'applicazione) a una definizione di ruolo. Se necessario, è possibile aggiungere un ambito di una singola risorsa Azure AD per le autorizzazioni assegnate.  La limitazione dell'ambito delle autorizzazioni è supportata per i ruoli predefiniti e personalizzati.
+Le assegnazioni di ruolo contengono informazioni che collegano una determinata entità di sicurezza (un'entità servizio dell'utente o dell'applicazione) a una definizione di ruolo. Se necessario, è possibile aggiungere un ambito di una singola risorsa Azure AD per le autorizzazioni assegnate.  La limitazione dell'ambito di un'assegnazione di ruolo è supportata per i ruoli predefiniti e personalizzati.
 
-### <a name="create-operations-on-roleassignment"></a>Creazione di operazioni su RoleAssignment
+### <a name="create-a-role-assignment"></a>Creare un'assegnazione di ruolo
 
 ``` PowerShell
 # Get the user and role definition you want to link
@@ -143,7 +143,7 @@ $resourceScope = '/' + $appRegistration.objectId
 $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
-### <a name="read-operations-on-roleassignment"></a>Operazioni di lettura su RoleAssignment
+### <a name="read-and-list-role-assignments"></a>Leggere ed elencare le assegnazioni di ruolo
 
 ``` PowerShell
 # Get role assignments for a given principal
@@ -153,7 +153,7 @@ Get-AzureADMSRoleAssignment -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eae
 Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
 ```
 
-### <a name="delete-operations-on-roleassignment"></a>Operazioni DELETE su RoleAssignment
+### <a name="delete-a-role-assignment"></a>Eliminare un'assegnazione di ruolo
 
 ``` PowerShell
 # Delete role assignment
@@ -163,5 +163,5 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Condividi con noi nel [Forum sui ruoli amministrativi Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
-- Per altre informazioni sui ruoli e sulle assegnazioni di ruolo di amministratore di Azure AD, vedere [assegnare ruoli di amministratore](permissions-reference.md)
+- Per ulteriori informazioni sui ruoli e sulle assegnazioni di ruolo di amministratore di Azure AD, vedere [assegnare ruoli di amministratore](permissions-reference.md)
 - Per le autorizzazioni utente predefinite, vedere [confronto tra le autorizzazioni utente Guest e membro predefinito](../fundamentals/users-default-permissions.md)

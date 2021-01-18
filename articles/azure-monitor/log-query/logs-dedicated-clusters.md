@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 34524626cc213233c3db2ca438261b238eb18a2a
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 93b05a5535b80d0e0d1a07c88aa9b19052f1b703
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831772"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562676"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -58,7 +58,7 @@ Per altri dettagli, vedere la pagina relativa alla fatturazione per i cluster de
 
 ## <a name="asynchronous-operations-and-status-check"></a>Operazioni asincrone e controllo dello stato
 
-Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. Lo stato in risposta contiene può essere uno dei seguenti:' InProgress ',' Updating ',' deleting ',' SUCCEEDED o ' failed ', incluso il codice di errore. Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 200 (OK) e un'intestazione con Azure-AsyncOperation proprietà quando accettata:
+Alcuni passaggi di configurazione vengono eseguiti in modo asincrono perché non possono essere completati rapidamente. Lo stato in risposta contiene può essere uno dei seguenti:' InProgress ',' Updating ',' deleting ',' SUCCEEDED o ' failed ', incluso il codice di errore. Quando si usa REST, la risposta restituisce inizialmente un codice di stato HTTP 202 (accettato) e un'intestazione con Azure-AsyncOperation proprietà:
 
 ```JSON
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-08-01"
@@ -89,7 +89,7 @@ Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiu
 
 L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
 
-### <a name="create"></a>Creazione 
+### <a name="create"></a>Create 
 
 **PowerShell**
 
@@ -102,7 +102,7 @@ Get-Job -Command "New-AzOperationalInsightsCluster*" | Format-List -Property *
 
 **REST**
 
-*Chiamata* 
+*Chiamare* 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
 Authorization: Bearer <token>
@@ -123,9 +123,9 @@ Content-type: application/json
 }
 ```
 
-*Response*.
+*Risposta*
 
-Deve essere 200 OK e un'intestazione.
+Deve essere 202 (accettato) e un'intestazione.
 
 ### <a name="check-cluster-provisioning-status"></a>Verificare lo stato del provisioning del cluster
 
@@ -145,7 +145,7 @@ Il provisioning del cluster Log Analytics richiede del tempo per il completament
    Authorization: Bearer <token>
    ```
 
-   **Response**.
+   **Risposta**
 
    ```json
    {
@@ -229,7 +229,7 @@ Content-type: application/json
 
 *Risposta*
 
-200 OK e intestazione.
+202 (accettato) e intestazione.
 
 ### <a name="check-workspace-link-status"></a>Verifica stato collegamento area di lavoro
   
@@ -255,14 +255,14 @@ Get-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Nam
 
 **REST**
 
-*Chiamata*
+*Chiamare*
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
 
-*Response*.
+*Risposta*
 
 ```json
 {
@@ -322,14 +322,14 @@ Get-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name"
 
 **REST**
 
-*Chiamata*
+*Chiamare*
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
   Authorization: Bearer <token>
   ```
 
-*Response*.
+*Risposta*
   
   ```json
   {
@@ -380,14 +380,14 @@ Get-AzOperationalInsightsCluster
 
 **REST**
 
-*Chiamata*
+*Chiamare*
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-08-01
 Authorization: Bearer <token>
 ```
     
-*Response*.
+*Risposta*
     
 Uguale a quello per i cluster in un gruppo di risorse, ma nell'ambito della sottoscrizione.
 
@@ -411,7 +411,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -Cl
 
 **REST**
 
-*Chiamata*
+*Chiamare*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
@@ -434,7 +434,7 @@ La proprietà *billingType* determina l'attribuzione della fatturazione per il c
 
 **REST**
 
-*Chiamata*
+*Chiamare*
 
   ```rst
   PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01

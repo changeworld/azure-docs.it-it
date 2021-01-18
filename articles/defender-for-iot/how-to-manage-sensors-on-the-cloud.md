@@ -7,16 +7,16 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a763d8b65049cd9f301379c2c038a1d799114653
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
+ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839805"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98562710"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Caricare e gestire i sensori nel portale Defender per le cose
 
-Questo articolo descrive come eseguire l'onboarding, visualizzare e gestire i sensori nel portale Defender for Internet.
+Questo articolo descrive come eseguire l'onboarding, visualizzare e gestire i sensori nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet.
 
 ## <a name="onboard-sensors"></a>Eseguire l'onboarding dei sensori
 
@@ -26,9 +26,9 @@ Il caricamento di un sensore viene registrato con Azure Defender per l'IT e il d
 
 Per eseguire la registrazione:
 
-1. Passare alla pagina **iniziale** nel portale Defender for Internet.
+1. Passare alla pagina **iniziale** nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet.
 1. Selezionare **onboarding Sensor**.
-1. Creare un nome del sensore. È consigliabile includere l'indirizzo IP del sensore installato come parte del nome o usare un nome facilmente identificabile. In questo modo sarà più semplice tenere traccia e la denominazione coerente tra il nome di registrazione nel portale di Azure Defender for Internet e l'indirizzo IP del sensore distribuito visualizzato nella console del sensore.
+1. Creare un nome del sensore. È consigliabile includere l'indirizzo IP del sensore installato come parte del nome o usare un nome facilmente identificabile. In questo modo sarà più semplice tenere traccia e la denominazione coerente tra il nome di registrazione nel portale di Azure [Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) Internet e l'indirizzo IP del sensore distribuito visualizzato nella console del sensore.
 1. Associare il sensore a una sottoscrizione di Azure.
 1. Scegliere una modalità di gestione dei sensori usando l'interruttore **connesso al cloud** . Se l'interruttore è attivato, il sensore è connesso al cloud. Se l'interruttore è disattivato, il sensore viene gestito localmente.
 
@@ -52,7 +52,7 @@ Per scaricare un file di attivazione:
 
 ## <a name="view-onboarded-sensors"></a>Visualizza sensori caricati
 
-Nel portale Defender for Internet è possibile visualizzare le informazioni di base sui sensori caricati. 
+Nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet è possibile visualizzare le informazioni di base sui sensori caricati. 
 
 1. Selezionare **siti e sensori**.
 1. Nella pagina **siti e sensori** usare gli strumenti di filtro e ricerca per trovare le informazioni sui sensori necessarie.
@@ -66,7 +66,7 @@ Le informazioni disponibili includono:
 
 ## <a name="manage-onboarded-sensors"></a>Gestire i sensori caricati
 
-Per le attività di gestione correlate ai sensori è possibile usare il portale di Defender for Internet.
+Per le attività di gestione correlate ai sensori è possibile usare il [portale di Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) Internet.
 
 ### <a name="export"></a>Esportazione
 
@@ -87,9 +87,9 @@ Per eliminare un sensore:
 
 ### <a name="reactivate"></a>Riattiva
 
-Potrebbe essere necessario aggiornare la modalità in cui il sensore è gestito. Ad esempio:
+Potrebbe essere necessario aggiornare la modalità in cui il sensore è gestito. Esempio:
 
-- **Usare la modalità connessa al cloud invece della modalità gestita localmente**: per eseguire questa operazione, aggiornare il file di attivazione per il sensore connesso localmente con un file di attivazione per un sensore connesso al cloud. Dopo la riattivazione, i rilevamenti dei sensori vengono visualizzati sia nel sensore che nel Defender per il portale. Dopo che il file di riattivazione è stato caricato correttamente, le informazioni di avviso appena rilevate vengono inviate ad Azure.
+- **Usare la modalità connessa al cloud invece della modalità gestita localmente**: per eseguire questa operazione, aggiornare il file di attivazione per il sensore connesso localmente con un file di attivazione per un sensore connesso al cloud. Dopo la riattivazione, i rilevamenti dei sensori vengono visualizzati sia nel sensore che nel [Defender per il portale](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Dopo che il file di riattivazione è stato caricato correttamente, le informazioni di avviso appena rilevate vengono inviate ad Azure.
 
 - **Lavorare in modalità connessa localmente anziché in modalità connessa al cloud**: per eseguire questa operazione, aggiornare il file di attivazione per un sensore connesso al cloud con un file di attivazione per un sensore gestito localmente. Dopo la riattivazione, le informazioni di rilevamento del sensore vengono visualizzate solo nel sensore.
 
@@ -97,7 +97,7 @@ Potrebbe essere necessario aggiornare la modalità in cui il sensore è gestito.
 
 Per riattivare un sensore:
 
-1. Passare alla pagina **siti e sensori** nel portale Defender for Internet.
+1. Passare alla pagina **siti e sensori** nel [portale Defender for](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started)Internet.
 
 2. Selezionare il sensore per il quale si vuole caricare un nuovo file di attivazione.
 
