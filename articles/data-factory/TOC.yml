@@ -791,7 +791,7 @@
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
-      href: /python/api/overview/azure/datafactory?view=azure-python
+      href: /python/api/overview/azure/datafactory
 - name: Risorse
   items:
     - name: White paper
