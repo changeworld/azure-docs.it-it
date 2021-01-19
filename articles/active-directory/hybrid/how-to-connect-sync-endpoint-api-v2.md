@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07acd71eb1a77592c82b80aa574d79b98c48f60e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608300"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567631"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API dell'endpoint Servizio di sincronizzazione Azure AD Connect v2 
 Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta gli elementi seguenti:
@@ -28,7 +28,7 @@ Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consen
 > [!NOTE]
 > Attualmente, il nuovo endpoint non ha un limite di dimensioni del gruppo configurato per i gruppi di Microsoft 365 di cui è stato eseguito il writeback. Questo può influire sulle latenze del ciclo di Active Directory e della sincronizzazione. È consigliabile aumentare le dimensioni del gruppo in modo incrementale.  
 
-## <a name="pre-requisites"></a>Prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Per usare il nuovo endpoint V2, è necessario usare [Azure AD Connect versione 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o versioni successive e seguire i passaggi di distribuzione indicati di seguito per abilitare l'endpoint V2 per il server Azure AD Connect.   
 
 ## <a name="deployment-guidance"></a>Linee guida per la distribuzione 
@@ -176,7 +176,7 @@ Se l'endpoint V2 è stato abilitato ed è necessario eseguire il ripristino dell
 ## <a name="frequently-asked-questions"></a>Domande frequenti  
  
 **Quando sarà il nuovo endpoint a essere il valore predefinito per gli aggiornamenti e le nuove installazioni?**  
-</br>Si prevede di pubblicare una nuova versione di AADConnect per il download nel 2021 gennaio. Questa versione utilizzerà l'endpoint V2 per impostazione predefinita e consentirà di sincronizzare i gruppi più grandi di 50.000 withuot qualsiasi configurazione aggiuntiva. Questa versione verrà pubblicata successivamente per l'aggiornamento automatico ai server idonei.
+</br>Si prevede di pubblicare una nuova versione di AADConnect per il download nel 2021 gennaio. Questa versione utilizzerà l'endpoint V2 per impostazione predefinita e consentirà di sincronizzare i gruppi maggiori di 50.000 senza alcuna configurazione aggiuntiva. Questa versione verrà pubblicata successivamente per l'aggiornamento automatico ai server idonei.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

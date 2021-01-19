@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 67d4137a21753b221e17a1effde35bc1b89600d3
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753808"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567717"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione del server (migrazione alla soluzione VMware di Azure)
 
@@ -207,6 +207,8 @@ Una volta determinato il valore di utilizzo effettivo, le dimensioni di archivia
 
 Se si usa *come dimensionamento locale*, server Assessment non considera la cronologia delle prestazioni delle VM e dei dischi. Al contrario, alloca i nodi AVS in base alla dimensione allocata in locale. Il tipo di archiviazione predefinito è rete VSAN in AVS.
 
+[Altre](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) informazioni su come esaminare una valutazione della soluzione VMware di Azure.
+
 ## <a name="confidence-ratings"></a>Classificazioni di confidenza
 
 Ogni valutazione basata sulle prestazioni in Azure Migrate è associata a una classificazione di attendibilità che varia da uno (più basso) a cinque stelle (più alto).
@@ -235,9 +237,15 @@ A seconda della percentuale di punti dati disponibili, la classificazione di att
 
 Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confidenza basso:
 
-- L'ambiente non è stato profilato per la durata di creazione della valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
-- Durante il periodo di calcolo della valutazione sono state arrestate alcune macchine virtuali. Se una macchina virtuale viene spenta per un periodo di tempo specifico, server Assessment non può raccogliere i dati sulle prestazioni per tale periodo.
-- Alcune macchine virtuali sono state create durante il periodo di calcolo della valutazione. Ad esempio, se è stata creata una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma alcune macchine virtuali sono state create nell'ambiente solo una settimana fa, la cronologia delle prestazioni delle nuove macchine virtuali non esisterà per la durata completa.
+- L'ambiente non è stato profilato per la durata per la quale si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
+- La valutazione non è in grado di raccogliere i dati sulle prestazioni per alcune o tutte le macchine virtuali nel periodo di valutazione. Per una classificazione di attendibilità elevata, verificare che: 
+    - Le macchine virtuali sono accese per la durata della valutazione
+    - Sono consentite le connessioni in uscita sulle porte 443
+    - Per le VM Hyper-V è abilitata la memoria dinamica 
+    
+    Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità.
+
+- Alcune macchine virtuali sono state create durante il periodo in cui è stata calcolata la valutazione. Si supponga, ad esempio, che sia stata creata una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma che alcune macchine virtuali siano state create solo una settimana fa. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
 
 > [!NOTE]
 > Se la classificazione di attendibilità di una valutazione è inferiore a cinque stelle, è consigliabile attendere almeno un giorno per l'appliance per profilare l'ambiente e quindi ricalcolare la valutazione. In caso contrario, il dimensionamento in base alle prestazioni potrebbe non essere affidabile. In tal caso, è consigliabile passare la valutazione al dimensionamento locale.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: c8af1c32607e5fc7bf548b40069e18923c666303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28abb9f09e3bca2522b959c6a9b890de5320b17a
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089652"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567442"
 ---
 # <a name="connect-your-infoblox-nios-to-azure-sentinel"></a>Connettere il NIOS di Infoblox ad Azure Sentinel
 
@@ -34,7 +34,7 @@ Questo articolo illustra come connettere il [dispositivo Infoblox Network Identi
 
 ## <a name="forward-infoblox-logs-to-the-syslog-agent"></a>Inviare i log Infoblox all'agente syslog  
 
-Configurare Infoblox per l'invio dei messaggi syslog all'area di lavoro di Azure tramite l'agente syslog.
+Configurare Infoblox per l'invio dei messaggi syslog all'area di lavoro di Azure Sentinel tramite l'agente syslog.
 
 1. Nel portale di Azure Sentinel fare clic su **connettori dati** e selezionare connettore **Infoblox Nios** .
 
@@ -48,7 +48,7 @@ Una volta stabilita la connessione, i dati vengono visualizzati in Log Analytics
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 
-Potrebbero essere necessari fino a 20 minuti prima che i log si avviino in Log Analytics. 
+Potrebbero essere necessari fino a 20 minuti prima che i log inizino a essere visualizzati in Log Analytics. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 36c832e198d7b6e9a6c3f6ddc19ad87c87917f38
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: 80e5cc18888b0e014fc1f617ca27dee05146472e
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541275"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567678"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>PASSAGGIO 2: configurare la soluzione di sicurezza per l'invio di messaggi CEF
 
@@ -41,6 +41,7 @@ Se la soluzione di sicurezza ha già un connettore esistente, usare le istruzion
 - [Illusive Networks AMS](connect-illusive-attack-management-system.md)
 - [One Identity Safeguard](connect-one-identity.md)
 - [Palo Alto Networks](connect-paloalto.md)
+- [Server Secret Thycotic](connect-thycotic-secret-server.md)
 - [Trend Micro Deep Security](connect-trend-micro.md)
 - [Trend Micro TippingPoint](connect-trend-micro-tippingpoint.md)
 - [Piattaforma WireX Network Forensics](connect-wirex-systems.md)
@@ -64,7 +65,7 @@ Se non esiste un connettore per la soluzione di sicurezza specifica, usare le is
 > [!NOTE]
 > **Modifica dell'origine del campo TimeGenerated**
 >
-> - Per impostazione predefinita, l'agente di Log Analytics popola il campo *TimeGenerated* nello schema con il momento in cui l'agente ha ricevuto l'evento dal daemon syslog. Di conseguenza, l'ora in cui l'evento è stato generato nel sistema di origine non viene registrato in Sentinel di Azure.
+> - Per impostazione predefinita, l'agente di Log Analytics popola il campo *TimeGenerated* nello schema con il momento in cui l'agente ha ricevuto l'evento dal daemon syslog. Di conseguenza, l'ora in cui l'evento è stato generato nel sistema di origine non viene registrata in Azure Sentinel.
 >
 > - È tuttavia possibile eseguire il comando seguente, che consente di scaricare ed eseguire lo `TimeGenerated.py` script. Questo script consente di configurare l'agente di Log Analytics per popolare il campo *TimeGenerated* con l'ora originale dell'evento nel sistema di origine, invece del momento in cui è stato ricevuto dall'agente.
 >

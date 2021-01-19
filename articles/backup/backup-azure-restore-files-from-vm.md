@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: b4bd64fb00c2f341e474ecb96738fab47d717474
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831670"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567140"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -188,7 +188,7 @@ In Linux i volumi del punto di ripristino sono montati nella cartella in cui vie
 Se il processo di ripristino dei file si blocca dopo l'esecuzione dello script di ripristino del file, ad esempio se i dischi non sono mai montati o se sono montati ma i volumi non vengono visualizzati, seguire questa procedura:
 
 1. Nel file /etc/iscsi/iscsid.conf modificare l'impostazione da:
-    - `node.conn[0].timeo.noop_out_timeout = 5`  A `node.conn[0].timeo.noop_out_timeout = 30`
+    - `node.conn[0].timeo.noop_out_timeout = 5`  A `node.conn[0].timeo.noop_out_timeout = 120`
 2. Dopo aver apportato le modifiche precedenti, eseguire di nuovo lo script. Se sono presenti errori temporanei, verificare che siano presenti da 20 a 30 minuti tra i riesecuzioni per evitare picchi successivi di richieste che incidono sulla preparazione della destinazione. Questo intervallo tra le esecuzioni garantisce che la destinazione sia pronta per la connessione dallo script.
 3. Dopo il ripristino del file, assicurarsi di tornare al portale e selezionare **smontare i dischi** per i punti di ripristino in cui non è stato possibile montare i volumi. In pratica, questo passaggio elimina eventuali processi/sessioni esistenti e aumenta le probabilità di ripristino.
 

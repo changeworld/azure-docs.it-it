@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 01/15/2021
-ms.openlocfilehash: 8c2739503f00848b1515f2061c2a9aa250c091a3
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.date: 01/18/2021
+ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539855"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567391"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -70,7 +70,7 @@ I problemi di provisioning possono includere gli scenari di errore seguenti:
 
 ### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie Conectix e altre specifiche VHD
 
-La stringa ' conectix ' fa parte della specifica del disco rigido virtuale. Viene definito come cookie a 8 byte nel piè di pagina VHD che identifica l'autore del file. Tutti i file VHD creati da Microsoft hanno questo cookie. 
+La stringa ' conectix ' fa parte della specifica del disco rigido virtuale. Viene definito come cookie a 8 byte nel piè di pagina VHD che identifica l'autore del file. Tutti i file VHD creati da Microsoft hanno questo cookie.
 
 Un BLOB formattato VHD deve avere un piè di pagina di 512 byte nel formato seguente:
 
@@ -238,7 +238,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 - CVE-2019-11478
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Versione|Kernel|
+|Famiglia del sistema operativo|Version|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049- \* -Azure|
@@ -311,14 +311,14 @@ Per inviare la richiesta con l'immagine SSH disabilitata per il processo di cert
 
 Vedere la tabella seguente per eventuali problemi che si verificano quando si scarica l'immagine di macchina virtuale con un URL di firma di accesso condiviso (SAS).
 
-|Scenario|Errore|Motivo|Soluzione|
-|---|---|---|---|
-|1|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.|| 
-|2|BLOB in uso|Il disco rigido virtuale viene usato da un altro processo interno.|Il disco rigido virtuale deve trovarsi nello stato usato quando lo si scarica con un URL di firma di accesso condiviso.|
-|3|URL SAS non valido|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
-|4|Firma non valida|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
-|6|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
-|7|Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
+|Errore|Motivo|Soluzione|
+|---|---|---|
+|BLOB non trovato|Il disco rigido virtuale può essere eliminato o spostato dalla posizione specificata.|| 
+|BLOB in uso|Il disco rigido virtuale viene usato da un altro processo interno.|Il disco rigido virtuale deve trovarsi nello stato usato quando lo si scarica con un URL di firma di accesso condiviso.|
+|URL SAS non valido|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
+|Firma non valida|L'URL SAS associato per il disco rigido virtuale non è corretto.|Ottenere l'URL SAS corretto.|
+|Intestazione condizionale HTTP|L'URL SAS non è valido.|Ottenere l'URL SAS corretto.|
+|Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
 |
 
 ## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primi 1 MB (2048 settori, ogni settore di 512 byte) partizione
@@ -558,7 +558,7 @@ Per fornire un'immagine di macchina virtuale fissa per sostituire un'immagine di
 
 #### <a name="provide-a-new-vm-image-to-address-the-security-vulnerability-or-exploit"></a>Fornire una nuova immagine di macchina virtuale per risolvere le vulnerabilità della sicurezza o sfruttare gli exploit
 
-Per completare questi passaggi, preparare le risorse tecniche per l'immagine di macchina virtuale che si vuole aggiungere. Per altre informazioni, vedere [creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md)o [creare una macchina virtuale usando una propria immagine](azure-vm-create-using-own-image.md) e [generare un URI SAS per l'immagine di macchina](azure-vm-get-sas-uri.md)virtuale.
+Per completare questi passaggi, preparare le risorse tecniche per l'immagine di macchina virtuale che si vuole aggiungere. Per altre informazioni, vedere [creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando una propria immagine](azure-vm-create-using-own-image.md) e [generare un URI SAS per l'immagine di macchina](azure-vm-get-sas-uri.md)virtuale.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 1. Nel riquadro a sinistra selezionare **Commercial Marketplace**  >  **Overview**.

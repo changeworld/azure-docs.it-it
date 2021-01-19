@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: e6582443ddc56b315c1c666c81a596fa71b1d54f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753978"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567418"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -23,7 +23,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 
 ## <a name="limitations"></a>Limitazioni
 
-**Supporto** | **Dettagli**
+**Requisito** | **Dettagli**
 --- | ---
 **Limiti di progetto** | In una sottoscrizione di Azure è possibile creare più progetti.<br/><br/> È possibile individuare e valutare fino a 35.000 macchine virtuali VMware in un singolo [progetto](migrate-support-matrix.md#azure-migrate-projects). Un progetto può includere anche server fisici e macchine virtuali Hyper-V, fino ai limiti di valutazione previsti per ciascuno di essi.
 **Individuazione** | L'appliance Azure Migrate è in grado di rilevare fino a 10.000 macchine virtuali VMware in un server vCenter.
@@ -37,13 +37,13 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **Server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5, 6,7 o 7,0.<br/><br/> L'individuazione delle macchine virtuali VMware fornendo i dettagli dell'host ESXi nell'appliance non è attualmente supportata.
-**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve **Virtual Machines** abilitare i privilegi per  >  **le operazioni Guest** delle macchine virtuali.
+**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve abilitare i privilegi per  >  **le operazioni Guest** delle macchine virtuali.
 
 ## <a name="vm-requirements"></a>Requisiti della macchina virtuale
 **VMware** | **Dettagli**
 --- | ---
 **VM VMware** | Tutti i sistemi operativi possono essere valutati per la migrazione. 
-**Storage** | Sono supportati i dischi collegati ai controller SCSI, IDE e SATA.
+**Archiviazione** | Sono supportati i dischi collegati ai controller SCSI, IDE e SATA.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisiti dell'appliance di Azure Migrate
@@ -73,7 +73,7 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 **Sistemi operativi** | Supporto per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
 **Requisiti della macchina virtuale** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali in cui si desidera individuare le app. <br/><br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.<br/><br/> Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
 **Individuazione** | Le informazioni sulle app installate in una macchina virtuale vengono raccolte dalla server vCenter, usando gli strumenti VMware installati nella macchina virtuale. L'appliance raccoglie le informazioni sull'app dal server vCenter, usando le API di vSphere. L'individuazione di app è senza agente. Nessun elemento viene installato nelle macchine virtuali e l'appliance non si connette direttamente alle macchine virtuali. WMI/SSH deve essere abilitato e disponibile nelle macchine virtuali.
-**vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi **Virtual Machines** abilitati per  >  **le operazioni Guest** delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
+**vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi abilitati per  >  **le operazioni Guest** delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
 **Accesso alla macchina virtuale** | App Discovery necessita di un account utente locale nella macchina virtuale per l'individuazione delle applicazioni.<br/><br/> Azure Migrate attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente regolare/normale (accesso non sudo) per tutte le macchine virtuali Linux.
 **Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 negli host ESXi che eseguono macchine virtuali in cui si desidera individuare le app. Il server vCenter restituisce una connessione all'host ESXI, per scaricare il file contenente le informazioni sull'app.
 
@@ -81,9 +81,9 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisiti di analisi delle dipendenze (senza agenti)
 
-L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare le dipendenze tra computer locali che si intende valutare e migrare in Azure. Nella tabella sono riepilogati i requisiti per la configurazione dell'analisi delle dipendenze senza agente.
+L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di identificare le dipendenze tra computer locali che si intende valutare e migrare in Azure. Nella tabella sono riepilogati i requisiti per la configurazione dell'analisi delle dipendenze senza agente. 
 
-**Requisito** | **Dettagli**
+**Supporto** | **Dettagli**
 --- | --- 
 **Computer supportati** | Attualmente supportato solo per le macchine virtuali VMware.
 **Macchine virtuali di Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bit).<br/>Microsoft Windows Server 2008 (32 bit). 

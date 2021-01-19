@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: f8a4f29114f7e0a2ed7868f01e05e25c8a0d0ce1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96752227"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567742"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Panoramica della valutazione del server (migrazione alle macchine virtuali di Azure)
 
@@ -155,7 +155,7 @@ Proprietà | Dettagli | Stato di idoneità per Azure
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con un tipo di avvio BIOS e non UEFI. | Pronto in modo condizionale se il tipo di avvio è UEFI
 **Core** | Ogni computer non deve avere più di 128 core, ovvero il numero massimo supportato da una macchina virtuale di Azure.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se le impostazioni di valutazione specificano un fattore di comfort, il numero di core utilizzati viene moltiplicato per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia delle prestazioni, Azure Migrate usa i core allocati per applicare il fattore di comfort. | Pronto se il numero di core rientra nel limite
-**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
+**RAM** | Ogni computer non deve avere più di 3.892 GB di RAM, ovvero la dimensione massima supportata da una VM di Azure M Standard_M128m &nbsp; <sup>2</sup> . [Altre informazioni](../virtual-machines/sizes.md)<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate considera la RAM utilizzata per il confronto. Se viene specificato un fattore di comfort, la RAM utilizzata viene moltiplicata per il fattore di comfort.<br/><br/> Se non è presente alcuna cronologia, viene usata la RAM allocata per applicare un fattore di comfort.<br/><br/> | Pronto se la quantità di RAM è entro il limite
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare 32 TB. Sebbene Azure supporti i dischi da 64 TB con i dischi Ultra SSD di Azure, Azure Migrate: la valutazione del server attualmente verifica la presenza di 32 TB come limite delle dimensioni del disco, perché non supporta ancora Ultra SSD. <br/><br/> Il numero di dischi collegati al computer, incluso il disco del sistema operativo, deve essere 65 o un numero inferiore. | Pronto se il numero e le dimensioni del disco sono entro i limiti
 **Rete** | Un computer non deve avere più di 32 interfacce di rete (NIC) connesse. | Pronto se il numero di schede di rete rientra nel limite
 
@@ -268,8 +268,14 @@ Questa tabella mostra le classificazioni di attendibilità della valutazione, ch
 Ecco alcuni motivi per cui una valutazione potrebbe ottenere un livello di confidenza basso:
 
 - L'ambiente non è stato profilato per la durata per la quale si sta creando la valutazione. Se, ad esempio, si crea la valutazione con la durata delle prestazioni impostata su un giorno, è necessario attendere almeno un giorno dopo l'avvio dell'individuazione per tutti i punti dati da raccogliere.
-- Alcune macchine virtuali sono state arrestate durante il periodo in cui è stata calcolata la valutazione. Se una macchina virtuale viene spenta per un periodo di tempo specifico, server Assessment non può raccogliere i dati sulle prestazioni per tale periodo.
-- Alcune macchine virtuali sono state create durante il periodo in cui è stata calcolata la valutazione. Si supponga, ad esempio, che sia stata creata una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma che alcune macchine virtuali siano state create solo una settimana fa. La cronologia delle prestazioni delle nuove macchine virtuali non esisterà per la durata completa.
+- La valutazione non è in grado di raccogliere i dati sulle prestazioni per alcune o tutte le macchine virtuali nel periodo di valutazione. Per una classificazione di attendibilità elevata, verificare che: 
+    - Le macchine virtuali sono accese per la durata della valutazione
+    - Sono consentite le connessioni in uscita sulle porte 443
+    - Per le VM Hyper-V è abilitata la memoria dinamica 
+    
+    Ricalcolare la valutazione in modo da riflettere le ultime modifiche apportate alla classificazione di attendibilità.
+
+- Alcune macchine virtuali sono state create durante il periodo in cui è stata calcolata la valutazione. Si supponga, ad esempio, che sia stata creata una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma che alcune macchine virtuali siano state create solo una settimana fa. In questo caso, i dati sulle prestazioni per le nuove macchine virtuali non saranno disponibili per l'intera durata e la classificazione di attendibilità sarà limitata.
 
 > [!NOTE]
 > Se la classificazione di attendibilità di una valutazione è inferiore a cinque stelle, è consigliabile attendere almeno un giorno per l'appliance per profilare l'ambiente e quindi ricalcolare la valutazione. In caso contrario, il dimensionamento in base alle prestazioni potrebbe non essere affidabile. In tal caso, è consigliabile passare la valutazione al dimensionamento locale.
@@ -285,7 +291,7 @@ Una volta completate le indicazioni sul dimensionamento, una valutazione delle V
     - Software Assurance
     - Istanze riservate
     - Tempo di attività macchina virtuale
-    - Location
+    - Posizione
     - Impostazioni di valuta
 
     Server Assessment aggrega il costo in tutti i computer per calcolare il costo totale di calcolo mensile.
