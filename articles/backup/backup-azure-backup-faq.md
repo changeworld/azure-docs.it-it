@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: d85866e490b2c56abb7de1e94cd0ffaa8f714615
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327152"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572528"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -61,6 +61,10 @@ Se il backup è già stato configurato e deve essere spostato da GRS a con ridon
 ### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Come è possibile spostare i dati dall'insieme di credenziali dei servizi di ripristino in locale?
 
 L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](../databox/data-box-overview.md) o [importazione/esportazione](../storage/common/storage-import-export-service.md).
+
+### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual è la differenza tra un insieme di credenziali di archiviazione con ridondanza geografica (GRS) con e senza la funzionalità di ripristino tra aree (CRR) abilitata?
+
+Nel caso di un insieme di credenziali [GRS](azure-backup-glossary.md#grs) senza la funzionalità [CRR](azure-backup-glossary.md#cross-region-restore-crr) abilitata, non è possibile accedere ai dati nell'area secondaria fino a quando Azure non dichiara un'emergenza nell'area primaria. In uno scenario di questo tipo, il ripristino avviene dall'area secondaria. Quando CRR è abilitato, anche se l'area primaria è in esecuzione, è possibile attivare un ripristino nell'area secondaria.
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 

@@ -11,18 +11,18 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 2e26bfa484d573c0158e518b31087fb10bdcdfb9
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185683"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573293"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida trasversale in Machine Learning automatizzato
 
 Questo articolo illustra le diverse opzioni per la configurazione delle suddivisioni dei dati di Training/convalida e la convalida incrociata per gli esperimenti di Machine Learning automatizzati, i ML automatizzati.
 
-In Azure Machine Learning, quando si usa Machine Learning Machine Learning per compilare più modelli ML, ogni esecuzione figlio deve convalidare il modello correlato calcolando la metrica di qualità per tale modello, ad esempio l'accuratezza o l'AUC ponderata. Queste metriche vengono calcolate confrontando le stime effettuate con ogni modello con etichette reali dalle osservazioni precedenti nei dati di convalida. 
+In Azure Machine Learning, quando si usa Machine Learning Machine Learning per compilare più modelli ML, ogni esecuzione figlio deve convalidare il modello correlato calcolando la metrica di qualità per tale modello, ad esempio l'accuratezza o l'AUC ponderata. Queste metriche vengono calcolate confrontando le stime effettuate con ogni modello con etichette reali dalle osservazioni precedenti nei dati di convalida. [Altre informazioni su come vengono calcolate le metriche in base al tipo di convalida](#metric-calculation-for-cross-validation-in-machine-learning). 
 
 Gli esperimenti di Machine Learning automatici eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
@@ -43,9 +43,9 @@ Per questo articolo è necessario,
 
     * [Informazioni sui set di training, convalida e test in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
-    * [Comprendere la convalida incrociata in Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd)
+    * [Comprendere la convalida incrociata in Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
-## <a name="default-data-splits-and-cross-validation"></a>Suddivisione dei dati predefinita e convalida incrociata
+## <a name="default-data-splits-and-cross-validation-in-machine-learning"></a>Suddivisione dei dati predefinita e convalida incrociata in Machine Learning
 
 Usare l'oggetto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) per definire le impostazioni dell'esperimento e del training. Nel frammento di codice seguente si noti che sono definiti solo i parametri obbligatori, ovvero i parametri `n_cross_validation` per `validation_ data` o **non** sono inclusi.
 
@@ -155,6 +155,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 > [!NOTE]
 > Per usare `cv_split_column_names` con `training_data` e `label_column_name` , aggiornare il Azure Machine Learning Python SDK versione 1.6.0 o successiva. Per le versioni precedenti dell'SDK, fare riferimento a utilizzando `cv_splits_indices` , ma si noti che viene utilizzato solo con l' `X` input del `y` set di dati e. 
+
+
+## <a name="metric-calculation-for-cross-validation-in-machine-learning"></a>Calcolo della metrica per la convalida incrociata in Machine Learning
+
+Quando si usa la convalida incrociata k-fold o Monte Carlo, le metriche vengono calcolate a ogni riduzioni di convalida e quindi aggregate. L'operazione di aggregazione è una media per le metriche scalari e una somma dei grafici. Le metriche calcolate durante la convalida incrociata sono basate su tutte le riduzioni e quindi su tutti gli esempi del set di training. [Altre informazioni sulle metriche in Machine Learning automatizzato](how-to-understand-automated-ml.md).
+
+Quando viene utilizzato un set di convalida personalizzato o un set di convalida selezionato automaticamente, le metriche di valutazione del modello vengono calcolate solo dal set di convalida, non dai dati di training.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Vedere come usare funzioni di Azure per creare una funzione che può usare il grafo gemello e le notifiche di dispositivi gemelli digitali di Azure per aggiornare una mappa interna di Azure maps.
 author: alexkarcher-msft
 ms.author: alkarche
-ms.date: 6/3/2020
+ms.date: 1/19/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 24487d3028b90d28f302a6f259096ba68c964541
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6a654f74ff6a32ad37646021d504359c84942c12
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222123"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573038"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Usare i dispositivi gemelli digitali di Azure per aggiornare una mappa interna di mappe di Azure
 
@@ -72,7 +72,7 @@ Questo modello legge direttamente dalla stanza gemella, anziché il dispositivo 
 
 ## <a name="create-a-function-to-update-maps"></a>Creare una funzione per aggiornare le mappe
 
-Verrà creata una *funzione attivata da griglia di eventi* all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza. 
+Verrà creata una **funzione attivata da griglia di eventi** all'interno dell'app per le funzioni dall'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)). Questa funzione decomprimerà tali notifiche e invierà aggiornamenti a un insieme di Stati della funzionalità mappe di Azure per aggiornare la temperatura di una stanza.
 
 Vedere il documento seguente per informazioni di riferimento: [*trigger di griglia di eventi di Azure per funzioni di Azure*](../azure-functions/functions-bindings-event-grid-trigger.md).
 

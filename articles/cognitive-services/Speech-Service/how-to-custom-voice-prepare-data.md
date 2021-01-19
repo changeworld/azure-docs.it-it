@@ -10,18 +10,26 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5427e9f996fb77d455aa8064fc7cb1c65e1fcf7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 563a3e224ffedc98bcc3102ea865f06315294365
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74805978"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573106"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Preparare i dati per creare una voce personalizzata
 
 Quando si è pronti per creare una voce di sintesi vocale personalizzata per l'applicazione, il primo passaggio consiste nel raccogliere le registrazioni audio e gli script associati per avviare il training del modello vocale. Il servizio di riconoscimento vocale usa questi dati per creare una voce univoca ottimizzata in modo da corrispondere alla voce nelle registrazioni. Dopo aver eseguito il training della voce, è possibile iniziare a sintetizzare la sintesi vocale nelle applicazioni.
 
-È possibile iniziare con una piccola quantità di dati per creare un modello di prova. Tuttavia, maggiore è il numero di dati forniti, più naturale sarà il suono della voce personalizzata. Prima di poter eseguire il training di un modello vocale di sintesi vocale, sono necessarie registrazioni audio e le trascrizioni del testo associate. In questa pagina, verranno esaminati i tipi di dati, il modo in cui vengono usati e come gestirli.
+Prima di poter eseguire il training di un modello vocale di sintesi vocale, sono necessarie registrazioni audio e le trascrizioni del testo associate. In questa pagina, verranno esaminati i tipi di dati, il modo in cui vengono usati e come gestirli.
+
+> [!NOTE]
+> Se si vuole eseguire il training di una voce neurale, è necessario specificare un profilo di talento vocale con il file di consenso audio fornito dal talento vocale che riconosce di usare i propri dati vocali per eseguire il training di un modello vocale personalizzato. Quando si prepara lo script di registrazione, assicurarsi di includere la frase riportata di seguito. 
+
+> "I [dichiarare il nome e il cognome] sono consapevoli che le registrazioni della mia voce verranno usate da [stato nome della società] per creare e usare una versione sintetica della mia voce".
+Questa frase verrà usata per verificare se i dati di training vengono eseguiti dalla stessa persona che rilascia il consenso. Scopri di più sulla [Verifica del talento vocale](https://aka.ms/CNV-data-privacy) qui.
+
+> La voce neurale personalizzata è disponibile con accesso limitato. Assicurarsi di comprendere i [requisiti di intelligenza artificiale responsabili](https://aka.ms/gating-overview) e di [applicare l'accesso qui](https://aka.ms/customneural). 
 
 ## <a name="data-types"></a>Tipi di dati
 
@@ -31,22 +39,22 @@ In alcuni casi, è possibile che non si disponga del set di dati appropriato e c
 
 Questa tabella elenca i tipi di dati e il modo in cui ognuno viene usato per creare un modello vocale personalizzato per la sintesi vocale.
 
-| Tipo di dati | Descrizione | Utilizzo | Richiesto servizio aggiuntivo | Quantità per il training di un modello | Impostazioni locali |
-| --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Singole espressioni + trascrizione corrispondente** | Raccolta (zip) di file audio (WAV) come singoli enunciati. Ogni file audio deve avere una lunghezza di 15 secondi o inferiore, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionali con trascrizioni corrispondenti | Pronto per il training. | Nessun requisito rigido per en-US e zh-CN. Oltre 2000 espressioni distinte per altre impostazioni locali. | [Tutte le impostazioni locali vocali personalizzate](language-support.md#customization) |
-| **Audio lungo + trascrizione (beta)** | Raccolta (con estensione zip) di file audio lunghi e non segmentati (più di 20 secondi), abbinati a una trascrizione (con estensione txt) che contiene tutte le parole vocali. | Sono presenti file audio e trascrizioni corrispondenti, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario. | Nessun requisito rigido  | [Tutte le impostazioni locali vocali personalizzate](language-support.md#customization) |
-| **Solo audio (beta)** | Raccolta (zip) di file audio senza una trascrizione. | Sono disponibili solo file audio, senza trascrizioni. | Segmentazione + generazione della trascrizione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario.| Nessun requisito rigido | [Tutte le impostazioni locali vocali personalizzate](language-support.md#customization) |
+| Tipo di dati | Descrizione | Utilizzo | Elaborazione aggiuntiva richiesta | 
+| --------- | ----------- | ----------- | --------------------------- |
+| **Singole espressioni + trascrizione corrispondente** | Raccolta (zip) di file audio (WAV) come singoli enunciati. Ogni file audio deve avere una lunghezza di 15 secondi o inferiore, associato a una trascrizione formattata (con estensione txt). | Registrazioni professionali con trascrizioni corrispondenti | Pronto per il training. |
+| **Audio lungo + trascrizione (beta)** | Raccolta (con estensione zip) di file audio lunghi e non segmentati (più di 20 secondi), abbinati a una trascrizione (con estensione txt) che contiene tutte le parole vocali. | Sono presenti file audio e trascrizioni corrispondenti, ma non sono segmentati in espressioni. | Segmentazione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario. | 
+| **Solo audio (beta)** | Raccolta (zip) di file audio senza una trascrizione. | Sono disponibili solo file audio, senza trascrizioni. | Segmentazione + generazione della trascrizione (usando la trascrizione batch).<br>Trasformazione del formato audio, ove necessario.| 
 
 I file devono essere raggruppati per tipo in un set di dati e caricati come file zip. Ogni set di dati può contenere solo un singolo tipo di dati.
 
 > [!NOTE]
-> Il numero massimo di set di dati che possono essere importati per ogni sottoscrizione è 10 file zip per gli utenti della sottoscrizione gratuita (F0) e 500 per gli utenti con sottoscrizione standard (S0).
+> Il numero massimo di set di dati che possono essere importati per ogni sottoscrizione è di 10 file zip per gli utenti della sottoscrizione gratuita (F0) e 500 per gli utenti con sottoscrizione standard (S0).
 
 ## <a name="individual-utterances--matching-transcript"></a>Singole espressioni + trascrizione corrispondente
 
 È possibile preparare le registrazioni di singole espressioni e la trascrizione corrispondente in due modi. Scrivere uno script e leggerlo da un talento vocale o usare l'audio disponibile pubblicamente e trasmetterlo in testo. Nel secondo caso, modificare le disfluenze dai file audio, ad esempio "um" e altri suoni riempitivi, balbettii, parole mormorate o errori di pronuncia.
 
-Per produrre un tipo di carattere vocale appropriato, creare le registrazioni in una stanza silenziosa con un microfono di alta qualità. Il volume coerente, la velocità di pronuncia, il pitch di pronuncia e i comportamenti espressivi di sintesi vocale sono essenziali.
+Per produrre un modello vocale corretto, è possibile creare le registrazioni in una stanza silenziosa con un microfono di alta qualità. Il volume coerente, la velocità di pronuncia, il pitch di pronuncia e i comportamenti espressivi di sintesi vocale sono essenziali.
 
 > [!TIP]
 > Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno studio di registrazione e uno speaker professionali. Per altre informazioni, vedere [Come registrare esempi vocali per una voce personalizzata](record-custom-voice-samples.md).
@@ -89,9 +97,6 @@ Di seguito è riportato un esempio di come le trascrizioni siano organizzate in 
 0000000003[tab] It was Janet Maslin.
 ```
 È importante che le trascrizioni siano trascrizioni accurate del 100% dell'audio corrispondente. Gli errori nelle trascrizioni introdurranno una perdita di qualità durante il training.
-
-> [!TIP]
-> Quando si compilano voci di sintesi vocale di produzione, selezionare espressioni (o scrivere script) che tengano conto sia della copertura fonetica che dell'efficienza. Problemi nell'ottenere i risultati desiderati? [Contattare il team del Voice personalizzato](mailto:speechsupport@microsoft.com) per scoprire di più su come consultarlo.
 
 ## <a name="long-audio--transcript-beta"></a>Audio lungo + trascrizione (beta)
 

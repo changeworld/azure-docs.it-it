@@ -1,15 +1,15 @@
 ---
 title: Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure.
 description: È disponibile una panoramica delle operazioni eseguibili con gli avvisi delle metriche e del relativo funzionamento in Monitoraggio di Azure.
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: ab80496784b5d86d270830546cec73aadbcc50a6
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 031768b8a72fbe9498abd3c17e0f79fd157d4f52
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251234"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572732"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: static
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le [aggregazioni temporali supportate](metrics-charts.md#aggregation) sono min, Max, AVG, Total, count): Average
+- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](./metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -43,7 +43,7 @@ Supponiamo di aver creato una semplice regola di avviso delle metriche con sogli
 - Risorsa di destinazione (risorsa di Azure da monitorare): myVM
 - Metrica: CPU percentuale
 - Tipo di condizione: Dynamic
-- Aggregazione temporale (statistica eseguita su valori di metriche non elaborati. Le [aggregazioni temporali supportate](metrics-charts.md#aggregation) sono min, Max, AVG, Total, count): Average
+- Tipo di aggregazione, ovvero una statistica eseguita su valori di metrica non elaborati. I [tipi di aggregazione supportati](./metrics-aggregation-explained.md#aggregation-types) sono minimo, massimo, medio, totale, numero): media
 - Periodo (la finestra di ricerca su cui sono controllati i valori delle metriche): negli ultimi 5 minuti
 - Frequenza (la frequenza con cui l'avviso della metrica controlla se le condizioni sono soddisfatte): 1 minuto
 - Operatore: maggiore di
@@ -80,7 +80,7 @@ Si supponga di avere un piano di servizio app per il sito Web. Si intende monito
 - Tipo di condizione: static
 - Dimensioni
   - Istanza = InstanceName1, InstanceName2
-- Aggregazione temporale: Media
+- Tipo di aggregazione: Media
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 minuto
 - Operatore: Maggiore di
@@ -95,7 +95,7 @@ Supponiamo di avere un'app Web che registra un numero di richieste elevato, a ca
 - Tipo di condizione: static
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Media
+- Tipo di aggregazione: Media
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 minuto
 - Operatore: Maggiore di
@@ -112,7 +112,7 @@ Supponiamo di avere un'app Web con numerose istanze e di non sapere quale sia la
 - Tipo di condizione: Dynamic
 - Dimensioni
   - Istanza = *
-- Aggregazione temporale: Media
+- Tipo di aggregazione: Media
 - Periodo: Negli ultimi 5 minuti
 - Frequenza: 1 minuto
 - Operatore: Maggiore di

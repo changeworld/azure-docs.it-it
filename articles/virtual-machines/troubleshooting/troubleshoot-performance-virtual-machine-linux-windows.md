@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 53fd2332224d903c5a4b33563470cf3569f82b13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526657"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573310"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Risolvere i problemi relativi alle prestazioni delle macchine virtuali di Azure in Linux o Windows
 
@@ -52,7 +52,7 @@ Per abilitare la diagnostica della macchina virtuale:
 
 L'archiviazione è un livello molto importante quando si prevede di analizzare le prestazioni di i/o per una macchina virtuale in Azure. Per la metrica relativa all'archiviazione è necessario abilitare la diagnostica come passaggio aggiuntivo. Questa operazione può anche essere abilitata se si desidera analizzare solo i contatori correlati all'archiviazione.
 
-1. Identificare l'account di archiviazione (o gli account) usato dalla VM selezionando la macchina virtuale. Fare clic su **Impostazioni**e quindi su **dischi**:
+1. Identificare l'account di archiviazione (o gli account) usato dalla VM selezionando la macchina virtuale. Fare clic su **Impostazioni** e quindi su **dischi**:
 
    ![Fare clic su impostazioni, quindi su dischi](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
@@ -208,7 +208,7 @@ Per determinare se si sta raggiungendo il limite di IOPS, passare alla diagnosti
 
 Con le nuove offerte di disco in archiviazione standard, i limiti di IOPS e velocità effettiva possono variare, ma il limite cumulativo dell'account di archiviazione standard è 20000 IOPS (archiviazione Premium presenta limiti diversi a livello di account o di disco). Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
 
-* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../windows/disk-scalability-targets.md).
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../disks-scalability-targets.md).
 
 #### <a name="references"></a>Riferimenti
 
@@ -224,7 +224,7 @@ Controllare i limiti di velocità effettiva dei dischi rigidi virtuali collegati
 
 Le nuove offerte di dischi con archiviazione standard hanno limiti di IOPS e velocità effettiva diversi (i IOPS non sono esposti per ogni disco rigido virtuale). Esaminare i dati per verificare se si stanno raggiungendo i limiti della velocità effettiva combinata di MB dei dischi rigidi virtuali a livello di macchina virtuale usando la lettura e la scrittura su disco, quindi ottimizzare la configurazione dell'archiviazione delle macchine virtuali per ridimensionare i limiti del disco rigido virtuale precedenti. Scopri di più sulle diverse offerte di dischi di archiviazione standard e sui limiti per disco:
 
-* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../windows/disk-scalability-targets.md).
+* [Obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali in Windows](../disks-scalability-targets.md).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Monitoraggio e aggiornamento latenza elevata del disco
 

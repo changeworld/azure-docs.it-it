@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: dae7b8e0485c1a2456b85e0910f60b2164d4e41c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 966b11e2c9a0f7ffc5e6ec9238080b9076d37af6
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026319"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572426"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 
@@ -24,6 +24,14 @@ La creazione di una voce personalizzata di qualità elevata partendo da zero non
 Prima di eseguire queste registrazioni, tuttavia, è necessario creare uno script costituito dalle parole che vengono lette dallo speaker per realizzare i campioni audio. Per ottenere risultati ottimali, lo script deve essere caratterizzato da una copertura fonetica adeguata e da una varietà sufficiente per eseguire il training del modello vocale personalizzato.
 
 Per creare una registrazione vocale di livello professionale, è necessario fare attenzione a molti piccoli dettagli, che sono tuttavia estremamente importanti. Questa guida è una roadmap di un processo che consente di ottenere risultati validi e coerenti.
+
+> [!NOTE]
+> Se si vuole eseguire il training di una voce neurale, è necessario specificare un profilo di talento vocale con il file di consenso audio fornito dal talento vocale che riconosce di usare i propri dati vocali per eseguire il training di un modello vocale personalizzato. Quando si prepara lo script di registrazione, assicurarsi di includere la frase riportata di seguito. 
+
+> "I [dichiarare il nome e il cognome] sono consapevoli che le registrazioni della mia voce verranno usate da [stato nome della società] per creare e usare una versione sintetica della mia voce".
+Questa frase verrà usata per verificare se i dati di training vengono eseguiti dalla stessa persona che rilascia il consenso. Scopri di più sulla [Verifica del talento vocale](https://aka.ms/CNV-data-privacy) qui.
+
+> La voce neurale personalizzata è disponibile con accesso limitato. Assicurarsi di comprendere i [requisiti di intelligenza artificiale responsabili](https://aka.ms/gating-overview) e di [applicare l'accesso qui](https://aka.ms/customneural). 
 
 > [!TIP]
 > Per ottenere risultati ottimali nello sviluppo di una voce personalizzata, è consigliabile coinvolgere Microsoft, che può vantare una vasta esperienza nella produzione di voci di alta qualità per i propri prodotti, ad esempio Cortana e Office.
@@ -56,7 +64,7 @@ Lo speaker rappresenta la seconda parte dell'equazione. Devono essere in grado d
 
 La registrazione di campioni vocali personalizzati può essere più difficoltosa rispetto ad altri tipi di attività legate alla voce. La maggior parte degli speaker può registrare per due o tre ore al giorno. Limitare le sessioni a tre o quattro alla settimana, con un giorno di riposo tra l'una e l'altra, se possibile.
 
-Le registrazioni eseguite per un modello vocale devono essere neutre dal punto di vista emotivo, ovvero un'espressione triste non deve essere letta in modo triste. Una certa intonazione può essere aggiunta in un secondo momento alla sintesi vocale tramite controlli di prosodia. È opportuno collaborare con lo speaker per sviluppare un utente tipo che definisca il suono complessivo e il tono emotivo della voce personalizzata. In questo processo è possibile individuare con precisione qual è il tono neutro per tale utente.
+È opportuno collaborare con lo speaker per sviluppare un utente tipo che definisca il suono complessivo e il tono emotivo della voce personalizzata. In questo processo è possibile individuare con precisione qual è il tono neutro per tale utente. Utilizzando la funzionalità di Voice Neural personalizzata, è possibile eseguire il training di un modello che parla con emozioni. Definire gli "stili di pronuncia" e richiedere al talento vocale di leggere lo script in modo che riconosca gli stili desiderati.  
 
 Un utente tipo, ad esempio, potrebbe avere una personalità naturalmente allegra. Quindi la voce potrebbe essere caratterizzata da una nota di ottimismo anche quando si parla in tono neutro. Questo aspetto della personalità, tuttavia, deve essere poco evidente e costante. Per acquisire un'idea degli obiettivi da raggiungere, ascoltare brani letti da voci esistenti.
 
@@ -211,7 +219,7 @@ Ascoltare attentamente ogni file. In questa fase, è possibile modificare i dist
 
 Convertire ogni file a 16 bit e a una frequenza di campionamento di 16 KHz prima del salvataggio e, se sono state registrate conversazioni in studio, rimuovere il secondo canale. Salvare ogni file in formato WAV, denominando i file con il numero di espressione presente nello script.
 
-Creare infine la *trascrizione* che associa ogni file con estensione wav con la versione in formato testo dell'espressione corrispondente. In [Creazione di caratteri voce personalizzati](./how-to-custom-voice-create-voice.md) sono incluse informazioni dettagliate sul formato necessario. È possibile copiare il testo direttamente dallo script. Creare quindi un file ZIP dei file WAV e la trascrizione del testo.
+Creare infine la *trascrizione* che associa ogni file con estensione wav con la versione in formato testo dell'espressione corrispondente. La [creazione di voci personalizzate](./how-to-custom-voice-create-voice.md) include i dettagli del formato richiesto. È possibile copiare il testo direttamente dallo script. Creare quindi un file ZIP dei file WAV e la trascrizione del testo.
 
 Archiviare le registrazioni originali in un luogo sicuro nel caso in cui siano necessarie in un secondo momento. Conservare anche lo script e le note.
 

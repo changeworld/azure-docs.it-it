@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: be0f082e7c27db1a696e17b32f11e676f4068810
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 3f8e497fb21b3fac6a2bc5842e6bc56c47444c8b
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201043"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572494"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -392,10 +392,30 @@ Sono disponibili più di 75 voci standard in oltre 45 lingue e impostazioni loca
 
 ### <a name="customization"></a>Personalizzazione
 
-La personalizzazione della voce è disponibile per `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR` e `zh-CN`. Selezionare le impostazioni locali corrette che corrispondono ai dati di training disponibili per il training di un modello vocale personalizzato. Se, ad esempio, i dati della registrazione sono pronunciati in inglese con un accento britannico, selezionare `en-GB`.
+La voce personalizzata è disponibile nel livello standard e neurale. Le lingue supportate sono diverse per questi due livelli. 
+
+| Linguaggio | Locale | Standard | Neurale |
+|--|--|--|--|
+| Cinese (mandarino, semplificato) | `zh-CN` | Sì | Sì |
+| Cinese (mandarino, semplificato), inglese bilingue | `zh-CN` bilingue | Sì | Sì |
+| Inglese (Australia) | `en-AU` | No | Sì |
+| Inglese (India) | `en-IN` | Sì | Sì |
+| Inglese (Regno Unito) | `en-GB` | Sì | Sì |
+| Inglese (Stati Uniti) | `en-US` | Sì | Sì |
+| Francese (Canada) | `fr-CA` | No | Sì |
+| Francese (Francia) | `fr-FR` | Sì | Sì |
+| Tedesco (Germania) | `de-DE` | Sì | Sì |
+| Italiano (Italia) | `it-IT` | Sì | Sì |
+| Giapponese (Giappone) | `ja-JP` | No | Sì |
+| Coreano (Corea) | `ko-KR` | No | Sì |
+| Portoghese (Brasile) | `pt-BR` | Sì | Sì |
+| Spagnolo (Messico) | `es-MX` | Sì | Sì |
+| Spagnolo (Spagna) | `es-ES` | No | Sì |
+
+Selezionare le impostazioni locali corrette che corrispondono ai dati di training disponibili per il training di un modello vocale personalizzato. Se, ad esempio, i dati della registrazione sono pronunciati in inglese con un accento britannico, selezionare `en-GB`.
 
 > [!NOTE]
-> Il training del modello bilingue nella voce personalizzata non è supportato, ad eccezione del modello bilingue inglese-cinese. Per eseguire il training di una voce cinese in grado di parlare anche in inglese, selezionare "Chinese-English bilingual". Il training vocale in tutte le impostazioni locali inizia con un set di dati che include oltre 2000, ad eccezione dei set `en-US` e `zh-CN`, in cui è possibile iniziare dati di training di qualsiasi dimensione.
+> Il training del modello bilingue nella voce personalizzata non è supportato, ad eccezione del modello bilingue inglese-cinese. Per eseguire il training di una voce cinese in grado di parlare anche in inglese, selezionare "Chinese-English bilingual". Chinese-English training del modello bilingue con il metodo standard è disponibile solo in Europa settentrionale e Stati Uniti centro-settentrionali. Il training personalizzato per la voce neurale è disponibile nelle Regno Unito meridionale e negli Stati Uniti orientali. 
 
 ## <a name="speech-translation"></a>Traduzione vocale
 

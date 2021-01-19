@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a09a2083c1258a3120f8696aa39a0252dbfcf2d
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 83a4a2aa8328a6e3de9eab44bbf19fc76921b128
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209695"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573360"
 ---
 # <a name="azure-storage-redundancy"></a>Ridondanza di Archiviazione di Azure
 
@@ -35,11 +35,15 @@ I dati in un account di Archiviazione di Azure vengono sempre replicati tre volt
 
 ### <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
 
-L'archiviazione con ridondanza locale (LRS) replica i dati tre volte all'interno di un'unica posizione fisica nell'area primaria. L'archiviazione con ridondanza locale garantisce almeno il 99,999999999% (11 nove) di durabilità degli oggetti nell'arco di un anno specifico.
+Archiviazione con ridondanza locale (con ridondanza locale) replica i dati tre volte all'interno di una singola data center nell'area primaria. L'archiviazione con ridondanza locale garantisce almeno il 99,999999999% (11 nove) di durabilità degli oggetti nell'arco di un anno specifico.
 
 L'archiviazione con ridondanza locale è l'opzione di ridondanza più economica e offre una durabilità inferiore rispetto alle altre opzioni. L'archiviazione con ridondanza locale protegge i dati dagli errori del rack di server e delle unità. Tuttavia, se all'interno del data center si verifica un'emergenza come, ad esempio un incendio o un alluvione, tutte le repliche dell'account di archiviazione che usano l'archiviazione con ridondanza locale potrebbero essere perse o irrecuperabili. Per attenuare questo rischio, è consigliabile usare l'[archiviazione con ridondanza della zona](#zone-redundant-storage) (ZRS), l'[archiviazione con ridondanza geografica](#geo-redundant-storage) (GRS) o l'[archiviazione con ridondanza geografica della zona](#geo-zone-redundant-storage) (GZRS).
 
 Una richiesta di scrittura in un account di archiviazione che usa l'archiviazione con ridondanza locale viene eseguita in modo sincrono. L'operazione di scrittura viene restituita correttamente solo dopo che i dati sono stati scritti in tutte e tre le repliche.
+
+Il diagramma seguente illustra il modo in cui i dati vengono replicati all'interno di una singola data center con con ridondanza locale:
+
+:::image type="content" source="media/storage-redundancy/locally-redundant-storage.png" alt-text="Diagramma che illustra il modo in cui i dati vengono replicati in un singolo data center con con ridondanza locale":::
 
 L'archiviazione con ridondanza locale è una scelta ottimale per gli scenari seguenti:
 
@@ -54,7 +58,11 @@ Con l'archiviazione con ridondanza della zona i dati sono ancora accessibili per
 
 Una richiesta di scrittura in un account di archiviazione che usa l'archiviazione con ridondanza della zona viene eseguita in modo sincrono. L'operazione di scrittura viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche nelle tre zone di disponibilità.
 
-È consigliabile usare l'archiviazione con ridondanza della zona nell'area primaria per scenari che richiedono coerenza, durabilità e disponibilità elevata. Si consiglia inoltre di usare ZRS se si vuole limitare un'applicazione per la replica dei dati solo all'interno di un paese o di un'area a causa dei requisiti di governance dei dati.
+È consigliabile usare l'archiviazione con ridondanza della zona nell'area primaria per scenari che richiedono coerenza, durabilità e disponibilità elevata. ZRS è consigliato anche per limitare la replica dei dati in un paese o in un'area geografica per soddisfare i requisiti di governance dei dati.
+
+Il diagramma seguente illustra il modo in cui i dati vengono replicati tra le zone di disponibilità nell'area primaria con ZRS:
+
+:::image type="content" source="media/storage-redundancy/zone-redundant-storage.png" alt-text="Diagramma che illustra il modo in cui i dati vengono replicati nell'area primaria con ZRS":::
 
 L'archiviazione con ridondanza della zona offre prestazioni ottimali, bassa latenza e resilienza per i dati in caso di temporanea indisponibilità. Tuttavia, l'archiviazione con ridondanza della zona in sé potrebbe non proteggere i dati in caso di un'emergenza a livello di area in cui più zone sono interessate in modo permanente. Per la protezione da emergenze a livello di area, Microsoft consiglia di usare l'[archiviazione con ridondanza geografica della zona](#geo-zone-redundant-storage) (GZRS), che usa l'archiviazione con ridondanza della zona nell'area primaria ed esegue la replica geografica dei dati in un'area secondaria.
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4da707ab698599c8ea5dd8e1ea8647f543eb2a68
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95524250"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98572188"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -61,7 +61,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 ### <a name="supported-ubuntu-kernel-versions"></a>Versioni del kernel Ubuntu supportate
 
-**Versione** | **Versione del kernel** 
+**Rilascio** | **Versione del kernel** 
 --- | --- 
 14.04 LTS |  Da 3.13.0-24 generica a 3.13.0-170 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-148 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1045 Azure 
 16.04 LTS |  Da 4.4.0-21 generica a 4.4.0-171 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-74 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1066 Azure
@@ -70,7 +70,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 ### <a name="supported-debian-kernel-versions"></a>Versioni del kernel Debian supportate 
 
-**Versione** |  **Versione del kernel** 
+**Rilascio** |  **Versione del kernel** 
 --- |  --- 
 Debian 7 |  Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 
 Debian 8 |  Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.11-amd64 
@@ -78,14 +78,14 @@ Debian 8 |  Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-
 
 ### <a name="supported-suse-linux-enterprise-server-12-kernel-versions"></a>Versioni del kernel supportate SUSE Linux Enterprise Server 12 
 
-**Versione** | **Versione del kernel** 
+**Rilascio** | **Versione del kernel** 
 --- |  --- 
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.34 Azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>Versioni del kernel supportate SUSE Linux Enterprise Server 15
 
-**Versione** | **Versione del kernel** |
+**Rilascio** | **Versione del kernel** |
 --- |  --- |
 SUSE Linux Enterprise Server 15 e 15 SP1 |  Sono supportati tutti i kernel SUSE 15 e 15 disponibili.</br></br> Da 4.12.14-5.5 Azure a 4.12.14-8.22 Azure |
 
@@ -106,14 +106,14 @@ Zone di disponibilità | Supportato | Supportato, a seconda del supporto dell'ar
 Immagini della raccolta di Azure (pubblicate da Microsoft) | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini della raccolta di Azure (pubblicate da terze parti)  | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate (pubblicate da terze parti)| Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
-Macchine virtuali con Site Recovery | Non supportate | Spostare le risorse tra aree per le macchine virtuali, usando Site Recovery nel back-end. Se si sta già usando Site Recovery, disabilitare la replica e quindi avviare il processo di preparazione.
-Criteri RBAC di Azure | Non supportate | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono copiati nella macchina virtuale nell'area di destinazione.
+Macchine virtuali con Site Recovery | Non supportato | Spostare le risorse tra aree per le macchine virtuali, usando Site Recovery nel back-end. Se si sta già usando Site Recovery, disabilitare la replica e quindi avviare il processo di preparazione.
+Criteri RBAC di Azure | Non supportato | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono copiati nella macchina virtuale nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina virtuale nell'area di destinazione. Installarli manualmente al termine dello spostamento.
 
 
 ## <a name="supported-vm-storage-settings"></a>Impostazioni di archiviazione delle macchine virtuali supportate
 
-Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. È importante osservare i limiti dei dischi e le destinazioni per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [Windows](../virtual-machines/windows/disk-scalability-targets.md) per evitare eventuali problemi di prestazioni.
+Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. Per evitare problemi di prestazioni, è importante osservare i limiti e le destinazioni dei dischi delle macchine virtuali per i [dischi gestiti](../virtual-machines/disks-scalability-targets.md) .
 
 > [!NOTE]
 > Le dimensioni della macchina virtuale di destinazione devono essere maggiori o uguali a quelle della VM di origine. I parametri usati per la convalida sono: numero di dischi dati, numero di schede di rete, CPU disponibili, memoria in GB. In caso contrario, viene generato un errore.
@@ -127,13 +127,13 @@ Dimensione massima del disco dati | 8192 GB per i dischi gestiti
 Dimensione minima del disco dati |  2 GB per i dischi gestiti |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica dei dati media sul disco è costantemente superiore al limite massimo, la preparazione non verrà aggiornata.<br/><br/>  Tuttavia, se il valore massimo viene superato sporadicamente, la preparazione può essere aggiornata, ma è possibile che vengano visualizzati punti di ripristino leggermente ritardati.
-Disco dati (account di archiviazione standard) | Non supportata. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
-Disco dati (account di archiviazione Premium) | Non supportate | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
+Disco dati (account di archiviazione standard) | Non supportato. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
+Disco dati (account di archiviazione Premium) | Non supportato | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco gestito (standard) | Supportato  |
 Disco gestito (Premium) | Supportato |
 SSD Standard | Supportato |
 Generazione 2 (avvio UEFI) | Supportato
-Account di archiviazione di diagnostica di avvio | Non supportate | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
+Account di archiviazione di diagnostica di avvio | Non supportato | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
 
 ### <a name="limits-and-data-change-rates"></a>Limiti e frequenza di modifica dei dati
 

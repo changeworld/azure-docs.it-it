@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 6ae164b1300119481e495e647dd491beafdd5241
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: e48dfd224a9656c7d8327dd77f1b55e9a744f3af
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025079"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573089"
 ---
 # <a name="get-started-with-custom-voice"></a>Introduzione a Voce personalizzata
 
@@ -39,10 +39,10 @@ Il diagramma seguente illustra i passaggi per creare un modello Voice personaliz
 
 ## <a name="custom-neural-voices"></a>Voci neurali personalizzate
 
-La funzionalità di personalizzazione della voce neurale è attualmente disponibile in anteprima pubblica, limitata ai clienti selezionati. Compilare questo [modulo dell'applicazione](https://go.microsoft.com/fwlink/?linkid=2108737) per iniziare.
+La voce personalizzata supporta attualmente sia i livelli standard che quelli neurali. La voce neurale personalizzata consente agli utenti di creare modelli vocali di qualità superiore, richiedendo meno dati e fornisce misure che consentono di distribuire l'intelligenza artificiale in modo responsabile. Si consiglia di utilizzare una voce neurale personalizzata per sviluppare voci più realistiche per interfacce di conversazione più naturali e consentire ai clienti e agli utenti finali di trarre vantaggio dalla più recente tecnologia di sintesi vocale, in modo responsabile. [Altre informazioni sulla voce neurale personalizzata](https://aka.ms/CNV-Transparency-Note). 
 
 > [!NOTE]
-> Nell'ambito dell'impegno di Microsoft nella progettazione di intelligenza artificiale, il nostro scopo è quello di proteggere i diritti di singoli utenti e società, oltre a promuovere interazioni transparenti con i computer umani. Per questo motivo, la voce neurale personalizzata non è disponibile a livello generale per tutti i clienti. Il licenziatario potrà accedere alla tecnologia solo dopo che le applicazioni sono state riesaminate e si è impegnato a utilizzarlo in linea con i principi etici. Altre informazioni sul processo di controllo delle [applicazioni](./concepts-gating-overview.md).
+> Nell'ambito dell'impegno di Microsoft nella progettazione di intelligenza artificiale, abbiamo limitato l'uso di una voce neurale personalizzata. Il licenziatario potrà accedere alla tecnologia solo dopo che le applicazioni sono state rivedute e si è impegnata a usarla in linea con i principi di intelligenza artificiale responsabili. Per altre informazioni sui [criteri](https://aka.ms/gating-overview) , vedere l'articolo su come limitare l'accesso e [applicarlo qui](https://aka.ms/customneural). Le [lingue](language-support.md#customization) e le [aree](regions.md#custom-voices) supportate per la versione standard e neurale della voce personalizzata sono diverse. Verificare i dettagli prima di iniziare.  
 
 ## <a name="set-up-your-azure-account"></a>Configurare l'account Azure
 
@@ -56,7 +56,7 @@ Dopo aver creato un account Azure e una sottoscrizione al servizio vocale, sarà
 4. Se si vuole passare a un'altra sottoscrizione vocale, usare l'icona a cremagliera che si trova nella parte superiore dello spostamento.
 
 > [!NOTE]
-> Prima di poter usare il servizio, è necessario disporre di una chiave F0 o S0 creata in Azure.
+> Prima di poter usare il servizio, è necessario disporre di una chiave del servizio vocale F0 o S0 creata in Azure. La voce neurale personalizzata supporta solo il livello s0. 
 
 ## <a name="how-to-create-a-project"></a>Come creare un progetto
 

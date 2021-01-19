@@ -4,17 +4,17 @@ description: Informazioni sull'architettura della soluzione, la preparazione del
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/06/2020
+ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3e9380f067b091c4473b8c29bda3d31bb93cbc6d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840845"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573140"
 ---
-# <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni su Azure Defender per la configurazione della rete Internet
+# <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni sulla configurazione della rete di Azure Defender per IoT
 
 Azure Defender per Internet delle cose offre monitoraggio delle minacce per ICS continuo e individuazione dei dispositivi. La piattaforma include i componenti seguenti:
 
@@ -54,7 +54,7 @@ Registrare le informazioni sul sito, ad esempio:
 
 - Workstation di configurazione.
 
-- Certificati SSL (facoltativo).
+- Certificati SSL (facoltativo ma consigliato).
 
 - Autenticazione SMTP (facoltativo). Per utilizzare il server SMTP con l'autenticazione di, preparare le credenziali necessarie per il server.
 
@@ -101,7 +101,7 @@ Verificare che i criteri di sicurezza dell'organizzazione consentano l'accesso a
 | **Connessione tra il Defender per la piattaforma Internet e la console di gestione locale** | SSL | TCP | In ingresso/In uscita | 443 | Sensore e console di gestione locale|
 | **Console di gestione locale usata come NTP per il sensore** | NTP | UDP| Da a CM | 123 | Sincronizzazione dell'ora | 
 | **Sensore connesso al server NTP esterno (se pertinente)** | NTP | UDP | In ingresso/In uscita| 123 | Sincronizzazione dell'ora |
-| **Connessione tra il Defender per la piattaforma e la piattaforma di gestione e il server di posta elettronica (se pertinente)** | SMTP | TCP | Gestione fuori dal sensore | 25 | E-mail |
+| **Connessione tra il Defender per la piattaforma e la piattaforma di gestione e il server di posta elettronica (se pertinente)** | SMTP | TCP | Gestione fuori dal sensore | 25 | Email |
 | **Log che inviano dalla console di gestione locale al server syslog (se pertinente)** | syslog | UDP | Gestione fuori dal sensore| 514 | LEEF |
 | **Porta server DNS (se pertinente)** | DNS | N/D | In ingresso/In uscita| 53 | DNS |
 | **Connessione tra il Defender per la piattaforma Internet e la console di gestione locale per Active Directory (se pertinente)** | LDAPS | TCP | In ingresso/In uscita | 636 <br />389 | Active Directory |
@@ -223,7 +223,7 @@ In una rete a stella, ogni host è connesso a un hub centrale. Nella sua forma p
 
 Ecco alcuni suggerimenti per la distribuzione di più sensori:
 
-| * * Numero * *| **Metri** | **Dipendenza** | **Numero di sensori** |
+| **Number** | **Metri** | **Dipendenza** | **Numero di sensori** |
 |--|--|--|--|
 | Distanza massima tra i commutatori | 80 metri | Cavo Ethernet preparato | Più di 1 |
 | Numero di reti OT | Più di 1 | Nessuna connettività fisica | Più di 1 |
@@ -530,7 +530,7 @@ Usare il libro del sito di esempio per recuperare e rivedere le informazioni imp
 
 Esaminare questo elenco prima della distribuzione del sito:
 
-| **#** | **Attività o attività** | **Stato** | **Commenti** |
+| **#** | **Attività o attività** | **Status** | **Commenti** |
 |--|--|--|--|
 | 1 | Fornire Global. | ☐ |  |
 | 3 | Ordinare le appliance. | ☐ |  |
@@ -569,7 +569,7 @@ Una panoramica del diagramma della rete industriale consentirà di definire la p
     > [!NOTE]
     > Il Defender per l'appliance delle cose deve essere connesso a un commutatore di livello inferiore che rileva il traffico tra le porte del commutatore.  
 
-2. Fornire il numero approssimativo di dispositivi nelle reti (facoltativo).
+2. Fornire il numero approssimativo di dispositivi di rete che verranno monitorati. Queste informazioni sono necessarie per il caricamento della sottoscrizione nel portale di Azure Defender for Internet. Durante il processo di onboarding, verrà richiesto di immettere il numero di dispositivi con incrementi di 1000.
 
 3. Fornire un elenco di subnet per le reti di produzione e una descrizione (facoltativo). 
 

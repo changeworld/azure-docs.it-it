@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 225cb9a31b73f330d8b4ed5790caacc4fa729477
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d40d26e8fab0832a37a43c353e11189f8f193f14
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839946"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573327"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Specifiche tecniche e conformità per Azure Stack Edge Pro con GPU 
 
@@ -26,7 +26,7 @@ Il dispositivo Pro Azure Stack Edge presenta le specifiche seguenti per le risor
 | Specifiche           | valore                  |
 |-------------------------|----------------------------|
 | CPU                     | 2 X CPU Intel Xeon Silver 4214 (Cascade Lake)            |
-| Memory                  | 128 (8x16 GB) GB di RAM                     |
+| Memoria                  | 128 (8x16 GB) GB di RAM <br> Dell compatibile con 16 GB PC4-23400 DDR4-2933Mhz 2Rx8 1.2 v ECC registrato RDIMM       |
 
 
 ## <a name="compute-acceleration-specifications"></a>Specifiche di accelerazione di calcolo
@@ -65,10 +65,10 @@ Il dispositivo Azure Stack Edge Pro dispone dei seguenti componenti hardware di 
 
 Ecco i dettagli per la scheda Mellanox:
 
-| Parametro           | Description                 |
+| Parametro           | Descrizione                 |
 |-------------------------|----------------------------|
 | Modello    | Scheda di interfaccia di rete ConnectX®-4 LX                      |
-| Descrizione modello               | 25GbE Dual-Port SFP28; PCIe 3.0 x8; ROHS R6                    |
+| Descrizione modello               | SFP28 a doppia porta 25 GbE; PCIe 3.0 x8; ROHS R6                    |
 | Numero di parte del dispositivo (r640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |
 
@@ -88,11 +88,9 @@ I dispositivi Pro Azure Stack Edge hanno cinque SSD 2,5 "NVMe DC P4610", ognuno 
 |    Unità SSD (Solid-State) SATA di avvio      |    1                  |
 |    Capacità SSD di avvio                       |    240 GB             |
 |    Capacità totale                          |    8 TB             |
-|    Capacità utilizzabile totale*                  |    ~ 4,19 TB          |
+|    Capacità totale utilizzabile                   |    ~ 4,19 TB          |
+|    Configurazione RAID                      |    Spazi di archiviazione diretta con una combinazione di mirroring e parità  |
 |    Controller SAS                          |    HBA330 12 Gbps     |
-
-
-**Dopo la resilienza di parità e riservando spazio per uso interno.*
 
 <!--Remove based on feedback from Ravi
 ## Other hardware specifications
@@ -150,7 +148,8 @@ In questa sezione sono elencate le specifiche relative all'ambiente dello chassi
 |     Chassis                           |     Specifiche operative                                                                                                                                                                                         |
 |-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Flusso d'aria                              |    Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. <!--Back pressure created by rack doors and obstacles should not exceed 5 pascals (0.5 mm water gauge).-->    |
-|    Altitudine massima, operativa        |    3\.048 metri (10.000 piedi) con temperatura operativa massima ridotta in base a quanto determinato dalle [specifiche di riduzione della temperatura operativa](#operating-temperature-de-rating-specifications).                                                                                |
+| Protezione in ingresso (IP)                 |    Questo tipo di apparecchiature montate su rack per uso interno non è in genere testato per la protezione in ingresso (protezione da solidi e liquidi per un'enclosure elettrica). La valutazione della sicurezza del produttore Mostra IPXO (nessuna protezione in ingresso).  |
+|    Altitudine massima, operativa        |    3048 metri (10.000 piedi) con temperature operative massime denominate determinate dalle [specifiche di declassificazione della temperatura operativa](#operating-temperature-de-rating-specifications).                                                                                |
 |    Altitudine massima, non operativa    |    12.000 metri (39.370 piedi)                                                                                                                                                                                         |
 |    Scossa, operativo                   |    6 G per 11 millisecondi in 6 orientamenti                                                                                                                                                                         |
 |    Scossa, non operativo               |    71 G per 2 millisecondi in 6 orientamenti                                                                                                                                                                           |

@@ -3,12 +3,12 @@ title: Eseguire il backup di Azure Managed Disks
 description: Informazioni su come eseguire il backup di Azure Managed Disks dalla portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: c4e2d4e649d59389ac3f8bd115e43acabc792eb2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557827"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573123"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Eseguire il backup di Managed Disks di Azure (in anteprima)
 
@@ -129,6 +129,8 @@ Per configurare il backup dei dischi gestiti sono necessari i prerequisiti segue
    >Digitare il nome dell'insieme di credenziali di backup per selezionare l'identità gestita dell'insieme di credenziali.
 
    ![Aggiungi ruolo Collaboratore snapshot disco](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
+
+1. Se il disco di cui eseguire il backup viene crittografato con le [chiavi gestite dal cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o con la [crittografia doppia usando chiavi gestite dalla piattaforma e chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), assegnare l'autorizzazione del ruolo **lettore** all'identità gestita dell'insieme di credenziali di backup nella risorsa del set di **crittografia del disco** .
 
 1. Verificare che l'identità gestita dell'insieme di credenziali di backup includa il set corretto di assegnazioni di ruolo nel disco di origine e nel gruppo di risorse che funge da archivio dati snapshot.
 
