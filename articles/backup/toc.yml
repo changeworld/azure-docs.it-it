@@ -66,6 +66,8 @@
           href: sap-hana-backup-support-matrix.md
         - name: Matrice di supporto del backup per condivisioni file di Azure
           href: azure-file-share-support-matrix.md
+        - name: Matrice di supporto per il backup di dischi di Azure
+          href: disk-backup-support-matrix.md
         - name: Controller di dominio Active Directory
           href: active-directory-backup-restore.md
         - name: SKU di macchine virtuali supportate per Criteri di Azure
@@ -82,6 +84,8 @@
           href: backup-azure-file-folder-backup-faq.md
         - name: Domande frequenti - Eseguire il backup di File di Azure
           href: backup-azure-files-faq.md
+        - name: Domande frequenti - Backup di dischi di Azure
+          href: disk-backup-faq.md
         - name: Domande frequenti - Eseguire il backup di database SQL Server in macchine virtuali di Azure
           href: faq-backup-sql-server.md
         - name: Domande frequenti - Eseguire il backup di database SAP HANA nelle VM di Azure
@@ -210,6 +214,14 @@
               href: backup-azure-restore-system-state.md
         - name: Gestione
           href: backup-azure-manage-mars.md
+    - name: Domande frequenti - Backup di dischi di Azure
+      items:
+        - name: Panoramica
+          href: disk-backup-overview.md
+        - name: Backup
+          href: backup-managed-disks.md
+        - name: Restore
+          href: restore-managed-disks.md
     - name: Backup di condivisioni file di Azure
       items:
         - name: Panoramica
@@ -392,7 +404,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica
           href: security-overview.md
@@ -441,6 +453,8 @@
           href: backup-azure-scdpm-troubleshooting.md
         - name: Condivisione file di Azure
           href: troubleshoot-azure-files.md
+        - name: Backup di dischi di Azure
+          href: disk-backup-troubleshoot.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
         - name: Backup di SAP HANA nelle VM di Azure

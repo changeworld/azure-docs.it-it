@@ -159,6 +159,20 @@
           href: how-to-troubleshoot-the-sensor-and-on-premises-management-console.md
         - name: Configurare il monitoraggio MIB SNMP
           href: how-to-set-up-snmp-mib-monitoring.md
+        - name: Integrazioni con i partner
+          items:
+            - name: Integrazione di Cisco ISE pxGrid
+              href: integration-cisco-ise-pxgrid.md
+            - name: Integrazione di ForeScout
+              href: integration-forescout.md
+            - name: integrazione di Fortinet
+              href: integration-fortinet.md
+            - name: Integrazione di Palo Alto
+              href: integration-palo-alto.md
+            - name: Integrazione di ServiceNow
+              href: integration-servicenow.md
+            - name: Integrazione di Splunk
+              href: integration-splunk.md
     - name: Soluzione basata su agente per integratori di dispositivi
       items:
         - name: Uso del modulo di sicurezza per Azure RTOS
