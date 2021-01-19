@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2d50903f464c03157ee393787af6ddfdad975aed
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 1bd9f7408baf40791c31626ea9e87a73c65b999c
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588047"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963998"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Esercitazione: Importare file BACPAC SQL con i modelli di Azure Resource Manager
 
@@ -55,7 +55,7 @@ Il file BACPAC deve essere archiviato in un account di archiviazione di Azure pr
 * Caricare il file BACPAC nel contenitore.
 * Visualizzare la chiave dell'account di archiviazione e l'URL del BLOB.
 
-1. Selezionare **Prova** per aprire la shell. Incollare lo script di PowerShell seguente nella finestra della shell.
+1. Selezionare **Prova** per aprire Azure Cloud Shell. Incollare lo script di PowerShell seguente nella finestra della shell.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"

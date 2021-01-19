@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione continua di video nel cloud e riproduzione 
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per registrare i video in modo continuo nel cloud ed eseguirne lo streaming di qualsiasi parte usando Servizi multimediali di Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c38ab1f32d1ef4e54cd8568ff17d325fabdefc31
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8fa2b65416499e58235fa312ffdcd2d71c3cfb39
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498371"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060147"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione continua di video nel cloud e riproduzione dal cloud
 
@@ -51,6 +51,9 @@ Al termine di questa procedura, le risorse di Azure pertinenti verranno distribu
 * Account Servizi multimediali di Azure
 * VM Linux in Azure, con il [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md) installato
 
+> [!TIP]
+> Se si verificano problemi con le risorse di Azure create, vedere la **[guida alla risoluzione dei problemi](troubleshoot-how-to.md#common-error-resolutions)** più comuni rilevati.
+
 ## <a name="concepts"></a>Concetti
 
 Come descritto nell'articolo [Concetti relativi al grafo multimediale](media-graph-concept.md), un grafo multimediale consente di definire:
@@ -64,7 +67,9 @@ Come descritto nell'articolo [Concetti relativi al grafo multimediale](media-gra
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Grafo multimediale":::
 
-In questa esercitazione si userà un modulo Edge creato usando [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) per simulare una videocamera RTSP. All'interno del grafo multimediale, si userà un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) per ottenere il feed live e inviare il video al [nodo sink di asset](media-graph-concept.md#asset-sink) che registrerà il video in un asset.
+In questa esercitazione si userà un modulo Edge creato usando [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) per simulare una videocamera RTSP. All'interno del grafo multimediale, si userà un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) per ottenere il feed live e inviare il video al [nodo sink di asset](media-graph-concept.md#asset-sink) che registrerà il video in un asset. Il video che verrà usato in questa esercitazione è [un video di esempio su uno svincolo autostradale](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv).
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LTY4]
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 
@@ -169,14 +174,14 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
-1. <!--In Visual Studio Code, go-->Passare a src/cloud-to-device-console-app/operations.json.
+1. Passare a src/cloud-to-device-console-app/operations.json.
 1. Nel nodo **GraphTopologySet** modificare quanto segue:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
 1. Quindi, nei nodi **GraphInstanceSet** e **GraphTopologyDelete** assicurarsi che il valore di **topologyName** corrisponda al valore della proprietà **name** nella topologia del grafo precedente:
 
     `"topologyName" : "CVRToAMSAsset"`  
-1. Aprire la [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) in un browser e osservare assetNamePattern. Per assicurarsi di avere un asset con un nome univoco, potrebbe essere necessario cambiare il nome dell'istanza del grafo nel file operations.json (il valore predefinito è Sample-Graph-1).
+1. Aprire la [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/2.0/topology.json) in un browser e osservare assetNamePattern. Per assicurarsi di avere un asset con un nome univoco, potrebbe essere necessario cambiare il nome dell'istanza del grafo nel file operations.json (il valore predefinito è Sample-Graph-1).
 
     `"assetNamePattern": "sampleAsset-${System.GraphTopologyName}-${System.GraphInstanceName}"`    
 1. Avviare una sessione di debug premendo F5. Verranno visualizzati alcuni messaggi stampati nella finestra **TERMINALE**.
@@ -187,7 +192,7 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
     Executing operation GraphTopologyList
     -----------------------  Request: GraphTopologyList  --------------------------------------------------
     {
-      "@apiVersion": "1.0"
+      "@apiVersion": "2.0"
     }
     ---------------  Response: GraphTopologyList - Status: 200  ---------------
     {
@@ -204,7 +209,7 @@ Quando si usa il modulo Analisi video live in IoT Edge per registrare il flusso 
      
      ```
      {
-       "@apiVersion": "1.0",
+       "@apiVersion": "2.0",
        "name": "Sample-Graph-1",
        "properties": {
          "topologyName": "CVRToAMSAsset",
@@ -277,7 +282,7 @@ Quando l'istanza del grafo è attivata, il nodo di origine RTSP tenta di connett
 
 ### <a name="recordingstarted-event"></a>Evento RecordingStarted
 
-Quando il nodo sink di asset inizia a registrare il video, genera questo evento di tipo Microsoft.Media.Graph.Operational.RecordingStarted:
+Quando il nodo sink di asset inizia a registrare il video, genera questo evento di tipo **Microsoft.Media.Graph.Operational.RecordingStarted**:
 
 ```
 [IoTHubMonitor] [9:42:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -302,7 +307,7 @@ La sezione body contiene informazioni sulla posizione di output. In questo caso,
 
 ### <a name="recordingavailable-event"></a>Evento RecordingAvailable
 
-Come suggerisce il nome, l'evento RecordingStarted viene inviato all'avvio della registrazione, ma i dati video potrebbero non essere ancora stati caricati nell'asset. Dopo aver caricato i dati video nell'asset, il nodo sink di asset genera questo evento di tipo Microsoft.Media.Graph.Operational.RecordingAvailable:
+Come suggerisce il nome, l'evento RecordingStarted viene inviato all'avvio della registrazione, ma i dati video potrebbero non essere ancora stati caricati nell'asset. Dopo aver caricato i dati video nell'asset, il nodo sink di asset genera questo evento di tipo **Microsoft.Media.Graph.Operational.RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [[9:43:38 AM] Message received from [lva-sample-device/lvaEdge]:
@@ -329,7 +334,7 @@ La sezione body contiene informazioni sulla posizione di output. In questo caso,
 
 ### <a name="recordingstopped-event"></a>Evento RecordingStopped
 
-Quando si disattiva l'istanza del grafo, il nodo sink di asset interrompe la registrazione del video nell'asset. Genera questo evento di tipo Microsoft.Media.Graph.Operational.RecordingStopped:
+Quando si disattiva l'istanza del grafo, il nodo sink di asset interrompe la registrazione del video nell'asset. Genera questo evento di tipo **Microsoft.Media.Graph.Operational.RecordingStopped**:
 
 ```
 [IoTHubMonitor] [11:33:31 PM] Message received from [lva-sample-device/lvaEdge]:

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7eda805a5fdf24a7a55b9296a0f0a1c9a5bfc576
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 36fb54b4b6521d87c7461936c84a644bf22f7e31
+ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683491"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97963964"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>Esercitazione: Usare gli script di distribuzione per creare un certificato autofirmato
 
@@ -329,13 +329,13 @@ Lo script di distribuzione aggiunge un certificato all'insieme di credenziali de
 
     ![Risorse dello script di distribuzione del modello di Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
 
-    Entrambi i file hanno il suffisso **azscripts**. Uno è un account di archiviazione e l'altro è un'istanza di contenitore.
+    Entrambi i file hanno il suffisso _azscripts_. Uno è un account di archiviazione e l'altro è un'istanza di contenitore.
 
     Selezionare **Mostra tipi nascosti** per elencare la risorsa `deploymentScripts`.
 
-1. Selezionare l'account di archiviazione con il suffisso **azscripts**.
-1. Selezionare il riquadro **Condivisioni file**. Verrà visualizzata una cartella **azscripts**. La cartella contiene i file di esecuzione dello script di distribuzione.
-1. Selezionare **azscripts**. Verranno visualizzate due cartelle, **azscriptinput** e **azscriptoutput**. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. La cartella di output contiene un file _executionresult.json_ e il file di output dello script. È possibile visualizzare il messaggio di errore in _executionresult.json_. Il file di output non è presente perché l'esecuzione non è riuscita.
+1. Selezionare l'account di archiviazione con il suffisso _azscripts_.
+1. Selezionare il riquadro **Condivisioni file**. Viene visualizzata una cartella _azscripts_ che contiene i file di esecuzione dello script di distribuzione.
+1. Selezionare _azscripts_. Verranno visualizzate due cartelle, _azscriptinput_ e _azscriptoutput_. La cartella di input contiene un file di script di sistema di PowerShell e i file di script di distribuzione dell'utente. La cartella di output contiene un file _executionresult.json_ e il file di output dello script. È possibile visualizzare il messaggio di errore in _executionresult.json_. Il file di output non è presente perché l'esecuzione non è riuscita.
 
 Rimuovere la riga `Write-Output1` e ridistribuire il modello.
 

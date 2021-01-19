@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 12/09/2020
-ms.openlocfilehash: 16b924f486215d972477e93c4e199e7076a0a531
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.date: 01/12/2021
+ms.openlocfilehash: 2fcb8f6d22e93f3a95be26b7bc61f3b5226ba090
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508884"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98117113"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Copiare più tabelle in blocco con Azure Data Factory nel portale di Azure
 
@@ -51,20 +51,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Account di archiviazione di Azure**. L'account di archiviazione di Azure viene usato come archivio BLOB di staging nell'operazione di copia in blocco. 
-* **Database SQL di Azure**. Questo database contiene i dati di origine. 
-* **Azure Synapse Analytics**. Questo data warehouse include i dati copiati dal database SQL. 
-
-### <a name="prepare-sql-database-and-azure-synapse-analytics"></a>Preparare Database SQL e Azure Synapse Analytics 
-
-**Preparare il database SQL di Azure di origine**:
-
-Creare un database in Database SQL con i dati dell'esempio Adventure Works LT, seguendo l'articolo [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in Azure Synapse Analytics.
-
-**Preparare l'istanza sink di Azure Synapse Analytics**:
-
-1. Se non è disponibile un'area di lavoro di Azure Synapse Analytics, vedere l'articolo [Introduzione ad Azure Synapse Analytics](..\synapse-analytics\get-started.md) per la procedura per crearne una.
-
-1. Creare gli schemi di tabella corrispondenti in Azure Synapse Analytics. Azure Data Factory viene usato in un passaggio successivo per la migrazione/copia dei dati.
+* **Database SQL di Azure**. Questo database contiene i dati di origine. Creare un database in Database SQL con i dati dell'esempio Adventure Works LT, seguendo l'articolo [Creare un database in Database SQL di Azure](../azure-sql/database/single-database-create-quickstart.md). Questa esercitazione copia tutte le tabelle da questo database di esempio in Azure Synapse Analytics.
+* **Azure Synapse Analytics**. Questo data warehouse include i dati copiati dal database SQL. Se non è disponibile un'area di lavoro di Azure Synapse Analytics, vedere l'articolo [Introduzione ad Azure Synapse Analytics](..\synapse-analytics\get-started.md) per la procedura per crearne una.
 
 ## <a name="azure-services-to-access-sql-server"></a>Accesso dei servizi di Azure a SQL Server
 
@@ -241,6 +229,7 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
     ![Generatore di parametri foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
     d. Passare alla scheda **Attività**, fare clic sull'**icona a forma di matita** per aggiungere un'attività figlio all'attività **ForEach**.
+    
     ![Guida all'attività ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-builder.png)
 
 1. Nella casella degli strumenti **Attività** espandere **Move & Transfer** (Sposta e trasferisci) e trascinare l'attività **Copia dati** nell'area di progettazione della pipeline. Si noti il menu di navigazione nella parte superiore della schermata. **IterateAndCopySQLTable** è il nome della pipeline e **IterateSQLTables** è il nome dell'attività ForEach. La finestra di progettazione rientra nell'ambito dell'attività. Per tornare all'editor di pipeline dall'editor di ForEach, fare clic sul collegamento nel menu di navigazione. 
@@ -257,7 +246,6 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-
 1. Passare alla scheda **Sink** e seguire questa procedura: 
 
     1. Selezionare **AzureSqlDWDataset** per **Sink Dataset** (Set di dati sink).
@@ -265,6 +253,7 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
     1. Fare clic sulla casella di input per il valore del parametro DWSchema -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `@item().TABLE_SCHEMA` come script -> selezionare **Fine**.
     1. Per metodo di copia selezionare **PolyBase**. 
     1. Deselezionare l'opzione **Use type default** (Tipo di uso predefinito). 
+    1. Per l'opzione Tabella, l'impostazione predefinita è "Nessuna". Se non sono presenti tabelle create in precedenza nel sink di Azure Synapse Analytics, abilitare l'opzione **Crea tabella automaticamente**. L'attività di copia creerà quindi automaticamente le tabelle in base ai dati di origine. Per informazioni dettagliate, vedere [Creazione automatica di tabelle del sink](copy-activity-overview.md#auto-create-sink-tables). 
     1. Fare clic sulla casella di input **Pre-copy Script** (Script di pre-copia) -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente come script -> selezionare **Fine**. 
 
         ```sql
@@ -272,6 +261,8 @@ La pipeline **IterateAndCopySQLTables** accetta un elenco di tabelle come parame
         ```
 
         ![Copiare le impostazioni del sink](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
+
+
 1. Passare alla scheda **Impostazioni** e seguire questa procedura: 
 
     1. Selezionare la casella di controllo **Enable staging** (Abilita staging).

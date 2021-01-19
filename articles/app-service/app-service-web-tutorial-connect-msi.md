@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: 1f6757a9f78e3c400d92fd65a0795ceae7570c99
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f043f7ed63353dcb9cf9fd26690da97b902f32a6
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347575"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108620"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -229,6 +229,9 @@ Digitare `EXIT` per tornare al prompt di Cloud Shell.
 > [!NOTE]
 > Anche i servizi back-end delle identità gestite [gestiscono una cache di token](overview-managed-identity.md#obtain-tokens-for-azure-resources) che aggiorna il token per una risorsa di destinazione solo quando scade. Se si commette un errore durante la configurazione delle autorizzazioni per il database SQL e si tenta di modificare le autorizzazioni *dopo* aver provato a ottenere un token con l'applicazione, non si otterrà un nuovo token con le autorizzazioni aggiornate fino alla scadenza del token memorizzato nella cache.
 
+> [!NOTE]
+> AAD non è supportato per le istanze di SQL Server locali, incluse le identità del servizio gestite. 
+
 ### <a name="modify-connection-string"></a>Modificare la stringa di connessione
 
 Tenere presente che le stesse modifiche apportate in *Web.config* o *appsettings.json* funzionano con l'identità gestita, quindi è sufficiente rimuovere la stringa di connessione esistente nel servizio app che è stata creata da Visual Studio quando l'app è stata distribuita per la prima volta. Usare il comando seguente, ma sostituire *\<app-name>* con il nome dell'app.
@@ -251,7 +254,7 @@ Nella pagina di pubblicazione fare clic su **Pubblica**.
 
 ```bash
 git commit -am "configure managed identity"
-git push azure master
+git push azure main
 ```
 
 Quando nella nuova pagina Web viene visualizzato l'elenco attività, l'app si connette al database con l'identità gestita.

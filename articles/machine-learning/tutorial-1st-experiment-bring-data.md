@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: de89f9d87b010dc3710e7d82f4d846de12303905
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: ab497dee35afdd60247d156d0f30bbf003ea1210
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739434"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98072157"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Esercitazione: Usare i propri dati (parte 4 di 4)
 
@@ -40,9 +40,6 @@ In questa esercitazione:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento della [parte 3](tutorial-1st-experiment-sdk-train.md) della serie.
-* Conoscenze di base del linguaggio Python e dei flussi di lavoro di Machine Learning.
-* Ambiente di sviluppo locale, come Visual Studio Code, Jupyter o PyCharm.
-* Python (versione 3.5-3.7).
 
 ## <a name="adjust-the-training-script"></a>Modificare lo script di training
 
@@ -130,7 +127,7 @@ Il valore `target_path` specifica il percorso dell'archivio dati in cui verranno
 >[!TIP] 
 > Anche se si usa Azure Machine Learning per caricare i dati, è possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare file ad hoc. Se è necessario uno strumento di estrazione, trasformazione e caricamento, è possibile usare [Azure Data Factory](../data-factory/introduction.md) per inserire i dati in Azure.
 
-Eseguire il file di Python per caricare i dati. il caricamento dovrebbe richiedere meno di 60 secondi.
+Nella finestra con l'ambiente Conda *tutorial1* attivato eseguire il file Python per caricare i dati. il caricamento dovrebbe richiedere meno di 60 secondi.
 
 ```bash
 python 05-upload-data.py

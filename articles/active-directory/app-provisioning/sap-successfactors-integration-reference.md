@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/20/2020
+ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e97be7fef09287e6c4f8696e217702b97853fa6a
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969531"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569454"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Come Azure Active Directory il provisioning si integra con SAP SuccessFactors 
 
@@ -48,34 +48,35 @@ Per ogni utente di SuccessFactors, Azure AD servizio di provisioning recupera le
 | \# | Entità SuccessFactors                  | Nodo OData     | Regola di recupero |
 |----|----------------------------------------|------------------------------|------------------|
 | 1  | PerPerson                              | *nodo radice*                  | Sempre           |
-| 2  | PerPersonal                            | personalInfoNav              | Sempre           |
-| 3  | PerPhone                               | phoneNav                     | Sempre           |
-| 4  | PerEmail                               | emailNav                     | Sempre           |
-| 5  | EmpEmployment                          | employmentNav                | Sempre           |
-| 6  | Utente                                   | employmentNav/userNav        | Sempre           |
-| 7  | EmpJob                                 | employmentNav/jobInfoNav     | Sempre           |
-| 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Sempre           |
-| 9  | FOCompany                              | employmentNav/jobInfoNav/companyNav | Solo se `company` `companyId` è stato eseguito il mapping dell'attributo o |
-| 10 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Solo se `department` `departmentId` è stato eseguito il mapping dell'attributo o |
-| 11 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Solo se `businessUnit` `businessUnitId` è stato eseguito il mapping dell'attributo o |
-| 12 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Solo se `costCenter` `costCenterId` è stato eseguito il mapping dell'attributo o |
-| 13 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Solo se `division` `divisionId` è stato eseguito il mapping dell'attributo o |
-| 14 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Solo se `jobCode` `jobCodeId` è stato eseguito il mapping dell'attributo o |
-| 15 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Solo se `payGrade` è stato eseguito il mapping dell'attributo |
-| 16 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Solo se `location` è stato eseguito il mapping dell'attributo |
-| 17 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se il mapping contiene uno degli attributi seguenti: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
-| 18 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Solo se `eventReason` è stato eseguito il mapping dell'attributo |
-| 19 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Solo se `assignmentType` è mappato |
-| 20 | Elenco a discesa EmploymentType                | employmentNav/jobInfoNav/employmentTypeNav | Solo se `employmentType` è mappato |
-| 21 | Elenco a discesa EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Solo se `employeeClass` è mappato |
-| 22 | Elenco a discesa EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Solo se `emplStatus` è mappato |
-| 23 | Elenco a discesa AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Solo se `assignmentType` è mappato |
+| 2  | PerPersonal                            | personalInfoNav              | Always           |
+| 3  | PerPhone                               | phoneNav                     | Always           |
+| 4  | PerEmail                               | emailNav                     | Always           |
+| 5  | EmpEmployment                          | employmentNav                | Always           |
+| 6  | Utente                                   | employmentNav/userNav        | Always           |
+| 7  | EmpJob                                 | employmentNav/jobInfoNav     | Always           |
+| 8  | EmpEmploymentTermination               | activeEmploymentsCount       | Always           |
+| 9  | Responsabile dell'utente                         | employmentNav/userNav/Manager/empInfo | Always  |
+| 10 | FOCompany                              | employmentNav/jobInfoNav/companyNav | Solo se `company` `companyId` è stato eseguito il mapping dell'attributo o |
+| 11 | FODepartment                           | employmentNav/jobInfoNav/departmentNav | Solo se `department` `departmentId` è stato eseguito il mapping dell'attributo o |
+| 12 | FOBusinessUnit                         | employmentNav/jobInfoNav/businessUnitNav | Solo se `businessUnit` `businessUnitId` è stato eseguito il mapping dell'attributo o |
+| 13 | FOCostCenter                           | employmentNav/jobInfoNav/costCenterNav | Solo se `costCenter` `costCenterId` è stato eseguito il mapping dell'attributo o |
+| 14 | FODivision                             | employmentNav/jobInfoNav/divisionNav  | Solo se `division` `divisionId` è stato eseguito il mapping dell'attributo o |
+| 15 | FOJobCode                              | employmentNav/jobInfoNav/jobCodeNav  | Solo se `jobCode` `jobCodeId` è stato eseguito il mapping dell'attributo o |
+| 16 | FOPayGrade                             | employmentNav/jobInfoNav/payGradeNav  | Solo se `payGrade` è stato eseguito il mapping dell'attributo |
+| 17 | FOLocation                             | employmentNav/jobInfoNav/locationNav  | Solo se `location` è stato eseguito il mapping dell'attributo |
+| 18 | FOCorporateAddressDEFLT                | employmentNav/jobInfoNav/addressNavDEFLT  | Se il mapping contiene uno degli attributi seguenti: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 19 | FOEventReason                          | employmentNav/jobInfoNav/eventReasonNav  | Solo se `eventReason` è stato eseguito il mapping dell'attributo |
+| 20 | EmpGlobalAssignment                    | employmentNav/empGlobalAssignmentNav | Solo se `assignmentType` è mappato |
+| 21 | Elenco a discesa EmploymentType                | employmentNav/jobInfoNav/employmentTypeNav | Solo se `employmentType` è mappato |
+| 22 | Elenco a discesa EmployeeClass                 | employmentNav/jobInfoNav/employeeClassNav | Solo se `employeeClass` è mappato |
+| 23 | Elenco a discesa EmplStatus                    | employmentNav/jobInfoNav/emplStatusNav | Solo se `emplStatus` è mappato |
+| 24 | Elenco a discesa AssignmentType                | employmentNav/empGlobalAssignmentNav/assignmentTypeNav | Solo se `assignmentType` è mappato |
 
 ## <a name="how-full-sync-works"></a>Funzionamento della sincronizzazione completa
 In base al mapping degli attributi, durante la sincronizzazione completa Azure AD servizio di provisioning Invia la seguente query API OData "GET" per recuperare dati effettivi di tutti gli utenti attivi. 
 
 > [!div class="mx-tdCol2BreakAll"]
->| Parametro | Descrizione |
+>| Parametro | Description |
 >| ----------|-------------|
 >| Host API OData | Accoda HTTPS all'URL del *tenant*. Esempio: `https://api4.successfactors.com` |
 >| Endpoint API OData | `/odata/v2/PerPerson` |
@@ -113,12 +114,12 @@ Quando Azure AD il servizio di provisioning esegue query SuccessFactors, recuper
 
 Per recuperare attributi aggiuntivi, attenersi alla procedura riportata di seguito:
     
-1. Passare ad **applicazioni aziendali**  ->  **SuccessFactors app**di  ->  **provisioning**modifica provisioning  ->  **Edit Provisioning**  ->  **attributo-mapping pagina**.
+1. Passare ad **applicazioni aziendali**  ->  **SuccessFactors app** di  ->  **provisioning** modifica provisioning  ->    ->  **attributo-mapping pagina**.
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
-1. Fare clic su **modifica elenco attributi per SuccessFactors**. 
+1. Selezionare **Edit attribute list for SuccessFactors** (Modifica elenco attributi per SuccessFactors). 
 
    > [!NOTE] 
-   > Se l'opzione **modifica elenco attributi per SuccessFactors** non viene visualizzata nella portale di Azure, usare l'URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* per accedere alla pagina. 
+   > Se l'opzione **Edit attribute list for SuccessFactors** non è visualizzata nel portale di Azure, usare l'URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* per accedere alla pagina. 
 
 1. Nella colonna **espressione API** in questa vista vengono visualizzate le espressioni JSONPath utilizzate dal connettore.
 
@@ -244,8 +245,8 @@ Questa modifica dello schema supporta anche lo scenario di conversione del ruolo
 ### <a name="handling-global-assignment-scenario"></a>Gestione dello scenario di assegnazione globale
 
 Quando un utente in Employee Central viene elaborato per l'assegnazione globale, SuccessFactors aggiunge una nuova entità *EmpEmployment* e imposta *ASSIGNMENTCLASS* su "GA". Crea anche una nuova entità *utente* . Quindi, l'utente ha ora:
-* Un' *EmpEmployment*  +  entità*utente* EmpEmployment che corrisponde all'assegnazione Home con *assignmentClass* impostato su "St" e 
-* Un' *EmpEmployment*altra  +  entità*utente* EmpEmployment che corrisponde all'assegnazione globale con *assignmentClass* impostato su "GA"
+* Un'   +  entità *utente* EmpEmployment che corrisponde all'assegnazione Home con *assignmentClass* impostato su "St" e 
+* Un' altra  +  entità *utente* EmpEmployment che corrisponde all'assegnazione globale con *assignmentClass* impostato su "GA"
 
 Per recuperare gli attributi appartenenti al profilo utente assegnazione standard e assegnazione globale, attenersi alla procedura riportata di seguito: 
 
@@ -263,7 +264,7 @@ Per recuperare gli attributi appartenenti al profilo utente assegnazione standar
    * Nuovo JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Ricaricare il pannello mapping attributi dell'app. 
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
-1. Fare clic su **modifica elenco attributi per SuccessFactors**.
+1. Selezionare **Edit attribute list for SuccessFactors** (Modifica elenco attributi per SuccessFactors).
 1. Aggiungere nuovi attributi per recuperare i dati di assegnazione globali. Ad esempio: se si vuole recuperare il nome del reparto associato a un profilo di assegnazione globale, è possibile aggiungere l'attributo *globalAssignmentDepartment* con l'espressione JSONPath impostata su `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized` . 
 1. È ora possibile eseguire il flusso di entrambi i valori del reparto per Active Directory attributi o propagarne selettivamente un valore usando il mapping delle espressioni. Esempio: l'espressione seguente imposta il valore dell'attributo del *reparto* ad su *globalAssignmentDepartment* se presente. in caso contrario, imposta il valore su *Department* associato all'assegnazione standard. 
    * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
@@ -277,7 +278,7 @@ Quando un utente in Employee Central dispone di processi simultanei o multipli, 
 
 1. Aprire il pannello mapping attributi dell'app di provisioning di SuccessFactors. 
 1. Scorrere verso il basso e fare clic su **Mostra opzioni avanzate**.
-1. Fare clic su **modifica elenco attributi per SuccessFactors**.
+1. Selezionare **Edit attribute list for SuccessFactors** (Modifica elenco attributi per SuccessFactors).
 1. Supponiamo di voler effettuare il pull del reparto associato al processo 1 e al processo 2. Il *reparto* attributi predefinito recupera già il valore del reparto per il primo processo. È possibile definire un nuovo attributo denominato *secondJobDepartment* e impostare l'espressione JSONPath su `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. È ora possibile eseguire il flusso di entrambi i valori del reparto per Active Directory attributi o propagarne selettivamente un valore usando il mapping delle espressioni. 
 1. Salvare il mapping. 
@@ -310,7 +311,7 @@ In questa sezione vengono illustrati diversi scenari di write-back. Suggerisce g
 
 * [Informazioni su come configurare SuccessFactors per il provisioning di Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 * [Informazioni su come configurare il writeback per SuccessFactors](../saas-apps/sap-successfactors-writeback-tutorial.md)
-* [Altre informazioni sugli attributi SuccessFactors supportati per il provisioning in ingresso](sap-successfactors-attribute-reference.md)
+* [Altre informazioni sugli attributi di SuccessFactors supportati per il provisioning in ingresso](sap-successfactors-attribute-reference.md)
 
 
 

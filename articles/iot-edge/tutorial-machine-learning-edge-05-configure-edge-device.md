@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: bc62590b9517b2c6d16fdf2637990b845248d2ec
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 74d77d8c81455116cec861bf6704c6cb96526561
+ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932354"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98121091"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
@@ -81,7 +81,7 @@ In questa sezione vengono creati certificati autofirmati usando un'immagine Dock
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Caricare i certificati in Azure Key Vault
 
-Per archiviare i certificati in sicurezza e renderli accessibili da più dispositivi, caricarli in Azure Key Vault. Come si può vedere nell'elenco precedente, sono disponibili due tipi di file di certificati: PFX e PEM. I file PFX verranno trattati come certificati di Key Vault da caricare in Key Vault. I file PEM sono in testo normale e verranno trattati come segreti di Key Vault. Verrà usata l'istanza di Key Vault associata all'area di lavoro di Azure Machine Learning creata eseguendo [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Per archiviare i certificati in sicurezza e renderli accessibili da più dispositivi, caricarli in Azure Key Vault. Come si può vedere nell'elenco precedente, sono disponibili due tipi di file di certificati: PFX e PEM. I file PFX verranno trattati come certificati di Key Vault da caricare in Key Vault. I file PEM sono in testo normale e verranno trattati come segreti di Key Vault. Verrà usata l'istanza di Key Vault associata all'area di lavoro di Azure Machine Learning creata eseguendo [Jupyter Notebook](tutorial-machine-learning-edge-04-train-model.md#run-jupyter-notebooks).
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'area di lavoro di Azure Machine Learning.
 

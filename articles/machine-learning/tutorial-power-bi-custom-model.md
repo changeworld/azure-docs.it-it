@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare il modello predittivo con un notebook (parte 1 di 2)'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare e distribuire un modello di Machine Learning usando il codice di un notebook di Jupyter. È possibile usare il modello per prevedere risultati in Microsoft Power BI.
+description: Informazioni su come creare e distribuire un modello di Machine Learning usando il codice di un notebook di Jupyter. Creare anche uno script di assegnazione dei punteggi che definisce l'input e l'output per semplificare l'integrazione in Microsoft Power BI.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
 ms.date: 12/11/2020
-ms.openlocfilehash: 1dfee56f90011d3c532767e136b383e4eb95c234
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 29b340448f3ce3e18a649065bdcd0b335bab8b73
+ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814772"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98108246"
 ---
-# <a name="tutorial-power-bi-integration---create-the-predictive-model-by-using-a-jupyter-notebook-part-1-of-2"></a>Esercitazione: Integrazione di Power BI: creare il modello predittivo con un notebook di Jupyter (parte 1 di 2)
+# <a name="tutorial-power-bi-integration---create-the-predictive-model-with-a-jupyter-notebook-part-1-of-2"></a>Esercitazione: Integrazione di Power BI: creare il modello predittivo con un notebook di Jupyter (parte 1 di 2)
 
-Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando il codice di un notebook di Jupyter. Nella parte 2 si userà il modello per prevedere i risultati in Microsoft Power BI.
+Nella prima parte di questa esercitazione si eseguono il training e la distribuzione di un modello predittivo di Machine Learning usando il codice di un notebook di Jupyter. Si creerà anche uno script di assegnazione dei punteggi per definire lo schema di input e output del modello per l'integrazione in Power BI.  Nella parte 2 si userà il modello per prevedere i risultati in Microsoft Power BI.
 
 In questa esercitazione:
 
@@ -27,6 +27,7 @@ In questa esercitazione:
 > * Creare un notebook di Jupyter Notebook.
 > * Creare un'istanza di calcolo di Azure Machine Learning.
 > * Eseguire il training di un modello di regressione usando scikit-learn.
+> * Scrivere uno script di assegnazione dei punteggi che definisce l'input e l'output per semplificare l'integrazione in Microsoft Power BI.
 > * Distribuire il modello in un endpoint di assegnazione punteggi in tempo reale.
 
 Esistono tre modi per creare e distribuire il modello che verrà usato in Power BI.  Questo articolo illustra l'opzione A: Eseguire il training e la distribuzione di modelli con i notebook.  Questa opzione offre un'esperienza di creazione code-first. Usa notebook di Jupyter ospitati nello studio di Azure Machine Learning. 
@@ -157,7 +158,7 @@ print('Version:', model.version)
 
 :::image type="content" source="media/tutorial-power-bi/model.png" alt-text="Screenshot che mostra come visualizzare un modello.":::
 
-### <a name="define-the-scoring-script"></a>Definire lo script di assegnazione dei punteggi
+## <a name="define-the-scoring-script"></a>Definire lo script di assegnazione dei punteggi
 
 Quando si distribuisce un modello che verrà integrato in Power BI, è necessario definire uno *script di assegnazione dei punteggi* di Python e un ambiente personalizzato. Lo script di assegnazione dei punteggi contiene due funzioni:
 
@@ -165,7 +166,7 @@ Quando si distribuisce un modello che verrà integrato in Power BI, è necessari
 - La funzione `run(data)` viene eseguita quando una chiamata al servizio include i dati di input a cui assegnare punteggi. 
 
 >[!NOTE]
-> Questo articolo usa elementi Decorator Python per definire lo schema dei dati di input e di output. Questa configurazione è importante per l'integrazione in Power BI.
+> Gli elementi Decorator di Python del codice seguente definiscono lo schema dei dati di input e di output, il che è importante per l'integrazione di Power BI.
 
 Copiare il codice seguente e incollarlo in una nuova *cella di codice* del notebook. Il frammento di codice seguente include una cella magic che scrive il codice in un file denominato *score.py*.
 

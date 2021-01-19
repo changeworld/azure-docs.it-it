@@ -67,7 +67,7 @@ NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR    PUBLIC IP    PRIVATE 
 myapim       myResourceGroup   Central US                                             Activating  Developer  1
 ```
 
-Dopo l'attivazione, lo stato diventa `Online` e l'istanza del servizio presenta un indirizzo gateway e un indirizzo IP pubblico. Per il momento, questi indirizzi non espongono alcun contenuto. Ad esempio:\
+Dopo l'attivazione, lo stato diventa `Online` e l'istanza del servizio presenta un indirizzo gateway e un indirizzo IP pubblico. Per il momento, questi indirizzi non espongono alcun contenuto. Ad esempio:
 
 ```console
 NAME         RESOURCE GROUP    LOCATION    GATEWAY ADDR                       PUBLIC IP     PRIVATE IP    STATUS    TIER       UNITS

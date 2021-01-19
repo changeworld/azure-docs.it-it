@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 169a8dba979571a5f4b8c8056737fce72db1d058
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629868"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064522"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice per Microsoft Identity Platform (endpoint versione 2.0)
 
@@ -100,7 +100,7 @@ L'esempio seguente mostra un'applicazione che accede all'API Microsoft Graph con
 
 ## <a name="headless-applications"></a>Applicazioni headless
 
-Gli esempi seguenti mostrano un'applicazione client pubblica eseguite in un dispositivo senza un Web browser. L'app può essere uno strumento da riga di comando, un'app in esecuzione in Linux/Mac oppure un'applicazione IoT. Gli esempi mostrano un'app che accede all'API Microsoft Graph per conto di un utente che esegue l'accesso in modo interattivo in un altro dispositivo, ad esempio un telefono cellulare. Questa applicazione client usa MicroSoft Authentication Library (MSAL).
+Gli esempi seguenti mostrano un'applicazione client pubblica eseguite in un dispositivo senza un Web browser. L'app può essere uno strumento da riga di comando, un'app in esecuzione in Linux/Mac oppure un'applicazione IoT. Gli esempi mostrano un'app che accede all'API Microsoft Graph per conto di un utente che esegue l'accesso in modo interattivo in un altro dispositivo, ad esempio un telefono cellulare. Questa applicazione client usa Microsoft Authentication Library (MSAL).
 
 | Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
@@ -140,7 +140,7 @@ Gli esempi seguenti illustrano come proteggere una funzione di Azure tramite Htt
 | ![Questa immagine mostra il logo ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | Funzione di Azure API Web (servizio) ASP.NET Core di [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)  |
 | ![Questa immagine mostra il logo Python](media/sample-v2-code/logo_python.png)</p>Python | API Web (servizio) di [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) |
 | ![Questa immagine mostra il logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | API Web (servizio) di [Node.js e passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) |
-| ![Questa immagine mostra il logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>NodeJS | API Web (servizio) di [NodeJS e passport-azure-ad con on-behalf-of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
+| ![Questa immagine mostra il logo Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js | API Web (servizio) di [Node.js e passport-azure-ad con on-behalf-of](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) |
 
 ## <a name="other-microsoft-graph-samples"></a>Altri esempi di Microsoft Graph
 

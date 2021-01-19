@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1798ca74493ba22d29cd9ce819d469c29cd5ec3
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979105"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059571"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST
 
@@ -170,10 +170,17 @@ L'[asset](/rest/api/media/assets) di output archivia il risultato del processo d
         {
         "properties": {
             "description": "My Asset",
-            "alternateId" : "some GUID"
+            "alternateId" : "some GUID",
+            "storageAccountName": "<replace from environment file>",
+            "container": "<supply any valid container name of your choosing>"
          }
         }
         ```
+
+> [!NOTE]
+> Assicurarsi di sostituire i nomi dell'account di archiviazione e del contenitore con quelli del file dell'ambiente o specificare nomi personalizzati.
+>
+> Quando si completano i passaggi descritti nella parte restante di questo articolo, assicurarsi di specificare parametri validi nei corpi delle richieste.
 
 ### <a name="create-a-transform"></a>Creare una trasformazione
 
@@ -355,8 +362,9 @@ In questa sezione verrà creato un URL di streaming HLS. Gli URL sono costituiti
     Per ottenere il nome host, è possibile usare l'operazione GET seguente:
     
     ```
-    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/default?api-version={{api-version}}
     ```
+    Assicurarsi di impostare i parametri `resourceGroupName` e `accountName` in modo che corrispondano al file dell'ambiente. 
     
 3. Un percorso ottenuto nella sezione precedente (Elencare i percorsi).  
 

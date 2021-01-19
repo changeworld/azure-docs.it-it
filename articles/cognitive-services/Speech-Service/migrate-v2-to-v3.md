@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: rbeckers
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e9e5db87f983c5db59715eb8b6a9561acf5fad14
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 9c8016b566db8be1b7f5c5ddb8d92123d6673db5
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630616"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569845"
 ---
 # <a name="migrate-code-from-v20-to-v30-of-the-rest-api"></a>Eseguire la migrazione del codice dalla versione 2.0 alla versione 3.0 dell'API REST
 
@@ -24,11 +24,51 @@ Rispetto alla versione V2, la versione V3 dell'API REST di servizi vocali per la
 
 ## <a name="forward-compatibility"></a>Compatibilità con le versioni successive
 
-Tutte le entità dalla versione V2 possono essere trovate anche nell'API V3 con la stessa identità. Quando lo schema di un risultato è stato modificato (ad esempio, trascrizioni), il risultato di un GET nella versione V3 dell'API usa lo schema V3. Il risultato di un GET nella versione V2 dell'API usa lo stesso schema V2. Le entità appena create in V3 **non** sono disponibili nei risultati delle API v2.
+Tutte le entità dalla versione V2 sono disponibili anche nell'API V3 con la stessa identità. Quando lo schema di un risultato è stato modificato (ad esempio, trascrizioni), il risultato di un GET nella versione V3 dell'API usa lo schema V3. Il risultato di un GET nella versione V2 dell'API usa lo stesso schema V2. Le entità appena create in V3 **non** sono   disponibili nelle risposte delle API v2. 
+
+## <a name="migration-steps"></a>Passaggi della migrazione
+
+Si tratta di un elenco riepilogativo di elementi di cui è necessario tenere conto durante la preparazione per la migrazione. I dettagli sono disponibili nei singoli collegamenti. A seconda dell'utilizzo corrente dell'API, non è possibile applicare tutti i passaggi elencati di seguito. Solo alcune modifiche richiedono modifiche non semplici nel codice chiamante. La maggior parte delle modifiche richiede solo una modifica ai nomi degli elementi. 
+
+Modifiche generali: 
+
+1. [Modificare il nome host](#host-name-changes)
+
+1. [Rinominare l'ID proprietà in self nel codice client](#identity-of-an-entity) 
+
+1. [Modificare il codice per scorrere le raccolte di entità](#working-with-collections-of-entities)
+
+1. [Rinominare il nome della proprietà in displayName nel codice client](#name-of-an-entity)
+
+1. [Modificare il recupero dei metadati delle entità a cui si fa riferimento](#accessing-referenced-entities)
+
+1. Se si usa la trascrizione batch: 
+
+    * [Modificare il codice per la creazione di trascrizioni batch](#creating-transcriptions) 
+
+    * [Adattare il codice al nuovo schema dei risultati della trascrizione](#format-of-v3-transcription-results)
+
+    * [Modificare il codice per la modalità di recupero dei risultati](#getting-the-content-of-entities-and-the-results)
+
+1. Se si usano le API di training/testing del modello personalizzato: 
+
+    * [Applicare modifiche al training del modello personalizzato](#customizing-models)
+
+    * [Modificare il modo in cui vengono recuperati i modelli di base e personalizzati](#retrieving-base-and-custom-models)
+
+    * [Rinominare il segmento di percorso accuracytests in valutazioni nel codice client](#accuracy-tests)
+
+1. Se si usano le API endpoint:
+
+    * [Modificare il modo in cui vengono recuperati i log degli endpoint](#retrieving-endpoint-logs)
+
+1. Altre modifiche secondarie: 
+
+    * [Passare tutte le proprietà personalizzate come customProperties anziché le proprietà nelle richieste POST](#using-custom-properties)
+
+    * [Leggere il percorso dal percorso dell'intestazione di risposta anziché Operation-location](#response-headers)
 
 ## <a name="breaking-changes"></a>Modifiche di rilievo
-
-L'elenco delle modifiche di rilievo è stato ordinato in base alla grandezza delle modifiche necessarie per adattarsi. Solo alcune modifiche richiedono modifiche non semplici nel codice chiamante. La maggior parte delle modifiche richiede solo una modifica ai nomi degli elementi.
 
 ### <a name="host-name-changes"></a>Modifiche al nome host
 

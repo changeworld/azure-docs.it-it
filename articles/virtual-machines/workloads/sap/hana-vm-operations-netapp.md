@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2020
+ms.date: 01/18/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 511801962d07e5fb99000b2fc19adce2489b46d3
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967483"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98570083"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v4.1 in Azure NetApp Files per SAP HANA
 
@@ -69,10 +69,10 @@ La velocità effettiva massima per un LIF e una singola sessione Linux è compre
 | 1 TB | 16 MB/sec | 64 MB/sec | 128 MB/sec |
 | 2 TB | 32 MB/sec | 128 MB/sec | 256 MB/sec |
 | 4 TB | 64 MB/sec | 256 MB/sec | 512 MB/sec |
-| 10 TB | 160 MB/sec | 640 MB/sec | 1,280 MB/sec |
-| 15 TB | 240 MB/sec | 960 MB/sec | 1,400 MB/sec |
-| 20 TB | 320 MB/sec | 1,280 MB/sec | 1,400 MB/sec |
-| 40 TB | 640 MB/sec | 1,400 MB/sec | 1,400 MB/sec |
+| 10 TB | 160 MB/sec | 640 MB/sec | 1.280 MB/sec |
+| 15 TB | 240 MB/sec | 960 MB/sec | 1.400 MB/sec |
+| 20 TB | 320 MB/sec | 1.280 MB/sec | 1.400 MB/sec |
+| 40 TB | 640 MB/sec | 1.400 MB/sec | 1.400 MB/sec |
 
 È importante comprendere che i dati vengono scritti nelle stesse unità SSD nel back-end di archiviazione. La quota di prestazioni del pool di capacità è stata creata per poter gestire l'ambiente.
 Gli indicatori KPI di archiviazione sono uguali per tutte le dimensioni del database HANA. In quasi tutti i casi, questo presupposto non riflette la realtà e l'aspettativa del cliente. Le dimensioni dei sistemi HANA non implicano necessariamente che un piccolo sistema richieda una velocità effettiva di archiviazione ridotta e che un sistema di grandi dimensioni richieda una velocità effettiva di archiviazione elevata. Tuttavia, in genere è possibile prevedere requisiti di velocità effettiva maggiori per le istanze di database HANA più grandi. In seguito alle regole di ridimensionamento di SAP per l'hardware sottostante, le istanze HANA più grandi forniscono anche più risorse della CPU e un parallelismo più elevato in attività come il caricamento dei dati dopo il riavvio di un'istanza. Di conseguenza, le dimensioni dei volumi devono essere adottate per le aspettative e i requisiti dei clienti. E non solo in base ai requisiti di capacità pura.

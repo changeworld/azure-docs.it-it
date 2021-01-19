@@ -3,12 +3,12 @@ title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ba29ddea5d5f096640f2bfc012c44ab06bb3e131
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "96309665"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569420"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
@@ -18,6 +18,9 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 
 ## <a name="updates-summary"></a>Riepilogo aggiornamenti
 
+- Gennaio 2021
+  - [Backup su disco di Azure (in anteprima)](disk-backup-overview.md)
+  - [Crittografia dei componenti inattivi con chiavi gestite dal cliente ora disponibile a livello generale](encryption-at-rest-with-cmk.md)
 - Novembre 2020
   - [Modello di Azure Resource Manager per il backup di una condivisione file di Azure](#azure-resource-manager-template-for-afs-backup)
   - [Backup incrementali per database SAP HANA in macchine virtuali di Azure](#incremental-backups-for-sap-hana-databases)
@@ -32,9 +35,21 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
   - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup](#zone-redundant-storage-zrs-for-backup-data)
   - [Eliminazione temporanea per carichi di lavoro di SQL Server e SAP HANA in macchine virtuali di Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## <a name="azure-disk-backup-in-preview"></a>Backup su disco di Azure (in anteprima)
+
+Il backup su disco di Azure offre una soluzione chiavi in mano che fornisce la gestione del ciclo di vita dello snapshot per [Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizzando la creazione periodica di snapshot e la conservazione per una durata configurata usando i criteri di backup. È possibile gestire gli snapshot del disco con costi di infrastruttura zero e senza la necessità di generare script personalizzati o di qualsiasi sovraccarico di gestione. Si tratta di una soluzione di backup coerente con l'arresto anomalo del sistema che esegue un backup temporizzato di un disco gestito utilizzando [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) con supporto per più backup al giorno. È anche una soluzione senza agente e non influisca sulle prestazioni dell'applicazione di produzione. Supporta il backup e il ripristino dei dischi del sistema operativo e dei dati (inclusi i dischi condivisi), indipendentemente dal fatto che siano attualmente collegati a una macchina virtuale di Azure in esecuzione.
+
+Per altre informazioni, vedere [backup su disco di Azure (in anteprima)](disk-backup-overview.md).
+
+## <a name="encryption-at-rest-using-customer-managed-keys"></a>Crittografia dei componenti inattivi con chiavi gestite dal cliente
+
+Il supporto per la crittografia dei componenti inattivi tramite chiavi gestite dal cliente è ora disponibile a livello generale. Questo consente di crittografare i dati di backup negli insiemi di credenziali dei servizi di ripristino usando le proprie chiavi archiviate in Azure Key Vault. La chiave di crittografia usata per crittografare i backup nell'insieme di credenziali di servizi di ripristino può essere diversa da quella usata per crittografare l'origine. I dati vengono protetti usando una chiave di crittografia dei dati basata su AES 256, che a sua volta è protetta usando le chiavi archiviate nel Key Vault. Rispetto alla crittografia con chiavi gestite dalla piattaforma, disponibile per impostazione predefinita, offre un maggiore controllo sulle chiavi e consente di soddisfare al meglio le esigenze di conformità.
+
+Per altre informazioni, vedere [crittografia dei dati di backup con chiavi gestite dal cliente](encryption-at-rest-with-cmk.md).
+
 ## <a name="azure-resource-manager-template-for-afs-backup"></a>Modello di Azure Resource Manager per il backup AFS
 
-Backup di Azure supporta ora la configurazione del backup per le condivisioni file di Azure esistenti usando un modello di Azure Resource Manager (ARM). Il modello configura la protezione per una condivisione file di Azure esistente specificando i dettagli appropriati per l'insieme di credenziali dei servizi di ripristino e i criteri di backup. Crea facoltativamente un nuovo insieme di credenziali dei servizi di ripristino e un criterio di backup e registra l'account di archiviazione che contiene la condivisione file nell'insieme di credenziali di servizi di ripristino.
+Backup di Azure supporta ora la configurazione del backup per le condivisioni file di Azure esistenti usando un modello di Azure Resource Manager (ARM). Il modello configura la protezione per una condivisione file di Azure esistente specificando i dettagli appropriati per l'insieme di credenziali dei servizi di ripristino e i criteri di backup. Crea facoltativamente un nuovo insieme di credenziali di Servizi di ripristino e nuovi criteri di backup e registra l'account di archiviazione che contiene la condivisione file nell'insieme di credenziali di Servizi di ripristino.
 
 Per altre informazioni, vedere [modelli di Azure Resource Manager per backup di Azure](backup-rm-template-samples.md).
 

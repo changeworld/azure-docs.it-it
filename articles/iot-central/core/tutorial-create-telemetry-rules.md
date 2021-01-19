@@ -3,16 +3,16 @@ title: "Esercitazione: Creare e gestire le regole nell'applicazione Azure IoT Ce
 description: Questa esercitazione illustra come usare le regole di Azure IoT Central per il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/16/2020
+ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6d49e3585460c95ca931f497a63cbc281aed1db1
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94991014"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98065287"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Esercitazione: Creare una regola e configurare le notifiche nell'applicazione Azure IoT Central
 
@@ -38,6 +38,9 @@ Prima di iniziare, completare le guide di avvio rapido [Creare un'applicazione A
 ## <a name="create-a-rule"></a>Creare una regola
 
 Per creare una regola di telemetria, il modello di dispositivo deve includere almeno un valore di telemetria. Questa esercitazione usa un dispositivo **Sensor Controller** simulato che invia dati di telemetria relativi a temperatura e umidità. Nell'argomento di avvio rapido [Aggiungere un dispositivo simulato a un'applicazione IoT Central](./quick-create-simulated-device.md) è stato aggiunto questo modello di dispositivo ed è stato creato un dispositivo simulato. La regola esegue il monitoraggio della temperatura segnalata dal dispositivo e invia un messaggio di posta elettronica quando la temperatura supera un determinato valore, ad esempio 70 gradi.
+
+> [!NOTE]
+> È previsto un limite di 50 regole per applicazione.
 
 1. Nel riquadro sinistro selezionare **Regole**.
 
@@ -115,4 +118,4 @@ In questa esercitazione sono state illustrate le procedure per:
 Ora che è stata definita una regola basata su una soglia, il passaggio successivo consigliato consiste nell'ottenere informazioni su come:
 
 > [!div class="nextstepaction"]
-> [Configurare l'esportazione continua dei dati](./howto-export-data.md).
+> [Creare webhook per le regole](./howto-create-webhooks.md).

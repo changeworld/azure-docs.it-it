@@ -3,23 +3,25 @@ title: 'Avvio rapido: Creare un servizio Collegamento privato tramite il portale
 titlesuffix: Azure Private Link
 description: Questa guida di avvio rapido illustra come creare un servizio Collegamento privato con il portale di Azure
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 01/18/2021
 ms.author: allensu
-ms.openlocfilehash: 5b7bc8be89068f0d3cf6722c36ae7fd5cc560736
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3e9ade329d2b26d36763db579b0fcec03e938aad
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96012119"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555458"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Collegamento privato usando il portale di Azure
 
-Un servizio Collegamento privato di Azure si riferisce a un servizio personalizzato gestito da Collegamento privato. È possibile concedere l'accesso a Collegamento privato al servizio o alla risorsa che opera dietro Azure Load Balancer Standard. I consumer del servizio possono accedervi privatamente dalle proprie reti virtuali. Questo argomento di avvio rapido illustra come creare un servizio Collegamento privato con il portale di Azure.
+Introduzione alla creazione di un servizio Collegamento privato che fa riferimento al proprio servizio.  Assegnare l'accesso con collegamento privato al servizio o alla risorsa distribuita dietro un'istanza di Azure Load Balancer Standard.  Gli utenti del servizio hanno accesso privato dalla loro rete virtuale.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
+
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -27,159 +29,210 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
 
-Prima di tutto, creare una rete virtuale. Quindi, creare un'istanza di Load Balancer interna da usare con il servizio Collegamento privato.
+In questa sezione si crea una rete virtuale e un'istanza interna di Azure Load Balancer.
 
-## <a name="virtual-network-and-parameters"></a>Rete virtuale e parametri
+### <a name="virtual-network"></a>Rete virtuale
 
-In questa sezione si crea una rete virtuale. Si crea anche la subnet che ospiterà l'istanza di Load Balancer che accede al servizio Collegamento privato.
+In questa sezione si creano la rete virtuale e la subnet che ospiteranno l'istanza di Load Balancer usata per accedere al servizio Collegamento privato.
 
-In questa sezione è necessario sostituire i parametri seguenti delle procedure con le informazioni riportate di seguito:
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-| Parametro                   | valore                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupLB |
-| **\<virtual-network-name>** | myVNet          |
-| **\<region-name>**          | Stati Uniti orientali 2      |
-| **\<IPv4-address-space>**   | 10.3.0.0/16          |
-| **\<subnet-name>**          | myBackendSubnet        |
-| **\<subnet-address-range>** | 10.3.0.0/24          |
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    | **Impostazione**          | **Valore**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Dettagli del progetto**  |                                                                 |
+    | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
+    | Gruppo di risorse   | Selezionare **CreatePrivLinkService-rg** |
+    | **Dettagli istanza** |                                                                 |
+    | Nome             | Immettere **myVNet**                                    |
+    | Region           | Selezionare **Stati Uniti orientali 2** |
+
+3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
+
+4. Nella scheda **Indirizzi IP** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
+
+5. In **Nome subnet** selezionare la parola **predefinito**.
+
+6. In **Modifica subnet** immettere queste informazioni:
+
+    | Impostazione            | valore                      |
+    |--------------------|----------------------------|
+    | Nome della subnet | Immettere **mySubnet** |
+    | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
+
+7. Selezionare **Salva**.
+
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
+
+9. Selezionare **Crea**.
 
 ### <a name="create-a-standard-load-balancer"></a>Creare un'istanza di Load Balancer Standard
 
-Usare il portale per creare un servizio Load Balancer Standard interno. Il nome e l'indirizzo IP creati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
+Usare il portale per creare un servizio Load Balancer Standard interno. 
 
-1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
+1. In alto a sinistra nella schermata selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 
-1. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti:
+2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | **Sottoscrizione**               | Selezionare la propria sottoscrizione.    |
-    | **Gruppo di risorse**         | Selezionare **MyResourceGroupLB** dalla casella.|
-    | **Nome**                   | Immettere **myLoadBalancer**.                                   |
-    | **Area**         | Selezionare **Stati Uniti orientali 2**.                                        |
-    | **Tipo**          | Selezionare **Interno**.                                        |
-    | **SKU**           | Selezionare **Standard**.                          |
-    | **Rete virtuale**           | Selezionare **myVNET**.                          |
-    | **Assegnazione indirizzi IP**              | Selezionare **Statico**.   |
-    | **Indirizzo IP privato**|Immettere un indirizzo nello spazio degli indirizzi della rete virtuale e della subnet, per esempio 10.3.0.7.  |
+    | Subscription               | Selezionare la propria sottoscrizione.    |    
+    | Resource group         | Selezionare il gruppo **CreatePrivLinkService-rg** creato nel passaggio precedente.|
+    | Nome                   | Immettere **myLoadBalancer**                                   |
+    | Region         | Selezionare **Stati Uniti orientali 2**.                                        |
+    | Type          | Selezionare **Interno**.                                        |
+    | SKU           | selezionare **Standard** |
+    | Rete virtuale | Selezionare la rete **myVNet** creata nel passaggio precedente. |
+    | Subnet  | Selezionare la subnet **mySubnet** creata nel passaggio precedente. |
+    | Assegnazione indirizzi IP | Selezionare **Dinamico**. |
+    | Zona di disponibilità | Selezionare **Con ridondanza della zona**. |
 
-1. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**
+3. Accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**.
 
-1. Nella scheda **Rivedi e crea** selezionare **Crea**.
+4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
 
-### <a name="create-standard-load-balancer-resources"></a>Creare le risorse di Load Balancer Standard
+## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
-In questa sezione vengono configurate le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità. Vengono anche specificate le regole di bilanciamento del carico.
+In questa sezione vengono configurati:
 
-#### <a name="create-a-back-end-pool"></a>Creare un pool back-end
+* Le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end.
+* Un probe di integrità.
+* Una regola di bilanciamento del carico.
 
-Un pool di indirizzi back-end contiene gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al bilanciamento del carico. Questo pool consente di distribuire il traffico alle risorse. Creare il pool di indirizzi back-end denominato **myBackendPool** per includere le risorse per il bilanciamento del carico del traffico.
+### <a name="create-a-backend-pool"></a>Creare un pool back-end
 
-1. Selezionare **Tutti i servizi** dal menu a sinistra.
-1. Selezionare **Tutte le risorse** e quindi selezionare **MyLoadBalancer** dall'elenco delle risorse.
-1. In **Impostazioni** selezionare **Pool di back-end**, quindi selezionare **Aggiungi**.
-1. Nella pagina **Aggiungi pool back-end** digitare **myBackEndPool** come nome per il pool back-end e quindi selezionare **Aggiungi**.
+Un pool di indirizzi back-end contiene gli indirizzi IP delle schede di interfaccia di rete virtuale connesse al bilanciamento del carico. 
 
-#### <a name="create-a-health-probe"></a>Creare un probe di integrità
+Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine virtuali per il bilanciamento del carico del traffico Internet.
 
-Usare un probe di integrità per consentire al servizio Load Balancer di monitorare lo stato delle risorse. In base alla risposta ai controlli di integrità, il probe di integrità aggiunge o rimuove in modo dinamico le risorse nella rotazione dell'istanza di Load Balancer.
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
 
-Per creare un probe di integrità per monitorare l'integrità delle risorse:
+2. In **Impostazioni** selezionare **Pool back-end** e quindi selezionare **Aggiungi**.
 
-1. Selezionare **Tutte le risorse** dal menu a sinistra e quindi selezionare **myLoadBalancer** dall'elenco delle risorse.
+3. Nella pagina **Aggiungi pool back-end** digitare **myBackEndPool** come nome per il pool back-end e quindi selezionare **Aggiungi**.
 
-1. In **Impostazioni** selezionare **Probe integrità**, quindi selezionare **Aggiungi**.
+### <a name="create-a-health-probe"></a>Creare un probe di integrità
 
-1. Nella pagina **Aggiungi probe integrità** immettere o selezionare i valori seguenti:
+Il servizio di bilanciamento del carico monitora lo stato dell'app con un probe di integrità. 
 
-   - **Name**: Immettere **myHealthProbe**.
-   - **Protocollo**: selezionare **TCP**.
-   - **Porta**: Immettere **80**.
-   - **Intervallo**: Immettere **15**. Questo valore specifica il numero di secondi tra i tentativi del probe.
-   - **Soglia non integra**: Immettere **2**. Questo valore corrisponde al numero di errori di probe consecutivi che si verificano prima che una macchina virtuale venga considerata non integra.
+Il probe di integrità aggiunge o rimuove le macchine virtuali nel servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. 
 
-1. Selezionare **OK**.
+Creare un probe di integrità denominato **myHealthProbe** per monitorare l'integrità delle macchine virtuali.
 
-#### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
 
-Una regola di bilanciamento del carico definisce come verrà distribuito il traffico alle risorse. La regola definisce:
+2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
+    
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Nome | Immettere **myHealthProbe**. |
+    | Protocollo | selezionare **TCP**. |
+    | Porta | Immettere **80**.|
+    | Interval | Immettere **15** in **Intervallo** come numero di secondi tra i tentativi del probe. |
+    | Soglia non integra | Selezionare **2** per **Soglia di non integrità** come numero di errori di probe consecutivi che devono verificarsi prima che una macchina virtuale venga considerata non integra.|
+    | | |
 
-- La configurazione dell'indirizzo IP front-end per il traffico in ingresso.
-- Il pool di indirizzi IP back-end in cui ricevere il traffico.
-- Le porte di origine e destinazione richieste.
+3. Accettare tutte le impostazioni predefinite e selezionare **OK**.
 
-La regola di bilanciamento del carico denominata **myLoadBalancerRule** rimane in ascolto sulla porta 80 nel front-end **LoadBalancerFrontEnd**. La regola consente l'invio del traffico di rete al pool di indirizzi back-end **myBackEndPool** sulla stessa porta 80.
+### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Per creare una regola di bilanciamento del carico:
+Una regola di bilanciamento del carico consente di definire come il traffico verrà distribuito alle VM. È possibile definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico. La porta di origine e quella di destinazione vengono definite nella regola. 
 
-1. Selezionare **Tutte le risorse** dal menu a sinistra e quindi selezionare **myLoadBalancer** dall'elenco delle risorse.
+In questa sezione verrà creata una regola di bilanciamento del carico:
 
-1. In **Impostazioni** selezionare **Regole di bilanciamento del carico**, quindi selezionare **Aggiungi**.
+* Denominata **myHTTPRule**.
+* Nel front-end denominato **LoadBalancerFrontEnd**.
+* In ascolto sulla **porta 80**.
+* Che indirizza il traffico con carico bilanciato al back-end denominato **myBackendPool** sulla **porta 80**.
 
-1. Nella pagina **Aggiungi regola di bilanciamento del carico** immettere o selezionare i valori seguenti, se non sono già presenti:
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine selezionare **myLoadBalancer** nell'elenco di risorse.
 
-   - **Name**: Immettere **MyLoadBalancerRule**.
-   - **Indirizzo IP front-end:** Immettere **LoadBalancerFrontend**.
-   - **Protocollo**: selezionare **TCP**.
-   - **Porta**: Immettere **80**.
-   - **Porta back-end**: Immettere **80**.
-   - **Pool back-end**: Selezionare **myBackendPool**.
-   - **Probe di integrità**: Selezionare **myHealthProbe**. 
+2. In **Impostazioni** selezionare **Regole di bilanciamento del carico** e quindi selezionare **Aggiungi**.
 
-1. Selezionare **OK**.
+3. Usare questi valori per configurare la regola di bilanciamento del carico:
+    
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Nome | Immettere **myHTTPRule**. |
+    | Versione indirizzo IP | Selezionare **IPv4** |
+    | Indirizzo IP front-end | Selezionare **LoadBalancerFrontend** |
+    | Protocollo | selezionare **TCP**. |
+    | Porta | Immettere **80**.|
+    | Porta back-end | Immettere **80**. |
+    | Pool back-end | Selezionare **myBackendPool**.|
+    | Probe di integrità | Selezionare **myHealthProbe**. |
+    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15** minuti. |
+    | Reimpostazione TCP | Selezionare **Enabled**. |
+
+4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
 
 ## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
 
-In questa sezione verrà creato un servizio di collegamento privato dietro un'istanza di Load Balancer Standard.
+In questa sezione verrà creato un servizio Collegamento privato dietro un'istanza di Load Balancer Standard.
 
-1. Nella parte superiore sinistra della pagina del portale di Azure selezionare **Crea una risorsa** > **Rete** > **Centro collegamento privato (anteprima)** . È anche possibile usare la barra di ricerca del portale per cercare Collegamento privato.
+1. Nell'angolo in alto a sinistra della pagina nel portale di Azure selezionare **Crea una risorsa**.
 
-1. In **Centro collegamento privato - Informazioni generali** > **Esporre il servizio personalizzato per consentire ad altri utenti di connettersi**, selezionare **Avvia**.
+2. Cercare **Collegamento privato** nella casella **Cerca nel Marketplace**.
 
-1. In **Crea un servizio Collegamento privato - Informazioni di base** immettere o selezionare queste informazioni:
+3. Selezionare **Crea**.
 
-    | Impostazione           | valore                                                                        |
-    |-------------------|------------------------------------------------------------------------------|
-    | Dettagli del progetto:  |                                                                              |
-    | **Sottoscrizione**      | Selezionare la propria sottoscrizione.                                                     |
-    | **Gruppo di risorse**    | Selezionare **myResourceGroupLB**.                                                    |
-    | Dettagli dell'istanza: |                                                                              |
-    | **Nome**              | Immettere **myPrivateLinkService**. |
-    | **Area**            | Selezionare **Stati Uniti orientali 2**.                                                        |
+4. In **Panoramica**, nella pagina **Centro collegamento privato**, selezionare il pulsante blu **Crea servizio Collegamento privato**.
 
-1. Selezionare **Avanti: Impostazioni in uscita**.
+5. Nella scheda **Informazioni di base** della pagina **Crea servizio Collegamento privato** immettere o selezionare le informazioni seguenti:
 
-1. In **Crea un servizio Collegamento privato - Impostazioni in uscita** immettere o selezionare queste informazioni:
+    | Impostazione | valore |
+    | ------- | ----- |
+    | **Dettagli del progetto** |  |
+    | Subscription | Selezionare la propria sottoscrizione. |
+    | Gruppo di risorse | Selezionare **CreatePrivLinkService-rg**. |
+    | **Dettagli istanza** |  |
+    | Nome | Immettere **myPrivateLinkService**. |
+    | Region | Selezionare **Stati Uniti orientali 2**. |
 
-    | Impostazione                           | valore                                                                           |
-    |-----------------------------------|---------------------------------------------------------------------------------|
-    | **Bilanciamento del carico**                     | Selezionare **myLoadBalancer**.                                                           |
-    | **Indirizzo IP front-end di Load Balancer** | Selezionare l'indirizzo IP front-end di **myLoadBalancer**.                                |
-    | **Rete virtuale NAT di origine**        | Selezionare **myVNET**.                                                                   |
-    | **Subnet NAT di origine**                 | Selezionare **myBackendSubnet**.                                                          |
-    | **Abilita proxy TCP V2**               | Selezionare **SÌ** o **NO** a seconda che nell'applicazione sia prevista l'intestazione proxy TCP V2. |
-    | **Impostazioni dell'indirizzo IP privato**       | Configurare il metodo di allocazione e l'indirizzo IP per ogni IP NAT.                  |
+6. Selezionare la scheda **Impostazioni traffico in uscita** oppure **Avanti: Impostazioni traffico in uscita** nella parte inferiore della pagina.
 
-1. Selezionare **Avanti: Sicurezza di accesso**.
+7. Nella scheda **Informazioni traffico in uscita** immettere o selezionare le informazioni seguenti:
 
-1. In **Crea un servizio Collegamento privato - Sicurezza di accesso** selezionare **Visibilità**, quindi scegliere **Solo controllo degli accessi in base al ruolo**.
-  
-1. Selezionare **Avanti: Tag** > **Rivedi e crea** oppure scegliere la scheda **Rivedi e crea** nella parte superiore della pagina.
+    | Impostazione | Valore |
+    | ------- | ----- |
+    | Bilanciamento del carico | Selezionare **myLoadBalancer**. |
+    | Indirizzo IP front-end del servizio di bilanciamento del carico | Selezionare **LoadBalancerFrontEnd (10.1.0.4)** . |
+    | Subnet NAT di origine | Selezionare **mySubnet (10.1.0.0/24)** . |
+    | Abilita proxy TCP V2 | Lasciare l'impostazione predefinita **No**. </br> Se nell'applicazione è prevista l'intestazione proxy TCP v2, selezionare **Sì**. |
+    | **Impostazioni dell'indirizzo IP privato** |  |
+    | Lasciare le impostazioni predefinite |  |
 
-1. Esaminare le informazioni e selezionare **Crea**.
+8. Selezionare la scheda **Sicurezza di accesso** oppure **Avanti: Sicurezza di accesso** nella parte inferiore della pagina.
+
+9. Nella scheda **Sicurezza di accesso** lasciare l'impostazione predefinita **Solo controllo degli accessi in base al ruolo**.
+
+10. Selezionare la scheda **Tag** oppure **Avanti: Tag** nella parte inferiore della pagina.
+
+11. Selezionare la scheda **Rivedi e crea** oppure **Avanti: Rivedi e crea** nella parte inferiore della pagina.
+
+12. Nella scheda **Rivedi e crea** selezionare **Crea**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non si ha più bisogno del servizio di collegamento privato, eliminare il gruppo di risorse per pulire le risorse usate in questo argomento di avvio rapido.
+Quando non si ha più bisogno del servizio Collegamento privato, eliminare il gruppo di risorse per pulire le risorse usate in questo argomento di avvio rapido.
 
-1. Immettere **myResourceGroupLB** nella casella Cerca nella parte superiore del portale e selezionare **myResourceGroupLB** nei risultati della ricerca.
+1. Immettere **CreatePrivLinkService-rg** nella casella di ricerca nella parte superiore del portale e selezionare **CreatePrivLinkService-rg** nei risultati della ricerca.
 1. Selezionare **Elimina gruppo di risorse**.
-1. In **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup**.
+1. Immettere **CreatePrivLinkService-rg** in **DIGITARE IL NOME DEL GRUPPO DI RISORSE**.
 1. Selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido sono stati creati un'istanza di Azure Load Balancer interna e un servizio Collegamento privato. È anche possibile apprendere come [creare un endpoint privato con il portale di Azure](./create-private-endpoint-portal.md).
+In questo argomento di avvio rapido:
+
+* Sono state create una rete virtuale e un'istanza interna di Azure Load Balancer.
+* È stato creato un servizio Collegamento privato
+
+Per altre informazioni sull'endpoint privato di Azure, passare a:
+> [!div class="nextstepaction"]
+> [Avvio rapido: Creare un endpoint privato con il portale di Azure](create-private-endpoint-portal.md)

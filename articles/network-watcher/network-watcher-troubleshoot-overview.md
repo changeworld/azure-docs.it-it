@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 5342c4505bd300d1287acba246ca59610f2697bd
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 0d0597c2df8731171505a090de6959d8a112c004
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858638"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569981"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduzione alla risoluzione dei problemi delle risorse in Azure Network Watcher
 
@@ -85,7 +85,7 @@ L'elenco tabella seguente mostra i gateway e le connessioni supportate con la ri
 | Gateway o connessione | Supportato  |
 |---------|---------|
 |**Tipi di gateway**   |         |
-|VPN      | Supportato        |
+|Connessione      | Supportato        |
 |ExpressRoute | Non supportato |
 |**Tipi di VPN** | |
 |Basato su route | Supportato|
@@ -209,7 +209,9 @@ Elapsed Time            330 sec
 ```
 
 ## <a name="considerations"></a>Considerazioni 
+* È possibile eseguire una sola operazione di risoluzione dei problemi alla volta per ogni sottoscrizione. Per eseguire un'altra operazione di risoluzione dei problemi, attendere il completamento dell'operazione precedente. L'attivazione di più operazioni, mentre una precedente non è stata completata, causerà l'esito negativo delle operazioni successive. 
 * Bug CLI: se si usa l'interfaccia della riga di comando di Azure per eseguire il comando, il gateway VPN e l'account di archiviazione devono trovarsi nello stesso gruppo di risorse. I clienti con le risorse in gruppi di risorse diversi possono invece usare PowerShell o il portale di Azure.  
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

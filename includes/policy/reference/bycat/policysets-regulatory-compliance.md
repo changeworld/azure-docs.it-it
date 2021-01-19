@@ -2,20 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 01/08/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: dc4ec31a307d559fad84392522e6847aab1e3873
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3b537ad0100e285fe02f557b92d67e09ae615def
+ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94986969"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98046411"
 ---
 |Nome |Descrizione |Criteri |Versione |
 |---|---|---|---|
 |[Australian Government ISM PROTECTED](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Australian Government Information Security Manual (ISM). Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint). |62 |3.0.0-preview |
-|[Azure Security Benchmark](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di raccomandazioni per Azure Security Benchmark. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |136 |6.1.0-preview |
+|[Azure Security Benchmark v1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di raccomandazioni per Azure Security Benchmark v1. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |136 |6.1.1-preview |
+|[Azure Security Benchmark v2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_v2.json) |Questa iniziativa include criteri per un subset di raccomandazioni per Azure Security Benchmark v2. Nelle versioni successive potrebbero essere aggiunti altri criteri. Per altre informazioni, vedere [https://aka.ms/azsecbm](https://aka.ms/azsecbm). |181 |1.0.0-preview |
 |[Canada Federal PBMM](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CanadaFederalPBMM_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli Canada Federal PBMM. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/canadafederalpbmm-blueprint](https://aka.ms/canadafederalpbmm-blueprint). |60 |3.0.0 |
 |[CIS Microsoft Azure Foundations Benchmark 1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json) |Questa iniziativa include criteri di controllo per un subset di raccomandazioni per CIS Microsoft Azure Foundations Benchmark. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/cisazure-blueprint](https://aka.ms/cisazure-blueprint). |87 |7.1.0 |
 |[FedRAMP High](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Questa iniziativa include criteri di controllo e distribuzione delle estensioni macchina virtuale per un subset di controlli FedRAMP H. Altri criteri verranno aggiunti nelle versioni successive. Per altre informazioni, vedere [https://aka.ms/fedramph-blueprint](https://aka.ms/fedramph-blueprint). |72 |3.0.1 |

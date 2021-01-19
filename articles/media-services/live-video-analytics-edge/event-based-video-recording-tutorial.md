@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 8f3ecdf7e4260d700f31663852abbb39474cd474
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: cfb4648d991565470133d603194c07b797f89311
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401671"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060436"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -53,6 +53,9 @@ Al termine di questa procedura, le risorse di Azure pertinenti verranno distribu
 * Account di archiviazione di Azure
 * Account Servizi multimediali di Azure
 * VM Linux in Azure, con il [runtime IoT Edge](../../iot-edge/how-to-install-iot-edge.md) installato
+
+> [!TIP]
+> Se si verificano problemi con le risorse di Azure create, vedere la **[guida alla risoluzione dei problemi](troubleshoot-how-to.md#common-error-resolutions)** più comuni rilevati.
 
 ## <a name="concepts"></a>Concetti
 
@@ -230,7 +233,7 @@ Per visualizzare gli eventi del modulo ObjectCounter e del modulo Analisi video 
      
         ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "EVRtoAssetsOnObjDetect",
@@ -277,7 +280,7 @@ Nei messaggi seguenti le proprietà dell'applicazione e il contenuto del corpo s
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished 
 
-Quando viene creata un'istanza di un grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore del simulatore RTSP. In caso di esito positivo, viene stampato questo evento. Il tipo di evento è Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished.
+Quando viene creata un'istanza di un grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore del simulatore RTSP. In caso di esito positivo, viene stampato questo evento. Il tipo di evento è **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [5:53:17 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -325,7 +328,7 @@ La sezione applicationProperties contiene la data e l'ora dell'evento. Si tratta
 
 ### <a name="recordingstarted-event"></a>Evento RecordingStarted
 
-Quasi immediatamente dopo l'invio dell'evento da parte di objectCounter, viene visualizzato un evento di tipo Microsoft.Media.Graph.Operational.RecordingStarted:
+Quasi immediatamente dopo l'invio dell'evento da parte di objectCounter, viene visualizzato un evento di tipo **Microsoft.Media.Graph.Operational.RecordingStarted**:
 
 ```
 [IoTHubMonitor] [5:53:46 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -348,7 +351,7 @@ La sezione subject in applicationProperties fa riferimento al nodo sink di asset
 
 ### <a name="recordingavailable-event"></a>Evento RecordingAvailable
 
-Dopo aver caricato il video nell'asset, il nodo sink di asset genera questo evento di tipo Microsoft.Media.Graph.Operational.RecordingAvailable:
+Dopo aver caricato il video nell'asset, il nodo sink di asset genera questo evento di tipo **Microsoft.Media.Graph.Operational.RecordingAvailable**:
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:
@@ -371,7 +374,7 @@ Questo evento indica che la quantità di dati scritti nell'asset è sufficiente 
 
 ### <a name="recordingstopped-event"></a>Evento RecordingStopped
 
-Se si esaminano le impostazioni di attivazione (maximumActivationTime) per il nodo del processore del gate di segnale nella [topologia](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), si noterà che il gate è configurato per essere chiuso dopo 30 secondi dall'invio del video. Approssimativamente 30 secondi dopo l'evento RecordingStarted, verrà visualizzato un evento di tipo Microsoft.Media.Graph.Operational.RecordingStopped. Questo evento indica che il nodo sink di asset ha interrotto la registrazione del video nell'asset.
+Se si esaminano le impostazioni di attivazione (maximumActivationTime) per il nodo del processore del gate di segnale nella [topologia](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json), si noterà che il gate è configurato per essere chiuso dopo 30 secondi dall'invio del video. Approssimativamente 30 secondi dopo l'evento RecordingStarted, verrà visualizzato un evento di tipo **Microsoft.Media.Graph.Operational.RecordingStopped**. Questo evento indica che il nodo sink di asset ha interrotto la registrazione del video nell'asset.
 
 ```
 [IoTHubMonitor] [5:54:15 PM] Message received from [lva-sample-device/lvaEdge]:

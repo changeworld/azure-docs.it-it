@@ -1,6 +1,6 @@
 ---
-title: Creazione e unione di CSR in Azure Key Vault
-description: Creazione e unione di CSR in Azure Key Vault
+title: Creazione e unione di una richiesta CSR in Azure Key Vault
+description: Informazioni su come creare e unire una richiesta CSR in Azure Key Vault.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,131 +10,143 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 42f649f9dd206b34f0fac8513ba742febed2dbcb
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: bbc232ed0bc9e9715f481fef8b7b3a1f8eeebe78
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724630"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98059654"
 ---
-# <a name="creating-and-merging-csr-in-key-vault"></a>Creazione e unione di CSR in Key Vault
+# <a name="create-and-merge-a-csr-in-key-vault"></a>Creare e unire una richiesta CSR in Key Vault
 
-Azure Key Vault supporta l'archiviazione del certificato digitale emesso da qualsiasi autorità di certificazione nell'insieme di credenziali delle chiavi. Consente di creare la richiesta di firma del certificato con una coppia di chiavi pubblica/privata che può essere firmata dall'autorità di certificazione scelta. Può trattarsi di un'autorità di certificazione aziendale interna o di un'autorità di certificazione pubblica esterna. Una richiesta di firma del certificato (nota anche come CSR o richiesta di certificazione) è un messaggio che viene inviato dall'utente a un'autorità di certificazione per richiedere il rilascio di un certificato digitale.
+Azure Key Vault supporta l'archiviazione di certificati digitali emessi da un'autorità di certificazione (CA). Supporta la creazione di una richiesta di firma del certificato (CSR) con una coppia di chiavi pubblica/privata. La richiesta CSR può essere firmata da qualsiasi CA (una CA aziendale interna oppure una pubblica esterna). Una richiesta CSR è un messaggio inviato a una CA allo scopo di richiedere un certificato digitale.
 
 Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](./about-certificates.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="adding-certificate-in-key-vault-issued-by-partnered-ca"></a>Aggiunta in Key Vault del certificato emesso da una CA partner
-Key Vault collabora con le due autorità di certificazione seguenti per semplificare la creazione di certificati. 
+## <a name="add-certificates-in-key-vault-issued-by-partnered-cas"></a>Aggiungere in Key Vault i certificati emessi da CA partner
+
+Key Vault collabora con le autorità di certificazione seguenti per semplificare la creazione di certificati.
 
 |Provider|Tipo di certificato|Eseguire la configurazione  
 |--------------|----------------------|------------------|  
 |DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
-## <a name="adding-certificate-in-key-vault-issued-by-non-partnered-ca"></a>Aggiunta in Key Vault del certificato emesso da una CA non partner
+## <a name="add-certificates-in-key-vault-issued-by-non-partnered-cas"></a>Aggiungere in Key Vault i certificati emessi da CA non partner
 
-La procedura seguente consente di creare un certificato rilasciato da autorità di certificazione non associate a Key Vault, come nel caso di GoDaddy, che non è un'autorità di certificazione attendibile dell'insieme di credenziali delle chiavi. 
-
-
+Seguire questi passaggi per aggiungere un certificato emesso da CA che non sono partner di Key Vault. Ad esempio, GoDaddy non è una CA considerata attendibile in Key Vault.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1.  Per generare la richiesta CSR per l'autorità di certificazione scelta, passare all'insieme di credenziali delle chiavi in cui aggiungere il certificato.
-2.  Nella pagina delle proprietà di Key Vault selezionare **Certificati**.
-3.  Selezionare la scheda **Genera/Importa**.
-4.  Nella schermata **Crea un certificato** scegliere i valori seguenti:
-    - **Metodo di creazione del certificato:** Genera.
-    - **Nome del certificato:** ContosoManualCSRCertificate.
-    - **Tipo di Autorità di certificazione:** Certificato rilasciato da un'autorità di certificazione non integrata
-    - **Soggetto:** `"CN=www.contosoHRApp.com"`
-    - Selezionare gli altri valori desiderati. Fare clic su **Crea**.
+1. Passare all'insieme di credenziali delle chiavi in cui aggiungere il certificato.
+1. Nella pagina delle proprietà selezionare **Certificati**.
+1. Selezionare la scheda **Genera/Importa**.
+1. Nella schermata che consente di **creare un certificato** scegliere i seguenti valori:
+    - **Metodo di creazione del certificato**: Genera.
+    - **Nome del certificato**: ContosoManualCSRCertificate.
+    - **Tipo di Autorità di certificazione:** certificato emesso da una CA non integrata.
+    - **Soggetto**: `"CN=www.contosoHRApp.com"`.
+     > [!NOTE]
+     > Se si usa un nome distinto relativo il cui valore contiene una virgola (,), racchiudere tra virgolette doppie il valore che contiene il carattere speciale. 
+     >
+     > Voce di esempio per **Soggetto**: `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com`
+     >
+     > In questo esempio il nome distinto relativo `OU` contiene un valore con una virgola nel nome. L'output risultante per `OU` è **Docs, Contoso**.
+1. Selezionare gli altri valori desiderati, quindi selezionare **Crea** per aggiungere il certificato all'elenco **Certificati**.
 
-    ![Proprietà del certificato](../media/certificates/create-csr-merge-csr/create-certificate.png)  
+    ![Screenshot delle proprietà del certificato](../media/certificates/create-csr-merge-csr/create-certificate.png)  
 
-
-6.  Si noterà che il certificato è stato aggiunto all'elenco dei certificati. Selezionare il nuovo certificato appena creato. Lo stato corrente del certificato sarà 'disabilitato' perché non è ancora stato rilasciato dall'autorità di certificazione.
-7. Fare clic sulla scheda **Operazione relativa al certificato** e selezionare **Scarica file CSR**.
+1. Nell'elenco **Certificati** selezionare il nuovo certificato. Lo stato corrente del certificato sarà **disabilitato** perché non è ancora stato emesso dall'autorità di certificazione.
+1. Nella scheda **Operazione relativa al certificato** selezionare **Scarica file CSR**.
 
    ![Screenshot con il pulsante Scarica file CSR evidenziato.](../media/certificates/create-csr-merge-csr/download-csr.png)
- 
-8.  Sottoporre il file con estensione csr all'autorità di certificazione in modo che la richiesta venga firmata.
-9.  Dopo che la richiesta è stata firmata dall'autorità di certificazione, ripristinare il file del certificato per **unire la richiesta firmata** nella stessa schermata dell'operazione relativa al certificato.
+
+1. Chiedere alla CA di firmare la richiesta CSR (con estensione csr).
+1. Dopo la firma della richiesta, selezionare **Unisci la richiesta firmata** nella scheda **Operazione relativa al certificato** per aggiungere il certificato firmato in Key Vault.
 
 La richiesta di certificato è stata ora unita correttamente.
 
-
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
+1. Creare criteri dei certificati. Poiché la CA scelta in questo scenario non è partner, **IssuerName** è impostato su **Unknown** e Key Vault non registra né rinnova il certificato.
 
-
-1. In primo luogo, **creare i criteri del certificato**. Key Vault non registrerà o rinnoverà il certificato rilasciato dall'autorità di certificazione per conto dell'utente, perché l'autorità di certificazione scelta in questo scenario non è inclusa tra quelle supportate e di conseguenza IssuerName è impostato su Unknown.
-
-   ```azurepowershell
+   ```azure-powershell
    $policy = New-AzKeyVaultCertificatePolicy -SubjectName "CN=www.contosoHRApp.com" -ValidityInMonths 1  -IssuerName Unknown
    ```
-    
-   > [!NOTE]
-   > Se si usa un nome distinto relativo il cui valore contiene una virgola (,), usare le virgolette singole e racchiudere tra virgolette doppie il valore che contiene il carattere speciale. Esempio: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. In questo esempio, il valore `OU` viene letto come **Docs, Contoso**. Questo formato funziona per tutti i valori che contengono una virgola.
+     > [!NOTE]
+     > Se si usa un nome distinto relativo il cui valore contiene una virgola (,), usare le virgolette singole per il valore o il set di valori completo e racchiudere tra virgolette doppie il valore che contiene il carattere speciale. 
+     >
+     >Voce di esempio per **SubjectName**: `$policy = New-AzKeyVaultCertificatePolicy -SubjectName 'OU="Docs,Contoso",DC=Contoso,CN=www.contosoHRApp.com' -ValidityInMonths 1  -IssuerName Unknown`. In questo esempio, il valore `OU` viene letto come **Docs, Contoso**. Questo formato funziona per tutti i valori che contengono una virgola.
+     > 
+     > In questo esempio il nome distinto relativo `OU` contiene un valore con una virgola nel nome. L'output risultante per `OU` è **Docs, Contoso**.
 
-2. Creare una **richiesta di firma del certificato**
+1. Creare la richiesta CSR.
 
-   ```azurepowershell
+   ```azure-powershell
    $csr = Add-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -CertificatePolicy $policy
    $csr.CertificateSigningRequest
    ```
 
-3. Recupero della **richiesta CSR firmata dall'autorità di certificazione**. `$csr.CertificateSigningRequest` è la richiesta di firma del certificato con codifica Base4 per il certificato. È possibile usare questo BLOB per eseguirne il dump nel sito Web della richiesta di certificato dell'autorità di certificazione. Questo passaggio varia a seconda dell'autorità di certificazione. Il modo migliore consiste nell'esaminare le linee guida dell'autorità di certificazione per informazioni su come eseguire questo passaggio. È anche possibile usare strumenti come certreq o openssl per ottenere la richiesta di certificato firmata e completare il processo di generazione di un certificato.
+1. Chiedere alla CA di firmare la richiesta CSR. `$csr.CertificateSigningRequest` corrisponde alla richiesta CSR con codifica di base per il certificato. È possibile eseguire il dump di questo BLOB nel sito Web della richiesta di certificato dell'autorità di certificazione. Questo passaggio varia da una CA all'altra. Per informazioni su come eseguirlo, vedere le linee guida della CA in uso. È anche possibile usare strumenti come certreq o openssl per ottenere la richiesta CSR firmata e completare il processo di generazione di un certificato.
 
+1. Unire la richiesta firmata in Key Vault. Una volta firmata, è possibile unire la richiesta di certificato con la coppia di chiavi pubblica/privata creata in Azure Key Vault.
 
-4. **Unione della richiesta firmata** in Key Vault. Dopo che la richiesta di certificato è stata firmata dall'autorità di certificazione, è possibile ripristinare il certificato firmato e unirlo con la coppia di chiavi pubblica/privata iniziale creata in Azure Key Vault
-
-    ```azurepowershell-interactive
+    ```azure-powershell-interactive
     Import-AzKeyVaultCertificate -VaultName ContosoKV -Name ContosoManualCSRCertificate -FilePath C:\test\OutputCertificateFile.cer
     ```
 
-    La richiesta di certificato è stata ora unita correttamente.
+La richiesta di certificato è stata ora unita correttamente.
+
 ---
 
-> [!NOTE]
-> Se i valori dei nomi distinti relativi contengono virgole, è anche possibile aggiungerli nel campo **Soggetto** racchiudendo il valore tra virgolette doppie come illustrato nel passaggio 4.
-> Voce di esempio per "Soggetto": `DC=Contoso,OU="Docs,Contoso",CN=www.contosoHRApp.com` In questo esempio il nome distinto relativo `OU` contiene un valore con una virgola nel nome. L'output risultante per `OU` è **Docs, Contoso**.
+## <a name="add-more-information-to-the-csr"></a>Aggiungere altre informazioni alla richiesta CSR
 
-## <a name="adding-more-information-to-csr"></a>Aggiunta di altre informazioni a CSR
-
-Se si vogliono aggiungere altre informazioni durante la creazione di CSR, ad esempio: 
-    - Paese:
-    - Città/Località:
-    - Regione/Provincia:
-    - Organizzazione:
-    - Unità organizzativa: è possibile aggiungere tutte queste informazioni quando si crea una CSR definendole in SubjectName.
+Se si vogliono aggiungere altre informazioni durante la creazione della CSR, definirle in **SubjectName**. Potrebbe essere necessario aggiungere informazioni come:
+- Paese
+- Città/località
+- Provincia
+- Organization
+- Unità organizzativa
 
 Esempio
-    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
-    ```
+
+   ```azure-powershell
+   SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+   ```
 
 > [!NOTE]
-> Se si richiede un certificato di tipo Domain Validated con tutti questi dettagli in CSR, è possibile che l'autorità di certificazione rifiuti la richiesta perché potrebbe non essere in grado di convalidare tutte le informazioni contenute nella richiesta. Se si richiede un certificato OV, sarebbe più opportuno aggiungere tutte queste informazioni in CSR.
+> Se si richiede un certificato di convalida del dominio con informazioni aggiuntive, la CA potrebbe rifiutare la richiesta se non è in grado di convalidare tutte le informazioni al suo interno. Le informazioni aggiuntive potrebbero essere più appropriate se si richiede un certificato di convalida dell'organizzazione.
 
+## <a name="faqs"></a>Domande frequenti
 
-## <a name="troubleshoot"></a>Risolvere problemi
+- Come è possibile monitorare o gestire le richieste CSR?
 
-- Per monitorare o gestire la risposta alla richiesta di certificato, vedere altre informazioni [qui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios)
+     Vedere [Monitorare e gestire la creazione di certificati](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-scenarios).
 
-- **Il tipo di errore 'La chiave pubblica del certificato di entità finale nel contenuto del certificato X.509 specificato non corrisponde alla parte pubblica della chiave privata specificata. Verificare se il certificato sia valido'** Questo errore può verificarsi se non si unisce la CSR con la stessa richiesta CSR avviata. Ogni volta che si crea una CSR, si crea una chiave privata che deve essere confrontata durante l'unione della richiesta firmata.
-    
-- In caso di merge della CSR viene eseguito il merge dell'intera catena?
-    Sì, verrà eseguito il merge dell'intera catena, purché l'utente abbia ripristinato il file p7b di cui eseguire il merge.
+- Perché viene visualizzato il messaggio **Tipo di errore: 'La chiave pubblica del certificato di entità finale nel contenuto del certificato X. 509 specificato non corrisponde alla parte pubblica della chiave privata specificata. Assicurarsi che il certificato sia valido'** ?
 
-- Se il certificato rilasciato si trova nello stato 'disabilitato' nel portale di Azure, vedere **Operazione relativa al certificato** per esaminare il messaggio di errore per il certificato.
+     Questo errore si verifica se la richiesta CSR firmata non viene unita alla stessa richiesta CSR avviata. Ogni nuova richiesta CSR creata include una chiave privata, che deve corrispondere quando si unisce la richiesta firmata.
 
-Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
+- Con l'unione di una richiesta CSR, viene unita l'intera catena?
 
-- **Errore di tipo 'Il nome soggetto specificato non è un nome X500 valido'** Questo errore può verificarsi se sono stati inclusi caratteri speciali nei valori di SubjectName. Vedere le note nel portale di Azure e le istruzioni di PowerShell rispettivamente. 
+     Sì, verrà unita l'intera catena, purché l'utente abbia recuperato un file p7b da unire.
+
+- Cosa succede se il certificato emesso risulta disabilitato nel portale di Azure?
+
+     Per esaminare il messaggio di errore relativo al certificato, visualizzare la scheda **Operazione relativa al certificato**.
+
+- Perché viene visualizzato un messaggio analogo a **Tipo di errore: 'Il nome soggetto specificato non è un nome X500 valido'** ?
+
+     Questo errore può verificarsi se **SubjectName** include caratteri speciali. Vedere le note nel portale di Azure e le istruzioni di PowerShell.
 
 ---
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Autenticazione, richieste e risposte](../general/authentication-requests-and-responses.md)
 - [Guida per gli sviluppatori all'insieme di credenziali delle chiavi](../general/developers-guide.md)
+- [Informazioni di riferimento sull'API REST di Azure Key Vault](/rest/api/keyvault)
+- [Insiemi di credenziali delle chiavi - Creare o aggiornare](/rest/api/keyvault/vaults/createorupdate)
+- [Insiemi di credenziali - Aggiornare i criteri di accesso](/rest/api/keyvault/vaults/updateaccesspolicy)

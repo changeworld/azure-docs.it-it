@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: c1d448fe9da72654ac1600009e66c88c5e7b93b4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
+ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509428"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98015947"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -93,7 +93,7 @@ Se non si vuole usare l'automazione, seguire i passaggi delle sezioni seguenti.
 
 ### <a name="choose-the-azure-ad-tenant"></a>Scegliere il tenant di Azure AD
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 
 
@@ -203,7 +203,7 @@ Questo progetto include i progetti di app Web e API Web. Per distribuirli nei si
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Creare e pubblicare dotnet-web-daemon-v2 in un sito Web di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Nell'angolo in alto a sinistra della schermata selezionare **Crea una risorsa**.
 1. Selezionare **Web** > **App Web** e quindi assegnare un nome al sito Web, ad esempio **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Selezionare le informazioni per la **sottoscrizione**, il **gruppo di risorse** e il **piano e la località del servizio app**. Per **Sistema operativo** scegliere **Windows** e per **Pubblica** scegliere **Codice**.
@@ -224,7 +224,7 @@ Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Aggiornare la registrazione dell'applicazione nel tenant di Azure AD per dotnet-web-daemon-v2
 
-1. Tornare al [portale di Azure](https://portal.azure.com).
+1. Tornare al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
 1. Selezionare l'applicazione **dotnet-web-daemon-v2**.
 1. Nella pagina **Autenticazione** per l'applicazione aggiornare i campi **URL di disconnessione** con l'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.

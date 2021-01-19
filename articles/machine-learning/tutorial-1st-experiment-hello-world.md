@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 971bac8a0b0951d4e07e139aea6c465a9159b8db
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 43a483f49a9e9004a4f487e82195198f2600a919
+ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96570961"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98071154"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Esercitazione: Eseguire uno script "Hello world!" di Python t (parte 2 di 4)
 
@@ -36,9 +36,6 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Completamento della [parte 1](tutorial-1st-experiment-sdk-setup-local.md) se non si ha già un'area di lavoro di Azure Machine Learning.
-- Conoscenze di base del linguaggio Python e dei flussi di lavoro di Machine Learning.
-- Ambiente di sviluppo locale, come Visual Studio Code, Jupyter o PyCharm.
-- Python (versione 3.5-3.7).
 
 ## <a name="create-and-run-a-python-script-locally"></a>Creare ed eseguire in locale uno script di Python
 
@@ -64,7 +61,7 @@ tutorial
 
 ### <a name="test-your-script-locally"></a><a name="test"></a>Testare lo script in locale
 
-È possibile eseguire il codice in locale, usando l'IDE preferito o un terminale. L'esecuzione in locale offre il vantaggio del debug interattivo del codice.
+È possibile eseguire il codice in locale, usando l'IDE preferito o un terminale. L'esecuzione in locale offre il vantaggio del debug interattivo del codice.  Nella finestra con l'ambiente Conda *tutorial1* attivato eseguire il file Python:
 
 ```bash
 cd <path/to/tutorial>
@@ -93,8 +90,6 @@ run = experiment.submit(config)
 aml_url = run.get_portal_url()
 print(aml_url)
 ```
-
-
 
 ### <a name="understand-the-code"></a>Informazioni sul codice
 
@@ -148,13 +143,6 @@ Ecco come funziona lo script di controllo:
 
 Eseguire lo script di controllo, che a sua volta esegue `hello.py` nel cluster di elaborazione creato nell'[esercitazione relativa alla configurazione](tutorial-1st-experiment-sdk-setup-local.md).
 
-La prima esecuzione verrà completata in 5 - 10 minuti, per i motivi seguenti:
-
-* Un'immagine Docker viene creata nel cloud
-* Il cluster di elaborazione viene ridimensionato da 0 a 1 nodo
-* L'immagine Docker viene scaricata nel calcolo. 
-
-Le esecuzioni successive sono molto più veloci (circa 15 secondi) perché l'immagine Docker viene memorizzata nella cache nel calcolo. È possibile testarla reinviando il codice seguente dopo il completamento della prima esecuzione.
 
 ```bash
 python 03-run-hello.py
@@ -168,9 +156,17 @@ python 03-run-hello.py
 
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a><a name="monitor"></a>Monitorare il codice nel cloud usando Studio
 
-L'output conterrà un collegamento a Studio simile al seguente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
+L'output dello script conterrà un collegamento allo studio simile al seguente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Seguire il collegamento e passare alla scheda **Output e log**, in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
+Seguire il collegamento.  Inizialmente, verrà visualizzato lo stato **Preparazione**.  La prima esecuzione verrà completata in 5 - 10 minuti, per i motivi seguenti:
+
+* Un'immagine Docker viene creata nel cloud
+* Il cluster di elaborazione viene ridimensionato da 0 a 1 nodo
+* L'immagine Docker viene scaricata nel calcolo. 
+
+Le esecuzioni successive sono molto più veloci (circa 15 secondi) perché l'immagine Docker viene memorizzata nella cache nell'istanza di calcolo. Per verificarlo, inviare di nuovo il codice seguente dopo il completamento della prima esecuzione.
+
+Al termine del processo, passare alla scheda **Output e log**. in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: f0c7e23e45a84fa73c7e63b5aaa6280177cf8b27
-ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.openlocfilehash: fdd5b8f9cea549f64c4857d1c45b95b0d9b9ec53
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98541309"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569964"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -44,13 +44,13 @@ Questo articolo offre informazioni di riepilogo sul supporto e i prerequisiti pe
 **Cluster geografico** | **Aree di Azure**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
-Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Sudafrica occidentale, Sudafrica settentrionale, Norvegia orientale, Francia centrale, Svizzera settentrionale
+Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Sudafrica occidentale, Sudafrica settentrionale, Norvegia orientale, Francia centrale, Svizzera settentrionale, Germania centro-occidentale
 Asia | India meridionale, India centrale, India occidentale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale
 Australia    | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germania    | Germania centrale, Germania nord-orientale
 Cina | Cina orientale, Cina settentrionale, Cina settentrionale2, Cina orientale 2
-Aree con restrizioni riservate per il ripristino di emergenza in un paese |Germania settentrionale riservata per Germania centro-occidentale, Svizzera occidentale riservata per Svizzera settentrionale, Francia meridionale riservata per la Francia centrale, Emirati Arabi Uniti centrali limitata per i clienti Emirati Arabi Uniti settentrionali, Norvegia occidentale per i clienti della Norvegia orientale
+Aree con restrizioni riservate per il ripristino di emergenza in un paese |Svizzera occidentale riservata per Svizzera settentrionale, Francia meridionale riservata per la Francia centrale, Emirati Arabi Uniti centrali limitata per i clienti Emirati Arabi Uniti settentrionali, Norvegia occidentale per i clienti della Norvegia orientale
 
 >[!NOTE]
 >

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: jehollan, glenga
 ms.custom: include file
-ms.openlocfilehash: 4eaea46044f0da4766fda051655d57caee9d98b6
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: cdeba09c91bee72508632b8468126150017df7cd
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937017"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98187266"
 ---
 1. Nel menu del portale di Azure o dalla pagina **Home** selezionare **Crea una risorsa**.
 
@@ -27,28 +27,22 @@ ms.locfileid: "97937017"
     | **[Gruppo di risorse](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
     | **Nome dell'app per le funzioni** | Nome univoco a livello globale | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z` (senza distinzione tra maiuscole e minuscole), `0-9` e `-`.  |
     |**Pubblica**| Codice | Opzione per la pubblicazione di file di codice o di un contenitore Docker. |
-    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. |
+    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. La modifica all'interno del portale non è attualmente supportata per lo [sviluppo Python](../articles/azure-functions/functions-reference-python.md).|
     |**Area**| Area preferita | Scegliere un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. |
-
-    ![Pagina Informazioni di base](./media/functions-premium-create/function-app-create-basics.png)
 
 1. Selezionare **Avanti: Hosting**. Nella pagina **Hosting** immettere le impostazioni seguenti:
 
     | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
     | **[Account di archiviazione](../articles/storage/common/storage-account-create.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che deve soddisfare i [requisiti dell'account di archiviazione](../articles/azure-functions/storage-considerations.md#storage-account-requirements). |
-    |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. Python è supportato solo in Linux. |
+    |**Sistema operativo**| Sistema operativo preferito | Viene preselezionato automaticamente un sistema operativo in base alla selezione dello stack di runtime, ma, se necessario, è possibile modificare l'impostazione. Python è supportato solo in Linux. La modifica all'interno del portale è supportata solo in Windows.|
     | **[Piano](../articles/azure-functions/functions-scale.md)** | Premium | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. Selezionare **Premium**. Per impostazione predefinita, viene creato un nuovo piano di servizio app. Il valore predefinito di **SKU e dimensioni** è **EP1**, dove EP è l'acronimo di _Elastic Premium_, ovvero elastico Premium. Per altre informazioni, vedere l'[elenco di SKU Premium](../articles/azure-functions/functions-premium-plan.md#available-instance-skus).<br/>Quando si eseguono funzioni JavaScript in un piano Premium, è necessario scegliere un'istanza con un minor numero di vCPU. Per altre informazioni, vedere [Scegliere piani Premium con core singolo](../articles/azure-functions/functions-reference-node.md#considerations-for-javascript-functions).  |
-
-    ![Pagina Hosting](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
 1. Selezionare **Avanti: Monitoraggio**. Nella pagina **Monitoraggio** immettere le impostazioni seguenti:
 
     | Impostazione      | Valore consigliato  | Descrizione |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Predefinito | Crea una risorsa di Application Insights con lo stesso *nome di app* nell'area più vicina supportata. Espandendo questa impostazione, è possibile cambiare il valore di **Nome nuova risorsa** oppure scegliere un valore per **Località** in un'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) per archiviare i dati. |
-
-    ![Pagina di monitoraggio](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
 1. Selezionare **Rivedi e crea** per rivedere le selezioni effettuate per la configurazione dell'app.
 

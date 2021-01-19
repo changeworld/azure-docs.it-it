@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 9ad96bdb632e134cf3e3a0f82bb97f88c87e72e9
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 937b5ebb13bfbf27ff04b6944f2de7e32e7e656c
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033443"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185853"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Eseguire il training e distribuire un modello di classificazione delle immagini TensorFlow usando l'estensione Azure Machine Learning per Visual Studio Code (anteprima)
 
@@ -78,7 +78,7 @@ A questo punto, viene inviata una richiesta ad Azure per creare una nuova area d
     > [!div class="mx-imgBorder"]
     > ![Creare un esperimento](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
 
-1. Assegnare all'esperimento il nome "MNIST" e premere **INVIO** per creare il nuovo esperimento. 
+1. Assegnare all'esperimento il nome "Tutorial-VSCode-MNIST" e premere **INVIO** per creare il nuovo esperimento. 
 
 Come per le aree di lavoro, viene inviata una richiesta ad Azure per creare un esperimento con le configurazioni specificate. Dopo alcuni minuti, il nuovo esperimento viene visualizzato nel nodo *Esperimenti* dell'area di lavoro. 
 

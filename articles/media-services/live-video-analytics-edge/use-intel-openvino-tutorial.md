@@ -4,12 +4,12 @@ description: In questa esercitazione si userà un server di modelli di intellige
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 82906111e64bd278d4371d1c3497fefc4510bbbd
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 9fb2f533d433c89d13ee0c29058f87aab3521a78
+ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401211"
+ms.lasthandoff: 01/10/2021
+ms.locfileid: "98060198"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Esercitazione: Analizzare video live con l'estensione per intelligenza artificiale OpenVINO™ Model Server di Intel 
 
@@ -37,6 +37,8 @@ Questa esercitazione usa una VM di Azure come dispositivo IoT Edge e un flusso v
 Quando si configurano le risorse di Azure, nella VM Linux di Azure usata come dispositivo IoT Edge viene copiato un breve video di un parcheggio. In questa guida il file video viene usato per simulare uno streaming live.
 
 Aprire un'applicazione, ad esempio il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere CTRL+N, quindi incollare un collegamento al [video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) per avviare la riproduzione. Verrà visualizzato il filmato dei veicoli in un parcheggio, con la maggior parte di essi parcheggiati e uno in movimento.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 
 In questa guida di avvio rapido si userà Analisi video live in IoT Edge insieme all'estensione per intelligenza artificiale OpenVINO™ Model Server di Intel per rilevare gli oggetti, ad esempio i veicoli, o classificarli. Si pubblicheranno quindi gli eventi di inferenza risultanti nell'hub di IoT Edge.
 
@@ -97,7 +99,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
 1. Modificare il file *operations.json*:
     * Cambiare il collegamento alla topologia del grafo:
 
-        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/topology.json"`
+        `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtensionOpenVINO/2.0/topology.json"`
 
     * In `GraphInstanceSet` modificare il nome della topologia del grafo in modo che corrisponda al valore nel collegamento precedente:
 
@@ -160,7 +162,7 @@ Se si apre la [topologia del grafo](https://raw.githubusercontent.com/Azure/live
 
          ```
          {
-           "@apiVersion": "1.0",
+           "@apiVersion": "2.0",
            "name": "Sample-Graph-1",
            "properties": {
              "topologyName": "InferencingWithOpenVINO",
@@ -203,7 +205,7 @@ Nei messaggi seguenti il modulo Analisi video live definisce le proprietà dell'
 
 ### <a name="mediasessionestablished-event"></a>Evento MediaSessionEstablished
 
-Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live555. Se la connessione riesce, viene stampato l'evento seguente. Il tipo di evento è `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+Quando viene creata un'istanza del grafo multimediale, il nodo di origine RTSP prova a connettersi al server RTSP in esecuzione nel contenitore rtspsim-live555. Se la connessione riesce, viene stampato l'evento seguente. Il tipo di evento è **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

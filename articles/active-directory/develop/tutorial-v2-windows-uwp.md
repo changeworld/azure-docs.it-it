@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dce2cd0d77ff0a98d4d68e1c99edb472e61ce8a5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 63d56d8afc584a760f4b31c6021d4c764afd52b3
+ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97509462"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98064420"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -42,7 +42,7 @@ Contenuto dell'esercitazione:
 
 ![Illustra come funziona l'app di esempio generata da questa esercitazione](./media/tutorial-v2-windows-uwp/uwp-intro.svg)
 
-Questa guida crea un'applicazione della piattaforma UWP di esempio che esegue query sull'API Microsoft Graph. Per questo scenario, viene aggiunto un token alle richieste HTTP usando l'intestazione Authorization. Le acquisizioni e i rinnovi di token vengono gestiti da Microsoft Authentication Library.
+Questa guida crea un'applicazione della piattaforma UWP di esempio che esegue query sull'API Microsoft Graph. Per questo scenario, viene aggiunto un token alle richieste HTTP usando l'intestazione Authorization. Le acquisizioni e i rinnovi di token sono gestiti da Microsoft Authentication Library.
 
 ## <a name="nuget-packages"></a>Pacchetti NuGet
 
@@ -50,7 +50,7 @@ Questa guida usa il pacchetto NuGet seguente:
 
 |Libreria|Descrizione|
 |---|---|
-|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
+|[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)| Microsoft Authentication Library|
 |[Microsoft.Graph](https://www.nuget.org/packages/Microsoft.Graph)|Libreria client di Microsoft Graph|
 
 ## <a name="set-up-your-project"></a>Configurare il progetto
@@ -71,7 +71,7 @@ L'applicazione creata in questa guida mostra un pulsante per eseguire query sull
 
    ![Versione minima e versione di destinazione](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
-### <a name="add-microsoft-authentication-library-to-your-project"></a>Aggiungere Microsoft Authentication Library al progetto
+### <a name="add-the-microsoft-authentication-library-to-your-project"></a>Aggiungere Microsoft Authentication Library al progetto
 
 1. In Visual Studio selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti**.
 1. Nella finestra **Console di Gestione pacchetti** copiare e incollare i comandi seguenti:
@@ -103,9 +103,9 @@ Visual Studio crea il file *MainPage.xaml* nel modello di progetto. Aprire il fi
 </Grid>
 ```
 
-### <a name="use-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usare Microsoft Authentication Library per ottenere un token per l'API Microsoft Graph
+### <a name="use-the-microsoft-authentication-library-to-get-a-token-for-the-microsoft-graph-api"></a>Usare Microsoft Authentication Library per ottenere un token per l'API Microsoft Graph
 
-Questa sezione descrive come usare Microsoft Authentication Library per ottenere un token per l'API Microsoft Graph. Apportare le modifiche al file *MainPage.xaml.cs*.
+Questa sezione illustra come usare Microsoft Authentication Library per ottenere un token per l'API Microsoft Graph. Apportare le modifiche al file *MainPage.xaml.cs*.
 
 1. In *MainPage.xaml.cs* aggiungere i riferimenti seguenti:
 
@@ -225,9 +225,9 @@ Con il metodo `AcquireTokenInteractive` viene visualizzata una finestra in cui v
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
-Il metodo `AcquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo che `AcquireTokenInteractive` viene eseguito per la prima volta e vengono richieste le credenziali all'utente, usare il metodo `AcquireTokenSilent` per richiedere i token per le chiamate successive. Questo metodo acquisisce i token in modo invisibile all'utente. La memorizzazione nella cache e i rinnovi di token vengono gestiti da Microsoft Authentication Library.
+Il metodo `AcquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo che `AcquireTokenInteractive` viene eseguito per la prima volta e vengono richieste le credenziali all'utente, usare il metodo `AcquireTokenSilent` per richiedere i token per le chiamate successive. Questo metodo acquisisce i token in modo invisibile all'utente. La memorizzazione nella cache e il rinnovo dei token sono gestiti da Microsoft Authentication Library.
 
-Il metodo `AcquireTokenSilent` avrà infine esito negativo. L'errore può dipendere dall'utente che ha eseguito la disconnessione o ha modificato la password in un altro dispositivo. Se Microsoft Authentication Library rileva che per risolvere il problema è richiesta un'azione interattiva, genera un'eccezione `MsalUiRequiredException`. L'applicazione può gestire questa eccezione in due modi:
+Il metodo `AcquireTokenSilent` avrà infine esito negativo. L'errore può dipendere dall'utente che ha eseguito la disconnessione o ha modificato la password in un altro dispositivo. Se Microsoft Authentication Library rileva che per risolvere il problema è necessaria un'azione interattiva, genera un'eccezione `MsalUiRequiredException`. L'applicazione può gestire questa eccezione in due modi:
 
 * L'applicazione chiama immediatamente `AcquireTokenInteractive`. e richiedere così all'utente di eseguire l'accesso. Usare in genere questo approccio per le applicazioni online in cui non è disponibile contenuto offline per l'utente. L'esempio generato da questa configurazione guidata segue il modello. Lo si può vedere in azione la prima volta che si esegue l'esempio.
 
@@ -299,7 +299,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
 
 Il metodo `SignOutButton_Click` rimuove l'utente dalla cache utente di Microsoft Authentication Library. Questo metodo indica in modo efficace a Microsoft Authentication Library di dimenticare l'utente corrente. Una richiesta futura di acquisizione di un token ha esito positivo solo se è interattiva.
 
-L'applicazione in questo esempio supporta un singolo utente. Microsoft Authentication Library supporta scenari in cui l'utente può accedere a più di un account. Ad esempio, un'applicazione di posta elettronica in cui un utente gestisce più account.
+L'applicazione in questo esempio supporta un singolo utente. Microsoft Authentication Library supporta scenari in cui l'utente può accedere a più account. Ad esempio, un'applicazione di posta elettronica in cui un utente gestisce più account.
 
 ### <a name="display-basic-token-information"></a>Visualizzare informazioni di base sui token
 
@@ -322,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Altre informazioni<a name="more-information-1"></a>
 
-I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subset di informazioni relative all'utente. `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Queste informazioni includono il nome visualizzato e l'ID dell'utente, nonché la data di scadenza del token e la stringa che rappresenta il token di accesso stesso. Selezionando più volte il pulsante **Chiamare API Microsoft Graph**, è possibile notare che lo stesso token è stato riutilizzato per richieste successive. Se Microsoft Authentication Library decide che è il momento di rinnovare il token, è possibile anche visualizzare la data di scadenza estesa.
+I token ID acquisiti tramite **OpenID Connect** includono anche un piccolo subset di informazioni relative all'utente. `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Queste informazioni includono il nome visualizzato e l'ID dell'utente, nonché la data di scadenza del token e la stringa che rappresenta il token di accesso stesso. Selezionando più volte il pulsante **Chiamare API Microsoft Graph**, è possibile notare che lo stesso token è stato riutilizzato per richieste successive. Quando Microsoft Authentication Library stabilisce che è il momento di rinnovare il token, è possibile vedere anche la data di scadenza prolungata.
 
 ### <a name="display-message"></a>Visualizzare il messaggio
 
@@ -346,7 +346,7 @@ private async Task DisplayMessageAsync(string message)
 
 A questo punto è necessario registrare l'applicazione:
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
@@ -357,7 +357,7 @@ A questo punto è necessario registrare l'applicazione:
 
 Configurare l'autenticazione per l'applicazione:
 
-1. Tornare nel [portale di Azure](https://portal.azure.com), quindi in **Gestisci**, selezionare **Autenticazione** > **Aggiungi una piattaforma** e poi **Applicazioni per dispositivi mobili e desktop**.
+1. Tornare nel <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, quindi in **Gestisci** selezionare **Autenticazione** > **Aggiungi una piattaforma** e infine **Applicazioni per dispositivi mobili e desktop**.
 1. Nella sezione **URI di reindirizzamento** selezionare **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Selezionare **Configura**.
 
@@ -469,7 +469,7 @@ Nella casella **Informazioni sul token** vengono visualizzate anche informazioni
 |Proprietà  |Format  |Descrizione |
 |---------|---------|---------|
 |`Username` |`user@domain.com` |Il nome utente che identifica l'utente.|
-|`Token Expires` |`DateTime` |Data e ora in cui scade il token. Microsoft Authentication Library estende la data di scadenza rinnovando il token in base alla necessità.|
+|`Token Expires` |`DateTime` |Data e ora in cui scade il token. Microsoft Authentication Library prolunga la data di scadenza rinnovando il token in base alla necessità.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 

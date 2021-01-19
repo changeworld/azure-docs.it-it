@@ -4,12 +4,12 @@ description: Informazioni sul backup di database di Azure per PostgreSQL con con
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 32837e5bb871f7db5024569efc27940047aeacd7
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 628f43788c11558185a7b8a735373f0a663fdad1
+ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734641"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98569488"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Backup del database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 
@@ -135,7 +135,7 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 
 1. Definire le impostazioni di **conservazione** . È possibile aggiungere una o più regole di conservazione. Ogni regola di conservazione presuppone gli input per backup specifici, l'archivio dati e la durata di conservazione per tali backup.
 
-1. È possibile scegliere di archiviare i backup in uno dei due archivi dati (o livelli): archivio dati di **backup** (livello critico) o archivio **dati di archivio** (in anteprima). È possibile scegliere tra **due opzioni** di suddivisione in livelli per definire quando i backup sono suddivisi in livelli tra i due archivi dati:
+1. È possibile scegliere di archiviare i backup in uno dei due archivi dati (o livelli): **Backup Data Store** (livello standard) o **archivio dati di archivio** (in anteprima). È possibile scegliere tra **due opzioni** di suddivisione in livelli per definire quando i backup sono suddivisi in livelli tra i due archivi dati:
 
     - Scegliere di copiare **immediatamente** se si preferisce una copia di backup sia negli archivi dati di backup che in quelli di archivio simultaneamente.
     - Scegliere di spostarsi **in scadenza** se si preferisce spostare il backup nell'archivio dati di archiviazione alla scadenza nell'archivio dati di backup.

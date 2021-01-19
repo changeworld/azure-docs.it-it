@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3943caba5249432b3a0a4b7c2e63b2b818e2b7a1
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
+ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575704"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97968499"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro  
 
@@ -150,11 +150,11 @@ Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'ute
 
 Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Azure Stack Edge Pro e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
 
-1. Selezionare la risorsa creata. Selezionare **Panoramica** e quindi **Configurazione dispositivo**.
+1. Passare alla risorsa creata e selezionare **Panoramica**. Verrà visualizzata una notifica per indicare che l'ordine è in fase di elaborazione.
 
-    ![Selezionare Configurazione dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
+    ![Selezionare Panoramica](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 
-2. Nel riquadro **Attiva** selezionare **Genera chiave** per creare una chiave di attivazione. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
+2. Dopo che l'ordine è stato elaborato e il dispositivo viene inviato, la pagina **Panoramica** viene aggiornata. Accettare il nome predefinito di **Azure Key Vault** o immetterne uno nuovo. Selezionare **Genera chiave di attivazione**. Selezionare l'icona di copia per copiare la chiave e salvarla, in modo da poterla usare in seguito.
 
     ![Ottenere una chiave di attivazione](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/04/2020
+ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: bd62855aef59439ed476a13770f79ce6d3cf68f8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d4f8e71a0afbb1b00313d5e100ba8b3fd2b4e2ce
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180796"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Esercitazione: Integrazione di Azure Active Directory con Marketo
 
@@ -40,6 +40,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Marketo supporta l'accesso SSO avviato da **IDP**
 
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
+
 ## <a name="adding-marketo-from-the-gallery"></a>Aggiunta di Marketo dalla raccolta
 
 Per configurare l'integrazione di Marketo in Azure AD, è necessario aggiungere Marketo dalla raccolta al proprio elenco di app SaaS gestite.
@@ -51,7 +54,7 @@ Per configurare l'integrazione di Marketo in Azure AD, è necessario aggiungere 
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Marketo** nella casella di ricerca.
 1. Selezionare **Marketo** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
+## <a name="configure-and-test-azure-ad-sso-for-marketo"></a>Configurare e testare l'accesso SSO di Azure AD per Marketo
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Marketo usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Marketo.
@@ -59,10 +62,10 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Marketo, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso SSO di Azure AD con Britta Simon.
-    * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare l'utente Britta Simon all'uso dell'accesso SSO di Azure AD.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso SSO di Azure AD con Britta Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare l'utente Britta Simon all'uso dell'accesso SSO di Azure AD.
 2. **[Configurare l'accesso Single Sign-On di Marketo](#configure-marketo-sso)** : per configurare le impostazioni dell'accesso Single Sign-On sul lato applicazione.
-    * **[Creare un utente di test di Marketo](#create-marketo-test-user)** : per avere una controparte di Britta Simon in Marketo collegata alla rappresentazione dell'utente in Azure AD.
+    1. **[Creare un utente di test di Marketo](#create-marketo-test-user)** : per avere una controparte di Britta Simon in Marketo collegata alla rappresentazione dell'utente in Azure AD.
 3. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -71,20 +74,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **Marketo** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://saml.marketo.com/sp`
+    a. Nella casella di testo **Identificatore** digitare l'URL: `https://saml.marketo.com/sp`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
     c. Nella casella di testo **Stato dell'inoltro** digitare un URL nel formato seguente: `https://<munchkinid>.marketo.com/`
 
     > [!NOTE]
-    > Poiché questi non sono i valori reali, aggiornare i valori con l'identificatore, l'URL di risposta e lo stato dell'inoltro effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Marketo](https://investors.marketo.com/contactus.cfm). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e lo stato dell'inoltro effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Marketo](https://investors.marketo.com/contactus.cfm). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -120,7 +123,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-marketo-sso"></a>Configurare l'accesso Single Sign-On di Marketo
 
-1. Per ottenere l'ID Munchkin dell'applicazione, accedere a Marketo usando le credenziali di amministratore ed eseguire le azioni seguenti:
+1. Per automatizzare la configurazione all'interno di Marketo, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Marketo** per passare direttamente all'applicazione Marketo. Specificare quindi le credenziali di amministratore per accedere a Marketo. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 6.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare Marketo manualmente, in un'altra finestra del Web browser accedere al sito aziendale di Marketo come amministratore.
+
+1. Per ottenere l'ID Munchkin dell'applicazione, eseguire queste azioni:
    
     a. Accedere all'app Marketo usando le credenziali di amministratore.
    
@@ -233,13 +246,13 @@ In questa sezione viene creato un utente chiamato Britta Simon in Marketo. Segui
 
 8. L'utente riceve la notifica tramite posta elettronica e deve fare clic sul collegamento e modificare la password per attivare l'account. 
 
-### <a name="test-sso"></a>Testare l'accesso SSO 
+### <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti.
 
-1. Dopo aver fatto clic su Test this application (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Marketo per cui si è configurato l'accesso SSO
+* Dopo aver fatto clic su Test this application (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Marketo per cui si è configurato l'accesso SSO
 
-1. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di Marketo nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Marketo per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Marketo in App personali, si dovrebbe accedere automaticamente all'istanza di Marketo per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
