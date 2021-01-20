@@ -240,7 +240,7 @@
         - name: Bursting del disco
           href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Obiettivi di scalabilità per i dischi
-          href: disk-scalability-targets.md
+          href: ../disks-scalability-targets.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Backup e ripristino di emergenza per i dischi
           href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Dischi condivisi
@@ -869,7 +869,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md
