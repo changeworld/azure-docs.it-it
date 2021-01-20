@@ -1,5 +1,5 @@
 ---
-title: Progettazione di caratteristiche in data science - Processo di data science per i team
+title: Progettazione di funzionalità in machine learning-processo di Data Science per i team
 description: Informazioni sulla progettazione di funzionalità e sul suo ruolo nel processo di miglioramento dei dati di apprendimento automatico.
 services: machine-learning
 author: marktab
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
-ms.openlocfilehash: 7cf97edcb2f2f7a23d5c899194d497deade1f507
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97031862"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610438"
 ---
-# <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
+# <a name="feature-engineering-in-machine-learning"></a>Progettazione di funzionalità in Machine Learning
 
 Questo articolo descrive la progettazione di funzionalità e il suo ruolo nel miglioramento dei dati di apprendimento automatico. A tale scopo, sono riportate illustrazioni dagli esperimenti di [Azure Machine Learning Studio (versione classica)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 

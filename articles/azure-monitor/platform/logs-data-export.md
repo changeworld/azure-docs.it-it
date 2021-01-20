@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 8e310ea487818f6d82869fe1973c8e9ed0b04195
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: d9ae9cae1a0a8014f007cd7c4a3d1f97f27128bb
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797112"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610965"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -35,13 +35,16 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- La configurazione può attualmente essere eseguita solo usando l'interfaccia della riga di comando o le richieste REST. Non è possibile usare il portale di Azure o PowerShell.
+- La configurazione può essere eseguita attualmente usando l'interfaccia della riga di comando o le richieste REST. Portale di Azure o PowerShell non sono ancora supportati.
 - L' ```--export-all-tables``` opzione nell'interfaccia della riga di comando e REST non è supportata e verrà rimossa. È necessario specificare in modo esplicito l'elenco delle tabelle nelle regole di esportazione.
-- Le tabelle supportate sono attualmente limitate a quelle specifiche nella sezione [tabelle supportate](#supported-tables) riportata di seguito. Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella. Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace.```
+- Le tabelle supportate sono attualmente limitate a quelle specifiche nella sezione [tabelle supportate](#supported-tables) riportata di seguito. 
+- Se la regola di esportazione dei dati include una tabella non supportata, l'operazione avrà esito positivo, ma non verranno esportati dati per tale tabella finché la tabella non viene supportata. 
+- Se la regola di esportazione dei dati include una tabella che non esiste, avrà esito negativo con l'errore ```Table <tableName> does not exist in the workspace``` .
 - L'area di lavoro Log Analytics può trovarsi in qualsiasi area, ad eccezione di quanto segue:
   - Svizzera settentrionale
   - Svizzera occidentale
   - Aree di Azure per enti pubblici
+- È possibile creare due regole di esportazione in un'area di lavoro: in può essere una regola per hub eventi e una regola per l'account di archiviazione.
 - L'account di archiviazione di destinazione o l'hub eventi deve trovarsi nella stessa area dell'area di lavoro Log Analytics.
 - I nomi delle tabelle da esportare non possono contenere più di 60 caratteri per un account di archiviazione e non più di 47 caratteri in un hub eventi. Le tabelle con nomi più lunghi non verranno esportate.
 
@@ -58,7 +61,7 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costo
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
@@ -115,10 +118,10 @@ Se l'account di archiviazione è stato configurato per consentire l'accesso da r
 
 
 ### <a name="create-or-update-data-export-rule"></a>Crea o Aggiorna regola di esportazione dei dati
-Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una regola per ogni destinazione.
+Una regola di esportazione dei dati consente di definire i dati da esportare per un set di tabelle in una singola destinazione. È possibile creare una singola regola per ogni destinazione.
 
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -400,7 +403,7 @@ Usare il comando seguente per creare una regola di esportazione dei dati in un h
 
 ## <a name="view-data-export-rule-configuration"></a>Visualizzazione della configurazione delle regole di esportazione dei dati
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -432,7 +435,7 @@ N/D
 
 ## <a name="disable-an-export-rule"></a>Disabilitare una regola di esportazione
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -479,7 +482,7 @@ Content-type: application/json
 
 ## <a name="delete-an-export-rule"></a>Eliminare una regola di esportazione
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -511,7 +514,7 @@ N/D
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Visualizzare tutte le regole di esportazione dei dati in un'area di lavoro
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -706,7 +709,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | SynapseRBACEvents | |
 | syslog | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ThreatIntelligenceIndicator | |
-| Aggiorna | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
+| Aggiornamento | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Utilizzo | |

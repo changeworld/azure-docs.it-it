@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e87c9efc910d08307d40d42e58f8272a01902a41
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b351be1e7212dc9923f701599dd951a73254afe0
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554270"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610370"
 ---
 # <a name="role-based-access-control-in-azure-purviews-data-plane"></a>Controllo degli accessi in base al ruolo nel piano dati di Azure per la competenza
 
@@ -31,9 +31,9 @@ Azure competenza definisce un set di ruoli del piano dati predefiniti che posson
 
 ## <a name="understanding-how-to-use-azure-purviews-data-plane-roles"></a>Informazioni su come usare i ruoli del piano dati di Azure
 
-Quando viene creato un account Azure, l'autore viene considerato come se fosse sia nel ruolo di amministratore dei dati di competenza che nei ruoli di amministratore dell'origine dati di competenza. L'autore dell'account non è tuttavia assegnato a questi ruoli nell'archivio dei ruoli. Azure è in grado di riconoscere che l'entità è l'autore dell'account ed estende tali funzionalità in base alla propria identità.
+Quando viene creato un account Azure, l'autore viene considerato come se fosse sia nel ruolo di amministratore dei dati di competenza che nei ruoli di amministratore dell'origine dati di competenza. Tuttavia, l'autore dell'account non è assegnato a questi ruoli nell'archivio dei ruoli. Azure Purview riconosce che l'entità di sicurezza è l'autore dell'account ed estende a questo tali funzionalità in base alla propria identità.
 
-Tutti gli altri utenti possono usare l'account Azure di competenza solo se vengono inseriti in almeno uno di questi ruoli. Ciò significa che quando viene creato un account Azure, nessuno, ma il creatore può accedere all'account o usare le relative API fino a quando non vengono inserite in uno o più dei ruoli definiti in precedenza.
+Tutti gli altri utenti possono usare l'account di Azure Purview solo se vengono inseriti in almeno uno di questi ruoli. Ciò significa che quando viene creato un account Azure, nessuno, ma il creatore può accedere all'account o usare le relative API fino a quando non vengono inserite in uno o più dei ruoli definiti in precedenza.
 
 Si noti che il ruolo di amministratore dell'origine dati di competenza ha due scenari supportati. Il primo scenario è per gli utenti che sono già in grado di ottenere informazioni sui lettori di competenze o sui curatori dei dati di competenza che devono anche essere in grado di creare analisi. Questi utenti devono essere in due ruoli, almeno uno dei lettori di dati di competenza o il responsabile dei dati di competenza, oltre a essere inseriti nel ruolo di amministratore dell'origine dati di competenza.
 
@@ -77,8 +77,8 @@ Per gli utenti che hanno accesso ai [portale di Azure](https://portal.azure.com)
 |È necessario abilitare un'entità servizio o un'altra identità programmatica per configurare e monitorare le analisi in Azure, senza consentire all'identità a livello di codice di accedere alle informazioni del catalogo |Ruolo di amministratore dell'origine dati di competenza|
 |È necessario inserire gli utenti in ruoli in Azure. | Proprietario o amministratore accesso utenti |
 
-Passare all'articolo successivo per informazioni su come aggiungere un'entità di sicurezza a un ruolo.
+Per altre informazioni su come aggiungere un'entità di sicurezza a un ruolo, vedere [Guida introduttiva: creare un account Azure](create-catalog-portal.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un account Azure per le competenze](create-catalog-portal.md)
+* [Informazioni sui dati](concept-insights.md)

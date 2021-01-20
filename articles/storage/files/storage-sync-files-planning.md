@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 32aa94c986c90b7bd46b9f5561021c34c0f142af
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 29f7f241f119ca7fab50409881b517961b00cf20
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492093"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610472"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -50,6 +50,9 @@ I gruppi di sincronizzazione vengono distribuiti in **servizi di sincronizzazion
 Prima di poter creare un gruppo di sincronizzazione in un servizio di sincronizzazione archiviazione, è necessario registrare un'istanza di Windows Server nel servizio di sincronizzazione archiviazione. In questo modo si crea un oggetto **server registrato**, che rappresenta una relazione di trust tra il server (o cluster) e il servizio di sincronizzazione archiviazione. Per registrare un servizio di sincronizzazione archiviazione, è prima necessario installare l'agente di Sincronizzazione file di Azure nel server. È possibile registrare un server o un cluster con un solo servizio di sincronizzazione archiviazione alla volta.
 
 Un gruppo di sincronizzazione contiene un endpoint cloud, una condivisione file di Azure e almeno un endpoint server. L'oggetto endpoint server contiene le impostazioni che configurano la capacità del **cloud a livelli**, che fornisce la funzionalità di memorizzazione nella cache di Sincronizzazione file di Azure. Per eseguire la sincronizzazione con una condivisione file di Azure, l'account di archiviazione che contiene la condivisione file di Azure deve trovarsi nella stessa area di Azure del servizio di sincronizzazione archiviazione.
+
+> [!Important]  
+> È possibile apportare modifiche a qualsiasi endpoint cloud o endpoint server nel gruppo di sincronizzazione e fare in modo che i file vengano sincronizzati con gli altri endpoint del gruppo di sincronizzazione. Se si apporta direttamente una modifica all'endpoint cloud (condivisione file di Azure), le modifiche apportate devono essere prima di tutto individuate da un processo di rilevamento delle modifiche di Sincronizzazione file di Azure, che per un endpoint cloud viene avviato una sola volta ogni 24 ore. Per altre informazioni, vedere [Domande frequenti su File di Azure](storage-files-faq.md#afs-change-detection).
 
 ### <a name="management-guidance"></a>Linee guida per la gestione
 Quando si distribuisce Sincronizzazione file di Azure, è consigliabile seguire queste indicazioni:

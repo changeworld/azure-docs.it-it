@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: c32f90221a73d04fd6c54c8332826232d0e6a6f3
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968535"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610982"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -211,31 +211,30 @@ Per usare il comando interattivo di PySpark per inviare le query, seguire questa
 
    ![Installazione di pyspark completata](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. Usare il prompt dei comandi per eseguire **pip install numpy = = 1.19.3**, quindi ricaricare nuovamente la finestra VSCode.
 
-8. Sulla barra dei menu scegliere **Visualizza** > **Riquadro comandi** oppure premere i tasti di scelta rapida **MAIUSC+CTRL+P** e immettere **Python: Select Interpreter to start Jupyter Server** (Seleziona interprete per avviare il server Jupyter).
+7. Sulla barra dei menu scegliere **Visualizza** > **Riquadro comandi** oppure premere i tasti di scelta rapida **MAIUSC+CTRL+P** e immettere **Python: Select Interpreter to start Jupyter Server** (Seleziona interprete per avviare il server Jupyter).
 
    ![Selezionare l'interprete per avviare il server Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
-9. Selezionare l'opzione Python seguente.
+8. Selezionare l'opzione Python seguente.
 
    ![Scegliere l'opzione seguente](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-10. Sulla barra dei menu scegliere **Visualizza** > **Riquadro comandi** oppure premere i tasti di scelta rapida **MAIUSC+CTRL+P** e immettere **Developer: Ricarica finestra**.
+9. Sulla barra dei menu scegliere **Visualizza** > **Riquadro comandi** oppure premere i tasti di scelta rapida **MAIUSC+CTRL+P** e immettere **Developer: Ricarica finestra**.
 
     ![Ricaricare la finestra](./media/hdinsight-for-vscode/reload-window.png)
 
-11. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
+10. [Connettersi](#connect-to-an-azure-account) all'account Azure o collegare un cluster se non è ancora stato fatto.
 
-12. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Spark: PySpark Interactive/sinapsi: PySpark Interactive** per inviare la query. 
+11. Selezionare tutto il codice, fare clic con il pulsante destro del mouse sull'editor di script e selezionare **Spark: PySpark Interactive/sinapsi: PySpark Interactive** per inviare la query. 
 
     ![Menu di scelta rapida PySpark Interactive (PySpark interattivo)](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-13. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Fare clic su PySpark per passare dal kernel a **PySpark/sinapsi PySpark** e che il codice venga eseguito correttamente. Se si vuole passare al kernel sinapsi Pyspark, è consigliabile disabilitare le impostazioni automatiche in portale di Azure. In caso contrario, potrebbe essere necessario molto tempo per riattivare il cluster e impostare il kernel Synapse per il primo utilizzo. Se gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
+12. Selezionare il cluster, se non è stato specificato un cluster predefinito. Dopo alcuni istanti, i risultati di **Python Interactive** vengono visualizzati in una nuova scheda. Fare clic su PySpark per passare dal kernel a **PySpark/sinapsi PySpark** e che il codice venga eseguito correttamente. Se si vuole passare al kernel sinapsi Pyspark, è consigliabile disabilitare le impostazioni automatiche in portale di Azure. In caso contrario, potrebbe essere necessario molto tempo per riattivare il cluster e impostare il kernel Synapse per il primo utilizzo. Se gli strumenti consentono anche di inviare un blocco di codice anziché l'intero file di script tramite il menu di scelta rapida:
 
     ![Finestra di Python interattivo per PySpark interattivo](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
-14. Immettere **%% info** e quindi premere MAIUSC + INVIO per visualizzare le informazioni sul processo (facoltativo):
+13. Immettere **%% info** e quindi premere MAIUSC + INVIO per visualizzare le informazioni sul processo (facoltativo):
 
     ![informazioni sul processo di visualizzazione interattiva di pyspark](./media/hdinsight-for-vscode/pyspark-interactive-view-job-information.png)
 
@@ -351,36 +350,36 @@ Inviare un file e notare che la `.vscode` cartella viene aggiunta automaticament
 
   **POST /batches**
   
-  **Corpo della richiesta**
+  **Testo della richiesta**
 
-  | name | description | tipo |
+  | name | description | type |
   | --- | --- | --- |
   | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
-  | proxyUser | Utente da rappresentare quando si esegue il processo | Stringa |
-  | className | Classe principale Java/Spark dell'applicazione | Stringa |
+  | proxyUser | Utente da rappresentare quando si esegue il processo | string |
+  | className | Classe principale Java/Spark dell'applicazione | string |
   | args | Argomenti della riga di comando per l'applicazione | Elenco di stringhe |
   | jars | Jar da usare in questa sessione | Elenco di stringhe | 
   | pyFiles | File Python da usare in questa sessione | Elenco di stringhe |
   | files | File da usare in questa sessione | Elenco di stringhe |
-  | driverMemory | Quantità di memoria da usare per il processo del driver | Stringa |
+  | driverMemory | Quantità di memoria da usare per il processo del driver | string |
   | driverCores | Numero di core da usare per il processo del driver | Int |
-  | executorMemory | Quantità di memoria da usare per un processo executor | Stringa |
+  | executorMemory | Quantità di memoria da usare per un processo executor | string |
   | executorCores | Numero di core da usare per ogni executor | Int |
   | numExecutors | Numero di executor da avviare per questa sessione | Int |
   | archives | Archivi da usare in questa sessione | Elenco di stringhe |
   | coda | Nome della coda YARN da inviare a| string |
-  | name | Nome della sessione | Stringa |
+  | name | Nome della sessione | string |
   | conf | Proprietà di configurazione Spark | Mappa di chiave=valore |
 
   **Corpo della risposta** Oggetto batch creato.
 
-  | name | description | tipo |
+  | name | description | type |
   | --- | ---| --- |
   | ID | ID sessione | Int |
-  | appId | ID applicazione della sessione | Stringa |
+  | appId | ID applicazione della sessione | string |
   | appInfo | Informazioni dettagliate sull'applicazione | Mappa di chiave=valore |
   | log | Righe di log | Elenco di stringhe |
-  | state |Stato batch | Stringa |
+  | state |Stato batch | string |
 
   > [!NOTE]
   > Quando si invia lo script, la configurazione di Livio assegnata viene visualizzata nel riquadro di output.

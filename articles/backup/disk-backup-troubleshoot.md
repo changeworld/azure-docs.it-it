@@ -3,12 +3,12 @@ title: Risoluzione degli errori di backup nel backup su disco di Azure
 description: Informazioni su come risolvere gli errori di backup nel backup su disco di Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 0a2ef1ea20ee8d6b7a3f32e244d3e00f3add80a2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98558203"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611237"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Risoluzione degli errori di backup nel backup su disco di Azure (in anteprima)
 
@@ -153,12 +153,30 @@ Messaggio di errore: i metadati dello snapshot del disco per questo punto di rip
 
 Azione consigliata: prendere in considerazione l'uso di un altro punto di ripristino da ripristinare. Per ulteriori informazioni, vedere la [documentazione di ripristino](restore-managed-disks.md).
 
+### <a name="error-code-backupagentpluginhostvalidateprotectionerror"></a>Codice di errore: BackupAgentPluginHostValidateProtectionError
+
+Messaggio di errore: il backup del disco non è ancora disponibile nell'area dell'insieme di credenziali di backup in cui è in corso il tentativo di configurare la protezione.
+
+Azione consigliata: l'insieme di credenziali per il backup deve trovarsi in un'area di anteprima supportata. Per la disponibilità dell'area, vedere la [matrice di supporto](disk-backup-support-matrix.md).
+
+### <a name="error-code-usererrordppdatasourcealreadyhasbackupinstance"></a>Codice di errore: UserErrorDppDatasourceAlreadyHasBackupInstance
+
+Messaggio di errore: il disco che si sta tentando di configurare il backup è già protetto. Il disco è già associato a un'istanza di backup in un insieme di credenziali di backup.
+
+Azione consigliata: questo disco è già associato a un'istanza di backup in un insieme di credenziali di backup. Se si vuole proteggere nuovamente questo disco, eliminare l'istanza di backup dall'insieme di credenziali per il backup in cui è attualmente protetta e riproteggere il disco in qualsiasi altro insieme di credenziali.
+
+### <a name="error-code-usererrordppdatasourcealreadyprotected"></a>Codice di errore: UserErrorDppDatasourceAlreadyProtected
+
+Messaggio di errore: il disco che si sta tentando di configurare il backup è già protetto. Il disco è già associato a un'istanza di backup in un insieme di credenziali di backup.
+
+Azione consigliata: questo disco è già associato a un'istanza di backup in un insieme di credenziali di backup. Se si vuole proteggere nuovamente questo disco, eliminare l'istanza di backup dall'insieme di credenziali per il backup in cui è attualmente protetta e riproteggere il disco in qualsiasi altro insieme di credenziali.
+
 ### <a name="error-code-usererrormaxconcurrentoperationlimitreached"></a>Codice di errore: UserErrorMaxConcurrentOperationLimitReached
 
-Messaggio di errore: non è possibile avviare l'operazione perché è stato raggiunto il numero massimo di operazioni simultanee consentite per questo tipo di operazione.
+Messaggio di errore: Impossibile avviare l'operazione perché è stato raggiunto il numero massimo di backup simultanei consentiti.
 
-Azione consigliata: attendere il completamento delle operazioni precedenti.
+Azione consigliata: attendere il completamento del backup in esecuzione precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Matrice di supporto di backup su disco di Azure](disk-backup-support-matrix.md)
+- [Matrice di supporto per il backup di dischi di Azure](disk-backup-support-matrix.md)

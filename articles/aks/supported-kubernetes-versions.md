@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: ecea9dcd28aede92ef255bf002b9195ded43c68b
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 53093edb1d3c142336f06ec8544aaa7b55e37477
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296115"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611254"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -138,13 +138,14 @@ Per la cronologia delle versioni precedenti, vedere [Kubernetes](https://en.wiki
 
 |  Versione di K8s | Versione upstream  | Anteprima AKS  | AKS GA  | Fine vita |
 |--------------|-------------------|--------------|---------|-------------|
-| 1.16  | Sep-19-19  | Gennaio 2019   | Marzo 2020  | Jan 2021 * | 
+| 1.16  | Sep-19-19  | Gennaio 2019   | Marzo 2020  | Gennaio 2021| 
 | 1.17  | 09-19 dicembre  | Gennaio 2019   | 2020 luglio  | 1,20 GA | 
 | 1.18  | Mar-23-20  | Maggio 2020   | 2020 agosto  | 1,21 GA | 
 | 1,19  | Aug-04-20  | 2020 Sep   | 2020 novembre  | 1,22 GA | 
 | 1,20  | 08-20 dicembre  | Gennaio 2021   | Mar 2021  | 1,23 GA |
+| 1,21  | Apr-08-21 * | Maggio 2021   | 2021 luglio  | 1,24 GA |
 
-\* A causa della stagione festiva, AKS sta estendendo la durata di 1,16 dal 2020 novembre fino al 2021 gennaio. [Altre informazioni](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+\* La versione upstream di Kubernetes 1,21 è soggetta a modifiche come il calendario upstream.
 
 
 ## <a name="faq"></a>Domande frequenti
@@ -155,7 +156,7 @@ Con la dichiarazione di Kubernetes 1,19, la [community open source ha esteso il 
 
 **Cosa accade quando un utente aggiorna un cluster Kubernetes con una versione secondaria non supportata?**
 
-Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Esempio:
+Se si usa la versione *n-3* o precedente, significa che l'utente non è più supportato e verrà richiesto di effettuare l'aggiornamento. Quando l'aggiornamento dalla versione n-3 a n-2 ha esito positivo, si torna all'interno dei criteri di supporto. Ad esempio:
 
 - Se la versione più recente di AKS supportata è *1.15. a* e l'utente si trova su *1.14. b* o versioni precedenti, l'utente non è più supportato.
 - Quando l'aggiornamento da *1.14. b* a *1.15. a* o versione successiva ha esito positivo, si torna all'interno dei criteri di supporto.

@@ -3,12 +3,12 @@ title: Ripristinare Managed Disks di Azure
 description: Informazioni su come ripristinare Managed Disks di Azure dall'portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 043a10a7359c95529ff1c4dcc181ea4aba75cb5f
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557835"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611135"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Ripristinare Managed Disks di Azure (in anteprima)
 
@@ -65,6 +65,8 @@ Per eseguire un'operazione di ripristino sono necessari i prerequisiti seguenti:
     >Mentre le assegnazioni di ruolo vengono riflesse correttamente nel portale, potrebbero essere necessari circa 15 minuti per l'applicazione dell'autorizzazione nell'identità gestita dell'insieme di credenziali di backup.
     >
     >Durante i backup pianificati o un'operazione di backup su richiesta, backup di Azure archivia gli snapshot incrementali del disco nel gruppo di risorse snapshot fornito durante la configurazione del backup del disco. Backup di Azure usa questi snapshot incrementali durante l'operazione di ripristino. Se gli snapshot vengono eliminati o spostati dal gruppo di risorse snapshot o se le assegnazioni di ruolo dell'insieme di credenziali di backup vengono revocate nel gruppo di risorse snapshot, l'operazione di ripristino avrà esito negativo.
+
+1. Se il disco da ripristinare è crittografato con le [chiavi gestite dal cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o se si usa la [crittografia doppia usando chiavi gestite dalla piattaforma e chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), assegnare l'autorizzazione del ruolo **lettore** all'identità gestita dell'insieme di credenziali di backup nella risorsa del set di **crittografia del disco** .
 
 Una volta soddisfatti i prerequisiti, attenersi alla procedura seguente per eseguire l'operazione di ripristino.
 

@@ -4,12 +4,12 @@ description: Monitorare le prestazioni e diagnosticare i problemi dei servizi No
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 7aea6c03b0ce35fa0e74c39ff5f94f714447ad6f
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920580"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611016"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorare servizi e app Node.js con Application Insights
 
@@ -334,6 +334,12 @@ server.on("listening", () => {
   appInsights.defaultClient.trackMetric({name: "server startup time", value: duration});
 });
 ```
+
+### <a name="flush"></a>Svuotamento
+
+Per impostazione predefinita, i dati di telemetria vengono memorizzati nel buffer per 15 secondi prima che vengano inviati al server di inserimento. Se l'applicazione ha una durata breve (ad esempio, uno strumento dell'interfaccia della riga di comando), potrebbe essere necessario scaricare manualmente i dati di telemetria memorizzati nel buffer al termine dell'applicazione `appInsights.defaultClient.flush()` .
+
+Se l'SDK rileva che l'applicazione si arresta in modo anomalo, lo scarica automaticamente `appInsights.defaultClient.flush({ isAppCrashing: true })` . Con l'opzione flush `isAppCrashing` , si presuppone che lo stato dell'applicazione sia anomalo, non adatto per l'invio di dati di telemetria. Al contrario, l'SDK salverà tutti i dati di telemetria memorizzati nel buffer nell' [archivio permanente](./data-retention-privacy.md#nodejs) e lascerà terminata l'applicazione. Quando l'applicazione viene riavviata, tenterà di inviare i dati di telemetria salvati nell'archivio permanente.
 
 ### <a name="preprocess-data-with-telemetry-processors"></a>Pre-elaborare i dati con processori di telemetria
 

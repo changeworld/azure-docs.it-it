@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 434917c1cee26a4a8eeb7f27808e3fcb487f3f55
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: aac0139e09866ce44d25989119b2eafb31e76961
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350042"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610455"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accesso ai log di diagnostica per Azure Data Lake Storage Gen1
 Informazioni su come abilitare la registrazione diagnostica per l'account Azure Data Lake Storage Gen1 e visualizzare i log raccolti per l'account.
@@ -115,7 +115,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 ```
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
-| Nome | Tipo | Descrizione |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -128,7 +128,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
-| Nome | Tipo | Descrizione |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | Percorso |string |Il percorso coinvolto nell'operazione |
@@ -136,6 +136,8 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 | ClientRequestId |string |L'ID che identifica la richiesta in modo univoco |
 | StartTime |string |L'ora in cui il server ha ricevuto la richiesta |
 | EndTime |string |L'ora in cui il server ha inviato una risposta |
+| StoreIngressSize |long |Dimensioni in byte in ingresso a Data Lake Store |
+| StoreEgressSize |long |Dimensioni in byte uscita da Data Lake Store |
 
 ### <a name="audit-logs"></a>Log di controllo
 Di seguito viene riportata una voce di esempio nel log di controllo in formato JSON. Ogni BLOB ha un oggetto radice denominato **record** che contiene una matrice di oggetti log
@@ -164,7 +166,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 ```
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
-| Nome | Tipo | Descrizione |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
 | resourceId |string |L’ID della risorsa interessata dall’operazione |
@@ -177,7 +179,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 | properties |JSON |Vedere di seguito per ulteriori dettagli |
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
-| Nome | Tipo | Descrizione |
+| Nome | Type | Descrizione |
 | --- | --- | --- |
 | StreamName |string |Il percorso coinvolto nell'operazione |
 
@@ -193,6 +195,6 @@ search *
 
 Azure Data Lake Storage Gen1 fornisce un esempio su come elaborare e analizzare i dati di log. È possibile trovare l'esempio in [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)

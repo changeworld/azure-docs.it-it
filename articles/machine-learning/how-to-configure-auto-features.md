@@ -11,26 +11,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to,automl,contperf-fy21q2
 ms.date: 12/18/2020
-ms.openlocfilehash: 5fcb57d1ef909d7c15e21b34c3f584c6615a6a44
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c90ef9fe49a87c18c7f4f55175bafaebfd31d722
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134416"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610302"
 ---
 # <a name="data-featurization-in-automated-machine-learning"></a>Conteggi di dati in Machine Learning automatizzato
 
-
-
-Informazioni sulle impostazioni di conteggi dati in Azure Machine Learning e su come personalizzare tali funzionalità per gli esperimenti di Machine Learning [automatici](concept-automated-ml.md).
+Informazioni sulle impostazioni di conteggi dei dati in Azure Machine Learning e su come personalizzare tali funzionalità per gli [esperimenti automatici di Machine Learning](concept-automated-ml.md).
 
 ## <a name="feature-engineering-and-featurization"></a>Progettazione di funzionalità e conteggi
 
-La *progettazione di funzioni* è il processo di utilizzo della conoscenza del dominio dei dati per creare funzionalità che consentono agli algoritmi di Machine Learning (ml) di acquisire maggiore familiarità. In Azure Machine Learning, le tecniche di ridimensionamento e scalabilità dei dati vengono applicate per semplificare la progettazione delle funzionalità. Insieme, queste tecniche e questa funzionalità di progettazione sono denominate *conteggi* in esperimenti automatici di Machine Learning, o *autoML*.
+I dati di training sono costituiti da righe e colonne. Ogni riga è un'osservazione o un record e le colonne di ogni riga sono le funzionalità che descrivono ogni record. In genere, le funzionalità che caratterizzano al meglio i modelli nei dati vengono selezionate per creare modelli predittivi.
+
+Sebbene molti dei campi dati non elaborati possano essere utilizzati direttamente per eseguire il training di un modello, spesso è necessario creare funzionalità aggiuntive (progettate) che forniscono informazioni che consentono di distinguere meglio i modelli nei dati. Questo processo è denominato **progettazione** delle funzioni, in cui l'uso della conoscenza del dominio dei dati viene sfruttato per creare funzionalità che, a loro volta, consentono agli algoritmi di Machine Learning di ottenere risultati migliori. 
+
+In Azure Machine Learning, le tecniche di ridimensionamento e scalabilità dei dati vengono applicate per semplificare la progettazione delle funzionalità. Insieme, queste tecniche e questa funzionalità di progettazione sono denominate **conteggi** negli esperimenti di Machine Learning automatici.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si conosca già come configurare un esperimento di AutoML. Per informazioni sulla configurazione, vedere gli articoli seguenti:
+Questo articolo presuppone che si sappia già come configurare un esperimento di Machine Learning automatizzato. Per informazioni sulla configurazione, vedere gli articoli seguenti:
 
 - Per un'esperienza di codice per la prima volta, [configurare gli esperimenti di Machine Learning automatici usando il Azure Machine Learning SDK per Python](how-to-configure-auto-train.md).
 - Per un'esperienza low-code o senza codice: [creare, rivedere e distribuire modelli di Machine Learning automatici usando il Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md).
@@ -59,7 +61,7 @@ Nella tabella seguente vengono illustrate le impostazioni accettate per `featuri
 Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai dati. Queste tecniche vengono applicate per gli esperimenti configurati con l'SDK o con Studio. Per disabilitare questo comportamento, impostare `"featurization": 'off'` nell' `AutoMLConfig` oggetto.
 
 > [!NOTE]
-> Se si prevede di esportare i modelli creati da AutoML in un [modello ONNX](concept-onnx.md), nel formato ONNX sono supportate solo le opzioni conteggi indicate con un asterisco ("*"). Altre informazioni sulla [conversione di modelli in ONNX](concept-automated-ml.md#use-with-onnx).
+> Se si prevede di esportare i modelli creati da AutoML in un [modello ONNX](concept-onnx.md), nel formato ONNX sono supportate solo le opzioni conteggi indicate con un asterisco ("*"). Altre informazioni sulla [conversione di modelli in ONNX](how-to-use-automl-onnx-model-dotnet.md).
 
 |&nbsp;Procedura conteggi| Descrizione |
 | ------------- | ------------- |

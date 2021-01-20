@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 889ee48c43119086047d6f52737266f4c611fc8d
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562744"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611084"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -386,15 +386,11 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
-- La chiave gestita dal cliente è supportata in un cluster di Log Analytics dedicato e adatto per i clienti che inviano 1 TB al giorno o più.
-
 - Il numero massimo di cluster per area e sottoscrizione è 2
 
-- Il numero massimo di aree di lavoro collegate al cluster è 1000
+- Il numero massimo di aree di lavoro che possono essere collegate a un cluster è 1000
 
 - È possibile collegare un'area di lavoro al cluster e quindi scollegarla. Il numero di operazioni di collegamento dell'area di lavoro su un'area di lavoro specifica è limitato a 2 in un periodo di 30 giorni.
-
-- Il collegamento dell'area di lavoro al cluster deve essere eseguito solo dopo aver verificato il completamento del provisioning del cluster Log Analytics.  I dati inviati all'area di lavoro prima del completamento verranno eliminati e non saranno recuperabili.
 
 - La crittografia della chiave gestita dal cliente si applica ai dati appena inseriti dopo l'ora di configurazione. I dati inseriti prima della configurazione rimangono crittografati con la chiave Microsoft. È possibile eseguire facilmente query sui dati inseriti prima e dopo la configurazione della chiave gestita dal cliente.
 
@@ -404,14 +400,12 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
 - Il passaggio del cluster a un altro gruppo di risorse o a una sottoscrizione non è attualmente supportato.
 
-- Il Azure Key Vault, il cluster e le aree di lavoro collegate devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse.
-
-- Il collegamento dell'area di lavoro al cluster non riuscirà se è collegato a un altro cluster.
+- Il Azure Key Vault, il cluster e le aree di lavoro devono trovarsi nella stessa area e nello stesso tenant di Azure Active Directory (Azure AD), ma possono trovarsi in sottoscrizioni diverse.
 
 - L'archivio protetto non è attualmente disponibile in Cina. 
 
-- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia mediante una richiesta GET nel cluster e osservando il `"isDoubleEncryptionEnabled"` valore della proprietà per i `true` cluster con crittografia doppia abilitata. 
-  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster". è comunque possibile creare il cluster senza crittografia doppia. Aggiungere `"properties": {"isDoubleEncryptionEnabled": false}` la proprietà nel corpo della richiesta REST.
+- La [crittografia doppia](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) viene configurata automaticamente per i cluster creati a partire dal 2020 ottobre nelle aree supportate. È possibile verificare se il cluster è configurato per la crittografia doppia inviando una richiesta GET nel cluster e osservando che il `isDoubleEncryptionEnabled` valore è `true` per i cluster con crittografia doppia abilitata. 
+  - Se si crea un cluster e si riceve un errore "<Region-Name> non supporta la crittografia doppia per i cluster.", è comunque possibile creare il cluster senza crittografia doppia aggiungendo `"properties": {"isDoubleEncryptionEnabled": false}` nel corpo della richiesta REST.
   - Non è possibile modificare l'impostazione di crittografia doppia dopo la creazione del cluster.
 
   - Se il cluster è impostato con l'identità gestita assegnata dall'utente, `UserAssignedIdentities` l'impostazione di con `None` sospende il cluster e impedisce l'accesso ai dati, ma non è possibile ripristinare la revoca e attivare il cluster senza aprire la richiesta di supporto. Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
@@ -429,13 +423,15 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
   - Frequenza di accesso a Key Vault: la frequenza con cui l'archivio di Monitoraggio di Azure accede a Key Vault per le operazioni di wrapping e annullamento del wrapping è compresa tra 6 e 60 secondi.
 
-- Se si crea un cluster e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema al cluster.
-
-- Se si aggiorna il cluster esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
+- Se si aggiorna il cluster mentre il cluster si trova nello stato di provisioning o aggiornamento, l'aggiornamento avrà esito negativo.
 
 - Se si verifica un errore di conflitto durante la creazione di un cluster, è possibile che sia stato eliminato il cluster negli ultimi 14 giorni ed è in fase di eliminazione temporanea. Il nome del cluster rimane riservato durante il periodo di eliminazione temporanea e non è possibile creare un nuovo cluster con tale nome. Il nome viene rilasciato dopo il periodo di eliminazione temporanea quando il cluster viene eliminato definitivamente.
 
-- Se si aggiorna il cluster mentre è in corso un'operazione, l'operazione avrà esito negativo.
+- Il collegamento dell'area di lavoro al cluster non riuscirà se è collegato a un altro cluster.
+
+- Se si crea un cluster e si specifica immediatamente il KeyVaultProperties, l'operazione potrebbe non riuscire perché i criteri di accesso non possono essere definiti fino a quando non viene assegnata l'identità del sistema al cluster.
+
+- Se si aggiorna il cluster esistente con KeyVaultProperties e i criteri di accesso alla chiave ' Get ' mancano nell'Key Vault, l'operazione avrà esito negativo.
 
 - Se non si riesce a distribuire il cluster, verificare che le aree di lavoro Azure Key Vault, cluster e Log Analytics collegate si trovino nella stessa area. Le sottoscrizioni possono essere diverse.
 

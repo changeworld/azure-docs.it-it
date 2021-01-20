@@ -7,16 +7,18 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e5cc3b5fb7ca38df196119de12d346f5d0346b58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53052b35a50899d6f9e761301f31b9ffd20a4b91
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343783"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610013"
 ---
-# <a name="virtualization-based-security-vbs-attestation-protocol"></a>Protocollo di attestazione della sicurezza basata sulla virtualizzazione (VBS) 
+# <a name="trusted-platform-module-tpm-and-virtualization-based-securityvbs-enclave-attestation-protocol"></a>Protocollo di attestazione dell'enclave del Trusted Platform Module (TPM) e della protezione basata sulla virtualizzazione (VBS) 
 
-Per Microsoft Azure attestazione per garantire una sicurezza elevata garantisce che i dati segnalati siano autentici, è necessario compilare una catena di trust dal firmware al lancio dell'hypervisor e del kernel protetto. Per ottenere questa attestazione di Azure, è necessario attestare lo stato di avvio del computer prima di poter stabilire la relazione di trust nell'enclave protetta. Il sistema operativo, l'hypervisor e i file binari del kernel protetti devono essere firmati dalle autorità Microsoft ufficiali corrette e configurati in modo sicuro. Dopo aver associato il trust tra il Trusted Platform Module (TPM) e l'integrità dell'hypervisor, è possibile considerare attendibile il IDKS VBS fornito nel log di avvio misurato. In questo modo è possibile verificare che una coppia di chiavi sia stata generata dall'enclave e mentare un rapporto di attestazione che associa l'attendibilità a tale chiave e contiene altre attestazioni, ad esempio il livello di sicurezza e le proprietà di attestazione di avvio.
+Microsoft Azure attestazione per fornire una garanzia di sicurezza avanzata si basa sulla verifica di una catena di trust gestita da una radice di attendibilità (TPM) al lancio dell'hypervisor e del kernel protetto. Per ottenere questa attestazione di Azure, è necessario attestare lo stato di avvio del computer prima di poter stabilire la relazione di trust nell'enclave protetta. Il sistema operativo, l'hypervisor e i file binari del kernel protetto devono essere firmati dalle autorità Microsoft ufficiali corrette e configurati in modo sicuro. Dopo aver associato il trust tra il Trusted Platform Module (TPM) e l'integrità dell'hypervisor, è possibile considerare attendibile l'enclave della sicurezza basata sulla virtualizzazione (VBS) IDKs fornita nel log di avvio misurato, con questa operazione è possibile verificare che una coppia di chiavi sia stata generata dall'enclave e mentare un rapporto di attestazione che associa l'attendibilità nella chiave e contiene altre attestazioni, ad esempio il livello di sicurezza e le proprietà di attestazione di avvio. 
+
+Le enclave VBS richiedono un TPM per fornire la misura per convalidare la base di sicurezza. Le enclave VBS sono attestate dall'endpoint TPM con un'aggiunta all'oggetto Request nel protocollo. 
 
 ## <a name="protocol-messages"></a>Messaggi del protocollo
 
@@ -29,9 +31,9 @@ Attestazione di Azure > client
 #### <a name="payload"></a>Payload
 
 ```
-{
-  "type": "aikcert"
-}
+{ 
+  "type": "aikcert" 
+} 
 ```
 
 "Type" (stringa ASCII): rappresenta il tipo di attestazione richiesto. Attualmente è supportato solo "aikcert".
@@ -45,18 +47,15 @@ Attestazione di Azure-client >
 #### <a name="payload"></a>Payload
 
 ```
-{
-
-  "challenge": "<BASE64URL(CHALLENGE)>",
-  
-  "service_context": "<BASE64URL(SERVICECONTEXT)>"
-  
-}
+{ 
+  "challenge": "<BASE64URL(CHALLENGE)>", 
+  "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+} 
 ```
 
 **Challenge** (BASE64URL (ottetti)): valore casuale emesso dal servizio.
 
-**service_context** (BASE64URL (ottetti)): contesto opaco, crittografato creato dal servizio che include, tra gli altri, la richiesta e la data di scadenza per la richiesta.
+**service_context** (BASE64URL (ottetti)): contesto opaco, crittografato creato dal servizio, che include, tra gli altri, la richiesta e una data di scadenza per la richiesta. 
 
 
 ### <a name="request-message"></a>Messaggio di richiesta
@@ -69,9 +68,7 @@ Attestazione di Azure > client
 
 ```
 {
-
   "request": "<JWS>"
-  
 }
 ```
 
@@ -95,103 +92,112 @@ BASE64URL (firma JWS)
 
 ##### <a name="jws-payload"></a>Payload JWS
 
-Il payload JWS può essere di tipo Basic o VBS. Basic viene utilizzato quando l'evidenza di attestazione non include i dati VBS.
+Il payload JWS può essere di tipo Basic o VBS. Basic viene utilizzato quando l'evidenza di attestazione non include i dati VBS. 
 
-Esempio di base
+Esempio solo TPM: 
 
 ``` 
-{
-  "att_type": "basic",
-  "att_data": {
-    "rp_id": "<URL>",
-    "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
-    "challenge": "<BASE64URL(CHALLENGE)>",
-    "tpm_att_data": {
-      "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>",
-      "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>",
-      "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>",
-      "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>",
-      "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
-      // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
-      "aik_pub": {
-        "kty": "RSA",
-        "n": "<Base64urlUInt(MODULUS)>",
-        "e": "<Base64urlUInt(EXPONENT)>"
-      },
-      "current_claim": "<BASE64URL(CURRENTCLAIM)>",
-      "boot_claim": "<BASE64URL(BOOTCLAIM)>"
-    },
-    // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517).
-    "attest_key": {
-      "kty": "RSA",
-      "n": "<Base64urlUInt(MODULUS)>",
-      "e": "<Base64urlUInt(EXPONENT)>"
-    },
-    "custom_claims": [
-      {
-        "name": "<name>",
-        "value": "<value>",
-        "value_type": "<value_type>"
-      },
-      {
-        "name": "<name>",
-        "value": "<value>",
-        "value_type": "<value_type>"
-      }
-    ],
-    "service_context": "<BASE64URL(SERVICECONTEXT)>"
-  }
-}
+{ 
+  "att_type": "basic", 
+  "att_data": { 
+    "rp_id": "<URL>", 
+    "rp_data": "<BASE64URL(RPCUSTOMDATA)>", 
+    "challenge": "<BASE64URL(CHALLENGE)>", 
+
+    "tpm_att_data": { 
+      "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>", 
+      "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>", 
+      "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>", 
+      "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>", 
+      "aik_cert": "<BASE64URL(AIKCERTIFICATE)>", 
+
+      // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+      "aik_pub": { 
+        "kty": "RSA", 
+        "n": "<Base64urlUInt(MODULUS)>", 
+        "e": "<Base64urlUInt(EXPONENT)>" 
+      }, 
+      "current_claim": "<BASE64URL(CURRENTCLAIM)>", 
+      "boot_claim": "<BASE64URL(BOOTCLAIM)>" 
+    }, 
+
+    // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+    "attest_key": { 
+      "kty": "RSA", 
+      "n": "<Base64urlUInt(MODULUS)>", 
+      "e": "<Base64urlUInt(EXPONENT)>" 
+    }, 
+    "custom_claims": [ 
+      { 
+        "name": "<name>", 
+        "value": "<value>", 
+        "value_type": "<value_type>" 
+      }, 
+      { 
+        "name": "<name>", 
+        "value": "<value>", 
+        "value_type": "<value_type>" 
+      } 
+    ], 
+    "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+  } 
+} 
 ```
 
-Esempio di VBS
+Esempio di TPM e di enclave VBS: 
 
 ``` 
-{
-  "att_type": "vbs",
-  "att_data": {
-    "report_signed": {
-      "rp_id": "<URL>",
-      "rp_data": "<BASE64URL(RPCUSTOMDATA)>",
-      "challenge": "<BASE64URL(CHALLENGE)>",
-      "tpm_att_data": {
-        "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>",
-        "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>",
-        "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>",
-        "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>",
-        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>",
-        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517).
-        "aik_pub": {
-          "kty": "RSA",
-          "n": "<Base64urlUInt(MODULUS)>",
-          "e": "<Base64urlUInt(EXPONENT)>"
-        },
-        "current_claim": "<BASE64URL(CURRENTCLAIM)>",
-        "boot_claim": "<BASE64URL(BOOTCLAIM)>"
-      },
-      // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517).
-      "attest_key": {
-        "kty": "RSA",
-        "n": "<Base64urlUInt(MODULUS)>",
-        "e": "<Base64urlUInt(EXPONENT)>"
-      },
-      "custom_claims": [
-        {
-          "name": "<name>",
-          "value": "<value>",
-          "value_type": "<value_type>"
-        },
-        {
-          "name": "<name>",
-          "value": "<value>",
-          "value_type": "<value_type>"
-        }
-      ],
-      "service_context": "<BASE64URL(SERVICECONTEXT)>"
-    },
-    "vbs_report": "<BASE64URL(REPORT)>"
-  }
-}
+{ 
+  "att_type": "vbs", 
+  "att_data": { 
+    "report_signed": { 
+      "rp_id": "<URL>", 
+      "rp_data": "<BASE64URL(RPCUSTOMDATA)>", 
+      "challenge": "<BASE64URL(CHALLENGE)>", 
+      "tpm_att_data": { 
+        "srtm_boot_log": "<BASE64URL(SRTMBOOTLOG)>", 
+        "srtm_resume_log": "<BASE64URL(SRTMRESUMELOG)>", 
+        "drtm_boot_log": "<BASE64URL(DRTMBOOTLOG)>", 
+        "drtm_resume_log": "<BASE64URL(DRTMRESUMELOG)>", 
+        "aik_cert": "<BASE64URL(AIKCERTIFICATE)>", 
+
+        // aik_pub is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+        "aik_pub": { 
+          "kty": "RSA", 
+          "n": "<Base64urlUInt(MODULUS)>", 
+          "e": "<Base64urlUInt(EXPONENT)>" 
+        }, 
+        "current_claim": "<BASE64URL(CURRENTCLAIM)>", 
+        "boot_claim": "<BASE64URL(BOOTCLAIM)>" 
+      }, 
+
+      // attest_key is represented as a JSON Web Key (JWK) object (RFC 7517). 
+
+      "attest_key": { 
+        "kty": "RSA", 
+        "n": "<Base64urlUInt(MODULUS)>", 
+        "e": "<Base64urlUInt(EXPONENT)>" 
+      }, 
+      "custom_claims": [ 
+        { 
+          "name": "<name>", 
+          "value": "<value>", 
+          "value_type": "<value_type>" 
+        }, 
+        { 
+          "name": "<name>", 
+          "value": "<value>", 
+          "value_type": "<value_type>" 
+        } 
+      ], 
+      "service_context": "<BASE64URL(SERVICECONTEXT)>" 
+    }, 
+    "vsm_report": "<BASE64URL(REPORT)>" 
+  } 
+} 
 ``` 
 
 **rp_id** (StringOrURI): identificatore della relying party. Utilizzato dal servizio nel calcolo dell'attestazione ID computer
@@ -202,13 +208,13 @@ Esempio di VBS
 
 **tpm_att_data**: dati di attestazione correlati al TPM
 
-- **srtm_boot_log (BASE64URL (ottetti))**: log di avvio SRTM come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_SRTM_BOOT
+- **srtm_boot_log (BASE64URL (ottetti))**: SRTM log di avvio recuperati dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_SRTM_BOOT
 
-- **srtm_resume_log (BASE64URL (ottetti))**: SRTM Resume log come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_SRTM_RESUME
+- **srtm_resume_log (BASE64URL (ottetti))**: SRTM riprende il log come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con il tipo di log = TBS_TCGLOG_SRTM_RESUME
 
-- **drtm_boot_log (BASE64URL (ottetti))**: log di avvio drtm come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_DRTM_BOOT
+- **drtm_boot_log (BASE64URL (ottetti))**: drtm log di avvio recuperati dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_DRTM_BOOT
 
-- **drtm_resume_log (BASE64URL (ottetti))**: drtm Resume log come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con tipo di log = TBS_TCGLOG_DRTM_RESUME
+- **drtm_resume_log (BASE64URL (ottetti))**: drtm riprende il log come recuperato dalla funzione Tbsi_Get_TCG_Log_Ex con il tipo di log = TBS_TCGLOG_DRTM_RESUME
 
 - **aik_cert (BASE64URL (ottetti))**: il certificato X. 509 per AIK come restituito dalla funzione NCryptGetProperty con property = NCRYPT_CERTIFICATE_PROPERTY
 
@@ -218,7 +224,7 @@ Esempio di VBS
 
 - **boot_claim (BASE64URL (ottetti))**: attestazione attestazione per lo stato PCR all'avvio restituita dalla funzione NCryptCreateClaim con dwClaimType = NCRYPT_CLAIM_PLATFORM e parametro NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK impostato per includere tutti PCRS
 
-**report vbs** (BASE64URL (ottetti)): report di attestazione dell'enclave vbs restituito dalla funzione EnclaveGetAttestationReport. Il parametro EnclaveData deve corrispondere all'hash SHA-512 del valore di report_signed (incluse le parentesi graffe di apertura e di chiusura). L'input della funzione hash è UTF8 (report_signed)
+**vsm_report**   (BASE64URL (OTTETti)): il report di attestazione dell'enclave VBS restituito dalla funzione EnclaveGetAttestationReport. Il parametro EnclaveData deve corrispondere all'hash SHA-512 del valore di report_signed (incluse le parentesi graffe di apertura e di chiusura). L'input della funzione hash è UTF8 (report_signed)
 
 **attest_key**: la parte pubblica della chiave enclave rappresentata come oggetto chiave Web JSON (JWK) (RFC 7517)
 
@@ -247,3 +253,7 @@ Attestazione di Azure-client >
 ```
 
 **report** (JWT): il report di attestazione in formato JWT (JSON Web Token) (RFC 7519).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Flusso di lavoro di attestazione di Azure](workflow.md)

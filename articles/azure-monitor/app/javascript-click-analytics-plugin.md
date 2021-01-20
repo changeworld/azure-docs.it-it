@@ -8,16 +8,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: e69d5cc76f8f4b14ab87e13546c98859bb801418
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234845"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610081"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Fare clic sul plug-in di analisi automatica della raccolta per Application Insights JavaScript SDK
 
-Fare clic su analisi automatica-raccolta plug-in per Application Insights JavaScript SDK, Abilita il rilevamento automatico degli eventi click sulle pagine Web in base ai `data-*` tag meta. Questo plug `data-*` -in USA gli attributi globali per acquisire gli eventi click e popolare i dati di telemetria.
+Questo plug-in consente di tenere traccia automaticamente degli eventi click sulle pagine Web e di usare gli attributi data-* sugli elementi HTML per popolare la telemetria degli eventi.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -83,7 +83,7 @@ appInsights.loadAppInsights();
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Acquisizione           | boolean                            | true    | Configurazione di acquisizione automatica.                                                                                                         |
 | callback              | [IValueCallback](#ivaluecallback)  | Null    | Configurazione di callback.                                                                                                                 |
-| pageTags              | string                             | Null    | Tag della pagina.                                                                                                                               |
+| pageTags              | stringa                             | Null    | Tag della pagina.                                                                                                                               |
 | Tag datatags              | [ICustomDataTags](#icustomdatatags)| Null    | Tag di dati personalizzati forniti per sostituire i tag predefiniti usati per acquisire i dati di clic.                                                           |
 | urlCollectHash        | boolean                            | false   | Abilita la registrazione dei valori dopo un carattere "#" dell'URL.                                                                          |
 | urlCollectQuery       | boolean                            | false   | Abilita la registrazione della stringa di query dell'URL.                                                                                      |
@@ -101,19 +101,19 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Type    | Predefinito   | Descrizione                                                                                       |
-|---------------------------|---------|-----------|---------------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | boolean | false     | Quando un particolare elemento non è contrassegnato con default customDataPrefix o customDataPrefix non è fornito dall'utente, questo flag viene usato per raccogliere l'attributo HTML standard per ContentName. |
-| customDataPrefix          | string  | `data-`   | Acquisisci automaticamente il nome del contenuto e il valore degli elementi contrassegnati con il prefisso specificato.       |
-| aiBlobAttributeTag        | string  | `ai-blob` | Il plug-in supporta l'assegnazione di tag dei metadati del contenuto BLOB JSON anziché di singoli `data-*` attributi. |
-| metaDataPrefix            | string  | Null      | Acquisisci automaticamente il nome e il contenuto dell'elemento meta del codice HTML con il prefisso specificato. |
-| captureAllMetaDataContent | string  | Null      | Acquisisci automaticamente tutti i nomi e il contenuto dell'elemento meta del codice HTML. L'impostazione predefinita è false. Se abilitata, verrà eseguito l'override di metaDataPrefix fornito. |
-| parentDataTag             | string  | Null      | Interrompe l'attraversamento del DOM per acquisire il nome del contenuto e il valore degli elementi quando vengono rilevati con questo tag.|
-| dntDataTag                | string  | `ai-dnt`  | Gli elementi HTML con questo attributo verranno ignorati dal plug-in per l'acquisizione dei dati di telemetria.|
+| Nome                      | Type    | Predefinito   | Tag predefinito da usare in HTML |   Descrizione                                                                                |
+|---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
+| useDefaultContentNameOrId | boolean | false     | N/D         |Raccoglie l'attributo HTML standard per ContentName quando un particolare elemento non è contrassegnato con customDataPrefix predefinito o quando customDataPrefix non è fornito dall'utente. |
+| customDataPrefix          | stringa  | `data-`   | `data-*`| Acquisisci automaticamente il nome del contenuto e il valore degli elementi contrassegnati con il prefisso specificato. Ad esempio, `data-*-id` `data-<yourcustomattribute>` può essere usato nei tag HTML.   |
+| aiBlobAttributeTag        | stringa  | `ai-blob` |  `data-ai-blob`| Il plug-in supporta un attributo BLOB JSON anziché singoli `data-*` attributi. |
+| metaDataPrefix            | stringa  | Null      | N/D  | Acquisisci automaticamente il nome e il contenuto dell'elemento meta del codice HTML con il prefisso specificato durante l'acquisizione. Ad esempio, `custom-` può essere usato nel tag meta HTML. |
+| captureAllMetaDataContent | boolean | false     | N/D   | Acquisisci automaticamente tutti i nomi e il contenuto dell'elemento meta del codice HTML. L'impostazione predefinita è false. Se abilitata, verrà eseguito l'override di metaDataPrefix fornito. |
+| parentDataTag             | stringa  | Null      |  N/D  | Interrompe l'attraversamento del DOM per acquisire il nome del contenuto e il valore degli elementi quando vengono rilevati con questo tag. Ad esempio, `data-<yourparentDataTag>` può essere usato nei tag HTML.|
+| dntDataTag                | stringa  | `ai-dnt`  |  `data-ai-dnt`| Gli elementi HTML con questo attributo verranno ignorati dal plug-in per l'acquisizione dei dati di telemetria.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
-È possibile utilizzare la funzione behaviorValidator quando si desidera garantire la coerenza dei dati, anche se il controllo automatico dei comportamenti contrassegnati nel codice è conforme a un elenco predefinito di tassonomie note e accettate all'interno dell'azienda. Non è obbligatorio o previsto che la maggior parte dei clienti di monitoraggio di Azure utilizzerà questo, ma è disponibile per gli scenari avanzati. Sono presenti tre diverse funzioni di callback behaviorValidator esposte come parte di questa estensione. Tuttavia, gli utenti possono usare le proprie funzioni di callback se le funzioni esposte non risolvono il requisito. Lo scopo è quello di usare la struttura dei dati dei comportamenti personalizzati, il plug-in USA questa funzione di convalida durante l'estrazione dei comportamenti dai tag di dati.
+Le funzioni behaviorValidator verificano automaticamente che i comportamenti contrassegnati nel codice siano conformi a un elenco predefinito. Ciò garantisce che i comportamenti contrassegnati siano coerenti con la tassonomia stabilita dall'azienda. Non è obbligatorio o previsto che la maggior parte dei clienti di monitoraggio di Azure utilizzerà questo, ma è disponibile per gli scenari avanzati. Sono presenti tre diverse funzioni di callback behaviorValidator esposte come parte di questa estensione. Tuttavia, gli utenti possono usare le proprie funzioni di callback se le funzioni esposte non risolvono il requisito. Lo scopo è quello di usare la struttura dei dati dei comportamenti personalizzati, il plug-in USA questa funzione di convalida durante l'estrazione dei comportamenti dai tag di dati.
 
 | Nome                   | Descrizione                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
@@ -312,6 +312,7 @@ appInsights.loadAppInsights();
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Vedere il [repository GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e il [pacchetto NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) per il plug-in di analisi automatica della raccolta dei clic.
 - Usare l' [analisi degli eventi in esperienza di utilizzo](usage-segmentation.md) per analizzare i primi clic e sezionare in base alle dimensioni disponibili.
 - Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
 - Compilare una [cartella di lavoro](../platform/workbooks-overview.md) per creare visualizzazioni personalizzate dei dati di clic.

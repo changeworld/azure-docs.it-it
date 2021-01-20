@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8a2ad6cea4ab97742261b1cfd84975b243a46e87
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 4a9663e1356f616ed5f428c993f3367ce67cdbb5
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938716"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98610913"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -35,7 +35,7 @@ Azure Load Balancer Standard supporta il bilanciamento del carico tra aree che c
 * Crea una soluzione di [bilanciamento del carico esistente](#build-cross-region-solution-on-existing-azure-load-balancer) senza alcuna curva di apprendimento
 
 > [!IMPORTANT]
-> Il servizio di bilanciamento del carico tra più aree è attualmente disponibile in anteprima e nascosto nel portale di anteprima. Accedere a **https://preview.portal.azure.com** per visualizzare e distribuire la funzionalità. </br> </br>
+> Il servizio di bilanciamento del carico tra aree è attualmente disponibile in anteprima e può essere distribuito nel portale. Accedere a **https://portal.azure.com** per visualizzare e distribuire la funzionalità. </br> </br>
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il bilanciamento del carico tra aree offre gli stessi vantaggi di prestazioni elevate e bassa latenza del servizio Load Balancer standard regionale. 
