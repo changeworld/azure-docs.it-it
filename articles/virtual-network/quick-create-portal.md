@@ -11,12 +11,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
-ms.openlocfilehash: dfeb9c6bc3dbe33881fc51ccb08a776b827dfe9c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: cc3ba3a0519400368e0cbfec7abe2d9bd1731b34
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86082438"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217635"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Avvio rapido: Creare una rete virtuale usando il portale di Azure
 
@@ -36,7 +36,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 1. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Subscription | Selezionare la propria sottoscrizione.|
     | Resource group | Selezionare **Crea nuovo**, immettere *myResourceGroup* e selezionare **OK**. |
@@ -105,7 +105,7 @@ Creare due VM nella rete virtuale:
 
 1. In **Crea account di archiviazione**, immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Nome | Immettere *myvmstorageaccount*. Se il nome è già usato, creare un nome univoco.|
     | Tipo di account | L'impostazione predefinita è **Archiviazione (utilizzo generico v1)** . |
@@ -225,4 +225,4 @@ Per altre informazioni sulle impostazioni della rete virtuale, vedere [Creare, m
 Per impostazione predefinita, Azure consente comunicazioni sicure tra VM. Azure consente solo connessioni Desktop remoto in ingresso alle VM Windows da Internet. Per altre informazioni sui tipi di comunicazioni di rete delle macchine virtuali, vedere [Filtrare il traffico di rete](tutorial-filter-network-traffic.md).
 
 > [!NOTE] 
-> I servizi di Azure comportano costi. Gestione costi di Azure consente di impostare budget e configurare avvisi per tenere sotto controllo la spesa. Analizzare, gestire e ottimizzare i costi di Azure con Gestione costi. Per altre informazioni, vedere l'argomento di [avvio rapido sull'analisi dei costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+> I servizi di Azure comportano costi. Gestione costi di Azure consente di impostare budget e configurare avvisi per tenere sotto controllo la spesa. Analizzare, gestire e ottimizzare i costi di Azure con Gestione costi. Per altre informazioni, vedere l'argomento di [avvio rapido sull'analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: 4f5d691ef99ac4647d2031d6588d0b3922edd8cf
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
-ms.translationtype: HT
+ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505989"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249517"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiare dati dall'archiviazione BLOB di Azure a un database SQL in sicurezza usando endpoint privati
 
@@ -107,7 +107,8 @@ In questo passaggio si crea un runtime di integrazione di Azure e si abilita la 
 1. Nel portale di Data Factory passare a **Gestisci** e selezionare **Nuovo** per creare un nuovo runtime di integrazione di Azure.
 
    ![Screenshot che illustra la creazione di un nuovo runtime di integrazione di Azure.](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-1. Scegliere di creare un runtime di integrazione di **Azure**.
+1. Nella pagina di **installazione di Integration Runtime** scegliere il runtime di integrazione da creare in base alle funzionalità necessarie. In questa esercitazione selezionare **Azure, self-hosted** e quindi fare clic su **continue (continua**). 
+1. Selezionare **Azure** e quindi fare clic su **continua** per creare un runtime di integrazione di Azure.
 
    ![Screenshot che mostra un nuovo runtime di integrazione di Azure.](./media/tutorial-copy-data-portal-private/azure-ir.png)
 1. In **Configurazione della rete virtuale (anteprima)** selezionare **Abilita**.
@@ -136,7 +137,7 @@ In questa esercitazione si inizia creando una pipeline. quindi si creano i servi
 ### <a name="configure-a-source"></a>Configurare un'origine
 
 >[!TIP]
->In questa esercitazione si usa **Chiave dell'account** come tipo di autenticazione per l'archivio dati di origine. È anche possibile scegliere altri metodi di autenticazione supportati, ad esempio **URI SAS** , **Entità servizio** e **Identità gestita** se necessario. Per altre informazioni, vedere le sezioni corrispondenti in [Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
+>In questa esercitazione si usa **Chiave dell'account** come tipo di autenticazione per l'archivio dati di origine. È anche possibile scegliere altri metodi di autenticazione supportati, ad esempio **URI SAS**,**Entità servizio** e **Identità gestita** se necessario. Per altre informazioni, vedere le sezioni corrispondenti in [Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory](./connector-azure-blob-storage.md#linked-service-properties).
 >
 >Per archiviare in modo sicuro i segreti per gli archivi dati, è anche consigliabile usare Azure Key Vault. Per altre informazioni e illustrazioni, vedere [Archiviare le credenziali in Azure Key Vault](./store-credentials-in-key-vault.md).
 
@@ -168,7 +169,7 @@ In questa esercitazione si inizia creando una pipeline. quindi si creano i servi
 
 1. Al termine della creazione del servizio collegato si tornerà alla pagina **Imposta proprietà**. Selezionare **Sfoglia** accanto a **Percorso file**.
 
-1. Passare alla cartella **adftutorial/input** , selezionare il file **emp.txt** e quindi selezionare **OK**.
+1. Passare alla cartella **adftutorial/input**, selezionare il file **emp.txt** e quindi selezionare **OK**.
 
 1. Selezionare **OK**. Si passerà automaticamente alla pagina della pipeline. Nella scheda **Origine** verificare che sia selezionato il set di dati **SourceBlobDataset**. Per visualizzare l'anteprima dei dati in questa pagina, selezionare **Anteprima dati**.
 

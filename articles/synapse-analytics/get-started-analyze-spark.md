@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 3b5f5d64498922e9fc35942ff4570d801aa6c516
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.date: 12/31/2020
+ms.openlocfilehash: 2feabda5ea3f0c0748b92de9fcb7ef05abbdcf4c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118881"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209441"
 ---
 # <a name="analyze-with-apache-spark"></a>Analizzare dati con Apache Spark
 
@@ -23,25 +23,25 @@ Questa esercitazione illustra i passaggi di base per caricare e analizzare i dat
 
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-spark"></a>Analizzare i dati del set di dati NYC Taxi nell'archiviazione BLOB con Spark
 
-1. Nell'hub **Dati** selezionare **Aggiungi una nuova risorsa** (pulsante con il segno più sopra **Collegati**) > **Esplora raccolta**.
-1. Trovare e selezionare **NYC Taxi & Limousine Commission - yellow taxi trip records**.
-1. Nella parte inferiore della pagina selezionare **Continua** > **Aggiungi set di dati**.
-1. Nell'hub **Dati** in **Collegati** fare clic il pulsante destro del mouse su **Archivio BLOB di Azure** e scegliere **Set di dati di esempio** > **nyc_tlc_yellow**.
-1. Selezionare **Nuovo notebook** per creare un nuovo notebook con il codice seguente:
+1. Nell'hub **dati** fare clic sul **+** pulsante per **aggiungere una nuova risorsa**, quindi fare clic su >> **Sfoglia raccolta**. 
+1. Trovare e selezionare **NYC Taxi & Limousine Commission - yellow taxi trip records**. 
+1. Nella parte inferiore della pagina fare clic su **continua**, quindi su **Aggiungi set di dati**. 
+1. Dopo qualche istante, nell'hub **dati** sotto **collegamento**, fare clic con il pulsante destro del mouse su **archiviazione BLOB di Azure >> set di dati di esempio >> nyc_tlc_yellow** e selezionare **nuovo notebook**, quindi **caricare nel frame di dati**.
+1. Verrà creato un nuovo notebook con il codice seguente:
+    ```
 
-    ```py
     from azureml.opendatasets import NycTlcYellow
 
     data = NycTlcYellow()
     data_df = data.to_spark_dataframe()
+    # Display 10 rows
     display(data_df.limit(10))
     ```
-
-1. Nel menu **Collega a** del notebook scegliere un pool di Spark serverless.
-1. Selezionare **Esegui** nella cella.
+1. Nel menu **Connetti a** del notebook scegliere il pool di Spark **Spark1** senza server creato in precedenza.
+1. Fare clic su **Esegui** nella cella
 1. Per vedere semplicemente lo schema del dataframe, eseguire una cella con il codice seguente:
+    ```
 
-    ```py
     data_df.printSchema()
     ```
 
@@ -52,7 +52,8 @@ I dati sono disponibili in una tabella in **SQLPOOL1**. Caricarli in un database
 1. In Synapse Studio passare all'hub **Develop** (Sviluppo).
 1. Selezionare **+**  > **Notebook**.
 1. Nella parte superiore del notebook impostare il valore per **Collega a** su **Spark1**.
-1. Selezionare **Aggiungi codice** per aggiungere una cella di codice del notebook e quindi immettere il testo seguente:
+1. Nella prima cella del codice del notebook, quindi immettere il codice seguente:
+
 
     ```scala
     %%spark
@@ -61,16 +62,16 @@ I dati sono disponibili in una tabella in **SQLPOOL1**. Caricarli in un database
     df.write.mode("overwrite").saveAsTable("nyctaxi.trip")
     ```
 
-1. Selezionare **Esegui** nella cella.
-1. Nell'hub **Dati** fare clic con il pulsante destro del mouse su **Database** e quindi scegliere **Aggiorna**. Verranno visualizzati i database seguenti:
 
-    - **SQLPOOL1 (SQL)**
-    - **nyctaxi (Spark)**
+1. Eseguire lo script. Potrebbero essere necessari 2-3 minuti.
+1. Nella scheda **area di lavoro** dell'hub **dati** fare clic con il pulsante destro del mouse su **database**, quindi scegliere **Aggiorna**. A questo punto verrà visualizzato il database **nyctaxi (Spark)** nell'elenco.
+
 
 ## <a name="analyze-the-nyc-taxi-data-using-spark-and-notebooks"></a>Analizzare i dati dell'esempio NYC Taxi con Spark e notebook
 
 1. Tornare al notebook.
-1. Creare una nuova cella di codice e immettere il testo seguente.
+1. Creare una nuova cella di codice e immettere il codice seguente. 
+
 
    ```py
    %%pyspark
@@ -78,8 +79,9 @@ I dati sono disponibili in una tabella in **SQLPOOL1**. Caricarli in un database
    display(df)
    ```
 
-1. Eseguire quindi la cella per visualizzare i dati dei taxi di New York caricati nel database Spark **nyctaxi**.
-1. Eseguire il codice seguente per ripetere la stessa analisi effettuata in precedenza con il pool SQL dedicato **SQLPOOL1**. Questo codice salva i risultati dell'analisi in una tabella denominata **nyctaxi.passengercountstats**.
+1. Eseguire la cella per visualizzare i dati dei taxi di NYC caricati nel database **nyctaxi** Spark.
+1. Creare una nuova cella di codice e immettere il codice seguente. Eseguire quindi la cella per eseguire la stessa analisi eseguita in precedenza con il pool SQL dedicato **SQLPOOL1**. Questo codice salva e Visualizza i risultati dell'analisi in una tabella denominata **nyctaxi. passengercountstats**.
+
 
    ```py
    %%pyspark
@@ -100,9 +102,9 @@ I dati sono disponibili in una tabella in **SQLPOOL1**. Caricarli in un database
 
 ## <a name="load-data-from-a-spark-table-into-a-dedicated-sql-pool-table"></a>Caricare dati da una tabella Spark in una tabella del pool SQL dedicato
 
-In precedenza sono stati copiati i dati dalla tabella del pool SQL dedicato **SQLPOOL1.dbo.Trip** nella tabella Spark **nyctaxi.trip**. In seguito i dati sono stati aggregati nella tabella Spark **nyctaxi.passengercountstats**. A questo punto, copiare i dati da **nyctaxi.passengercountstats** a una tabella del pool SQL dedicato denominata **SQLPOOL1.dbo.PassengerCountStats**.
+In precedenza sono stati copiati i dati dalla tabella del pool SQL dedicato **SQLPOOL1.dbo.Trip** nella tabella Spark **nyctaxi.trip**. In seguito i dati sono stati aggregati nella tabella Spark **nyctaxi.passengercountstats**. A questo punto, copiare i dati da **nyctaxi. passengercountstats** in una tabella del pool SQL dedicata denominata **SQLPOOL1. dbo. passengercountstats**.
 
-Eseguire la cella seguente nel notebook. La tabella Spark aggregata verrà copiata nuovamente nella tabella del pool SQL dedicato.
+1. Creare una nuova cella di codice e immettere il codice seguente. Eseguire la cella nel notebook. La tabella Spark aggregata verrà copiata nuovamente nella tabella del pool SQL dedicato.
 
 ```scala
 %%spark

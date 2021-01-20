@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
-ms.date: 11/21/2020
-ms.openlocfilehash: c9b7d796612981f0e8194be84b0ed141721f644d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.date: 12/31/2020
+ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862378"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209186"
 ---
 # <a name="creating-a-synapse-workspace"></a>Creazione di un'area di lavoro di Synapse
 
@@ -30,11 +30,12 @@ Per completare questa esercitazione, è necessario avere accesso a un gruppo di 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
 1. Nei risultati della ricerca, in **Servizi**, selezionare **Azure Synapse Analytics**.
 1. Selezionare **Aggiungi** per creare un'area di lavoro.
-1. In **Informazioni di base** immettere le proprie preferenze in **Sottoscrizione**, **Gruppo di risorse** e **Area**, quindi scegliere un nome di area di lavoro. In questa esercitazione si userà **myworkspace**.
-1. Passare a **Selezionare Data Lake Storage Gen 2**. 
-1. Fare clic su **Crea nuovo** e scegliere **contosolake** come nome.
-1. Fare clic su **File system** e scegliere **users** come nome. Verrà creato un contenitore denominato **users**
+1. Nella scheda **nozioni di base** , in dettagli progetto, immettere **la sottoscrizione** preferita, il **gruppo di risorse**, l' **area**, quindi scegliere un nome per l'area di lavoro. In questa esercitazione si userà **myworkspace**.
+1. Per **selezionare Data Lake storage generazione 2**, fare clic sul pulsante per **da sottoscrizione**.
+1. Per **nome account**, fare clic su **Crea nuovo** e denominare il nuovo account di archiviazione **contosolake** o simile perché questo nome deve essere univoco.
+1. Per **nome file System**, fare clic su **Crea nuovo** e denominarlo **utenti**. Verrà creato un contenitore di archiviazione denominato **Users**
 1. L'area di lavoro userà questo account di archiviazione come account di archiviazione "primario" per le tabelle Spark e i log delle applicazioni Spark.
+1. Selezionare "assegnare a me il ruolo Collaboratore dati BLOB di archiviazione nella casella account Data Lake Storage Gen2". 
 1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
 > [!NOTE]
@@ -45,8 +46,14 @@ Per completare questa esercitazione, è necessario avere accesso a un gruppo di 
 
 Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse Studio in due modi:
 
-* Aprire l'area di lavoro di Synapse nel [portale di Azure](https://portal.azure.com). Nella parte superiore della sezione **Panoramica** selezionare **Apri Synapse Studio**.
+* Aprire l'area di lavoro sinapsi nel [portale di Azure](https://portal.azure.com), nella sezione **Panoramica** dell'area di lavoro sinapsi selezionare **Apri** nella casella Apri sinapsi Studio.
 * Passare a `https://web.azuresynapse.net` e accedere alla propria area di lavoro.
+
+
+## <a name="the-built-in-serverless-sql-pool"></a>Pool SQL serverless predefinito
+
+Ogni area di lavoro include un pool SQL serverless predefinito denominato **Predefinito**. Questo pool non può essere eliminato. I pool SQL serverless consentono di usare SQL senza la necessità di riservare capacità con i pool SQL dedicati. Diversamente dai pool SQL dedicati, la fatturazione per un pool SQL serverless è basata sulla quantità di dati analizzati per eseguire la query e non sulla capacità allocata al pool.
+
 
 ## <a name="create-a-dedicated-sql-pool"></a>Creare un pool SQL dedicato
 
@@ -61,6 +68,7 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 > [!NOTE] 
 > Quando si crea un nuovo pool SQL dedicato (in precedenza SQL Data Warehouse) nell'area di lavoro, verrà aperta la pagina per effettuarne il provisioning. Il provisioning verrà effettuato nel server SQL logico.
 
+
 ## <a name="create-a-serverless-apache-spark-pool"></a>Creare un pool di Apache Spark serverless
 
 1. Nel riquadro sinistro di Synapse Studio selezionare **Gestisci** > **Pool di Apache Spark**.
@@ -72,9 +80,6 @@ Un pool SQL dedicato utilizza risorse fatturabili finché è attivo. È possibil
 
 Il pool di Spark indica ad Azure Synapse il numero di risorse Spark da usare. Verranno addebitati i costi solo per le risorse usate. Quando si interrompe attivamente l'uso del pool, le risorse raggiungono automaticamente il timeout e vengono riciclate.
 
-## <a name="the-built-in-serverless-sql-pool"></a>Pool SQL serverless predefinito
-
-Ogni area di lavoro include un pool SQL serverless predefinito denominato **Predefinito**. Questo pool non può essere eliminato. I pool SQL serverless consentono di usare SQL senza la necessità di riservare capacità con i pool SQL dedicati. Diversamente dai pool SQL dedicati, la fatturazione per un pool SQL serverless è basata sulla quantità di dati analizzati per eseguire la query e non sulla capacità allocata al pool.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

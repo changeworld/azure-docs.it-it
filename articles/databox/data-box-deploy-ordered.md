@@ -2,24 +2,24 @@
 title: Esercitazione per ordinare Azure Data Box | Microsoft Docs
 description: Questa esercitazione fornisce informazioni su Azure Data Box, una soluzione ibrida che consente di importare dati locali in Azure, e illustra come ordinare il dispositivo Azure Data Box.
 services: databox
-author: alkohli
+author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: aad6a3ef754b5ba2c65a9b93fbdfcfdc26348487
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: HT
+ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186159"
+ms.locfileid: "98210342"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
-Azure Data Box è una soluzione ibrida che consente di importare i dati locali in Azure in modo rapido, semplice e affidabile. I dati devono essere trasferiti in un dispositivo di archiviazione da 80 TB (capacità utilizzabile) fornito da Microsoft e quindi il dispositivo deve essere rispedito a Microsoft. Questi dati vengono poi caricati in Azure.
+Azure Data Box è una soluzione ibrida che consente di importare i dati locali in Azure in modo rapido, semplice e affidabile. I dati vengono trasferiti a un dispositivo di archiviazione 80 TB (capacità utilizzabile) fornito da Microsoft, quindi viene rispedito il dispositivo. Questi dati vengono poi caricati in Azure.
 
-Questa esercitazione illustra come ordinare un dispositivo Azure Data Box. Questa esercitazione descrive quanto segue:
+Questa esercitazione illustra come ordinare un dispositivo Azure Data Box. Questa esercitazione descrive quanto segue:  
 
 > [!div class="checklist"]
 >
@@ -245,7 +245,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Resource group    | Il gruppo di risorse selezionato in precedenza. |
     |Nome ordine di importazione | Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.    |
 
-    ![Importazione guidata ordine di Data Box, schermata Informazioni di base con le informazioni corrette compilate](media/data-box-deploy-ordered/select-data-box-import-06.png)<!--Generic subscription. Cut note. Box command.-->
+    ![Importazione guidata ordine di Data Box, schermata Informazioni di base con le informazioni corrette compilate](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
 7. Nella schermata **Destinazione dei dati** selezionare gli account di archiviazione o i dischi gestiti come **Destinazione dei dati**.
 
@@ -253,7 +253,11 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     ![Importazione guidata ordine di Data Box, schermata Destinazione dati con gli account di archiviazione selezionati](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
+    In base all'area di Azure specificata, selezionare uno o più account di archiviazione dall'elenco filtrato di account di archiviazione esistenti. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**.
+
+   > [!NOTE]
+   > - Se si seleziona account di archiviazione Premium di Azure, la quota di cui è stato effettuato il provisioning nella condivisione dell'account di archiviazione aumenterà le dimensioni dei dati copiati nelle condivisioni file. Una volta aumentata la quota, questa non viene nuovamente modificata, ad esempio se per qualche motivo l'Data Box non è in grado di copiare i dati.
+   > - Questa quota viene utilizzata per la fatturazione. Dopo il caricamento dei dati nel Data Center, è necessario modificare la quota per soddisfare le esigenze. Per ulteriori informazioni, vedere informazioni sulla [fatturazione](../../articles/storage/files/understanding-billing.md).
 
     Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).
 
@@ -419,7 +423,7 @@ Seguire questa procedura nell'interfaccia della riga di comando di Azure per ord
    |sku| Dispositivo Data Box specifico che si sta ordinando. I valori validi sono: "DataBox", "DataBoxDisk" e "DataBoxHeavy"| "DataBox" |
    |email-list| Indirizzi di posta elettronica associati all'ordine.| "gusp@contoso.com" |
    |street-address1| Indirizzo a cui verrà spedito l'ordine. | "15700 NE 39th St" |
-   |street-address2| Informazioni secondarie relative all'indirizzo, ad esempio numero di appartamento o numero di edificio. | "Bld 123" |
+   |street-address2| Informazioni secondarie relative all'indirizzo, ad esempio numero di appartamento o numero di edificio. | "Building 123" |
    |city| Città a cui verrà spedito il dispositivo. | "Redmond" |
    |state-or-province| Stato a cui verrà spedito il dispositivo.| "WA" |
    |country| Paese a cui verrà spedito il dispositivo. | "Stati Uniti" |
@@ -538,7 +542,7 @@ Seguire questa procedura usando Azure PowerShell per ordinare un dispositivo:
     |DataBoxType [obbligatorio]| Dispositivo Data Box specifico che si sta ordinando. I valori validi sono: "DataBox", "DataBoxDisk" e "DataBoxHeavy"| "DataBox" |
     |EmailId [obbligatorio]| Indirizzi di posta elettronica associati all'ordine.| "gusp@contoso.com" |
     |StreetAddress1 [obbligatorio]| Indirizzo a cui verrà spedito l'ordine. | "15700 NE 39th St" |
-    |StreetAddress2| Informazioni secondarie relative all'indirizzo, ad esempio numero di appartamento o numero di edificio. | "Bld 123" |
+    |StreetAddress2| Informazioni secondarie relative all'indirizzo, ad esempio numero di appartamento o numero di edificio. | "Building 123" |
     |StreetAddress3| Informazioni sul terzo indirizzo. | |
     |City [obbligatorio]| Città a cui verrà spedito il dispositivo. | "Redmond" |
     |StateOrProvinceCode [obbligatorio]| Stato a cui verrà spedito il dispositivo.| "WA" |
@@ -601,7 +605,7 @@ Microsoft prepara e spedisce quindi il dispositivo tramite un corriere locale. S
 
 ### <a name="track-a-single-order"></a>Monitorare un singolo ordine
 
-Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Data Box esistente, eseguire [az databox job show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
+Per ottenere informazioni di rilevamento su un singolo ordine di Azure Data Box esistente, eseguire [`az databox job show`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true) . Il comando visualizza le informazioni sull'ordine, ad esempio: nome, gruppo di risorse, informazioni di tracciabilità, ID sottoscrizione, informazioni di contatto, tipo di spedizione e SKU del dispositivo.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -642,7 +646,7 @@ Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Dat
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [az databox job list](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [`az databox job list`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurecli
@@ -718,7 +722,7 @@ Per ottenere le informazioni di tracciabilità su un singolo ordine di Azure Dat
 
 ### <a name="list-all-orders"></a>Elencare tutti gli ordini
 
-Se sono stati ordinati più dispositivi, è possibile eseguire [Get-AzDataBoxJob](/powershell/module/az.databox/Get-AzDataBoxJob) per visualizzare tutti gli ordini di Azure Data Box. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
+Se sono stati ordinati più dispositivi, è possibile eseguire [`Get-AzDataBoxJob`](/powershell/module/az.databox/Get-AzDataBoxJob) per visualizzare tutti i Azure Data Box ordini. Il comando elenca tutti gli ordini che appartengono a un gruppo di risorse specifico. Nell'output sono visualizzate anche le informazioni seguenti: nome dell'ordine, stato di spedizione, area di Azure, tipo di recapito, stato dell'ordine. Nell'elenco sono anche inclusi gli ordini annullati.
 Il comando visualizza inoltre i timestamp di ogni ordine.
 
 ```azurepowershell
@@ -761,7 +765,7 @@ Per eliminare un ordine annullato, passare a **Panoramica** e fare clic su **Eli
 
 ### <a name="cancel-an-order"></a>Annullare un ordine
 
-Per annullare un ordine di Azure Data Box, eseguire [az databox job cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). È necessario specificare il motivo per l'annullamento dell'ordine.
+Per annullare un ordine di Azure Data Box, eseguire [`az databox job cancel`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true) . È necessario specificare il motivo per l'annullamento dell'ordine.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -798,7 +802,7 @@ Per annullare un ordine di Azure Data Box, eseguire [az databox job cancel](/cli
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [az databox job delete](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) per eliminare l'ordine.
+Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`az databox job delete`](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) per eliminare l'ordine.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]
@@ -871,7 +875,7 @@ PS C:\WINDOWS\system32>
 
 ### <a name="delete-an-order"></a>Eliminare un ordine
 
-Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [Remove-AzDataBoxJob](/powershell/module/az.databox/remove-azdataboxjob) per eliminarlo.
+Se è stato annullato un ordine di Azure Data Box, è possibile eseguire [`Remove-AzDataBoxJob`](/powershell/module/az.databox/remove-azdataboxjob) per eliminare l'ordine.
 
 ```azurepowershell
 Remove-AzDataBoxJob -Name <String> -ResourceGroup <String>

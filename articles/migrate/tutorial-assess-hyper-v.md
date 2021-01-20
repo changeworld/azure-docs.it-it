@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 04570785d80e494134bc50cefe3381277d6440a4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
-ms.translationtype: HT
+ms.openlocfilehash: 0a3975578f3424276e3655e0ca8fba903194a2dc
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753281"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567068"
 ---
 # <a name="tutorial-assess-hyper-v-vms-for-migration-to-azure"></a>Esercitazione: Valutare la migrazione di macchine virtuali Hyper-V ad Azure
 
@@ -59,7 +59,7 @@ Eseguire una valutazione nel modo seguente:
 
    ![Posizione del pulsante Valutare ed eseguire la migrazione dei server](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Valutazione server fare clic su **Valuta**.
+2. In **Azure Migrate: Valutazione server** fare clic su **Valuta**.
 
     ![Posizione del pulsante Valuta](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
@@ -69,14 +69,13 @@ Eseguire una valutazione nel modo seguente:
     - Se le macchine virtuali sono state individuate usando l'appliance, selezionare **Macchine virtuali individuate dall'appliance di Azure Migrate**.
     - Se le macchine virtuali sono state individuate usando un file CSV importato, selezionare **Macchine virtuali importate**. 
     
-5. Specificare un nome per la valutazione. 
-6. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
+1. Fare clic su **modifica** per esaminare le proprietà della valutazione.
 
-    ![Posizione del pulsante Visualizza tutto per esaminare le proprietà della valutazione](./media/tutorial-assess-vmware-azure-vm/assessment-name.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Posizione del pulsante modifica per esaminare le proprietà di valutazione":::
 
-7. In **Proprietà valutazione** > **Proprietà destinazione**:
+1. In **Proprietà valutazione** > **Proprietà destinazione**:
     - In **Località di destinazione** specificare l'area di Azure in cui eseguire la migrazione.
-        - Le raccomandazioni relative alle dimensioni e ai costi si basano sulla località specificata.
+        - Le raccomandazioni relative alle dimensioni e ai costi si basano sulla località specificata. Una volta modificato il percorso di destinazione per impostazione predefinita, verrà richiesto di specificare le **istanze riservate** e la **serie di macchine virtuali**.
         - In Azure per enti pubblici è possibile specificare [queste aree](migrate-support-matrix.md#supported-geographies-azure-government) come destinazione delle valutazioni
     - In **Tipo di archiviazione**
         - Se nella valutazione si vogliono usare i dati basati sulle prestazioni, selezionare **Automatico** in modo che sia Azure Migrate a consigliare un tipo di archiviazione, sulla base dei dati relativi a base alle operazioni di I/O al secondo e alla velocità effettiva del disco.
@@ -84,17 +83,20 @@ Eseguire una valutazione nel modo seguente:
     - In **Istanze riservate** specificare se si vogliono usare istanze riservate per la macchina virtuale quando si esegue la migrazione.
         - Se si sceglie di usare un'istanza riservata, non è possibile specificare **Sconto (%)** o **Tempo di attività macchina virtuale**. 
         - [Altre informazioni](https://aka.ms/azurereservedinstances)
-8. In **Dimensioni macchina virtuale**:
- 
-    - In **Criterio di dimensionamento** scegliere se si vuole basare la valutazione sui dati/metadati di configurazione della macchina virtuale o sui dati relativi alle prestazioni. Se si usano i dati relativi alle prestazioni:
+ 1. In **Dimensioni macchina virtuale**:
+     - In **Criterio di dimensionamento** scegliere se si vuole basare la valutazione sui dati/metadati di configurazione della macchina virtuale o sui dati relativi alle prestazioni. Se si usano i dati relativi alle prestazioni:
         - In **Cronologia delle prestazioni** indicare la durata dei dati in base alla quale basare la valutazione
         - In **Utilizzo percentile** specificare il valore percentile da usare per il campione delle prestazioni. 
     - In **Serie macchina virtuale** specificare la serie di macchine virtuali di Azure che si vuole prendere in considerazione.
         - Se si usa la valutazione basata sulle prestazioni, il valore viene suggerito da Azure Migrate.
         - Perfezionare le impostazioni in base alle esigenze. Se, ad esempio, non si ha un ambiente di produzione in cui sono richieste le macchine virtuali della serie A in Azure, si può escludere la serie A dall'elenco delle serie.
-    - In **Fattore di comfort** indicare il buffer da usare durante la valutazione. Questa opzione tiene conto di aspetti quali l'utilizzo stagionale, una cronologia ridotta delle prestazioni e il probabile aumento dell'utilizzo futuro. Se ad esempio si usa un fattore di comfort di due: **Componente** | **Utilizzo effettivo** | **Aggiungere fattore di comfort (2.0)** Core | 2 | 4 Memoria | 8 GB | 16 GB     
+    - In **Fattore di comfort** indicare il buffer da usare durante la valutazione. Questa opzione tiene conto di aspetti quali l'utilizzo stagionale, una cronologia ridotta delle prestazioni e il probabile aumento dell'utilizzo futuro. Se ad esempio si usa un fattore di comfort di due:
+        **Componente** | **Utilizzo effettivo** | **Aggiungere fattore di comfort (2.0)**
+        --- | --- | ---
+        Core | 2  | 4
+        Memoria | 8 GB | 16 GB
    
-9. In **Prezzi**:
+1. In **Prezzi**:
     - In **Offerta** specificare l'[offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Valutazione server stima il costo di tale offerta.
     - In **Valuta** selezionare la valuta di fatturazione per l'account.
     - In **Sconto (%)** aggiungere eventuali sconti specifici della sottoscrizione ricevuti oltre all'offerta di Azure. L'impostazione predefinita è 0%.
@@ -102,20 +104,29 @@ Eseguire una valutazione nel modo seguente:
         - Questa opzione è utile per le macchine virtuali di Azure che non vengono eseguite in modo continuativo.
         - Le stime dei costi sono basate sulla durata specificata.
         - Il valore predefinito è 31 giorni al mese e 24 ore al giorno.
-
     - In **Sottoscrizione con contratto Enterprise** specificare se prendere in considerazione uno sconto per la sottoscrizione con contratto Enterprise per la stima dei costi. 
     - In **Vantaggio Azure Hybrid** specificare se si ha già una licenza di Windows Server. Se si ha già una licenza coperta da un contratto Software Assurance per le sottoscrizioni di Windows Server, è possibile richiedere il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/) quando si importano licenze in Azure.
 
-10. Se sono state apportate modifiche, fare clic su **Salva**.
+1. Se sono state apportate modifiche, fare clic su **Salva**.
 
     ![Proprietà valutazione](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-11. In **Valuta server** fare clic su **Avanti**.
-12. In **Selezionare le macchine virtuali da valutare** selezionare **Crea nuovo** e specificare un nome per il gruppo. 
-13. Selezionare l'appliance e quindi le macchine virtuali da aggiungere al gruppo. Quindi fare clic su **Next**.
-14. In **Rivedi e crea valutazione esaminare i dettagli della valutazione e fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
+1. In **valuta server** > fare clic su **Avanti**.
+
+1. In **Seleziona computer per valutare**  >  il **nome della valutazione** > specificare un nome per la valutazione. 
+
+1. In **selezionare o creare un gruppo** > selezionare **Crea nuovo** e specificare un nome di gruppo. 
+   
+    :::image type="content" source="./media/tutorial-assess-hyper-v/assess-machines.png" alt-text="Crea nuovo gruppo e Aggiungi computer":::
+
+1. Selezionare l'appliance e quindi le macchine virtuali da aggiungere al gruppo. Quindi fare clic su **Next**.
 
 
+1. In **Rivedi e crea valutazione** esaminare i dettagli della valutazione e fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
+
+1. Dopo aver creato la valutazione, visualizzarla in **Server** > **Azure Migrate: Valutazione server** > **Valutazioni**.
+
+1. Fare clic su **Esporta valutazione** per scaricarla come file di Excel.
     > [!NOTE]
     > Per le valutazioni basate sulle prestazioni, prima di creare una valutazione è consigliabile attendere almeno un giorno dopo aver avviato l'individuazione. In questo modo i dati sulle prestazioni raccolti saranno maggiormente attendibili. Per una classificazione più attendibile, se possibile, dopo l'avvio dell'individuazione attendere un tempo pari alla durata delle prestazioni specificata (giorno/settimana/mese).
 

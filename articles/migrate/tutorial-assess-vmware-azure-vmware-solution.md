@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: f6d3c6f77b062939a88e7277cb7f0ab6ecff9fcb
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
-ms.translationtype: HT
+ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753077"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566738"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Esercitazione: Valutare le VM VMware per la migrazione alla soluzione Azure VMware
 
@@ -58,58 +58,63 @@ Eseguire una valutazione nel modo seguente:
 
    ![Posizione del pulsante Valutare ed eseguire la migrazione dei server](./media/tutorial-assess-vmware-azure-vmware-solution/assess.png)
 
-2. In **Azure Migrate: Valutazione server** fare clic su **Valuta**.
+1. In **Azure Migrate: Valutazione server** fare clic su **Valuta**.
 
-3. In **Valuta server** > **Tipo di valutazione** selezionare **Soluzione Azure VMware (AVS) (anteprima)** .
-4. In **Origine individuazione**:
+1. In **Valuta server** > **Tipo di valutazione** selezionare **Soluzione Azure VMware (AVS) (anteprima)** .
+
+1. In **Origine individuazione**:
 
     - Se le macchine virtuali sono state individuate usando l'appliance, selezionare **Macchine virtuali individuate dall'appliance di Azure Migrate**.
     - Se le macchine virtuali sono state individuate usando un file CSV importato, selezionare **Macchine virtuali importate**. 
     
-5. Specificare un nome per la valutazione. 
-6. Fare clic su **Visualizza tutto** per rivedere le proprietà di valutazione.
+1. Fare clic su **modifica** per esaminare le proprietà della valutazione.
 
-    ![Pagina per la selezione delle impostazioni di valutazione](./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Pagina per la selezione delle impostazioni di valutazione":::
+ 
 
-
-7. In **Proprietà valutazione** > **Proprietà destinazione**:
+1. In **Proprietà valutazione** > **Proprietà destinazione**:
 
     - In **Località di destinazione** specificare l'area di Azure in cui eseguire la migrazione.
        - Le raccomandazioni relative alle dimensioni e ai costi si basano sulla località specificata.
-       - Attualmente è possibile eseguire la valutazione per tre aree (Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale)
-   - In **Tipo di archiviazione** lasciare impostato **vSAN**. Questo è il tipo di archiviazione predefinito per un cloud privato della soluzione Azure VMware.
+       - Attualmente è possibile valutare per quattro aree (Australia orientale, Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali)
+   - Per impostazione predefinita, il **tipo di archiviazione** è **rete VSAN**. Questo è il tipo di archiviazione predefinito per un cloud privato della soluzione Azure VMware.
    - Le **istanze riservate** non sono attualmente supportate per i nodi della soluzione Azure VMware.
-8. In **Dimensioni macchina virtuale**:
-    - In **Tipo di nodo** selezionare un tipo di nodo in base ai carichi di lavoro in esecuzione nelle macchine virtuali locali.
-        - Il tipo dei nodi necessari per eseguire la migrazione delle macchine virtuali alla soluzione Azure VMware viene consigliato da Azure Migrate.
-        - Il tipo di nodo predefinito è AV36.
-    - In **Impostazione FTT (tolleranza errori), livello RAID** selezionare la combinazione di tolleranza errori e RAID.  L'opzione FTT selezionata, combinata con il requisito del disco della macchina virtuale locale, determina il lo spazio di archiviazione totale vSAN richiesto nella soluzione Azure VMware.
+1. In **Dimensioni macchina virtuale**:
+    - Per impostazione predefinita, il **tipo di nodo** è **AV36**. Il tipo dei nodi necessari per eseguire la migrazione delle macchine virtuali alla soluzione Azure VMware viene consigliato da Azure Migrate.
+    - In **impostazione di ITF, livello RAID**, selezionare la combinazione di errori da tollerare e RAID.  L'opzione FTT selezionata, combinata con il requisito del disco della macchina virtuale locale, determina il lo spazio di archiviazione totale vSAN richiesto nella soluzione Azure VMware.
     - In **Oversubscription della CPU** specificare il rapporto di core virtuali associati a un core fisico nel nodo della soluzione Azure VMware. Un'oversubscription maggiore di 4:1 potrebbe causare una riduzione del livello delle prestazioni, ma può essere usata per i carichi di lavoro di tipo server Web.
 
-9. In **Dimensioni nodo**: 
+1. In **Dimensioni nodo**: 
     - In **Criterio di dimensionamento** scegliere se si vuole basare la valutazione sui metadati statici o sui dati relativi alle prestazioni. Se si usano i dati relativi alle prestazioni:
         - In **Cronologia delle prestazioni** indicare la durata dei dati in base alla quale basare la valutazione
         - In **Utilizzo percentile** specificare il valore percentile da usare per il campione delle prestazioni. 
     - In **Fattore di comfort** indicare il buffer da usare durante la valutazione. Questa opzione tiene conto di aspetti quali l'utilizzo stagionale, una cronologia ridotta delle prestazioni e il probabile aumento dell'utilizzo futuro. Se ad esempio si usa un fattore di comfort di due:
     
         **Componente** | **Utilizzo effettivo** | **Aggiungere fattore di comfort (2.0)**
-        --- | --- | ---  
-        Core | 2 | 4
-        Memoria | 8 GB | 16 GB     
+        --- | --- | ---
+        Core | 2  | 4
+        Memoria | 8 GB | 16 GB  
 
-10. In **Prezzi**:
+1. In **Prezzi**:
     - In **Offerta** viene visualizzata l'[offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta per cui Valutazione server stima il costo.
     - In **Valuta** selezionare la valuta di fatturazione per l'account.
     - In **Sconto (%)** aggiungere eventuali sconti specifici della sottoscrizione ricevuti oltre all'offerta di Azure. L'impostazione predefinita è 0%.
 
-11. Se sono state apportate modifiche, fare clic su **Salva**.
+1. Se sono state apportate modifiche, fare clic su **Salva**.
 
-    ![Proprietà valutazione](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all.png" alt-text="Proprietà valutazione":::
 
-12. In **Valuta server** fare clic su **Avanti**.
-13. In **Valuta server** > **Selezionare le macchine virtuali da valutare**, per creare un nuovo gruppo di server per la valutazione, selezionare **Crea nuovo** e specificare un nome per il gruppo. 
-14. Selezionare l'appliance e quindi le macchine virtuali da aggiungere al gruppo. Quindi fare clic su **Next**.
-15. In **Rivedi e crea valutazione** esaminare i dettagli della valutazione e fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
+1. In **Valuta server** fare clic su **Avanti**.
+
+1. In **Seleziona computer per valutare**  >  il **nome della valutazione** > specificare un nome per la valutazione. 
+ 
+1. In **selezionare o creare un gruppo** > selezionare **Crea nuovo** e specificare un nome di gruppo. 
+    
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Aggiungere macchine virtuali a un gruppo":::
+ 
+1. Selezionare l'appliance e quindi le macchine virtuali da aggiungere al gruppo. Quindi fare clic su **Next**.
+
+1. In **Rivedi e crea valutazione** esaminare i dettagli della valutazione e fare clic su **Crea valutazione** per creare il gruppo ed eseguire la valutazione.
 
     > [!NOTE]
     > Per le valutazioni basate sulle prestazioni, prima di creare una valutazione è consigliabile attendere almeno un giorno dopo aver avviato l'individuazione. In questo modo i dati sulle prestazioni raccolti saranno maggiormente attendibili. Per una classificazione più attendibile, se possibile, dopo l'avvio dell'individuazione attendere un tempo pari alla durata delle prestazioni specificata (giorno/settimana/mese).
@@ -121,6 +126,8 @@ Una valutazione della soluzione Azure VMware descrive:
 - Idoneità per AVS: indica se le macchine virtuali locali sono idonee per la migrazione alla soluzione Azure VMware.
 - Numero di nodi AVS: numero stimato dei nodi della soluzione Azure VMware necessari per eseguire le macchine virtuali.
 - Utilizzo tra nodi AVS: utilizzo previsto della CPU, della memoria e delle risorse di archiviazione in tutti i nodi.
+    - L'utilizzo include il fattore iniziale nel sovraccarico di gestione cluster, ad esempio server vCenter, NSX Manager (Large), NSX Edge, se HCX è distribuito anche HCX Manager e IX Appliance consumo ~ 44vCPU (11 CPU), 75 GB di RAM e 722GB di archiviazione prima della compressione e della deduplicazione. 
+    - La memoria, la deduplicazione e la compressione sono attualmente impostate per l'utilizzo del 100% per la memoria e la deduplicazione e la compressione di 1,5, che saranno un input definito dall'utente nelle versioni future consentendo all'utente di ottimizzare le dimensioni richieste.
 - Stima dei costi mensili: costi mensili stimati per tutti i nodi della soluzione Azure VMware in esecuzione nelle macchine virtuali locali.
 
 ## <a name="view-an-assessment"></a>Visualizzare una valutazione
@@ -128,8 +135,12 @@ Una valutazione della soluzione Azure VMware descrive:
 Per visualizzare una valutazione:
 
 1. In **Server** > **Azure Migrate: Valutazione server**, fare clic sul numero accanto a **Valutazioni**.
-2. In **Valutazioni** selezionare una valutazione per aprirla. 
-3. Esaminare il riepilogo della valutazione. È anche possibile modificare le proprietà della valutazione o ricalcolare la valutazione.
+
+1. In **Valutazioni** selezionare una valutazione per aprirla. A titolo di esempio (stime e costi sono solo esemplificativi): 
+
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary.png" alt-text="Riepilogo di AVS Assessment":::
+
+1. Esaminare il riepilogo della valutazione. È anche possibile modificare le proprietà della valutazione o ricalcolare la valutazione.
  
 
 ### <a name="review-readiness"></a>Esaminare l'idoneità

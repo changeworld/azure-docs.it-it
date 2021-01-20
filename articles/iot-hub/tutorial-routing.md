@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
 - devx-track-azurecli
-ms.openlocfilehash: 892dad3963e9da3560acc2c782c3d14db246ea78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 13130a7ea473b260ddc4f0ebca2ef5b496b34c66
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500590"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202997"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare l'interfaccia della riga di comando di Azure e il portale di Azure per configurare il routing dei messaggi per l'hub IoT
 
@@ -140,13 +140,13 @@ Ora configurare il routing per l'account di archiviazione. Passare al riquadro R
 
 2. Selezionare l'hub IoT nell'elenco di risorse. Questa esercitazione usa **ContosoTestHub**.
 
-3. Selezionare **Routing messaggi**. Nel riquadro **Routing messaggi** selezionare **+Aggiungi**. Nel riquadro **Aggiungi route** selezionare +**Aggiungi** accanto al campo Endpoint per visualizzare gli endpoint supportati, come illustrato nella figura seguente:
+3. Selezionare **Routing messaggi**. Nel riquadro **Routing messaggi** selezionare **+Aggiungi**. Nel riquadro **Aggiungi una route** selezionare +**Aggiungi endpoint** accanto al campo endpoint per visualizzare gli endpoint supportati, come mostrato nell'immagine seguente:
 
-   ![Iniziare ad aggiungere un endpoint per una route](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Iniziare ad aggiungere un endpoint per una route](./media/tutorial-routing/message-routing-add-a-route-with-storage-endpoint-ver2.png)
 
-4. Selezionare **Archivio BLOB**. Verrà visualizzato il riquadro **Aggiungi endpoint di archiviazione**.
+4. Selezionare **Archiviazione**. Verrà visualizzato il riquadro **Aggiungi endpoint di archiviazione**.
 
-   ![Aggiunta di un endpoint](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Aggiunta di un endpoint](./media/tutorial-routing/message-routing-add-storage-endpoint-ver2.png)
 
 5. Immettere un nome per l'endpoint. Questa esercitazione usa **ContosoStorageEndpoint**.
 

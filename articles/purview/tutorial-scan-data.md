@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: feda969a5818402f4a5f2dadc80c70c324ad7492
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: eafa2187308c0324b85596ce25e8310fd8506a97
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97559965"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98249603"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>Esercitazione: Analizzare i dati con Azure Purview (anteprima)
 
@@ -189,6 +189,8 @@ Quando si crea l'account Azure Purview, viene automaticamente creata un'identit√
 1. Ripetere i passaggi precedenti per Azure Data Lake Storage Gen2.
 
 ### <a name="scan-your-data-sources"></a>Analizzare le origini dati
+
+1. Passare alla risorsa di Azure per l'uso nel [portale di Azure](https://portal.azure.com) e selezionare *Open di competenza Studio*. Si viene automaticamente reindirizzati nella home page di Purview Studio.
 
 1. Selezionare **Origini** nella pagina Web del catalogo, quindi selezionare **Registra**. Selezionare **Archiviazione BLOB di Azure** e quindi **Continua**.
 

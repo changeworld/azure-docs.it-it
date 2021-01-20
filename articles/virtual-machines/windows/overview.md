@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 26905b746efb0bfcc877e0fa8fad797672bb6447
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: d0973682a62b17a21557727a8d5eb8fcb7ec7ef1
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483216"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98203372"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Macchine virtuali Windows in Azure
 
@@ -50,7 +50,7 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API REST |Usare l'operazione [List locations](/rest/api/resources/subscriptions). |
-| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Residenza dei dati per Singapore
 
@@ -61,7 +61,7 @@ In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in 
 
 
 ## <a name="vm-size"></a>Dimensioni macchina virtuale
-Le [dimensioni](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.
+Le [dimensioni](../sizes.md) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.
 
 Azure addebita un [costo orario](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) in base alla dimensione della VM e al sistema operativo. Per le ore parziali, Azure addebita il costo solo dei minuti usati. I costi di archiviazione vengono determinati e addebitati separatamente.
 
@@ -69,7 +69,7 @@ Azure addebita un [costo orario](https://azure.microsoft.com/pricing/details/vir
 Ogni sottoscrizione di Azure ha [limiti di quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) predefiniti che possono influire sulla distribuzione di molte VM per un progetto. Il limite corrente per ogni sottoscrizione è di 20 macchine virtuali per area. I limiti possono essere aumentati [creando un ticket di supporto in cui si richiede tale incremento](../../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ### <a name="operating-system-disks-and-images"></a>Immagini e dischi del sistema operativo
-Le macchine virtuali usano [dischi rigidi virtuali (VHD)](../managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. 
+Le macchine virtuali usano [dischi rigidi virtuali (VHD)](../managed-disks-overview.md) per archiviare il sistema operativo e i dati. Tali dischi vengono usati anche per le immagini che è possibile scegliere per installare un sistema operativo. 
 
 Azure fornisce molte [immagini Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images%3Bwindows&page=1) da usare con diverse versioni e differenti tipi di sistemi operativi Windows Server. Le immagini Marketplace sono identificate dall'editore di immagini, dall'offerta, dalla SKU e dalla versione (in genere la versione viene specificata alla fine). Sono supportati solo i sistemi operativi a 64 bit. Per altre informazioni sui sistemi operativi guest, i ruoli e le funzionalità supportati, vedere [Supporto di software server Microsoft per le macchine virtuali di Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -80,7 +80,7 @@ Questa tabella illustra alcuni metodi per ottenere informazioni relative a un'im
 | Portale di Azure |I valori vengono specificati automaticamente quando si seleziona un'immagine da usare. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *località*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *località* -Publisher *nomeEditore*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *località* -Publisher *nomeEditore* -Offer *nomeOfferta* |
 | API REST |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Interfaccia della riga di comando di Azure |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *località*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --location *località* --publisher *nomeEditore*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *località* --publisher *nomeEditore* --offer *nomeOfferta*|
+| Interfaccia della riga di comando di Azure |[az vm image list-publishers](/cli/azure/vm/image) --location *località*<BR>[az vm image list-offers](/cli/azure/vm/image) --location *località* --publisher *nomeEditore*<BR>[az vm image list-skus](/cli/azure/vm) --location *località* --publisher *nomeEditore* --offer *nomeOfferta*|
 
 È possibile scegliere di [caricare e usare la propria immagine](upload-generalized-managed.md). In questo caso, il nome dell'editore, l'offerta e la SKU non vengono usati.
 
@@ -103,7 +103,7 @@ Le risorse in questa tabella vengono usate dalla VM e devono essere presenti o e
 | [Rete virtuale](../../virtual-network/virtual-networks-overview.md) |Sì |La VM deve appartenere a una rete virtuale. |
 | [Indirizzo IP pubblico](../../virtual-network/public-ip-addresses.md) |No |È possibile che la VM disponga di un indirizzo IP pubblico assegnato per accedervi in modalità remota. |
 | [Interfaccia di rete](../../virtual-network/virtual-network-network-interface.md) |Sì |La VM richiede l'interfaccia di rete per comunicare in rete. |
-| [Dischi dati](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
+| [Dischi dati](attach-managed-disk-portal.md) |No |La VM può includere dischi dati per espandere le funzionalità di archiviazione. |
 
 
 ## <a name="data-residency"></a>Residenza dei dati

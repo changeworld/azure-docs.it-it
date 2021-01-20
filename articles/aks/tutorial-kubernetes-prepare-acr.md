@@ -3,14 +3,14 @@ title: Esercitazione su Kubernetes in Azure - Creare un registro contenitori
 description: In questa esercitazione sul servizio Azure Kubernetes si crea un'istanza di Registro Azure Container e si carica un'immagine del contenitore dell'applicazione di esempio.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: d1dce1c59c4bf40eaead89e4a8a088e9a8ea4f76
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747064"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250622"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Esercitazione: Distribuire e usare Registro Azure Container
 
@@ -22,7 +22,7 @@ Registro Azure Container è un registro privato per le immagini dei contenitori.
 > * Caricare l'immagine in Registro Azure Container
 > * Visualizzare le immagini nel registro
 
-In altre esercitazioni questa istanza di Registro Azure Container verrà integrata con un cluster Kubernetes nel servizio Azure Kubernetes e verrà distribuita un'applicazione dall'immagine.
+Nelle esercitazioni successive, questa istanza di ACR è integrata con un cluster Kubernetes in AKS e un'applicazione viene distribuita dall'immagine.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -34,7 +34,7 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 Per creare un'istanza di Registro Azure Container, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus* :
+Creare un gruppo di risorse con il comando [az group create][az-group-create]. Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -54,18 +54,18 @@ Per usare l'istanza di Registro Azure Container, prima è necessario accedere. U
 az acr login --name <acrName>
 ```
 
-Al termine, il comando restituisce un messaggio di *Accesso riuscito* .
+Al termine, il comando restituisce un messaggio di *Accesso riuscito*.
 
 ## <a name="tag-a-container-image"></a>Contrassegnare un'immagine del contenitore
 
 Per visualizzare un elenco delle immagini locali correnti, usare il comando [docker images][docker-images]:
 
-```azurecli
+```console
 $ docker images
 ```
 L'output del comando precedente mostra l'elenco delle immagini locali correnti:
 
-```
+```output
 REPOSITORY                                     TAG                 IMAGE ID            CREATED             SIZE
 mcr.microsoft.com/azuredocs/azure-vote-front   v1                  84b41c268ad9        7 minutes ago       944MB
 mcr.microsoft.com/oss/bitnami/redis            6.0.8               3a54a920bb6c        2 days ago          103MB
@@ -74,7 +74,7 @@ tiangolo/uwsgi-nginx-flask                     python3.6           a16ce562e863 
 
 Per usare l'immagine del contenitore *azure-vote-front* con Registro Azure Container, l'immagine deve essere contrassegnata con l'indirizzo del server di accesso del registro. Questo tag viene usato per il routing quando si esegue il push delle immagini del contenitore nel registro delle immagini.
 
-Per ottenere l'indirizzo del server di accesso, usare il comando [az acr list][az-acr-list] e cercare *loginServer* :
+Per ottenere l'indirizzo del server di accesso, usare il comando [az acr list][az-acr-list] e cercare *loginServer*:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -122,7 +122,7 @@ az acr repository list --name <acrName> --output table
 
 L'output di esempio seguente elenca l'immagine *azure-vote-front* disponibile nel registro:
 
-```
+```output
 Result
 ----------------
 azure-vote-front
@@ -136,7 +136,7 @@ az acr repository show-tags --name <acrName> --repository azure-vote-front --out
 
 L'esempio di output seguente mostra l'immagine *v1* contrassegnata in un passaggio precedente:
 
-```
+```output
 Result
 --------
 v1

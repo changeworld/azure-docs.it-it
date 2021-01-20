@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: b5a136ae05b3cd410ca252b6d5a1df443aff6f7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 97690618de5d58fa4022d01fa36a872f9d220083
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75350133"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98221681"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico di rete con un gruppo di sicurezza di rete usando il portale di Azure
 
@@ -221,7 +221,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato creato un gruppo di sicurezza di rete, che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](security-overview.md) e [Gestire un gruppo di sicurezza di rete](manage-network-security-group.md).
+In questa esercitazione è stato creato un gruppo di sicurezza di rete, che è stato associato a una subnet di rete virtuale. Per altre informazioni sui gruppi di sicurezza di rete, vedere [Panoramica dei gruppi di sicurezza di rete](./network-security-groups-overview.md) e [Gestire un gruppo di sicurezza di rete](manage-network-security-group.md).
 
 Per impostazione predefinita, Azure instrada il traffico tra subnet. È anche possibile ad esempio scegliere di instradare il traffico tra subnet tramite una VM che funge da firewall. Per informazioni su come creare una tabella di route, passare all'esercitazione successiva.
 

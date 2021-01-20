@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: f71bcc1fd3b92a32a3e6d9fa056bae7131a663bd
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: b8f3a8e06bb27051417205c4dc3141948960bb00
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492608"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98567791"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Avvio rapido: Creare un database di Azure per il server MySQL con il portale di Azure
 
@@ -45,7 +45,7 @@ Database di Azure per MySQL è un servizio gestito che consente di eseguire, ges
    Nome server | **mydemoserver** | Immettere un nome univoco. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) Deve contenere da 3 a 63 caratteri.
    Origine dati |**Nessuno** | Selezionare **Nessuno** per creare un nuovo server da zero. Selezionare **Backup** solo se viene eseguito il ripristino di un backup geografico di un server esistente.
    Location |La posizione desiderata | Selezionare una posizione nell'elenco.
-   Versione | La versione principale più recente| Usare la versione principale più recente. Vedere [tutte le versioni supportate](../postgresql/concepts-supported-versions.md).
+   Versione | La versione principale più recente| Usare la versione principale più recente. Vedere [tutte le versioni supportate](concepts-supported-versions.md).
    Calcolo e archiviazione | Usare i valori predefiniti| Il piano tariffario predefinito è **Utilizzo generico** con **4 vCore** e **100 GB** di spazio di archiviazione. La conservazione dei backup è impostata su **7 giorni** con l'opzione di backup **Con ridondanza geografica**.<br/>Esaminare la pagina relativa ai [prezzi](https://azure.microsoft.com/pricing/details/mysql/) e aggiornare le impostazioni predefinite, se necessario.
    Nome utente amministratore | **mydemoadmin** | Immettere il nome utente dell'amministratore del server. Non è possibile usare **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public** come nome utente dell'amministratore.
    Password | Una password | Una nuova password per l'utente amministratore del server. La lunghezza della password deve essere compresa tra 8 e 128 caratteri e deve contenere una combinazione di lettere maiuscole o minuscole, numeri e caratteri non alfanumerici (!, $, #, %, e così via).

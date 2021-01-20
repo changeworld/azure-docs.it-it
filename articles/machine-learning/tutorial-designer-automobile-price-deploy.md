@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/25/2020
+ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: 14be695f2f58b9738af11a3d2ca3f06592a1cc6e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: 6bba5ad17cbb6f1ed72d06b37c6d6af9ebd26495
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575959"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246469"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
 
@@ -97,11 +97,30 @@ Al termine del provisioning del servizio Azure Kubernetes, tornare alla pipeline
 
 1. Selezionare il cluster del servizio Azure Kubernetes creato.
 
-1. Selezionare **Distribuisci**.
-    
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot che mostra come configurare un nuovo endpoint in tempo reale":::
 
+    È anche possibile modificare l'impostazione **avanzata** per l'endpoint in tempo reale.
+    
+    |Impostazione avanzata|Description|
+    |---|---|
+    |Abilitare la diagnostica Application Insights e la raccolta dati| Indica se abilitare applicazione Azure Ingishts per la raccolta di dati dagli endpoint distribuiti. </br> Per impostazione predefinita: false |
+    |Timeout Punteggio| Timeout in millisecondi da applicare per la valutazione delle chiamate al servizio Web.</br>Per impostazione predefinita: 60000|
+    |Scalabilità automatica abilitata|   Indica se abilitare o meno la scalabilità automatica per il servizio Web.</br>Per impostazione predefinita: true|
+    |Repliche minime| Il numero minimo di contenitori da usare per la scalabilità automatica di questo servizio Web.</br>Per impostazione predefinita: 1|
+    |Numero massimo di repliche| Il numero massimo di contenitori da usare per la scalabilità automatica di questo servizio Web.</br> Per impostazione predefinita: 10|
+    |Utilizzo di destinazione|L'utilizzo di destinazione (in percentuale su 100) che è necessario provare a mantenere per la scalabilità automatica di questo servizio Web.</br> Per impostazione predefinita: 70|
+    |Periodo di aggiornamento|Frequenza (in secondi) con cui il ridimensionamento automatico tenta di ridimensionare questo servizio Web.</br> Per impostazione predefinita: 1|
+    |Capacità di riserva della CPU|Il numero di core di CPU da allocare per questo servizio Web.</br> Per impostazione predefinita: 0,1|
+    |Capacità di riserva memoria|La quantità di memoria (in GB) da allocare per questo servizio Web.</br> Per impostazione predefinita: 0,5|
+        
+
+1. Selezionare **Distribuisci**. 
+
     Al termine della distribuzione verrà visualizzata una notifica di esito positivo sopra il canvas. L'operazione potrebbe richiedere qualche minuto.
+
+> [!TIP]
+> È anche possibile eseguire la distribuzione in un' **istanza di contenitore di Azure** (ACI) se si seleziona istanza di contenitore di **Azure** per **tipo di calcolo** nella casella Impostazioni endpoint in tempo reale.
+> L'istanza di contenitore di Azure viene usata per test o sviluppo. Usare ACI per carichi di lavoro basati su CPU su scala ridotta che richiedono meno di 48 GB di RAM.
 
 ## <a name="view-the-real-time-endpoint"></a>Visualizzare l'endpoint in tempo reale
 

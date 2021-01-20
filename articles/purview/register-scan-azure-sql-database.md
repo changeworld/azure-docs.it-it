@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 10/02/2020
-ms.openlocfilehash: 15708e35fa27bb4a1f72368df6f49ff747eb799b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
-ms.translationtype: HT
+ms.openlocfilehash: 36781e7f975ee9d4a03cf899650701bf2d3940ac
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739791"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98555951"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Registrare e analizzare Database SQL di Azure
 
@@ -28,7 +28,7 @@ L'origine dati Database SQL di Azure supporta le funzionalità seguenti:
 
 ### <a name="known-limitations"></a>Limitazioni note
 
-Azure Purview non supporta l'analisi di [viste](https://docs.microsoft.com/sql/relational-databases/views/views?view=sql-server-ver15&preserve-view=true) in Database SQL di Azure. 
+Azure Purview non supporta l'analisi di [viste](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true) in Database SQL di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -50,7 +50,7 @@ Configurare l'autenticazione per analizzare Database SQL di Azure. Se è necessa
 > [!Note]
 > Solo l'account di accesso dell'entità di livello server (creato dal processo di provisioning) o i membri del ruolo del database `loginmanager` nel database master possono creare nuovi account di accesso. Circa **15 minuti** dopo aver concesso l'autorizzazione, l'account Purview dovrebbe avere le autorizzazioni appropriate per analizzare le risorse.
 
-È possibile seguire le istruzioni riportate nell'articolo [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) per creare un account di accesso per Database SQL di Azure, se non è disponibile. Per i passaggi successivi, sarà necessario specificare **nome utente** e **password**.
+È possibile seguire le istruzioni riportate nell'articolo [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) per creare un account di accesso per Database SQL di Azure, se non è disponibile. Per i passaggi successivi, sarà necessario specificare **nome utente** e **password**.
 
 1. Passare all'insieme di credenziali delle chiavi nel portale di Azure
 1. Selezionare **Impostazioni > Segreti**
@@ -100,7 +100,7 @@ L'entità servizio o l'identità gestita deve avere l'autorizzazione per ottener
     ```
 
     > [!Note]
-    > `Username` è l'entità servizio dell'utente o l'identità gestita di Purview. Vedere altre informazioni sui [ruoli predefiniti del database e le relative funzionalità](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
+    > `Username` è l'entità servizio dell'utente o l'identità gestita di Purview. Vedere altre informazioni sui [ruoli predefiniti del database e le relative funzionalità](/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver15&preserve-view=true#fixed-database-roles).
     
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Aggiungere l'entità servizio all'insieme di credenziali delle chiavi e alle credenziali di Purview
 

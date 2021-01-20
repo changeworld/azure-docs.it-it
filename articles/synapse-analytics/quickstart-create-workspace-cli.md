@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 46ab1df1b776bf8dc9d6d917e5394c3efeec0de4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659387"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219029"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Avvio rapido: Creare un'area di lavoro di Azure Synapse con l'interfaccia della riga di comando di Azure
 
@@ -30,7 +30,7 @@ Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse c
 - [Account di archiviazione di Azure Data Lake Storage Gen2 ](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
     > [!IMPORTANT]
-    > L'area di lavoro di Azure Synapse deve essere in grado di leggere e scrivere nell'account di ADLS Gen2 selezionato. Per qualsiasi account di archiviazione collegato come account di archiviazione primario, inoltre, è necessario aver abilitato lo **spazio dei nomi gerarchico** durante la creazione dell'account di archiviazione, come descritto nella pagina [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal#create-a-storage-account). 
+    > L'area di lavoro di Azure Synapse deve essere in grado di leggere e scrivere nell'account di ADLS Gen2 selezionato. Per qualsiasi account di archiviazione collegato come account di archiviazione primario, inoltre, è necessario aver abilitato lo **spazio dei nomi gerarchico** durante la creazione dell'account di archiviazione, come descritto nella pagina [Creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal#create-a-storage-account). 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 

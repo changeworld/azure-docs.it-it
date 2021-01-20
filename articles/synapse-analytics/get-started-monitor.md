@@ -9,13 +9,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
-ms.date: 10/15/2020
-ms.openlocfilehash: c2260cc0d2c6b889b44c738576e33abceebe23f1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.date: 12/31/2020
+ms.openlocfilehash: 8c0cdcad9a7803e0d8063362ca62887990045c86
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444404"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98209815"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorare l'area di lavoro Synapse
 
@@ -25,8 +25,8 @@ In questa esercitazione viene illustrato come monitorare le attività nell'area 
 
 Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visualizzare una cronologia di tutte le attività che si verificano nell'area di lavoro e quelle attualmente attive. 
 
-* In **Integrazione** è possibile monitorare pipeline, trigger e runtime di integrazione.
-* In **Attività** è possibile monitorare le attività di Spark e SQL. 
+* In **integrazione** è possibile monitorare pipeline, trigger e runtime di integrazione.
+* In **attività** è possibile monitorare le attività di Spark e SQL. 
 
 ## <a name="integration"></a>Integrazione
 
@@ -36,15 +36,15 @@ Aprire Synapse Studio e passare all'hub **Monitoraggio**. Qui è possibile visua
 
 ## <a name="apache-spark-activities"></a>Attività di Apache Spark
 
-1. Passare a **Integrazione > Attività > Applicazioni Apache Spark**. È ora possibile vedere tutte le applicazioni Spark che sono in esecuzione o sono state eseguite nell'area di lavoro.
+1. Passare a **attività > Apache Spark applicazioni**. È ora possibile vedere tutte le applicazioni Spark che sono in esecuzione o sono state eseguite nell'area di lavoro.
 1. Trovare un'applicazione che non è più in esecuzione e fare clic sul relativo **Nome applicazione**. Verranno visualizzati i dettagli dell'applicazione Spark.
 1. Se si ha familiarità con Apache Spark, è possibile accedere all'interfaccia utente standard del server cronologia Spark facendo clic su **Server cronologia Spark**.
 
 ## <a name="sql-activities"></a>Attività di SQL
 
-1. Passare a **Integrazione > Attività > Richieste SQL**.
+1. Passare a **attività > richieste SQL**.
 1. Verranno visualizzate le richieste SQL.
-1. Selezionare un **pool** da monitorare. È ora possibile vedere tutte le richieste SQL che sono in esecuzione o sono state eseguite nell'area di lavoro in tale pool.
+1. Selezionare un **pool** da monitorare dal filtro del **pool** . È ora possibile vedere tutte le richieste SQL che sono in esecuzione o sono state eseguite nell'area di lavoro in tale pool.
 1. Trovare una richiesta SQL specifica e passare il puntatore del mouse sulla voce corrispondente. Mentre si passa il mouse, viene visualizzata un'icona di script SQL.
 1. Fare clic sull'icona per visualizzare il testo completo della richiesta SQL.
 

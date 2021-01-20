@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 460cca051d743102e734971cf45069362e24c147
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106004"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251098"
 ---
 # <a name="metrics-overview"></a>Panoramica delle metriche
 
@@ -30,7 +30,7 @@ Esistono due tipi di richieste rappresentate nelle metriche di Servizi di comuni
 
 Entrambe le metriche di richieste API contengono tre dimensioni che è possibile usare per filtrare i dati. Queste dimensioni possono essere aggregate usando il tipo di aggregazione `Count` e supportano tutte le serie temporali di aggregazione standard di Azure, tra cui `Sum`, `Average`, `Min` e `Max`.
 
-Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](../../azure-monitor/platform/metrics-charts.md#changing-aggregation)
+Altre informazioni sui tipi di aggregazione supportati e sulle aggregazioni di serie temporali sono disponibili in [Funzionalità avanzate di Esplora metriche di Azure](../../azure-monitor/platform/metrics-charts.md#aggregation)
 
 - **Operazione**: tutte le operazioni o le route che è possibile chiamare nel gateway Chat di Servizi di comunicazione di Azure.
 - **Codice di stato**: la risposta del codice di stato inviata dopo la richiesta.

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: a5d84b936679cdd5ebd5bec4938d6db7fcb641e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 800cbf9b7a7fa415452f29b253347188c8917c52
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455508"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98219454"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Avvio rapido: Creare un nuovo servizio collegato di Azure Machine Learning in Synapse
 
@@ -22,7 +22,7 @@ In questo argomento di avvio rapido si collegherà un'area di lavoro di Azure Sy
 
 Ad esempio, questo collegamento a un'area di lavoro di Azure Machine Learning consente le esperienze seguenti:
 
-- Eseguire le pipeline di Azure Machine Learning come passaggio nelle pipeline di Synapse. Per altre informazioni, vedere [Eseguire pipeline di Azure Machine Learning](/azure/data-factory/transform-data-machine-learning-service).
+- Eseguire le pipeline di Azure Machine Learning come passaggio nelle pipeline di Synapse. Per altre informazioni, vedere [Eseguire pipeline di Azure Machine Learning](../../data-factory/transform-data-machine-learning-service.md).
 
 - Arricchire i dati con le stime introducendo un modello di Machine Learning dal registro dei modelli di Azure Machine Learning e assegnando un punteggio al modello nei pool di Synapse SQL. Per altre informazioni dettagliate, vedere [Tutorial: Machine learning model scoring wizard for Synapse SQL pools](tutorial-sql-pool-model-scoring-wizard.md) (Esercitazione: Procedura guidata di assegnazione di punteggi al modello di Machine Learning per i pool di Synapse SQL).
 
@@ -30,7 +30,7 @@ Ad esempio, questo collegamento a un'area di lavoro di Azure Machine Learning co
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/).
 - [Area di lavoro di Synapse Analytics](../get-started-create-workspace.md) con un account di archiviazione di ADLS Gen2 configurato come archiviazione predefinita. È necessario essere il **collaboratore dei dati del BLOB di archiviazione** del file system di ADLS Gen2 che si vuole usare.
-- [Area di lavoro di Azure Machine Learning](/azure/machine-learning/how-to-manage-workspace).
+- [Area di lavoro di Azure Machine Learning](../../machine-learning/how-to-manage-workspace.md).
 - Per creare un'entità servizio e un segreto utilizzabili per la creazione del servizio collegato, è necessario disporre delle autorizzazioni (o della richiesta di un utente che dispone delle autorizzazioni). Tenere presente che a questa entità servizio deve essere assegnato il ruolo di collaboratore nell'area di lavoro di Azure Machine Learning.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure

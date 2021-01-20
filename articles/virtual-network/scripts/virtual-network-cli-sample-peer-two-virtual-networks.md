@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6cd6d61ba1404ca6b6de63a0151ec414b2df54e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 902d6643420ff6bdafcf52278f3a1c0df28647ae
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87492463"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98217535"
 ---
 # <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Eseguire il peering di due reti virtuali con un esempio di script dell'interfaccia della riga di comando di Azure
 
@@ -54,6 +54,6 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](/cli/azure).
 
 Altri esempi di script dell'interfaccia della riga di comando della rete virtuale sono disponibili in [Virtual network CLI samples](../cli-samples.md) (Esempi di interfaccia della riga di comando della rete virtuale).

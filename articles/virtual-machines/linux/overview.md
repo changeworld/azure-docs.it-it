@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 54982189a5da584c7daf66855ffb655e403a455a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: a2145c217c19e80c2ca70880e0f9b01ae2ba140e
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500513"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98202573"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Macchine virtuali Linux in Azure
 
@@ -50,7 +50,7 @@ Questa tabella illustra alcuni dei metodi con cui è possibile ottenere un elenc
 | Portale di Azure |Quando si crea una VM, selezionare una località nell'elenco. |
 | Azure PowerShell |Usare il comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
 | API REST |Usare l'operazione [List locations](/rest/api/resources/subscriptions). |
-| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account?view=azure-cli-latest). |
+| Interfaccia della riga di comando di Azure |Usare l'operazione [az account list-locations](/cli/azure/account). |
 
 ### <a name="singapore-data-residency"></a>Residenza dei dati per Singapore
 
@@ -60,7 +60,7 @@ In Azure la funzionalità per abilitare l'archiviazione dei dati dei clienti in 
 È stato annunciato un contratto di servizio leader del settore pari al 99,9% per una macchina virtuale a istanza singola, purché distribuita con Archiviazione Premium per tutti i dischi.  Perché la distribuzione si qualifichi per il contratto di servizio standard del 99,95% per le macchine virtuali, è comunque necessario distribuire due o più macchine virtuali che eseguono il carico di lavoro in un set di disponibilità. Un set di disponibilità assicura che le macchine virtuali vengano distribuite tra più domini di errore nei centri dati Azure e anche in host con finestre di manutenzione diverse. La versione completa del [contratto di servizio di Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) descrive la disponibilità garantita di Azure nel suo complesso.
 
 ## <a name="vm-size"></a>Dimensioni macchina virtuale
-Le [dimensioni](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.
+Le [dimensioni](../sizes.md) della VM usata sono determinate dal carico di lavoro che si desidera eseguire. Le dimensioni scelte determinano quindi fattori quali potenza di elaborazione, memoria e capacità di archiviazione. Azure offre una vasta gamma di dimensioni per supportare molti tipi di uso.
 
 Azure addebita un [costo orario](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) in base alla dimensione della VM e al sistema operativo. Per le ore parziali, Azure addebita il costo solo dei minuti usati. I costi di archiviazione vengono determinati e addebitati separatamente.
 

@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 1b407cbee5218149f794ab125ac058e32b422558
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 6a4833cf0d73939e01fd3e3e7263c6cba3c0a28a
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465226"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222191"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>Esercitazione: Analisi del sentiment con Servizi cognitivi (anteprima)
 
-Questa esercitazione descrive come arricchire facilmente i dati in Azure Synapse con [Servizi cognitivi](https://go.microsoft.com/fwlink/?linkid=2147492). Verranno usate le funzionalità di [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) per eseguire l'analisi del sentiment. Un utente di Azure Synapse può semplicemente selezionare una tabella contenente una colonna di testo per arricchirlo con sentiment. I sentiment possono essere positivi, negativi, misti o neutrali e verrà restituita anche una probabilità.
+Questa esercitazione descrive come arricchire facilmente i dati in Azure Synapse con [Servizi cognitivi](../../cognitive-services/index.yml). Verranno usate le funzionalità di [Analisi del testo](../../cognitive-services/text-analytics/index.yml) per eseguire l'analisi del sentiment. Un utente di Azure Synapse può semplicemente selezionare una tabella contenente una colonna di testo per arricchirlo con sentiment. I sentiment possono essere positivi, negativi, misti o neutrali e verrà restituita anche una probabilità.
 
 Contenuto dell'esercitazione:
 
@@ -98,7 +98,7 @@ Il notebook appena aperto usa la [libreria mmlspark](https://github.com/Azure/mm
 
 I dettagli di Azure Key Vault forniti consentono di fare riferimento in modo sicuro ai segreti di questa esperienza senza rivelarli.
 
-È ora possibile scegliere **Esegui tutte le celle** per arricchire i dati con i sentiment. Verranno restituiti i sentiment positivi, negativi, neutrali e misti, oltre alle probabilità per ognuno. Per altre informazioni, vedere [Servizi cognitivi - Analisi del sentiment](https://go.microsoft.com/fwlink/?linkid=2147792).
+È ora possibile scegliere **Esegui tutte le celle** per arricchire i dati con i sentiment. Verranno restituiti i sentiment positivi, negativi, neutrali e misti, oltre alle probabilità per ognuno. Per altre informazioni, vedere [Servizi cognitivi - Analisi del sentiment](../../cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md).
 
 ![Eseguire l'analisi del sentiment](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 

@@ -13,12 +13,12 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 476261181ca4a8f32bb307a13aa6faa2f1ef9d26
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 7e236a6f10394d2b9c8889383b6ef3813969832d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017392"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98178365"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph usando l'identità dell'app console
 
@@ -39,7 +39,7 @@ Per questa guida di avvio rapido è necessario [.NET Core 3.1](https://www.micro
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Passare al nuovo riquadro [Portale di Azure - Registrazioni app](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
+> 1. Passare all'esperienza di avvio rapido <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs" target="_blank">Portale di Azure - Registrazioni app<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >

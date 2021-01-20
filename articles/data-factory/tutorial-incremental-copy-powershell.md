@@ -1,6 +1,6 @@
 ---
 title: Eseguire la copia incrementale di una tabella con PowerShell
-description: In questa esercitazione viene creata una pipeline di Azure Data Factory che copia i dati in modo incrementale da un database SQL di Azure ad Archiviazione BLOB di Azure.
+description: In questa esercitazione si creerà una pipeline di Azure Data Factory che consente di copiare in modo incrementale i dati da un database SQL di Azure all'archivio BLOB di Azure.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 65a2d06acc3461d881ad6f100f3720b217ef7634
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510210"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222820"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Caricare i dati in modo incrementale dal database SQL di Azure ad Archiviazione BLOB di Azure con PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure ad Archiviazione BLOB di Azure.
+In questa esercitazione si userà Azure Data Factory per creare una pipeline che carica i dati differenziali da una tabella nel database SQL di Azure all'archivio BLOB di Azure.
 
 In questa esercitazione vengono completati i passaggi seguenti:
 

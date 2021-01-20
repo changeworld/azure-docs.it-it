@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 639b810cbb99496f84b76fc96124145a019fb625
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: HT
+ms.openlocfilehash: 548cee262d874f5bc0f6024a857c2bb8a5466106
+ms.sourcegitcommit: 949c0a2b832d55491e03531f4ced15405a7e92e3
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705541"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98541343"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Esercitazione: Individuare i server fisici con Valutazione server
 
@@ -40,7 +40,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 
 **Requisito** | **Dettagli**
 --- | ---
-**Appliance** | È necessario un computer in cui eseguire l'appliance di Azure Migrate. Il computer deve soddisfare i requisiti seguenti:<br/><br/> - Windows Server 2016 installato. _Attualmente la distribuzione di appliance è supportata solo in Windows Server 2016._<br/><br/> - 16-GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un indirizzo IP statico o dinamico con accesso a Internet, direttamente o tramite un proxy.
+**Appliance** | È necessario un computer in cui eseguire l'appliance di Azure Migrate. Il computer deve soddisfare i requisiti seguenti:<br/><br/> - Windows Server 2016 installato.<br/> _Attualmente la distribuzione di appliance è supportata solo in Windows Server 2016._<br/><br/> -16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un indirizzo IP statico o dinamico con accesso a Internet, direttamente o tramite un proxy.
 **Server Windows** | Consentire le connessioni in ingresso sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa recuperare i metadati relativi a configurazione e prestazioni.
 **Server Linux** | Consentire le connessioni in ingresso sulla porta 22 (TCP).
 
@@ -48,7 +48,7 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 
 Per creare un progetto di Azure Migrate e registrare l'appliance di Azure Migrate, è necessario un account con:
 - Autorizzazioni di collaboratore o proprietario per una sottoscrizione di Azure.
-- Autorizzazioni per la registrazione di app Azure Active Directory.
+- Autorizzazioni per la registrazione di app Azure Active Directory (AAD).
 
 Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione. Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare le autorizzazioni nel modo seguente:
 
@@ -67,19 +67,20 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Viene aperta la pagina Aggiungi assegnazione di ruolo per assegnare un ruolo all'account](./media/tutorial-discover-physical/assign-role.png)
 
-7. Nel portale cercare gli utenti e in **Servizi** selezionare **Utenti**.
-8. In **Impostazioni utente** verificare che gli utenti di Azure AD possano registrare le applicazione (impostato su **Sì** per impostazione predefinita).
+1. Per registrare l'appliance, l'account Azure deve avere le **autorizzazioni per registrare le app di AAD.**
+1. In portale di Azure passare a **Azure Active Directory**  >    >  **impostazioni utente** utenti.
+1. In **Impostazioni utente** verificare che gli utenti di Azure AD possano registrare le applicazione (impostato su **Sì** per impostazione predefinita).
 
     ![Verificare che in Impostazioni utente che gli utenti possano registrare le app Active Directory](./media/tutorial-discover-physical/register-apps.png)
 
-9. In alternativa, l'amministratore tenant/globale può assegnare il ruolo **Sviluppatore applicazione** a un account per consentire la registrazione di app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+9. Nel caso in cui le impostazioni di ' Registrazioni app ' siano impostate su' No ', richiedere all'amministratore globale o tenant di assegnare l'autorizzazione necessaria. In alternativa, l'amministratore globale o tenant può assegnare il ruolo **sviluppatore applicazione** a un account per consentire la registrazione dell'app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-physical-servers"></a>Preparare i server fisici
 
 Configurare un account utilizzabile dall'appliance per accedere ai server fisici.
 
-- Per i server Windows, usare un account di dominio per i computer aggiunti al dominio e un account locale per i computer che non sono aggiunti al dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
-- Per i server Linux, è necessario un account radice nei server Linux che si desidera individuare. In alternativa, è possibile impostare un account non radice con le funzionalità necessarie usando i comandi seguenti:
+- Per i **server Windows**, usare un account di dominio per i computer appartenenti a un dominio e un account locale per computer che non fanno parte di un dominio. L'account utente deve essere aggiunto a questi gruppi: Utenti Gestione remota, Performance Monitor Users e Performance Log Users.
+- Per i **server Linux** è necessario un account radice nei server Linux che si desidera individuare. In alternativa, è possibile impostare un account non radice con le funzionalità necessarie usando i comandi seguenti:
 
 **Comando** | **Scopo**
 --- | --- |
@@ -101,24 +102,26 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-physical/new-project.png)
 
-7. Selezionare **Crea**.
-8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
-
-Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
+7. Selezionare **Create** (Crea).
+8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate. Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
 
 ![Pagina che mostra lo strumento Valutazione server aggiunto per impostazione predefinita](./media/tutorial-discover-physical/added-tool.png)
 
+> [!NOTE]
+> Se è già stato creato un progetto, è possibile usare lo stesso progetto per registrare appliance aggiuntive per individuare e valutare un numero maggiore di server. [Altre informazioni](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurare l'appliance
 
-Per configurare l'appliance occorre:
-- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
-- Scaricare un file compresso con lo script del programma di installazione di Azure Migrate dal portale di Azure.
-- Estrarre il contenuto del file compresso. Avviare la console PowerShell con privilegi amministrativi.
-- Eseguire lo script di PowerShell per avviare l'applicazione Web dell'appliance.
-- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
+Azure Migrate Appliance esegue l'individuazione del server e invia i metadati di configurazione e prestazioni del server a Azure Migrate. È possibile configurare l'Appliance eseguendo uno script di PowerShell che può essere scaricato dal progetto Azure Migrate.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
+Per configurare l'appliance occorre:
+1. Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
+2. Scaricare un file compresso con lo script del programma di installazione di Azure Migrate dal portale di Azure.
+3. Estrarre il contenuto del file compresso. Avviare la console PowerShell con privilegi amministrativi.
+4. Eseguire lo script di PowerShell per avviare l'applicazione Web dell'appliance.
+5. Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
+
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. generare la chiave del progetto Azure Migrate
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** selezionare **Individua**.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Fisico o di altro tipo (AWS, GCP, Xen e così via)** .
@@ -127,10 +130,9 @@ Per configurare l'appliance occorre:
 1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
-### <a name="download-the-installer-script"></a>Scaricare lo script del programma di installazione
+### <a name="2-download-the-installer-script"></a>2. scaricare lo script del programma di installazione
 
 In **2: Scaricare l'appliance di Azure Migrate** fare clic su **Scarica**.
-
 
 ### <a name="verify-security"></a>Verificare la sicurezza
 
@@ -155,7 +157,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
         Server fisico (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e58622276
  
 
-### <a name="run-the-azure-migrate-installer-script"></a>Eseguire lo script del programma di installazione di Azure Migrate
+### <a name="3-run-the-azure-migrate-installer-script"></a>3. eseguire lo script del programma di installazione Azure Migrate
 Lo script del programma di installazione esegue le operazioni seguenti:
 
 - Installa gli agenti e un'applicazione Web per l'individuazione e la valutazione dei server fisici.
@@ -184,13 +186,11 @@ Eseguire lo script nel modo seguente:
 
 In caso di problemi, è possibile accedere ai log degli script in C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log per la risoluzione dei problemi.
 
-
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificare l'accesso dell'appliance ad Azure
 
 Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurare l'appliance
+### <a name="4-configure-the-appliance"></a>4. configurare l'appliance
 
 Configurare l'appliance per la prima volta.
 

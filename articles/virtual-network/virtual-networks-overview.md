@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: 11651b7a76ea0e61f78f3b2f305e39ed621df391
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109318"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98218535"
 ---
 # <a name="what-is-azure-virtual-network"></a>Che cos'è Rete virtuale di Azure?
 
@@ -31,7 +31,7 @@ La rete virtuale di Azure consente alle risorse di Azure di comunicare in modo s
 Per impostazione predefinita, tutte le risorse in una rete virtuale possono comunicare verso l'esterno su Internet. Per la comunicazione in ingresso con una risorsa, è possibile assegnarle un indirizzo IP pubblico o un servizio di bilanciamento del carico pubblico. Si può usare un indirizzo IP pubblico o un servizio di bilanciamento del carico pubblico anche per gestire le connessioni in uscita.  Per altre informazioni sulle connessioni in uscita in Azure, vedere [Connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md), [Indirizzi IP pubblici](virtual-network-public-ip-address.md) e [Informazioni su Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
 >[!NOTE]
->Quando si usa solo un'istanza di [Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) interna, la connettività in uscita non è disponibile finché non si definisce la modalità di funzionamento desiderata per le [connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md) con un IP pubblico a livello di istanza o un servizio di bilanciamento del carico pubblico.
+>Quando si usa solo un'istanza di [Load Balancer Standard](../load-balancer/load-balancer-overview.md) interna, la connettività in uscita non è disponibile finché non si definisce la modalità di funzionamento desiderata per le [connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md) con un IP pubblico a livello di istanza o un servizio di bilanciamento del carico pubblico.
 
 ### <a name="communicate-between-azure-resources"></a>Comunicare tra risorse di Azure
 
@@ -53,7 +53,7 @@ Le risorse di Azure comunicano in modo sicuro tra di esse in uno dei modi seguen
 
 È possibile filtrare il traffico di rete tra subnet usando una o entrambe le opzioni seguenti.
 
-- **Gruppi di sicurezza di rete:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](security-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
+- **Gruppi di sicurezza di rete:** gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni possono contenere più regole di sicurezza in ingresso e in uscita che consentono di filtrare il traffico verso e dalle risorse per protocollo, porta e indirizzo IP di origine e di destinazione. Per altre informazioni, consultare [Gruppi di sicurezza di rete](./network-security-groups-overview.md#network-security-groups) e [Gruppi di sicurezza delle applicazioni](./network-security-groups-overview.md#application-security-groups).
 - **Appliance virtuali di rete:** un'appliance virtuale di rete è una macchina virtuale che esegue una funzione di rete, ad esempio un firewall, un'ottimizzazione WAN o un'altra funzione di rete. Per visualizzare un elenco delle appliance virtuali di rete disponibili che è possibile distribuire in una rete virtuale di Azure, vedere [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances).
 
 ### <a name="route-network-traffic"></a>Indirizzare il traffico di rete

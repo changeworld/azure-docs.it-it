@@ -2,13 +2,13 @@
 title: Che cos'è l'hub di eventi di Azure? - un servizio di inserimento di Big Data | Microsoft Docs
 description: Informazioni su Hub eventi di Azure, un servizio di Big Data streaming che inserisce milioni di eventi al secondo.
 ms.topic: overview
-ms.date: 06/23/2020
-ms.openlocfilehash: b0124f023eab6638c986beb2305b1c4c375b47ee
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: HT
+ms.date: 01/13/2021
+ms.openlocfilehash: 36eeb38d9ed1696c9524ae9b346065756ce49c46
+ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97954346"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98195764"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hub eventi di Azure - Piattaforma di streaming di Big Data e servizio di inserimento di eventi
 Hub eventi di Azure è una piattaforma di streaming di Big Data e un servizio di inserimento di eventi. È in grado di ricevere ed elaborare milioni di eventi al secondo. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione.
@@ -66,7 +66,7 @@ Hub eventi contiene gli [elementi chiave](event-hubs-features.md) seguenti:
 
 La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
 
-![Hub eventi](./media/event-hubs-about/event_hubs_architecture.png)
+![Hub eventi](./media/event-hubs-about/event_hubs_architecture.svg)
 
 ## <a name="event-hubs-on-azure-stack-hub"></a>Hub eventi nell'hub di Azure Stack
 Hub eventi nell'hub di Azure Stack consente di realizzare scenari di cloud ibrido. Sono supportate soluzioni di streaming e basate su eventi, per l'elaborazione locale e nel cloud di Azure. Indipendentemente dal fatto che lo scenario sia ibrido (connesso) o disconnesso, la soluzione può supportare l'elaborazione di eventi/flussi su larga scala. Lo scenario è vincolato solo dalle dimensioni del cluster di Hub eventi, di cui è possibile eseguire il provisioning in base a specifiche esigenze. 

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f0699ed065da4c63bc88945d75a866abcfbb9053
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121363"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98234257"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Esercitazione: Configurare ed eseguire il provider di Azure Key Vault per il driver CSI dell'archivio di segreti in Kubernetes
 
@@ -37,6 +37,8 @@ In questa esercitazione verranno illustrate le procedure per:
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 * Prima di iniziare questa esercitazione, installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+
+Questa esercitazione presuppone l'runnig del servizio Kubernetes di Azure nei nodi Linux.
 
 ## <a name="use-managed-identities"></a>Usare identità gestite
 
@@ -77,6 +79,8 @@ Completare le sezioni "Creare un gruppo di risorse", "Creare un cluster del serv
     ![Screenshot dell'interfaccia della riga di comando di Azure con valori di principalId e clientId evidenziati](../media/kubernetes-key-vault-2.png) ![Screenshot dell'interfaccia della riga di comando di Azure con i valori di subscriptionId e nodeResourceGroup evidenziati](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Installare Helm e il driver CSI dell'archivio segreti
+> [!NOTE]
+> L'installazione seguente funziona solo su AKS in Linux. Per ulteriori informazioni sull'installazione dei driver CSI nell'archivio dei segreti, vedere [provider di Azure Key Vault per il driver CSI dell'archivio segreti](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
 
 Per installare il driver CSI dell'archivio segreti, è necessari installare prima [Helm](https://helm.sh/docs/intro/install/).
 

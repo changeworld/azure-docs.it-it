@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 0231689acef3345fb2b0f25170522d59552171ba
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
-ms.translationtype: HT
+ms.openlocfilehash: faa46178262777454d4d67d23bbd0bb013974ab5
+ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618332"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208489"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Esercitazione: Creare un trust tra foreste in uscita per un dominio locale in Azure Active Directory Domain Services
 
@@ -73,8 +73,8 @@ Prima di configurare un trust tra foreste in Azure AD Domain Services, assicurar
 
 Per risolvere correttamente il dominio gestito dall'ambiente locale, può essere necessario aggiungere server d'inoltro ai server DNS esistenti. Se l'ambiente locale non è stato configurato per comunicare con il dominio gestito, completare i passaggi seguenti da una workstation di gestione per il dominio di Active Directory Domain Services locale:
 
-1. Selezionare **Start | Strumenti di amministrazione | DNS**
-1. Fare clic con il pulsante destro del mouse sul server DNS, ad esempio *myAD01* e quindi scegliere **Proprietà**
+1. Selezionare **Avvia**  >  **strumenti di amministrazione**  >  **DNS**.
+1. Fare clic con il pulsante destro del mouse su server DNS, ad esempio *myAD01*, quindi scegliere **Proprietà**.
 1. Scegliere **Server d'inoltro**, quindi **Modifica** per aggiungere altri server d'inoltro.
 1. Aggiungere gli indirizzi IP del dominio gestito, ad esempio *10.0.2.4* e *10.0.2.5*.
 
@@ -84,15 +84,15 @@ Il dominio locale di AD DS richiede un trust tra foreste in ingresso per il domi
 
 Per configurare il trust in ingresso nel dominio Active Directory Domain Services locale, completare i passaggi seguenti da una workstation di gestione per il dominio di Active Directory Domain Services locale:
 
-1. Fare clic sul pulsante **Start | Strumenti di amministrazione | Domini e trust di Active Directory**
-1. Fare clic con il pulsante destro del mouse sul dominio, ad esempio *onprem.contoso.com* e quindi scegliere **Proprietà**
-1. Scegliere la scheda **Trust**, quindi **Nuova relazione di trust**
-1. Immettere il nome per il dominio di Azure Active Directory Domain Services, ad esempio *aaddscontoso.com* e quindi selezionare **Avanti**
+1. Selezionare **Start | Strumenti di amministrazione | Active Directory domini e trust**.
+1. Fare clic con il pulsante destro del mouse su dominio, ad esempio *OnPrem.contoso.com*, quindi scegliere **Proprietà**.
+1. Scegliere la scheda **trust** , quindi **nuova** relazione di trust.
+1. Immettere il nome per Azure AD nome di dominio DS, ad esempio *aaddscontoso.com*, quindi fare clic su **Avanti**.
 1. Selezionare l'opzione per creare un **Trust tra foreste**, quindi creare un trust **Unidirezionale: in ingresso**.
 1. Scegliere di creare il trust per **Solo questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito.
 1. Scegliere di usare l'**Autenticazione estesa a tutta la foresta**, quindi immettere e confermare una password del trust. Questa stessa password verrà anche immessa nel portale di Azure nella sezione successiva.
 1. Per le finestre successive lasciare le opzioni predefinite, quindi scegliere l'opzione **No, non confermare il trust in uscita**.
-1. Selezionare **Finish** (Fine)
+1. Selezionare **Fine**.
 
 ## <a name="create-outbound-forest-trust-in-azure-ad-ds"></a>Creare un trust tra foreste in uscita in Azure AD Domain Services
 
@@ -100,16 +100,16 @@ Dopo aver configurato il dominio locale di Active Directory Domain Services per 
 
 Per creare il trust in uscita per il dominio gestito nel portale di Azure, seguire questa procedura:
 
-1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**, quindi selezionare il dominio gestito, ad esempio *aaddscontoso.com*
+1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**, quindi selezionare il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Nel menu sul lato sinistro del dominio gestito selezionare **Trust**, quindi scegliere **+ Aggiungi** per aggiungere un trust.
 
    > [!NOTE]
    > Se non viene visualizzata l'opzione di menu **Trust**, verificare le **Proprietà** per *Tipo di foresta*. Solo le foreste di *risorse* possono creare trust. Se il tipo di foresta è *Utente*, non è possibile creare trust. Attualmente non è possibile cambiare il tipo di foresta di un dominio gestito. È necessario eliminare e ricreare il dominio gestito come foresta di risorse.
 
-1. Immettere un nome visualizzato che identifichi il trust, quindi il nome DNS della foresta trusted locale, ad esempio *onprem.contoso.com*
+1. Immettere un nome visualizzato che identifichi il trust, quindi il nome DNS della foresta trusted locale, ad esempio *OnPrem.contoso.com*.
 1. Specificare la stessa password del trust usata durante la configurazione il trust tra foreste in ingresso per il dominio Active Directory Domain Services locale nella sezione precedente.
-1. Specificare almeno due server DNS per il dominio Active Directory Domain Services locale, ad esempio *10.1.1.4* e *10.1.1.5*
-1. Quando si è pronti, fare clic su **Salva** per salvare il trust tra foreste in uscita
+1. Fornire almeno due server DNS per il dominio AD DS locale, ad esempio *10.1.1.4* e *10.1.1.5*.
+1. Quando è pronto, **salvare** il trust tra foreste in uscita.
 
     ![Creare un trust tra foreste in uscita nel portale di Azure](./media/tutorial-create-forest-trust/portal-create-outbound-trust.png)
 
@@ -181,7 +181,7 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta di risorse Azur
 1. Nella finestra di dialogo *Autorizzazioni per CrossForestShare* selezionare **Aggiungi**.
 1. Digitare *FileServerAccess* in **Immettere i nomi degli oggetti da selezionare**, quindi selezionare **OK**.
 1. Selezionare *FileServerAccess* dall'elenco **Gruppi o nomi utente**. Nell'elenco **Autorizzazioni per FileServerAccess** scegliere *Consenti* per le autorizzazioni di **modifica** e **scrittura**, quindi selezionare **OK**.
-1. Selezionare la scheda **Condivisione**, quindi scegliere **Condivisione avanzata**
+1. Selezionare la scheda **condivisione** , quindi scegliere **condivisione avanzata.**
 1. Scegliere **Condividi la cartella**, quindi immettere un nome facile da ricordare per la condivisione file in **Nome condivisione**, ad esempio *CrossForestShare*.
 1. Selezionare **Autorizzazioni**. Nell'elenco **Autorizzazioni per Everyone** scegliere **Consenti** per l'autorizzazione **Modifica**.
 1. Selezionare **OK** due volte e quindi **Chiudi**.

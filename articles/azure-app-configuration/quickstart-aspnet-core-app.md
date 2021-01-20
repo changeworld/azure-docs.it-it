@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperf-fy21q1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: alkemper
-ms.openlocfilehash: d1582cda4b083623daf7bb756d0bc8aa3e74eae8
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: d0e564b98ab6331677451afd32a0848e7f5594dd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033647"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598744"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Guida di avvio rapido: Creare un'app ASP.NET Core con Configurazione app di Azure
 
@@ -70,7 +70,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```
 
     > [!IMPORTANT]
-    > Alcune shell troncheranno la stringa di connessione se non è racchiusa tra virgolette. Verificare che l'output del comando `dotnet user-secrets` mostri l'intera stringa di connessione. In caso contrario, eseguire di nuovo il comando racchiudendo la stringa di connessione tra virgolette.
+    > Alcune shell troncheranno la stringa di connessione se non è racchiusa tra virgolette. Verificare che l'output del comando `dotnet user-secrets list` mostri l'intera stringa di connessione. In caso contrario, eseguire di nuovo il comando racchiudendo la stringa di connessione tra virgolette.
 
     Secret Manager viene usato solo per testare l'app Web in locale. Quando l'app viene distribuita in [Servizio app di Azure](https://azure.microsoft.com/services/app-service/web), usare l'impostazione **Stringhe di connessione** dell'applicazione nel servizio app invece di Secret Manager per archiviare la stringa di connessione.
 

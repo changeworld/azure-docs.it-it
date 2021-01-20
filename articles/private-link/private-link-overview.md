@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 3c03a207e91ae969836e208f4e6bf4ea32086c7d
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: b3ca4f11b02f32e65cf80adc65ec12d25e6e7905
+ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121320"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98573174"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -66,7 +66,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Griglia di eventi di Azure| Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici       |  | GA   <br/> [Informazioni su come creare un endpoint privato per Griglia di eventi di Azure.](../event-grid/network-security.md) |
 |App Web di Azure | Tutte le aree pubbliche      | Supportato con il piano PremiumV2, PremiumV3 o Funzioni Premium  | GA   <br/> [Informazioni su come creare un endpoint privato per App Web di Azure.](./tutorial-private-endpoint-webapp-portal.md)   |
 |Azure Machine Learning | Tutte le aree pubbliche    |  | GA   <br/> [Informazioni su come creare un endpoint privato per Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
-| Automazione di Azure  | Tutte le aree pubbliche |  | Anteprima </br> [Informazioni su come creare un endpoint privato per Automazione di Azure.](../automation/how-to/private-link-security.md)| |
+| Automazione di Azure  | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici |  | Anteprima </br> [Informazioni su come creare un endpoint privato per Automazione di Azure.](../automation/how-to/private-link-security.md)| |
 | Hub IoT Azure | Tutte le aree pubbliche    |  | GA   <br/> [Informazioni su come creare un endpoint privato per Hub IoT di Azure.](../iot-hub/virtual-network-support.md) |
 | Servizio Azure SignalR | STATI UNITI ORIENTALI, STATI UNITI CENTRO-MERIDIONALI,<br/>STATI UNITI OCCIDENTALI 2, tutte le aree della Cina      |  | Anteprima   <br/> [Informazioni su come creare un endpoint privato per il Servizio Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 | Monitoraggio di Azure <br/>(Log Analytics e Application Insights) | Tutte le aree pubbliche      |  | GA   <br/> [Informazioni su come creare un endpoint privato per Monitoraggio di Azure.](../azure-monitor/platform/private-link-security.md)   | 

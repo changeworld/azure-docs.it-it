@@ -9,16 +9,16 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 4052d6a0773aa27e0a378ee04975c7946f1ffbfe
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 5e7b914d459d2452704f93987ce1bf91bfba988c
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96464458"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222208"
 ---
 # <a name="tutorial-anomaly-detection-with-cognitive-services-preview"></a>Esercitazione: Rilevamento anomalie con Servizi cognitivi (anteprima)
 
-Questa esercitazione descrive come arricchire facilmente i dati in Azure Synapse con [Servizi cognitivi](https://go.microsoft.com/fwlink/?linkid=2147492). Verrà usato il servizio [Rilevamento anomalie](https://go.microsoft.com/fwlink/?linkid=2147493) per eseguire il rilevamento anomalie. Un utente di Azure Synapse può semplicemente selezionare una tabella per arricchire il rilevamento anomalie.
+Questa esercitazione descrive come arricchire facilmente i dati in Azure Synapse con [Servizi cognitivi](../../cognitive-services/index.yml). Verrà usato il servizio [Rilevamento anomalie](../../cognitive-services/anomaly-detector/index.yml) per eseguire il rilevamento anomalie. Un utente di Azure Synapse può semplicemente selezionare una tabella per arricchire il rilevamento anomalie.
 
 Contenuto dell'esercitazione:
 
@@ -94,7 +94,7 @@ Il notebook appena aperto usa la [libreria mmlspark](https://github.com/Azure/mm
 
 I dettagli di Azure Key Vault forniti consentono di fare riferimento in modo sicuro ai segreti di questa esperienza senza rivelarli.
 
-È ora possibile scegliere **Esegui tutte le celle** per avviare il rilevamento anomalie. Vedere altre informazioni su [Servizi cognitivi - Rilevamento anomalie](https://go.microsoft.com/fwlink/?linkid=2147493).
+È ora possibile scegliere **Esegui tutte le celle** per avviare il rilevamento anomalie. Vedere altre informazioni su [Servizi cognitivi - Rilevamento anomalie](../../cognitive-services/anomaly-detector/index.yml).
 
 ![Eseguire il rilevamento anomalie](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-00f.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 906d3d28aabf8f6ecd6e04c38b4519937fa95c2b
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
-ms.translationtype: HT
+ms.openlocfilehash: 68b113de63cfefde805c1c46e9303829c4eb33a7
+ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092160"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98222140"
 ---
 # <a name="machine-learning-capabilities-in-azure-synapse-analytics"></a>Funzionalità di Machine Learning in Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ La maggior parte dei progetti di Machine Learning presuppone l'esecuzione di pas
 
 #### <a name="data-source-and-pipelines"></a>Origine dati e pipeline
 
-Grazie ad [Azure Data Factory](/azure/data-factory/introduction), un componente integrato in modo nativo di Azure Synapse, è disponibile un potente set di strumenti per l'inserimento dati e le pipeline di orchestrazione dei dati. Questo set consente di creare facilmente pipeline di dati per accedere ai dati e trasformarli in un formato che può essere utilizzato per il Machine Learning. In [questo articolo](/azure/data-factory/concepts-pipelines-activities?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) sono disponibili altre informazioni sulle pipeline di dati in Synapse. 
+Grazie ad [Azure Data Factory](../../data-factory/introduction.md), un componente integrato in modo nativo di Azure Synapse, è disponibile un potente set di strumenti per l'inserimento dati e le pipeline di orchestrazione dei dati. Questo set consente di creare facilmente pipeline di dati per accedere ai dati e trasformarli in un formato che può essere utilizzato per il Machine Learning. In [questo articolo](../../data-factory/concepts-pipelines-activities.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) sono disponibili altre informazioni sulle pipeline di dati in Synapse. 
 
 #### <a name="data-preparation-and-explorationvisualization"></a>Preparazione ed esplorazione/visualizzazione dei dati
 
@@ -64,13 +64,13 @@ Oltre a MLlib, per lo sviluppo di modelli è possibile usare le librerie più di
 
 #### <a name="train-models-with-azure-machine-learning-automated-ml"></a>Eseguire il training dei modelli con il Machine Learning automatizzato di Azure
 
-Un altro modo per eseguire il training dei modelli di Machine Learning, che non richiede particolari conoscenze delle tecnologie di Machine Learning, è offerto dall'uso del Machine Learning automatizzato. Il [Machine Learning automatizzato](/azure/machine-learning/concept-automated-ml) è una funzionalità che esegue automaticamente il training di un set di modelli di Machine Learning e consente all'utente di selezionare il modello migliore in base a metriche specifiche. Grazie a una perfetta integrazione con Azure Machine Learning da Azure Synapse Notebooks, gli utenti possono sfruttare facilmente il Machine Learning automatizzato in Synapse con l'autenticazione passthrough di Azure Active Directory.  Con questo tipo di autenticazione è sufficiente puntare all'area di lavoro di Azure Machine Learning senza dover immettere credenziali. In questa [esercitazione sul Machine Learning automatizzato](../spark/apache-spark-azure-machine-learning-tutorial.md) viene descritto come eseguire il training di modelli usando il Machine Learning automatizzato di Azure nei pool di Spark in Synapse.
+Un altro modo per eseguire il training dei modelli di Machine Learning, che non richiede particolari conoscenze delle tecnologie di Machine Learning, è offerto dall'uso del Machine Learning automatizzato. Il [Machine Learning automatizzato](../../machine-learning/concept-automated-ml.md) è una funzionalità che esegue automaticamente il training di un set di modelli di Machine Learning e consente all'utente di selezionare il modello migliore in base a metriche specifiche. Grazie a una perfetta integrazione con Azure Machine Learning da Azure Synapse Notebooks, gli utenti possono sfruttare facilmente il Machine Learning automatizzato in Synapse con l'autenticazione passthrough di Azure Active Directory.  Con questo tipo di autenticazione è sufficiente puntare all'area di lavoro di Azure Machine Learning senza dover immettere credenziali. In questa [esercitazione sul Machine Learning automatizzato](../spark/apache-spark-azure-machine-learning-tutorial.md) viene descritto come eseguire il training di modelli usando il Machine Learning automatizzato di Azure nei pool di Spark in Synapse.
 
 ### <a name="model-deployment-and-scoring"></a>Distribuzione di modelli e assegnazione di punteggi
 
 I modelli che sono stati sottoposti a training con Azure Synapse o con altre tecnologie possono essere usati facilmente per l'assegnazione di punteggi. Attualmente in Synapse sono disponibili due modi per eseguire l'assegnazione di punteggi in batch.
 
-* È possibile usare la [funzione TSQL PREDICT](../sql-data-warehouse/sql-data-warehouse-predict.md) nei pool di Synapse SQL per eseguire stime direttamente nella posizione in cui si trovano i dati. Questa funzione potente e scalabile consente di arricchire i dati senza spostarli dal data warehouse. [In Synapse Studio è stata introdotta una nuova esperienza guidata per i modelli di Machine Learning](https://aka.ms/synapse-ml-ui) in cui è possibile distribuire un modello ONNX dal registro dei modelli di Azure Machine Learning nei pool di Synapse SQL per l'assegnazione di punteggi in batch tramite la funzione PREDICT.
+* È possibile usare la [funzione TSQL PREDICT](../sql-data-warehouse/sql-data-warehouse-predict.md) nei pool di Synapse SQL per eseguire stime direttamente nella posizione in cui si trovano i dati. Questa funzione potente e scalabile consente di arricchire i dati senza spostarli dal data warehouse. [In Synapse Studio è stata introdotta una nuova esperienza guidata per i modelli di Machine Learning](./tutorial-sql-pool-model-scoring-wizard.md) in cui è possibile distribuire un modello ONNX dal registro dei modelli di Azure Machine Learning nei pool di Synapse SQL per l'assegnazione di punteggi in batch tramite la funzione PREDICT.
 
 * Un'altra opzione per l'assegnazione di punteggi in batch ai modelli di Machine Learning in Azure Synapse consiste nell'uso di pool di Apache Spark per Azure Synapse. A seconda delle librerie usate per il training dei modelli, per l'assegnazione di punteggi in batch è possibile usare un'esperienza basata su codice.
 

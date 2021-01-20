@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7dabf94c711972f9fe543edac0d7b95469fc2d35
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-ms.translationtype: HT
+ms.openlocfilehash: 07fadd7b3129b3ca3351e0416c8aa6f49de82212
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661104"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98201230"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando l'interfaccia della riga di comando di Azure
 
@@ -33,7 +33,7 @@ In questo argomento di avvio rapido verranno create due istanze di un'applicazio
 - Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Come prima cosa creare un gruppo di risorse con [az group create](https://docs.microsoft.com/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
@@ -47,7 +47,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella 
 
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 
-Creare un profilo di Gestione traffico che indirizza il traffico utente in base alla priorità degli endpoint usando [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create).
+Creare un profilo di Gestione traffico che indirizza il traffico utente in base alla priorità degli endpoint usando [az network traffic-manager profile create](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-create).
 
 Nell'esempio seguente sostituire **<profile_name>** con un nome univoco del profilo di Gestione traffico.
 
@@ -70,7 +70,7 @@ az network traffic-manager profile create \
 Per questo avvio rapido, saranno necessarie due istanze di un'applicazione Web distribuita in due aree di Azure diverse (*Stati Uniti orientali* ed *Europa occidentale*). Ognuna verrà usata come endpoint primario e di failover per Gestione traffico.
 
 ### <a name="create-web-app-service-plans"></a>Creare piani di servizio app Web
-Creare piani di servizio app Web per le due istanze dell'applicazione Web che verrà distribuita in due diverse aree di Azure usando [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
+Creare piani di servizio app Web per le due istanze dell'applicazione Web che verrà distribuita in due diverse aree di Azure usando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create).
 
 Nell'esempio seguente sostituire **<appspname_eastus>** e **<appspname_westeurope>** con un nome univoco di piano di servizio app
 
@@ -91,7 +91,7 @@ az appservice plan create \
 ```
 
 ### <a name="create-a-web-app-in-the-app-service-plan"></a>Creare un'app Web nel piano di servizio app
-Creare due istanze dell'applicazione Web nei piani di servizio app nelle aree di Azure *Stati Uniti orientali* ed *Europa occidentale* usando [az webapp create](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
+Creare due istanze dell'applicazione Web nei piani di servizio app nelle aree di Azure *Stati Uniti orientali* ed *Europa occidentale* usando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
 Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>** con un nome univoco dell'app e sostituire **<appspname_eastus>** e **<appspname_westeurope>** con il nome usato per creare i piani di servizio app nella sezione precedente.
 
@@ -110,7 +110,7 @@ az webapp create \
 ```
 
 ## <a name="add-traffic-manager-endpoints"></a>Aggiungere endpoint di Gestione traffico
-Aggiungere le due app Web come endpoint di Gestione traffico al profilo di Gestione traffico usando [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create), come indicato di seguito:
+Aggiungere le due app Web come endpoint di Gestione traffico al profilo di Gestione traffico usando [az network traffic-manager endpoint create](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-create), come indicato di seguito:
 
 - Determinare l'ID dell'app Web e aggiungere l'app Web che si trova nell'area di Azure *Stati Uniti orientali* come endpoint primario verso cui instradare tutto il traffico utente. 
 - Determinare l'ID dell'app Web e aggiungere l'app Web che si trova nell'area di Azure *Europa occidentale* come endpoint di failover. 
@@ -178,7 +178,7 @@ Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>
 
 ### <a name="determine-the-dns-name"></a>Determinare il nome DNS
 
-Determinare il nome DNS del profilo di Gestione traffico usando [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
+Determinare il nome DNS del profilo di Gestione traffico usando [az network traffic-manager profile show](/cli/azure/network/traffic-manager/profile?view=azure-cli-latest#az-network-traffic-manager-profile-show).
 
 ```azurecli-interactive
 
@@ -196,7 +196,7 @@ Copiare il valore **RelativeDnsName**. Il nome DNS del profilo di Gestione traff
 
     > [!NOTE]
     > Nello scenario di questo avvio rapido tutte le richieste vengono instradate all'endpoint primario, che è impostato su **Priorità 1**.
-2. Per visualizzare il failover di Gestione traffico in azione, disabilitare il sito primario usando [az network traffic-manager endpoint update](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
+2. Per visualizzare il failover di Gestione traffico in azione, disabilitare il sito primario usando [az network traffic-manager endpoint update](/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).
 
    ```azurecli-interactive
 
@@ -214,7 +214,7 @@ Copiare il valore **RelativeDnsName**. Il nome DNS del profilo di Gestione traff
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine, eliminare i gruppi di risorse, le applicazioni Web e tutte le risorse correlate usando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Al termine, eliminare i gruppi di risorse, le applicazioni Web e tutte le risorse correlate usando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 

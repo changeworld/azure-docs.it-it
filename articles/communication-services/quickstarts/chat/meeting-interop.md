@@ -7,12 +7,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ea66e4295e8228aa382aa29a46fcca8147dcbc98
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 1ad6b7241c7167c6da8952e7db2797fa275b7246
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578053"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251923"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>Avvio rapido: Aggiungere l'app di chat a una riunione di Teams
 
@@ -29,11 +29,7 @@ Iniziare a usare Servizi di comunicazione di Azure connettendo la soluzione per 
 
 Un utente di Servizi di comunicazione che partecipa a una riunione di Teams come utente guest può accedere alla chat della riunione solo dopo essere stato aggiunto alla chiamata della riunione di Teams. Per informazioni su come aggiungere un utente di Servizi di comunicazione a una chiamata di riunione di Teams, vedere la documentazione sull'[interoperabilità di Teams](../voice-video-calling/get-started-teams-interop.md).
 
-La funzionalità di interoperabilità di Teams è attualmente in fase di anteprima privata. Per abilitare questa funzionalità per la risorsa di Servizi di comunicazione, inviare un messaggio di posta elettronica all'indirizzo acsfeedback@microsoft.com con: 
-1. L'ID della sottoscrizione di Azure che contiene la risorsa di Servizi di comunicazione. 
-2. L'ID tenant di Teams. Il modo più semplice per ottenere questo dato consiste nell'ottenere e condividere un collegamento a Teams. 
-
-Per usare questa funzionalità, è necessario essere un membro dell'organizzazione proprietaria di entrambe le entità. 
+Per usare questa funzionalità, è necessario essere un membro dell'organizzazione proprietaria di entrambe le entità.
 
 [!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
 

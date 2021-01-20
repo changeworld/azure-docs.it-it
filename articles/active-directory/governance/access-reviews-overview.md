@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 08399c1b2d930abfdd5832cb102a789844931d61
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 22bfef17f68b2e83e4f7462d8e9af6fb8aacc284
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027697"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98246741"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -103,7 +103,7 @@ Ecco alcuni esempi di scenari che consentono di determinare il numero di licenze
 | Un amministratore crea una verifica di accesso del gruppo B con 500 utenti e 3 proprietari del gruppo, quindi assegna i 3 proprietari del gruppo come revisori. | 3 licenze, una per ogni proprietario del gruppo come revisore | 3 |
 | Un amministratore crea una verifica di accesso del gruppo B con 500 utenti. La crea come verifica autonoma. | 500 licenze, una per ogni utente come revisore autonomo | 500 |
 | Un amministratore crea una verifica di accesso del gruppo C con 50 utenti membro e 25 utenti guest. La crea come verifica autonoma. | 50 licenze, una per ogni utente come revisore autonomo.* | 50 |
-| Un amministratore crea una verifica di accesso del gruppo D con 6 utenti membro e 108 utenti guest. La crea come verifica autonoma. | 6 licenze, una per ogni utente come revisore autonomo. Gli utenti guest vengono fatturati in base agli utenti attivi mensili. Non occorre alcuna licenza aggiuntiva. *  | - |
+| Un amministratore crea una verifica di accesso del gruppo D con 6 utenti membro e 108 utenti guest. La crea come verifica autonoma. | 6 licenze, una per ogni utente come revisore autonomo. Gli utenti guest vengono fatturati in base agli utenti attivi mensili. Non occorre alcuna licenza aggiuntiva. *  | 6 |
 
 \* I prezzi delle identità esterne di Azure AD (utente guest) si basano sugli utenti attivi mensili, ovvero sul numero di utenti univoci con attività di autenticazione entro un mese di calendario. Questo modello sostituisce il modello di fatturazione con rapporto 1:5, che consentiva fino a cinque utenti guest per ogni licenza di Azure AD Premium nel tenant. Se il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato sugli utenti attivi mensili. Per altre informazioni, vedere il modello di fatturazione per identità esterne di Azure AD.
 

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 90532a88e145507b09de9d36f704bc5c88899e95
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
-ms.translationtype: HT
+ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
+ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861898"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98566918"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -42,16 +42,14 @@ Prima di iniziare questa esercitazione, verificare che siano rispettati i prereq
 **Requisito** | **Dettagli**
 --- | ---
 **Host Hyper-V** | Gli host Hyper-V in cui si trovano le macchine virtuali possono essere autonomi o raggruppati in cluster.<br/><br/> L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi per recuperare i metadati delle macchine virtuali e i dati sulle prestazioni usando una sessione CIM (Common Information Model).
-**Distribuzione dell'appliance** | L'host Hyper-V richiede risorse da allocare a una VM per l'appliance:<br/><br/> - Windows Server 2016<br/><br/> \- 16 GB di RAM<br/><br/> - Otto CPU virtuali<br/><br/> - Circa 80 GB di spazio di archiviazione su disco<br/><br/> - Un commutatore virtuale esterno<br/><br/> - Accesso a Internet attivo per la macchina virtuale, direttamente o tramite un proxy
+**Distribuzione dell'appliance** | L'host Hyper-V richiede risorse da allocare a una VM per l'appliance:<br/><br/> -16 GB di RAM, 8 vCPU e circa 80 GB di spazio di archiviazione su disco.<br/><br/> -Un Commuter virtuale esterno e accesso a Internet nella macchina virtuale dell'appliance, direttamente o tramite un proxy.
 **Macchine virtuali** | Le macchine virtuali possono eseguire qualsiasi versione del sistema operativo Windows o Linux. 
-
-Prima di iniziare, è possibile [esaminare i dati](migrate-appliance.md#collected-data---hyper-v) raccolti dall'appliance durante l'individuazione.
 
 ## <a name="prepare-an-azure-user-account"></a>Preparare un account utente Azure
 
 Per creare un progetto di Azure Migrate e registrare l'appliance di Azure Migrate, è necessario un account con:
 - Autorizzazioni di collaboratore o proprietario per una sottoscrizione di Azure.
-- Autorizzazioni per la registrazione di app Azure Active Directory.
+- Autorizzazioni per la registrazione di app Azure Active Directory (AAD).
 
 Se è appena stato creato un account Azure gratuito, si è proprietari della propria sottoscrizione. Se non si ha il ruolo di proprietario della sottoscrizione, collaborare con il proprietario per assegnare le autorizzazioni nel modo seguente:
 
@@ -71,20 +69,51 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
     ![Viene aperta la pagina Aggiungi assegnazione di ruolo per assegnare un ruolo all'account](./media/tutorial-discover-hyper-v/assign-role.png)
 
-7. Nel portale cercare gli utenti e in **Servizi** selezionare **Utenti**.
-8. In **Impostazioni utente** verificare che gli utenti di Azure AD possano registrare le applicazione (impostato su **Sì** per impostazione predefinita).
+1. Per registrare l'appliance, l'account Azure deve avere le **autorizzazioni per registrare le app di AAD.**
+1. In portale di Azure passare a **Azure Active Directory**  >    >  **impostazioni utente** utenti.
+1. In **Impostazioni utente** verificare che gli utenti di Azure AD possano registrare le applicazione (impostato su **Sì** per impostazione predefinita).
 
     ![Verificare che in Impostazioni utente che gli utenti possano registrare le app Active Directory](./media/tutorial-discover-hyper-v/register-apps.png)
 
-9. In alternativa, l'amministratore tenant/globale può assegnare il ruolo **Sviluppatore applicazione** a un account per consentire la registrazione di app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+9. Nel caso in cui le impostazioni di ' Registrazioni app ' siano impostate su' No ', richiedere all'amministratore globale o tenant di assegnare l'autorizzazione necessaria. In alternativa, l'amministratore globale o tenant può assegnare il ruolo **sviluppatore applicazione** a un account per consentire la registrazione dell'app AAD. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 ## <a name="prepare-hyper-v-hosts"></a>Preparare gli host Hyper-V
 
-Configurare un account con accesso come amministratore per gli host Hyper-V. L'appliance usa questo account per l'individuazione.
+È possibile preparare gli host Hyper-V manualmente o tramite uno script. I passaggi di preparazione sono riepilogati nella tabella. Lo script li prepara automaticamente.
 
-- Opzione 1: Preparare un account con accesso come amministratore al computer host Hyper-V.
-- Opzione 2: Preparare un account amministratore locale o un account amministratore di dominio e aggiungere l'account a questi gruppi: Remote Management Users, Hyper-V Administrators e Performance Monitor Users.
+**Step** | **Script** | **Manuale**
+--- | --- | ---
+Verificare i requisiti dell'host | Verifica che l'host esegua una versione supportata di Hyper-V e il ruolo Hyper-V.<br/><br/>Abilita il servizio Gestione remota Windows e apre le porte 5985 (HTTP) e 5986 (HTTPS) nell'host (necessario per la raccolta dei metadati). | L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi per recuperare i metadati delle macchine virtuali e i dati sulle prestazioni usando una sessione CIM (Common Information Model).
+Verificare la versione di PowerShell | Verifica che lo script sia in esecuzione in una versione di PowerShell supportata. | Verificare di eseguire PowerShell versione 4.0 o successiva nell'host Hyper-V.
+Creare un account | Verifica che siano disponibili le autorizzazioni corrette nell'host Hyper-V.<br/><br/> Consente di creare un account utente locale con le autorizzazioni corrette. | Opzione 1: Preparare un account con accesso come amministratore al computer host Hyper-V.<br/><br/> Opzione 2: Preparare un account amministratore locale o un account amministratore di dominio e aggiungere l'account a questi gruppi: Remote Management Users, Hyper-V Administrators e Performance Monitor Users.
+Abilitare la comunicazione remota di PowerShell | Abilita la comunicazione remota di PowerShell nell'host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM. | Per configurare, in ogni host aprire una console di PowerShell come amministratore ed eseguire il comando seguente: ``` powershell Enable-PSRemoting -force ```
+Configurare i servizi di integrazione Hyper-V | Verifica che i servizi di integrazione Hyper-V siano abilitati in tutte le macchine virtuali gestite dall'host. | [Abilitare i servizi di integrazione di Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) su ogni VM.<br/><br/> Se si esegue Windows Server 2003, [seguire queste istruzioni](prepare-windows-server-2003-migration.md).
+Delegare le credenziali se i dischi delle macchine virtuali si trovano in condivisioni SMB remote | Delega le credenziali | Eseguire questo comando per consentire a CredSSP di delegare le credenziali negli host che eseguono macchine virtuali Hyper-V con dischi in condivisioni SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> È possibile eseguire questo comando in remoto in tutti gli host Hyper-V.<br/><br/> Se si aggiungono nuovi nodi host in un cluster, vengono aggiunti automaticamente per l'individuazione, ma è necessario abilitare CredSSP manualmente.<br/><br/> Quando si configura l'appliance, si completa la configurazione di CredSSP [abilitandolo nell'appliance](#delegate-credentials-for-smb-vhds). 
 
+### <a name="run-the-script"></a>Eseguire lo script
+
+1. Scaricare lo script dall'[Area download Microsoft](https://aka.ms/migrate/script/hyperv). Lo script è firmato da Microsoft per la crittografia.
+2. Convalidare l'integrità dello script usando i file hash MD5 o SHA256. I valori hashtag sono riportati di seguito. Eseguire questo comando per generare l'hash per lo script:
+
+    ```powershell
+    C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
+    ```
+    Esempio di utilizzo:
+
+    ```powershell
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
+    ```
+3. Dopo aver convalidato l'integrità dello script, eseguire lo script in ogni host Hyper-V con questo comando di PowerShell:
+
+    ```powershell
+    PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
+    ```
+I valori degli hash sono:
+
+**Hash** |  **Valore**
+--- | ---
+MD5 | 0ef418f31915d01f896ac42a80dc414e
+SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## <a name="set-up-a-project"></a>Configurare un progetto
 
@@ -98,27 +127,29 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-hyper-v/new-project.png)
 
-7. Selezionare **Crea**.
-8. Attendere alcuni minuti durante la distribuzione del progetto di Azure Migrate.
-
-Lo strumento **Azure Migrate: Valutazione server** viene aggiunto per impostazione predefinita al nuovo progetto.
+7. Selezionare **Create** (Crea).
+8. Attendere alcuni minuti per la distribuzione del progetto Azure Migrate. Lo strumento **Azure migrate: server Assessment** viene aggiunto per impostazione predefinita al nuovo progetto.
 
 ![Pagina che mostra lo strumento Valutazione server aggiunto per impostazione predefinita](./media/tutorial-discover-hyper-v/added-tool.png)
 
+> [!NOTE]
+> Se è già stato creato un progetto, è possibile usare lo stesso progetto per registrare appliance aggiuntive per individuare e valutare un numero maggiore di macchine virtuali.[altre informazioni](create-manage-projects.md#find-a-project)
 
 ## <a name="set-up-the-appliance"></a>Configurare l'appliance
 
+Azure Migrate: server Assessment usa un'appliance di Azure Migrate Lightweight. L'Appliance esegue l'individuazione delle macchine virtuali e invia i metadati delle prestazioni e della configurazione della macchina virtuale a Azure Migrate. È possibile configurare l'appliance distribuendo un file VHD che può essere scaricato dal progetto Azure Migrate.
+
+> [!NOTE]
+> Se per qualche motivo non è possibile configurare l'appliance usando il modello, è possibile configurarlo usando uno script di PowerShell in un server Windows Server 2016 esistente. [Altre informazioni](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)
+
 Questa esercitazione consente di configurare l'appliance in una macchina virtuale Hyper-V, come descritto di seguito:
 
-- Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
-- Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
-- Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
-- Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
-> [!NOTE]
-> Se per qualche motivo non è possibile usare un modello, è possibile configurare l'appliance usando uno script di PowerShell. [Altre informazioni](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)
+1. Specificare un nome di appliance e generare una chiave del progetto di Azure Migrate nel portale.
+1. Scaricare un disco rigido virtuale Hyper-V compresso dal portale di Azure.
+1. Creare l'appliance e verificare che riesca a connettersi allo strumento Valutazione server di Azure Migrate.
+1. Configurare l'appliance per la prima volta e registrarla nel progetto di Azure Migrate con la chiave del progetto di Azure Migrate.
 
-
-### <a name="generate-the-azure-migrate-project-key"></a>Generare la chiave del progetto Azure Migrate
+### <a name="1-generate-the-azure-migrate-project-key"></a>1. generare la chiave del progetto Azure Migrate
 
 1. In **Obiettivi della migrazione** > **Server** > **Azure Migrate: Valutazione server** selezionare **Individua**.
 2. In **Individua macchine virtuali** > **I computer sono virtualizzati?** selezionare **Sì, con Hyper-V**.
@@ -127,10 +158,9 @@ Questa esercitazione consente di configurare l'appliance in una macchina virtual
 1. Al termine della creazione delle risorse di Azure, viene generata una **Chiave progetto Azure Migrate**.
 1. Copiare la chiave perché sarà necessaria per completare la registrazione dell'appliance durante la configurazione.
 
-### <a name="download-the-vhd"></a>Scaricare il disco rigido virtuale
+### <a name="2-download-the-vhd"></a>2. scaricare il disco rigido virtuale
 
-In **2: Scaricare l'appliance di Azure Migrate** selezionare il file VHD e fare clic su **Scarica**. 
-
+In **2: Scaricare l'appliance di Azure Migrate** selezionare il file VHD e fare clic su **Scarica**.
 
 ### <a name="verify-security"></a>Verificare la sicurezza
 
@@ -156,7 +186,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
         --- | --- | ---
         Hyper-V (85,8 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
 
-### <a name="create-the-appliance-vm"></a>Creare l'appliance VM
+### <a name="3-create-the-appliance-vm"></a>3. creare la macchina virtuale dell'appliance
 
 Importare il file scaricato e creare la VM.
 
@@ -177,7 +207,7 @@ Importare il file scaricato e creare la VM.
 
 Assicurarsi che la macchina virtuale dell'appliance possa connettersi agli URL di Azure per i cloud [pubblico](migrate-appliance.md#public-cloud-urls) e per [enti pubblici](migrate-appliance.md#government-cloud-urls).
 
-### <a name="configure-the-appliance"></a>Configurare l'appliance
+### <a name="4-configure-the-appliance"></a>4. configurare l'appliance
 
 Configurare l'appliance per la prima volta.
 
@@ -214,8 +244,6 @@ Configurare l'appliance per la prima volta.
 1. Dopo aver eseguito l'accesso, tornare nella scheda precedente di gestione configurazione dell'appliance.
 4. Se l'account utente di Azure usato per la registrazione ha le autorizzazioni corrette per le risorse di Azure create durante la generazione della chiave, la registrazione dell'appliance verrà avviata.
 1. Al termine della registrazione dell'appliance è possibile visualizzare i dettagli della registrazione facendo clic su **Visualizza dettagli**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegare le credenziali per i dischi rigidi virtuali SMB
 

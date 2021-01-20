@@ -3,14 +3,14 @@ title: "Esercitazione su Kubernetes in Azure: ridimensionare un'applicazione"
 description: In questa esercitazione sul servizio Azure Kubernetes viene illustrato come ridimensionare nodi e pod in Kubernetes e implementare la scalabilità automatica orizzontale dei pod.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc
-ms.openlocfilehash: 7f16ba3ffe6b6f96f17df540eb67e9cec0bfea8c
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
-ms.translationtype: HT
+ms.openlocfilehash: dfebb6561e83c51063515ec655153aaaa7a09c0c
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825689"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98251370"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Se si sono eseguite le esercitazioni, si dispone di un cluster Kubernetes funzio
 > * Ridimensionare manualmente i pod Kubernetes che eseguono l'applicazione
 > * Configurare la scalabilità automatica dei pod che eseguono il front-end dell'app
 
-Nelle altre esercitazioni l'applicazione Azure Vote viene aggiornata a una nuova versione.
+Nelle esercitazioni successive l'applicazione Azure vote viene aggiornata a una nuova versione.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -39,7 +39,7 @@ kubectl get pods
 
 L'output di esempio seguente illustra un pod front-end e un pod back-end:
 
-```
+```output
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
@@ -51,7 +51,7 @@ Per modificare manualmente il numero di pod nella distribuzione *azure-vote-fron
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Eseguire di nuovo [kubectl get pods][kubectl-get] per verificare che il servizio Azure Kubernetes crei i pod aggiuntivi. Dopo circa un minuto i pod aggiuntivi sono disponibili nel cluster:
+Eseguire di nuovo [kubectl Get Pod][kubectl-get] per verificare che AKS crei correttamente i pod aggiuntivi. Dopo un minuto, i pod sono disponibili nel cluster:
 
 ```console
 kubectl get pods
@@ -131,7 +131,7 @@ spec:
 
 Usare `kubectl apply` per applicare la scalabilità automatica definita nel file manifesto `azure-vote-hpa.yaml`.
 
-```
+```console
 kubectl apply -f azure-vote-hpa.yaml
 ```
 
@@ -158,7 +158,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 
 Al termine del ridimensionamento del cluster, l'output è simile all'esempio seguente:
 
-```
+```output
 "agentPoolProfiles": [
   {
     "count": 3,

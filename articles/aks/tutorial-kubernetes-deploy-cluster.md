@@ -3,14 +3,14 @@ title: Esercitazione su Kubernetes in Azure - Distribuire un cluster
 description: In questa esercitazione sul servizio Azure Kubernetes si crea un cluster del servizio Azure Kubernetes e si usa kubectl per connettersi al nodo master Kubernetes.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/12/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 0e034ebede39a3fd9046ced9716323d0c7d874df
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
-ms.translationtype: HT
+ms.openlocfilehash: a8e0ddcd77c26a00cf784fb8c2372734314dc0bb
+ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94684071"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98250639"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Esercitazione: Distribuire un cluster del servizio Azure Kubernetes
 
@@ -21,7 +21,7 @@ Kubernetes fornisce una piattaforma distribuita per applicazioni in contenitori.
 > * Installare l'interfaccia della riga di comando di Kubernetes (kubectl)
 > * Configurare kubectl per connettersi al cluster servizio Azure Kubernetes
 
-In altre esercitazioni l'applicazione Azure Vote viene distribuita nel cluster, ridimensionata e aggiornata.
+Nelle esercitazioni successive l'applicazione Azure vote viene distribuita nel cluster, ridimensionata e aggiornata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -33,9 +33,9 @@ Per questa esercitazione è necessario eseguire l'interfaccia della riga di coma
 
 I cluster del servizio Azure Kubernetes possono usare il controllo degli accessi in base al ruolo di Kubernetes. Questi controlli consentono di definire l'accesso alle risorse in base ai ruoli assegnati agli utenti. È possibile combinare le autorizzazioni, se a un utente sono assegnati più ruoli, e definire l'ambito delle autorizzazioni in un unico spazio dei nomi o nell'intero cluster. Per impostazione predefinita, l'interfaccia della riga di comando di Azure abilita automaticamente il controllo degli accessi in base al ruolo di Kubernetes quando si crea un cluster del servizio Azure Kubernetes.
 
-Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'area *eastus* durante l'[esercitazione precedente][aks-tutorial-prepare-acr]. Nell'esempio seguente non viene specificata alcuna area, di conseguenza anche il cluster del servizio Azure Kubernetes viene creato nell'area *eastus*. Per altre informazioni sui limiti delle risorse e sulla disponibilità delle aree per il servizio Azure Kubernetes, vedere [Quote, limitazioni delle dimensioni delle macchine virtuali e disponibilità delle aree nel servizio Azure Kubernetes][quotas-skus-regions].
+Creare un cluster servizio Azure Kubernetes usando [az servizio Azure Kubernetes create][]. L'esempio seguente crea un cluster denominato *myAKSCluster* nel gruppo di risorse denominato *myResourceGroup*. Questo gruppo di risorse è stato creato nell'area *eastus* durante l'[esercitazione precedente][aks-tutorial-prepare-acr]. Nell'esempio seguente non viene specificata alcuna area, di conseguenza anche il cluster del servizio Azure Kubernetes viene creato nell'area *eastus*. Per altre informazioni sui limiti delle risorse e sulla disponibilità delle aree per il servizio contenitore di Azure, vedere [quote, restrizioni per le dimensioni delle macchine virtuali e disponibilità di aree in Azure Kubernetes Service (AKS)][quotas-skus-regions] .
 
-Per consentire a un cluster del servizio Azure Kubernetes di interagire con altre risorse di Azure viene creata automaticamente un'entità servizio di Azure Active Directory dal momento che non ne è stata specificata una. A questo punto a tale entità servizio viene [concesso il diritto di eseguire il pull delle immagini ][container-registry-integration] dall'istanza di Registro Azure Container creata nell'esercitazione precedente. Si noti che per semplicità di gestione, è possibile usare un'[identità gestita](use-managed-identity.md) anziché un'entità servizio.
+Per consentire a un cluster del servizio Azure Kubernetes di interagire con altre risorse di Azure viene creata automaticamente un'entità servizio di Azure Active Directory dal momento che non ne è stata specificata una. A questo punto a tale entità servizio viene [concesso il diritto di eseguire il pull delle immagini ][container-registry-integration] dall'istanza di Registro Azure Container creata nell'esercitazione precedente. Per eseguire correttamente il comando, è necessario avere un **proprietario** o un ruolo di **amministratore dell'account di Azure** nella sottoscrizione di Azure.
 
 ```azurecli
 az aks create \
@@ -46,7 +46,7 @@ az aks create \
     --attach-acr <acrName>
 ```
 
-È anche possibile configurare manualmente un'entità servizio per eseguire il pull delle immagini da Registro Azure Container. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md).
+Per evitare di dover disporre di un ruolo di **proprietario** o di **amministratore account Azure** , è anche possibile configurare manualmente un'entità servizio per eseguire il pull delle immagini da ACR. Per altre informazioni, vedere [Autenticazione al Registro Azure Container con entità servizio](../container-registry/container-registry-auth-service-principal.md) o [Eseguire l'autenticazione da Kubernetes con un segreto per il pull](../container-registry/container-registry-auth-kubernetes.md). In alternativa, è possibile usare un' [identità gestita](use-managed-identity.md) anziché un'entità servizio per semplificare la gestione.
 
 Dopo alcuni minuti, la distribuzione viene completata e restituisce le informazioni in formato JSON sulla distribuzione del servizio Azure Kubernetes.
 
@@ -76,8 +76,9 @@ Per verificare la connessione al cluster, usare il comando [kubectl get nodes][k
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-37463671-vmss000000   Ready    agent   2m37s   v1.18.10
+aks-nodepool1-37463671-vmss000001   Ready    agent   2m28s   v1.18.10
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

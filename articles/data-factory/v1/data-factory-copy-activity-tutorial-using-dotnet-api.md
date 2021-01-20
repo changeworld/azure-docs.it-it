@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d047a45d678918541eb3c2d2c45e4519a34bdd57
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: 42d1d66c67b554b4b98cd8267b5945049215f843
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608681"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556019"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ In questa esercitazione si crea una pipeline contenente una sola attività: un'a
 Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Attività multiple in una pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 > [!NOTE] 
-> Per la documentazione completa sull'API .NET per Data Factory, vedere le [informazioni di riferimento sull'API NET di Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+> Per la documentazione completa sull'API .NET per Data Factory, vedere le [informazioni di riferimento sull'API NET di Data Factory](/dotnet/api/overview/azure/data-factory).
 > 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
@@ -519,7 +519,7 @@ Da questi passaggi si avranno i quattro valori seguenti:
 20. Verificare che i due record dipendente vengano creati nella tabella **emp** del database specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per la documentazione completa sull'API .NET per Data Factory, vedere le [informazioni di riferimento sull'API NET di Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1).
+Per la documentazione completa sull'API .NET per Data Factory, vedere le [informazioni di riferimento sull'API NET di Data Factory](/dotnet/api/overview/azure/data-factory).
 
 In questa esercitazione sono stati usati Archiviazione BLOB di Azure come archivio dati di origine e il database SQL di Azure come archivio dati di destinazione in un'operazione di copia. La tabella seguente contiene un elenco degli archivi dati supportati come origini e come destinazioni dall'attività di copia: 
 

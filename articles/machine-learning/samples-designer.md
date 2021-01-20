@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: a27e18d9b6f6307f1cc8ed48ca897dd4d1f0f1f3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
-ms.translationtype: HT
+ms.openlocfilehash: 4d594115139321c8a4ad2b3aa6b065474bd426fa
+ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555499"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98556172"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning
 
@@ -72,7 +72,7 @@ Esplorare questi esempi di regressione incorporati.
 
 ## <a name="classification"></a>Classificazione
 
-Esplorare questi esempi di classificazione incorporati. È possibile ottenere altre informazioni sugli esempi senza collegamenti alla documentazione aprendo gli esempi e visualizzando i commenti del modulo.
+Esplorare questi esempi di classificazione incorporati. Per ulteriori informazioni sugli esempi, aprire gli esempi e visualizzare i commenti dei moduli nella finestra di progettazione.
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
@@ -84,13 +84,15 @@ Esplorare questi esempi di classificazione incorporati. È possibile ottenere al
 
 ## <a name="computer-vision"></a>Visione artificiale
 
-Esplorare questi esempi di visione artificiale predefiniti. È possibile ottenere altre informazioni sugli esempi senza collegamenti alla documentazione aprendo gli esempi e visualizzando i commenti del modulo.
+Esplorare questi esempi di visione artificiale predefiniti. Per ulteriori informazioni sugli esempi, aprire gli esempi e visualizzare i commenti dei moduli nella finestra di progettazione.
 
-| Classificazione delle immagini tramite DenseNet | Usare i moduli di visione artificiale e creare un modello di classificazione delle immagini basato su PyTorch DenseNet.| 
+| Titolo di esempio | Descrizione | 
+| --- | --- |
+| Classificazione delle immagini con DenseNet | Usare i moduli di visione artificiale per creare un modello di classificazione delle immagini basato su PyTorch DenseNet.| 
 
 ## <a name="recommender"></a>Moduli di raccomandazione
 
-Esplorare questi esempi di raccomandazione incorporati. È possibile ottenere altre informazioni sugli esempi senza collegamenti alla documentazione aprendo gli esempi e visualizzando i commenti del modulo.
+Esplorare questi esempi di raccomandazione incorporati. Per ulteriori informazioni sugli esempi, aprire gli esempi e visualizzare i commenti dei moduli nella finestra di progettazione.
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
@@ -99,7 +101,7 @@ Esplorare questi esempi di raccomandazione incorporati. È possibile ottenere al
 
 ## <a name="utility"></a>Utilità
 
-Altre informazioni sugli esempi che illustrano le utilità e le funzionalità di Machine Learning. È possibile ottenere altre informazioni sugli esempi senza collegamenti alla documentazione aprendo gli esempi e visualizzando i commenti del modulo.
+Altre informazioni sugli esempi che illustrano le utilità e le funzionalità di Machine Learning. Per ulteriori informazioni sugli esempi, aprire gli esempi e visualizzare i commenti dei moduli nella finestra di progettazione.
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
