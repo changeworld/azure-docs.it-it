@@ -574,12 +574,12 @@
               items:
                 - name: Panoramica
                   href: platform/itsmc-troubleshoot-overview.md
-                - name: Sincronizzare il connettore di Gestione dei servizi IT
-                  href: platform/itsmc-resync-servicenow.md
                 - name: Indagine nel dashboard
                   href: platform/itsmc-dashboard.md
                 - name: Errori comuni
                   href: platform/itsmc-dashboard-errors.md
+                - name: Sincronizzare il connettore di Gestione dei servizi IT
+                  href: platform/itsmc-resync-servicenow.md
             - name: Integrazione con Secure Export
               items:
                 - name: Panoramica
