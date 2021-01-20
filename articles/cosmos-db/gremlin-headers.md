@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 3f5996b281c1985747f754e3796e9fb84f90fdd3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 0442d21aebe1cf577c50d14a5aeff40bd1f6cd9c
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356961"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600521"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Intestazioni di risposta del server Azure Cosmos DB Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -23,7 +23,7 @@ Tenere presente che la dipendenza da queste intestazioni consente di limitare la
 
 ## <a name="headers"></a>Intestazioni
 
-| Intestazione | Tipo | Valore di esempio | Quando incluso | Spiegazione |
+| Intestazione | Type | Valore di esempio | Quando incluso | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata in [unità richiesta (UR/s o UR)](request-units.md) per un messaggio di risposta parziale. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Riflette il costo di un determinato blocco di risposta. Solo per le richieste che sono costituite da un singolo blocco di risposta questa intestazione corrisponde al costo totale di attraversamento. Tuttavia, per la maggior parte degli attraversamenti complessi, questo valore rappresenta un costo parziale. |
 | **x-ms-Total-request-charge** | double | 423,987 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata nelle [unità richiesta (UR/s o UR)](request-units.md) per l'intera richiesta. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Indica un addebito cumulativo dall'inizio della richiesta. Il valore di questa intestazione nell'ultimo blocco indica un addebito completo della richiesta. |
@@ -36,13 +36,12 @@ Tenere presente che la dipendenza da queste intestazioni consente di limitare la
 
 ## <a name="status-codes"></a>Codici di stato
 
-Di seguito sono elencati i codici di stato più comuni restituiti dal server.
+`x-ms-status-code`Di seguito sono elencati i codici più comuni restituiti per l'attributo status dal server.
 
 | Stato | Spiegazione |
 | --- | --- |
 | **401** | Viene restituito un messaggio di errore `"Unauthorized: Invalid credentials provided"` quando la password di autenticazione non corrisponde Cosmos DB chiave dell'account. Passare all'account Cosmos DB Gremlin nel portale di Azure e verificare che la chiave sia corretta.|
 | **404** | Operazioni simultanee che tentano di eliminare e aggiornare contemporaneamente lo stesso bordo o vertice. Il messaggio di errore `"Owner resource does not exist"` indica che il database o la raccolta specificati non sono corretti nei parametri di connessione in formato `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"` indica che l'attraversamento ha impiegato più di **30 secondi** ed è stato annullato dal server. Ottimizzare gli attraversamenti per l'esecuzione rapida filtrando i vertici o i bordi su ogni hop di attraversamento per limitare l'ambito di ricerca.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Generalmente questo si verifica quando nel grafo esiste già un vertice o un arco con un identificatore.| 
 | **412** | Il codice di stato è integrato con il messaggio di errore `"PreconditionFailedException": One of the specified pre-condition is not met` . Questo errore indica una violazione del controllo della concorrenza ottimistica tra la lettura di un bordo o un vertice e la riscrittura nell'archivio dopo la modifica. La maggior parte delle situazioni comuni in cui si verifica questo errore è la modifica delle proprietà, ad esempio `g.V('identifier').property('name','value')` . Il motore Gremlin legge il vertice, lo modifica e lo scrive di nuovo. Se è presente un altro attraversamento in esecuzione in parallelo che tenta di scrivere lo stesso vertice o un bordo, uno di essi riceverà questo errore. L'applicazione deve inviare nuovamente l'attraversamento al server.| 
 | **429** | La richiesta è stata limitata e deve essere ritentata dopo il valore in **x-ms-retry-after-ms**| 
@@ -53,6 +52,7 @@ Di seguito sono elencati i codici di stato più comuni restituiti dal server.
 | **1004** | Questo codice di stato indica una richiesta di grafo non valido. Il formato della richiesta può non essere corretto quando la deserializzazione non riesce, il tipo non valore viene deserializzato come tipo di valore o è richiesta un'operazione Gremlin non supportata. L'applicazione non deve ripetere la richiesta perché non avrà esito positivo. | 
 | **1007** | Questo codice di stato viene in genere restituito con un messaggio di errore `"Could not process request. Underlying connection has been closed."` . Questa situazione può verificarsi se il driver client tenta di utilizzare una connessione chiusa dal server. L'applicazione deve ritentare l'attraversamento in una connessione diversa.
 | **1008** | Cosmos DB server Gremlin può terminare le connessioni per ribilanciare il traffico nel cluster. I driver client devono gestire questa situazione e utilizzare solo le connessioni in tempo reale per inviare richieste al server. Occasionalmente i driver client potrebbero non rilevare che la connessione è stata chiusa. Quando l'applicazione rileva un errore, `"Connection is too busy. Please retry after sometime or open more connections."` deve ritentare l'attraversamento in una connessione diversa.
+| **1009** | L'operazione non è stata completata nel tempo assegnato ed è stata annullata dal server. Ottimizzare gli attraversamenti per l'esecuzione rapida filtrando i vertici o i bordi su ogni hop di attraversamento per limitare l'ambito di ricerca. Il valore predefinito per il timeout della richiesta è **60 secondi**. |
 
 ## <a name="samples"></a>Esempi
 

@@ -3,12 +3,12 @@ title: Risparmiare sui costi con l'istanza riservata della soluzione VMware di A
 description: Informazioni su come acquistare un'istanza riservata per la soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 11/12/2020
-ms.openlocfilehash: 80780e9718001893b6960220b5004c1c29b2fec5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 74344889cd107350e5026c4a0369382fb9c7ef51
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327398"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600873"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Salva i costi con la soluzione VMware di Azure
 
@@ -54,8 +54,8 @@ Questi requisiti si applicano all'acquisto di un'istanza host dedicata riservata
 
    | Campo        |  Descrizione |
    | ------------ | ------------ |
-   | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P), un contratto per i clienti Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito della sottoscrizione o su un metodo di pagamento con fattura. |
-   | Scope        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
+   | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P), un contratto per i clienti Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo prepagato di Azure (in precedenza denominato impegno monetario), se disponibile, o addebitato come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito della sottoscrizione o su un metodo di pagamento con fattura. |
+   | Ambito        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
    | Region       | Area di Azure coperta dalla prenotazione.   |
    | Dimensioni host    | AV36    |
    | Termine         | Un anno o tre anni.  |
@@ -73,7 +73,7 @@ I CSP che vogliono acquistare istanze riservate per i clienti devono usare la pr
 
    :::image type="content" source="media/reserved-instances/csp-partner-center-aobo.png" alt-text="Area clienti del centro per i partner Microsoft" lightbox="media/reserved-instances/csp-partner-center-aobo.png":::
 
-4. Nella portale di Azure selezionare **tutte le prenotazioni dei servizi**  >  **Reservations**.
+4. Nella portale di Azure selezionare **tutte le prenotazioni dei servizi**  >  .
 
 5. Selezionare **Acquista adesso** , quindi selezionare **soluzione VMware di Azure**.
 
@@ -84,7 +84,7 @@ I CSP che vogliono acquistare istanze riservate per i clienti devono usare la pr
    | Campo        |  Descrizione |
    | ------------ | ------------ |
    | Subscription | La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere quello idoneo, che in questo caso è una sottoscrizione CSP|
-   | Scope        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
+   | Ambito        | L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona:<br><ul><li><b>Ambito del gruppo di risorse singolo</b> : applica lo sconto della prenotazione alle risorse corrispondenti solo nel gruppo di risorse selezionato.</li><li><b>Ambito singola sottoscrizione</b> : applica lo sconto di prenotazione alle risorse corrispondenti nella sottoscrizione selezionata.</li><li><b>Ambito condiviso</b> : applica lo sconto relativo alla prenotazione per le risorse corrispondenti nelle sottoscrizioni idonee presenti nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>       |
    | Region       | Area di Azure coperta dalla prenotazione.   |
    | Dimensioni host    | AV36    |
    | Termine         | Un anno o tre anni.  |
@@ -123,7 +123,7 @@ Per informazioni dettagliate sulle prenotazioni gestite da CSP, vedere [Sell Mic
 > - Area della prenotazione esistente
 > - SKU
 > - Quantità
-> - Duration
+> - Durata
 >
 >Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 

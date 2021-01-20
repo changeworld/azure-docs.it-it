@@ -4,17 +4,17 @@ description: Informazioni su come usare l'archiviazione code di Azure da Python 
 author: mhopkins-msft
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.date: 08/25/2020
+ms.date: 01/19/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: e473bf5c2761010a6aeea94e6430d34ca34989fb
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 82d18fd79b10a8500cfd9191f143438d69fda401
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588278"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600792"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Come usare l'archiviazione di Accodamento di Azure da Python
 
@@ -69,7 +69,7 @@ L' [`QueueClient`](/azure/developer/python/sdk/storage/azure-storage-queue/azure
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-L' [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2) oggetto consente di usare le code. Il codice seguente crea un `QueueService` oggetto. Aggiungere il codice seguente nella parte superiore del file Python in cui si vuole accedere ad archiviazione di Azure a livello di codice:
+L' [`QueueService`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true) oggetto consente di usare le code. Il codice seguente crea un `QueueService` oggetto. Aggiungere il codice seguente nella parte superiore del file Python in cui si vuole accedere ad archiviazione di Azure a livello di codice:
 
 ```python
 from azure.storage.queue import (
@@ -127,7 +127,7 @@ Per inserire un messaggio in una coda, usare il [`send_message`](/azure/develope
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Per inserire un messaggio in una coda, usare il [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) metodo per creare un nuovo messaggio e aggiungerlo alla coda.
+Per inserire un messaggio in una coda, usare il [`put_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#put-message-queue-name--content--visibility-timeout-none--time-to-live-none--timeout-none-) metodo per creare un nuovo messaggio e aggiungerlo alla coda.
 
 ```python
 message = u"Hello, World"
@@ -167,7 +167,7 @@ queue_service.decode_function = QueueMessageFormat.binary_base64decode
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-È possibile leggere i messaggi senza rimuoverli dalla coda chiamando il [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#peek-messages-queue-name--num-messages-none--timeout-none-) metodo. Per impostazione predefinita, questo metodo Visualizza un singolo messaggio.
+È possibile leggere i messaggi senza rimuoverli dalla coda chiamando il [`peek_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#peek-messages-queue-name--num-messages-none--timeout-none-) metodo. Per impostazione predefinita, questo metodo Visualizza un singolo messaggio.
 
 ```python
 messages = queue_service.peek_messages(queue_name)
@@ -190,7 +190,7 @@ Il codice seguente usa il [`update_message`](/azure/developer/python/sdk/storage
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Il codice seguente usa il [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) metodo per aggiornare un messaggio. Il timeout di visibilità è impostato su 0. Ciò significa che il messaggio viene visualizzato immediatamente e il contenuto viene aggiornato.
+Il codice seguente usa il [`update_message`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#update-message-queue-name--message-id--pop-receipt--visibility-timeout--content-none--timeout-none-) metodo per aggiornare un messaggio. Il timeout di visibilità è impostato su 0. Ciò significa che il messaggio viene visualizzato immediatamente e il contenuto viene aggiornato.
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -214,7 +214,7 @@ Il metodo [get_queue_properties](/azure/developer/python/sdk/storage/azure-stora
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Il [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-queue-metadata-queue-name--timeout-none-) metodo restituisce le proprietà della coda, tra cui `approximate_message_count` .
+Il [`get_queue_metadata`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-queue-metadata-queue-name--timeout-none-) metodo restituisce le proprietà della coda, tra cui `approximate_message_count` .
 
 ```python
 metadata = queue_service.get_queue_metadata(queue_name)
@@ -238,7 +238,7 @@ Quando si chiama [receive_messages](/azure/developer/python/sdk/storage/azure-st
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Quando si chiama [get_Messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), per impostazione predefinita si ottiene il messaggio successivo nella coda. Un messaggio restituito da `get_messages` diventa invisibile a qualsiasi altro elemento di codice che legge i messaggi di questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
+Quando si chiama [get_Messages](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-), per impostazione predefinita si ottiene il messaggio successivo nella coda. Un messaggio restituito da `get_messages` diventa invisibile a qualsiasi altro elemento di codice che legge i messaggi di questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche [delete_message](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-message-queue-name--message-id--pop-receipt--timeout-none-).
 
 ```python
 messages = queue_service.get_messages(queue_name)
@@ -260,7 +260,7 @@ Nell'esempio di codice seguente viene usato il [`receive_messages`](/azure/devel
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Nell'esempio di codice seguente viene usato il [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) metodo per ottenere 16 messaggi in una sola chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
+Nell'esempio di codice seguente viene usato il [`get_messages`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#get-messages-queue-name--num-messages-none--visibility-timeout-none--timeout-none-) metodo per ottenere 16 messaggi in una sola chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
 ```python
 messages = queue_service.get_messages(queue_name, num_messages=16, visibility_timeout=5*60)
@@ -282,7 +282,7 @@ Per eliminare una coda e tutti i messaggi che contiene, chiamare il [`delete_que
 
 # <a name="python-v2"></a>[Python V2](#tab/python2)
 
-Per eliminare una coda e tutti i messaggi che contiene, chiamare il [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2#delete-queue-queue-name--fail-not-exist-false--timeout-none-) metodo.
+Per eliminare una coda e tutti i messaggi che contiene, chiamare il [`delete_queue`](/azure/developer/python/sdk/storage/azure-storage-queue/azure.storage.queue.queueservice.queueservice?view=storage-py-v2&preserve-view=true#delete-queue-queue-name--fail-not-exist-false--timeout-none-) metodo.
 
 ```python
 print("Deleting queue: " + queue_name)

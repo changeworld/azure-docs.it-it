@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 02c3890a9aca03d9d79b55098297174401cab37d
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98537961"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598882"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -60,7 +60,7 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 
 ::: zone pivot="b2c-user-flow"
 
-## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurare un account Facebook come provider di identità
+## <a name="configure-facebook-as-an-identity-provider"></a>Configurare Facebook come provider di identità
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
 1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliere la directory che contiene il tenant.
@@ -70,25 +70,6 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 1. Per **ID client**, immettere l'ID app dell'applicazione Facebook creata in precedenza.
 1. Per **Segreto client** immettere il Segreto app annotato in precedenza.
 1. Selezionare **Salva**.
-
-::: zone-end
-
-::: zone pivot="b2c-custom-policy"
-
-## <a name="add-facebook-as-an-identity-provider"></a>Aggiungere Facebook come provider di identità
-
-1. Nel file `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** sostituire il valore di `client_id` con l'ID dell'applicazione Facebook:
-
-   ```xml
-   <TechnicalProfile Id="Facebook-OAUTH">
-     <Metadata>
-     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
-       <Item Key="client_id">00000000000000</Item>
-   ```
-
-::: zone-end
-
-::: zone pivot="b2c-user-flow"
 
 ## <a name="add-facebook-identity-provider-to-a-user-flow"></a>Aggiungere il provider di identità Facebook a un flusso utente 
 
@@ -103,6 +84,17 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurare un account Facebook come provider di identità
+
+1. Nel file `SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`** sostituire il valore di `client_id` con l'ID dell'applicazione Facebook:
+
+   ```xml
+   <TechnicalProfile Id="Facebook-OAUTH">
+     <Metadata>
+     <!--Replace the value of client_id in this technical profile with the Facebook app ID"-->
+       <Item Key="client_id">00000000000000</Item>
+   ```
 
 ## <a name="upload-and-test-the-policy"></a>Caricare e testare i criteri
 

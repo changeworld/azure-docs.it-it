@@ -4,16 +4,16 @@ description: Si creano un account di archiviazione e un contenitore nell'archivi
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 39b5a812c5f9b8e148b5180569af110c72e2c75b
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: b3bb8736eb7a8e24f47812fc4feecbf96628dfb6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544599"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599807"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Avvio rapido: Gestire i BLOB con Java v8 SDK
 
@@ -201,5 +201,5 @@ sourceFile.deleteOnExit();
 In questo articolo è stato descritto il trasferimento di file tra il disco locale e Archiviazione BLOB di Azure con Java. Per altre informazioni sull'uso di Java, passare al repository di codice sorgente GitHub.
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sulle API Java](/java/api/overview/azure/storage?view=azure-java-legacy)
+> [Informazioni di riferimento sulle API Java](/java/api/overview/azure/storage?view=azure-java-legacy&preserve-view=true)
 > [Esempi di codice per Java](../common/storage-samples-java.md)

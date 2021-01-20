@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 01/20/2021
 ms.author: tisande
-ms.openlocfilehash: 35232f95bc18432db05775807d95f23ceab66aea
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 09148e65e446d723fbfe7a54602db59ee0739f83
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333784"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599345"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Parole chiave in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -108,6 +108,73 @@ Le query con una funzione di sistema di aggregazione e una sottoquery con `DISTI
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 ```
 
+## <a name="like"></a>LIKE
+
+Restituisce un valore booleano a seconda se una stringa di caratteri specifica corrisponde a un modello specificato. Il modello può contenere caratteri specifici e caratteri jolly. È possibile scrivere query logicamente equivalenti usando la `LIKE` parola chiave o la funzione di sistema [RegexMatch](sql-query-regexmatch.md) . Si osserverà lo stesso utilizzo di indici indipendentemente da quello scelto. Pertanto, è consigliabile utilizzare `LIKE` se si preferisce la sintassi più che le espressioni regolari.
+
+> [!NOTE]
+> Poiché `LIKE` può utilizzare un indice, è necessario [creare un indice di intervallo](indexing-policy.md) per le proprietà che si desidera confrontare utilizzando `LIKE` .
+
+È possibile usare i caratteri jolly seguenti con LIKE:
+
+| Carattere jolly | Descrizione                                                  | Esempio                                     |
+| -------------------- | ------------------------------------------------------------ | ------------------------------------------- |
+| %                    | Qualsiasi stringa di zero o più caratteri                      | DOVE c. Description come "% SO% PS%"      |
+| _ (carattere di sottolineatura)     | Qualsiasi carattere singolo                                       | DOVE c. Description come "% SO_PS%"      |
+| [ ]                  | Qualsiasi carattere singolo compreso nell'intervallo ([a-f]) o nel set ([abcdef]) specificato. | DOVE c. Description come "% SO [t-z] PS%"  |
+| [^]                  | Qualsiasi carattere singolo non compreso nell'intervallo ([^ a-f]) o nel set ([^ abcdef]) specificato. | DOVE c. Description come "% SO [^ ABC] PS%" |
+
+
+### <a name="using-like-with-the--wildcard-character"></a>Utilizzo dell'operatore LIKE con il carattere jolly %
+
+Il `%` carattere corrisponde a qualsiasi stringa di zero o più caratteri. Inserendo ad esempio un oggetto `%` all'inizio e alla fine del modello, la query seguente restituisce tutti gli elementi con una descrizione che contiene `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "%fruit%"
+```
+
+Se è stato usato solo un `%` carattere all'inizio del modello, si restituiranno solo elementi con una descrizione avviata con `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE "fruit%"
+```
+
+
+### <a name="using-not-like"></a>Utilizzo di NOT LIKE
+
+Nell'esempio seguente vengono restituiti tutti gli elementi con una descrizione che non contiene `fruit` :
+
+```sql
+SELECT *
+FROM c
+WHERE c.description NOT LIKE "%fruit%"
+```
+
+### <a name="using-the-escape-clause"></a>Uso della clausola escape
+
+È possibile cercare i modelli che includono uno o più caratteri jolly usando la clausola ESCAPE. Se, ad esempio, si desidera cercare le descrizioni che contengono la stringa `20-30%` , non è possibile interpretare `%` come un carattere jolly.
+
+```sql
+SELECT *
+FROM c
+WHERE c.description LIKE '%20-30!%%' ESCAPE '!'
+```
+
+### <a name="using-wildcard-characters-as-literals"></a>Utilizzo di caratteri jolly come valori letterali
+
+È possibile racchiudere i caratteri jolly tra parentesi quadre per considerarli come caratteri letterali. Quando si racchiude un carattere jolly tra parentesi quadre, vengono rimossi tutti gli attributi speciali. Ecco alcuni esempi:
+
+| Modello           | Significato |
+| ----------------- | ------- |
+| LIKE "20-30 [%]" | 20-30%  |
+| LIKE "[_] n"     | _n      |
+| LIKE "[[]"    | [       |
+| LIKE "]"        | ]       |
+
 ## <a name="in"></a>IN
 
 Usare la parola chiave IN per verificare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, la query seguente restituisce tutti gli elementi della famiglia in cui `id` è `WakefieldFamily` o `AndersenFamily` .
@@ -167,4 +234,4 @@ I risultati sono:
 
 - [Introduzione](sql-query-getting-started.md)
 - [Join](sql-query-join.md)
-- [Sottoquery](sql-query-subquery.md)
+- [Sottoquery:](sql-query-subquery.md)

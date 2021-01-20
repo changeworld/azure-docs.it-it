@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperf-fy21q1, automl
-ms.openlocfilehash: f2170aad9bc0218d39244d08f5cc838235f8fee9
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9021d933e3808867ec784ad3c6d0f8810d608ea3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134365"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600074"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -65,7 +65,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 Il processo di Machine Learning automatizzato supporta dati presenti nel desktop locale o nel cloud, ad esempio Archiviazione BLOB di Azure. I dati possono essere letti in un **dataframe Pandas** o in un **TabularDataset di Azure Machine Learning**. [Altre informazioni sui set di dati](how-to-create-register-datasets.md).
 
-Requisiti per i dati di training:
+Requisiti per i dati di training in Machine Learning:
 - I dati devono essere in formato tabulare.
 - Il valore da stimare, la colonna di destinazione, deve essere presente nei dati.
 
@@ -96,9 +96,9 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## <a name="training-validation-and-test-data"></a>Dati di training, convalida e test
 
-È possibile specificare **set di training e di convalida** distinti direttamente nel `AutoMLConfig` costruttore. Altre informazioni su [come configurare le suddivisioni dei dati e la convalida incrociata](how-to-configure-cross-validation-data-splits.md) per gli esperimenti AutoML. 
+È possibile specificare i **dati di training e i set di dati di convalida** distinti direttamente nel `AutoMLConfig` costruttore. Altre informazioni su [come configurare le suddivisioni dei dati e la convalida incrociata](how-to-configure-cross-validation-data-splits.md) per gli esperimenti AutoML. 
 
-Se non si specifica in modo esplicito `validation_data` un `n_cross_validation` parametro o, AutoML applica le tecniche predefinite per determinare la modalità di esecuzione della convalida. Questa determinazione dipende dal numero di righe nel set di dati assegnato al `training_data` parametro. 
+Se non si specifica in modo esplicito `validation_data` un `n_cross_validation` parametro o, Machine Learning applica le tecniche predefinite per determinare la modalità di esecuzione della convalida. Questa determinazione dipende dal numero di righe nel set di dati assegnato al `training_data` parametro. 
 
 |&nbsp;Dimensioni dati di training &nbsp;| Tecnica di convalida |
 |---|-----|

@@ -3,19 +3,22 @@ title: Preparare e personalizzare un'immagine del disco rigido virtuale Master-A
 description: Come preparare, personalizzare e caricare un'immagine master di un desktop virtuale Windows in Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/14/2019
+ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9e4cb4fe8a701600290d24c055e2be5187a711c5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023395"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602383"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
 Questo articolo illustra come preparare un'immagine del disco rigido virtuale (VHD) master per il caricamento in Azure, tra cui come creare macchine virtuali (VM) e installare software su di essi. Le istruzioni riguardano una configurazione specifica di Desktop virtuale Windows che può essere usata con processi esistenti dell'organizzazione.
+
+>[!IMPORTANT]
+>Si consiglia di usare un'immagine dalla raccolta immagini di Azure. Tuttavia, se è necessario usare un'immagine personalizzata, assicurarsi che nel dispositivo non sia già installato l'agente desktop virtuale di WIndows. L'utilizzo di un'immagine personalizzata con l'agente desktop virtuale di Windows può causare problemi con l'immagine.  
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 

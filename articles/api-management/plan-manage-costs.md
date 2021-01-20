@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: api-management
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 90449a29f58f31827e2a36b5f6c41563e88ac032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 799ef33e78737bfd2e1c1a1cfa4991f44c8f5ec0
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251353"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599649"
 ---
 # <a name="plan-and-manage-costs-for-api-management"></a>Pianificare e gestire i costi per gestione API
 
@@ -49,7 +49,7 @@ Per ulteriori informazioni sui prezzi e sulle funzionalità, vedere:
 
 ### <a name="using-monetary-credit-with-api-management"></a>Uso del credito monetario con gestione API
 
-È possibile pagare gli addebiti per gestione API con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per gestione API con il prepagamento di Azure (in precedenza denominato impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 

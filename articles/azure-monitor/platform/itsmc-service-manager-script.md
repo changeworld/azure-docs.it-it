@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: d620df0b55b024cd5d7c25ea17d9b09c5c5da8ff
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 3d9360b167a246e257d8c0b2ec4cb88f1ae39dcd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722879"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600152"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creare un'app Web di Service Manager con lo script automatizzato
 
@@ -317,6 +317,11 @@ if(!$err)
 }
 ```
 
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di Service Manager distribuzione di app Web
+
+-   In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre delle autorizzazioni per creare/distribuire le risorse nella sottoscrizione.
+-   Se si ottiene un **riferimento a un oggetto non impostato sull'istanza di un errore di oggetto** quando si esegue lo [script](itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente** .
+-   Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, verificare che il provider di risorse richiesto sia registrato nella sottoscrizione. Se non è registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È anche possibile crearla quando si [Crea la connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) nel portale di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 [Configurare la connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).
-

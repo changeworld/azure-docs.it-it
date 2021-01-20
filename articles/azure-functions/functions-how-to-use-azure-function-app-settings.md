@@ -5,12 +5,12 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.custom: cc996988-fb4f-47, devx-track-azurecli
-ms.openlocfilehash: 70aecc2613fbe21d34e36f9487d7ba383e140bc8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 4db6abeb3e6f4a07780268a6455177e0ca237205
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217363"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598481"
 ---
 # <a name="manage-your-function-app"></a>Gestire l'app per le funzioni 
 
@@ -84,7 +84,7 @@ Quando si sviluppa un'app per le funzioni in locale, è necessario mantenere le 
 
 ## <a name="hosting-plan-type"></a>Tipo di piano di hosting
 
-Quando si crea un'app per le funzioni, si crea anche un piano di hosting del servizio app in cui viene eseguita l'app. Un piano può avere una o più app per le funzioni. La funzionalità, la scalabilità e i prezzi delle funzioni dipendono dal tipo di piano. Per altre informazioni, vedere la [pagina dei prezzi di funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/).
+Quando si crea un'app per le funzioni, si crea anche un piano di hosting in cui viene eseguita l'app. Un piano può avere una o più app per le funzioni. La funzionalità, la scalabilità e i prezzi delle funzioni dipendono dal tipo di piano. Per altre informazioni, vedere [Opzioni di hosting di funzioni di Azure](functions-scale.md).
 
 È possibile determinare il tipo di piano usato dall'app per le funzioni dalla portale di Azure o usando l'interfaccia della riga di comando di Azure o le API di Azure PowerShell. 
 
@@ -131,6 +131,75 @@ Nell'esempio precedente sostituire `<RESOURCE_GROUP>` e `<FUNCTION_APP_NAME>` co
 
 ---
 
+## <a name="plan-migration"></a>Pianificare la migrazione
+
+È possibile usare i comandi dell'interfaccia della riga di comando di Azure per migrare un'app per le funzioni tra un piano a consumo e un piano Premium in Windows I comandi specifici dipendono dalla direzione della migrazione. La migrazione diretta a un piano dedicato (servizio app) non è attualmente supportata.
+
+Questa migrazione non è supportata in Linux.
+
+### <a name="consumption-to-premium"></a>Consumo a Premium
+
+Usare la procedura seguente per eseguire la migrazione da un piano a consumo a un piano Premium in Windows:
+
+1. Eseguire il comando seguente per creare un nuovo piano di servizio app (Premium elastico) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente.  
+
+    ```azurecli-interactive
+    az functionapp plan create --name <NEW_PREMIUM_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP> --location <REGION> --sku EP1
+    ```
+
+1. Eseguire il comando seguente per eseguire la migrazione dell'app per le funzioni esistente al nuovo piano Premium
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_PREMIUM_PLAN>
+    ```
+
+1. Se il piano dell'app per le funzioni di consumo precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo avere verificato che la migrazione a quella nuova è stata completata. Eseguire il comando seguente per ottenere un elenco di tutti i piani a consumo nel gruppo di risorse.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='Y'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+    È possibile eliminare tranquillamente il piano con zero siti, ovvero quello da cui è stata eseguita la migrazione.
+
+1. Eseguire il comando seguente per eliminare il piano a consumo da cui è stata eseguita la migrazione.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <CONSUMPTION_PLAN_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+### <a name="premium-to-consumption"></a>Premium a consumo
+
+Usare la procedura seguente per eseguire la migrazione da un piano Premium a un piano a consumo in Windows:
+
+1. Eseguire il comando seguente per creare una nuova app per le funzioni (consumo) nella stessa area e nello stesso gruppo di risorse dell'app per le funzioni esistente. Questo comando crea anche un nuovo piano a consumo in cui viene eseguita l'app per le funzioni.
+
+    ```azurecli-interactive
+    az functionapp create --resource-group <MY_RESOURCE_GROUP> --name <NEW_CONSUMPTION_APP_NAME> --consumption-plan-location <REGION> --runtime dotnet --functions-version 3 --storage-account <STORAGE_NAME>
+    ```
+
+1. Eseguire il comando seguente per eseguire la migrazione dell'app per le funzioni esistente al nuovo piano a consumo.
+
+    ```azurecli-interactive
+    az functionapp update --name <MY_APP_NAME> --resource-group <MY_RESOURCE_GROUP> --plan <NEW_CONSUMPTION_PLAN>
+    ```
+
+1. Eliminare l'app per le funzioni creata nel passaggio 1, poiché è necessario solo il piano creato per eseguire l'app per le funzioni esistente.
+
+    ```azurecli-interactive
+    az functionapp delete --name <NEW_CONSUMPTION_APP_NAME> --resource-group <MY_RESOURCE_GROUP>
+    ```
+
+1. Se il piano dell'app per le funzioni Premium precedente non è più necessario, eliminare il piano dell'app per le funzioni originale dopo avere verificato che la migrazione a quella nuova è stata completata. Si noti che se il piano non viene eliminato, verrà comunque addebitato il piano Premium. Eseguire il comando seguente per ottenere un elenco di tutti i piani Premium nel gruppo di risorse.
+
+    ```azurecli-interactive
+    az functionapp plan list --resource-group <MY_RESOURCE_GROUP> --query "[?sku.family=='EP'].{PlanName:name,Sites:numberOfSites}" -o table
+    ```
+
+1. Eseguire il comando seguente per eliminare il piano Premium di cui è stata eseguita la migrazione.
+
+    ```azurecli-interactive
+    az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
+    ```
 
 ## <a name="platform-features"></a>Funzionalità della piattaforma
 

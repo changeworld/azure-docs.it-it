@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 433875e52e77a8992197b47fe0424cd0b7e9f50c
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628289"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600399"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
 
@@ -73,7 +73,7 @@ Le offerte della macchina virtuale richiedono almeno un piano. Un piano definisc
 Le macchine virtuali sono completamente abilitate per il commercio, usando modelli di licenza con pagamento in base al consumo o bring your own License (BYOL). Microsoft gestisce la transazione commerciale e addebita il costo al cliente per conto dell'utente. Si ottiene il vantaggio di usare la relazione di pagamento preferita tra il cliente e Microsoft, compresi eventuali contratti Enterprise. Per ulteriori informazioni, vedere la pagina relativa alle [funzionalità Transact del Marketplace commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Gli impegni monetari associati a un Enterprise Agreement possono essere usati per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza software.
+> Il prepagamento di Azure (in precedenza denominato impegno monetario) associato a un Enterprise Agreement può essere usato per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza software.
 
 ### <a name="licensing-options"></a>Opzioni di licenza
 

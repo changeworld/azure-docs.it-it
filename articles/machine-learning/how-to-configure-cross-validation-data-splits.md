@@ -11,16 +11,16 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 8e749e5f6ea6bcf76a1b4f143bce03ceb41cbb07
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573293"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599058"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida trasversale in Machine Learning automatizzato
 
-Questo articolo illustra le diverse opzioni per la configurazione delle suddivisioni dei dati di Training/convalida e la convalida incrociata per gli esperimenti di Machine Learning automatizzati, i ML automatizzati.
+In questo articolo vengono illustrate le diverse opzioni per la configurazione dei dati di training e la suddivisione dei dati di convalida con le impostazioni di convalida incrociata per gli esperimenti automatici di Machine Learning, Automated ML.
 
 In Azure Machine Learning, quando si usa Machine Learning Machine Learning per compilare più modelli ML, ogni esecuzione figlio deve convalidare il modello correlato calcolando la metrica di qualità per tale modello, ad esempio l'accuratezza o l'AUC ponderata. Queste metriche vengono calcolate confrontando le stime effettuate con ogni modello con etichette reali dalle osservazioni precedenti nei dati di convalida. [Altre informazioni su come vengono calcolate le metriche in base al tipo di convalida](#metric-calculation-for-cross-validation-in-machine-learning). 
 
@@ -29,7 +29,7 @@ Gli esperimenti di Machine Learning automatici eseguono automaticamente la conva
 Per un'esperienza di basso livello o senza codice, vedere [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
 > [!NOTE]
-> Lo Studio supporta attualmente la suddivisione dei dati di Training/convalida e le opzioni di convalida incrociata, ma non supporta la specifica di singoli file di dati per il set di convalida. 
+> Lo Studio supporta attualmente la suddivisione dei dati di training e convalida, nonché le opzioni di convalida incrociata, ma non supporta la specifica di singoli file di dati per il set di convalida. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Per questo articolo è necessario,
 
 * Conoscenza della suddivisione dei dati di Training/convalida e della convalida incrociata come concetti di machine learning. Per una spiegazione di alto livello,
 
-    * [Informazioni sui set di training, convalida e test in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
+    * [Informazioni sui dati di training, convalida e test in Machine Learning](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7)
 
     * [Comprendere la convalida incrociata in Machine Learning](https://towardsdatascience.com/understanding-cross-validation-419dbd47e9bd) 
 
@@ -62,7 +62,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-Se non si specifica in modo esplicito un `validation_data` `n_cross_validation` parametro o, AutoML applica le tecniche predefinite in base al numero di righe nel set di dati singolo `training_data` fornito:
+Se non si specifica in modo esplicito un `validation_data` parametro o, Machine Learning `n_cross_validation` applica le tecniche predefinite in base al numero di righe fornite nel singolo set di dati `training_data` :
 
 |&nbsp;Dimensioni dati di training &nbsp;| Tecnica di convalida |
 |---|-----|
@@ -71,7 +71,7 @@ Se non si specifica in modo esplicito un `validation_data` `n_cross_validation` 
 
 ## <a name="provide-validation-data"></a>Fornire dati di convalida
 
-In questo caso, è possibile iniziare con un singolo file di dati e suddividerlo in set di training e di convalida oppure è possibile fornire un file di dati separato per il set di convalida. In entrambi i casi, il `validation_data` parametro nell' `AutoMLConfig` oggetto assegna i dati da utilizzare come set di convalida. Questo parametro accetta solo i set di dati sotto forma di un set di dati [Azure Machine Learning](how-to-create-register-datasets.md) o di un dataframe Pandas.   
+In questo caso, è possibile iniziare con un singolo file di dati e suddividerlo in set di dati di training e di dati di convalida oppure è possibile fornire un file di dati separato per il set di convalida. In entrambi i casi, il `validation_data` parametro nell' `AutoMLConfig` oggetto assegna i dati da utilizzare come set di convalida. Questo parametro accetta solo i set di dati sotto forma di un set di dati [Azure Machine Learning](how-to-create-register-datasets.md) o di un dataframe Pandas.   
 
 Nell'esempio di codice seguente viene definita in modo esplicito la parte dei dati forniti in `dataset` da utilizzare per il training e la convalida.
 

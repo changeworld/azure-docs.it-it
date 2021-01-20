@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 9291689b362b5cbe651a72220196dd30b40745cf
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9a43318ed935dd1e71b6da75c9f078fbebbd29eb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540620"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599029"
 ---
 # <a name="error-investigation-using-the-dashboard"></a>Analisi degli errori tramite il dashboard
 
@@ -53,6 +53,9 @@ Il dashboard è suddiviso in quattro parti:
     ![Screenshot che mostra i computer interessati.](media/itsmc-resync-servicenow/itsm-dashboard-impacted-comp.png)
 3. Stato del connettore: il grafico e la tabella riportata di seguito contengono messaggi sullo stato del connettore. Facendo clic sul grafico sulle righe della tabella, è possibile ottenere altre informazioni sui messaggi dello stato del connettore.
     La tabella contiene un numero limitato di righe se si desidera visualizzare tutti gli elenchi su cui è possibile fare clic su "Visualizza tutto".
+
+    È possibile visualizzare i dettagli relativi ai messaggi nella [tabella.](itsmc-dashboard-errors.md)
+
     ![Screenshot che mostra lo stato del connettore.](media/itsmc-resync-servicenow/itsm-dashboard-connector-status.png)
 4. Regole di avviso: le tabelle contengono le informazioni sul numero di regole di avviso rilevate.
     Facendo clic sulle righe delle tabelle, è possibile ottenere altre informazioni sulle regole rilevate.

@@ -9,12 +9,12 @@ ms.date: 11/13/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 14e53efb7be9eef3ca388e6524e5ffd678671cd0
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 0bad4637f13bbcf02047416499e4f82fdc53eb4f
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251642"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601305"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Pianificare e gestire i costi per l'archiviazione BLOB di Azure
 
@@ -41,7 +41,7 @@ Usa il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/cal
 4. Modificare le opzioni rimanenti per visualizzarne gli effetti sulla stima.
 
    > [!NOTE]
-   > È possibile pagare gli addebiti per l'archiviazione BLOB di Azure con il credito dell'impegno monetario di Azure Enterprise Agreement. Tuttavia, non è possibile usare il credito dell'impegno monetario per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+   > È possibile pagare gli addebiti per l'archiviazione BLOB di Azure con il credito prepagato di Azure (denominato in precedenza impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="optimize-costs"></a>Ottimizzare i costi
 

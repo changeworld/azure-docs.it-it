@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.openlocfilehash: 4fea027663b55e87822eae1fd0cdb2d67dbc630b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/19/2021
+ms.openlocfilehash: a03ad1eb893c97671d7ab60cc38708115a73d260
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170825"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602397"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -109,7 +109,7 @@ La risposta di questi metodi contiene anche la [velocità effettiva minima di pr
 Il numero effettivo minimo di ur/sec può variare a seconda della configurazione dell'account. Ma in genere è il massimo:
 
 * 400 UR/sec 
-* Archiviazione corrente in GB * 10 UR/s (a meno che il contenitore o il database non contenga più di 1 TB di dati, vedere il [programma di archiviazione elevata/velocità effettiva ridotta](#high-storage-low-throughput-program))
+* Archiviazione corrente in GB * 10 UR/sec (questo vincolo può essere rilassato in alcuni casi, vedere il [programma High storage/low throughput](#high-storage-low-throughput-program))
 * Unità richiesta/sec più alta con provisioning nel database o nel contenitore/100
 
 ### <a name="changing-the-provisioned-throughput"></a>Modifica della velocità effettiva con provisioning
@@ -139,7 +139,7 @@ Come descritto nella sezione precedente relativa alla [velocità effettiva con p
 
 Questo può costituire un problema in situazioni in cui è necessario archiviare grandi quantità di dati, ma con requisiti di velocità effettiva bassi rispetto. Per gestire meglio questi scenari, Azure Cosmos DB ha introdotto un **programma "High storage/low throughput"** che riduce il vincolo di Ur/s per GB per gli account idonei.
 
-Attualmente è necessario disporre di almeno 1 contenitore o database con velocità effettiva condivisa contenente più di 1 TB di dati nell'account per essere idonei. Per partecipare al programma e valutare l'idoneità completa, è sufficiente compilare [questo sondaggio](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Il team di Azure Cosmos DB sarà quindi seguito e procederà con l'onboarding.
+Per partecipare al programma e valutare l'idoneità completa, è sufficiente compilare [questo sondaggio](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Il team di Azure Cosmos DB sarà quindi seguito e procederà con l'onboarding.
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 Questa tabella mostra un confronto tra il provisioning della velocità effettiva standard (manuale) in un database e in un contenitore. 

@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: f92b766fc1122456fda70d2deff81fa80a02d159
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250112"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598714"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Pianificare e gestire i costi per il servizio app Azure
 
@@ -61,7 +61,7 @@ Dopo aver eliminato app Azure risorse del servizio, è possibile che le risorse 
 
 ### <a name="using-monetary-credit-with-azure-app-service"></a>Uso del credito monetario con il servizio app Azure
 
-È possibile pagare gli addebiti per app Azure servizio con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per app Azure servizio con il credito di Azure prepagato (in precedenza denominato impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="estimate-costs"></a>Stimare i costi
 

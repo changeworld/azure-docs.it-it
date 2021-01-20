@@ -4,12 +4,12 @@ description: Informazioni su come usare le identità gestite in Azure Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 12/16/2020
-ms.openlocfilehash: 948a189e1c6e03efca046b6d43dddcaf3d141957
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: fe11170b1cdf18aacf832f4c8171bfc082339395
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607287"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599602"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usare identità gestite in Azure Kubernetes Service
 
@@ -34,7 +34,7 @@ Le *identità gestite* sono essenzialmente un wrapper per le entità servizio e 
 
 AKS usa diverse identità gestite per i servizi e i componenti aggiuntivi predefiniti.
 
-| Identità                       | Name    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
+| Identità                       | Nome    | Caso d'uso | Autorizzazioni predefinite | Porta la tua identità
 |----------------------------|-----------|----------|
 | Piano di controllo | non visibile | Usato dai componenti del piano di controllo AKS per gestire le risorse del cluster, inclusi i bilanciamenti del carico in ingresso e gli indirizzi IP pubblici gestiti da AKS e le operazioni di scalabilità automatica del cluster | Ruolo Collaboratore per il gruppo di risorse nodo | supportato
 | Kubelet | Nome del cluster AKS-agentpool | Autenticazione con Container Registry di Azure (ACR) | NA (per kubernetes v 1.15 +) | Attualmente non supportato
@@ -131,7 +131,7 @@ Aggiornare l'identità assegnata dall'utente:
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity --assign-identity <UserAssignedIdentityResourceID> 
 ```
 > [!NOTE]
-> Quando le identità assegnate dal sistema o assegnate dall'utente sono state aggiornate a identità gestite, eseguire un `az nodepool upgrade --node-image-only` nei nodi per completare l'aggiornamento all'identità gestita.
+> Quando le identità assegnate dal sistema o assegnate dall'utente sono state aggiornate a identità gestite, eseguire un `az aks nodepool upgrade --node-image-only` nei nodi per completare l'aggiornamento all'identità gestita.
 
 ## <a name="bring-your-own-control-plane-mi"></a>Usa il tuo piano di controllo
 Un'identità del piano di controllo personalizzato consente di concedere l'accesso all'identità esistente prima della creazione del cluster. Questa funzionalità consente scenari come l'uso di un VNET personalizzato o outboundType di UDR con un'identità gestita creata in precedenza.

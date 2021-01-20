@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 01/18/2021
-ms.openlocfilehash: f802292d9723179b36d5291993bd4e07487fe6a8
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567391"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600987"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Risolvere i problemi di certificazione della macchina virtuale
 
@@ -238,7 +238,7 @@ Se l'immagine non è installata con una delle seguenti versioni del kernel, aggi
 - CVE-2019-11478
 - CVE-2019-11479
 
-|Famiglia del sistema operativo|Version|Kernel|
+|Famiglia del sistema operativo|Versione|Kernel|
 |---|---|---|
 |Ubuntu|14.04 LTS|4.4.0-151| 
 ||14.04 LTS|4.15.0-1049- \* -Azure|
@@ -321,7 +321,7 @@ Vedere la tabella seguente per eventuali problemi che si verificano quando si sc
 |Nome VHD non valido|Verificare che esistano caratteri speciali, ad esempio un segno di percentuale `%` o virgolette `"` , nel nome del disco rigido virtuale.|Rinominare il file VHD rimuovendo i caratteri speciali.|
 |
 
-## <a name="first-1-mb-2048-sectors-each-sector-of-512-bytes-partition"></a>Primi 1 MB (2048 settori, ogni settore di 512 byte) partizione
+## <a name="first-partition-starts-at-1-mb-2048-sectors"></a>La prima partizione inizia a 1 MB (settori 2048)
 
 Se si [Crea un'immagine personalizzata](azure-vm-create-using-own-image.md), assicurarsi che i primi 2048 settori (1 MB) del disco del sistema operativo siano vuoti. In caso contrario, la pubblicazione avrà esito negativo. Questo requisito è applicabile solo al disco del sistema operativo, non ai dischi dati. Se si compila l'immagine [da una base approvata](azure-vm-create-using-approved-base.md), è possibile ignorare questo requisito.
 

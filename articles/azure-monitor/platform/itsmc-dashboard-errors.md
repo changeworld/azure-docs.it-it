@@ -6,26 +6,26 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5e12ca3bf626ae212f44fe0378ccb6649738753c
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 7240c1b0f19dc49ab4130c5ee2516dcfefb2e2c2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562856"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602189"
 ---
 # <a name="errors-in-the-connector-status"></a>Errori nello stato del connettore
 
-Nell'elenco stato connettore è possibile trovare errori che consentono di correggere il connettore ITSM.
+Nell'elenco stato connettore è possibile trovare errori che consentono di risolvere i problemi nel connettore ITSM.
 
 ## <a name="status-common-errors"></a>Errori comuni di stato
 
-in questa sezione è possibile trovare l'errore comune che è possibile trovare nell'elenco di stato e come risolverlo:
+in questa sezione è possibile trovare gli errori comuni presentati nella sezione stato connettore e come risolverli:
 
-*  **Errore**: "risposta imprevista da ServiceNow insieme al codice di stato di esito positivo. Risposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "risultato": [{"transform_map": "evento imprevisto di OMS", "tabella": "evento imprevisto", "stato": "errore", "error_message": "{record di destinazione non trovato | Tabella non valida | Tabella di staging non valida "}"
+* **Errore**: "risposta imprevista da ServiceNow insieme al codice di stato di esito positivo. Risposta: {"import_set": "{import_set_id}", "staging_table": "x_mioms_microsoft_oms_incident", "risultato": [{"transform_map": "evento imprevisto di OMS", "tabella": "evento imprevisto", "stato": "errore", "error_message": "{record di destinazione non trovato | Tabella non valida | Tabella di staging non valida "}"
 
     **Motivo**: tale errore viene restituito da ServiceNow quando:
-    * Uno script personalizzato distribuito nell'istanza di ServiceNow fa sì che gli eventi imprevisti vengano ignorati.
-    * Il codice "app di OMS Integrator" è stato modificato sul lato ServiceNow, ad esempio lo script OnBefore.
+  * Uno script personalizzato distribuito nell'istanza di ServiceNow fa sì che gli eventi imprevisti vengano ignorati.
+  * Il codice "app di OMS Integrator" è stato modificato sul lato ServiceNow, ad esempio lo script OnBefore.
 
     **Soluzione**: disabilitare tutti gli script personalizzati o le modifiche del codice del percorso di importazione dati.
 
@@ -43,7 +43,7 @@ in questa sezione è possibile trovare l'errore comune che è possibile trovare 
 
 * **Errore**: "ServiceDeskHttpBadRequestException: StatusCode = 429"
 
-    **Motivo**: i limiti di velocità ServiceNow sono troppo bassi.
+    **Motivo**: i limiti di velocità ServiceNow sono troppo alti o bassi.
 
     **Soluzione**: aumentare o annullare i limiti di velocità nell'istanza di ServiceNow, come illustrato [qui](https://docs.servicenow.com/bundle/london-application-development/page/integrate/inbound-rest/task/investigate-rate-limit-violations.html).
 
@@ -57,14 +57,14 @@ in questa sezione è possibile trovare l'errore comune che è possibile trovare 
 
     **Motivo**: il connettore ITSM è stato eliminato.
 
-    **Soluzione**: il connettore ITSM è stato eliminato, ma sono ancora presenti azioni ITSM definite per usarlo. Per risolvere il problema sono disponibili due opzioni:
+    **Soluzione**: il connettore ITSM è stato eliminato ma vi sono ancora gruppi di azioni ITSM definiti. Per risolvere il problema sono disponibili due opzioni:
   * Trovare e disabilitare o eliminare tale azione
   * [Riconfigurare il gruppo di azioni per l'](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts) uso di un connettore ITSM esistente.
   * [Creare un nuovo connettore ITSM](./itsmc-definition.md#create-an-itsm-connection) e [riconfigurare il gruppo di azioni per usarlo](itsmc-definition.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="ui-common-errors"></a>Errori comuni dell'interfaccia utente
 
-* **Errore**: "si è verificato un problema. Non è stato possibile ottenere i dettagli della connessione. "
+* **Errore**: "si è verificato un problema. Non è stato possibile ottenere i dettagli della connessione. " Questo errore viene visualizzato quando il cliente definisce il gruppo di azioni ITSM.
 
     **Motivo**: il connettore ITSM appena creato ha ancora completato la sincronizzazione iniziale.
 

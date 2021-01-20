@@ -13,12 +13,12 @@ ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: fd836afd6b8574be71ad22d26d67f49971834a88
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6616b0573019703f287d3be521569f5953aeb032
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064726"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600292"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inizializzare applicazioni client usando MSAL.NET
 Questo articolo descrive l'inizializzazione di applicazioni client pubbliche e riservate con Microsoft Authentication Library per .NET (MSAL.NET).  Per altre informazioni sui tipi di applicazioni client e sulle opzioni di configurazione dell'applicazione, vedere la [Panoramica](msal-client-applications.md).
@@ -96,7 +96,7 @@ Nei frammenti di codice che usano i generatori di applicazioni, `.With` è possi
 
 I modificatori che è possibile impostare in un client pubblico o in un generatore di applicazioni client riservate sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |`.WithAuthority()` 7 sostituzioni | Imposta l'autorità predefinita dell'applicazione su un'autorità di Azure AD, con la possibilità di scegliere il cloud di Azure, i destinatari, il tenant (ID tenant o nome di dominio) o fornire direttamente l'URI dell'autorità.|
 |`.WithAdfsAuthority(string)` | Imposta l'autorità predefinita dell'applicazione in modo che sia un'autorità ADFS.|
@@ -115,7 +115,7 @@ I modificatori che è possibile impostare in un client pubblico o in un generato
 
 I modificatori che è possibile impostare in un generatore di applicazioni client pubbliche in Novell. iOS sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Solo Novell. iOS**: imposta il gruppo di sicurezza della catena di chiavi iOS (per la persistenza della cache).|
 
@@ -123,7 +123,7 @@ I modificatori che è possibile impostare in un generatore di applicazioni clien
 
 I modificatori che è possibile impostare in un generatore di applicazioni client riservate sono:
 
-|Modificatore | Description|
+|Modificatore | Descrizione|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Imposta il certificato che identifica l'applicazione con Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Imposta il segreto client (password dell'app) che identifica l'applicazione con Azure AD.|
@@ -166,3 +166,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .WithB2CAuthority("https://fabrikamb2c.b2clogin.com/tfp/{tenant}/{PolicySignInSignUp}")
         .Build();
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Dopo aver inizializzato l'applicazione client, l'attività successiva consiste nell'aggiungere il supporto per l'accesso utente, l'accesso API autorizzato o entrambi.
+
+La documentazione dello scenario dell'applicazione fornisce indicazioni per la firma di un utente e l'acquisizione di un token di accesso per accedere a un'API per conto dell'utente:
+
+- [App Web per l'accesso degli utenti: accesso e disconnessione](scenario-web-app-sign-user-sign-in.md)
+- [App Web che chiama le API Web: acquisire un token](scenario-web-app-call-api-acquire-token.md)

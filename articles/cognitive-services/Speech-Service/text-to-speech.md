@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: sintesi vocale
-ms.openlocfilehash: af0c9338cb9661402c3a76bab55f34b01304c7b6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 54db794d4e9cf0cd2a049a865f2e7bb52698a4bd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024518"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599542"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
@@ -39,7 +39,7 @@ In questa panoramica vengono illustrati i vantaggi e le funzionalità del serviz
 
 * Voci neurali: le reti neurali profonde vengono usate per superare i limiti della sintesi vocale tradizionale per quanto riguarda lo stress e l'intonazione nel linguaggio parlato. Le stime e la sintesi vocale di prosodia vengono eseguite simultaneamente e ciò comporta output più fluidi e con suono naturale. Le voci neurali possono essere usate per rendere le interazioni con chatbot e gli assistenti vocali più naturali e accattivanti, convertire testi digitali come e-book in Audiolibri e migliorare i sistemi di navigazione in auto. Con la prosodia naturale e una chiara articolazione di parole, le voci neurali riducono significativamente la fatica in ascolto quando si interagisce con i sistemi di intelligenza artificiale. Per un elenco completo delle voci neurali, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
-* Speech Synthesis Markup Language (SSML): linguaggio di markup basato su XML usato per personalizzare gli output di riconoscimento vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere [SSML](speech-synthesis-markup.md).
+* Modificare gli stili di pronuncia con SSML-Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML usato per personalizzare gli output di sintesi vocale. Con SSML è possibile modificare il pitch, aggiungere pause, migliorare la pronuncia, accelerare o rallentare la velocità di pronuncia, aumentare o diminuire il volume e attribuire più voci a un singolo documento. Vedere le [procedure](speech-synthesis-markup.md) per la regolazione degli stili di pronuncia.
 
 ## <a name="get-started"></a>Introduzione
 

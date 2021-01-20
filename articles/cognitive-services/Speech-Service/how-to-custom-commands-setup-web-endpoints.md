@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e50d7aba5cc5b3d5d620d844cc9ad169ad8b3bf6
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025892"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602164"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
@@ -23,7 +23,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 
 - Configurare gli endpoint Web in un'applicazione di comandi personalizzati
 - Chiamare gli endpoint Web in un'applicazione di comandi personalizzati
-- Ricevere la risposta degli endpoint Web 
+- Ricevere la risposta degli endpoint Web
 - Integrare la risposta degli endpoint Web in un payload JSON personalizzato, inviarla e visualizzarla in un'applicazione client Speech SDK della piattaforma UWP in C#
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -35,7 +35,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 
 ## <a name="setup-web-endpoints"></a>Configurare gli endpoint Web
 
-1. Aprire l'applicazione di comandi personalizzati creata in precedenza. 
+1. Aprire l'applicazione di comandi personalizzati creata in precedenza.
 1. Passare a "Web endpoint" (Endpoint Web) e fare clic su "New web endpoint" (Nuovo endpoint Web).
 
    > [!div class="mx-imgBorder"]
@@ -61,7 +61,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 1. Passare al comando **TurnOnOff**, selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
 1. In **Nuova azione - Tipo** selezionare **Call web endpoint** (Chiamata a endpoint Web)
 1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState**, ovvero l'endpoint Web creato.  
-1. In **Configurazione** inserire i valori seguenti: 
+1. In **Configurazione** inserire i valori seguenti:
    > [!div class="mx-imgBorder"]
    > ![Parametri dell'azione di chiamata a endpoint Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -75,16 +75,16 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
     > - I parametri di query suggeriti sono necessari solo per l'endpoint di esempio
 
 1. Per **In caso di esito positivo - Action to execute** (Azione da eseguire) selezionare **Send speech response** (Invia risposta vocale).
-    
+
     In **Simple editor** (Editor semplice) immettere `{SubjectDevice} is {OnOff}`.
-   
+
    > [!div class="mx-imgBorder"]
    > ![Screenshot che mostra la schermata in seguito alla riuscita-azione da eseguire.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
    | Azione da eseguire | Send speech response (Invia risposta vocale) | Azione da eseguire in caso di esito positivo della richiesta effettuata all'endpoint Web |
-   
+
    > [!NOTE]
    > - È anche possibile accedere direttamente ai campi della risposta HTTP usando `{YourWebEndpointName.FieldName}`. ad esempio `{UpdateDeviceState.TV}`
 
@@ -101,7 +101,7 @@ Questo articolo illustra come configurare gli endpoint Web in un'applicazione di
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` è facoltativo. Se non si vuole esporre alcun messaggio di errore, è possibile rimuoverlo.
-   > - All'interno dell'endpoint di esempio viene restituita la risposta HTTP con messaggi dettagliati per gli errori comuni, ad esempio parametri di intestazione mancanti. 
+   > - All'interno dell'endpoint di esempio viene restituita la risposta HTTP con messaggi dettagliati per gli errori comuni, ad esempio parametri di intestazione mancanti.
 
 ### <a name="try-it-out-in-test-portal"></a>Provare nel portale di test
 - Risposta in caso di esito positivo\
@@ -119,7 +119,7 @@ In [Procedura: Inviare attività all'applicazione client (anteprima)](./how-to-c
 Tuttavia, nella maggior parte dei casi è preferibile che l'attività venga inviata all'applicazione client solo quando la chiamata all'endpoint Web ha esito positivo. In questo esempio si tratta del momento in cui lo stato del dispositivo viene aggiornato correttamente.
 
 1. Eliminare l'azione **Send activity to client** (Invia attività a client) aggiunta in precedenza.
-1. Modificare la chiamata all'endpoint Web: 
+1. Modificare la chiamata all'endpoint Web:
     1. In **Configurazione** assicurarsi che l'opzione **Parametri di query** sia impostata su `item={SubjectDevice}&&value={OnOff}`
     1. Per **In caso di esito positivo** impostare **Action to execute** (Azione da eseguire) su **Send activity to client** (Invia attività a client)
     1. Copiare il codice JSON seguente in **Activity Content** (Contenuto attività)
@@ -133,7 +133,6 @@ Tuttavia, nella maggior parte dei casi è preferibile che l'attività venga invi
       }
     }
    ```
-   
 Ora l'attività viene inviata al client solo quando la richiesta all'endpoint Web ha esito positivo.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Creare oggetti visivi per sincronizzare lo stato del dispositivo
@@ -147,7 +146,7 @@ Aggiungere il codice XML seguente a `MainPage.xaml` sopra il blocco `"EnableMicr
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Sincronizzare lo stato del dispositivo 
+### <a name="sync-device-state"></a>Sincronizzare lo stato del dispositivo
 
 In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell'**intestazione** nell'endpoint Web di comandi personalizzati
 
@@ -157,7 +156,7 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
     //Create an HTTP client object
     var httpClient = new HttpClient();
 
-    //Add a user-agent header to the GET request. 
+    //Add a user-agent header to the GET request.
     var your_app_name = "<your-app-name>";
 
     Uri endpoint = new Uri("https://webendpointexample.azurewebsites.net/api/DeviceState");

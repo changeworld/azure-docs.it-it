@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/30/2020
-ms.openlocfilehash: 72068e5b0af35adce4188a8922cb2415d1f5f71f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 9b74f6e82e39955554c13f6ce3490bc3c22c2b98
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250727"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600454"
 ---
 # <a name="plan-and-manage-costs-for-azure-expressroute"></a>Pianificare e gestire i costi per Azure ExpressRoute
 
@@ -76,9 +76,9 @@ Quando si crea un circuito ExpressRoute, è possibile scegliere di creare un gat
 
 Se si dispone di un gateway ExpressRoute dopo l'eliminazione del circuito ExpressRoute, il costo verrà ancora addebitato fino a quando non viene eliminato.
 
-### <a name="using-monetary-credit"></a>Uso del credito monetario
+### <a name="using-azure-prepayment-credit"></a>Uso del credito con pagamento anticipato di Azure
 
-È possibile pagare gli addebiti per ExpressRoute con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per ExpressRoute con il credito di prepagamento di Azure (denominato in precedenza impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 

@@ -2,20 +2,20 @@
 title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339411"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598825"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
-Le *firme di accesso condiviso* sono il meccanismo di sicurezza principale per la messaggistica del bus di servizio. Questo articolo illustra le firme di accesso condiviso, il loro funzionamento e come usarle in modo indipendente dalla piattaforma.
+Questo articolo illustra le *firme di accesso condiviso* , il loro funzionamento e come usarle in modo indipendente dalla piattaforma.
 
-La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in base alle regole di autorizzazione configurate in uno spazio dei nomi o in un'entità di messaggistica (inoltro, coda o argomento). Una regola di autorizzazione ha un nome, è associata a diritti specifici e include una coppia di chiavi di crittografia. Usare il nome e la chiave della regola tramite l'SDK del bus di servizio o nel proprio codice per generare un token di firma di accesso condiviso. Un client può quindi passare il token al bus di servizio per dimostrare l'autorizzazione per l'operazione richiesta.
+La firma di accesso condiviso consente inoltre l'accesso al bus di servizio in base alle regole di autorizzazione Sono configurati in uno spazio dei nomi o in un'entità di messaggistica (coda o argomento). Una regola di autorizzazione ha un nome, è associata a diritti specifici e include una coppia di chiavi di crittografia. Usare il nome e la chiave della regola tramite l'SDK del bus di servizio o nel proprio codice per generare un token di firma di accesso condiviso. Un client può quindi passare il token al bus di servizio per dimostrare l'autorizzazione per l'operazione richiesta.
 
 > [!NOTE]
 > Il bus di servizio di Azure supporta l'autorizzazione dell'accesso a uno spazio dei nomi del bus di servizio e alle relative entità usando Azure Active Directory (Azure AD). L'autorizzazione di utenti o applicazioni che usano il token OAuth 2,0 restituito da Azure AD offre sicurezza e facilità d'uso superiori rispetto alle firme di accesso condiviso (SAS). Con Azure AD, non è necessario archiviare i token nel codice e rischiare potenziali vulnerabilità della sicurezza.
@@ -36,12 +36,12 @@ Il token [Firma di accesso condiviso](/dotnet/api/microsoft.servicebus.sharedacc
 
 Ogni spazio dei nomi e ogni entità del bus di servizio prevede un criterio di autorizzazione dell'accesso condiviso costituito da regole. I criteri a livello di spazio dei nomi si applicano a tutte le entità in esso incluse, indipendentemente dalle specifiche configurazioni dei criteri.
 
-Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: **nome** , **ambito** e **diritti**. Il **nome** è un nome univoco all'interno dell’ambito. L'ambito è abbastanza semplice: è l'URI della risorsa in questione. Per uno spazio dei nomi del bus di servizio, l'ambito è il nome di dominio completo (FQDN), ad esempio `https://<yournamespace>.servicebus.windows.net/`.
+Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: **nome**, **ambito** e **diritti**. Il **nome** è un nome univoco all'interno dell’ambito. L'ambito è abbastanza semplice: è l'URI della risorsa in questione. Per uno spazio dei nomi del bus di servizio, l'ambito è il nome di dominio completo (FQDN), ad esempio `https://<yournamespace>.servicebus.windows.net/`.
 
 I diritti assegnati dalla regola del criterio possono essere una combinazione di:
 
 * "Send": conferisce il diritto di inviare messaggi all'entità
-* "Listen": conferisce il diritto di ascolto (inoltro) o di ricezione (coda, sottoscrizioni) e di tutta la gestione correlata ai messaggi
+* ' Listen ': conferisce il diritto di ricevere (coda, sottoscrizioni) e la gestione dei messaggi correlati
 * "Manage": conferisce il diritto di gestire la topologia dello spazio dei nomi, incluse la creazione e l'eliminazione di entità
 
 Il diritto "Manage" include i diritti "Send" e "Receive".
@@ -55,16 +55,16 @@ Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticam
 ## <a name="best-practices-when-using-sas"></a>Procedure consigliate per l'uso di SAS
 Quando si utilizzano le firme di accesso condiviso nell'applicazione, è necessario essere consapevoli di due rischi potenziali:
 
-- Se una firma di accesso condiviso viene persa, può essere usata da chiunque lo ottenga, che può potenzialmente compromettere le risorse di hub eventi.
+- Se si verifica una perdita di firma di accesso condiviso, può essere usata da chiunque lo ottenga, che può potenzialmente compromettere le risorse del bus di servizio.
 - Se una firma di accesso condiviso fornita a un'applicazione client scade e l'applicazione non è in grado di recuperare una nuova firma di accesso condiviso dal servizio, le funzionalità dell'applicazione potrebbero essere ostacolate.
 
 Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti relativi all'utilizzo di firme di accesso condiviso:
 
-- Chiedere **ai client di rinnovare automaticamente la firma di accesso condiviso se necessario** : i client devono rinnovare la firma di accesso condiviso prima della scadenza. Se la firma di accesso condiviso è concepita per essere usata per un numero ridotto di operazioni immediate e di breve durata che dovrebbero essere completate entro il periodo di scadenza, potrebbe non essere necessario perché la firma di accesso condiviso non è prevista per il rinnovo. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. La considerazione chiave consiste nel bilanciare la necessità che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) con la necessità di garantire che il client stia richiedendo un rinnovo tempestivo (per evitare l'intralcio dovuto alla scadenza della firma di accesso condiviso prima di un rinnovo positivo).
-- **Prestare attenzione all'ora di inizio della** firma di accesso condiviso: se si imposta l'ora di inizio per la firma di accesso condiviso su **adesso** , a causa dello sfasamento di clock (differenze nell'ora corrente in base a computer diversi), è possibile che gli errori vengano osservati in modo intermittente per i primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. In alternativa, non impostare alcun valore, in modo da renderlo immediatamente valido in tutti i casi. Lo stesso vale in genere anche per l'ora di scadenza. Tenere presente che è possibile osservare fino a 15 minuti di sfasamento dell'orologio in una delle due direzioni di qualsiasi richiesta. 
-- **Essere specifici della risorsa a cui accedere** : una procedura di sicurezza consigliata consiste nel fornire all'utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Consente inoltre di ridurre il danno se una firma di accesso condiviso viene compromessa perché la firma di accesso condiviso ha meno energia nelle mani di un utente malintenzionato.
+- Chiedere **ai client di rinnovare automaticamente la firma di accesso condiviso se necessario**: i client devono rinnovare la firma di accesso condiviso prima della scadenza. Se la firma di accesso condiviso è concepita per essere usata per un numero ridotto di operazioni immediate e di breve durata che dovrebbero essere completate entro il periodo di scadenza, potrebbe non essere necessario perché la firma di accesso condiviso non è prevista per il rinnovo. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. La considerazione chiave consiste nel bilanciare la necessità che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) con la necessità di garantire che il client stia richiedendo un rinnovo tempestivo (per evitare l'intralcio dovuto alla scadenza della firma di accesso condiviso prima di un rinnovo positivo).
+- **Prestare attenzione all'ora di inizio della** firma di accesso condiviso: se si imposta l'ora di inizio per la firma di accesso condiviso su **adesso**, a causa dello sfasamento di clock (differenze nell'ora corrente in base a computer diversi), è possibile che gli errori vengano osservati in modo intermittente per i primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. In alternativa, non impostare alcun valore, in modo da renderlo immediatamente valido in tutti i casi. Lo stesso vale in genere anche per l'ora di scadenza. Tenere presente che è possibile osservare fino a 15 minuti di sfasamento dell'orologio in una delle due direzioni di qualsiasi richiesta. 
+- **Essere specifici della risorsa a cui accedere**: una procedura di sicurezza consigliata consiste nel fornire all'utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Consente inoltre di ridurre il danno se una firma di accesso condiviso viene compromessa perché la firma di accesso condiviso ha meno energia nelle mani di un utente malintenzionato.
 - **Non usare sempre** la firma di accesso condiviso: talvolta i rischi associati a una particolare operazione sull'hub eventi superano i vantaggi della firma di accesso condiviso. Per queste operazioni, creare un servizio di livello intermedio che scrive nell'hub eventi dopo la convalida, l'autenticazione e il controllo delle regole business.
-- **Usare sempre https** : usare sempre HTTPS per creare o distribuire una firma di accesso condiviso. Se una firma di accesso condiviso viene passata tramite HTTP e intercettata, un utente malintenzionato che esegue un attacco man-in-the-Middle può leggere la firma di accesso condiviso e quindi usarla come l'utente previsto, potenzialmente compromettendo i dati sensibili o consentendo il danneggiamento dei dati da parte di utenti malintenzionati.
+- **Usare sempre https**: usare sempre HTTPS per creare o distribuire una firma di accesso condiviso. Se una firma di accesso condiviso viene passata tramite HTTP e intercettata, un utente malintenzionato che esegue un attacco man-in-the-Middle può leggere la firma di accesso condiviso e quindi usarla come l'utente previsto, potenzialmente compromettendo i dati sensibili o consentendo il danneggiamento dei dati da parte di utenti malintenzionati.
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
 
@@ -72,7 +72,7 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-In questa figura le regole di autorizzazione *manageRuleNS* , *sendRuleNS* e *listenRuleNS* si applicano sia alla coda Q1 che all'argomento T1, mentre *listenRuleQ* e *sendRuleQ* si applicano solo alla coda Q1 e *sendRuleT* si applica solo all'argomento T1.
+In questa figura le regole di autorizzazione *manageRuleNS*, *sendRuleNS* e *listenRuleNS* si applicano sia alla coda Q1 che all'argomento T1, mentre *listenRuleQ* e *sendRuleQ* si applicano solo alla coda Q1 e *sendRuleT* si applica solo all'argomento T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generare un token della firma di accesso condiviso
 
@@ -82,18 +82,34 @@ Qualsiasi client che abbia accesso al nome di una regola di autorizzazione e a u
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`** -Istante di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
-* **`skn`** : Nome della regola di autorizzazione.
-* **`sr`** : URI della risorsa a cui si accede.
-* **`sig`** Firma.
+- `se`: istante di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
+- `skn`: nome della regola di autorizzazione.
+- `sr` -URI con codifica URL della risorsa a cui si accede.
+- `sig` -Firma HMACSHA256 codificata in URL. Il calcolo dell'hash è simile allo pseudo codice seguente e restituisce Base64 di output binario non elaborato.
 
-`signature-string`È l'hash SHA-256 calcolato sull'URI della risorsa ( **ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
+    ```
+    urlencode(base64(hmacsha256(urlencode('https://<yournamespace>.servicebus.windows.net/') + "\n" + '<expiry instant>', '<signing key>')))
+    ```
 
-Il calcolo del codice hash è simile allo pseudo codice seguente e restituisce un valore hash a 256 bit o 32 byte.
+Di seguito è riportato un esempio di codice C# per la generazione di un token SAS:
 
+```csharp
+private static string createToken(string resourceUri, string keyName, string key)
+{
+    TimeSpan sinceEpoch = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    var week = 60 * 60 * 24 * 7;
+    var expiry = Convert.ToString((int)sinceEpoch.TotalSeconds + week);
+    string stringToSign = HttpUtility.UrlEncode(resourceUri) + "\n" + expiry;
+    HMACSHA256 hmac = new HMACSHA256(Encoding.UTF8.GetBytes(key));
+    var signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+    var sasToken = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}&skn={3}", HttpUtility.UrlEncode(resourceUri), HttpUtility.UrlEncode(signature), expiry, keyName);
+    return sasToken;
+}
 ```
-SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
-```
+
+> [!IMPORTANT]
+> Per esempi di generazione di un token SAS usando linguaggi di programmazione diversi, vedere [generare un token SAS](/rest/api/eventhub/generate-sas-token). 
+
 
 Il token contiene i valori non hash in modo che il destinatario possa ricalcolare il codice hash con gli stessi parametri, verificando che l'autorità di certificazione sia in possesso di una chiave di firma valida.
 
@@ -105,8 +121,6 @@ La regola di autorizzazione di accesso condiviso usata per la firma deve essere 
 
 Un token di firma di accesso condiviso è valido per tutte le risorse precedute dal prefisso `<resourceURI>` usato in `signature-string`.
 
-> [!NOTE]
-> Per esempi di generazione di un token SAS usando linguaggi di programmazione diversi, vedere [generare un token SAS](/rest/api/eventhub/generate-sas-token). 
 
 ## <a name="regenerating-keys"></a>Rigenerazione delle chiavi
 
@@ -174,7 +188,7 @@ sendClient.Send(helloMessage);
 
 È anche possibile utilizzare direttamente il provider di token per il rilascio di token da passare ad altri client.
 
-Le stringhe di connessione possono includere un nome di regola ( *SharedAccessKeyName* ) e una chiave di regola ( *SharedAccessKey* ) o un token rilasciato in precedenza ( *SharedAccessSignature* ). Quando sono presenti nella stringa di connessione passata a un costruttore o a un metodo factory che accetta una stringa di connessione, il provider di token di firma di accesso condiviso viene automaticamente creato e popolato.
+Le stringhe di connessione possono includere un nome di regola (*SharedAccessKeyName*) e una chiave di regola (*SharedAccessKey*) o un token rilasciato in precedenza (*SharedAccessSignature*). Quando sono presenti nella stringa di connessione passata a un costruttore o a un metodo factory che accetta una stringa di connessione, il provider di token di firma di accesso condiviso viene automaticamente creato e popolato.
 
 Si noti che per usare l'autorizzazione con firma di accesso condiviso con gli inoltri del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate nello spazio dei nomi del bus di servizio. Se si crea in modo esplicito un inoltro per lo spazio dei nomi ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) con un oggetto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), è possibile impostare le regole della firma di accesso condiviso solo per tale inoltro. Per usare l'autorizzazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate in uno spazio dei nomi o in un argomento del bus di servizio.
 
@@ -252,7 +266,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Il metodo `PutCbsToken()` riceve la *connessione* , vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken* , ovvero il token di firma di accesso condiviso da inviare.
+Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken*, ovvero il token di firma di accesso condiviso da inviare.
 
 > [!NOTE]
 > È importante che la connessione venga creata con il **meccanismo di autenticazione SASL impostato su ANONYMOUS** (e non sul valore predefinito PLAIN con nome utente e password usato quando non è necessario inviare il token SAS).
@@ -271,7 +285,7 @@ La tabella seguente illustra i diritti di accesso necessari per l'esecuzione di 
 
 | Operazione | Attestazione necessaria | Ambito attestazione |
 | --- | --- | --- |
-| **Spazio dei nomi** | | |
+| **Namespace** | | |
 | Configurare le regole di autorizzazione relative a uno spazio dei nomi |Gestione |Qualsiasi indirizzo dello spazio dei nomi |
 | **Service Registry** | | |
 | Enumerare i criteri privati |Gestione |Qualsiasi indirizzo dello spazio dei nomi |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6c4f23406c97d647002fbb3ab4a3544866303cf4
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6f74f973abc33d809624bd8abd5a514a52ccfe70
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051344"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602709"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Connetti le app per le funzioni in Azure per l'elaborazione dei dati
 
@@ -63,24 +63,20 @@ Per usare l'SDK, è necessario includere nel progetto i pacchetti seguenti. È p
 A tale scopo, fare clic con il pulsante destro del mouse sul progetto e scegliere _Gestisci pacchetti NuGet_ dall'elenco. Quindi, nella finestra che viene visualizzata selezionare scheda _Sfoglia_ e cercare i pacchetti seguenti. Selezionare _Installa_ e _accettare_ il contratto di licenza per installare i pacchetti.
 
 * `Azure.DigitalTwins.Core`
-* `Azure.Identity` 
-
-Per la configurazione della pipeline di Azure SDK per configurare correttamente per funzioni di Azure, sono necessari anche i pacchetti seguenti. Ripetere lo stesso processo precedente per installare tutti i pacchetti.
-
+* `Azure.Identity`
 * `System.Net.Http`
-* `Azure.Core.Pipeline`
+* `Azure.Core`
 
 **Opzione 2. Aggiungere pacchetti utilizzando `dotnet` lo strumento da riga di comando:**
 
 In alternativa, è possibile usare i `dotnet add` comandi seguenti in uno strumento da riga di comando:
-```cmd/sh
-dotnet add package System.Net.Http
-dotnet add package Azure.Core.Pipeline
-```
 
-Quindi, aggiungere altre due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Usare i collegamenti seguenti per passare ai pacchetti in NuGet, dove è possibile trovare i comandi della console (inclusa l'interfaccia della riga di comando di .NET) per aggiungere la versione più recente di ogni pacchetto al progetto.
- * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
- * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core
+dotnet add package Azure.Identity
+dotnet add package System.Net.Http
+dotnet add package Azure.Core
+```
 
 Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _Function.cs_ in cui è presente il codice di esempio e aggiungere le istruzioni _using_ seguenti alla funzione. 
 
@@ -154,7 +150,7 @@ Usare il comando seguente per creare l'identità gestita dal sistema. Prendere n
 ```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Usare il valore _PrincipalId_ nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo di _proprietario dei dati di Azure Digital gemelli_ per l'istanza di Digital gemelli di Azure.
+Usare il valore _principalId_ nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo _Azure Digital Twins Owner_ (Proprietario di Gemelli digitali di Azure) per l'istanza di Gemelli digitali di Azure.
 
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"

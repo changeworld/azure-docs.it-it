@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 43bf70d66c42bc0ecd5e26e4cc724456bd4bf84e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896923"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601147"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browser supportati dall'SDK Web
 
@@ -36,11 +36,11 @@ Azure Maps Web SDK supporta i seguenti browser desktop:
 - Microsoft Edge (versione corrente e precedente)
 - Google Chrome (versione corrente e precedente)
 - Mozilla Firefox (versione corrente e precedente)
-- Apple Safari (Mac OS X) (versione corrente e precedente)
+- Apple Safari (macOS X) (versione corrente e precedente)
 
 Vedere anche [browser legacy di destinazione](#Target-Legacy-Browsers) più avanti in questo articolo.
 
-## <a name="mobile"></a>Mobile
+## <a name="mobile"></a>Dispositivi mobili
 
 Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
@@ -59,11 +59,11 @@ Azure Maps Web SDK supporta i seguenti browser per dispositivi mobili:
 
 In Node.js sono supportati anche i moduli Web SDK seguenti:
 
-- Modulo dei servizi[documentation](how-to-use-services-module.md)(  |  [modulo NPM](https://www.npmjs.com/package/azure-maps-rest)della documentazione)
+- Modulo dei servizi[](how-to-use-services-module.md)(  |  [modulo NPM](https://www.npmjs.com/package/azure-maps-rest)della documentazione)
 
 ## <a name="target-legacy-browsers"></a><a name="Target-Legacy-Browsers"></a>Browser legacy di destinazione
 
-È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Ecco un esempio:
+È possibile scegliere come destinazione browser meno recenti che non supportano WebGL o con supporto limitato. In questi casi, è consigliabile usare i servizi di Azure Maps insieme a un controllo mappa open source, ad esempio un [opuscolo](https://leafletjs.com/). Di seguito è riportato un esempio che usa il plug-in per i volantini open source di [Azure Maps](https://github.com/azure-samples/azure-maps-leaflet).
 
 <br/>
 
@@ -71,6 +71,7 @@ In Node.js sono supportati anche i moduli Web SDK seguenti:
 Vedere il <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>volantino sulle mappe di Azure e il volantino</a> di Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+Esempi di codice aggiuntivi che usano mappe di Azure in un opuscolo sono disponibili [qui](https://azuremapscodesamples.azurewebsites.net/?search=leaflet).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

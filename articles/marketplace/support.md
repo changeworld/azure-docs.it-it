@@ -1,18 +1,18 @@
 ---
-title: Ottenere supporto per il portale del Marketplace commerciale nel centro per i partner
-description: Informazioni sulle opzioni di supporto in Partner Center, incluso come archiviare una richiesta di supporto.
+title: Ottenere supporto per il programma Commercial Marketplace nel centro per i partner
+description: Informazioni sulle opzioni di supporto per il programma Commercial Marketplace nel centro per i partner, incluso come archiviare una richiesta di supporto.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/14/2020
-ms.openlocfilehash: 8979a94ee63ef50c0a3abacd5ab3515226200131
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.date: 01/19/2020
+ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183439"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602592"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
@@ -22,60 +22,43 @@ Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare
 - Se si è un editore e si è rilevato un problema di sicurezza con un'applicazione in esecuzione in Azure, vedere [come registrare un ticket di supporto per gli eventi di sicurezza](/azure/security/fundamentals/event-support-ticket). Gli editori sono tenuti a segnalare tempestivamente a Microsoft qualsiasi evento sospetto di violazione della sicurezza, inclusi incidenti di sicurezza e vulnerabilità relativamente al software Azure Marketplace e alle offerte di servizi.
 - Se si è un editore e si ha una domanda relativa all'app o al servizio, esaminare le opzioni di supporto seguenti.
 
-## <a name="support-options-for-publishers"></a>Opzioni di supporto per gli editori
+## <a name="get-help-or-open-a-support-ticket"></a>Ottenere assistenza o aprire un ticket di supporto
 
-1. Accedere al [programma Commercial Marketplace nel centro per i partner](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) con l'account aziendale. se non è ancora stato fatto, sarà necessario [creare un account del centro](partner-center-portal/create-account.md)per i partner.
+1. Accedere con il proprio account aziendale. Se non è ancora stato fatto, sarà necessario [creare un account del centro](partner-center-portal/create-account.md)per i partner.
 
-2. Nel menu superiore sul lato destro della pagina selezionare l'icona **supporto** .
+1. Nel menu in alto a destra nella pagina selezionare l'icona del **supporto** . Il riquadro **Guida e supporto** viene visualizzato sul lato destro della pagina.
 
-3. Il riquadro **Guida e supporto** verrà visualizzato dal lato destro della pagina.
+1. Per informazioni sul Marketplace commerciale, selezionare **Marketplace commerciale**.
 
    ![Menu a discesa supporto](./media/support/commercial-marketplace-support-pane.png)
 
-    In alternativa, passare al riquadro **Home page** e selezionare **Guida e supporto tecnico**.
+1. Nella casella **Riepilogo problema** immettere una breve descrizione del problema.
 
-   ![Guida e supporto tecnico dalla Home page](./media/support/homepage-help-support.png)
+1. Nella casella **tipo di problema** eseguire una delle operazioni seguenti:
 
-4. Selezionare la **[documentazione](../index.yml)** per esaminare le risposte complete a domande e risorse.
+    - **Opzione 1**: immettere parole chiave quali Marketplace, app di Azure, offerta SaaS, gestione degli account, gestione dei lead, problema di distribuzione, pagamento o migrazione dell'offerta di co-selling. Quindi selezionare un tipo di problema dall'elenco consigliato visualizzato.
 
-5. Per rispondere alle domande, selezionare **[Forum della community del partner Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** per rispondere alle proprie domande sfruttando la conoscenza di altri editori Microsoft.
+    - **Opzione 2**: selezionare **Esplora argomenti** dall'elenco **categoria** e quindi selezionare **Marketplace commerciale**. Selezionare quindi l' **argomento** e il **sottoargomento** appropriati.
 
-6. Selezionare la **[Guida aggiuntiva](https://aka.ms/marketplacepublishersupport)** per aprire un nuovo ticket di **richiesta di supporto** .  
+1. Dopo aver trovato l'argomento desiderato, selezionare **verifica soluzioni**.
 
-## <a name="how-to-open-a-support-ticket"></a>Come aprire un ticket di supporto
+    ![Passaggio successivo](./media/support/next-step.png)
 
-A questo punto si è pronti per aprire un ticket di supporto nella schermata **Guida e supporto tecnico** .
+Vengono visualizzate le opzioni seguenti:
 
-![Guida e supporto](./media/support/help-and-support.png)
+- Per selezionare un argomento diverso, fare clic su **Seleziona un problema diverso**.
+- Per risolvere il problema, esaminare i passaggi e i documenti consigliati, se disponibili.
 
->[!Note]
->Se si è connessi al centro per i partner, si riceverà un'esperienza migliore con il supporto tecnico.
+    ![Soluzioni consigliate](./media/support/recommended-solutions.png)
 
-**Opzione 1:** Immettere parole chiave quali Marketplace, app di Azure, offerta SaaS, gestione degli account, gestione dei lead, problema di distribuzione, pagamento e così via.
-
-**Opzione 2:** Sfogliare gli argomenti-> selezionare **categoria** = Commercial marketplace-> selezionare l' **argomento** appropriato, quindi eseguire un **subargomento**.
-
-Dopo aver trovato l'argomento desiderato, selezionare **verifica soluzioni**.
-
-![Passaggio successivo](./media/support/next-step.png)
-
-Verranno rese disponibili le opzioni seguenti:
-
-- Per selezionare un argomento diverso, selezionare un altro collegamento all'argomento in **problema selezionato**.
-- Esaminare la descrizione del problema, se disponibile.  È il testo visualizzato sopra i **passaggi consigliati**.
-- Esaminare le **procedure consigliate**, se disponibili.
-- Esaminare i **documenti consigliati**, se disponibili.
-
-![Soluzioni consigliate](./media/support/recommended-solutions.png)
-
-Se non è possibile trovare la risposta nelle **soluzioni consigliate**, selezionare **Fornisci i dettagli del problema**. Completare tutti i campi obbligatori per velocizzare il processo di risoluzione, quindi selezionare **Invia**.
+Se non è possibile trovare la risposta nella guida automatica, selezionare **Fornisci i dettagli del problema**. Completare tutti i campi obbligatori per velocizzare il processo di risoluzione, quindi selezionare **Invia**.
 
 >[!Note]
->Se non è stato effettuato l'accesso al centro per i partner e l'argomento richiede l'autenticazione, verrà richiesto di effettuare l'accesso prima di procedere.  Per gli argomenti pubblici, l'autenticazione non è obbligatoria.
+>Se non è stato effettuato l'accesso a partner Center, potrebbe essere necessario eseguire l'accesso prima di poter creare un ticket.
 
 ## <a name="track-your-existing-support-requests"></a>Tenere traccia delle richieste di supporto esistenti
 
-Per esaminare tutti i ticket aperti e chiusi, passare a **Marketplace commerciale** sulla barra di spostamento a sinistra e quindi selezionare **supporto**.
+Per esaminare i ticket aperti e chiusi, nel menu di spostamento a sinistra selezionare supporto per **Marketplace commerciali**  >  .
 
 ## <a name="record-issue-details-with-a-har-file"></a>Registrare i dettagli del problema con un file HAR
 

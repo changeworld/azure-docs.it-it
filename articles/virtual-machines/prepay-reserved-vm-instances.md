@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: e513bdaa7efa2f1d0f18ff3548d9abfdc5e085d7
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: ffc9c8f3143824dd099aaad3e743398eea4e0f43
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007399"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602532"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Risparmiare sui costi con le istanze di VM riservate di Azure
 
@@ -105,9 +105,9 @@ Se si dispone di un contratto Enterprise, è possibile utilizzare l' **opzione A
 
 | Campo      | Descrizione|
 |------------|--------------|
-|Sottoscrizione|La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
-|Scope       |L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.</li><li>**Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.</li><li>**Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
-|Area    |Area di Azure coperta dalla prenotazione.|    
+|Subscription|La sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto di servizio Microsoft o una sottoscrizione singola con tariffe a consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Gli addebiti vengono dedotti dal saldo prepagato di Azure (in precedenza denominato impegno monetario), se disponibile, o addebitato come eccedenza. Per una sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|    
+|Ambito       |L'ambito della prenotazione può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: <ul><li>**Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.</li><li>**Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.</li><li>**Condiviso**: lo sconto della prenotazione viene applicato alle risorse corrispondenti nelle sottoscrizioni idonee incluse nel contesto di fatturazione. Per i clienti con contratto Enterprise, il contesto di fatturazione è la registrazione. Per le singole sottoscrizioni che prevedono tariffe con pagamento in base al consumo, l'ambito di fatturazione è costituito da tutte le sottoscrizioni idonee create dall'amministratore account.</li></ul>|
+|Region    |Area di Azure coperta dalla prenotazione.|    
 |Dimensioni macchina virtuale     |Le dimensioni delle istanze della macchina virtuale.|
 |Ottimizza per     |Per impostazione predefinita, è selezionata la flessibilità delle dimensioni delle istanze di VM. Fare clic su **Impostazioni avanzate** per modificare il valore di flessibilità delle dimensioni dell'istanza per applicare lo sconto di prenotazione ad altre macchine virtuali nello stesso [gruppo di dimensioni della macchina virtuale](reserved-vm-instance-size-flexibility.md). La priorità di capacità assegna la capacità del data center dando priorità alle distribuzioni. Offre una maggiore fiducia nella capacità di avviare le istanze di macchine virtuali quando necessario. La priorità di capacità è disponibile solo quando l'ambito della prenotazione è sottoscrizione singola. |
 |Termine        |Un anno o tre anni. Esiste anche un termine di 5 anni disponibile solo per le macchine virtuali HBv2.|
@@ -136,7 +136,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 - Area della prenotazione esistente
 - SKU
 - Quantità
-- Duration
+- Durata
 
 Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 

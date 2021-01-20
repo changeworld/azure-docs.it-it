@@ -5,19 +5,24 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 1/19/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: f4e93deb40799cbcc9c86aff454e250f1ab71712
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 777c78047ec9bf195c5e0c823aa0edfb287b3998
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94963335"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598312"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemi noti delle VM serie H e serie N
 
 Questo articolo descrive i problemi e le soluzioni più comuni quando si [usano le VM](../../sizes-hpc.md) HPC e GPU serie [N e N](../../sizes-gpu.md) .
+
+## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rete accelerata su HB, HC, HBv2 e NDv2
+
+La [funzionalità rete accelerata di Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) è ora disponibile in RDMA e InfiniBand con supporto per le macchine virtuali con supporto per IOV e le dimensioni [HB](../../hb-series.md), [HC](../../hc-series.md), [HBv2](../../hbv2-series.md) e [NDv2](../../ndv2-series.md). Questa funzionalità consente ora un miglioramento in tutto (fino a 30 Gbps) e le latenze sulla rete Ethernet di Azure. Sebbene questo sia separato dalle funzionalità di RDMA sulla rete InfiniBand, alcune modifiche della piattaforma per questa funzionalità possono influisca sul comportamento di alcune implementazioni MPI quando i processi runing su InfiniBand. In particolare, l'interfaccia InfiniBand in alcune macchine virtuali può avere un nome leggermente diverso (mlx5_1 rispetto ai mlx5_0 precedenti) e potrebbe essere necessario modificare le righe di comando MPI soprattutto quando si usa l'interfaccia UCX (in genere con OpenMPi e HPC-X).
+Altre informazioni su questo articolo sono disponibili in questo [articolo di Blog](https://techcommunity.microsoft.com/t5/azure-compute/accelerated-networking-on-hb-hc-and-hbv2/ba-p/2067965) con le istruzioni su come risolvere eventuali problemi osservati.
 
 ## <a name="infiniband-driver-installation-on-n-series-vms"></a>Installazione del driver InfiniBand nelle macchine virtuali serie N
 

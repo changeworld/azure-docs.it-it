@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: sql-database
 ms.topic: how-to
 ms.date: 01/15/2021
-ms.openlocfilehash: 19531b9d0019fb000efe5aeb2d1b9fed34ce23f1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d36166a67e683dd7f15eef18d589562b39ba568
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253422"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600626"
 ---
 # <a name="plan-and-manage-costs-for-azure-sql-database"></a>Pianificare e gestire i costi per il database SQL di Azure
 
@@ -67,7 +67,7 @@ Il database SQL di Azure, fatta eccezione per i server, viene fatturato in base 
 
 ### <a name="using-monetary-credit-with-azure-sql-database"></a>Uso del credito monetario con il database SQL di Azure
 
-È possibile pagare gli addebiti per il database SQL di Azure con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per il database SQL di Azure con il credito prepagato di Azure (in precedenza denominato impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Esaminare i costi stimati nel portale di Azure
 

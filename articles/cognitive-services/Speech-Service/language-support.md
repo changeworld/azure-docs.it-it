@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 3f8e497fb21b3fac6a2bc5842e6bc56c47444c8b
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: e51354b1c2905d0532ce4eb49236dda8550f98a4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572494"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600079"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -128,6 +128,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 ## <a name="text-to-speech"></a>Sintesi vocale
 
 Sia Microsoft Speech SDK che le API REST supportano le voci seguenti, ognuna delle quali supporta una lingua e un dialetto specifici, identificate dalle impostazioni locali. È anche possibile ottenere un elenco completo di lingue e voci supportate per ogni area/endpoint specifico tramite l'API [voices/list](rest-text-to-speech.md#get-a-list-of-voices). 
+
+Per informazioni su come configurare e modificare gli stili di pronuncia, incluse le voci neurali, vedere il linguaggio di [markup per la](speech-synthesis-markup.md#adjust-speaking-styles) sintesi vocale.
 
 > [!IMPORTANT]
 > I prezzi variano per voci standard, personalizzate e neurali. Per informazioni aggiuntive, visitare la pagina [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -286,8 +288,6 @@ Sotto le voci neurali sono disponibili in anteprima pubblica.
 > Le voci nell'anteprima pubblica sono disponibili solo in 3 aree del servizio: Stati Uniti orientali, Europa occidentale e Asia sudorientale.
 
 Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#standard-and-neural-voices).
-
-Per informazioni su come configurare e modificare le voci neurali, ad esempio gli stili di pronuncia, vedere [linguaggio di markup sintesi vocale](speech-synthesis-markup.md#adjust-speaking-styles).
 
 > [!IMPORTANT]
 > La voce `en-US-JessaNeural` è stata modificata in `en-US-AriaNeural`. Se in precedenza si usava "Jessa", convertirla in "Aria".

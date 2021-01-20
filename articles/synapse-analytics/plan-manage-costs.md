@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: ab772043c681684836e3c488419584d94dd0b45a
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220644"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599051"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Pianificare e gestire i costi per Azure sinapsi Analytics
 
@@ -48,9 +48,9 @@ Dopo aver eliminato le risorse di Azure sinapsi, le risorse seguenti potrebbero 
 
 - Data Lake Storage Gen2
 
-### <a name="using-monetary-credit-with-azure-synapse"></a>Uso del credito monetario con la sinapsi di Azure 
+### <a name="using-azure-prepayment-credit-with-azure-synapse"></a>Uso del credito con pagamento anticipato di Azure con la sinapsi di Azure 
 
-È possibile pagare gli addebiti per le sinapsi di Azure con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per le sinapsi di Azure con il credito prepagato di Azure (in precedenza denominato impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="review-estimated-costs-in-the-azure-portal"></a>Esaminare i costi stimati nel portale di Azure
 

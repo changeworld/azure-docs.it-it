@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d602687ea623b90ea5dcae4ece09a1ccc438ea57
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822387"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600384"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -160,7 +160,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 
 **Carte di credito e fattura mensile**: i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Crediti gratuiti e impegno monetario**: alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
+**Crediti gratuiti e prepagamento di Azure** : alcuni clienti scelgono di pagare in anticipo Azure con prepagamento di Azure (in precedenza denominato impegno monetario) nell'Enterprise Agreement o hanno fornito crediti gratuiti per l'uso con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 
 **Fatturazione e raccolte** : la fatturazione delle licenze software dell'editore viene presentata usando il metodo di fatturazione selezionato dal cliente e segue la sequenza temporale per la fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
 

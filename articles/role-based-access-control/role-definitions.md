@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/18/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: bc3640fecbe1138e46fd0d36975691740bc669dd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: f6ae9ff27e773c36626812387b1284d660cbf39d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369260"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602467"
 ---
 # <a name="understand-azure-role-definitions"></a>Informazioni sulle definizioni dei ruoli di Azure
 
@@ -80,7 +80,7 @@ Le operazioni vengono specificate con stringhe che hanno il formato seguente:
 
 La parte `{action}` di una stringa relativa a un'operazione specifica il tipo di operazioni che è possibile eseguire su un tipo di risorsa. In `{action}` possono ad esempio essere elencate le sottostringhe seguenti:
 
-| Sottostringa azione    | Description         |
+| Sottostringa azione    | Descrizione         |
 | ------------------- | ------------------- |
 | `*` | Il carattere jolly concede l'accesso a tutte le operazioni che corrispondono alla stringa. |
 | `read` | Abilita le operazioni di lettura (GET). |
@@ -281,7 +281,7 @@ Per visualizzare e usare le operazioni di dati di API REST, è necessario impost
 L'autorizzazione `Actions` specifica le operazioni di gestione che il ruolo consente di eseguire. Si tratta di una raccolta di stringhe di operazione che identificano operazioni a protezione diretta dei provider di risorse di Azure. Di seguito sono riportati alcuni esempi di operazioni di gestione che possono essere usate in `Actions`.
 
 > [!div class="mx-tableFixed"]
-> | Stringa operazione    | Description         |
+> | Stringa operazione    | Descrizione         |
 > | ------------------- | ------------------- |
 > | `*/read` | Concede l'accesso a operazioni di lettura per tutti i tipi di risorse di tutti i provider di risorse di Azure.|
 > | `Microsoft.Compute/*` | Concede l'accesso a tutte le operazioni per tutti i tipi di risorse nel provider di risorse Microsoft.Compute.|
@@ -291,18 +291,34 @@ L'autorizzazione `Actions` specifica le operazioni di gestione che il ruolo cons
 
 ## <a name="notactions"></a>NotActions
 
-L'autorizzazione `NotActions` specifica le operazioni di gestione che sono escluse dall'autorizzazione `Actions`. Usare l'autorizzazione `NotActions` se il set di operazioni che si vuole consentire viene definito più facilmente escludendo le operazioni non consentite. L'accesso concesso da un ruolo (ovvero le autorizzazioni effettive) viene calcolato sottraendo le operazioni `NotActions` alle operazioni `Actions`.
+L' `NotActions` autorizzazione specifica le operazioni di gestione sottratte o escluse dall'oggetto consentito con `Actions` un carattere jolly ( `*` ). Utilizzare l' `NotActions` autorizzazione se il set di operazioni che si desidera consentire è più facilmente definito sottraendo da `Actions` che hanno un carattere jolly ( `*` ). L'accesso concesso da un ruolo (ovvero le autorizzazioni effettive) viene calcolato sottraendo le operazioni `NotActions` alle operazioni `Actions`.
+
+`Actions - NotActions = Effective management permissions`
+
+La tabella seguente illustra due esempi delle autorizzazioni valide per un'operazione con caratteri jolly [Microsoft. CostManagement](resource-provider-operations.md#microsoftcostmanagement) :
+
+> [!div class="mx-tableFixed"]
+> | Actions | NotActions | Autorizzazioni di gestione valide |
+> | --- | --- | --- |
+> | `Microsoft.CostManagement/exports/*` | *nessuna* | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/delete`</br>`Microsoft.CostManagement/exports/run/action` |
+> | `Microsoft.CostManagement/exports/*` | `Microsoft.CostManagement/exports/delete` | `Microsoft.CostManagement/exports/action`</br>`Microsoft.CostManagement/exports/read`</br>`Microsoft.CostManagement/exports/write`</br>`Microsoft.CostManagement/exports/run/action` |
 
 > [!NOTE]
 > Se a un utente si assegna un ruolo che esclude un'operazione in `NotActions` e quindi si assegna un secondo ruolo che concede l'accesso alla stessa operazione, l'utente può eseguire tale operazione. `NotActions` non è una regola di negazione. È semplicemente un modo comodo per creare un set di operazioni consentite quando è necessario escludere operazioni specifiche.
 >
+
+### <a name="differences-between-notactions-and-deny-assignments"></a>Differenze tra notacts e Deny assegnazioni
+
+`NotActions` e le assegnazioni di negazione non sono uguali e servono a scopi diversi. `NotActions` sono un modo pratico per sottrarre azioni specifiche da un'operazione con carattere jolly ( `*` ).
+
+Le assegnazioni di rifiuto impediscono agli utenti di eseguire azioni specifiche, anche se un'assegnazione di ruolo concede loro l'accesso. Per altre informazioni, vedere [Informazioni sulle assegnazioni di rifiuto di Azure](deny-assignments.md).
 
 ## <a name="dataactions"></a>DataActions
 
 L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo consente di eseguire sui dati all'interno dell'oggetto. Ad esempio, se un utente dispone dell'accesso in lettura ai dati di BLOB per un account di archiviazione, può leggere i BLOB all'interno di tale account. Di seguito sono riportati alcuni esempi di operazioni sui dati che possono essere usate in `DataActions`.
 
 > [!div class="mx-tableFixed"]
-> | Stringa operazione    | Description         |
+> | Stringa operazione    | Descrizione         |
 > | ------------------- | ------------------- |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` | Restituisce un BLOB o un elenco di BLOB. |
 > | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | Restituisce il risultato della scrittura su un BLOB. |
@@ -311,7 +327,17 @@ L'autorizzazione `DataActions` specifica le operazioni sui dati che il ruolo con
 
 ## <a name="notdataactions"></a>NotDataActions
 
-L'autorizzazione `NotDataActions` specifica le operazioni sui dati che sono escluse dall'autorizzazione `DataActions`. L'accesso concesso da un ruolo (ovvero le autorizzazioni effettive) viene calcolato sottraendo le operazioni `NotDataActions` alle operazioni `DataActions`. Ogni provider di risorse fornisce il rispettivo set di API per consentire l'esecuzione delle operazioni sui dati.
+L' `NotDataActions` autorizzazione specifica le operazioni sui dati sottratte o escluse dall'oggetto consentito con `DataActions` un carattere jolly ( `*` ). Utilizzare l' `NotDataActions` autorizzazione se il set di operazioni che si desidera consentire è più facilmente definito sottraendo da `DataActions` che hanno un carattere jolly ( `*` ). L'accesso concesso da un ruolo (ovvero le autorizzazioni effettive) viene calcolato sottraendo le operazioni `NotDataActions` alle operazioni `DataActions`. Ogni provider di risorse fornisce il rispettivo set di API per consentire l'esecuzione delle operazioni sui dati.
+
+`DataActions - NotDataActions = Effective data permissions`
+
+Nella tabella seguente sono riportati due esempi delle autorizzazioni valide per un'operazione con caratteri jolly [Microsoft. storage](resource-provider-operations.md#microsoftstorage) :
+
+> [!div class="mx-tableFixed"]
+> | DataActions | NotDataActions | Autorizzazioni dati valide |
+> | --- | --- | --- |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | *nessuna* | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
+> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/*` | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete`</br> | `Microsoft.Storage/storageAccounts/queueServices/queues/messages/read`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/write`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action`</br>`Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action` |
 
 > [!NOTE]
 > Se a un utente si assegna un ruolo che esclude un'operazione sui dati in `NotDataActions` e quindi si assegna un secondo ruolo che concede l'accesso alla stessa operazione, l'utente può eseguire tale operazione. `NotDataActions` non è una regola di negazione. È semplicemente un modo comodo per creare un set di operazioni sui dati consentite quando è necessario escludere operazioni specifiche.

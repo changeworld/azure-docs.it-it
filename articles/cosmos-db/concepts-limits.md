@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/19/2020
-ms.openlocfilehash: 793ff9eedb747da0edcbbf2df50b62f06f407892
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 01/19/2021
+ms.openlocfilehash: 9ace9a319f4cc6bcc1545d6d1becce61b1892765
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247425"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598665"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Dopo aver creato un account Azure Cosmos nella propria sottoscrizione, è possib
 | Dimensione massima di archiviazione per ogni contenitore | Nessuna limitazione |
 | Dimensione massima di archiviazione per ogni database | Nessuna limitazione |
 | Dimensioni massime allegati per account (la funzionalità degli allegati verrà deprecata) | 2 GB |
-| Numero minimo di ur/sec richiesto per 1 GB | 10 UR/sec<br>**Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program) |
+| Numero minimo di ur/sec richiesto per 1 GB | 10 UR/sec<br>**Nota:** questo valore minimo può essere ridotto se l'account è idoneo per il [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Per informazioni sulle procedure consigliate per la gestione dei carichi di lavoro con chiavi di partizione che richiedono limiti più elevati per l'archiviazione o la velocità effettiva, vedere [Creare una chiave di partizione sintetica](synthetic-partition-keys.md).
@@ -60,7 +60,7 @@ Per stimare la velocità effettiva minima richiesta da un contenitore con veloci
 
 Esempio: si supponga di avere un contenitore di cui è stato effettuato il provisioning con 400 ur/s e 0 GB di spazio di archiviazione. È possibile aumentare la velocità effettiva a 50.000 UR/sec e importare 20 GB di dati. Il numero minimo di ur/sec è ora `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 UR/sec. Nel tempo, lo spazio di archiviazione aumenta fino a 200 GB. Il numero minimo di ur/sec è ora `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 UR/sec. 
 
-**Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
+**Nota:** la velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione può essere abbassata se l'account è idoneo per il [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 
 #### <a name="minimum-throughput-on-shared-throughput-database"></a>Velocità effettiva minima nel database di velocità effettiva condivisa 
 Per stimare la velocità effettiva minima richiesta da un database con velocità effettiva condivisa con velocità effettiva manuale, trovare il numero massimo di:
@@ -72,7 +72,7 @@ Per stimare la velocità effettiva minima richiesta da un database con velocità
 
 Esempio: si supponga di avere un database di cui è stato effettuato il provisioning con 400 ur/s, 15 GB di spazio di archiviazione e 10 contenitori. Il numero minimo di ur/sec è `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 ur/sec. Se nel database sono presenti 30 contenitori, le UR/sec minime saranno `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 ur/sec. 
 
-**Nota:** se il contenitore o il database contiene più di 1 TB di dati, è possibile che l'account sia idoneo al [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
+**Nota:** la velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione può essere abbassata se l'account è idoneo per il [programma "High storage/low throughput"](set-throughput.md#high-storage-low-throughput-program).
 
 In sintesi, di seguito sono riportati i limiti minimi di provisioning delle UR. 
 

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 4fe06edbb3e02f23ef56a3e7fff848682e36e3af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 925a092eb67fa459213a37df0fc6b3f7a1b8a0fb
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251319"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602365"
 ---
 # <a name="plan-and-manage-costs-for-azure-cognitive-services"></a>Pianificare e gestire i costi per servizi cognitivi di Azure
 
@@ -60,9 +60,9 @@ Dopo aver eliminato QnA Maker risorse, le risorse seguenti potrebbero continuare
 - [Servizio app Azure (per il Runtime)](https://azure.microsoft.com/pricing/details/app-service/)
 - [Azure ricerca cognitiva (per i dati)](https://azure.microsoft.com/pricing/details/search/)
 
-### <a name="using-monetary-credit-with-cognitive-services"></a>Uso del credito monetario con servizi cognitivi
+### <a name="using-azure-prepayment-credit-with-cognitive-services"></a>Uso del credito con pagamento anticipato di Azure con servizi cognitivi
 
-È possibile pagare gli addebiti per servizi cognitivi con il credito dell'impegno monetario EA. Tuttavia, non è possibile usare il credito dell'impegno monetario EA per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare gli addebiti per servizi cognitivi con il credito prepagato di Azure (denominato in precedenza impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="create-budgets"></a>Creare i budget
 

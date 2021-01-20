@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: 14f1056bf761eb7b591d04db34610468058bc255
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 2ffe7c8994d32917a08896c7d25f20d4adf09066
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562853"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601895"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Risolvere i problemi di Connettore di Gestione dei servizi IT
 
@@ -53,11 +53,36 @@ Se si usa Mapping dei servizi, è possibile visualizzare gli elementi del Servic
      - Verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione venga stabilita correttamente con il computer Service Manager locale, passare all'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 
 - Se Log Analytics gli avvisi vengono attivati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM, se gli elementi di configurazione non vengono creati/collegati agli elementi di lavoro o per altre informazioni, vedere le risorse seguenti:
-   -  CONNETTORE: la soluzione Mostra un riepilogo delle connessioni, degli elementi di lavoro, dei computer e molto altro. Selezionare il riquadro con l'etichetta **stato connettore** . In questo modo, viene eseguita la **Ricerca log** con la query pertinente. `LogType_S`Per ulteriori informazioni, esaminare i record del log con un di `ERROR` .
+   -  CONNETTORE: la soluzione Mostra un [Riepilogo delle connessioni](itsmc-dashboard.md), degli elementi di lavoro, dei computer e molto altro. Selezionare il riquadro con l'etichetta **stato connettore** . In questo modo, viene eseguita la **Ricerca log** con la query pertinente. `LogType_S`Per ulteriori informazioni, esaminare i record del log con un di `ERROR` .
+   È possibile visualizzare i dettagli relativi ai messaggi nella [tabella.](itsmc-dashboard-errors.md)
    - Pagina **Ricerca log** : consente di visualizzare gli errori e le informazioni correlate direttamente usando la query `*ServiceDeskLog_CL*` .
 
-### <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di Service Manager distribuzione di app Web
+## <a name="common-symptoms---how-it-should-be-resolved"></a>Sintomi comuni: come risolverli?
 
--   In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre delle autorizzazioni per creare/distribuire le risorse nella sottoscrizione.
--   Se si ottiene un **riferimento a un oggetto non impostato sull'istanza di un errore di oggetto** quando si esegue lo [script](itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente** .
--   Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, verificare che il provider di risorse richiesto sia registrato nella sottoscrizione. Se non è registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È anche possibile crearla quando si [Crea la connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection) nel portale di Azure.
+L'elenco seguente contiene i sintomi comuni e il modo in cui risolverlo:
+
+* **Sintomo**: vengono creati elementi di lavoro duplicati
+
+    **Motivo**: la ragione può essere una delle due opzioni seguenti:
+    * Sono state definite più azioni ITSM per l'avviso.
+    * Avviso risolto.
+
+    **Soluzione**: possono essere disponibili due soluzioni:
+    * Assicurarsi di disporre di un singolo gruppo di azioni ITSM per ogni avviso.
+    * Il connettore ITSM non supporta l'aggiornamento dello stato degli elementi di lavoro corrispondenti quando viene risolto un avviso. Viene creato un nuovo elemento di lavoro risolto.
+* **Sintomo**: gli elementi di lavoro non sono stati creati
+
+    **Causa**: possono essere presenti due motivi per il sintomo:
+    * Modifica del codice sul lato ServiceNow
+    * Configurazione errata delle autorizzazioni
+    * I limiti di velocità ServiceNow sono troppo alti/bassi
+    * Il token di aggiornamento è scaduto
+    * Il connettore ITSM è stato eliminato
+
+    **Soluzione**: è possibile controllare il [Dashboard](itsmc-dashboard.md) ed esaminare gli errori nella sezione stato connettore. Esaminare gli [errori comuni](itsmc-dashboard-errors.md) e scoprire come risolvere l'errore.
+
+* **Sintomo**: non è possibile creare l'azione ITSM per il gruppo di azione
+
+    **Motivo**: il connettore ITSM appena creato ha ancora completato la sincronizzazione iniziale.
+
+    **Soluzione**: è possibile esaminare gli [errori comuni dell'interfaccia utente](itsmc-dashboard-errors.md#ui-common-errors) e scoprire come risolvere l'errore.

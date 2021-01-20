@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 4703a76ff0a0b55a438f9f0d164cd7f2d3242a02
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: ffc5bafca305086b0c524c76eb91b8aec2e2655d
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842023"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602438"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -81,7 +81,7 @@ Microsoft consiglia di adottare i criteri moderni di impostazione delle password
 
 Se l'organizzazione usa una soluzione di identità ibrida con la federazione o l'autenticazione pass-through, è consigliabile abilitare la sincronizzazione dell'hash delle password per i due motivi seguenti:
 
-* Il report [Utenti con credenziali perse](../../active-directory/identity-protection/overview-identity-protection.md) nella gestione di Azure AD avvisa l'utente di coppie di nome utente e password esposte nel Dark Web. Una quantità incredibile di password viene persa tramite phishing, malware e riuso delle password nei siti di terze parti che verranno sottoposti a violazioni in un secondo momento. Microsoft individua molte di queste credenziali perse e, in questo report, indica se corrispondono alle credenziali di un'organizzazione, ma solo se l'utente [abilita la sincronizzazione dell'hash delle password](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
+* Il report [Utenti con credenziali perse](../../active-directory/identity-protection/overview-identity-protection.md) nella gestione di Azure AD avvisa l'utente di coppie di nome utente e password esposte nel Dark Web. Una quantità incredibile di password viene persa tramite phishing, malware e riuso delle password nei siti di terze parti che verranno sottoposti a violazioni in un secondo momento. Microsoft trova molte di queste credenziali perse e indica, in questo report, se corrispondono alle credenziali dell'organizzazione, ma solo se si [Abilita la sincronizzazione degli hash delle password](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) o si hanno identità solo cloud.
 * In caso di interruzione locale (ad esempio, in un attacco ransomware) è possibile passare all'uso dell' [autenticazione cloud con la sincronizzazione dell'hash delle password](../../active-directory/hybrid/choose-ad-authn.md). Questo metodo di autenticazione del backup consentirà di continuare ad accedere alle app configurate per l'autenticazione con Azure Active Directory, incluso Microsoft 365. In questo caso, il personale IT non avrà bisogno di recuperare gli account di posta elettronica personali per condividere i dati fino alla risoluzione dell'interruzione del servizio in locale.
 
 Altre informazioni sul funzionamento della [sincronizzazione dell'hash delle password](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).

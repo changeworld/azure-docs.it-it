@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: a9050b85c974a3c04ca717e8fe3d5188c1bf7a40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6773c6b29ecfd8354c54a6214cfe0b4050edcd38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244313"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602652"
 ---
 # <a name="how-to-sign-up-for-translator"></a>Come iscriversi a Translator
 
@@ -41,7 +41,7 @@ Dopo aver eseguito l'accesso al portale, è possibile creare una sottoscrizione 
 Quando si esegue l'iscrizione a translator, si ottiene una chiave di accesso personalizzata univoca per la sottoscrizione. Questa chiave è obbligatoria per ogni chiamata al convertitore.
 
 1. Recuperare la chiave di autenticazione selezionando la sottoscrizione appropriata.
-1. Selezionare **Keys** (Chiavi) nella sezione **Resource Management** (Gestione risorse) dei dettagli della sottoscrizione.
+1. Selezionare **chiavi ed endpoint** nella sezione **Gestione risorse** dei dettagli della sottoscrizione.
 1. Copiare una delle chiavi elencate per la sottoscrizione.
 
 ## <a name="learn-test-and-get-support"></a>Apprendere, testare e ottenere supporto
