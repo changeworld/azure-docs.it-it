@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 11/05/2019
+ms.date: 01/19/2021
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 09b120838c27f8fa6b4f7bdf8617ce806f740e3c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 0914cf9515930e23e4134181ffe8332e36eacffe
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96007300"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612945"
 ---
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari.
 
@@ -30,7 +30,7 @@ L'archiviazione BLOB è progettata per:
 
 Gli utenti o le applicazioni client possono accedere agli oggetti nell'archiviazione BLOB tramite HTTP/HTTPS ovunque si trovino. Gli oggetti nell'archiviazione BLOB sono accessibili tramite l'[API REST di Archiviazione di Azure](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/az.storage), l'[interfaccia della riga di comando di Azure](/cli/azure/storage) o una libreria client di Archiviazione di Azure. Le librerie client sono disponibili per diversi linguaggi, tra cui:
 
-* [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [.NET](/dotnet/api/overview/azure/storage)
 * [Java](/java/api/overview/azure/storage)
 * [Node.js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)
 * [Python](../articles/storage/blobs/storage-quickstart-blobs-python.md)

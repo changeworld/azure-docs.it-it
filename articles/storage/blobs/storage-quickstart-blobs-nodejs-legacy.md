@@ -3,17 +3,17 @@ title: 'Guida introduttiva: Libreria client di archiviazione BLOB di Azure v10 p
 description: Creare, caricare ed eliminare BLOB e contenitori in Node.js con la libreria client di archiviazione di Azure v10 per JavaScript
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 07/24/2020
+ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 1f47c35997fe060fd3c318602bcad17de83b530c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 2371c789b9e4a9fc70f4207fd8a634e419c97912
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249621"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599450"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Guida introduttiva: Gestire i BLOB con JavaScript v10 SDK in Node.js
 
@@ -139,7 +139,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Le richieste effettuate dall'API possono essere impostate per raggiungere il timeout dopo un intervallo specifico. La classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) determina come le richieste raggiungono il timeout e la costante seguente viene usata per definire i timeout usati in questo esempio.
+Le richieste effettuate dall'API possono essere impostate per raggiungere il timeout dopo un intervallo specifico. La classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy&preserve-view=true) determina come le richieste raggiungono il timeout e la costante seguente viene usata per definire i timeout usati in questo esempio.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -178,13 +178,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 
 In questo blocco di codice vengono usate le classi seguenti:
 
-- La classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy) è responsabile del wrapping delle credenziali dell'account di archiviazione per fornirle a una pipeline di richieste.
+- La classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-legacy&preserve-view=true) è responsabile del wrapping delle credenziali dell'account di archiviazione per fornirle a una pipeline di richieste.
 
-- La classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy) è responsabile della creazione di una nuova pipeline.
+- La classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-legacy&preserve-view=true) è responsabile della creazione di una nuova pipeline.
 
-- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy) modella un URL usato nell'API REST. Le istanze di questa classe consentono di eseguire azioni come elencare i contenitori e fornire informazioni di contesto per generare gli URL dei contenitori.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-legacy&preserve-view=true) modella un URL usato nell'API REST. Le istanze di questa classe consentono di eseguire azioni come elencare i contenitori e fornire informazioni di contesto per generare gli URL dei contenitori.
 
-L'istanza di *ServiceURL* viene usata con le istanze di [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy) per gestire contenitori e BLOB nell'account di archiviazione.
+L'istanza di *ServiceURL* viene usata con le istanze di [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-legacy&preserve-view=true) e [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-legacy&preserve-view=true) per gestire contenitori e BLOB nell'account di archiviazione.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);

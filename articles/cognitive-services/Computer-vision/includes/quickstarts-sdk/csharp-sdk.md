@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1826edb31c442fb10b8053433ec01ee5abad0eb2
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
-ms.translationtype: HT
+ms.openlocfilehash: 8bd919d2896b187d32ad5347e6b8729ccb8555de
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98109460"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98612955"
 ---
 <a name="HOLTop"></a>
 
@@ -255,24 +255,9 @@ Nella classe **Program** salvare un riferimento all'URL dell'immagine da cui si 
 
 ### <a name="call-the-read-api"></a>Chiamare l'API di lettura
 
-Definire il nuovo metodo per la lettura del testo. Aggiungere il codice seguente, che chiama il metodo **ReadAsync** per l'immagine specificata. Viene restituito un ID operazione e viene avviato un processo asincrono per leggere il contenuto dell'immagine.
+Aggiungere il metodo seguente, che chiama il metodo **ReadAsync** per l'immagine specificata. Viene restituito un ID operazione e viene avviato un processo asincrono per leggere il contenuto dell'immagine. Ottenere quindi l'ID operazione restituito dalla chiamata **ReadAsync** e usarlo per eseguire il polling del servizio per i risultati dell'operazione. Infine, stampare il testo estratto nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_url)]
-
-### <a name="get-read-results"></a>Ottenere risultati della lettura
-
-Ottenere quindi l'ID operazione restituito dalla chiamata a **ReadAsync** e usarlo per eseguire una query sul servizio per ottenere i risultati dell'operazione. Il codice seguente controlla l'operazione fino a quando non vengono restituiti i risultati. Stampa quindi i dati di testo estratti nella console.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_response)]
-
-### <a name="display-read-results"></a>Visualizzare i risultati della lettura
-
-Aggiungere il codice seguente per analizzare e visualizzare i dati di testo recuperati e terminare la definizione del metodo.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_read_display)]
-
-> [!div class="nextstepaction"]
-> [Il testo è stato letto](?success=read-printed-handwritten-text#run-the-application) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
@@ -289,8 +274,6 @@ dotnet run
 ```
 
 ---
-> [!div class="nextstepaction"]
-> [L'applicazione è stata eseguita](?success=run-the-application#clean-up-resources) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -299,14 +282,10 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 * [Portale](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Interfaccia della riga di comando di Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-> [!div class="nextstepaction"]
-> [Le risorse sono state pulite](?success=clean-up-resources#next-steps) [Si è verificato un problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources) 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 >[Informazioni di riferimento per l'API Visione artificiale (.NET)](/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet)
-
 
 * [Informazioni su Visione artificiale](../../overview.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs).

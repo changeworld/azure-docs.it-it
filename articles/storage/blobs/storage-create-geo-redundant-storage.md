@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc, devx-track-python, devx-track-js, devx-track-csharp
 ms.subservice: blobs
-ms.openlocfilehash: 1c1ba7d8cd0e4202003a98153a48e0593d1fcd04
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: dfb7e7c7c93a8af2b59f6d3d7049e2c14b8f382a
+ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95543154"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98611050"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
@@ -184,11 +184,11 @@ Per eseguire l'applicazione in un terminale o al prompt dei comandi, passare all
 
 ![App console in esecuzione](media/storage-create-geo-redundant-storage/figure3.png)
 
-Nel codice di esempio, il metodo `run_circuit_breaker` nel file `circuitbreaker.py` viene usato per scaricare un'immagine dall'account di archiviazione con il metodo [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice?view=azure-python-previous#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-).
+Nel codice di esempio, il metodo `run_circuit_breaker` nel file `circuitbreaker.py` viene usato per scaricare un'immagine dall'account di archiviazione con il metodo [get_blob_to_path](/python/api/azure-storage-blob/azure.storage.blob.baseblobservice.baseblobservice#get-blob-to-path-container-name--blob-name--file-path--open-mode--wb---snapshot-none--start-range-none--end-range-none--validate-content-false--progress-callback-none--max-connections-2--lease-id-none--if-modified-since-none--if-unmodified-since-none--if-match-none--if-none-match-none--timeout-none-).
 
 La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impostata su un criterio di ripetizione lineare. La funzione di ripetizione dei tentativi determina se eseguire o meno un nuovo tentativo per una richiesta e specifica il numero di secondi di attesa prima del nuovo tentativo. Impostare il valore di **retry\_to\_secondary** su true se la richiesta dovrà essere ripetuta all'endpoint secondario in caso di esito negativo della richiesta iniziale all'endpoint primario. Nell'applicazione di esempio, nella funzione `retry_callback` dell'oggetto di archiviazione viene definito un criterio di ripetizione dei tentativi personalizzato.
 
-Prima del download vengono definite le funzioni [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient?view=azure-python) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.
+Prima del download vengono definite le funzioni [retry_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) e [response_callback](/python/api/azure-storage-common/azure.storage.common.storageclient.storageclient) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
@@ -276,7 +276,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
-Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `retry_callback`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python) della richiesta viene modificato in `SECONDARY`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
+Quando il download dell'immagine non riesce ed è impostata la ripetizione dei tentativi, viene chiamato il gestore eventi `retry_callback`. Se viene raggiunto il numero massimo di tentativi definito nell'applicazione, il valore di [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) della richiesta viene modificato in `SECONDARY`. Questa impostazione forza l'applicazione a tentare di scaricare l'immagine dall'endpoint secondario. Questa configurazione riduce il tempo necessario per richiedere che l'immagine non venga ripetuta all'infinito come endpoint primario.
 
 ```python
 def retry_callback(retry_context):
@@ -300,7 +300,7 @@ def retry_callback(retry_context):
 
 ### <a name="request-completed-event-handler"></a>Gestore dell'evento per la richiesta completata
 
-Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `response_callback`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Dopo 20 volte, l'applicazione reimposta [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode?view=azure-python) su `PRIMARY` ed esegue un nuovo tentativo con l'endpoint primario. Se una richiesta ha esito positivo, l'applicazione continua a eseguire la lettura dall'endpoint primario.
+Quando il download dell'immagine riesce viene chiamato il gestore dell'evento `response_callback`. Se l'applicazione usa l'endpoint secondario, continua a usarlo fino a 20 volte. Dopo 20 volte, l'applicazione reimposta [LocationMode](/python/api/azure-storage-common/azure.storage.common.models.locationmode) su `PRIMARY` ed esegue un nuovo tentativo con l'endpoint primario. Se una richiesta ha esito positivo, l'applicazione continua a eseguire la lettura dall'endpoint primario.
 
 ```python
 def response_callback(response):
