@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 10/13/2020
-ms.openlocfilehash: b4a8b809fc135a4af26fae10912890f2017153f4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cacd43502a01352c24f8fcfd85b12aac781dccbd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780921"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602507"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-sql-database--sql-managed-instance"></a>Risparmiare sui costi per le risorse con capacità riservata: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)] 
@@ -47,7 +47,7 @@ Si supponga, ad esempio, di eseguire un pool elastico per utilizzo generico, qui
 ## <a name="buy-reserved-capacity"></a>Acquistare la capacità riservata
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Tutti i servizi** > **Prenotazioni** .
+2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** e quindi nel riquadro **prenotazioni acquisti** Selezionare **database SQL** per acquistare una nuova prenotazione per il database SQL.
 4. Compilare i campi obbligatori. I database esistenti nel database SQL e Istanza gestita SQL che corrispondono agli attributi selezionati sono idonei per ottenere lo sconto per la capacità riservata. Il numero effettivo di database o di istanze gestite che ottengono lo sconto dipende dall'ambito e dalla quantità selezionati.
 
@@ -57,16 +57,16 @@ Si supponga, ad esempio, di eseguire un pool elastico per utilizzo generico, qui
     
     | Campo      | Descrizione|
     |------------|--------------|
-    |Subscription|Sottoscrizione usata per pagare la prenotazione della capacità. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numero offerta MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|
-    |Ambito       |L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona <br/><br/>**Condiviso** , lo sconto di prenotazione vCore viene applicato al database o all'istanza gestita in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.<br/><br/>**Sottoscrizione singola** , lo sconto di prenotazione vCore viene applicato ai database o alle istanze gestite in questa sottoscrizione. <br/><br/>**Gruppo di risorse singolo** , lo sconto relativo alla prenotazione viene applicato alle istanze di database o istanze gestite nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.|
-    |Area      |Area di Azure coperta dalla prenotazione della capacità.|
+    |Subscription|Sottoscrizione usata per pagare la prenotazione della capacità. L'acquisto delle istanze di macchina virtuale riservate viene addebitato in base al metodo di pagamento associato alla sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numero offerta MS-AZR-0003P o MS-AZR-0023P). Per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo prepagato di Azure per la registrazione (denominato in precedenza impegno monetario) o addebitato come eccedenza. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.|
+    |Ambito       |L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona <br/><br/>**Condiviso**, lo sconto di prenotazione vCore viene applicato al database o all'istanza gestita in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.<br/><br/>**Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato ai database o alle istanze gestite in questa sottoscrizione. <br/><br/>**Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alle istanze di database o istanze gestite nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.|
+    |Region      |Area di Azure coperta dalla prenotazione della capacità.|
     |Tipo di distribuzione|Tipo di risorsa di SQL per cui si vuole acquistare la prenotazione.|
     |Livello di prestazioni|Livello di servizio per i database o le istanze gestite. |
     |Termine        |Un anno o tre anni.|
     |Quantità    |Quantità di risorse di calcolo acquistate entro la prenotazione della capacità. La quantità è un numero di Vcore nell'area di Azure selezionata e il livello di prestazioni che vengono riservati e otterranno lo sconto per la fatturazione. Ad esempio, se si esegue o si prevede di eseguire più database con la capacità di calcolo totale di Quinta generazione 16 Vcore nell'area Stati Uniti orientali, è necessario specificare la quantità come 16 per ottimizzare il vantaggio per tutti i database. |
 
 1. Esaminare il costo della prenotazione di capacità nella sezione **costi** .
-1. Selezionare **Acquisto** .
+1. Selezionare **Acquisto**.
 1. Selezionare **Visualizza questa prenotazione** per vedere lo stato dell'acquisto.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annullare o scambiare le prenotazioni oppure chiedere il rimborso

@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/19/2020
-ms.openlocfilehash: 07e165382608f4fde5433de0f4436cb86f5083af
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2bea2324817986654de6689a2be15d0cbf999b38
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251897"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602145"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Quando si inizia a usare Azure Cosmos DB risorse da portale di Azure, è possibi
 
 Se la sottoscrizione di Azure ha un limite di spesa, Azure impedisce la spesa rispetto all'importo del credito. Quando si creano e si usano le risorse di Azure, vengono usati i crediti. Quando si raggiunge il limite di credito, le risorse distribuite sono disabilitate per il resto del periodo di fatturazione. Non è possibile modificare il limite di credito, ma è possibile rimuoverlo. Per altre informazioni sui limiti di spesa, vedere [limite di spesa di Azure](../cost-management-billing/manage/spending-limit.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
-È possibile pagare gli addebiti per Azure Cosmos DB con il credito dell'impegno monetario di Azure Enterprise Agreement. Tuttavia, non è possibile usare il credito dell'impegno monetario per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
+È possibile pagare i costi di Azure Cosmos DB con il credito per il pagamento anticipato di Azure (denominato in precedenza impegno monetario). Tuttavia, non è possibile usare il credito con pagamento anticipato di Azure per pagare gli addebiti per i prodotti e i servizi di terze parti, inclusi quelli di Azure Marketplace.
 
 ## <a name="monitor-costs"></a>Monitorare i costi
 

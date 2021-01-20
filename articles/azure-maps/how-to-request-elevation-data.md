@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 76232a917e8856a06645fabc0ab4716195c5c0e1
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: a303f5e6177d0dc4205eaec8c3b1911e8e004fe3
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094200"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602432"
 ---
 # <a name="request-elevation-data-using-the-azure-maps-elevation-service-preview"></a>Richiedere dati di elevazione usando il servizio di elevazione delle mappe di Azure (anteprima)
 
@@ -471,7 +471,7 @@ Vedere le elevazioni delle penne in base al rettangolo di <a href='https://codep
 
 ### <a name="get-elevation-data-by-polyline-path"></a>Ottenere i dati di elevazione per percorso polilinea
 
-Nella pagina Web di esempio seguente viene illustrato come utilizzare il controllo mappa per visualizzare i dati di elevazione lungo un tracciato. L'utente definisce il percorso facendo clic sull' `PolyLine` icona nell'angolo in alto a sinistra e disegnando la polilinea sulla mappa. Il controllo mappa esegue quindi il rendering dei dati di elevazione nei colori specificati nella chiave che si trova nell'angolo superiore destro.
+Nella pagina Web di esempio seguente viene illustrato come utilizzare il controllo mappa per visualizzare i dati di elevazione lungo un tracciato. L'utente definisce il percorso facendo clic sull' `Polyline` icona nell'angolo in alto a sinistra e disegnando la polilinea sulla mappa. Il controllo mappa esegue quindi il rendering dei dati di elevazione nei colori specificati nella chiave che si trova nell'angolo superiore destro.
 
 <br/>
 

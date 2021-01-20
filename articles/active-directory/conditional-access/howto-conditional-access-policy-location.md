@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a531692264a768e4f6cb8e6475807789df049d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049147"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597968"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accesso condizionale: Bloccare l'accesso in base alla località
 
@@ -43,14 +43,16 @@ Altre informazioni sulla condizione relativa alla posizione nell'accesso condizi
 1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**
    1. In **Includi** selezionare **Tutti gli utenti**.
-1. In **app Cloud o azioni**  >  **includere**e selezionare **tutte le app Cloud**.
+   1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
+   1. Selezionare **Operazione completata**.
+1. In **app Cloud o azioni**  >  **includere** e selezionare **tutte le app Cloud**.
 1. In **Condizioni** > **Posizione**
    1. impostare **Configura** su **Sì**
-   1. In **Includi**selezionare le **località selezionate**
+   1. In **Includi** selezionare le **località selezionate**
    1. Selezionare la posizione bloccata creata per l'organizzazione.
    1. Fare clic su **Seleziona**.
-1. In **controlli di accesso** > selezionare **Blocca accesso**e selezionare **Seleziona**.
-1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
+1. In **controlli di accesso** > selezionare **Blocca accesso** e selezionare **Seleziona**.
+1. Confermare le impostazioni e impostare **Attiva criterio** su **Attivato**.
 1. Selezionare **Crea** per creare i criteri di accesso condizionale.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,24 +4,24 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 01/18/2021
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d827011c4f831433a7446c90eed0c30c7b1e94d7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360157"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600556"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB offre disponibilità elevata in due modi principali. In primo luogo, Azure Cosmos DB replica i dati tra le aree configurate in un account Cosmos. In secondo luogo, Azure Cosmos DB gestisce 4 repliche di dati all'interno di un'area.
 
-Azure Cosmos DB è un servizio di database distribuito a livello globale ed è un servizio di base in Azure. Per impostazione predefinita, è disponibile in [tutte le aree in cui è disponibile Azure](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). È possibile associare un numero qualsiasi di aree di Azure al proprio account Azure Cosmos e i dati vengono replicati automaticamente e in modo trasparente. È possibile aggiungere o rimuovere un'area all'account Azure Cosmos in qualsiasi momento. Cosmos DB è disponibile in tutti i cinque ambienti cloud distinti di Azure disponibili per i clienti:
+Azure Cosmos DB è un servizio di database distribuito a livello globale ed è un servizio di base disponibile in [tutte le aree in cui è disponibile Azure](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). È possibile associare un numero qualsiasi di aree di Azure al proprio account Azure Cosmos e i dati vengono replicati automaticamente e in modo trasparente. È possibile aggiungere o rimuovere un'area all'account Azure Cosmos in qualsiasi momento. Cosmos DB è disponibile in tutti i cinque ambienti cloud distinti di Azure disponibili per i clienti:
 
-* Cloud **Azure pubblico** , disponibile a livello globale.
+* Cloud **Azure pubblico**, disponibile a livello globale.
 
 * **Azure Cina 21ViaNet** è disponibile tramite una partnership univoca tra Microsoft e 21ViaNet, uno dei principali provider Internet in Cina.
 
@@ -39,15 +39,15 @@ All'interno di un'area, Azure Cosmos DB gestisce quattro copie dei dati come rep
 
 * Un set di partizioni è una raccolta di più set di repliche. All'interno di ogni area, ogni partizione è protetta da un set di repliche con tutte le scritture replicate e sottoposte a commit permanente dalla maggior parte delle repliche. Le repliche sono distribuite in 10-20 domini di errore.
 
-* Ogni partizione in tutte le aree viene replicata. Ogni area contiene tutte le partizioni di dati di un contenitore di Azure Cosmos e può accettare Scritture e gestire le letture.  
+* Ogni partizione in tutte le aree viene replicata. Ogni area contiene tutte le partizioni di dati di un contenitore Azure Cosmos ed è in grado di gestire le operazioni di lettura e di scrittura quando è abilitata la scrittura in più aree.  
 
 Se il tuo account Azure Cosmos è distribuito in *N* aree di Azure, saranno presenti almeno *n* x 4 copie di tutti i dati. Avere un account Azure Cosmos in più di 2 aree migliora la disponibilità dell'applicazione e fornisce bassa latenza tra le aree associate.
 
 ## <a name="slas-for-availability"></a>Contratti di servizio per la disponibilità
 
-Come database distribuito a livello globale, Azure Cosmos DB offre contratti di contratto completi che includono velocità effettiva, latenza al 99 ° percentile, coerenza e disponibilità elevata. Nella tabella seguente vengono illustrate le garanzie per la disponibilità elevata fornite da Azure Cosmos DB per gli account con una o più aree. Per la disponibilità elevata, configurare sempre gli account Azure Cosmos in modo da avere più aree di scrittura.
+Azure Cosmos DB offre contratti di contratto completi che includono velocità effettiva, latenza al 99 ° percentile, coerenza e disponibilità elevata. Nella tabella seguente vengono illustrate le garanzie per la disponibilità elevata fornite da Azure Cosmos DB per gli account con una o più aree. Per una maggiore disponibilità di scrittura, configurare l'account Azure Cosmos per avere più aree di scrittura.
 
-|Tipo di operazione  | Area singola |Più aree (scrittura in area singola)|Più aree (scrittura in più aree) |
+|Tipo di operazione  | Area singola |Più aree (Scritture a area singola)|Più aree (scrittura in più aree) |
 |---------|---------|---------|-------|
 |Scritture    | 99,99    |99,99   |99,999|
 |Letture     | 99,99    |99,999  |99,999|
@@ -90,41 +90,37 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Durante il failover e il join di un'area precedentemente non riuscita, le garanzie di coerenza di lettura continuano a essere rispettate dal Azure Cosmos DB.
 
-* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza ( *k* o *t* ) in cui k = 100000 aggiornamenti e T = 5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
+* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza (*k* o *t*) in cui k = 100000 aggiornamenti o t = 5 minuti, che si verifica prima. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Supporto per la zona di disponibilità
 
-Oltre alla resilienza tra aree, è ora possibile abilitare la **ridondanza della zona** quando si seleziona un'area da associare al database di Azure Cosmos.
+Oltre alla resilienza tra aree, Azure Cosmos DB supporta anche la **ridondanza della zona** nelle aree supportate quando si seleziona un'area da associare all'account Azure Cosmos.
 
-Con il supporto della zona di disponibilità, Azure Cosmos DB garantisce che le repliche vengano posizionate in più zone all'interno di una determinata area per garantire disponibilità elevata e resilienza durante gli errori di zona. Non sono state apportate modifiche alla latenza e ad altri contratti di classe in questa configurazione. In caso di errore di una singola zona, la ridondanza della zona garantisce la durabilità dei dati completa con RPO = 0 e la disponibilità con RTO = 0.
+Con il supporto della zona di disponibilità (AZ), Azure Cosmos DB garantisce che le repliche vengano posizionate in più zone all'interno di una determinata area per garantire disponibilità elevata e resilienza agli errori di zona. Zone di disponibilità offrire un contratto di contratto di disponibilità del 99,995% senza alcuna modifica alla latenza. In caso di errore di una singola zona, la ridondanza della zona garantisce la durabilità dei dati completa con RPO = 0 e la disponibilità con RTO = 0. La ridondanza della zona è una funzionalità aggiuntiva per la replica a livello di area. Non è possibile fare affidamento solo sulla ridondanza della zona per ottenere la resilienza a livello di area.
 
-La ridondanza della zona è una *funzionalità aggiuntiva* per la [replica nella funzionalità di scrittura in più aree](how-to-multi-master.md) . Non è possibile fare affidamento solo sulla ridondanza della zona per ottenere la resilienza a livello di area. Ad esempio, in caso di interruzioni a livello di area o di accesso a bassa latenza tra le aree, si consiglia di avere più aree di scrittura oltre alla ridondanza della zona.
+La ridondanza della zona può essere configurata solo quando si aggiunge una nuova area a un account Azure Cosmos. Per le aree esistenti, la ridondanza della zona può essere abilitata rimuovendo l'area e quindi aggiungendola nuovamente con la ridondanza della zona abilitata. Per un account a singola area, è necessario aggiungere un'area aggiuntiva per eseguire temporaneamente il failover a, quindi rimuovere e aggiungere l'area desiderata con la ridondanza della zona abilitata.
 
-Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la nota riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. È possibile abilitare la ridondanza della zona in un'area esistente dell'account Azure Cosmos rimuovendo l'area e aggiungendola nuovamente con la ridondanza della zona abilitata. Per un elenco delle aree in cui sono supportate le zone di disponibilità, vedere la documentazione relativa alle [zone di disponibilità](../availability-zones/az-region.md) .
+Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la tabella riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. Per un elenco delle aree in cui sono disponibili zone di disponibilità, vedere [zone di disponibilità](../availability-zones/az-region.md).
 
 Nella tabella seguente sono riepilogate le funzionalità di disponibilità elevata di diverse configurazioni di account:
 
-|KPI  |Singola area senza zone di disponibilità (non AZ)  |Area singola con zone di disponibilità (AZ)  |Scritture in più aree con zone di disponibilità (AZ, 2 Regions): impostazione consigliata |
-|---------|---------|---------|---------|
-|SLA sulla disponibilità di scrittura | 99,99% | 99,99% | 99,999% |
-|SLA per la disponibilità di lettura  | 99,99% | 99,99% | 99,999% |
-|Prezzo | Tariffa di fatturazione per area singola | Frequenza di fatturazione della zona di disponibilità in una singola area | Frequenza di fatturazione per più aree |
-|Errori zona-perdita di dati | Perdita di dati | Senza perdita di dati | Senza perdita di dati |
-|Errori zona-disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità |
-|Latenza lettura | Area geografica | Area geografica | Basso |
-|Latenza di scrittura | Area geografica | Area geografica | Basso |
-|Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | Perdita di dati <br/><br/> Quando si usa la coerenza con obsolescenza associata con più aree di scrittura e più di un'area, la perdita di dati è limitata al decadimento delimitato configurato per l'account <br /><br />È possibile evitare la perdita di dati durante un'interruzione a livello di area configurando la coerenza assoluta con più aree. Questa opzione comprende compromessi che influiscono sulla disponibilità e sulle prestazioni. Può essere configurata solo per gli account configurati per le Scritture in una singola area. |
-|Interruzione a livello di area: disponibilità | Perdita di disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità |
-|Velocità effettiva | Velocità effettiva con provisioning X ur/s | Velocità effettiva con provisioning X ur/s * 1,25 | velocità effettiva con provisioning di 2X ur/s <br/><br/> Questa modalità di configurazione richiede due volte la quantità di velocità effettiva rispetto a una singola area con zone di disponibilità perché sono presenti due aree geografiche. |
+|Indicatore KPI|Singola area senza AZs|Singola area con AZs|Scritture in più aree, singole aree con AZs|Scritture in più aree e più aree con AZs|
+|---------|---------|---------|---------|---------|
+|SLA sulla disponibilità di scrittura | 99,99% | 99,995% | 99,995% | 99,999% |
+|SLA per la disponibilità di lettura  | 99,99% | 99,995% | 99,995% | 99,999% |
+|Errori zona-perdita di dati | Perdita di dati | Senza perdita di dati | Senza perdita di dati | Senza perdita di dati |
+|Errori zona-disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità | Nessuna perdita di disponibilità |
+|Interruzione a livello di area-perdita di dati | Perdita di dati |  Perdita di dati | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) . | A seconda del livello di coerenza. Per ulteriori informazioni, vedere i [compromessi relativi a coerenza, disponibilità e prestazioni](consistency-levels-tradeoffs.md) .
+|Interruzione a livello di area: disponibilità | Perdita di disponibilità | Perdita di disponibilità | Nessuna perdita di disponibilità per l'area di lettura non riuscita, temporanea per l'area di scrittura non riuscita | Nessuna perdita di disponibilità |
+|Prezzo (**_1_* _) | N/D | Frequenza di provisioning di Ur/s x 1,25 | Frequenza di provisioning di Ur/s x 1,25 (_*_2_*_) | Velocità di scrittura in più aree |
 
-> [!NOTE]
-> Per abilitare il supporto per la zona di disponibilità per un account Azure Cosmos a più aree, l'account deve avere le Scritture in più aree abilitate.
+_*_1_*_ per gli account senza server le unità richiesta (UR) vengono moltiplicate per un fattore di 1,25.
 
-È possibile abilitare la ridondanza della zona quando si aggiunge un'area a account Azure Cosmos nuovi o esistenti. Per abilitare la ridondanza della zona nell'account Azure Cosmos, è necessario impostare il `isZoneRedundant` flag su `true` per una posizione specifica. È possibile impostare questo flag nella proprietà Locations. Ad esempio, il frammento di codice PowerShell seguente abilita la ridondanza della zona per l'area Asia sud-orientale:
+_*_2_*_ frequenza 1,25 applicata solo alle aree in cui è abilitato AZ.
 
 Zone di disponibilità possono essere abilitati tramite:
 
-* [Azure portal](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+_ [Portale di Azure](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 
 * [Azure PowerShell](manage-with-powershell.md#create-account)
 

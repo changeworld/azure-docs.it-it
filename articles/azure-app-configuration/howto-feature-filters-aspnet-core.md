@@ -8,12 +8,12 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 13857580d434736fbf0b12f52d39537ca864a497
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 39455c4bc193cce036bd169c702b5c020d53d2f6
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203133"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602246"
 ---
 # <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Usare i filtri funzionalità per abilitare i flag delle funzionalità condizionali
 
@@ -31,7 +31,7 @@ La `Microsoft.FeatureManagement` libreria include tre filtri funzionalità:
 
 ## <a name="registering-a-feature-filter"></a>Registrazione di un filtro funzionalità
 
-È possibile registrare un filtro funzionalità chiamando il `AddFeatureFilter` metodo, specificando il nome del filtro funzionalità. Il codice seguente, ad esempio, registra `PercentageFilter` :
+È possibile registrare un filtro funzionalità chiamando il `AddFeatureFilter` metodo, specificando il nome del tipo del filtro funzionalità desiderato. Il codice seguente, ad esempio, registra `PercentageFilter` :
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -56,14 +56,14 @@ Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad ese
     > [!div class="mx-imgBorder"]
     > ![Modifica flag funzionalità beta](./media/edit-beta-feature-flag.png)
 
-1. Nella schermata di **modifica** selezionare il pulsante **Abilita flag funzionalità** se non è già selezionato. Fare quindi clic sul pulsante **Usa filtro funzionalità** e selezionare **personalizzato**. 
+1. Nella schermata di **modifica** selezionare la casella di controllo **Abilita flag funzionalità** se non è già abilitata. Selezionare quindi la casella di controllo **Usa filtro funzionalità** e selezionare **personalizzata**. 
 
-1. Nel campo **chiave** immettere *Microsoft. percentuale*.
+1. Nel campo **nome** selezionare *Microsoft. percentuale*.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungi filtro funzionalità](./media/feature-flag-add-filter.png)
 
-1. Fare clic sul menu di scelta rapida accanto alla chiave del filtro funzionalità. Fare clic su **modifica parametri filtro**.
+1. Fare clic sul menu di scelta rapida accanto al nome del filtro funzionalità. Fare clic su **modifica parametri filtro**.
 
     > [!div class="mx-imgBorder"]
     > ![Modifica parametri filtro funzionalità](./media/feature-flags-edit-filter-parameters.png)
@@ -75,10 +75,10 @@ Per alcuni filtri funzionalità sono disponibili impostazioni aggiuntive. Ad ese
 
 1. Fare clic su **applica** per tornare alla schermata **modifica flag funzionalità** . Quindi fare di nuovo clic su **applica** per salvare le impostazioni del flag funzionalità.
 
-1. Lo **stato** del flag della funzionalità ora viene visualizzato come *condizionale*. Questo stato indica che il flag funzionalità verrà abilitato o disabilitato in base alle singole richieste, in base ai criteri applicati dal filtro funzionalità.
+1. Nella pagina **Gestione funzionalità** il flag funzionalità dispone ora di un valore di **filtro funzionalità** *personalizzato*. 
 
     > [!div class="mx-imgBorder"]
-    > ![Flag funzionalità condizionale](./media/feature-flag-filter-enabled.png)
+    > ![Flag funzionalità elencato con un valore di filtro funzionalità "Custom"](./media/feature-flag-filter-custom.png)
 
 ## <a name="feature-filters-in-action"></a>Filtri delle funzionalità in azione
 
@@ -90,4 +90,4 @@ Per visualizzare gli effetti di questo flag di funzionalità, avviare l'applicaz
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Abilitare l'implementazione temporanea delle funzionalità per destinatari specifici](./howto-targetingfilter-aspnet-core.md)
+> [Abilitare l'implementazione a fasi di funzionalità per destinatari specifici](./howto-targetingfilter-aspnet-core.md)

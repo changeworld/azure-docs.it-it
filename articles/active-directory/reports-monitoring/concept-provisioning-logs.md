@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/28/2020
+ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56818862b6bc4eb38b819185aceb121e6e78488e
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 05a514debcf8036a296bbe66b2dd75c7dacacdc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803528"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600745"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -129,11 +129,11 @@ Il filtro **Stato** consente di selezionare:
 
 Il filtro **azione** consente di filtrare:
 
-- Creazione 
-- Aggiorna
+- Create 
+- Aggiornamento
 - Delete
-- Disabilita
-- Altri
+- Disabilitazione
+- Altro
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -215,8 +215,6 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 - Il portale di Azure archivia i dati di provisioning segnalati per 30 giorni se si dispone di un'edizione Premium e di 7 giorni se si dispone di un'edizione gratuita. I log di provisioning possono essere pubblicati in [log Analytics](../app-provisioning/application-provisioning-log-analytics.md) per la conservazione oltre 30 giorni. 
 
 - È possibile usare l'attributo Change ID come identificatore univoco. Questo è, ad esempio, utile quando si interagisce con il supporto tecnico.
-
-- Attualmente non è disponibile alcuna opzione per scaricare i dati di provisioning come file CSV, ma è possibile esportare i dati usando [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - È possibile che vengano visualizzati eventi ignorati per gli utenti che non rientrano nell'ambito. Questo comportamento è previsto, soprattutto quando l'ambito di sincronizzazione è impostato su tutti gli utenti e i gruppi. Il servizio valuterà tutti gli oggetti nel tenant, anche quelli che non rientrano nell'ambito. 
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 6450b44e5c7281f0a24fd5000c9feec6e61fa29c
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540628"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601241"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introduzione all'agente desktop virtuale di Windows
 
@@ -44,5 +44,4 @@ Questa installazione degli aggiornamenti dura normalmente 2-3 minuti su una nuov
 
 Ora che si è in grado di comprendere meglio l'agente desktop virtuale di Windows, di seguito sono riportate alcune risorse che possono essere utili:
 
-- Consultare la sezione [aggiornamenti dell'agente desktop virtuale di Windows](whats-new.md) per visualizzare le informazioni relative al nuovo aggiornamento dell'agente di ogni mese.
 - Se si verificano problemi relativi all'agente o alla connettività, consultare la [Guida alla risoluzione dei problemi dell'agente desktop virtuale di Windows](troubleshoot-agent.md).

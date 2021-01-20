@@ -1,7 +1,7 @@
 ---
-title: Come eseguire Jupyter Notebook nell'area di lavoro
+title: Come eseguire Jupyter notebook nell'area di lavoro
 titleSuffix: Azure Machine Learning
-description: Informazioni su come eseguire Jupyter Notebook senza uscire dall'area di lavoro in Azure Machine Learning Studio.
+description: Informazioni su come eseguire Jupyter notebook senza uscire dall'area di lavoro in Azure Machine Learning Studio.
 services: machine-learning
 author: abeomor
 ms.author: osomorog
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 06/27/2020
-ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 01/19/2021
+ms.openlocfilehash: 7bb1ce8141f609feb4f354aa85f202915e197f37
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325409"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599256"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
-
-Di seguito viene descritto come eseguire Jupyter Notebook direttamente nell'area di lavoro in Azure Machine Learning Studio. Sebbene sia possibile avviare [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), è anche possibile modificare ed eseguire i notebook senza uscire dall'area di lavoro.
-
-Verrà descritto come:
-
-* Creare Jupyter Notebook nell'area di lavoro
-* Eseguire un esperimento da un notebook
-* Modificare l'ambiente del notebook
-* Trovare i dettagli delle istanze di calcolo usate per eseguire i notebook
+Informazioni su come eseguire i notebook di Jupyter direttamente nell'area di lavoro in Azure Machine Learning Studio. Sebbene sia possibile avviare [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), è anche possibile modificare ed eseguire i notebook senza uscire dall'area di lavoro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,7 +40,7 @@ Per creare un nuovo notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file"::: (Crea nuovo file)
 
 1. Assegnare un nome al file. 
-1. Per Jupyter Notebook file, selezionare **notebook** come tipo di file.
+1. Per i file di Jupyter notebook, selezionare **notebook** come tipo di file.
 1. Selezionare una directory di file.
 1. Selezionare **Create** (Crea).
 
@@ -153,18 +145,6 @@ Ogni notebook viene salvato in automatico ogni 30 secondi. Salvataggio automatic
  
 Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato e ripristinare il blocco appunti a un checkpoint salvato.
 
-
-### <a name="useful-keyboard-shortcuts"></a>Tasti di scelta rapida
-
-|Tastiera  |Azione  |
-|---------|---------|
-|MAIUSC+INVIO     |  Eseguire una cella       |
-|CTRL+SPAZIO | Attiva IntelliSense |
-|CTRL+M (Windows)     |  Abilitare/disabilitare il trapping delle schede nel notebook.       |
-|CTRL+MAIUSC+M (Mac e Linux)     |    Abilitare/disabilitare il trapping tramite TAB nel notebook.     |
-|TAB (quando il trapping tramite TAB è abilitato) | Aggiungere un carattere '\t' (rientro)
-|TAB (quando il trapping tramite TAB è disabilitato) | Passare lo stato attivo al successivo elemento attivabile (pulsante Elimina cella, pulsante Esegui e così via)
-
 ## <a name="delete-a-notebook"></a>Eliminare un notebook
 
 *Non è possibile* eliminare i notebook della cartella **Samples** (Esempi).  Questi notebook fanno parte di Studio e vengono aggiornati ogni volta che viene pubblicato un nuovo SDK.  
@@ -172,23 +152,41 @@ Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato
 *È possibile* eliminare i notebook della cartella **User files** (File utente) in uno dei modi seguenti:
 
 * In Studio selezionare **...** alla fine di una cartella o un file.  Assicurarsi di usare un browser supportato (Microsoft Edge, Chrome o Firefox).
-* Dalla barra degli strumenti di un notebook selezionare [**Open terminal**](#terminal) (Apri terminale) per accedere alla finestra del terminale per l'istanza di calcolo.
+* Da qualsiasi barra degli strumenti del notebook selezionare [**Apri terminale**](#terminal)  per accedere alla finestra del terminale per l'istanza di calcolo.
 * In Jupyter o JupyterLab con i relativi strumenti.
 
-## <a name="run-an-experiment"></a>Eseguire un esperimento
+## <a name="run-a-notebook-or-python-script"></a>Eseguire un notebook o uno script Python
 
-Per eseguire un esperimento da un notebook, connettersi prima a un'[istanza di calcolo](concept-compute-instance.md) in esecuzione. Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una: 
+Per eseguire un notebook o uno script Python, connettersi prima di tutto a un' [istanza di calcolo](concept-compute-instance.md)in esecuzione. Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una: 
 
-1. Selezionare **+** nella barra degli strumenti del notebook. 
+1. Selezionare **+** nella barra degli strumenti del notebook o dello script. 
 2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale**. 
 3. Selezionare **Create** (Crea).
-4. L'istanza di calcolo viene connessa automaticamente al notebook ed è ora possibile eseguire le celle.
+4. L'istanza di calcolo è connessa automaticamente al file.  È ora possibile eseguire le celle del notebook o lo script Python usando lo strumento a sinistra dell'istanza di calcolo
 
 È possibile visualizzare e usare solo le istanze di calcolo create.  I file della cartella **User files** (File utente) vengono archiviati separatamente dalla macchina virtuale e sono condivisi tra tutte le istanze di calcolo nell'area di lavoro.
 
 ### <a name="view-logs-and-output"></a>Visualizzare i log e l'output
 
-Usare i [widget del notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) per visualizzare lo stato di avanzamento dell'esecuzione e i log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
+Usare i [widget del notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) per visualizzare lo stato di avanzamento dell'esecuzione e dei log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Schermata: widget del notebook di Jupyter ":::
+
+## <a name="explore-variables-in-the-notebook"></a>Esplorare le variabili nel notebook
+
+Sulla barra degli strumenti del notebook usare lo strumento **Esplora variabili** per visualizzare il nome, il tipo, la lunghezza e i valori di esempio per tutte le variabili create nel notebook.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer.png" alt-text="Schermata: strumento Esplora variabili":::
+
+Selezionare lo strumento per visualizzare la finestra Esplora variabili.
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/variable-explorer-window.png" alt-text="Schermata: finestra Esplora variabili":::
+
+## <a name="navigate-with-a-toc"></a>Spostarsi con un sommario
+
+Sulla barra degli strumenti del notebook utilizzare lo strumento  **Sommario** per visualizzare o nascondere il sommario.  Avviare una cella Markdown con un'intestazione per aggiungerla al sommario. Fare clic su una voce nella tabella per scorrere fino a tale cella nel notebook.  
+
+:::image type="content" source="media/how-to-run-jupyter-notebooks/table-of-contents.png" alt-text="Screenshot: Sommario nel notebook":::
 
 ## <a name="change-the-notebook-environment"></a>Modificare l'ambiente del notebook
 
@@ -213,9 +211,9 @@ Queste azioni reimposteranno lo stato del notebook e ripristineranno tutte le va
 
 ### <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 
-Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.  Per aggiungere un kernel all'istanza di calcolo:
+Il notebook troverà automaticamente tutti i kernel Jupyter installati nell'istanza di calcolo connessa.  Per aggiungere un kernel all'istanza di calcolo:
 
-1. Selezionare [**Open terminal**](#terminal) (Apri terminale) nella barra degli strumenti del notebook.
+1. Selezionare [**Apri terminale**](#terminal) sulla barra degli strumenti del notebook.
 1. Usare la finestra del terminale per creare un nuovo ambiente.  Il codice seguente, ad esempio, crea `newenv` :
     ```shell
     conda create -y --name newenv
@@ -234,7 +232,7 @@ Il notebook rileverà automaticamente tutti i kernel Jupyter installati nell'ist
     ```
 
 > [!NOTE]
-> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione** , anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione**, anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 È possibile installare uno dei [kernel Jupyter disponibili](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels).
 
@@ -257,7 +255,90 @@ Un indicatore accanto all'elenco a discesa **Kernel** mostra lo stato del kernel
 |  Green |Kernel connesso, inattivo, occupato|
 |  Grigio |Kernel non connesso |
 
-## <a name="find-compute-details"></a>Dettagli del calcolo 
+## <a name="shortcut-keys"></a>Combinazioni di tasti
+Analogamente ai notebook di Jupyter, Azure Machine Learning Studio notebook hanno un'interfaccia utente modale. La tastiera esegue diverse operazioni a seconda della modalità in cui si trova la cella del notebook. Azure Machine Learning Studio notebook supportano le due modalità seguenti per una cella di codice specificata: modalità comando e modalità di modifica.
+
+### <a name="command-mode-shortcuts"></a>Collegamenti alla modalità di comando
+
+Una cella è in modalità di comando quando non è presente un cursore di testo che richiede di digitare. Quando una cella è in modalità di comando, è possibile modificare il notebook nel suo complesso, ma non digitare in singole celle. Immettere la modalità comando premendo `ESC` o usando il mouse per selezionare all'esterno dell'area dell'editor di una cella.  Il bordo sinistro della cella attiva è blu e a tinta unita e il pulsante **Esegui** è blu.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Cella notebook in modalità comando ":::
+
+| Tasto di scelta rapida                      | Descrizione                          |
+| ----------------------------- | ------------------------------------|
+| Immettere                         | Attivare la modalità di modifica             |        
+| MAIUSC+INVIO                 | Eseguire la cella, selezionare sotto         |     
+| Controllo/comando + invio       | Esegui cella                            |
+| ALT+INVIO                   | Eseguire la cella, inserire la cella del codice sotto    |
+| Controllo/comando + ALT + INVIO | Eseguire la cella, inserire la cella Markdown sotto|
+| ALT + R                       | Esegui tutto      |                       
+| S                             | Converti cella in codice    |                         
+| M                             | Converte la cella in Markdown  |                       
+| Massimo/K                          | Selezionare la cella in alto    |               
+| Giù/J                        | Selezionare la cella in basso    |               
+| A                             | Inserisci cella di codice sopra  |            
+| B                             | Inserisci cella di codice sotto   |           
+| Controllo/comando + MAIUSC + A   | Inserisci cella Markdown sopra    |      
+| Controllo/comando + MAIUSC + B   | Inserisci cella Markdown sotto   |       
+| X                             | Taglia cella selezionata    |               
+| C                             | Copia cella selezionata   |               
+| MAIUSC + V                     | Incolla la cella selezionata sopra           |
+| V                             | Incolla la cella selezionata sotto    |       
+| D D                           | Elimina cella selezionata|                
+| O                             | Attiva/Disattiva Output         |              
+| MAIUSC + O                     | Imposta/Nascondi scorrimento output   |          
+| i                           | Interrompi kernel |                   
+| 0 0                           | Riavviare il kernel |                     
+| MAIUSC + barra spaziatrice                 | Scorri verso l'alto  |                         
+| Space                         | Scorri verso il basso|
+| Scheda                           | Imposta lo stato attivo su elemento attivabile successivo (quando il trap di tabulazione è disabilitato)|
+| Controllo/comando + S           | Salva notebook |                      
+| 1                             | Passa a H1|                       
+| 2                             | Passa a H2|                        
+| 3                             | Passa a H3|                        
+| 4                             | Passa a H4 |                       
+| 5                             | Passa a H5 |                       
+| 6                             | Passa a H6 |                       
+
+### <a name="edit-mode-shortcuts"></a>Collegamenti alla modalità di modifica
+
+La modalità di modifica è indicata da un cursore di testo che richiede di digitare nell'area dell'editor. Quando una cella è in modalità di modifica, è possibile digitare nella cella. Per passare alla modalità di modifica, premere `Enter` o usare il mouse per selezionare l'area dell'editor di una cella. Il bordo sinistro della cella attiva è verde e tratteggiato e il pulsante **Esegui** è verde. Viene visualizzata anche la richiesta di cursore nella cella in modalità di modifica.
+
+   :::image type="content" source="media/how-to-run-jupyter-notebooks/edit-mode.png" alt-text="Cella notebook in modalità di modifica":::
+
+Usando i tasti di scelta rapida seguenti, è possibile esplorare ed eseguire più facilmente il codice in Azure Machine Learning notebook in modalità di modifica.
+
+| Tasto di scelta rapida                      | Descrizione|                                     
+| ----------------------------- | ----------------------------------------------- |
+| Carattere speciale di escape                        | Immettere la modalità di comando|  
+| Controllo/comando + barra spaziatrice       | Attiva IntelliSense |
+| MAIUSC+INVIO                 | Eseguire la cella, selezionare sotto |                         
+| Controllo/comando + invio       | Esegui cella  |                                      
+| ALT+INVIO                   | Eseguire la cella, inserire la cella del codice sotto  |              
+| Controllo/comando + ALT + INVIO | Eseguire la cella, inserire la cella Markdown sotto  |          
+| ALT + R                       | Eseguire tutte le celle     |                              
+| Su                            | Spostare il cursore verso l'alto o la cella precedente    |             
+| Giù                          | Spostare il cursore verso il basso o la cella successiva |                  
+| Controllo/comando + S           | Salva notebook   |                                
+| Controllo/comando + freccia su          | Andare all'inizio della cella   |                             
+| Controllo/comando + freccia giù        | Andare alla fine della cella |                                 
+| Scheda                           | Completamento o rientro del codice (se il Trap Tab è abilitato) |
+| Controllo/comando + M           | Abilita/Disabilita trap tabulazione  |                       
+| Controllo/comando +]           | Impostare un rientro |                                         
+| Controllo/comando + [           | Annullare l'impostazione di un rientro  |                                        
+| Controllo/comando + A           | Seleziona tutto|                                      
+| Controllo/comando + Z           | Annulla |                                           
+| Controllo/comando + MAIUSC + Z   | Ripeti |                                           
+| Controllo/comando + Y           | Ripeti |                                           
+| Controllo/comando + Home        | Andare all'inizio della cella|                                
+| Controllo/comando + fine         | Andare alla fine della cella   |                               
+| Controllo/comando + freccia sinistra        | Andare a sinistra di una parola |                               
+| Controllo/comando + diritto       | Andare a destra di una parola |                              
+| Controllo/comando + Backspace   | Eliminare la parola prima |                             
+| Controllo/comando + Elimina      | Eliminare la parola dopo |                              
+| Controllo/comando +/           | Imposta/Nascondi commento su cu
+
+## <a name="find-compute-details"></a>Dettagli del calcolo
 
 I dettagli sulle istanze di calcolo sono disponibili nella pagina **Compute** (Calcolo) in [Studio](https://ml.azure.com).
 

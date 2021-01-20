@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 9931dd9acb51e74c34a57b0475bca79fb9ba79cf
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2f3472aa495042749410bc0b9635f0924a02e1fd
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184179"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598558"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per la cache di Azure per le risorse di calcolo Redis con capacità riservata
 
@@ -52,7 +52,7 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 | Campo | Descrizione |
 | :------------ | :------- |
-| Subscription   | Sottoscrizione usata per pagare la riserva della capacità riservata di Azure per Redis. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione della capacità riservata di cache di Azure per Redis. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Subscription   | Sottoscrizione usata per pagare la riserva della capacità riservata di Azure per Redis. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione della capacità riservata di cache di Azure per Redis. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo prepagato di Azure per la registrazione (denominato in precedenza impegno monetario) o addebitato come eccedenza. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
 | Ambito | L'ambito della prenotazione può coprire una o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato alla cache di Azure per le istanze di redis nella sottoscrizione selezionata e nel gruppo di risorse selezionato all'interno di tale sottoscrizione.
 | Region | Area di Azure coperta dalla cache di Azure per la prenotazione di capacità riservata di Redis.
 | Piano tariffario | Livello di servizio per la cache di Azure per i server Redis.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: e8c7e21b0784aacc85bd02e3c1702e1a710e76ab
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 501a0e954efbdbc9a0396fd94c915efaf0fde9fc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021882"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601128"
 ---
 # <a name="what-is-direct-line-speech"></a>Che cos'è Direct Line Speech?
 
@@ -23,7 +23,7 @@ ms.locfileid: "95021882"
 
 Gli [assistenti vocali](voice-assistants.md) ascoltano gli utenti e intraprendono un'azione in risposta e spesso parlano. Usano il [riconoscimento vocale](speech-to-text.md) per trascrivere la voce dell'utente, quindi intervenire sulla comprensione del testo del linguaggio naturale. Questa azione include spesso l'output parlato dell'assistente generato con [sintesi vocale](text-to-speech.md).
 
-Direct Line Speech offre i livelli più elevati di personalizzazione e complessità per gli assistenti vocali. È progettato per scenari di conversazione aperti, naturali o ibridi dei due con il completamento delle attività o l'uso del comando e del controllo. Questo elevato livello di flessibilità è caratterizzato da una maggiore complessità e gli scenari che hanno come ambito attività ben definite usando input in linguaggio naturale potrebbero voler prendere in considerazione [comandi personalizzati (anteprima)](custom-commands.md) per un'esperienza di soluzione semplificata.
+Direct Line Speech offre i livelli più elevati di personalizzazione e complessità per gli assistenti vocali. È progettato per scenari di conversazione aperti, naturali o ibridi dei due con il completamento delle attività o l'uso del comando e del controllo. Questo elevato livello di flessibilità è caratterizzato da una maggiore complessità e gli scenari che hanno come ambito attività ben definite usando input in linguaggio naturale possono prendere in considerazione [comandi personalizzati](custom-commands.md) per un'esperienza di soluzione semplificata.
 
 ## <a name="getting-started-with-direct-line-speech"></a>Introduzione a direct line Speech
 
@@ -35,7 +35,7 @@ Per una guida completa e dettagliata sulla creazione di un semplice assistente v
 
 Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codice e l'apprendimento rapido delle API. Questa tabella include un elenco di guide introduttive per Assistente vocale organizzate in base a linguaggio e piattaforma.
 
-| Avvio rapido | Piattaforma | API (riferimento) |
+| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
 |------------|----------|---------------|
 | C#, UWP | Windows | [Sfoglia](/dotnet/api/microsoft.cognitiveservices.speech) |
 | Java | Windows, macOS, Linux | [Sfoglia](/java/api/com.microsoft.cognitiveservices.speech) |
@@ -45,7 +45,7 @@ Sono inoltre disponibili guide introduttive progettate per l'esecuzione di codic
 
 Il codice di esempio per la creazione di un assistente vocale è disponibile su GitHub. Questi esempi coprono l'applicazione client per la connessione all'assistente in diversi linguaggi di programmazione più diffusi.
 
-* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples) (Esempi di assistente vocale - SDK)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts) (Esempi di assistente vocale - SDK)
 * [Esercitazione: abilitare l'Assistente vocale con l'SDK di riconoscimento vocale, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>Personalizzazione

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 54001cde76bd89305eb77544c6e6858defda6096
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222548"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601065"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
@@ -137,9 +137,12 @@ Il frammento di codice usa il [*Room.js*](https://github.com/Azure-Samples/digit
 Prima di eseguire l'esempio, eseguire le operazioni seguenti:
 1. Scaricare i file del modello, inserirli nel progetto e sostituire i `<path-to>` segnaposto nel codice riportato di seguito per indicare al programma dove trovarli.
 2. Sostituire il segnaposto `<your-instance-hostname>` con il nome host dell'istanza di Azure Digital gemelli.
-3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Usare i collegamenti seguenti per passare ai pacchetti in NuGet, dove è possibile trovare i comandi della console (inclusa l'interfaccia della riga di comando di .NET) per aggiungere la versione più recente di ogni pacchetto al progetto.
-    * [**Azure.DigitalTwins.Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Questo è il pacchetto per l'[SDK Gemelli digitali di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-    * [**Azure.Identity**](https://www.nuget.org/packages/Azure.Identity). Questa libreria fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+3. Aggiungere due dipendenze al progetto che saranno necessarie per lavorare con i dispositivi gemelli digitali di Azure. Il primo è il pacchetto per l' [SDK di dispositivi digitali gemelli di Azure per .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), il secondo fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
 
 È inoltre necessario configurare le credenziali locali se si desidera eseguire l'esempio direttamente. La sezione successiva illustra questa procedura.
 [!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]

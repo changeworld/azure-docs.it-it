@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: db6575894904e6ced2d4be48fec5961f5b8b8a54
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968686"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602628"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Ridurre i costi con la prenotazione dischi di Azure
 
@@ -70,7 +70,7 @@ Per acquistare la capacità riservata, seguire questa procedura:
    |Elemento  |Descrizione  |
    |---------|---------|
    |**Ambito**   |  Il numero di sottoscrizioni che possono usare il vantaggio di fatturazione associato alla prenotazione. Questo valore specifica anche il modo in cui la prenotazione viene applicata a sottoscrizioni specifiche. <br/><br/> Se si seleziona **condiviso**, lo sconto relativo alla prenotazione viene applicato alla capacità di archiviazione di Azure in ogni sottoscrizione all'interno del contesto di fatturazione. Il contesto di fatturazione si basa sul modo in cui è stata effettuata l'iscrizione ad Azure. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso include tutte le singole sottoscrizioni con tariffe con pagamento in base al consumo create dall'amministratore account.  <br/><br/>  Se si seleziona una **singola sottoscrizione**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata. <br/><br/> Se si seleziona **gruppo di risorse singolo**, lo sconto per la prenotazione viene applicato alla capacità di archiviazione di Azure nella sottoscrizione selezionata e nel gruppo di risorse selezionato di tale sottoscrizione. <br/><br/> È possibile modificare l'ambito di prenotazione dopo aver acquistato la prenotazione.  |
-   |**Sottoscrizione**  | Sottoscrizione usata per pagare la prenotazione di archiviazione di Azure. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi:<br/><ul><li> Enterprise Agreement (offer Numbers MS-AZR-0017P e MS-AZR-0148P). per una sottoscrizione Enterprise, il costo viene detratto dal saldo dell'impegno monetario della registrazione oppure viene addebitato come eccedenza.</li><br/><li>Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta MS-AZR-0003P e MS-AZR-0023P). Per una singola sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.</li></ul>    |
+   |**Sottoscrizione**  | Sottoscrizione usata per pagare la prenotazione di archiviazione di Azure. Il metodo di pagamento per la sottoscrizione selezionata viene utilizzato per l'addebito dei costi. La sottoscrizione deve essere di uno dei seguenti tipi:<br/><ul><li> Enterprise Agreement (offer Numbers MS-AZR-0017P e MS-AZR-0148P). Per una sottoscrizione Enterprise, gli addebiti vengono dedotti dal saldo prepagato di Azure per la registrazione (denominato in precedenza impegno monetario) o addebitato come eccedenza.</li><br/><li>Sottoscrizione singola con tariffe con pagamento in base al consumo (numeri di offerta MS-AZR-0003P e MS-AZR-0023P). Per una singola sottoscrizione con tariffe con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.</li></ul>    |
    | **Dischi** | SKU che si vuole creare. |
    | **Area** | Area in cui è attiva la prenotazione. |
    | **Frequenza di fatturazione** | Frequenza con cui l'account viene fatturato per la prenotazione. Le opzioni includono **mensile** e **iniziale**. |

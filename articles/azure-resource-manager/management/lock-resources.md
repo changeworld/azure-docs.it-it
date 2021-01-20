@@ -4,12 +4,12 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure 
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f1073d8c4a6902ea00a9b4098ef87bc411b3e6c0
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 7efeb8a073a04f78f77046c07c107abf0c7526f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555669"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602202"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -28,7 +28,7 @@ I blocchi di Resource Manager si applicano solo alle operazioni che si verifican
 
 ## <a name="considerations-before-applying-locks"></a>Considerazioni prima di applicare i blocchi
 
-L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
+L'applicazione di blocchi può causare risultati imprevisti perché alcune operazioni che non sembrano modificare la risorsa richiedono effettivamente azioni bloccate dal blocco. I blocchi impediscono qualsiasi operazione che richiede una richiesta POST all'API Azure Resource Manager. Alcuni esempi comuni delle operazioni bloccate dai blocchi sono:
 
 * Un blocco di sola lettura applicato a un **account di archiviazione** impedisce a tutti gli utenti di visualizzare l'elenco delle chiavi. L'operazione di elenco delle chiavi viene gestita tramite una richiesta POST, perché le chiavi restituite sono disponibili per operazioni di scrittura.
 

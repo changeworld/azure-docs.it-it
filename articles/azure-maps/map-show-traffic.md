@@ -9,22 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: ec7459a356221fb7b599cbbc02f1cb825920b5b3
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: b6fcf39e05c4649503f0b7a80aadaaa16df24674
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890667"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599560"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
 In Mappe di Azure sono disponibili due tipi di dati di traffico:
 
 - Dati di eventi: dati basati su linee e punti per segnalare cantieri, chiusure stradali e incidenti.
-- Flussi di dati: metriche sul flusso di traffico sulle strade. I dati relativi al flusso di traffico vengono spesso usati per colorare le strade. I colori dipendono dalla misura in cui il traffico sta rallentando il flusso stradale, rispetto al limite di velocità o a un'altra metrica. I dati relativi al flusso di traffico in Mappe di Azure si basano su tre diverse metriche di misurazione:
-    - `relative` - misura relativa alla velocità in condizioni di traffico libero sulla strada.
-    - `absolute` - velocità assoluta di tutti i veicoli sulla strada.
-    - `relative-delay` - aree più lente rispetto al ritardo medio previsto.
+- Flussi di dati: metriche sul flusso di traffico sulle strade. I dati relativi al flusso di traffico vengono spesso usati per colorare le strade. I colori dipendono dalla misura in cui il traffico sta rallentando il flusso stradale, rispetto al limite di velocità o a un'altra metrica. Sono disponibili quattro valori che possono essere passati nell' `flow` opzione relativa al traffico della mappa.
+
+    |Valore del flusso | Descrizione|
+    | :-- | :-- |
+    | `none` | Non Visualizza i dati sul traffico sulla mappa |
+    | `relative` | Mostra i dati sul traffico relativi alla velocità del flusso libero della strada |
+    | `relative-delay` | Visualizza le aree più lente rispetto al ritardo medio previsto |
+    | `absolute` | Mostra la velocità assoluta di tutti i veicoli in viaggio |
 
 Il codice seguente illustra come visualizzare i dati relativi al traffico sulla mappa.
 

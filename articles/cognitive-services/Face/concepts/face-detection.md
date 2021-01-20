@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 68d1e9744d937cf80327c3f41cc69f4af97d3400
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504130"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600183"
 ---
 # <a name="face-detection-and-attributes"></a>Rilevamento viso e attributi
 
@@ -35,7 +35,7 @@ I punti di interesse della faccia sono un set di punti di facile individuazione 
 
 Le coordinate dei punti vengono restituite in unità di pixel.
 
-## <a name="attributes"></a>Attributi
+## <a name="attributes"></a>Attributes
 
 Gli attributi sono un set di funzionalità che possono essere rilevate facoltativamente dall'API di [rilevamento facciale](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) . È possibile rilevare gli attributi seguenti:
 
@@ -64,14 +64,16 @@ Usare i suggerimenti seguenti per assicurarsi che le immagini di input forniscan
 
 * I formati di immagine di input supportati sono JPEG, PNG, GIF per il primo frame e BMP.
 * Le dimensioni del file di immagine non devono essere superiori a 6 MB.
-* L'intervallo di dimensioni del volto rilevabili va da 36 x 36 a 4096 x 4096 pixel. Non verranno rilevati visi esterni a questo intervallo.
+* Le dimensioni minime rilevabili del quadrante sono 36 x 36 pixel in un'immagine non superiore a 1920 x 1080 pixel. Le immagini con dimensioni maggiori di 1920 x 1080 pixel hanno una dimensione minima del quadrante proporzionale. La riduzione delle dimensioni del viso potrebbe causare la mancata individuazione di alcuni visi, anche se sono più grandi delle dimensioni minime rilevabili del volto.
+* Le dimensioni massime rilevabili della superficie sono 4096 x 4096 pixel.
+* Non verranno rilevati i visi al di fuori dell'intervallo di dimensioni di 36 x 36 a 4096 x 4096 pixel.
 * Alcuni visi potrebbero non essere rilevati a causa di problemi tecnici. Gli angoli dei volti estremi (la forma Head) o l'occlusione della faccia (oggetti come occhiali da sole o mani che bloccano parte della faccia) possono influire sul rilevamento. I visi frontali e quasi frontali offrono i risultati migliori.
 
 Se si rilevano visi da un feed video, è possibile migliorare le prestazioni modificando determinate impostazioni nella videocamera video:
 
 * **Smussatura**: molte fotocamere video si applicano a un effetto uniforme. È necessario disattivare questa opzione se possibile perché crea una sfocatura tra i frame e riduce la chiarezza.
 * **Velocità dell'otturatore**: una velocità di otturatore più veloce riduce la quantità di movimento tra i frame e rende più chiaro il frame. Si consiglia la velocità di scatto di 1/60 secondi o più velocemente.
-* **Angolo**di apertura: alcune fotocamere specificano l'angolo di apertura anziché la velocità dell'otturatore. Se possibile, è consigliabile usare un angolo di apertura inferiore. Questa operazione determinerà un frame video più chiaro.
+* **Angolo** di apertura: alcune fotocamere specificano l'angolo di apertura anziché la velocità dell'otturatore. Se possibile, è consigliabile usare un angolo di apertura inferiore. Questa operazione determinerà un frame video più chiaro.
 
     >[!NOTE]
     > Una fotocamera con un angolo di scatto inferiore riceverà meno luce in ogni frame, quindi l'immagine sarà più scura. È necessario determinare il livello corretto da usare.

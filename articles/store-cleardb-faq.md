@@ -12,12 +12,12 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: references_regions
-ms.openlocfilehash: 25cc4dfaabee58a47cc33fe4be8dc7375bc804d2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d9d4ae746c192e8b4afd1781c1e072fc0dc70422
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96491643"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599798"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Domande frequenti per i database MySQL ClearDB con il Servizio app di Azure
 Queste domande frequenti offrono risposte a domande comuni sull'uso e l'acquisto di database MySQL ClearDB per App Web di Azure.
@@ -42,7 +42,7 @@ Questo dipende dal tipo di sottoscrizione in uso. Di seguito sono riportati alcu
 * [Pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/): richiede una carta di credito sulla quale addebitare i costi dell'acquisto di un database MySQL a pagamento.
 * [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/): include crediti da usare con i servizi di Microsoft Azure, ma non consente di acquistare risorse di terze parti. Per acquistare servizi di terze parti o un database MySQL a pagamento, è necessario usare una sottoscrizione abilitata con carta di credito. Per le app Web, è possibile creare un database MySQL ClearDB GRATUITO.
 * [Sottoscrizione MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **Pagamento in base al consumo per sviluppo/test MSDN**: analogamente alla versione di valutazione gratuita, una sottoscrizione MSDN richiede una carta di credito per l'acquisto di una soluzione a pagamento MySQL da ClearDB.
-* [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/): ai clienti con contratto Enterprise vengono addebitati ogni trimestre i costi per tutti gli acquisti effettuati su Azure Marketplace (di terze parti) in una fattura separata e consolidata. I costi degli eventuali acquisti effettuati nel marketplace vengono addebitati al di fuori dell'impegno monetario. Si noti che al momento Azure Store non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico. 
+* [Contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/): ai clienti con contratto Enterprise vengono addebitati ogni trimestre i costi per tutti gli acquisti effettuati su Azure Marketplace (di terze parti) in una fattura separata e consolidata. Viene addebitato al di fuori del prepagamento di Azure (in precedenza denominato impegno monetario) per gli acquisti nel Marketplace. Si noti che al momento Azure Store non è disponibile per i clienti iscritti in Azerbaigian, Croazia, Norvegia e Porto Rico. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Perché è stato ricevuto un addebito di $ 3,50 per un'app Web + MySQL da Azure Marketplace?
 L'opzione predefinita del database è Titan, che ha un costo di $ 3,50. Durante la creazione del database non viene visualizzato il costo e si potrebbe acquistare erroneamente un database che non si voleva acquistare. L'esperienza è in corso di miglioramento, ma finché non è disponibile una soluzione è necessario controllare tutti i piani tariffari selezionati per app Web e database prima di scegliere **Crea** e avviare la distribuzione delle risorse.
@@ -94,10 +94,10 @@ I database ClearDB esistenti usano la carta di credito associata alle sottoscriz
 * Aggiornare l'applicazione per usare il nuovo database.
 * Eliminare il vecchio database ClearDB.
 
-Quando si crea una nuova app Web con MySQL (ClearDB) o un database MySQL (ClearDB), la sottoscrizione che si sceglie determina la modalità di pagamento per il servizio. Con la sottoscrizione del contratto Enterprise Agreement, l'approvvigionamento dei servizi di terze parti, come ClearDB, nel portale di Azure non verrà bloccato. Le sottoscrizioni con contratto Enterprise vengono addebitate al di fuori dell'impegno monetario e vengono fatturate su base trimestrale e in modo posticipato. Per pagare i servizi Marketplace di terze parti, i clienti con contratto Enterprise Agreement devono impostare un metodo di pagamento, ad esempio una carta di credito.
+Quando si crea una nuova app Web con MySQL (ClearDB) o un database MySQL (ClearDB), la sottoscrizione che si sceglie determina la modalità di pagamento per il servizio. Con la sottoscrizione del contratto Enterprise Agreement, l'approvvigionamento dei servizi di terze parti, come ClearDB, nel portale di Azure non verrà bloccato. Le sottoscrizioni EA vengono fatturate al di fuori del prepagamento di Azure e vengono fatturate trimestralmente e in modo posticipato. Per pagare i servizi Marketplace di terze parti, i clienti con contratto Enterprise Agreement devono impostare un metodo di pagamento, ad esempio una carta di credito.
 
 ## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Dove è possibile visualizzare gli addebiti per le risorse di ClearDB in una sottoscrizione con contratto Enterprise?
-Per i clienti con contratto Enterprise diretti, gli addebiti di Azure Marketplace sono visibili in Enterprise Portal. Si noti che tutti gli acquisti e l'uso di Marketplace vengono addebitati al di fuori dell'impegno monetario e vengono fatturati su base trimestrale e in modo posticipato. I clienti con contratto Enterprise Agreement devono pagare direttamente i provider di servizi di terze parti, attivando un metodo di pagamento, ad esempio una carta di credito, tramite l'account del contratto Enterprise Agreement.
+Per i clienti con contratto Enterprise diretti, gli addebiti di Azure Marketplace sono visibili in Enterprise Portal. Si noti che tutti gli acquisti e il consumo del Marketplace vengono fatturati al di fuori del prepagamento di Azure e vengono fatturati trimestralmente e in modo posticipato. I clienti con contratto Enterprise Agreement devono pagare direttamente i provider di servizi di terze parti, attivando un metodo di pagamento, ad esempio una carta di credito, tramite l'account del contratto Enterprise Agreement.
 
 I clienti con contratto Enterprise indiretti possono trovare le proprie sottoscrizioni di Azure Marketplace nella pagina **Gestisci sottoscrizioni** di Enterprise Portal, tuttavia i prezzi sono nascosti. I clienti devono contattare il proprio LSP per informazioni sugli addebiti di Marketplace.
 
