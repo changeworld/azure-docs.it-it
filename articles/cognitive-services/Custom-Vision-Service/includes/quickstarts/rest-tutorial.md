@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: a53b316f6d942f070ef925b369bcea8476fbfffd
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
+ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97853712"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98256307"
 ---
 Introduzione all'API REST Visione personalizzata. Seguire questa procedura per chiamare l'API e creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
@@ -102,6 +102,9 @@ Viene restituita una risposta JSON simile alla seguente. Salvare il valore `"id"
 ## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
 Scaricare quindi le immagini di esempio per questo progetto. Salvare il contenuto della [cartella immagini di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) nel dispositivo locale.
+
+> [!NOTE]
+> Trove, un progetto Microsoft Garage, consente di raccogliere e acquistare set di immagini a scopo di training. Una volta raccolte le immagini, è possibile scaricarle e quindi importarle nel progetto di Visione personalizzata nel modo consueto. Per altre informazioni, visitare la [pagina di Trove](https://www.microsoft.com/en-us/ai/trove?activetab=pivot1:primaryr3).
 
 Usare il comando seguente per caricare le immagini e applicare i tag, tutti in una volta per le immagini "Hemlock" e separatamente per le immagini "Japanese Cherry". Per altre opzioni, vedere l'API [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5).
 
