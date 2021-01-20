@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5f49d2c918164fa529b12313e000aff5f8893a65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d691807f673dcd6c8147c9ff18a95c6ce0c88ae6
+ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201851"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98247438"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Esercitazione: Configurare Blink per il provisioning utenti automatico
 
@@ -50,7 +50,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 ## <a name="setup-blink-for-provisioning"></a>Configurare Blink per il provisioning
 
-1. Registrare un [caso di supporto](https://support.joinblink.com) o inviare un messaggio di posta elettronica al **supporto tecnico di Blink** all'indirizzo support@joinblink.com per richiedere un token SCIM. .
+1. Registrare un [caso di supporto](https://support.joinblink.com) o inviare un messaggio di posta elettronica al **supporto tecnico di Blink** all'indirizzo support@joinblink.com per richiedere un token SCIM.
 
 2.  Copiare il valore di **SCIM Authentication Token** (Token di autenticazione SCIM). Questo valore verrà immesso nel campo Token segreto nella scheda Provisioning dell'applicazione Blink nel portale di Azure.
 
@@ -117,7 +117,23 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 9. Esaminare gli attributi utente sincronizzati da Azure AD a Blink nella sezione **Mapping attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Blink per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Attributi utente di Blink](media/blink-provisioning-tutorial/new-user-attributes.png)
+   |Attributo|Type|Supportato per il filtro|
+   |---|---|---|
+   |userName|string|&check;|
+   |active|Boolean|
+   |title|string|
+   |emails[type eq "work"].value|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |phoneNumbers[type eq "work"].value|string|
+   |phoneNumbers[type eq "mobile"].value|string|
+   |externalId|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+   |urn:ietf:params:scim:schemas:extension:blink:2.0:User:company|string|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:description|string|
+   urn:ietf:params:scim:schemas:extension:blink:2.0:User:location|string|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -137,15 +153,23 @@ L'operazione avvia la sincronizzazione iniziale di tutti gli utenti definiti in 
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
+## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
+Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
+
+* Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+* Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+* Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+
 ## <a name="change-log"></a>Registro delle modifiche
 
-* 14/01/2021 - Sono stati aggiunti gli attributi estensione personalizzati **company** , **description** e **location**.
+* 14/01/2021 - Sono stati aggiunti gli attributi di estensione personalizzati **company**, **description** e **location**.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)

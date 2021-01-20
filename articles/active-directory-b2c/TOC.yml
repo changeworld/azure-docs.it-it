@@ -140,10 +140,14 @@
           href: phone-authentication-user-flows.md
     - name: Provider di identità
       items:
+        - name: Provider di identità dell'account locale
+          href: identity-provider-local.md
+          displayName: 'Username, Email, Phone authorization, Phone sing-in'
         - name: Aggiunta di un provider di identità
           href: add-identity-provider.md
         - name: AD FS
           href: identity-provider-adfs.md
+          displayName: 'AD-FS, ADFS'
         - name: Amazon
           href: identity-provider-amazon.md
         - name: Azure AD (tenant singolo)

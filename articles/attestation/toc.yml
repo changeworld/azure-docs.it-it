@@ -21,6 +21,8 @@
       href: author-sign-policy.md
     - name: Creare un endpoint privato - PowerShell
       href: private-endpoint-powershell.md
+    - name: Monitoraggio diagnostica di Azure
+      href: azure-diagnostic-monitoring.md
     - name: Esempi di codice per attestazioni SGX
       href: /samples/browse/?expanded=azure&terms=attestation
 - name: Esempi
