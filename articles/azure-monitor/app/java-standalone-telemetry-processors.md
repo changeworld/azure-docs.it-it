@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 39897e490e4653fbaad7a64ecc0b33f161d1264b
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165791"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632581"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processori di telemetria (anteprima)-Application Insights di monitoraggio di Azure per Java
 
@@ -241,7 +241,7 @@ Per l' `hash` azione, sono necessari i seguenti elementi
 ### `extract`
 
 > [!NOTE]
-> Questa funzionalità è solo in 3.0.1 e versioni successive
+> Questa funzionalità è solo in 3.0.2 e versioni successive
 
 Estrae i valori usando una regola di espressione regolare dalla chiave di input alle chiavi di destinazione specificate nella regola. Se una chiave di destinazione esiste già, verrà sottoposta a override. Si comporta in modo simile all'impostazione [span Processor](#extract-attributes-from-span-name) `toAttributes` con l'attributo esistente come origine.
 

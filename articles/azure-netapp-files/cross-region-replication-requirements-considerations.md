@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 7b664dcd1cb12808960ffacf91c6d02d58632c4e
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243138"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632674"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisiti e considerazioni per l'uso della replica tra aree 
 
@@ -31,6 +31,7 @@ Tenere presente i requisiti e le considerazioni seguenti sull'uso della funziona
 * Azure NetApp Files replica è disponibile solo in alcune coppie di aree fisse. Vedere [coppie di aree supportate](cross-region-replication-introduction.md#supported-region-pairs). 
 * I volumi SMB sono supportati insieme ai volumi NFS. Per la replica dei volumi SMB è necessaria una connessione Active Directory negli account NetApp di origine e di destinazione. La connessione AD di destinazione deve avere accesso ai server DNS o aggiungere controller di dominio raggiungibili dalla subnet delegata nell'area di destinazione. Per ulteriori informazioni, vedere [requisiti per le connessioni Active Directory](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * L'account di destinazione deve trovarsi in un'area diversa dall'area del volume di origine. È anche possibile selezionare un account NetApp esistente in un'area diversa.  
+* Il volume di destinazione della replica è di sola lettura fino a quando non viene eseguito il [failover nell'area di destinazione](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) per abilitare il volume di destinazione per la lettura e la scrittura. 
 * Azure NetApp Files replica non supporta attualmente più sottoscrizioni. tutte le repliche devono essere eseguite in una singola sottoscrizione.
 * È possibile configurare un massimo di cinque volumi per la replica all'interno di una singola sottoscrizione per area. È possibile aprire un ticket di supporto per richiedere un aumento della quota predefinita di cinque volumi di destinazione della replica (per sottoscrizione in un'area). 
 * Ci possono essere un ritardo fino a cinque minuti affinché l'interfaccia rifletta uno snapshot appena aggiunto nel volume di origine.  
@@ -41,11 +42,11 @@ Tenere presente i requisiti e le considerazioni seguenti sull'uso della funziona
 * Non è possibile ripristinare uno snapshot creato prima della creazione del volume di destinazione della replica.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creazione della replica del volume](cross-region-replication-create-peering.md)
+* [Creare la replica di un volume](cross-region-replication-create-peering.md)
 * [Visualizzare lo stato integrità della relazione di replica](cross-region-replication-display-health-status.md)
 * [Gestire il ripristino di emergenza](cross-region-replication-manage-disaster-recovery.md)
 * [Metriche di replica del volume](azure-netapp-files-metrics.md#replication)
-* [Elimina volumi o repliche di volumi](cross-region-replication-delete.md)
+* [Eliminare repliche di volumi o volumi](cross-region-replication-delete.md)
 * [Risolvere i problemi relativi alla replica tra più aree](troubleshoot-cross-region-replication.md)
 
 

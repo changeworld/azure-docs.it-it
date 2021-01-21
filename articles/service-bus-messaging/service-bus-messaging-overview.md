@@ -3,12 +3,12 @@ title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft D
 description: Questo articolo fornisce una panoramica generale del bus di servizio di Azure, un broker di messaggi completamente gestito per l'integrazione aziendale.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: 70e9d966a14f78866d72865eed4cbb2dfd6c18dd
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
-ms.translationtype: HT
+ms.openlocfilehash: d9103557eb7b32f376ba6590bbca5f557bf32764
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755736"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632868"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 Il bus di servizio di Microsoft Azure è un broker di messaggi aziendale completamente gestito, con code di messaggi e argomenti di pubblicazione-sottoscrizione. Il bus di servizio viene usato per disaccoppiare le applicazioni dai servizi, offrendo i vantaggi seguenti:
@@ -138,11 +138,11 @@ Per la protezione da traffico indesiderato, il bus di servizio prevede [funziona
 
 Le librerie client del bus di servizio pienamente supportate sono disponibili tramite Azure SDK.
 
-- [Bus di servizio di Azure per .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true&view=azure-dotnet)
-- [Librerie del bus di servizio di Azure per Java](/java/api/overview/azure/servicebus?preserve-view=true&view=azure-java-stable)
+- [Bus di servizio di Azure per .NET](/dotnet/api/overview/azure/service-bus?preserve-view=true)
+- [Librerie del bus di servizio di Azure per Java](/java/api/overview/azure/servicebus?preserve-view=true)
 - [Provider del bus di servizio di Azure per Java JMS 2.0](how-to-use-java-message-service-20.md)
-- [Moduli del bus di servizio di Azure per JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true&view=azure-node-latest)
-- [Librerie del bus di servizio di Azure per Python](/python/api/overview/azure/servicebus?preserve-view=true&view=azure-python)
+- [Moduli del bus di servizio di Azure per JavaScript e TypeScript](/javascript/api/overview/azure/service-bus?preserve-view=true)
+- [Librerie del bus di servizio di Azure per Python](/python/api/overview/azure/servicebus?preserve-view=true)
 
 Il [protocollo primario del bus di servizio di Azure è AMQP 1.0](service-bus-amqp-overview.md) e può essere usato da qualsiasi client di protocollo conforme a AMQP 1.0. Diversi client AMQP open source includono esempi che dimostrano esplicitamente l'interoperabilità con il bus di servizio. Per informazioni su come usare le funzionalità del bus di servizio direttamente con client AMQP 1.0, vedere la [guida del protocollo AMQP 1.0](service-bus-amqp-protocol-guide.md).
 

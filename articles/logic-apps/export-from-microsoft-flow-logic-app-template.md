@@ -3,17 +3,19 @@ title: Esportare i flussi da Power automatici ad app per la logica di Azure
 description: Migrare i flussi da Power automatizzate a app per la logica di Azure esportando come modelli Azure Resource Manager
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: 1c2f0a2c54be7adbc7b8babd596f18e08c67a024
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 2192ae5f3de551cb8ff2b6c36e233804c3c56bf1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014415"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633248"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Esportare flussi da Power Automate e distribuirli in App per la logica di Azure
+
+> Per i flussi creati dopo il 2020 ottobre, non è più possibile eseguire l'esportazione da Power automatizzate e distribuirle in app per la logica di Azure.
 
 Per estendere ed espandere le funzionalità del flusso, è possibile eseguire la migrazione di tale flusso da [Power automatici](https://flow.microsoft.com) ad app per la [logica di Azure](../logic-apps/logic-apps-overview.md). È possibile esportare il flusso come modello di Azure Resource Manager per un'app per la logica, distribuire il modello di app per la logica in un gruppo di risorse di Azure e quindi aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
@@ -70,7 +72,7 @@ Per altre informazioni, vedere [crescita fino ad app per la logica di Azure](htt
       |----------|-------------|
       | **Sottoscrizione** | Sottoscrizione di Azure da usare per la fatturazione |
       | **Gruppo di risorse** | Gruppo di risorse di Azure da usare per l'app per la logica. È possibile utilizzare un gruppo esistente o creare un nuovo gruppo. |
-      | **Posizione** | Area di Azure da usare se si crea un nuovo gruppo di risorse |
+      | **Località** | Area di Azure da usare se si crea un nuovo gruppo di risorse |
       | **Nome dell'app per la logica** | Nome da usare per la risorsa dell'app per la logica |
       | **Percorso dell'app per la logica** | Area di Azure in cui si vuole creare la risorsa dell'app per la logica, se diversa da quella del gruppo di risorse di Azure |
       | <*Nome connessione*> | Uno o più nomi per tutte le connessioni create in precedenza che possono essere riutilizzate dall'app per la logica <p><p>**Nota**: se questa app per la logica è la prima, tutte le connessioni vengono create come nuove, quindi è possibile accettare i nomi predefiniti. In caso contrario, è possibile specificare i nomi per le connessioni create in precedenza, che possono essere usate in più app per la logica. |

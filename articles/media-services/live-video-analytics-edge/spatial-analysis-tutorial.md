@@ -3,12 +3,12 @@ title: Analizzare il video live con Visione artificiale per Analisi spaziale - A
 description: Questa esercitazione illustra come usare Analisi video live con la funzionalità di intelligenza artificiale Analisi spaziale di Visione artificiale in Servizi cognitivi di Azure per analizzare un feed di video live da una fotocamera IP simulata.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 5b979bfeb6961b285cfeb2287888d8f157608d96
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 1c6fe6e10a91034d794437f31d495b85ef086848
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060181"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632944"
 ---
 # <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>Analizzare il video live con Visione artificiale per Analisi spaziale (anteprima)
 
@@ -23,7 +23,8 @@ In questa esercitazione si apprenderà come:
 > * Monitorare gli eventi.
  
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
+  > [!NOTE]
+  > È necessaria una sottoscrizione di Azure con le autorizzazioni per la creazione di entità servizio. il **ruolo di proprietario** lo fornisce. Se non si hanno le autorizzazioni appropriate, contattare l'amministratore dell'account per concedere le autorizzazioni appropriate. 
 ## <a name="suggested-pre-reading"></a>Letture consigliate
 
 Leggere questi articoli prima di iniziare:
@@ -136,10 +137,10 @@ Cercare il file di distribuzione in /src/edge/deployment.spatialAnalysis.templat
 1. `IpcMode` in lvaEdge e nel modulo di analisi spaziale createOptions devono essere uguali e impostati su host.
 1. Per il corretto funzionamento del simulatore RTSP, assicurarsi di aver configurato i limiti del volume. Per altre informazioni, vedere [Configurare i montaggi del volume di Docker](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Connettersi alla condivisione SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copiare il [file video del bulldozer di esempio](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) nella condivisione locale.
+    1. [Connettersi alla condivisione SMB](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) e copiare il [file video del bulldozer di esempio](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) nella condivisione locale.  
+        > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Mesi]  
     1. Verificare che il modulo rtspsim abbia la configurazione seguente:
-        
-        ```json
+        ```
         "createOptions": {
                             "HostConfig": {
                               "Mounts": [
@@ -159,6 +160,8 @@ Cercare il file di distribuzione in /src/edge/deployment.spatialAnalysis.templat
                             }
                           }
         ```
+        
+
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Generare e distribuire il manifesto della distribuzione
 
 Il manifesto della distribuzione definisce i moduli che vengono distribuiti in un dispositivo perimetrale e le impostazioni di configurazione dei moduli.

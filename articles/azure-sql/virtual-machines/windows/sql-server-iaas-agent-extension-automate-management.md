@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3fe87f94ce05efa4a784ba7e3f65e53abb00fd05
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914247"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632767"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -115,7 +115,7 @@ Esistono tre modi per eseguire la registrazione con l'estensione:
 
 ### <a name="named-instance-support"></a>Supporto per istanze denominate
 
-Il SQL Server estensione dell'agente IaaS funziona con un'istanza denominata di SQL Server se è l'unica istanza di SQL Server disponibile nella macchina virtuale. Non è possibile installare l'estensione in macchine virtuali che dispongono di più istanze di SQL Server. 
+Il SQL Server estensione dell'agente IaaS funziona con un'istanza denominata di SQL Server se è l'unica istanza di SQL Server disponibile nella macchina virtuale. Non è possibile installare l'estensione in macchine virtuali con più istanze denominate SQL Server se non è presente alcuna istanza predefinita nella macchina virtuale. 
 
 Per usare un'istanza denominata di SQL Server, distribuire una macchina virtuale di Azure, installare una singola istanza di SQL Server denominata e quindi registrarla con l' [estensione SQL IaaS](sql-agent-extension-manually-register-single-vm.md).
 
@@ -173,7 +173,7 @@ No. Microsoft registra automaticamente le macchine virtuali di cui è stato eseg
 
 **L'estensione SQL IaaS Agent è disponibile per tutti i clienti?** 
 
-Sì. I clienti devono registrare le proprie macchine virtuali SQL Server con l'estensione se non usano un'immagine SQL Server da Azure Marketplace, ma SQL Server installate in modo autonomo oppure se hanno portato il disco rigido virtuale personalizzato. Le macchine virtuali di proprietà di tutti i tipi di sottoscrizioni (Direct, Enterprise Agreement e Cloud Solution Provider) possono eseguire la registrazione con l'estensione SQL IaaS Agent.
+Sì. I clienti devono registrare le proprie macchine virtuali SQL Server con l'estensione se non usano un'immagine SQL Server da Azure Marketplace, ma SQL Server installate in modo autonomo oppure se hanno portato il disco rigido virtuale personalizzato. Le macchine virtuali di proprietà di tutti i tipi di sottoscrizioni (Direct, Contratto Enterprise e Cloud Solution Provider) possono eseguire la registrazione con l'estensione SQL IaaS Agent.
 
 **Qual è la modalità di gestione predefinita durante la registrazione con l'estensione SQL IaaS Agent?**
 
@@ -228,7 +228,7 @@ No. Una macchina virtuale deve avere almeno un'istanza di SQL Server (motore di 
 
 **È possibile registrare una macchina virtuale con l'estensione SQL IaaS Agent se sono presenti più istanze di SQL Server?**
 
-Sì. L'estensione SQL IaaS Agent registrerà una sola istanza di SQL Server (motore di database). L'estensione SQL IaaS Agent registrerà l'istanza predefinita di SQL Server nel caso di più istanze. Se non è presente alcuna istanza predefinita, è supportata solo la registrazione in modalità semplificata. Per eseguire l'aggiornamento dalla modalità semplificata alla gestione completa, è necessario che sia presente l'istanza predefinita di SQL Server o che la macchina virtuale disponga di una sola istanza denominata SQL Server.
+Sì, a condizione che sia presente un'istanza predefinita nella macchina virtuale. L'estensione SQL IaaS Agent registrerà una sola istanza di SQL Server (motore di database). L'estensione SQL IaaS Agent registrerà l'istanza predefinita di SQL Server nel caso di più istanze.
 
 **È possibile registrare un'istanza del cluster di failover di SQL Server con l'estensione SQL IaaS Agent?**
 
@@ -240,7 +240,7 @@ Sì. Non sono previste restrizioni per la registrazione di un'istanza di SQL Ser
 
 **Qual è il costo per la registrazione con l'estensione SQL IaaS Agent o con l'aggiornamento alla modalità di gestibilità completa?**
 
-No. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
+Nessuna. Non sono previste tariffe associate alla registrazione con l'estensione SQL IaaS Agent o con una delle tre modalità di gestibilità. La gestione della macchina virtuale SQL Server con l'estensione è completamente gratuita. 
 
 **Qual è l'effetto sulle prestazioni dell'uso delle diverse modalità di gestibilità?**
 

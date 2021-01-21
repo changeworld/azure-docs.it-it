@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cbf2fe491e1fe0b553eab04ca7190da0413a3ba6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7160ec9564ede21eab0a205b2d66a7d566639506
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526011"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632657"
 ---
 # <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>La macchina virtuale non risponde quando si applicano Criteri di gruppo criteri per utenti e gruppi locali
 
@@ -31,7 +31,7 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Screenshot dell'applicazione del caricamento del criterio Utenti e gruppi locali di Criteri di gruppo (Windows Server 2012 R2).":::
 
-:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot dell'applicazione del caricamento del criterio Utenti e gruppi locali di Criteri di gruppo (Windows Server 2012 R2).":::
+:::image type="content" source="media/unresponsive-vm-apply-group-policy/applying-group-policy-2.png" alt-text="Screenshot dell'applicazione del caricamento del criterio Utenti e gruppi locali di Criteri di gruppo (Windows Server 2012).":::
 
 ## <a name="cause"></a>Causa
 
@@ -47,6 +47,9 @@ Questo è il criterio problematico:
 ## <a name="resolution"></a>Risoluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. [Creare e accedere a una macchina virtuale di ripristino](#step-1-create-and-access-a-repair-vm)
 1. [Disabilitare il criterio](#step-2-disable-the-policy)
@@ -66,7 +69,23 @@ Questo è il criterio problematico:
 1. Nella macchina virtuale di ripristino aprire l'editor del Registro di sistema.
 1. Individuare la chiave **HKEY_LOCAL_MACHINE** e selezionare **file**  >  **Load hive** dal menu.
 
-    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Screenshot dell'applicazione del caricamento del criterio Utenti e gruppi locali di Criteri di gruppo (Windows Server 2012 R2)." /v CleanupProfiles /f
+    :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Screenshot con HKEY_LOCAL_MACHINE evidenziato e il menu che contiene Carica hive.":::
+
+    - È possibile usare Load hive per caricare chiavi del registro di sistema da un sistema offline. In questo caso, il sistema è il disco rotto collegato alla macchina virtuale di ripristino.
+    - Le impostazioni a livello di sistema vengono archiviate in `HKEY_LOCAL_MACHINE` e possono essere abbreviate in "HKLM".
+1. Nel disco collegato andare al file `\windows\system32\config\SOFTWARE` e aprirlo.
+
+    1. Quando viene richiesto un nome, immettere BROKENSOFTWARE.
+    1. Per verificare che BROKENSOFTWARE sia stato caricato, espandere **HKEY_LOCAL_MACHINE** e cercare la chiave BROKENSOFTWARE aggiunta.
+1. Passare a BROKENSOFTWARE e verificare se la chiave CleanupProfile esiste nell'hive caricato.
+
+    1. Se la chiave esiste, viene impostato il criterio CleanupProfile. Il valore rappresenta i criteri di conservazione misurati in giorni. Continuare a eliminare la chiave.
+    1. Se la chiave non esiste, il criterio CleanupProfile non viene impostato. [Inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), includendo il file memory.dmp che si trova nella directory Windows del disco del sistema operativo collegato.
+
+1. Eliminare la chiave CleanupProfiles usando il comando seguente:
+
+    ```
+    reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
     ```
 1.  Scaricare l'hive BROKENSOFTWARE usando il comando seguente:
 

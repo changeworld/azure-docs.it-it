@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: f83a1820eb931fa075681da7a9661b304059cd2a
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0c0ec45eee86031e1533b97ccf352de0ecf70e38
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94635706"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633155"
 ---
 # <a name="troubleshoot-os-start-up--windows-update-installation-capacity"></a>Risolvere i problemi di avvio del sistema operativo: capacità per l'installazione di Windows Update
 
@@ -38,6 +38,9 @@ In questa situazione, il sistema operativo non è in grado di completare un'inst
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo:
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 1. Liberare spazio sul disco.
@@ -73,12 +76,12 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
 
 ### <a name="enable-the-serial-console-and-memory-dump-collection"></a>Abilitare la console seriale e la raccolta di dump della memoria
 
-**Consigliato** : Prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria eseguendo lo script seguente:
+**Consigliato**: Prima di ricreare la macchina virtuale, abilitare la console seriale e la raccolta di dump della memoria eseguendo lo script seguente:
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati come amministratore.
 1. Eseguire i comandi seguenti:
 
-   **Abilitare la console seriale** :
+   **Abilitare la console seriale**:
    
    ```
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
@@ -97,7 +100,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM 
    ```
    
-   **Abilitare su ControlSet001** :
+   **Abilitare su ControlSet001**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -105,7 +108,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Abilitare su ControlSet002** :
+   **Abilitare su ControlSet002**:
 
    ```
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
@@ -113,7 +116,7 @@ A seconda del livello di frammentazione, la deframmentazione potrebbe richiedere
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
    ```
    
-   **Scaricare disco del sistema operativo non funzionante** :
+   **Scaricare disco del sistema operativo non funzionante**:
 
    ```
    REG UNLOAD HKLM\BROKENSYSTEM

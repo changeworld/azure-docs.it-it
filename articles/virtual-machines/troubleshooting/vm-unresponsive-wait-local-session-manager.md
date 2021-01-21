@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 8af8d7695c48c6ac682109bb38935e98921fa9e4
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: fc3bd5d2590e969db07e9dffa61b4902ea4604c3
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681908"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632547"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager-service"></a>La macchina virtuale non risponde durante l'attesa del servizio Local Session Manager
 
@@ -34,6 +34,9 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
 Potrebbero esserci diversi motivi per cui una macchina virtuale è bloccata in attesa di gestione sessioni locali. Se il problema persiste, è necessario raccogliere un dump della memoria per l'analisi.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 In alcuni casi, il problema viene risolto semplicemente in attesa del completamento del processo. Se la macchina virtuale non risponde e rimane nella schermata di attesa per più di un'ora, è necessario raccogliere un dump della memoria e quindi contattare il supporto tecnico Microsoft.
 

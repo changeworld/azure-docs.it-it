@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/28/2020
 ms.author: juliako
-ms.openlocfilehash: b25341fb58c1e758d807e3c7b4345fd0ab1baa53
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 07e4b05e12a5994c707a171c5736aea04a9c9723
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610421"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632927"
 ---
 # <a name="add-video-clips-to-your-projects"></a>Aggiungere clip video ai progetti
 
-Il sito Web di [video Indexer](https://www.videoindexer.ai/) consente di usare le informazioni approfondite dei video per: trovare il contenuto multimediale appropriato, individuare le parti a cui si è interessati e usare i risultati per creare un progetto completamente nuovo. 
+Il sito Web di [video Indexer](https://www.videoindexer.ai/) consente di usare informazioni approfondite del video per: trovare il contenuto multimediale appropriato, individuare le parti a cui si è interessati e usare i risultati per creare un progetto completamente nuovo. 
 
 Una volta creato, è possibile eseguire il rendering e il download del progetto da Video Indexer e usarlo nelle applicazioni di modifica o nei flussi di lavoro downstream.
 

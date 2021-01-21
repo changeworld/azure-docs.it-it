@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3f56fc1b321396c5cc6aa93e3f47fcaafcbe4ae4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 0fbd7cda4723b62863d7d9bb0fe6aa2fac32dcd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202335"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633104"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Baseline della sicurezza di Azure per hub eventi
 
@@ -293,9 +293,9 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Linee guida**: Azure Active Directory (ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi. 
 
-Come ottenere un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Come ottenere un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
-Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -633,7 +633,7 @@ Come creare avvisi per gli eventi del log attività di Azure: https://docs.micro
 
 Come creare query con Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Come visualizzare le sottoscrizioni di Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Informazioni sul controllo degli accessi in base al ruolo di Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -779,7 +779,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
-Come visualizzare gli alias di Criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Come visualizzare gli alias di Criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -820,9 +820,9 @@ Per ulteriori informazioni sugli effetti dei criteri di Azure:  https://docs.mic
 
 **Linee guida**: se si usano definizioni di criteri di Azure personalizzate per hub eventi o risorse correlate, usare Azure Repos per archiviare e gestire il codice in modo sicuro.
 
-Come archiviare il codice in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Come archiviare il codice in Azure DevOps: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow
 
-Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/index
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -986,7 +986,7 @@ Come eseguire il backup di Key Vault segreti: https://docs.microsoft.com/powersh
 
  
 
-Come ripristinare le chiavi di Key Vault in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Come ripristinare le chiavi di Key Vault in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

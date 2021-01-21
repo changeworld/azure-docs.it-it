@@ -3,16 +3,16 @@ title: Sintassi del filtro SQL per la regola di sottoscrizione del bus di serviz
 description: Questo articolo fornisce informazioni dettagliate sulla grammatica del filtro SQL. Un filtro SQL supporta un subset dello standard SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 9bff18b2161e419d728c360c9ed950ac2867fea8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 60f3cb6e85cef7a166c353f78cfb50405b962bdd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498677"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633172"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintassi del filtro SQL per la regola di sottoscrizione
 
-Un *filtro SQL* è uno dei tipi di filtro disponibili per le sottoscrizioni dell'argomento del bus di servizio. Si tratta di un'espressione di testo che si basa su un subset dello standard SQL-92. Le espressioni di filtro vengono usate con l' `sqlExpression` elemento della proprietà' SqlFilter ' di un bus di servizio `Rule` in un [modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)o dell'argomento del comando dell'interfaccia della riga di comando di Azure `az servicebus topic subscription rule create` [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) e di diverse funzioni SDK che consentono di gestire le regole di sottoscrizione.
+Un *filtro SQL* è uno dei tipi di filtro disponibili per le sottoscrizioni dell'argomento del bus di servizio. Si tratta di un'espressione di testo che si basa su un subset dello standard SQL-92. Le espressioni di filtro vengono usate con l' `sqlExpression` elemento della proprietà' SqlFilter ' di un bus di servizio `Rule` in un [modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md)o dell'argomento del comando dell'interfaccia della riga di comando di Azure `az servicebus topic subscription rule create` [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) e di diverse funzioni SDK che consentono di gestire le regole di sottoscrizione.
 
 Il bus di servizio Premium supporta anche la [sintassi del selettore dei messaggi JMS SQL](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) tramite l'API JMS 2,0.
 

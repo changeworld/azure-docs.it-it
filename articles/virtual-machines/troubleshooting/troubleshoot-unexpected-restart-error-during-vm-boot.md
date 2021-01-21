@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: cfeb040893ae2be5842959ed8458bd713bebe6ee
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: d8d2ab2bb3f24e1faa4791ebdc1ce3852f6a790e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96512138"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632691"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Avvio del sistema operativo: il computer è stato riavviato in modo imprevisto o ha rilevato un errore imprevisto
 
@@ -53,6 +53,9 @@ Questo problema viene spesso creato durante l'uso di Sysprep con una macchina vi
 
 ### <a name="do-not-use-unattendxml"></a>Non usare Unattend.xml
 
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
+
 Per risolvere questo problema, seguire [le istruzioni di Azure per preparare/acquisire un'immagine](../windows/upload-generalized-managed.md) e preparare una nuova immagine generalizzata. Durante Sysprep, **non usare `/unattend:<your file’s name>` flag**. Usare invece solo i flag seguenti:
 
 `sysprep /oobe /generalize /shutdown`
@@ -63,6 +66,6 @@ Per risolvere questo problema, seguire [le istruzioni di Azure per preparare/acq
 
 - Immettere l'esperienza predefinita
 - Generalizzazione
-- Shutdown
+- Arresta
  
 ![Finestra degli strumenti di preparazione del sistema con opzioni OOBE, generalizzate e di arresto selezionate.](./media/unexpected-restart-error-during-vm-boot/3.png)

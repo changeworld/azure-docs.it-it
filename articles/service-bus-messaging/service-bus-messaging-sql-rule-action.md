@@ -3,16 +3,16 @@ title: Sintassi di azione SQL della regola di sottoscrizione del bus di servizio
 description: Questo articolo fornisce un riferimento per la sintassi dell'azione della regola SQL. Le azioni vengono scritte nella sintassi basata sul linguaggio SQL eseguita su un messaggio.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 7ce3332fb1a2025e89135e5e42e72d4afe1e7a5e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 606281d42d5598d7f73312990d3a19775a202c08
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489395"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632812"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>Sintassi di azione SQL della regola di sottoscrizione
 
-Un' *azione SQL* viene utilizzata per modificare i metadati del messaggio dopo che un messaggio è stato selezionato da un filtro di una regola di sottoscrizione. Si tratta di un'espressione di testo che si basa su un subset dello standard SQL-92. Le espressioni di azione vengono usate con l' `sqlExpression` elemento della proprietà "Action" di un bus di servizio `Rule` in un [modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), l'argomento del comando dell'interfaccia della riga di comando di Azure `az servicebus topic subscription rule create` [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule?preserve-view=true&view=azure-cli-latest#az_servicebus_topic_subscription_rule_create) e diverse funzioni SDK che consentono di gestire le regole di sottoscrizione.
+Un' *azione SQL* viene utilizzata per modificare i metadati del messaggio dopo che un messaggio è stato selezionato da un filtro di una regola di sottoscrizione. Si tratta di un'espressione di testo che si basa su un subset dello standard SQL-92. Le espressioni di azione vengono usate con l' `sqlExpression` elemento della proprietà "Action" di un bus di servizio `Rule` in un [modello di Azure Resource Manager](service-bus-resource-manager-namespace-topic-with-rule.md), l'argomento del comando dell'interfaccia della riga di comando di Azure `az servicebus topic subscription rule create` [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) e diverse funzioni SDK che consentono di gestire le regole di sottoscrizione.
   
   
 ```  

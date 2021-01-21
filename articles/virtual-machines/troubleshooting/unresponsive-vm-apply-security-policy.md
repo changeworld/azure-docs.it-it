@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 06/15/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 6b50bffd1a44c0cf53f15650f5ff4d938f45df4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047c8afbfe7b489e5c3ac0ccb677f6fc021443a8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84908067"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632640"
 ---
 # <a name="azure-vm-is-unresponsive-while-applying-security-policy-to-the-system"></a>La macchina virtuale di Azure non risponde durante l'applicazione dei criteri di sicurezza al sistema
 
@@ -33,7 +33,7 @@ Quando si usa la [diagnostica di avvio](boot-diagnostics.md) per visualizzare lo
 
 :::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy.png" alt-text="Screenshot della schermata di avvio di Windows Server 2012 R2 bloccato.":::
 
-:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Screenshot della schermata di avvio di Windows Server 2012 R2 bloccato.":::
+:::image type="content" source="media/unresponsive-vm-apply-security-policy/apply-policy-2.png" alt-text="Screenshot della schermata di avvio del sistema operativo bloccato.":::
 
 ## <a name="cause"></a>Causa
 
@@ -42,6 +42,9 @@ Questo problema è costituito da numerose cause potenziali. Non sarà possibile 
 ## <a name="resolution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. [Creare e accedere a una macchina virtuale di ripristino](#create-and-access-a-repair-vm)
 2. [Abilitare la raccolta di immagini di memoria e console seriale](#enable-serial-console-and-memory-dump-collection)
@@ -68,7 +71,54 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
 
         Nel comando sostituire \<BOOT PARTITON> con la lettera della partizione nel disco collegato che contiene la cartella di avvio.
 
-        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Screenshot della schermata di avvio di Windows Server 2012 R2 bloccato." /v NMICrashDump /t REG_DWORD /d 1 /f
+        :::image type="content" source="media/unresponsive-vm-apply-security-policy/store-data.png" alt-text="Il diagramma mostra l'output dell'elenco dell'archivio BCD in una macchina virtuale di prima generazione, che elenca il numero dell'identificatore nel caricatore di avvio di Windows.":::
+
+     2. Per una macchina virtuale di seconda generazione, immettere il comando seguente e annotare l'identificatore elencato:
+
+        ```console
+        bcdedit /store <LETTER OF THE EFI SYSTEM PARTITION>:EFI\Microsoft\boot\bcd /enum
+        ```
+
+        - Nel comando sostituire \<LETTER OF THE EFI SYSTEM PARTITION> con la lettera della partizione di sistema EFI.
+        - Potrebbe essere utile avviare la console Gestione disco per identificare la partizione di sistema appropriata etichettata come "partizione di sistema EFI".
+        - L'identificatore può essere un GUID univoco oppure il valore predefinito "Bootmgr".
+3. Eseguire i comandi seguenti per abilitare la console seriale:
+
+    ```console
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    ```
+
+    ```console
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+    ```
+
+    - Nel comando sostituire \<VOLUME LETTER WHERE THE BCD FOLDER IS> con la lettera della cartella BCD.
+    - Nel comando sostituire \<BOOT LOADER IDENTIFIER> con l'identificatore trovato nel passaggio precedente.
+4. Verificare che lo spazio disponibile sul disco del sistema operativo sia superiore alla dimensione della memoria (RAM) nella macchina virtuale.
+
+    1. Se lo spazio disponibile nel disco del sistema operativo non è sufficiente, è necessario modificare il percorso in cui verrà creato il file di dump della memoria. Anziché creare il file sul disco del sistema operativo, è possibile fare riferimento a qualsiasi altro disco dati collegato alla VM con spazio libero sufficiente. Per modificare il percorso, sostituire "% SystemRoot%" con la lettera di unità (ad esempio "F:") del disco dati nei comandi elencati di seguito.
+    2. Immettere i comandi seguenti (configurazione del dump consigliata):
+
+        Caricare disco del sistema operativo non funzionante:
+
+        ```console
+        REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
+        ```
+
+        Abilitare su ControlSet001:
+
+        ```console
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+        ```
+
+        Abilitare su ControlSet002:
+
+        ```console
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+        REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
         ```
 
         Scaricare il disco del sistema operativo non funzionante:

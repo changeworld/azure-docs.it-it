@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: c04f3b27c7214dcf821c7698796bfaea399b947d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8279aee4a0df8155b23e6f984d259bf92555dc95
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509104"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632834"
 ---
 # <a name="windows-stop-error---0x000000ef-critical-process-died"></a>Errore di arresto di Windows-#0x000000EF "processo critico morto"
 
@@ -27,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi relativi a un pro
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza l'errore *#0x000000EF* con il *processo critico*del messaggio.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza l'errore *#0x000000EF* con il *processo critico* del messaggio.
 
 !["Si è verificato un problema ed è necessario riavviare il PC. È in corso la raccolta di alcune informazioni sull'errore, quindi sarà possibile eseguire il riavvio. (# #% completato) Per ulteriori informazioni, è possibile eseguire la ricerca online in un secondo momento per questo errore: 0x000000EF "](media/troubleshoot-guide-critical-process-died/1.jpg)
 
@@ -38,6 +38,9 @@ In genere, ciò è dovuto a un errore critico del processo di sistema durante l'
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo:
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 2. Correzione di eventuali danneggiamenti del sistema operativo.

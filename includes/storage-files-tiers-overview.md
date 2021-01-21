@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3ba7baf79ee972ed7289a1aab93484108da70cf
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
-ms.translationtype: HT
+ms.openlocfilehash: 6d06a46d2eaaad362890f1e3e44dbc746fa10898
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724231"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633455"
 ---
 File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ottimizzato per le transazioni, Accesso frequente e Accesso sporadico, che consentono di adattare le condivisioni ai requisiti dello scenario in termini di prestazioni e prezzi:
 
@@ -22,7 +22,7 @@ File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ot
 - **Hot**: le condivisioni file ad accesso frequente offrono archiviazione ottimizzata per scenari di condivisione di file per utilizzo generico, ad esempio condivisioni di team. Le condivisioni file ad accesso frequente sono disponibili nell'hardware di archiviazione standard basato su unità disco rigido (HDD).
 - **Cool**: le condivisioni file ad accesso sporadico offrono un'archiviazione conveniente ottimizzata per scenari di archiviazione online. Le condivisioni file ad accesso sporadico sono disponibili nell'hardware di archiviazione standard basato su unità disco rigido (HDD).
 
-Le condivisioni file Premium vengono distribuite nel tipo di **account di archiviazione FileStorage** e sono disponibili solo in un modello di fatturazione con provisioning. Per altre informazioni sul modello di fatturazione con provisioning per le condivisioni file Premium, vedere [Informazioni sul provisioning per le condivisioni file Premium](../articles/storage/files/understanding-billing.md#provisioned-billing). Le condivisioni file standard, ovvero quelle ottimizzate per le transazioni, ad accesso frequente e ad accesso sporadico, vengono distribuite nel tipo di **account di archiviazione per utilizzo generico versione 2 (GPv2)** e prevedono la fatturazione con pagamento in base al consumo. Le condivisioni file ad accesso frequente e ad accesso sporadico sono disponibili in tutte le aree pubbliche di Azure e nelle aree di Azure per enti pubblici. Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, incluse le aree di Azure Cina e Azure Germania.
+Le condivisioni file Premium vengono distribuite nel tipo di **account di archiviazione FileStorage** e sono disponibili solo in un modello di fatturazione con provisioning. Per altre informazioni sul modello di fatturazione con provisioning per le condivisioni file Premium, vedere [Informazioni sul provisioning per le condivisioni file Premium](../articles/storage/files/understanding-billing.md#provisioned-model). Le condivisioni file standard, ovvero quelle ottimizzate per le transazioni, ad accesso frequente e ad accesso sporadico, vengono distribuite nel tipo di **account di archiviazione per utilizzo generico versione 2 (GPv2)** e prevedono la fatturazione con pagamento in base al consumo. Le condivisioni file ad accesso frequente e ad accesso sporadico sono disponibili in tutte le aree pubbliche di Azure e nelle aree di Azure per enti pubblici. Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, incluse le aree di Azure Cina e Azure Germania.
 
 Prima di scegliere un livello di archiviazione per il carico di lavoro, considerare i propri requisiti in termini di prestazioni e utilizzo. Se il carico di lavoro richiede una latenza minima o se si usa un supporto di archiviazione SSD locale, il livello Premium è probabilmente quello più adatto. Se la bassa latenza non rappresenta un problema, come nel caso delle condivisioni di team montate in locale da Azure o memorizzate nella cache locale con Sincronizzazione file di Azure, l'archiviazione standard può essere una soluzione migliore dal punto di vista dei costi.
 

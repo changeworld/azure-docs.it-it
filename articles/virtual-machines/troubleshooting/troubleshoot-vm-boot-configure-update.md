@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e4d51b4d41fa0dc23e9b12ac0251c14215de5c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079843"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633011"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>L'avvio della macchina virtuale si blocca su un messaggio analogo a "Preparazione di Windows. Non spegnere il computer" in Azure
 
@@ -39,6 +39,9 @@ Una macchina virtuale Windows non viene avviata. Quando si usa la **diagnostica 
 Questo problema si verifica in genere quando il server esegue il riavvio finale dopo che è stata modificata la configurazione. È possibile che la modifica della configurazione sia stata inizializzata da aggiornamenti di Windows o da modifiche apportate ai ruoli o alle funzionalità del server. Per Windows Update, se l'entità degli aggiornamenti è stata notevole, il sistema operativo ha bisogno di più tempo per riconfigurare le modifiche.
 
 ## <a name="collect-an-os-memory-dump"></a>Raccogliere un dump di memoria del sistema operativo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Se il problema non si risolve dopo l'attesa dell'elaborazione delle modifiche, è necessario raccogliere un file di dump della memoria e contattare il supporto tecnico. Per raccogliere il file dump, seguire questa procedura:
 

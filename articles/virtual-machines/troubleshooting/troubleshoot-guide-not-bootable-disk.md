@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 16f6919577955bda5b04db26deb9fe78a467e364
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14da41815e177ece64c72ac27a7cb126e69fdc62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509036"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633189"
 ---
 # <a name="boot-error--this-is-not-a-bootable-disk"></a>Errore di avvio: questo non è un disco di avvio
 
@@ -40,6 +40,9 @@ Questo messaggio di errore indica che il processo di avvio del sistema operativo
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 2. Impostare stato partizione su attivo.
@@ -75,7 +78,7 @@ Le macchine virtuali di prima generazione devono prima verificare che la partizi
 
    ![Nella figura 3 viene illustrata la finestra * DISKPART * con l'output del comando * list partition *. La partizione 1 e la partizione 2 vengono visualizzate nella tabella. Viene inoltre visualizzato l'output del comando * SEL partition 1 *, quando Partition 1 è il disco selezionato.](media/troubleshoot-guide-not-bootable-disk/3.jpg)
 
-7. Immettere ' detail partition ' per verificare lo stato della partizione. Vedere la figura 4, in cui la partizione è *attiva: No*o la figura 5, dove la partizione è' Active: Yes '.
+7. Immettere ' detail partition ' per verificare lo stato della partizione. Vedere la figura 4, in cui la partizione è *attiva: No* o la figura 5, dove la partizione è' Active: Yes '.
 
    Figura 4
 

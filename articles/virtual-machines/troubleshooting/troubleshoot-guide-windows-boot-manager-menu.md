@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 03/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 2457952051f575306de46e3e8145cc26678a1ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f83f4871d5cde23194ff51a90a22031b526cf91
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86526540"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632564"
 ---
 # <a name="windows-vm-cannot-boot-due-to-windows-boot-manager"></a>Impossibile avviare la macchina virtuale Windows a causa di Windows Boot Manager
 
@@ -40,6 +40,9 @@ Figura 1
 L'errore è dovuto a un flag BCD *DISPLAYBOOTMENU* in Gestione avvio Windows. Quando il flag è abilitato, Windows Boot Manager chiede all'utente durante il processo di avvio di selezionare il caricatore che desidera eseguire, causando un ritardo di avvio. In Azure questa funzionalità può essere aggiunta al tempo necessario per l'avvio di una macchina virtuale.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Panoramica del processo:
 

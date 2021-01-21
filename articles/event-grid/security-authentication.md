@@ -3,12 +3,12 @@ title: Autenticare il recapito di eventi a gestori eventi (griglia di eventi di 
 description: Questo articolo descrive le diverse modalità di autenticazione del recapito ai gestori di eventi in griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 8360aa49e3d83879499af79448ff9f85082f47ac
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 98d7a4a0dee6c355ec340668bef7d8b306f97496
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015539"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98633121"
 ---
 # <a name="authenticate-event-delivery-to-event-handlers-azure-event-grid"></a>Autenticare il recapito di eventi a gestori eventi (griglia di eventi di Azure)
 Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi ai gestori eventi. Viene anche illustrato come proteggere gli endpoint del webhook usati per ricevere eventi da griglia di eventi usando Azure Active Directory (Azure AD) o un segreto condiviso.
@@ -16,7 +16,7 @@ Questo articolo fornisce informazioni sull'autenticazione del recapito di eventi
 ## <a name="use-system-assigned-identities-for-event-delivery"></a>Usare le identità assegnate dal sistema per il recapito degli eventi
 È possibile abilitare un'identità gestita assegnata dal sistema per un argomento o un dominio e usare l'identità per l'invio di eventi a destinazioni supportate, ad esempio code e argomenti del bus di servizio, Hub eventi e account di archiviazione.
 
-Ecco i passaggi necessari: 
+Di seguito sono riportati i passaggi necessari: 
 
 1. Creare un argomento o un dominio con un'identità assegnata dal sistema oppure aggiornare un argomento o un dominio esistente per abilitare l'identità. 
 1. Aggiungere l'identità a un ruolo appropriato, ad esempio il mittente dei dati del bus di servizio, nella destinazione, ad esempio una coda del bus di servizio.
@@ -35,7 +35,7 @@ Le sezioni seguenti descrivono come autenticare il recapito di eventi agli endpo
 ### <a name="using-client-secret-as-a-query-parameter"></a>Uso del segreto client come parametro di query
 È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL di destinazione del webhook indicato come parte della creazione di una sottoscrizione di eventi. Impostare uno dei parametri di query in modo che sia un segreto client, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token) o un segreto condiviso. Il servizio Griglia di eventi includerà tutti questi parametri di query in ogni richiesta di recapito di eventi al webhook. Il servizio webhook può recuperare e convalidare il segreto. Se il segreto client viene aggiornato, è necessario aggiornare anche la sottoscrizione dell'evento. Per evitare errori di recapito durante questa rotazione del segreto, fare in modo che il webhook accetti sia i segreti vecchi che quelli nuovi per un periodo limitato prima di aggiornare la sottoscrizione con il nuovo segreto. 
 
-Poiché i parametri di query potrebbero contenere segreti client, vengono gestiti con maggiore attenzione. Vengono archiviati come crittografati e non sono accessibili agli operatori del servizio. Non vengono registrati in log/tracce del servizio. Quando si recuperano le proprietà della sottoscrizione di eventi, i parametri delle query di destinazione non vengono restituiti per impostazione predefinita. Ad esempio, il parametro [--include-full-endpoint-URL](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) deve essere usato nell'[interfaccia della riga di comando](/cli/azure?view=azure-cli-latest) di Azure.
+Poiché i parametri di query potrebbero contenere segreti client, vengono gestiti con maggiore attenzione. Vengono archiviati come crittografati e non sono accessibili agli operatori del servizio. Non vengono registrati in log/tracce del servizio. Quando si recuperano le proprietà della sottoscrizione di eventi, i parametri delle query di destinazione non vengono restituiti per impostazione predefinita. Ad esempio, il parametro [--include-full-endpoint-URL](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) deve essere usato nell'[interfaccia della riga di comando](/cli/azure) di Azure.
 
 Per altre informazioni su come recapitare gli eventi ai webhook, vedere [Recapito eventi webhook](webhook-event-delivery.md).
 

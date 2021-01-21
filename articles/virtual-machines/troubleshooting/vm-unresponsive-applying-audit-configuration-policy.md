@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f286542c91ba473d13595d8e8299b1bbd8c93856
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977953"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632606"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La macchina virtuale non risponde durante l'applicazione dei criteri di configurazione dei criteri di controllo
 
@@ -45,6 +45,9 @@ Ecco i criteri problematici: *computer Configurazione computer\Modelli \ System/
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 1. Disabilitare il criterio.
@@ -106,7 +109,7 @@ Ecco i criteri problematici: *computer Configurazione computer\Modelli \ System/
 
       - Nel comando sostituire `<LETTER OF THE EFI SYSTEM PARTITION>` con la lettera della partizione di sistema EFI.
       - Potrebbe essere utile avviare la console Gestione disco per identificare la partizione di sistema appropriata etichettata come **partizione di sistema EFI**.
-      - L'identificatore può essere un GUID univoco oppure il **Bootmgr**predefinito.
+      - L'identificatore può essere un GUID univoco oppure il **Bootmgr** predefinito.
 
 1. Eseguire i comandi seguenti:
 
