@@ -6,13 +6,13 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 12/03/2020
-ms.openlocfilehash: 003a71f962652b1a1436f5d9875835534090a77a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.date: 01/19/2021
+ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196589"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630277"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Etichettare automaticamente i dati in ambito Azure
 
@@ -32,10 +32,9 @@ In ambito, le classificazioni sono simili ai tag Subject e vengono usate per con
 
 La competenza usa le stesse classificazioni, note anche come tipi di informazioni riservate, come Microsoft 365.  Le etichette di riservatezza MIP vengono create nel centro sicurezza e conformità di Microsoft 365 (SCC). In questo modo è possibile estendere le etichette di riservatezza esistenti tra le risorse di competenza di Azure.
 
-> [!NOTE]
-> Le classificazioni vengono confrontate direttamente, ad esempio un numero di previdenza sociale, che ha una classificazione del **codice fiscale**. 
->
-> Al contrario, le etichette di riservatezza vengono applicate quando vengono rilevate una o più classificazioni e condizioni. In questo contesto, le [condizioni](/microsoft-365/compliance/apply-sensitivity-label-automatically) si riferiscono a tutti i parametri che è possibile definire per i dati non strutturati, ad esempio la **vicinanza a un'altra classificazione** e la **percentuale di confidenza**. 
+Le **classificazioni** vengono confrontate direttamente, ad esempio un numero di previdenza sociale, che ha una classificazione del **codice fiscale**. 
+
+Al contrario, le **etichette di riservatezza** vengono applicate quando vengono rilevate una o più classificazioni e condizioni. In questo contesto, le [condizioni](/microsoft-365/compliance/apply-sensitivity-label-automatically) si riferiscono a tutti i parametri che è possibile definire per i dati non strutturati, ad esempio la *vicinanza a un'altra classificazione* e la *percentuale di confidenza*. 
 
 Le etichette di riservatezza in Azure possono essere usate per applicare automaticamente le etichette ai file e alle colonne del database.
 
@@ -44,6 +43,7 @@ Per altre informazioni, vedere:
 - Informazioni [sulle etichette di riservatezza](/microsoft-365/compliance/sensitivity-labels) nella documentazione di Microsoft 365
 - [Che cosa sono le regole di etichetta automatica?](#what-are-autolabeling-rules)
 - [Tipi di dati supportati per le etichette di riservatezza in Azure](#supported-data-types-for-sensitivity-labels-in-azure-purview)
+- [Assegnazione di etichette per le colonne del database SQL](#labeling-for-sql-database-columns)
 
 #### <a name="what-are-autolabeling-rules"></a>Che cosa sono le regole di etichetta automatica?
 
@@ -54,7 +54,6 @@ Le regole di etichetta automatica sono condizioni specificate, indicando quando 
 Quando si creano le etichette, assicurarsi di definire le regole di etichetta automatica per [i file](#define-autolabeling-rules-for-files) e le [colonne del database](#define-autolabeling-rules-for-database-columns) per applicare automaticamente le etichette a ogni analisi dei dati. 
 
 Dopo aver analizzato i dati in ambito, è possibile visualizzare le etichette applicate automaticamente nei report catalogo e Insight di competenza.
-
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipi di dati supportati per le etichette di riservatezza in Azure
 
 Le etichette di riservatezza sono supportate in ambito Azure per i tipi di dati seguenti:
@@ -62,8 +61,16 @@ Le etichette di riservatezza sono supportate in ambito Azure per i tipi di dati 
 |Tipo di dati  |Origini  |
 |---------|---------|
 |Assegnazione automatica di etichette per i file     |      - Archiviazione BLOB di Azure  </br>-Azure Data Lake Storage generazione 1 e generazione 2  |
-|Assegnazione automatica di etichette per le colonne del database     |  -SQL Server </br>-Database SQL di Azure </br>-Istanza gestita di database SQL di Azure   <br> -Sinapsi di Azure  <br> - Azure Cosmos DB   |
+|Assegnazione automatica di etichette per le colonne del database     |  -SQL Server </br>-Database SQL di Azure </br>-Istanza gestita di database SQL di Azure   <br> -Sinapsi di Azure  <br> - Azure Cosmos DB <br><br>Per ulteriori informazioni, vedere [la pagina relativa all'assegnazione di etichette per le colonne del database SQL di](#labeling-for-sql-database-columns) seguito.  |
 | | |
+
+#### <a name="labeling-for-sql-database-columns"></a>Assegnazione di etichette per le colonne del database SQL
+
+Oltre all'etichettatura delle competenze per le colonne del database, Microsoft supporta anche l'assegnazione di etichette per le colonne del database SQL tramite la classificazione dei dati SQL in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). Mentre per la competenza vengono utilizzate le [etichette di riservatezza MIP](/microsoft-365/compliance/sensitivity-labels)globali, SSMS utilizza solo le etichette definite localmente.
+
+L'assegnazione di etichette in ambito e l'assegnazione di etichette in SSMS sono processi distinti che attualmente non interagiscono tra loro. Pertanto, le etichette applicate in SSMS non vengono visualizzate in ambito e viceversa. È consigliabile usare Azure per l'assegnazione di etichette ai database SQL, in quanto usa le etichette MIP globali che possono essere applicate su più piattaforme.
+
+Per ulteriori informazioni, vedere la [documentazione relativa a individuazione e classificazione dei dati SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="how-to-create-sensitivity-labels-in-microsoft-365"></a>Come creare etichette di riservatezza in Microsoft 365
 
@@ -86,7 +93,7 @@ Per impostazione predefinita, le etichette di riservatezza MIP sono disponibili 
 
 Per applicare le etichette di riservatezza MIP alle risorse di Azure in ambito Azure, è necessario fornire esplicitamente il consenso per estendere le etichette e selezionare le etichette specifiche che si desidera rendere disponibili in ambito.
 
-Estendendo le etichette di riservatezza del MIP con ambito Azure, le organizzazioni possono ora individuare, classificare e ottenere informazioni approfondite su una vasta gamma di origini dati, riducendo al minimo i rischi di conformità.
+Estendendo le etichette di riservatezza di MIP con Azure, le organizzazioni possono ora individuare, classificare e ottenere informazioni approfondite su una vasta gamma di origini dati, riducendo al minimo i rischi di conformità.
 
 > [!NOTE]
 > Poiché Microsoft 365 e Azure sono servizi distinti, è possibile che vengano distribuiti in aree diverse. I nomi di etichetta e i nomi dei tipi di informazioni riservate personalizzate sono considerati dati del cliente e vengono conservati nella stessa posizione geografica per impostazione predefinita per proteggere la riservatezza dei dati e per evitare leggi GDPR.
@@ -123,7 +130,7 @@ Quando si estende l'assegnazione di etichette alle risorse in Azure, è possibil
 
     Per ulteriori informazioni sulle opzioni della procedura guidata, vedere [quali etichette di riservatezza possono](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) essere eseguite nella documentazione Microsoft 365.
 
-1. Ripetere i passaggi elencati in precedenza per creare etichette aggiuntive. 
+1. Ripetere i passaggi elencati in precedenza per creare altre etichette. 
 
     Per creare un'etichetta secondaria, selezionare l'etichetta padre > **...**  >  **Altre azioni**  >  **Aggiungi etichetta secondaria**.
 
@@ -181,7 +188,7 @@ Analizza i dati in Azure per applicare automaticamente le etichette create, in b
 
 Per altre informazioni su come configurare le analisi in diversi asset in Azure, vedere:
 
-|Source (Sorgente)  |Riferimento  |
+|Source (Sorgente)  |Informazioni di riferimento  |
 |---------|---------|
 |**Archiviazione BLOB di Azure**     |[Registrare e analizzare l'archivio BLOB di Azure](register-scan-azure-blob-storage-source.md)         |
 |**Archiviazione di Azure Data Lake**     |[Registra e analizza Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Registra e analizza Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)         |

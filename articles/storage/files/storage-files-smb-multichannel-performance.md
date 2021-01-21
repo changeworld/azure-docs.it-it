@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 4f4cd8189c9166ee08c1e4ccd800a1202d3b5893
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: cbded0a9c905bb488e1bae0f92d777e2e7ed7441
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724817"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630854"
 ---
 # <a name="smb-multichannel-performance"></a>Prestazioni di SMB multicanale
 
@@ -119,7 +119,7 @@ I suggerimenti seguenti possono aiutare a ottimizzare le prestazioni:
 - Verificare che l'account di archiviazione e il client si trovino nella stessa area di Azure per ridurre la latenza di rete.
 - Usare applicazioni multithread e distribuire il carico su più file.
 - Vantaggi in merito alle prestazioni dell'incremento multicanale SMB con il numero di file che distribuiscono il carico.
-- Le prestazioni di condivisione Premium sono limitate dalle dimensioni della condivisione di cui è stato effettuato il provisioning (IOPS/uscita/ingresso) e dai limiti dei singoli file. Per informazioni dettagliate, vedere [informazioni sul provisioning per le condivisioni file Premium](understanding-billing.md#provisioned-billing).
+- Le prestazioni di condivisione Premium sono limitate dalle dimensioni della condivisione di cui è stato effettuato il provisioning (IOPS/uscita/ingresso) e dai limiti dei singoli file. Per informazioni dettagliate, vedere [informazioni sul provisioning per le condivisioni file Premium](understanding-billing.md#provisioned-model).
 - Il numero massimo di prestazioni di un singolo client VM è ancora associato ai limiti della macchina virtuale. Ad esempio, [Standard_D32s_v3](../../virtual-machines/dv3-dsv3-series.md) può supportare una larghezza di banda massima di 16.000 Mbps (o 2 Gbps), l'uscita dalla macchina virtuale (scritture nell'archiviazione) è a consumo, il traffico in ingresso (letture dall'archiviazione) non lo è. Le prestazioni della condivisione file sono soggette ai limiti della rete, alle CPU, alla larghezza di banda di rete disponibile per l'archiviazione interna, alle dimensioni di i/o, al parallelismo e ad altri fattori.
 - Il test iniziale è in genere un riscaldamento, ne elimina i risultati e ripete il test.
 - Se le prestazioni sono limitate da un singolo client e il carico di lavoro è ancora inferiore ai limiti della condivisione con provisioning, è possibile ottenere prestazioni più elevate distribuendo il carico su più client.

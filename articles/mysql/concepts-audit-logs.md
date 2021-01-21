@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/24/2020
-ms.openlocfilehash: aac8e6e04b8bac7a1d27fefc780fb9fadb3122dc
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fa845e7c402073a64f51d75b1da51f56142eee2e
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534178"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630500"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Log di controllo nel database di Azure per MySQL
 
@@ -43,7 +43,7 @@ Altri parametri che è possibile modificare includono:
 | `DCL` | Query come "Concedi autorizzazione" |
 | `ADMIN` | Query come "Mostra stato" |
 | `GENERAL` | Tutto in DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
-| `TABLE_ACCESS` | -Disponibile solo per MySQL 5,7 <br> -Istruzioni Read della tabella, ad esempio SELECT o INSERT INTO... Selezionare <br> -Istruzioni DELETE della tabella, ad esempio DELETE o TRUNCATE TABLE <br> -Istruzioni Table Insert, ad esempio INSERT o REPLACE <br> -Istruzioni Update della tabella, ad esempio UPDATE |
+| `TABLE_ACCESS` | -Disponibile per MySQL 5,7 e MySQL 8,0 <br> -Istruzioni Read della tabella, ad esempio SELECT o INSERT INTO... Selezionare <br> -Istruzioni DELETE della tabella, ad esempio DELETE o TRUNCATE TABLE <br> -Istruzioni Table Insert, ad esempio INSERT o REPLACE <br> -Istruzioni Update della tabella, ad esempio UPDATE |
 
 ## <a name="access-audit-logs"></a>Accedere ai log di controllo
 

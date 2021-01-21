@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7f10654e1c96f1756e5864d20fa2a6817385e994
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366854"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629794"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Eseguire la replica di computer locali usando endpoint privati
 
@@ -57,7 +57,7 @@ Un' [identità gestita](../active-directory/managed-identities-azure-resources/o
 
 1. Passare all'insieme di credenziali di servizi di ripristino. Selezionare **Identity** in **Settings (impostazioni**):
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Screenshot che mostra la pagina delle impostazioni di identità.":::
 
 1. Modificare lo **stato** **su on** e selezionare **Salva**.
 
@@ -69,21 +69,21 @@ Per proteggere le macchine virtuali nella rete di origine locale, è necessario 
 
 1. Nella casella di ricerca portale di Azure cercare "collegamento privato". Selezionare **collegamento privato** per accedere a link Center privato:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Screenshot che mostra la ricerca nel portale di Azure per il centro collegamenti privati.":::
 
 1. Nel riquadro sinistro selezionare **endpoint privati**. Nella pagina **endpoint privati** selezionare **Aggiungi** per avviare la creazione di un endpoint privato per l'insieme di credenziali:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Screenshot che illustra come creare un endpoint privato in un centro di collegamento privato.":::
 
 1. Nella pagina **Crea un endpoint privato** specificare i dettagli per creare la connessione all'endpoint privato.
 
    1. **Nozioni di base**. Fornire i dettagli di base per gli endpoint privati. Usare l'area usata per la rete di bypass:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Screenshot che mostra la scheda di base per la creazione di un endpoint privato.":::
 
    1. **Risorsa**. In questa scheda è necessario specificare la risorsa piattaforma distribuita come servizio per la quale si desidera creare la connessione. In **tipo di risorsa** per la sottoscrizione selezionata selezionare **Microsoft. RecoveryServices/Vaults**. Scegliere il nome dell'insieme di credenziali di servizi di ripristino in **risorsa**. Selezionare **Azure Site Recovery** come **risorsa secondaria di destinazione**.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Screenshot che mostra la scheda risorsa per il collegamento a un endpoint privato.":::
 
    1. **Configurazione**. In questa scheda specificare la rete di bypass e la subnet in cui si desidera creare l'endpoint privato. 
 
@@ -96,7 +96,7 @@ Per proteggere le macchine virtuali nella rete di origine locale, è necessario 
 
       Per creare manualmente la zona DNS privata, seguire la procedura descritta in [creare zone DNS private e aggiungere manualmente i record DNS](#create-private-dns-zones-and-add-dns-records-manually).
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Screenshot che mostra la scheda configurazione per la configurazione di un endpoint privato.":::
 
    1. **Tag**. Facoltativamente, è possibile aggiungere tag per l'endpoint privato.
 
@@ -114,11 +114,14 @@ Se si crea l'endpoint privato e si è anche il proprietario dell'insieme di cred
 
 È possibile passare alla risorsa endpoint privato per esaminare lo stato della connessione prima di continuare:
 
-:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+:::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/vault-private-endpoint-connections.png" alt-text="Screenshot che mostra la pagina connessioni endpoint privato dell'insieme di credenziali e l'elenco di connessioni.":::
 
 ### <a name="optional-create-private-endpoints-for-the-cache-storage-account"></a><a name="create-private-endpoints-for-the-cache-storage-account"></a>Opzionale Creare endpoint privati per l'account di archiviazione della cache
 
 È possibile usare un endpoint privato per archiviazione di Azure. La creazione di endpoint privati per l'accesso all'archiviazione è facoltativa per la replica Azure Site Recovery. Se si crea un endpoint privato per l'archiviazione, è necessario un endpoint privato per l'account di archiviazione cache/log nella rete virtuale di bypass.
+
+> [!NOTE]
+> Se gli endpoint privati non sono abilitati per l'account di archiviazione, la protezione avrà comunque esito positivo. Tuttavia, il traffico di replica transiterà tramite Internet per Azure Site Recovery endpoint pubblici. Per garantire che il traffico di replica fluisca attraverso collegamenti privati, è necessario abilitare l'account di archiviazione con endpoint privati.
 
 > [!NOTE]
 > Gli endpoint privati per l'archiviazione possono essere creati solo negli account di archiviazione per utilizzo generico V2. Per informazioni sui prezzi, vedere [prezzi dei BLOB di pagine di Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
@@ -147,11 +150,11 @@ Questi passaggi descrivono come aggiungere un'assegnazione di ruolo all'account 
 
 1. Nella sezione **aggiungere un'assegnazione di ruolo** selezionare **Aggiungi**:
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Screenshot che mostra la pagina controllo di accesso (IAM) per un account di archiviazione.":::
 
 1. Nell'elenco **ruolo** della pagina **Aggiungi assegnazione ruolo** selezionare il ruolo dall'elenco all'inizio di questa sezione. Immettere il nome dell'insieme di credenziali e quindi selezionare **Save (Salva**).
 
-   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+   :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Screenshot che mostra la pagina Aggiungi assegnazione ruolo.":::
 
 Dopo aver aggiunto queste autorizzazioni, è necessario consentire l'accesso a servizi attendibili Microsoft. Passare a **firewall e reti virtuali** e selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** in **eccezioni**.
 
@@ -174,13 +177,13 @@ Creare una zona DNS privata per consentire al provider Site Recovery (per comput
 
    1. Cercare "zona DNS privata" nella casella di ricerca **tutti i servizi** e quindi selezionare **DNS privato zona** nei risultati:
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Screenshot che mostra la ricerca di una zona DNS privata nella pagina nuove risorse della portale di Azure.":::
 
    1. Nella pagina **zone DNS privato** selezionare il pulsante **Aggiungi** per avviare la creazione di una nuova zona.
 
    1. Nella pagina **Crea zona DNS privata** immettere i dettagli richiesti. Immettere **privatelink.siterecovery.WindowsAzure.com** per il nome della zona DNS privata. È possibile scegliere qualsiasi gruppo di risorse e qualsiasi sottoscrizione.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Screenshot che mostra la scheda nozioni di base della pagina Crea zona DNS privato.":::
 
    1. Passare alla scheda **verifica \+ creazione** per esaminare e creare la zona DNS.
 
@@ -192,7 +195,7 @@ Creare una zona DNS privata per consentire al provider Site Recovery (per comput
 
    1. Immettere i dettagli necessari. Negli elenchi **sottoscrizione** e **rete virtuale** Selezionare i dettagli che corrispondono alla rete di bypass. Lasciare i valori predefiniti negli altri campi.
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Screenshot che mostra la pagina Aggiungi collegamento rete virtuale.":::
 
 1. Aggiungere record DNS.
 
@@ -205,11 +208,11 @@ Creare una zona DNS privata per consentire al provider Site Recovery (per comput
 
    1. Passare alla zona DNS privata e quindi passare alla sezione **Panoramica** nel riquadro sinistro. Selezionare **set di record** per iniziare ad aggiungere i record.
 
-   1. Nella pagina **Aggiungi set di record** aggiungere una voce per ogni nome di dominio completo e IP privato come record **di** tipo. In **Panoramica**è possibile ottenere un elenco dei nomi di dominio completi e degli indirizzi IP nella pagina **endpoint privato** . Come si può notare nello screenshot seguente, il primo nome di dominio completo dall'endpoint privato viene aggiunto al set di record nella zona DNS privata.
+   1. Nella pagina **Aggiungi set di record** aggiungere una voce per ogni nome di dominio completo e IP privato come record **di** tipo. In **Panoramica** è possibile ottenere un elenco dei nomi di dominio completi e degli indirizzi IP nella pagina **endpoint privato** . Come si può notare nello screenshot seguente, il primo nome di dominio completo dall'endpoint privato viene aggiunto al set di record nella zona DNS privata.
 
       Questi nomi di dominio completi corrispondono a questo modello: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
-      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Diagramma che illustra l'architettura per gli endpoint Azure Site Recovery e privati.":::
+      :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Screenshot che mostra la pagina Aggiungi set di record.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

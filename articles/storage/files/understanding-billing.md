@@ -4,22 +4,22 @@ description: Informazioni su come interpretare i modelli di fatturazione con pag
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/1/2020
+ms.date: 01/20/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 880ec90ce1cf0efffce0cfd6800bdbaed23f8dd0
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: 19ecbea70d9cb6b8cc31c72ed3c1294cd137ce93
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831466"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632479"
 ---
 # <a name="understanding-azure-files-billing"></a>Informazioni sulla fatturazione File di Azure
 File di Azure offre due modelli di fatturazione distinti: con provisioning e con pagamento in base al consumo. Il modello di cui è stato effettuato il provisioning è disponibile solo per le condivisioni file Premium, ovvero le condivisioni file distribuite nel tipo di account di archiviazione **filestorage** . Il modello con pagamento in base al consumo è disponibile solo per le condivisioni file standard, ovvero le condivisioni file distribuite nel tipo di account di archiviazione per **utilizzo generico versione 2 (GPv2)** . Questo articolo illustra il funzionamento di entrambi i modelli per facilitare la comprensione della fattura mensile File di Azure.
 
 I prezzi attuali per File di Azure sono disponibili nella pagina relativa ai [prezzi file di Azure](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## <a name="provisioned-billing"></a>Fatturazione con provisioning
+## <a name="provisioned-model"></a>Modello sottoposta a provisioning
 File di Azure usa un modello con provisioning per le condivisioni file Premium. In un modello di business di cui è stato effettuato il provisioning, è possibile specificare in modo proattivo il File di Azure servizio che i requisiti di archiviazione sono, anziché essere fatturati in base a ciò che si usa. Questa operazione è simile all'acquisto di hardware in locale, in quanto quando si effettua il provisioning di una condivisione file di Azure con una determinata quantità di spazio di archiviazione, si paga per tale spazio di archiviazione, indipendentemente dal fatto che si usi o meno, così come non si inizia a pagare i costi dei supporti fisici locali quando si inizia a usare lo spazio. Diversamente dall'acquisto di supporti fisici in locale, le condivisioni file di cui è stato effettuato il provisioning possono essere aumentate o ridotte in modo dinamico a seconda delle caratteristiche delle prestazioni di archiviazione e i/o.
 
 Quando si esegue il provisioning di una condivisione file Premium, si specifica il numero di GiBs necessari per il carico di lavoro. Ogni GiB di cui viene effettuato il provisioning consente di eseguire operazioni di IOPS e velocità effettiva aggiuntive su un rapporto fisso. Oltre alle operazioni di i/o al secondo per cui è garantita la garanzia, ogni condivisione file Premium supporta il prorompersi in base al massimo sforzo. Le formule per IOPS e velocità effettiva sono le seguenti:
@@ -63,7 +63,7 @@ I crediti di condivisione hanno tre stati:
 
 Le nuove condivisioni file iniziano con il numero completo di crediti nel bucket di espansione. Se i valori di IOPS della condivisione scendono al di sotto della linea di base IOPS a causa della limitazione del server, i crediti di espansione non verranno acquisiti.
 
-## <a name="pay-as-you-go-billing"></a>Fatturazione con pagamento in base al consumo
+## <a name="pay-as-you-go-model"></a>Modello con pagamento in base al consumo
 File di Azure usa un modello di business con pagamento in base al consumo per le condivisioni file standard. In un modello di business con pagamento in base al consumo, l'importo pagato è determinato dalla quantità effettivamente usata, anziché in base a una quantità di cui è stato effettuato il provisioning. A un livello elevato, si paga un costo per la quantità di dati archiviati su disco e quindi un set aggiuntivo di transazioni in base all'utilizzo di tali dati. Un modello con pagamento in base al consumo può essere conveniente, perché non è necessario eseguire l'overprovisioning per tenere conto dei requisiti di crescita o di prestazioni futuri o effettuare il deprovisioning se il carico di lavoro è un footprint di dati diverso nel tempo. D'altra parte, un modello con pagamento in base al consumo può anche essere difficile da pianificare come parte di un processo di budget, perché il modello di fatturazione con pagamento in base al consumo è determinato dal consumo dell'utente finale.
 
 ### <a name="differences-in-standard-tiers"></a>Differenze nei livelli standard
@@ -92,7 +92,7 @@ Sono disponibili cinque categorie di transazioni di base: Write, List, Read, oth
 > [!Note]  
 > NFS 4,1 è disponibile solo per le condivisioni file Premium, che usano il modello di fatturazione con provisioning, le transazioni non influiscono sulla fatturazione per le condivisioni file Premium.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 - [File di Azure pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/files/).
 - [Pianificazione di una distribuzione di file di Azure](./storage-files-planning.md) e [pianificazione di una distribuzione di sincronizzazione file di Azure](./storage-sync-files-planning.md).
 - [Creare una condivisione file](./storage-how-to-create-file-share.md) e [distribuire Sincronizzazione file di Azure](./storage-sync-files-deployment-guide.md).

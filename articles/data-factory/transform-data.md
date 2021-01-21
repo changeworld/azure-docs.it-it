@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637684"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632326"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Trasformare i dati in Azure Data Factory
 
@@ -47,9 +47,9 @@ Data Factory supporta le seguenti attività di trasformazione dei dati che posso
 
 I flussi di dati di mapping sono le trasformazioni di dati progettate visivamente in Azure Data Factory. I flussi di dati consentono agli ingegneri di dati di sviluppare la logica di trasformazione dei dati grafici senza scrivere codice. I flussi di dati risultanti vengono eseguiti come attività all'interno di Azure Data Factory pipeline che usano cluster Spark con scalabilità orizzontale. Le attività del flusso di dati possono essere operative tramite le funzionalità di pianificazione, controllo, flusso e monitoraggio Data Factory esistenti. Per altre informazioni, vedere [mapping di flussi di dati](concepts-data-flow-overview.md).
 
-### <a name="wrangling-data-flows"></a>Litigi dei flussi di dati
+### <a name="data-wrangling"></a>Disputa dei dati
 
-La disputa dei flussi di dati in Azure Data Factory consente di eseguire in modo iterativo la preparazione dei dati senza codice a livello di cloud. La disputa dei flussi di dati si integra con [Power query online](/power-query/) e rende disponibili funzioni Power query M per data wrangling a livello di cloud tramite l'esecuzione di Spark. Per ulteriori informazioni, vedere la pagina relativa ai [flussi di dati](wrangling-data-flow-overview.md).
+Power Query in Azure Data Factory Abilita data wrangling a livello di cloud, che consente di eseguire in modo iterativo la preparazione dei dati senza codice a livello di cloud. Il trattamento dei dati si integra con [Power query online](/power-query/) e rende disponibili funzioni Power query M per data wrangling a livello di cloud tramite l'esecuzione di Spark. Per ulteriori informazioni, vedere [Data wrangling in ADF](wrangling-overview.md).
 
 ## <a name="external-transformations"></a>Trasformazioni esterne
 
@@ -78,7 +78,7 @@ Nel corso del tempo, è necessario ripetere il training dei modelli predittivi n
 Per informazioni dettagliate su queste attività di studio (classiche), vedere [usare le attività Azure Machine Learning Studio (classiche)](transform-data-using-machine-learning.md) . 
 
 ### <a name="stored-procedure-activity"></a>Attività stored procedure
-È possibile usare l'attività SQL Server stored procedure in una pipeline Data Factory per richiamare un stored procedure in uno dei seguenti archivi dati: database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), SQL Server database nell'azienda o in una VM di Azure. Per i dettagli, vedere l'articolo [Attività stored procedure](transform-data-using-stored-procedure.md).  
+È possibile usare l'attività SQL Server stored procedure in una pipeline Data Factory per richiamare un stored procedure in uno dei seguenti archivi dati: database SQL di Azure, analisi sinapsi di Azure, database di SQL Server nell'azienda o in una VM di Azure. Per i dettagli, vedere l'articolo [Attività stored procedure](transform-data-using-stored-procedure.md).  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Attività U-SQL di Data Lake Analytics
 L'attività U-SQL di Data Lake Analytics esegue uno script U-SQL in un cluster Azure Data Lake Analytics. Per i dettagli, vedere l'articolo [Attività U-SQL di Analisi dei dati](transform-data-using-data-lake-analytics.md). 
@@ -103,8 +103,8 @@ Se è necessario trasformare i dati in una modalità non supportata da Data Fact
 ### <a name="compute-environments"></a>Ambienti di calcolo
 Creare un servizio collegato per l'ambiente di calcolo e quindi usare il servizio collegato quando si definisce un'attività di trasformazione. Esistono due tipi di ambienti di calcolo supportati da Data factory. 
 
-- **On Demand** : in questo caso, l'ambiente informatico è completamente gestito da Data factory. Viene automaticamente creato dal servizio Data Factory prima che un processo venga inviato per l’elaborazione dati e rimosso quando il processo viene completato. È possibile configurare e controllare le impostazioni granulari dell'ambiente di elaborazione su richiesta per l'esecuzione del processo, la gestione del cluster e azioni di avvio automatico. 
-- **Bring Your Own** : In questo caso, è possibile registrare il proprio ambiente di elaborazione (ad esempio cluster HDInsight) come servizio collegato in Data factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data factory viene usato per eseguire le attività. 
+- **On Demand**: in questo caso, l'ambiente informatico è completamente gestito da Data factory. Viene automaticamente creato dal servizio Data Factory prima che un processo venga inviato per l’elaborazione dati e rimosso quando il processo viene completato. È possibile configurare e controllare le impostazioni granulari dell'ambiente di elaborazione su richiesta per l'esecuzione del processo, la gestione del cluster e azioni di avvio automatico. 
+- **Bring Your Own**: In questo caso, è possibile registrare il proprio ambiente di elaborazione (ad esempio cluster HDInsight) come servizio collegato in Data factory. L'ambiente di elaborazione viene gestito dall'utente e il servizio Data factory viene usato per eseguire le attività. 
 
 Per informazioni sui servizi di calcolo supportati da Data factory, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md) . 
 

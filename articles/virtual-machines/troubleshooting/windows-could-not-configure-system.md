@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6cb3467fec99bd12810ed058a61de1be7b39cdd0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977049"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629590"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Risolvere il problema che impedisce a Windows di completare la configurazione del sistema
 
@@ -39,5 +39,8 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
 Questo errore si verifica quando il sistema operativo non è in grado di completare il [processo Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Questo errore si verifica quando si tenta un avvio iniziale di una macchina virtuale generalizzata. Se si verifica questo problema, ricreare l'immagine generalizzata, poiché l'immagine si trova in uno stato non distribuibile e non può essere ripristinata.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Per risolvere questo problema, seguire le [istruzioni di Azure per preparare/acquisire un'immagine](../windows/upload-generalized-managed.md) e preparare una nuova immagine generalizzata.

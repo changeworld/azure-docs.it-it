@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: v-miegge
-ms.openlocfilehash: e58e349d7b7385ec913986c39462c17deadcb61d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 22db9c7966b6f988ca0ea799104275f3f86c77ea
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969603"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629573"
 ---
 # <a name="windows-boot-manager-error---0xc0000428-status-invalid-image-hash"></a>Errore di Windows Boot Manager-0xC0000428 stato dell'hash dell'immagine non valido
 
@@ -65,6 +65,9 @@ Non è possibile estendere la data di scadenza di un'immagine di anteprima. Una 
 - In Azure tutte le immagini per Windows con versioni di anteprima includeranno una nota nella relativa descrizione che non sono destinate alla produzione e che sono disponibili per l'uso solo per un periodo di valutazione specificato o come "versione di anteprima".
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Se l'immagine è un'immagine di anteprima, non è possibile estendere la data di scadenza per l'immagine usata, quindi è necessario [distribuire una nuova macchina virtuale](../windows/quick-create-portal.md) usando un'immagine non di anteprima. La procedura seguente consente di identificare se è stata usata un'immagine di anteprima, oltre a fornire le risorse necessarie per il trasferimento dei dati da questa macchina virtuale a una nuova VM. Se l'immagine è stata identificata in modo positivo come immagine di anteprima, l'immagine non è recuperabile, perché ora è scaduta.
 

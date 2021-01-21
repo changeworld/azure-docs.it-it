@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: ff7d5a4e1181dccedc3584d958038a1d695c57ca
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: a91add684d7b7aaee67e7dd4f4f2d0c6df078132
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657125"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632225"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Risolvere l'errore di Windows Boot Manager: 0xC0000225 "Stato non trovato"
  
@@ -79,6 +79,9 @@ Il danneggiamento dell'hive del Registro di sistema potrebbe essere dovuto a uno
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 1. Selezionare una soluzione:

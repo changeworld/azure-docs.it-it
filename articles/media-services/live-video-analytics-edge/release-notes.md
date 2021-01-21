@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f8957d1ec93259cf6defe7980f19298f782ea5e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121244"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629777"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -51,9 +51,12 @@ Questa versione è la versione di aggiornamento dell'anteprima pubblica di anali
 * Aggiunta del supporto per la gestione dello spazio su disco per i nodi sink.
 * `MediaGraphGrpcExtension` il nodo supporta ora la proprietà [extensionConfiguration](grpc-extension-protocol.md) per l'uso di più modelli di intelligenza artificiale all'interno di un singolo server gRPC.
 * Aggiunta del supporto per la raccolta di metriche del modulo di analisi video in tempo reale nel [formato Prometeo](https://prometheus.io/docs/practices/naming/). Scopri di più su come [raccogliere metriche e visualizzare i dati in monitoraggio di Azure.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
+* È stata aggiunta la possibilità di filtrare la selezione dell'output. È possibile passare solo **audio** **o video** o **audio e video** con l'aiuto di `outputSelectors` a qualsiasi nodo grafico. 
 * Il processore del filtro della frequenza del frame è **deprecato**.  
     * La gestione della frequenza dei fotogrammi è ora disponibile all'interno dei nodi del processore dell'estensione Graph.
 
+### <a name="visual-studio-code-extension"></a>Estensione Visual Studio Code
+* Sono state rilasciate [analisi video in tempo reale su IOT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) un'estensione Visual Studio Code per semplificare la gestione dei grafici multimediali di LVA. Questa estensione funziona con il **modulo LVA 2,0** e consente di modificare e gestire grafici multimediali con un'interfaccia grafica molto semplice e facile da usare.
 ## <a name="september-22-2020"></a>22 settembre 2020
 
 Questo tag di versione è relativo all'aggiornamento di settembre 2020 del modulo:
@@ -149,4 +152,4 @@ Questa è la prima versione di anteprima pubblica di analisi video in tempo real
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](overview.md)
+[Overview](overview.md)

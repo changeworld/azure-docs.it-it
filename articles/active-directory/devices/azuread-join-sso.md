@@ -11,33 +11,36 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da22a4e5e9ab13ec18347e58bea6cfc5f45333de
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256463"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630701"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Funzionamento dell'accesso SSO alle risorse locali nei dispositivi aggiunti ad Azure AD
 
-Non deve sorprendere il fatto che un dispositivo aggiunto ad Azure Active Directory (Azure AD) offra un'esperienza Single Sign-On (SSO) alle app cloud del tenant. Se l'ambiente dispone di un Active Directory locale (AD), è possibile estendere l'esperienza SSO su questi dispositivi a risorse e applicazioni che si basano anche su AD locale. 
+Non deve sorprendere il fatto che un dispositivo aggiunto ad Azure Active Directory (Azure AD) offra un'esperienza Single Sign-On (SSO) alle app cloud del tenant. Se l'ambiente ha un Active Directory locale (AD), è anche possibile ottenere l'esperienza SSO nei dispositivi Azure AD aggiunti a risorse e applicazioni che si basano su AD locale. 
 
 Questo articolo illustra il funzionamento di questa caratteristica.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- Se Azure AD macchine unite in join non sono connesse alla rete dell'organizzazione, è necessaria una VPN o un'altra infrastruttura di rete. SSO locale richiede la comunicazione line-of-visione con i controller di dominio di servizi di dominio Active Directory locali.
+SSO locale richiede la comunicazione line-of-visione con i controller di dominio di servizi di dominio Active Directory locali. Se Azure AD dispositivi aggiunti sono collegati alla rete dell'organizzazione, è necessaria una VPN o un'altra infrastruttura di rete. 
 
-## <a name="how-it-works"></a>Funzionamento 
+## <a name="how-it-works"></a>Come funziona 
 
 Con un dispositivo aggiunto ad Azure AD, gli utenti possono già usufruire dell'esperienza SSO alle app cloud nell'ambiente. Se l'ambiente ha un Azure AD e un'istanza locale di AD, è possibile espandere l'ambito dell'esperienza SSO con le app line-of-business (LOB) locali, le condivisioni file e le stampanti.
 
 I dispositivi aggiunti ad Azure AD non conoscono l'ambiente AD locale perché non sono aggiunti a esso. Tuttavia, è possibile fornire a questi dispositivi informazioni aggiuntive sull'ambiente AD locale usando Azure AD Connect.
 
-Un ambiente in cui sono presenti sia Azure AD che un'istanza locale di AD è detto anche ambiente ibrido. Se si ha un ambiente ibrido, è probabile che Azure AD Connect sia già stato distribuito per sincronizzare le informazioni sulle identità locali con il cloud. Nell'ambito del processo di sincronizzazione, Azure AD Connect sincronizza le informazioni utente locali per Azure AD. Quando un utente accede a un dispositivo aggiunto ad Azure AD in un ambiente ibrido:
+Se si dispone di un ambiente ibrido, con Azure AD e AD locale, è probabile che sia già stato Azure AD Connect distribuito per sincronizzare le informazioni sull'identità locale nel cloud. Nell'ambito del processo di sincronizzazione, Azure AD Connect sincronizza le informazioni su utenti e domini locali per Azure AD. Quando un utente accede a un dispositivo aggiunto ad Azure AD in un ambiente ibrido:
 
 1. Azure AD invia nuovamente al dispositivo i dettagli del dominio locale dell'utente, insieme al [token di aggiornamento primario](concept-primary-refresh-token.md)
 1. Il servizio autorità di sicurezza locale (LSA) consente l'autenticazione Kerberos e NTLM nel dispositivo.
+
+>[!NOTE]
+> Windows Hello for Business richiede una configurazione aggiuntiva per abilitare l'accesso SSO locale da un dispositivo aggiunto ad Azure AD. Per altre informazioni, vedere [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configurare dispositivi aggiunti ad Azure AD per l'accesso Single-Sign On locale usando Windows Hello for Business). 
 
 Durante un tentativo di accesso a una risorsa che richiede Kerberos o NTLM nell'ambiente locale dell'utente, il dispositivo:
 
@@ -45,8 +48,6 @@ Durante un tentativo di accesso a una risorsa che richiede Kerberos o NTLM nell'
 1. Riceve un [ticket di concessione ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) Kerberos o un token NTLM basato sul protocollo supportato dalla risorsa o dall'applicazione locale. Se il tentativo di ottenere il token TGT o NTLM Kerberos per il dominio ha esito negativo (il timeout DCLocator correlato può causare un ritardo), vengono tentate le voci di gestione credenziali o l'utente può ricevere un popup di autenticazione che richiede le credenziali per la risorsa di destinazione.
 
 Tutte le app configurate per l'**autenticazione integrata di Windows** ottengono facilmente l'accesso SSO quando un utente prova ad accedervi.
-
-Windows Hello for Business richiede una configurazione aggiuntiva per abilitare l'accesso SSO locale da un dispositivo aggiunto ad Azure AD. Per altre informazioni, vedere [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base) (Configurare dispositivi aggiunti ad Azure AD per l'accesso Single-Sign On locale usando Windows Hello for Business). 
 
 ## <a name="what-you-get"></a>Componenti
 
@@ -62,7 +63,7 @@ Se si vuole gestire l'istanza locale di AD da un dispositivo Windows, installare
 - Lo snap-in Utenti e computer di Active Directory per amministrare tutti gli oggetti di AD. Tuttavia, è necessario specificare il dominio a cui ci si vuole connettere manualmente.
 - Lo snap-in DHCP per amministrare un server DHCP aggiunto ad AD. Tuttavia, è necessario specificare il nome o l'indirizzo del server DHCP.
  
-## <a name="what-you-should-know"></a>Informazioni importanti
+## <a name="what-you-should-know"></a>Informazioni utili
 
 Potrebbe essere necessario modificare le opzioni di [filtro basato su dominio](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect per assicurarsi che i dati relativi ai domini richiesti siano sincronizzati.
 

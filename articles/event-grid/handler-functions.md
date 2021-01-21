@@ -3,12 +3,12 @@ title: Usare una funzione in Azure come gestore eventi per gli eventi di griglia
 description: Viene descritto come usare le funzioni create in e ospitate da funzioni di Azure come gestori eventi per gli eventi di griglia di eventi.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 5a1ec575b58829a422e4d263ae0324e0343d5ad3
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: beddc35f2dd8db974492d14aec27ce754a74737c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034969"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632513"
 ---
 # <a name="use-a-function-as-an-event-handler-for-event-grid-events"></a>Usare una funzione come gestore eventi per gli eventi di griglia di eventi
 
@@ -75,7 +75,7 @@ Al momento della creazione di una sottoscrizione nell'interfaccia utente, nella 
 È possibile impostare **maxEventsPerBatch** e **preferredBatchSizeInKilobytes** in un modello di Azure Resource Manager. Per ulteriori informazioni, vedere il [riferimento al modello eventSubscriptions di Microsoft. EventGrid](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-È possibile usare il comando [AZ eventgrid Event-Subscription create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) o [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) per configurare le impostazioni relative a batch usando i parametri seguenti: `--max-events-per-batch` o `--preferred-batch-size-in-kilobytes` .
+È possibile usare il comando [AZ eventgrid Event-Subscription create](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_create&preserve-view=true) o [AZ eventgrid Event-Subscription Update](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_update&preserve-view=true) per configurare le impostazioni relative a batch usando i parametri seguenti: `--max-events-per-batch` o `--preferred-batch-size-in-kilobytes` .
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 È possibile usare il cmdlet [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) o [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) per configurare le impostazioni relative al batch usando i parametri seguenti: `-MaxEventsPerBatch` o `-PreferredBatchSizeInKiloBytes` .

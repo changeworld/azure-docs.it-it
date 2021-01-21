@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 11/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f55af61a061bf3a3897569058aace728f7465b64
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: ec3f53e6f69614028c013efa5f0e6852cbc3f8ae
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862123"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631641"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-net"></a>Inviare e ricevere messaggi dalle code del bus di servizio di Azure (.NET)
 In questa esercitazione si crea un'applicazione console .NET Core per l'invio e la ricezione di messaggi da una coda del bus di servizio usando il pacchetto **Azure.Messaging.ServiceBus**. 
@@ -272,4 +272,4 @@ Vedere la documentazione e gli esempi seguenti:
 
 - [Libreria client del bus di servizio di Azure per .NET - Leggimi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus)
 - [Esempi in GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples)
-- [Riferimento alle API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true&view=azure-dotnet-preview)
+- [Riferimento alle API .NET](/dotnet/api/azure.messaging.servicebus?preserve-view=true)

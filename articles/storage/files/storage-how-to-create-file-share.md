@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 705910a9e2f4ebc80a63ab22ac4edecc5ae03cd0
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724800"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630752"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
@@ -172,7 +172,7 @@ La proprietà **quota** indica un valore leggermente diverso tra le condivisioni
 
 - Per le condivisioni file standard, si tratta di un limite superiore della condivisione file di Azure, oltre il quale gli utenti finali non possono andare. Lo scopo principale della quota per una condivisione file standard è il budget: "non voglio che la condivisione file cresca oltre questo punto". Se non si specifica una quota, la condivisione file standard può estendersi fino a 100 TiB (o 5 TiB se la proprietà large file Shares non è impostata per un account di archiviazione).
 
-- Per le condivisioni file Premium, la quota è sottoposta a overload in dimensioni medie con **provisioning**. Le dimensioni di cui è stato effettuato il provisioning corrispondono alla quantità per la quale verrà fatturato, indipendentemente dall'utilizzo effettivo. Quando si esegue il provisioning di una condivisione file Premium, si desidera considerare due fattori: 1) la crescita futura della condivisione dal punto di vista dell'utilizzo dello spazio e 2) le operazioni di i/o al secondo necessarie per il carico di lavoro. Ogni GiB sottoposta a provisioning ti consente di eseguire operazioni aggiuntive riservate e di IOPS. Per altre informazioni su come pianificare una condivisione file Premium, vedere [provisioning di condivisioni file Premium](understanding-billing.md#provisioned-billing).
+- Per le condivisioni file Premium, la quota è sottoposta a overload in dimensioni medie con **provisioning**. Le dimensioni di cui è stato effettuato il provisioning corrispondono alla quantità per la quale verrà fatturato, indipendentemente dall'utilizzo effettivo. Quando si esegue il provisioning di una condivisione file Premium, si desidera considerare due fattori: 1) la crescita futura della condivisione dal punto di vista dell'utilizzo dello spazio e 2) le operazioni di i/o al secondo necessarie per il carico di lavoro. Ogni GiB sottoposta a provisioning ti consente di eseguire operazioni aggiuntive riservate e di IOPS. Per altre informazioni su come pianificare una condivisione file Premium, vedere [provisioning di condivisioni file Premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Se è stato appena creato l'account di archiviazione, è possibile accedervi dalla schermata di distribuzione selezionando **Vai a risorsa**. Se in precedenza è stato creato l'account di archiviazione, è possibile accedervi tramite il gruppo di risorse che lo contiene. Una volta nell'account di archiviazione, selezionare il riquadro **condivisioni file** con etichetta (è anche possibile passare alle **condivisioni file** tramite il sommario per l'account di archiviazione).

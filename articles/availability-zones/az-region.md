@@ -1,5 +1,5 @@
 ---
-title: Servizi di Azure che supportano zone di disponibilità
+title: Servizi di Azure che supportano le zone di disponibilità
 description: Per creare applicazioni resilienti e a disponibilità elevata in Azure, le zone di disponibilità offrono posizioni fisicamente separate che è possibile usare per eseguire le risorse.
 author: cynthn
 ms.service: azure
@@ -7,14 +7,14 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 0365a60317538ba31f39928cd30a57e2c969c832
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: ea21a56249c8eaa7c6b329b755e96b21b91ebaa1
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723040"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632309"
 ---
-# <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità
+# <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
 Zone di disponibilità è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Per l'elenco delle aree esistenti e future che supportano zone di disponibilità, vedere [aree e zone di disponibilità in Azure](az-overview.md).  
 
@@ -50,9 +50,9 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 
 ## <a name="americas"></a>Americhe
 
-| **Prodotti** | **Stati Uniti centrali** | **Stati Uniti orientali** | **Stati Uniti orientali 2** | **Stati Uniti occidentali 2** | **Canada centrale** |
+| **Prodotti** | **Stati Uniti centrali** | **Stati Uniti orientali** | **Stati Uniti orientali 2** | **West US 2** | **Canada centrale** |
 |--|--|--|--|--|--|
-| **Calcolo** |  |  |  |  |  |
+| **Compute** |  |  |  |  |  |
 | [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -65,7 +65,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Rete** |  |  |  |  |  |
+| **Funzionalità di rete** |  |  |  |  |  |
 | [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -97,7 +97,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 
 | **Prodotti** | **Francia centrale** | **Europa settentrionale** | **Regno Unito meridionale** | **Europa occidentale** |
 |--|--|--|--|--|
-| **Calcolo** |  |  |  |  |
+| **Compute** |  |  |  |  |
 | [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Servizio Azure Kubernetes](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -108,7 +108,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Rete** |  |  |  |  |
+| **Funzionalità di rete** |  |  |  |  |
 | [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -124,7 +124,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | [Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Database di Azure per MySQL-server flessibile](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Server flessibile di Database di Azure per PostgreSQL](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (anteprima) | :x: | : heavy_check_mark: (anteprima) |
+| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | :x: | : heavy_check_mark: (anteprima) |
 | [Database SQL di Azure (livelli Premium & business critical)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analisi** |  |  |  |  |
 | [Hub eventi](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -142,7 +142,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 
 | **Prodotti** | **Giappone orientale** | **Asia sud-orientale** | **Australia orientale** |
 |--|--|--|--|
-| **Calcolo** |  |  |  |
+| **Compute** |  |  |  |
 | [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Servizio Azure Kubernetes](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -153,7 +153,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Rete** |  |  |  |
+| **Funzionalità di rete** |  |  |  |
 | [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -169,7 +169,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | [Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Database di Azure per MySQL-server flessibile](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Server flessibile di Database di Azure per PostgreSQL](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) |
+| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) |
 | [Database SQL di Azure (livelli Premium & business critical)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | **Analisi** |  |  |  |
 | [Hub eventi](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

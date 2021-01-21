@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 9700e5d9179f7c1e33b2371eea89be9bb1c8d08f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621363"
+ms.locfileid: "98632292"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connettere i dati da Azure Active Directory (Azure AD)
 
@@ -28,7 +28,7 @@ ms.locfileid: "98621363"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario avere una sottoscrizione di [Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
+- Eventuali licenze Azure AD (free/O365/P1/P2) sono sufficienti per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
 
 - All'utente deve essere assegnato il ruolo Collaboratore sentinella di Azure nell'area di lavoro.
 
@@ -42,11 +42,27 @@ ms.locfileid: "98621363"
 
 1. Dalla raccolta Data Connector selezionare **Azure Active Directory** e quindi fare clic su **Apri connettore pagina**.
 
-1. Selezionare le caselle di controllo accanto ai log che si vuole trasmettere in Azure Sentinel e fare clic su **Connetti**.
+1. Selezionare le caselle di controllo accanto ai tipi di log che si vuole trasmettere in Azure Sentinel, quindi fare clic su **Connetti**. Questi sono i tipi di log tra cui è possibile scegliere:
 
-1. È possibile scegliere se si desidera che gli avvisi Azure AD generino automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti** selezionare **Abilita** per abilitare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi generati nel servizio di sicurezza connesso. È quindi possibile modificare questa regola in **Analisi** e quindi **Active rules** (Regole attive).
+    - Log di accesso
+    - Log di controllo
+    - Log di accesso utente non interattivo
+    - Log di accesso dell'entità servizio
+    - Log di accesso dell'identità gestita
+    - Log di provisioning
 
-1. Per utilizzare lo schema pertinente in Log Analytics per l'esecuzione di query sugli avvisi Azure AD, digitare `SigninLogs` o `AuditLogs` nella finestra query.
+## <a name="find-your-data"></a>Trovare i dati
+
+Una volta stabilita la connessione, i dati vengono visualizzati nei **log**, nella sezione **LogManagement** , nelle tabelle seguenti:
+
+- `SigninLogs`
+- `AuditLogs`
+- `AADNonInteractiveUserSignInLogs`
+- `AADServicePrincipalSignInLogs`
+- `AADManagedIdentitySignInLogs`
+- `AADProvisioningLogs`
+
+Per eseguire una query sui log di Azure AD, immettere il nome della tabella pertinente nella parte superiore della finestra della query.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere Azure Active Directory ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

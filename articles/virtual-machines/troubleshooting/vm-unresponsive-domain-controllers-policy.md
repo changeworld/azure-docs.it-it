@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f181a6dee7ed182150bd0cad2b51690b6c77d7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 6c139398182ca9d875de0d3b21c58afe503bd8a5
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963126"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632275"
 ---
 # <a name="vm-is-unresponsive-while-applying-default-domain-controllers-policy"></a>La macchina virtuale non risponde durante l'applicazione dei criteri dei controller di dominio predefiniti
 
@@ -28,7 +28,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui i criteri 
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il sistema operativo che smette di rispondere durante l'avvio con il **criterio controller di dominio predefinito**del messaggio.
+Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza il sistema operativo che smette di rispondere durante l'avvio con il **criterio controller di dominio predefinito** del messaggio.
 
   ![Nella figura 1 viene visualizzato il sistema operativo bloccato con il messaggio "criterio controller di dominio predefinito"](./media/vm-unresponsive-domain-controllers-policy/1-default-domain-controllers-policy.png)
 
@@ -37,6 +37,9 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
 Questo problema può essere dovuto a modifiche recenti apportate ai criteri dei controller di dominio predefiniti. In caso contrario, sarà necessario eseguire un'analisi dei file di dump della memoria per determinare la causa principale.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Se di recente sono state apportate modifiche ai criteri dei controller di dominio predefiniti, è possibile annullare tali modifiche per risolvere il problema. Se non si è certi di quale sia la causa del problema, raccogliere un dump della memoria e inviare un ticket di supporto.
 

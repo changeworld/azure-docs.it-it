@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 08ed07adbfe0fc4b22d8a3d0afcfc9ab1312dba4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 76a244810042adf3cec64b15fe847c5b684527c2
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134348"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631185"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -133,11 +133,11 @@ Questa sezione illustra le considerazioni relative alla distribuzione dei divers
 
 Probabilmente sarà necessario distribuire diversi account di archiviazione di Azure. Ognuno di essi conterrà un numero inferiore di condivisioni file di Azure, in base al piano di distribuzione, completato nella sezione precedente di questo articolo. Passare alla portale di Azure per [distribuire gli account di archiviazione pianificati](../common/storage-account-create.md#create-a-storage-account). Considerare l'opportunità di rispettare le seguenti impostazioni di base per qualsiasi nuovo account di archiviazione.
 
-#### <a name="subscription"></a>Sottoscrizione
+#### <a name="subscription"></a>Subscription
 
 È possibile usare la stessa sottoscrizione usata per la distribuzione di StorSimple o un altro. L'unica limitazione è che la sottoscrizione deve trovarsi nello stesso tenant Azure Active Directory della sottoscrizione StorSimple. Prima di avviare una migrazione, provare a trasferire la sottoscrizione StorSimple al tenant corretto. È possibile spostare solo l'intera sottoscrizione. Le singole risorse StorSimple non possono essere spostate in un tenant o in una sottoscrizione diversa.
 
-#### <a name="resource-group"></a>Gruppo di risorse
+#### <a name="resource-group"></a>Resource group
 
 I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autorizzazioni di gestione amministratore. Scopri di più sui [gruppi di risorse in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -160,7 +160,7 @@ Il percorso o l'area di Azure di un account di archiviazione è molto importante
 
 Non si è ancora sicuri?
 
-* Se sono necessarie le [prestazioni di una condivisione file di Azure Premium](understanding-billing.md#provisioned-billing), scegliere archiviazione Premium.
+* Se sono necessarie le [prestazioni di una condivisione file di Azure Premium](understanding-billing.md#provisioned-model), scegliere archiviazione Premium.
 * Scegliere archiviazione standard per carichi di lavoro di file server per utilizzo generico, che includono dati sensibili e dati di archiviazione. Scegliere anche archiviazione standard se verrà Sincronizzazione file di Azure il solo carico di lavoro nella condivisione nel cloud.
 
 #### <a name="account-kind"></a>Tipologia account
@@ -244,7 +244,7 @@ Questa sezione descrive come configurare un processo di migrazione e mappare att
         ![Processo di migrazione serie StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Screenshot del nuovo modulo per la creazione di processi per un processo del servizio di trasformazione dei dati.")
     :::column-end:::
     :::column:::
-        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Device Manager. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Device Manager il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
+        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Gestione dispositivi. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Gestione dispositivi il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
     :::column-end:::
 :::row-end:::
 
@@ -567,7 +567,7 @@ Prima di iniziare, è consigliabile osservare la nuova distribuzione di Sincroni
 
 1. Effettuare il deprovisioning della risorsa StorSimple Data Manager tramite l'portale di Azure. Verranno eliminati tutti i processi DTS. Non sarà possibile recuperare facilmente i log di copia. Se sono importanti per i record, recuperarli prima di eseguire il deprovisioning.
 1. Verificare che siano state migrate le appliance fisiche StorSimple e quindi annullarne la registrazione. Se non si è certi che sia stata eseguita la migrazione, non continuare. Se si effettua il deprovisioning di queste risorse mentre sono ancora necessarie, non sarà possibile recuperare i dati o la relativa configurazione.<br>Facoltativamente, è possibile eseguire innanzitutto il deprovisioning della risorsa volume StorSimple, che consente di eliminare i dati nel dispositivo. Questa operazione può richiedere diversi giorni e **non eliminerà** in alcun tempo i dati nel dispositivo. Se è importante, gestire lo zero del disco separatamente dal deprovisioning delle risorse e in base ai criteri.
-1. Se non sono più presenti dispositivi registrati rimasti in una Device Manager StorSimple, è possibile procedere con la rimozione della risorsa Device Manager stessa.
+1. Se non sono più presenti dispositivi registrati rimasti in una Gestione dispositivi StorSimple, è possibile procedere con la rimozione della risorsa Gestione dispositivi stessa.
 1. A questo punto è possibile eliminare l'account di archiviazione StorSimple in Azure. Anche in questo caso, arrestare e verificare che la migrazione sia stata completata e che niente e nessuno dipenda da questi dati prima di procedere.
 1. Scollegare il dispositivo fisico StorSimple dalla data center.
 1. Se si è proprietari dell'appliance StorSimple, è possibile riciclare il computer. Se il dispositivo è con lease, informare il minore e restituire il dispositivo in base alle esigenze.

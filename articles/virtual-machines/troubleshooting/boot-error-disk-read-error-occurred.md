@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d1cf8638f922bb0275322568eb1399db4f49e8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87069140"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629726"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Risolvere l'errore di avvio: errore lettura da disco
 
@@ -38,6 +38,9 @@ Questo messaggio di errore indica che la struttura del disco è danneggiata e il
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 1. Selezionare una soluzione:

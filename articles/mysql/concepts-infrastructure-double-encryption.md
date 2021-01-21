@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e9182a2a0b88f85af5305f5794fec2ffe7935701
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242450"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631734"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per MySQL
 
@@ -20,7 +20,7 @@ Database di Azure per MySQL usa la [crittografia di archiviazione dei dati](conc
 La crittografia doppia dell'infrastruttura aggiunge un secondo livello di crittografia usando le chiavi gestite dal servizio. Usa il modulo crittografico convalidato FIPS 140-2, ma con un algoritmo di crittografia diverso. Questo offre un livello di protezione aggiuntivo per i dati inattivi. La chiave usata nella crittografia a doppia infrastruttura viene anche gestita dal servizio database di Azure per MySQL. La crittografia doppia dell'infrastruttura non è abilitata per impostazione predefinita, poiché il livello di crittografia aggiuntivo può avere un effetto sulle prestazioni.
 
 > [!NOTE]
-> Questa funzionalità è supportata solo per i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria" nel database di Azure per PostgreSQL.
+> Questa funzionalità è supportata solo per i piani tariffari "per utilizzo generico" e "con ottimizzazione per la memoria" nel database di Azure per MySQL.
 
 La crittografia a livello di infrastruttura offre il vantaggio di essere implementata a livello più vicino al dispositivo di archiviazione o ai cavi di rete. Database di Azure per MySQL implementa i due livelli di crittografia usando le chiavi gestite dal servizio. Sebbene sia ancora tecnicamente al livello del servizio, è molto vicino all'hardware che archivia i dati inattivi. Facoltativamente, è possibile abilitare la crittografia dei dati inattivi usando la [chiave gestita dal cliente](concepts-data-encryption-mysql.md) per il server MySQL di cui è stato effettuato il provisioning. 
 
@@ -59,13 +59,7 @@ Le funzionalità di crittografia fornite da database di Azure per MySQL possono 
 Per database di Azure per MySQL, il supporto per la crittografia a doppia infrastruttura con la chiave gestita dal servizio presenta le limitazioni seguenti:
 
 * Il supporto per questa funzionalità è limitato ai piani tariffari **per utilizzo generico** e con ottimizzazione per la **memoria** .
-* È possibile creare un database di Azure per MySQL con la crittografia dell'infrastruttura abilitata nelle aree seguenti:
-
-   * Stati Uniti orientali
-   * Stati Uniti centro-meridionali
-   * Stati Uniti occidentali 2
-   
-* * Questa funzionalità è supportata solo nelle aree e nei server che supportano l'archiviazione con un massimo di 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione con un massimo di 16 TB, vedere la [documentazione relativa all'archiviazione](concepts-pricing-tiers.md#storage).
+* Questa funzionalità è supportata solo nelle aree e nei server che supportano l'archiviazione con un massimo di 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione con un massimo di 16 TB, vedere la [documentazione relativa all'archiviazione](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]
     > - Tutti i **nuovi** server MySQL creati nelle aree elencate sopra supportano anche la crittografia dei dati con le chiavi di gestione clienti. In questo caso, i server creati tramite il ripristino temporizzato (ripristino temporizzato) o le repliche di lettura non sono qualificati come "nuovo".

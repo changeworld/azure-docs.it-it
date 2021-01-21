@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977032"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631986"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Errore di arresto di Windows-informazioni di configurazione del sistema 0x00000074 non valide
 
@@ -47,6 +47,9 @@ Il codice di arresto **BAD_SYSTEM_CONFIG_INFO** si verifica se l'hive del regist
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo:
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino.
 1. Verificare il danneggiamento di hive.

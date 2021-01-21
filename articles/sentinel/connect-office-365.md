@@ -14,20 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 4d3e3615ede7406a3b581171ae759ec0ec53f13e
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 05848eb2761284669e659b3875e96acdfa71f90f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655371"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632183"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Connettere i log di Office 365 ad Azure Sentinel
 
 Il connettore di log di [Office 365](/office/) introduce le informazioni di Azure Sentinel sulle attività di utenti e amministratori in corso in **Exchange** e **SharePoint** (incluso **OneDrive**) e ora anche in **Team** . Queste informazioni includono i dettagli delle azioni, ad esempio i download di file, le richieste di accesso inviate, le modifiche agli eventi del gruppo, le operazioni sulle cassette postali, gli eventi dei team, ad esempio gli eventi chat, team, Member e Channel, nonché i dettagli dell'utente che ha eseguito le azioni. La connessione dei log di Office 365 ad Azure Sentinel consente di visualizzare e analizzare questi dati nelle cartelle di lavoro, eseguire query su di essi per creare avvisi personalizzati e incorporarli per migliorare il processo di analisi, offrendo informazioni più dettagliate sulla sicurezza di Office 365.
-
-> [!IMPORTANT]
-> L'estensione del connettore di log di Office 365 **per i log di Microsoft teams** è attualmente disponibile in anteprima pubblica.
-> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

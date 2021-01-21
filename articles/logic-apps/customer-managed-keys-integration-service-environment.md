@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: mijos, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 11/20/2020
-ms.openlocfilehash: 0057a4671dbc63bf53bafa8d2d742d4edcda1e5e
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 01/20/2021
+ms.openlocfilehash: d31fbd813f0c5d63ee9eddbff5b299209618626b
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741049"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629675"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi per gli ambienti di Integration Services (ISEs) in app per la logica di Azure
 
 App per la logica di Azure si basa su archiviazione di Azure per archiviare e [crittografare automaticamente i dati](../storage/common/storage-service-encryption.md)inattivi. Questa crittografia protegge i dati e consente di soddisfare gli impegni di sicurezza e conformità dell'organizzazione. Per impostazione predefinita, archiviazione di Azure usa chiavi gestite da Microsoft per crittografare i dati. Per altre informazioni sul funzionamento della crittografia di archiviazione di Azure, vedere [crittografia di archiviazione di Azure per dati](../storage/common/storage-service-encryption.md) inattivi e [crittografia dei dati](../security/fundamentals/encryption-atrest.md)inattivi di Azure.
 
-Quando si crea un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per ospitare le app per la logica e si desidera un maggiore controllo sulle chiavi di crittografia usate da archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando [Azure Key Vault](../key-vault/general/overview.md). Questa funzionalità è nota anche come "Bring Your Own Key" (BYOK) e la chiave è detta "chiave gestita dal cliente".
+Quando si crea un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) per ospitare le app per la logica e si desidera un maggiore controllo sulle chiavi di crittografia usate da archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando [Azure Key Vault](../key-vault/general/overview.md). Questa funzionalità è nota come "Bring Your Own Key" (BYOK) e la chiave è chiamata "chiave gestita dal cliente". Con questa funzionalità, archiviazione di Azure Abilita automaticamente la crittografia a [doppia crittografia o *infrastruttura* usando chiavi gestite dalla piattaforma](../security/fundamentals/double-encryption.md) per la chiave. Per altre informazioni, vedere [doppia crittografia dei dati con la crittografia dell'infrastruttura](../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).
 
 Questo argomento illustra come configurare e specificare la propria chiave di crittografia da usare quando si crea ISE usando l'API REST di app per la logica. Per la procedura generale per creare un ISE tramite l'API REST di app per la logica, vedere [creare un ambiente del servizio di integrazione (ISE) usando l'API REST di app per la logica](../logic-apps/create-integration-service-environment-rest-api.md).
 
@@ -51,7 +51,7 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
   |----------|-------|
   | **Tipo chiave** | RSA |
   | **Dimensioni della chiave RSA** | 2048 |
-  | **Abilitato** | Sì |
+  | **Enabled** | Sì |
   |||
 
   ![Creare la chiave di crittografia gestita dal cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -88,7 +88,7 @@ Nell'intestazione della richiesta includere le proprietà seguenti:
 
 * `Authorization`: Impostare questo valore della proprietà sul bearer token per il cliente che ha accesso alla sottoscrizione o al gruppo di risorse di Azure che si vuole usare.
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Nel corpo della richiesta, abilitare il supporto per questi elementi aggiuntivi fornendo le informazioni nella definizione ISE:
 

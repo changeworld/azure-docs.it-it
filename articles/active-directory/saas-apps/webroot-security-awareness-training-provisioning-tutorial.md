@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: d374043235d6c09243ea5ecdacccf141a2d4f8b4
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 143c1a183ba697cbf5d9b19d7e0868a638650bc8
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181343"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632013"
 ---
 # <a name="tutorial-configure-webroot-security-awareness-training-for-automatic-user-provisioning"></a>Esercitazione: Configurare Webroot Security Awareness Training per il provisioning utenti automatico
 
@@ -43,7 +43,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Una console del provider di servizi gestiti con l'applicazione Webroot Security Awareness Training abilitata per almeno uno dei siti.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passaggio 1. Pianificare la distribuzione del provisioning
-1. Vedere le informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
+1. Acquisire informazioni su [come funziona il servizio di provisioning](../app-provisioning/user-provisioning.md).
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati [mappare tra Azure AD e Webroot Security Awareness Training](../app-provisioning/customize-application-attributes.md). 
 
@@ -98,7 +98,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot delle opzioni di gestione con l'opzione Provisioning evidenziata.](common/provisioning.png)
+    ![Screenshot delle opzioni disponibili in Gestisci con l'opzione Provisioning evidenziata.](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
@@ -120,7 +120,8 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
    |Attributo|Type|Supportato per il filtro|
    |---|---|---|
-   |externalId|string|&check;|
+   |userName|string|&check;|
+   |externalId|string|
    |name.givenName|string|
    |name.familyName|string|
    |emails[type eq "work"].value|string|

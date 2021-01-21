@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 98499961f55b55b15687d5742b4d593e3d461e49
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 397c650d1d7a593a855c8f26e61dbf12ec6360fa
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625331"
+ms.locfileid: "98631322"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opzioni di configurazione-Application Insights di monitoraggio di Azure per Java
 
@@ -296,7 +296,9 @@ Se l'applicazione è dietro un firewall e non è in grado di connettersi diretta
 }
 ```
 
-[//]: # "Si noti che il supporto di OpenTelemetry non viene pubblicizzato fino a quando non viene supportato 0.10.0, che presenta modifiche sostanziali da 0.9.0"
+Application Insights Java 3,0 rispetta anche l'oggetto globale `-Dhttps.proxyHost` e `-Dhttps.proxyPort` se sono impostati.
+
+[//]: # "Nota il supporto per OpenTelemetry è in anteprima privata finché l'API OpenTelemetry raggiunge 1,0"
 
 [//]: # "Supporto # # per l'API OpenTelemetry versioni precedenti alla 1,0"
 
@@ -343,6 +345,8 @@ Per impostazione predefinita, Application Insights i registri Java 3,0 al livell
 `maxSizeMb` dimensioni massime del file di log prima del rollover.
 
 `maxHistory` numero di file di log di cui è stato eseguito il rollback, conservati (oltre al file di log corrente).
+
+A partire dalla versione 3.0.2, è anche possibile impostare la diagnostica automatica `level` usando la variabile di ambiente `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` .
 
 ## <a name="an-example"></a>un esempio
 

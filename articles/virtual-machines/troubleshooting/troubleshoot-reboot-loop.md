@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 4c336fe9a65d7bcc44790a4bfb02bed44f028733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0ed7e9619f0b789bf8949fe398aa27bc36b9e0
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86500923"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629641"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo di riavvio di Windows in una macchina virtuale di Azure
 Questo articolo descrive una situazione di ciclo di riavvio che può verificarsi in una macchina virtuale Windows in Microsoft Azure.
@@ -49,6 +49,9 @@ Sono state apportate alcune modifiche al sistema operativo. In genere, queste mo
 Potrebbe essersi danneggiato il file system. È tuttavia difficile diagnosticare e identificare la modifica che ha causato il danneggiamento del sistema operativo.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 Per risolvere questo problema, [eseguire il backup del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md), [collegare il disco del sistema operativo a una macchina virtuale di ripristino](./troubleshoot-recovery-disks-portal-windows.md) e quindi adottare le soluzioni disponibili in base al tipo di problema o una soluzione per volta.
 

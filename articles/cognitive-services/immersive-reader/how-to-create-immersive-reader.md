@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2503355a24a7452ca1ff9886a80f2956897889c4
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368730"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630396"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -143,21 +143,27 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     }
     ```
 
-1. Eseguire la funzione `Create-ImmersiveReaderResource` , specificando i parametri in base alle esigenze.
+1. Eseguire la funzione `Create-ImmersiveReaderResource` , specificando i segnaposto ' <PARAMETER_VALUES>' seguenti con i valori personalizzati in base alle esigenze.
 
     ```azurepowershell-interactive
+    Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+    ```
+
+    Il comando completo ha un aspetto simile al seguente. Qui abbiamo inserito ogni parametro su una riga a parte per maggiore chiarezza, quindi è possibile visualizzare l'intero comando. Non copiare o utilizzare questo comando così com'è. Copiare e usare il comando precedente con i propri valori. In questo esempio sono presenti valori fittizi per ' <PARAMETER_VALUES>'. I tuoi valori saranno diversi, in quanto potrai trovare i tuoi nomi per questi valori.
+
+    ```
     Create-ImmersiveReaderResource
-      -SubscriptionName '<SUBSCRIPTION_NAME>' `
-      -ResourceName '<RESOURCE_NAME>' `
-      -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' `
-      -ResourceSKU '<RESOURCE_SKU>' `
-      -ResourceLocation '<RESOURCE_LOCATION>' `
-      -ResourceGroupName '<RESOURCE_GROUP_NAME>' `
-      -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' `
-      -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' `
-      -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' `
-      -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>'
-      -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
+        -SubscriptionName 'MyOrganizationSubscriptionName'
+        -ResourceName 'MyOrganizationImmersiveReader'
+        -ResourceSubdomain 'MyOrganizationImmersiveReader'
+        -ResourceSKU 'S0'
+        -ResourceLocation 'westus2'
+        -ResourceGroupName 'MyResourceGroupName'
+        -ResourceGroupLocation 'westus2'
+        -AADAppDisplayName 'MyOrganizationImmersiveReaderAADApp'
+        -AADAppIdentifierUri 'https://MyOrganizationImmersiveReaderAADApp'
+        -AADAppClientSecret 'SomeStrongPassword'
+        -AADAppClientSecretExpiration '2021-12-31'
     ```
 
     | Parametro | Commenti |
@@ -165,12 +171,12 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     | SubscriptionName |Nome della sottoscrizione di Azure da usare per la risorsa Reader immersiva. Per creare una risorsa, è necessario disporre di una sottoscrizione. |
     | NomeRisorsa |  Deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri.|
     | ResourceSubdomain |Per la risorsa Reader immersivo è necessario un sottodominio personalizzato. Il sottodominio viene usato dall'SDK quando si chiama il servizio di lettura immersiva per avviare il lettore. Il sottodominio deve essere globalmente univoco. Il sottodominio deve essere alfanumerico e può contenere '-', purché'-' non sia il primo o l'ultimo carattere. La lunghezza non può superare i 63 caratteri. Questo parametro è facoltativo se la risorsa esiste già. |
-    | ResourceSKU |Opzioni: `S0` . Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
+    | ResourceSKU |Opzioni: `S0` (livello standard) o `S1` (organizzazioni Education/no profit). Visitare la [pagina dei prezzi di servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) per altre informazioni su ogni SKU disponibile. Questo parametro è facoltativo se la risorsa esiste già. |
     | ResourceLocation |Opzioni: `eastus` , `eastus2` , `southcentralus` , `westus` , `westus2` , `australiaeast` , `southeastasia` , `centralindia` , `japaneast` , `northeurope` , `uksouth` , `westeurope` . Questo parametro è facoltativo se la risorsa esiste già. |
     | ResourceGroupName |Le risorse vengono create in gruppi di risorse all'interno delle sottoscrizioni. Specificare il nome di un gruppo di risorse esistente. Se il gruppo di risorse non esiste già, ne verrà creato uno nuovo con questo nome. |
     | ResourceGroupLocation |Se il gruppo di risorse non esiste, è necessario specificare un percorso in cui creare il gruppo. Per trovare un elenco di percorsi, eseguire `az account list-locations` . Usare la proprietà *Name* (senza spazi) del risultato restituito. Questo parametro è facoltativo se il gruppo di risorse esiste già. |
     | AADAppDisplayName |Nome visualizzato dell'applicazione Azure Active Directory. Se non viene trovata un'applicazione Azure AD esistente, ne verrà creato uno nuovo con questo nome. Questo parametro è facoltativo se l'applicazione Azure AD esiste già. |
-    | AADAppIdentifierUri |URI per l'app Azure AD. Se non viene trovata alcuna app Azure AD esistente, ne verrà creata una nuova con questo URI. Ad esempio, `https://immersivereaderaad-mycompany` |
+    | AADAppIdentifierUri |URI per l'app Azure AD. Se non viene trovata alcuna app Azure AD esistente, ne verrà creata una nuova con questo URI. Ad esempio: `https://immersivereaderaad-mycompany`. |
     | AADAppClientSecret |Password creata che verrà usata in seguito per eseguire l'autenticazione quando si acquisisce un token per avviare il lettore immersivo. La password deve avere una lunghezza di almeno 16 caratteri, contenere almeno un carattere speciale e contenere almeno un carattere numerico. Per gestire i segreti del client dell'applicazione Azure AD dopo la creazione di questa risorsa https://portal.azure.com , visitare il sito e passare a Home-> Azure Active Directory-> registrazioni per l'app-> `[AADAppDisplayName]` -> i certificati e i segreti > sezione dei segreti client (come illustrato nella schermata "gestire i segreti dell'applicazione Azure ad" di seguito). |
     | AADAppClientSecretExpiration |Data o data/ora dopo la quale `[AADAppClientSecret]` scadrà (ad esempio,' 2020-12-31T11:59:59 + 00:00' o ' 2020-12-31'). |
 

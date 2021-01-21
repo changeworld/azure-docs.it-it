@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: d7cafdcbbf44f3f501d54c13d1b4549c446ed8c8
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
-ms.translationtype: HT
+ms.openlocfilehash: ebd07990767d91c88f245b4ed7f8a66f93de0b85
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97723967"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631380"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Esercitazione: Integrazione di Azure Active Directory con Citrix ShareFile
 
@@ -31,8 +31,8 @@ L'integrazione di Citrix ShareFile con Azure AD offre i vantaggi seguenti:
 
 Per configurare l'integrazione di Azure AD con Citrix ShareFile, sono necessari gli elementi seguenti:
 
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
-* Sottoscrizione di Citrix ShareFile abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/).
+* Sottoscrizione di Citrix ShareFile abilitata per la Single Sign-On.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -126,7 +126,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configurare l'accesso Single Sign-On di Citrix ShareFile
@@ -141,7 +141,7 @@ Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarl
 
 3. Se si vuole configurare Citrix ShareFile manualmente, in un'altra finestra del Web browser accedere al sito aziendale di Citrix ShareFile come amministratore.
 
-1. Nel **Dashboard** fare clic su **Settings** (Impostazioni) e selezionare **Admin Settings** (Impostazioni di amministrazione)
+1. Nel **Dashboard** fare clic su **Impostazioni** e selezionare **impostazioni di amministrazione**.
 
     ![Amministrazione](./media/sharefile-tutorial/settings.png)
 
@@ -165,7 +165,9 @@ Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarl
     
     f. Nella casella di testo **Logout URL** (URL disconnessione) incollare il valore di **URL disconnessione** copiato dal portale di Azure.
 
-5. Fare clic su **Save** nel portale di gestione di Citrix ShareFile.
+    g. Nelle **impostazioni facoltative** scegliere **contesto di autenticazione avviato da SP** come **nome utente e password** ed **esatto**.
+
+5. Fare clic su **Salva**.
 
 ## <a name="create-citrix-sharefile-test-user"></a>Creare un utente di test di Citrix ShareFile
 

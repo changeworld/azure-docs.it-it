@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: fe2d444bbdc09ed5ab0205d4139591e3288e3358
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 3090b7b889d914fc0cdb598b8bf29a73c81f50cb
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734566"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632004"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 
@@ -37,6 +37,8 @@ Questo articolo consente di risolvere il problema per cui una macchina virtuale 
 
 
 ## <a name="solution"></a>Soluzione
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 A seconda del numero di aggiornamenti di cui si sta eseguendo l'installazione o il rollback, il processo di aggiornamento può richiedere tempo. Lasciare la macchina virtuale in questo stato per otto ore. Se al termine delle otto ore la macchina virtuale è ancora in questo stato, riavviarla dal portale di Azure per vedere se si riavvia normalmente. Se questa operazione non risolve il problema, provare la soluzione seguente.
 

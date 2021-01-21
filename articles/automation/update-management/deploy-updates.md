@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62793e0551c914b77310a0e9b72fea31ec621848
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683384"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98632462"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Come distribuire gli aggiornamenti ed esaminare i risultati
 
@@ -146,4 +146,5 @@ Per visualizzare informazioni dettagliate sugli errori della distribuzione, sele
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come creare avvisi per notificare i risultati della distribuzione degli aggiornamenti, vedere [creare avvisi per gestione aggiornamenti](configure-alerts.md).
+* Per informazioni su come creare avvisi per notificare i risultati della distribuzione degli aggiornamenti, vedere [creare avvisi per gestione aggiornamenti](configure-alerts.md).
+* Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi relativi a Gestione aggiornamenti](../troubleshoot/update-management.md).

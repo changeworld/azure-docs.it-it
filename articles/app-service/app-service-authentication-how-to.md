@@ -4,12 +4,12 @@ description: Informazioni su come personalizzare la funzionalità di autenticazi
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 85fd7fdba4c62f4837a419af44c83f7e46cb9e39
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4f2f43b142b290d29a4a90e504422b6c9ba2739c
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601782"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630328"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avanzato dell'autenticazione e dell'autorizzazione in Servizio app di Azure
 
@@ -279,6 +279,150 @@ Il provider di identità può fornire una certa autorizzazione per chiavi a chia
 ### <a name="application-level"></a>Livello applicazione
 
 Se uno degli altri livelli non fornisce l'autorizzazione necessaria o se la piattaforma o il provider di identità non è supportato, è necessario scrivere codice personalizzato per autorizzare gli utenti in base alle [attestazioni utente](#access-user-claims).
+
+## <a name="updating-the-configuration-version-preview"></a>Aggiornamento della versione di configurazione (anteprima)
+
+Esistono due versioni dell'API di gestione per la funzionalità di autenticazione/autorizzazione. La versione di anteprima V2 è obbligatoria per l'esperienza di autenticazione (anteprima) nel portale di Azure. Un'app che usa già l'API V1 può eseguire l'aggiornamento alla versione v2 dopo che sono state apportate alcune modifiche. In particolare, la configurazione del segreto deve essere spostata nelle impostazioni dell'applicazione con slot-Sticky. Anche la configurazione del provider di account Microsoft non è attualmente supportata nella versione V2.
+
+> [!WARNING]
+> La migrazione all'anteprima v2 consente di disabilitare la gestione della funzionalità di autenticazione/autorizzazione del servizio app per l'applicazione tramite alcuni client, ad esempio l'esperienza esistente nell'portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell. Questa operazione non può essere annullata. Durante l'anteprima, la migrazione dei carichi di lavoro di produzione non è consigliata né supportata. Attenersi alla procedura descritta in questa sezione per le applicazioni di test.
+
+### <a name="moving-secrets-to-application-settings"></a>Trasferimento dei segreti nelle impostazioni dell'applicazione
+
+1. Ottenere la configurazione esistente usando l'API V1:
+
+   ```azurecli
+   # For Web Apps
+   az webapp auth show -g <group_name> -n <site_name>
+
+   # For Azure Functions
+   az functionapp auth show -g <group_name> -n <site_name>
+   ```
+
+   Nel payload JSON risultante prendere nota del valore del segreto usato per ogni provider configurato:
+
+   * AAD `clientSecret`
+   * Google `googleClientSecret`
+   * Facebook `facebookAppSecret`
+   * Twitter `twitterConsumerSecret`
+   * Account Microsoft: `microsoftAccountClientSecret`
+
+   > [!IMPORTANT]
+   > I valori segreti sono importanti credenziali di sicurezza e devono essere gestiti con cautela. Non condividere questi valori o salvarli in modo permanente in un computer locale.
+
+1. Creare le impostazioni dell'applicazione slot-Sticky per ogni valore di segreto. È possibile scegliere il nome di ogni impostazione dell'applicazione. Il valore deve corrispondere a quanto ottenuto nel passaggio precedente oppure [fare riferimento a un segreto Key Vault](./app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json) creato con tale valore.
+
+   Per creare l'impostazione, è possibile utilizzare il portale di Azure o eseguire una variante dei seguenti per ogni provider:
+
+   ```azurecli
+   # For Web Apps, Google example    
+   az webapp config appsettings set -g <group_name> -n <site_name> --slot-settings GOOGLE_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+
+   # For Azure Functions, Twitter example
+   az functionapp config appsettings set -g <group_name> -n <site_name> --slot-settings TWITTER_PROVIDER_AUTHENTICATION_SECRET=<value_from_previous_step>
+   ```
+
+   > [!NOTE]
+   > Le impostazioni dell'applicazione per questa configurazione devono essere contrassegnate come Sticky slot, vale a dire che non si sposteranno tra gli ambienti durante un' [operazione di scambio di slot](./deploy-staging-slots.md). Questo è dovuto al fatto che la configurazione dell'autenticazione è associata all'ambiente. 
+
+1. Creare un nuovo file JSON denominato `authsettings.json` . Prendere in precedenza l'output ricevuto e rimuovere ogni valore di segreto. Scrivere l'output rimanente nel file, assicurandosi che non sia incluso alcun segreto. In alcuni casi, è possibile che la configurazione includa matrici contenenti stringhe vuote. Verificare che non sia presente `microsoftAccountOAuthScopes` e, in caso contrario, passare a tale valore `null` .
+
+1. Aggiungere una proprietà a `authsettings.json` che punti al nome dell'impostazione dell'applicazione creata in precedenza per ogni provider:
+ 
+   * AAD `clientSecretSettingName`
+   * Google `googleClientSecretSettingName`
+   * Facebook `facebookAppSecretSettingName`
+   * Twitter `twitterConsumerSecretSettingName`
+   * Account Microsoft: `microsoftAccountClientSecretSettingName`
+
+   Un file di esempio dopo questa operazione potrebbe essere simile al seguente, in questo caso solo per AAD:
+
+   ```json
+   {
+       "id": "/subscriptions/00d563f8-5b89-4c6a-bcec-c1b9f6d607e0/resourceGroups/myresourcegroup/providers/Microsoft.Web/sites/mywebapp/config/authsettings",
+       "name": "authsettings",
+       "type": "Microsoft.Web/sites/config",
+       "location": "Central US",
+       "properties": {
+           "enabled": true,
+           "runtimeVersion": "~1",
+           "unauthenticatedClientAction": "AllowAnonymous",
+           "tokenStoreEnabled": true,
+           "allowedExternalRedirectUrls": null,
+           "defaultProvider": "AzureActiveDirectory",
+           "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
+           "clientSecret": null,
+           "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
+           "clientSecretCertificateThumbprint": null,
+           "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
+           "allowedAudiences": [
+               "https://mywebapp.azurewebsites.net"
+           ],
+           "additionalLoginParams": null,
+           "isAadAutoProvisioned": true,
+           "aadClaimsAuthorization": null,
+           "googleClientId": null,
+           "googleClientSecret": null,
+           "googleClientSecretSettingName": null,
+           "googleOAuthScopes": null,
+           "facebookAppId": null,
+           "facebookAppSecret": null,
+           "facebookAppSecretSettingName": null,
+           "facebookOAuthScopes": null,
+           "gitHubClientId": null,
+           "gitHubClientSecret": null,
+           "gitHubClientSecretSettingName": null,
+           "gitHubOAuthScopes": null,
+           "twitterConsumerKey": null,
+           "twitterConsumerSecret": null,
+           "twitterConsumerSecretSettingName": null,
+           "microsoftAccountClientId": null,
+           "microsoftAccountClientSecret": null,
+           "microsoftAccountClientSecretSettingName": null,
+           "microsoftAccountOAuthScopes": null,
+           "isAuthFromFile": "false"
+       }   
+   }
+   ```
+
+1. Inviare questo file come nuova configurazione di autenticazione/autorizzazione per l'app:
+
+   ```azurecli
+   az rest --method PUT --url "/subscriptions/<subscription_id>/resourceGroups/<group_name>/providers/Microsoft.Web/sites/<site_name>/config/authsettings?api-version=2020-06-01" --body @./authsettings.json
+   ```
+
+1. Verificare che l'app continui a funzionare come previsto dopo questo movimento.
+
+1. Eliminare il file usato nei passaggi precedenti.
+
+A questo punto è stata eseguita la migrazione dell'app per archiviare i segreti del provider di identità come impostazioni dell'applicazione.
+
+### <a name="support-for-microsoft-account-registrations"></a>Supporto per registrazioni account Microsoft
+
+L'API v2 attualmente non supporta l'account Microsoft come provider distinto. Si avvale invece della [piattaforma di identità Microsoft](../active-directory/develop/v2-overview.md) convergente per accedere agli utenti con account Microsoft personali. Quando si passa all'API v2, viene usata la configurazione V1 Azure Active Directory per configurare il provider della piattaforma di identità Microsoft.
+
+Se la configurazione esistente contiene un provider di account Microsoft e non contiene un provider di Azure Active Directory, è possibile passare la configurazione al provider Azure Active Directory e quindi eseguire la migrazione. Per eseguire questa operazione:
+
+1. Passare a [**registrazioni app**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure e trovare la registrazione associata al provider dell'account Microsoft. Potrebbe trovarsi sotto l'intestazione "applicazioni da account personale".
+1. Passare alla pagina "autenticazione" per la registrazione. In "URI di reindirizzamento" dovrebbe essere visualizzata una voce che termina con `/.auth/login/microsoftaccount/callback` . Copiare l'URI.
+1. Aggiungere un nuovo URI che corrisponda a quello appena copiato, ad eccezione del fatto che termina `/.auth/login/aad/callback` . Questa operazione consentirà di usare la registrazione per la configurazione dell'autenticazione/autorizzazione del servizio app.
+1. Passare alla configurazione di autenticazione/autorizzazione del servizio app per l'app.
+1. Raccogliere la configurazione per il provider di account Microsoft.
+1. Configurare il provider di Azure Active Directory usando la modalità di gestione avanzata, specificando i valori relativi all'ID client e al segreto client raccolti nel passaggio precedente. Per l'URL dell'autorità emittente usare `<authentication-endpoint>/<tenant-id>/v2.0` e sostituire *\<authentication-endpoint>* con l' [endpoint di autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) , ad esempio " https://login.microsoftonline.com " per Azure globale, SOSTITUendo anche con l' *\<tenant-id>* ID di **Directory (tenant)**.
+1. Dopo aver salvato la configurazione, testare il flusso di accesso passando al browser all' `/.auth/login/aad` endpoint nel sito e completare il flusso di accesso.
+1. A questo punto, la configurazione è stata copiata correttamente, ma la configurazione esistente del provider di account Microsoft rimane. Prima di rimuoverlo, assicurarsi che tutte le parti dell'app facciano riferimento al provider Azure Active Directory tramite i collegamenti di accesso e così via. Verificare che tutte le parti dell'applicazione funzionino come previsto.
+1. Una volta convalidati gli elementi che funzionano con il provider di Azure Active Directory AAD, è possibile rimuovere la configurazione del provider di account Microsoft.
+
+Alcune app potrebbero avere già registrazioni separate per Azure Active Directory e account Microsoft. Non è possibile eseguire la migrazione di tali app in questo momento. 
+
+> [!WARNING]
+> È possibile eseguire la convergenza delle due registrazioni modificando i [tipi di account supportati](../active-directory/develop/supported-accounts-validation.md) per la registrazione dell'app AAD. Tuttavia, ciò impone una nuova richiesta di consenso per gli utenti dell'account Microsoft e le attestazioni di identità degli utenti possono essere diverse nella struttura, in `sub` particolare cambiando i valori perché viene usato un nuovo ID app. Questo approccio non è consigliato, a meno che non sia ben compreso. È invece necessario attendere il supporto per le due registrazioni nella superficie dell'API v2.
+
+### <a name="switching-to-v2"></a>Passare alla versione V2
+
+Una volta eseguiti i passaggi precedenti, passare all'app nell'portale di Azure. Selezionare la sezione "autenticazione (anteprima)". 
+
+In alternativa, è possibile effettuare una richiesta PUT sulla `config/authsettingsv2` risorsa nella risorsa del sito. Lo schema per il payload è identico a quello acquisito nella sezione [configurare usando un file](#config-file) .
 
 ## <a name="configure-using-a-file-preview"></a><a name="config-file"> </a>Configurare usando un file (anteprima)
 

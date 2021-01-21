@@ -7,16 +7,28 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: 986bc5ef24855ac0014975edc0a26a11a82ec6ca
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: ca75416a66bcf2c90028c7f1dc11fbe23a9a9bd9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510963"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98631368"
 ---
 # <a name="common-errors"></a>Errori comuni
 
 Database di Azure per MySQL è un servizio di database completamente gestito basato sulla versione Community di MySQL. L'esperienza MySQL in un ambiente di servizio gestito può risultare diversa rispetto all'esecuzione di MySQL in un ambiente personale. In questo articolo verranno illustrati alcuni degli errori comuni che gli utenti possono rilevare quando eseguono per la prima volta la migrazione o lo sviluppo nel servizio Database di Azure per MySQL.
+
+## <a name="common-connection-errors"></a>Errori di connessione comuni
+
+#### <a name="error-1184-08s01-aborted-connection-22-to-db-db-name-user-user-host-hostip-init_connect-command-failed"></a>ERRORE 1184 (pari 08S01): la connessione 22 al database è stata interrotta:' nome-DB ' utente:' utente ' host:' hostIP ' (comando init_connect non riuscito)
+L'errore precedente si verifica dopo l'accesso riuscito, ma prima di eseguire qualsiasi comando quando viene stabilita la sessione. Il messaggio precedente indica che è stato impostato un valore errato di init_connect parametro del server che causa l'esito negativo dell'inizializzazione della sessione.
+
+Alcuni parametri del server come require_secure_transport non sono supportati a livello di sessione e quindi il tentativo di modificare i valori di questi parametri usando init_connect può generare l'errore 1184 durante la connessione al server MySQL, come illustrato di seguito.
+
+MySQL> mostrare i database; ERRORE 2006 (HY000): il server MySQL non è più connesso. Tentativo di riconnessione in corso... ID connessione: 64897 database corrente: * * * nessuna * * _ errore 1184 (pari 08S01): connessione interrotta 22 al database:' nome-DB ' utente:' utente ' host:' hostIP ' (comando init_connect non riuscito)
+
+_ *Risoluzione**: è necessario reimpostare init_connect valore nella scheda parametri server portale di Azure e impostare solo i parametri del server supportati usando init_connect parametro. 
+
 
 ## <a name="errors-due-to-lack-of-super-privilege-and-dba-role"></a>Errori dovuti a mancanza del privilegio SUPER e del ruolo DBA
 

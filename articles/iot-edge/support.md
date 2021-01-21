@@ -4,16 +4,16 @@ description: Informazioni sui sistemi operativi in grado di eseguire il daemon e
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/12/2020
+ms.date: 12/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b1bd437da50ae5989e46ac5c5f881b28b0e99703
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: b17f1f32a3e49e9161afe92d62b85a162affcd9f
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539911"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630531"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemi supportati da Azure IoT Edge
 
@@ -50,27 +50,46 @@ Azure IoT Edge viene eseguito nella maggior parte dei sistemi operativi che poss
 
 La famiglia del sistema operativo host deve sempre corrispondere alla famiglia del sistema operativo guest usato all'interno del contenitore di un modulo. In altre parole, è possibile utilizzare solo i contenitori Linux in Linux e i contenitori Windows in Windows. Quando si usa Windows, sono supportati solo i contenitori isolati dal processo, non i contenitori isolati da Hyper-V.  
 
-<br>
-<center>
-
-![Sistema operativo host corrispondente al sistema operativo guest](./media/support/edge-on-device.png)
-</center>
+IoT Edge per Linux in Windows usa IoT Edge in una macchina virtuale Linux in esecuzione in un host Windows. In questo modo, è possibile eseguire moduli Linux in un dispositivo Windows.
 
 ### <a name="tier-1"></a>Livello 1
 
-I sistemi elencati nella tabella seguente sono supportati da Microsoft, con disponibilità generale o in anteprima pubblica, e vengono testati a ogni nuova versione. 
+I sistemi elencati nelle tabelle seguenti sono supportati da Microsoft, disponibile a livello generale o in anteprima pubblica, e sono testati a ogni nuova versione.
+
+Azure IoT Edge supporta i moduli compilati come contenitori Linux o Windows. I contenitori Linux possono essere distribuiti nei dispositivi Linux o distribuiti nei dispositivi Windows usando IoT Edge per Linux in Windows. I contenitori di Windows possono essere distribuiti solo nei dispositivi Windows.
+
+#### <a name="linux-containers"></a>Contenitori Linux
+
+I moduli compilati come contenitori Linux possono essere distribuiti in dispositivi Linux o Windows. Per i dispositivi Linux, il runtime di IoT Edge viene installato direttamente nel dispositivo host. Per i dispositivi Windows, una macchina virtuale Linux precompilata con il IoT Edge Runtime viene eseguita sul dispositivo host.
+
+IoT Edge per Linux in Windows è attualmente disponibile in anteprima pubblica, ma è il modo consigliato per eseguire IoT Edge sui dispositivi Windows.
 
 | Sistema operativo | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
 | Estensione del sistema operativo Raspberry Pi |  | ![Estensione del sistema operativo Raspberry Pi + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
-| [Ubuntu Server 16.04](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes) | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica  |
-| [Ubuntu Server 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica |
-| [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise), build 17763 | ![Windows 10 IoT Enterprise + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows 10 IoT Core](/windows/iot-core/windows-iot-core), build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server 2019](/windows-server/get-started-19/rel-notes-19), build 17763 | ![Windows Server 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
-| [Windows Server IoT 2019](/windows/iot-core/windows-server), build 17763 | ![Windows Server IoT 2019 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
+| Ubuntu Server 16.04 | ![Ubuntu Server 16.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Anteprima pubblica |
+| Windows 10 Pro | Anteprima pubblica |  |  |
+| Windows 10 Enterprise | Anteprima pubblica |  |  |
+| Windows 10 IoT Enterprise | Anteprima pubblica |  |  |
+| Windows Server 2019 | Anteprima pubblica |  |  |
 
-I sistemi operativi Windows elencati in precedenza sono i requisiti per i dispositivi che eseguono i contenitori di Windows in Windows, l'unica configurazione supportata per la produzione. I pacchetti di installazione di Azure IoT Edge per Windows consentono l'uso di contenitori Linux in Windows. Questa configurazione, tuttavia, è destinata solo allo sviluppo e al test. 
+Tutti i sistemi operativi Windows devono essere della versione 1809 (Build 17763) o versioni successive.
+
+#### <a name="windows-containers"></a>Contenitori Windows
+
+I moduli compilati come contenitori di Windows possono essere distribuiti solo nei dispositivi Windows.
+
+| Sistema operativo | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Windows 10 IoT Enterprise | ![Check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows 10 Internet Internet Core<sup>1</sup><br> | ![Check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server 2019  | ![Check1](./media/tutorial-c-module/green-check.png) |  |  |
+| Windows Server IoT 2019<br> | ![Check1](./media/tutorial-c-module/green-check.png) |  |  |
+
+<sup>1</sup> Windows 10 Internet delle cose Core non sarà supportato dopo la versione 1.0.10
+
+Tutti i sistemi operativi Windows devono essere della versione 1809 (Build 17763). La build specifica di Windows è necessaria per IoT Edge in Windows perché la versione dei contenitori di Windows deve corrispondere esattamente alla versione del dispositivo Windows host. I contenitori di Windows attualmente usano solo la build 17763.
 
 ### <a name="tier-2"></a>Livello 2
 

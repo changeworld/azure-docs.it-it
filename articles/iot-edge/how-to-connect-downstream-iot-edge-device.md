@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 37c237cdaf6c0d4f766d4b2e39c10e3e96215463
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1258fd4b5c69b399b70d1f2db1be63765771e631
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187834"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98629404"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Connettere un dispositivo di IoT Edge downstream a un gateway di Azure IoT Edge (anteprima)
 
@@ -118,7 +118,7 @@ Per abilitare l'individuazione del gateway, ogni dispositivo IoT Edge Gateway de
 
 Per abilitare connessioni sicure, ogni dispositivo IoT Edge in uno scenario di gateway deve essere configurato con un certificato della CA del dispositivo univoco e una copia del certificato CA radice condiviso da tutti i dispositivi nella gerarchia del gateway.
 
-Nel dispositivo dovrebbe essere già installato IoT Edge. In caso contrario, seguire i passaggi per [installare il runtime di Azure IOT Edge](how-to-install-iot-edge.md) e quindi effettuare il provisioning del dispositivo con [l'autenticazione con chiave simmetrica](how-to-manual-provision-symmetric-key.md) o con [l'autenticazione del certificato X. 509](how-to-manual-provision-x509.md).
+Nel dispositivo dovrebbe essere già installato IoT Edge. In caso contrario, seguire i passaggi per [registrare un dispositivo IOT Edge nell'hub](how-to-register-device.md) Internet e quindi [installare il runtime di Azure IOT Edge](how-to-install-iot-edge.md).
 
 I passaggi descritti in questa sezione fanno riferimento al certificato della **CA radice** e al **certificato della CA del dispositivo e alla chiave privata** descritti in precedenza in questo articolo. Se questi certificati sono stati creati in un altro dispositivo, è necessario che siano disponibili nel dispositivo. È possibile trasferire i file fisicamente, ad esempio con un'unità USB, con un servizio come [Azure Key Vault](../key-vault/general/overview.md)o con una funzione come la [copia protetta del file](https://www.ssh.com/ssh/scp/).
 
@@ -206,7 +206,7 @@ Anche se questa funzionalità è in anteprima pubblica, è necessario configurar
 
 1. Configurare le variabili di ambiente seguenti per il modulo edgeHub:
 
-   | Nome | valore |
+   | Nome | Valore |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -302,7 +302,7 @@ Il modulo proxy API è stato progettato per essere personalizzato per la gestion
    1. Nella scheda **Impostazioni modulo** , **URI immagine**: `registry:latest`
    1. Nella scheda **variabili di ambiente** aggiungere le variabili di ambiente seguenti:
 
-      * **Nome**: `REGISTRY_PROXY_REMOTEURL` **valore**: URL del registro contenitori a cui si vuole associare questo modulo del registro di sistema. Ad esempio, `https://myregistry.azurecr`
+      * **Nome**: `REGISTRY_PROXY_REMOTEURL` **valore**: URL del registro contenitori a cui si vuole associare questo modulo del registro di sistema. Ad esempio: `https://myregistry.azurecr`.
 
         Il modulo del registro di sistema può essere mappato a un solo registro contenitori, quindi è consigliabile avere tutte le immagini del contenitore in un unico registro contenitori privato.
 

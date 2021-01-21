@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jlian
-ms.openlocfilehash: 08f033cbe121135e281379a013e11a33ae962dfb
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 1e28c7767868904fb20ae6d27c6aea9e7077eb62
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703807"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630294"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Supporto dell'hub IoT per le reti virtuali con collegamento privato e identità gestita
 
@@ -70,6 +70,9 @@ L'endpoint privato funziona per le API del dispositivo dell'hub Internet (ad ese
 
 :::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Immagine che mostra due endpoint privati dato ogni collegamento privato dell'hub Internet":::
 
+Il [filtro IP](iot-hub-ip-filtering.md) dell'hub delle cose può facoltativamente controllare l'accesso pubblico all'endpoint predefinito. 
+
+Per bloccare completamente l'accesso alla rete pubblica all'hub [Internet, disattivare l'accesso alla rete pubblica](iot-hub-public-network-access.md) o usare il filtro IP per bloccare tutti gli indirizzi IP e selezionare l'opzione per applicare le regole all'endpoint predefinito.
 
 ### <a name="pricing-for-private-link"></a>Prezzi del collegamento privato
 

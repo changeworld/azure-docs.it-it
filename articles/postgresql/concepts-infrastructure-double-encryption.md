@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 03d52611c89012d1132b4a27820f7f47e6cdd512
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 83635b732318a4ada76d1d71c1ce419cae8b35e9
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242025"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630145"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per PostgreSQL
 
@@ -59,12 +59,6 @@ Le funzionalità di crittografia fornite da database di Azure per PostgreSQL pos
 Per database di Azure per PostgreSQL, il supporto per la crittografia a doppia infrastruttura con la chiave gestita dal servizio presenta le limitazioni seguenti:
 
 * Il supporto per questa funzionalità è limitato ai piani tariffari **per utilizzo generico** e con ottimizzazione per la **memoria** .
-* È possibile creare un database di Azure per PostgreSQL con l'infrastruttura crittografia doppia abilitata nelle aree seguenti:
-
-   * Stati Uniti orientali
-   * Stati Uniti centro-meridionali
-   * Stati Uniti occidentali 2
-   
 * Questa funzionalità è supportata solo nelle aree e nei server che supportano l'archiviazione con un massimo di 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione con un massimo di 16 TB, vedere la [documentazione relativa all'archiviazione](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

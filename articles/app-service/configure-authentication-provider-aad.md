@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 0c06cb11d916b417cf577b7b8f3578749feddd62
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 3d1e0eb90005abf69d90b46acc59e0258c9914c6
+ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092228"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98630031"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
@@ -78,7 +78,7 @@ Eseguire la procedura seguente:
 1. Selezionare **Azure Active Directory** > **Registrazioni app** > **Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un valore per **Nome** per la registrazione dell'app.
 1. In **URI di reindirizzamento** selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
-1. Selezionare **Create** (Crea).
+1. Selezionare **REGISTRA**.
 1. Una volta creata la registrazione dell'app, copiare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , che serviranno più avanti.
 1. Selezionare **Autenticazione**. In **Concessione implicita** abilitare **Token ID** per consentire gli accessi utente OpenID Connect dal servizio app.
 1. (Facoltativo) Selezionare **Personalizzazione**. In **URL pagina iniziale** immettere l'URL dell'app del servizio app e selezionare **Salva**.
