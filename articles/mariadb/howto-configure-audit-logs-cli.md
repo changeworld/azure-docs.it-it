@@ -3,16 +3,16 @@ title: Log di controllo di accesso-interfaccia della riga di comando di Azure-da
 description: Questo articolo descrive come configurare e accedere ai log di controllo nel database di Azure per MariaDB dall'interfaccia della riga di comando di Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 6/24/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c1d446d8ee2863077ad84c361876758336f5a3cb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 57fc79e88e3268c37dd932a5618bd661f000e09c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540972"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665175"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-audit-logs-in-the-azure-cli"></a>Configurare e accedere ai log di controllo del database di Azure per Maria nell'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ Per completare questa guida:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Questo articolo richiede la versione 2,0 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede la versione 2.0 dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="configure-audit-logging"></a>Configurare la registrazione di controllo
 

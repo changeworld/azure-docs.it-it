@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 8ca670049b49500e6b6310bca25cb78ded31a294
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: a90251097f2b4cced5b30f5d6eea03b6ca0b1c61
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537850"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664750"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hosting di un sito Web statico in Archiviazione di Azure
 
@@ -54,9 +54,9 @@ L'hosting di siti Web statici è una funzionalità che deve essere abilitata nel
 
 <a id="cli"></a>
 
-È possibile abilitare l’hosting dei siti Web statici usando l’[interfaccia della riga di comando di Azure (CLI)](/cli/azure/?view=azure-cli-latest).
+È possibile abilitare l’hosting dei siti Web statici usando l’[interfaccia della riga di comando di Azure (CLI)](/cli/azure/).
 
-1. Prima di tutto aprire [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) oppure un'applicazione console dei comandi come Windows PowerShell, se si dispone dell’interfaccia della riga di comando di Azure [installata](/cli/azure/install-azure-cli?view=azure-cli-latest) in locale.
+1. Prima di tutto aprire [Azure Cloud Shell](../../cloud-shell/overview.md) oppure un'applicazione console dei comandi come Windows PowerShell, se si dispone dell’interfaccia della riga di comando di Azure [installata](/cli/azure/install-azure-cli) in locale.
 
 2. Se la propria identità è associata a più sottoscrizioni, impostare come sottoscrizione attiva quella dell’account di archiviazione destinato a ospitare il sito Web statico.
 

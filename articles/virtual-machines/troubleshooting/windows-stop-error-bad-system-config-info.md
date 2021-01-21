@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: cbfdb9a73f53e194b43010c0b2d84357aa3e2e5b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 8d501bcc745ef19d15564951b8c0f29f9e2678ab
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631986"
+ms.locfileid: "98661307"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Errore di arresto di Windows-informazioni di configurazione del sistema 0x00000074 non valide
 
@@ -34,7 +34,7 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
  *Se si chiama un utente del supporto tecnico, fornire queste informazioni:* 
  *Interrompi codice: BAD_SYSTEM_CONFIG_INFO*
 
-  ![Il codice di arresto di Windows 0x00000074, che viene visualizzato anche come "BAD_SYSTEM_CONFIG_INFO". Windows informa l'utente che il PC ha riscontrato un problema e deve essere riavviato.](./media/windows-stop-error-bad-system-config-info/1.png)
+  ![Il codice di arresto di Windows 0x00000074, che viene visualizzato anche come "BAD_SYSTEM_CONFIG_INFO". Windows informa l'utente che il PC ha riscontrato un problema e deve essere riavviato.](./media/windows-stop-error-bad-system-config-info/stop-code-0x00000074.png)
 
 ## <a name="cause"></a>Causa
 
@@ -56,8 +56,8 @@ Il codice di arresto **BAD_SYSTEM_CONFIG_INFO** si verifica se l'hive del regist
 1. Abilitare la console seriale e la raccolta di dump della memoria.
 1. Ricreare la macchina virtuale.
 
-> [!NOTE]
-> Quando si verifica questo errore, il sistema operativo guest non è operativo. Per risolvere il problema, è possibile eseguire la risoluzione dei problemi in modalità offline.
+   > [!NOTE]
+   > Quando si verifica questo errore, il sistema operativo guest non è operativo. Per risolvere il problema, è possibile eseguire la risoluzione dei problemi in modalità offline.
 
 ### <a name="create-and-access-a-repair-vm"></a>Creare e accedere a una macchina virtuale di ripristino
 
@@ -66,8 +66,8 @@ Il codice di arresto **BAD_SYSTEM_CONFIG_INFO** si verifica se l'hive del regist
 1. Usare Connessione Desktop remoto per connettersi alla macchina virtuale di ripristino.
 1. Copiare la `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella e salvarla in una partizione del disco integra o in un'altra posizione sicura. Eseguire il backup di questa cartella come precauzione poiché si modificheranno i file del registro di sistema critici. 
 
-> [!NOTE]
-> Eseguire una copia della `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella come backup nel caso in cui sia necessario eseguire il rollback delle modifiche apportate al registro di sistema.
+   > [!NOTE]
+   > Eseguire una copia della `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` cartella come backup nel caso in cui sia necessario eseguire il rollback delle modifiche apportate al registro di sistema.
 
 ### <a name="check-for-hive-corruption"></a>Verificare il danneggiamento di hive
 
@@ -80,7 +80,7 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
    1. Se non è possibile aprire l'hive o se è vuoto, l'hive è danneggiato. Se l'hive è danneggiato, [aprire un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-     ![Si verifica un errore che informa che l'editor del registro di sistema non è in grado di caricare hive.](./media/windows-stop-error-bad-system-config-info/2.png)
+      ![Si verifica un errore che informa che l'editor del registro di sistema non è in grado di caricare hive.](./media/windows-stop-error-bad-system-config-info/cannot-load-hive-error.png)
 
    1. Se hive si apre normalmente, l'hive non è stato chiuso correttamente. Continuare con il passaggio 5.
 
@@ -95,7 +95,7 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
    **Abilitare la console seriale**:
    
-   ```
+   ```ps
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON 
    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
    ```
@@ -108,13 +108,13 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
    **Caricare l'hive del Registro di sistema dal disco del sistema operativo non funzionante:**
 
-   ```
+   ```ps
    REG LOAD HKLM\BROKENSYSTEM <VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM
    ```
 
    **Abilitare su ControlSet001:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -122,7 +122,7 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
    **Abilitare su ControlSet002:**
 
-   ```
+   ```ps
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f 
    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f 
@@ -130,7 +130,7 @@ Le istruzioni seguenti consentono di determinare se la causa è dovuta a un dann
 
    **Scaricare il disco del sistema operativo non funzionante:**
 
-   ```
+   ```ps
    REG UNLOAD HKLM\BROKENSYSTEM
    ```
    

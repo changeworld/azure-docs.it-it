@@ -12,12 +12,12 @@ ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9485fb09d3ac7684ba91bcd37720a0e55603404b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 04d5a989fcaf3cef3eea3b782842fb3255d4b317
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94952727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661103"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -51,7 +51,7 @@ Questa immagine di esempio dalla portale di Azure Mostra i dati acquisiti quando
 
 Il pannello Dettagli attività contiene le informazioni rilevanti seguenti:
 
-|Sezione|Campo|Description|
+|Sezione|Campo|Descrizione|
 |-------|-----|-----------|
 | Attività | Nome | Quale attività ha avuto luogo. Ad esempio, *emettere un id_token all'applicazione*, che conclude l'accesso utente effettivo. |
 | Azione avviata da (attore) | ObjectId | **ID oggetto** dell'applicazione B2C a cui l'utente sta eseguendo l'accesso. Questo identificatore non è visibile nel portale di Azure, ma è accessibile tramite l'API Microsoft Graph. |
@@ -223,4 +223,4 @@ Ecco la rappresentazione JSON dell'evento di esempio Activity illustrato in prec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile automatizzare altre attività amministrative, ad esempio, [gestire Azure ad B2C account utente con Microsoft Graph](manage-user-accounts-graph-api.md).
+È possibile automatizzare altre attività amministrative, ad esempio, [gestire Azure ad B2C account utente con Microsoft Graph](microsoft-graph-operations.md).

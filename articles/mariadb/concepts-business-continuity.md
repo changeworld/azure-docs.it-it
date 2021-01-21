@@ -3,15 +3,15 @@ title: Continuità aziendale-database di Azure per MariaDB
 description: Informazioni sulla continuità aziendale (ripristino temporizzato, interruzione del data center, ripristino geografico) quando si usa il servizio database di Azure per MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: e164930736f7b93e56d9bd4187e72a9c8eb76202
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6439a63b74b6f627b62741c145f763dc3d9552d3
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541726"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659853"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendere la continuità aziendale nel database di Azure per MariaDB
 
@@ -23,7 +23,7 @@ Database di Azure per MariaDB offre funzionalità di continuità aziendale che i
 
 La tabella seguente mette a confronto i valori ERT e RPO per le funzionalità disponibili:
 
-| **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzato per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | ERT < 12 ore<br/>RPO < 1 ora | ERT < 12 ore<br/>RPO < 1 ora |

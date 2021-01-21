@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7640b7a6053532360da4c908089aecfe163bd3de
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: f8210c3bc0437180ace110f8decd9f83e18650ed
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912655"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661934"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Esercitazione: Estrarre, trasformare e caricare dati con Azure HDInsight
 
@@ -40,7 +40,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 * **Database SQL di Azure**: Come archivio dati di destinazione usare il database SQL di Azure. Se non è presente alcun database nel database SQL di Azure, vedere [Creare un database nel database SQL di Azure nel portale di Azure](../../azure-sql/database/single-database-create-quickstart.md).
 
-* **Interfaccia della riga di comando di Azure**: Se l'interfaccia della riga di comando di Azure non è installata, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* **Interfaccia della riga di comando di Azure**: Se l'interfaccia della riga di comando di Azure non è installata, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 * **Un client Secure Shell (SSH)** : Per altre informazioni, vedere [Connettersi a HDInsight (Hadoop) con SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: bc756994cf0f6e12af1c1ad5a6c8db304b4253e3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 026da4237fe14726766b265e55930346293c71df
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968785"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662898"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Arrestare e avviare un cluster Azure Kubernetes Service (AKS) (anteprima)
 
@@ -28,7 +28,6 @@ Questo articolo presuppone che si disponga di un cluster del servizio Azure Kube
 Quando si usa la funzionalità di avvio/arresto del cluster, si applicano le restrizioni seguenti:
 
 - Questa funzionalità è supportata solo per i cluster con backup di set di scalabilità di macchine virtuali.
-- Durante l'anteprima, questa funzionalità non è supportata per i cluster privati.
 - Lo stato del cluster di un cluster AKS arrestato viene mantenuto per un massimo di 12 mesi. Se il cluster viene arrestato per più di 12 mesi, non è possibile recuperare lo stato del cluster. Per ulteriori informazioni, vedere i [criteri di supporto di AKS](support-policies.md).
 - Durante la fase di anteprima, è necessario arrestare il servizio di scalabilità automatica (CA) del cluster prima di tentare di arrestare il cluster.
 - È possibile avviare o eliminare solo un cluster AKS interrotto. Per eseguire qualsiasi operazione come la scala o l'aggiornamento, avviare innanzitutto il cluster.

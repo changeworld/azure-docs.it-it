@@ -3,15 +3,15 @@ title: Accedere ai log di query lente-portale di Azure database di Azure per Mar
 description: Questo articolo descrive come configurare e accedere ai log di query lente nel database di Azure per MariaDB dalla portale di Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 4/13/2020
-ms.openlocfilehash: c5ee948daecafc061910f36d2ac95d15338bfb38
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f3a01d3e80be35d10ef5c163c9ad8956f37283c1
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539941"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662509"
 ---
 # <a name="configure-and-access-azure-database-for-maria-db-slow-query-logs-from-the-azure-portal"></a>Configurare e accedere ai log di query lente del database di Azure per Maria dal portale di Azure
 
@@ -32,7 +32,7 @@ Configurare l'accesso al log di query lente.
 
 4. Per visualizzare i parametri del server, selezionare **fare clic qui per abilitare i log e configurare i parametri del log**.
 
-5. Attivare **slow_query_log** . **ON**
+5. Attivare **slow_query_log** . 
 
 6. Consente di selezionare il percorso di output dei log utilizzando **log_output**. Per inviare i log ai log di diagnostica di monitoraggio di Azure e di archiviazione locale, selezionare **file**. 
 
@@ -47,7 +47,7 @@ Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiude
 ## <a name="view-list-and-download-logs"></a>Visualizzare l'elenco e scaricare i log
 Una volta iniziata la registrazione, è possibile visualizzare un elenco di log di query lente disponibili e scaricare i singoli file di log. 
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 
 2. Selezionare il server del Database di Azure per MariaDB.
 

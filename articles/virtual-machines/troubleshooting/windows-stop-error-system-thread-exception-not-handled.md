@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/04/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 1ce594d9e3ffddf781c61717ae4534f0c7bd40f8
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: beb658474e49f9b47900d8481dab0424dae8c5be
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681891"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661392"
 ---
 # <a name="windows-stop-error---0x0000007e-system-thread-exception-not-handled"></a>Errore di arresto di Windows: eccezione del thread di sistema 0x0000007E non gestita
 
@@ -34,6 +34,10 @@ Quando si usa la [diagnostica di avvio](./boot-diagnostics.md) per visualizzare 
 Non è possibile determinare la cause fino a quando non viene analizzato un file di dump della memoria. Continuare a raccogliere il file di dump della memoria.
 
 ## <a name="solution"></a>Soluzione
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
+
 
 Per risolvere il problema, è necessario innanzitutto raccogliere il file di dump della memoria per l'arresto anomalo e quindi inviare il file al supporto tecnico Microsoft. Per raccogliere il file di dump, seguire le istruzioni riportate nelle due sezioni successive.
 

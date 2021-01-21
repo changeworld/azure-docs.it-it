@@ -3,16 +3,16 @@ title: Collegamento privato-interfaccia della riga di comando di Azure-database 
 description: Informazioni su come configurare il collegamento privato per il database di Azure per MariaDB dall'interfaccia della riga di comando di Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7ba8a5ded1d83ffdf153724c5e76b27e10bccfcb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 693fe5820894de38a5b43fc700d517cdcb27233e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015469"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660124"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB tramite l'interfaccia della riga di comando
 
@@ -29,7 +29,7 @@ Un endpoint privato è il blocco predefinito fondamentale per il collegamento pr
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Questo articolo richiede la versione 2.0.28 o successiva dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+- Questo articolo richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -177,7 +177,7 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
     | Nome host | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
-    | Nome utente | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
+    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
     | Password | Immettere una password specificata durante la creazione del server MariaDB. |
     ||
 

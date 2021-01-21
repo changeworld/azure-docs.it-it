@@ -10,12 +10,12 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-azurecli
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: f3af2b7839465f886d1edba01eb9988419761dac
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 71e38059aceb7da63f3545610b9acfe48c5d3150
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630980"
+ms.locfileid: "98663214"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-windows-device-preview"></a>Guida introduttiva: distribuire il primo modulo di IoT Edge in un dispositivo Windows (anteprima)
 
@@ -108,58 +108,69 @@ Installare IoT Edge per Linux in Windows sul dispositivo e configurarlo con una 
 ![Diagramma-avviare il runtime di IoT Edge nel dispositivo](./media/quickstart/start-runtime.png)
 
 1. [Scaricare](https://aka.ms/WACDownloadEFLOW)l'interfaccia di amministrazione di Windows.
-2. Seguire l'installazione guidata per configurare l'interfaccia di amministrazione di Windows sul dispositivo.
-3. Quando ci si trova nell'interfaccia di amministrazione di Windows, nella parte superiore destra della schermata selezionare l'icona a forma di **ingranaggio impostazioni** .  
-4. Dal menu impostazioni, in Gateway, selezionare **estensioni** .
-5. Nell'elenco delle **estensioni disponibili** selezionare **Azure IOT Edge**
-6. **Installare** l'estensione
 
-7. Una volta installata l'estensione, passare alla pagina principale del dashboard selezionando l'interfaccia di **amministrazione di Windows** nell'angolo superiore sinistro della schermata.
+1. Seguire l'installazione guidata per configurare l'interfaccia di amministrazione di Windows sul dispositivo.
 
-8. Verrà visualizzata la connessione host locale che rappresenta il PC in cui è in esecuzione l'interfaccia di amministrazione di Windows.
+1. Quando ci si trova nell'interfaccia di amministrazione di Windows, nella parte superiore destra della schermata selezionare l'icona a forma di **ingranaggio impostazioni** .
+
+1. Dal menu impostazioni, in Gateway, selezionare **estensioni** .
+
+1. Selezionare la scheda **feed** e selezionare **Aggiungi**.
+
+1. Immettere https://aka.ms/wac-insiders-feed nella casella di testo e selezionare **Aggiungi**.
+
+1. Una volta aggiunto il feed, passare alla scheda **estensioni disponibili** . L'aggiornamento dell'elenco di estensioni potrebbe richiedere qualche minuto.
+
+1. Nell'elenco delle **estensioni disponibili** selezionare **Azure IOT Edge**
+
+1. **Installare** l'estensione
+
+1. Una volta installata l'estensione, passare alla pagina principale del dashboard selezionando l'interfaccia di **amministrazione di Windows** nell'angolo superiore sinistro della schermata.
+
+1. Verrà visualizzata la connessione host locale che rappresenta il PC in cui è in esecuzione l'interfaccia di amministrazione di Windows.
 
    :::image type="content" source="media/quickstart/windows-admin-center-start-page.png" alt-text="Schermata-pagina iniziale dell'amministratore di Windows":::
 
-9. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi**.
 
    :::image type="content" source="media/quickstart/windows-admin-center-start-page-add.png" alt-text="Screenshot-pulsante Aggiungi pagina iniziale amministratore di Windows":::
 
-10. Individuare il riquadro Azure IoT Edge e selezionare **Crea nuovo**. Verrà avviata l'installazione guidata di.
+1. Individuare il riquadro Azure IoT Edge e selezionare **Crea nuovo**. Verrà avviata l'installazione guidata di.
 
     :::image type="content" source="media/quickstart/select-tile-screen.png" alt-text="Schermata-riquadro Azure IoT Edge per Linux in Windows":::
 
-11. Per accettare il contratto di licenza e scegliere **Avanti** , procedere con l'installazione guidata
+1. Per accettare il contratto di licenza e scegliere **Avanti** , procedere con l'installazione guidata
 
     :::image type="content" source="media/quickstart/wizard-welcome-screen.png" alt-text="Schermata-pagina iniziale della procedura guidata":::
 
-12. Scegliere i **dati di diagnostica facoltativi** per fornire dati diagnostici estesi che consentono a Microsoft di monitorare e gestire la qualità del servizio e fare clic su **Avanti: Distribuisci.**
+1. Scegliere i **dati di diagnostica facoltativi** per fornire dati diagnostici estesi che consentono a Microsoft di monitorare e gestire la qualità del servizio e fare clic su **Avanti: Distribuisci.**
 
     :::image type="content" source="media/quickstart/diagnostic-data-screen.png" alt-text="Screenshot-dati di diagnostica":::
 
-13. Nella schermata **selezionare il dispositivo di destinazione** selezionare il dispositivo di destinazione desiderato per verificare che soddisfi i requisiti minimi. Per questa Guida introduttiva si sta installando IoT Edge sul dispositivo locale, quindi scegliere la connessione localhost. Una volta confermata, scegliere **Avanti** per continuare.
+1. Nella schermata **selezionare il dispositivo di destinazione** selezionare il dispositivo di destinazione desiderato per verificare che soddisfi i requisiti minimi. Per questa Guida introduttiva si sta installando IoT Edge sul dispositivo locale, quindi scegliere la connessione localhost. Una volta confermata, scegliere **Avanti** per continuare.
 
     :::image type="content" source="media/quickstart/wizard-select-target-device-screen.png" alt-text="Screenshot-selezionare il dispositivo di destinazione":::
 
-14. Accettare le impostazioni predefinite scegliendo **Avanti**.
+1. Accettare le impostazioni predefinite scegliendo **Avanti**.
 
-15. La schermata di distribuzione Mostra il processo di download del pacchetto, installazione del pacchetto, configurazione dell'host e configurazione finale della VM Linux.  Una distribuzione corretta avrà un aspetto simile al seguente:
+1. La schermata di distribuzione Mostra il processo di download del pacchetto, installazione del pacchetto, configurazione dell'host e configurazione finale della VM Linux.  Una distribuzione corretta avrà un aspetto simile al seguente:
 
     :::image type="content" source="media/quickstart/wizard-deploy-success-screen.png" alt-text="Screenshot: distribuzione guidata riuscita":::
 
-16. Fare clic su **Avanti: Connetti** per continuare con il passaggio finale per eseguire il provisioning del dispositivo Azure IOT Edge con l'ID del dispositivo dall'istanza dell'hub Internet.
+1. Fare clic su **Avanti: Connetti** per continuare con il passaggio finale per eseguire il provisioning del dispositivo Azure IOT Edge con l'ID del dispositivo dall'istanza dell'hub Internet.
 
-17. Copiare la stringa di connessione dal dispositivo nell'hub Azure e incollarla nel campo stringa di connessione del dispositivo. Scegliere quindi **provisioning con il metodo selezionato**.
+1. Copiare la stringa di connessione dal dispositivo nell'hub Azure e incollarla nel campo stringa di connessione del dispositivo. Scegliere quindi **provisioning con il metodo selezionato**.
 
     > [!NOTE]
     > Per recuperare la stringa di connessione, vedere il passaggio 3 della sezione precedente, [registrare un dispositivo IOT Edge](#register-an-iot-edge-device).
 
     :::image type="content" source="media/quickstart/wizard-provision.png" alt-text="Screenshot-Provisioning guidato":::
 
-18. Al termine del provisioning, selezionare **fine** per completare e tornare alla schermata Start dell'interfaccia di amministrazione di Windows. A questo punto dovrebbe essere possibile visualizzare il dispositivo elencato come dispositivo IoT Edge.
+1. Al termine del provisioning, selezionare **fine** per completare e tornare alla schermata Start dell'interfaccia di amministrazione di Windows. A questo punto dovrebbe essere possibile visualizzare il dispositivo elencato come dispositivo IoT Edge.
 
     :::image type="content" source="media/quickstart/windows-admin-center-device-screen.png" alt-text="Schermata-interfaccia di amministrazione di Windows Azure IoT Edge dispositivo":::
 
-19. Selezionare il dispositivo Azure IoT Edge per visualizzare il dashboard. Si noterà che i carichi di lavoro del dispositivo gemello nell'hub Azure è stato distribuito. Nell' **elenco IOT Edge modulo** dovrebbe essere visualizzato un modulo che esegue, **edgeAgent**, e lo **stato del IOT Edge** dovrebbe mostrare **attivo (in esecuzione)**.
+1. Selezionare il dispositivo Azure IoT Edge per visualizzare il dashboard. Si noterà che i carichi di lavoro del dispositivo gemello nell'hub Azure è stato distribuito. Nell' **elenco IOT Edge modulo** dovrebbe essere visualizzato un modulo che esegue, **edgeAgent**, e lo **stato del IOT Edge** dovrebbe mostrare **attivo (in esecuzione)**.
 
 Il dispositivo IoT Edge è ora configurato. È pronto per eseguire i moduli distribuiti nel cloud.
 

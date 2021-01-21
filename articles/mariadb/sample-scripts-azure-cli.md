@@ -3,17 +3,17 @@ title: Esempi dell'interfaccia della riga di comando di Azure - Database di Azur
 description: In questo articolo sono elencati esempi di codice dell'interfaccia della riga di comando di Azure disponibili per l'interazione con Database di Azure per MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: aa9efba1c49063d40b4df0444fb3bc63b124a0a0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.openlocfilehash: 5218d087a622c1f651785afd1ab7cb418732b093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536773"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664600"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Esempi dell'interfaccia della riga di comando di Azure per Database di Azure per MariaDB 
 La tabella seguente include collegamenti a esempi di script di interfaccia della riga di comando di Azure per Database di Azure per MariaDB.

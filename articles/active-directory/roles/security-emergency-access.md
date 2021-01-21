@@ -1,5 +1,5 @@
 ---
-title: Gestire gli account amministrativi di accesso di emergenza - Azure AD | Microsoft Docs
+title: Gestire gli account amministrativi di accesso di emergenza-Azure AD
 description: Questo articolo descrive come usare gli account di accesso di emergenza per evitare di rimanere inavvertitamente bloccati fuori dalla propria organizzazione di Azure Active Directory (Azure AD).
 services: active-directory
 author: markwahl-msft
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d93b92f3bb0adfe734ad439079afdfcaa6270e
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 6ef8e7ed662d8c0acfc7c43112d6d7edb1cb9a94
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834439"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660648"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -60,7 +60,7 @@ Durante un'emergenza, non è desiderabile che un criterio possa potenzialmente b
 
 ## <a name="federation-guidance"></a>Linee guida per la federazione
 
-Un'altra possibilità, per le organizzazioni che usano Azure AD Domain Services e AD FS o un provider di identità simile per eseguire la federazione con Azure AD, consiste nel configurare un account di accesso di emergenza la cui attestazione MFA può essere fornita dal provider.  Ad esempio, l'account di accesso di emergenza potrebbe essere supportato da una coppia di certificato e chiave archiviata su una smart card.  Quando l'utente viene autenticato in Active Directory, AD FS può fornire un'attestazione ad Azure AD per indicare che l'utente ha soddisfatto i requisiti MFA.  Anche con questo approccio, le organizzazioni devono comunque disporre di account di accesso di emergenza basati sul cloud nel caso in cui non sia possibile stabilire la federazione. 
+Alcune organizzazioni usano servizi di dominio Active Directory e ADFS o un provider di identità simile per attuare la Federazione a Azure AD. Non [devono essere presenti account locali con privilegi amministrativi](../fundamentals/protect-m365-from-on-premises-attacks.md). Il mastering e l'autenticazione per gli account con privilegi amministrativi al di fuori Azure AD aggiunge un rischio inutile in caso di interruzione o compromissione di tali sistemi.
 
 ## <a name="store-account-credentials-safely"></a>Archiviare le credenziali dell'account in sicurezza
 
