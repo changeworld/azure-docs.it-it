@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 0dbd6ea13069b72e6bca5c065af92568a5c7cdb8
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2259d0114d91af2e688df66ff8dc4e8d293c2b03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844947"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624836"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selezionare un dominio per un progetto di Visione personalizzata
 
@@ -25,10 +25,11 @@ Dalla scheda impostazioni del progetto Visione personalizzata è possibile selez
 
 |Dominio|Scopo|
 |---|---|
-|__Generale__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini è appropriato oppure non si è certi del dominio da scegliere, selezionare il dominio generale. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Generale__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini è appropriato o se non si è certi del dominio da scegliere, selezionare il dominio generale. ID: `ee85a74c-405e-4adc-bb47-ffa8ca0c9f31`|
+|__Generale [a1]__| Ottimizzato per una migliore precisione con tempi di inferenza paragonabili come dominio generale. Consigliato per set di impostazioni di grandi dimensioni o scenari utente più complessi. Questo dominio richiede più tempo di training. ID: `a8e3c40f-fb4a-466f-832a-5e457ae4a344`|
 |__Food__|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo). ID: `c151d5b5-dd07-472a-acc8-15d29dea8518`|
 |__Punti di riferimento__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti. ID: `ca455789-012d-4b50-9fec-5bb63841c793`|
-|__Retail__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
+|__Retail__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si desidera la classificazione ad alta precisione tra abiti, pantaloni e camicie, utilizzare questo dominio. ID: `b30a91ae-e3c1-4f73-a81e-c270bff27c39`|
 |__Domini compatti__| Ottimizzato per i vincoli di classificazione in tempo reale nei dispositivi perimetrali.|
 
 ## <a name="object-detection"></a>Rilevamento di oggetti
@@ -36,6 +37,7 @@ Dalla scheda impostazioni del progetto Visione personalizzata è possibile selez
 |Dominio|Scopo|
 |---|---|
 |__Generale__| Ottimizzato per un'ampia gamma di attività di rilevamento oggetti. Se nessuno degli altri domini è appropriato oppure non si è certi del dominio da scegliere, selezionare il dominio generale. ID: `da2e3a8a-40a5-4171-82f4-58522f70fbc1`|
+|__Generale [a1]__| Ottimizzato per una migliore precisione con tempi di inferenza paragonabili come dominio generale. Consigliato per esigenze più accurate per la posizione dell'area, set di impostazioni di grandi dimensioni o scenari utente più complessi. Questo dominio richiede più tempo di training e i risultati non sono deterministici: prevedere una differenza di mappa +-1% con gli stessi dati di training forniti. ID: `9c616dff-2e7d-ea11-af59-1866da359ce6`|
 |__Logo__|Ottimizzato per il rilevamento di logo dei marchi nelle immagini. ID: `1d8ffafe-ec40-4fb2-8f90-72b3b6cecea4`|
 |__Prodotti sugli scaffali__|Ottimizzato per il rilevamento e la classificazione dei prodotti sugli scaffali. ID: `3780a898-81c3-4516-81ae-3a139614e1f3`|
 |__Domini compatti__| Ottimizzato per i vincoli del rilevamento di oggetti in tempo reale nei dispositivi perimetrali.|
@@ -48,7 +50,8 @@ Le prestazioni del modello variano in base al dominio selezionato. Nella tabella
 
 |Attività|Dominio|ID|Dimensioni del modello|Tempo di inferenza CPU|Tempo di inferenza GPU|
 |---|---|---|---|---|---|
-|Classificazione|General (compact) (Generale - compatto)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|5 MB|13 ms|5 ms|
+|Classificazione|General (compact) (Generale - compatto)|`0732100f-1a38-4e49-a514-c9b44c697ab5`|6 MB|10 ms|5 ms|
+|Classificazione|Generale (Compact) [S1]|`a1db07ca-a19a-4830-bae8-e004a42dc863`|43 MB|50 ms|5 ms|
 |Rilevamento di oggetti|General (compact) (Generale - compatto)|`a27d5ca5-bb19-49d8-a70a-fec086c47f5b`|45 MB|35 ms|5 ms|
 |Rilevamento di oggetti|Generale (Compact) [S1]|`7ec2ac80-887b-48a6-8df9-8b1357765430`|14 MB|27 ms|7 ms|
 

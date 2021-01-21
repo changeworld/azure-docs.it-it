@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: e46bb87788de27916860720284087643db7153dc
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a63c309c8e728e3f76ad904d479557b368388954
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913403"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624776"
 ---
 # <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare Azure Storage Explorer per gestire directory, file ed elenchi di controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -80,7 +80,7 @@ Per scaricare i file tramite **Azure Storage Explorer**, con un file selezionato
 
 È possibile impostare le autorizzazioni nella radice del contenitore. A questo scopo, è necessario accedere ad Azure Storage Explorer con l'account personale con diritti per eseguire questa operazione, anziché con una stringa di connessione. Fare clic con il tasto destro sul contenitore e scegliere **Gestisci autorizzazioni**, si aprirà la finestra di dialogo **Gestisci autorizzazioni**.
 
-![Microsoft Azure Storage Explorer - Gestire l’accesso alle directory](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
+![Microsoft Azure Storage Explorer - Gestire l’accesso alle directory](media/storage-quickstart-blobs-storage-explorer/manageperms.png)
 
 La finestra di dialogo **Gestisci autorizzazioni** consente di gestire le autorizzazioni per il proprietario e il gruppo di proprietari. Consente inoltre di aggiungere nuovi utenti e gruppi all'elenco di controllo di accesso per il quale è possibile quindi gestire le autorizzazioni.
 
@@ -105,6 +105,10 @@ All'interno di queste categorie sono disponibili tre autorizzazioni che è possi
 > Le selezioni effettuate qui non imposteranno le autorizzazioni per tutti gli elementi attualmente esistenti all'interno della directory. Se il file esiste già, è necessario passare a ogni singolo elemento e impostare le autorizzazioni manualmente.
 
 È possibile gestire le autorizzazioni per directory singole, nonché per file singoli, ovvero ciò che consente il controllo di accesso granulare. Il processo di gestione delle autorizzazioni per file e directory è identico a quello descritto sopra. Fare clic con il tasto destro sul file o sulla directory per cui si desidera gestire le autorizzazioni e seguire la stessa procedura.
+
+## <a name="private-endpoints-in-azure-data-lake-storage-gen2"></a>Endpoint privati in Azure Data Lake Storage Gen2
+
+Storage Explorer usa entrambi gli [endpoint](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) BLOB (blob) & data Lake storage Gen2 (DFS) quando si lavora con Azure Data Lake storage Gen2. Se l'accesso a Azure Data Lake Storage Gen2 viene configurato usando endpoint privati, verificare che siano stati creati due endpoint privati per l'account di archiviazione: uno con la risorsa secondaria di destinazione `blob` e l'altro con la sottorisorsa di destinazione `dfs` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

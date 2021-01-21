@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 47e3833fe9f35467c1d16945a9b336d4014b2efd
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 9da5c8c89ee124e527584164b21b096ac815e5ca
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839773"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625465"
 ---
 # <a name="investigate-all-enterprise-sensor-detections-in-the-device-inventory"></a>Esaminare tutti i rilevamenti dei sensori aziendali nell'inventario del dispositivo
 
@@ -67,7 +67,7 @@ Le funzionalità di integrazione dei dati consentono di migliorare i dati nell'i
 
 - Utenti connessi ai dispositivi
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabella di dati nella schermata inventario asset.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-screen-with-items-highlighted-v2.png" alt-text="Tabella di dati nella schermata inventario dispositivo.":::
 
 È possibile integrare i dati in uno dei seguenti casi:
 
@@ -131,13 +131,13 @@ Per recuperare e integrare queste informazioni, usare Defender per i comandi del
 
 È possibile filtrare l'inventario dei dispositivi per visualizzare le colonne di interesse. Ad esempio, è possibile visualizzare le informazioni sul dispositivo PLC.
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot dell'inventario degli asset.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-inventory-view-v2.png" alt-text="Screenshot dell'inventario dei dispositivi.":::
 
 Il filtro viene cancellato quando si esce dalla finestra.
 
 Per utilizzare lo stesso filtro più volte, è possibile salvare un filtro o una combinazione di filtri necessari. È possibile aprire un riquadro sinistro e visualizzare i filtri salvati:
 
-:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Schermata inventario asset.":::
+:::image type="content" source="media/how-to-work-with-asset-inventory-information/view-your-asset-inventories-v2.png" alt-text="Schermata di inventario dei dispositivi.":::
 
 Per filtrare l'inventario dei dispositivi:
 
@@ -187,7 +187,7 @@ Sono disponibili gli strumenti seguenti per la visualizzazione di dispositivi e 
 
 - **Visualizzare le proprietà** del dispositivo: ad esempio, il sensore che monitora il dispositivo e le proprietà di base del dispositivo. Fare clic con il pulsante destro del mouse sul dispositivo per visualizzare le proprietà del dispositivo.
 
-  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot della visualizzazione delle proprietà dell'asset.":::
+  :::image type="content" source="media/how-to-work-with-asset-inventory-information/asset-properties-v2.png" alt-text="Screenshot della visualizzazione delle proprietà del dispositivo.":::
 
 - **Avviso associato a un dispositivo:** Fare clic con il pulsante destro del mouse sul dispositivo per visualizzare gli avvisi correlati.
 
@@ -225,6 +225,6 @@ Sono disponibili le seguenti informazioni aggiuntive sulla zona:
 
 - Stato **aggiornamento**: se il sensore connesso viene aggiornato, verranno visualizzati gli Stati di aggiornamento. Durante l'aggiornamento, la console di gestione locale non riceve le informazioni sul dispositivo dal sensore.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-[Esaminare i rilevamenti dei sensori nell'inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+[Esaminare i rilevamenti dei sensori in un inventario dei dispositivi](how-to-investigate-sensor-detections-in-a-device-inventory.md)

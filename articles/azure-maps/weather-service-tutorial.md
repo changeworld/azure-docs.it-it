@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 259db10aa8f5cd2b711eca001bc6d48057d5280d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
-ms.translationtype: HT
+ms.openlocfilehash: 32ce875600bb948e7c3e8479f712e99d25eb6367
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683203"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624952"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
@@ -196,6 +196,10 @@ Per esplorare le API di Mappe di Azure usate in questa esercitazione, vedere:
 * [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 
 Per un elenco completo delle API REST di Mappe di Azure, vedere: [API REST di Mappe di Azure](./consumption-model.md).
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non sono presenti risorse che richiedono la pulizia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

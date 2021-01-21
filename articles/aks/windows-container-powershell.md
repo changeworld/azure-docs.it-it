@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 97741423fa8b689a92bd9db78b810e6b86aefcbd
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 56fc11583bcdd271d0225de90ef7ab06bcf87cbf
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247081"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625115"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Creare un contenitore di Windows Server in un cluster del servizio Azure Kubernetes tramite PowerShell
 
@@ -97,7 +97,7 @@ Il comando viene completato dopo pochi minuti e vengono restituite informazioni 
 Per impostazione predefinita, un cluster del servizio Azure Kubernetes viene creato con un pool di nodi in grado di eseguire contenitori Linux. Usare il cmdlet `New-AzAksNodePool` per aggiungere un pool di nodi in grado di eseguire contenitori di Windows Server insieme al pool di nodi Linux.
 
 ```azurepowershell-interactive
-New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -OsType Windows -Name npwin -KubernetesVersion 1.16.7
+New-AzAksNodePool -ResourceGroupName myResourceGroup -ClusterName myAKSCluster -VmSetType VirtualMachineScaleSets -OsType Windows -Name npwin -KubernetesVersion 1.16.7
 ```
 
 Il comando precedente crea un nuovo pool di nodi denominato **npwin** e lo aggiunge al **myAKSCluster**. Quando si crea un pool di nodi per l'esecuzione di contenitori di Windows Server, il valore predefinito per **VmSize** è **Standard_D2s_v3**. Se si sceglie di impostare il parametro **VmSize**, controllare l'elenco di [dimensioni delle macchine virtuali limitate][restricted-vm-sizes]. Le dimensioni minime consigliate sono **Standard_D2s_v3**. Il comando precedente usa anche la subnet predefinita nella rete virtuale predefinita creata durante l'esecuzione di `New-AzAks`.

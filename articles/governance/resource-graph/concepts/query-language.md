@@ -3,12 +3,12 @@ title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: f94023d47153dc64ca78e0386edd87a9821515be
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 137b5c40097d7de82e156b4a0869d7257d3e9964
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251727"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624759"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -27,7 +27,7 @@ Questo articolo illustra i componenti del linguaggio supportati da Resource Grap
 Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resource Manager tipi di risorse e le relative proprietà. Alcune tabelle possono essere utilizzate con `join` `union` operatori o per ottenere proprietà dai tipi di risorse correlati. Di seguito è riportato l'elenco di tabelle disponibili in Resource Graph:
 
 |Tabella Graph delle risorse |È possibile disporre di `join` altre tabelle? |Descrizione |
-|---|---|
+|---|---|---|
 |Risorse |Sì |Tabella predefinita se non ne è stata definita alcuna nella query. In questa tabella sono contenuti quasi tutti i tipi di risorsa di Resource Manager e le relative proprietà. |
 |ResourceContainers |Sì |Include i dati e i tipi di risorsa delle sottoscrizioni (in anteprima, `Microsoft.Resources/subscriptions`) e dei gruppi di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Sì (anteprima) |Include le risorse _relative_ a `Microsoft.Advisor`. |
@@ -41,7 +41,7 @@ Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resou
 |SecurityResources |Partial, join solo _a_ . (anteprima) |Include le risorse _relative_ a `Microsoft.Security`. |
 |ServiceHealthResources |No |Include le risorse _relative_ a `Microsoft.ResourceHealth`. |
 
-Per un elenco completo, inclusi i tipi di risorsa, vedere [Informazioni di riferimento: tabelle e tipi di risorsa supportati](../reference/supported-tables-resources.md).
+Per un elenco completo, inclusi i tipi di risorse, vedere informazioni di [riferimento: tabelle e tipi di risorse supportati](../reference/supported-tables-resources.md).
 
 > [!NOTE]
 > _Resources_ è la tabella predefinita. Quando si eseguono query sulla tabella _Resources_, non è necessario fornire il nome della tabella, a meno che non vengano usati `join` o `union`. È consigliabile, tuttavia, includere sempre la tabella iniziale nella query.
@@ -132,7 +132,7 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 |[join](/azure/kusto/query/joinoperator) |[Insieme di credenziali delle chiavi con il nome della sottoscrizione](../samples/advanced.md#join) |Tipi di join supportati: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite di 3 `join` in una singola query, 1 di che può essere una tabella incrociata `join` . Se l'uso di tutte le tabelle `join` è compreso tra _Resource_ e _ResourceContainers_, sono consentite 3 incrociate tra tabelle `join` . Strategie di join personalizzate, ad esempio il join di trasmissione, non sono consentite. Per informazioni sulle tabelle che è possibile usare `join` , vedere [tabelle di grafici delle risorse](#resource-graph-tables). |
 |[limit](/azure/kusto/query/limitoperator) |[Elencare tutti gli indirizzi IP pubblici](../samples/starter.md#list-publicip) |Sinonimo di `take` . Non funziona con [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/kusto/query/mvexpandoperator) | | Operatore legacy. In sostituzione usare `mv-expand`. _RowLimit_ max 400. Il valore predefinito è 128. |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Visualizzare Cosmos DB con specifiche posizioni di scrittura](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max 400. Il valore predefinito è 128. |
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Visualizzare Cosmos DB con specifiche posizioni di scrittura](../samples/advanced.md#mvexpand-cosmosdb) |_RowLimit_ max 400. Il valore predefinito è 128. Limite di 3 `mv-expand` in una singola query.|
 |[order](/azure/kusto/query/orderoperator) |[Elencare le risorse ordinate per nome](../samples/starter.md#list-resources) |Sinonimo di `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Elencare le risorse ordinate per nome](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Rimuovere colonne dai risultati](../samples/advanced.md#remove-column) | |
@@ -142,6 +142,10 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 |[top](/azure/kusto/query/topoperator) |[Mostrare le prime cinque macchine virtuali per nome e tipo di sistema operativo](../samples/starter.md#show-sorted) | |
 |[union](/azure/kusto/query/unionoperator) |[Combinare i risultati di due query in un singolo risultato](../samples/advanced.md#unionresults) |Singola tabella consentita: _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_ColumnName_\] _Table_. Limite di 3 code `union` in una singola query. La risoluzione fuzzy di tabelle di code `union` non è consentita. Può essere usato all'interno di una singola tabella o tra le tabelle _Resources_ e _ResourceContainers_. |
 |[where](/azure/kusto/query/whereoperator) |[Mostrare le risorse che contengono archivi](../samples/starter.md#show-storage) | |
+
+Un limite predefinito di 3 e 3 operatori è costituito da `join` `mv-expand` una singola query SDK di Resource Graph. È possibile richiedere un aumento dei limiti per il tenant tramite **Guida e supporto tecnico**.
+
+Per supportare l'esperienza del portale "Apri query", Azure Resource Graph Explorer ha un limite globale maggiore rispetto a Resource Graph SDK.
 
 ## <a name="query-scope"></a>Ambito delle query
 

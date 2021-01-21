@@ -1,5 +1,5 @@
 ---
-title: Comunicare con un'app del dispositivo in Node.js tramite i flussi del dispositivo dell'hub IoT di Azure
+title: "Guida introduttiva: comunicare con l'app per dispositivo in Node.js con i flussi di dispositivi dell'hub Azure."
 description: In questo argomento di avvio rapido verrà eseguita un'applicazione sul lato servizio in Node.js che comunica con un dispositivo IoT tramite un flusso dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 678955970f3eeb87a10c43cd43effc3464db7794
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 335014f032162866e4780bf1294ddcd108b4fd03
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832008"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624389"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in Node.js tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -79,7 +79,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
+    az iot hub connection-string show --policy-name service --name {YourIoTHubName} --output table
     ```
 
     Prendere nota della stringa di connessione del servizio restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:
@@ -154,4 +154,4 @@ In questo argomento di avvio rapido è stato configurato un hub IoT, è stato re
 Consultare i collegamenti seguenti per altre informazioni sui flussi dispositivo:
 
 > [!div class="nextstepaction"]
-> [Panoramica dei flussi dispositivo](./iot-hub-device-streams-overview.md) 
+> [Panoramica dei flussi dispositivo](./iot-hub-device-streams-overview.md)

@@ -6,16 +6,16 @@ ms.author: krishmam
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 8d01f43dd6e404bb8f8ae0898625ae1ea9d09fd6
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: dc590593b9bff8f646ee6155d32a2ce3f9790f6e
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020435"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625249"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduzione alle funzioni geospaziali di Analisi di flusso
 
-Le funzioni geospaziali in Analisi di flusso di Azure abilitano l'analisi in tempo reale sul flusso di dati geospaziali. Con poche righe di codice, è possibile sviluppare una soluzione di livello di produzione per scenari complessi. 
+Le funzioni geospaziali in Analisi di flusso di Azure abilitano l'analisi in tempo reale sul flusso di dati geospaziali. Con poche righe di codice, è possibile sviluppare una soluzione di livello di produzione per scenari complessi. Queste funzioni supportano tutti i tipi di WKT e i punti GeoJSON, Polygon e LineString.
 
 Degli esempi di scenari che possono trarre vantaggio da funzioni geospaziali comprendono:
 
@@ -110,7 +110,7 @@ Per altre informazioni, visitare il riferimento [CreatePolygon](/stream-analytic
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
-La funzione `ST_DISTANCE` restituisce la distanza tra due punti in metri. 
+La `ST_DISTANCE` funzione restituisce la distanza tra due geometrie in metri. 
 
 La query seguente utilizza `ST_DISTANCE` per generare un evento quando una stazione di rifornimento è a meno di 10 km dalla propria auto.
 
@@ -123,7 +123,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 Per altre informazioni, visitare il riferimento [ST_DISTANCE](/stream-analytics-query/st-distance).
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
-La funzione `ST_OVERLAPS` confronta due poligoni. Se i poligoni si sovrappongono, la funzione restituisce un valore 1. La funzione restituisce il valore 0 se i valori non si sovrappongono. 
+La `ST_OVERLAPS` funzione Confronta due geometrie. Se le geometrie si sovrappongono, la funzione restituisce 1. La funzione restituisce 0 se le geometrie non si sovrappongono. 
 
 La query seguente usa `ST_OVERLAPS` per generare un evento quando una compilazione è all'interno di una possibile zona di flood.
 
@@ -144,7 +144,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 Per altre informazioni, visitare il riferimento [ST_OVERLAPS](/stream-analytics-query/st-overlaps).
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
-La funzione `ST_INTERSECTS` confronta due LineString. Se la LineString si interseca, la funzione restituisce 1. La funzione restituisce il valore 0 se la LineString non si interseca.
+La `ST_INTERSECTS` funzione Confronta due geometrie. Se le geometrie si intersecano, la funzione restituisce 1. La funzione restituisce 0 se le geometrie non si intersecano tra loro.
 
 La query di esempio seguente usa `ST_INTERSECTS` per determinare se una strada asfaltata interseca una strada sterrata.
 
@@ -170,7 +170,7 @@ FROM input
 Per altre informazioni, visitare il riferimento [ST_INTERSECTS](/stream-analytics-query/st-intersects).
 
 ## <a name="st_within"></a>ST_WITHIN
-La `ST_WITHIN` funzione determina se un punto o poligono è all'interno di un poligono. Se il poligono contiene il punto o il poligono, la funzione restituirà il valore 1. La funzione restituirà il valore 0 se il punto o poligono non si trova all'interno del poligono dichiarato.
+La `ST_WITHIN` funzione determina se una geometria si trova all'interno di un'altra geometria. Se il primo è contenuto nell'ultimo, la funzione restituirà 1. La funzione restituirà 0 se la prima geometria non si trova all'interno dell'ultima.
 
 La query di esempio seguente usa `ST_WITHIN` per determinare se il punto di destinazione di recapito è all'interno del poligono di warehouse specificato.
 

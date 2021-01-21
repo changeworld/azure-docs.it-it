@@ -3,12 +3,12 @@ title: Guida al protocollo AMQP 1.0 in Hub eventi e nel bus di servizio di Azure
 description: Guida al protocollo per le espressioni e descrizione di AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e001327c2c7da08cb9a3552f97fc9a7d8b7921a2
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 2154221ebfe69b659ff83100ed614133e178ccdb
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95736715"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624490"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guida al protocollo AMQP 1.0 nel bus di servizio e in Hub eventi di Azure
 
@@ -73,7 +73,7 @@ Le connessioni, le sessioni e i canali sono temporanei. In caso di interruzione 
 
 ### <a name="amqp-outbound-port-requirements"></a>Requisiti delle porte in uscita AMQP
 
-I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) è abilitata. `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
+I client che usano connessioni AMQP su TCP richiedono che le porte 5671 e 5672 siano aperte nel firewall locale. Insieme a queste porte, potrebbe essere necessario aprire porte aggiuntive se la funzionalità [EnableLinkRedirect](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect) è abilitata. `EnableLinkRedirect` è una nuova funzionalità di messaggistica che consente di ignorare un hop durante la ricezione dei messaggi, contribuendo così a migliorare la velocità effettiva. Il client inizierà a comunicare direttamente con il servizio back-end sull'intervallo di porte 104XX, come illustrato nella figura seguente. 
 
 ![Elenco di porte di destinazione][4]
 
@@ -212,7 +212,7 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | --- | --- | --- |
 | durable |- |- |
 | priority |- |- |
-| ttl |Durata di questo messaggio |[TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| ttl |Durata di questo messaggio |[timeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
@@ -222,8 +222,8 @@ Eventuali proprietà che l’applicazione deve definire dovranno essere mappate 
 | --- | --- | --- |
 | message-id |Identificatore freeform definito dall'applicazione per questo messaggio. Usato per il rilevamento dei duplicati. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identificatore dell'utente definito dall'applicazione, non interpretato dal bus di servizio. |Non è accessibile tramite l'API del bus di servizio. |
-| to |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| in |Identificatore della destinazione definito dall'applicazione, non interpretato dal bus di servizio. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identificatore dello scopo del messaggio definito dall'applicazione, non interpretato dal bus di servizio. |[Etichetta](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicatore del percorso di risposta definito dall'applicazione, non interpretato dal bus di servizio. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identificatore della correlazione definito dall'applicazione, non interpretato dal bus di servizio. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Indicatore del tipo di contenuto definito dall'applicazione per il corpo, non interpretato dal bus di servizio. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -240,14 +240,14 @@ Esistono alcune altre proprietà del messaggio del bus di servizio che non fanno
 
 | Mappatura della chiave di annotazione | Utilizzo | Nome API |
 | --- | --- | --- |
-| x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
-| x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
-| x-opt-via-partition-key | Valore definito dall'applicazione della chiave di partizione quando una transazione deve essere utilizzata per inviare messaggi tramite una coda di trasferimento. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey?view=azure-dotnet) |
-| x-opt-enqueued-time | Ora UTC definita dal servizio che rappresenta l’ora effettiva di inserimento in coda del messaggio. Ignorato durante l'input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc?view=azure-dotnet) |
-| x-opt-sequence-number | Numero univoco definito dal servizio assegnato a un messaggio. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber?view=azure-dotnet) |
-| x-opt-offset | Numero di sequenza di accodamento definito dal servizio del messaggio. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber?view=azure-dotnet) |
-| x-opt-locked-until | Definito dal servizio. La data e l'ora fino alla quale il messaggio sarà bloccato nella coda/sottoscrizione. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc?view=azure-dotnet) |
-| x-opt-deadletter-source | Definito dal servizio. Se il messaggio viene ricevuto dalla coda di messaggi non recapitabili, l'origine del messaggio originale. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource?view=azure-dotnet) |
+| x-opt-scheduled-enqueue-time | Dichiara in quale momento dovrà essere visualizzato il messaggio nell'entità |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc) |
+| x-opt-partition-key | Chiave definite dall'applicazione che stabilisce in quale partizione dovrà essere recapitato il messaggio. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey) |
+| x-opt-via-partition-key | Valore definito dall'applicazione della chiave di partizione quando una transazione deve essere utilizzata per inviare messaggi tramite una coda di trasferimento. | [ViaPartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.viapartitionkey) |
+| x-opt-enqueued-time | Ora UTC definita dal servizio che rappresenta l’ora effettiva di inserimento in coda del messaggio. Ignorato durante l'input. | [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) |
+| x-opt-sequence-number | Numero univoco definito dal servizio assegnato a un messaggio. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
+| x-opt-offset | Numero di sequenza di accodamento definito dal servizio del messaggio. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
+| x-opt-locked-until | Definito dal servizio. La data e l'ora fino alla quale il messaggio sarà bloccato nella coda/sottoscrizione. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
+| x-opt-deadletter-source | Definito dal servizio. Se il messaggio viene ricevuto dalla coda di messaggi non recapitabili, l'origine del messaggio originale. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### <a name="transaction-capability"></a>Funzionalità delle transazioni
 

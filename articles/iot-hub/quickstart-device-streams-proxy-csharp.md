@@ -1,20 +1,20 @@
 ---
-title: Avvio rapido per C# ai flussi del dispositivo dell'hub IoT di Azure per SSH e RDP
+title: 'Guida introduttiva: flussi di dispositivi hub Azure-Guida introduttiva a C# per SSH e RDP'
 description: In questo argomento di avvio rapido vengono eseguite due applicazioni C# di esempio che consentono scenari SSH e RDP su un flusso del dispositivo dell'hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: adf0f42b34a4bd7e5df2d2994408dbc175c5e01b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 12e26818f86fc4abdc1873d031182fd994c04687
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831923"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624372"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C# (anteprima)
 
@@ -25,25 +25,6 @@ L'hub IoT di Microsoft Azure supporta attualmente i flussi dispositivo come [fun
 I [flussi dispositivo dell'hub IoT](iot-hub-device-streams-overview.md) consentono alle applicazioni del servizio e del dispositivo di comunicare in modo sicuro e di facile integrazione con i firewall. Questo argomento di avvio rapido prevede due applicazioni C# che consentono di inviare il traffico delle applicazioni client/server, come SSH (Secure Shell) e RDP (Remote Desktop Protocol), tramite un flusso del dispositivo stabilito mediante l'hub IoT. Per una panoramica della configurazione, vedere l'[esempio di applicazione proxy locale per SSH o RDP](iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Questo articolo descrive prima la configurazione per SSH (tramite la porta 22) e quindi illustra come modificare la porta per RDP. Poiché i flussi del dispositivo sono indipendenti da applicazioni e protocolli, lo stesso esempio può essere modificato e quindi adattato ad altri tipi di traffico delle applicazioni. A questo scopo è in genere necessario solo cambiare la porta di comunicazione impostandola su quella usata dall'applicazione prevista.
-
-## <a name="how-it-works"></a>Funzionamento
-
-La figura seguente illustra il modo in cui le applicazioni proxy locali del dispositivo e del servizio consentono la connettività end-to-end tra i processi del client SSH e del daemon SSH. In questo caso, si presuppone che il daemon sia in esecuzione nello stesso dispositivo dell'applicazione proxy locale del dispositivo.
-
-![Configurazione dell'applicazione proxy locale](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
-
-1. L'applicazione proxy locale del servizio si connette all'hub IoT e avvia un flusso del dispositivo nel dispositivo di destinazione.
-
-1. L'applicazione proxy locale del dispositivo completa l'handshake di avvio del flusso e stabilisce un tunnel di streaming end-to-end tramite l'endpoint di streaming dell'hub IoT sul lato servizio.
-
-1. L'applicazione proxy locale del dispositivo si connette al daemon SSH in ascolto sulla porta 22 del dispositivo. Questa impostazione è configurabile, come descritto nella sezione "Eseguire l'applicazione proxy locale del dispositivo".
-
-1. L'applicazione proxy locale del servizio attende nuove connessioni SSH da parte dell'utente restando in ascolto su una porta designata, che in questo caso è la porta 2222. Questa impostazione è configurabile, come descritto nella sezione "Eseguire l'applicazione proxy locale del servizio". Quando l'utente si connette tramite il client SSH, il tunnel consente di trasferire il traffico dell'applicazione SSH tra le applicazioni client e server SSH.
-
-> [!NOTE]
-> Il traffico SSH che viene inviato tramite un flusso del dispositivo sarà sottoposto a tunneling attraverso l'endpoint di streaming dell'hub IoT invece di essere inviato direttamente tra il servizio e il dispositivo. Per altre informazioni, vedere la sezione sui [vantaggi dell'uso di flussi del dispositivo dell'hub IoT](iot-hub-device-streams-overview.md#benefits).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -72,6 +53,25 @@ La figura seguente illustra il modo in cui le applicazioni proxy locali del disp
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
+## <a name="how-it-works"></a>Funzionamento
+
+La figura seguente illustra il modo in cui le applicazioni proxy locali del dispositivo e del servizio consentono la connettività end-to-end tra i processi del client SSH e del daemon SSH. In questo caso, si presuppone che il daemon sia in esecuzione nello stesso dispositivo dell'applicazione proxy locale del dispositivo.
+
+![Configurazione dell'applicazione proxy locale](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.png)
+
+1. L'applicazione proxy locale del servizio si connette all'hub IoT e avvia un flusso del dispositivo nel dispositivo di destinazione.
+
+1. L'applicazione proxy locale del dispositivo completa l'handshake di avvio del flusso e stabilisce un tunnel di streaming end-to-end tramite l'endpoint di streaming dell'hub IoT sul lato servizio.
+
+1. L'applicazione proxy locale del dispositivo si connette al daemon SSH in ascolto sulla porta 22 del dispositivo. Questa impostazione è configurabile, come descritto nella sezione "Eseguire l'applicazione proxy locale del dispositivo".
+
+1. L'applicazione proxy locale del servizio attende nuove connessioni SSH da parte dell'utente restando in ascolto su una porta designata, che in questo caso è la porta 2222. Questa impostazione è configurabile, come descritto nella sezione "Eseguire l'applicazione proxy locale del servizio". Quando l'utente si connette tramite il client SSH, il tunnel consente di trasferire il traffico dell'applicazione SSH tra le applicazioni client e server SSH.
+
+> [!NOTE]
+> Il traffico SSH che viene inviato tramite un flusso del dispositivo sarà sottoposto a tunneling attraverso l'endpoint di streaming dell'hub IoT invece di essere inviato direttamente tra il servizio e il dispositivo. Per altre informazioni, vedere la sezione sui [vantaggi dell'uso di flussi del dispositivo dell'hub IoT](iot-hub-device-streams-overview.md#benefits).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
@@ -96,7 +96,7 @@ La figura seguente illustra il modo in cui le applicazioni proxy locali del disp
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Prendere nota della stringa di connessione del dispositivo restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:

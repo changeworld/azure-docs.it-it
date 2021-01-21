@@ -1,20 +1,20 @@
 ---
-title: Avvio rapido per C ai flussi del dispositivo dell'hub IoT di Azure per SSH e RDP
+title: "Guida introduttiva: flussi di dispositivi dell'hub Azure Azure per SSH e RDP"
 description: In questo argomento di avvio rapido verrà eseguita un'applicazione C di esempio che funge da proxy per consentire scenari SSH e RDP su flussi del dispositivo dell'hub IoT.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli
+ms.custom: references_regions
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 037ff64f4811515e7ce64d66a36e08e71de54058
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 2305a87b91160b5de90f4cbfbc9418adc50bb92a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831991"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624406"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Guida introduttiva: Abilitare SSH e RDP su un flusso del dispositivo dell'hub IoT con un'applicazione proxy C (anteprima)
 
@@ -25,6 +25,22 @@ L'hub IoT di Azure supporta attualmente i flussi del dispositivo come [funzional
 I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consentono alle applicazioni del servizio e del dispositivo di comunicare in modo sicuro e di facile integrazione con i firewall. Per una panoramica della configurazione, vedere la pagina dell'[esempio di proxy locale](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp).
 
 Questo argomento di avvio rapido descrive la configurazione per il tunneling del traffico SSH (Secure Shell) (porta 22) tramite i flussi del dispositivo. La configurazione per il traffico RDP (Remote Desktop Protocol) è simile e richiede una semplice modifica della configurazione. Poiché i flussi del dispositivo sono indipendenti da applicazioni e protocolli, lo stesso esempio può essere modificato e quindi adattato ad altri tipi di traffico delle applicazioni.
+
+## <a name="prerequisites"></a>Prerequisiti
+
+* L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
+
+  * Stati Uniti centrali
+  * Stati Uniti centrali EUAP
+  * Europa settentrionale
+  * Asia sud-orientale
+
+* Installare [Visual Studio 2019](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
+* Installare la versione più recente di [Git](https://git-scm.com/download/).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -47,22 +63,6 @@ La figura seguente illustra il modo in cui i programmi proxy locali del disposit
 > Il traffico SSH che viene inviato tramite un flusso del dispositivo sarà sottoposto a tunneling attraverso l'endpoint di streaming dell'hub IoT invece di essere inviato direttamente tra il servizio e il dispositivo. Per altre informazioni, vedere la sezione sui [vantaggi dell'uso di flussi del dispositivo dell'hub IoT](iot-hub-device-streams-overview.md#benefits). Inoltre, la figura illustra il daemon SSH in esecuzione nello stesso dispositivo (o computer) del proxy locale del dispositivo. Se in questo argomento di avvio rapido si fornisce l'indirizzo IP del daemon SSH, sarà possibile eseguire il proxy locale del dispositivo e il daemon anche in computer diversi.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
-
-* L'anteprima dei flussi del dispositivo è attualmente supportata solo per gli hub IoT creati nelle aree seguenti:
-
-  * Stati Uniti centrali
-  * Stati Uniti centrali EUAP
-  * Europa settentrionale
-  * Asia sud-orientale
-
-* Installare [Visual Studio 2019](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
-* Installare la versione più recente di [Git](https://git-scm.com/download/).
-
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo
 
@@ -120,7 +120,7 @@ Per questo argomento di avvio rapido si userà [Azure IoT SDK per dispositivi pe
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) per registrare un dispositivo simulato.
 
 1. Per creare l'identità del dispositivo, eseguire il comando seguente in Cloud Shell:
 
@@ -138,7 +138,7 @@ Per questo argomento di avvio rapido si userà [Azure IoT SDK per dispositivi pe
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Prendere nota della stringa di connessione del dispositivo restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:

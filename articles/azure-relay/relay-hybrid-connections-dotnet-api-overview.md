@@ -4,12 +4,12 @@ description: Questo articolo riepiloga alcuni dei principali Cenni preliminari s
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 44d5800c08b49118e99a678e31d02e5b7a1f550c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 724fb1a62b82036b4a0fa8b9f4f3608293f608a9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935671"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625132"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Panoramica dell'API .NET Standard per Connessioni ibride di Inoltro di Azure
 
@@ -83,7 +83,7 @@ var hybridConnectionStream = await client.CreateConnectionAsync();
 
 ### <a name="receiving-data"></a>Ricezione di dati
 
-La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi si ha una ricezione costante dal flusso. Se si legge il testo dal flusso, è anche possibile usare un oggetto [StreamReader](/dotnet/api/system.io.streamreader?view=netcore-3.1) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
+La classe [HybridConnectionStream][HCStream] consente la comunicazione bidirezionale. Nella maggior parte dei casi si ha una ricezione costante dal flusso. Se si legge il testo dal flusso, è anche possibile usare un oggetto [StreamReader](/dotnet/api/system.io.streamreader) per usufruire di una più semplice analisi dei dati. Ad esempio, è possibile leggere i dati come testo anziché come `byte[]`.
 
 Il codice seguente legge singole righe di testo dal flusso fino a quando non viene richiesto l'annullamento.
 
@@ -110,14 +110,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Invio di dati
 
-Dopo aver stabilito una connessione, è possibile inviare un messaggio all'endpoint di Inoltro di Azure. Poiché l'oggetto connessione eredita [Stream](/dotnet/api/system.io.stream?view=netcore-3.1), inviare i dati come un `byte[]`. L'esempio seguente illustra come farlo:
+Dopo aver stabilito una connessione, è possibile inviare un messaggio all'endpoint di Inoltro di Azure. Poiché l'oggetto connessione eredita [Stream](/dotnet/api/system.io.stream), inviare i dati come un `byte[]`. L'esempio seguente illustra come farlo:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Tuttavia, se si desidera inviare testo direttamente e senza dover codificare la stringa ogni volta, è possibile eseguire il wrapping dell'oggetto `hybridConnectionStream` con un oggetto [StreamWriter](/dotnet/api/system.io.streamwriter?view=netcore-3.1).
+Tuttavia, se si desidera inviare testo direttamente e senza dover codificare la stringa ogni volta, è possibile eseguire il wrapping dell'oggetto `hybridConnectionStream` con un oggetto [StreamWriter](/dotnet/api/system.io.streamwriter).
 
 ```csharp
 // The StreamWriter object only needs to be created once

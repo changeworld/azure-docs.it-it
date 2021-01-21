@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b2f95ddb13896ed461a20f1948fef34569586d1f
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977074"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624685"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controllare quale traffico viene monitorato
 
@@ -186,11 +186,11 @@ Per impostare un intervallo di indirizzi DHCP:
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurare i server DNS per la risoluzione della ricerca inversa
 
-Per migliorare l'arricchimento degli asset, è possibile configurare più server DNS per eseguire ricerche inverse. È possibile risolvere i nomi host o FQDN associati agli indirizzi IP rilevati nelle subnet di rete. Se, ad esempio, un sensore individua un indirizzo IP, è possibile che venga eseguita una query su più server DNS per risolvere il nome host.
+Per migliorare l'arricchimento dei dispositivi, è possibile configurare più server DNS per eseguire ricerche inverse. È possibile risolvere i nomi host o FQDN associati agli indirizzi IP rilevati nelle subnet di rete. Se, ad esempio, un sensore individua un indirizzo IP, è possibile che venga eseguita una query su più server DNS per risolvere il nome host.
 
 Sono supportati tutti i formati CIDR.
 
-Il nome host viene visualizzato nell'inventario asset e nella mappa degli asset, nonché nei report.
+Il nome host viene visualizzato nell'inventario dei dispositivi, nella mappa dei dispositivi e nei report.
 
 È possibile pianificare pianificazioni per la risoluzione della ricerca inversa per intervalli orari specifici, ad esempio ogni 12 ore. In alternativa, è possibile pianificare un determinato periodo di tempo.
 
@@ -212,7 +212,7 @@ Per definire i server DNS:
 
 5. Nel campo **porta server DNS** immettere la porta DNS.
 
-6. Risolvere gli indirizzi IP di rete per gli FQDN degli asset. Nel campo **Number of labels** aggiungere il numero di etichette di dominio da visualizzare. Da sinistra a destra vengono visualizzati fino a 30 caratteri.
+6. Risolvere gli indirizzi IP di rete in FQDN del dispositivo. Nel campo **Number of labels** aggiungere il numero di etichette di dominio da visualizzare. Da sinistra a destra vengono visualizzati fino a 30 caratteri.
 
 7. Nel campo **subnet** immettere le subnet su cui si desidera eseguire la query sul server DNS.
 
@@ -220,7 +220,7 @@ Per definire i server DNS:
 
 ### <a name="test-the-dns-configuration"></a>Testare la configurazione DNS 
 
-Usando un asset di test, verificare che le impostazioni definite funzionino correttamente:
+Usando un dispositivo di test, verificare che le impostazioni definite funzionino correttamente:
 
 1. Abilitare l'interruttore per la **ricerca DNS** .
 
@@ -295,7 +295,7 @@ Per visualizzare i risultati dell'analisi:
 
 1. Al termine dell'analisi, nel riquadro **azioni** selezionare **Visualizza risultati analisi**. Il file CSV con i risultati dell'analisi viene scaricato nel computer.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Esaminare i rilevamenti dei sensori nell'inventario](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  dei dispositivi [Esaminare i rilevamenti dei sensori nella mappa del dispositivo](how-to-work-with-the-sensor-device-map.md)

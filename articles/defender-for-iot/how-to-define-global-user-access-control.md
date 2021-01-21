@@ -1,5 +1,5 @@
 ---
-title: Definire il controllo degli accessi utente globale
+title: Definire il controllo di accesso utente globale
 description: Nelle organizzazioni di grandi dimensioni le autorizzazioni utente possono essere complesse e possono essere determinate da una struttura organizzativa globale, oltre che dalla struttura standard del sito e della zona.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/08/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: de3ff6ead1f0dd86e07c86b992a720a676a2095c
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 399eee06d472204eaf6dbc333f15cee7c4373739
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97840925"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624643"
 ---
 # <a name="define-global-access-control"></a>Definire il controllo di accesso globale
 
@@ -20,7 +20,7 @@ Nelle organizzazioni di grandi dimensioni le autorizzazioni utente possono esser
 
 Per supportare la richiesta di autorizzazioni di accesso utente globali e più complesse, è possibile creare una topologia aziendale globale basata su Business Unit, aree e siti. È quindi possibile definire le autorizzazioni di accesso utente per queste entità.
 
-L'utilizzo della topologia degli strumenti di accesso per le aziende consente alle organizzazioni di implementare strategie di attendibilità zero controllando in modo più efficiente la gestione e l'analisi degli asset in Azure Defender per la piattaforma Internet.
+L'utilizzo della topologia degli strumenti di accesso per le aziende consente alle organizzazioni di implementare strategie di attendibilità zero controllando in modo migliore gli utenti che gestiscono e analizzano i dispositivi in Azure Defender per la piattaforma.
 
 ## <a name="about-access-groups"></a>Informazioni sui gruppi di accesso
 
@@ -88,6 +88,6 @@ Quando si creano regole, tenere presente le informazioni seguenti:
 
 - Se non è selezionata alcuna unità o area business, gli utenti avranno accesso a tutte le unità e le aree aziendali definite.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Informazioni su Defender per gli utenti della console](how-to-create-and-manage-users.md)

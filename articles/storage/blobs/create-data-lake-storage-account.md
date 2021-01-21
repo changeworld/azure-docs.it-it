@@ -8,12 +8,12 @@ ms.date: 08/31/2020
 ms.service: storage
 ms.reviewer: stewu
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 6b63933fc625079bb490942cf3a32232a484fe38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 712f1dc0679ee49791831e782fb68c39a757870a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89270164"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624338"
 ---
 # <a name="create-a-storage-account-to-use-with-azure-data-lake-storage-gen2"></a>Creare un account di archiviazione da usare con Azure Data Lake Storage Gen2
 
@@ -40,6 +40,9 @@ La figura seguente illustra questa impostazione nella pagina **Crea account di a
 > ![Impostazione dello spazio dei nomi gerarchico](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
 Se si ha un account di archiviazione esistente che si vuole usare con Data Lake Storage e l'impostazione dello spazio dei nomi gerarchico è disabilitata, è necessario eseguire la migrazione dei dati in un nuovo account di archiviazione in cui è abilitata l'impostazione.
+
+> [!NOTE]
+> Non è possibile abilitare contemporaneamente la **protezione dei dati** e **lo spazio dei nomi gerarchico** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

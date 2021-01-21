@@ -1,15 +1,15 @@
 ---
-title: Matrice di supporto di backup su disco di Azure
+title: Matrice di supporto per il backup di dischi di Azure
 description: Fornisce un riepilogo delle impostazioni di supporto e delle limitazioni di backup su disco di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 950651148237c7b9374c378e27ef5cd76697ae9e
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98557870"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624935"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice di supporto di backup su disco di Azure (in anteprima)
 
@@ -55,6 +55,8 @@ Quando diventano disponibili, verranno annunciate altre aree.
 - Attualmente, non è possibile modificare i criteri di backup e il gruppo di risorse snapshot assegnato a un'istanza di backup quando si configura il backup di un disco non può essere modificato.
 
 - Attualmente, l'esperienza portale di Azure per configurare il backup dei dischi è limitata a un massimo di 20 dischi dalla stessa sottoscrizione.
+
+- Attualmente (durante l'anteprima), l'uso di PowerShell e dell'interfaccia della riga di comando di Azure per configurare il backup e il ripristino dei dischi non è supportato.
 
 - Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
 

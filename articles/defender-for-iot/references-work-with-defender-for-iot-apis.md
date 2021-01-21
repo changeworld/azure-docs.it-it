@@ -1,5 +1,5 @@
 ---
-title: Usare Defender per le API di Internet delle cose
+title: Usare le API di Defender per IoT
 description: Usare un'API REST esterna per accedere ai dati individuati da sensori e console di gestione ed eseguire azioni con tali dati.
 author: shhazam-ms
 manager: rkarlin
@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: d49aa50b1b8843dfb5c3d32983ff0bb129543bb0
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 44ea6e8343203a9cb18947f31f45aa0b023178b0
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97841232"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624575"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Defender per le API del sensore e della console di gestione
 
@@ -44,7 +44,7 @@ Per generare un token:
 
 5. Selezionare **Fine**. I token creati vengono visualizzati nella finestra di dialogo **token di accesso** .
    
-   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot della finestra di dialogo token asset con token di riempimento":::
+   :::image type="content" source="media/references-work-with-defender-for-iot-apis/access-token-window.png" alt-text="Screenshot della finestra di dialogo token dispositivo con token di riempimento":::
 
    **Usato** indica l'ultima volta che è stata ricevuta una chiamata esterna con questo token.
 
@@ -110,7 +110,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **id** | Numeric | No | - |
 | **ipAddresses** | Matrice JSON | Sì | Indirizzi IP (può essere più di un indirizzo in caso di indirizzi Internet o un dispositivo con schede di rete doppie) |
@@ -127,14 +127,14 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="protocol-fields"></a>Campi di protocollo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Nome** | string | No |  |
 | **Indirizzi** | Matrice JSON | Sì | Valori master o numerici |
 
 #### <a name="firmware-fields"></a>Campi del firmware
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **serie** | string | No | N/A oppure il valore effettivo |
 | **model** | string | No | N/A oppure il valore effettivo |
@@ -331,7 +331,7 @@ Matrice di oggetti JSON che rappresentano le connessioni del dispositivo.
 
 #### <a name="fields"></a>Campi
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **firstDeviceId** | Numeric | No | - |
 | **secondDeviceId** | Numeric | No | - |
@@ -342,7 +342,7 @@ Matrice di oggetti JSON che rappresentano le connessioni del dispositivo.
 
 #### <a name="protocol-field"></a>Campo protocollo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **nome** | string | No | - |
 | **comandi** | Matrice di stringhe | No | - |
@@ -489,7 +489,7 @@ Matrice di oggetti JSON che rappresentano CVEs identificati sugli indirizzi IP.
 
 #### <a name="fields"></a>Campi
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **cveId** | string | No | - |
 | **ipAddress** | string | No | Indirizzo IP |
@@ -603,7 +603,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="alert-fields"></a>Campi avviso
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
@@ -617,7 +617,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="additional-information-fields"></a>Campi informazioni aggiuntive
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **description** | string | No | - |
 | **informazioni** | Matrice JSON | No | string |
@@ -721,7 +721,7 @@ Matrice di oggetti JSON che rappresentano gli avvisi.
 
 #### <a name="event-fields"></a>Campi dell'evento
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|--|
 | **timestamp** | Numeric | No | Epoch (UTC) |
 | **title** | string | No | - |
@@ -830,7 +830,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **nome** | string | No | - |
 | **ipAddresses** | Matrice JSON | No | - |
@@ -844,16 +844,16 @@ L'oggetto dispositivo contiene:
 
 #### <a name="operating-system-fields"></a>Campi del sistema operativo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Nome** | string | Sì | - |
 | **Tipo** | string | Sì | - |
-| **Version** | string | Sì | - |
+| **Versione** | string | Sì | - |
 | **latestVersion** | string | Sì | - |
 
 #### <a name="vulnerabilities-fields"></a>Campi vulnerabilità
  
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **Antivirus** | Matrice JSON | Sì | Nomi antivirus |
 | **plainTextPasswords** | Matrice JSON | Sì | Oggetti password |
@@ -869,7 +869,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="password-fields"></a>Campi password
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **password** | string | No | - |
 | **protocol** | string | No | - |
@@ -877,7 +877,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="remote-access-fields"></a>Campi di accesso remoto
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **port** | Numeric | No | - |
 | **trasporto** | string | No | TCP o UDP |
@@ -886,7 +886,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="open-port-fields"></a>Apri campi porta
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **port** | Numeric | No | - |
 | **trasporto** | string | No | TCP o UDP |
@@ -895,7 +895,7 @@ L'oggetto dispositivo contiene:
 
 #### <a name="cve-fields"></a>Campi CVE
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | string | No | - |
 | **Punteggio** | Numeric | No | Double |
@@ -1078,7 +1078,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **unauthorizedDevices**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **address** | string | Indirizzo IP |
 | **nome** | string | - |
@@ -1087,7 +1087,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **illegalTrafficByFirewallRules**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **server** | string | Indirizzo IP |
 | **client** | string | Indirizzo IP |
@@ -1096,7 +1096,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **weakFirewallRules**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **sources** | Matrice JSON di origini. Ogni origine può essere in uno dei quattro formati. | "Any", "indirizzo IP (host)", "da IP a IP (intervallo)", "indirizzo IP, subnet mask (rete)" |
 | **destinazioni** | Matrice JSON di destinazioni. Ogni destinazione può essere in uno dei quattro formati. | "Any", "indirizzo IP (host)", "da IP a IP (intervallo)", "indirizzo IP, subnet mask (rete)" |
@@ -1104,7 +1104,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **Accesso**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **macAddress** | string | Indirizzo MAC |
 | **fornitore** | string | Nome del fornitore |
@@ -1114,14 +1114,14 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **connectionsBetweenSubnets**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **server** | string | Indirizzo IP |
 | **client** | string | Indirizzo IP |
 
 **industrialMalwareIndicators**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **detectionTime** | Numeric | Epoch (UTC) |
 | **alertMessage** | string | - |
@@ -1130,7 +1130,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave può ammettere i 
 
 **internetConnections**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 | ---------- | ---- | -------------- |
 | **internalAddress** | string | Indirizzo IP |
 | **autorizzato** | Boolean | Sì o No | 
@@ -1319,7 +1319,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **backupServer**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 |--|--|--|
 | **source** | string | Indirizzo IP |
 | **destinazione** | string | Indirizzo IP |
@@ -1330,7 +1330,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **ipNetworks**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 |--|--|--|
 | **Indirizzo** s | Numeric | - |
 | **rete** | string | Indirizzo IP |
@@ -1338,7 +1338,7 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **protocolProblems**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 |--|--|--|
 | **protocol** | string | - |
 | **indirizzi** | Matrice JSON | Indirizzi IP |
@@ -1347,14 +1347,14 @@ Oggetto JSON che rappresenta i risultati valutati. Ogni chiave contiene una matr
 
 **protocolDataVolumes**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 |--|--|--|
 | protocol | string | - |
 | volume | string | "volume numero MB" |
 
 **disconnessioni**
 
-| Nome campo | Tipo | Elenco di valori |
+| Nome del campo | Type | Elenco di valori |
 |--|--|--|
 | **assetAddress** | string | Indirizzo IP |
 | **assetName** | string | - |
@@ -1782,7 +1782,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="device-fields"></a>Campi dispositivo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **sensorId** | Numeric | No | - |
 | **IDArea** | Numeric | Sì | - |
@@ -1801,14 +1801,14 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 
 #### <a name="protocol-fields"></a>Campi di protocollo
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | Nome | string | No | - |
 | Indirizzi | Matrice JSON | Sì | Valori master o numerici |
 
 #### <a name="firmware-fields"></a>Campi del firmware
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **serie** | string | No | N/A oppure il valore effettivo |
 | **model** | string | No | N/A oppure il valore effettivo |
@@ -1999,7 +1999,7 @@ Usare questa API per recuperare tutti gli avvisi o filtrati da una console di ge
 
 #### <a name="alert-fields"></a>Campi avviso
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **ID** | Numeric | No | - |
 | **time** | Numeric | No | Epoch (UTC) |
@@ -2013,7 +2013,7 @@ Usare questa API per recuperare tutti gli avvisi o filtrati da una console di ge
 
 #### <a name="additional-information-fields"></a>Campi informazioni aggiuntive
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **description** | string | No | - |
 | **informazioni** | Matrice JSON | No | string |
@@ -2154,7 +2154,7 @@ Oggetto JSON che rappresenta l'azione da eseguire sull'avviso che contiene l'UUI
 
 #### <a name="action-fields"></a>Campi azione
 
-| Nome | Tipo | Nullable | Elenco di valori |
+| Nome | Type | Nullable | Elenco di valori |
 |--|--|--|--|
 | **action** | string | No | handle o handleAndLearn |
 
@@ -2178,7 +2178,7 @@ Matrice di oggetti JSON che rappresentano i dispositivi.
 #### <a name="response-fields"></a>Campi di risposta
 
 
-| Nome | Tipo | Nullable | Descrizione |
+| Nome | Type | Nullable | Descrizione |
 |--|--|--|--|
 | **contenuto/errore** | string | No | Se la richiesta ha esito positivo, viene visualizzata la proprietà Content. In caso contrario, viene visualizzata la proprietà Error. |
 
@@ -2356,7 +2356,7 @@ Matrice di oggetti JSON che rappresentano le operazioni della finestra di manute
 
 #### <a name="response-structure"></a>Struttura della risposta
 
-| Nome | Tipo | Aggiungere commenti | Nullable |
+| Nome | Type | Commento | Nullable |
 |--|--|--|--|
 | **dateTime** | string | Esempio: "2012-04-23T18:25:43.511 Z" | no |
 | **ID ticket** | string | Esempio: "9a5fe99c-D914-4BDA-9332-307384fe40bf" | no |
@@ -2364,7 +2364,7 @@ Matrice di oggetti JSON che rappresentano le operazioni della finestra di manute
 | **motori** | Matrice di stringhe | - | sì |
 | **sensorIds** | Matrice di stringhe | - | sì |
 | **subnet** | Matrice di stringhe | - | sì |
-| **TTL** | Numeric | - | sì |
+| **ttl** | Numeric | - | sì |
 | **operationType** | string | I valori sono "OPEN", "UPDATE" e "CLOSE" | no |
 
 ### <a name="authenticate-user-credentials"></a>Autenticare le credenziali utente

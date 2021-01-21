@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 01/12/2021
 ms.author: jeedes
-ms.openlocfilehash: b9a85c7093d0f42ac97c4a548ba6f0feebae8b89
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 1c5fa1c704e51026d5cd4defdb7f5e85827ccb9b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350722"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624793"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con NetDocuments
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare NetDocuments con Azure Active Direc
 * Controllare in Azure AD chi può accedere a NetDocuments.
 * Abilitare gli utenti per l'accesso automatico a NetDocuments con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,14 +43,14 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Per configurare l'integrazione di NetDocuments in Azure AD, è necessario aggiungere NetDocuments dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **NetDocuments** nella casella di ricerca.
 1. Selezionare **NetDocuments** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-netdocuments"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per NetDocuments
+## <a name="configure-and-test-azure-ad-sso-for-netdocuments"></a>Configurare e testare Azure AD SSO per NetDocuments
 
 Configurare e testare l'accesso SSO di Azure AD con NetDocuments usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in NetDocuments.
 
@@ -69,7 +67,7 @@ Per configurare e testare l'accesso SSO di Azure AD con NetDocuments, completare
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **NetDocuments** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **NetDocuments** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -77,22 +75,46 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    a. Nella casella di testo **URL di accesso** Digitare uno dei seguenti modelli di URL:
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
-    
-    c. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `http://netdocuments.com/VAULT`
+    |URL accesso|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
+
+    b. Nella casella di testo **identificatore (ID entità)** Digitare uno degli URL:
+
+    |Identificatore|
+    |-----------|
+    |`http://netdocuments.com/VAULT`|
+    |`http://netdocuments.com/EU`|
+    |`http://netdocuments.com/AU`|
+    |`http://netdocuments.com/DE`|
+    |
+
+    c. Nella casella di testo **URL di risposta** Digitare uno dei seguenti modelli di URL:
+
+    |URL di risposta|
+    |-----------|
+    |`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://eu.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://de.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |`https://au.netdocuments.com/neWeb2/docCent.aspx?whr=<Repository ID>`|
+    |
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso Single Sign-On effettivi. L'ID repository è un valore che inizia con **CA-** seguito da un codice di 8 caratteri associato al repository NetDocuments. Per altre informazioni, è possibile esaminare il [documento del supporto relativo all'identità federata di NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login). In alternativa, è possibile contattare il [team di supporto clienti di NetDocuments](https://support.netdocuments.com/hc/) per ottenere questi valori, in caso di difficoltà nella configurazione riscontrate usando le informazioni sopra riportate. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione NetDocuments prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione NetDocuments prevede che **nameidentifier** sia mappato a **employeeid** o a qualsiasi altra attestazione applicabile all'organizzazione come **nameidentifier**, di conseguenza è necessario modificare il mapping dell'attributo. A tale scopo, fare clic sull'icona **Modifica** e modificare il mapping.
+1. L'applicazione NetDocuments prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione NetDocuments prevede che **NameIdentifier** sia mappato con **ObjectID** o qualsiasi altra attestazione applicabile all'organizzazione come **NameIdentifier**, quindi è necessario modificare il mapping degli attributi facendo clic sull'icona di **modifica** e modificare il mapping degli attributi.
 
     ![image](common/edit-attribute.png)
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
+1. Nella sezione **certificato di firma SAML** della pagina **configurare Single Sign-on con SAML** trovare **URL dei metadati di Federazione dell'app** e copiare l'URL.
 
-    ![Collegamento di download del certificato](common/metadataxml.png)
+    ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
 1. Nella sezione **Configura NetDocuments** copiare gli URL appropriati in base alle proprie esigenze.
 
@@ -117,15 +139,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **NetDocuments**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-netdocuments-sso"></a>Configurare l'accesso Single Sign-On per NetDocuments
@@ -136,7 +152,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 3. Selezionare **Security Center** (Centro sicurezza).
    
-    ![Screenshot che mostra Security Center selezionato da Legal Documents (Documenti legali).](./media/netdocuments-tutorial/security-center.png "Centro sicurezza")
+    ![Repository](./media/netdocuments-tutorial/security-center.png "Centro sicurezza")
 
 4. Selezionare **Advanced Authentication** (Autenticazione avanzata).
     
@@ -144,9 +160,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 5.  Nella scheda **Federated ID** (ID federato) seguire questa procedura:   
    
-    ![Identità federata](./media/netdocuments-tutorial/federated-id.png "Identità federata")
+    [![Identità federata](./media/netdocuments-tutorial/federated-id.png "Identità federata")](./media/netdocuments-tutorial/federated-id.png#lightbox)
    
-    a. Come **Federated identity server type** (Tipo di server identità federata) selezionare **Active Directory Federation Services**.
+    a. Per **tipo server identità federata** selezionare come **Windows Azure Active Directory**.
     
     b.  Selezionare **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
     
@@ -166,7 +182,7 @@ Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario
 
 3. Selezionare **Utenti e gruppi**.
    
-    ![Screenshot che mostra l'opzione Users & Groups selezionata da Legal Documents.](./media/netdocuments-tutorial/users-groups.png "Repository")
+    ![Utenti e gruppi](./media/netdocuments-tutorial/users-groups.png "Repository")
 
 4. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica di un account valido di Azure Active Directory di cui eseguire il provisioning, quindi fare clic su **Add User** (Aggiungi utente).
    
@@ -177,16 +193,15 @@ Per consentire agli utenti di Azure AD di accedere a NetDocuments, è necessario
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di NetDocuments nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di NetDocuments per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di NetDocuments, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso di NetDocuments e avviare il flusso di accesso da qui.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro NetDocuments in My Apps (app personali), si dovrebbe accedere automaticamente al NetDocuments per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Provare NetDocuments con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato NetDocuments, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

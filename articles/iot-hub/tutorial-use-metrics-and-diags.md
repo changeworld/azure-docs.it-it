@@ -1,6 +1,6 @@
 ---
-title: Configurare e usare metriche e log con un hub IoT di Azure
-description: Informazioni su come configurare e usare metriche e log con un hub IoT di Azure. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere.
+title: 'Esercitazione: configurare e usare metriche e log con un hub Azure'
+description: "Esercitazione: informazioni su come configurare e usare le metriche e i log con un hub Azure. Vengono forniti i dati da analizzare per facilitare la diagnosi dei problemi che l'hub potrebbe avere."
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: a16dbeedc2362f4a263d59a673dbb4358f7ba034
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
-ms.translationtype: HT
+ms.openlocfilehash: bf834a6dd648ffc8f4b1633dbb383f33cd99335f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436488"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625200"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-logs-with-an-iot-hub"></a>Esercitazione: Configurare e usare metriche e log con un hub IoT
 

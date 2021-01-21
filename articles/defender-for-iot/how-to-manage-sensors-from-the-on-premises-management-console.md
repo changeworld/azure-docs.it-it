@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 36db1b23d8fb17cec4fe981c938f8c7003543b4d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839832"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624592"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gestire i sensori dalla console di gestione
 
@@ -150,7 +150,7 @@ I sensori sono protetti da cinque difensori per i motori di Internet delle cose.
 | Motore di violazione dei criteri | Si verifica una violazione dei criteri con una deviazione dal comportamento di base definito nei criteri appresi o configurati. | Avviso "agente utente HTTP non autorizzato". Questo avviso indica che un'applicazione che non è stata appresa o approvata dal criterio viene usata come client HTTP in un dispositivo. Potrebbe trattarsi di un nuovo Web browser o di un'applicazione su tale dispositivo. |
 | Motore malware | Il motore di malware rileva un'attività di rete dannosa. | Avviso "sospetto di attività dannosa (Stuxnet)". Questo avviso indica che il sensore ha rilevato un'attività di rete sospetta nota come correlata al malware Stuxnet, che è una minaccia permanente avanzata destinata a controllo industriale e reti SCADA. |
 | Motore anomalie | Il motore di malware rileva un'anomalia nel comportamento di rete. | "Comportamento periodico nel canale di comunicazione". Si tratta di un componente che controlla le connessioni di rete e rileva il comportamento periodico o ciclico della trasmissione dei dati, che è comune nelle reti industriali. |
-| Motore operativo | Questo motore rileva gli eventi imprevisti operativi o le entità che non funzionano correttamente. | Avviso "asset sospettato di essere disconnesso (senza risposta)". Questo avviso viene attivato quando un dispositivo non risponde a richieste per un periodo predefinito. Potrebbe indicare un arresto del dispositivo, la disconnessione o il malfunzionamento.
+| Motore operativo | Questo motore rileva gli eventi imprevisti operativi o le entità che non funzionano correttamente. | `Device is Suspected to be Disconnected (Unresponsive)` avviso. Questo avviso viene attivato quando un dispositivo non risponde a richieste per un periodo predefinito. Potrebbe indicare un arresto del dispositivo, la disconnessione o il malfunzionamento.
 |
 
 Per abilitare o disabilitare i motori per i sensori connessi:
@@ -315,6 +315,6 @@ Per configurare un server SMB in modo che sia possibile salvare un backup del se
 
 9. Impostare `Backup.shared_location` su `<backup_folder_name_on_cyberx_server>`.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Gestire singoli sensori](how-to-manage-individual-sensors.md)

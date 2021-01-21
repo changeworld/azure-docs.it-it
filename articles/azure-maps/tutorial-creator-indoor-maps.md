@@ -8,20 +8,18 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eab8a2729209bb0023662b652f862b4fa678470e
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905724"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625016"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Esercitazione: Usare Creator (anteprima) per creare piante di interni
 
 > [!IMPORTANT]
 > I servizi Creator di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 Questa esercitazione mostra come creare piante di interni. Questa esercitazione descrive come usare l'API per:
 
@@ -411,6 +409,10 @@ Un set di tessere è un set di tessere vettoriali che esegue il rendering sulla 
 L'[API Feature Get States](/rest/api/maps/featurestate/getstatespreview) consente di recuperare lo stato di una funzionalità usando la relativa funzionalità `ID`. È anche possibile eliminare i set di stati e le relative risorse usando l'[API Feature State Delete](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Per informazioni sui diversi servizi Creator di Mappe di Azure (anteprima) descritti in questo articolo, vedere [Piante di interni di Creator](creator-indoor-maps.md).
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non sono presenti risorse che richiedono la pulizia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

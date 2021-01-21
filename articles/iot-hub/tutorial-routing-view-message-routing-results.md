@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i risultati del routing di messaggi nell'hub IoT di Azure (.NET) | Microsoft Docs
-description: Dopo aver configurato tutte le risorse usando la prima parte dell'esercitazione, aggiungere la funzionalità di routing dei messaggi ad Analisi di flusso di Azure e visualizzazione dei risultati in Power BI.
+title: Esercitazione-visualizzare i risultati del routing dei messaggi dell'hub Azure Internet (.NET) | Microsoft Docs
+description: "Esercitazione: dopo aver configurato tutte le risorse usando la prima parte dell'esercitazione, aggiungere la possibilità di indirizzare i messaggi ad analisi di flusso di Azure e visualizzare i risultati in Power BI."
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 14f6fc685e99060474a17503cb13ba09a61a5a9a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.openlocfilehash: 0db05c8caae8483de3b55448bfbe6b2bcfc23187
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149211"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625283"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -280,7 +280,7 @@ Accedere all'account [Power BI](https://powerbi.microsoft.com/). Passa all'area 
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usare l'interfaccia della riga di comando di Azure per pulire le risorse
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). `$resourceGroup` è stato impostato di nuovo su **ContosoResources** all'inizio di questa esercitazione.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

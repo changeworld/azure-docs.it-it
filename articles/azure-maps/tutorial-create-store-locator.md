@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 398e964ad773e4c015129c6dd3d4784f1300e16b
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: 801c2fe1710952a12584bf10dd8e5c77de3b839c
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905775"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625099"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -935,6 +935,10 @@ In questa esercitazione è stato illustrato come creare un localizzatore di punt
  * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Per [visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [visualizzare l'esempio in esecuzione](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) e ottenere altre informazioni su copertura e funzionalità di Mappe di Azure, usare [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md). È possibile anche [usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md) da applicare alla logica di business.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non sono presenti risorse che richiedono la pulizia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 125ca501dbad74263f32632db44eebd097c3b0a1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.openlocfilehash: dbf2331dc6bcd3187175554b61d347e8bb2c04a4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896702"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98625000"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Esercitazione: Trovare e visualizzare percorsi per diverse modalità di viaggio con Mappe di Azure
 
@@ -39,7 +39,7 @@ Questa esercitazione illustra come usare il [servizio di pianificazione percorso
 
 La procedura seguente illustra come creare e visualizzare il controllo mappa in una pagina Web.
 
-1. Nel computer locale creare un nuovo file con il nome **MapTruckRoute.html** .
+1. Nel computer locale creare un nuovo file con il nome **MapTruckRoute.html**.
 2. Copiare e incollare il markup HTML seguente nel file.
 
     ```HTML
@@ -121,7 +121,7 @@ La procedura seguente illustra come creare e visualizzare il controllo mappa in 
 
 2. Salvare il file **MapTruckRoute.html** e aggiornare la pagina nel browser. Se si fa zoom avanti su una città, ad esempio Los Angeles, si noterà che le strade vengono visualizzate con i dati aggiornati sul flusso del traffico.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Rendering di una mappa di base del controllo mappa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="Visualizzare il traffico su una mappa":::
 
 <a id="queryroutes"></a>
 
@@ -197,7 +197,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 
 3. Salvare il file **TruckRoute.html** e aggiornare il browser. La mappa è ora centrata sulla città di Seattle. L'indicatore blu a goccia contrassegna il punto di partenza. L'indicatore rotondo a goccia contrassegna il punto di arrivo.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Rendering di una mappa di base del controllo mappa":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="Visualizzare la mappa con i punti di partenza e di arrivo":::
 
 <a id="multipleroutes"></a>
 
@@ -206,7 +206,7 @@ In questa esercitazione verranno calcolati due itinerari e ne verrà eseguito il
 Questa sezione illustra come usare il servizio di pianificazione percorso di Mappe di Azure per ottenere le indicazioni da un punto a un altro, in base alla modalità di trasporto. Verranno usate due modalità di trasporto: camion e auto.
 
 >[!TIP]
->Il servizio di pianificazione percorso include le API per pianificare il percorso *più veloce* , *più breve* , *più ecologico* o *più entusiasmante* tra due punti, in base alla distanza, alle condizioni del traffico e alla modalità di trasporto usata. Il servizio consente anche di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](/rest/api/maps/route/getroutedirections).
+>Il servizio di pianificazione percorso include le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più entusiasmante* tra due punti, in base alla distanza, alle condizioni del traffico e alla modalità di trasporto usata. Il servizio consente anche di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](/rest/api/maps/route/getroutedirections).
 
 1. Nella funzione `GetMap`, all'interno del gestore dell'evento `ready` del controllo, aggiungere quanto segue al codice JavaScript.
 
@@ -277,7 +277,7 @@ Questa sezione illustra come usare il servizio di pianificazione percorso di Map
 
 4. Salvare il file **TruckRoute.html** e aggiornare il Web browser. La mappa dovrebbe ora visualizzare i percorsi del camion e dell'auto.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Rendering di una mappa di base del controllo mappa":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="Percorsi di un vicolo privato e uno commerciale su una mappa con il servizio pianificazione percorsi di Azure":::
 
     Il percorso del camion viene visualizzato con una linea spessa blu. Il percorso dell'auto viene visualizzato con una linea sottile viola. Il percorso dell'auto attraversa il lago Washington tramite l'autostrada I-90, passando nei tunnel sotto le aree residenziali. e pertanto è vietato per i carichi di rifiuti pericolosi. Il percorso del camion, che specifica un tipo di carico `USHazmatClass2`, è indirizzato verso un'autostrada diversa.
 
@@ -285,7 +285,9 @@ Questa sezione illustra come usare il servizio di pianificazione percorso di Map
 
 È possibile anche [Usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md)
 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
+Non sono presenti risorse che richiedono la pulizia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

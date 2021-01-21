@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
-ms.translationtype: HT
+ms.openlocfilehash: 3772988e9bf4f733323adae6c0527c8b811c4d04
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566351"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624457"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Esercitazione: Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando Griglia di eventi e App per la logica
 
@@ -242,4 +242,7 @@ Per eliminare tutte le risorse create in questa esercitazione, eliminare il grup
 * [Informazioni sull'ordinamento di eventi di connessione e disconnessione dispositivi](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * Informazioni sulle altre operazioni che è possibile eseguire con [Griglia di eventi](overview.md).
 
-Per un elenco completo dei connettori per App per la logica supportati, vedere [Panoramica dei connettori](/connectors/).
+Per un elenco completo dei connettori delle app per la logica supportati, vedere 
+
+> [!div class="nextstepaction"]
+> [Panoramica sui connettori](/connectors/).

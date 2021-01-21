@@ -1,5 +1,5 @@
 ---
-title: Comunicare con un'app del dispositivo in C tramite i flussi del dispositivo dell'hub IoT di Azure
+title: "Guida introduttiva: comunicare con l'app per dispositivi in C con i flussi di dispositivi dell'hub Azure."
 description: In questo argomento di avvio rapido viene eseguita un'applicazione sul lato dispositivo in C che comunica con un dispositivo IoT tramite un flusso del dispositivo.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: de310846ad0449a0dac7eccd60d82d4c68ef519b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 403fe82c46c90c5f8efb48ce0a394a2f63488fed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832210"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624626"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Guida introduttiva: Comunicare con un'applicazione del dispositivo in C tramite i flussi dispositivo dell'hub IoT (anteprima)
 
@@ -114,7 +114,7 @@ Per questo argomento di avvio rapido si userà [Azure IoT SDK per dispositivi pe
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
+Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In questa sezione si usa Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) per registrare un dispositivo simulato.
 
 1. Per creare l'identità del dispositivo, eseguire il comando seguente in Cloud Shell:
 
@@ -132,7 +132,7 @@ Per poter connettere un dispositivo, è necessario registrarlo con l'hub IoT. In
    > Sostituire il segnaposto *YourIoTHubName* con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
     Prendere nota della stringa di connessione del dispositivo restituita per usarla in seguito in questo argomento di avvio rapido. Sarà simile a quanto indicato nell'esempio seguente:

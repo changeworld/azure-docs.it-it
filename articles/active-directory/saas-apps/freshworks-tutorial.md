@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 01/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 40b8ff2fa32ae64b1857da4b7e4ef0cb997e4285
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: HT
+ms.openlocfilehash: 0070a91706fc7efe81a7679801e8c10ea9a05242
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92450629"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624743"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshworks"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Freshworks
 
@@ -25,8 +25,6 @@ Questa esercitazione descrive come integrare Freshworks con Azure Active Directo
 * Controllare in Azure AD chi può accedere a Freshworks.
 * Abilitare gli utenti per l'accesso automatico a Freshworks con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,25 +42,25 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Freshworks supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-freshworks-from-the-gallery"></a>Aggiunta di Freshworks dalla raccolta
+## <a name="add-freshworks-from-the-gallery"></a>Aggiungere Freshworks dalla raccolta
 
 Per configurare l'integrazione di Freshworks in Azure AD, è necessario aggiungere Freshworks dalla raccolta all'elenco di app SaaS gestite.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Freshworks** nella casella di ricerca.
 1. Selezionare **Freshworks** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-freshworks"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Freshworks
+## <a name="configure-and-test-azure-ad-sso-for-freshworks"></a>Configurare e testare Azure AD SSO per Freshworks
 
 Configurare e testare l'accesso SSO di Azure AD con Freshworks usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Freshworks.
 
-Per configurare e testare l'accesso SSO di Azure AD con Freshworks, completare le procedure di base seguenti:
+Per configurare e testare Azure AD SSO con Freshworks, seguire questa procedura:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso Single Sign-On di Freshworks](#configure-freshworks-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Freshworks](#create-freshworks-test-user)** : per avere una controparte di B.Simon in Freshworks collegata alla rappresentazione dell'utente in Azure AD.
@@ -72,9 +70,9 @@ Per configurare e testare l'accesso SSO di Azure AD con Freshworks, completare l
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Freshworks** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Freshworks** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -109,7 +107,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -124,22 +122,16 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Freshworks**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-
-   ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
 1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Collegamento Aggiungi utente](common/add-assign-user.png)
-
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
 ## <a name="configure-freshworks-sso"></a>Configurare l'accesso Single Sign-On di Freshworks
 
 1. Aprire una nuova finestra del Web browser, accedere al sito aziendale di Freshworks come amministratore e seguire questa procedura:
 
-2. Sul lato sinistro del menu fare clic sull'icona **Sicurezza** , quindi selezionare l'opzione **Single Sign-On** e **SSO SAML** in **Metodi di autenticazione**.
+2. Sul lato sinistro del menu fare clic sull'icona **Sicurezza**, quindi selezionare l'opzione **Single Sign-On** e **SSO SAML** in **Metodi di autenticazione**.
 
     ![Screenshot che mostra la sezione "Security - Authentication Methods" con l'opzione "Single sign-on" attivata e "SAML SSO" selezionato.](./media/freshworks-tutorial/configure01.png)
 
@@ -163,16 +155,14 @@ In questa sezione viene creato un utente di nome B.Simon in Freshworks. Collabor
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di Freshworks nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Freshworks per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+* Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di Freshworks, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+* Passare direttamente all'URL di accesso di Freshworks e avviare il flusso di accesso da qui.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Freshworks in My Apps (app personali), si dovrebbe accedere automaticamente al Freshworks per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
-
-- [Provare Freshworks con Azure AD](https://aad.portal.azure.com/)
+Dopo aver configurato Freshworks, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

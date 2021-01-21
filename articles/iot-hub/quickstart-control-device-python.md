@@ -1,5 +1,5 @@
 ---
-title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (Python) | Microsoft Docs
+title: "Guida introduttiva: controllare un dispositivo dalla Guida introduttiva all'hub Internet Azure (Python) | Microsoft Docs"
 description: In questa guida introduttiva vengono eseguite due applicazioni Python di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-python
 - devx-track-azurecli
 ms.date: 09/14/2020
-ms.openlocfilehash: 5db51e78a6770a642728cc058f425baf7c7e095b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 7ee30398ccfdad3ea7b28f277e45c2224de827e8
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832161"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624660"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Python)
 
@@ -68,7 +68,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
     **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
     ```
 
     Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:

@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (C#) | Microsoft Docs
+title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva all'hub Azure. (C#) | Microsoft Docs
 description: In questa guida introduttiva si eseguono due applicazioni C# di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: robinsh
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - devx-track-azurecli
 ms.date: 06/01/2020
-ms.openlocfilehash: b515274ef4bcf494c071ddb487590ff9cdccf4c0
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 914df5b80dee7da041b268a3aaf25ac493d0cf5b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121482"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624440"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-service-application-net"></a>Avvio rapido: Inviare dati di telemetria da un dispositivo a un hub IoT e leggerli con un'applicazione di servizio (.NET)
 

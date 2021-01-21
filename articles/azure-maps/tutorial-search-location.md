@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 8cc7c1e0b776574ec7908557108e2cda49bb2a11
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.openlocfilehash: 31dd1c06b0f17b469454593131ccdc93b45b2446
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896661"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624968"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Esercitazione: Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -41,7 +41,7 @@ Questa esercitazione illustra come configurare un account con Mappe di Azure e q
 
 L'API Controllo mappa è una pratica libreria client. Questa API consente di integrare facilmente Mappe di Azure nell'applicazione Web. Nasconde la complessità del codice essenziale delle chiamate al servizio REST e consente di migliorare la produttività con componenti personalizzabili. La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa.
 
-1. Nel computer locale creare un nuovo file con il nome **MapSearch.html** .
+1. Nel computer locale creare un nuovo file con il nome **MapSearch.html**.
 2. Aggiungere al file i componenti HTML seguenti:
 
    ```HTML
@@ -246,6 +246,10 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
     ![Controllo mappa e servizio di ricerca di Azure](./media/tutorial-search-location/popup-map.png)
 
 Per visualizzare il codice completo per questa esercitazione, fare clic [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/search.html). Per visualizzare l'esempio in esecuzione, fare clic [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Non sono presenti risorse che richiedono la pulizia.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
