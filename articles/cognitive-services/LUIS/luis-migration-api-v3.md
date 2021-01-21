@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 59cf250a9db5a1f6759495c1b5a3c48cb07cde15
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95018787"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624304"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifiche all'endpoint di stima per V3
 
@@ -56,7 +56,7 @@ Se si usa bot Framework, Controllo ortografico Bing V7 o si vuole eseguire la mi
 Se non si conosce alcuna applicazione client o integrazione (bot Framework e Controllo ortografico Bing V7), si è interessati alla migrazione della creazione di app LUIS e dell'endpoint di stima allo stesso tempo, iniziare a usare l'endpoint di stima V3. L'endpoint di stima v2 sarà ancora disponibile ed è una corretta strategia di fallback.
 
 
-## <a name="not-supported"></a>Non supportate
+## <a name="not-supported"></a>Non supportato
 
 ### <a name="bing-spell-check"></a>Controllo ortografico Bing
 
@@ -66,9 +66,6 @@ Questa API non è supportata nell'endpoint di stima V3-continuare a usare l'endp
 
 Continuare a usare l'endpoint di stima dell'API v2 fino a quando non viene rilasciato V 4.7 di bot Framework.
 
-## <a name="v2-api-deprecation"></a>Deprecazione dell'API v2
-
-L'API di stima V2 non verrà deprecata per almeno 9 mesi dopo l'anteprima V3, 8 giugno 2020.
 
 ## <a name="endpoint-url-changes"></a>Modifiche dell'URL dell'endpoint
 
@@ -107,9 +104,9 @@ Per eseguire una query in base alla versione, è prima di tutto necessario [pubb
 |--|--|--|--|--|
 |`dynamicLists`|array|Solo V3|Non obbligatorio.|Gli [elenchi dinamici](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) consentono di estendere un'entità di elenco con training e pubblicato esistente, già nell'app Luis.|
 |`externalEntities`|array|Solo V3|Non obbligatorio.|Le [entità esterne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) offrono all'app Luis la possibilità di identificare ed etichettare entità durante il runtime, che possono essere usate come funzionalità per le entità esistenti. |
-|`options.datetimeReference`|string|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
+|`options.datetimeReference`|stringa|Solo V3|Nessun valore predefinito|Utilizzato per determinare l' [offset del datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Il formato di datetimeReference è [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Solo V3|false|Specifica se l' [entità esterna dell'utente (con lo stesso nome dell'entità esistente)](schema-change-prediction-runtime.md#override-existing-model-predictions) viene utilizzata o se per la stima viene utilizzata l'entità esistente del modello. |
-|`query`|string|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3** la funzionalità viene passata nel `query` parametro.|
+|`query`|stringa|Solo V3|Obbligatorio.|**Nella versione V2**, l'espressione da stimare si trova nel `q` parametro. <br><br>**Nella V3** la funzionalità viene passata nel `query` parametro.|
 
 ## <a name="response-changes"></a>Modifiche della risposta
 
@@ -268,9 +265,6 @@ In V3, lo stesso risultato con il `verbose` flag per restituire i metadati dell'
 
 Informazioni sui [concetti](schema-change-prediction-runtime.md) relativi all'estensione dell'app al runtime di previsione.
 
-## <a name="deprecation"></a>Deprecazione
-
-L'API v2 non verrà deprecata per almeno 9 mesi dopo l'anteprima V3.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

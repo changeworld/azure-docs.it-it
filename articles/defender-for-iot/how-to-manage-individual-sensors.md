@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 68fa3ea15199ec1d9cc99f92f497847fb029acd6
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 16031c3d67b075e962c73fbb38ada36c7efeddad
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539573"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621215"
 ---
 # <a name="manage-individual-sensors"></a>Gestire singoli sensori
 
@@ -315,7 +315,7 @@ Per convertire i certificati e le chiavi in formati diversi per renderli compati
 
 ## <a name="connect-a-sensor-to-the-management-console"></a>Connettere un sensore alla console di gestione
 
-Questa sezione descrive come garantire la connessione tra il sensore e la console di gestione locale. Eseguire questa operazione se si sta lavorando in una rete gapped e si desidera inviare informazioni sugli asset e sugli avvisi alla console di gestione dal sensore. Questa connessione consente inoltre alla console di gestione di effettuare il push delle impostazioni di sistema al sensore ed eseguire altre attività di gestione sul sensore.
+Questa sezione descrive come garantire la connessione tra il sensore e la console di gestione locale. È necessario eseguire questa operazione se si utilizza una rete gapped e si desidera inviare informazioni sul dispositivo e sugli avvisi alla console di gestione dal sensore. Questa connessione consente inoltre alla console di gestione di effettuare il push delle impostazioni di sistema al sensore ed eseguire altre attività di gestione sul sensore.
 
 Per connettersi:
 
@@ -504,7 +504,7 @@ Nella console vengono visualizzati gli errori di ripristino.
 
 La procedura seguente descrive come aggiornare un sensore autonomo usando la console del sensore. Il processo di aggiornamento richiede circa 30 minuti.
 
-1. Passare al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Passa a Defender for Internet.
 
@@ -562,7 +562,7 @@ Per accedere alle proprietà di sistema:
 
 3. Selezionare **proprietà di sistema** nella sezione **generale** .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Ricerca e pacchetti di intelligence per le minacce](how-to-work-with-threat-intelligence-packages.md)
 

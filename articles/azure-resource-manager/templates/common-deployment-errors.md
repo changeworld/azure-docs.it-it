@@ -3,13 +3,13 @@ title: Risolvere gli errori di distribuzione comuni
 description: Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 09/09/2020
-ms.openlocfilehash: 785a74184cae8523b99da7f647ca87fda53c8648
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/20/2021
+ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185828"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622812"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -34,7 +34,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | DeploymentNameLengthLimitExceeded | I nomi di distribuzione sono limitati a 64 caratteri.  | |
 | DeploymentFailed | DeploymentFailed è un errore generale che non fornisce i dettagli necessari per risolvere l'errore. Nei dettagli cercare un codice di errore che fornisca maggiori informazioni. | [Trovare il codice di errore](#find-error-code) |
 | DeploymentQuotaExceeded | Se si raggiunge il limite di 800 distribuzioni per gruppo di risorse, eliminare dalla cronologia le distribuzioni che non sono più necessarie. | [Risolvere l'errore quando il numero di distribuzioni supera 800](deployment-quota-exceeded.md) |
-| DeploymentSizeExceeded | Semplificare il modello per ridurre le dimensioni. | [Risolvere gli errori delle dimensioni del modello](error-job-size-exceeded.md) |
+| DeploymentJobSizeExceeded | Semplificare il modello per ridurre le dimensioni. | [Risolvere gli errori delle dimensioni del modello](error-job-size-exceeded.md) |
 | DnsRecordInUse | Il nome del record DNS deve essere univoco. Immettere un nome diverso. | |
 | ImageNotFound | Controllare le impostazioni dell'immagine della macchina virtuale. |  |
 | InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |

@@ -3,12 +3,12 @@ title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: acd741101928f5a2dfd72eab1598af6e4556a3d1
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 576df12a9d53ec3585f8691016cd250bf1ba4be3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96022141"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623108"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -57,7 +57,7 @@ Gli SDK di Azure ufficiali usano in genere il protocollo AMQP per l'invio e la r
 
 [!INCLUDE [service-bus-websockets-options](../../includes/service-bus-websockets-options.md)]
 
-Il precedente pacchetto WindowsAzure. ServiceBus per la .NET Framework dispone di un'opzione per usare il "protocollo di messaggistica del bus di servizio" (SBMP) legacy, noto anche come "NetMessaging". Questo protocollo usa le porte TCP 9350-9354. La modalità predefinita per questo pacchetto prevede di rilevare automaticamente se tali porte sono disponibili per la comunicazione e di passare a WebSocket con TLS sulla porta 443, in caso contrario. È possibile eseguire l'override di questa impostazione e forzare questa modalità impostando `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) sull' [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet) impostazione, che viene applicata globalmente all'applicazione.
+Il precedente pacchetto WindowsAzure. ServiceBus per la .NET Framework dispone di un'opzione per usare il "protocollo di messaggistica del bus di servizio" (SBMP) legacy, noto anche come "NetMessaging". Questo protocollo usa le porte TCP 9350-9354. La modalità predefinita per questo pacchetto prevede di rilevare automaticamente se tali porte sono disponibili per la comunicazione e di passare a WebSocket con TLS sulla porta 443, in caso contrario. È possibile eseguire l'override di questa impostazione e forzare questa modalità impostando `Https` [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode) sull' [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity) impostazione, che viene applicata globalmente all'applicazione.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quali indirizzi IP è necessario aggiungere all'elenco Consenti?
 Per trovare gli indirizzi IP corretti da aggiungere all'elenco Consenti per le connessioni, seguire questa procedura:

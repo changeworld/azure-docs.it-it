@@ -14,19 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0115fa34b10805570b6e9d8d09ae96fc169dfc
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77588502"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621132"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Connettere Barracuda CloudGen Firewall
 
 Il connettore Barracuda CloudGen firewall (CGFW) consente di connettere facilmente i log di Barracuda CGFW con Azure Sentinel, visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. In questo modo è possibile ottenere informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza.
-
-
-
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +33,7 @@ Il connettore Barracuda CloudGen firewall (CGFW) consente di connettere facilmen
 
 ## <a name="connect-azure-sentinel-to-barracuda-cloudgen-firewall"></a>Connettere Sentinel di Azure a Barracuda CloudGen firewall
 
-1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >  **Data connectors** e quindi selezionare il connettore **Barracuda CloudGen firewall** .
+1. Nel portale di Azure passare a connettori dati **sentinella di Azure**  >   e quindi selezionare il connettore **Barracuda CloudGen firewall** .
 
 2. Selezionare **Apri connettore pagina**.
 

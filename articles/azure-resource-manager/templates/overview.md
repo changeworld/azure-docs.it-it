@@ -2,13 +2,13 @@
 title: Panoramica dei modelli
 description: Vengono descritti i vantaggi dell'utilizzo di modelli di Azure Resource Manager (modelli ARM) per la distribuzione di risorse.
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c4995791b784351219458c546442d082e2396315
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 01/20/2021
+ms.openlocfilehash: dd9207ca1d0397b7dce63eb826567f07b1d0b892
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657312"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621840"
 ---
 # <a name="what-are-arm-templates"></a>Che cosa sono i modelli di Azure Resource Manager?
 
@@ -126,10 +126,16 @@ Se si immaginano livelli con cicli di vita separati, è possibile distribuire i 
 
 Per informazioni sui modelli annidati, vedere [Uso di modelli collegati con Azure Resource Manager](linked-templates.md).
 
+## <a name="share-templates"></a>Condividi modelli
+
+Dopo aver creato il modello, è possibile condividerlo con altri utenti dell'organizzazione. Le [specifiche dei modelli](template-specs.md) consentono di archiviare un modello come tipo di risorsa. Usare il controllo degli accessi in base al ruolo per gestire l'accesso alla specifica del modello. Gli utenti con accesso in lettura alla specifica del modello possono distribuirlo, ma non modificare il modello.
+
+Questo approccio significa che è possibile condividere in modo sicuro i modelli che soddisfano gli standard dell'organizzazione.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per un'esercitazione dettagliata che illustra il processo di creazione di un modello, vedere [Esercitazione: Creare e distribuire il primo modello di Resource Manager](template-tutorial-create-first-template.md).
-* Per informazioni sui modelli ARM tramite un set guidato di moduli in Microsoft Learn, vedere [distribuire e gestire le risorse in Azure usando i modelli ARM](/learn/paths/deploy-manage-resource-manager-templates/).
+* Per informazioni sui modelli di ARM tramite un set guidato di moduli in Microsoft Learn, vedere [Distribuire e gestire le risorse in Azure usando i modelli di ARM](/learn/paths/deploy-manage-resource-manager-templates/).
 * Per informazioni sulle proprietà nei file di modello, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per informazioni sull'esportazione di modelli, vedere [Guida introduttiva: creare e distribuire modelli ARM usando il portale di Azure](quickstart-create-templates-use-the-portal.md).
 * Per le risposte alle domande più comuni, vedere [domande frequenti sui modelli ARM](frequently-asked-questions.md).

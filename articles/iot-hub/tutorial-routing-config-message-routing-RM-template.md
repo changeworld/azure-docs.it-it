@@ -1,6 +1,6 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure usando un modello di Azure Resource Manager
-description: Configurare il routing dei messaggi per l'hub IoT di Azure usando un modello di Azure Resource Manager
+title: "Esercitazione: configurare il routing dei messaggi per l'hub Azure Internet usando un modello di Azure Resource Manager"
+description: "Esercitazione: configurare il routing dei messaggi per l'hub Azure Internet usando un modello di Azure Resource Manager"
 author: robinsh
 manager: philmeagit st
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: HT
+ms.openlocfilehash: 53217340b0d91f3de77e5e0d8c0a82e30599d6ed
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480106"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621429"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare un modello di Azure Resource Manager per configurare il routing dei messaggi per l'hub IoT
 
@@ -30,7 +30,7 @@ ms.locfileid: "92480106"
 
 Per la seconda parte di questa esercitazione, scaricare ed eseguire un'applicazione di Visual Studio per inviare messaggi all'hub IoT. Il download include una cartella contenente il modello di Azure Resource Manager e il file di parametri, oltre agli script dell'interfaccia della riga di comando di Azure e di PowerShell.
 
-Procedere a scaricare gli [esempi in C# di IoT di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il modello di Resource Manager e il file di parametri, denominati **template_iothub.json** e **template_iothub_parameters.json** , si trovano nel percorso /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
+Procedere a scaricare gli [esempi in C# di IoT di Azure](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Estrarre il file master.zip. Il modello di Resource Manager e il file di parametri, denominati **template_iothub.json** e **template_iothub_parameters.json**, si trovano nel percorso /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
 
 ## <a name="create-your-resources"></a>Creare le risorse
 
@@ -46,49 +46,49 @@ La sezione seguente descrive i parametri usati.
 
 La maggior parte di questi parametri hanno valori predefiniti. Quelli che terminano con **_in** sono concatenati con *randomValue* per renderli univoci globali. 
 
-**randomValue** : un valore generato dalla data/ora corrente quando si distribuisce il modello. Questo campo non si trova nel file di parametri e viene generato dal modello stesso.
+**randomValue**: un valore generato dalla data/ora corrente quando si distribuisce il modello. Questo campo non si trova nel file di parametri e viene generato dal modello stesso.
 
 **subscriptionId:** viene impostato automaticamente sulla sottoscrizione in cui viene distribuito il modello. Non si trova nel file di parametri perché viene impostato automaticamente.
 
-**IoTHubName_in** : il nome dell'hub IoT di base, concatenato con randomValue per renderlo univoco globale.
+**IoTHubName_in**: il nome dell'hub IoT di base, concatenato con randomValue per renderlo univoco globale.
 
-**location** : l'area di Azure in cui si esegue la distribuzione, ad esempio "westus".
+**location**: l'area di Azure in cui si esegue la distribuzione, ad esempio "westus".
 
-**consumer_group** : il gruppo di consumer impostato per i messaggi trasferiti attraverso l'endpoint di routing. Viene usato per filtrare i risultati in Analisi di flusso di Azure. È ad esempio possibile scegliere di recuperare tutti i contenuti nell'intero flusso oppure, nel caso di dati in arrivo con consumer_group impostato su **Contoso** , configurare un flusso di Analisi di flusso di Azure (e un report di Power BI) per mostrare solo queste voci. Questo campo viene usato nella seconda parte dell'esercitazione.
+**consumer_group**: il gruppo di consumer impostato per i messaggi trasferiti attraverso l'endpoint di routing. Viene usato per filtrare i risultati in Analisi di flusso di Azure. È ad esempio possibile scegliere di recuperare tutti i contenuti nell'intero flusso oppure, nel caso di dati in arrivo con consumer_group impostato su **Contoso**, configurare un flusso di Analisi di flusso di Azure (e un report di Power BI) per mostrare solo queste voci. Questo campo viene usato nella seconda parte dell'esercitazione.
 
-**sku_name** : il livello per l'hub IoT. Il valore deve essere S1 o superiore; un livello gratuito non funziona con questa esercitazione perché non consente molteplici endpoint.
+**sku_name**: il livello per l'hub IoT. Il valore deve essere S1 o superiore; un livello gratuito non funziona con questa esercitazione perché non consente molteplici endpoint.
 
-**sku_units** : associato a **sku_name** , rappresenta il numero di unità dell'hub IoT che è possibile usare.
+**sku_units**: associato a **sku_name**, rappresenta il numero di unità dell'hub IoT che è possibile usare.
 
-**d2c_partitions** : il numero di partizioni usate per il flusso di eventi.
+**d2c_partitions**: il numero di partizioni usate per il flusso di eventi.
 
-**storageAccountName_in** : il nome dell'account di archiviazione da creare. I messaggi vengono instradati a un contenitore nell'account di archiviazione. Questo campo è concatenato con randomValue per renderlo univoco globale.
+**storageAccountName_in**: il nome dell'account di archiviazione da creare. I messaggi vengono instradati a un contenitore nell'account di archiviazione. Questo campo è concatenato con randomValue per renderlo univoco globale.
 
-**storageContainerName** : il nome del contenitore in cui vengono archiviati i messaggi instradati nell'account di archiviazione.
+**storageContainerName**: il nome del contenitore in cui vengono archiviati i messaggi instradati nell'account di archiviazione.
 
-**storage_endpoint** : il nome dell'endpoint dell'account di archiviazione usato per il routing dei messaggi.
+**storage_endpoint**: il nome dell'endpoint dell'account di archiviazione usato per il routing dei messaggi.
 
-**service_bus_namespace_in** : il nome dello spazio dei nomi del bus di servizio da creare. Questo valore viene concatenato con randomValue per renderlo univoco globale.
+**service_bus_namespace_in**: il nome dello spazio dei nomi del bus di servizio da creare. Questo valore viene concatenato con randomValue per renderlo univoco globale.
 
-**service_bus_queue_in** : il nome della coda del bus di servizio usata per il routing dei messaggi. Questo valore viene concatenato con randomValue per renderlo univoco globale.
+**service_bus_queue_in**: il nome della coda del bus di servizio usata per il routing dei messaggi. Questo valore viene concatenato con randomValue per renderlo univoco globale.
 
-**AuthRules_sb_queue** : indica le regole di autorizzazione per la coda del bus di servizio, usate per recuperare la stringa di connessione per la coda.
+**AuthRules_sb_queue**: indica le regole di autorizzazione per la coda del bus di servizio, usate per recuperare la stringa di connessione per la coda.
 
 ### <a name="variables"></a>variables
 
 Questi valori vengono usati nel modello e derivano prevalentemente dai parametri.
 
-**queueAuthorizationRuleResourceId** : il valore ResourceId per la regola di autorizzazione per la coda del bus di servizio. ResourceId viene a sua volta usato per recuperare la stringa di connessione per la coda.
+**queueAuthorizationRuleResourceId**: il valore ResourceId per la regola di autorizzazione per la coda del bus di servizio. ResourceId viene a sua volta usato per recuperare la stringa di connessione per la coda.
 
-**iotHubName** : il nome dell'hub IoT dopo la concatenazione con randomValue. 
+**iotHubName**: il nome dell'hub IoT dopo la concatenazione con randomValue. 
 
-**StorageAccountName** : il nome dell'account di archiviazione dopo la concatenazione con randomValue. 
+**StorageAccountName**: il nome dell'account di archiviazione dopo la concatenazione con randomValue. 
 
-**service_bus_namespace** : lo spazio dei nomi dopo la concatenazione con randomValue.
+**service_bus_namespace**: lo spazio dei nomi dopo la concatenazione con randomValue.
 
-**service_bus_queue** : il nome della coda del bus di servizio dopo la concatenazione con randomValue.
+**service_bus_queue**: il nome della coda del bus di servizio dopo la concatenazione con randomValue.
 
-**sbVersion** : la versione dell'API del bus di servizio da usare. In questo caso è "2017-04-01".
+**sbVersion**: la versione dell'API del bus di servizio da usare. In questo caso è "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Risorse: account di archiviazione e contenitore
 
@@ -364,7 +364,7 @@ Usare la finestra di Esplora file visualizzata per trovare i file nel disco loca
 
 Dopo il caricamento dei file, viene visualizzata una finestra di dialogo dei risultati simile a quella dell'immagine seguente.
 
-![Barra dei menu di Cloud Shell con l'icona Carica/Scarica file evidenziata](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
+![Cloud Shell barra dei menu con i risultati di caricamento/download evidenziati](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_results.png)
 
 I file vengono caricati nella condivisione usata dall'istanza di Cloud Shell. 
 

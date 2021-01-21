@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/09/2020
-ms.openlocfilehash: 13f9e2271dd18121ba740c843e99fae86c76821d
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 5b4ab207462955be3876dc1a25fae491e48a9cd2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845412"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621711"
 ---
 # <a name="welcome-to-azure-defender-for-iot"></a>Benvenuti in Azure Defender
 
 Le reti della tecnologia operativa (OT) potenziano molti degli aspetti più importanti della nostra società. Tuttavia, molte di queste tecnologie non sono state progettate tenendo conto della sicurezza e non possono essere protette con i controlli di sicurezza IT tradizionali. Nel frattempo, il Internet delle cose (tutto) sta abilitando una nuova ondata di innovazione con miliardi di dispositivi connessi, aumentando la superficie di attacco e il rischio.  
 
-Azure Defender per l'it è una soluzione di sicurezza unificata per l'identificazione di risorse, vulnerabilità e minacce per gli elementi del tutto. Consente di proteggere l'intero ambiente di Internet delle cose, se è necessario proteggere i dispositivi Internet o gli Internet esistenti o creare una sicurezza in nuove innovazioni.  
+Azure Defender per l'it è una soluzione di sicurezza unificata per identificare i dispositivi, le vulnerabilità e le minacce. Consente di proteggere l'intero ambiente di Internet delle cose, se è necessario proteggere i dispositivi Internet o gli Internet esistenti o creare una sicurezza in nuove innovazioni.  
 
 Azure Defender per Internet delle cose offre due set di funzionalità che soddisfano le esigenze dell'ambiente.
 
@@ -47,7 +47,7 @@ Le funzionalità di monitoraggio senza agenti in Azure Defender per l'IT offrono
 
 ### <a name="automatic-device-discovery"></a>Individuazione automatica dei dispositivi  
 
-Usa il monitoraggio della rete passiva e senza agenti per ottenere un inventario completo di tutte le tue risorse, i dettagli e il modo in cui comunicano, senza alcun effetto sulla rete Internet delle cose.  
+Usa il monitoraggio della rete passiva e senza agenti per ottenere un inventario completo di tutti i tuoi dispositivi, i dettagli e la modalità di comunicazione, senza alcun effetto sulla rete Internet degli elementi  
 
 ### <a name="proactive-visibility-into-risk-and-vulnerabilities"></a>Visibilità proattiva di rischi e vulnerabilità
  
@@ -61,7 +61,7 @@ Rileva attività anomale o non autorizzate con funzionalità di intelligence per
 
 Integrarsi in Sentinel di Azure per una panoramica dell'intera organizzazione. Implementa la governance della sicurezza unificata per gli Internet e l'integrazione con i tuoi flussi di lavoro esistenti, inclusi strumenti di terze parti come Splunk, IBM QRadar e ServiceNow. 
 
-## <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agenti per i generatori di dispositivi 
+## <a name="agent-based-solution-for-device-builders"></a>Soluzione basata su agente per integratori di dispositivi 
 
 La sicurezza è un problema quasi universale per gli implementatori di Internet delle cose. I dispositivi Internet delle cose hanno esigenze specifiche per il monitoraggio degli endpoint, la gestione del comportamento della sicurezza e il rilevamento delle minacce, il tutto con requisiti di prestazioni estremamente specifici. 
 
@@ -81,6 +81,6 @@ Rilevare minacce quali botnet, tentativi di forza bruta, minatori crittografici 
 
 Azure Defender per gli elementi micro Agent include il codice sorgente, quindi è possibile incorporare l'agente micro nel firmware o personalizzarlo in modo da includere solo ciò che è necessario. È anche disponibile come pacchetto binario o integrato direttamente in altre soluzioni Azure Internet. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Azure Defender per l'architettura dell'it](architecture.md)

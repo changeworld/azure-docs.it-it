@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: d344b3d9ea54243d61cc6a1f3f0982eb5ab1d238
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 94a1db30419e5d7e52f369392d94b817d0dc273a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538585"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623755"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Attivare e configurare la console di gestione locale 
 
@@ -147,15 +147,15 @@ Per configurare il tunneling sul sensore:
 
 ## <a name="set-up-a-site"></a>Configurare un sito
 
-La mappa aziendale predefinita fornisce una visualizzazione complessiva degli asset in base a diversi livelli di posizioni geografiche.
+La mappa aziendale predefinita fornisce una visualizzazione complessiva dei dispositivi in base a diversi livelli di posizioni geografiche.
 
-La visualizzazione degli asset potrebbe essere necessaria laddove la struttura organizzativa e le autorizzazioni utente sono complesse. In questi casi, l'installazione del sito potrebbe essere determinata da una struttura organizzativa globale, oltre alla struttura standard del sito o della zona.
+La visualizzazione dei dispositivi potrebbe essere necessaria laddove la struttura organizzativa e le autorizzazioni utente sono complesse. In questi casi, l'installazione del sito potrebbe essere determinata da una struttura organizzativa globale, oltre alla struttura standard del sito o della zona.
 
 Per supportare questo ambiente, è necessario creare una topologia aziendale globale basata sulle business unit, le aree, i siti e le zone aziendali dell'organizzazione. È anche necessario definire le autorizzazioni di accesso utente per queste entità usando i gruppi di accesso.
 
-I gruppi di accesso consentono un migliore controllo sugli elementi in cui gli utenti gestiscono e analizzano gli asset nella piattaforma Defender per l'it.
+I gruppi di accesso consentono un migliore controllo su dove gli utenti gestiscono e analizzano i dispositivi nella piattaforma Defender for Internet.
 
-### <a name="how-it-works"></a>Funzionamento
+### <a name="how-it-works"></a>Come funziona
 
 Per ogni sito è possibile definire una business unit e una regione. È quindi possibile aggiungere zone che sono entità logiche nella rete. 
 
@@ -215,7 +215,7 @@ Per eliminare un sito:
 
 ## <a name="create-enterprise-zones"></a>Creare zone aziendali
 
-Le zone sono entità logiche che consentono di dividere le risorse all'interno di un sito in gruppi in base a diverse caratteristiche. È ad esempio possibile creare gruppi per le linee di produzione, le sottostazioni, le aree del sito o i tipi di asset. È possibile definire le zone in base a qualsiasi caratteristica adatta alla propria organizzazione.
+Le zone sono entità logiche che consentono di dividere i dispositivi all'interno di un sito in gruppi in base a diverse caratteristiche. È ad esempio possibile creare gruppi per le linee di produzione, le sottostazioni, le aree del sito o i tipi di dispositivi. È possibile definire le zone in base a qualsiasi caratteristica adatta alla propria organizzazione.
 
 Le zone vengono configurate come parte del processo di configurazione del sito.
 
@@ -231,7 +231,7 @@ Nella tabella seguente vengono descritti i parametri della finestra di **gestion
 | Connettività | Stato di connettività del sensore. Lo stato può essere **connesso** o **disconnesso**. |
 | Ultimo aggiornamento | Data dell'ultimo aggiornamento. |
 | Stato aggiornamento | L'indicatore di stato Mostra lo stato del processo di aggiornamento, come indicato di seguito:<br />-Caricamento del pacchetto<br />-Preparazione dell'installazione<br />-Arresto dei processi<br />-Backup dei dati<br />-Creazione dello snapshot<br />-Aggiornamento della configurazione<br />-Aggiornamento delle dipendenze<br />-Aggiornamento delle librerie<br />-Applicazione di patch ai database<br />-Avvio dei processi<br />-Convalida dello stato di integrità del sistema<br />-Convalida riuscita<br />-Operazione riuscita<br />-Errore<br />-Aggiornamento avviato<br />-Avvio dell'installazioneogress bar shows the status of the upgrade process, as follows:<br />- Uploading package<br />- Preparing to install<br />- Stopping processes<br />- Backing up data<br />- Taking snapshot<br />- Updating configuration<br />- Updating dependencies<br />- Updating libraries<br />- Patching databases<br />- Starting processes<br />- Validating system sanity<br />- Validation succeeded<br />- Success<br />- Failure<br />- Upgrade started<br />- Starting installation<br /></br >Per informazioni dettagliate sull'aggiornamento, vedere [supporto tecnico Microsoft](https://support.microsoft.com/) per assistenza. |
-| Asset | Il numero di asset OT monitorati dal sensore. |
+| Dispositivi | Numero di dispositivi OT monitorati dal sensore. |
 | Avvisi | Numero di avvisi sul sensore. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/assign-icon.png" border="false"::: | Consente di assegnare un sensore alle zone. |
 | :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false":::| Consente di eliminare un sensore disconnesso dal sito. |
@@ -316,6 +316,6 @@ Per annullare l'assegnazione ed eliminare un sensore:
 
 3. Per eliminare il sensore non assegnato dal sito, selezionare il sensore dall'elenco dei sensori non assegnati e selezionare :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Risolvere i problemi relativi al sensore e alla console di gestione locale](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

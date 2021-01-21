@@ -8,17 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: cdb41f12e8f050e3c74fccddb392d7a816c15b2f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93398216"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621879"
 ---
 # <a name="configure-private-link"></a>Configura collegamento privato
-
-> [!IMPORTANT]
-> Questa funzionalità è in anteprima pubblica, viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il collegamento privato consente di accedere all'API di Azure per FHIR tramite un endpoint privato, un'interfaccia di rete che si connette privatamente e in modo sicuro usando un indirizzo IP privato della rete virtuale. Con il collegamento privato, è possibile accedere in modo sicuro ai servizi dalla VNET come servizio di prima entità senza dover passare attraverso un DNS pubblico. Questo articolo illustra come creare, testare e gestire l'endpoint privato per l'API di Azure per FHIR.
 
@@ -88,8 +85,8 @@ Gli endpoint privati e la scheda di interfaccia di rete associata sono visibili 
 
 ![Visualizza nelle risorse](media/private-link/private-link-view.png)
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 
-Gli endpoint privati possono essere eliminati solo da portale di Azure tramite il pannello panoramica (come indicato di seguito) o tramite l'opzione Elimina in rete (anteprima) la scheda "connessioni a endpoint privati". Se si fa clic sul pulsante Elimina, l'endpoint privato e la scheda di interfaccia di rete associata vengono eliminati. Se si eliminano tutti gli endpoint privati nella risorsa FHIR e l'accesso alla rete pubblica è disabilitato, nessuna richiesta lo farà al server FHIR. Tutti gli endpoint privati devono essere eliminati dalla risorsa FHIR prima che la risorsa FHIR possa essere eliminata o spostata.
+Gli endpoint privati possono essere eliminati solo da portale di Azure tramite il pannello panoramica (come indicato di seguito) o tramite l'opzione Elimina in rete (anteprima) la scheda "connessioni a endpoint privati". Se si fa clic sul pulsante Elimina, l'endpoint privato e la scheda di interfaccia di rete associata vengono eliminati. Se si eliminano tutti gli endpoint privati nella risorsa FHIR e l'accesso alla rete pubblica è disabilitato, nessuna richiesta lo farà al server FHIR.
 
 ![Elimina endpoint privato](media/private-link/private-link-delete.png)

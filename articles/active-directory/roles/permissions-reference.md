@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62fb239fd9cb8c1817dea5ab5c22684a65955ed5
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 3a66ad61afe1439a80d750097d3c90d010547539
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555730"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622409"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -1971,6 +1971,7 @@ Sviluppatore di applicazioni | Sviluppatore di applicazioni | CF1C38E5-3621-4004
 Amministratore dell'autenticazione | Amministratore dell'autenticazione | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Autore del payload di attacco | Autore del payload di attacco | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f
 Amministratore simulazione di attacco | Amministratore simulazione di attacco | c430b396-e693-46cc-96f3-db01bf8bb62a
+Amministratore locale dispositivo Azure AD aggiunto | Amministratore locale dispositivo Azure AD aggiunto | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Amministratore di Azure DevOps | Amministratore di Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Amministratore di Azure Information Protection | Amministratore di Azure Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
 Amministratore dei set di chiavi IEF B2C | Amministratore dei set di chiavi IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
@@ -1978,24 +1979,23 @@ Amministratore dei criteri IEF B2C | Amministratore dei criteri IEF B2C | 3edaf6
 Amministratore fatturazione | Amministratore fatturazione | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Amministratore applicazione cloud | Amministratore di applicazioni cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Amministratore dispositivo cloud | Amministratore dispositivo cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
-Amministratore società | Amministratore globale | 62e90394-69f5-4237-9190-012177145e10
 Amministratore di conformità | Amministratore di conformità | 17315797-102d-40b4-93e0-432062caca18
 Amministratore dei dati sulla conformità | Amministratore dei dati sulla conformità | e6d1a23a-da11-4be4-9570-befc86d067a7
 Amministratore di accesso condizionale | Amministratore di accesso condizionale | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
-Amministratore del servizio CRM | Amministratore di Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Responsabile approvazione per l'accesso a Customer Lockbox | Responsabile approvazione per l'accesso a Customer Lockbox | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Amministratore di Desktop Analytics | Amministratore di Desktop Analytics | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Amministratori di dispositivi | Amministratori dispositivo | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 Aggiunta di dispositivi | Deprecato | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 Gestione dispositivi | Deprecato | 2b499bcd-da44-4968-8aec-78e1674fa64d
 Utenti di dispositivi | Deprecato | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Ruoli con autorizzazioni di lettura nella directory | Ruoli con autorizzazioni di lettura nella directory | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Account di sincronizzazione della directory | Non viene visualizzato perché non deve essere usato | d29b2b05-8046-44ba-8758-1e26182fcf32
 Writer di directory | Writer di directory | 9360feb5-f418-4baa-8175-e2a00bac4301
-Amministratore del servizio Exchange | Amministratore di Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Amministratore di Dynamics 365 | Amministratore di Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
+Amministratore di Exchange | Amministratore di Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
 ID esterno - Amministratore dei flussi utente | ID esterno - Amministratore dei flussi utente | 6e591065-9bad-43ed-90f3-e9424366d2f0
 ID esterno - Amministratore degli attributi dei flussi utente | ID esterno - Amministratore degli attributi dei flussi utente | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Amministratore dei provider di identità esterni | Amministratore dei provider di identità esterni | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Amministratore globale | Amministratore globale | 62e90394-69f5-4237-9190-012177145e10
 Ruolo con autorizzazioni di lettura globali | Ruolo con autorizzazioni di lettura globali | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Amministratore di gruppi | Amministratore di gruppi | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Mittente dell'invito guest | Mittente dell'invito guest | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -2003,10 +2003,9 @@ Amministratore del supporto tecnico | Amministratore dell'help desk | 729827e3-9
 Amministratore delle identità ibride | Amministratore delle identità ibride | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2
 Amministratore di Insights | Amministratore di Insights | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c
 Leader aziendale di Insights | Leader aziendale di Insights | 31e939ad-9672-4796-9c2e-873181342d2d
-Amministratore del servizio Intune | Amministratore di Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Amministratore di Intune | Amministratore di Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Amministratore di Kaizala | Amministratore di Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Amministratore licenze | Amministratore licenze | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
-Amministratore del servizio Lync | Amministratore di Skype for Business | 75941009-915A-4869-abe7-691bff18279e
 Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi | Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Ruolo con autorizzazioni di lettura per il Centro messaggi | Ruolo con autorizzazioni di lettura per il Centro messaggi | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Utente Commerce moderno | Utente Commerce moderno | d24aef57-1500-4070-84db-2666f29cf966
@@ -2015,7 +2014,7 @@ Amministratore delle app di Office | Amministratore delle app di Office | 2b745b
 Supporto partner - Livello 1 | Non viene visualizzato perché non deve essere usato | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Supporto partner - Livello 2 | Non viene visualizzato perché non deve essere usato | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Amministratore password | Amministratore password | 966707d0-3269-4727-9be2-8c3a10f19b9d
-Amministratore del servizio Power BI | Amministratore di Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Amministratore di Power BI | Amministratore di Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
 Amministratore di Power Platform | Amministratore di Power Platform | 11648597-926c-4cf3-9c36-bcebb0ba8dcc
 Amministratore stampante | Amministratore stampante | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f
 Tecnico della stampante | Tecnico della stampante | e8cef6f1-e4bd-4ea8-bc07-4b8d950f4477
@@ -2028,15 +2027,16 @@ Amministratore della sicurezza | Amministratore della sicurezza | 194ae4cb-b126-
 Operatore per la sicurezza | Operatore per la sicurezza | 5f2222b1-57c3-48ba-8ad5-d4759f1fde6f
 Ruolo con autorizzazioni di lettura per la sicurezza | Ruolo con autorizzazioni di lettura per la sicurezza | 5d6b6bb7-de71-4623-b4af-96380a352509
 Amministratore del supporto servizio | Amministratore del supporto per il servizio | f023fd81-a637-4b56-95fd-791ac0226033
-Amministratore del servizio SharePoint | Amministratore di SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Amministratore di SharePoint | Amministratore di SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
+Amministratore di Skype for Business | Amministratore di Skype for Business | 75941009-915A-4869-abe7-691bff18279e
 Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Amministratore di dispositivi di Teams | Amministratore di dispositivi di Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
+Amministratore di Teams | Amministratore di Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Lettore report di riepilogo utilizzo | Lettore report di riepilogo utilizzo | 75934031-6c7e-415a-99d7-48dbd49e875e
 Utente | Non viene visualizzato perché non può essere usato | a0b1b346-4d3e-4e8b-98f8-753987be4970
-Amministratore account utente | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1
+Amministratore utenti | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1
 Aggiunta di dispositivi all'area di lavoro | Deprecato | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 ## <a name="deprecated-roles"></a>Ruoli deprecati
@@ -2057,15 +2057,11 @@ Non tutti i ruoli restituiti da PowerShell o dall'API Microsoft Graph sono visib
 
 Nome API | Nome portale di Azure | Note
 -------- | ------------------- | -------------
-Amministratore società | Amministratore globale | [Il nome è stato modificato per maggiore chiarezza](permissions-reference.md#role-template-ids)
-Amministratore del servizio CRM | Amministratore di Dynamics 365 | [Riflette il marchio del prodotto corrente](permissions-reference.md#role-template-ids)
 Aggiunta di dispositivi | Deprecato | [Documentazione dei ruoli deprecati](permissions-reference.md#deprecated-roles)
 Gestione dispositivi | Deprecato | [Documentazione dei ruoli deprecati](permissions-reference.md#deprecated-roles)
 Utenti di dispositivi | Deprecato | [Documentazione dei ruoli deprecati](permissions-reference.md#deprecated-roles)
 Account di sincronizzazione della directory | Non viene visualizzato perché non deve essere usato | [Documentazione per gli account di sincronizzazione della directory](permissions-reference.md#directory-synchronization-accounts)
-Writer di directory | Non viene visualizzato perché non deve essere usato | [Documentazione per il ruolo con autorizzazioni di scrittura nella directory](permissions-reference.md#directory-writers)
 Utente guest | Non viene visualizzato perché non può essere usato  | ND
-Amministratore del servizio Lync | Amministratore di Skype for Business | [Riflette il marchio del prodotto corrente](permissions-reference.md#role-template-ids)
 Supporto di livello 1 partner | Non viene visualizzato perché non deve essere usato | [Documentazione per Supporto partner - Livello 1](permissions-reference.md#partner-tier1-support)
 Supporto di livello 2 partner | Non viene visualizzato perché non deve essere usato | [Documentazione per Supporto partner - Livello 2](permissions-reference.md#partner-tier2-support)
 Utente guest con restrizioni | Non viene visualizzato perché non può essere usato | ND

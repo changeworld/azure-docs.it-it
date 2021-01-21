@@ -4,16 +4,16 @@ description: Esercitazione che illustra come usare gli arricchimenti dei messagg
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 60bd416cf330676485f83720be4365b56c56baaf
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: ddc212e99c0e55156f56df6bf77e122408a727f9
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96436709"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624056"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Esercitazione: usare gli arricchimenti di messaggi dell'hub Azure.
 
@@ -77,7 +77,7 @@ Se non è già stato fatto, aprire una [finestra di cloud Shell](https://shell.a
 
 Di seguito sono riportate le risorse create dallo script. *Arricchito* significa che la risorsa è destinata ai messaggi con arricchimenti. *Originale* significa che la risorsa è per i messaggi che non sono arricchiti.
 
-| Nome | valore |
+| Nome | Valore |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nome del contenitore | originale  |
@@ -259,7 +259,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
 2. Aggiungere questi valori all'elenco per l'endpoint ContosoStorageEndpointEnriched.
 
-   | Chiave | valore | Endpoint (elenco a discesa) |
+   | Chiave | Valore | Endpoint (elenco a discesa) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin. Tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -297,7 +297,7 @@ A questo punto, tutte le risorse sono impostate e viene configurato il routing d
 
    Di seguito sono riportate le risorse create caricando il modello. **Arricchito** significa che la risorsa è destinata ai messaggi con arricchimenti. **Originale** significa che la risorsa è per i messaggi che non sono arricchiti. Questi sono gli stessi valori usati nello script dell'interfaccia della riga di comando di Azure.
 
-   | Nome | valore |
+   | Nome | Valore |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nome del contenitore | originale  |
@@ -386,7 +386,7 @@ Per rimuovere tutte le risorse create in questa esercitazione, eliminare il grup
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Usare l'interfaccia della riga di comando di Azure per pulire le risorse
 
-Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group?view=azure-cli-latest#az-group-delete). Ricordare che `$resourceGroup` è stato impostato su **ContosoResourcesMsgEn** all'inizio di questa esercitazione.
+Per rimuovere il gruppo di risorse, usare il comando [eliminazione del gruppo az](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true). Ricordare che `$resourceGroup` è stato impostato su **ContosoResourcesMsgEn** all'inizio di questa esercitazione.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -397,6 +397,7 @@ az group delete --name $resourceGroup
 In questa esercitazione è stata configurata e testata l'aggiunta di arricchimenti di messaggi ai messaggi dell'hub Internet con i passaggi seguenti:
 
 **Usare gli arricchimenti messaggi dell'hub Internet**
+
 > [!div class="checklist"]
 > * Primo metodo: creare le risorse e configurare il routing dei messaggi usando l'interfaccia della riga di comando di Azure. Configurare manualmente gli arricchimenti dei messaggi utilizzando il [portale di Azure](https://portal.azure.com).
 > * Secondo metodo: creare risorse e configurare il routing dei messaggi e gli arricchimenti dei messaggi usando un modello di Azure Resource Manager.
@@ -407,5 +408,8 @@ Per ulteriori informazioni sugli arricchimenti dei messaggi, vedere [Cenni preli
 
 Per ulteriori informazioni sul routing dei messaggi, vedere i seguenti articoli:
 
-* [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
-* [Esercitazione: routing dell'hub Internet](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Esercitazione: routing dell'hub Internet](tutorial-routing.md)

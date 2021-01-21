@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 2e4746b8beb722f74681beb9afe8c5dd1115539c
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
-ms.translationtype: HT
+ms.openlocfilehash: 1cfd296ae051192f83b6d256de539da6c076328b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831595"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622846"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory
 
@@ -55,6 +55,7 @@ Per trovare altre esercitazioni, usare il sommario a sinistra.
 | :--- | :--- |
 | ![Logo - 8x8](./media/tutorial-list/active-directory-saas-8x8-virtual-office-tutorial.png)| [8X8](8x8virtualoffice-tutorial.md)|
 | ![Logo - AcquireIO](./media/tutorial-list/active-directory-saas-acquireio-tutorial.png)| [AcquireIO](acquireio-tutorial.md)|
+| ![logo-Adobe Identity Management](./media/tutorial-list/active-directory-saas-adobe-identity-management-tutorial.png)| [Adobe Identity Management](adobe-identity-management-tutorial.md)|
 | ![Logo - Aha!](./media/tutorial-list/active-directory-saas-aha-tutorial.png)| [Aha!](aha-tutorial.md)|
 | ![Logo - AlertOps](./media/tutorial-list/active-directory-saas-alertops-tutorial.png)| [AlertOps](alertops-tutorial.md)|
 | ![Logo - Amplitude](./media/tutorial-list/active-directory-saas-amplitude-tutorial.png)| [Amplitude](amplitude-tutorial.md)|
@@ -96,6 +97,7 @@ Per trovare altre esercitazioni, usare il sommario a sinistra.
 | ![Logo - Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![Logo - Knowledge Anywhere LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-Litmus](./media/tutorial-list/active-directory-saas-litmus-tutorial.png)| [Litmus](litmus-tutorial.md)|
+| ![logo-Marketo](./media/tutorial-list/active-directory-saas-marketo-tutorial.png)| [Marketo](marketo-tutorial.md)|
 | ![logo-Meraki Dashboard](./media/tutorial-list/active-directory-saas-meraki-dashboard-tutorial.png)| [Meraki Dashboard](meraki-dashboard-tutorial.md)|
 | ![Logo - monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|
 | ![Logo - MyWorkDrive](./media/tutorial-list/active-directory-saas-myworkdrive-tutorial.png)| [MyWorkDrive](myworkdrive-tutorial.md)|

@@ -1,6 +1,6 @@
 ---
-title: Configurare il routing dei messaggi per l'hub IoT di Azure con Azure PowerShell
-description: Configurare il routing dei messaggi per l'hub IoT di Azure usando Azure PowerShell. A seconda delle proprietà del messaggio, è possibile configurare il routing a un account di archiviazione o a una coda del bus di servizio.
+title: "Esercitazione: configurare il routing dei messaggi per l'hub Azure Internet con Azure PowerShell"
+description: "Esercitazione: configurare il routing dei messaggi per l'hub Azure Internet con Azure PowerShell. A seconda delle proprietà del messaggio, è possibile configurare il routing a un account di archiviazione o a una coda del bus di servizio."
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 92c30287e836ccadda915dab70a4d40e9c4e851a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: be1560bcc03ec7a26f4bc374392c746243cd731a
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073404"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624073"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Esercitazione: Usare Azure PowerShell per configurare il routing dei messaggi per l'hub IoT
 

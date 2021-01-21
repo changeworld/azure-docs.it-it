@@ -13,32 +13,28 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2020
+ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 279f54c3de964580cc37d1288a6e1b7726348e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9700e5d9179f7c1e33b2371eea89be9bb1c8d08f
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208617"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621363"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connettere i dati da Azure Active Directory (Azure AD)
-
-
 
 È possibile usare il connettore integrato di Sentinel di Azure per raccogliere i dati da [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e trasmetterli in Azure Sentinel. Il connettore consente di eseguire lo streaming di [log di accesso](../active-directory/reports-monitoring/concept-sign-ins.md) e [log di controllo](../active-directory/reports-monitoring/concept-audit-logs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-
-- Eventuali licenze Azure AD (free/O365/P1/P2) sono sufficienti per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
+- È necessario avere una sottoscrizione di [Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
 
 - All'utente deve essere assegnato il ruolo Collaboratore sentinella di Azure nell'area di lavoro.
 
 - All'utente deve essere assegnato il ruolo di amministratore globale o amministratore della sicurezza nel tenant da cui si desidera trasmettere i log.
 
 - Per poter visualizzare lo stato della connessione, l'utente deve disporre delle autorizzazioni di lettura e scrittura per le impostazioni di diagnostica Azure AD. 
-
 
 ## <a name="connect-to-azure-active-directory"></a>Connessione ad Azure Active Directory
 

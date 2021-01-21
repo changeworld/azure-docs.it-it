@@ -15,19 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: f28243be6b4f998e8bdea0ce02da3ceedde23e02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1131c8e79d9df2883dcf7e975af9732c21318a49
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559125"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621165"
 ---
-# <a name="connect-your-barracuda-appliance"></a>Connettere l'appliance Barracuda 
-
-
+# <a name="connect-your-barracuda-waf-appliance"></a>Connettere il dispositivo Barracuda WAF 
 
 Il connettore Barracuda Web Application Firewall (WAF) consente di connettere facilmente i log di Barracuda con Azure Sentinel, visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. In questo modo è possibile ottenere informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza. Azure Sentinel sfrutta l'integrazione nativa tra **Barracuda** e log Analytics Agent per offrire un'integrazione perfetta. 
-
 
 > [!NOTE]
 > I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui viene eseguito Azure Sentinel.

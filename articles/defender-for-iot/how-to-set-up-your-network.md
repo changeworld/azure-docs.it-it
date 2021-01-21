@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2053632f24504f896d1045f99d581b9aa6050b55
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573140"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621313"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Informazioni sulla configurazione della rete di Azure Defender per IoT
 
@@ -94,35 +94,36 @@ I browser seguenti sono supportati per i sensori e le applicazioni Web della con
 
 Verificare che i criteri di sicurezza dell'organizzazione consentano l'accesso agli elementi seguenti:
 
-| **Scopo** | **Protocollo** | **Trasporto** | **In ingresso/In uscita** | **Porta** | **Categoria** |
-| ----------- | ----------- | ------------ | ---------- | -------- | ------------ |
-| **Accesso alla console Web** | HTTPS | TCP | In ingresso/In uscita | 443 | Console di gestione locale per il Defender per la piattaforma Internet |
-| **Accesso all'interfaccia della riga di comando** | SSH | TCP | In ingresso/In uscita | 22 | CLI |
-| **Connessione tra il Defender per la piattaforma Internet e la console di gestione locale** | SSL | TCP | In ingresso/In uscita | 443 | Sensore e console di gestione locale|
-| **Console di gestione locale usata come NTP per il sensore** | NTP | UDP| Da a CM | 123 | Sincronizzazione dell'ora | 
-| **Sensore connesso al server NTP esterno (se pertinente)** | NTP | UDP | In ingresso/In uscita| 123 | Sincronizzazione dell'ora |
-| **Connessione tra il Defender per la piattaforma e la piattaforma di gestione e il server di posta elettronica (se pertinente)** | SMTP | TCP | Gestione fuori dal sensore | 25 | Email |
-| **Log che inviano dalla console di gestione locale al server syslog (se pertinente)** | syslog | UDP | Gestione fuori dal sensore| 514 | LEEF |
-| **Porta server DNS (se pertinente)** | DNS | N/D | In ingresso/In uscita| 53 | DNS |
-| **Connessione tra il Defender per la piattaforma Internet e la console di gestione locale per Active Directory (se pertinente)** | LDAPS | TCP | In ingresso/In uscita | 636 <br />389 | Active Directory |
-| **Agenti di raccolta SNMP remoti (se pertinente)** | SNMP | UDP | Gestione fuori dal sensore| 161 | Monitoraggio |
-| **Monitoraggio degli endpoint di Windows (se pertinente)** | WMI | UDP | Gestione fuori dal sensore| 135 | Monitoraggio |
-| **Monitoraggio degli endpoint di Windows (se pertinente)** | WMI | TCP | Gestione fuori dal sensore| 1024 e versioni successive | Monitoraggio |
-| **Tunneling (se pertinente)** | Tunneling | TCP | Da a CM | 9000<br />Oltre alla porta 443<br />Dall'utente finale alla console di gestione locale <br />Porta 22 dal sensore alla console di gestione locale | Monitoraggio |
-| **In uscita verso il Defender per l'hub Internet** | HTTPS | TCP | Gestione fuori dal sensore| **URL**<br />*. azure-devices.net:443<br />o se i caratteri jolly non sono supportati<br />{Your il nome dell'hub Internet}. Azure-devices.net:443 |
+| Protocollo | Trasporto | Ingresso/Uscita | Porta | Usata | Scopo | Source (Sorgente) | Destination |
+|--|--|--|--|--|--|--|--|
+| HTTPS | TCP | IN/OUT | 443 | Console Web della console di gestione locale e del sensore | Accesso alla console Web | Client | Sensore e console di gestione locale |
+| SSH | TCP | IN/OUT | 22 | CLI | Accesso all'interfaccia della riga di comando | Client | Sensore e console di gestione locale |
+| SSL | TCP | IN/OUT | 443 | Sensore e console di gestione locale | Connessione tra la piattaforma CyberX e la piattaforma di gestione centrale | sensore | Console di gestione locale |
+| NTP | UDP | IN | 123 | Sincronizzazione dell'ora | La console di gestione locale usa come NTP per il sensore | sensore | Console di gestione locale |
+| NTP | UDP | IN/OUT | 123 | Sincronizzazione dell'ora | Sensore connesso al server NTP esterno, quando non è installata alcuna console di gestione locale | sensore | NTP |
+| SMTP | TCP | OUT | 25 | E-mail | Connessione tra la piattaforma CyberX e la piattaforma di gestione e il server di posta elettronica | Sensore e console di gestione locale | Server di posta elettronica |
+| syslog | UDP | OUT | 514 | LEEF | Log inviati dalla console di gestione locale al server syslog | Sensore e console di gestione locali | Server Syslog |
+| DNS |  | IN/OUT | 53 | DNS | Porta server DNS | Sensore e console di gestione locali | Server DNS |
+| LDAP | TCP | IN/OUT | 389 | Active Directory | La connessione tra la piattaforma CyberX e la piattaforma di gestione per la Active Directory | Sensore e console di gestione locali | Server LDAP |
+| LDAPS | TCP | IN/OUT | 636 | Active Directory | La connessione tra la piattaforma CyberX e la piattaforma di gestione per la Active Directory | Sensore e console di gestione locali | Server LDAPs |
+| SNMP | UDP | OUT | 161 | Monitoraggio | Agenti di raccolta SNMP remoti. | Sensore e console di gestione locali | Server SNMP |
+| WMI | UDP | OUT | 135 | Monitoraggio | Monitoraggio degli endpoint di Windows | Sensore | Elemento di rete pertinente |
+| Tunneling | TCP | IN | 9000 <br /><br />-sulla porta 443 <br /><br />Dall'utente finale alla console di gestione locale. <br /><br />-Porta 22 dal sensore alla console di gestione locale  | Monitoraggio | Tunneling | Sensore | Console di gestione locale |
 
 ### <a name="planning-rack-installation"></a>Pianificazione dell'installazione del rack
 
 Per pianificare l'installazione del rack:
 
 1. Preparare un monitor e una tastiera per le impostazioni di rete dell'appliance.
-2. Allocare lo spazio del rack per l'appliance.
-3. Disporre dell'alimentazione CA disponibile per l'appliance.
-4. Preparare il cavo LAN per la connessione della gestione al Commuter di rete.
-5. Preparare i cavi LAN per la connessione delle porte del commutatore (mirror) o dei rubinetti di rete al Defender per l'appliance. 
-6. Configurare, connettere e convalidare le porte SPAN nelle opzioni con mirroring, come descritto nella sessione di revisione dell'architettura.
-7. Connettere la porta di estensione configurata a un computer che esegue Wireshark e verificare che la porta sia configurata correttamente.
-8. Aprire tutte le porte del firewall pertinenti.
+
+1. Allocare lo spazio del rack per l'appliance.
+
+1. Disporre dell'alimentazione CA disponibile per l'appliance.
+1. Preparare il cavo LAN per la connessione della gestione al Commuter di rete.
+1. Preparare i cavi LAN per la connessione delle porte del commutatore (mirror) o dei rubinetti di rete al Defender per l'appliance. 
+1. Configurare, connettere e convalidare le porte SPAN nelle opzioni con mirroring, come descritto nella sessione di revisione dell'architettura.
+1. Connettere la porta di estensione configurata a un computer che esegue Wireshark e verificare che la porta sia configurata correttamente.
+1. Aprire tutte le porte del firewall pertinenti.
 
 ## <a name="about-passive-network-monitoring"></a>Informazioni sul monitoraggio della rete passiva
 
@@ -141,6 +142,7 @@ Le sezioni seguenti descrivono i livelli di Purdue.
 Il livello 0 è costituito da un'ampia gamma di sensori, attuatori e dispositivi necessari per il processo di produzione di base. Questi dispositivi eseguono le funzioni di base del sistema di automazione e controllo industriale, ad esempio:
 
 - Guida di un motore.
+
 - Misurazione di variabili.
 - Impostazione di un output.
 - Esecuzione di funzioni chiave, ad esempio disegno, saldatura e flessione.
@@ -227,7 +229,7 @@ Ecco alcuni suggerimenti per la distribuzione di più sensori:
 |--|--|--|--|
 | Distanza massima tra i commutatori | 80 metri | Cavo Ethernet preparato | Più di 1 |
 | Numero di reti OT | Più di 1 | Nessuna connettività fisica | Più di 1 |
-| Numero di opzioni | Può usare la configurazione RSPAN | Fino a 8 switch con intervallo locale vicino al sensore mediante cablaggio distanza | Più di 1 |
+| Numero di opzioni | Può usare la configurazione RSPAN | Fino a otto commutatori con intervallo locale vicino al sensore per distanza del cablaggio | Più di 1 |
 
 #### <a name="traffic-mirroring"></a>Mirroring del traffico  
 
@@ -353,9 +355,9 @@ Un tocco di aggregazione attivo o passivo viene installato in linea sul cavo di 
 
 Il punto di accesso terminale (TAP) è un dispositivo hardware che consente il flusso del traffico di rete dalla porta A alla porta B e dalla porta B alla porta A, senza interruzioni. Crea una copia esatta di entrambi i lati del flusso di traffico, in modo continuo, senza compromettere l'integrità della rete. Alcuni rubinetti aggregano e ricevono il traffico usando le impostazioni di cambio, se lo si desidera. Se l'aggregazione non è supportata, ogni TAP usa due porte del sensore per monitorare il traffico di invio e ricezione.
 
-I colpetti sono vantaggiosi per diversi motivi. Sono basati su hardware e non possono essere compromessi. Passano tutto il traffico, anche i messaggi danneggiati, che vengono spesso eliminati. Non sono sensibili al processore, quindi la temporizzazione dei pacchetti è esattamente la posizione in cui i commutatori gestiscono la funzione mirror come attività con priorità bassa che può influire sull'intervallo dei pacchetti con mirroring. Per scopi legali, un tocco è il dispositivo migliore.
+I colpetti sono vantaggiosi per vari motivi. Sono basati su hardware e non possono essere compromessi. Passano tutto il traffico, anche i messaggi danneggiati, che vengono spesso eliminati. Non sono sensibili al processore, quindi la temporizzazione dei pacchetti è esattamente la posizione in cui i commutatori gestiscono la funzione mirror come attività con priorità bassa che può influire sull'intervallo dei pacchetti con mirroring. Per scopi legali, un tocco è il dispositivo migliore.
 
-Per il monitoraggio delle porte è inoltre possibile utilizzare gli aggregatori TAP. Questi dispositivi sono basati su processori e non sono intrinsecamente protetti come rubinetti hardware. Potrebbero non riflettere la tempistica esatta del pacchetto.
+Per il monitoraggio delle porte è inoltre possibile utilizzare gli aggregatori TAP. Questi dispositivi sono basati sul processore e non sono intrinsecamente protetti come rubinetti hardware. Potrebbero non riflettere la tempistica esatta del pacchetto.
 
 :::image type="content" source="media/how-to-set-up-your-network/active-passive-tap-v2.PNG" alt-text="Diagramma dei rubinetti attivi e passivi.":::
 
@@ -364,10 +366,10 @@ Per il monitoraggio delle porte è inoltre possibile utilizzare gli aggregatori 
 Questi modelli sono stati testati per la compatibilità. Anche altri fornitori e modelli potrebbero essere compatibili.
 
 | Immagine | Modello |
-| -- | -- |
-| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot di Garland P1GCCAS.":::  | P1GCCAS Garland  |
-| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot di IXIA TPA2-CU3.":::  | IXIA TPA2-CU3  |
-| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot della robotica US USR 4503.":::  | Robotica statunitense USR 4503  |
+|--|--|
+| :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Screenshot di Garland P1GCCAS."::: | P1GCCAS Garland |
+| :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Screenshot di IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
+| :::image type="content" source="media/how-to-set-up-your-network/us-robotics-usr-4503-v2.png" alt-text="Screenshot della robotica US USR 4503."::: | Robotica statunitense USR 4503 |
 
 ##### <a name="special-tap-configuration"></a>Configurazione del tocco speciale
 
@@ -425,7 +427,7 @@ Informazioni rilevanti:
 
 - Se l'appliance Defender for Internet è connessa a tale commutatore, lo spazio disponibile per i rack è fisico nel cabinet?
 
-#### <a name="additional-considerations"></a>Altre considerazioni
+#### <a name="other-considerations"></a>Altre considerazioni
 
 Lo scopo di Defender per l'appliance Internet è quello di monitorare il traffico dai livelli 1 e 2.
 
@@ -547,7 +549,7 @@ Esaminare questo elenco prima della distribuzione del sito:
 | 14 | Rack e cablaggio delle appliance. | ☐ |  |
 | 15 | Allocare le risorse del sito per supportare la distribuzione. | ☐ |  |
 | 16 | Creare gruppi di Active Directory o utenti locali. | ☐ |  |
-| 17 | Configurare il training (self-learning). | ☐ |  |
+| 17 | Training di configurazione (self-learning). | ☐ |  |
 | 18 | Go o no-go. | ☐ |  |
 | 19 | Pianificare la data di distribuzione. | ☐ |  |
 
@@ -671,7 +673,7 @@ Specificare i dettagli dell'indirizzo per la scheda di interfaccia di rete del s
 | Chiave privata | |
 | Stringa comunità SNMP v2 |
 
-### <a name="cm-ssl-certificate"></a>Certificato SSL CM
+### <a name="on-premises-management-console-ssl-certificate"></a>Certificato SSL della console di gestione locale
 
 Si prevede di usare un certificato SSL? Sì o No
 
@@ -694,6 +696,6 @@ Contattare un amministratore Active Directory per creare un gruppo di utenti del
 | Fotocamera | |
 | Macchina a raggi X | |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Informazioni sull'installazione di Defender for Internet](how-to-install-software.md)

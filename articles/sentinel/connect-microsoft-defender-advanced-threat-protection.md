@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 72b2ba0ea444fb14ef9fc1bc3ea6aea3654677df
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 0db4e0fe0472c75f1eae392980ae697f53007244
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655528"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623367"
 ---
 # <a name="connect-alerts-from-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Connetti avvisi da Microsoft Defender for endpoint (in precedenza Microsoft Defender ATP)
 
@@ -28,10 +28,6 @@ ms.locfileid: "94655528"
 > - **Microsoft Defender for endpoint** era noto in precedenza come **Microsoft Defender Advanced Threat Protection** o **MDATP**.
 >
 >     Per un certo periodo di tempo, è possibile che venga visualizzato il vecchio nome ancora in uso nel prodotto (incluso il relativo connettore dati in Sentinel di Azure).
->
-> - L'inserimento di Microsoft Defender per gli avvisi degli endpoint è attualmente disponibile in anteprima pubblica.
-> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Microsoft Defender per endpoint](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) Connector consente di trasmettere avvisi da Microsoft Defender per l'endpoint in Azure Sentinel. Questo consentirà di analizzare in modo più completo gli eventi di sicurezza dell'organizzazione e di creare PlayBook per una risposta efficace e immediata.
 
@@ -51,7 +47,7 @@ Se Microsoft Defender for endpoint viene distribuito e l'inserimento dei dati, g
 
 1. In Sentinel di Azure selezionare **connettori dati**, selezionare **Microsoft Defender per endpoint** (potrebbe essere ancora chiamato *Microsoft Defender Advanced Threat Protection*) dalla raccolta e selezionare **Apri connettore pagina**.
 
-1. Fare clic su **Connetti**. 
+1. Fare clic su **Connect** (Connetti). 
 
 1. Per eseguire una query su Microsoft Defender per gli avvisi dell'endpoint nei **log**, immettere **SecurityAlert** nella finestra query e aggiungere un filtro in cui il **nome del provider** è **MDATP**.
 

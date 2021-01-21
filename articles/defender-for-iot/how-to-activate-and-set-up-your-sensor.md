@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ad1562bdd9853b6ff3c537790a54dbeab96b5b8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 908460bd0a034e21524b6ea6d3042f362cc810d4
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98538571"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623590"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Attivare e configurare il sensore
 
@@ -134,9 +134,9 @@ Dopo l'accesso, viene visualizzata la console di Azure Defender for Internet.
 
 ## <a name="initial-setup-and-learning-for-administrators"></a>Installazione e apprendimento iniziali (per gli amministratori)
 
-Dopo il primo accesso, il sensore di Azure Defender per l'it inizia a monitorare automaticamente la rete. Le risorse di rete verranno visualizzate nelle sezioni asset map e inventario asset. Azure Defender per le cose inizia a rilevare e ricevere avvisi per tutti gli eventi di sicurezza e operativi che si verificano nella rete. È quindi possibile creare report e query in base alle informazioni rilevate.
+Dopo il primo accesso, il sensore di Azure Defender per l'it inizia a monitorare automaticamente la rete. I dispositivi di rete verranno visualizzati nelle sezioni Mappa del dispositivo e inventario dei dispositivi. Azure Defender per le cose inizia a rilevare e ricevere avvisi per tutti gli eventi di sicurezza e operativi che si verificano nella rete. È quindi possibile creare report e query in base alle informazioni rilevate.
 
-Inizialmente questa attività viene eseguita nella modalità di apprendimento, che indica al sensore di apprendere le normali attività della rete. Ad esempio, il sensore apprende gli asset individuati nella rete, i protocolli rilevati nella rete e i trasferimenti di file che si verificano tra risorse specifiche. Questa attività diventa l'attività Baseline della rete.
+Inizialmente questa attività viene eseguita nella modalità di apprendimento, che indica al sensore di apprendere le normali attività della rete. Ad esempio, il sensore apprende i dispositivi individuati nella rete, i protocolli rilevati nella rete e i trasferimenti di file che si verificano tra dispositivi specifici. Questa attività diventa l'attività Baseline della rete.
 
 ### <a name="review-and-update-basic-system-settings"></a>Rivedere e aggiornare le impostazioni di sistema di base
 
@@ -214,7 +214,7 @@ Prima di eseguire l'accesso, verificare di avere:
 |----|---|---|
 | Supporto | :::image type="icon" source="media/concept-sensor-console-overview/support-icon-azure.png" border="false"::: | Per assistenza, contattare [supporto tecnico Microsoft](https://support.microsoft.com/) . |
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 
 [Eseguire l'onboarding di un sensore](getting-started.md#4-onboard-a-sensor)
 

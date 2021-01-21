@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/13/2021
 ms.author: shhazam
-ms.openlocfilehash: f3239434a7ba737bc9323bc4f383afd794800db1
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201477"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621098"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender per l'architettura dell'it
 
@@ -81,7 +81,7 @@ La gestione di Azure Defender per tutti gli ambienti ibridi viene eseguita trami
 - Portale di Azure
 
 ### <a name="sensor-console"></a>Console del sensore
-I rilevamenti dei sensori vengono visualizzati nella console dei sensori, dove possono essere visualizzati, analizzati e analizzati in una mappa di rete, un inventario delle risorse e in una vasta gamma di report, ad esempio report di valutazione dei rischi, data mining query e vettori di attacco. È anche possibile usare la console di per visualizzare e gestire le minacce rilevate dai motori dei sensori, inviare le informazioni ai sistemi partner, gestire gli utenti e altro ancora.
+I rilevamenti dei sensori vengono visualizzati nella console del sensore, dove possono essere visualizzati, analizzati e analizzati in una mappa di rete, un inventario dei dispositivi e in un'ampia gamma di report, ad esempio report di valutazione dei rischi, data mining query e vettori di attacco. È anche possibile usare la console di per visualizzare e gestire le minacce rilevate dai motori dei sensori, inviare le informazioni ai sistemi partner, gestire gli utenti e altro ancora.
 
 :::image type="content" source="./media/architecture/sensor-console-v2.png" alt-text="Defender per la console del sensore Internet":::
 
@@ -96,7 +96,7 @@ La console di gestione può essere distribuita per la configurazione a disponibi
 
 Strettamente integrato con i flussi di lavoro SOC ed eseguire libri, consente di semplificare la definizione delle priorità delle attività di mitigazione e la correlazione tra siti delle minacce.
 
-- Olistica: Riduci la complessità con una singola piattaforma unificata per la gestione delle risorse, la gestione dei rischi e delle vulnerabilità, nonché il monitoraggio delle minacce con risposta agli eventi imprevisti.
+- Olistica: Riduci la complessità con una singola piattaforma unificata per la gestione dei dispositivi, la gestione dei rischi e delle vulnerabilità, nonché il monitoraggio delle minacce con la risposta agli eventi imprevisti.
 
 - Aggregazione e correlazione: Visualizza, aggrega e analizza i dati e gli avvisi raccolti da tutti i siti.
 

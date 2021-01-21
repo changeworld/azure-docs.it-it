@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/13/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 1ac87f98af555aae155a201cc20692c950fc7924
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 419e32a127947cde1d3761507f0df7a889528ff2
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97839664"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621929"
 ---
 # <a name="basic-concepts"></a>Concetti fondamentali 
 
@@ -22,7 +22,7 @@ Questo articolo descrive i vantaggi principali di Azure Defender per l'it.
 
 Il Defender per i sensori Internet si connette a una porta di intervallo o a un TAP di rete e inizia immediatamente a raccogliere il traffico di rete ICS tramite il monitoraggio passivo (senza agenti) L'ispezione Deep Packet (DPI) viene usata per dissezionare il traffico da apparecchiature di rete di controllo seriale e Ethernet. Defender for Internet ha un effetto zero sulle reti OT perché non è inserito nel percorso dei dati e non esegue l'analisi attiva dei dispositivi OT. 
 
-Per fornire snapshot istantanei delle informazioni dettagliate sugli asset, Defender per il sensore Internet integra il monitoraggio passivo con un componente attivo facoltativo. Questo componente usa i comandi sicuri e approvati dal fornitore per eseguire query sui dispositivi Windows e controller per i dettagli degli asset, come spesso o con la frequenza desiderata.
+Per fornire snapshot istantanei delle informazioni dettagliate sui dispositivi, Defender per il sensore Internet integra il monitoraggio passivo con un componente attivo facoltativo. Questo componente usa i comandi sicuri e approvati dal fornitore per eseguire query sui dispositivi Windows e controller per i dettagli del dispositivo, come spesso o con una frequenza minore.
 
 ## <a name="embedded-knowledge-of-ics-protocols-devices-and-applications"></a>Conoscenza incorporata di protocolli, dispositivi e applicazioni ICS
 
@@ -34,7 +34,7 @@ I motori identificano i problemi di sicurezza tramite il monitoraggio continuo e
 
 - **Rilevamento della violazione del protocollo**: identifica l'uso di strutture di pacchetti e valori di campo che violano le specifiche del protocollo ICS.
 
-- **Rilevamento delle violazioni dei criteri**: identifica le violazioni di criteri, ad esempio l'uso non autorizzato di codici di funzione, l'accesso a oggetti specifici o le modifiche alla configurazione dell'asset.
+- **Rilevamento delle violazioni dei criteri**: identifica le violazioni dei criteri, ad esempio l'uso non autorizzato di codici di funzione, l'accesso a oggetti specifici o le modifiche alla configurazione del dispositivo.
 
 - **Rilevamento di malware industriali**: identifica i comportamenti che indicano la presenza di malware noto, ad esempio Conficker, energia nera, Havex, WannaCry e NotPetya.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 01/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8dce284c0fffe10fe077fcb6c6713ba65c45751
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743905"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621794"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
@@ -30,18 +30,18 @@ Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a
 > [!div class="nextstepaction"]
 > [Abilitare la registrazione di sicurezza combinata](howto-registration-mfa-sspr-combined.md)
 
-![Profilo personale che mostra le informazioni di sicurezza registrate per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Account personale che mostra le informazioni di sicurezza registrate per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defaults-registered.png)
 
 Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata sull'amministratore e la documentazione incentrata sull'utente per assicurarsi di comprendere la funzionalità e l'effetto di questa funzionalità. Basare il training sulla [documentazione dell'utente](../user-help/security-info-setup-signin.md) per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione.
 
 Azure AD registrazione di informazioni di sicurezza combinata non è attualmente disponibile per i cloud nazionali come Azure Germania o Azure Cina 21Vianet. È disponibile per il governo degli Stati Uniti di Azure.
 
 > [!IMPORTANT]
-> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata visualizzano il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze visualizzano solo la nuova esperienza profilo personale. Il nuovo *profilo* è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Per visualizzare il profilo, gli utenti possono passare a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .
+> Gli utenti abilitati per l'anteprima originale e per l'esperienza di registrazione combinata migliorata visualizzano il nuovo comportamento. Gli utenti abilitati per entrambe le esperienze visualizzano solo l'esperienza del mio account. Il *mio account* è allineato all'aspetto della registrazione combinata e offre un'esperienza uniforme per gli utenti. Gli utenti possono visualizzare il mio account andando a [https://myaccount.microsoft.com](https://myaccount.microsoft.com) .
 >
 > È possibile che venga visualizzato un messaggio di errore durante il tentativo di accedere all'opzione Info di sicurezza, ad esempio, "non è possibile eseguire l'accesso". Verificare che non siano presenti oggetti Criteri di gruppo o di configurazione che bloccano i cookie di terze parti nel Web browser.
 
-Le pagine del *profilo* sono localizzate in base alle impostazioni della lingua del computer che accede alla pagina. Microsoft archivia il linguaggio più recente usato nella cache del browser, quindi i tentativi successivi di accesso alle pagine continuano a essere visualizzati nell'ultima lingua usata. Se si cancella la cache, viene nuovamente eseguito il rendering delle pagine.
+Le pagine dell' *account* sono localizzate in base alle impostazioni della lingua del computer che accede alla pagina. Microsoft archivia il linguaggio più recente usato nella cache del browser, quindi i tentativi successivi di accesso alle pagine continuano a essere visualizzati nell'ultima lingua usata. Se si cancella la cache, viene nuovamente eseguito il rendering delle pagine.
 
 Se si vuole forzare una lingua specifica, è possibile aggiungere `?lng=<language>` alla fine dell'URL, dove `<language>` è il codice della lingua di cui si vuole eseguire il rendering.
 
@@ -116,7 +116,7 @@ Se il criterio SSPR richiede agli utenti di esaminare le info di sicurezza a int
 
 ### <a name="manage-mode"></a>Modalità di gestione
 
-Gli utenti possono accedere alla modalità di gestione selezionando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o selezionando **info di sicurezza** da profilo personale. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
+Gli utenti possono accedere alla modalità di gestione selezionando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) o selezionando le **informazioni di sicurezza** dall'account. Da qui, gli utenti possono aggiungere metodi, eliminare o modificare metodi esistenti, modificare il metodo predefinito e altro ancora.
 
 ## <a name="key-usage-scenarios"></a>Scenari di utilizzo chiave
 
@@ -126,17 +126,17 @@ Un amministratore ha applicato la registrazione.
 
 Un utente non ha configurato tutte le informazioni di sicurezza necessarie e passa al portale di Azure. Dopo l'immissione di nome utente e password, all'utente viene richiesto di impostare le informazioni di sicurezza. L'utente segue quindi i passaggi illustrati nella procedura guidata per configurare le informazioni di sicurezza necessarie. Se le impostazioni lo consentono, l'utente può scegliere di impostare metodi diversi da quelli mostrati per impostazione predefinita. Al termine della procedura guidata, gli utenti esaminano i metodi impostati e il metodo predefinito per Multi-Factor Authentication. Per completare il processo di installazione, l'utente conferma le informazioni e continua con l'portale di Azure.
 
-### <a name="set-up-security-info-from-my-profile"></a>Configura le info di sicurezza dal profilo personale
+### <a name="set-up-security-info-from-my-account"></a>Configura le info di sicurezza dall'account
 
 Un amministratore non ha applicato la registrazione.
 
-Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie passa a [https://myprofile.microsoft.com](https://myprofile.microsoft.com) . L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente Visualizza il metodo configurato nella pagina informazioni di sicurezza.
+Un utente che non ha ancora configurato tutte le informazioni di sicurezza necessarie passa a [https://myaccount.microsoft.com](https://myaccount.microsoft.com) . L'utente seleziona **info di sicurezza** nel riquadro sinistro. Da qui, l'utente sceglie di aggiungere un metodo, seleziona uno dei metodi disponibili e segue i passaggi per la configurazione di tale metodo. Al termine, l'utente Visualizza il metodo configurato nella pagina informazioni di sicurezza.
 
-### <a name="delete-security-info-from-my-profile"></a>Elimina le informazioni di sicurezza dal profilo personale
+### <a name="delete-security-info-from-my-account"></a>Elimina le informazioni di sicurezza dall'account
 
 Un utente che ha precedentemente configurato almeno un metodo passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . L'utente sceglie di eliminare uno dei metodi precedentemente registrati. Al termine, l'utente non vedrà più questo metodo nella pagina delle informazioni di sicurezza.
 
-### <a name="change-the-default-method-from-my-profile"></a>Modificare il metodo predefinito dal profilo personale
+### <a name="change-the-default-method-from-my-account"></a>Modificare il metodo predefinito dal mio account
 
 Un utente che ha precedentemente configurato almeno un metodo che può essere usato per Multi-Factor Authentication passa a [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . L'utente modifica il metodo predefinito corrente impostando un metodo predefinito diverso. Al termine, l'utente Visualizza il nuovo metodo predefinito nella pagina delle informazioni di sicurezza.
 

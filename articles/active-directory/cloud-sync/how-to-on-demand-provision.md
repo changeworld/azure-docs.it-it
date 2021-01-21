@@ -11,12 +11,12 @@ ms.date: 09/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0daca8b19f9a712253bc231cba9a0245553b0adb
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 6ac186d4b460165605ccf0fc53bdb0b691348bf3
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613619"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98622525"
 ---
 # <a name="azure-ad-connect-cloud-sync-on-demand-provisioning"></a>Provisioning su richiesta Azure AD Connect sincronizzazione cloud
 
@@ -32,9 +32,9 @@ Per usare la nuova funzionalità, attenersi alla procedura riportata di seguito.
 
 1.  Nel portale di Azure selezionare **Azure Active Directory**.
 2.  Selezionare **Azure AD Connect**.
-3.  Selezionare **Gestisci provisioning**.
+3.  Selezionare **Gestisci sincronizzazione cloud**.
 
-    ![Gestire il provisioning](media/how-to-configure/manage-1.png)
+    ![Gestire il provisioning](media/how-to-install/install-6.png)
 4. In **configurazione** selezionare la configurazione.
 5. In **convalida** fare clic sul pulsante Esegui il **provisioning di un utente** . 
 

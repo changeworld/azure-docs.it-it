@@ -4,12 +4,12 @@ description: Questo articolo fornisce informazioni su come scrivere codice per H
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 46bd0c3c1488d6dd7afbae5e88e0b83f56654bb8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: a299813620ee90591d8c9491991237f75f2e9382
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131237"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98623049"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](./event-hubs-about.md).
@@ -97,7 +97,7 @@ Si noti che un singolo batch non deve superare il limite di 1 MB di un evento. I
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Inviare in modo asincrono e inviare a livello di scalabilità
 
-È possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) restituisce un oggetto [Task](/dotnet/api/system.threading.tasks.task?view=netcore-3.1). È possibile usare la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi del client.
+È possibile inviare eventi a un hub eventi in modo asincrono. L'invio asincrono può consentire di aumentare la velocità con cui un client può inviare gli eventi. [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) restituisce un oggetto [Task](/dotnet/api/system.threading.tasks.task). È possibile usare la classe [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) nel client per controllare le opzioni di ripetizione dei tentativi del client.
 
 ## <a name="event-consumers"></a>Consumer di eventi
 La classe [EventProcessorHost][] elabora i dati da Hub eventi. È consigliabile usare questa implementazione durante la creazione di reader di eventi sulla piattaforma .NET. [EventProcessorHost][] fornisce un ambiente di runtime thread-safe, multiprocesso e sicuro per le implementazioni del processore di eventi che fornisce inoltre la gestione di lease di Checkpoint e la partizione.

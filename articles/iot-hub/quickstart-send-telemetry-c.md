@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (C) | Microsoft Docs
+title: Guida introduttiva-inviare dati di telemetria alla Guida introduttiva all'hub Azure Internet (C) | Microsoft Docs
 description: In questa guida introduttiva si eseguono due applicazioni C di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
 author: wesmc7777
 manager: philmea
@@ -14,12 +14,12 @@ ms.custom:
 - devx-track-azurecli
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 175ec6766f7cad96c2cc386894f01e5e9fb393fc
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 89b872557275db8651f3b55502d340ff55b7e626
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121483"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98624287"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati con un'applicazione di back-end (C)
 
@@ -114,7 +114,7 @@ Tuttavia, in questo argomento di avvio rapido si preparerà un ambiente di svilu
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) per registrare un dispositivo simulato.
 
 1. Eseguire questo comando in Azure Cloud Shell per creare l'identità del dispositivo.
 
@@ -183,7 +183,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Leggere i dati di telemetria dell'hub
 
-In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) per eseguire il monitoraggio dei messaggi inviati dal dispositivo simulato.
+In questa sezione si userà Azure Cloud Shell con l'[estensione IoT](/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) per eseguire il monitoraggio dei messaggi inviati dal dispositivo simulato.
 
 1. Tramite Azure Cloud Shell, eseguire il comando seguente per connettersi e leggere i messaggi dall'hub IoT:
 

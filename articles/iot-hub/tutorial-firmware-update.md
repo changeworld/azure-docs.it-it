@@ -1,6 +1,6 @@
 ---
-title: Aggiornare il firmware del dispositivo con l'hub IoT di Azure | Microsoft Docs
-description: Informazioni su come implementare un processo di aggiornamento del firmware del dispositivo che può essere attivato da un'applicazione back-end connessa all'hub IoT.
+title: "Esercitazione: aggiornare il firmware del dispositivo tramite l'hub di Azure. Microsoft Docs"
+description: "Esercitazione: informazioni su come implementare un processo di aggiornamento del firmware del dispositivo che può essere attivato da un'applicazione back-end connessa all'hub Internet."
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc
@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: b4de685accf665c7555a454ef247ddf589c6ba5f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: 807de3c41ec8026edd2b2d8859eb70863ae5697b
+ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96572338"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98621397"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo
 
