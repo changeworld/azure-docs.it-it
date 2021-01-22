@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d6e738152e542617046834980d3e7c58e497093
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005906"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664682"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Errore di arresto di Windows - Memoria esaurita
 
@@ -44,6 +44,9 @@ Il disco del sistema operativo è pieno, troppo frammentato oppure il sistema op
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo:
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Creare e accedere a una macchina virtuale di ripristino
 1. Liberare spazio sul disco
@@ -175,7 +178,7 @@ Per abilitare la raccolta di dump della memoria e la console seriale, eseguire l
    
    - Nel comando sostituire `<LETTER OF THE EFI SYSTEM PARTITION>` con la lettera della partizione di sistema EFI.
    - Potrebbe essere utile avviare la console Gestione disco per identificare la partizione di sistema appropriata etichettata come **partizione di sistema EFI**.
-   - L'identificatore può essere un GUID univoco oppure il **Bootmgr**predefinito.
+   - L'identificatore può essere un GUID univoco oppure il **Bootmgr** predefinito.
 
 1. Eseguire i comandi seguenti per abilitare la console seriale:
 

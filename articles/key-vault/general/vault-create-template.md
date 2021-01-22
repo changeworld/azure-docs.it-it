@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e19277aa3639031371e0e8dd28f4dd849efd4597
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 24fef1680c5660a70a20ae727833b045f6c5aa88
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933932"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664351"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e i criteri di accesso all'insieme di credenziali usando un modello di Gestione risorse
 
@@ -150,7 +150,7 @@ Per altre informazioni sulle impostazioni del modello di Key Vault, vedere infor
             "permissions": {
               "keys": "[parameters('keysPermissions')]",
               "secrets": "[parameters('secretsPermissions')]",
-              "certificates": [parameters('certificatesPermissions')]
+              "certificates": "[parameters('certificatesPermissions')]"
             }
           }
         ]
@@ -160,6 +160,7 @@ Per altre informazioni sulle impostazioni del modello di Key Vault, vedere infor
 }
 
 ```
+
 Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Altri modelli di Key Vault Gestione risorse
@@ -213,10 +214,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - Leggi una [Panoramica del Azure Key Vault](../general/overview.md).
 - Altre informazioni su [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-- Esaminare la [Panoramica della sicurezza Azure Key Vault](security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](security-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md)
 - [Eseguire l'autenticazione in un insieme di credenziali delle chiavi](authentication.md)
-- [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](developers-guide.md)
+- [Guida per gli sviluppatori di Azure Key Vault](developers-guide.md)

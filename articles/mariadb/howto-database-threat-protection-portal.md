@@ -3,15 +3,15 @@ title: Advanced Threat Protection-portale di Azure-database di Azure per MariaDB
 description: La protezione dalle minacce per il database di Azure per MariaDB rileva le attività anomale del database che indicano potenziali minacce alla sicurezza per il database.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 33bc93c62c32010e28cc8bb783bcef6f40700ca0
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542695"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98665107"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Advanced Threat Protection per database di Azure per MariaDB
 
@@ -28,10 +28,10 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 ## <a name="set-up-threat-detection"></a>Impostare il rilevamento delle minacce
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com) .
 2. Passare alla pagina di configurazione del database di Azure per il server MariaDB che si vuole proteggere. Nelle impostazioni di sicurezza selezionare **Advanced Threat Protection (anteprima)**.
-3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)** :
+3. Nella pagina di configurazione **Advanced Threat Protection (anteprima)**:
 
    - Abilita Advanced Threat Protection nel server.
-   - In **Impostazioni di Advanced Threat Protection** , nella casella di testo **Invia avvisi a** , viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.
+   - In **Impostazioni di Advanced Threat Protection**, nella casella di testo **Invia avvisi a**, viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.
   
    ![Impostare il rilevamento delle minacce](./media/howto-database-threat-protection-portal/set-up-threat-protection.png)
 

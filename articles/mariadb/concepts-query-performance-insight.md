@@ -3,15 +3,15 @@ title: Informazioni dettagliate prestazioni query-database di Azure per MariaDB
 description: Questo articolo descrive la funzionalità Informazioni dettagliate prestazioni query nel database di Azure per MariaDB
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b643ba3305736480e06d7c10d594b2271839038f
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 9e8e4527ba1717b4d152f501a38c3c8f65faf70e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536333"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664232"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Informazioni dettagliate sulle prestazioni delle query nel Database di Azure per MariaDB
 
@@ -56,7 +56,7 @@ La scheda **Query a esecuzione prolungata** mostra le prime 5 query in base alla
 ### <a name="wait-statistics"></a>Statistiche di attesa 
 
 > [!NOTE]
-> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure " *problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
+> Le statistiche di attesa sono destinate alla risoluzione dei problemi di prestazioni delle query. È consigliabile attivarle solo a scopo di risoluzione dei problemi. <br>Se viene visualizzato il messaggio di errore nel portale di Azure "*problema riscontrato per ' Microsoft. DBforMariaDB '; non è possibile soddisfare la richiesta. Se il problema persiste o è imprevisto, contattare il supporto tecnico con queste informazioni ".* durante la visualizzazione delle statistiche di attesa, usare un periodo di tempo inferiore.
 
 Le statistiche di attesa forniscono una visualizzazione degli eventi di attesa che si verificano durante l'esecuzione di una query specifica. Per altre informazioni sui tipi di evento di attesa, vedere la [documentazione del motore MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

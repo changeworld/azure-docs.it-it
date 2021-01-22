@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d9a6eb572b1ab870fdb848f8b0989f88e6dbc3c0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045955"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664045"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
@@ -25,7 +25,9 @@ In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambie
 
 Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [*concetti: modelli personalizzati*](concepts-models.md).
 
-Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor*, è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor* denominato *pianterreno*, un altro denominato *floor2* e così via. 
+Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor*, è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor* denominato *pianterreno*, un altro denominato *floor2* e così via.
+
+[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relazioni: un grafico di gemelli digitali
 

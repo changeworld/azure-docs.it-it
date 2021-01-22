@@ -3,15 +3,15 @@ title: Risolvere i problemi relativi alle prestazioni delle query - Database di 
 description: Informazioni su come usare EXPLAIN per risolvere i problemi di prestazioni delle query in Database di Azure per MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 2b7491723ffcff73e4b243fe54ef18608167d636
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8c996520a77a107017aecad30c221da9ec69137c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94537238"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664716"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Come usare EXPLAIN per profilare le prestazioni delle query in Database di Azure per MariaDB
 **EXPLAIN** è uno strumento comodo per ottimizzare le query. L'istruzione EXPLAIN può essere usata per ottenere informazioni sulla modalità di esecuzione delle istruzioni SQL. L'output seguente mostra un esempio di esecuzione di un'istruzione EXPLAIN.
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Come è possibile osservare dall'output, MariaDB non usa alcun indice perché non sono disponibili indici appropriati. Sono inoltre presenti le istruzioni *Using temporary; Using filesort* , che indicano che MariaDB crea una tabella temporanea per soddisfare la clausola **GROUP BY**.
+Come è possibile osservare dall'output, MariaDB non usa alcun indice perché non sono disponibili indici appropriati. Sono inoltre presenti le istruzioni *Using temporary; Using filesort*, che indicano che MariaDB crea una tabella temporanea per soddisfare la clausola **GROUP BY**.
  
 La creazione di un indice solo sulla colonna **c2** non fa alcuna differenza e MariaDB deve comunque creare una tabella temporanea:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-In questo caso, è possibile creare un **indice di copertura** sia su **c1** che su **c2** , aggiungendo il valore di **c2** direttamente nell'indice per evitare ulteriori ricerche di dati.
+In questo caso, è possibile creare un **indice di copertura** sia su **c1** che su **c2**, aggiungendo il valore di **c2** direttamente nell'indice per evitare ulteriori ricerche di dati.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);

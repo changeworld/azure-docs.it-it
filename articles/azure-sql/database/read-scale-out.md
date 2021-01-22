@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
-ms.date: 09/03/2020
-ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 01/20/2021
+ms.openlocfilehash: 5f9e7e1c96db2b60e41fe0ded69ea562cf8fcea6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790271"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663986"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usare le repliche di sola lettura per l'offload dei carichi di lavoro di query di sola lettura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -115,12 +115,12 @@ In rari casi, se una transazione di isolamento dello snapshot accede ai metadati
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Query con esecuzione prolungata su repliche di sola lettura
 
-Le query in esecuzione su repliche di sola lettura devono accedere ai metadati per gli oggetti a cui viene fatto riferimento nella query (tabelle, indici, statistiche e così via) In rari casi, se un oggetto di metadati viene modificato nella replica primaria mentre una query conserva un blocco sullo stesso oggetto nella replica di sola lettura, la query può [bloccare](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) il processo che applica le modifiche dalla replica primaria alla replica di sola lettura. Se l'esecuzione di una query di questo tipo richiede molto tempo, la replica di sola lettura non sarà più sincronizzata con la replica primaria. 
+Le query in esecuzione su repliche di sola lettura devono accedere ai metadati per gli oggetti a cui viene fatto riferimento nella query (tabelle, indici, statistiche e così via) In rari casi, se un oggetto di metadati viene modificato nella replica primaria mentre una query conserva un blocco sullo stesso oggetto nella replica di sola lettura, la query può [bloccare](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) il processo che applica le modifiche dalla replica primaria alla replica di sola lettura. Se l'esecuzione di una query di questo tipo richiede molto tempo, la replica di sola lettura non sarà più sincronizzata con la replica primaria.
 
-Se una query con esecuzione prolungata su una replica di sola lettura causa questo tipo di blocco, verrà automaticamente terminato e la sessione riceverà l'errore 1219, "la sessione è stata disconnessa a causa di un'operazione DDL ad alta priorità".
+Se una query con esecuzione prolungata su una replica di sola lettura causa questo tipo di blocco, verrà terminato automaticamente. La sessione riceverà l'errore 1219, "la sessione è stata disconnessa a causa di un'operazione DDL ad alta priorità", o errore 3947, "la transazione è stata interrotta perché il calcolo secondario non è riuscito a recuperare il ripristino. Ripetere la transazione ".
 
 > [!NOTE]
-> Se viene visualizzato l'errore 3961 o l'errore 1219 durante l'esecuzione di query su una replica di sola lettura, riprovare a eseguire la query.
+> Se si riceve l'errore 3961, 1219 o 3947 durante l'esecuzione di query su una replica di sola lettura, riprovare a eseguire la query.
 
 > [!TIP]
 > Nei livelli di servizio Premium e business critical, quando si è connessi a una replica di sola lettura, le `redo_queue_size` `redo_rate` colonne e nella DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) possono essere utilizzate per monitorare il processo di sincronizzazione dei dati, fungendo da indicatori della latenza dei dati nella replica di sola lettura.

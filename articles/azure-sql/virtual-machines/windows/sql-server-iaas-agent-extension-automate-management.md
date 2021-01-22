@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ddc13306f4adb1730169c4811b9d2227dedca33
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 481a4ff21c361e4cf82a21d9e98357a4c8b7b1b4
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632767"
+ms.locfileid: "98663673"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>Automatizzare la gestione con l'estensione SQL Server agente IaaS
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Questo articolo fornisce una panoramica dell'estensione. Per installare l'estens
 
 ## <a name="overview"></a>Panoramica
 
-L'estensione SQL Server Agent IaaS offre numerosi vantaggi per SQL Server in macchine virtuali di Azure: 
+Il SQL Server estensione dell'agente IaaS consente l'integrazione con l'portale di Azure e, a seconda della modalità di gestione, sblocca diversi vantaggi di funzionalità per SQL Server in macchine virtuali di Azure: 
 
 - **Vantaggi della funzionalità**: l'estensione consente di sbloccare diversi vantaggi della funzionalità di automazione, ad esempio la gestione del portale, la flessibilità delle licenze, il backup automatico, l'applicazione automatica di patch e altro ancora. Per informazioni dettagliate, vedere [vantaggi della funzionalità](#feature-benefits) più avanti in questo articolo. 
 
@@ -74,12 +74,13 @@ La tabella seguente illustra i vantaggi seguenti:
 
 | Funzionalità | Descrizione |
 | --- | --- |
-| **Gestione nel portale** | Sblocca [la gestione nel portale](manage-sql-vm-portal.md), in modo che sia possibile visualizzare tutte le macchine virtuali SQL Server in un'unica posizione, in modo che sia possibile abilitare e disabilitare funzionalità specifiche di SQL direttamente dal portale. 
-| **Backup automatico** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita o a un'istanza denominata [correttamente installata](frequently-asked-questions-faq.md#administration) di SQL Server nella macchina virtuale. Per altre informazioni, vedere l'articolo [Backup automatico per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-backup-sql-2014.md). |
-| **Applicazione automatica delle patch** |Configura una finestra di manutenzione durante la quale è possibile eseguire aggiornamenti importanti di Windows e SQL Server della sicurezza per la macchina virtuale, in modo da evitare gli aggiornamenti durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere l'articolo [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-patching.md). |
-| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente l'insieme di credenziali delle chiavi di Azure nella VM di SQL Server. Per altre informazioni, vedere l'articolo [Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (Resource Manager)](azure-key-vault-integration-configure.md). |
-| **Licenze flessibili** | Risparmia sui costi grazie alla [transizione senza interruzioni](licensing-model-azure-hybrid-benefit-ahb-change.md) dalla tua licenza Bring your own License (nota anche come vantaggio Azure Hybrid) al modello di licenza con pagamento in base al consumo e viceversa. | 
-| **Versione flessibile/edizione** | Se si decide di modificare la [versione](change-sql-server-version.md) o l' [edizione](change-sql-server-edition.md) di SQL Server, è possibile aggiornare i metadati all'interno dell'portale di Azure senza dover ridistribuire l'intera macchina virtuale SQL Server.  | 
+| **Gestione nel portale** | Sblocca [la gestione nel portale](manage-sql-vm-portal.md), in modo che sia possibile visualizzare tutte le macchine virtuali SQL Server in un'unica posizione, in modo che sia possibile abilitare e disabilitare funzionalità specifiche di SQL direttamente dal portale. <br/> Modalità di gestione: Lightweight & completo|  
+| **Backup automatico** |Consente di automatizzare la pianificazione delle operazioni di backup per tutti i database correlati all'istanza predefinita o a un'istanza denominata [correttamente installata](frequently-asked-questions-faq.md#administration) di SQL Server nella macchina virtuale. Per altre informazioni, vedere l'articolo [Backup automatico per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-backup-sql-2014.md). <br/> Modalità di gestione: completa|
+| **Applicazione automatica delle patch** |Configura una finestra di manutenzione durante la quale è possibile eseguire aggiornamenti importanti di Windows e SQL Server della sicurezza per la macchina virtuale, in modo da evitare gli aggiornamenti durante i periodi di picco del carico di lavoro. Per altre informazioni, vedere l'articolo [Applicazione automatica delle patch per SQL Server in macchine virtuali di Azure (Resource Manager)](automated-patching.md). <br/> Modalità di gestione: completa|
+| **Integrazione di Azure Key Vault** |Consente di installare e configurare automaticamente l'insieme di credenziali delle chiavi di Azure nella VM di SQL Server. Per altre informazioni, vedere l'articolo [Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Modalità di gestione: completa|
+| **Visualizzare l'utilizzo del disco nel portale** | Consente di visualizzare una rappresentazione grafica dell'utilizzo del disco dei file di dati SQL nel portale di Azure.  <br/> Modalità di gestione: completa | 
+| **Licenze flessibili** | Risparmia sui costi grazie alla [transizione senza interruzioni](licensing-model-azure-hybrid-benefit-ahb-change.md) dalla tua licenza Bring your own License (nota anche come vantaggio Azure Hybrid) al modello di licenza con pagamento in base al consumo e viceversa. <br/> Modalità di gestione: Lightweight & completo| 
+| **Versione flessibile/edizione** | Se si decide di modificare la [versione](change-sql-server-version.md) o l' [edizione](change-sql-server-edition.md) di SQL Server, è possibile aggiornare i metadati all'interno dell'portale di Azure senza dover ridistribuire l'intera macchina virtuale SQL Server.  <br/> Modalità di gestione: Lightweight & completo| 
 
 
 ## <a name="management-modes"></a>Modalità di gestione

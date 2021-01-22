@@ -3,15 +3,15 @@ title: Aumento automatico delle dimensioni di archiviazione-portale di Azure dat
 description: Questo articolo descrive come abilitare l'espansione automatica dell'archiviazione per database di Azure per MariaDB usando portale di Azure
 author: ambhatna
 ms.author: ambhatna
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 56bc6c0e7a294f80e946a2eb0c84e5d0bd49d0f5
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f6410f34a4bbfde0a7090222979b3c4c98673981
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426067"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98663469"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-using-the-azure-portal"></a>Aumento automatico delle dimensioni di archiviazione nel database di Azure per MariaDB usando il portale di Azure
 Questo articolo descrive come configurare un database di Azure per l'archiviazione del server MariaDB in modo che cresca senza compromettere il carico di lavoro.

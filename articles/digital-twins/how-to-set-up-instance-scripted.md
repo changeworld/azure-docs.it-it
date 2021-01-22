@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1667c21b9a35b8e93feffb8cf1b37d4409da73c3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1552401953a8cba9dda787a0f0e461adb7972920
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044306"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664453"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -29,11 +29,13 @@ Questa versione di questo articolo completa questa procedura eseguendo un esempi
 
 ## <a name="prerequisites-download-the-script"></a>Prerequisiti: scaricare lo script
 
-Lo script di esempio è scritto in PowerShell. Fa parte degli [**esempi end-to-end di Azure Digital gemelli**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo.
+Lo script di esempio è scritto in PowerShell. Fa parte degli [**esempi end-to-end di Azure Digital gemelli**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), che è possibile scaricare nel computer passando al collegamento di esempio e selezionando il pulsante *Sfoglia codice* sotto il titolo. In questo modo si passerà al repository GitHub per gli esempi, che è possibile scaricare come *. ZIP* selezionando il pulsante *codice* e *Scarica zip*.
 
-Il progetto di esempio verrà scaricato nel computer come _**Azure_Digital_Twins_end_to_end_samples.zip**_. Passare alla cartella del computer e decomprimerla per estrarre i file.
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="Visualizzazione del repository Digital-Twins-Samples in GitHub. Il pulsante codice è selezionato, producendo una piccola finestra di dialogo in cui è evidenziato il pulsante Scarica ZIP." lightbox="media/includes/download-repo-zip.png":::
 
-Nella cartella decompressa lo script di distribuzione si trova in _Azure_Digital_Twins_end_to_end_samples script > > **deploy.ps1**_.
+Verrà scaricato un *.* Eseguire la cartella zip nel computer come **digital-twins-samples-master.zip**. Passare alla cartella del computer e decomprimerla per estrarre i file.
+
+Nella cartella decompressa lo script di distribuzione si trova in _Digital-Twins-Samples-master > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell finestra che mostra la selezione dell'icona di caricamento":::
 
-    Passare al file di _**deploy.ps1**_ nel computer (in _Azure_Digital_Twins_end_to_end_samples > script > **deploy.ps1**_) e premere "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
+    Passare al file di _**deploy.ps1**_ nel computer (in _Digital-Twins-Samples-master > scripts > **deploy.ps1**_) e fare clic su "Apri". Il file verrà caricato nel Cloud Shell in modo che sia possibile eseguirlo nella finestra di Cloud Shell.
 
 4. Eseguire lo script inviando il `./deploy.ps1` comando nella finestra cloud Shell. È possibile copiare il comando seguente (ricordare che per incollare in Cloud Shell, è possibile usare **Ctrl + Maiusc + v** in Windows e Linux o **cmd + Maiusc + v** in MacOS. È inoltre possibile utilizzare il menu di scelta rapida.
 
@@ -102,7 +104,7 @@ Questa pagina elenca tutte le istanze di dispositivi gemelli digitali di Azure. 
 
 Se la verifica ha esito negativo, è possibile riprovare a creare un'istanza usando il [portale](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) o l' [interfaccia](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)della riga di comando.
 
-### <a name="collect-instance-values"></a>Raccogli valori istanza
+### <a name="collect-instance-values"></a>Raccogliere i valori dell'istanza
 
 Selezionare il nome dell'istanza dalla pagina di [Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) per aprire la pagina *Panoramica* dell'istanza. Annotare il *nome*, il *gruppo di risorse* e il *nome host*. Potrebbero essere necessari in seguito per identificare e connettersi all'istanza di.
 

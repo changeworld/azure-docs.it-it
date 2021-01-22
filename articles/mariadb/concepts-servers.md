@@ -3,15 +3,15 @@ title: Server-database di Azure per MariaDB
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4d8293258083ea3e8d0172f510e5b41e91328736
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: abe17556d9ff62c44a33bfe4c4546a284785522e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94541063"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664130"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concetti relativi ai server nel database di Azure per MariaDB
 Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
@@ -63,6 +63,6 @@ Nel momento in cui il server viene arrestato, non è possibile eseguire alcuna o
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per una panoramica del servizio, consultare le [informazioni generali su Database di Azure per MariaDB](./overview.md)
-- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio** , vedere livelli di [servizio](./concepts-pricing-tiers.md)
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-pricing-tiers.md)
 
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->

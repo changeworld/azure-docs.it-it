@@ -3,16 +3,16 @@ title: 'Esercitazione: Progettare un database di Azure per MariaDB - Portale di 
 description: Questa esercitazione illustra come creare e gestire un database e un server di Database di Azure per MariaDB usando il portale di Azure.
 author: savjani
 ms.author: pariks
-ms.service: mariadb
+ms.service: jroth
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
-ms.openlocfilehash: fe503d0e579e30b0c355d3be3e8d02b2bd7a44a8
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
-ms.translationtype: HT
+ms.openlocfilehash: 9df151be99ba81af28f6b7b0cc012eae7db3ea1b
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542440"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98664470"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MariaDB con il portale di Azure
 
@@ -55,7 +55,7 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
     Subscription | *sottoscrizione in uso* | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Resource group | **myresourcegroup** | Immettere il nome di un nuovo gruppo di risorse o selezionare un gruppo di risorse esistente.
     Selezionare l'origine | **Vuoto** | Selezionare **Vuoto** per creare un nuovo server. Se si sta creando un server da un backup geografico di un server di Database di Azure per MariaDB esistente, selezionare **Backup**.
-    Accesso amministratore server | **myadmin** | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public**.
+    Accesso amministratore server | **myadmin** | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
     Password | *A scelta dell'utente* | Immettere una nuova password per l'account dell'amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
     Location | *Area più vicina ai propri utenti*| Selezionare la località più vicina agli utenti o alle altre applicazioni Azure.
@@ -65,7 +65,7 @@ Si crea un server di Database di Azure per MariaDB con un set definito di [risor
    ![Piano tariffario](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 
    > [!TIP]
-   > Quando l'opzione per l' **aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
+   > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
 4. Fare clic su **Rivedi e crea**. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
 
@@ -174,10 +174,10 @@ Immaginare di avere eliminato accidentalmente un'importante tabella di database 
 
    ![Modulo di ripristino](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Punto di ripristino** : selezionare un punto nel tempo per il ripristino, incluso nell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
-   - **Ripristina nel nuovo server** : immettere il nome del nuovo server in cui eseguire il ripristino.
-   - **Località** : l'area corrisponde a quella del server di origine e non può essere modificata.
-   - **Piano tariffario** : il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
+   - **Punto di ripristino**: selezionare un punto nel tempo per il ripristino, incluso nell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
+   - **Ripristina nel nuovo server**: immettere il nome del nuovo server in cui eseguire il ripristino.
+   - **Località**: l'area corrisponde a quella del server di origine e non può essere modificata.
+   - **Piano tariffario**: il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
    
 3. Selezionare **OK** per [ripristinare il server a un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server crea una nuova copia del server al punto nel tempo specificato. 
 
