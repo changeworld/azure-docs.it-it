@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 47a452377c8fed9808957f45fcc4ec686fcef87d
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561036"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675697"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -72,7 +72,7 @@ Per il corretto funzionamento di Profiler:
 * Application Insights deve essere abilitato per l'app Web.
 * L'app Web deve avere le impostazioni dell'app seguenti:
 
-    |Impostazione app    | valore    |
+    |Impostazione app    | Valore    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -124,7 +124,7 @@ Quando si configura Profiler, vengono apportati alcuni aggiornamenti alle impost
 1. Attivare Always On.
 1. Creare le impostazioni dell'app:
 
-    |Impostazione app    | valore    |
+    |Impostazione app    | Valore    |
     |---------------|----------|
     |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey della risorsa di Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -214,7 +214,7 @@ Per controllare le impostazioni usate per configurare Diagnostica di Azure:
 
 Se l'applicazione si connette a Internet tramite un proxy o un firewall, potrebbe essere necessario aggiornare le regole per comunicare con il servizio Profiler.
 
-Gli IP usati da Application Insights Profiler sono inclusi nel tag del servizio di monitoraggio di Azure. Per ulteriori informazioni, vedere la [documentazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Gli IP usati da Application Insights Profiler sono inclusi nel tag del servizio di monitoraggio di Azure. Per ulteriori informazioni, vedere la [documentazione dei tag di servizio](../../virtual-network/service-tags-overview.md).
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

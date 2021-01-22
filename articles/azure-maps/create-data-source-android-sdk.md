@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 2f383876963e3e1d310e7d93f7dc99bb58b189d3
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681529"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674644"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Creare un'origine dati (Android SDK)
 
@@ -136,7 +136,7 @@ Feature feature = Feature.fromJson(GeoJSON_STRING);
 String featureString = feature.toJson();
 ```
 
-### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importa i dati GeoJSON dalla cartella Web o assets
+### <a name="import-geojson-data-from-web-or-assets-folder"></a>Importare i dati GeoJSON dal Web o dalla cartella assets
 
 La maggior parte dei file GeoJSON contiene un elemento Featurecollection. Leggere i file GeoJSON come stringhe e usare il `FeatureCollection.fromJson` metodo per deserializzarlo.
 
@@ -355,10 +355,10 @@ Un'origine del riquadro vettoriale descrive come accedere a un livello tessera v
 
 Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://github.com/mapbox/vector-tile-spec), uno standard aperto. Azure Maps fornisce i servizi dei riquadri vettoriali seguenti come parte della piattaforma:
 
-- Dettagli del [](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [formato dei dati](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) della documentazione sui riquadri stradali
-- [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [Dettagli del formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) della documentazione sugli eventi imprevisti del traffico
-- Dettagli del [](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
-- Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Dettagli del [](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato dei dati](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) della documentazione sui riquadri stradali
+- [](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Dettagli del formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) della documentazione sugli eventi imprevisti del traffico
+- Dettagli del [](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
+- Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 Per visualizzare i dati da un'origine del riquadro vettoriale sulla mappa, connettere l'origine a uno dei livelli di rendering dei dati. Tutti i livelli che usano un'origine vettore devono specificare un `sourceLayer` valore nelle opzioni. Il codice seguente carica il servizio Tile del vettore del flusso di traffico di Azure Maps come origine del riquadro vettoriale, quindi lo Visualizza su una mappa usando un livello linea. Questa origine del riquadro vettoriale dispone di un singolo set di dati nel livello di origine denominato "flusso del traffico". Nei dati della riga di questo set di dati è presente una proprietà denominata `traffic_level` utilizzata in questo codice per selezionare il colore e ridimensionare le linee.
 
@@ -523,4 +523,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere una mappa termica](map-add-heat-map-layer-android.md)
 
 > [!div class="nextstepaction"]
-> [Esempi di codice dell'SDK Web](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Esempi di codice dell'SDK Web](/samples/browse/?products=azure-maps)

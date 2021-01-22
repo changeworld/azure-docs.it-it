@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: e8aabcd1c68272a78b3c1fe88913c5a62496f681
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 753e7503612502cde12f821ea331625406daa7a8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225836"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675978"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copiare un'immagine da un'altra raccolta usando l'interfaccia della riga di comando di Azure
 
@@ -131,7 +131,7 @@ az sig image-definition create \
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione di immagine
+## <a name="create-the-image-version"></a>Creare una versione di immagine
 
 Creare versioni usando [AZ Image Gallery create-Image-Version](/cli/azure/sig/image-version#az-sig-image-version-create). È necessario passare l'ID dell'immagine gestita da usare come baseline per creare la versione dell'immagine. È possibile usare [elenco di immagini di az](/cli/azure/image?view#az-image-list) per ottenere informazioni sulle immagini in un gruppo di risorse. 
 
@@ -161,6 +161,6 @@ az sig image-version create \
 
 Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-cli.md) o [specializzata](vm-specialized-image-version-cli.md) .
 
-Provare anche il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.md) per automatizzare la creazione della versione di immagine. è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+Provare anche il [Generatore di immagini di Azure (anteprima)](./image-builder-overview.md) per automatizzare la creazione della versione di immagine. è anche possibile usarlo per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
 
 Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

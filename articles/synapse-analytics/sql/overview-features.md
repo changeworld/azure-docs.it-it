@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 629a063d80c9f1bb1a9ae3d56783e07491149f24
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 55966173c7ab16e605e9d97a2631c2224745ff7a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118242"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676012"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funzionalità Transact-SQL supportate in Azure Synapse SQL
 
@@ -55,7 +55,7 @@ I linguaggi di query usati in Synapse SQL possono supportare funzionalità diver
 | **Istruzione INSERT** | Sì | No |
 | **Istruzione UPDATE** | Sì | No |
 | **Istruzione DELETE** | Sì | No |
-| **Istruzione merge** | No | No |
+| **Istruzione merge** | Sì ([Anteprima](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=sql-server-ver15)) | No |
 | **[Transazioni](develop-transactions.md)** | Sì | Sì, applicabile agli oggetti metadati. |
 | **[Etichette](develop-label.md)** | Sì | No |
 | **Caricamento dati** | Sì. L'utilità preferita è l'istruzione [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ma il sistema supporta sia il caricamento BULK (BCP) sia [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per il caricamento dei dati. | No |
@@ -84,7 +84,7 @@ Synapse SQL consente di usare le funzionalità di sicurezza predefinite per prot
 | **Autenticazione pass-through di Azure Active Directory (Azure AD) per l'archiviazione** | Sì | Sì |
 | **Autenticazione tramite token di firma di accesso condiviso per l'archiviazione** | No | Sì, tramite [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) oppure [CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) a livello di istanza. |
 | **Autenticazione tramite chiave di accesso alle risorse di archiviazione** | Sì, tramite [DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in [EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
-| **Autenticazione tramite [Identità gestita](../security/synapse-workspace-managed-identity.md) per l'archiviazione** | Sì, tramite [credenziali dell'identità del servizio gestita](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest) | Sì, tramite credenziale `Managed Identity`. |
+| **Autenticazione tramite [Identità gestita](../security/synapse-workspace-managed-identity.md) per l'archiviazione** | Sì, tramite [credenziali dell'identità del servizio gestita](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true) | Sì, tramite credenziale `Managed Identity`. |
 | **Autenticazione tramite identità applicazione per l'archiviazione** | [Sì](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) | No |
 | **Autorizzazioni a livello di oggetto** | Sì, inclusa la possibilità di concedere, negare e revocare le autorizzazioni agli utenti | Sì, inclusa la possibilità di concedere, negare e revocare le autorizzazioni a utenti/account di accesso per gli oggetti di sistema supportati |
 | **Autorizzazioni a livello di schema** | Sì, inclusa la possibilità di concedere, negare e revocare le autorizzazioni a utenti/account di accesso per lo schema | Sì, inclusa la possibilità di concedere, negare e revocare le autorizzazioni a utenti/account di accesso per lo schema |

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 2a17825d062496e6600966dc7c90b14749507e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fea82c376a178de0be8ede6c0393e1de21de614
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86494514"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675805"
 ---
 # <a name="disable-or-remove-the-linux-agent-from-vms-and-images"></a>Disabilitare o rimuovere l'agente Linux da macchine virtuali e immagini
 
@@ -31,9 +31,9 @@ La piattaforma Azure ospita diverse estensioni, tra cui applicazioni di utilità
 
 ## <a name="disabling-extension-processing"></a>Disabilitazione dell'elaborazione delle estensioni
 
-Esistono diversi modi per disabilitare l'elaborazione dell'estensione, a seconda delle esigenze, ma prima di continuare è **necessario** rimuovere tutte le estensioni distribuite nella macchina virtuale, ad esempio usando AZ CLI, è possibile [elencare](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-list) ed [eliminare](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete):
+Esistono diversi modi per disabilitare l'elaborazione dell'estensione, a seconda delle esigenze, ma prima di continuare è **necessario** rimuovere tutte le estensioni distribuite nella macchina virtuale, ad esempio usando l'interfaccia della riga di comando di Azure, è possibile [elencare](/cli/azure/vm/extension#az-vm-extension-list) ed [eliminare](/cli/azure/vm/extension#az-vm-extension-delete):
 
-```bash
+```azurecli
 az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ```
 > [!Note]
@@ -43,7 +43,7 @@ az vm extension delete -g MyResourceGroup --vm-name MyVm -n extension_name
 ### <a name="disable-at-the-control-plane"></a>Disabilitare sul piano di controllo
 Se non si è certi che saranno necessarie estensioni in futuro, è possibile lasciare l'agente Linux installato nella macchina virtuale, quindi disabilitare la funzionalità di elaborazione delle estensioni dalla piattaforma. Questa opzione è disponibile nella `Microsoft.Compute` versione API `2018-06-01` o versione successiva e non presenta una dipendenza dalla versione dell'agente Linux installata.
 
-```bash
+```azurecli
 az vm update -g <resourceGroup> -n <vmName> --set osProfile.allowExtensionOperations=false
 ```
 È possibile riabilitare con facilità l'elaborazione dell'estensione dalla piattaforma, con il comando precedente, ma impostarla su' true '.
@@ -132,7 +132,7 @@ Dopo aver completato il precedente, è possibile creare l'immagine personalizzat
 
 
 **Creare un'immagine gestita normale**
-```bash
+```azurecli
 az vm deallocate -g <resource_group> -n <vm_name>
 az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
@@ -140,7 +140,7 @@ az image create -g <resource_group> -n <image_name> --source <vm_name>
 
 **Creare una versione dell'immagine in una raccolta di immagini condivise**
 
-```bash
+```azurecli
 az sig image-version create \
     -g $sigResourceGroup 
     --gallery-name $sigName 
@@ -157,7 +157,7 @@ Quando si crea la VM dall'immagine senza agente Linux, è necessario assicurarsi
 
 Per distribuire la VM con le estensioni disabilitate, è possibile usare l'interfaccia della riga di comando di Azure con [--enable-agent](/cli/azure/vm#az-vm-create).
 
-```bash
+```azurecli
 az vm create \
     --resource-group $resourceGroup \
     --name $prodVmName \

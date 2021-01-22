@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
-ms.openlocfilehash: 96c68850cfd8b03f7d1457eb0f1ca9ce5880c926
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: a20c19c3da89801570ca4d74a646e3cf0d8434b6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198000"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675903"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usare strumenti di automazione dell'infrastruttura con macchine virtuali in Azure
 
@@ -87,8 +87,8 @@ Gli script possono essere scaricati da una risorsa di archiviazione di Azure o d
 
 Viene illustrato come:
 
-- [Creare una VM Linux con l'interfaccia della riga di comando di Azure e usare l'estensione di script personalizzata](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Creare una VM Windows con Azure PowerShell e usare l'estensione di script personalizzata](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md).
+- [Creare una VM Linux con l'interfaccia della riga di comando di Azure e usare l'estensione di script personalizzata](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx?toc=%2fcli%2fazure%2ftoc.json).
+- [Creare una VM Windows con Azure PowerShell e usare l'estensione di script personalizzata](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis).
 
 
 ## <a name="packer"></a>Packer
@@ -144,7 +144,7 @@ Viene illustrato come:
 
 - [Distribuire le VM spot usando un modello di gestione risorse](./linux/spot-template.md).
 - [Creare una macchina virtuale Windows da un modello di gestione risorse](./windows/ps-template.md).
-- [Scaricare il modello per una macchina virtuale](./windows/download-template.md).
+- [Scaricare il modello per una macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template).
 - [Creare un modello di generatore di immagini di Azure](./linux/image-builder-json.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

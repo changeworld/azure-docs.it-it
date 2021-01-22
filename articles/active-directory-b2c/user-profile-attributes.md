@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7b134c4e9e980104a54f6a96d45445ee114556a5
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178722"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675747"
 ---
 # <a name="user-profile-attributes"></a>Attributi del profilo utente
 
@@ -39,7 +39,7 @@ La tabella seguente illustra gli attributi del [tipo di risorsa utente](/graph/a
 - Se l'attributo può essere usato in un flusso utente
 - Se l'attributo può essere usato in un [profilo tecnico di Azure AD](active-directory-technical-profile.md) di un criterio personalizzato e in quale sezione (&lt;InputClaims&gt;, &lt;OutputClaims&gt;o &lt;PersistedClaims&gt;)
 
-|Nome     |Tipo     |Descrizione|Portale di Azure|Flussi degli utenti|Criteri personalizzati|
+|Nome     |Type     |Descrizione|Portale di Azure|Flussi degli utenti|Criteri personalizzati|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Indica se l'account utente è abilitato o disabilitato: **true** se l'account è abilitato, **false** in caso contrario.|Sì|No|Persisted, Output|
 |ageGroup        |string|Gruppo di età dell'utente. Valori possibili: null, Undefined, Minor, Adult, NotAdult.|Sì|No|Persisted, Output|
@@ -105,7 +105,7 @@ Un utente con un account cliente può accedere con più identità. Ad esempio no
 
 Nell'API Microsoft Graph, sia le identità locali che quelle federate vengono archiviate nell' `identities` attributo User, che è di tipo [objectIdentity] [Graph-objectIdentity]. La `identities` raccolta rappresenta un set di identità usate per accedere a un account utente. Questa raccolta consente all'utente di accedere all'account utente con qualsiasi identità associata.
 
-| Nome   | Tipo |Descrizione|
+| Nome   | Type |Descrizione|
 |:---------------|:--------|:----------|
 |signInType|string| Specifica i tipi di accesso utente nella directory. Per l'account locale:  `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` ,  `userName` o qualsiasi altro tipo. L'account di social networking deve essere impostato su  `federated` .|
 |autorità di certificazione|string|Specifica l'emittente dell'identità. Per gli account locali (dove **signInType** non è `federated` ), questa proprietà corrisponde al nome di dominio predefinito del tenant B2C locale, ad esempio `contoso.onmicrosoft.com` . Per l'identità sociale (dove **signInType** è  `federated` ), il valore è il nome dell'autorità emittente, ad esempio `facebook.com`|
@@ -160,7 +160,7 @@ Negli scenari di migrazione degli utenti, se gli account di cui si vuole eseguir
 
 ## <a name="mfa-phone-number-attribute"></a>Attributo numero di telefono multi-factor authentication
 
-Quando si usa un telefono per multi-factor authentication, il telefono cellulare viene usato per verificare l'identità dell'utente. Per [aggiungere](https://docs.microsoft.com/graph/api/authentication-post-phonemethods) un nuovo numero di telefono a livello, [aggiornare](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update), [ottenere](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)o [eliminare](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete) il numero di telefono, usare il [metodo di autenticazione](https://docs.microsoft.com/graph/api/resources/phoneauthenticationmethod)MS API Graph Phone.
+Quando si usa un telefono per multi-factor authentication, il telefono cellulare viene usato per verificare l'identità dell'utente. Per [aggiungere](/graph/api/authentication-post-phonemethods) un nuovo numero di telefono a livello, [aggiornare](/graph/api/b2cauthenticationmethodspolicy-update), [ottenere](/graph/api/b2cauthenticationmethodspolicy-get)o [eliminare](/graph/api/phoneauthenticationmethod-delete) il numero di telefono, usare il [metodo di autenticazione](/graph/api/resources/phoneauthenticationmethod)MS API Graph Phone.
 
 In Azure AD B2C [criteri personalizzati](custom-policy-overview.md), il numero di telefono è disponibile tramite il `strongAuthenticationPhoneNumber` tipo di attestazione.
 
@@ -183,7 +183,7 @@ Gli attributi di estensione nel API Graph vengono denominati usando la convenzio
 
 Quando si definisce un attributo in un'estensione dello schema sono supportati i tipi di dati seguenti:
 
-|Tipo |Osservazioni  |
+|Type |Osservazioni  |
 |--------------|---------|
 |Boolean    | Valori possibili: **true** o **false**. |
 |Datetime   | Deve essere specificato nel formato ISO 8601. Verrà archiviato in formato UTC.   |

@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0e53bebf9cdb8c0fc084d04550c7444c1c01be50
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 56611794bc2f190eccef739679da8474c9b04eb4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352865"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675961"
 ---
 # <a name="clone-a-managed-image-to-an-image-version-using-the-azure-cli"></a>Clonare un'immagine gestita in una versione dell'immagine usando l'interfaccia della riga di comando di Azure
 Se si vuole clonare un'immagine gestita esistente in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dall'immagine gestita. Dopo aver testato la nuova immagine, è possibile eliminare l'immagine gestita di origine. È anche possibile eseguire la migrazione da un'immagine gestita a una raccolta di immagini condivise usando [PowerShell](image-version-managed-image-powershell.md).
@@ -41,11 +41,11 @@ Poiché le immagini gestite sono sempre immagini generalizzate, sarà necessario
 
 I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./linux/shared-image-galleries.md#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./shared-image-galleries.md#image-definitions).
 
 Creare una definizione di immagine nella raccolta usando [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
-In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è per un'immagine del sistema operativo Linux [generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
+In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è per un'immagine del sistema operativo Linux [generalizzata](./shared-image-galleries.md#generalized-and-specialized-images) . Per creare una definizione per le immagini usando un sistema operativo Windows, usare `--os-type Windows`. 
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG

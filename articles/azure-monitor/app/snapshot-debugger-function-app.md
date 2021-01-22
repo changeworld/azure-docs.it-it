@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 12/18/2020
-ms.openlocfilehash: 3060bd6ea8d7fbc4a4bf005b84cd07d420987ab6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: d86455eae0834f29099c7d5c96f8326408daf519
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97696379"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675530"
 ---
 # <a name="enable-snapshot-debugger-for-net-and-net-core-apps-in-azure-functions"></a>Abilitare Snapshot Debugger per le app .NET e .NET Core in funzioni di Azure
 
@@ -22,7 +22,7 @@ Per la maggior parte delle applicazioni, i livelli di servizio gratuito e condiv
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Abilitare il monitoraggio Application Insights nel app per le funzioni](https://docs.microsoft.com/azure/azure-functions/configure-monitoring#add-to-an-existing-function-app)
+* [Abilitare il monitoraggio Application Insights nel app per le funzioni](../../azure-functions/configure-monitoring.md#add-to-an-existing-function-app)
 
 ## <a name="enable-snapshot-debugger"></a>Abilita Snapshot Debugger
 
@@ -147,5 +147,5 @@ Per disabilitare Snapshot Debugger nell'app per le funzioni, è sufficiente aggi
 
 - Generare il traffico all'applicazione che può attivare un'eccezione. Attendere da 10 a 15 minuti per l'invio degli snapshot all'istanza di Application Insights.
 - [Visualizzare gli snapshot](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) nel portale di Azure.
-- Personalizzare Snapshot Debugger configurazione in base al caso d'uso nell'app per le funzioni. Per ulteriori informazioni, vedere la pagina [relativa alla configurazione dello snapshot in host.js](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsightssnapshotconfiguration).
+- Personalizzare Snapshot Debugger configurazione in base al caso d'uso nell'app per le funzioni. Per ulteriori informazioni, vedere la pagina [relativa alla configurazione dello snapshot in host.js](../../azure-functions/functions-host-json.md#applicationinsightssnapshotconfiguration).
 - Per informazioni sulla risoluzione dei problemi di Snapshot Debugger, vedere [snapshot debugger risoluzione dei](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json)problemi.

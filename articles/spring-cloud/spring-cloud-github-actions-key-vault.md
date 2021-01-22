@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ea0db1faf8c452958b8d95c193d45506057777c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888785"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673333"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticazione di Azure Spring Cloud con Key Vault in GitHub Actions
 
@@ -22,13 +22,14 @@ Key Vault è un luogo sicuro per archiviare le chiavi. Gli utenti aziendali devo
 
 ## <a name="generate-credential"></a>Genera credenziali
 Per generare una chiave per accedere all'insieme di credenziali delle chiavi, eseguire il comando seguente nel computer locale:
-```
+
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEY_VAULT> --sdk-auth
 ```
 L'ambito specificato dal `--scopes` parametro limita l'accesso alla chiave alla risorsa.  Può accedere solo alla casella Strong.
 
 Con risultati:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -59,12 +60,12 @@ Copiare il nome delle credenziali, ad esempio `azure-cli-2020-01-19-04-39-02` . 
 ## <a name="generate-full-scope-azure-credential"></a>Genera credenziali di Azure con ambito completo
 Si tratta della chiave master per aprire tutte le porte nell'edificio. La procedura è simile al passaggio precedente, ma in questo caso viene modificato l'ambito per generare la chiave master:
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth
 ```
 
 Anche in questo caso, i risultati sono:
-```
+```output
 {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",
@@ -84,7 +85,7 @@ Copiare l'intera stringa JSON.  Tornare a **Key Vault** dashboard. Aprire il men
 ## <a name="combine-credentials-in-github-actions"></a>Combinare le credenziali nelle azioni di GitHub
 Impostare le credenziali utilizzate quando viene eseguita la pipeline CICD:
 
-```
+```console
 on: [push]
 
 jobs:

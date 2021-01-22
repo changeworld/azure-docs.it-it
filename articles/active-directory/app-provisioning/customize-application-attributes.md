@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 012038399796a0f2dc87acfb350043542268379a
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
-ms.translationtype: HT
+ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936982"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673502"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Esercitazione: Personalizzare i mapping di attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -115,7 +115,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 
 
 > [!NOTE]
-> La modifica dell'elenco degli attributi supportati è consigliata solo agli amministratori che hanno personalizzato lo schema dei propri sistemi e applicazioni e che hanno una conoscenza diretta del modo in cui sono stati definiti gli attributi personalizzati. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema. Per impostazione predefinita, la possibilità di modificare l'elenco degli attributi supportati è bloccata, ma i clienti possono abilitare la funzionalità passando all'URL seguente: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Sarà quindi possibile passare all'applicazione per visualizzare l'elenco di attributi come descritto [sopra](https://docs.microsoft.com/azure/active-directory/app-provisioning/customize-application-attributes#editing-the-list-of-supported-attributes). 
+> La modifica dell'elenco degli attributi supportati è consigliata solo agli amministratori che hanno personalizzato lo schema dei propri sistemi e applicazioni e che hanno una conoscenza diretta del modo in cui sono stati definiti gli attributi personalizzati. Questa operazione richiede a volte familiarità con le API e gli strumenti per sviluppatori forniti da un'applicazione o un sistema. Per impostazione predefinita, la possibilità di modificare l'elenco degli attributi supportati è bloccata, ma i clienti possono abilitare la funzionalità passando all'URL seguente: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Sarà quindi possibile passare all'applicazione per visualizzare l'elenco di attributi come descritto [sopra](#editing-the-list-of-supported-attributes). 
 
 Quando si modifica l'elenco degli attributi supportati, vengono fornite le proprietà seguenti:
 

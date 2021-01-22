@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/11/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15b4b61fd250dfb7d68c563f9f42c7d288a0019c
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 9aca01bae7911d2b6234d48bedc14b116e911a79
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070865"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675379"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -40,6 +40,7 @@ Partner Microsoft con i seguenti ISV per la verifica dell'identità e la correzi
 |![Screenshot di un logo Experian.](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) è un provider di verifica dell'identità e di correzione che esegue valutazioni del rischio in base agli attributi dell'utente per prevenire le frodi. |
 |![Screenshot di un logo IDology.](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) è un provider di verifica dell'identità e di correzione con soluzioni di verifica ID, soluzioni per la prevenzione di frodi, soluzioni di conformità e altro ancora.|
 |![Screenshot di un logo Jumio.](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |
+|![Screenshot di un logo a chiave inverso.](./media/partner-gallery/keyless-logo.png) | [Chiave digitale](./partner-keyless.md) è un servizio di verifica ID che fornisce l'autenticazione sotto forma di analisi biometrica facciale ed elimina la frode, il phishing e il riutilizzo delle credenziali.
 | ![Screenshot di un logo LexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) è un provider di convalida dell'identità e di profilatura che verifica l'identificazione dell'utente e fornisce una valutazione completa dei rischi in base al dispositivo dell'utente. |
 | ![Screenshot di un logo onfido](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) è un ID documento e una soluzione di verifica biometria facciale che consente alle aziende di soddisfare i requisiti dei *clienti* e delle identità in tempo reale.  |
 
@@ -66,7 +67,7 @@ Partner Microsoft con i seguenti ISV per il controllo degli accessi in base al r
 | ![Screenshot di un logo n8identity](./media/partner-gallery/n8identity-logo.png) | [N8Identity](./partner-n8identity.md) è una piattaforma di governance come servizio che fornisce la soluzione per gestire la migrazione degli account cliente e l'amministrazione delle richieste di assistenza clienti (CSR) in esecuzione in Microsoft Azure. |
 | ![Screenshot di un logo Saviynt](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-Saviynt.md) cloud-native Platform promuove una migliore sicurezza, conformità e governance tramite l'analisi intelligente e l'integrazione tra applicazioni per semplificare la modernizzazione it. |
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Partner Microsoft con i seguenti ISV per la sicurezza.
 
@@ -78,9 +79,9 @@ Partner Microsoft con i seguenti ISV per la sicurezza.
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

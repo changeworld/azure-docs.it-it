@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42880eed3c694029ef70ee29a00a9ade7f1d398f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f6b6fb18ce086c2eadc829f03460452deb0a12b9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058991"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98675153"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di OpenID Connect in un Azure Active Directory B2C criteri personalizzati
 
@@ -74,7 +74,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se l' `aud` attestazione in un token restituito dal provider di identità è uguale a quella specificata nei metadati IdTokenAudience.  |
@@ -94,7 +94,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` o `false` (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 | token_endpoint_auth_method | No | Specifica il modo in cui Azure AD B2C invia l'intestazione di autenticazione all'endpoint del token. Valori possibili: `client_secret_post` (impostazione predefinita) e `client_secret_basic` (anteprima pubblica). Per altre informazioni, vedere la [sezione autenticazione client OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication). |
 | token_signing_algorithm | No | Algoritmo di firma usato per le asserzioni client quando il **token_endpoint_auth_method** metadati è impostato su `private_key_jwt` . Valori possibili: `RS256` (impostazione predefinita). |
-| SingleLogoutEnabled | No | Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](session-overview.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` . |
+| SingleLogoutEnabled | No | Indica se durante l'accesso il profilo tecnico tenta di disconnettersi da provider di identità federati. Per ulteriori informazioni, vedere [Azure ad B2C la disconnessione della sessione](./session-behavior.md#sign-out).  Valori possibili: `true` (impostazione predefinita) o `false` . |
 
 ```xml
 <Metadata>
@@ -113,7 +113,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
  
 Per configurare il messaggio di errore visualizzato in caso di errore, è possibile utilizzare le impostazioni seguenti. I metadati devono essere configurati nel profilo tecnico di OpenID Connect. I messaggi di errore possono essere [localizzati](localization-string-ids.md#sign-up-or-sign-in-error-messages).
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | UserMessageIfClaimsPrincipalDoesNotExist | No | Messaggio da visualizzare all'utente se non è stato trovato un account con il nome utente specificato nella directory. |
 | UserMessageIfInvalidPassword | No | Messaggio da visualizzare all'utente se la password non è corretta. |
@@ -123,7 +123,7 @@ Per configurare il messaggio di errore visualizzato in caso di errore, è possib
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Il segreto client dell'applicazione del provider di identità. Questa chiave crittografica è obbligatoria solo se i metadati di **response_types** sono impostati su `code` e **token_endpoint_auth_method** è impostato su `client_secret_post` o `client_secret_basic` . In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |
 | assertion_signing_key | Sì | Chiave privata RSA che verrà usata per firmare l'asserzione client. Questa chiave crittografica è obbligatoria solo se il **token_endpoint_auth_method** metadati è impostato su `private_key_jwt` . |

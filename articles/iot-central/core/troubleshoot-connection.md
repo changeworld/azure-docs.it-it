@@ -8,12 +8,12 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
-ms.openlocfilehash: 2bbf400840c968587de3a0a0951d28c7c35b210f
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: d1a7c94152b611ea0dbea249156add617178d7ca
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990891"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673235"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Risolvere i problemi relativi al perché i dati dei dispositivi non vengono visualizzati in Azure IoT Central
 
@@ -35,11 +35,11 @@ Questa sezione consente di determinare se i dati raggiungono IoT Central.
 
 Se non è già stato fatto, installare lo `az cli` strumento e l' `azure-iot` estensione.
 
-Per informazioni su come installare `az cli` , vedere [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest)riga di comando di Azure.
+Per informazioni su come installare `az cli` , vedere [installare l'interfaccia della](/cli/azure/install-azure-cli)riga di comando di Azure.
 
-Per [installare](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) l' `azure-iot` estensione, eseguire il comando seguente:
+Per [installare](/cli/azure/azure-cli-reference-for-IoT#extension-reference-installation) l' `azure-iot` estensione, eseguire il comando seguente:
 
-```cmd/bash
+```azurecli
 az extension add --name azure-iot
 ```
 
@@ -50,20 +50,20 @@ Dopo aver installato l' `azure-iot` estensione, avviare il dispositivo per verif
 
 Usare i comandi seguenti per accedere alla sottoscrizione in cui è presente l'applicazione IoT Central:
 
-```cmd/bash
+```azurecli
 az login
 az set account --subscription <your-subscription-id>
 ```
 
 Per monitorare i dati di telemetria inviati dal dispositivo, usare il comando seguente:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-events --app-id <app-id> --device-id <device-name>
 ```
 
 Se il dispositivo è connesso correttamente a IoT Central, viene visualizzato un output simile al seguente:
 
-```cmd/bash
+```output
 Monitoring telemetry.
 Filtering on device: device-001
 {
@@ -82,13 +82,13 @@ Filtering on device: device-001
 
 Per monitorare gli aggiornamenti della proprietà che il dispositivo sta scambiando con IoT Central, usare il comando di anteprima seguente:
 
-```cmd/bash
+```azurecli
 az iot central diagnostics monitor-properties --app-id <app-id> --device-id <device-name>
 ```
 
 Se il dispositivo invia correttamente gli aggiornamenti delle proprietà, viene visualizzato un output simile al seguente:
 
-```cmd/bash
+```output
 Changes in reported properties:
 version : 32
 {'state': 'true', 'name': {'value': {'value': 'Contoso'}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac
@@ -106,7 +106,7 @@ Se non vengono visualizzati dati nel terminale, è probabile che il dispositivo 
 
 Se i dati non vengono visualizzati nel monitor, verificare lo stato del provisioning del dispositivo eseguendo il comando seguente:
 
-```cmd/bash
+```azurecli
 az iot central device registration-info --app-id <app-id> --device-id <device-name>
 ```
 
@@ -176,13 +176,13 @@ Per individuare le categorie in cui si trova il problema, eseguire il comando pi
 
 - Per convalidare la telemetria, usare il comando Preview:
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
 - Per convalidare gli aggiornamenti delle proprietà, utilizzare il comando anteprima
 
-    ```cmd/bash
+    ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
@@ -190,7 +190,7 @@ Per individuare le categorie in cui si trova il problema, eseguire il comando pi
 
 L'output seguente mostra messaggi di errore e di avviso di esempio dal comando Validate:
 
-```cmd/bash
+```output
 Validating telemetry.
 Filtering on device: v22upeoqx6.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).

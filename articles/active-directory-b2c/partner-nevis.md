@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 19aa847ce7ce1a6ba727a4733aefcdfad845e8c6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 282ec6a25dc381dc51f28534d272bae57d2e792e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629392"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674994"
 ---
 # <a name="tutorial-to-configure-nevis-with-azure-active-directory-b2c-for-passwordless-authentication"></a>Esercitazione per configurare Nevis con Azure Active Directory B2C per l'autenticazione senza password
 
@@ -30,9 +30,9 @@ Per iniziare, è necessario:
 
 - Una sottoscrizione di Azure AD. Se non si ha un account, ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
-- Un [tenant Azure ad B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) collegato alla sottoscrizione di Azure.
+- Un [tenant Azure ad B2C](./tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
 
-- Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started), se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
+- Configurato Azure AD B2C ambiente per l'uso di [criteri personalizzati](./custom-policy-get-started.md), se si vuole integrare Nevis nel flusso dei criteri di iscrizione.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -134,9 +134,9 @@ Si riceveranno due messaggi di posta elettronica:
 
 4. **Salvare** le modifiche apportate al file.
 
-5. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#2-create-an-azure-blob-storage-account) e caricare il file **nevis.html** nell'archivio BLOB di Azure.
+5. Seguire le [istruzioni](./customize-ui-with-html.md#2-create-an-azure-blob-storage-account) e caricare il file **nevis.html** nell'archivio BLOB di Azure.
 
-6. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#3-configure-cors) e abilitare la condivisione di risorse tra le origini (CORS) per questo file.
+6. Seguire le [istruzioni](./customize-ui-with-html.md#3-configure-cors) e abilitare la condivisione di risorse tra le origini (CORS) per questo file.
 
 7. Una volta completato il caricamento e CORS è abilitato, selezionare il file **nevis.html** nell'elenco.
 
@@ -228,11 +228,11 @@ Si riceveranno due messaggi di posta elettronica:
 
 8. Copiare il codice di verifica dal messaggio di posta elettronica.
 
-9. Selezionare **Verify** (Verifica).
+9. Selezionare **Verifica**.
 
 10. Compilare il modulo con la nuova password e il nome visualizzato.
 
-11. Selezionare **Crea**.
+11. Selezionare **Create** (Crea).
 
 12. Si passerà alla pagina di analisi del codice a matrice.
 
@@ -268,6 +268,6 @@ Si riceveranno due messaggi di posta elettronica:
 
 Per ulteriori informazioni, vedere gli articoli seguenti.
 
-- [Criteri personalizzati in AAD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Criteri personalizzati in AAD B2C](./custom-policy-overview.md)
 
-- [Introduzione ai criteri personalizzati in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Introduzione ai criteri personalizzati in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)

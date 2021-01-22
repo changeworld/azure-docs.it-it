@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ed477a931ed63c0db378ff84f85544072492ef96
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 644192de74a888daa0391b31dd42eb6028403fd8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387038"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98674475"
 ---
 # <a name="azure-ad-b2c-custom-policy-overview"></a>Panoramica dei criteri personalizzati Azure AD B2C
 
@@ -53,7 +53,7 @@ Le [trasformazioni delle attestazioni](claimstransformations.md) sono funzioni p
 
 ### <a name="customize-and-localize-your-ui"></a>Personalizzare e localizzare l'interfaccia utente
 
-Quando si desidera raccogliere informazioni dagli utenti presentando una pagina nel browser Web, usare il [profilo tecnico autocertificato](self-asserted-technical-profile.md). È possibile modificare il profilo tecnico autocertificato per [aggiungere attestazioni e personalizzare l'input dell'utente](custom-policy-configure-user-input.md).
+Quando si desidera raccogliere informazioni dagli utenti presentando una pagina nel browser Web, usare il [profilo tecnico autocertificato](self-asserted-technical-profile.md). È possibile modificare il profilo tecnico autocertificato per [aggiungere attestazioni e personalizzare l'input dell'utente](./configure-user-input.md).
 
 Per [personalizzare l'interfaccia utente](customize-ui-with-html.md) per il profilo tecnico autocertificato, è necessario specificare un URL nell'elemento di [definizione del contenuto](contentdefinitions.md) con contenuto HTML personalizzato. Nel profilo tecnico autocertificato puntare a questo ID definizione del contenuto.
 
@@ -133,11 +133,11 @@ All'interno di un Azure AD B2C criteri personalizzati, è possibile integrare la
 
 - Creare la logica entro i **criteri di estensione** o **inoltrare i criteri delle entità**. È possibile aggiungere nuovi elementi, che sostituiranno i criteri di base facendo riferimento allo stesso ID. In questo modo sarà possibile scalare verticalmente il progetto, rendendo più semplice l'aggiornamento dei criteri di base in un secondo momento se Microsoft rilascia nuovi Starter Pack.
 - All'interno dei **criteri di base**, è consigliabile evitare di apportare modifiche.  Quando necessario, effettuare commenti in cui vengono apportate le modifiche.
-- Quando si esegue l'override di un elemento, ad esempio i metadati del profilo tecnico, evitare di copiare l'intero profilo tecnico dai criteri di base. Copiare invece solo la sezione obbligatoria dell'elemento. Vedere [disabilitare la verifica della posta elettronica](custom-policy-disable-email-verification.md) per un esempio di come apportare la modifica.
+- Quando si esegue l'override di un elemento, ad esempio i metadati del profilo tecnico, evitare di copiare l'intero profilo tecnico dai criteri di base. Copiare invece solo la sezione obbligatoria dell'elemento. Vedere [disabilitare la verifica della posta elettronica](./disable-email-verification.md) per un esempio di come apportare la modifica.
 - Per ridurre la duplicazione dei profili tecnici, in cui è condivisa la funzionalità di base, usare l' [inclusione del profilo tecnico](technicalprofiles.md#include-technical-profile).
 - Evitare di scrivere nella directory Azure AD durante l'accesso, il che potrebbe causare problemi di limitazione delle richieste.
 - Se i criteri hanno dipendenze esterne, ad esempio l'API REST, verificare che siano a disponibilità elevata.
-- Per migliorare l'esperienza utente, assicurarsi che i modelli HTML personalizzati siano distribuiti a livello globale tramite la [distribuzione di contenuti online](https://docs.microsoft.com/azure/cdn/). La rete per la distribuzione di contenuti (CDN) di Azure consente di ridurre i tempi di caricamento, risparmiare larghezza di banda e velocità di risposta.
+- Per migliorare l'esperienza utente, assicurarsi che i modelli HTML personalizzati siano distribuiti a livello globale tramite la [distribuzione di contenuti online](../cdn/index.yml). La rete per la distribuzione di contenuti (CDN) di Azure consente di ridurre i tempi di caricamento, risparmiare larghezza di banda e velocità di risposta.
 - Se si desidera apportare una modifica al percorso utente. Copiare l'intero percorso utente dal criterio di base ai criteri di estensione. Fornire un ID percorso utente univoco al percorso utente copiato. Quindi, nel [criterio di relying party](relyingparty.md)modificare l'elemento [percorso utente predefinito](relyingparty.md#defaultuserjourney) in modo che punti al nuovo percorso utente.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -168,9 +168,9 @@ Si inizia con Azure AD B2C criteri personalizzati:
 
 Dopo aver configurato e testato i criteri di Azure AD B2C, è possibile iniziare a personalizzare i criteri. Vedere gli articoli seguenti per informazioni su come:
 
-- [Aggiungere attestazioni e personalizzare l'input utente](custom-policy-configure-user-input.md) usando criteri personalizzati. Informazioni su come definire un'attestazione, aggiungere un'attestazione all'interfaccia utente personalizzando alcuni dei profili tecnici degli Starter Pack.
+- [Aggiungere attestazioni e personalizzare l'input utente](./configure-user-input.md) usando criteri personalizzati. Informazioni su come definire un'attestazione, aggiungere un'attestazione all'interfaccia utente personalizzando alcuni dei profili tecnici degli Starter Pack.
 - [Personalizzare l'interfaccia utente](customize-ui-with-html.md) dell'applicazione usando un criterio personalizzato. Informazioni su come creare contenuto HTML personalizzato e personalizzare la definizione del contenuto.
-- [Localizzare l'interfaccia utente](custom-policy-localization.md) dell'applicazione usando un criterio personalizzato. Informazioni su come configurare l'elenco delle lingue supportate e fornire etichette specifiche della lingua, aggiungendo l'elemento resources localizzato.
-- Durante lo sviluppo e il test dei criteri è possibile [disabilitare la verifica tramite posta elettronica](custom-policy-disable-email-verification.md). Informazioni su come sovrascrivere i metadati di un profilo tecnico.
-- [Configurare l'accesso con un account Google](identity-provider-google-custom.md) usando criteri personalizzati. Informazioni su come creare un nuovo provider di attestazioni con il profilo tecnico OAuth2. Personalizzare quindi il percorso utente per includere l'opzione di accesso a Google.
+- [Localizzare l'interfaccia utente](./language-customization.md) dell'applicazione usando un criterio personalizzato. Informazioni su come configurare l'elenco delle lingue supportate e fornire etichette specifiche della lingua, aggiungendo l'elemento resources localizzato.
+- Durante lo sviluppo e il test dei criteri è possibile [disabilitare la verifica tramite posta elettronica](./disable-email-verification.md). Informazioni su come sovrascrivere i metadati di un profilo tecnico.
+- [Configurare l'accesso con un account Google](./identity-provider-google.md) usando criteri personalizzati. Informazioni su come creare un nuovo provider di attestazioni con il profilo tecnico OAuth2. Personalizzare quindi il percorso utente per includere l'opzione di accesso a Google.
 - Per diagnosticare i problemi relativi ai criteri personalizzati, è possibile [raccogliere Azure Active Directory B2C log con Application Insights](troubleshoot-with-application-insights.md). Informazioni su come aggiungere nuovi profili tecnici e configurare i criteri dell'entità di inoltro.

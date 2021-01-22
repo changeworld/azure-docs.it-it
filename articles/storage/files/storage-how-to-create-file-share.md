@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 7f72d703e5377f725addc4aa8c52e1cdb0fa571d
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630752"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98673807"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
@@ -129,7 +129,7 @@ Per creare un account di archiviazione usando l'interfaccia della riga di comand
 
 Per semplificare la creazione dell'account di archiviazione e della successiva condivisione file, si archivieranno diversi parametri nelle variabili. È possibile sostituire il contenuto della variabile con qualsiasi valore desiderato. si noti tuttavia che il nome dell'account di archiviazione deve essere globalmente univoco.
 
-```bash
+```azurecli
 resourceGroupName="myResourceGroup"
 storageAccountName="mystorageacct$RANDOM"
 region="westus2"
@@ -137,7 +137,7 @@ region="westus2"
 
 Per creare un account di archiviazione in grado di archiviare condivisioni file di Azure standard, viene usato il comando seguente. Il `--sku` parametro è correlato al tipo di ridondanza desiderato; se si desidera un account di archiviazione con ridondanza geografica o con ridondanza geografica, è necessario rimuovere anche il `--enable-large-file-share` parametro.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -149,7 +149,7 @@ az storage account create \
 
 Per creare un account di archiviazione in grado di archiviare le condivisioni file di Azure Premium, viene usato il comando seguente. Si noti che il `--sku` parametro è stato modificato in modo da includere sia sia `Premium` il livello di ridondanza desiderato di ridondanza locale ( `LRS` ). Il `--kind` parametro è `FileStorage` anziché `StorageV2` perché è necessario creare condivisioni file Premium in un account di archiviazione filestorage anziché in un account di archiviazione GPv2.
 
-```bash
+```azurecli
 az storage account create \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
@@ -233,7 +233,7 @@ La funzionalità per creare o spostare una condivisione file in un livello speci
 > [!Important]  
 > Per le condivisioni file Premium, il `--quota` parametro fa riferimento alla dimensione con provisioning della condivisione file. La dimensione di cui è stato effettuato il provisioning della condivisione file è la quantità per la quale verrà fatturato, indipendentemente dall'utilizzo. Le condivisioni file standard vengono fatturate in base all'utilizzo anziché alle dimensioni con provisioning.
 
-```bash
+```azurecli
 shareName="myshare"
 
 az storage share-rm create \
@@ -285,7 +285,7 @@ Update-AzRmStorageShare `
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 Il comando dell'interfaccia della riga di comando di Azure seguente presuppone che siano state impostate le `$resourceGroupName` `$storageAccountName` variabili, e, `$shareName` come descritto nelle sezioni precedenti di questo documento.
 
-```bash
+```azurecli
 az storage share-rm update \
     --resource-group $resourceGroupName \
     --storage-account $storageAccountName \
