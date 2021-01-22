@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: b7029c5cdd004910caa83425536bbe481e4b01f3
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 61858a478ead93b3709bb3e05c26335c9acbc24d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95557348"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698128"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -191,6 +191,8 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
 1. Fare clic su **Aggiungi responsabili approvazione alternativi** e selezionare gli approvatori alternativi dall'elenco.
 
     ![Accedere ai criteri dei pacchetti-aggiungere responsabili approvazione alternativi](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+    Se si seleziona responsabile come responsabile approvazione per il primo responsabile approvazione, sarà disponibile un'opzione aggiuntiva, **responsabile di secondo livello come responsabile approvazione alternativo**, disponibile per scegliere nel campo responsabile approvazione alternativo. Se si seleziona questa opzione, è necessario aggiungere un responsabile approvazione del fallback per inviare la richiesta a nel caso in cui il sistema non riesca a trovare il gestore di secondo livello.
 
 1. In **futuro per i responsabili approvazione alternativi dopo** il numero di giorni, inserire il numero di giorni per cui i responsabili approvazione devono approvare o rifiutare una richiesta. Se nessun responsabile approvazione ha approvato o negato la richiesta prima della durata della richiesta, la richiesta scade (timeout) e l'utente dovrà inviare un'altra richiesta per il pacchetto di accesso. 
 

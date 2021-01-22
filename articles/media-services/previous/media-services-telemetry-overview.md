@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 0701e9c6428283d45cf4b4a2e24c8de99d9a286b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bf9a96d7ffc3b939abe8cfb889c5bd49fee09cc
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265899"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694606"
 ---
 # <a name="azure-media-services-telemetry"></a>Telemetria di Servizi multimediali di Azure  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
-Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria per le entità Live **Channel**, **StreamingEndpoint**e Live **Archive** . 
+Tramite Servizi multimediali di Azure è possibile accedere ai dati di telemetria e delle metriche relativi ai servizi. La versione corrente di AMS consente di raccogliere i dati di telemetria per le entità Live **Channel**, **StreamingEndpoint** e Live **Archive** . 
 
 I dati di telemetria vengono scritti in una tabella di archiviazione all'interno di un account di Archiviazione di Azure specificato dall'utente (in genere quello associato all'account di AMS). 
 
@@ -75,7 +75,7 @@ Ciò dovrebbe garantire l'efficienza di molte query comuni:
 
 I dati di telemetria sono archiviati tutti insieme nella tabella "TelemetryMetrics20160321" dove "20160321" è la data di creazione della tabella. Il sistema di telemetria crea una nuova tabella per ogni giornata alle ore 00:00 UTC. In questa tabella vengono archiviati i valori ricorrenti, come la velocità in bit delle operazioni di inserimento in un determinato intervallo di tempo, i byte inviati e così via. 
 
-Proprietà|Valore|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|{ID account}_{ID entità}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>L'ID dell'account viene incluso nella chiave di partizione per semplificare i flussi di lavoro in quei casi in cui nello stesso account di archiviazione scrivono più account di Servizi multimediali.
 RowKey|{secondi a mezzanotte}_{valore casuale}|01688_00199<br/><br/>La chiave di riga inizia con il numero di secondi che mancano alla mezzanotte per consentire le principali query di stile all'interno di una partizione. Per altre informazioni, vedere [questo](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) articolo. 
@@ -96,7 +96,7 @@ Esistono tre tipi di dati di telemetria specifici di entità inseriti con la seg
 
 **Endpoint di streaming**
 
-Proprietà|Valore|Esempi
+Proprietà|valore|Esempi
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -115,7 +115,7 @@ E2ELatency|Latenza end-to-end media|250
 
 **Canale live**
 
-Proprietà|Valore|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
@@ -133,14 +133,14 @@ OverlapCount|Sovrapposizione nell'inserimento|0
 DiscontinuityCount|Discontinuità di traccia|0
 LastTimestamp|Timestamp degli ultimi dati inseriti|1800488800
 NonincreasingCount|Numero di frammenti scartati a causa del timestamp invariato|2
-UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |True
-UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|True
-UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |True
-Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|True<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|Eventuali frammenti (con vari livelli di qualità) ricevuti con fotogrammi chiave non allineati |Vero
+UnalignedPresentationTime|Eventuali frammenti (con vari livelli/tracce di qualità) ricevuti con l'ora di presentazione non allineata|Vero
+UnexpectedBitrate|True, se la frequenza in bit audio/video calcolata/effettiva è > 40.000 bps e IncomingBitrate è = = 0 O i valori IncomingBitrate e actualBitrate sono diversi del 50% |Vero
+Healthy|True, se <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> sono tutti pari a 0|Vero<br/><br/>Healthy è una funzione composita che restituisce il valore false in presenza di una delle seguenti condizioni:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **Archivio Live**
 
-Proprietà|Valore|Esempi/note
+Proprietà|valore|Esempi/note
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199

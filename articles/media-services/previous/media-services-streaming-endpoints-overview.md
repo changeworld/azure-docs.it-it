@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: a541e1b068ec3667120bbb31e65ca7bc35febadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5e3d7e61b6c2a6ad3c121da9c0198c95ac24850
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89265916"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98694572"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming  
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 In Servizi multimediali di Microsoft Azure (AMS) un **endpoint di streaming** rappresenta un servizio di streaming in grado di distribuire contenuti direttamente a un'applicazione di lettore client o a una rete CDN (rete per la distribuzione di contenuti) per la successiva distribuzione. Servizi multimediali fornisce inoltre un'integrazione completa della rete CDN di Azure. Il flusso in uscita da un servizio StreamingEndpoint può essere costituito da un flusso live, da un "video on demand" o da un download progressivo dell'asset associato a un account di Servizi multimediali. Ogni account di Servizi multimediali di Azure include un servizio StreamingEndpoint predefinito. Nell'account è possibile creare altri servizi StreamingEndpoint. Esistono due versioni di servizi StreamingEndpoint, ovvero 1.0 e 2.0. A partire dal 10 gennaio 2017, ogni account di AMS appena creato includerà lo StreamingEndpoint **predefinito** della versione 2.0. Anche gli altri endpoint di streaming che verranno aggiunti a questo account avranno la versione 2.0. Questa modifica non influisce sugli account esistenti. La versione dei servizi StreamingEndpoint è la versione 1.0, che può essere aggiornata alla versione 2.0. Questa modifica influenzerà il comportamento, la fatturazione e le funzionalità (per altre informazioni, vedere la sezione **Tipologie e versioni di streaming** documentata di seguito).
 
@@ -104,7 +104,7 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 
 ## <a name="migration-between-types"></a>Migrazione tra le tipologie
 
-Da | To | Azione
+Da | A | Azione
 ---|---|---
 Classico|Standard|È necessario fornire il consenso esplicito
 Classic|Premium| Scalabilità (unità di streaming aggiuntive)

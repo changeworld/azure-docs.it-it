@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: 70235001ad28901abd3c47872a6a241422e6f916
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: 972609b0a1b2249c9da9ab6da9309c0950e76734
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763657"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98698007"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -94,7 +94,7 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa [Nome prodotto] creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se la risorsa Face creata nella sezione **prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](../../../cognitive-services-security.md) di Servizi cognitivi.
 

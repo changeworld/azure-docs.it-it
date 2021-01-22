@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2020
+ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: a48ac86e8f9814adef9be2360b2446335d368447
-ms.sourcegitcommit: 192f9233ba42e3cdda2794f4307e6620adba3ff2
+ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96296557"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695874"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiare dati da Teradata Vantage usando Azure Data Factory
 
@@ -72,6 +72,7 @@ Ulteriori proprietà di connessione che è possibile impostare nella stringa di 
 
 | Proprietà | Descrizione | Valore predefinito |
 |:--- |:--- |:--- |
+| TdmstPortNumber | Il numero della porta utilizzata per accedere al database Teradata.<br>Non modificare questo valore a meno che non sia richiesto dal supporto tecnico. | 1025 |
 | UseDataEncryption | Specifica se crittografare tutte le comunicazioni con il database Teradata. I valori consentiti sono 0 o 1.<br><br/>- **0 (disabilitato, predefinito)**: Crittografa solo le informazioni di autenticazione.<br/>- **1 (abilitato)**: consente di crittografare tutti i dati passati tra il driver e il database. | `0` |
 | CharacterSet | Set di caratteri da utilizzare per la sessione. Ad esempio, `CharacterSet=UTF16` .<br><br/>Questo valore può essere un set di caratteri definito dall'utente o uno dei set di caratteri predefiniti seguenti: <br/>-ASCII<br/>-UTF8<br/>-UTF16<br/>-LATIN1252_0A<br/>-LATIN9_0A<br/>-LATIN1_0A<br/>-Shift-JIS (Windows, compatibile con DOS, KANJISJIS_0S)<br/>-EUC (compatibile con UNIX, KANJIEC_0U)<br/>-Mainframe IBM (KANJIEBCDIC5035_0I)<br/>-KANJI932_1S0<br/>-BIG5 (TCHBIG5_1R0)<br/>-GB (SCHGB2312_1T0)<br/>-SCHINESE936_6R0<br/>-TCHINESE950_8R0<br/>-NetworkKorean (HANGULKSC5601_2R4)<br/>-HANGUL949_7R0<br/>-ARABIC1256_6A0<br/>-CYRILLIC1251_2A0<br/>-HEBREW1255_5A0<br/>-LATIN1250_1A0<br/>-LATIN1254_7A0<br/>-LATIN1258_8A0<br/>-THAI874_4A0 | `ASCII` |
 | MaxRespSize |Dimensioni massime del buffer di risposta per le richieste SQL, in kilobyte (KB). Ad esempio, `MaxRespSize=‭10485760‬` .<br/><br/>Per il database Teradata versione 16,00 o successiva, il valore massimo è 7361536. Per le connessioni che usano versioni precedenti, il valore massimo è 1048576. | `65536` |
@@ -326,27 +327,27 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Data |Datetime |
 | Decimal |Decimal |
 | Double |Double |
-| Graphic |Non supportata. Applica cast esplicito nella query di origine. |
+| Graphic |Non supportato. Applica cast esplicito nella query di origine. |
 | Integer |Int32 |
-| Interval Day |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Day To Hour |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Day To Minute |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Day To Second |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Hour |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Hour To Minute |Non supportata. Applica cast esplicito nella query di origine. |
-| Intervallo - da ora a secondo |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Minute |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Minute To Second |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Month |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Second |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Year |Non supportata. Applica cast esplicito nella query di origine. |
-| Interval Year To Month |Non supportata. Applica cast esplicito nella query di origine. |
-| Numero |Double |
-| Periodo (Data) |Non supportata. Applica cast esplicito nella query di origine. |
-| Periodo (ora) |Non supportata. Applica cast esplicito nella query di origine. |
-| Periodo (ora con fuso orario) |Non supportata. Applica cast esplicito nella query di origine. |
-| Period (Timestamp) |Non supportata. Applica cast esplicito nella query di origine. |
-| Periodo (timestamp con fuso orario) |Non supportata. Applica cast esplicito nella query di origine. |
+| Interval Day |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Day To Hour |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Day To Minute |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Day To Second |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Hour |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Hour To Minute |Non supportato. Applica cast esplicito nella query di origine. |
+| Intervallo - da ora a secondo |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Minute |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Minute To Second |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Month |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Second |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Year |Non supportato. Applica cast esplicito nella query di origine. |
+| Interval Year To Month |Non supportato. Applica cast esplicito nella query di origine. |
+| Number |Double |
+| Periodo (Data) |Non supportato. Applica cast esplicito nella query di origine. |
+| Periodo (ora) |Non supportato. Applica cast esplicito nella query di origine. |
+| Periodo (ora con fuso orario) |Non supportato. Applica cast esplicito nella query di origine. |
+| Period (Timestamp) |Non supportato. Applica cast esplicito nella query di origine. |
+| Periodo (timestamp con fuso orario) |Non supportato. Applica cast esplicito nella query di origine. |
 | SmallInt |Int16 |
 | Tempo |TimeSpan |
 | Time With Time Zone |TimeSpan |
@@ -354,8 +355,8 @@ Quando si copiano dati da Teradata, vengono applicati i mapping seguenti. Per in
 | Timestamp With Time Zone |Datetime |
 | VarByte |Byte[] |
 | VarChar |string |
-| VarGraphic |Non supportata. Applica cast esplicito nella query di origine. |
-| Xml |Non supportata. Applica cast esplicito nella query di origine. |
+| VarGraphic |Non supportato. Applica cast esplicito nella query di origine. |
+| Xml |Non supportato. Applica cast esplicito nella query di origine. |
 
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/11/2021
-ms.openlocfilehash: a411f4ce261ee6d203e274efe3cf23ca23203453
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.date: 01/22/2021
+ms.openlocfilehash: 48450218975f2c6ee14e12af8d722942e8db1347
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070899"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695849"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
@@ -76,6 +76,9 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 - [Autenticazione SQL](#sql-authentication)
 - Autenticazione del token dell'applicazione Azure AD: [Entità servizio](#service-principal-authentication)
 - Autenticazione del token dell'applicazione Azure AD: [Identità gestite per le risorse di Azure](#managed-identity)
+
+>[!TIP]
+>Quando si crea un servizio collegato per il pool SQL senza **Server** della sinapsi di Azure dall'interfaccia utente, scegliere "invio manuale" anziché esplorare dalla sottoscrizione.
 
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
@@ -391,7 +394,7 @@ Per copiare dati in Azure sinapsi Analytics, impostare il tipo di sink nell'atti
 | writeBatchTimeout | Tempo di attesa per il completamento dell'operazione di inserimento batch prima del timeout.<br/><br/>Il valore consentito è **timespan**. Esempio: "00:30:00" (30 minuti). | No.<br/>Applicare quando si usa l'inserimento bulk.        |
 | preCopyScript     | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati in Azure sinapsi Analytics a ogni esecuzione. Usare questa proprietà per pulire i dati precaricati. | No                                            |
 | tableOption | Specifica se [creare automaticamente la tabella di sink](copy-activity-overview.md#auto-create-sink-tables) se non esiste in base allo schema di origine. I valori consentiti sono: `none` (impostazione predefinita), `autoCreate`. |No |
-| disableMetricsCollection | Data Factory raccoglie le metriche, ad esempio Azure sinapsi Analytics DWU, per l'ottimizzazione delle prestazioni di copia e consigli, che introduce un ulteriore accesso al database master. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
+| disableMetricsCollection | Data Factory raccoglie metriche come Azure sinapsi Analytics DWU per l'ottimizzazione delle prestazioni di copia e consigli, che introducono un ulteriore accesso al database master. Se questo comportamento non è desiderato, specificare `true` per disattivarlo. | No (il valore predefinito è `false`) |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Esempio di sink di analisi delle sinapsi di Azure
 
@@ -780,6 +783,7 @@ Le impostazioni specifiche di Azure Synapse Analytics sono disponibili nella sch
 
 - Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
 - Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage).
+- Quando si usa il pool SQL senza **Server** della sinapsi di Azure come origine, l'abilitazione della gestione temporanea non è supportata.
 
 **Query**: se si seleziona Query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order By** non sono supportate, ma è possibile impostare un'istruzione SELECT FROM completa. È possibile usare anche funzioni di tabella definite dall'utente. **select * from udfGetData()** è un UDF in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che può essere usata nel flusso di dati. L'uso di query è anche un ottimo modo per ridurre le righe per i test o le ricerche.
 
