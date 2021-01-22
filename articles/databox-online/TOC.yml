@@ -397,6 +397,11 @@
   items:
     - name: Baseline di sicurezza
       href: security-baseline.md
+- name: Riferimenti
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Esempi di modulo C# per Azure Stack Edge Pro (.NET)

@@ -1,0 +1,54 @@
+- name: Documentazione di importazione/esportazione di Azure
+  href: ./index.yml
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Che cos'è importazione/esportazione?
+      href: storage-import-export-service.md
+- name: Concetti
+  items:
+    - name: Esaminare i requisiti
+      href: storage-import-export-requirements.md
+    - name: Domande frequenti
+      href: storage-import-export-service-faq.md
+- name: Procedure
+  expanded: true
+  items:
+    - name: Distribuire
+      items:
+        - name: Importare dati nei BLOB
+          href: storage-import-export-data-to-blobs.md
+        - name: Importare dati nei file
+          href: storage-import-export-data-to-files.md
+        - name: Esportare dati dai BLOB
+          href: storage-import-export-data-from-blobs.md
+    - name: Usare chiavi gestite dal cliente
+      href: storage-import-export-encryption-key-portal.md
+    - name: Monitorare
+      items:
+        - name: Visualizzare lo stato dell'unità
+          href: storage-import-export-view-drive-status.md
+        - name: Verificare lo stato di un processo
+          href: storage-import-export-tool-reviewing-job-status-v1.md
+    - name: Risolvere problemi
+      items:
+        - name: Correggere gli errori comuni
+          href: storage-import-export-tool-troubleshooting-v1.md
+        - name: Ripristinare un processo di importazione
+          href: storage-import-export-tool-repairing-an-import-job-v1.md
+        - name: Ripristinare un processo di esportazione
+          href: storage-import-export-tool-repairing-an-export-job-v1.md
+        - name: Contattare il supporto tecnico
+          href: storage-import-export-contact-microsoft-support.md
+- name: Informazioni di riferimento
+  items:
+    - name: API REST
+      href: /rest/api/storageimportexport/jobs
+    - name: Azure PowerShell
+      href: /powershell/module/Az.ImportExport
+- name: Risorse
+  items:
+    - name: Esporta dati offline
+      href: /learn/modules/export-data-with-azure-import-export
+    - name: Altre opzioni di trasferimento offline
+      href: ../databox/index.yml

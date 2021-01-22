@@ -1,0 +1,88 @@
+- name: Sincronizzazione cloud
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è il provisioning di identità?
+      href: what-is-provisioning.md
+    - name: Che cos'è Azure AD Connect sincronizzazione cloud?
+      href: what-is-cloud-sync.md
+      maintainContext: true
+- name: Esercitazioni
+  expanded: true
+  items:
+    - name: Integrare una singola foresta di AD con un singolo tenant di Azure AD
+      href: tutorial-single-forest.md
+    - name: Integrare una foresta esistente e una nuova con un singolo tenant di Azure AD
+      href: tutorial-existing-forest.md
+    - name: Sincronizzazione cloud pilota per una foresta di Active Directory sincronizzata esistente
+      href: tutorial-pilot-aadc-aadccp.md
+- name: Concetti
+  items:
+    - name: Come funziona
+      href: concept-how-it-works.md
+    - name: Che cos'è la sincronizzazione dell'hash delle password?
+      href: ../hybrid/whatis-phs.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcloud-provisioning-context
+    - name: 'Informazioni su schema, attributi ed espressioni di Azure AD'
+      href: concept-attributes.md
+    - name: Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
+      href: reference-expressions.md
+- name: Guide pratiche
+  items:
+    - name: Installazione e aggiornamento
+      items:
+        - name: Prerequisiti di installazione
+          href: how-to-prerequisites.md
+        - name: Installare l'agente di provisioning cloud di Azure AD Connect
+          href: how-to-install.md
+        - name: Configurazione della sincronizzazione cloud
+          href: how-to-configure.md
+        - name: Provisioning su richiesta
+          href: how-to-on-demand-provision.md
+        - name: Mapping degli attributi
+          href: how-to-attribute-mapping.md
+        - name: Usare Single Sign-On
+          href: how-to-sso.md
+    - name: Pianificare e progettare
+      items:
+        - name: Topologie e scenari per Azure AD Connect sincronizzazione cloud
+          href: plan-cloud-sync-topologies.md
+    - name: Gestione
+      items:
+        - name: Aggiornamento automatico dell'agente
+          href: how-to-automatic-upgrade.md
+        - name: Eliminazioni accidentali
+          href: how-to-accidental-deletes.md
+        - name: Opzioni del registro dell'agente
+          href: how-to-manage-registry-options.md
+        - name: Cmdlet di PowerShell per Agent gMSA
+          href: how-to-gmsa-cmdlets.md
+        - name: Installare l'agente di provisioning con PowerShell
+          href: how-to-install-pshell.md
+    - name: Sviluppo
+      items:
+        - name: Trasformazioni
+          href: how-to-transformation.md
+        - name: Sincronizzazione in ingresso con l'API MS Graph
+          href: how-to-inbound-synch-ms-graph.md
+        - name: API di sincronizzazione di Azure AD
+          href: /graph/api/resources/synchronization-overview
+    - name: Risolvere problemi
+      items:
+        - name: Risolvere i problemi di sincronizzazione cloud
+          href: how-to-troubleshoot.md
+        - name: Attributi duplicati
+          href: ../hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+- name: Informazioni di riferimento
+  items:
+    - name: Cronologia delle versioni dell'agente di provisioning cloud di Azure AD Connect
+      href: reference-version-history.md
+    - name: Domande frequenti su Azure AD Connect Cloud Sync
+      href: reference-cloud-sync-faq.md
+    - name: Modulo AADCloudSyncTools di PowerShell
+      href: reference-powershell.md
+    - name: Attributi che vengono sincronizzati
+      href: ../hybrid/reference-connect-sync-attributes-synchronized.md?context=%2fazure%2factive-directory%2fcloud-provisioning%2fcontext%2fcp-context
+    - name: Codici di errore e descrizioni
+      href: reference-error-codes.md
+    - name: Ambiente di base di Active Directory e Azure AD
+      href: tutorial-basic-ad-azure.md

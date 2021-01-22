@@ -241,6 +241,9 @@
           href: /powershell/module/az.databox
         - name: API .NET
           href: /dotnet/api/overview/azure/databox/management
+        - name: Criteri di Azure predefiniti
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
     - name: Risorse
       items:
         - name: Prodotto Data Box

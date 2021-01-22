@@ -5,9 +5,9 @@
   items:
     - name: Che cos'è Ricerca cognitiva?
       href: search-what-is-azure-search.md
-    - name: Funzionalità incluse in Ricerca cognitiva
+    - name: Elenco di funzionalità
       href: search-features-list.md
-    - name: Novità di Ricerca cognitiva
+    - name: Nuovo nella ricerca
       href: whats-new.md
 - name: Avvi rapidi
   items:

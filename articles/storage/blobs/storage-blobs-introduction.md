@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/24/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8e3f0435d9856d2b602a4f2b6f604aee05e040ba
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
-ms.translationtype: HT
+ms.openlocfilehash: b55ea814214397e12e50e7bc5047988394623940
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505206"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703590"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduzione all'archiviazione BLOB di Azure
 
@@ -70,7 +70,7 @@ Esistono diverse soluzioni per la migrazione dei dati esistenti nell'archivio BL
 - **Azure Data Factory** supporta la copia dei dati da e verso l'archivio BLOB tramite la chiave dell'account, una firma di accesso condiviso, un'entità servizio o identità gestite per le risorse di Azure. Per altre informazioni, vedere [Copiare dati da e verso l’archivio BLOB di Azure usando Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** è un driver virtuale file system per l'archivio BLOB di Azure. È possibile usare blobfuse per accedere ai dati di BLOB in blocchi esistenti nell'account di archiviazione tramite il file system di Linux. Per altre informazioni, vedere [Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md).
 - Il servizio **Azure Data Box** è disponibile per trasferire dati locali nell'archivio BLOB, quando grandi set di dati o vincoli di rete complicano il caricamento dei dati in rete. A seconda delle dimensioni dei dati, è possibile richiedere a Microsoft dispositivi [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md) o [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md). È quindi possibile copiare i dati in tali dispositivi e rispedirli a Microsoft per farli caricare nell'archivio BLOB.
-- Il **servizio di importazione/esportazione di Azure** consente di importare o esportare grandi quantità di dati nell'account di archiviazione usando i dischi rigidi forniti. Per altre informazioni, vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../common/storage-import-export-service.md).
+- Il **servizio di importazione/esportazione di Azure** consente di importare o esportare grandi quantità di dati nell'account di archiviazione usando i dischi rigidi forniti. Per altre informazioni, vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../../import-export/storage-import-export-service.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

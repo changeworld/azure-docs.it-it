@@ -1,19 +1,19 @@
 ---
 title: Definizioni di criteri predefinite per API di Azure per FHIR
 description: Elenco di definizioni di criteri predefinite di Criteri di Azure per API di Azure per FHIR. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: dab9ff889db9665026090a6a470153e72a73768d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: b7ab4a4c97b76d6775cf66138159d7c9b7ab4c14
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044026"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98699422"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-api-for-fhir"></a>Definizioni predefinite di Criteri di Azure per API di Azure per FHIR
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: 9457c610b256dd4602ef0dc51a47eeffb3c63b49
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705150"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702727"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedure consigliate per l'uso dell'API del rilevamento anomalie
 
@@ -34,9 +34,9 @@ L'endpoint di rilevamento batch dell'API del rilevatore di anomalie consente di 
 * Una serie temporale stagionale, con anomalie occasionali.
 * Serie temporale di tendenza piatta, con picchi/DIP occasionali. 
 
-Non è consigliabile usare il rilevamento delle anomalie in batch per il monitoraggio dei dati in tempo reale o l'uso di dati di serie temporali che non hanno caratteristiche precedenti. 
+Non è consigliabile usare il rilevamento delle anomalie in batch per il monitoraggio dei dati in tempo reale o l'uso di dati di serie temporali che non hanno le caratteristiche precedenti. 
 
-* Il rilevamento batch crea e applica un solo modello, il rilevamento per ogni punto viene eseguito nel contesto di una serie intera. Se le tendenze dei dati delle serie temporali aumentano e diminuiscono senza stagionalità, alcuni punti di modifica (DIP e picchi nei dati) potrebbero non essere presenti nel modello. Analogamente, è possibile che alcuni punti di modifica meno significativi di quelli successivi nel set di dati non vengano conteggiati come sufficientemente significativi da incorporare nel modello.
+* Il rilevamento batch crea e applica un solo modello, il rilevamento per ogni punto viene eseguito nel contesto dell'intera serie. Se le tendenze dei dati delle serie temporali aumentano e diminuiscono senza stagionalità, alcuni punti di modifica (DIP e picchi nei dati) potrebbero non essere presenti nel modello. Analogamente, è possibile che alcuni punti di modifica meno significativi di quelli successivi nel set di dati non vengano conteggiati come sufficientemente significativi da incorporare nel modello.
 
 * Il rilevamento batch è più lento rispetto al rilevamento dello stato anomalie del punto più recente durante il monitoraggio dei dati in tempo reale, a causa del numero di punti analizzati.
 
@@ -95,7 +95,7 @@ Se si è certi che i dati delle serie temporali hanno un modello stagionale (uno
 
 Se si specifica un oggetto `period` quando si costruisce la richiesta JSON, è possibile ridurre la latenza di rilevamento anomalie fino al 50%. `period`È un numero intero che specifica approssimativamente il numero di punti dati che la serie temporale impiega per ripetere un modello. Ad esempio, una serie temporale con un punto dati al giorno avrà `period` come `7` e una serie temporale con un punto all'ora (con lo stesso modello settimanale) avrebbe un `period` di  `7*24` . Se non si è certi dei modelli di dati, non è necessario specificare questo parametro.
 
-Per ottenere risultati ottimali, fornire `period` un punto dati di 4, più uno aggiuntivo. Ad esempio, i dati orari con un modello settimanale, come descritto in precedenza, devono fornire 673 punti dati nel corpo della richiesta ( `7 * 24 * 4 + 1` ).
+Per ottenere risultati ottimali, fornire `period` un punto dati di quattro, più uno aggiuntivo. Ad esempio, i dati orari con un modello settimanale, come descritto in precedenza, devono fornire 673 punti dati nel corpo della richiesta ( `7 * 24 * 4 + 1` ).
 
 ### <a name="sampling-data-for-real-time-monitoring"></a>Campionamento dei dati per il monitoraggio in tempo reale
 
@@ -104,4 +104,4 @@ Se i dati di streaming vengono campionati a breve (ad esempio secondi o minuti),
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Cos'è l'API Rilevamento anomalie?](../overview.md)
-* [Guida introduttiva: rilevare anomalie nei dati delle serie temporali usando il rilevatore di anomalie](../quickstarts/client-libraries.md)
+* [Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite Rilevamento anomalie](../quickstarts/client-libraries.md)

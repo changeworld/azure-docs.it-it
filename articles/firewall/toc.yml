@@ -58,6 +58,8 @@
       href: fqdn-filtering-network-rules.md
     - name: Baseline di sicurezza
       href: security-baseline.md
+    - name: Supporto FTP attivo
+      href: active-ftp-support.md
 - name: Guide pratiche
   items:
     - name: Eseguire la distribuzione tramite Azure PowerShell

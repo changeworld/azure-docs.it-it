@@ -38,7 +38,7 @@
           href: ../containers/index.yml
 - name: Concetti
   items:
-    - name: Procedure consigliate per l'API Rilevamento anomalie
+    - name: Procedure consigliate per l'API del rilevamento anomalie
       href: concepts/anomaly-detection-best-practices.md
 - name: Informazioni di riferimento
   items:

@@ -210,6 +210,8 @@
           items:
             - name: Ripristinare i file da Azure in Windows Server
               href: backup-azure-restore-windows-server.md
+            - name: Ripristinare tutti i file in un volume
+              href: restore-all-files-volume-mars.md
             - name: Ripristinare lo stato del sistema Windows Server
               href: backup-azure-restore-system-state.md
         - name: Gestione
@@ -404,7 +406,7 @@
               href: backup-azure-arm-userestapi-managejobs.md
         - name: Modelli di Gestione risorse
           href: backup-rm-template-samples.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Panoramica
           href: security-overview.md

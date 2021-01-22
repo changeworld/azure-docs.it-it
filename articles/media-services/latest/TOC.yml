@@ -258,14 +258,49 @@
               href: job-error-codes.md
         - name: Reimpostare le credenziali dell'account
           href: cli-reset-account-credentials.md
-    - name: Eseguire la migrazione da v2 a v3
+    - name: Guida alla migrazione
+      displayName: migration
       items:
-        - name: Confronto tra v2 e v3
-          displayName: 'migrate, v2 to v3'
-          href: media-services-v2-vs-v3.md
-        - name: Indicazioni sulla migrazione
-          href: migrate-from-v2-to-v3.md
-          displayName: naming
+        - name: Introduzione alla guida alla migrazione
+          href: migrate-v-2-v-3-migration-introduction.md
+          displayName: migration
+        - name: 'Passaggio 1: vantaggi'
+          href: migrate-v-2-v-3-migration-benefits.md
+          displayName: 'migration, benefits'
+        - name: Passaggio 2-differenze
+          items:
+            - name: Accesso all'API
+              href: migrate-v-2-v-3-differences-api-access.md
+              displayName: 'migration, api'
+            - name: Gap delle funzionalità
+              href: migrate-v-2-v-3-differences-feature-gaps.md
+              displayName: 'migration, features'
+            - name: Terminologia e modifiche alle entità
+              href: migrate-v-2-v-3-differences-terminology.md
+              displayName: 'migration, entity, api'
+        - name: 'Passaggio 3: installazione dell''SDK'
+          href: migrate-v-2-v-3-migration-setup.md
+          displayName: 'migration, SDK`'
+        - name: 'Passaggio 4: informazioni aggiuntive sulla migrazione basata su scenari'
+          items:
+            - name: Codifica
+              href: migrate-v-2-v-3-migration-scenario-based-encoding.md
+              displayName: 'migration, encoding'
+            - name: Streaming live
+              href: migrate-v-2-v-3-migration-scenario-based-live-streaming.md
+              displayName: 'migration, live streaming'
+            - name: Creazione di pacchetti e recapito
+              href: migrate-v-2-v-3-migration-scenario-based-publishing.md
+              displayName: 'migration, packaging, delivery, publishing'
+            - name: Protezione del contenuto
+              href: migrate-v-2-v-3-migration-scenario-based-content-protection.md
+              displayName: 'migration, content protection, DRM, digital rights management'
+            - name: Media reserved Unit (MRU)
+              href: migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md
+              displayName: 'migration, media reserved units'
+        - name: Confronto degli esempi
+          href: migrate-v-2-v-3-migration-samples.md
+          displayName: 'migration, samples'
 - name: Guide pratiche
   items:
     - name: Creare asset e caricare file multimediali

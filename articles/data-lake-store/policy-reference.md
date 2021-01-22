@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Azure Data Lake Storage Gen1
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Azure Data Lake Storage Gen1. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-reference
-ms.openlocfilehash: a79a1a2d77893087c73e96f17f05eff55b301520
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6bb46a6082140de36c232a86f9ccd68465d267ee
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048616"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700340"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-storage-gen1"></a>Definizioni predefinite di Criteri di Azure per Azure Data Lake Storage Gen1
 

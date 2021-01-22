@@ -3,12 +3,12 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54932192d61633da55657e2ba57adf4e30c4fbc7
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052223"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702769"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
 
@@ -38,13 +38,13 @@ Backup di Azure non prende automaticamente in considerazione l'ora legale (DST).
 
 Per creare un criterio di backup:
 
-1. Dopo aver scaricato e registrato l'agente MARS, aprire la console di Agent. È possibile trovarlo se si cerca **Backup di Microsoft Azure**nel computer.  
+1. Dopo aver scaricato e registrato l'agente MARS, aprire la console di Agent. È possibile trovarlo se si cerca **Backup di Microsoft Azure** nel computer.  
 
-1. In **azioni**selezionare **Pianifica backup**.
+1. In **azioni** selezionare **Pianifica backup**.
 
     ![Pianificare un backup di Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
 1. Nella pianificazione guidata backup selezionare **Guida introduttiva**  >  **Avanti**.
-1. In **Seleziona elementi di cui eseguire il backup**selezionare **Aggiungi elementi**.
+1. In **Seleziona elementi di cui eseguire il backup** selezionare **Aggiungi elementi**.
 
     ![Aggiungere elementi di cui eseguire il backup](./media/backup-azure-manage-mars/select-item-to-backup.png)
 
@@ -53,7 +53,7 @@ Per creare un criterio di backup:
     ![Seleziona elementi per backup](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 1. Nella pagina **selezionare gli elementi di cui eseguire il backup** selezionare **Avanti**.
-1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Fare quindi clic su **Avanti**.
+1. Nella pagina **specificare la pianificazione del backup** specificare quando eseguire i backup giornalieri o settimanali. Selezionare quindi **Avanti**.
 
     * Quando viene creato un backup, viene creato un punto di ripristino.
     * Il numero di punti di ripristino creati nell'ambiente dipende dalla pianificazione del backup.
@@ -65,7 +65,7 @@ Per creare un criterio di backup:
 
         ![Configurare una pianificazione di backup settimanale](./media/backup-configure-vault/week-schedule.png)
 
-1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Fare quindi clic su **Avanti**.
+1. Nella pagina **Seleziona criteri di conservazione** specificare come archiviare le copie cronologiche dei dati. Selezionare quindi **Avanti**.
 
     * Le impostazioni di conservazione specificano i punti di ripristino da archiviare e la durata dell'archiviazione.
     * Per un'impostazione di conservazione giornaliera, si indica che al momento specificato per la conservazione giornaliera, il punto di ripristino più recente verrà mantenuto per il numero di giorni specificato. In alternativa, è possibile specificare un criterio di conservazione mensile per indicare che il punto di ripristino creato il 30 di ogni mese deve essere archiviato per 12 mesi.
@@ -104,7 +104,7 @@ Per eseguire un trasferimento offline:
 1. Scrivere i dati di backup in un percorso di gestione temporanea.
 1. Usare lo strumento AzureOfflineBackupDiskPrep per copiare i dati dal percorso di gestione temporanea a uno o più dischi SATA.
 
-    Lo strumento crea un processo di importazione di Azure. Per altre informazioni, vedere [che cos'è il servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md).
+    Lo strumento crea un processo di importazione di Azure. Per altre informazioni, vedere [che cos'è il servizio importazione/esportazione di Azure](../import-export/storage-import-export-service.md).
 1. Inviare i dischi SATA a un Data Center di Azure.
 
     Nel Data Center i dati del disco vengono copiati in un account di archiviazione di Azure. Backup di Azure copia i dati dall'account di archiviazione all'insieme di credenziali e vengono pianificati i backup incrementali.
@@ -125,7 +125,7 @@ Per abilitare la limitazione della larghezza di banda:
 1. Nella scheda **limitazione** , selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
 
     ![Configurare la limitazione delle richieste di rete per le operazioni di backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Specificare la larghezza di banda consentita durante le ore lavorative e non lavorative. I valori della larghezza di banda iniziano a 512 kbps e passano fino a 1.023 Mbps. Quindi scegliere **OK**.
+1. Specificare la larghezza di banda consentita durante le ore lavorative e non lavorative. I valori della larghezza di banda iniziano a 512 kbps e passano fino a 1.023 Mbps. Selezionare **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 
