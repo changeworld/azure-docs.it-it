@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fea8d93121fcb5622f86257febcc7d834b444098
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 34bc50f5f95725b59c0d2b30b529e12abb6aa7fa
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178807"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661154"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>Migrare gli utenti a Azure AD B2C
 
-La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza* problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](manage-user-accounts-graph-api.md) per creare gli account utente nel Azure ad B2C.
+La migrazione da un altro provider di identità a Azure Active Directory B2C (Azure AD B2C) potrebbe richiedere anche la migrazione degli account utente esistenti. Di seguito sono descritti due metodi di migrazione, *pre-migrazione* e *migrazione senza* problemi. Con entrambi gli approcci, è necessario scrivere un'applicazione o uno script che usi l' [API Microsoft Graph](microsoft-graph-operations.md) per creare gli account utente nel Azure ad B2C.
 
 ## <a name="pre-migration"></a>Pre-migrazione
 
@@ -34,7 +34,7 @@ Usare il flusso di pre-migrazione in una delle due situazioni seguenti:
 - È possibile accedere alle credenziali in testo non crittografato dell'utente (nome utente e password).
 - Le credenziali sono crittografate, ma è possibile decrittografarle.
 
-Per informazioni sulla creazione di account utente a livello di codice, vedere [manage Azure ad B2C user accounts with Microsoft Graph](manage-user-accounts-graph-api.md).
+Per informazioni sulla creazione di account utente a livello di codice, vedere [manage Azure ad B2C user accounts with Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="seamless-migration"></a>Migrazione senza problemi
 

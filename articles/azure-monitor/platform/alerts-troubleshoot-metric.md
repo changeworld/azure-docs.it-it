@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/11/2021
+ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: e4e876b58c82605df0c005b225dcf2cdbcda1b34
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070730"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661798"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -24,8 +24,9 @@ Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono 
 Se si ritiene che un avviso di metrica debba essere stato attivato ma non è stato attivato e non è stato trovato nella portale di Azure, provare a eseguire i passaggi seguenti:
 
 1. **Configurazione** : esaminare la configurazione della regola di avviso della metrica per assicurarsi che sia configurata correttamente:
-    - Verificare che il **tipo di aggregazione**, la **granularità dell'aggregazione (periodo)** e il **valore di soglia** o la **sensibilità** siano configurati come previsto.
-    - Per una regola di avviso che utilizza soglie dinamiche, controllare se sono configurate impostazioni avanzate, in quanto il **numero di violazioni** può filtrare gli avvisi e **ignorare i dati prima** che possa influisca sulla modalità di calcolo delle soglie
+    - Verificare che il **tipo di aggregazione** e la **granularità di aggregazione (periodo)** siano configurati come previsto. Il **tipo di aggregazione** determina il modo in cui vengono aggregati i valori delle metriche [(altre informazioni](./metrics-aggregation-explained.md#aggregation-types)) e la **granularità di aggregazione (periodo)** controlla la distanza con cui la valutazione aggrega i valori delle metriche ogni volta che viene eseguita la regola di avviso.
+    -  Verificare che il **valore di soglia** o la **sensibilità** siano configurati come previsto.
+    - Per una regola di avviso che utilizza soglie dinamiche, controllare se sono configurate impostazioni avanzate, in quanto il **numero di violazioni** può filtrare gli avvisi e **ignorare i dati prima** che possa influisca sulla modalità di calcolo delle soglie.
 
        > [!NOTE] 
        > Le soglie dinamiche richiedono almeno 3 giorni e 30 campioni di metriche prima di diventare attive.
@@ -252,7 +253,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Esempio:
+Ad esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

@@ -1,29 +1,31 @@
 ---
-title: Operazioni di Microsoft Graph supportate
+title: Gestire le risorse con Microsoft Graph
 titleSuffix: Azure AD B2C
-description: Indice delle operazioni di Microsoft Graph supportate per la gestione di risorse Azure AD B2C, inclusi utenti, flussi utente, provider di identità, criteri personalizzati, chiavi dei criteri e altro ancora.
+description: Come gestire le risorse in un tenant di Azure AD B2C chiamando l'API Microsoft Graph e usando un'identità dell'applicazione per automatizzare il processo.
 services: B2C
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
-ms.date: 10/15/2020
+ms.topic: how-to
+ms.date: 01/21/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.custom: fasttrack-edit
-ms.openlocfilehash: fed1e31380381b864530b3fa0b9e8c0886737d04
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1dc5b8dc8930d75456f307324ef97bd60e78eca9
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033609"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660158"
 ---
-# <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph operazioni disponibili per Azure AD B2C
+# <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
 
-Per la gestione delle risorse Azure AD B2C, inclusi gli utenti, i provider di identità, i flussi utente, i criteri personalizzati e le chiavi dei criteri, sono supportate le seguenti operazioni di Microsoft Graph API.
+Microsoft Graph consente di gestire le risorse nella directory Azure AD B2C. Per la gestione delle risorse Azure AD B2C, inclusi gli utenti, i provider di identità, i flussi utente, i criteri personalizzati e le chiavi dei criteri, sono supportate le seguenti operazioni di Microsoft Graph API. Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente all'interno del Microsoft Graph riferimento API per l'operazione. 
 
-Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente all'interno del Microsoft Graph riferimento API per l'operazione.
+## <a name="perquisites"></a>Prerequisiti
+
+Per usare MS API Graph e interagire con le risorse nel tenant di Azure AD B2C, è necessaria una registrazione dell'applicazione che conceda le autorizzazioni necessarie. Seguire i passaggi descritti nell'articolo [gestire Azure ad B2C con Microsoft Graph](microsoft-graph-get-started.md) per creare una registrazione dell'applicazione che può essere usata dall'applicazione di gestione. 
 
 ## <a name="user-management"></a>Gestione degli utenti
 
@@ -33,8 +35,6 @@ Ogni collegamento nelle sezioni seguenti è destinato alla pagina corrispondente
 - [Aggiornare un utente](/graph/api/user-update)
 - [Eliminare un utente](/graph/api/user-delete)
 
-Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l'API Microsoft Graph, vedere [gestire gli account utente di Azure ad B2C con Microsoft Graph](manage-user-accounts-graph-api.md).
-
 ## <a name="user-phone-number-management"></a>Gestione dei numeri di telefono dell'utente
 
 - [Aggiungere](/graph/api/authentication-post-phonemethods)
@@ -42,7 +42,7 @@ Per altre informazioni sulla gestione degli account utente di Azure AD B2C con l
 - [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
 - [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
-Per altre informazioni sulla gestione del numero di telefono dell'accesso dell'utente con l'API Microsoft Graph, vedere [metodi di autenticazione B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
+Per ulteriori informazioni sulla gestione del numero di telefono dell'accesso dell'utente, vedere [metodi di autenticazione B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Provider di identità (flusso utente)
 
@@ -77,7 +77,7 @@ Le operazioni seguenti consentono di gestire i criteri di Azure AD B2C Trust Fra
 
 Il Framework dell'esperienza di identità Archivia i segreti a cui si fa riferimento in un criterio personalizzato per stabilire una relazione di trust tra i componenti. Questi segreti possono essere chiavi/valori simmetriche o asimmetriche. Nel portale di Azure queste entità vengono visualizzate come chiavi dei **criteri**.
 
-La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è il [keyset del Framework attendibile](/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare prima un keyset vuoto e quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa definita dall'utente, ad esempio il segreto dell'applicazione Facebook, oppure un certificato caricato. Se un keyset dispone di più chiavi, solo una delle chiavi è attiva.
+La risorsa di primo livello per le chiavi dei criteri nell'API Microsoft Graph è il [keyset del Framework attendibile](/graph/api/resources/trustframeworkkeyset). Ogni **Keyset** contiene almeno una **chiave**. Per creare una chiave, creare prima un keyset vuoto e quindi generare una chiave nel keyset. È possibile creare un segreto manuale, caricare un certificato o una chiave PKCS12. La chiave può essere un segreto generato, una stringa (ad esempio il segreto dell'applicazione Facebook) o un certificato caricato. Se un keyset dispone di più chiavi, solo una delle chiavi è attiva.
 
 ### <a name="trust-framework-policy-keyset"></a>Keyset criteri di Framework attendibilità
 
@@ -114,4 +114,93 @@ Azure AD B2C fornisce una directory che può contenere 100 attributi personalizz
 
 - [Elencare i log di controllo](/graph/api/directoryaudit-list)
 
-Per ulteriori informazioni sull'accesso ai log di controllo di Azure AD B2C con l'API Microsoft Graph, vedere [accesso ai log di controllo di Azure ad B2C](view-audit-logs.md).
+Per ulteriori informazioni sull'accesso ai log di controllo di Azure AD B2C, vedere [accesso ai log di controllo di Azure ad B2C](view-audit-logs.md).
+
+## <a name="code-sample-how-to-programmatically-manage-user-accounts"></a>Esempio di codice: come gestire gli account utente a livello di codice
+
+Questo esempio di codice è un'applicazione console .NET Core che usa l' [SDK Microsoft Graph](/graph/sdks/sdks-overview) per interagire con Microsoft Graph API. Il codice illustra come chiamare l'API per gestire gli utenti a livello di codice in un tenant Azure AD B2C.
+È possibile [scaricare l'archivio di esempio](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management/archive/master.zip) (*. zip), [esplorare il repository](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) in GitHub o clonare il repository:
+
+```cmd
+git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management.git
+```
+
+Dopo aver ottenuto l'esempio di codice, configurarlo per l'ambiente e quindi compilare il progetto:
+
+1. Aprire il progetto in [Visual Studio](https://visualstudio.microsoft.com) o in [Visual Studio Code](https://code.visualstudio.com).
+1. Aprire `src/appsettings.json`.
+1. Nella `appSettings` sezione sostituire `your-b2c-tenant` con il nome del tenant e `Application (client) ID` e `Client secret` con i valori per la registrazione dell'applicazione di gestione. Per ulteriori informazioni, vedere la pagina relativa alla [registrazione di un'applicazione Microsoft Graph](microsoft-graph-get-started.md).
+1. Aprire una finestra della console all'interno del clone locale del repository, passare alla `src` Directory e quindi compilare il progetto:
+
+    ```console
+    cd src
+    dotnet build
+    ```
+    
+1. Eseguire l'applicazione con il comando `dotnet`:
+
+    ```console
+    dotnet bin/Debug/netcoreapp3.1/b2c-ms-graph.dll
+    ```
+
+L'applicazione visualizza un elenco di comandi che è possibile eseguire. Ad esempio, ottenere tutti gli utenti, ottenere un singolo utente, eliminare un utente, aggiornare la password di un utente ed eseguire l'importazione bulk.
+
+### <a name="code-discussion"></a>Discussione sul codice
+
+Il codice di esempio usa il [Microsoft Graph SDK](/graph/sdks/sdks-overview), progettato per semplificare la creazione di applicazioni di alta qualità, efficienti e resilienti che accedono a Microsoft Graph.
+
+Qualsiasi richiesta all'API Microsoft Graph richiede un token di accesso per l'autenticazione. La soluzione USA il pacchetto NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) che fornisce un wrapper basato sullo scenario di autenticazione di Microsoft Authentication Library (MSAL) per l'uso con il Microsoft Graph SDK.
+
+Il `RunAsync` metodo nel file _Program.cs_ :
+
+1. Legge le impostazioni dell'applicazione dal _appsettings.jssul_ file
+1. Inizializza il provider di autenticazione utilizzando il flusso di [concessione delle credenziali client OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Con il flusso di concessione delle credenziali client, l'app è in grado di ottenere un token di accesso per chiamare l'API Microsoft Graph.
+1. Configura il client del servizio Microsoft Graph con il provider di autenticazione:
+
+    ```csharp
+    // Read application settings from appsettings.json (tenant ID, app ID, client secret, etc.)
+    AppSettings config = AppSettingsFile.ReadFromJsonFile();
+
+    // Initialize the client credential auth provider
+    IConfidentialClientApplication confidentialClientApplication = ConfidentialClientApplicationBuilder
+        .Create(config.AppId)
+        .WithTenantId(config.TenantId)
+        .WithClientSecret(config.ClientSecret)
+        .Build();
+    ClientCredentialProvider authProvider = new ClientCredentialProvider(confidentialClientApplication);
+
+    // Set up the Microsoft Graph service client with client credentials
+    GraphServiceClient graphClient = new GraphServiceClient(authProvider);
+    ```
+
+Il *GraphServiceClient* inizializzato viene quindi usato in _UserService.cs_ per eseguire le operazioni di gestione degli utenti. Ad esempio, ottenere un elenco degli account utente nel tenant:
+
+```csharp
+public static async Task ListUsers(GraphServiceClient graphClient)
+{
+    Console.WriteLine("Getting list of users...");
+
+    // Get all users (one page)
+    var result = await graphClient.Users
+        .Request()
+        .Select(e => new
+        {
+            e.DisplayName,
+            e.Id,
+            e.Identities
+        })
+        .GetAsync();
+
+    foreach (var user in result.CurrentPage)
+    {
+        Console.WriteLine(JsonConvert.SerializeObject(user));
+    }
+}
+```
+
+[Eseguire chiamate API usando gli sdk Microsoft Graph](/graph/sdks/create-requests) include informazioni su come leggere e scrivere informazioni da Microsoft Graph, usare `$select` per controllare le proprietà restituite, fornire parametri di query personalizzati e usare i `$filter` `$orderBy` parametri di query e.
+
+<!-- LINK -->
+
+[graph-objectIdentity]: /graph/api/resources/objectidentity
+[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)

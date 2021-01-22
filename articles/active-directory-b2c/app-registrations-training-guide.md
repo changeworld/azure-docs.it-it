@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7c9e3344ed819f607feeab88ac43a9dc286a61e0
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 430da23986fc36a0e94c049512ef716aff1fed5c
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109097"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660251"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nuova esperienza Registrazioni app per Azure Active Directory B2C
 
@@ -63,12 +63,13 @@ Nell'esperienza legacy, le app sono state create sempre come applicazioni rivolt
 > [!NOTE]
 > Questa opzione è necessaria per poter eseguire Azure AD B2C flussi utente per autenticare gli utenti per questa applicazione. Informazioni [su come registrare un'applicazione per l'uso con i flussi utente.](tutorial-register-applications.md)
 
-È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs.md).
+È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs.md)
 
 ## <a name="applications-for-devops-scenarios"></a>Applicazioni per scenari DevOps
+
 È possibile usare gli altri tipi di account per creare un'app per gestire gli scenari DevOps, ad esempio l'uso di Microsoft Graph per caricare i criteri del Framework dell'esperienza di identità o il provisioning degli utenti. Informazioni [su come registrare un'applicazione Microsoft Graph per gestire le risorse Azure ad B2C](microsoft-graph-get-started.md).
 
-È possibile che non vengano visualizzate tutte le autorizzazioni Microsoft Graph, perché molte di queste autorizzazioni non si applicano agli utenti del consumer di Azure B2C. [Altre informazioni sulla gestione degli utenti con Microsoft Graph](manage-user-accounts-graph-api.md).
+È possibile che non vengano visualizzate tutte le autorizzazioni Microsoft Graph, perché molte di queste autorizzazioni non si applicano agli utenti del consumer di Azure B2C. [Altre informazioni sulla gestione degli utenti con Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consenso dell'amministratore e offline_access + ambiti OpenID
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->

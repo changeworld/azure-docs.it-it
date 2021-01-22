@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2021
+ms.date: 01/21/2021
 ms.author: memildin
-ms.openlocfilehash: 0656000a1d6449306e8afe538f846c55c79a31a2
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915287"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662948"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -31,16 +31,35 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 ## <a name="planned-changes"></a>Modifiche pianificate
 
-- [Le risorse "non applicabili" devono essere segnalate come "conformi" nelle valutazioni di Criteri di Azure](#not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments)
+- [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
+- [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
-### <a name="not-applicable-resources-to-be-reported-as-compliant-in-azure-policy-assessments"></a>Le risorse "non applicabili" devono essere segnalate come "conformi" nelle valutazioni di Criteri di Azure
 
-**Data stimata per la modifica:** gennaio 2021
+### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
 
-Attualmente le risorse valutate per una raccomandazione e ritenute **non applicabili** vengono visualizzate in Criteri di Azure come "non conformi". Gli utenti non possono in alcun modo cambiare questo stato in "Conforme". A partire da questa modifica pianificata queste risorse verranno segnalate come "conformi" per una maggiore chiarezza.
+**Data stimata per la modifica:** 2021 febbraio
 
-L'unico effetto si vedrà in Criteri di Azure, dove il numero di risorse conformi aumenterà. Non ci sarà alcun impatto sul punteggio di sicurezza nel Centro sicurezza di Azure.
+Le due raccomandazioni seguenti sono state pianificate per essere deprecate nel 2021 febbraio:
+
+- **Per applicare gli aggiornamenti del sistema, è necessario riavviare i computer**. Questo potrebbe causare un lieve effetto sul punteggio sicuro.
+- **È necessario installare l'agente di monitoraggio nei computer**. Questa raccomandazione si riferisce solo ai computer locali e la relativa logica verrà trasferita a un'altra raccomandazione, **log Analytics problemi di integrità dell'agente devono essere risolti nei computer**. Questo potrebbe causare un lieve effetto sul punteggio sicuro.
+
+Si consiglia di controllare le configurazioni di esportazione continua e di automazione del flusso di lavoro per verificare se tali raccomandazioni sono incluse. Inoltre, tutti i dashboard o altri strumenti di monitoraggio che potrebbero utilizzarli devono essere aggiornati di conseguenza.
+
+Per ulteriori informazioni su questi consigli, vedere la pagina di riferimento relativa alle [raccomandazioni sulla sicurezza](recommendations-reference.md).
+
+
+### <a name="enhancements-to-sql-data-classification-recommendation"></a>Miglioramenti alla raccomandazione di classificazione dei dati SQL
+
+**Data stimata per la modifica:** Q2 2021
+
+La versione corrente dei **dati sensibili delle raccomandazioni nei database SQL deve essere classificata** in applica il controllo di sicurezza per la **classificazione dei dati** verrà deprecata e sostituita con una nuova versione più allineata alla strategia di classificazione dei dati di Microsoft. Di conseguenza:
+
+- La raccomandazione non influirà più sul punteggio sicuro
+- Il controllo di sicurezza ("applica classificazione dati") non influirà più sul punteggio sicuro
+- Anche l'ID raccomandazione cambierà (attualmente b0df6f56-862d-4730-8597-38c0fd4ebd59)
+
 
 ### <a name="35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark"></a>Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark
 

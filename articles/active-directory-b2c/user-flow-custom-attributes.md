@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9759c1109c7be279520fa187bd3366bcac505d46
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503744"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661205"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ La directory Azure AD B2C viene fornita con un [set predefinito di attributi](us
 * Un provider di identità ha un identificatore utente univoco, **uniqueUserGUID**, che deve essere reso permanente.
 * Un percorso utente personalizzato deve salvare in modo permanente lo stato dell'utente, **migrationStatus**, per l'uso di altre logiche.
 
-Azure AD B2C consente di estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](manage-user-accounts-graph-api.md).
+Azure AD B2C consente di estendere il set di attributi archiviati in ogni account utente. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](microsoft-graph-operations.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,7 +60,7 @@ L'attributo personalizzato è ora disponibile nell'elenco degli **attributi uten
 1. Fare clic su **Attestazioni dell'applicazione** e selezionare l'attributo personalizzato.
 1. Fare clic su **Salva**.
 
-Dopo aver creato un nuovo utente usando un flusso utente che usa l'attributo personalizzato appena creato, l'oggetto può essere sottoposto a query in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile usare la funzionalità [Esegui flusso utente](./tutorial-create-user-flows.md) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
+Dopo aver creato un nuovo utente usando un flusso utente, che usa l'attributo personalizzato appena creato, è possibile eseguire query sull'oggetto in [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). In alternativa, è possibile usare la funzionalità [Esegui flusso utente](./tutorial-create-user-flows.md) nel flusso utente per verificare l'esperienza del cliente. Ora si dovrebbe vedere **ShoeSize** nell'elenco di attributi che vengono raccolti durante il percorso dell'utente e nel token inviato all'applicazione.
 
 ::: zone-end
 
@@ -135,7 +135,7 @@ Gli stessi attributi di estensione sono condivisi tra i criteri predefiniti e qu
 |Nome     |Campo di utilizzo |
 |---------|---------|
 |`extension_loyaltyId`  | Criteri personalizzati|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API Microsoft Graph](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API Microsoft Graph](microsoft-graph-operations.md)|
 
 Nell'esempio seguente viene illustrato l'utilizzo di attributi personalizzati in un Azure AD B2C definizione di attestazione dei criteri personalizzata.
 

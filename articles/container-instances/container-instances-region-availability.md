@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8651a1cc2c2ba41e2c28e9f63dc78c091a6af61d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763894"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661375"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -29,7 +29,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 > [!IMPORTANT]
 > Le risorse massime in un'area sono diverse a seconda della distribuzione. Ad esempio, in una distribuzione di rete virtuale di Azure è possibile che un'area disponga di una quantità di CPU e di memoria massima diversa rispetto a una distribuzione generale. La stessa area può avere anche un set diverso di valori massimi per una distribuzione con risorse GPU. Verificare il tipo di distribuzione prima di controllare le tabelle seguenti per i valori massimi nella propria area.
 
-| Area | Max CPU (CPU max) | Memoria massima (GB) | VNET max CPU | Memoria massima VNET (GB) | Archiviazione (GB) | SKU GPU (anteprima) |
+| Region | Max CPU (CPU max) | Memoria massima (GB) | VNET max CPU | Memoria massima VNET (GB) | Archiviazione (GB) | SKU GPU (anteprima) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Australia orientale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Brasile meridionale | 4 | 16 | 2 | 8 | 50 | N/D |
@@ -40,6 +40,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Stati Uniti orientali | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Stati Uniti orientali 2 | 4 | 16 | 4 | 16 | 50 | N/D |
 | Francia centrale | 4 | 16 | 4 | 16 | 50 | N/D |
+| Germania centro-occidentale | 3 | 16 | N/D | N/D | 50 | N/D |
 | Giappone orientale | 2 | 8 | 4 | 16 | 50 | N/D |
 | Corea centrale | 4 | 16 | N/D | N/D | 50 | N/D |
 | Stati Uniti centro-settentrionali | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
@@ -48,6 +49,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Asia sud-orientale | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | India meridionale | 4 | 16 | N/D | N/D | 50 | N/D |
 | Regno Unito meridionale | 4 | 16 | 4 | 16 | 50 | N/D |
+| Emirati Arabi Uniti settentrionali | 3 | 16 | N/D | N/D | 50 | N/D |
 | Stati Uniti centro-occidentali| 4 | 16 | 4 | 16 | 50 | N/D |
 | Europa occidentale | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Stati Uniti occidentali | 4 | 16 | 4 | 16 | 50 | N/D |
@@ -79,7 +81,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 > [!NOTE]
 > Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
 
-| Area | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
+| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia orientale | 2 | 8 | 2 | 8 | 20 |
 | Brasile meridionale | 4 | 16 | 4 | 16 | 20 |
@@ -108,7 +110,7 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 > [!NOTE]
 > Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
 
-| Area | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
+| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Australia orientale | 4 | 16 | 4 | 16 | 20 |
 | Brasile meridionale | 4 | 16 | 4 | 16 | 20 |

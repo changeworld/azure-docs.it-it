@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 09ce611b5bca6c04d55da95a82a8fcd7ae348db3
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 4f68eba8106a20d357fe6d3fb2baac1d1661aa1e
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049217"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660539"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -167,11 +167,13 @@ Per consentire l'accesso dell'app per le funzioni a Gemelli digitali di Azure, i
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
-In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di Gemelli digitali di Azure.
+In Azure Cloud Shell usare il comando seguente per configurare un'impostazione che verrà usata dall'app per le funzioni per fare riferimento all'istanza di Gemelli digitali di Azure. Inserire i segnaposto con i dettagli delle risorse (tenere presente che l'URL dell'istanza di Azure Digital Twins è il nome host preceduto da *https://*).
 
 ```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
+
+L'output è l'elenco delle impostazioni per la funzione di Azure, che ora dovrebbe contenere una voce denominata *ADT_SERVICE_URL*.
 
 Usare il comando seguente per creare l'identità gestita dal sistema. Prendere nota del campo *principalId* nell'output.
 

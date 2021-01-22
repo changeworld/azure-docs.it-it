@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 7af26be91ff129e4c968bcb131cc98290cd8d7b9
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610081"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660454"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Fare clic sul plug-in di analisi automatica della raccolta per Application Insights JavaScript SDK
 
@@ -69,7 +69,7 @@ appInsights.loadAppInsights();
     2. Per migliorare l'efficienza, il plug-in USA questo tag come flag, quando viene rilevato, si interrompe dall'ulteriore elaborazione del DOM (Document Object Model) verso l'alto.
     
     > [!CAUTION]
-    > Una volta `parentDataTag` usato, ha un effetto permanente sull'intera applicazione e non solo sull'elemento HTML usato.
+    > Quando `parentDataTag` si usa, l'SDK inizierà a cercare i tag padre nell'intera applicazione e non solo l'elemento HTML in cui è stato usato.
 4. `customDataPrefix` fornito dall'utente deve sempre iniziare con `data-` , ad esempio `data-sample-` . In HTML gli `data-*` attributi globali formano una classe di attributi chiamati attributi di dati personalizzati che consentono lo scambio di informazioni proprietarie tra il codice HTML e la relativa rappresentazione DOM da parte degli script. I browser meno recenti (Internet Explorer, Safari) elimineranno gli attributi che non comprendono, a meno che non inizino con `data-` .
 
     `*`In `data-*` può essere sostituito da qualsiasi nome che segue la [regola di produzione dei nomi XML](https://www.w3.org/TR/REC-xml/#NT-Name) con le restrizioni seguenti:
@@ -83,7 +83,7 @@ appInsights.loadAppInsights();
 | --------------------- | -----------------------------------| --------| ---------------------------------------------------------------------------------------------------------------------------------------- |
 | Acquisizione           | boolean                            | true    | Configurazione di acquisizione automatica.                                                                                                         |
 | callback              | [IValueCallback](#ivaluecallback)  | Null    | Configurazione di callback.                                                                                                                 |
-| pageTags              | stringa                             | Null    | Tag della pagina.                                                                                                                               |
+| pageTags              | string                             | Null    | Tag della pagina.                                                                                                                               |
 | Tag datatags              | [ICustomDataTags](#icustomdatatags)| Null    | Tag di dati personalizzati forniti per sostituire i tag predefiniti usati per acquisire i dati di clic.                                                           |
 | urlCollectHash        | boolean                            | false   | Abilita la registrazione dei valori dopo un carattere "#" dell'URL.                                                                          |
 | urlCollectQuery       | boolean                            | false   | Abilita la registrazione della stringa di query dell'URL.                                                                                      |
@@ -104,12 +104,12 @@ appInsights.loadAppInsights();
 | Nome                      | Type    | Predefinito   | Tag predefinito da usare in HTML |   Descrizione                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | boolean | false     | N/D         |Raccoglie l'attributo HTML standard per ContentName quando un particolare elemento non è contrassegnato con customDataPrefix predefinito o quando customDataPrefix non è fornito dall'utente. |
-| customDataPrefix          | stringa  | `data-`   | `data-*`| Acquisisci automaticamente il nome del contenuto e il valore degli elementi contrassegnati con il prefisso specificato. Ad esempio, `data-*-id` `data-<yourcustomattribute>` può essere usato nei tag HTML.   |
-| aiBlobAttributeTag        | stringa  | `ai-blob` |  `data-ai-blob`| Il plug-in supporta un attributo BLOB JSON anziché singoli `data-*` attributi. |
-| metaDataPrefix            | stringa  | Null      | N/D  | Acquisisci automaticamente il nome e il contenuto dell'elemento meta del codice HTML con il prefisso specificato durante l'acquisizione. Ad esempio, `custom-` può essere usato nel tag meta HTML. |
+| customDataPrefix          | string  | `data-`   | `data-*`| Acquisisci automaticamente il nome del contenuto e il valore degli elementi contrassegnati con il prefisso specificato. Ad esempio, `data-*-id` `data-<yourcustomattribute>` può essere usato nei tag HTML.   |
+| aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| Il plug-in supporta un attributo BLOB JSON anziché singoli `data-*` attributi. |
+| metaDataPrefix            | string  | Null      | N/D  | Acquisisci automaticamente il nome e il contenuto dell'elemento meta del codice HTML con il prefisso specificato durante l'acquisizione. Ad esempio, `custom-` può essere usato nel tag meta HTML. |
 | captureAllMetaDataContent | boolean | false     | N/D   | Acquisisci automaticamente tutti i nomi e il contenuto dell'elemento meta del codice HTML. L'impostazione predefinita è false. Se abilitata, verrà eseguito l'override di metaDataPrefix fornito. |
-| parentDataTag             | stringa  | Null      |  N/D  | Interrompe l'attraversamento del DOM per acquisire il nome del contenuto e il valore degli elementi quando vengono rilevati con questo tag. Ad esempio, `data-<yourparentDataTag>` può essere usato nei tag HTML.|
-| dntDataTag                | stringa  | `ai-dnt`  |  `data-ai-dnt`| Gli elementi HTML con questo attributo verranno ignorati dal plug-in per l'acquisizione dei dati di telemetria.|
+| parentDataTag             | string  | Null      |  N/D  | Interrompe l'attraversamento del DOM per acquisire il nome del contenuto e il valore degli elementi quando vengono rilevati con questo tag. Ad esempio, `data-<yourparentDataTag>` può essere usato nei tag HTML.|
+| dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| Gli elementi HTML con questo attributo verranno ignorati dal plug-in per l'acquisizione dei dati di telemetria.|
 
 ### <a name="behaviorvalidator"></a>behaviorValidator
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Vedere il [repository GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e il [pacchetto NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) per il plug-in di analisi automatica della raccolta dei clic.
 - Usare l' [analisi degli eventi in esperienza di utilizzo](usage-segmentation.md) per analizzare i primi clic e sezionare in base alle dimensioni disponibili.
-- Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query).
+- Trovare fare clic su dati sotto il campo contenuto all'interno dell'attributo customDimensions nella tabella CustomEvents in [log Analytics](../log-query/log-analytics-tutorial.md#write-a-query). Per ulteriori informazioni, vedere l' [app di esempio](https://go.microsoft.com/fwlink/?linkid=2152871) .
 - Compilare una [cartella di lavoro](../platform/workbooks-overview.md) per creare visualizzazioni personalizzate dei dati di clic.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 07/13/2020
+ms.date: 01/20/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85b78480e7258780f8dd396431edeb968189e4c
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
-ms.translationtype: HT
+ms.openlocfilehash: ae7ae239493c999d98100bf9dee4f4f0183addf2
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741253"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660814"
 ---
 # <a name="what-is-azure-active-directory-authentication"></a>Che cos'è l'autenticazione di Azure Active Directory?
 
@@ -27,6 +27,8 @@ Una delle principali funzionalità di una piattaforma di gestione delle identit�
 * Integrazione ibrida per il writeback delle modifiche delle password nell'ambiente locale
 * Integrazione ibrida per l'applicazione di criteri di protezione delle password per un ambiente locale
 * Autenticazione senza password
+
+Per ulteriori informazioni su questi componenti di autenticazione, vedere il breve video.
 
 ## <a name="improve-the-end-user-experience"></a>Migliorare l'esperienza dell'utente finale
 
@@ -80,7 +82,7 @@ L'obiettivo finale per molti ambienti è quello di rimuovere l'uso delle passwor
 
 ![Sicurezza rispetto a praticità con il processo di autenticazione che punta all'assenza di password](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-Quando si accede con un metodo senza password, le credenziali vengono fornite tramite l'uso di metodi come la biometrica con Windows Hello for Business o una chiave di sicurezza FIDO2. Questi metodi di autenticazione non possono essere facilmente duplicati da un utente malintenzionato.
+Quando si accede con un metodo senza password, le credenziali vengono fornite usando metodi come biometria con Windows Hello for business o una chiave di sicurezza FIDO2. Questi metodi di autenticazione non possono essere facilmente duplicati da un utente malintenzionato.
 
 Azure AD offre la possibilità di eseguire l'autenticazione nativa usando metodi senza password per semplificare l'esperienza di accesso degli utenti e ridurre il rischio di attacchi.
 

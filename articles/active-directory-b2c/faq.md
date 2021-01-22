@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 30b7788419695db7ee5d4b81714bf55248a41b4a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: e181b90219f340a29e818801ee2b53f1ccbd9c23
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108723"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660285"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: domande frequenti
 
@@ -96,7 +96,7 @@ Per informazioni su blocchi automatici e password degli account, vedere [Gestire
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>È possibile usare Azure AD Connect per eseguire la migrazione in Azure AD B2C delle identità utente archiviate in Active Directory locale?
 
-No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. Prendere in considerazione l'uso dell' [API Microsoft Graph](manage-user-accounts-graph-api.md) per la migrazione degli utenti. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
+No, Azure AD Connect non è progettato per funzionare con Azure AD B2C. Prendere in considerazione l'uso dell' [API Microsoft Graph](microsoft-graph-operations.md) per la migrazione degli utenti. Vedere il [Guida alla migrazione degli utenti](user-migration.md) per informazioni dettagliate.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>L'applicazione può aprire le pagine di Azure AD B2C all'interno di un iFrame?
 
@@ -165,7 +165,7 @@ Per eliminare il tenant di Azure AD B2C, seguire questa procedura.
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 1. In **Gestisci** selezionare **Utenti**.
 1. Selezionare a sua volta ciascun utente (escludere l'utente *amministratore della sottoscrizione* con cui si è attualmente connessi). Selezionare **Elimina** nella parte inferiore della pagina e selezionare **Sì** quando richiesto.
-1. In **Gestione** selezionare **Registrazioni per l'app**.
+1. In **Gestisci** selezionare **Registrazioni app**.
 1. Selezionare **Visualizza tutte le applicazioni**
 1. Selezionare l'applicazione denominata **B2C-Extensions-app**, selezionare **Elimina** e quindi fare clic su **Sì** quando richiesto.
 1. In **Gestisci** selezionare **impostazioni utente**.

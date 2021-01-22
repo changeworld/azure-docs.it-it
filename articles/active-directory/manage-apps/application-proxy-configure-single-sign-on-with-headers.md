@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: d39d72a79d4b273918986d0d350df4706592c77d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: c30d8a66cf9deffaa32e5ec0356a9067575b77e8
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503179"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660703"
 ---
 # <a name="header-based-single-sign-on-for-on-premises-apps-with-azure-ad-app-proxy-preview"></a>Single Sign-On basata su intestazione per le app locali con App Azure AD proxy (anteprima)
 
@@ -48,7 +48,7 @@ La tabella seguente elenca le funzionalità comuni necessarie per le applicazion
 > [!NOTE] 
 > Questo articolo descrive come connettere le applicazioni di autenticazione basate su intestazioni a Azure AD usando il proxy di applicazione ed è il modello consigliato. In alternativa, è disponibile anche un modello di integrazione che usa PingAccess con Azure AD per abilitare l'autenticazione basata su intestazione. Per informazioni dettagliate, vedere [autenticazione basata su intestazione per Single Sign-on con il proxy di applicazione e PingAccess](application-proxy-ping-access-publishing-guide.md).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="Funzionamento del Single Sign-On basato su intestazione con il proxy di applicazione." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
 
@@ -88,9 +88,13 @@ Dopo aver completato tutti questi passaggi, l'app deve essere in esecuzione e di
 1. Aprire una nuova finestra del browser o del browser privato per assicurarsi che le intestazioni precedentemente memorizzate nella cache siano deselezionate. Passare quindi all' **URL esterno**   dalle impostazioni del proxy di applicazione.
 2. Accedere con l'account di test assegnato all'app. Se è possibile caricare ed eseguire l'accesso all'applicazione tramite SSO, si è pronti. 
 
+## <a name="considerations"></a>Considerazioni
+
+- Il proxy di applicazione viene usato per fornire l'accesso remoto alle app in locale o nel cloud privato. Il proxy di applicazione non è consigliato per gestire il traffico originato internamente dalla rete aziendale.
+- L'accesso alle applicazioni di autenticazione basata su intestazione deve essere limitato solo al traffico proveniente dal connettore o da un'altra soluzione di autenticazione basata sull'intestazione consentita. Questa operazione viene eseguita in genere tramite la restrizione dell'accesso di rete all'applicazione mediante un firewall o una restrizione IP nel server applicazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso Single Sign-On?](what-is-single-sign-on.md)
+- [Che cos'è Single Sign-On?](what-is-single-sign-on.md)
 - [Che cos'è il proxy di applicazione?](what-is-application-proxy.md)
 - [Serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md)

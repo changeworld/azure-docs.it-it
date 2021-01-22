@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 881309c040f6c1bdff758d17ab7f51e935437192
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: a49258208f7a5945ac71c8f17db56fccfdcd6515
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607882"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98662001"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Esercitazione: Configurare MediusFlow per il provisioning utenti automatico
 
@@ -155,17 +155,25 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 9. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD in MediusFlow. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in MediusFlow per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API MediusFlow supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-   |Attributo|Type|
-   |---|---|
-   |userName|string|
+   |Attributo|Type|Supportato per il filtro|
+   |---|---|---|
+   |userName|string|&check;|
    |emails[type eq "work"].value|string|
    |name.displayName|string|
    |active|Boolean|
    |name.givenName|string|
    |name.familyName|string|
    |name.formatted|string|
-   |externalID|string|
+   |externalId|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: configurationFilter|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: identityProvider|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: nameIdentifier|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: customFieldText1|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: customFieldText2|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: customFieldText3|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: customFieldText4|string|
+   |urn: IETF: params: SCIM: schemas: estensione: medius: 2.0: utente: customFieldText5|string|
 
 
 10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Groups to MediusFlow** (Sincronizza gruppi di Azure Active Directory con MediusFlow).
@@ -200,6 +208,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 01/21/2021-sono stati aggiunti gli attributi di estensione personalizzati **configurationFilter**, **IdentityProvider**, **nameIdentifier**, **customFieldText1**, **customFieldText2**, **customFieldText3**, **customFieldText3** e **customFieldText5** .
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

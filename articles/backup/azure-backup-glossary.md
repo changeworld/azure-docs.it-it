@@ -3,12 +3,12 @@ title: Glossario di backup di Azure
 description: Questo articolo definisce i termini utili per l'uso con backup di Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
-ms.openlocfilehash: 1e28f0c2ad5d14ea2a8dc6ce8d5fa2b21c7e65ac
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 121258665ab275fdcffd618e7c0cf1b3e0537e70
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935071"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661477"
 ---
 # <a name="azure-backup-glossary"></a>Glossario di backup di Azure
 
@@ -192,7 +192,7 @@ Attività correlata al backup creata da un utente o dal servizio backup di Azure
 
 (Termine specifico del carico di lavoro)
 
-Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio le VM Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. Eredita gran parte della funzionalità di backup del carico di lavoro da DPM, ma con alcune differenze. [Scopri di più](backup-azure-microsoft-azure-backup.md)
+Con il server di Backup di Azure è possibile proteggere i carichi di lavoro dell'applicazione, ad esempio le VM Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange e i client di Windows, da una singola console. Eredita gran parte della funzionalità di backup del carico di lavoro da DPM, ma con alcune differenze. [Altre informazioni](backup-azure-microsoft-azure-backup.md)
 
 ## <a name="managed-disks"></a>Dischi gestiti
 
@@ -246,7 +246,7 @@ Copia dei dati originali di cui viene eseguito il backup. Un punto di conservazi
 
 Una risorsa Azure Resource Manager di tipo *Microsoft. RecoveryServices/Vaults*. Attualmente, gli insiemi di credenziali dei servizi di ripristino vengono usati per eseguire il backup dei carichi di lavoro seguenti: macchine virtuali di Azure, SQL in macchine virtuali di Azure, SAP HANA in macchine virtuali di Azure e condivisioni file di Azure. Viene usato anche per eseguire il backup di carichi di lavoro locali con MARS, server di Backup di Azure (MAB) e System Center DPM. [Altre informazioni sugli insiemi di credenziali dei servizi di ripristino](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Gruppo di risorse
+## <a name="resource-group"></a>Resource group
 
 Vedere la [documentazione di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal#what-is-a-resource-group).
 
@@ -286,7 +286,7 @@ Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale (
 
 Vedere la [documentazione relativa all'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## <a name="subscription"></a>Sottoscrizione
+## <a name="subscription"></a>Subscription
 
 Una sottoscrizione di Azure è un contenitore logico usato per il provisioning delle risorse in Azure. Include i dettagli di tutte le risorse, ad esempio macchine virtuali (VM), database e altro ancora.
 

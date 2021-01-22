@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 01/20/2021
 ms.author: justinha
-ms.openlocfilehash: c078117baf84d7dbfaaaa2b569abb8a5f5c67e6d
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 04c611b8a902d27f40893a05f301898c0111748f
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96619012"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660950"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-azure-ad-powershell"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services tramite Azure AD PowerShell
 
@@ -41,15 +41,14 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 
 Per impostazione predefinita, tutti gli utenti e i gruppi di una directory Azure AD sono sincronizzati con un dominio gestito. Se solo alcuni utenti devono accedere al dominio gestito, è possibile sincronizzare solo gli account utente. Questa sincronizzazione con ambito è basata sul gruppo. Quando si configura la sincronizzazione con ambito basata su gruppo, solo gli account utente che appartengono ai gruppi specificati vengono sincronizzati con il dominio gestito. I gruppi annidati non sono sincronizzati, ma solo i gruppi specifici selezionati.
 
-È possibile modificare l'ambito di sincronizzazione quando si crea il dominio gestito o una volta distribuito. È anche possibile modificare l'ambito di sincronizzazione in un dominio gestito esistente senza che sia necessario ricrearlo.
+È possibile modificare l'ambito di sincronizzazione prima o dopo aver creato il dominio gestito. L'ambito della sincronizzazione è definito da un'entità servizio con l'identificatore dell'applicazione 2565bd9d-DA50-47d4-8B85-4c97f669dc36. Per evitare la perdita dell'ambito, non eliminare o modificare l'entità servizio. Se viene accidentalmente eliminato, non è possibile recuperare l'ambito di sincronizzazione. 
+
+Se si modifica l'ambito di sincronizzazione, tenere presente quanto segue:
+
+- Si verifica una sincronizzazione completa.
+- Gli oggetti che non sono più necessari nel dominio gestito vengono eliminati. Vengono creati nuovi oggetti nel dominio gestito.
 
 Per ulteriori informazioni sul processo di sincronizzazione, vedere informazioni sulla [sincronizzazione in Azure ad Domain Services][concepts-sync].
-
-> [!WARNING]
-> La modifica dell'ambito di sincronizzazione determina la risincronizzazione di tutti i dati da parte del dominio gestito. Si applicano le considerazioni seguenti:
->
->  * Quando si modifica l'ambito di sincronizzazione per un dominio gestito, si verifica una risincronizzazione completa.
->  * Gli oggetti che non sono più necessari nel dominio gestito vengono eliminati. Vengono creati nuovi oggetti nel dominio gestito.
 
 ## <a name="powershell-script-for-scoped-synchronization"></a>Script di PowerShell per la sincronizzazione con ambito
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/21/2020
 ms.author: v-mibufo
-ms.openlocfilehash: b13b61aff819271ed1722572f251f9a6d14b17ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8af656e00c457dfa3d438f0cb104d85ccc687745
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976998"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661239"
 ---
 # <a name="windows-stop-error---0xc000021a-status-system-process-terminated"></a>Errore di arresto di Windows-processo del sistema di stato 0xC000021A terminato
 
@@ -47,6 +47,10 @@ Questo errore si verifica quando un processo critico, ad esempio WinLogon (winlo
 ## <a name="solution"></a>Soluzione
 
 ### <a name="collect-the-memory-dump-file"></a>Raccogli il file di dump della memoria
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
+
 
 Per risolvere questo problema, sarà necessario analizzare il dump di arresto anomalo del sistema. Raccogliere il file di dump della memoria per l'arresto anomalo e contattare il supporto tecnico. Per raccogliere il file di dump, attenersi alla procedura seguente:
 

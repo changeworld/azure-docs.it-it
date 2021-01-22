@@ -3,21 +3,21 @@ title: Collegamento privato-portale di Azure-database di Azure per MariaDB
 description: Informazioni su come configurare il collegamento privato per database di Azure per MariaDB dalla portale di Azure
 author: mksuni
 ms.author: sumuth
-ms.service: mariadb
+ms.service: jroth
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 127a1c83525c4a9c457f551c05045a63a3c4347a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005045"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659625"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB usando il portale
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato.  In questo articolo si apprenderà come usare il portale di Azure per creare una macchina virtuale in una rete virtuale di Azure e un database di Azure per il server MariaDB con un endpoint privato di Azure.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MariaDB nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
@@ -32,7 +32,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >    >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
@@ -99,7 +99,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 In questa sezione verrà creato un database di Azure per il server MariaDB in Azure. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >  **Databases**  >  **Azure per MariaDB**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >    >  **Azure per MariaDB**.
 
 1. In **database di Azure per MariaDB** fornire queste informazioni:
 
@@ -113,7 +113,7 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
     | Nome utente amministratore| Immettere un nome amministratore a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 8 caratteri e soddisfare i requisiti definiti. |
     | Location | Selezionare un'area di Azure in cui si vuole che il server MariaDB risieda. |
-    |Versione  | Selezionare la versione del database del server MariaDB richiesta.|
+    |Version  | Selezionare la versione del database del server MariaDB richiesta.|
     | Calcolo e archiviazione| Selezionare il piano tariffario necessario per il server in base al carico di lavoro. |
     |||
 
@@ -242,7 +242,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 7. Chiudere la connessione Desktop remoto a myVm.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine dell'uso dell'endpoint privato, del server MariaDB e della VM, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
 1. Immettere  *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca.

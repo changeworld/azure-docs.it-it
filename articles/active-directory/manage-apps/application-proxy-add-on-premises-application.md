@@ -8,20 +8,22 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: bcb484d62b7c4add7e1ab5562c19417a90cfb7e1
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.custom: contperf-fy21q3
+ms.openlocfilehash: 6b46a5ea71bf8c9705ffc3bc51ea48f4b0c28502
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587554"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98660765"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
 Azure Active Directory (Azure AD) contiene un servizio proxy di applicazione che consente agli utenti di accedere alle applicazioni locali effettuando l'accesso con il proprio account Azure AD. Questa esercitazione consente di preparare l'ambiente per l'uso con il proxy di applicazione. Quando l'ambiente è pronto, si userà il portale di Azure per aggiungere un'applicazione locale al tenant di Azure AD.
+
+:::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagramma di panoramica del proxy di applicazione" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
 
 I connettori sono una parte essenziale di Application Proxy. Per altre informazioni sui connettori, vedere [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-connectors.md).
 
@@ -126,7 +128,11 @@ Consentire l'accesso agli URL seguenti:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com<br>www.microsoft.com/pkiops | 443/HTTPS |Il connettore usa questi URL durante il processo di registrazione. |
 | ctldl.windowsupdate.com | 80/HTTP |Il connettore usa questo URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a &ast;.msappproxy.net, &ast;.servicebus.windows.net e agli altri URL precedenti se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+&ast; &ast; Se il firewall o il proxy consente di configurare regole di accesso in base ai suffissi di dominio, è possibile consentire le connessioni a. msappproxy.NET,. ServiceBus.Windows.NET e ad altri URL. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+
+### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Risoluzione dei nomi DNS per gli endpoint del proxy di applicazione Azure AD
+
+I record DNS pubblici per gli endpoint del proxy di applicazione Azure AD sono record CNAME concatenati che puntano a un record A. Ciò garantisce tolleranza di errore e flessibilità. Si garantisce che il connettore del proxy di applicazione Azure AD acceda sempre ai nomi host con i suffissi di dominio _*. msappproxy.NET_ o _*. ServiceBus.Windows.NET_. Durante la risoluzione dei nomi, tuttavia, i record CNAME potrebbero contenere record DNS con nomi host e suffissi diversi.  A causa di questo problema, è necessario assicurarsi che il dispositivo (a seconda del server del connettore di configurazione, del firewall, del proxy in uscita) possa risolvere tutti i record nella catena e consenta la connessione agli indirizzi IP risolti. Poiché i record DNS nella catena possono essere modificati di tanto in tanto, non è possibile fornire i record DNS di elenco.
 
 ## <a name="install-and-register-a-connector"></a>Installare e registrare un connettore
 

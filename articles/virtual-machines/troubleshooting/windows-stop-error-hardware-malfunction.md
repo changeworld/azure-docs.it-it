@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 18622d60f3a33658fadfd28c53c93a07b4b438a9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 89faa5b29e0a972f31ad51a7354635a53176541a
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488647"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661358"
 ---
 # <a name="windows-stop-error---hardware-malfunction"></a>Errore di arresto di Windows - Malfunzionamento hardware
 
@@ -48,6 +48,9 @@ Questa schermata viene visualizzata quando il sistema operativo guest non è sta
 ## <a name="solution"></a>Soluzione
 
 ### <a name="process-overview"></a>Panoramica del processo 
+
+> [!TIP]
+> Se si dispone di un backup recente della macchina virtuale, è possibile provare a [ripristinare la macchina virtuale dal backup](../../backup/backup-azure-arm-restore-vms.md) per correggere il problema di avvio.
 
 1. Configurare la chiave del registro di sistema di interrupt non mascherabile (NMI) 
 2. Creare e accedere a una macchina virtuale di ripristino 

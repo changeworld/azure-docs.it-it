@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8c0dd9713c673ad676058acc7dbbb3cb5a65362e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
-ms.translationtype: HT
+ms.openlocfilehash: 1794d5b15c724008d95cfc59b16960b7ae6a0783
+ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96929192"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98661570"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -37,7 +37,6 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="set-up-feature-management"></a>Configurare la gestione delle funzionalità
 
 Aggiungere un riferimento ai pacchetti NuGet `Microsoft.FeatureManagement.AspNetCore` e `Microsoft.FeatureManagement` per usare Gestione funzionalità di .NET Core.
-    
 La gestione funzionalità di .NET Core `IFeatureManager` ottiene i flag di funzionalità dal sistema di configurazione nativo del framework. Di conseguenza, è possibile definire i flag di funzionalità dell'applicazione usando qualsiasi origine di configurazione supportata da .NET Core, tra cui il file locale *appSettings.JSON* o le variabili di ambiente. `IFeatureManager` si basa sull'inserimento delle dipendenze di .NET Core. È possibile registrare i servizi di gestione di funzionalità usando le convenzioni standard:
 
 ```csharp
@@ -109,7 +108,7 @@ Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, u
 2. Aprire il file *Startup.cs* e aggiornare il metodo `Configure` per aggiungere il middleware predefinito `UseAzureAppConfiguration`. Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
    ```csharp
-   public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+   public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
        app.UseAzureAppConfiguration();
        app.UseMvc();
@@ -189,6 +188,8 @@ if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 In ASP.NET Core MVC è possibile accedere alla gestione funzionalità `IFeatureManager` grazie all'inserimento delle dipendenze:
 
 ```csharp
+using Microsoft.FeatureManagement;
+
 public class HomeController : Controller
 {
     private readonly IFeatureManager _featureManager;
