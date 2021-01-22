@@ -11,16 +11,16 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 939a74a2bbedf6b00159f0c33a50eeb93595cda4
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 547f697c4f8ffb903006e48e94086433d64225c7
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116076"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681337"
 ---
 # <a name="quickstart-bulk-load-data-using-the-copy-statement"></a>Avvio rapido: Caricamento bulk di dati con l'istruzione COPY
 
-In questa guida di avvio rapido si eseguirà il caricamento bulk di dati nel pool SQL dedicato usando la semplice e flessibile [istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) per un inserimento dati a velocità effettiva elevata. L'istruzione COPY è l'utilità di caricamento consigliata, in quanto consente di caricare i dati in modo semplice e flessibile offrendo funzionalità per:
+In questa guida di avvio rapido si eseguirà il caricamento bulk di dati nel pool SQL dedicato usando la semplice e flessibile [istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) per un inserimento dati a velocità effettiva elevata. L'istruzione COPY è l'utilità di caricamento consigliata, in quanto consente di caricare i dati in modo semplice e flessibile offrendo funzionalità per:
 
 - Consentire a utenti con privilegi inferiori di caricare senza richiedere autorizzazioni CONTROL rigorose per il data warehouse
 - Usare una sola istruzione T-SQL senza dover creare oggetti di database aggiuntivi

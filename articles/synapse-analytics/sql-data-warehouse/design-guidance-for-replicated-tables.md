@@ -11,12 +11,12 @@ ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0cf40990d59aff984226244f520e6f8f937713fd
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 7dcb884d8eafdfa5218e96d63f62a5d462d20cf8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456497"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679931"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-synapse-sql-pool"></a>Linee guida di progettazione per l'uso di tabelle replicate nel pool Synapse SQL
 
@@ -46,8 +46,8 @@ Le tabelle replicate sono adatte alle tabelle delle dimensioni in uno schema sta
 
 Provare a usare una tabella replicata nei casi seguenti:
 
-- La dimensione della tabella su disco è inferiore a 2 GB, indipendentemente dal numero di righe. Per individuare la dimensione di una tabella, usare il comando [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
-- La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Quando si crea un join di tabelle non distribuite nella stessa colonna, ad esempio una tabella con distribuzione hash in una tabella round robin, è necessario lo spostamento dei dati per completare la query.  Se una delle tabelle ha dimensioni ridotte, provare una tabella replicata. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  L'operazione tipica di spostamento di dati che può essere eliminata usando una tabella replicata è BroadcastMoveOperation.  
+- La dimensione della tabella su disco è inferiore a 2 GB, indipendentemente dal numero di righe. Per individuare la dimensione di una tabella, usare il comando [DBCC PDW_SHOWSPACEUSED](/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`.
+- La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Quando si crea un join di tabelle non distribuite nella stessa colonna, ad esempio una tabella con distribuzione hash in una tabella round robin, è necessario lo spostamento dei dati per completare la query.  Se una delle tabelle ha dimensioni ridotte, provare una tabella replicata. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  L'operazione tipica di spostamento di dati che può essere eliminata usando una tabella replicata è BroadcastMoveOperation.  
 
 Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
@@ -78,7 +78,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 
 Se sono già presenti tabelle round robin che soddisfano i criteri specificati in questo articolo, è consigliabile convertirle in tabelle replicate. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join.
 
-Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
+Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
 
 ```sql
 CREATE TABLE [dbo].[DimSalesTerritory_REPLICATE]
@@ -99,7 +99,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 ### <a name="query-performance-example-for-round-robin-versus-replicated"></a>Esempio di prestazioni delle query delle tabelle round robin rispetto alle tabelle replicate
 
-Una tabella replicata non richiede lo spostamento dei dati per i join, perché l'intera tabella è già presente in ogni nodo di calcolo. Se viene eseguita una distribuzione round robin delle tabelle delle dimensioni, un join copia interamente la tabella delle dimensioni in ogni nodo di calcolo. Per spostare i dati, il piano di query contiene un'operazione chiamata BroadcastMoveOperation. Questo tipo di operazione di spostamento dei dati rallenta le prestazioni delle query e viene eliminato usando tabelle replicate. Per visualizzare i passaggi del piano di query, usare la vista del catalogo di sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+Una tabella replicata non richiede lo spostamento dei dati per i join, perché l'intera tabella è già presente in ogni nodo di calcolo. Se viene eseguita una distribuzione round robin delle tabelle delle dimensioni, un join copia interamente la tabella delle dimensioni in ogni nodo di calcolo. Per spostare i dati, il piano di query contiene un'operazione chiamata BroadcastMoveOperation. Questo tipo di operazione di spostamento dei dati rallenta le prestazioni delle query e viene eliminato usando tabelle replicate. Per visualizzare i passaggi del piano di query, usare la vista del catalogo di sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  
 
 Nella query seguente sullo schema AdventureWorks, ad esempio, la tabella `FactInternetSales` è con distribuzione hash. Le tabelle `DimDate` e `DimSalesTerritory` sono tabelle delle dimensioni più piccole. Questa query restituisce le vendite totali in America del Nord per l'anno fiscale 2004:
 
@@ -170,7 +170,7 @@ Ad esempio, questo modello di carico carica dati da quattro origini, ma richiama
 
 Per garantire tempi di esecuzione di query coerenti, prendere in considerazione di forzare la compilazione delle tabelle replicate dopo un caricamento in batch. In caso contrario, la prima query continuerà a usare lo spostamento dei dati per completare la query.
 
-Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per elencare le tabelle replicate che sono state modificate, ma non ricompilate.
+Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-databases/system-catalog-views/sys-pdw-replicated-table-cache-state-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per elencare le tabelle replicate che sono state modificate, ma non ricompilate.
 
 ```sql
 SELECT [ReplicatedTable] = t.[name]
@@ -193,7 +193,7 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 
 Per creare una tabella replicata, usare una di queste istruzioni:
 
-- [CREATE TABLE (pool SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [CREATE TABLE AS SELECT (pool SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 Per una panoramica delle tabelle distribuite, vedere [Tabelle distribuite](sql-data-warehouse-tables-distribute.md).

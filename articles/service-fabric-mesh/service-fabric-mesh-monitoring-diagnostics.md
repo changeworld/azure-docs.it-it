@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: eda0b62729343b0a138d027548d8750b1e0fc74f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63c79169646f05cddc7c605c764398bdef7492d4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844404"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682072"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 Azure Service Fabric Mesh è un servizio completamente gestito che consente agli sviluppatori di distribuire applicazioni di microservizi senza dover gestire macchine virtuali, archiviazione o connettività di rete. Il monitoraggio e la diagnostica di mesh Service Fabric sono suddivisi in tre tipi principali di dati di diagnostica:
@@ -26,7 +26,7 @@ Questo articolo illustra le opzioni di monitoraggio e diagnostica per la version
 
 È possibile visualizzare i log di Docker dai contenitori distribuiti, in base al contenitore. Nel modello di applicazione di mesh Service Fabric, ogni contenitore è un pacchetto di codice nell'applicazione. Per visualizzare i log associati a un pacchetto di codice usare il comando seguente:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> --service-name <nameOfService> --replica-name <nameOfReplica> --code-package-name <nameOfCodePackage>
 ```
 
@@ -35,7 +35,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 
 Ecco come appare per visualizzare i log dal contenitore VotingWeb.Code dall'applicazione di voto:
 
-```cli
+```azurecli
 az mesh code-package-log get --resource-group <nameOfRG> --application-name SbzVoting --service-name VotingWeb --replica-name 0 --code-package-name VotingWeb.Code
 ```
 
@@ -50,7 +50,7 @@ L'ambiente mesh espone alcune metriche che indicano il modo in cui i contenitori
 | AllocatedCpu | CPU allocata in base al modello di Azure Resource Manager | Millicore |
 | AllocatedMemory | Memoria allocata in base al modello di Azure Resource Manager | MB |
 | ActualCpu | Utilizzo della CPU | Millicore |
-| ActualMemory | Utilizzo della memoria | MB |
+| ActualMemory | Utilizzo memoria | MB |
 | ContainerStatus | 0-non valido: lo stato del contenitore è sconosciuto <br> 1-in sospeso: il contenitore ha pianificato l'avvio <br> 2-avvio: il contenitore è in fase di avvio <br> 3-avviato: il contenitore è stato avviato correttamente <br> 4-arresto: il contenitore viene arrestato <br> 5-arrestato: il contenitore è stato arrestato correttamente | N/D |
 | ApplicationStatus | 0-sconosciuto: lo stato non è recuperabile <br> 1-pronto: l'applicazione viene eseguita correttamente <br> 2-aggiornamento: è in corso un aggiornamento <br> 3-creazione: è in corso la creazione dell'applicazione <br> 4-Eliminazione: è in corso l'eliminazione dell'applicazione <br> 5-non riuscito: non è stato possibile distribuire l'applicazione | N/D |
 | ServiceStatus | 0-non valido: il servizio attualmente non dispone di uno stato di integrità <br> 1-OK: il servizio è integro  <br> 2-avviso: è possibile che si verifichi un errore durante l'analisi <br> 3-errore: si è verificato un problema che richiede un'analisi <br> 4-sconosciuto: lo stato non è recuperabile | N/D |
@@ -74,7 +74,7 @@ Ogni dimensione corrisponde a componenti diversi del [modello di applicazione Se
 
 ### <a name="azure-monitor-cli"></a>INTERFACCIA della riga di comando monitoraggio di Azure
 
-Un elenco completo dei comandi è disponibile nella documentazione dell'interfaccia della riga di comando di [monitoraggio di Azure](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) , ma sono stati inclusi alcuni esempi utili di seguito 
+Un elenco completo dei comandi è disponibile nella documentazione dell'interfaccia della riga di comando di [monitoraggio di Azure](/cli/azure/monitor/metrics#az-monitor-metrics-list) , ma sono stati inclusi alcuni esempi utili di seguito 
 
 In ogni esempio, l'ID risorsa segue questo modello
 
@@ -83,21 +83,21 @@ In ogni esempio, l'ID risorsa segue questo modello
 
 * Utilizzo della CPU dei contenitori in un'applicazione
 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization"
 ```
 * Utilizzo della memoria per ogni replica del servizio
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "MemoryUtilization" --dimension "ServiceReplicaName"
 ``` 
 
 * Riavvia per ogni contenitore in una finestra di 1 ora 
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "RestartCount" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z
 ``` 
 
 * Utilizzo medio della CPU tra servizi denominati "VotingWeb" in una finestra di 1 ora
-```cli
+```azurecli
     az monitor metrics list --resource <resourceId> --metric "CpuUtilization" --start-time 2019-02-01T00:00:00Z --end-time 2019-02-01T01:00:00Z --aggregation "Average" --filter "ServiceName eq 'VotingWeb'"
 ``` 
 
@@ -118,4 +118,4 @@ In addition to the metrics explorer, we also have a dashboard available out of t
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni su mesh Service Fabric, leggere la [panoramica di mesh Service Fabric](service-fabric-mesh-overview.md).
-* Per altre informazioni sui comandi di metrica di monitoraggio di Azure, vedere la [documentazione dell'interfaccia](/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list)della riga di comando di monitoraggio di Azure.
+* Per altre informazioni sui comandi di metrica di monitoraggio di Azure, vedere la [documentazione dell'interfaccia](/cli/azure/monitor/metrics#az-monitor-metrics-list)della riga di comando di monitoraggio di Azure.

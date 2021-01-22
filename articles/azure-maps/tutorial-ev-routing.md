@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 7a33cf4e66ce31f8fb8534de25d7564a5784ca3a
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7341d1f07e8814edcad7b84f6b3b46c7bece3159
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625050"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680333"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Esercitazione: Pianificare itinerari per veicoli elettrici con Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ Questa esercitazione illustra come aiutare un autista la cui batteria elettrica 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare ed eseguire un file di Jupyter Notebook in [Azure Notebooks](../notebooks/index.yml) nel cloud.
+> * Creare ed eseguire un file di Jupyter Notebook in [Azure Notebooks](https://notebooks.azure.com) nel cloud.
 > * Chiamare le API REST di Mappe di Azure in Python.
 > * Cercare un'area raggiungibile in base al modello di consumo del veicolo elettrico.
 > * Cercare le stazioni di ricarica per veicoli elettrici entro l'area raggiungibile, o isocrona.
@@ -49,7 +49,7 @@ Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'
 
 Per seguire questa esercitazione, è necessario creare un progetto di Azure Notebooks, quindi scaricare ed eseguire il file di Jupyter Notebook. Il file di Jupyter Notebook contiene codice Python, che implementa lo scenario dell'esercitazione. Per creare un progetto di Azure Notebooks e caricarvi il documento di Jupyter Notebook, seguire questa procedura:
 
-1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per altre informazioni, vedere [Avvio rapido: Accedere e impostare un ID utente](../notebooks/quickstart-sign-in-azure-notebooks.md).
+1. Passare ad [Azure Notebooks](https://notebooks.azure.com) ed eseguire l'accesso. Per altre informazioni, vedere [Avvio rapido: Accedere e impostare un ID utente](https://notebooks.azure.com).
 1. Nella parte superiore della pagina del profilo pubblico selezionare **Progetti personali**.
 
     ![Pulsante Progetti personali](./media/tutorial-ev-routing/myproject.png)
@@ -408,4 +408,4 @@ Non sono presenti risorse che richiedono la pulizia.
 Per altre informazioni su Azure Notebooks, vedere
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

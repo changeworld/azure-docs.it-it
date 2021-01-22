@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fcfddce568be6c641a5bf5be70c2cd0ad368095f
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1eeb291c7a058efd8905e95ebf1ea14fed046691
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843605"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680519"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Trasmettere i log dell'app Azure Spring Cloud in tempo reale
 
@@ -31,7 +31,7 @@ Azure Spring cloud consente lo streaming di log nell'interfaccia della riga di c
 ## <a name="use-cli-to-tail-logs"></a>Usare l'interfaccia della riga di comando per la coda
 
 Per evitare di specificare ripetutamente il nome del gruppo di risorse e dell'istanza del servizio, impostare il nome del gruppo di risorse e il nome del cluster predefiniti.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
@@ -39,11 +39,11 @@ Negli esempi seguenti, il gruppo di risorse e il nome del servizio verranno omes
 
 ### <a name="tail-log-for-app-with-single-instance"></a>Log della parte finale per l'app con una singola istanza
 Se un'app denominata auth-Service ha solo un'istanza, è possibile visualizzare il log dell'istanza dell'app con il comando seguente:
-```
+```azurecli
 az spring-cloud app logs -n auth-service
 ```
 Questo restituirà i log:
-```
+```output
 ...
 2020-01-15 01:54:40.481  INFO [auth-service,,,] 1 --- [main] o.apache.catalina.core.StandardService  : Starting service [Tomcat]
 2020-01-15 01:54:40.482  INFO [auth-service,,,] 1 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
@@ -58,12 +58,12 @@ Se per l'app sono presenti più istanze denominate `auth-service` , è possibile
 
 Per prima cosa, è possibile ottenere i nomi delle istanze dell'app con il comando seguente.
 
-```
+```azurecli
 az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
 ```
 Con risultati:
 
-```
+```output
 Name                                         Status    DiscoveryStatus
 -------------------------------------------  --------  -----------------
 auth-service-default-12-75cc4577fc-pw7hb  Running   UP
@@ -72,7 +72,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 ``` 
 Quindi, è possibile eseguire lo streaming dei log di un'istanza dell'app con l'opzione option `-i/--instance` :
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
@@ -81,11 +81,11 @@ az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-p
 ### <a name="continuously-stream-new-logs"></a>Flusso continuo di nuovi log
 Per impostazione predefinita, `az spring-cloud ap log tail` stampa solo i log esistenti trasmessi alla console dell'app e quindi viene chiuso. Se si vuole eseguire lo streaming di nuovi log, aggiungere-f (--follow):  
 
-```
+```azurecli
 az spring-cloud app logs -n auth-service -f
 ``` 
 Per controllare tutte le opzioni di registrazione supportate:
-``` 
+```azurecli
 az spring-cloud app logs -h 
 ```
 

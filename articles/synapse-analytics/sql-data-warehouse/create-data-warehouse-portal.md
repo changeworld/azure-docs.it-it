@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: pimorano
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4da99200079557ab9d1674635c0df26c9e62d488
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: ecab573f7a98bcee79231b8e20077bb32bffd48c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120275"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680115"
 ---
 # <a name="quickstart-create-and-query-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics-using-the-azure-portal"></a>Avvio rapido: Creare ed eseguire query su un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics usando il portale di Azure
 
@@ -29,7 +29,7 @@ Creare rapidamente ed eseguire query su un pool SQL dedicato (in precedenza SQL 
    > [!NOTE]
    > La creazione di un pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse può risultare in un nuovo servizio fatturabile. Per altre informazioni, vedere [Prezzi di Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-2. Scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+2. Scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -55,7 +55,7 @@ Seguire questa procedura per creare un pool SQL dedicato (in precedenza SQL Data
    | :------ | :-------------- | :---------- |
    | **Sottoscrizione** | Sottoscrizione in uso | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
    | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
-   | **Nome del pool SQL** | Qualsiasi nome univoco globale, ad esempio *mySampleDataWarehouse* | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  |
+   | **Nome del pool SQL** | Qualsiasi nome univoco globale, ad esempio *mySampleDataWarehouse* | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  |
    | **Server** | Qualsiasi nome globalmente univoco | Selezionare un server esistente oppure selezionare **Crea nuovo** per crearne uno nuovo. Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
 
    ![Dettagli di base per la creazione di un data warehouse](./media/create-data-warehouse-portal/create-sql-pool-basics.png)
@@ -128,7 +128,7 @@ Ottenere il nome completo del server nel portale di Azure. Questo nome verrà us
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
-In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per stabilire una connessione al server.
+In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) per stabilire una connessione al server.
 
 1. Aprire SQL Server Management Studio.
 

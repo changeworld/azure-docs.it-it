@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d2765787a4eb417f4aa86396e07a25f8157b8ce
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: bff15cbc8827f4a0eb09a243e01b2cdb95ba5f2f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223058"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681354"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
@@ -30,7 +30,7 @@ L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che 
 
 * Synapse SQL offre modelli di risorse **serverless** e **dedicati**, rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
 * Usare le funzionalità predefinite di **streaming** per trasferire dati da origini cloud in tabelle SQL
-* Integrare l'intelligenza artificiale con SQL usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)
+* Integrare l'intelligenza artificiale con SQL usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="industry-standard-apache-spark"></a>Apache Spark standard di settore
 

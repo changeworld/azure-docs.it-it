@@ -4,12 +4,12 @@ description: Automatizzare i report personalizzati giornalieri/settimanali/mensi
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: d465666ce5d631a234644d1adc85afcf6e3c1e27
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010606"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680451"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -33,7 +33,7 @@ Ogni azienda ha esigenze di report univoche, ad esempio:
 
 * [Automatizzare i report con Power automatici](../platform/logicapp-flow-connector.md)
 * [Automatizzare i report con App per la logica](automate-with-logic-apps.md)
-* Usare il modello di [funzione di Azure](../../azure-functions/functions-create-first-azure-function.md) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
+* Usare il modello di [funzione di Azure](../../azure-functions/functions-get-started.md) del digest pianificato di Application Insights nello scenario di monitoraggio. Questa funzione usa SendGrid per recapitare il messaggio di posta elettronica. 
 
     ![Modello di funzione di Azure](./media/automate-custom-reports/azure-function-template.png)
 
@@ -72,7 +72,7 @@ availabilityResults
 
 1. Creare un _app per le funzioni di Azure. (Application Insights è_ necessario solo se si vuole monitorare la nuova app per le funzioni con Application Insights)
 
-   Vedere la documentazione di funzioni di Azure per informazioni su come [creare un'app](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app) per le funzioni
+   Vedere la documentazione di funzioni di Azure per informazioni su come [creare un'app](../../azure-functions/functions-get-started.md) per le funzioni
 
 2. Dopo avere completato la distribuzione dell'app per le funzioni, selezionare **Vai alla risorsa**.
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![Screenshot delle impostazioni dell'app per le funzioni](./media/automate-custom-reports/scheduled-digest.png)
 
-6. Selezionare la **Function App**  >  configurazione delle **funzionalità della piattaforma** app per le funzioni  >  **Configuration**.
+6. Selezionare la   >  configurazione delle **funzionalità della piattaforma** app per le funzioni  >  .
 
     ![Screenshot delle impostazioni dell'app per le funzioni di Azure](./media/automate-custom-reports/config.png)
 
@@ -154,4 +154,3 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 * Altre informazioni sull'[esecuzione di query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/)
 * Altre informazioni su [App per la logica](../../logic-apps/logic-apps-overview.md).
 * Scopri di più su [Microsoft Power Automatic](https://ms.flow.microsoft.com).
-

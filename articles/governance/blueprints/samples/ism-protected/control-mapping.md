@@ -1,14 +1,14 @@
 ---
 title: Controlli dell'esempio di progetto Australian Government ISM PROTECTED
 description: Mapping dei controlli dell'esempio di progetto Australian Government ISM PROTECTED. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 09/11/2020
+ms.date: 01/21/2021
 ms.topic: sample
-ms.openlocfilehash: 9f036c7e1a749043a0b81717b75202a5c6c37c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
-ms.translationtype: HT
+ms.openlocfilehash: df143a871db3d871fe6354eab23b7ca6dc012b78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932227"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679998"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto Australian Government ISM PROTECTED
 

@@ -4,12 +4,12 @@ description: Monitorare l'app Web in tempo reale, con metriche personalizzate e 
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c50f7e57c520321d752d6d46e36c45c615b5e785
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 865de94f1d9b4012a908643bbf87f38aeb8594a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803579"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679467"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -36,8 +36,8 @@ Le metriche attive sono attualmente supportate per le app ASP.NET, ASP.NET Core,
    * La metrica [ASP.NET Core](./asp-net-core.md)-Live è abilitata per impostazione predefinita.
    * Per impostazione predefinita, le metriche di [.NET/.NET Core Console/Worker](./worker-service.md)-Live sono abilitate.
    * [Applicazioni .NET: consente di abilitare l'uso del codice](#enable-livemetrics-using-code-for-any-net-application).
-    * Le metriche [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent) -Live sono abilitate per impostazione predefinita.
-   * [Node.JS](./nodejs.md#live-metrics)
+    * Le metriche [Java](./java-in-process-agent.md) -Live sono abilitate per impostazione predefinita.
+   * [Node.js](./nodejs.md#live-metrics)
 
 2. Nel [portale di Azure](https://portal.azure.com) aprire la risorsa di Application Insights per l'app e quindi Live Stream.
 

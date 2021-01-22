@@ -8,24 +8,24 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy, devx-track-azurecli
-ms.openlocfilehash: eacd1426b856de11a18b0da6c509d281b3bca94c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 53fb11216e65ebead43c02a7153d937c37b841a0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655170"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681061"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Come creare un'immagine gestita di una macchina virtuale o di un disco rigido virtuale
 
 Per creare più copie di una macchina virtuale da usare in Azure per lo sviluppo e il test, acquisire un'immagine gestita della macchina virtuale o del disco rigido virtuale del sistema operativo. Per creare, archiviare e condividere immagini su larga scala, vedere [Raccolte immagini condivise](../shared-images-cli.md).
 
-Un'immagine gestita supporta fino a 20 distribuzioni simultanee. Il tentativo di creare più di 20 macchine virtuali contemporaneamente dalla stessa immagine gestita può causare timeout del provisioning dovuti alle limitazioni delle prestazioni di archiviazione di un singolo disco rigido virtuale. Per creare più di 20 macchine virtuali contemporaneamente, usare un'immagine delle [Raccolte immagini condivise](shared-image-galleries.md) configurata con 1 replica per ogni 20 distribuzioni di macchina virtuale simultanee.
+Un'immagine gestita supporta fino a 20 distribuzioni simultanee. Il tentativo di creare più di 20 macchine virtuali contemporaneamente dalla stessa immagine gestita può causare timeout del provisioning dovuti alle limitazioni delle prestazioni di archiviazione di un singolo disco rigido virtuale. Per creare più di 20 macchine virtuali contemporaneamente, usare un'immagine delle [Raccolte immagini condivise](../shared-image-galleries.md) configurata con 1 replica per ogni 20 distribuzioni di macchina virtuale simultanee.
 
 Per creare un'immagine gestita, è necessario rimuovere le informazioni sull'account personale. Nei passaggi seguenti si eseguirà il deprovisioning e la deallocazione di una macchina virtuale esistente e si procederà alla creazione di un'immagine. È possibile usare questa immagine per creare macchine virtuali in qualsiasi gruppo di risorse all'interno della sottoscrizione.
 
 Per creare una copia della macchina virtuale Linux esistente per il backup o il debug o per caricare un disco rigido virtuale Linux specializzato da una macchina virtuale locale, vedere [Caricare e creare una VM Linux da un'immagine disco personalizzata](upload-vhd.md).  
 
-È possibile usare il servizio **Image Builder per macchine virtuali di Azure (Anteprima pubblica)** per creare l'immagine personalizzata. Non è necessario imparare a usare alcuno strumento o configurare pipeline di compilazione, basta inserire una configurazione dell'immagine e Image Builder la creerà. Per altre informazioni, vedere [Introduzione ad Image Builder per macchine virtuali di Azure](./image-builder-overview.md).
+È possibile usare il servizio **Image Builder per macchine virtuali di Azure (Anteprima pubblica)** per creare l'immagine personalizzata. Non è necessario imparare a usare alcuno strumento o configurare pipeline di compilazione, basta inserire una configurazione dell'immagine e Image Builder la creerà. Per altre informazioni, vedere [Introduzione ad Image Builder per macchine virtuali di Azure](../image-builder-overview.md).
 
 Prima di poter creare un'immagine, è necessario:
 

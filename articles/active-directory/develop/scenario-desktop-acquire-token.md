@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e15dce586dc4dd43cf56fd1cbb08b84ebcda1787
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232302"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680974"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -1181,7 +1181,7 @@ La personalizzazione della serializzazione della cache dei token per condividere
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>Serializzazione semplice della cache dei token (solo MSAL)
 
-Di seguito è riportato un esempio di implementazione semplice della serializzazione personalizzata di una cache dei token per le applicazioni desktop. In questo caso, la cache dei token utente si trova in un file nella stessa cartella dell'applicazione o in un utente per ogni cartella dell'app, nel caso in cui l'app sia un' [applicazione desktop in pacchetto](https://docs.microsoft.com/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Per il codice completo, vedere l'esempio seguente: [Active-Directory-DotNet-desktop-MSGraph-V2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
+Di seguito è riportato un esempio di implementazione semplice della serializzazione personalizzata di una cache dei token per le applicazioni desktop. In questo caso, la cache dei token utente si trova in un file nella stessa cartella dell'applicazione o in un utente per ogni cartella dell'app, nel caso in cui l'app sia un' [applicazione desktop in pacchetto](/windows/msix/desktop/desktop-to-uwp-behind-the-scenes). Per il codice completo, vedere l'esempio seguente: [Active-Directory-DotNet-desktop-MSGraph-V2](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2).
 
 Dopo aver creato l'applicazione, si abilita la serializzazione chiamando il metodo ``TokenCacheHelper.EnableSerialization()`` e passando `UserTokenCache` all'applicazione.
 

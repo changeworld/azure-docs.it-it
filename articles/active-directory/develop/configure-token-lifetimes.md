@@ -13,19 +13,19 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4d6a7150c854ba89c3cd8eacd6b553c4b8e97343
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 883a06bdffcd0afcbc1be6f2c761d6a1c2c2ea2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97963350"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681876"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurare i criteri di durata del token (anteprima)
 È possibile specificare la durata di un token di accesso, SAML o ID emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Per altre informazioni, vedere [durate dei token configurabili](active-directory-configurable-token-lifetimes.md).
 
 In questa sezione viene descritto uno scenario di criteri comuni che consente di imporre nuove regole per la durata dei token. Nell'esempio viene illustrato come creare un criterio che richiede agli utenti di eseguire l'autenticazione con maggiore frequenza nell'app Web.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 Per iniziare, seguire questa procedura:
 
 1. Scaricare la [versione di anteprima pubblica del modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)più recente.
@@ -87,7 +87,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
 > [!IMPORTANT]
 > A partire da maggio 2020, i nuovi tenant non possono configurare la durata dei token di aggiornamento e di sessione.  I tenant con configurazione esistente possono modificare i criteri di aggiornamento e token di sessione fino al 30 gennaio 2021.  Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo il 30 gennaio 2021. È comunque possibile configurare la durata dei token di accesso, SAML e ID dopo il ritiro.
 >
-> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per altre informazioni sull'accesso condizionale, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).
+> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per altre informazioni sull'accesso condizionale, vedere [configurare la gestione delle sessioni di autenticazione con l'accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md).
 >
 > Se non si vuole usare l'accesso condizionale dopo la data di ritiro, i token di aggiornamento e di sessione verranno impostati sulla [configurazione predefinita](active-directory-configurable-token-lifetimes.md#configurable-token-lifetime-properties-after-the-retirement) in tale data e non sarà più possibile modificarne la durata.
 

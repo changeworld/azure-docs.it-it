@@ -4,17 +4,17 @@ titleSuffix: Azure Cognitive Services
 description: Si ha il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei dati. Elimina i dati dei clienti per garantire la privacy e la conformità.
 services: cognitive-services
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/08/2020
-ms.openlocfilehash: cd9b353300b88c69efb0c458245a86963c579064
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 12/10/2020
+ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007739"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680186"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
@@ -58,31 +58,38 @@ Per abilitare l' [apprendimento attivo](luis-how-to-review-endpoint-utterances.m
 
 Ad eccezione dei dati di apprendimento attivi (dettagliati di seguito), LUIS segue le [procedure di archiviazione dei dati per i servizi a livello](https://azuredatacentermap.azurewebsites.net/)di area.
 
+[!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
+
+
 ### <a name="europe"></a>Europa
 
-Il portale di [eu.Luis.ai](https://eu.luis.ai) e la creazione di Europe (noti anche come API programmatiche) sono ospitati nella geografia dell'Europa di Azure. Il portale di eu.luis.ai e la creazione di Europe (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
+Le risorse di creazione di Europe (note anche come API programmatiche) sono ospitate nella geografia dell'Europa di Azure e supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
 * Europa
 * Francia
 * Regno Unito
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia dell'Europa di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella geografia dell'Europa di Azure per l'apprendimento attivo.
 
 ### <a name="australia"></a>Australia
 
-Il portale di [au.Luis.ai](https://au.luis.ai) e la creazione dell'Australia (noti anche come API programmatiche) sono ospitati nell'area geografica Australia di Azure. Il portale di au.luis.ai e la creazione dell'Australia (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
+Le risorse per la creazione dell'Australia (note anche come API programmatiche) sono ospitate nell'area geografica Australia di Azure e supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
 * Australia
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella Geografia Australia di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app vengono archiviate nella Geografia Australia di Azure per l'apprendimento attivo.
 
 ### <a name="united-states"></a>Stati Uniti
 
-Il portale di [Luis.ai](https://www.luis.ai) e la creazione di Stati Uniti (noti anche come API programmatiche) sono ospitati in Stati Uniti geography di Azure. Il portale di luis.ai e la creazione di Stati Uniti (noti anche come API programmatiche) supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
+Le risorse di creazione Stati Uniti (note anche come API programmatiche) sono ospitate in Stati Uniti geography di Azure e supportano la distribuzione di endpoint nelle seguenti aree geografiche di Azure:
 
 * Aree geografiche di Azure non supportate dalle aree di creazione dell'Europa o dell'Australia
 
-Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. È possibile disabilitare l'apprendimento attivo, vedere [disabilitare Active Learning](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
+Quando si esegue la distribuzione in queste aree geografiche di Azure, le espressioni ricevute dall'endpoint dagli utenti finali dell'app verranno archiviate nel Stati Uniti geography di Azure per l'apprendimento attivo. 
+
+## <a name="disable-active-learning"></a>Disabilitare l'apprendimento attivo
+
+Per disabilitare l'apprendimento attivo, vedere [disabilitare l'apprendimento attivo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Per gestire le espressioni archiviate, vedere [eliminare l'espressione](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

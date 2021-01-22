@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/31/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3763b3b74cf2bbe722d5c4cb85121609b606ff06
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.openlocfilehash: 6385a28ff976b206839a86d94f1ea61a9c6f11f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098808"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680149"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Elencare e ottenere tabelle per Azure Cosmos DB - API Tabella
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Per questo esempio è necessario Azure PowerShell AZ 5.4.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per determinare le versioni installate.
+Se è necessario installarlo, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Eseguire [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) per accedere ad Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 12/07/2020
-ms.openlocfilehash: 7122c960dc7921e833329d528f96f0efe0347bda
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
+ms.openlocfilehash: 00cd97ada1a458f13225961566a99aa79d724558
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707470"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679981"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -114,9 +114,9 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Elementi della matrice foreach | 100,000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
-| Concorrenza foreach | Con concorrenza off: 20 <p><p>Con concorrenza su: <p><p>-Valore predefinito: 20 <br>-Min: 1 <br>-Max: 50 | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare questo limite, vedere [modificare "per ogni" limite di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [eseguire "per ogni" cicli sequenziali](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Iterazioni Until | - Impostazione predefinita: 60 <br>-Min: 1 <br>-Max: 5.000 | Il numero più elevato di cicli che un ciclo "until" può avere durante un'esecuzione dell'app per la logica. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **count** . |
+| Elementi della matrice foreach | 100,000 | Questo limite descrive il numero massimo di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
+| Concorrenza foreach | Con concorrenza off: 20 <p><p>Con concorrenza su: <p><p>-Valore predefinito: 20 <br>-Min: 1 <br>-Max: 50 | Questo limite è il numero massimo di iterazioni del ciclo "for each" che possono essere eseguite contemporaneamente o in parallelo. <p><p>Per modificare questo limite, vedere [modificare "per ogni" limite di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [eseguire "per ogni" cicli sequenziali](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Iterazioni Until | - Impostazione predefinita: 60 <br>-Min: 1 <br>-Max: 5.000 | Numero massimo di cicli che possono essere presenti in un ciclo "until" durante un'esecuzione dell'app per la logica. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **count** . |
 | Fino al timeout | -Valore predefinito: PT1H (1 ora) | La quantità di tempo che il ciclo "until" può eseguire prima di uscire ed è specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **timeout** . |
 ||||
 
@@ -124,7 +124,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 50 | Questo limite è il maggior numero di istanze dell'app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 50 | Questo limite è il numero massimo di istanze di app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Numero massimo di esecuzioni in attesa | Con concorrenza off: <p><p>-Min: 1 <br>-Max: 50 <p><p>Con concorrenza su: <p><p>-Min: 10 più il numero di esecuzioni simultanee (concorrenza dei trigger) <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono attendere l'esecuzione quando l'app per la logica sta già eseguendo il numero massimo di istanze simultanee. <p><p>Per modificare questo limite, vedere [limite di esecuzioni in attesa di modifiche](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementi SplitOn | Con concorrenza off: 100.000 <p><p>Con concorrenza in: 100 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota**: quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
 ||||

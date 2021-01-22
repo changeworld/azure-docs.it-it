@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 45e1ae5b8a1084334b7596f62c272e16294c4c14
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 6df8c3238ed6dfeb37fd10d0a7e97aa839e7bf26
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98118762"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681078"
 ---
 # <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati nei file parquet e JSON usando un pool SQL senza server in Azure sinapsi Analytics
 
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 
-La query seguente legge il file justSimpleArray. parquet e USA [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file justSimpleArray. parquet e USA [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per recuperare un elemento scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -172,7 +172,7 @@ Il risultato è il seguente:
 
 ## <a name="access-sub-objects-from-complex-columns"></a>Accesso a oggetti secondari da colonne complesse
 
-La query seguente legge il file mapExample. parquet e USA [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento non scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file mapExample. parquet e USA [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per recuperare un elemento non scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT

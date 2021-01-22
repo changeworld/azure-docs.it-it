@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: a8c7ae8de41a01cb07a4bbbcd5943fb6290eced8
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131645"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680366"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usare MSAL per Android con B2C
 
@@ -36,7 +36,7 @@ Data un'applicazione B2C con due criteri:
 
 Il file di configurazione per l'app dichiarerebbe due `authorities` . Uno per ogni criterio. La `type` proprietà di ogni autorità è `B2C` .
 
->Nota: il `account_mode` deve essere impostato su **multiple** per le applicazioni B2C. Per ulteriori informazioni su [più app client pubbliche dell'account](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account#multiple-account-public-client-application), vedere la documentazione.
+>Nota: il `account_mode` deve essere impostato su **multiple** per le applicazioni B2C. Per ulteriori informazioni su [più app client pubbliche dell'account](./single-multi-account.md#multiple-account-public-client-application), vedere la documentazione.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json

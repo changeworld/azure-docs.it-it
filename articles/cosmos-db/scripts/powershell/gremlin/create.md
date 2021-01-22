@@ -7,19 +7,22 @@ ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 38ed741401740c60e9bdbe0869caa0f8a6a3c76d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
-ms.translationtype: HT
+ms.openlocfilehash: a005a62ec75d4cbedc4ea88095cab2a48c86fcf4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680962"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>Creare un database e un grafo per Azure Cosmos DB - API Gremlin
 [!INCLUDE[appliesto-gremlin-api](../../../includes/appliesto-gremlin-api.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](../../../../../includes/sample-powershell-install-no-ssh.md)]
+Per questo esempio è necessario Azure PowerShell AZ 5.4.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per determinare le versioni installate.
+Se è necessario installarlo, vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
+
+Eseguire [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) per accedere ad Azure.
 
 ## <a name="sample-script"></a>Script di esempio
 

@@ -4,12 +4,12 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 04d96a09d41ace64bed5667bb9f0fa6e4beed244
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936958"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681831"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -181,7 +181,7 @@ Usare la sincronizzazione cloud per sincronizzare il contenuto da Dropbox e OneD
 
 Nell'editor basato su portale è possibile modificare direttamente i file presenti nell'app per le funzioni (essenzialmente distribuendo ogni volta che si salvano le modifiche).
 
->__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](functions-create-first-azure-function.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione (ad esempio `WEBSITE_RUN_FROM_PACKAGE` ).
+>__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](./functions-get-started.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione (ad esempio `WEBSITE_RUN_FROM_PACKAGE` ).
 
 >__Quando utilizzarlo:__ Il portale è un modo efficace per iniziare a usare funzioni di Azure. Per un lavoro di sviluppo più intenso, è consigliabile usare uno degli strumenti client seguenti:
 >

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 6163f059581c2699d0b2780545c3ad5ec80f2907
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882416"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681584"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -195,24 +195,38 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
 | Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
+|Bielorusso| `be` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
+|Bulgaro| `bg` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Latino `Latn` |
 | Cinese (semplificato) | `zh-Hans` | Cinese semplificato `Hans`| <--> | Cinese tradizionale `Hant`|
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Latino `Latn` |
 | Cinese (tradizionale) | `zh-Hant` | Cinese tradizionale `Hant`| <--> | Cinese semplificato `Hans` |
+|Greco| `el` | Greco `Grek`  | <--> | Latino `Latn` |
 | Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latino `Latn` |
 | Ebraico | `he` | Ebraico `Hebr` | <--> | Latino `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
 | Giapponese | `ja` | Giapponese `Jpan` | <--> | Latino `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latino `Latn` |
+|Kazako| `kk` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
+|kirghiso| `ky` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
+|Macedone| `mk` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | <--> | Latino `Latn` |
+|Mongolo| `mn` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latino `Latn` |
+|Persiano| `fa` | Arabo `Arab`  | <--> | Latino `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
+|Russo| `ru` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
+|Sindhi| `sd` | Arabo `Arab`  | <--> | Latino `Latn` |
+|Tagico| `tg` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
+|Tatar| `tt` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Telugu | `te` | Telugu `Telu` | <--> | Latino `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latino `Latn` |
+|Ucraino| `uk` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
+|Urdu| `ur` | Arabo `Arab`  | <--> | Latino `Latn` |
 
 ### <a name="dictionary"></a>Dizionario
 

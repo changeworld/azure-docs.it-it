@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 4e1addc9a5b07f9ae6f119b89b0e7d6f8186f29a
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 58e8fd5006e72465e35912a5b15cade1201d680f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634463"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680316"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA React usando il flusso del codice di autenticazione
 
@@ -66,6 +66,15 @@ Questa Guida introduttiva usa MSAL React con il flusso del codice di autorizzazi
 > 1. Per applicare le modifiche, fare clic sul pulsante **Configura** .
 > 1. In **configurazioni piattaforma** espandere **applicazione a pagina singola**.
 > 1. Verificare che in **Concedi tipi** ![ già configurati ](media/quickstart-v2-javascript/green-check.png) l'URI di reindirizzamento sia idoneo per il flusso del codice di autorizzazione con PKCE.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
+> Per consentire il funzionamento dell'esempio di codice di questa guida di avvio rapido, è necessario aggiungere un oggetto `redirectUri` impostato su `http://localhost:3000/`.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Apporta queste modifiche per me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Già configurata](media/quickstart-v2-javascript/green-check.png) L'applicazione è configurata con questi attributi.
 
 #### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto
 

@@ -11,12 +11,12 @@ ms.date: 11/20/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c91310d9d1e67dd77098ee13a87190ee6d411607
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 10e43332728ea70d27c08cf4d3dfe116c83b3f1f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120105"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679805"
 ---
 # <a name="best-practices-for-loading-data-using-dedicated-sql-pools-in-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati con pool SQL dedicati in Azure sinapsi Analytics
 
@@ -47,7 +47,7 @@ In questo esempio viene creato un utente di caricamento Classificato in un grupp
    CREATE LOGIN loader WITH PASSWORD = 'a123STRONGpassword!';
 ```
 
-Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
+Connettersi al pool SQL dedicato e creare un utente. Il codice seguente presuppone che l'utente sia connesso al database denominato mySampleDataWarehouse. Mostra come creare un utente chiamato Loader e concede all'utente le autorizzazioni per creare tabelle e caricare usando l' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). L'utente viene quindi Classificato al gruppo di carico di lavoro dei carichi di lavoro con le risorse massime. 
 
 ```sql
    -- Connect to the dedicated SQL pool
@@ -79,7 +79,7 @@ Per eseguire un caricamento con risorse per il gruppo del carico di lavoro di ca
 
 ## <a name="allowing-multiple-users-to-load-polybase"></a>Consentire il caricamento di più utenti (polibase)
 
-Spesso è necessario che più utenti carichino i dati in un pool SQL dedicato. Il caricamento con il [create table come Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (polibase) richiede autorizzazioni Control per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
+Spesso è necessario che più utenti carichino i dati in un pool SQL dedicato. Il caricamento con il [create table come Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (polibase) richiede autorizzazioni Control per il database.  L'autorizzazione CONTROL fornisce il controllo degli accessi a tutti gli schemi.
 
 È consigliabile che non tutti gli utenti che eseguono caricamenti abbiano il controllo degli accessi a tutti gli schemi. Per limitare le autorizzazioni, usare l'istruzione DENY CONTROL.
 
@@ -114,7 +114,7 @@ In caso di utilizzo elevato di memoria, l'indice columnstore potrebbe non riusci
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Aumentare le dimensioni del batch quando si usa l'API SqLBulkCopy o BCP
 
-Il caricamento con l'istruzione COPY fornirà la massima velocità effettiva con i pool SQL dedicati. Se non è possibile usare la copia per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
+Il caricamento con l'istruzione COPY fornirà la massima velocità effettiva con i pool SQL dedicati. Se non è possibile usare la copia per caricare e usare l' [API SqLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), è consigliabile prendere in considerazione l'aumento delle dimensioni del batch per una migliore velocità effettiva.
 
 > [!TIP]
 > Una dimensione di batch compresa tra 100 e 1 milione di righe è la linea di base consigliata per determinare la capacità ottimale per le dimensioni del batch.
@@ -130,11 +130,11 @@ Un record di dati viene considerato Dirty se soddisfa una delle condizioni segue
 
 Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato di file esterno siano corrette e che i dati esterni siano conformi a queste definizioni.
 
-Se un subset di record di dati esterni è modificato, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in [Create external Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Se un subset di record di dati esterni è modificato, è possibile scegliere di rifiutare tali record per le query utilizzando le opzioni di rifiuto in [Create external Table (Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserimento di dati in una tabella di produzione
 
-Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Gli inserimenti singleton non offrono tuttavia la stessa efficienza di un caricamento bulk.
+Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Gli inserimenti singleton non offrono tuttavia la stessa efficienza di un caricamento bulk.
 
 Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più, inviare in batch gli inserimenti per poterne eseguire il caricamento bulk.  Sviluppare i processi per aggiungere i singoli inserimenti in un file e quindi creare un altro processo che carica periodicamente il file.
 
@@ -158,7 +158,7 @@ Ai fini della sicurezza è consigliabile modificare regolarmente la chiave di ac
 
 Per ruotare le chiavi dell'account di archiviazione di Azure:
 
-Per ogni account di archiviazione la cui chiave ha subito modifiche, eseguire [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Per ogni account di archiviazione la cui chiave ha subito modifiche, eseguire [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Esempio:
 

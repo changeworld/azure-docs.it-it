@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 0876891e42ce629a3b088d8068c74386d690492d
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683187"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680604"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Distribuire un cluster di Azure Service Fabric con tipi di nodo solo senza stato (anteprima)
 I tipi di nodo Service Fabric hanno presupposto intrinseco che in un determinato momento i servizi con stato possono essere inseriti nei nodi. I tipi di nodo senza stato rilassano questa ipotesi per un tipo di nodo, consentendo così al tipo di nodo di usare altre funzionalità, ad esempio le operazioni di scalabilità orizzontale più veloci, il supporto per aggiornamenti automatici del sistema operativo sulla durabilità Bronze e la scalabilità orizzontale a più di 100 nodi in un singolo set di scalabilità
@@ -253,6 +253,8 @@ Per iniziare, sarà necessario aggiungere le nuove risorse al modello di Gestion
 
 Una volta terminata la distribuzione delle risorse, è possibile iniziare a disabilitare i nodi del tipo di nodo che si vuole rimuovere dal cluster originale.
 
+>[!NOTE]
+> Quando si usa la scalabilità automatica con NodeTypes senza stato con durabilità Bronze, dopo l'operazione di riduzione lo stato del nodo non viene pulito automaticamente. Per pulire il nodestre dei nodi inattivi durante la scalabilità automatica, è consigliabile usare [Service Fabric helper di ridimensionamento](https://github.com/Azure/service-fabric-autoscale-helper) automatico.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)

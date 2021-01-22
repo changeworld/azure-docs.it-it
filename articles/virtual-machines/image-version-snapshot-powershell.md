@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2ebff0d86c27bcdbc11d23e18116b33b4ea838a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4ca28efce28933eed9be5cca7bd412f2d9505aa
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300256"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679535"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>Creare un'immagine da un disco gestito o da uno snapshot in una raccolta di immagini condivise usando PowerShell
 
@@ -90,9 +90,9 @@ Le definizioni di immagini creano un raggruppamento logico per le immagini. Veng
 
 Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. In questo esempio si presuppone che lo snapshot o il disco gestito provenga da una macchina virtuale in uso e non è stato generalizzato. Se il disco gestito o lo snapshot è stato ricavato da un sistema operativo generalizzato (dopo l'esecuzione di Sysprep per Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` per Linux), modificare `-OsState` in `generalized` . 
 
-Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./windows/shared-image-galleries.md#image-definitions).
+Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./shared-image-galleries.md#image-definitions).
 
-Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition*ed è per un sistema operativo Windows specializzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
+Per creare la definizione di immagine, usare [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio, la definizione dell'immagine è denominata *myImageDefinition* ed è per un sistema operativo Windows specializzato. Per creare una definizione per le immagini usando un sistema operativo Linux, usare `-OsType Linux` . 
 
 ```azurepowershell-interactive
 $imageDefinition = New-AzGalleryImageDefinition `

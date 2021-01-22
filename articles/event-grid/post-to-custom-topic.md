@@ -3,12 +3,12 @@ title: Pubblicare gli eventi in argomenti Griglia di eventi di Azure personalizz
 description: Questo articolo descrive come pubblicare un evento in un argomento personalizzato. Illustra il formato dei dati post ed evento.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86108261"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681618"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Pubblicare in un argomento personalizzato per la Griglia di eventi di Azure
 
@@ -71,10 +71,7 @@ Per gli argomenti personalizzati, i dati di livello principale contengono gli st
 ]
 ```
 
-Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Ogni evento nella matrice è limitato a 64 KB (disponibilità generale) o 1 MB (anteprima).
-
-> [!NOTE]
-> Un evento di dimensioni fino a 64 KB è coperto da disponibilità generale (GA) Contratto di servizio (SLA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
+Per una descrizione di ogni proprietà, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md). Durante la pubblicazione degli eventi in un argomento della griglia di eventi, le dimensioni totali della matrice possono raggiungere 1 MB. Anche le dimensioni massime consentite per un evento sono pari a 1 MB. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
 
 Ad esempio, uno schema di dati evento valido è:
 

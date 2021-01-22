@@ -2,13 +2,13 @@
 title: Sessioni di messaggi del bus di servizio di Azure | Microsoft Docs
 description: In questo articolo viene illustrato come usare le sessioni per abilitare la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/20/2021
+ms.openlocfilehash: 6d316571d69d2e1e73ddca4ccca53c116ee8fa5f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511297"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98680754"
 ---
 # <a name="message-sessions"></a>Sessioni di messaggistica
 Le sessioni del bus di servizio di Microsoft Azure consentono la gestione congiunta e ordinata di sequenze non vincolate di messaggi correlati. Le sessioni possono essere usate in criteri **First in, First out (FIFO)** e di **richiesta-risposta**. Questo articolo illustra come usare le sessioni per implementare questi criteri quando si usa il bus di servizio. 
@@ -34,9 +34,9 @@ Nel portale impostare il flag con la casella di controllo seguente:
 ![Screenshot della finestra di dialogo Crea coda con l'opzione Abilita sessioni selezionata e delineata in rosso.][2]
 
 > [!NOTE]
-> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client ***non possono più*** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
+> Quando le sessioni sono abilitate in una coda o in una sottoscrizione, le applicazioni client **non possono più** inviare/ricevere messaggi regolari. Tutti i messaggi devono essere inviati come parte di una sessione (impostando l'ID sessione) e ricevuti ricevendo la sessione.
 
-Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. Esiste un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a *OnMessage*, che nasconde la complessità di gestione del ciclo di ricezione.
+Le API per le sessioni sono presenti nei client di accodamento e di sottoscrizione. È disponibile un modello imperativo che controlla quando vengono ricevuti i messaggi e le sessioni e un modello basato su gestore, simile a _OnMessage *, che nasconde la complessità della gestione del ciclo di ricezione.
 
 ### <a name="session-features"></a>Funzionalità delle sessioni
 

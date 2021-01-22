@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.author: tisande
-ms.openlocfilehash: 00c80fa311837918a78f26e941f00cb17f1dc279
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 4d2ad9cf6b47d8307d9652419b82de8ffcbcb099
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019177"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98681651"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,6 +35,17 @@ Azure Cosmos DB supporta due modalità di indicizzazione:
 > Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione differita esegue gli aggiornamenti dell'indice con un livello di priorità molto più basso quando il motore non esegue altre operazioni. Ciò può comportare risultati delle query **incoerenti o incompleti**. Se si prevede di eseguire una query su un contenitore Cosmos, non è consigliabile selezionare l'indicizzazione differita. I nuovi contenitori non possono selezionare l'indicizzazione differita. È possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (eccetto se si usa un account Azure Cosmos in modalità senza [Server](serverless.md) che non supporta l'indicizzazione differita).
 
 Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic` . Per ottenere questo risultato, impostare la `automatic` proprietà nei criteri di indicizzazione su `true` . L'impostazione di questa proprietà su `true` consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
+
+## <a name="index-size"></a><a id="index-size"></a>Dimensioni indice
+
+In Azure Cosmos DB lo spazio di archiviazione totale usato risulta dalla combinazione delle dimensioni dei dati e delle dimensioni dell'indice. Di seguito sono riportate alcune funzionalità delle dimensioni degli indici:
+
+* La dimensione dell'indice dipende dai criteri di indicizzazione. Se tutte le proprietà sono indicizzate, le dimensioni dell'indice possono essere maggiori delle dimensioni dei dati.
+* Quando si eliminano i dati, gli indici vengono compattati in modo quasi continuo. Tuttavia, per le eliminazioni di dati di piccole dimensioni, è possibile che non si osservi immediatamente una riduzione delle dimensioni degli indici.
+* Le dimensioni dell'indice possono aumentare nei casi seguenti:
+
+  * Durata divisione partizione: lo spazio dell'indice viene rilasciato dopo il completamento della divisione della partizione.
+  * Quando si suddivide una partizione, lo spazio di indice aumenterà temporaneamente durante la suddivisione della partizione. 
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusione ed esclusione dei percorsi delle proprietà
 
@@ -91,7 +102,7 @@ Quando si includono ed escludono i percorsi, è possibile che si verifichino gli
 
 Quando non è specificato, queste proprietà avranno i valori predefiniti seguenti:
 
-| **Nome proprietà**     | **Valore predefinito** |
+| **Nome della proprietà**     | **Valore predefinito** |
 | ----------------------- | -------------------------------- |
 | `kind`   | `range` |
 | `precision`   | `-1`  |

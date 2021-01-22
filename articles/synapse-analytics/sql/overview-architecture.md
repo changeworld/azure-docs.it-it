@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: da6c9f6df0e9e74de297cf6c8f655b62e3446bad
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: bd911868028825164cdd9627bf6b5c6d56de7164
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462713"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679619"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Architettura di Azure Synapse SQL 
 
@@ -67,7 +67,7 @@ Nel pool SQL senza server, il motore DQP viene eseguito sul nodo di controllo pe
 
 I nodi di calcolo forniscono la potenza di calcolo. 
 
-Nel pool SQL dedicato, le distribuzioni vengono mappate ai nodi di calcolo per l'elaborazione. Quando si ottengono risorse di calcolo aggiuntive a pagamento, il pool esegue di nuovo il mapping delle distribuzioni nei nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 ed è determinato dal livello di servizio per il pool SQL dedicato. Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco di queste viste di sistema, vedere [sinapsi SQL System views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Nel pool SQL dedicato, le distribuzioni vengono mappate ai nodi di calcolo per l'elaborazione. Quando si ottengono risorse di calcolo aggiuntive a pagamento, il pool esegue di nuovo il mapping delle distribuzioni nei nodi di calcolo disponibili. Il numero di nodi di calcolo è compreso tra 1 e 60 ed è determinato dal livello di servizio per il pool SQL dedicato. Ogni nodo di calcolo ha un ID visibile nelle visualizzazioni di sistema. È possibile individuare l'ID del nodo di calcolo cercando la colonna node_id nelle visualizzazioni di sistema il cui nome inizia con sys.pdw_nodes. Per un elenco di queste viste di sistema, vedere [sinapsi SQL System views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest&preserve-view=true).
 
 Nel pool SQL senza server, a ogni nodo di calcolo viene assegnata l'attività e il set di file su cui eseguire l'attività. L'attività corrisponde a un'unità di esecuzione della query distribuita, che costituisce una parte effettiva della query utente inviata. Il ridimensionamento automatico è attivato per verificare che venga usato un numero di nodi di calcolo sufficiente per eseguire la query utente.
 
