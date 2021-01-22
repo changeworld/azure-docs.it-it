@@ -1,25 +1,25 @@
 ---
-title: Dettagli sulla conformità con le normative per Azure Security Benchmark
-description: Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 01/08/2021
+title: Dettagli di conformità alle normative per il benchmark di sicurezza di Azure V1
+description: Dettagli dell'iniziativa incorporata relativa alla conformità normativa di Azure Security benchmark V1. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3768db8662f84cf33aac54be61ba1cdd7f885c84
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 4bfef8f3cf0e3b001834dc28e990b24c0ae3ac78
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046296"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685680"
 ---
-# <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark
+# <a name="details-of-the-azure-security-benchmark-v1-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata per la conformità alle normative di Azure Security benchmark V1
 
-L'articolo seguente definisce il mapping dell'iniziativa predefinita di conformità alle normative di Criteri di Azure ai **domini di conformità** e ai **controlli** di Azure Security Benchmark.
-Per altre informazioni su questo standard di conformità, vedere [Azure Security Benchmark](../../../security/benchmarks/overview.md). Per informazioni sulla _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+L'articolo seguente illustra in dettaglio come viene eseguito il mapping della definizione di iniziativa predefinita relativa alla conformità normativa dei criteri di Azure ai **controlli** e ai **domini di conformità** nel benchmark di sicurezza di Azure V1
+Per altre informazioni su questo standard di conformità, vedere [benchmark di sicurezza di Azure V1](../../../security/benchmarks/overview.md). Per informazioni sulla _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono relativi ai controlli di **Azure Security Benchmark**. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
+I mapping seguenti sono ai controlli di **benchmark di sicurezza di Azure V1** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
 Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative **Azure Security Benchmark v1**.
 
-Questa iniziativa predefinita viene distribuita come parte dell'[esempio di progetto Azure Security Benchmark](../../blueprints/samples/azure-security-benchmark.md).
+Questa iniziativa predefinita viene distribuita come parte dell' [esempio Azure Security benchmark V1 Blueprint](../../blueprints/samples/azure-security-benchmark.md).
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).

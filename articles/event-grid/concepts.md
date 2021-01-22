@@ -2,13 +2,13 @@
 title: Concetti relativi a Griglia di eventi di Azure
 description: Vengono descritti il servizio Griglia di eventi di Azure e i concetti correlati. Vengono definiti diversi componenti chiave di Griglia di eventi.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 01/21/2021
+ms.openlocfilehash: 6edc8a3980bfea15f28cfb7114bb9f8350a47a3f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075110"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685704"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concetti di Griglia di eventi di Azure
 
@@ -18,10 +18,7 @@ Questo articolo illustra i concetti principali di Griglia di eventi di Azure.
 
 Un evento è la quantità minima di informazioni che descrive in modo completo qualcosa che si è verificato nel sistema. Ogni evento ha informazioni comuni, come: l'origine dell'evento, l'ora in cui l'evento si è verificato e un identificatore univoco. Ogni evento ha anche informazioni specifiche rilevanti solo per il tipo di evento specifico. Un evento di creazione di un nuovo file in Archiviazione di Azure, ad esempio, contiene i dettagli sul file, come il valore `lastTimeModified`. Un evento di Hub eventi include invece l'URL del file di acquisizione. 
 
-Un evento di dimensioni fino a 64 KB è coperto da disponibilità generale (GA) Contratto di servizio (SLA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
-
-
-Per le proprietà che vengono inviate in un evento, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
+Le dimensioni massime consentite per un evento sono pari a 1 MB. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. Per le proprietà che vengono inviate in un evento, vedere [Schema di eventi di Griglia di eventi di Azure](event-schema.md).
 
 ## <a name="publishers"></a>Autori
 
@@ -41,7 +38,7 @@ Gli **argomenti di sistema** sono argomenti predefiniti forniti da servizi di Az
 
 Gli **argomenti personalizzati** sono argomenti dell'applicazione e di terze parti. Quando l'utente crea o gli viene assegnato l'accesso a un argomento personalizzato, tale argomento personalizzato viene visualizzato nella sottoscrizione. Per ulteriori informazioni, vedere [argomenti personalizzati](custom-topics.md). Quando si progetta l'applicazione, è possibile decidere il numero di argomenti da creare. Per soluzioni di grandi dimensioni, creare un argomento personalizzato per ogni categoria di eventi correlati. Ad esempio, si consideri un'applicazione che invia gli eventi correlati alla modifica degli account utente e all'elaborazione degli ordini. È improbabile che un gestore eventi richieda entrambe le categorie di eventi. Creare due argomenti personalizzati e consentire ai gestori eventi di sottoscrivere l'argomento di interesse. Per le soluzioni di dimensioni ridotte, è preferibile inviare tutti gli eventi a un singolo argomento. I sottoscrittori di eventi possono filtrare in base ai tipi di eventi desiderati.
 
-È disponibile un altro tipo di argomento: **argomento del partner** . La funzionalità [eventi partner](partner-events-overview.md) consente a un provider SaaS di terze parti di pubblicare gli eventi dai relativi servizi per renderli disponibili agli utenti che possono sottoscrivere tali eventi. Il provider SaaS espone un tipo di argomento, un **argomento partner** , che i Sottoscrittori utilizzano per utilizzare gli eventi. Offre inoltre un modello di pubblicazione-sottoscrizione pulito, separando i problemi e la proprietà delle risorse utilizzate dai Publisher e dai sottoscrittori di eventi.
+È disponibile un altro tipo di argomento: **argomento del partner**. La funzionalità [eventi partner](partner-events-overview.md) consente a un provider SaaS di terze parti di pubblicare gli eventi dai relativi servizi per renderli disponibili agli utenti che possono sottoscrivere tali eventi. Il provider SaaS espone un tipo di argomento, un **argomento partner**, che i Sottoscrittori utilizzano per utilizzare gli eventi. Offre inoltre un modello di pubblicazione-sottoscrizione pulito, separando i problemi e la proprietà delle risorse utilizzate dai Publisher e dai sottoscrittori di eventi.
 
 ## <a name="event-subscriptions"></a>Sottoscrizioni di eventi
 
@@ -66,7 +63,7 @@ Dal punto di vista di Griglia di eventi, un gestore eventi è la posizione in cu
 
 Per informazioni sull'implementazione di una delle origini di Griglia di eventi supportate, vedere [Event handlers in Azure Event Grid](event-handlers.md) (Gestori di eventi in Griglia di eventi di Azure).
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Griglia di eventi fornisce la sicurezza per la sottoscrizione e la pubblicazione degli argomenti. Quando si esegue la sottoscrizione, è necessario possedere le autorizzazioni appropriate per la risorsa o l'argomento di Griglia di eventi. Quando si esegue la pubblicazione, è necessario avere un token di firma di accesso condiviso o l'autenticazione con chiave per l'argomento. Per altre informazioni, vedere [Event Grid security and authentication](security-authentication.md) (Sicurezza e autenticazione di Griglia di eventi).
 
@@ -76,10 +73,7 @@ Se Griglia di eventi non è in grado di confermare che un evento è stato ricevu
 
 ## <a name="batching"></a>Creazione di batch
 
-Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. Le dimensioni dei batch possono arrivare fino a 1 MB. Ogni evento non deve ancora essere superiore a 64 KB (disponibilità generale) o 1 MB (anteprima).
-
-> [!NOTE]
-> Un evento di dimensioni fino a 64 KB è coperto da disponibilità generale (GA) Contratto di servizio (SLA). Il supporto per un evento di dimensioni fino a 1 MB è attualmente in fase di anteprima. Gli eventi oltre 64 KB vengono addebitati in incrementi di 64 KB. 
+Quando si usa un argomento personalizzato, gli eventi devono sempre essere pubblicati in una matrice. Questa può essere un batch per gli scenari con velocità effettiva bassa. Tuttavia, per casi d'uso con volumi elevati, si consiglia di eseguire in batch più eventi contemporaneamente per ogni pubblicazione, per ottenere una maggiore efficienza. I batch possono essere fino a 1 MB e le dimensioni massime di un evento sono pari a 1 MB. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

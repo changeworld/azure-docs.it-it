@@ -11,16 +11,16 @@ ms.date: 01/12/2021
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: c492ec930cea000e45f7b6f09cc5e9c7a6a0db22
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bd9d477ed20122b0706e7997ab8922dcce7a59ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134501"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685426"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Esercitazione: caricare dati nel pool SQL di Azure sinapsi Analytics
 
-Questa esercitazione usa la codebase per caricare il data warehouse WideWorldImportersDW dall'archiviazione BLOB di Azure al data warehouse nel pool SQL di Azure sinapsi Analytics. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) per:
+Questa esercitazione usa la codebase per caricare il data warehouse WideWorldImportersDW dall'archiviazione BLOB di Azure al data warehouse nel pool SQL di Azure sinapsi Analytics. Questa esercitazione usa il [portale di Azure](https://portal.azure.com) e [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS) per:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS).
+Prima di iniziare questa esercitazione, scaricare e installare la versione più recente di [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (SSMS).
 
 In questa esercitazione si presuppone che sia già stato creato un pool dedicato a SQL nell' [esercitazione](./create-data-warehouse-portal.md#connect-to-the-server-as-server-admin)seguente. 
 
@@ -87,7 +87,7 @@ Il primo passo per caricare dati è eseguire l'accesso come LoaderRC60.
 
 2. Immettere il nome completo del server e **LoaderRC60** come account di accesso.  Immettere la password per LoaderRC60.
 
-3. Fare clic su **Connetti**.
+3. Fare clic su **Connect** (Connetti).
 
 4. Quando la connessione è pronta, si vedranno due connessioni server in Esplora oggetti. Una connessione ServerAdmin e una connessione LoaderRC60.
 
@@ -111,7 +111,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     CREATE MASTER KEY;
     ```
 
-4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni dell'utilità di importazione in tutto il mondo.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
+4. Eseguire la seguente istruzione [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per definire la posizione del BLOB di Azure. Questo è il percorso dei dati esterni dell'utilità di importazione in tutto il mondo.  Per eseguire un comando che è stato accodato nella finestra della query, evidenziare i comandi che si vuole eseguire e fare clic su **Esegui**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -122,7 +122,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-5. Eseguire l'istruzione T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) riportata di seguito per specificare le caratteristiche di formattazione e le opzioni per il file di dati esterno. Questa istruzione specifica che i dati esterni sono memorizzati come testo e i valori sono separati dal carattere barra verticale ("|").  
+5. Eseguire l'istruzione T-SQL [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) riportata di seguito per specificare le caratteristiche di formattazione e le opzioni per il file di dati esterno. Questa istruzione specifica che i dati esterni sono memorizzati come testo e i valori sono separati dal carattere barra verticale ("|").  
 
     ```sql
     CREATE EXTERNAL FILE FORMAT TextFileFormat
@@ -137,7 +137,7 @@ Eseguire gli script SQL seguenti per specificare le informazioni sui dati che si
     );
     ```
 
-6. Eseguire l'istruzione [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) riportata di seguito per creare uno schema per il formato del file esterno. Lo schema ext fornisce un modo per organizzare le tabelle esterne da creare. Lo schema wwi organizza le tabelle standard che conterranno i dati.
+6. Eseguire l'istruzione [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) riportata di seguito per creare uno schema per il formato del file esterno. Lo schema ext fornisce un modo per organizzare le tabelle esterne da creare. Lo schema wwi organizza le tabelle standard che conterranno i dati.
 
     ```sql
     CREATE SCHEMA ext;
@@ -431,7 +431,7 @@ Questa sezione usa le tabelle esterne definite per caricare i dati di esempio da
 > [!NOTE]
 > Questa esercitazione carica i dati direttamente nella tabella finale. In un ambiente di produzione si userà in genere CREATE TABLE AS SELECT per eseguire il caricamento in una tabella di staging. Mentre i dati si trovano nella tabella di staging è possibile eseguire le trasformazioni eventualmente necessarie. Per accodare i dati della tabella di staging a una tabella di produzione, è possibile usare l'istruzione INSERT...SELECT. Per altre informazioni, vedere [Inserimento di dati in una tabella di produzione](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 
-Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, i dati vengono importati in una tabella relazionale nel data warehouse.
+Lo script usa l'istruzione T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per caricare i dati dal BLOB del servizio di archiviazione di Azure nelle nuove tabelle del data warehouse. CTAS crea una nuova tabella in base ai risultati di un'istruzione SELECT. La nuova tabella ha le stesse colonne e gli stessi tipi di dati dei risultati dell'istruzione SELECT. Quando l'istruzione SELECT seleziona da una tabella esterna, i dati vengono importati in una tabella relazionale nel data warehouse.
 
 Questo script non carica i dati nelle tabelle wwi.dimension_Date e wwi.fact_Sale. Queste tabelle sono generate in un passaggio successivo, in modo che possano avere un numero consistente di righe.
 

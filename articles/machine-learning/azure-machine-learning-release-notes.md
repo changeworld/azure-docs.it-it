@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 4ba06af98714004e4429fe802a206acdfa8fb148
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127618"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685630"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -148,7 +148,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
     + Documentazione migliorata per `OutputDatasetConfig.register_on_complete` includere il comportamento di ciò che accade quando il nome esiste già.
     + Se si specificano i nomi di input e output del set di dati che possono entrare in conflitto con le variabili di ambiente comuni, verrà generato un avviso
     + Parametro riutilizzabile `grant_workspace_access` durante la registrazione di archivi dati. Impostarla su `True` per accedere ai dati dietro la rete virtuale da Machine Learning Studio.
-      [Scopri di più](./how-to-enable-studio-virtual-network.md)
+      [Altre informazioni](./how-to-enable-studio-virtual-network.md)
     + L'API del servizio collegato è stata perfezionata. Anziché fornire l'ID risorsa, sono disponibili 3 parametri distinti sub_id, RG e Name definiti nella configurazione.
     + Per consentire ai clienti di risolvere automaticamente i problemi di danneggiamento dei token, abilitare la sincronizzazione dei token dell'area di lavoro come metodo pubblico.
     + Questa modifica consente di utilizzare una stringa vuota come valore per una script_param
@@ -1421,7 +1421,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
 ### <a name="r-sdk"></a>R SDK 
  
-I data scientist e gli sviluppatori di intelligenza artificiale usano il [Azure Machine Learning SDK per R](tutorial-1st-r-experiment.md) per creare ed eseguire flussi di lavoro di Machine Learning con Azure Machine Learning.
+I data scientist e gli sviluppatori di intelligenza artificiale usano il [Azure Machine Learning SDK per R](https://github.com/Azure/azureml-sdk-for-r) per creare ed eseguire flussi di lavoro di Machine Learning con Azure Machine Learning.
 
 Il Azure Machine Learning SDK per R usa il `reticulate` pacchetto per l'associazione a Python SDK. Associando direttamente a Python, l'SDK per R consente di accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R scelto.
 
@@ -1597,13 +1597,13 @@ Azure Machine Learning è ora un provider di risorse per griglia di eventi, è p
   + **azureml-Train-automl**
     + La creazione di un oggetto [esperimento](/python/api/azureml-core/azureml.core.experiment.experiment) Ottiene o crea l'esperimento nell'area di lavoro Azure Machine Learning per il rilevamento della cronologia di esecuzione. L'ID dell'esperimento e l'ora di archiviazione vengono popolati nell'oggetto esperimento durante la creazione. Esempio:
 
-        ```py
+        ```python
         experiment = Experiment(workspace, "New Experiment")
         experiment_id = experiment.id
         ```
         [Archive ()](/python/api/azureml-core/azureml.core.experiment.experiment#archive--) e [reactivate ()](/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) sono funzioni che possono essere chiamate su un esperimento per nascondere e ripristinare l'esperimento dall'esperienza utente o restituita per impostazione predefinita in una chiamata a un elenco di esperimenti. Se viene creato un nuovo esperimento con lo stesso nome di un esperimento archiviato, è possibile rinominare l'esperimento archiviato durante la riattivazione passando un nuovo nome. Può essere presente un solo esperimento attivo con un determinato nome. Esempio:
 
-        ```py
+        ```python
         experiment1 = Experiment(workspace, "Active Experiment")
         experiment1.archive()
         # Create new active experiment with the same name as the archived.
@@ -1612,7 +1612,7 @@ Azure Machine Learning è ora un provider di risorse per griglia di eventi, è p
         ```
         L'elenco di metodi statici [()](/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) nell'esperimento può assumere un filtro di nome e un filtro ViewType. I valori di ViewType sono "ACTIVE_ONLY", "ARCHIVED_ONLY" e "tutti". Esempio:
 
-        ```py
+        ```python
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
@@ -1768,7 +1768,7 @@ La scheda Experiment (esperimento) del [nuovo portale dell'area di lavoro](https
     + Aggiunto il supporto di dockerfile nel `environment_definition` parametro negli estimatori.
     + Parametri di training distribuiti semplificati negli estimatori.
 
-         ```py
+         ```python
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer
         ```
 
@@ -1820,14 +1820,14 @@ Al momento, di questa versione sono supportati i browser seguenti: Chrome, Firef
   + **azureml-core**
     + Introduce Dataset.get_all (area di lavoro), che restituisce un dizionario di `TabularDataset` `FileDataset` oggetti e con chiave in base al nome di registrazione.
 
-    ```py
+    ```python
     workspace = Workspace.from_config()
     all_datasets = Dataset.get_all(workspace)
     mydata = all_datasets['my-data']
     ```
 
     + Introdurre `parition_format` come argomento per `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_parquet.files` . Le informazioni sulla partizione di ogni percorso dati verranno estratte in colonne in base al formato specificato. ' {column_name}' crea una colonna stringa è {column_name: AAAA/MM/GG/HH/mm/SS}' crea una colonna DateTime, dove ' aaaa ',' MM ',' dd ',' HH ',' mm ' è SS ' vengono utilizzati per estrarre anno, mese, giorno, ora, minuto e secondo per il tipo DateTime. Il partition_format deve iniziare dalla posizione della prima chiave di partizione fino alla fine del percorso del file. Ad esempio, dato il percorso '.. /USA/2019/01/01/data.csv' in cui la partizione è per paese e ora, partition_format ='/{Country}/{PartitionDate: AAAA/MM/GG}/data.csv' crea la colonna stringa ' Country ' con il valore ' USA ' e la colonna DateTime ' PartitionDate ' con il valore ' 2019-01-01'.
-        ```py
+        ```python
         workspace = Workspace.from_config()
         all_datasets = Dataset.get_all(workspace)
         mydata = all_datasets['my-data']

@@ -1,15 +1,15 @@
 ---
 title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 4cc68cb3549f5b5dd3342fd3f60214c6e3ca5ae0
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 0e1c63f92809b6afa1f6d2e61b8ae169f9eec07d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046210"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685647"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
 
@@ -23,7 +23,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../overview.md).
-> Questi criteri possono aiutare a [valutare la conformità](../how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo alle definizioni dei criteri e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra domini di conformità, controlli e definizioni di Criteri di Azure per questo standard di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0_audit.json).
+> Questi criteri possono aiutare a [valutare la conformità](../how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo alle definizioni dei criteri e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra domini di conformità, controlli e definizioni di Criteri di Azure per questo standard di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/Azure/azure-policy/commits/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/CISv1_1_0.json).
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
@@ -63,6 +63,14 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |[Non devono esistere ruoli di proprietario della sottoscrizione personalizzati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |Questo criterio garantisce che non esista alcun ruolo di proprietario della sottoscrizione personalizzato. |Audit, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 
 ## <a name="security-center"></a>Centro sicurezza
+
+### <a name="ensure-that-standard-pricing-tier-is-selected"></a>Assicurarsi che sia selezionato il piano tariffario Standard
+
+**ID**: CIS Azure 2.1 **Proprietà**: Customer
+
+|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[È consigliabile selezionare il piano tariffario Standard del Centro sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1181c5f-672a-477a-979a-7d58aa086233) |Il piano tariffario Standard consente il rilevamento delle minacce per reti e macchine virtuali e fornisce informazioni sulle minacce, rilevamento delle anomalie e analisi del comportamento nel Centro sicurezza di Azure |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Standard_pricing_tier.json) |
 
 ### <a name="ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>Assicurarsi che "Provisioning automatico dell'agente di monitoraggio" sia impostata su "Sì"
 
@@ -202,6 +210,14 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[È consigliabile abilitare il trasferimento sicuro agli account di archiviazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F404c3081-a854-4457-ae30-26a93ef643f9) |Requisito di controllo del trasferimento sicuro nell'account di archiviazione. Il trasferimento sicuro è un'opzione che impone all'account di archiviazione di accettare richieste solo da connessioni sicure (HTTPS). L'uso di HTTPS garantisce l'autenticazione tra il server e il servizio e protegge i dati in transito dagli attacchi a livello rete, come attacchi man-in-the-middle, eavesdropping e hijack della sessione |Audit, Deny, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/Storage_AuditForHTTPSEnabled_Audit.json) |
+
+### <a name="ensure-that-public-access-level-is-set-to-private-for-blob-containers"></a>Assicurarsi che ' livello di accesso pubblico ' sia impostato su privato per i contenitori BLOB
+
+**ID**: SID di Azure 3,6 **proprietario**: cliente
+
+|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[L'accesso pubblico agli account di archiviazione non deve essere consentito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L'accesso in lettura pubblico anonimo a contenitori e BLOB in Archiviazione di Azure è un metodo pratico per condividere i dati, ma potrebbe comportare rischi per la sicurezza. Per evitare violazioni dei dati provocate da accesso anonimo indesiderato, Microsoft consiglia di impedire l'accesso pubblico a un account di archiviazione, a meno che non sia richiesto dallo scenario. |Audit, Deny, Disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-default-network-access-rule-for-storage-accounts-is-set-to-deny"></a>Assicurarsi che la regola di accesso alla rete predefinita per gli account di archiviazione sia impostata su Nega
 
@@ -360,6 +376,14 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Monitoraggio di Azure deve raccogliere i log attività da tutte le aree](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F41388f1c-2db0-4c25-95b2-35d7f5ccbfa9) |Questo criterio controlla il profilo del log di Monitoraggio di Azure che non esporta le attività da tutte le aree supportate da Azure, incluse quelle globali. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_CaptureAllRegions.json) |
+
+### <a name="ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible"></a>Verificare che il contenitore di archiviazione che archivia i log attività non sia accessibile pubblicamente
+
+**ID**: CIS Azure 5.1.5 **Proprietà**: Customer
+
+|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[L'accesso pubblico agli account di archiviazione non deve essere consentito](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4fa4b6c0-31ca-4c0d-b10d-24b96f62a751) |L'accesso in lettura pubblico anonimo a contenitori e BLOB in Archiviazione di Azure è un metodo pratico per condividere i dati, ma potrebbe comportare rischi per la sicurezza. Per evitare violazioni dei dati provocate da accesso anonimo indesiderato, Microsoft consiglia di impedire l'accesso pubblico a un account di archiviazione, a meno che non sia richiesto dallo scenario. |Audit, Deny, Disabled |[2.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Storage/ASC_Storage_DisallowPublicBlobAccess_Audit.json) |
 
 ### <a name="ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>Assicurarsi che l'account di archiviazione contenente il contenitore con i log attività sia crittografato con BYOK (Bring Your Own Key)
 
@@ -526,6 +550,22 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |[Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Faf6cd1bd-1635-48cb-bde7-5b15693900b9) |I server in cui non è installato un agente di Endpoint Protection verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingEndpointProtection_Audit.json) |
 
 ## <a name="other-security-considerations"></a>Altre considerazioni sulla sicurezza
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-keys"></a>Verificare che la data di scadenza sia impostata su tutte le chiavi
+
+**ID**: SID di Azure 8,1 **proprietario**: cliente
+
+|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[Le chiavi degli insiemi di credenziali delle chiavi devono avere una data di scadenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0) |Le chiavi di crittografia devono avere una data di scadenza definita e non devono essere permanenti. Le chiavi sempre valide offrono a un potenziale utente malintenzionato più tempo per comprometterle. Impostare le date di scadenza per le chiavi di crittografia è una procedura di sicurezza consigliata. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Keys_ExpirationSet.json) |
+
+### <a name="ensure-that-the-expiration-date-is-set-on-all-secrets"></a>Verificare che la data di scadenza sia impostata su tutti i segreti
+
+**ID**: SID di Azure 8,2 **proprietario**: cliente
+
+|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[I segreti degli insiemi di credenziali delle chiavi devono avere una data di scadenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F98728c90-32c7-4049-8429-847dc0f4fe37) |I segreti devono avere una data di scadenza definita e non devono essere permanenti. I segreti validi a tempo indefinito forniscono ai potenziali utenti malintenzionati più tempo per comprometterli. Impostare le date di scadenza per i segreti è una procedura di sicurezza consigliata. |Audit, Deny, Disabled |[1.0.1-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Secrets_ExpirationSet.json) |
 
 ### <a name="ensure-the-key-vault-is-recoverable"></a>Assicurarsi che l'insieme di credenziali delle chiavi sia recuperabile
 

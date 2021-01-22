@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 165fb2937db5edfa4f51f62033afaf87cfff83ef
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 9eb2b916bfe6c73a1535afb077b04fbb081dd5f1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353103"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685721"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Vincoli di chiave univoca in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Le chiavi univoche aggiungono un livello di integrità dei dati a un contenitore
 
 Dopo aver creato un contenitore con criteri di chiave univoca, viene impedita la creazione di un nuovo o di un aggiornamento di un elemento esistente risultante in un duplicato all'interno di una partizione logica, come specificato dal vincolo unique key. La chiave di partizione combinata con la chiave univoca garantisce l'univocità di un elemento all'interno dell'ambito del contenitore.
 
-Si consideri ad esempio un contenitore di Azure Cosmos con l'indirizzo di posta elettronica come vincolo di chiave univoca e `CompanyID` come chiave di partizione. Quando si configura l'indirizzo di posta elettronica dell'utente con una chiave univoca, ogni elemento ha un indirizzo di posta elettronica univoco all'interno di un determinato `CompanyID`. Non è possibile creare due elementi con indirizzi di posta elettronica duplicati e con lo stesso valore di chiave di partizione. Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come valori JSON. Questi valori JSON fanno distinzione tra maiuscole e minuscole. Quando si sceglie una proprietà come chiave univoca, è possibile inserire valori con distinzione tra maiuscole e minuscole per la proprietà. Se, ad esempio, è stata definita una chiave univoca nella proprietà Name, "Gaby" è diverso da "Gaby" ed è possibile inserirli entrambi nel contenitore.
+Si consideri ad esempio un contenitore di Azure Cosmos con `Email address` come vincolo di chiave univoca e `CompanyID` come chiave di partizione. Quando si configura l'indirizzo di posta elettronica dell'utente con una chiave univoca, ogni elemento ha un indirizzo di posta elettronica univoco all'interno di un determinato `CompanyID`. Non è possibile creare due elementi con indirizzi di posta elettronica duplicati e con lo stesso valore di chiave di partizione. Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come valori JSON. Questi valori JSON fanno distinzione tra maiuscole e minuscole. Quando si sceglie una proprietà come chiave univoca, è possibile inserire valori con distinzione tra maiuscole e minuscole per la proprietà. Se, ad esempio, è stata definita una chiave univoca nella proprietà Name, "Gaby" è diverso da "Gaby" ed è possibile inserirli entrambi nel contenitore.
 
 Per creare elementi con lo stesso indirizzo di posta elettronica, ma non con la stessa combinazione di nome, cognome e indirizzo di posta elettronica, aggiungere altri percorsi ai criteri di chiave univoca. Anziché creare una chiave univoca in base all'indirizzo di posta elettronica, è anche possibile creare una chiave univoca con una combinazione del nome, del cognome e dell'indirizzo di posta elettronica. Questa chiave è detta chiave univoca composta. In questo caso è consentita ogni combinazione univoca dei tre valori all'interno di un determinato elemento `CompanyID`. 
 

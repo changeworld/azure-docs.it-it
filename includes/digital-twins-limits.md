@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 183d12b5e9d32c777c8acf01177c8cbbe1b6ca00
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 08ae189253c6141a6b84035b71016ff5099ec162
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026624"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98690054"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -22,7 +22,7 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Gemelli digitali | Numero di gemelli in un'istanza di dispositivi gemelli digitali di Azure | 200.000 | Sì |
 | Gemelli digitali | Numero di relazioni in ingresso per un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
-| Gemelli digitali | Dimensione massima di un singolo gemello | 32 KB | No |
+| Gemelli digitali | Dimensioni massime (del corpo JSON in una richiesta PUT o PATCH) di un singolo gemello | 32 KB | No |
 | Gemelli digitali | Dimensioni massime payload richiesta | 32 KB | No | 
 | Routing. | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
 | Routing. | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
@@ -42,7 +42,7 @@ La tabella seguente indica i limiti di velocità delle diverse API.
 | API | Funzionalità | Limite predefinito | Regolabile? |
 | --- | --- | --- | --- |
 | API modelli | Numero di richieste al secondo | 100 | Sì |
-| API gemelli digitali | Numero di richieste al secondo | 2.000 | Sì |
+| API gemelli digitali | Numero di richieste al secondo | 2\.000 | Sì |
 | API gemelli digitali | Numero di operazioni di creazione/eliminazione al secondo in **tutti i dispositivi gemelli e relazioni** | 50 | Sì |
 | API gemelli digitali | Numero di operazioni di creazione/aggiornamento/eliminazione al secondo in un **singolo gemello** o nelle relative relazioni | 10 | No |
 | API di query | Numero di richieste al secondo | 500 | Sì |

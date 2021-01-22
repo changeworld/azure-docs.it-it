@@ -2,34 +2,34 @@
 title: Introduzione a PowerShell
 description: Breve introduzione ai cmdlet di Azure PowerShell da usare per gestire le risorse Batch.
 ms.topic: how-to
-ms.date: 01/15/2019
+ms.date: 01/21/2021
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 3c152733ee3a75732d119db16f7db7c266740fdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b51a2a7852df82625fb342bbbbc4a3a1cbf72a3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079847"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685511"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Gestire le risorse Batch con i cmdlet di PowerShell
 
-Con i cmdlet di PowerShell per Azure Batch è possibile eseguire molte delle attività eseguite con le API Batch, il portale di Azure e l'interfaccia della riga di comando di Azure e creare i relativi script. Questa è una rapida introduzione ai cmdlet con cui è possibile gestire gli account Batch e usare risorse di Batch come pool, processi e attività.
+Con i cmdlet di Azure Batch PowerShell è possibile eseguire ed eseguire lo script di molte attività batch comuni. Questa è una rapida introduzione ai cmdlet con cui è possibile gestire gli account Batch e usare risorse di Batch come pool, processi e attività.
 
 Per un elenco completo di cmdlet Batch e per la sintassi dettagliata dei cmdlet, vedere [Informazioni di riferimento sui cmdlet di Azure Batch](/powershell/module/az.batch).
 
-Questo articolo si basa sui cmdlet del modulo Azure Batch versione 1.0.0. È consigliabile eseguire di frequente l'aggiornamento dei moduli di Azure PowerShell per sfruttare i vantaggi degli aggiornamenti e dei miglioramenti del servizio.
+È consigliabile eseguire di frequente l'aggiornamento dei moduli di Azure PowerShell per sfruttare i vantaggi degli aggiornamenti e dei miglioramenti del servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* [Installare e configurare il modulo Azure PowerShell](/powershell/azure/). Per installare un modulo di Azure Batch specifico, ad esempio una versione non definitiva del modulo, vedere [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/1.0.0).
+- [Installare e configurare il modulo Azure PowerShell](/powershell/azure/). Per installare un modulo di Azure Batch specifico, ad esempio una versione non definitiva del modulo, vedere [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.Batch/).
 
-* Eseguire il cmdlet **Connect-AzAccount** per connettersi alla sottoscrizione. I cmdlet di Azure Batch sono disponibili nel modulo Azure Resource Manager:
+- Eseguire il cmdlet **Connect-AzAccount** per connettersi alla sottoscrizione. I cmdlet di Azure Batch sono disponibili nel modulo Azure Resource Manager:
 
   ```powershell
   Connect-AzAccount
   ```
 
-* **Effettuare la registrazione con lo spazio dei nomi del provider di Batch**. È necessario eseguire questa operazione solo **una volta per ogni sottoscrizione**.
+- **Effettuare la registrazione con lo spazio dei nomi del provider di Batch**. È necessario eseguire questa operazione solo **una volta per ogni sottoscrizione**.
   
   ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -114,9 +114,9 @@ Quando si usano molti di questi cmdlet, oltre a passare un oggetto BatchContext 
 
 ### <a name="create-a-batch-pool"></a>Creare un pool di Batch
 
-Quando si crea o si aggiorna un pool di Batch, si seleziona una configurazione di servizi cloud o di macchina virtuale per il sistema operativo nei nodi di calcolo. Vedere [Nodi e pool](nodes-and-pools.md#configurations). Se si specifica la configurazione di servizi cloud, le immagini dei nodi di calcolo vengono create con una delle [versioni del sistema operativo guest di Azure](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Se si specifica la configurazione di tipo macchina virtuale, è possibile specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace per Macchine virtuali di Azure][vm_marketplace] oppure fornire un'immagine personalizzata preparata dall'utente.
+Quando si crea o si aggiorna un pool di batch, si specifica una [configurazione](nodes-and-pools.md#configurations). I pool devono essere in genere configurati con la configurazione della macchina virtuale, che consente di specificare una delle immagini di VM Linux o Windows supportate elencate nel [Marketplace di macchine virtuali di Azure](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1)o fornire un'immagine personalizzata preparata. I pool di configurazione dei servizi cloud forniscono solo nodi di calcolo Windows e non supportano tutte le funzionalità batch.
 
-Quando si esegue **New-AzBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSCloudServiceConfiguration o PSVirtualMachineConfiguration. Il frammento di codice seguente, ad esempio, crea un pool di Batch con nodi di calcolo di dimensioni Standard_A1 nella configurazione della macchina virtuale. L'immagine viene creata con Ubuntu Server 18.04-LTS. In questo caso, il parametro **VirtualMachineConfiguration** specifica la variabile *$configuration* come oggetto PSVirtualMachineConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
+Quando si esegue **New-AzBatchPool**, passare le impostazioni del sistema operativo in un oggetto PSVirtualMachineConfiguration o PSCloudServiceConfiguration. Il frammento di codice seguente, ad esempio, crea un pool di Batch con nodi di calcolo di dimensioni Standard_A1 nella configurazione della macchina virtuale. L'immagine viene creata con Ubuntu Server 18.04-LTS. In questo caso, il parametro **VirtualMachineConfiguration** specifica la variabile *$configuration* come oggetto PSVirtualMachineConfiguration. Il parametro **BatchContext** specifica una variabile *$context* definita in precedenza come oggetto BatchAccountContext.
 
 ```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
@@ -126,7 +126,7 @@ $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSV
 New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachineConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 ```
 
-Il numero di nodi di calcolo di destinazione nel nuovo pool è calcolato da una formula di ridimensionamento automatico. In questo caso, la formula è semplicemente **$TargetDedicated=4**e indica che il numero massimo di nodi di calcolo nel pool è 4.
+Il numero di nodi di calcolo di destinazione nel nuovo pool è calcolato da una formula di ridimensionamento automatico. In questo caso, la formula è semplicemente **$TargetDedicated=4** e indica che il numero massimo di nodi di calcolo nel pool è 4.
 
 ## <a name="query-for-pools-jobs-tasks-and-other-details"></a>Query per pool, processi, attività e altri dettagli
 
@@ -190,7 +190,10 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 ## <a name="application-package-management"></a>Gestione dei pacchetti dell'applicazione
 
-I pacchetti dell'applicazione semplificano la distribuzione di applicazioni nei nodi di calcolo dei pool. Con i cmdlet di PowerShell per Batch, è possibile caricare e gestire pacchetti dell'applicazione nell'account Batch e distribuire versioni dei pacchetti nei nodi di calcolo.
+I [pacchetti dell'applicazione](batch-application-packages.md) forniscono un modo semplificato per distribuire le applicazioni nei nodi di calcolo nei pool. Con i cmdlet di PowerShell per Batch, è possibile caricare e gestire pacchetti dell'applicazione nell'account Batch e distribuire versioni dei pacchetti nei nodi di calcolo.
+
+> [!IMPORTANT]
+> Per usare i pacchetti dell'applicazione è necessario collegare un account di Archiviazione di Azure all'account Batch.
 
 **Creare** un'applicazione:
 
@@ -247,17 +250,13 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-A questo punto, creare la configurazione e il pool. In questo esempio viene usato il parametro **CloudServiceConfiguration** con un oggetto di tipo `PSCloudServiceConfiguration` inizializzato in `$configuration`, che imposta **OSFamily** su `6` per "Windows Server 2019" e **OSVersion** su `*`. Specificare l'oggetto di riferimento pacchetto come argomento per l'opzione `ApplicationPackageReferences`:
+Creare ora il pool e specificare l'oggetto di riferimento pacchetto come argomento per l'opzione `ApplicationPackageReferences`:
 
 ```powershell
-$configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(6,"*")  # 6 = OSFamily 'Windows Server 2019'
-New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
+New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -VirtualMachineConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
 Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
-
-> [!IMPORTANT]
-> Per usare i pacchetti dell'applicazione è necessario collegare un account di Archiviazione di Azure all'account Batch.
 
 ### <a name="update-a-pools-application-packages"></a>Aggiornare i pacchetti dell’applicazione di un pool
 
@@ -272,7 +271,7 @@ $appPackageReference.Version = "2.0"
 
 ```
 
-Ottenere quindi il pool da Batch, cancellare tutti i pacchetti esistenti, aggiungere il nuovo riferimento al pacchetto e aggiornare il servizio Batch con le nuove impostazioni del pool:
+Ottenere quindi il pool da batch, cancellare tutti i pacchetti esistenti, aggiungere il nuovo riferimento al pacchetto e aggiornare il servizio batch con le nuove impostazioni del pool:
 
 ```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
@@ -291,11 +290,9 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 ```
 
 > [!TIP]
-> È possibile distribuire più pacchetti dell'applicazione nei nodi di calcolo del pool. Per *aggiungere* un pacchetto dell'applicazione invece di sostituire i pacchetti attualmente distribuiti, omettere la riga `$pool.ApplicationPackageReferences.Clear()` indicata in precedenza.
+> È possibile distribuire più pacchetti dell'applicazione nei nodi di calcolo del pool. Per aggiungere un pacchetto dell'applicazione invece di sostituire i pacchetti attualmente distribuiti, omettere la riga `$pool.ApplicationPackageReferences.Clear()` indicata in precedenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per la sintassi dettagliata ed esempi dei cmdlet, vedere le [informazioni di riferimento sui cmdlet per Azure Batch](/powershell/module/az.batch).
-* Per altre informazioni sulle applicazioni e sui pacchetti dell'applicazione in Batch, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
-
-[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1
+- Per esempi e sintassi dettagliate dei cmdlet, vedere la Guida di [riferimento ai cmdlet Azure batch](/powershell/module/az.batch) .
+- Informazioni su come [distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione batch](batch-application-packages.md).

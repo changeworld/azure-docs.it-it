@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f8e4925f721b307abd85a8b881caff3e5fc04fde
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042984"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685663"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
@@ -191,7 +191,7 @@ Per distribuire moduli nei dispositivi di destinazione, si crea una distribuzion
 
 Per creare una distribuzione, usare il comando [az iot edge deployment create](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create):
 
-```cli
+```azurecli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
@@ -204,7 +204,7 @@ Il comando Crea distribuzione accetta i parametri seguenti:
 * **--content**: percorso file del manifesto della distribuzione JSON. Parametro obbligatorio.
 * **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Modificare la sottoscrizione corrente con il comando `az account set -s [subscription name]`.
 * **--labels**: aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie nome-valore che descrivono la distribuzione. Le etichette richiedono la formattazione JSON per nomi e valori. Ad esempio, usare `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio: `tags.environment='test' and properties.reported.devicemodel='4000x'`.
+* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione.  La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione.  Ad esempio: `tags.environment='test' and properties.reported.devicemodel='4000x'`.
 * **--priority**: numero intero positivo. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
 * **--metrics** - Permette di creare metriche che eseguono query sulle proprietà segnalate da edgeHub per tenere traccia dello stato di una distribuzione. Le metriche accettano input JSON o FilePath. Ad esempio: `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`.
 
@@ -224,7 +224,7 @@ Non è possibile aggiornare il contenuto di una distribuzione che includa i modu
 
 Per aggiornare una distribuzione, usare il comando [az iot edge deployment update](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update):
 
-```cli
+```azurecli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
@@ -245,7 +245,7 @@ Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzio
 
 Per eliminare una distribuzione, usare il comando [az iot edge deployment delete](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete):
 
-```cli
+```azurecli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
 ```
 

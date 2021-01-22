@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 23a5ea2d3ffc1511bea66bb8bc3c4282b6d16cc2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c97975d6920cd0f04a7d2d4e73c00104a2b13235
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489123"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685613"
 ---
 # <a name="high-availability-of-sap-hana-scale-out-system-on-red-hat-enterprise-linux"></a>Disponibilità elevata del sistema di SAP HANA con scalabilità orizzontale in Red Hat Enterprise Linux 
 
@@ -165,7 +165,7 @@ Per la configurazione presentata in questo documento, distribuire sette macchine
 
     b. Eseguire i comandi seguenti per abilitare la rete accelerata per le interfacce di rete aggiuntive, che sono collegate `inter` alle `hsr` subnet e.  
 
-    ```
+    ```azurecli
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-inter --accelerated-networking true
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db2-inter --accelerated-networking true
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db3-inter --accelerated-networking true
@@ -256,7 +256,7 @@ Configurare e preparare il sistema operativo seguendo questa procedura:
 
 1. **[A]** gestire i file host nelle macchine virtuali. Includere le voci per tutte le subnet. Per questo esempio sono state aggiunte le voci seguenti `/etc/hosts` .  
 
-    ```
+    ```bash
      # Client subnet
      10.23.0.11 hana-s1-db1
      10.23.0.12 hana-s1-db1
@@ -303,7 +303,7 @@ In questo esempio, i file System HANA condivisi vengono distribuiti in Azure Net
 
 1. **[Ah]** Creare punti di montaggio per i volumi del database HANA.  
 
-    ```
+    ```bash
     mkdir -p /hana/shared
     ```
 
@@ -313,7 +313,7 @@ In questo esempio, i file System HANA condivisi vengono distribuiti in Azure Net
     > [!IMPORTANT]
     > Verificare di impostare il dominio NFS in `/etc/idmapd.conf` sulla macchina virtuale in modo che corrisponda alla configurazione del dominio predefinito in Azure NetApp Files: **`defaultv4iddomain.com`** . In caso di mancata corrispondenza tra la configurazione del dominio nel client NFS (ovvero la macchina virtuale) e nel server NFS, ad esempio la configurazione di Azure NetApp, le autorizzazioni per i file nei volumi Azure NetApp montati nelle VM verranno visualizzate come `nobody`.  
 
-    ```
+    ```bash
     sudo cat /etc/idmapd.conf
     # Example
     [General]
@@ -326,7 +326,7 @@ In questo esempio, i file System HANA condivisi vengono distribuiti in Azure Net
 3. **[Ah]** Verificare `nfs4_disable_idmapping` . Il valore deve essere impostato su **Y**. Per creare la struttura di directory in cui si trova `nfs4_disable_idmapping`, eseguire il comando mount. Non sarà possibile creare manualmente la directory in/sys/modules, perché l'accesso è riservato per il kernel/driver.  
    Questo passaggio è necessario solo se si usa Azure NetAppFiles NFSv 4.1.  
 
-    ```
+    ```bash
     # Check nfs4_disable_idmapping 
     cat /sys/module/nfs/parameters/nfs4_disable_idmapping
     # If you need to set nfs4_disable_idmapping to Y
@@ -342,20 +342,20 @@ In questo esempio, i file System HANA condivisi vengono distribuiti in Azure Net
 
 4. **[AH1]** Montare i volumi di Azure NetApp Files condivisi nelle VM di database Microsoft1 HANA.  
 
-    ```
+    ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
 5. **[AH2]** Montare i volumi di Azure NetApp Files condivisi nelle VM di database SITE2 HANA.  
 
-    ```
+    ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
 10. **[Ah]** Verificare che i `/hana/shared/` file system corrispondenti siano montati in tutte le VM del database Hana con il protocollo NFS versione **NFSv4**.  
 
-    ```
+    ```bash
     sudo nfsstat -m
     # Verify that flag vers is set to 4.1 
     # Example from SITE 1, hana-s1-db1
@@ -372,25 +372,25 @@ Nella configurazione presentata, i file System `/hana/data` e `/hana/log` vengon
 Configurare il layout del disco con  **Logical Volume Manager (LVM)**. Nell'esempio seguente si presuppone che a ogni macchina virtuale HANA siano collegati tre dischi dati, usati per creare due volumi.
 
 1. **[Ah]** Elencare tutti i dischi disponibili:
-    ```
+    ```bash
     ls /dev/disk/azure/scsi1/lun*
     ```
 
    Output di esempio:
 
-    ```
+    ```bash
     /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
     ```
 
 2. **[Ah]** Creare volumi fisici per tutti i dischi che si vuole usare:
-    ```
+    ```bash
     sudo pvcreate /dev/disk/azure/scsi1/lun0
     sudo pvcreate /dev/disk/azure/scsi1/lun1
     sudo pvcreate /dev/disk/azure/scsi1/lun2
     ```
 
 3. **[Ah]** Creare un gruppo di volumi per i file di dati. Usare un gruppo di volumi per i file di log e uno per la directory condivisa di SAP HANA:
-    ```
+    ```bash
     sudo vgcreate vg_hana_data_HN1 /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
     sudo vgcreate vg_hana_log_HN1 /dev/disk/azure/scsi1/lun2
     ```
@@ -402,7 +402,7 @@ Configurare il layout del disco con  **Logical Volume Manager (LVM)**. Nell'esem
    > Usare l' `-i` opzione e impostarla sul numero del volume fisico sottostante quando si usa più di un volume fisico per ogni volume di dati o di log. Usare l'opzione `-I` per specificare le dimensioni di striping durante la creazione di un volume con striping.  
    > Vedere [Configurazioni di archiviazione della macchina virtuale SAP HANA](./hana-vm-operations-storage.md) per le configurazioni di archiviazione consigliate, incluse le dimensioni di striping e il numero di dischi.  
 
-    ```
+    ```bash
     sudo lvcreate -i 2 -I 256 -l 100%FREE -n hana_data vg_hana_data_HN1
     sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_HN1
     sudo mkfs.xfs /dev/vg_hana_data_HN1/hana_data
@@ -410,7 +410,7 @@ Configurare il layout del disco con  **Logical Volume Manager (LVM)**. Nell'esem
     ```
 
 5. **[Ah]** Creare le directory di montaggio e copiare l'UUID di tutti i volumi logici:
-    ```
+    ```bash
     sudo mkdir -p /hana/data/HN1
     sudo mkdir -p /hana/log/HN1
     # Write down the ID of /dev/vg_hana_data_HN1/hana_data and /dev/vg_hana_log_HN1/hana_log
@@ -418,20 +418,20 @@ Configurare il layout del disco con  **Logical Volume Manager (LVM)**. Nell'esem
     ```
 
 6. **[Ah]** Creare `fstab` voci per i volumi logici e montare:
-    ```
+    ```bash
     sudo vi /etc/fstab
     ```
 
    Inserire la riga seguente nel file `/etc/fstab`:
 
-    ```
+    ```bash
     /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_data_HN1-hana_data /hana/data/HN1 xfs  defaults,nofail  0  2
     /dev/disk/by-uuid/UUID of /dev/mapper/vg_hana_log_HN1-hana_log /hana/log/HN1 xfs  defaults,nofail  0  2
     ```
 
    Montare i nuovi volumi:
 
-    ```
+    ```bash
     sudo mount -a
     ```
 
@@ -444,27 +444,27 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 1. **[Ah]** Prima dell'installazione di HANA, impostare la password radice. È possibile disabilitare la password radice dopo che l'installazione è stata completata. Comando Execute `root` As `passwd` .  
 
 2. **[1, 2]** modificare le autorizzazioni in `/hana/shared` 
-    ```
+    ```bash
     chmod 775 /hana/shared
     ```
 
 3. **[1]** verificare che sia possibile accedere tramite SSH alle VM del database Hana in questo sito **Hana-S1-DB2** e **Hana-S1-DB3**, senza che venga richiesta una password.  
    In caso contrario, scambiare le chiavi SSH, come documentato in [uso dell'autenticazione basata su chiavi](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
-    ```
+    ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
 4. **[2]** verificare che sia possibile accedere tramite SSH alle VM del database Hana in questo sito **Hana-S2-DB2** e **Hana-S2-DB3**, senza che venga richiesta una password.  
    In caso contrario, scambiare le chiavi SSH, come documentato in [uso dell'autenticazione basata su chiavi](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
-    ```
+    ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
     ```
 
 5. **[Ah]** Installare pacchetti aggiuntivi, necessari per HANA 2,0 SP4. Per ulteriori informazioni, vedere la nota SAP [2593824](https://launchpad.support.sap.com/#/notes/2593824) per RHEL 7. 
 
-    ```
+    ```bash
     # If using RHEL 7
     yum install libgcc_s1 libstdc++6 compat-sap-c++-7 libatomic1
     # If using RHEL 8
@@ -473,7 +473,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 
 6. **[A]** disabilitare temporaneamente il firewall, in modo che non interferisca con l'installazione di Hana. È possibile riabilitarla, al termine dell'installazione di HANA. 
-    ```
+    ```bash
     # Execute as root
     systemctl stop firewalld
     systemctl disable firewalld
@@ -485,7 +485,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
    a. Avviare il programma **hdblcm** come `root` dalla directory del software di installazione di Hana. Usare il `internal_network` parametro e passare lo spazio degli indirizzi per la subnet, che viene usato per la comunicazione tra nodi Hana interna.  
 
-    ```
+    ```bash
     ./hdblcm --internal_network=10.23.1.128/26
     ```
 
@@ -522,7 +522,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
    Visualizzare global.ini e assicurarsi che sia attiva la configurazione per la comunicazione interna SAP HANA tra nodi. Verificare la sezione **comunicazione** . Deve avere lo spazio degli indirizzi per la `inter` subnet e `listeninterface` deve essere impostato su `.internal` . Verificare la sezione **internal_hostname_resolution** . Deve avere gli indirizzi IP per le macchine virtuali HANA che appartengono alla `inter` subnet.  
 
-   ```
+   ```bash
      sudo cat /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
      # Example from SITE1 
      [communication]
@@ -536,7 +536,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 4. **[1, 2]** preparare l' `global.ini` installazione in un ambiente non condiviso, come descritto nella nota SAP [2080991](https://launchpad.support.sap.com/#/notes/0002080991).  
 
-   ```
+   ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     [persistence]
     basepath_shared = no
@@ -544,14 +544,14 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 4. **[1, 2]** riavviare SAP HANA per attivare le modifiche.  
 
-   ```
+   ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem
    ```
 
 6. **[1, 2]** verificare che l'interfaccia client utilizzerà gli indirizzi IP dalla `client` subnet per la comunicazione.  
 
-    ```
+    ```bash
     # Execute as hn1adm
     /usr/sap/HN1/HDB03/exe/hdbsql -u SYSTEM -p "password" -i 03 -d SYSTEMDB 'select * from SYS.M_HOST_INFORMATION'|grep net_publicname
     # Expected result - example from SITE 2
@@ -562,13 +562,13 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 7. **[Ah]** Modificare le autorizzazioni per le directory di dati e log per evitare errori di installazione di HANA.  
 
-   ```
+   ```bash
     sudo chmod o+w -R /hana/data /hana/log
    ```
 
 8. **[1]** installare i nodi Hana secondari. Le istruzioni di esempio in questo passaggio sono per il sito 1.  
    a. Avviare il programma **hdblcm** residente come `root` .    
-    ```
+    ```bash
      cd /hana/shared/HN1/hdblcm
      ./hdblcm 
     ```
@@ -602,21 +602,21 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
    Eseguire il backup dei database come **HN1** ADM:
 
-    ```
+    ```bash
     hdbsql -d SYSTEMDB -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupSYS')"
     hdbsql -d HN1 -u SYSTEM -p "passwd" -i 03 "BACKUP DATA USING FILE ('initialbackupHN1')"
     ```
 
    Copiare i file PKI di sistema nel sito secondario:
 
-    ```
+    ```bash
     scp /usr/sap/HN1/SYS/global/security/rsecssfs/data/SSFS_HN1.DAT hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/data/
     scp /usr/sap/HN1/SYS/global/security/rsecssfs/key/SSFS_HN1.KEY  hana-s2-db1:/usr/sap/HN1/SYS/global/security/rsecssfs/key/
     ```
 
    Creare il sito primario:
 
-    ```
+    ```bash
     hdbnsutil -sr_enable --name=HANA_S1
     ```
 
@@ -624,7 +624,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
     
    Registrare il secondo sito per avviare la replica di sistema. Eseguire il comando seguente come <hanasid\>adm:
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StopWait 600 10
     hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2
     sapcontrol -nr 03 -function StartSystem
@@ -634,7 +634,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
    Verificare lo stato della replica e attendere che tutti i database siano sincronizzati.
 
-    ```
+    ```bash
     sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
     # | Database | Host          | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary | Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
     # |          |               |       |              |           |         |           | Host          | Port      | Site ID   | Site Name | Active Status | Mode        | Status      | Status Details |
@@ -657,12 +657,12 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 4. **[1, 2]** modificare la configurazione di Hana in modo che la comunicazione per la replica di sistema Hana venga diretta tramite le interfacce di rete virtuale di replica di sistema Hana.   
    - Arrestare HANA in entrambi i siti
-    ```
+    ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
     ```
 
    - Modificare global.ini per aggiungere il mapping dell'host per la replica di sistema HANA: usare gli indirizzi IP dalla `hsr` subnet.  
-    ```
+    ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
     [system_replication_hostname_resolution]
@@ -675,7 +675,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
     ```
 
    - Avviare HANA in entrambi i siti
-   ```
+   ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
    ```
 
@@ -683,7 +683,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
 
 5. **[Ah]** Abilitare di nuovo il firewall.  
    - Abilitare di nuovo il firewall
-       ```
+       ```bash
        # Execute as root
        systemctl start firewalld
        systemctl enable firewalld
@@ -694,7 +694,7 @@ In questo esempio per la distribuzione di SAP HANA nella configurazione con scal
        > [!IMPORTANT]
        > Creare regole del firewall per consentire la comunicazione tra nodi HANA e il traffico client. Le porte necessarie sono elencate in [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports) (Porte TCP/IP per tutti i prodotti SAP). I comandi seguenti sono solo un esempio. In questo scenario con il numero di sistema usato 03.
 
-       ```
+       ```bash
         # Execute as root
         sudo firewall-cmd --zone=public --add-port=30301/tcp --permanent
         sudo firewall-cmd --zone=public --add-port=30301/tcp
@@ -753,19 +753,19 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
 1. **[1, 2]** arrestare SAP Hana in entrambi i siti di replica. Eseguire come <SID \> adm.  
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
 2. **[Ah]** Annullare `/hana/shared` il montaggio di file System, che è stato temporaneamente montato per l'installazione in tutte le VM del database Hana. È necessario arrestare tutti i processi e le sessioni, che usano il file system, prima di poterlo disinstallare. 
  
-    ```
+    ```bash
     umount /hana/shared 
     ```
 
 3. **[1]** creare le risorse del cluster file System per `/hana/shared` in stato disabilitato. Le risorse vengono create con l'opzione `--disabled` , perché è necessario definire i vincoli location prima che i montaggi siano abilitati.  
 
-    ```
+    ```bash
     # /hana/shared file system for site 1
     pcs resource create fs_hana_shared_s1 --disabled ocf:heartbeat:Filesystem device=10.23.1.7:/HN1-shared-s1  directory=/hana/shared \
     fstype=nfs options='defaults,rw,hard,timeo=600,rsize=262144,wsize=262144,proto=tcp,intr,noatime,sec=sys,vers=4.1,lock,_netdev' op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 \
@@ -787,7 +787,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
 4. **[1]** configurare e verificare gli attributi del nodo. A tutti i nodi SAP HANA database nel sito di replica 1 viene assegnato l'attributo `S1` e a tutti i nodi di SAP Hana database nel sito di replica 2 viene assegnato l'attributo `S2` .  
 
-    ```
+    ```bash
     # HANA replication site 1
     pcs node attribute hana-s1-db1 NFS_SID_SITE=S1
     pcs node attribute hana-s1-db2 NFS_SID_SITE=S1
@@ -801,7 +801,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
     ```
 
 5. **[1]** configurare i vincoli, che determinano la posizione in cui verranno montati i file System NFS e abilitano le risorse file System.  
-    ```
+    ```bash
     # Configure the constraints
     pcs constraint location fs_hana_shared_s1-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S1
     pcs constraint location fs_hana_shared_s2-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S2
@@ -814,7 +814,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
  
 6. **[Ah]** Verificare che i volumi e siano montati in `/hana/shared` in tutte le VM del database Hana in entrambi i siti.
 
-    ```
+    ```bash
     sudo nfsstat -m
     # Verify that flag vers is set to 4.1 
     # Example from SITE 1, hana-s1-db1
@@ -827,7 +827,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
 7. **[1]** configurare le risorse degli attributi. Configurare i vincoli che impostano gli attributi su `true` , se sono montati i montaggi NFS per `hana/shared` .  
 
-    ```
+    ```bash
     # Configure the attribure resources
     pcs resource create hana_nfs_s1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s1_active
     pcs resource create hana_nfs_s2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s2_active
@@ -843,7 +843,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
    > Se la configurazione include altri file System, oltre a/ `hana/shared` , che sono montati NFS, includere `sequential=false` l'opzione, in modo che non esistano dipendenze di ordinamento tra i file System. Tutti i file system montati NFS devono iniziare, prima della risorsa attribute corrispondente, ma non devono essere avviati in alcun ordine. Per altre informazioni, vedere [ricerca per categorie configurare SAP HANA Scale-Out HSR in un cluster pacemaker quando i file System Hana sono condivisioni NFS](https://access.redhat.com/solutions/5423971).  
 
 8. **[1]** posizionare pacemaker in modalità manutenzione per preparare la creazione delle risorse del cluster Hana.  
-    ```
+    ```bash
     pcs property set maintenance-mode=true
     ```
 
@@ -851,7 +851,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
 1. **[A]** installare l'agente risorse con scalabilità orizzontale Hana in tutti i nodi del cluster, incluso il creatore di maggioranza.    
 
-    ```
+    ```bash
     yum install -y resource-agents-sap-hana-scaleout 
     ```
 
@@ -862,14 +862,14 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 2. **[1, 2]** installare l'"hook di replica di sistema" Hana. L'hook deve essere installato in un nodo del database HANA in ogni sito di replica di sistema. SAP HANA dovrebbe essere ancora inattivo.        
 
    1. Preparare l'hook come `root` 
-    ```
+    ```bash
      mkdir -p /hana/shared/myHooks
      cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
    2. Modificare `global.ini`
-    ```
+    ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
     provider = SAPHanaSR
@@ -881,7 +881,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
     ```
 
 3. **[Ah]** Il cluster richiede la configurazione di sudoers sul nodo del cluster per <SID \> adm. In questo esempio si otterrà creando un nuovo file. Eseguire i comandi come `root` .    
-    ``` 
+    ```bash
     cat << EOF > /etc/sudoers.d/20-saphana
     # SAPHanaSR-ScaleOut needs for srHook
      Cmnd_Alias SOK = /usr/sbin/crm_attribute -n hana_hn1_glob_srHook -v SOK -t crm_config -s SAPHanaSR
@@ -892,13 +892,13 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
 4. **[1, 2]** avviare SAP Hana in entrambi i siti di replica. Eseguire come <SID \> adm.  
 
-    ```
+    ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
 5. **[1]** verificare l'installazione dell'hook. Eseguire come <SID \> adm nel sito di replica di sistema Hana attivo.   
 
-    ```
+    ```bash
     cdtrace
      awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
      { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
@@ -917,7 +917,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
     
    2. Successivamente, creare la risorsa della topologia HANA.  
       Se si compila il cluster RHEL **7. x** , usare i comandi seguenti:  
-      ```
+      ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopologyScaleOut \
        SID=HN1 InstanceNumber=03 \
        op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600
@@ -926,7 +926,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       ```
 
       Se si compila il cluster RHEL **8. x** , usare i comandi seguenti:  
-      ```
+      ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
        op methods interval=0s timeout=5 \
@@ -937,10 +937,10 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
    3. Successivamente, creare la risorsa dell'istanza HANA.  
       > [!NOTE]
-      > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.  
+      > Questo articolo contiene riferimenti al termine *slave*, un termine che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.  
  
       Se si compila il cluster RHEL **7. x** , usare i comandi seguenti:    
-      ```
+      ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op start interval=0 timeout=3600 op stop interval=0 timeout=3600 op promote interval=0 timeout=3600 \
@@ -951,7 +951,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       ```
 
       Se si compila il cluster RHEL **8. x** , usare i comandi seguenti:  
-      ```
+      ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
        op demote interval=0s timeout=320 op methods interval=0s timeout=5 \
@@ -965,7 +965,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       > Si consiglia di impostare AUTOMATED_REGISTER su **No**, durante l'esecuzione di test di failover completi, per impedire che l'istanza primaria non riuscita venga registrata automaticamente come secondaria. Una volta completati i test di failover, impostare AUTOMATED_REGISTER su **Sì**, in modo che dopo che la replica del sistema di acquisizione delle acquisizioni possa essere ripresa automaticamente. 
 
    4. Creare un indirizzo IP virtuale e le risorse associate.  
-      ```
+      ```bash
       pcs resource create vip_HN1_03 ocf:heartbeat:IPaddr2 ip=10.23.0.18 op monitor interval="10s" timeout="20s"
       sudo pcs resource create nc_HN1_03 azure-lb port=62503
       sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
@@ -973,7 +973,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
    5. Creare i vincoli del cluster  
       Se si compila il cluster RHEL **7. x** , usare i comandi seguenti:  
-      ```
+      ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then msl_SAPHana_HN1_HDB03
 
@@ -983,7 +983,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       ```
  
       Se si compila il cluster RHEL **8. x** , usare i comandi seguenti:  
-      ```
+      ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
 
@@ -993,7 +993,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       ```
 
 7. **[1]** posizionare il cluster fuori dalla modalità di manutenzione. Assicurarsi che lo stato del cluster sia corretto e che tutte le risorse siano avviate.  
-    ```
+    ```bash
     sudo pcs property set maintenance-mode=false
     #If there are failed cluster resources, you may need to run the next command
     pcs resource cleanup
@@ -1007,7 +1007,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 1. Prima di avviare un test, controllare il cluster e SAP HANA lo stato della replica di sistema.  
 
    a. Verificare che non siano presenti azioni cluster non riuscite  
-     ```
+     ```bash
      #Verify that there are no failed cluster actions
      pcs status
      # Example
@@ -1044,7 +1044,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
    b. Verificare che la replica di sistema SAP HANA sia sincronizzata
 
-      ```
+      ```bash
       # Verify HANA HSR is in sync
       sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
       #| Database | Host        | Port  | Service Name | Volume ID | Site ID | Site Name | Secondary     | Secondary| Secondary | Secondary | Secondary     | Replication | Replication | Replication    |
@@ -1074,7 +1074,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
    **Risultato previsto**: quando si esegue il rimontaggio come di sola `/hana/shared` *lettura*, l'operazione di monitoraggio che esegue l'operazione di lettura/scrittura su file System, avrà esito negativo perché non è in grado di scrivere nel file System e ATTIVERÀ il failover delle risorse Hana. Lo stesso risultato è previsto quando il nodo HANA perde l'accesso alla condivisione NFS.  
      
    È possibile controllare lo stato delle risorse del cluster eseguendo `crm_mon` o `pcs status` . Stato delle risorse prima dell'avvio del test:
-      ```
+      ```bash
       # Output of crm_mon
       #7 nodes configured
       #45 resources configured
@@ -1103,7 +1103,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
       ```
 
    Per simulare l'errore per `/hana/shared` in una delle macchine virtuali del sito di replica primaria, eseguire il comando seguente:
-      ```
+      ```bash
       # Execute as root 
       mount -o ro /hana/shared
       # Or if the above command returns an error
@@ -1114,7 +1114,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
          
    Se il cluster non è stato avviato nella macchina virtuale, è stato riavviato, avviare il cluster eseguendo: 
 
-      ```
+      ```bash
       # Start the cluster 
       pcs cluster start
       ```
@@ -1122,7 +1122,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
    All'avvio del cluster file system `/hana/shared` verrà automaticamente montata.     
    Se si imposta AUTOMATED_REGISTER = "false", sarà necessario configurare SAP HANA la replica di sistema nel sito secondario. In questo caso, è possibile eseguire questi comandi per riconfigurare SAP HANA come secondario.   
 
-      ```
+      ```bash
       # Execute on the secondary 
       su - hn1adm
       # Make sure HANA is not running on the secondary site. If it is started, stop HANA
@@ -1135,7 +1135,7 @@ Includere tutte le macchine virtuali, incluso il creatore della maggioranza nel 
 
    Stato delle risorse, dopo il test: 
 
-      ```
+      ```bash
       # Output of crm_mon
       #7 nodes configured
       #45 resources configured

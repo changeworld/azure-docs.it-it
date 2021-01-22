@@ -6,18 +6,18 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: a1d045e66771026d2b4cf7ad44fd6943d2d407f4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: c6160d36240b59c60fafa955b916fb6167c2648e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701603"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685755"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
 Questo articolo fornisce i dettagli necessari che consentono di proteggere il traffico in uscita dal servizio Azure Kubernetes (AKS). Contiene i requisiti del cluster per una distribuzione di base AKS e requisiti aggiuntivi per le funzionalità e gli addons facoltativi. [Verrà fornito un esempio alla fine di come configurare questi requisiti con il firewall di Azure](#restrict-egress-traffic-using-azure-firewall). Tuttavia, è possibile applicare queste informazioni a qualsiasi dispositivo o metodo di restrizione in uscita.
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Background
 
 I cluster AKS vengono distribuiti in una rete virtuale. Questa rete può essere gestita (creata da AKS) o personalizzata (precedentemente configurata dall'utente). In entrambi i casi, il cluster ha dipendenze in **uscita** da servizi esterni a tale rete virtuale (il servizio non ha dipendenze in ingresso).
 
@@ -745,7 +745,7 @@ voting-storage     ClusterIP      10.41.221.201   <none>        3306/TCP       9
 
 Ottenere l'indirizzo IP del servizio eseguendo:
 ```bash
-SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
+SERVICE_IP=$(kubectl get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].ip}')
 ```
 
 Aggiungere la regola NAT eseguendo:

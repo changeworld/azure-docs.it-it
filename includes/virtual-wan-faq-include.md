@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5aab11b31756ee8430e8ae4d54a2b3de5ea2e136
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: 8cd6f6a32071dc7bbd4aaccb92168cda009933a6
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97612696"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98689848"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>La rete WAN virtuale di Azure è disponibile a livello generale?
 
@@ -198,6 +198,9 @@ I siti VPN si connettono a un hub tramite connessioni. La rete WAN virtuale supp
 ### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>Qual è la velocità effettiva totale della VPN di un tunnel VPN e di una connessione?
 
 La velocità effettiva totale della VPN di un hub è fino a 20 Gbps in base all'unità di scala scelta per il gateway VPN. La velocità effettiva è condivisa da tutte le connessioni esistenti. Ogni tunnel in una connessione può supportare fino a 1 Gbps.
+
+### <a name="can-i-use-nat-t-on-my-vpn-connections"></a>È possibile utilizzare NAT-T nelle connessioni VPN?
+Sì, è supportato l'attraversamento NAT (NAT-T). Il gateway VPN WAN virtuale non esegue alcuna funzionalità di tipo NAT sui pacchetti interni da e verso i tunnel IPsec. In questa configurazione assicurarsi che il dispositivo locale avvii il tunnel IPSec.
 
 ### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-portal-how-do-i-configure-that"></a>L'impostazione di 20 Gbps per l'hub virtuale non è visibile nel portale. Come è possibile configurarla?
 
