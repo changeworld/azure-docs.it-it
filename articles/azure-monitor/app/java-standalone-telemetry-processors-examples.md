@@ -6,12 +6,12 @@ ms.date: 12/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: b9ad5347e146fc94b513180c591b00c4f449619f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9b29c9611359c97c4097ad0b90ee2673bb28f37c
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98146446"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696313"
 ---
 # <a name="telemetry-processors-examples---azure-monitor-application-insights-for-java"></a>Esempi di processori di telemetria: monitoraggio di Azure Application Insights per Java
 
@@ -281,7 +281,7 @@ Il codice seguente aggiorna l'attributo a {"DB. Secret": "redatto"} e aggiorna l
 }
 ```
 
-### <a name="delete"></a>Delete
+### <a name="delete"></a>Elimina
 
 Nell'esempio seguente viene illustrata l'eliminazione dell'attributo con la chiave ' credit_card '.
 
@@ -330,7 +330,7 @@ Di seguito vengono illustrati i valori degli attributi esistenti hash.
 ### <a name="extract"></a>Extract
 
 Nell'esempio seguente viene illustrato l'utilizzo di Regex per creare nuovi attributi in base al valore di un altro attributo.
-Ad esempio, se si specifica http. URL = http://example.com/path?queryParam1=value1 , queryParam2 = value2, verranno inseriti gli attributi seguenti:
+Ad esempio, se si specifica http. URL =' http://example.com/path?queryParam1=value1 , queryParam2 = value2' verranno inseriti gli attributi seguenti:
 * httpProtocol: http
 * httpDomain: example.com
 * httpPath: percorso

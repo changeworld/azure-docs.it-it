@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c599f17ab37ca30ea9ef3681ea3c75dd0c2648e
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310959"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693469"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Crea controller dati in Azure Data Studio
 
@@ -34,33 +34,37 @@ Seguire questa procedura per creare un controller di dati di Azure ARC usando la
 
 1. In Azure Data Studio fare clic sulla scheda connessioni nel pannello di navigazione sinistro.
 2. Fare clic sul pulsante **...** nella parte superiore del pannello connessioni e scegliere **nuova distribuzione...**
-3. Nella creazione guidata nuova distribuzione scegliere **controller dati di Azure Arc**, selezionare la casella di controllo accettazione della licenza, quindi fare clic sul pulsante **Seleziona** nella parte inferiore.
-4. Usare il file kubeconfig predefinito o selezionarne un altro.  Fare clic su **Avanti**.
-5. Scegliere un contesto del cluster Kubernetes. Fare clic su **Avanti**.
-6. Scegliere un file del profilo di configurazione della distribuzione a seconda del cluster Kubernetes di destinazione. **Fare clic su Avanti**.
-8. Scegliere la sottoscrizione e il gruppo di risorse desiderati.
-9. Immettere un nome per il controller dati e per lo spazio dei nomi in cui verrà creato il controller dati.  
+3. Nella creazione guidata nuova distribuzione scegliere **controller dati di Azure Arc**, quindi fare clic sul pulsante **Seleziona** nella parte inferiore.
+4. Verificare che gli strumenti prerequisiti siano disponibili e che soddisfino le versioni richieste. **Fare clic su Avanti**.
+5. Usare il file kubeconfig predefinito o selezionarne un altro.  Fare clic su **Avanti**.
+6. Scegliere un contesto del cluster Kubernetes. Fare clic su **Avanti**.
+7. Scegliere un profilo di configurazione della distribuzione a seconda del cluster Kubernetes di destinazione. **Fare clic su Avanti**.
+8. Se si usa Azure Red Hat OpenShift o Red Hat OpenShift container Platform, applicare vincoli di contesto di sicurezza. Seguire le istruzioni in [applicare un vincolo del contesto di sicurezza per Azure Arc Enabled Data Services in OpenShift](how-to-apply-security-context-constraint.md).
 
-> [!NOTE]
-> Se lo spazio dei nomi esiste già, verrà usato se lo spazio dei nomi non contiene già altri oggetti Kubernetes-pod e così via.  Se lo spazio dei nomi non esiste, verrà eseguito un tentativo di creare lo spazio dei nomi.  Per creare uno spazio dei nomi in un cluster Kubernetes sono necessari i privilegi di amministratore del cluster Kubernetes.  Se non si dispone dei privilegi di amministratore del cluster Kubernetes, chiedere all'amministratore del cluster Kubernetes di eseguire i primi passaggi dell'articolo [creare un controller di dati usando gli strumenti nativi di Kubernetes](./create-data-controller-using-kubernetes-native-tools.md) che devono essere eseguiti da un amministratore di Kubernetes prima di completare la procedura guidata.
+   >[!IMPORTANT]
+   >In Azure Red Hat OpenShift o Red Hat OpenShift container Platform è necessario applicare il vincolo del contesto di sicurezza prima di creare il controller di dati.
 
-> [!NOTE]
-> Nota: il controller dati e il nome dello spazio dei nomi verranno usati per creare una risorsa personalizzata nel cluster Kubernetes, in modo che siano conformi alle [convenzioni di denominazione di Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-
-10. Selezionare una località di Azure.
+1. Scegliere la sottoscrizione e il gruppo di risorse desiderati.
+1. Selezionare una località di Azure.
    
-> [!NOTE]
-> Il percorso di Azure selezionato qui è il percorso in Azure in cui verranno archiviati i *metadati* sul controller dati e le istanze di database che gestisce.  Il controller di dati e le istanze del database verranno effettivamente crewted nel cluster Kubernetes, laddove possibile.
+   Il percorso di Azure selezionato qui è il percorso in Azure in cui verranno archiviati i *metadati* sul controller dati e le istanze di database che gestisce. Il controller di dati e le istanze del database verranno effettivamente crewted nel cluster Kubernetes, laddove possibile.
 
-11.  Immettere un nome utente e una password e confermare la password per l'account utente dell'amministratore del controller di dati.
+10. Selezionare la modalità di connettività appropriata. Altre informazioni sulle [modalità di connettività](https://docs.microsoft.com/azure/azure-arc/data/connectivity). **Fare clic su Avanti**.
 
-> [!NOTE]
-> La password deve essere di almeno 8 caratteri.
+    Se si seleziona la modalità di connettività diretta, le credenziali dell'entità servizio sono necessarie come descritto in [creare un'entità servizio](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 
-1.  Fare clic su **Avanti**.
-2.  Esaminare e fare clic su **script per notebook**.
-3.  **Esaminare il notebook generato**.  Apportare le modifiche necessarie, ad esempio i nomi delle classi di archiviazione o i tipi di servizio.
-4.  Fare clic su **Esegui tutto** nella parte superiore del notebook.
+11. Immettere un nome per il controller dati e per lo spazio dei nomi in cui verrà creato il controller dati.
+
+    Il controller dati e il nome dello spazio dei nomi verranno usati per creare una risorsa personalizzata nel cluster Kubernetes, in modo che siano conformi alle [convenzioni di denominazione di Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    
+    Se lo spazio dei nomi esiste già, verrà usato se lo spazio dei nomi non contiene già altri oggetti Kubernetes-pod e così via.  Se lo spazio dei nomi non esiste, verrà eseguito un tentativo di creare lo spazio dei nomi.  Per creare uno spazio dei nomi in un cluster Kubernetes sono necessari i privilegi di amministratore del cluster Kubernetes.  Se non si dispone dei privilegi di amministratore del cluster Kubernetes, chiedere all'amministratore del cluster Kubernetes di eseguire i primi passaggi dell'articolo [creare un controller di dati usando gli strumenti nativi di Kubernetes](./create-data-controller-using-kubernetes-native-tools.md) che devono essere eseguiti da un amministratore di Kubernetes prima di completare la procedura guidata.
+
+
+12. Selezionare la classe di archiviazione in cui verrà distribuito il controller dati. 
+13.  Immettere un nome utente e una password e confermare la password per l'account utente dell'amministratore del controller di dati. Fare clic su **Avanti**.
+
+14. Esaminare la configurazione della distribuzione.
+15. Fare clic su **Distribuisci** per distribuire la configurazione desiderata o lo **script nel notebook** per esaminare le istruzioni di distribuzione o apportare le modifiche necessarie, ad esempio i nomi delle classi di archiviazione o i tipi di servizio. Fare clic su **Esegui tutto** nella parte superiore del notebook.
 
 ## <a name="monitoring-the-creation-status"></a>Monitoraggio dello stato di creazione
 

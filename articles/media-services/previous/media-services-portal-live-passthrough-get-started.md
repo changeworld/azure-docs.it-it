@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 707c12cac6bbceee925c4710eff29482f687d47f
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 08d1e9cd281cf41a79d1b30d709062c01abbab33
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040736"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695442"
 ---
 # <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Eseguire lo streaming live con codificatori locali usando portale di Azure
 
@@ -33,7 +33,7 @@ ms.locfileid: "93040736"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Questa esercitazione illustra come usare il portale di Azure per creare un **canale** configurato per la distribuzione pass-through. 
 
@@ -55,7 +55,7 @@ Per completare l'esercitazione è necessario quanto segue:
 I passaggi seguenti descrivono le attività previste per la creazione di applicazioni di streaming live comuni che usano canali configurati per la distribuzione pass-through. Questa esercitazione illustra come creare e gestire un canale pass-through e gli eventi live.
 
 > [!NOTE]
-> Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione** . 
+> Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
     
 1. Connettere una videocamera a un computer. <br/>Per alcune idee per la configurazione, vedere [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Configurazione semplice e portabile di attrezzature video per eventi).
 1. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato a più bitrate. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Vedere anche questo Blog: [produzione di streaming live con OBS](https://link.medium.com/ttuwHpaJeT).
@@ -112,7 +112,7 @@ Questa sezione illustra come usare l'opzione **Creazione rapida** per creare un 
 Per informazioni più dettagliate sui canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Nella finestra **Impostazioni** fare clic su **Streaming live** . 
+2. Nella finestra **Impostazioni** fare clic su **Streaming live**. 
    
     ![Introduzione](./media/media-services-portal-passthrough-get-started/media-services-getting-started.png)
    
@@ -120,7 +120,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 3. Fare clic su **Creazione rapida** per creare un canale pass-through con il protocollo di inserimento RTMP.
    
     Verrà visualizzata la finestra **CREATE A NEW CHANNEL** (CREA UN NUOVO CANALE).
-4. Assegnare un nome al nuovo canale e fare clic su **Crea** . 
+4. Assegnare un nome al nuovo canale e fare clic su **Crea**. 
    
     Verrà creato un canale pass-through con il protocollo di inserimento RTMP.
 
@@ -128,7 +128,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 1. Selezionare un canale a cui si vuole aggiungere un evento.
 2. Premere il pulsante **Evento live** .
 
-![Evento](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
 
 ## <a name="get-ingest-urls"></a>Ottenere gli URL di inserimento
 Dopo avere creato il canale, è possibile ottenere gli URL di inserimento da fornire al codificatore live. Questi URL vengono usati dal codificatore per inserire un flusso live.
@@ -151,7 +151,7 @@ Per informazioni più dettagliate sui canali pass-through, vedere [Streaming liv
 ## <a name="view-archived-content"></a>Visualizzare il contenuto archiviato
 Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
 
-Per gestire gli asset, selezionare **Impostazione** e fare clic su **Asset** .
+Per gestire gli asset, selezionare **Impostazione** e fare clic su **Asset**.
 
 ![Asset](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 

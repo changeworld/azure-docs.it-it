@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: f04e2aa97cafe2345918e433bcef5e719cee7483
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: eaba099725530f24dcd6aa5da7eb59cb233efd46
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610166"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695646"
 ---
 # <a name="azure-functions-http-trigger"></a>Trigger HTTP di Funzioni di Azure
 
@@ -749,6 +749,10 @@ La configurazione seguente illustra in che modo il parametro `{id}` viene passat
 }
 ```
 
+Quando si usano i parametri di route, `invoke_URL_template` viene creato automaticamente un oggetto per la funzione. I client possono usare il modello di URL per comprendere i parametri che devono passare all'URL quando chiamano la funzione usando il relativo URL. Passare a una delle funzioni attivate da HTTP nella [portale di Azure](https://portal.azure.com) e selezionare **Ottieni URL funzione**.
+
+È possibile accedere a a livello `invoke_URL_template` di codice usando le api Azure Resource Manager per le [funzioni di elenco](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) o [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+
 ## <a name="working-with-client-identities"></a>Utilizzo delle identità client
 
 Se l'app per le funzioni usa l'[autenticazione/autorizzazione di Servizio app ](../app-service/overview-authentication-authorization.md), è possibile visualizzare informazioni sui client autenticati dal codice. Queste informazioni sono disponibili come [intestazioni delle richieste inserite dalla piattaforma](../app-service/app-service-authentication-how-to.md#access-user-claims).
@@ -846,11 +850,17 @@ L'utente autenticato è disponibile tramite [Intestazioni HTTP](../app-service/a
 
 ## <a name="obtaining-keys"></a>Ottenere le chiavi
 
-Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crittografate inattive. Per visualizzare le chiavi, crearne di nuove o aggiornare le chiavi con nuovi valori, passare a una delle funzioni attivate da HTTP nel [portale di Azure](https://portal.azure.com) e selezionare **Gestisci**.
+Le chiavi vengono archiviate come parte dell'app per le funzioni in Azure e crittografate inattive. Per visualizzare le chiavi, crearne di nuove o eseguire il rollforward di chiavi in nuovi valori, passare a una delle funzioni attivate da HTTP nella [portale di Azure](https://portal.azure.com) e selezionare **tasti funzione**.
 
-![Gestire le chiavi di funzione nel portale.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+È anche possibile gestire le chiavi host. Passare all'app per le funzioni nella [portale di Azure](https://portal.azure.com) e selezionare **chiavi app**.
 
-È possibile ottenere le chiavi di funzione a livello di codice tramite l’uso di [API di gestione delle chiavi](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+È possibile ottenere le chiavi di funzione e host a livello di codice usando le API Azure Resource Manager. Sono disponibili API per [elencare](/rest/api/appservice/webapps/listfunctionkeys) le chiavi di funzione e [elencare le chiavi host](/rest/api/appservice/webapps/listhostkeys). quando si usano gli slot di distribuzione, le API equivalenti sono elencate slot per [chiavi della funzione](/rest/api/appservice/webapps/listfunctionkeysslot) ed elenco di chiavi [host](/rest/api/appservice/webapps/listhostkeysslot).
+
+È anche possibile creare nuove chiavi di funzione e host a livello di codice usando il [segreto della funzione crea o aggiorna](/rest/api/appservice/webapps/createorupdatefunctionsecret), [Crea o aggiorna slot segreto della funzione](/rest/api/appservice/webapps/createorupdatefunctionsecretslot), [Crea o aggiorna il segreto host](/rest/api/appservice/webapps/createorupdatehostsecret) e [Crea o aggiorna](/rest/api/appservice/webapps/createorupdatehostsecretslot) le API degli slot del segreto host.
+
+Le chiavi della funzione e dell'host possono essere eliminate a livello di codice usando il [segreto della funzione Delete](/rest/api/appservice/webapps/deletefunctionsecret), [eliminare lo slot del segreto della funzione](/rest/api/appservice/webapps/deletefunctionsecretslot), eliminare il [segreto host](/rest/api/appservice/webapps/deletehostsecret)ed eliminare le API degli [slot segreti host](/rest/api/appservice/webapps/deletehostsecretslot) .
+
+È anche possibile usare le [API di gestione delle chiavi legacy per ottenere i tasti funzione](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), ma è consigliabile usare invece le API Azure Resource Manager.
 
 ## <a name="api-key-authorization"></a>Autorizzazione della chiave API
 

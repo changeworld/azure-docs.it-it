@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: dc08e23b6ef040ba5833ffa97f71d8cd1da3bb8a
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 3f9fc9fd1bacce8733949969b496dc03d6c10901
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019801"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695824"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -62,7 +62,7 @@ Il filtro dinamico viene usato per controllare il numero di tracce, formati, vel
 
 ![Diagramma che illustra come vengono inseriti ed elaborati i feed audio e video di un evento Live pass-through.](./media/live-streaming/pass-through.svg)
 
-Quando si usa l' **evento Live**pass-through, si fa affidamento sul codificatore Live locale per generare un flusso video a bitrate multipli e inviarlo come feed di contributo all'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live trasporta quindi i flussi video in ingresso verso Dynamic Packager (endpoint di streaming) senza ulteriore transcodifica. Questo evento Live pass-through è ottimizzato per eventi live a esecuzione prolungata o streaming live lineare 24x365. 
+Quando si usa l' **evento Live** pass-through, si fa affidamento sul codificatore Live locale per generare un flusso video a bitrate multipli e inviarlo come feed di contributo all'evento Live (usando il protocollo di input RTMP o frammentato-MP4). L'evento Live trasporta quindi i flussi video in ingresso verso Dynamic Packager (endpoint di streaming) senza ulteriore transcodifica. Questo evento Live pass-through è ottimizzato per eventi live a esecuzione prolungata o streaming live lineare 24x365. 
 
 ### <a name="live-encoding"></a>Codifica live  
 
@@ -135,4 +135,4 @@ Consultare l'articolo [Community di Servizi multimediali di Azure](media-service
 
 * [Guida introduttiva allo streaming live](live-events-wirecast-quickstart.md)
 * [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
-* [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md)
+* [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-v-2-v-3-migration-introduction.md)

@@ -3,12 +3,12 @@ title: Procedure consigliate per i modelli
 description: Vengono descritti gli approcci consigliati per la creazione di modelli di Azure Resource Manager (modelli ARM). Offre suggerimenti per evitare problemi comuni quando si usano i modelli.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 85d58098508d5ac7cad6c1cb3cb68ad6c7f179f9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: c0b26c300a9474cc5db0b1a7b732c4416a9e6f5f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724987"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696347"
 ---
 # <a name="arm-template-best-practices"></a>Procedure consigliate per il modello ARM
 
@@ -26,7 +26,7 @@ Esistono anche i limiti seguenti:
 * 64 valori di output
 * 24.576 caratteri in un'espressione di modello
 
-È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [uso di modelli collegati e annidati durante la distribuzione di risorse di Azure](linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+È possibile superare alcuni limiti del modello usando un modello annidato. Per altre informazioni, vedere [uso di modelli collegati e annidati durante la distribuzione di risorse di Azure](linked-templates.md). Per ridurre il numero di parametri, variabili o output, è possibile combinare più valori in un oggetto. Per altre informazioni, vedere [Oggetti come parametri](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 ## <a name="resource-group"></a>Resource group
 
@@ -134,7 +134,7 @@ Le informazioni di questa sezione possono essere utili quando si usano i [parame
 
 * Per le risorse che non sono disponibili in tutte le posizioni, usare un parametro distinto oppure specificare un valore letterale per location.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variabili
 
 Le informazioni seguenti possono essere utili quando si usano le [variabili](template-variables.md):
 

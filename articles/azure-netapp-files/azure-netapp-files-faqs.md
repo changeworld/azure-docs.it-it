@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 913d61c506505d18fff416291e7f3b718f1d92f3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: f680b1ec76200cb4d3bfc90cd83a2c134f379245
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913499"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696126"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Domande frequenti sulla Azure NetApp Files
 
@@ -258,6 +258,16 @@ No. Azure Data Box non supporta attualmente Azure NetApp Files.
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>La migrazione con il servizio importazione/esportazione di Azure è supportata?
 
 No. Il servizio importazione/esportazione di Azure non supporta attualmente Azure NetApp Files.
+
+## <a name="product-faqs"></a>Domande frequenti sul prodotto
+
+### <a name="can-i-use-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>È possibile usare Azure NetApp Files volumi NFS o SMB con la soluzione VMware di Azure (AVS)?
+
+È possibile montare Azure NetApp Files volumi NFS in macchine virtuali di Windows AVS o VM Linux. È possibile eseguire il mapping di Azure NetApp Files condivisioni SMB nelle VM AVS Windows. Per informazioni dettagliate, vedere [Azure NetApp files con la soluzione VMware di Azure]( ../azure-vmware/net-app-files-with-azure-vmware-solution.md).  
+
+### <a name="what-regions-are-supported-for-using-azure-netapp-files-nfs-or-smb-volumes-with-azure-vmware-solution-avs"></a>Quali aree sono supportate per l'uso di Azure NetApp Files i volumi NFS o SMB con la soluzione VMware di Azure (AVS)?
+
+L'uso di Azure NetApp Files volumi NFS o SMB con AVS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali, Europa occidentale e Australia orientale.
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

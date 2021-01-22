@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: ab056e0685264b03d35ee6b95afad7c6362f9db6
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 0d8ce501b951f3543e1baf54c8a52648b13f6e66
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695795"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695671"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Gestione automatici di Azure per le macchine virtuali
 
@@ -43,16 +43,16 @@ Infine, l'esperienza è incredibilmente semplice.
 
 - Solo macchine virtuali Windows Server
 - Le macchine virtuali devono essere in esecuzione
-- Le macchine virtuali devono trovarsi in un'area supportata
+- Le macchine virtuali devono trovarsi in un'area supportata (vedere il paragrafo seguente)
 - L'utente deve disporre delle autorizzazioni corrette (vedere il paragrafo seguente)
 - Il servizio di gestione delle sottoscrizioni sandbox al momento non è supportato
 
-È necessario avere il ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali per abilitare la gestione delle macchine virtuali nelle VM usando un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account di gestione, sono necessarie le autorizzazioni seguenti per la sottoscrizione: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** . 
+È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali, Giappone orientale.
+
+È necessario avere il ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali per abilitare la gestione delle macchine virtuali nelle VM usando un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account di gestione, sono necessarie le autorizzazioni seguenti per la sottoscrizione: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
 
 > [!NOTE]
 > Se si vuole usare automanage in una macchina virtuale connessa a un'area di lavoro in una sottoscrizione diversa, è necessario disporre delle autorizzazioni descritte in precedenza in ogni sottoscrizione.
-
-È anche importante notare che automanage supporta solo le macchine virtuali Windows situate nelle aree seguenti: Europa occidentale, Stati Uniti orientali, Stati Uniti occidentali 2, Canada centrale, Stati Uniti centro-occidentali, Giappone orientale.
 
 ## <a name="participating-services"></a>Servizi partecipanti
 
@@ -102,12 +102,20 @@ Oltre ai servizi standard di cui si esegue l'onboarding, è possibile configurar
 
 ## <a name="automanage-account"></a>Gestisci account
 
-L'account di gestione automatica è il contesto di sicurezza o l'identità con cui si verificano le operazioni automatiche. In genere, l'opzione account di gestione automatica non è necessaria per la selezione, ma se è presente uno scenario di delega in cui si vuole dividere la gestione automatica (ad esempio tra due amministratori di sistema), questa opzione consente di definire un'identità di Azure per ognuno di questi amministratori.
+L'account di gestione automatica è il contesto di sicurezza o l'identità con cui si verificano le operazioni automatiche. In genere, l'opzione account di gestione automatica non è necessaria per la selezione, ma se è presente uno scenario di delega in cui si vuole dividere la gestione automatica delle risorse (ad esempio tra due amministratori di sistema), questa opzione consente di definire un'identità di Azure per ognuno di questi amministratori.
 
 Nel portale di Azure esperienza, quando si Abilita la funzionalità di gestione delle macchine virtuali, è disponibile un elenco a discesa avanzate nel pannello **Abilita VM di Azure per le procedure consigliate** che consente di assegnare o creare manualmente l'account automanage.
 
+All'account di gestione automatica verranno concessi i **ruoli collaboratore e** **collaboratore ai criteri delle risorse** per la sottoscrizione o le sottoscrizioni contenenti i computer caricati per la gestione automatica. È possibile utilizzare lo stesso account di automanage nei computer di più sottoscrizioni, in modo da concedere a tale utente le autorizzazioni **di collaboratore account e** collaboratore **Criteri risorse** per tutte le sottoscrizioni.
+
+Se la macchina virtuale è connessa a un'area di lavoro Log Analytics in un'altra sottoscrizione, all'account di automanage verrà concesso **anche collaboratore e** **collaboratore ai criteri delle risorse** nell'altra sottoscrizione.
+
+Se si Abilita automanage con un nuovo account di gestione, sono necessarie le autorizzazioni seguenti per la sottoscrizione: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+
+Se si Abilita automanage con un account di gestione automanage esistente, è necessario avere il ruolo **collaboratore** nel gruppo di risorse contenente le macchine virtuali.
+
 > [!NOTE]
-> È necessario avere il ruolo **collaboratore** per il gruppo di risorse contenente le macchine virtuali per abilitare la gestione delle macchine virtuali nelle VM usando un account di gestione autogestito esistente. Se si Abilita automanage con un nuovo account di gestione, sono necessarie le autorizzazioni seguenti per la sottoscrizione: ruolo **proprietario** o **collaboratore** insieme ai ruoli di **amministratore accesso utenti** .
+> Quando si disabilitano le procedure consigliate per la gestione dei problemi, le autorizzazioni dell'account di gestione gestita per tutte le sottoscrizioni associate rimarranno. Rimuovere manualmente le autorizzazioni andando alla pagina IAM della sottoscrizione o eliminare l'account di gestione. Non è possibile eliminare l'account di automanage se è ancora in grado di gestire qualsiasi computer.
 
 
 ## <a name="status-of-vms"></a>Stato delle macchine virtuali
@@ -122,6 +130,7 @@ Nella colonna **stato** possono essere visualizzati gli Stati seguenti:
 - *In corso* : la macchina virtuale è stata appena abilitata e configurata
 - *Configurato* : la macchina virtuale è configurata e non viene rilevata alcuna deviazione
 - *Non riuscito* : la macchina virtuale è stata spostata e non è stato possibile correggere
+- *In sospeso* : la macchina virtuale non è in esecuzione e automanage tenterà di caricare o correggere la macchina virtuale al momento della prossima esecuzione
 
 Se lo **stato** viene visualizzato come *non riuscito*, è possibile risolvere i problemi di distribuzione tramite il gruppo di risorse in cui si trova la macchina virtuale. Passare a **gruppi di risorse**, selezionare il gruppo di risorse, fare clic su **distribuzioni** e vedere lo stato *non riuscito* insieme ai dettagli dell'errore.
 
@@ -145,7 +154,6 @@ Leggere attentamente i messaggi nella finestra popup visualizzata prima di fare 
 
 
 Prima di tutto, la macchina virtuale non verrà disattivata da nessuno dei servizi che sono stati caricati e configurati. Tutti gli addebiti subiti da tali servizi continueranno a essere fatturabili. Se necessario, sarà necessario eseguire l'operazione di disattivazione. Qualsiasi comportamento di gestione di automanage viene interrotto immediatamente. Ad esempio, la macchina virtuale non sarà più monitorata per la deviazione.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

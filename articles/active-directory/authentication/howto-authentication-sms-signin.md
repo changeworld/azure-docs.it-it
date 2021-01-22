@@ -11,16 +11,16 @@ author: justinha
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43573b54be6884e01121e404370d2e1d85a3c4e8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: d9430066ad92b4d0b69bd07c763e3f7b5d6e889a
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660882"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693537"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory"></a>Configurare e abilitare gli utenti per l'autenticazione basata su SMS usando Azure Active Directory 
 
-Per semplificare e proteggere l'accesso ad applicazioni e servizi, Azure Active Directory (Azure AD) offre più opzioni di autenticazione. L'autenticazione basata su SMS consente agli utenti di accedere senza fornire o addirittura conoscere il nome utente e la password. Dopo che l'account è stato creato da un amministratore di identità, può immettere il numero di telefono al prompt di accesso. Ricevono un codice di autenticazione tramite SMS che possono fornire per completare l'accesso. Questo metodo di autenticazione semplifica l'accesso ad applicazioni e servizi, in particolare per chi lavora in prima linea.
+Per semplificare e proteggere l'accesso ad applicazioni e servizi, Azure Active Directory (Azure AD) offre più opzioni di autenticazione. L'autenticazione basata su SMS consente agli utenti di accedere senza fornire o addirittura conoscere il nome utente e la password. Dopo che l'account è stato creato da un amministratore di identità, può immettere il numero di telefono al prompt di accesso. Ricevono un codice di autenticazione tramite SMS che possono fornire per completare l'accesso. Questo metodo di autenticazione semplifica l'accesso alle applicazioni e ai servizi, specialmente per i ruoli di lavoro Frontline.
 
 Questo articolo descrive come abilitare l'autenticazione basata su SMS per utenti o gruppi selezionati in Azure AD.
 

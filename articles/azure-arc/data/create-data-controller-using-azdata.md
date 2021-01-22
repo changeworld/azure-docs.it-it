@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 19451fb09919238a04ac953c9c38fc70b4744d16
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955298"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696067"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -266,34 +266,11 @@ Dopo aver eseguito il comando, continuare con il [monitoraggio dello stato di cr
 
 ### <a name="create-on-azure-red-hat-openshift-aro"></a>Crea in Azure Red Hat OpenShift (ARO)
 
-#### <a name="apply-the-scc"></a>Applicare il SCC
+Azure Red Hat OpenShift richiede un vincolo di contesto di sicurezza.
 
-Prima di creare il controller dati in Azure Red Hat OpenShift, è necessario applicare specifici vincoli del contesto di sicurezza (SCC). Per la versione di anteprima, questi vincoli di sicurezza sono attenuati. Le versioni future forniranno il SCC aggiornato.
+#### <a name="apply-the-security-context"></a>Applicare il contesto di sicurezza
 
-1. Scaricare il vincolo del contesto di sicurezza personalizzato (SCC). Usare uno dei seguenti: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` Il comando seguente Scarica Arc-data-SCC. YAML:
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. Crea SCC.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. Applicare l'oggetto SCC all'account del servizio.
-
-   > [!NOTE]
-   > Usare lo stesso spazio dei nomi qui e nel `azdata arc dc create` comando riportato di seguito. L'esempio è `arc` .
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
-
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="create-custom-deployment-profile"></a>Creare un profilo di distribuzione personalizzato
 
@@ -324,33 +301,11 @@ Dopo aver eseguito il comando, continuare con il [monitoraggio dello stato di cr
 > [!NOTE]
 > Se si usa Red Hat OpenShift container Platform in Azure, è consigliabile usare la versione più recente disponibile.
 
-#### <a name="apply-the-scc"></a>Applicare il SCC
+Prima di creare il controller dati in Red Hat OCP, è necessario applicare vincoli specifici per il contesto di sicurezza. 
 
-Prima di creare il controller dati in Red Hat OCP, sarà necessario applicare specifici vincoli di contesto di sicurezza (SCC). Per la versione di anteprima, questi vincoli di sicurezza sono attenuati. Le versioni future forniranno il SCC aggiornato.
+#### <a name="apply-the-security-context-constraint"></a>Applicare il vincolo del contesto di sicurezza
 
-1. Scaricare il vincolo del contesto di sicurezza personalizzato (SCC). Usare uno dei seguenti: 
-   - [GitHub](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/yaml/arc-data-scc.yaml) 
-   - (Non[elaborato](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml))
-   - `curl` Il comando seguente Scarica Arc-data-SCC. YAML:
-
-      ```console
-      curl https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/arc-data-scc.yaml -o arc-data-scc.yaml
-      ```
-
-1. Crea SCC.
-
-   ```console
-   oc create -f arc-data-scc.yaml
-   ```
-
-1. Applicare l'oggetto SCC all'account del servizio.
-
-   > [!NOTE]
-   > Usare lo stesso spazio dei nomi qui e nel `azdata arc dc create` comando riportato di seguito. L'esempio è `arc` .
-
-   ```console
-   oc adm policy add-scc-to-user arc-data-scc --serviceaccount default --namespace arc
-   ```
+[!INCLUDE [apply-security-context-constraint](includes/apply-security-context-constraint.md)]
 
 #### <a name="determine-storage-class"></a>Determinare la classe di archiviazione
 

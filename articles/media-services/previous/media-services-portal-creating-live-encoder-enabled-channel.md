@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02f1fd873c0578bb4ec3a7788a06b10eebec7bd
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532704"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695472"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "91532704"
 > 
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-v-2-v-3-migration-introduction.md)
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
@@ -167,7 +167,7 @@ Per avviare l'evento è possibile procedere in due modi:
 
 Per guardare l'evento pubblicato è possibile usare la pagina **Evento live** .
 
-Facendo clic su **Sospendi trasmissione**vengono arrestati tutti gli eventi live.
+Facendo clic su **Sospendi trasmissione** vengono arrestati tutti gli eventi live.
 
 ## <a name="watch-the-event"></a>Guardare l'evento
 
@@ -192,7 +192,7 @@ Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado d
 > [!WARNING]
 > Un asset **non deve** essere eliminato se è usato da un evento. per prima cosa è necessario eliminare l'evento.
 
-Per gestire gli asset, selezionare**Impostazione** e fare clic su **Asset**.
+Per gestire gli asset, selezionare **Impostazione** e fare clic su **Asset**.
 
 ![Asset](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 

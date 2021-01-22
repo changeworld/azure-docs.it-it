@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 2b15389ae35a63c71ac4cb9e167e578e7e1e690e
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b8f2b3e1ffde49c8df3c3a6d7c0b9b3751fda5fa
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695771"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696177"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Domande frequenti su Azure automanage per le macchine virtuali
 
@@ -28,7 +28,6 @@ Se il problema riguardante Azure non viene risolto in questo articolo, visitare 
 
 Di seguito sono riportati i prerequisiti per l'abilitazione di Azure automanage:
 - Solo macchine virtuali Windows Server
-- Le macchine virtuali devono essere in esecuzione
 - Le macchine virtuali devono trovarsi in un'area supportata
 - L'utente deve disporre delle autorizzazioni corrette
 - Solo macchine virtuali con set di scalabilità

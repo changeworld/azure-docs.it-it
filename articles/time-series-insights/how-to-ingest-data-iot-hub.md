@@ -9,14 +9,14 @@ manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: 09ee98bf8bbe0067f9c79ce4767f3cf68b83fb43
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: bb13df0f87cd10719f33afe4ec080c4c785df720
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016803"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695561"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Aggiungere un'origine evento dell'hub Internet all'ambiente Azure Time Series Insight
 
@@ -74,7 +74,7 @@ Per aggiungere un nuovo gruppo di consumer all'hub IoT:
 
        | Proprietà | Descrizione |
        | --- | --- |
-       | Sottoscrizione | Sottoscrizione a cui appartiene l'hub Internet. |
+       | Subscription | Sottoscrizione a cui appartiene l'hub Internet. |
        | Nome dell'hub IoT | Nome dell'hub di Internet delle cose selezionato. |
        | Nome criterio dell'hub IoT | Selezionare i criteri di accesso condiviso. È possibile trovare i criteri di accesso condiviso nella scheda Impostazioni hub Internet. Ogni criterio di accesso condiviso ha un nome, le autorizzazioni impostate e le chiavi di accesso. Il criterio di accesso condiviso per l'origine evento *deve* avere le autorizzazioni per la **connessione al servizio**. |
        | Chiave criteri hub IoT | La chiave è prepopolata. |

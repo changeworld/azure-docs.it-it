@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 3eec935d0a25f9510cd9a2f6e00b7ac22756e697
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: a5a44b9d27901fcd00f8813096de6bbae5f2310d
+ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88796800"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98179946"
 ---
 # <a name="quickstart-deploy-unity-sample-to-hololens"></a>Avvio rapido: Distribuire un esempio di Unity in HoloLens
 
@@ -42,13 +42,13 @@ Assicurarsi che le credenziali vengano salvate correttamente con la scena e che 
 1. Quando si preme **Build** (Compila) o 'Build And Run' (Compila ed esegui), verrà richiesto di selezionare una cartella in cui archiviare la soluzione
 1. Aprire il file **Quickstart.sln** generato con Visual Studio
 1. Impostare la configurazione su **Release** e **ARM64**
-1. Impostare la modalità del debugger su **Remote Machine** (Computer remoto)\
+1. Impostare la modalità del debugger su **Remote Machine**\ (Computer remoto)
     ![Configurazione della soluzione](media/unity-deploy-config.png)
 1. Compilare la soluzione
 1. Per il progetto 'QuickStart' passare a *Properties > Debugging* (Proprietà > Debug)
     1. Assicurarsi che la configurazione *Release* sia attiva
     1. Impostare *Debugger to Launch* (Debugger da avviare) su **Remote Machine** (Computer remoto)
-    1. Impostare *Machine Name* (Nome computer) su **IP of your HoleLens** (IP HoleLens)
+    1. Impostare *Machine Name* (Nome computer) su **IP of your HoloLens** (IP HoloLens)
 
 ## <a name="launch-the-sample-project"></a>Avviare il progetto di esempio
 

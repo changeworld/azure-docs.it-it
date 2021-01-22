@@ -7,24 +7,24 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 01/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ffb5a78c13413a46565a9c57c87dc8273742fd24
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 49364681f0c5b4b6cc4d5f20778edb61e9f6f5b3
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563450"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98695781"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Sicurezza in Azure ricerca cognitiva-Panoramica
 
-Questo articolo descrive le principali funzionalità di sicurezza di Azure ricerca cognitiva che possono proteggere il contenuto e le operazioni.
+Questo articolo descrive le funzionalità di sicurezza di Azure ricerca cognitiva che proteggono il contenuto e le operazioni.
 
-+ A livello di archiviazione, la crittografia dei dati inattivi è incorporata per tutti i contenuti gestiti dal servizio salvati su disco, inclusi indici, mappe sinonimi e definizioni di indicizzatori, origini dati e skillsets. Azure ricerca cognitiva supporta anche l'aggiunta di chiavi gestite dal cliente (CMK) per la crittografia supplementare del contenuto indicizzato. Per i servizi creati dopo il 1 2020 agosto, la crittografia CMK estende ai dati nei dischi temporanei per la crittografia completa del contenuto indicizzato.
++ A livello di archiviazione, la crittografia dei dati è incorporata per tutti i contenuti gestiti dal servizio salvati su disco, inclusi indici, mappe sinonime e definizioni di indicizzatori, origini dati e skillsets. Facoltativamente, è possibile aggiungere chiavi gestite dal cliente (CMK) per la crittografia supplementare del contenuto indicizzato. Per i servizi creati dopo l'agosto 1 2020, la crittografia CMK si estende ai dati nei dischi temporanei per una "crittografia doppia" completa del contenuto indicizzato.
 
-+ La sicurezza in ingresso protegge l'endpoint del servizio di ricerca a livelli di sicurezza crescenti: dalle chiavi API della richiesta, alle regole in ingresso nel firewall, agli endpoint privati che proteggono completamente il servizio dalla rete Internet pubblica.
++ La sicurezza in ingresso si riferisce alle protezioni sull'endpoint di servizio di ricerca a livelli di sicurezza crescenti: dalle chiavi API nella richiesta, alle regole in ingresso nel firewall, agli endpoint privati che proteggono completamente il servizio dalla rete Internet pubblica.
 
-+ La sicurezza in uscita si applica agli indicizzatori che effettuano il pull del contenuto da origini esterne. Per le richieste in uscita, configurare un'identità gestita per eseguire la ricerca in un servizio attendibile quando si accede ai dati da archiviazione di Azure, SQL di Azure, Cosmos DB o altre origini dati di Azure. Un'identità gestita sostituisce le credenziali o le chiavi di accesso per la connessione. La sicurezza in uscita non è illustrata in questo articolo. Per altre informazioni su questa funzionalità, vedere [connettersi a un'origine dati usando un'identità gestita](search-howto-managed-identities-data-sources.md).
++ La sicurezza in uscita si riferisce agli indicizzatori che effettuano il pull del contenuto da origini esterne. Per le richieste in uscita, configurare un'identità gestita per eseguire la ricerca in un servizio attendibile quando si accede ai dati da archiviazione di Azure, SQL di Azure, Cosmos DB o altre origini dati di Azure. Un'identità gestita sostituisce le credenziali o le chiavi di accesso per la connessione. La sicurezza in uscita non è illustrata in questo articolo. Per altre informazioni su questa funzionalità, vedere [connettersi a un'origine dati usando un'identità gestita](search-howto-managed-identities-data-sources.md).
 
 Guarda questo video veloce per una panoramica dell'architettura della sicurezza e di ogni categoria di funzionalità.
 

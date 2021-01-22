@@ -6,12 +6,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 9fe1aaed58d6069cd583f8607f7bd6332f97674e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0b4356c74b2e0c1494456d5d1082efd7b8953a15
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019891"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693376"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
 Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
@@ -51,7 +51,7 @@ I parametri predefiniti nel file parameters.json corrispondono alle impostazioni
       "value": null
     },
 ```
-Altre informazioni su come [distribuire con un file di modello di Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Altre informazioni su come [usare un oggetto come parametro in un modello di Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Altre informazioni su come [distribuire con un file di modello di Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Altre informazioni su come [usare un oggetto come parametro in un modello di Resource Manager](/azure/architecture/guide/azure-resource-manager/advanced-templates/objects-as-parameters).
 
 Per usare le identità gestite per Azure Data Lake Store Gen1 come sink di output, è necessario fornire l'accesso all'entità servizio con PowerShell prima della distribuzione in Azure. Altre informazioni su come [distribuire ADLS Gen1 con identità gestite usando un modello di Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 

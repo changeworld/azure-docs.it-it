@@ -2,13 +2,13 @@
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: e5bc9aae081868c92e0968c88c8cb6dcfb8ee57c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 01/20/2021
+ms.openlocfilehash: 3a96cf94ca4a7edd115f12b3e2eded11a5894e04
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676375"
+ms.locfileid: "98693402"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
@@ -35,8 +35,11 @@ L'ordinamento non è garantito quando si usano entità partizionate. Se una part
 
  Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Dove il bus di servizio di Azure archivia i dati dei clienti?
-Il bus di servizio di Azure archivia i dati dei clienti. Questi dati vengono archiviati automaticamente dal bus di servizio in una singola area, in modo che il servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+### <a name="where-does-azure-service-bus-store-data"></a><a name="in-region-data-residency"></a>Dove vengono archiviati i dati nel bus di servizio di Azure?
+Il livello standard del bus di servizio di Azure usa il database SQL di Azure per il livello di archiviazione back-end. Per tutte le aree, ad eccezione del Brasile meridionale e sudorientale, il backup del database è ospitato in un'area diversa (in genere l'area abbinata ad Azure). Per le aree del Brasile meridionale e sudorientale, i backup del database vengono archiviati nella stessa area per soddisfare i requisiti di residenza dei dati per tali aree.
+
+Il livello Premium del bus di servizio di Azure archivia i metadati e i dati nelle aree selezionate. Quando si configura il ripristino di emergenza geografico per uno spazio dei nomi premium del bus di servizio di Azure, i metadati vengono copiati nell'area secondaria selezionata.
+
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
 È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:

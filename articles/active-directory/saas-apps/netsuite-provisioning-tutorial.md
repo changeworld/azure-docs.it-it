@@ -10,21 +10,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: 294870d3448886b9cea573a0e79b3ac436941f89
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359136"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696490"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di NetSuite per il provisioning utenti automatico
 
 Questa esercitazione descrive le procedure da eseguire in NetSuite OneWorld e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a NetSuite.
 
-> [!NOTE]
-> Questa integrazione attualmente esegue l'autenticazione usando l'autenticazione di base (nome utente e password). NetSuite ha implementato un requisito di autenticazione a più fattori che impedisce ai clienti di usare questa integrazione, a meno che non siano esentati da questo requisito. Siamo collaborando con NetSuite per aggiornare questa integrazione con un nuovo metodo di autenticazione che consenta ai clienti privi di esenzione di riutilizzarla. Questo documento verrà aggiornato con il tempo di completamento stimato non appena sarà disponibile.
-
-Azione consigliata: Attendere il rilascio di un aggiornamento del metodo di autenticazione per questa integrazione oppure contattare il supporto di NetSuite per richiedere un'esenzione per il requisito di autenticazione a più fattori.
+> [!WARNING]
+> L'integrazione del provisioning smetterà di funzionare nel 2020 febbraio a causa di una modifica alle API NetSuite usate da Microsoft per eseguire il provisioning degli utenti in NetSuite. Di conseguenza, la funzionalità di provisioning dell'applicazione NetSuite nella raccolta di app di Azure Active Directory Enterprise verrà rimossa a breve. La funzionalità SSO dell'applicazione rimarrà intatta. Microsoft collabora con NetSuite per creare una nuova integrazione di provisioning modernizzata, ma al momento non esiste alcun valore di ETA.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

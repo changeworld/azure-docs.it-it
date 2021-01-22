@@ -4,12 +4,12 @@ description: Descrive come risolvere errori comuni durante la distribuzione di r
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 01/20/2021
-ms.openlocfilehash: bb701baf164cfd6ba1dd5c670a406343e83c5c70
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 61a306cd36c55a005ee9ebd897fcfc9a6c88d7c9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622812"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696397"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -37,7 +37,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | DeploymentJobSizeExceeded | Semplificare il modello per ridurre le dimensioni. | [Risolvere gli errori delle dimensioni del modello](error-job-size-exceeded.md) |
 | DnsRecordInUse | Il nome del record DNS deve essere univoco. Immettere un nome diverso. | |
 | ImageNotFound | Controllare le impostazioni dell'immagine della macchina virtuale. |  |
-| InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | Questo errore può essere ricevuto quando si tenta di aggiornare una risorsa e la richiesta viene elaborata eliminando e creando la risorsa. Assicurarsi di specificare tutti i valori invariati. | [Aggiornare una risorsa](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Ottenere il token di accesso per il tenant appropriato. È possibile ottenere solo il token dal tenant a cui appartiene l'account. | |
 | InvalidContentLink | È probabile che si sia tentato di eseguire il collegamento a un modello annidato che non è disponibile. Ricontrollare l'URI specificato per il modello annidato. Se il modello si trova in un account di archiviazione, verificare che l'URI sia accessibile. Potrebbe essere necessario passare un token SAS. Attualmente, non è possibile collegarsi a un modello che si trova in un account di archiviazione dietro un [firewall di archiviazione di Azure](../../storage/common/storage-network-security.md). Provare a trasferire il modello in un altro repository, ad esempio GitHub. | [Modelli collegati](linked-templates.md) |
 | InvalidDeploymentLocation | Quando si esegue la distribuzione a livello di sottoscrizione, è stato specificato un percorso diverso per un nome di distribuzione usato in precedenza. | [Distribuzioni a livello di sottoscrizione](deploy-to-subscription.md) |
@@ -64,7 +64,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | PasswordTooLong | Potrebbe essere stata selezionata una password con troppi caratteri oppure il valore della password è stato convertito in una stringa sicura prima di passarlo come parametro. Se il modello include un parametro **secure string**, non è necessario convertire il valore in una stringa sicura. Specificare il valore della password come testo. |  |
 | PrivateIPAddressInReservedRange | L'indirizzo IP specificato include un intervallo di indirizzi richiesto da Azure. Modificare l'indirizzo IP in modo da evitare l'intervallo riservato. | [Indirizzi IP](../../virtual-network/public-ip-addresses.md) |
 | PrivateIPAddressNotInSubnet | L'indirizzo IP specificato non è compreso nell'intervallo di subnet. Modificare l'indirizzo IP in modo che sia compreso nell'intervallo di subnet. | [Indirizzi IP](../../virtual-network/public-ip-addresses.md) |
-| PropertyChangeNotAllowed | Alcune proprietà non possono essere modificate in una risorsa distribuita. Quando si aggiorna una risorsa, è possibile limitare le modifiche alle proprietà consentite. | [Aggiornare una risorsa](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| PropertyChangeNotAllowed | Alcune proprietà non possono essere modificate in una risorsa distribuita. Quando si aggiorna una risorsa, è possibile limitare le modifiche alle proprietà consentite. | [Aggiornare una risorsa](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | RequestDisallowedByPolicy | La sottoscrizione include un criterio di risorsa che impedisce l'esecuzione di un'azione che si sta tentando di eseguire durante la distribuzione. Individuare il criterio che blocca l'azione. Se possibile, modificare la distribuzione in modo che soddisfi le limitazioni del criterio. | [Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Specificare un nome di risorsa che non includa un nome riservato. | [Nomi di risorse riservati](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Attendere il completamento dell'eliminazione. | |

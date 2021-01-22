@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9e48d14419e2cd24251f1b00a09fd0289c50c55f
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426887"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98693808"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Domande frequenti su servizi multimediali V3
 
@@ -60,7 +60,7 @@ Quando si usa la paginazione, è necessario usare sempre il collegamento success
 
 ### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Quali funzionalità non sono ancora disponibili in servizi multimediali di Azure V3?
 
-Per informazioni dettagliate, vedere [gap delle funzionalità rispetto alle API v2](media-services-v2-vs-v3.md#feature-gaps-with-respect-to-v2-apis).
+Per informazioni dettagliate, vedere [la guida alla migrazione](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="what-is-the-process-of-moving-a-media-services-account-between-subscriptions"></a>Qual è il processo di trasferimento di un account di servizi multimediali tra le sottoscrizioni?  
 
@@ -169,7 +169,7 @@ Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi
 
 Il `AssetFile` concetto è stato rimosso dall'API di servizi multimediali per separare servizi multimediali dalla dipendenza di storage SDK. Ora archiviazione di Azure, non servizi multimediali, mantiene le informazioni appartenenti all'SDK di archiviazione. 
 
-Per altre informazioni, vedere [Eseguire la migrazione a Servizi multimediali v3](media-services-v2-vs-v3.md).
+Per altre informazioni, vedere [Eseguire la migrazione a Servizi multimediali v3](migrate-v-2-v-3-migration-introduction.md).
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>Dove è finita la crittografia di archiviazione lato client?
 

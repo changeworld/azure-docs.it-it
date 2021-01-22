@@ -3,12 +3,12 @@ title: Registro con ridondanza della zona per la disponibilità elevata
 description: Informazioni sull'abilitazione della ridondanza della zona in Azure Container Registry. Creare un registro contenitori o una replica in una zona di disponibilità di Azure. La ridondanza della zona è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 8c03b2bb093f8d0fa70ff5132f7448ce86e8779d
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
+ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127354"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98696279"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Abilitare la ridondanza della zona in Azure Container Registry per la resilienza e la disponibilità elevata
 
@@ -39,7 +39,7 @@ Per usare l'interfaccia della riga di comando di Azure per abilitare la ridondan
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Se necessario, eseguire il comando [AZ Group create](/cli/az/group#az_group_create) per creare un gruppo di risorse per il registro di sistema.
+Se necessario, eseguire il comando [AZ Group create](/cli/azure/group#az_group_create) per creare un gruppo di risorse per il registro di sistema.
 
 ```azurecli
 az group create --name <resource-group-name> --location <location>
@@ -47,7 +47,7 @@ az group create --name <resource-group-name> --location <location>
 
 ### <a name="create-zone-enabled-registry"></a>Crea registro di sistema abilitato per la zona
 
-Eseguire il comando [AZ ACR create](/cli/az/acr#az_acr_create) per creare un registro con ridondanza della zona nel livello di servizio Premium. Scegliere un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure. Nell'esempio seguente la ridondanza della zona è abilitata nell'area *eastus* . `az acr create`Per altre opzioni del registro di sistema, vedere la guida del comando.
+Eseguire il comando [AZ ACR create](/cli/azure/acr?view=azure-cli-latest#az_acr_create) per creare un registro con ridondanza della zona nel livello di servizio Premium. Scegliere un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure. Nell'esempio seguente la ridondanza della zona è abilitata nell'area *eastus* . `az acr create`Per altre opzioni del registro di sistema, vedere la guida del comando.
 
 ```azurecli
 az acr create \
@@ -69,7 +69,7 @@ Nell'output del comando prendere nota della `zoneRedundancy` proprietà per il r
 
 ### <a name="create-zone-redundant-replication"></a>Creazione della replica con ridondanza della zona
 
-Eseguire il comando [AZ ACR Replication create](/cli/az/acr/replication#az_acr_replication_create) per creare una replica del registro di sistema con ridondanza della zona in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure, ad esempio *westus2*. 
+Eseguire il comando [AZ ACR Replication create](/cli/azure/acr/replication?view=azure-cli-latest#az_acr_replication_create) per creare una replica del registro di sistema con ridondanza della zona in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per container Registry di Azure, ad esempio *westus2*. 
 
 ```azurecli
 az acr replication create \
@@ -113,7 +113,7 @@ Per creare una replica con ridondanza della zona:
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Se necessario, eseguire il comando [AZ Group create](/cli/az/group#az_group_create) per creare un gruppo di risorse per il registro di sistema in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per Azure container Registry, ad esempio *eastus*. Questa area viene utilizzata dal modello per impostare il percorso del registro di sistema.
+Se necessario, eseguire il comando [AZ Group create](/cli/azure/group#az_group_create) per creare un gruppo di risorse per il registro di sistema in un'area che [supporta le zone di disponibilità](../availability-zones/az-region.md) per Azure container Registry, ad esempio *eastus*. Questa area viene utilizzata dal modello per impostare il percorso del registro di sistema.
 
 ```azurecli
 az group create --name <resource-group-name> --location eastus
@@ -219,7 +219,7 @@ Copiare il contenuto seguente in un nuovo file e salvarlo usando un nome file, a
   }
 ```
 
-Eseguire il comando [AZ Deployment Group create](/cli/az/deployment#az_group_deployment_create) seguente per creare il registro di sistema usando il file di modello precedente. Dove indicato, fornire:
+Eseguire il comando [AZ Deployment Group create](/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) seguente per creare il registro di sistema usando il file di modello precedente. Dove indicato, fornire:
 
 * nome univoco del registro di sistema o distribuzione del modello senza parametri. verrà creato un nome univoco per l'utente
 * un percorso per la replica che supporta le zone di disponibilità, ad esempio *westus2*
