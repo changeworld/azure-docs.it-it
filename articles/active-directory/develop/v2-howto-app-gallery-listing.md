@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 37d9c24d58e0dd9fb10db607ef1b96de0a44eb78
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 1f1100c27bb3c02e3d1a5040942509c24bab0e65
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399367"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683989"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -175,7 +175,7 @@ Il supporto del provisioning di [scim](https://aka.ms/scimoverview) è un passag
 Per altre informazioni sugli standard SCIM e sui vantaggi per i clienti, vedere [provisioning con SCIM-Getting Started](https://aka.ms/scimoverview).
 
 ### <a name="understand-the-azure-ad-scim-implementation"></a>Informazioni sull'implementazione di Azure AD SCIM
-Per altre informazioni sull'implementazione di Azure AD SCIM, vedere [creare un endpoint scim e configurare il provisioning degli utenti con Azure ad](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups).
+Per altre informazioni sull'implementazione di Azure AD SCIM, vedere [creare un endpoint scim e configurare il provisioning degli utenti con Azure ad](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ### <a name="implement-scim"></a>Implementare SCIM
 Azure AD fornisce il [codice di riferimento](https://aka.ms/scimoverview) per facilitare la compilazione di un endpoint SCIM. Sono disponibili anche molti riferimenti e librerie di terze parti che è possibile trovare su GitHub.  
@@ -186,7 +186,7 @@ Per poter testare l'app, è necessario un tenant di Azure AD. Per configurare l'
 
 In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Microsoft 365. Per configurare un ambiente di sviluppo Microsoft 365 gratuito, vedere [partecipare al programma Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
-Dopo aver creato un tenant, è necessario testare l'accesso Single Sign-on e il [provisioning](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Dopo aver creato un tenant, è necessario testare l'accesso Single Sign-on e il [provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
 
 **Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
 
@@ -274,7 +274,7 @@ Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO bas
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se si sta implementando un endpoint [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. Quando si specifica lo schema nella richiesta di onboarding, seguire le istruzioni riportate [qui](https://docs.microsoft.com/azure/active-directory/app-provisioning/export-import-provisioning-configuration) per scaricare lo schema. Si userà lo schema configurato durante il test dell'applicazione non della raccolta per compilare l'applicazione della raccolta. 
+Se si sta implementando un endpoint [SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. Quando si specifica lo schema nella richiesta di onboarding, seguire le istruzioni riportate [qui](../app-provisioning/export-import-provisioning-configuration.md) per scaricare lo schema. Si userà lo schema configurato durante il test dell'applicazione non della raccolta per compilare l'applicazione della raccolta. 
 
    ![Richiesta di provisioning utenti](./media/howto-app-gallery-listing/user-provisioning.png)
 

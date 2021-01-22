@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usare GitOps per configurare un cluster Kubernetes abilitato per Azure Arc (anteprima)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, container
-ms.openlocfilehash: 906021377cbfd6960769f98f9dbd15a5c430c71f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 751b274a9cae68f6bc9b1adc45804f2dd2ef4c72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955332"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684758"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuire le configurazioni usando GitOps nei cluster Kubernetes con abilitazione di Azure Arc (anteprima)
 
@@ -48,7 +48,7 @@ Se si associa un repository privato con `sourceControlConfiguration` , assicurar
 
 Usare l'estensione dell'interfaccia della riga di comando di Azure per per `k8sconfiguration` collegare un cluster connesso al [repository git di esempio](https://github.com/Azure/arc-k8s-demo). A questa configurazione verrà assegnato un nome `cluster-config`; indicare all'agente di distribuire l'operatore nello spazio dei nomi `cluster-config` e concedere all'operatore autorizzazioni `cluster-admin`.
 
-```console
+```azurecli
 az k8sconfiguration create --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name cluster-config --operator-namespace cluster-config --repository-url https://github.com/Azure/arc-k8s-demo --scope cluster --cluster-type connectedClusters
 ```
 
@@ -179,7 +179,7 @@ Per ulteriori informazioni, vedere la [documentazione di Flux](https://aka.ms/Fl
 
 Usando l'interfaccia della riga di comando di Azure, verificare che `sourceControlConfiguration` sia stato creato correttamente.
 
-```console
+```azurecli
 az k8sconfiguration show --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
@@ -351,7 +351,7 @@ Eliminare un `sourceControlConfiguration` usando l'interfaccia della riga di com
 > Dopo la creazione di un sourceControlConfiguration con ambito dello spazio dei nomi, è possibile che gli utenti con `edit` Binding Role nello spazio dei nomi distribuiscano i carichi di lavoro in questo spazio dei nomi. Quando `sourceControlConfiguration` viene eliminato questo oggetto con ambito dello spazio dei nomi, lo spazio dei nomi viene lasciato intatto e non verrà eliminato per evitare di suddividere gli altri carichi di lavoro.  Se necessario, è possibile eliminare questo spazio dei nomi manualmente con kubectl.
 > Qualsiasi modifica apportata al cluster risultante dalle distribuzioni dal repository git rilevato non viene eliminata quando `sourceControlConfiguration` viene eliminato.
 
-```console
+```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

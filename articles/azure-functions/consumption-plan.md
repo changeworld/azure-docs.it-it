@@ -3,12 +3,12 @@ title: Hosting del piano a consumo di funzioni di Azure
 description: Informazioni sul modo in cui l'hosting del piano a consumo di funzioni di Azure consente di eseguire il codice in un ambiente scalabile dinamicamente, ma si paga solo per le risorse usate durante l'esecuzione.
 ms.date: 8/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: c0619def4687935cd9e403563966b35b84f13c7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: ffb556ce48f18702e06fcdb02dda84f41ae5f906
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937792"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684692"
 ---
 # <a name="azure-functions-consumption-plan-hosting"></a>Hosting del piano a consumo di funzioni di Azure
 
@@ -33,10 +33,10 @@ Quando si crea un'app per le funzioni nella portale di Azure, il piano a consumo
 Usare i collegamenti seguenti per informazioni su come creare un'app per le funzioni senza server in un piano a consumo, a livello di codice o nel portale di Azure:
 
 + [Interfaccia della riga di comando di Azure](./scripts/functions-cli-create-serverless.md)
-+ [Azure portal](functions-create-first-azure-function.md)
++ [Azure portal](./functions-get-started.md)
 + [Modello di Azure Resource Manager](functions-create-first-function-resource-manager.md)
 
-È anche possibile creare app per le funzioni in un piano a consumo quando si pubblica un progetto di funzioni da [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) o [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
+È anche possibile creare app per le funzioni in un piano a consumo quando si pubblica un progetto di funzioni da [Visual Studio Code](./create-first-function-vs-code-csharp.md#publish-the-project-to-azure) o [Visual Studio](functions-create-your-first-function-visual-studio.md#publish-the-project-to-azure).
 
 ## <a name="multiple-apps-in-the-same-plan"></a>Più app nello stesso piano
 

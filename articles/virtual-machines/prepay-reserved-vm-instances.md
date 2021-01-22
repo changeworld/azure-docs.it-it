@@ -9,15 +9,14 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/30/2017
 ms.author: vikdesai
-ms.openlocfilehash: ffc9c8f3143824dd099aaad3e743398eea4e0f43
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e6cf097e927c4606885dd3f885de6ab8235bf6be
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602532"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682590"
 ---
 # <a name="save-costs-with-azure-reserved-vm-instances"></a>Risparmiare sui costi con le istanze di VM riservate di Azure
-
 
 
 Quando si esegue il commit in un'istanza di VM riservata di Azure, è possibile risparmiare denaro. Lo sconto della prenotazione si applica automaticamente alle macchine virtuali in esecuzione corrispondenti all'ambito di prenotazione e agli attributi. Non è necessario assegnare una prenotazione a una macchina virtuale per ottenere gli sconti. Un acquisto di istanze riservate copre solo la parte di calcolo dell'utilizzo della VM. Per le macchine virtuali Windows, il contatore utilizzo è suddiviso in due contatori distinti. È disponibile un contatore di calcolo, che corrisponde al contatore Linux e a un contatore IP di Windows. Gli addebiti visualizzati quando si effettua l'acquisto sono solo per i costi di calcolo. Gli addebiti non includono i costi del software Windows. Per altre informazioni sui costi del software, vedere [costi software non inclusi nelle istanze di VM riservate di Azure](../cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
@@ -30,10 +29,10 @@ Prima di acquistare una prenotazione, è necessario determinare le dimensioni de
 
 È possibile usare le raccomandazioni di prenotazione per determinare le prenotazioni da acquistare.
 
-- I consigli di acquisto e la quantità consigliata vengono visualizzati quando si acquista un'istanza riservata della macchina virtuale nell'portale di Azure.
+- Quando si acquista un'istanza riservata della macchina virtuale nel portale di Azure, vengono visualizzate le raccomandazioni di acquisto e le quantità consigliate.
 - Azure Advisor fornisce consigli di acquisto per le singole sottoscrizioni.  
 - È possibile usare le API per ottenere raccomandazioni di acquisto sia per l'ambito condiviso sia per l'ambito di una singola sottoscrizione. Per altre informazioni, vedere [API di raccomandazione per l'acquisto di istanze riservate per i clienti aziendali](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
-- Per i clienti Enterprise Agreement (EA) e Microsoft Customer Agreement (MCA), i consigli di acquisto per gli ambiti di abbonamento condiviso e singolo sono disponibili con il [pacchetto di contenuto Informazioni dettagliate sul consumo di Azure Power bi](/power-bi/service-connect-to-azure-consumption-insights).
+- Per i clienti Contratto Enterprise (EA) e Microsoft Customer Agreement (MCA), i consigli di acquisto per gli ambiti di abbonamento condiviso e singolo sono disponibili con il [pacchetto di contenuto Informazioni dettagliate sul consumo di Azure Power bi](/power-bi/service-connect-to-azure-consumption-insights).
 
 ### <a name="services-that-get-vm-reservation-discounts"></a>Servizi che ottengono sconti per la prenotazione di macchine virtuali
 
@@ -136,7 +135,7 @@ Non è possibile apportare i seguenti tipi di modifiche dopo l'acquisto, diretta
 - Area della prenotazione esistente
 - SKU
 - Quantità
-- Durata
+- Duration
 
 Tuttavia, se si desidera apportare modifiche, è possibile *scambiare* una prenotazione.
 

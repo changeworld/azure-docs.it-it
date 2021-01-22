@@ -3,12 +3,12 @@ title: Rilevamento di messaggi duplicati nel bus di servizio di Azure | Microsof
 description: Questo articolo illustra come è possibile rilevare i duplicati nei messaggi del bus di servizio di Azure. Il messaggio duplicato può essere ignorato e eliminato.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 29972f756c66f524cc2e4684fcb7afd1ca628820
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184680"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684809"
 ---
 # <a name="duplicate-detection"></a>Rilevamento duplicati
 
@@ -17,6 +17,9 @@ Se un'applicazione si arresta a causa di un errore irreversibile subito dopo l'i
 È anche possibile che si verifichi un errore a livello di client o di rete in un momento precedente e che venga eseguito il commit di un messaggio inviato nella coda, con il riconoscimento non correttamente restituito al client. Questo scenario lascia il client in dubbio sull'esito dell'operazione di invio.
 
 Il rilevamento dei duplicati consente di evitare queste situazioni, consentendo al mittente di inviare nuovamente lo stesso messaggio che, se duplicato, verrà rimosso automaticamente dalla coda o dall'argomento.
+
+> [!NOTE]
+> Il livello Basic del bus di servizio non supporta il rilevamento dei duplicati. I livelli standard e Premium supportano il rilevamento dei duplicati. Per le differenze tra questi livelli, vedere [Prezzi del bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="how-it-works"></a>Funzionamento 
 Abilitare il rilevamento dei duplicati consente di tenere traccia del *MessageId* controllato dall'applicazione di tutti i messaggi inviati a una coda o un argomento durante un intervallo di tempo specificato. Se viene inviato un nuovo messaggio con *MessageId* già registrato durante l'intervallo di tempo specificato, il messaggio viene segnalato come accettato (l'operazione di invio ha esito positivo), ma viene immediatamente ignorato ed eliminato. Viene presa in considerazione esclusivamente la parte *MessageId* del messaggio.

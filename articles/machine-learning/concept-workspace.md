@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 7acb555ddde20d6512119af85a8db055bcd9eeed
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 5211555102c0a8d29eb05abd7a680935d828f9dc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701654"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683441"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Definizione di area di lavoro di Azure Machine Learning
 
@@ -134,6 +134,5 @@ Per un'introduzione ad Azure Machine Learning, vedere:
 + [Creare e gestire un'area di lavoro](how-to-manage-workspace.md)
 + [Esercitazione: Introduzione all'Azure Machine Learning nell'ambiente di sviluppo](tutorial-1st-experiment-sdk-setup-local.md)
 + [Esercitazione: Introduzione alla creazione del primo esperimento ML in un'istanza di calcolo](tutorial-1st-experiment-sdk-setup.md)
-+ [Esercitazione: Introduzione a Azure Machine Learning con R SDK](tutorial-1st-r-experiment.md)
 + [Esercitazione: Creare il primo modello di classificazione con apprendimento automatico](tutorial-first-experiment-automated-ml.md) 
 + [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)

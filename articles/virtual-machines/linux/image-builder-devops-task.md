@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 43447454b82b74c10b1d53c41c7883b0b9bef242
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196504"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684543"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
 
@@ -71,10 +71,10 @@ Usare il gruppo di risorse in cui verrà archiviato l'artefatto del modello di i
  
 ### <a name="location"></a>Location
 
-Il percorso è l'area in cui verrà eseguito il generatore di immagini. Sono supportati solo un numero impostato di [aree](../windows/image-builder-overview.md#regions) . Le immagini di origine devono essere presenti in questa posizione. Se ad esempio si usa raccolta immagini condivise, è necessario che sia presente una replica in tale area.
+Il percorso è l'area in cui verrà eseguito il generatore di immagini. Sono supportati solo un numero impostato di [aree](../image-builder-overview.md#regions) . Le immagini di origine devono essere presenti in questa posizione. Se ad esempio si usa raccolta immagini condivise, è necessario che sia presente una replica in tale area.
 
 ### <a name="managed-identity-required"></a>Identità gestita (obbligatoria)
-Il generatore di immagini richiede un'identità gestita, che usa per leggere immagini personalizzate di origine, connettersi ad archiviazione di Azure e creare immagini personalizzate. Per altri dettagli, vedere [qui](./image-builder-overview.md#permissions).
+Il generatore di immagini richiede un'identità gestita, che usa per leggere immagini personalizzate di origine, connettersi ad archiviazione di Azure e creare immagini personalizzate. Per altri dettagli, vedere [qui](../image-builder-overview.md#permissions).
 
 ### <a name="vnet-support"></a>Supporto di VNET
 
@@ -239,7 +239,7 @@ Non è possibile passare alcun valore a questo, il generatore di immagini creer�
 
 * [Dimensioni macchina virtuale](image-builder-json.md#vmprofile) : è possibile eseguire l'override delle dimensioni della macchina virtuale, dal valore predefinito di *Standard_D1_v2*. È possibile eseguire l'override di per ridurre il tempo di personalizzazione totale o perché si vuole creare le immagini che dipendono da determinate dimensioni di VM, ad esempio GPU/HPC e così via.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Quando si crea la versione, l'attività crea un contenitore nell'account di archiviazione denominato *ImageBuilder-vststask*. Consente di eseguire la cerniera e di caricare gli elementi di compilazione e di creare un token di firma di accesso condiviso per il file zip.
 
@@ -335,4 +335,4 @@ L'elemento di risorsa modello di immagine si trova nel gruppo di risorse specifi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni, vedere [Panoramica di Azure Image Builder](image-builder-overview.md).
+Per altre informazioni, vedere [Panoramica di Azure Image Builder](../image-builder-overview.md).

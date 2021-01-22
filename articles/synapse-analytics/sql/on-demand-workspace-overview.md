@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 34ce36f0ff348f896b7c2ea680c113b5e9e4ea09
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 87f592f0cff8504fbafba392d20f405640e2578a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463168"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682971"
 ---
 # <a name="serverless-sql-pool-in-azure-synapse-analytics"></a>Pool SQL serverless in Azure Synapse Analytics 
 
@@ -75,7 +75,7 @@ La sicurezza può essere applicata tramite:
 
 Funzionalità di T-SQL supportate:
 
-- L'intera superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) è supportata, inclusa la maggioranza di funzioni SQL
+- L'intera superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) è supportata, inclusa la maggioranza di funzioni SQL
 - CETAS - CREATE EXTERNAL TABLE AS SELECT
 - Istruzioni DDL correlate solo alle viste e alla sicurezza
 
@@ -89,7 +89,7 @@ Il pool SQL serverless non ha uno spazio di archiviazione locale: nei database s
 
 ### <a name="extensions"></a>Estensioni
 
-Per garantire un'esperienza uniforme per l'esecuzione di query sul posto su dati che risiedono nei file in data lake, il pool SQL serverless estende la funzione [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) con l'aggiunta delle funzionalità seguenti:
+Per garantire un'esperienza uniforme per l'esecuzione di query sul posto su dati che risiedono nei file in data lake, il pool SQL serverless estende la funzione [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) con l'aggiunta delle funzionalità seguenti:
 
 [Esecuzione di query su più file o cartelle](query-data-storage.md#query-multiple-files-or-folders)
 
@@ -125,7 +125,7 @@ Per autenticazione del pool SQL serverless si intende il modo in cui gli utenti 
 
 - **Autenticazione di Azure Active Directory**:
 
-  Questo metodo di autenticazione usa identità gestite da Azure Active Directory. Per gli utenti di Azure AD, è possibile abilitare l'autenticazione a più fattori. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), usare l'autenticazione di Active Directory (sicurezza integrata).
+  Questo metodo di autenticazione usa identità gestite da Azure Active Directory. Per gli utenti di Azure AD, è possibile abilitare l'autenticazione a più fattori. [Quando possibile](/sql/relational-databases/security/choose-an-authentication-mode?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), usare l'autenticazione di Active Directory (sicurezza integrata).
 
 #### <a name="authorization"></a>Autorizzazione
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a735817f59e43e1a9e5d2a513f1ad397f18aab8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232319"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683811"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -132,7 +132,7 @@ In precedenza era possibile filtrare l'elenco dei dispositivi solo per attività
 - Stato conforme
 - Tipo di join (Azure AD aggiunto, Azure AD ibrido aggiunto, Azure AD registrato)
 - Timestamp dell'attività
-- Sistema operativo
+- OS
 - Tipo di dispositivo (stampanti, VM sicure, dispositivi condivisi, dispositivi registrati)
 
 Per abilitare la funzionalità di filtro anteprima nella visualizzazione **tutti i dispositivi** :
@@ -168,7 +168,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 - I **dispositivi da Azure ad aggiunti o Azure ad registrati richiedono multi-factor authentication** : è possibile scegliere se gli utenti devono fornire un fattore di autenticazione aggiuntivo per aggiungere o registrare il dispositivo per Azure ad. Il valore predefinito è **No**. È consigliabile richiedere l'autenticazione a più fattori durante la registrazione o l'aggiunta a un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per ulteriori informazioni sui diversi servizi di Azure AD Multi-Factor Authentication, vedere la pagina relativa all' [Introduzione a Azure AD multi-factor authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
-> I **dispositivi che devono essere Azure ad aggiunti o Azure ad registrati richiedono** che l'impostazione multi-factor authentication venga applicata ai dispositivi Azure ad aggiunti (con alcune eccezioni) o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti, [Azure ad VM Unite in join in Azure](/azure/active-directory/devices/howto-vm-sign-in-azure-ad-windows#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure ad dispositivi aggiunti con la [modalità di distribuzione automatica di Windows Autopilot](/mem/autopilot/self-deploying).
+> I **dispositivi che devono essere Azure ad aggiunti o Azure ad registrati richiedono** che l'impostazione multi-factor authentication venga applicata ai dispositivi Azure ad aggiunti (con alcune eccezioni) o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti, [Azure ad VM Unite in join in Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure ad dispositivi aggiunti con la [modalità di distribuzione automatica di Windows Autopilot](/mem/autopilot/self-deploying).
 
 - **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
 

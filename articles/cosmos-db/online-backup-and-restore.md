@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 43625a80df76ff35b8bb1804df5f5fd1524326c5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba66013e37c196c58291a6bcd979be7fb5fa0130
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097533"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684577"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,15 +52,15 @@ Per modificare le opzioni di backup predefinite per un account Azure Cosmos esis
 
    * **Copie dei dati conservati** . per impostazione predefinita, vengono offerte gratuitamente due copie di backup dei dati. Se sono necessarie più di due copie, è previsto un addebito aggiuntivo. Per conoscere il prezzo esatto per le copie aggiuntive, vedere la sezione Archiviazione utilizzata della [pagina Prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurare l'intervallo di backup e la conservazione per un account Azure Cosmos esistente" border="true":::
 
-Se si configurano le opzioni di backup durante la creazione dell'account, è possibile configurare i **criteri di backup** , che sono **periodici** o **continui** . Il criterio periodico consente di configurare l'intervallo di backup e la conservazione dei backup. Il criterio continuo è attualmente disponibile solo per l'iscrizione. Il team di Azure Cosmos DB valuterà il carico di lavoro e approverà la richiesta.
+Se si configurano le opzioni di backup durante la creazione dell'account, è possibile configurare i **criteri di backup**, che sono **periodici** o **continui**. Il criterio periodico consente di configurare l'intervallo di backup e la conservazione dei backup. Il criterio continuo è attualmente disponibile solo per l'iscrizione. Il team di Azure Cosmos DB valuterà il carico di lavoro e approverà la richiesta.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configurare criteri di backup periodici o continui per i nuovi account Azure Cosmos" border="true":::
 
 ## <a name="request-data-restore-from-a-backup"></a>Richiedere il ripristino dei dati da un backup
 
-Se si elimina accidentalmente il database o un contenitore, è possibile [archiviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [chiamare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup online automatici. Il supporto tecnico di Azure è disponibile solo per i piani selezionati, ad esempio **standard** , **Developer** e piani superiori a quelli previsti. Il supporto di Azure non è disponibile con il piano **Basic** . Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
+Se si elimina accidentalmente il database o un contenitore, è possibile [archiviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [chiamare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dai backup online automatici. Il supporto tecnico di Azure è disponibile solo per i piani selezionati, ad esempio **standard**, **Developer** e piani superiori a quelli previsti. Il supporto di Azure non è disponibile con il piano **Basic**. Per altre informazioni sui diversi piani di supporto, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/).
 
 Per il ripristino di uno snapshot specifico del backup, Azure Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
 Prima di richiedere un ripristino, è necessario avere a disposizione i dettagli seguenti:
@@ -81,7 +81,7 @@ Oltre al nome dell'account Azure Cosmos, ai nomi dei database e ai nomi dei cont
 
 Lo screenshot seguente illustra come creare una richiesta di supporto per un contenitore (raccolta/grafo/tabella) per ripristinare i dati tramite il portale di Azure. Specificare ulteriori dettagli, come tipo di dati, scopo del ripristino e ora di eliminazione dei dati per consentire a Microsoft di definire più facilmente la priorità della richiesta.
 
-:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure":::
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Creare una richiesta di supporto per il backup usando il portale di Azure":::
 
 ## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Considerazioni per il ripristino dei dati da un backup
 
@@ -115,6 +115,13 @@ Se i dati sono stati eliminati o danneggiati per errore, contattare il [supporto
 
 Se si effettua il provisioning della velocità effettiva a livello di database, in questo caso il processo di backup e ripristino viene eseguito a livello dell'intero database e non a livello dei singoli contenitori. In questi casi, non è possibile selezionare un subset di contenitori da ripristinare.
 
+## <a name="required-permissions-to-change-retention-or-restore-from-the-portal"></a>Autorizzazioni necessarie per modificare la conservazione o il ripristino dal portale
+Le entità che fanno parte del ruolo [CosmosdbBackupOperator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator), proprietario o collaboratore possono richiedere un ripristino o modificare il periodo di conservazione.
+
+## <a name="understanding-costs-of-extra-backups"></a>Informazioni sui costi dei backup aggiuntivi
+2 i backup sono disponibili gratuitamente e i backup aggiuntivi vengono addebitati in base ai prezzi a livello di area per l'archiviazione di backup descritti in [prezzi di archiviazione di backup](https://azure.microsoft.com/en-us/pricing/details/cosmos-db/). Se, ad esempio, la conservazione dei backup è configurata su 240 ore, ovvero 10 giorni e intervallo di backup a 24 ore. Questo implica 10 copie dei dati di backup. Supponendo 1 TB di dati negli Stati Uniti occidentali 2, il sarebbe 1000 * 0,12 ~ $120 per l'archiviazione di backup in un determinato mese. 
+
+
 ## <a name="options-to-manage-your-own-backups"></a>Opzioni per la gestione dei backup
 
 Con gli account API SQL di Azure Cosmos DB è anche possibile gestire backup propri adottando uno degli approcci seguenti:
@@ -147,4 +154,3 @@ A questo punto è possibile consultare informazioni su come ripristinare i dati 
 * Per creare una richiesta di ripristino, contattare il supporto tecnico di Azure e [aprire un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
 * [Usare un feed di modifiche di Cosmos DB](change-feed.md) per spostare i dati in Azure Cosmos DB.
 * [Usare Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) per spostare i dati in Azure Cosmos DB.
-

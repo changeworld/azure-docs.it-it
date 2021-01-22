@@ -1,17 +1,17 @@
 ---
-title: USA nodi virtuali
+title: Usare nodi virtuali
 titleSuffix: Azure Kubernetes Service
 description: Panoramica dell'uso di un nodo virtuale con i servizi Kubernetes di Azure (AKS)
 services: container-service
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2dd91e5c506f229d653fdf98bc0549c173cec793
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93351888"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684775"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Creare e configurare un cluster di servizi Kubernetes di Azure per l'uso di nodi virtuali
 
@@ -48,6 +48,7 @@ La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Ist
 * Nodi virtuali con cluster privati.
 * Uso degli intervalli IP autorizzati del server API per AKS.
 * Montaggio del volume File di Azure condivisione supporto per [utilizzo generico V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Seguire le istruzioni per montare [un volume con file di Azure condivisione](azure-files-volume.md)
+* L'utilizzo di IPv6 non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

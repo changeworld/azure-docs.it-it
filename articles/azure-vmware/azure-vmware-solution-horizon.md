@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6d5d8e12e358e2289128af9840660be18f5f217a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 2cf6fc5cb7662188650365cb019774d6c778d405
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95537442"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684876"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -130,15 +130,35 @@ La metodologia di dimensionamento di Horizon in un host in esecuzione nella solu
 
 ### <a name="sizing-tables"></a>Ridimensionamento di tabelle
 
-Le tabelle mostrano i carichi di lavoro comuni per i carichi di lavoro del Knowledge Worker di login e i carichi di lavoro di Power Worker.
+I requisiti specifici di vCPU/vRAM per i desktop virtuali Horizon dipendono dal profilo del carico di lavoro specifico del cliente.   Collaborare con il team di vendita MSFT e VMware per determinare i requisiti di vCPU/vRAM per i desktop virtuali. 
 
-#### <a name="knowledge-worker-workloads"></a>Carichi di lavoro Knowledge Worker
+| vCPU per macchina virtuale | vRAM per macchina virtuale (GB) | Istanza | VM 100 | VM 200 | VM 300 | VM 400 | VM 500 | VM 600 | VM 700 | VM 800 | VM 900 | VM 1000 | VM 2000 | VM 3000 | VM 4000 | VM 5000 | VM 6000 | VM 6400 |
+|:-----------:|:----------------:|:--------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|      2      |        3,5       |    Soluzione Azure VMware   |    3    |    3    |    4    |    4    |    5    |    6    |    6    |    7    |    8    |     9    |    17    |    25    |    33    |    41    |    49    |    53    |
+|      2      |         4        |    Soluzione Azure VMware   |    3    |    3    |    4    |    5    |    6    |    6    |    7    |    8    |    9    |     9    |    18    |    26    |    34    |    42    |    51    |    54    |
+|      2      |         6        |    Soluzione Azure VMware   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      2      |         8        |    Soluzione Azure VMware   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      2      |        12        |    Soluzione Azure VMware   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      2      |        16        |    Soluzione Azure VMware   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      4      |        3,5       |    Soluzione Azure VMware   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         4        |    Soluzione Azure VMware   |    3    |    3    |    4    |    5    |    6    |    7    |    8    |    9    |    10   |    11    |    22    |    33    |    44    |    55    |    66    |    70    |
+|      4      |         6        |    Soluzione Azure VMware   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    12   |    13    |    26    |    38    |    51    |    62    |    75    |    79    |
+|      4      |         8        |    Soluzione Azure VMware   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      4      |        12        |    Soluzione Azure VMware   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      4      |        16        |    Soluzione Azure VMware   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      6      |        3,5       |    Soluzione Azure VMware   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         4        |    Soluzione Azure VMware   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         6        |    Soluzione Azure VMware   |    3    |    4    |    5    |    6    |    7    |    9    |    10   |    11   |    13   |    14    |    27    |    41    |    54    |    68    |    81    |    86    |
+|      6      |         8        |    Soluzione Azure VMware   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      6      |        12        |    Soluzione Azure VMware   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      6      |        16        |    Soluzione Azure VMware   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
+|      8      |        3,5       |    Soluzione Azure VMware   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         4        |    Soluzione Azure VMware   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         6        |    Soluzione Azure VMware   |    3    |    4    |    6    |    7    |    9    |    10   |    12   |    14   |    15   |    17    |    33    |    49    |    66    |    82    |    98    |    105   |
+|      8      |         8        |    Soluzione Azure VMware   |    3    |    5    |    6    |    8    |    9    |    11   |    12   |    14   |    16   |    18    |    34    |    51    |    67    |    84    |    100   |    106   |
+|      8      |        12        |    Soluzione Azure VMware   |    4    |    6    |    9    |    11   |    13   |    16   |    19   |    21   |    23   |    26    |    51    |    75    |    100   |    124   |    149   |    158   |
+|      8      |        16        |    Soluzione Azure VMware   |    5    |    8    |    11   |    14   |    18   |    21   |    24   |    27   |    30   |    34    |    67    |    100   |    133   |    165   |    198   |    211   |
 
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabella dei profili VDI comuni per VMware Horizon per gli account di lavoro del Knowledge Worker VSI" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
-
-#### <a name="power-worker-workloads"></a>Carichi di lavoro di Power Worker
-
-:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabella dei profili VDI comuni per VMware Horizon per i carichi di lavoro di Power Worker VSI di login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="horizon-sizing-inputs"></a>Input di ridimensionamento dell'orizzonte
 
@@ -189,24 +209,9 @@ Se distribuito in una soluzione VMware di Azure e in locale, come nel caso di ut
 
 Collaborare con il team di vendita VMware EUC per determinare il costo della licenza Horizon in base alle esigenze.
 
-### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Costo delle macchine virtuali dell'infrastruttura Horizon nella rete virtuale di Azure
+### <a name="azure-instance-types"></a>Tipi di istanza di Azure
 
-In base all'architettura di distribuzione standard, le macchine virtuali dell'infrastruttura Horizon sono costituite da server di connessione, UAGs e responsabili del volume delle app. Vengono distribuiti nella rete virtuale di Azure del cliente. Sono necessarie altre istanze native di Azure per supportare i servizi di disponibilità elevata, Microsoft SQL o Microsoft Active Directory (AD) in Azure. La tabella elenca le istanze di Azure in base a un esempio di distribuzione di 2.000 desktop. 
-
->[!NOTE]
->Per essere in grado di gestire l'errore, distribuire un server più del necessario per il numero di connessioni (n + 1). Il numero minimo consigliato di istanze del server di connessione, UAG e gestione volumi app è 2 e il numero di richieste aumenterà in base alla quantità di utenti che verrà supportata dall'ambiente.  Un singolo server di connessione supporta un massimo di 4.000 sessioni, sebbene la procedura consigliata sia 2.000. Sono supportati fino a sette server di connessione per ogni pod con una raccomandazione di 12.000 sessioni attive in totale per ogni pod. Per i numeri più recenti, vedere l' [articolo della Knowledge Base VMware limiti di ridimensionamento e consigli per VMware Horizon 7](https://kb.vmware.com/s/article/2150348).
-
-| Componente dell'infrastruttura Horizon | Istanza di Azure | Numero di istanze necessarie (per 2.000-desktop)    | Commento  |
-|----------------------------------|----------------|----------------------------------------------------|----------|
-| Server di connessione                | D4sv3          | 2       | *Vedere la nota sopra*                         |    
-| UAG                              | F2sv2          | 2       | *Vedere la nota sopra*                         |
-| Gestione volumi app              | D4sv3          | 2       | *Vedere la nota sopra*                         |
-| Connettore Cloud                  | D4sv3          | 1       |                                          |
-| Controller AD                    | D4sv3          | 2       | *Opzione per usare il servizio AD di MSFT in Azure* |
-| Database MS-SQL                  | D4sv3          | 2       | *Opzione per l'uso del servizio SQL in Azure*     |
-| Condivisione file di Windows               | D4sv3          |         | *Facoltativo*                               |
-
-Il costo della macchina virtuale dell'infrastruttura è pari a \$ 0,36 per utente al mese per la distribuzione di 2.000 desktop nell'esempio precedente. Questo esempio usa l'istanza di Azure Stati Uniti orientali 2020 prezzi. I prezzi possono variare in base all'area, alle opzioni selezionate e alla tempistica.
+Per informazioni sulle dimensioni delle macchine virtuali di Azure che saranno necessarie per l'infrastruttura Horizon, vedere le linee guida di VMware disponibili [qui](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulla soluzione VMware Horizon in Azure, vedere le [domande frequenti](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)su VMware Horizon.

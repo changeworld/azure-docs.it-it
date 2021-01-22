@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 3490e3004e5f5dd99795967f0deb8510200fa50b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311044"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683341"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Usare identità gestite con Azure Machine Learning (anteprima)
 
@@ -59,7 +59,7 @@ Se l'utente amministratore di ACR non è consentito dai criteri di sottoscrizion
 [Creare ACR dall'interfaccia della riga di comando di Azure](../container-registry/container-registry-get-started-azure-cli.md) senza impostare l' ```--admin-enabled``` argomento o da portale di Azure senza abilitare l'utente amministratore. Quindi, quando si crea Azure Machine Learning area di lavoro, specificare l'ID risorsa di Azure del record di verifica. L'esempio seguente illustra la creazione di una nuova area di lavoro di Azure ML che usa un record di registro esistente:
 
 > [!TIP]
-> Per ottenere il valore per il `--container-registry` parametro, usare il comando [AZ ACR Show](/cli/azure/acr?view=azure-cli-latest#az_acr_show) per visualizzare le informazioni per il record di controllo di stato. Il `id` campo contiene l'ID risorsa per il record di registro di sistema.
+> Per ottenere il valore per il `--container-registry` parametro, usare il comando [AZ ACR Show](/cli/azure/acr#az_acr_show) per visualizzare le informazioni per il record di controllo di stato. Il `id` campo contiene l'ID risorsa per il record di registro di sistema.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace name> \
@@ -90,7 +90,7 @@ Se non si usa il proprio ACR, Azure Machine Learning servizio ne creerà uno qua
 
     Questo comando restituisce un valore simile al testo seguente. Si desidera solo l'ultima parte del testo, ovvero il nome dell'istanza di ACR:
 
-    ```text
+    ```output
     /subscriptions/<subscription id>/resourceGroups/<my resource group>/providers/MicrosoftContainerReggistry/registries/<ACR instance name>
     ```
 

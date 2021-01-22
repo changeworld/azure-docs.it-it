@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Risoluzione dei problemi comuni relativi ai cluster Kubernetes con abilitazione di Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
-ms.openlocfilehash: 42c90708854af6973ed1ef399b9867101a736b07
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 0827386eb6ec089cf7951e8fa513a77fc78aef22
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586160"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684090"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting-preview"></a>Risoluzione dei problemi di Kubernetes con abilitazione di Azure Arc (anteprima)
 
@@ -24,7 +24,7 @@ In questo documento vengono illustrati alcuni scenari comuni di risoluzione dei 
 ### <a name="azure-cli-set-up"></a>Configurazione dell'interfaccia della riga di comando di Azure
 Prima di usare i comandi della riga di comando az connectedk8s o az k8sconfiguration, assicurarsi che az sia impostato in modo da funzionare con la sottoscrizione di Azure corretta.
 
-```console
+```azurecli
 az account set --subscription 'subscriptionId'
 az account show
 ```
@@ -79,7 +79,7 @@ Per la connessione di cluster ad Azure è necessario accedere a una sottoscrizio
 
 Se il file kubeconfig fornito non dispone di autorizzazioni sufficienti per installare gli agenti di Azure Arc, il comando dell'interfaccia della riga di comando di Azure restituirà un errore durante il tentativo di chiamare l'API Kubernetes.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
@@ -94,7 +94,7 @@ Il proprietario del cluster deve usare un utente Kubernetes con autorizzazioni d
 
 Per l'installazione dell'agente di Azure Arc è necessario eseguire un set di contenitori nel cluster di destinazione. Se il cluster è in esecuzione su una connessione Internet lenta, il pull dell'immagine del contenitore potrebbe richiedere più tempo dei timeout dell'interfaccia della riga di comando di Azure.
 
-```console
+```azurecli
 $ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.

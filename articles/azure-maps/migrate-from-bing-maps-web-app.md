@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: ef2c69409ce3f479338ffc9d418b3469f197ad30
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
-ms.translationtype: HT
+ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679393"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684826"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Esercitazione: Eseguire la migrazione di un'app Web da Bing Maps
 
@@ -85,7 +85,7 @@ Mappe di Azure include anche molti [moduli open source per l'SDK Web](open-sourc
 
 Di seguito sono riportate alcune delle principali differenze tra Bing Maps SDK e Azure Maps Web SDK da tenere presenti:
 
-* Oltre a fornire un endpoint ospitato per l'accesso ad Azure Maps Web SDK, è disponibile anche un pacchetto NPM per incorporare Web SDK nelle app, se si preferisce. Per altre informazioni, vedere questa [documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control). Questo pacchetto include anche le definizioni TypeScript.
+* Oltre a fornire un endpoint ospitato per l'accesso ad Azure Maps Web SDK, è disponibile anche un pacchetto NPM per incorporare Web SDK nelle app, se si preferisce. Per altre informazioni, vedere questa [documentazione](./how-to-use-map-control.md). Questo pacchetto include anche le definizioni TypeScript.
 * Bing Maps include due rami ospitati dell'SDK, Release e Experimental. Il ramo Experimental può ricevere più aggiornamenti al giorno quando viene implementato un nuovo sviluppo. Mappe di Azure ospita solo un ramo Release, mentre le funzionalità sperimentali vengono create come moduli personalizzati nel progetto di esempi di codice di Mappe di Azure open source. Bing Maps aveva anche un ramo bloccato che veniva aggiornato con una minore frequenza, riducendo in tal modo il rischio di modifiche di rilievo dovute a una versione. In Mappe di Azure è possibile usare il modulo NPM e puntare a qualsiasi versione secondaria precedente.
 
 > [!TIP]
@@ -95,7 +95,7 @@ Di seguito sono riportate alcune delle principali differenze tra Bing Maps SDK e
 * Entrambe le piattaforme usano un sistema a tessere simile per le mappe di base, tuttavia le dimensioni delle tessere in Bing Maps sono di 256 pixel mentre quelle di Mappe di Azure sono di 512 pixel. Di conseguenza, per ottenere la stessa visualizzazione mappa di Bing Maps, in Mappe di Azure è necessario sottrarre 1 dal livello di zoom usato in Bing Maps.
 * Le coordinate in Bing Maps sono identificate da `latitude, longitude`, mentre Mappe di Azure usa `longitude, latitude`. Questo formato è in linea con lo standard `[x, y]` seguito dalla maggior parte delle piattaforme GIS.
 
-* Le forme in Azure Maps Web SDK sono basate sullo schema GeoJSON. Le classi helper vengono esposte tramite lo spazio dei nomi [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). È disponibile anche la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) che può essere usata per eseguire il wrapping di oggetti GeoJSON e semplificarne l'aggiornamento e la gestione grazie al binding dei dati.
+* Le forme in Azure Maps Web SDK sono basate sullo schema GeoJSON. Le classi helper vengono esposte tramite lo spazio dei nomi [atlas.data](/javascript/api/azure-maps-control/atlas.data). È disponibile anche la classe [atlas.Shape](/javascript/api/azure-maps-control/atlas.shape) che può essere usata per eseguire il wrapping di oggetti GeoJSON e semplificarne l'aggiornamento e la gestione grazie al binding dei dati.
 * Le coordinate in Mappe di Azure sono definite come oggetti Position che possono essere specificati come una semplice matrice di numeri nel formato `[longitude, latitude]` o `new atlas.data.Position(longitude, latitude)`.
 
 > [!TIP]

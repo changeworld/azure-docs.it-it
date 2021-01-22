@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 9a005712eda1e735608e3ddf93be2bba98fbdcd3
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
-ms.translationtype: HT
+ms.openlocfilehash: 68b96401fc4fc6ea8916664978dbd4c094d9e5b4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630048"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684526"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Interfaccia della riga di comando di Azure: limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
@@ -155,4 +155,4 @@ az snapshot create -n $snapshotNameSecuredWithPL \
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Domande frequenti sui collegamenti privati](../faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
-- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con l'interfaccia della riga di comando](../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md)
+- [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con l'interfaccia della riga di comando](/previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-vhd)

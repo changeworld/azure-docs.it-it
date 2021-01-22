@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45df700cc1772250e42a0e007fb4ea91b49471ba
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450181"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684204"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorare le distribuzioni IoT Edge
 
@@ -41,7 +41,7 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 1. Selezionare **IoT Edge** nel riquadro a sinistra.
 1. Selezionare la scheda **Distribuzioni di IoT Edge**.
-1. Esaminare l'elenco delle distribuzioni. Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
+1. Esaminare l'elenco delle distribuzioni.  Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
 
     | Colonna | Descrizione |
     | --- | --- |
@@ -54,7 +54,7 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
     | Metriche personalizzate | Numero di dispositivi IoT Edge che segnalano i dati per le metriche definite per la distribuzione. |
     | Data creazione | Timestamp relativo alla creazione della distribuzione. Questo timestamp viene usato per stabilire la prevalenza quando due distribuzioni hanno la stessa priorità. |
 
-1. Selezionare la distribuzione che si vuole monitorare.  
+1. Selezionare la distribuzione che si vuole monitorare.  
 1. Nella pagina **Dettagli della distribuzione** scorrere fino alla sezione inferiore e selezionare la scheda **Condizione di destinazione**. Selezionare **Visualizza** per elencare i dispositivi che soddisfano la condizione di destinazione. È possibile modificare sia la condizione che il valore di **Priorità**. Se sono state apportate modifiche, selezionare **Salva**.
 
    ![Visualizzare i dispositivi di destinazione per una distribuzione](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
@@ -69,7 +69,7 @@ Per apportare modifiche alla distribuzione, vedere [Modificare una distribuzione
 
 Usare il comando [az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) per visualizzare i dettagli di una singola distribuzione:
 
-```cli
+```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
@@ -78,7 +78,7 @@ Il comando deployment show accetta i parametri seguenti:
 * **--deployment-id** - Nome della distribuzione esistente nell'hub IoT. Parametro obbligatorio.
 * **--hub-name** - Nome dell'hub IoT in cui si trova la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 
-Ispezionare la distribuzione nella finestra di comando. La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
+Ispezionare la distribuzione nella finestra di comando.  La proprietà **metrics** visualizza un conteggio per ogni metrica valutata da ciascun hub:
 
 * **targetedCount** - Metrica di sistema che specifica il numero di dispositivi gemelli presenti nell'hub IoT che corrispondono alla condizione di destinazione.
 * **appliedCount** - Metrica di sistema che specifica il numero di dispositivi ai cui moduli gemelli nell'hub IoT è stato applicato il contenuto della distribuzione.
@@ -87,7 +87,7 @@ Ispezionare la distribuzione nella finestra di comando. La proprietà **metrics
 
 È possibile visualizzare un elenco di oggetti o ID dispositivo per ognuna delle metriche tramite il comando [az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric):
 
-```cli
+```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
 ```
 

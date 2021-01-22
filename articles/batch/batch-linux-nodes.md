@@ -2,14 +2,14 @@
 title: Eseguire Linux nei nodi di calcolo delle macchine virtuali
 description: Informazioni su come elaborare carichi di lavoro di calcolo paralleli nei pool di macchine virtuali Linux in Azure Batch.
 ms.topic: how-to
-ms.date: 11/10/2020
+ms.date: 01/21/2021
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0a9c801a13af05f077b87f296992da7f50742e4b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: c711ec0d035b9b59ec7628a51fe3cff26de358bc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533498"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683701"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Eseguire il provisioning di nodi di calcolo Linux nei pool di Batch
 
@@ -17,9 +17,7 @@ ms.locfileid: "94533498"
 
 ## <a name="virtual-machine-configuration"></a>Configurazione macchina virtuale
 
-Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni per la selezione delle dimensioni e del sistema operativo del nodo: la configurazione di servizi cloud e la configurazione della macchina virtuale. La maggior parte dei pool di nodi di calcolo di Windows usa la [configurazione dei servizi cloud](nodes-and-pools.md#cloud-services-configuration), che specifica che il pool è costituito da nodi di servizi cloud di Azure. Questi pool forniscono solo nodi di calcolo di Windows.
-
-Al contrario, la [configurazione della macchina virtuale](nodes-and-pools.md#virtual-machine-configuration) specifica che il pool è costituito da macchine virtuali di Azure, che possono essere create da immagini Linux o Windows. Quando si crea un pool con la configurazione della macchina virtuale, è necessario specificare una [dimensione del nodo di calcolo disponibile](../virtual-machines/sizes.md), il riferimento all'immagine della macchina virtuale e lo SKU dell'agente del nodo batch (un programma eseguito in ogni nodo e fornisce un'interfaccia tra il nodo e il servizio batch) e il riferimento all'immagine della macchina virtuale che verrà installato nei nodi.
+Quando si crea un pool di nodi di calcolo in Batch, sono disponibili due opzioni per la selezione delle dimensioni e del sistema operativo del nodo: la configurazione di servizi cloud e la configurazione della macchina virtuale. I pool di [configurazione delle macchine virtuali](nodes-and-pools.md#virtual-machine-configuration) sono costituiti da macchine virtuali di Azure, che possono essere create da immagini Linux o Windows. Quando si crea un pool con la configurazione della macchina virtuale, si specificano le [dimensioni del nodo di calcolo disponibili](../virtual-machines/sizes.md), il riferimento all'immagine della macchina virtuale da installare nei nodi e lo SKU dell'agente del nodo batch (un programma eseguito in ogni nodo e fornisce un'interfaccia tra il nodo e il servizio batch).
 
 ### <a name="virtual-machine-image-reference"></a>Riferimento all'immagine della macchina virtuale
 
@@ -35,7 +33,11 @@ Quando si crea un riferimento a un'immagine di macchina virtuale, è necessario 
 | Versione |più recenti |
 
 > [!TIP]
-> Per altre informazioni su queste proprietà e su come specificare immagini del Marketplace, [vedere trovare immagini di VM Linux in Azure Marketplace con l'interfaccia della](../virtual-machines/linux/cli-ps-findimage.md)riga di comando di Azure. Si noti che non tutte le immagini del Marketplace sono attualmente compatibili con Batch.
+> Per altre informazioni su queste proprietà e su come specificare immagini del Marketplace, [vedere trovare immagini di VM Linux in Azure Marketplace con l'interfaccia della](../virtual-machines/linux/cli-ps-findimage.md)riga di comando di Azure. Si noti che alcune immagini del Marketplace non sono attualmente compatibili con batch.
+
+### <a name="list-of-virtual-machine-images"></a>Elenco di immagini di macchine virtuali
+
+Non tutte le immagini del Marketplace sono compatibili con gli agenti del nodo batch attualmente disponibili. Per elencare tutte le immagini di macchine virtuali del Marketplace supportate per il servizio batch e i relativi SKU dell'agente del nodo, usare [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (batch .NET) o l'API corrispondente in un altro SDK per il linguaggio.
 
 ### <a name="node-agent-sku"></a>SKU dell'agente del nodo
 
@@ -44,10 +46,6 @@ L' [agente del nodo batch](https://github.com/Azure/Batch/blob/master/changelogs
 - batch.node.ubuntu 18.04
 - batch.node.centos 7
 - batch.node.windows amd64
-
-### <a name="list-of-virtual-machine-images"></a>Elenco di immagini di macchine virtuali
-
-Non tutte le immagini del Marketplace sono compatibili con gli agenti del nodo batch attualmente disponibili. Per elencare tutte le immagini di macchine virtuali del Marketplace supportate per il servizio batch e i relativi SKU dell'agente del nodo, usare [list_supported_images](/python/api/azure-batch/azure.batch.operations.AccountOperations#list-supported-images-account-list-supported-images-options-none--custom-headers-none--raw-false----operation-config-) (Python), [ListSupportedImages](/dotnet/api/microsoft.azure.batch.pooloperations.listsupportedimages) (batch .NET) o l'API corrispondente in un altro SDK per il linguaggio.
 
 ## <a name="create-a-linux-pool-batch-python"></a>Creare un pool Linux: Batch Python
 
@@ -269,7 +267,7 @@ Invece di una password, è possibile specificare una chiave pubblica SSH durante
 
 ## <a name="pricing"></a>Prezzi
 
-Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio Batch è gratuito, vengono quindi addebitate solo le risorse di calcolo usate dalle soluzioni Batch e i costi associati che comportano. Scegliendo la **configurazione della macchina virtuale** , i costi verranno addebitati in base alla struttura dei [prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
+Azure Batch è basato sulla tecnologia di Servizi cloud di Azure e di Macchine virtuali di Azure. Il servizio Batch è gratuito, vengono quindi addebitate solo le risorse di calcolo usate dalle soluzioni Batch e i costi associati che comportano. Scegliendo la **configurazione della macchina virtuale**, i costi verranno addebitati in base alla struttura dei [prezzi di Macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
 Se si distribuiscono applicazioni ai nodi Batch tramite [pacchetti dell'applicazione](batch-application-packages.md), vengono inoltre addebitati i costi per le risorse di Archiviazione di Azure utilizzate dai pacchetti dell'applicazione.
 

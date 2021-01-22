@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 4f68eba8106a20d357fe6d3fb2baac1d1661aa1e
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660539"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684006"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
@@ -117,49 +117,9 @@ Verrà aperto Gestione pacchetti NuGet. Selezionare la scheda *Aggiornamenti* e 
 
 ### <a name="publish-the-app"></a>Pubblicare l'app
 
-Tornare nella finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_. Nel riquadro *Esplora soluzioni* fare clic con il pulsante destro del mouse per selezionare il file di progetto _**SampleFunctionsApp**_ e scegliere **Pubblica**.
+Tornare alla finestra di Visual Studio in cui è aperto il progetto _**AdtE2ESample**_ , individuare il progetto _**SampleFunctionsApp**_ nel riquadro *Esplora soluzioni* .
 
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-1.png" alt-text="Visual Studio: pubblicare il progetto":::
-
-Nella pagina *Pubblica* che segue lasciare la selezione di destinazione predefinita, **Azure**, e premere *Avanti*. 
-
-Per una destinazione specifica, scegliere **App per le funzioni di Azure (Windows)** e premere *Avanti*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-2.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: destinazione specifica":::
-
-Nella pagina *Istanza di Funzioni* scegliere la propria sottoscrizione. Si dovrebbe popolare una finestra con i *gruppi di risorse* della sottoscrizione.
-
-Selezionare il gruppo di risorse dell'istanza e quindi premere *+* per creare una nuova funzione di Azure.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-3.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: Istanza di Funzioni (prima dell'app per le funzioni)":::
-
-Nella finestra *App per le funzioni (Windows) - Crea nuova* compilare i campi come segue:
-* **Nome** è il nome del piano a consumo che verrà usato da Azure per ospitare l'app di Funzioni di Azure. Diventerà anche il nome dell'app per le funzioni che contiene la funzione effettiva. È possibile scegliere un valore univoco o lasciare il suggerimento predefinito.
-* Assicurarsi che **Sottoscrizione** corrisponda alla sottoscrizione da usare 
-* Assicurarsi che **Gruppo di risorse** corrisponda al gruppo di risorse da usare
-* Lasciare **Consumo** per *Tipo di piano*
-* In **Località** selezionare la località che corrisponde al gruppo di risorse
-* Creare una nuova risorsa **Archiviazione di Azure** usando il collegamento *Nuovo*. Impostare la località che corrisponde al gruppo di risorse, usare gli altri valori predefiniti e premere "OK".
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: App per le funzioni (Windows) - Crea nuova":::
-
-Scegliere quindi **Create** (Crea).
-
-Verrà visualizzata di nuovo la pagina *Istanza di Funzioni*, in cui è ora visibile la nuova app per le funzioni sotto il gruppo di risorse. Premere *Fine*.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: Istanza di Funzioni (dopo l'app per le funzioni)":::
-
-Nel riquadro *Pubblica* visualizzato di nuovo nella finestra principale di Visual Studio verificare che tutte le informazioni siano corrette e selezionare **Pubblica**.
-
-:::image type="content" source="media/tutorial-end-to-end/publish-azure-function-6.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: pubblicazione":::
-
-> [!NOTE]
-> Se viene visualizzato un popup simile al seguente: :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Pubblicare la funzione di Azure in Visual Studio: credenziali di pubblicazione" border="false":::
-> Selezionare **Tentativo di recuperare le credenziali da Azure** e quindi **Salva**.
->
-> Se viene visualizzato un avviso per *aggiornare la versione di Funzioni in Azure* o che indica che *la versione del runtime di Funzioni non corrisponde alla versione in esecuzione in Azure*:
->
-> seguire le istruzioni per eseguire l'aggiornamento alla versione più recente del runtime di Funzioni di Azure. Questo problema può verificarsi se si usa una versione di Visual Studio meno recente rispetto a quella consigliata nella sezione *Prerequisiti* all'inizio di questa esercitazione.
+[!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
 ### <a name="assign-permissions-to-the-function-app"></a>Assegnare le autorizzazioni all'app per le funzioni
 

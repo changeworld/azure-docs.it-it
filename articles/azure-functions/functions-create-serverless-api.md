@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 7375a46245fbe523ddf0512bb5a55371adff64e9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104751"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683743"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Personalizzare un endpoint HTTP in funzioni di Azure
 
@@ -86,7 +86,7 @@ In questa sezione viene creato un nuovo proxy, che funge da front-end per l'API 
 
 ### <a name="setting-up-the-frontend-environment"></a>Configurazione dell'ambiente front-end
 
-Ripetere i passaggi per [creare un'app per le funzioni](./functions-create-first-azure-function.md#create-a-function-app), creando una nuova app per le funzioni in cui verrà creato il proxy. Questo nuovo URL dell'app funge da front-end per l'API e l'app per le funzioni che in precedenza veniva modificata funge da back-end.
+Ripetere i passaggi per [creare un'app per le funzioni](./functions-get-started.md), creando una nuova app per le funzioni in cui verrà creato il proxy. Questo nuovo URL dell'app funge da front-end per l'API e l'app per le funzioni che in precedenza veniva modificata funge da back-end.
 
 1. Passare alla nuova app per le funzioni front-end nel portale.
 1. Selezionare **Funzionalità della piattaforma** e scegliere **Impostazioni applicazione**.
@@ -101,7 +101,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](./functions-create-first
 
 1. Tornare all'app per le funzioni front-end nel portale.
 
-1. Nel menu a sinistra selezionare **proxy**e quindi selezionare **Aggiungi**. 
+1. Nel menu a sinistra selezionare **proxy** e quindi selezionare **Aggiungi**. 
 
 1. Nella pagina **nuovo proxy** usare le impostazioni riportate nella tabella seguente e quindi selezionare **Crea**.
 
@@ -112,7 +112,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](./functions-create-first
     | URL back-end | https://%HELLO_HOST%/api/hello | Specifica l'endpoint a cui la richiesta deve essere trasmessa tramite proxy |
 
     
-    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Personalizzazione di una funzione HTTP":::
+    :::image type="content" source="./media/functions-create-serverless-api/creating-proxy.png" alt-text="Creazione di un proxy":::
 
     Proxy di Funzioni di Azure non fornisce il `/api` prefisso del percorso di base, che deve essere incluso nel modello di route. La `%HELLO_HOST%` sintassi fa riferimento all'impostazione dell'app creata in precedenza. L'URL risolto punterà alla funzione originale.
 
@@ -124,7 +124,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](./functions-create-first
 
 Si userà quindi un proxy per creare un'API fittizia per la soluzione. Questo proxy consente lo sviluppo dei client, senza la necessità che il back-end sia completamente implementato. Successivamente, è possibile creare una nuova app per le funzioni, che supporta questa logica e reindirizza il proxy.
 
-Per creare questa API fittizia, si creerà un nuovo proxy, questa volta usando il [Editor del servizio app](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Per iniziare passare all'app per le funzioni nel portale. Selezionare **funzionalità della piattaforma**e in **strumenti di sviluppo** trova **Editor del servizio app**. Il editor del servizio app viene aperto in una nuova scheda.
+Per creare questa API fittizia, si creerà un nuovo proxy, questa volta usando il [Editor del servizio app](https://github.com/projectkudu/kudu/wiki/App-Service-Editor). Per iniziare passare all'app per le funzioni nel portale. Selezionare **funzionalità della piattaforma** e in **strumenti di sviluppo** trova **Editor del servizio app**. Il editor del servizio app viene aperto in una nuova scheda.
 
 Selezionare `proxies.json` nel riquadro di spostamento sinistro. Questo file archivia la configurazione per tutti i proxy. Se si usa uno dei [metodi di distribuzione delle funzioni](./functions-continuous-deployment.md), questo file viene mantenuto nel controllo del codice sorgente. Per altre informazioni su questo file, vedere [Configurazione avanzata](./functions-proxies.md#advanced-configuration).
 
@@ -195,5 +195,5 @@ I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'A
 - [Documentazione di un'API di Funzioni di Azure (anteprima)](./functions-openapi-definition.md)
 
 
-[Create your first function]: ./functions-create-first-azure-function.md
+[Create your first function]: ./functions-get-started.md
 [Uso dei proxy di Funzioni di Azure]: ./functions-proxies.md

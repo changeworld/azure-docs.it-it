@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b8738b46359287ce1d4e410292cdce213ab80999
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: 9077ce35065b1bf45646496cc4c43d6def82d958
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115821"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685226"
 ---
 # <a name="what-is-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Che cos'è il pool SQL dedicato (in precedenza SQL Data Warehouse) in Azure Synapse Analytics?
 
@@ -29,7 +29,7 @@ Azure Synapse Analytics è un servizio di analisi che riunisce funzionalità azi
 
 Il pool SQL dedicato (in precedenza SQL Data Warehouse) rappresenta una raccolta di risorse di analisi di cui viene effettuato il provisioning quando si usa Synapse SQL. Le dimensioni di un pool SQL dedicato (in precedenza SQL Data Warehouse) sono determinate da unità Data Warehouse (DWU).
 
-Una volta creato un pool SQL dedicato, è possibile importare i Big Data con semplici query T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e quindi sfruttare la potenza del motore di query distribuito per eseguire analisi a elevate prestazioni. Man mano che si procede con l'integrazione e l'analisi dei dati, il pool SQL dedicato (in precedenza SQL Data Warehouse) diventerà il punto di riferimento dell'azienda da cui ricavare più rapidamente informazioni dettagliate più affidabili.
+Una volta creato un pool SQL dedicato, è possibile importare i Big Data con semplici query T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e quindi sfruttare la potenza del motore di query distribuito per eseguire analisi a elevate prestazioni. Man mano che si procede con l'integrazione e l'analisi dei dati, il pool SQL dedicato (in precedenza SQL Data Warehouse) diventerà il punto di riferimento dell'azienda da cui ricavare più rapidamente informazioni dettagliate più affidabili.
 
 > [!NOTE]
 >Esplorare la [documentazione di Azure Synapse Analytics](../overview-what-is.md).

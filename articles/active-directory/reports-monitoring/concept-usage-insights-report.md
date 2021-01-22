@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 54bce5e839786862a6dac9aeb685dd364547a09a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122742"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685030"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report sull'utilizzo e le informazioni dettagliate nel portale Azure Active Directory
 
@@ -42,7 +42,7 @@ Per accedere ai dati dal report utilizzo e informazioni dettagliate, è necessar
 ## <a name="access-the-usage-and-insights-report"></a>Accedere al report utilizzo e informazioni dettagliate
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-2. Selezionare la directory giusta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali** .
+2. Selezionare la directory giusta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali**.
 3. Nella sezione **Activity** selezionare **Usage & Insights** per aprire il report. 
 
 ![Screenshot mostra l'utilizzo & Insights selezionato dalla sezione Activity.](./media/concept-usage-insights-report/main-menu.png)
@@ -52,13 +52,15 @@ Per accedere ai dati dal report utilizzo e informazioni dettagliate, è necessar
 
 Il report utilizzo e informazioni dettagliate Mostra l'elenco di applicazioni con uno o più tentativi di accesso e consente di eseguire l'ordinamento in base al numero di accessi riusciti, gli accessi non riusciti e la percentuale di successo.
 
-Facendo clic su carica altro nella parte inferiore dell'elenco è possibile visualizzare altre applicazioni nella pagina. È possibile selezionare l'intervallo di date per visualizzare tutte le applicazioni utilizzate nell'intervallo.
+Facendo clic su **carica altro** nella parte inferiore dell'elenco è possibile visualizzare altre applicazioni nella pagina. È possibile selezionare l'intervallo di date per visualizzare tutte le applicazioni utilizzate nell'intervallo.
 
-È inoltre possibile impostare lo stato attivo su un'applicazione specifica. Selezionare **Visualizza attività di accesso** per visualizzare l'attività di accesso nel tempo per l'applicazione, nonché gli errori principali.  
+![Screenshot mostra informazioni sull'utilizzo & per le attività dell'applicazione in cui è possibile selezionare un intervallo e visualizzare l'attività di accesso per le diverse app.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+
+È inoltre possibile impostare lo stato attivo su un'applicazione specifica. Selezionare **Visualizza attività di accesso** per visualizzare l'attività di accesso nel tempo per l'applicazione e gli errori principali.  
 
 Quando si seleziona un giorno nel grafico sull'utilizzo dell'applicazione, si ottiene un elenco dettagliato delle attività di accesso per l'applicazione.  
 
-![Screenshot mostra informazioni sull'utilizzo & per le attività dell'applicazione in cui è possibile selezionare un intervallo e visualizzare l'attività di accesso per le diverse app.](./media/concept-usage-insights-report/usage-and-insights-report.png)
+:::image type="content" source="./media/concept-usage-insights-report/usage-and-insights-application-report.png" alt-text="Screenshot mostra informazioni sull'utilizzo & per un'applicazione specifica in cui è possibile visualizzare un grafico per l'attività di accesso.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

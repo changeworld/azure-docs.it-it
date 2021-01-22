@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: 4ebb16186e613affdb886a8819240d47f944c42f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763541"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684611"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure
 
@@ -49,11 +49,11 @@ L'agente di orchestrazione dell'aggiornamento del sistema operativo del set di s
 >L'aggiornamento automatico del sistema operativo non aggiorna lo SKU dell'immagine di riferimento nel set di scalabilità. Per modificare lo SKU (ad esempio Ubuntu 16,04-LTS in 18,04-LTS), è necessario aggiornare il [modello del set di scalabilità](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) direttamente con lo SKU dell'immagine desiderata. Non è possibile modificare l'offerta e l'autore dell'immagine per un set di scalabilità esistente.  
 
 ## <a name="supported-os-images"></a>Immagini del sistema operativo supportate
-Attualmente sono supportate solo alcune immagini della piattaforma del sistema operativo. Le immagini personalizzate [sono supportate](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se il set di scalabilità usa immagini personalizzate tramite la [raccolta di immagini condivise](shared-image-galleries.md).
+Attualmente sono supportate solo alcune immagini della piattaforma del sistema operativo. Le immagini personalizzate [sono supportate](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) se il set di scalabilità usa immagini personalizzate tramite la [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md).
 
 Gli SKU di piattaforma seguenti sono attualmente supportati e altri vengono aggiunti periodicamente:
 
-| Editore               | Offerta sistema operativo      |  Sku               |
+| Publisher               | Offerta sistema operativo      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
@@ -89,11 +89,11 @@ Verificare che le impostazioni di durabilità non corrispondano a quelle del clu
 
 ## <a name="automatic-os-image-upgrade-for-custom-images"></a>Aggiornamento automatico delle immagini del sistema operativo per le immagini personalizzate
 
-L'aggiornamento automatico delle immagini del sistema operativo è supportato per le immagini personalizzate distribuite tramite la [raccolta di immagini condivise](shared-image-galleries.md). Altre immagini personalizzate non sono supportate per gli aggiornamenti automatici delle immagini del sistema operativo.
+L'aggiornamento automatico delle immagini del sistema operativo è supportato per le immagini personalizzate distribuite tramite la [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md). Altre immagini personalizzate non sono supportate per gli aggiornamenti automatici delle immagini del sistema operativo.
 
 ### <a name="additional-requirements-for-custom-images"></a>Requisiti aggiuntivi per le immagini personalizzate
 - Il processo di installazione e configurazione per l'aggiornamento automatico delle immagini del sistema operativo è lo stesso per tutti i set di scalabilità, come descritto in dettaglio nella [sezione di configurazione](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) di questa pagina.
-- Le istanze dei set di scalabilità configurate per gli aggiornamenti automatici delle immagini del sistema operativo verranno aggiornate alla versione più recente dell'immagine della raccolta di immagini condivise quando viene pubblicata una nuova versione dell'immagine e [replicata](shared-image-galleries.md#replication) nell'area del set di scalabilità. Se la nuova immagine non viene replicata nell'area in cui viene distribuita la scala, le istanze del set di scalabilità non verranno aggiornate alla versione più recente. La replica di immagini internazionali consente di controllare l'implementazione della nuova immagine per i set di scalabilità.
+- Le istanze dei set di scalabilità configurate per gli aggiornamenti automatici delle immagini del sistema operativo verranno aggiornate alla versione più recente dell'immagine della raccolta di immagini condivise quando viene pubblicata una nuova versione dell'immagine e [replicata](../virtual-machines/shared-image-galleries.md#replication) nell'area del set di scalabilità. Se la nuova immagine non viene replicata nell'area in cui viene distribuita la scala, le istanze del set di scalabilità non verranno aggiornate alla versione più recente. La replica di immagini internazionali consente di controllare l'implementazione della nuova immagine per i set di scalabilità.
 - La nuova versione dell'immagine non deve essere esclusa dalla versione più recente dell'immagine della raccolta. Le versioni delle immagini escluse dalla versione più recente dell'immagine della raccolta non vengono implementate nel set di scalabilità tramite l'aggiornamento automatico delle immagini del sistema operativo.
 
 > [!NOTE]

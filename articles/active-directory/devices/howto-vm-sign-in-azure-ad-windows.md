@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2c9d7e2388d2da7a807fbf6b579360115a8323
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629800"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683777"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -335,7 +335,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 Verificare di aver [configurato i criteri](../../virtual-machines/linux/login-using-aad.md) di controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente il ruolo di accesso dell'amministratore della macchina virtuale o dell'utente della macchina virtuale
 
 > [!NOTE]
-> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere risolvere i problemi [relativi a RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#azure-role-assignments-limit).
+> Se si verificano problemi con le assegnazioni di ruolo di Azure, vedere risolvere i problemi [relativi a RBAC di Azure](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
  
 #### <a name="unauthorized-client"></a>Client non autorizzato
 

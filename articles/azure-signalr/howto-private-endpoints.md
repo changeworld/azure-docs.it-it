@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 92e93c3746308d2d6c1a489efc6b5c866b0ad2d9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152332"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682631"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Usare endpoint privati per il servizio Azure SignalR
 
@@ -93,7 +93,7 @@ Per ulteriori informazioni sulla configurazione del server DNS per supportare en
 
     ![Creare il servizio Azure SignalR-scheda rete](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
 
-1. Scegliere **Aggiungi**. Compilare la sottoscrizione, il gruppo di risorse, la località e il nome per il nuovo endpoint privato. Scegliere una rete virtuale e una subnet.
+1. Fare clic su **Aggiungi**. Compilare la sottoscrizione, il gruppo di risorse, la località e il nome per il nuovo endpoint privato. Scegliere una rete virtuale e una subnet.
 
     ![Creare un servizio Azure SignalR-Aggiungi endpoint privato](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
@@ -126,55 +126,55 @@ Per ulteriori informazioni sulla configurazione del server DNS per supportare en
 ### <a name="create-a-private-endpoint-using-azure-cli"></a>Creare un endpoint privato con l'interfaccia della riga di comando di Azure
 
 1. Accedere all'interfaccia della riga di comando di Azure
-    ```console
+    ```azurecli
     az login
     ```
 1. Selezionare la sottoscrizione di Azure
-    ```console
+    ```azurecli
     az account set --subscription {AZURE SUBSCRIPTION ID}
     ```
 1. Creare un nuovo gruppo di risorse
-    ```console
+    ```azurecli
     az group create -n {RG} -l {AZURE REGION}
     ```
 1. Registrare Microsoft. SignalRService come provider
-    ```console
+    ```azurecli
     az provider register -n Microsoft.SignalRService
     ```
 1. Creare un nuovo servizio Azure SignalR
-    ```console
+    ```azurecli
     az signalr create --name {NAME} --resource-group {RG} --location {AZURE REGION} --sku Standard_S1
     ```
 1. Creare una rete virtuale
-    ```console
+    ```azurecli
     az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
     ```
 1. Aggiungere una subnet
-    ```console
+    ```azurecli
     az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
     ```
 1. Disabilitare i criteri della rete virtuale
-    ```console
+    ```azurecli
     az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
     ```
 1. Creare una zona DNS privato
-    ```console
+    ```azurecli
     az network private-dns zone create --resource-group {RG} --name privatelink.service.signalr.net
     ```
 1. Collegare la zona DNS privato alla rete virtuale
-    ```console
+    ```azurecli
     az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.service.signalr.net --name {dnsZoneLinkName} --registration-enabled true
     ```
 1. Creare un endpoint privato (approvazione automatica)
-    ```console
+    ```azurecli
     az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION}
     ```
 1. Creare un endpoint privato (richiesta manuale di approvazione)
-    ```console
+    ```azurecli
     az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.SignalRService/SignalR/{NAME}" --group-ids signalr --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
     ```
 1. Visualizzare lo stato di connessione
-    ```console
+    ```azurecli
     az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
     ```
 

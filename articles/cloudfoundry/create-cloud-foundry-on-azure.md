@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: 65d8ade438228d7af71de1fc66639e5b6de2edda
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
-ms.translationtype: HT
+ms.openlocfilehash: 735c0955a25a3995c94c73bd6471643ce2783df3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040803"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98682615"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creare un cluster Pivotal Cloud Foundry in Azure
 
@@ -42,23 +42,29 @@ Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](../vi
 
 > [!NOTE]
 >
-> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario. Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest).
+> Per creare un'entità servizio è necessaria l'autorizzazione di un account proprietario. Inoltre, è possibile scrivere uno script per automatizzare la creazione dell'entità servizio. Ad esempio, usando l'interfaccia della riga di comando di Azure [az ad sp create-for-rbac](/cli/azure/ad/sp).
 
 1. Accedere all'account Azure.
 
-    `az login`
+    ```azurecli
+    az login
+    ```
 
     ![Login dell'interfaccia della riga di comando di Azure](media/deploy/az-login-output.png )
  
-    Copiare il valore "id" come l' **ID sottoscrizione** e il valore "tenantId" da usare in seguito.
+    Copiare il valore "id" come l'**ID sottoscrizione** e il valore "tenantId" da usare in seguito.
 
 2. Impostare la sottoscrizione predefinita per questa configurazione.
 
-    `az account set -s {id}`
+    ```azurecli
+    az account set -s {id}
+    ```
 
 3. Creare un'applicazione di Azure Active Directory per il PCF. Specificare una password alfanumerica univoca. Archiviare la password come **clientSecret** da usare successivamente.
 
-    `az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}`
+    ```azurecli
+    az ad app create --display-name "Svc Principal for OpsManager" --password {enter-your-password} --homepage "{enter-your-homepage}" --identifier-uris {enter-your-homepage}
+    ```
 
     Copiare il valore "appId" nell'output come **clientID** da usare successivamente.
 
@@ -68,23 +74,31 @@ Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](../vi
 
 4. Creare un'entità servizio con il nuovo ID app.
 
-    `az ad sp create --id {appId}`
+    ```azurecli
+    az ad sp create --id {appId}
+    ```
 
 5. Impostare il ruolo di autorizzazione dell'entità servizio come Collaboratore.
 
-    `az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee "{enter-your-homepage}" --role "Contributor"
+    ```
 
     In alternativa, è anche possibile usare
 
-    `az role assignment create --assignee {service-principal-name} --role "Contributor"`
+    ```azurecli
+    az role assignment create --assignee {service-principal-name} --role "Contributor"
+    ```
 
     ![Assegnazione di ruolo dell'entità servizio](media/deploy/svc-princ.png )
 
 6. Verificare di poter accedere correttamente all'entità servizio usando l'ID app, la password e l'ID tenant.
 
-    `az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}`
+    ```azurecli
+    az login --service-principal -u {appId} -p {your-password}  --tenant {tenantId}
+    ```
 
-7. Creare un file .json con il formato seguente. Usare i valori **ID sottoscrizione** , **tenantID** , **clientID** e **clientSecret** copiati in precedenza. Salvare il file.
+7. Creare un file .json con il formato seguente. Usare i valori **ID sottoscrizione**, **tenantID**, **clientID** e **clientSecret** copiati in precedenza. Salvare il file.
 
     ```json
     {

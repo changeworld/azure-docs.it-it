@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 52071b964412071d820745b173e8835c6f9e7d0e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 62f89106538ab7f57047e211fc8715878f889af1
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510992"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98684560"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Dischi del sistema operativo temporaneo per le macchine virtuali di Azure
 
@@ -26,7 +26,7 @@ Le funzionalità principali dei dischi temporanei sono:
 - Latenza inferiore, simile a un disco temporaneo. 
 - I dischi del sistema operativo temporaneo sono gratuiti e non vengono addebitati costi di archiviazione per il disco del sistema operativo.
 - Sono disponibili in tutte le aree di Azure. 
-- Il disco del sistema operativo temporaneo è supportato dalla [raccolta immagini condivise](./linux/shared-image-galleries.md). 
+- Il disco del sistema operativo temporaneo è supportato dalla [raccolta immagini condivise](./shared-image-galleries.md). 
  
 
  
@@ -240,7 +240,7 @@ R: Sì, è possibile creare macchine virtuali con disco del sistema operativo te
 R: i dischi temporanei non supportano:
 - Acquisizione di immagini di VM
 - Snapshot dei dischi 
-- Azure Disk Encryption 
+- Crittografia dischi di Azure 
 - Backup di Azure
 - Azure Site Recovery  
 - Scambio del disco del sistema operativo 
