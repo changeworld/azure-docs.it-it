@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: 404103caf376b792d363996664a69f655d5bd202
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 2ed19846209d098d9eba8dba991e08d1fc57f185
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96326013"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678010"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -39,7 +39,7 @@ Dopo aver creato l'account, è possibile trovare un GUID univoco nel campo **ID 
 
 Quando si crea un nuovo account batch, specificare `SystemAssigned` per il `--identity` parametro.
 
-```powershell
+```azurecli
 resourceGroupName='myResourceGroup'
 accountName='mybatchaccount'
 
@@ -52,7 +52,7 @@ az batch account create \
 
 Dopo aver creato l'account, è possibile verificare che l'identità gestita assegnata dal sistema sia stata abilitata in questo account. Tenere presente che `PrincipalId` , poiché questo valore sarà necessario per concedere a questo account batch l'accesso al Key Vault.
 
-```powershell
+```azurecli
 az batch account show \
     -n $accountName \
     -g $resourceGroupName \
@@ -100,7 +100,7 @@ Nella [portale di Azure](https://portal.azure.com/)passare alla pagina account b
 
 Dopo che l'account batch è stato creato con l'identità gestita assegnata dal sistema e l'accesso a Key Vault è stato concesso, aggiornare l'account batch con l' `{Key Identifier}` URL in `keyVaultProperties` parametro. Impostare anche **encryption_key_source** come `Microsoft.KeyVault` .
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -118,7 +118,7 @@ Quando si crea una nuova versione di una chiave, aggiornare l'account batch per 
 
 È anche possibile usare l'interfaccia della riga di comando di Azure per aggiornare la versione.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \
@@ -134,7 +134,7 @@ Per modificare la chiave usata per la crittografia batch, attenersi alla procedu
 
 È anche possibile usare l'interfaccia della riga di comando di Azure per usare una chiave diversa.
 
-```powershell
+```azurecli
 az batch account set \
     -n $accountName \
     -g $resourceGroupName \

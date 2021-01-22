@@ -8,17 +8,15 @@ ms.topic: quickstart
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f85a76a7ce01c11255f54c6b956088f9328dfc9f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: cb6a63e4ead45d7751d1d3442793478cfdcd71c0
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918465"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676341"
 ---
 # <a name="quickstartconnect-an-azure-purview-account-to-a-synapse-workspace"></a>Guida introduttiva: Connettere un account Azure Purview a un'area di lavoro di Synapse 
 
-> [!IMPORTANT]
-> L'integrazione tra Azure Synapse Analytics e Azure Purview è attualmente disponibile in anteprima. Se si è interessati a provare Azure Purview in Synapse, contattare il rappresentante Microsoft.
 
 In questa guida di avvio rapido si registrerà un account Azure Purview in un'area di lavoro di Synapse. Tale connessione consente di individuare gli asset di Azure Purview e interagire con essi tramite le funzionalità di Synapse. 
 
@@ -34,7 +32,7 @@ In Synapse è possibile eseguire le attività seguenti:
 
 ## <a name="signin-toa-synapse-workspace"></a>Accedere a un'area di lavoro di Synapse 
 
-Passare a https://web.azuresynapse.net e accedere all'area di lavoro. 
+Passare a  [https://web.azuresynapse.net](https://web.azuresynapse.net) e accedere all'area di lavoro. 
 
 ## <a name="permissions-for-connecting-an-azure-purview-account"></a>Autorizzazioni per la connessione di un account Azure Purview 
 

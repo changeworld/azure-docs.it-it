@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85bc6f4468e0365d247b0adc204bd53ce9fa3006
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299950"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676717"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiare un'immagine da un'altra raccolta usando PowerShell
 
@@ -121,7 +121,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-the-image-version"></a>Creare la versione di immagine
+## <a name="create-the-image-version"></a>Creare una versione di immagine
 
 Creare una versione dell'immagine usando [New-AzGalleryImageVersion](/powershell/module/az.compute/new-azgalleryimageversion). È necessario passare l'ID dell'immagine di origine nel `--managed-image` parametro per creare la versione dell'immagine nella raccolta di destinazione. 
 
@@ -164,6 +164,6 @@ $job.State
 
 Creare una macchina virtuale da una versione di immagine [generalizzata](vm-generalized-image-version-powershell.md) o [specializzata](vm-specialized-image-version-powershell.md) .
 
-Il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+Il [Generatore di immagini di Azure (anteprima)](./image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
 
 Per informazioni su come fornire informazioni sul piano di acquisto, vedere [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](marketplace-images.md).

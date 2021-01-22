@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7519b6c7e1f3381be77b9a0734ddda250228e7d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: fd14c7911676768a61d2b2c0e366d2c227455be8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860304"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678205"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -28,7 +28,7 @@ Una risposta tempestiva alle violazioni dei criteri o ai problemi di sicurezza r
 
 L'implementazione iniziale della valutazione dell'accesso continuo è incentrata su Exchange, teams e SharePoint Online.
 
-Per preparare le applicazioni per l'uso di CAE, vedere [come usare le API di valutazione dell'accesso continuo abilitate nelle applicazioni](/azure/active-directory/develop/app-resilience-continuous-access-evaluation).
+Per preparare le applicazioni per l'uso di CAE, vedere [come usare le API di valutazione dell'accesso continuo abilitate nelle applicazioni](../develop/app-resilience-continuous-access-evaluation.md).
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
@@ -128,7 +128,7 @@ Nell'esempio seguente, un amministratore dell'accesso condizionale ha configurat
 ## <a name="enable-or-disable-cae-preview"></a>Abilitare o disabilitare CAE (anteprima)
 
 1. Accedere al **portale di Azure** come amministratore dell'accesso condizionale, amministratore della sicurezza o amministratore globale.
-1. Passare a **Azure Active Directory**  >  **Security**  >  **valutazione dell'accesso continuo** alla sicurezza.
+1. Passare a **Azure Active Directory**  >    >  **valutazione dell'accesso continuo** alla sicurezza.
 1. Scegliere **Abilita anteprima**.
 
 Da questa pagina, facoltativamente è possibile limitare gli utenti e i gruppi che saranno soggetti all'anteprima.

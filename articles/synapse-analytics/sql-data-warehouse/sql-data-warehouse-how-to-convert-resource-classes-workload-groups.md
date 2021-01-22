@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b82342ffb76f8bb58b8f6875751601094d6131ca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b6dd2199452837d81c201cf4aef2bcd94b35cda3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461895"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677206"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertire le classi di risorse in gruppi di carico di lavoro
 
@@ -56,7 +56,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 
 ## <a name="create-the-classifier"></a>Creare il classificatore
 
-In precedenza, il mapping delle query alle classi di risorse veniva eseguito con [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Per ottenere la stessa funzionalità ed eseguire il mapping delle richieste ai gruppi di carico di lavoro, usare la sintassi [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  L'uso di sp_addrolemember consentiva solo di eseguire il mapping delle risorse a una richiesta in base a un account di accesso.  Un classificatore fornisce ulteriori opzioni oltre all'account di accesso, ad esempio:
+In precedenza, il mapping delle query alle classi di risorse veniva eseguito con [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Per ottenere la stessa funzionalità ed eseguire il mapping delle richieste ai gruppi di carico di lavoro, usare la sintassi [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  L'uso di sp_addrolemember consentiva solo di eseguire il mapping delle risorse a una richiesta in base a un account di accesso.  Un classificatore fornisce ulteriori opzioni oltre all'account di accesso, ad esempio:
     - label
     - sessione
     - time Nell'esempio seguente vengono assegnate query dall'account di accesso `AdfLogin` che hanno anche l'etichetta [OPTION LABEL](sql-data-warehouse-develop-label.md) impostata su `factloads` al gruppo di carico di lavoro `wgDataLoads` creato in precedenza.
@@ -91,4 +91,4 @@ SELECT request_id, [label], classifier_name, group_name, command
 - [Isolamento del carico di lavoro](sql-data-warehouse-workload-isolation.md)
 - [Guida pratica: creare un gruppo di carico di lavoro](quickstart-configure-workload-isolation-tsql.md)
 - [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql?&view=azure-sqldw-latest)
-- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [CREATE WORKLOAD GROUP (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest&preserve-view=true)

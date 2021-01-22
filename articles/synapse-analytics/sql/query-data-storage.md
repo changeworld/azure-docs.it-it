@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 967250cf29d1f0248f296cb545a764bd8e611773
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462653"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676885"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui file dell'archiviazione con il pool SQL serverless in Azure Synapse Analytics
 
 Il pool SQL serverless consente di eseguire query sui dati nel data lake. Offre una superficie di attacco per query T-SQL che supporta le query su dati semistrutturati e non strutturati. Per l'esecuzione di query, sono supportati gli aspetti di T-SQL seguenti:
 
-- Superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, inclusa la maggioranza di [funzioni e operatori SQL](overview-features.md).
+- Superficie di attacco [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) completa, inclusa la maggioranza di [funzioni e operatori SQL](overview-features.md).
 - CREATE EXTERNAL TABLE AS SELECT ([CETAS](develop-tables-cetas.md)), che crea una [tabella esterna](develop-tables-external-tables.md) e quindi esporta, in parallelo, i risultati di un'istruzione Transact-SQL SELECT in Archiviazione di Azure.
 
 Per altre informazioni sulle funzionalità attualmente supportate e non, vedere l'articolo [Panoramica del pool SQL serverless](on-demand-workspace-overview.md) o gli articoli seguenti:
@@ -190,15 +190,15 @@ Per esempi di query, vedere la sezione Accesso agli elementi di colonne annidate
 
 #### <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 
-Per accedere agli elementi di una colonna ripetuta, ad esempio un elemento di una matrice o di una mappa, usare la funzione [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per ogni elemento scalare che è necessario proiettare e fornire:
+Per accedere agli elementi di una colonna ripetuta, ad esempio un elemento di una matrice o di una mappa, usare la funzione [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per ogni elemento scalare che è necessario proiettare e fornire:
 
 - Come primo parametro, una colonna annidata o ripetuta
-- Come secondo parametro, un [percorso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) che specifica l'elemento o la proprietà a cui accedere
+- Come secondo parametro, un [percorso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) che specifica l'elemento o la proprietà a cui accedere
 
-Per accedere a elementi non scalari di una colonna ripetuta, usare la funzione [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per ogni elemento non scalare che è necessario proiettare e fornire:
+Per accedere a elementi non scalari di una colonna ripetuta, usare la funzione [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per ogni elemento non scalare che è necessario proiettare e fornire:
 
 - Come primo parametro, una colonna annidata o ripetuta
-- Come secondo parametro, un [percorso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) che specifica l'elemento o la proprietà a cui accedere
+- Come secondo parametro, un [percorso JSON](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) che specifica l'elemento o la proprietà a cui accedere
 
 Vedere il frammento di sintassi seguente:
 

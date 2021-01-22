@@ -16,12 +16,12 @@ ms.subservice: hybrid
 ms.reviewer: chmutali
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4cdda52271bc7b9e9d854e0af181e2c8f22ad9a
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1f39ef611e2ea15ef3bc3dbfcf09e9624cbcf8b3
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613635"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678222"
 ---
 # <a name="manage-agent-registry-options"></a>Opzioni di gestione del registro di sistema dell'agente
 
@@ -34,7 +34,7 @@ Quando si eseguono operazioni LDAP su controller di dominio configurati Active D
 System.DirectoryServices.Protocols.LdapException: The operation was aborted because the client side timeout limit was exceeded.
 `
 
-Le operazioni di ricerca LDAP possono richiedere più tempo se l'attributo Search non è indicizzato. Come primo passaggio, se si riceve l'errore precedente, verificare prima di tutto se l'attributo Search/Lookup è [indicizzato](https://docs.microsoft.com/windows/win32/ad/indexed-attributes). Se gli attributi di ricerca sono indicizzati e l'errore viene mantenuto, è possibile aumentare il timeout della connessione LDAP attenendosi alla procedura seguente: 
+Le operazioni di ricerca LDAP possono richiedere più tempo se l'attributo Search non è indicizzato. Come primo passaggio, se si riceve l'errore precedente, verificare prima di tutto se l'attributo Search/Lookup è [indicizzato](/windows/win32/ad/indexed-attributes). Se gli attributi di ricerca sono indicizzati e l'errore viene mantenuto, è possibile aumentare il timeout della connessione LDAP attenendosi alla procedura seguente: 
 
 1. Accedere come amministratore nel server Windows che esegue l'agente di provisioning di Azure AD Connect.
 1. Utilizzare la voce di menu *Esegui* per aprire l'editor del registro di sistema (regedit.exe) 
@@ -48,7 +48,7 @@ Le operazioni di ricerca LDAP possono richiedere più tempo se l'attributo Searc
 1. Se sono stati distribuiti più agenti di provisioning, applicare questa modifica al registro di sistema a tutti gli agenti per verificarne la coerenza. 
 
 ## <a name="configure-referral-chasing"></a>Configurare l'inseguimento del riferimento
-Per impostazione predefinita, l'agente di provisioning di Azure AD Connect non insegue i [riferimenti](https://docs.microsoft.com/windows/win32/ad/referrals). Potrebbe essere necessario abilitare la ricerca dei riferimenti per supportare determinati scenari di provisioning in ingresso HR, ad esempio: 
+Per impostazione predefinita, l'agente di provisioning di Azure AD Connect non insegue i [riferimenti](/windows/win32/ad/referrals). Potrebbe essere necessario abilitare la ricerca dei riferimenti per supportare determinati scenari di provisioning in ingresso HR, ad esempio: 
 * Verifica dell'univocità dell'UPN tra più domini
 * Risoluzione dei riferimenti a gestione tra domini
 

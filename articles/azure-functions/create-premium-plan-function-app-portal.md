@@ -3,12 +3,12 @@ title: Creare un piano Premium di funzioni di Azure nel portale
 description: Informazioni su come usare la portale di Azure per creare un'app per le funzioni che viene eseguita nel piano Premium.
 ms.topic: how-to
 ms.date: 10/30/2020
-ms.openlocfilehash: 20921423247dda3cbb39b58dcc805dac6d367390
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9cab67f096665c9333fa40bcb790896fcbebd8d5
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937780"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676587"
 ---
 # <a name="create-a-premium-plan-function-app-in-the-azure-portal"></a>Creare un'app per le funzioni di piano Premium nella portale di Azure
 
@@ -35,4 +35,4 @@ A questo punto, è possibile creare funzioni nella nuova app per le funzioni. Qu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Aggiungere una funzione attivata tramite HTTP](functions-create-first-azure-function.md#create-function)
+> [Aggiungere una funzione attivata tramite HTTP] (./functions-get-started.md

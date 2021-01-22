@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: f59ed16f98a22f77b2e67ec2bf829f58dccef611
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
-ms.translationtype: HT
+ms.openlocfilehash: 4212c76d052fe1f272963003e836425b50d6f105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740505"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677615"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Che cos'è Azure Machine Learning Studio?
 
@@ -90,7 +90,7 @@ Nella tabella seguente sono riepilogate alcune delle differenze principali tra M
 | Feature | ML Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
 | Interfaccia per il trascinamento della selezione | Esperienza classica | Esperienza aggiornata - [Finestra di progettazione di Azure Machine Learning](concept-designer.md)| 
-| SDK di codice | Non supportato | Completamente integrato con gli SDK di [Azure Machine Learning per Python](/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) |
+| SDK di codice | Non supportato | Completamente integrato con gli SDK di [Azure Machine Learning per Python](/python/api/overview/azure/ml/) e [R](https://github.com/Azure/azureml-sdk-for-r) |
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
 | Destinazioni di calcolo del training | Destinazione di calcolo proprietaria, solo supporto di CPU | Ampia gamma di [destinazioni di calcolo per il training](concept-compute-target.md#train) personalizzabili. Include il supporto di GPU e CPU | 
 | Destinazioni di calcolo della distribuzione | Formato di servizio Web proprietario, non personalizzabile | Ampia gamma di [destinazioni di calcolo per la distribuzione](concept-compute-target.md#deploy) personalizzabili. Include il supporto di GPU e CPU |

@@ -8,24 +8,21 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c6b25fd3615fa76bc76e6d360f4c76a21a9ad02
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918265"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676358"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Individuare, connettere ed esplorare i dati in sinapsi usando Azure 
-
-> [!IMPORTANT]
-> L'integrazione tra Azure sinapsi Analytics e Azure è attualmente in fase di anteprima. Se si è interessati a provare Azure per la competenza in sinapsi, connettersi con il rappresentante Microsoft. 
 
 In questo documento si apprenderà il tipo di interazioni che è possibile eseguire durante la registrazione di un account Azure di competenza in sinapsi. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
-- [Account Azure per le competenze](../../purview/create-catalog-portal.md) 
-- [Area di lavoro sinapsi](../quickstart-create-workspace.md) 
+- [Account di Azure Purview](../../purview/create-catalog-portal.md) 
+- [Area di lavoro di Synapse](../quickstart-create-workspace.md) 
 - [Connettere un account Azure per la competenza a sinapsi](quickstart-connect-azure-purview.md) 
 
 ## <a name="using-azure-purview-in-synapse"></a>Uso della competenza Azure in sinapsi 
@@ -71,5 +68,5 @@ Con il **nuovo flusso di dati**, è possibile creare un set di dati di integrazi
 
 ##  <a name="nextsteps"></a>Passaggi successivi 
 
-- [Registrare e analizzare le risorse di Azure sinapsi in Azure](../../purview/register-scan-azure-synapse-analytics.md)
+- [Registrare e analizzare gli asset di Azure Synapse in Azure Purview](../../purview/register-scan-azure-synapse-analytics.md)
 - [Come eseguire ricerche nei dati in Azure Data Catalog](../../purview/how-to-search-catalog.md)

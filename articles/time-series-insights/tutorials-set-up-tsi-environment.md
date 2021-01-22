@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: eeb3de2fc3f0e3e0be9c98002f11e470eaf04f8c
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
-ms.translationtype: HT
+ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95020930"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677055"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Esercitazione: Configurare un ambiente Azure Time Series Insights Gen2
 
@@ -123,7 +123,7 @@ Questa sezione descrive come creare un ambiente Azure Time Series Insights Gen2 
 
    [![Configurare l'hub IoT creato come origine evento.](media/v2-update-provision/tsi-configure-event-source.png)](media/v2-update-provision/tsi-configure-event-source.png#lightbox)
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
     [![Pagina Rivedi e crea, con il pulsante Crea.](media/v2-update-provision/tsi-environment-confirmation.png)](media/v2-update-provision/tsi-environment-confirmation.png#lightbox)
 

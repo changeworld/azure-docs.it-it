@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 8ea0c27fdd64bae1e6fe9443df76c86e0eb89a75
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
-ms.translationtype: HT
+ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97762920"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678954"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
 
@@ -123,7 +123,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     Quello che segue è un output di esempio del comando precedente:
 
-    ```powershell
+    ```output
     PS C:\windows\system32> az --version
     azure-cli                         2.0.80
     
@@ -147,7 +147,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     PS C:\windows\system32>
     ```
 
-    Se non è disponibile, scaricare e [installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows?view=azure-cli-latest). È possibile eseguire l'interfaccia della riga di comando di Azure usando il prompt dei comandi di Windows o Windows PowerShell.
+    Se non è disponibile, scaricare e [installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows). È possibile eseguire l'interfaccia della riga di comando di Azure usando il prompt dei comandi di Windows o Windows PowerShell.
 
 2. Prendere nota del percorso Python dell'interfaccia della riga di comando. È necessario per determinare la posizione dell'archivio certificati attendibile per l'interfaccia della riga di comando di Azure.
 
@@ -171,7 +171,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     L'output di esempio seguente mostra l'installazione di Haikunator:
 
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install haikunator
 
     Collecting haikunator
@@ -187,7 +187,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     L'output di esempio seguente mostra l'installazione di pip per `msrestazure`: 
     
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python.exe -m pip install msrestazure==0.6.2
     Requirement already satisfied: msrestazure==0.6.2 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (0.6.2)
     Requirement already satisfied: msrest<2.0.0,>=0.6.0 in c:\program files (x86)\microsoft sdks\azure\cli2\lib\site-packages (from msrestazure==0.6.2) (0.6.10)
@@ -211,7 +211,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     
     Il cmdlet restituisce il percorso del certificato, come illustrato di seguito:  
         
-    ```powershell
+    ```output
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> .\python -c "import certifi; print(certifi.where())"
     C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem
     PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
@@ -323,7 +323,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
    Ecco l'output di esempio di un accesso riuscito dopo aver fornito la password:  
    
-   ```powershell
+   ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
    Password:
    [

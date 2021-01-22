@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b7726e4e8fee0044a7865c8c494ef6451425676
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c8e971b4fda313ffede58455dd6d057d6848ce4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903871"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678130"
 ---
 # <a name="azure-maps-weather-services-preview-frequently-asked-questions-faq"></a>Domande frequenti su servizi meteorologici di Azure Maps (anteprima)
 
 > [!IMPORTANT]
-> I servizi meteo di Azure Maps sono attualmente in anteprima pubblica.
+> I servizi Meteo di Mappe di Azure sono attualmente disponibili in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo risponde a domande comuni sui dati e sulle funzionalità di [servizi meteorologici](https://docs.microsoft.com/rest/api/maps/weather) di Azure maps. Vengono trattati i seguenti argomenti:
+Questo articolo risponde a domande comuni sui dati e sulle funzionalità di [servizi meteorologici](/rest/api/maps/weather) di Azure maps. Vengono trattati i seguenti argomenti:
 
 * Origini dati e modelli di dati
 * Code coverage e disponibilità di servizi meteo
@@ -59,7 +59,7 @@ Per formulare previsioni globali vengono usati numerosi sistemi di linee guida s
 
 **Quale tipo di copertura è possibile prevedere per paesi/aree geografiche diverse?**
 
-La copertura del servizio meteo varia in base al paese. Tutte le funzionalità non sono disponibili in ogni paese/area geografica. Per ulteriori informazioni, vedere la [documentazione relativa al code coverage](https://docs.microsoft.com/azure/azure-maps/weather-coverage).
+La copertura del servizio meteo varia in base al paese. Tutte le funzionalità non sono disponibili in ogni paese/area geografica. Per ulteriori informazioni, vedere la [documentazione relativa al code coverage](./weather-coverage.md).
 
 ## <a name="data-update-frequency"></a>Frequenza di aggiornamento dei dati
 
@@ -79,7 +79,7 @@ Le API previsioni delle mappe di Azure vengono memorizzate nella cache per un ma
 
 **Azure Maps Web SDK supporta in modo nativo l'integrazione di servizi meteorologici (anteprima)?**
 
-Azure Maps Web SDK fornisce un modulo dei servizi. Il modulo Services è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure nelle applicazioni Web o Node.js. utilizzando JavaScript o TypeScript. Per iniziare, vedere la [documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module).
+Azure Maps Web SDK fornisce un modulo dei servizi. Il modulo Services è una libreria helper che semplifica l'uso dei servizi REST di Maps di Azure nelle applicazioni Web o Node.js. utilizzando JavaScript o TypeScript. Per iniziare, vedere la [documentazione](./how-to-use-services-module.md).
 
 **Azure Maps Android SDK supporta in modo nativo l'integrazione di servizi meteorologici (anteprima)?**
 
@@ -91,26 +91,26 @@ Si prevede di creare un modulo di servizi per Java/Android simile al modulo Web 
 
 **Azure Maps Power BI supporto visivo Azure Maps Weather Tiles?**
 
-Sì. Per informazioni su come eseguire la migrazione di riquadri radar e satelliti infrarossi all'oggetto visivo Microsoft Power BI, vedere [aggiungere un livello sezione a Power Bi oggetto visivo](https://docs.microsoft.com/azure/azure-maps/power-bi-visual-add-tile-layer). 
+Sì. Per informazioni su come eseguire la migrazione di riquadri radar e satelliti infrarossi all'oggetto visivo Microsoft Power BI, vedere [aggiungere un livello sezione a Power Bi oggetto visivo](./power-bi-visual-add-tile-layer.md). 
 
 **Ricerca per categorie interpretare i colori usati per i riquadri radar e satellite?**
 
-L'articolo relativo al [concetto meteorologico](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#radar-and-satellite-imagery-color-scale) di mappe di Azure include una guida che consente di interpretare i colori usati per i riquadri radar e satellite. Questo articolo illustra i campioni di colore e i codici colore ESADECIMALi.
+L'articolo relativo al [concetto meteorologico](./weather-services-concepts.md#radar-and-satellite-imagery-color-scale) di mappe di Azure include una guida che consente di interpretare i colori usati per i riquadri radar e satellite. Questo articolo illustra i campioni di colore e i codici colore ESADECIMALi.
  
 **È possibile creare animazioni con riquadro radar e satellite?**
 
-Sì. Oltre al radar in tempo reale e ai riquadri satellite, Azure Maps i clienti possono richiedere riquadri passati e futuri per migliorare le visualizzazioni dei dati con le sovrapposizioni della mappa. Questa operazione può essere eseguita chiamando direttamente [Get Map Tile V2 API](https://aka.ms/AzureMapsWeatherTiles ) o richiedendo riquadri tramite Azure Maps Web SDK. I riquadri radar sono disponibili per un massimo di 1,5 ore in passato e per un massimo di 2 ore in futuro. I riquadri e sono disponibili in intervalli di 5 minuti. I riquadri infrarossi vengono forniti per un massimo di 3 ore in passato e sono disponibili in intervalli di 10 minuti. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)di animazione del riquadro meteorologico open source.  
+Sì. Oltre al radar in tempo reale e ai riquadri satellite, Azure Maps i clienti possono richiedere riquadri passati e futuri per migliorare le visualizzazioni dei dati con le sovrapposizioni della mappa. Questa operazione può essere eseguita chiamando direttamente [Get Map Tile V2 API](/rest/api/maps/renderv2/getmaptilepreview) o richiedendo riquadri tramite Azure Maps Web SDK. I riquadri radar sono disponibili per un massimo di 1,5 ore in passato e per un massimo di 2 ore in futuro. I riquadri e sono disponibili in intervalli di 5 minuti. I riquadri infrarossi vengono forniti per un massimo di 3 ore in passato e sono disponibili in intervalli di 10 minuti. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Animated%20tile%20layer)di animazione del riquadro meteorologico open source.  
 
 **Sono disponibili icone per le diverse condizioni meteorologiche?**
 
-Sì. [Qui](https://docs.microsoft.com/azure/azure-maps/weather-services-concepts#weather-icons)è possibile trovare le icone e i rispettivi codici. Si noti che solo alcune API del servizio meteo (anteprima), ad esempio  [Get Current Conditions API](https://aka.ms/azuremapsweathercurrentconditions), restituiscono *iconCode* nella risposta. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions corrente.
+Sì. [Qui](./weather-services-concepts.md#weather-icons)è possibile trovare le icone e i rispettivi codici. Si noti che solo alcune API del servizio meteo (anteprima), ad esempio  [Get Current Conditions API](/rest/api/maps/weather/getcurrentconditionspreview), restituiscono *iconCode* nella risposta. Per altre informazioni, vedere l' [esempio di codice](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Get%20current%20weather%20at%20a%20location)Open Source WeatherConditions corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se queste domande frequenti non rispondono alla domanda, è possibile contattare Microsoft tramite i seguenti canali (in ordine di escalation):
 
 * Sezione dei commenti di questo articolo.
-* [MSFT Q&una pagina per le mappe di Azure](https://docs.microsoft.com/answers/topics/azure-maps.html).
+* [MSFT Q&una pagina per le mappe di Azure](/answers/topics/azure-maps.html).
 * Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nella [portale di Azure](https://portal.azure.com/)della scheda Guida selezionare il pulsante **Guida** e supporto e quindi selezionare **nuova richiesta di supporto**.
 * [Azure Maps UserVoice](https://feedback.azure.com/forums/909172-azure-maps) per inviare richieste di funzionalità.
 
@@ -125,4 +125,4 @@ Articolo sui concetti relativi ai servizi meteorologici di Azure Maps (anteprima
 Esplorare la documentazione dell'API servizi meteorologici di Azure Maps (anteprima):
 
 > [!div class="nextstepaction"]
-> [Servizi Meteo di Azure Maps](/rest/api/maps/weather)
+> [Servizi meteo di Mappe di Azure](/rest/api/maps/weather)

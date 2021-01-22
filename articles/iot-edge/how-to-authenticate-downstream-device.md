@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016999"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678824"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticare un dispositivo downstream con l'hub IoT di Azure
 
@@ -71,7 +71,7 @@ Quando si crea la nuova identità del dispositivo, fornire le informazioni segue
 
 È anche possibile usare l' [estensione Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per completare la stessa operazione. L'esempio seguente usa il comando [AZ all Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) per creare un nuovo dispositivo Internet con autenticazione con chiave simmetrica e assegnare un dispositivo padre:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
@@ -126,7 +126,7 @@ Per l'autenticazione autofirmata X. 509, a volte definita autenticazione con ide
 
 È anche possibile usare l' [estensione Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per completare la stessa operazione di creazione del dispositivo. L'esempio seguente usa il comando [AZ all Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) per creare un nuovo dispositivo Internet con autenticazione autofirmata X. 509 e assegna un dispositivo padre:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
@@ -170,7 +170,7 @@ Questa sezione si basa sulle istruzioni illustrate nell'articolo relativo all'hu
 
 È anche possibile usare l' [estensione Internet per l'interfaccia](https://github.com/Azure/azure-iot-cli-extension) della riga di comando di Azure per completare la stessa operazione di creazione del dispositivo. L'esempio seguente usa il comando [AZ all Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) per creare un nuovo dispositivo Internet con l'autenticazione con firma della CA X. 509 e assegna un dispositivo padre:
 
-```cli
+```azurecli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
@@ -191,19 +191,19 @@ Per le stringhe di connessione per i dispositivi downstream sono necessari i com
 
 Nel complesso, una stringa di connessione completa ha un aspetto simile al seguente:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
 Oppure:
 
-```
+```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Grazie alla relazione padre/figlio, è possibile semplificare la stringa di connessione chiamando il gateway direttamente come host della connessione. Ad esempio:
 
-```
+```console
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 ```
 

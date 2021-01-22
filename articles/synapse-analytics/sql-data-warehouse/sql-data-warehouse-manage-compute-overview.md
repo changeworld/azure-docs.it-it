@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 300759b4ab6f806c02e748ff4c9a63a6a772bff4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4a2ce18f4a02ccaadf66a96049b00f3837b927e4
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461083"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677038"
 ---
 # <a name="manage-compute-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Gestire il calcolo per il pool SQL dedicato (in precedenza SQL DW) in Azure sinapsi Analytics
 
@@ -122,7 +122,7 @@ Per controllare lo stato del pool SQL dedicato (in precedenza SQL DW), vedere la
 
 ## <a name="permissions"></a>Autorizzazioni
 
-Il ridimensionamento del pool SQL dedicato (in precedenza SQL DW) richiede le autorizzazioni descritte in [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
+Il ridimensionamento del pool SQL dedicato (in precedenza SQL DW) richiede le autorizzazioni descritte in [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).  La sospensione e la ripresa richiedono l'autorizzazione [Collaboratore Database SQL](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#sql-db-contributor), in particolare Microsoft.Sql/servers/databases/action.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

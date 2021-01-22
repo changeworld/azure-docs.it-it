@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 32ce875600bb948e7c3e8479f712e99d25eb6367
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 276dd5b7eba33081c5131eba722df91d8685adff
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624952"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678164"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
@@ -27,7 +27,7 @@ L'energia eolica è una delle fonti energetiche alternative ai combustibili foss
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare file di dati in [Azure Notebooks](../notebooks/index.yml) nel cloud.
+> * Usare file di dati in [Azure Notebooks](https://notebooks.azure.com) nel cloud.
 > * Caricare i dati demo da un file.
 > * Chiamare le API REST di Mappe di Azure in Python.
 > * Eseguire il rendering dei dati della posizione sulla mappa.
@@ -206,4 +206,4 @@ Non sono presenti risorse che richiedono la pulizia.
 Per altre informazioni su Azure Notebooks, vedere
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](../notebooks/index.yml)
+> [Azure Notebooks](https://notebooks.azure.com)

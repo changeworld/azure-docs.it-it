@@ -4,12 +4,12 @@ description: Inserire alcune righe di codice nell'app desktop o per dispositivi,
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d553c192d62baedb93c7f8270c56526fbf8edb62
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 8fecca4875ba291da093bf1eea596eef290f80c8
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233747"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98678113"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -534,7 +534,7 @@ Se il [campionamento](./sampling.md) è attivo, la proprietà itemCount mostra u
 Usare la chiamata di TrackDependency per rilevare i tempi di risposta e le percentuali di successo delle chiamate a un frammento di codice esterno. I risultati vengono visualizzati nei grafici dipendenze nel portale. Il frammento di codice seguente deve essere aggiunto ogni volta che viene effettuata una chiamata alle dipendenze.
 
 > [!NOTE]
-> Per .NET e .NET Core è possibile usare in alternativa il `TelemetryClient.StartOperation` Metodo (estensione) che riempie le `DependencyTelemetry` proprietà necessarie per la correlazione e altre proprietà quali l'ora di inizio e la durata, quindi non è necessario creare un timer personalizzato come negli esempi seguenti. Per ulteriori informazioni, vedere la sezione di questo articolo [sul rilevamento delle dipendenze in uscita](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking#outgoing-dependencies-tracking).
+> Per .NET e .NET Core è possibile usare in alternativa il `TelemetryClient.StartOperation` Metodo (estensione) che riempie le `DependencyTelemetry` proprietà necessarie per la correlazione e altre proprietà quali l'ora di inizio e la durata, quindi non è necessario creare un timer personalizzato come negli esempi seguenti. Per ulteriori informazioni, vedere la sezione di questo articolo [sul rilevamento delle dipendenze in uscita](./custom-operations-tracking.md#outgoing-dependencies-tracking).
 
 *C#*
 
@@ -1115,7 +1115,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    Nessuna. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

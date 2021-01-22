@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: b8b7a03d5176f5dbd8500b5ff9044c2f22ecbfc0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 343ddb109de41a0959533b16b11762841b5b1105
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127142"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676760"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Risoluzione degli errori delle estensioni di macchina virtuale Windows di Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -85,7 +85,7 @@ Il certificato verrà rigenerato automaticamente riavviando l'agente guest di Wi
 - Fare clic con il pulsante destro del mouse e scegliere "Termina attività". Il processo verrà riavviato automaticamente
 
 
-È anche possibile attivare un nuovo GoalState per la macchina virtuale eseguendo una "macchina virtuale riapplicata". La [riapplicazione](https://docs.microsoft.com/rest/api/compute/virtualmachines/reapply) della macchina virtuale è un'API introdotta in 2020 per riapplicare lo stato di una macchina virtuale. È consigliabile eseguire questa operazione in un momento in cui è possibile tollerare un breve tempo di inattività delle macchine virtuali. Sebbene Reapply stesso non provochi un riavvio della macchina virtuale e la maggior parte delle volte che si chiama riapply non riavvia la macchina virtuale, c'è un rischio molto ridotto che un altro aggiornamento in sospeso al modello di macchina virtuale viene applicato quando Reapply attiva un nuovo obiettivo e che potrebbe richiedere un riavvio. 
+È anche possibile attivare un nuovo GoalState per la macchina virtuale eseguendo una "macchina virtuale riapplicata". La [riapplicazione](/rest/api/compute/virtualmachines/reapply) della macchina virtuale è un'API introdotta in 2020 per riapplicare lo stato di una macchina virtuale. È consigliabile eseguire questa operazione in un momento in cui è possibile tollerare un breve tempo di inattività delle macchine virtuali. Sebbene Reapply stesso non provochi un riavvio della macchina virtuale e la maggior parte delle volte che si chiama riapply non riavvia la macchina virtuale, c'è un rischio molto ridotto che un altro aggiornamento in sospeso al modello di macchina virtuale viene applicato quando Reapply attiva un nuovo obiettivo e che potrebbe richiedere un riavvio. 
 
 Portale di Azure:
 

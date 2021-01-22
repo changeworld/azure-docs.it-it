@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: mvc
-ms.openlocfilehash: 874da5ffcd2777648bb06c6e702932d64a32e59c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
-ms.translationtype: HT
+ms.openlocfilehash: 740563935e12d5a7418bada2a18b48fb573f6e7d
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681888"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98679008"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>Avvio rapido: Creare un'app Android con Mappe di Azure
 
@@ -59,7 +59,7 @@ Dopo che è stato creato l'account di Mappe, recuperare la chiave primaria che c
 3. Copiare il valore di **Chiave primaria** negli Appunti. Salvarlo in locale per usarlo in seguito in questa esercitazione.
 
 >[!NOTE]
-> Se si usa la chiave di sottoscrizione di Azure invece della chiave primaria di Mappe di Azure, non verrà eseguito il rendering corretto della mappa. Inoltre, per motivi di sicurezza, si consiglia di eseguire la rotazione tra le chiavi primarie e secondarie. Per eseguire la rotazione delle chiavi, aggiornare l'app per usare la chiave secondaria, distribuire, quindi premere il pulsante di ciclo/aggiornamento accanto alla chiave primaria per generare una nuova chiave primaria. La chiave primaria precedente verrà disabilitata. Per altre informazioni sulla rotazione delle chiavi, vedere [Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring)
+> Se si usa la chiave di sottoscrizione di Azure invece della chiave primaria di Mappe di Azure, non verrà eseguito il rendering corretto della mappa. Inoltre, per motivi di sicurezza, si consiglia di eseguire la rotazione tra le chiavi primarie e secondarie. Per eseguire la rotazione delle chiavi, aggiornare l'app per usare la chiave secondaria, distribuire, quindi premere il pulsante di ciclo/aggiornamento accanto alla chiave primaria per generare una nuova chiave primaria. La chiave primaria precedente verrà disabilitata. Per altre informazioni sulla rotazione delle chiavi, vedere [Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi](../key-vault/secrets/tutorial-rotation-dual.md)
 
 ![Ottenere la chiave primaria di Mappe di Azure nel portale di Azure](media/quick-android-map/get-key.png)
 

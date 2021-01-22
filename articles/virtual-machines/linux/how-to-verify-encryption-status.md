@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 42b1aed2f6c66dbfc0f04759b232855f3b7f0a2a
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487654"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98676819"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Verificare lo stato di crittografia per Linux 
 
@@ -70,7 +70,7 @@ Si può convalidare lo stato di crittografia *generale* di una macchina virtuale
 ### <a name="single-pass"></a>Singolo passaggio
 Se si esegue un solo passaggio, le impostazioni di crittografia vengono indicate su entrambi i dischi (sistema operativo e dati). È possibile acquisire le impostazioni di crittografia per un disco del sistema operativo in un singolo passaggio come indicato di seguito:
 
-``` powershell
+```powershell
 $RGNAME = "RGNAME"
 $VMNAME = "VMNAME"
 
@@ -160,7 +160,7 @@ Write-Host "====================================================================
 
 Si può convalidare lo stato di crittografia *generale* di una macchina virtuale crittografata usando i comandi dell'interfaccia della riga di comando di Azure seguenti:
 
-```bash
+```azurecli
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -170,7 +170,7 @@ az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "subst
 ### <a name="single-pass"></a>Singolo passaggio
 È possibile convalidare le impostazioni di crittografia per ogni disco usando i comandi dell'interfaccia della riga di comando di Azure seguenti:
 
-```bash
+```azurecli
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
 ```
 
@@ -203,7 +203,7 @@ done
 
 Dischi dati:
 
-```bash
+```azurecli
 RGNAME="RGNAME"
 VMNAME="VMNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
@@ -223,7 +223,7 @@ done
 
 ### <a name="dual-pass"></a>Due passaggi
 
-``` bash
+```azurecli
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
@@ -276,7 +276,7 @@ Per ottenere i dettagli di un disco specifico, è necessario fornire:
 
 Questo comando elenca tutti gli ID per tutti gli account di archiviazione:
 
-```bash
+```azurecli
 az storage account list --query [].[id] -o tsv
 ```
 Gli ID degli account di archiviazione sono elencati nel formato seguente:
@@ -295,7 +295,7 @@ ConnectionString=$(az storage account show-connection-string --ids $id --query c
 ```
 
 Il comando seguente elenca tutti i contenitori in un account di archiviazione:
-```bash
+```azurecli
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Il contenitore usato per i dischi è in genere denominato "vhds".
@@ -306,7 +306,7 @@ ContainerName="name of the container"
 ```
 
 Usare questo comando per elencare tutti i BLOB in uno specifico contenitore:
-```bash 
+```azurecli 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
 Scegliere il disco su cui si vuole eseguire la query e archiviarne il nome in una variabile:
@@ -314,7 +314,7 @@ Scegliere il disco su cui si vuole eseguire la query e archiviarne il nome in un
 DiskName="diskname.vhd"
 ```
 Eseguire la query sulle impostazioni di crittografia del disco:
-```bash
+```azurecli
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
@@ -323,7 +323,7 @@ Verificare se le partizioni del disco dati sono crittografate e il disco del sis
 
 Quando una partizione o un disco è crittografato, il tipo visualizzato è **crypt**. Quando non è crittografato, viene visualizzato il tipo **part/disk**.
 
-``` bash
+```bash
 lsblk
 ```
 
@@ -340,11 +340,11 @@ lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 
 Come passaggio aggiuntivo, è possibile verificare se nel disco dati sono caricate chiavi:
 
-``` bash
+```bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
 ```
 
-``` bash
+```bash
 cryptsetup luksDump /dev/sdd1
 ```
 
