@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 01/15/2021
 ms.custom: generated
-ms.openlocfilehash: 36f266a8402721dffecc9e80c4f769bd51b0e172
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: a521623447f4415e35a06c5c60e3723a69b4aa15
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539099"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700602"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -36,7 +36,7 @@ Fare clic sul nome del provider di risorse nella tabella seguente per visualizza
 | [Microsoft.ClassicCompute](#microsoftclassiccompute) |
 | [Microsoft.Compute](#microsoftcompute) |
 | [Microsoft.ServiceFabric](#microsoftservicefabric) |
-| **Rete** |
+| **Funzionalità di rete** |
 | [Microsoft.Cdn](#microsoftcdn) |
 | [Microsoft.ClassicNetwork](#microsoftclassicnetwork) |
 | [Microsoft.Network](#microsoftnetwork) |
@@ -1464,7 +1464,7 @@ Servizio di Azure: [Azure Data Box](../databox/index.yml)
 
 ### <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
-Servizio di Azure: [importazione/esportazione di Azure](../storage/common/storage-import-export-service.md)
+Servizio di Azure: [importazione/esportazione di Azure](../import-export/storage-import-export-service.md)
 
 > [!div class="mx-tableFixed"]
 > | Azione | Descrizione |
@@ -4354,7 +4354,7 @@ Servizio di Azure: [SQL Server in macchine virtuali di Azure](../azure-sql/virtu
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Write | Crea una nuova proprietà o modifica le proprietà della macchina virtuale SQL esistente |
 > | Microsoft. SqlVirtualMachine/sqlVirtualMachines/Delete | Elimina macchina virtuale SQL esistente |
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analisi
 
 ### <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 

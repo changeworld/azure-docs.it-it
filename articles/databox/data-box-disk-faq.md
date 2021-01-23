@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 3df8f75a726639e87157a1aa7fd9ff4d35c0ef4f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 103e4453ecf848822db0d82bc13e93b0c8c68331
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654626"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702135"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: Domande frequenti
 
@@ -66,7 +66,7 @@ Se, ad esempio, si desidera spostare i dati nel proprio percorso in Canada in un
 
 ### <a name="option-1"></a>Opzione 1: 
 
-Spedire un [disco supportato](../storage/common/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contenente i dati usando il [servizio di importazione/esportazione di Azure](../storage/common/storage-import-export-service.md) dalla posizione di origine in Canada al Data Center degli Stati Uniti occidentali di Azure.
+Spedire un [disco supportato](../import-export/storage-import-export-requirements.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#supported-disks) contenente i dati usando il [servizio di importazione/esportazione di Azure](../import-export/storage-import-export-service.md) dalla posizione di origine in Canada al Data Center degli Stati Uniti occidentali di Azure.
 
 ### <a name="option-2"></a>Opzione 2:
 
@@ -87,7 +87,7 @@ R.  Per ottenere Azure Data Box Disk, accedere al portale di Azure e creare un o
 ### <a name="q-i-couldnt-create-a-data-box-disk-order-in-the-azure-portal-why"></a>Q. Non è stato possibile creare un ordine di Data Box Disk nel portale di Azure. Perché?
 R. Se non è possibile creare un ordine di Data Box Disk, si verifica un problema con il tipo di sottoscrizione o l'accesso.
 
-Controllare la sottoscrizione. Data Box Disk è disponibile solo per le offerte di sottoscrizione di Enterprise Agreement (EA) e Cloud Solution Provider (CSP). Se non si dispone di uno di questi tipi di sottoscrizione, contattare supporto tecnico Microsoft per aggiornare la sottoscrizione.
+Controllare la sottoscrizione. Data Box Disk è disponibile solo per le offerte di sottoscrizione di Contratto Enterprise (EA) e Cloud Solution Provider (CSP). Se non si dispone di uno di questi tipi di sottoscrizione, contattare supporto tecnico Microsoft per aggiornare la sottoscrizione.
 
 Se si dispone di un tipo di offerta supportato per la sottoscrizione, controllare il livello di accesso della sottoscrizione stessa. Per creare un ordine, è necessario essere un collaboratore o un proprietario della sottoscrizione.
 

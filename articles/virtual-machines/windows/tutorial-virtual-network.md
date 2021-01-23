@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 08/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 22993e8a1513ae34b3752ebd80c60761467f396e
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: d61f4be63a2f3b2f75228848e2e4fe18fb27f598
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912666"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702060"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e gestire reti virtuali di Azure per macchine virtuali Windows con Azure PowerShell
 
@@ -280,7 +280,4 @@ In questa esercitazione sono state create e protette reti di Azure in relazione 
 > * Proteggono il traffico di rete
 > * Creare una macchina virtuale back-end
 
-Passare all'esercitazione successiva per informazioni sul monitoraggio della protezione dei dati nelle macchine virtuali con Backup di Azure.
-
-> [!div class="nextstepaction"]
-> [Eseguire il backup di macchine virtuali Windows in Azure](./tutorial-backup-vms.md)
+Per informazioni sulla protezione dei dischi delle macchine virtuali, vedere [backup e ripristino di emergenza per i dischi](backup-and-disaster-recovery-for-azure-iaas-disks.md).

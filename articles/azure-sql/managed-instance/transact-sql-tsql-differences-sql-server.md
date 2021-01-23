@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6fb17ead2546875c0f334aae322f8fb070e8f1ea
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684906"
+ms.locfileid: "98699515"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -83,7 +83,7 @@ Limitazioni
 
 Per informazioni sui backup con T-SQL, vedere [BACKUP](/sql/t-sql/statements/backup-transact-sql).
 
-## <a name="security"></a>Security
+## <a name="security"></a>Sicurezza
 
 ### <a name="auditing"></a>Controllo
 
@@ -168,7 +168,7 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
     - Esportare un database da SQL Istanza gestita e importarlo nel database SQL nello stesso dominio Azure AD. 
     - Esportare un database dal database SQL e importarlo in SQL Istanza gestita nello stesso dominio Azure AD.
     - Esportare un database da SQL Istanza gestita e importarlo in SQL Server (versione 2012 o successiva).
-      - In questa configurazione tutti gli utenti Azure AD vengono creati come SQL Server entità di database (utenti) senza account di accesso. Il tipo di utenti è elencato come `SQL` e sono visibili come `SQL_USER` in sys.database_principals). Le autorizzazioni e i ruoli rimangono nei metadati del database SQL Server e possono essere utilizzati per la rappresentazione. Tuttavia, non possono essere usati per accedere e accedere al SQL Server usando le proprie credenziali.
+      - In questa configurazione tutti gli utenti Azure AD vengono creati come SQL Server entità di database (utenti) senza account di accesso. Il tipo di utenti è elencato come `SQL` ed è visibile come `SQL_USER` in sys.database_principals). Le autorizzazioni e i ruoli rimangono nei metadati del database SQL Server e possono essere utilizzati per la rappresentazione. Tuttavia, non possono essere usati per accedere e accedere al SQL Server usando le proprie credenziali.
 
 - Solo l'account di accesso dell'entità di livello server, creato dal processo di provisioning di SQL Istanza gestita, i membri dei ruoli del server, ad esempio `securityadmin` o `sysadmin` , o altri account di accesso con autorizzazione ALTER ANY login a livello di server possono creare Azure ad entità server (account di accesso) nel database master per SQL istanza gestita.
 - Se l'account di accesso è un'entità di sicurezza SQL, solo gli account di accesso che fanno parte del ruolo `sysadmin` possono usare il comando per creare gli account di accesso per un account Azure AD.
@@ -277,7 +277,7 @@ Le opzioni seguenti non possono essere modificate:
 - `SINGLE_USER`
 - `WITNESS`
 
-Alcune `ALTER DATABASE` istruzioni (ad esempio, [imposta contenimento](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) potrebbero avere esito negativo in maniera temporanea, ad esempio durante il backup automatico del database o subito dopo la creazione di un database. In questo caso `ALTER DATABASE` è necessario ritentare l'istruzione. Per ulteriori dettagli e informazioni sui messaggi di errore correlati, vedere la [sezione Osservazioni](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
+Alcune `ALTER DATABASE` istruzioni (ad esempio, [imposta contenimento](https://docs.microsoft.com/sql/relational-databases/databases/migrate-to-a-partially-contained-database?#converting-a-database-to-partially-contained-using-transact-sql)) potrebbero avere esito negativo in maniera temporanea, ad esempio durante il backup automatico del database o subito dopo la creazione di un database. In questo caso `ALTER DATABASE` è necessario ritentare l'istruzione. Per ulteriori informazioni sui messaggi di errore correlati, vedere la [sezione Osservazioni](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true&tabs=sqlpool#remarks-2).
 
 Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
@@ -305,7 +305,7 @@ Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Gli avvisi non sono ancora supportati.
   - I proxy non sono supportati.
 - EventLog non è supportato.
-- Per creare, modificare o eseguire processi di SQL Agent, è necessario che l'utente sia mappato direttamente a Azure AD entità server (account di accesso). Utenti che non sono mappati direttamente, ad esempio gli utenti che appartengono a un gruppo di Azure AD che dispone dei diritti per creare, modificare o eseguire i processi di SQL Agent, non saranno in grado di eseguire tali azioni. Ciò è dovuto a Istanza gestita rappresentazione ed [esecuzione come limitazioni](#logins-and-users).
+- Per creare, modificare o eseguire processi di SQL Agent, è necessario che l'utente sia mappato direttamente a Azure AD entità server (account di accesso). Gli utenti che non sono mappati direttamente, ad esempio gli utenti che appartengono a un gruppo di Azure AD che dispone dei diritti per creare, modificare o eseguire processi di SQL Agent, non saranno in grado di eseguire tali azioni. Ciò è dovuto a Istanza gestita rappresentazione ed [esecuzione come limitazioni](#logins-and-users).
 
 Attualmente non sono supportate le funzionalità di SQL Agent seguenti:
 
@@ -400,12 +400,12 @@ La [ricerca semantica](/sql/relational-databases/search/semantic-search-sql-serv
 I server collegati in SQL Istanza gestita supportano un numero limitato di destinazioni:
 
 - Le destinazioni supportate sono SQL Istanza gestita, database SQL, Azure sinapsi SQL senza [Server](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) e pool dedicati e istanze di SQL Server. 
-- I server collegati non supportano le transazioni scrivibili distribuite (MS DTC).
+- Le transazioni scrivibili distribuite sono possibili solo tra istanze gestite. Per ulteriori informazioni, vedere [Distributed Transactions](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). Tuttavia, MS DTC non è supportato.
 - Le destinazioni che non sono supportate sono file, Analysis Services e altri RDBMS. Provare a usare l'importazione CSV nativa dall'archiviazione BLOB di Azure usando `BULK INSERT` o `OPENROWSET` come alternativa per l'importazione di file o caricare i file usando un [pool SQL senza server in Azure sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/).
 
 Operazioni: 
 
-- Le transazioni di scrittura tra istanze non sono supportate.
+- Le transazioni di scrittura [tra istanze](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview) sono supportate solo per le istanze gestite.
 - `sp_dropserver` è supportato per l'eliminazione di un server collegato. Vedere [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La `OPENROWSET` funzione può essere utilizzata per eseguire query solo su istanze SQL Server. Possono essere gestite, locali o in macchine virtuali. Vedere [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
 - La `OPENDATASOURCE` funzione può essere utilizzata per eseguire query solo su istanze SQL Server. Possono essere gestite, locali o in macchine virtuali. Solo i `SQLNCLI` `SQLNCLI11` valori, e `SQLOLEDB` sono supportati come provider. Un esempio è `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Vedere [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
@@ -413,7 +413,7 @@ Operazioni:
 
 ### <a name="polybase"></a>PolyBase
 
-Gli unici tipi disponibili di origine esterna sono RDBMS (in anteprima pubblica) per il database SQL di Azure, istanza gestita di Azure SQL e il pool di sinapsi di Azure. È possibile usare [una tabella esterna che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) come soluzione alternativa per le tabelle esterne di base che leggono direttamente dall'archiviazione di Azure. In istanza gestita di SQL di Azure è possibile usare i server collegati a [un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o SQL Server per leggere i dati di archiviazione di Azure.
+L'unico tipo disponibile di origine esterna è RDBMS (in anteprima pubblica) per il database SQL di Azure, istanza gestita di Azure SQL e il pool di sinapsi di Azure. È possibile usare [una tabella esterna che fa riferimento a un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/) come soluzione alternativa per le tabelle esterne di base che leggono direttamente dall'archiviazione di Azure. In istanza gestita di SQL di Azure è possibile usare i server collegati a [un pool SQL senza server in sinapsi Analytics](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) o SQL Server per leggere i dati di archiviazione di Azure.
 Per informazioni su polibase, vedere [polibase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replica

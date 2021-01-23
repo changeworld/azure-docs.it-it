@@ -4,12 +4,12 @@ description: Informazioni su come creare, testare e distribuire modelli di Azure
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8e9f047497f493752947d8115084dcfe86f5e040
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97588132"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98701713"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di ARM con Azure Pipelines
 
@@ -39,12 +39,12 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 * **Un account GitHub** da usare per creare un repository per i modelli. Se non si ha tale account, è possibile [crearne uno gratuitamente](https://github.com). Per altre informazioni sull'uso dei repository GitHub, vedere [Creare repository GitHub](/azure/devops/pipelines/repos/github).
 * **Installare Git**. In questa esercitazione viene usato *Git Bash* o *Git Shell*. Per le istruzioni, vedere [Install Git](https://www.atlassian.com/git/tutorials/install-git) (Installare Git).
-* **Un'organizzazione Azure DevOps**. Se non si dispone di una tale organizzazione, è possibile crearne una gratuitamente. Vedere [Creare un'organizzazione o una raccolta di progetti](/azure/devops/organizations/accounts/create-organization?view=azure-devops).
+* **Un'organizzazione Azure DevOps**. Se non si dispone di una tale organizzazione, è possibile crearne una gratuitamente. Vedere [Creare un'organizzazione o una raccolta di progetti](/azure/devops/organizations/accounts/create-organization).
 * (facoltativo) **Visual Studio Code con l'estensione Strumenti di Resource Manager**. Vedere [Avvio rapido: Creare modelli di ARM con Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## <a name="prepare-a-github-repository"></a>Preparare un repository GitHub
 
-GitHub consente di archiviare il codice sorgente del progetto, inclusi i modelli di Resource Manager. Per altri repository supportati, vedere la sezione relativa ai [repository supportati da Azure DevOps](/azure/devops/pipelines/repos/?view=azure-devops).
+GitHub consente di archiviare il codice sorgente del progetto, inclusi i modelli di Resource Manager. Per altri repository supportati, vedere la sezione relativa ai [repository supportati da Azure DevOps](/azure/devops/pipelines/repos/).
 
 ### <a name="create-a-github-repository"></a>Creare un repository GitHub
 

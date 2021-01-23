@@ -3,17 +3,17 @@ title: API REST Azure Enterprise
 description: Questo articolo descrive le API REST da usare con la registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/21/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1fdf64053a55eb33d80ed461c231e8c6dd84d63b
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132585"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98677732"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Azure Enterprise
 
@@ -93,17 +93,9 @@ Quando si usa un'API, vengono visualizzati i codici di stato della risposta. La 
 
 I file dei dati di utilizzo e di fatturazione vengono aggiornati ogni 24 ore per il mese di fatturazione corrente. Può tuttavia verificarsi una latenza dei dati fino a un massimo di tre giorni. Se, ad esempio, l'utilizzo ha avuto luogo il lunedì, i dati potrebbero non essere visualizzati nel file di dati fino a giovedì.
 
-### <a name="test-enrollment-for-development"></a>Testare la registrazione per lo sviluppo
-
-Se si è un partner o uno sviluppatore senza una registrazione EA di Azure e si vuole accedere all'API, è possibile usare la registrazione di test. Il nome di registrazione è _EnrollmentNumber 100_  e consente di usare e testare le informazioni sull'utilizzo fino al mese di giugno 2018. Successivamente, è possibile usare la chiave seguente per chiamare l'API e visualizzare i dati di esempio.
-
-```
-eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5byJ9.eyJFbnJvbGxtZW50TnVtYmVyIjoiMTAwIiwiSWQiOiI1ZTc2ZmNiMy0xN2I4LTQ5ZDItYjdkOC0zMDU0YjUwOWY0MWYiLCJSZXBvcnRWaWV3IjoiU3lzdGVtIiwiUGFydG5lcklkIjoiIiwiRGVwYXJ0bWVudElkIjoiIiwiQWNjb3VudElkIjoiIiwiaXNzIjoiZWEubWljcm9zb2Z0YXp1cmUuY29tIiwiYXVkIjoiY2xpZW50LmVhLm1pY3Jvc29mdGF6dXJlLmNvbSIsImV4cCI6MTU4NjM5MDA2OSwibmJmIjoxNTcwNTc4ODY5fQ.lENR5pCBph6iZCVexUlN1b-j7StaILCyBewVHoILD-_fn8S2o2bHY1qUseGOkBwNlaFQfk2OZIo-jQYvnf3eP3UNrNVTCINT0APbc1RqgwSjZSxugVVHH9jnSzEjONkJaSKmi4tlidk6zkF1-uY-TPJkKxYN_9ar7BgLshF9JGXk7t8OZhxSCxDZc-smntu6ORFDl4gRZZVBKXhqOGjOAdYX5tPiGDF2Bxb68RSzh9Xyr5PXxKLx5yivZzUdo0-GFHo13V9w6a5VQM4R1w4_ro8jF8WAo3mpGZ_ovx_U5IY6zMNmi_AoA1mUyvTGotgcu94RragutoJRxAGHbNJZ0Q
-```
-
 ### <a name="azure-service-catalog"></a>Catalogo dei servizi di Azure
 
-Tutti i servizi di Azure vengono pubblicati in un catalogo in formato CSV in un BLOB di Archiviazione di Azure. Il catalogo è utile se occorre creare un catalogo curato di tutti i servizi di Azure per il sistema. Il catalogo corrente è disponibile all'indirizzo [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv).
+Tutti i servizi di Azure vengono pubblicati in un catalogo in formato CSV in un BLOB di Archiviazione di Azure. Il catalogo è utile se occorre creare un catalogo curato di tutti i servizi di Azure per il sistema. Il catalogo corrente si trova in [https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv](https://azurecatalog.blob.core.windows.net/catalog/AzureCatalog.csv) .
 
 ### <a name="csv-data-file-details"></a>Dettagli del file di dati CSV
 
@@ -124,27 +116,27 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | Data | Data | Data | Indica la data di esecuzione del report del catalogo di servizi. Il formato è una stringa di data senza timestamp. |
 | Month | Month | Month |   |
 | Giorno | Giorno | Giorno |   |
-| Year | Year | Year |   |
-| Prodotto | BillableItemName | Prodotto |   |
-| ID misuratore | ResourceGUID | ID contatore |   |
+| Anno | Anno | Anno |   |
+| Product | BillableItemName | Product |   |
+| Meter ID | ResourceGUID | MeterId |   |
 | Categoria misuratore | Service | MeterCategory | È utile per trovare i servizi. Pertinente per i servizi con più ServiceType. Esempio: Macchine virtuali. |
-| Sottocategoria misuratore | ServiceType | MeterSubCategory | Fornisce un secondo livello di dettagli per un servizio. Esempio: VM A1 (non Windows).  |
-| Area misuratore | ServiceRegion | MeterRegion | Terzo livello di dettaglio richiesto per un servizio. Utile per trovare il contesto dell'area di ResourceGUID. |
-| Nome misuratore | ServiceResource | MeterName | Il nome del servizio. |
-| Quantità consumata | ResourceQtyConsumed | ConsumedQuantity |   |
+| Meter Sub-Category | ServiceType | MeterSubCategory | Fornisce un secondo livello di dettagli per un servizio. Esempio: VM A1 (non Windows).  |
+| Meter Region | ServiceRegion | MeterRegion | Terzo livello di dettaglio richiesto per un servizio. Utile per trovare il contesto dell'area di ResourceGUID. |
+| Meter Name | ServiceResource | MeterName | Il nome del servizio. |
+| Consumed Quantity | ResourceQtyConsumed | ConsumedQuantity |   |
 | ResourceRate | ResourceRate | ResourceRate |   |
 | ExtendedCost | ExtendedCost | ExtendedCost |   |
-| Percorso della risorsa | ServiceSubRegion | ResourceLocation |   |
-| Servizio utilizzato | ServiceInfo | ConsumedService |   |
+| Resource Location | ServiceSubRegion | ResourceLocation |   |
+| Consumed Service | ServiceInfo | ConsumedService |   |
 | ID istanza | Componente | InstanceId |   |
 | ServiceInfo1 | ServiceInfo1 | ServiceInfo1 |   |
 | ServiceInfo2 | ServiceInfo2 | ServiceInfo2 |   |
 | AdditionalInfo | AdditionalInfo | AdditionalInfo |   |
 | Tag | Tag | Tag |   |
-| Identificatore del servizio di archiviazione   | OrderNumber | StoreServiceIdentifier   |   |
+| Store Service Identifier   | OrderNumber | StoreServiceIdentifier   |   |
 | Department Name | DepartmentName | DepartmentName |   |
-| Cost Center | CostCenter | CostCenter |   |
-| Unità di misura | UnitOfMeasure | UnitOfMeasure | Valori di esempio: Hours, GB, Events, Pushes, Unit, Unit Hours, MB, Daily Units |
+| Centro di costo | CostCenter | CostCenter |   |
+| Unità di misura | UnitOfMeasure | UnitOfMeasure | Valori di esempio: hours, GB, Events, pushs, Unit, ore unità, MB, Daily unit |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Report di Azure Marketplace
@@ -159,12 +151,12 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | Data | BillingCycle |  Date (solo stringa di data, senza timestamp)
 | Month | Month |  Month |
 | Giorno | Giorno |  Giorno |
-| Year | Year |  Year |
-| ID misuratore | MeterResourceId |  ID contatore |
+| Anno | Anno |  Anno |
+| Meter ID | MeterResourceId |  MeterId |
 | Nome entità di pubblicazione | PublisherFriendlyName |  PublisherName |
 | Nome offerta | OfferFriendlyName |  OfferName |
-| Plan Name | PlanFriendlyName |  PlanName |
-| Quantità consumata | BilledQty |  ConsumedQuantity |
+| Nome piano | PlanFriendlyName |  PlanName |
+| Consumed Quantity | BilledQty |  ConsumedQuantity |
 | ResourceRate | ResourceRate | ResourceRate |
 | ExtendedCost | ExtendedCost | ExtendedCost |
 | Unità di misura | UnitOfMeasure | UnitOfMeasure |
@@ -173,7 +165,7 @@ Il formato JSON viene generato dal report CSV. Di conseguenza, il formato è ugu
 | Tag | Tag | Tag |
 | Order Number | OrderNumber | OrderNumber |
 | Department Name | DepartmentNames | DepartmentName |
-| Cost Center | CostCenters |  CostCenter |
+| Centro di costo | CostCenters |  CostCenter |
 | Gruppo di risorse | ResourceGroup |  ResourceGroup |
 
 #### <a name="price-sheet"></a>Elenco prezzi

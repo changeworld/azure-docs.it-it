@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 90cc38a7fe73ddfd3e20d29d299eef5da8dc87ed
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 0b5970381ed6a8dcf9a64632c4c9478c38944d54
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98047684"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98700763"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -37,6 +37,6 @@ ms.locfileid: "98047684"
 |[Le macchine virtuali devono essere connesse a una rete virtuale approvata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd416745a-506c-48b6-8ab1-83cb814bcaa3) |Questo criterio controlla le macchine virtuali connesse a una rete virtuale non approvata. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ApprovedVirtualNetwork_Audit.json) |
 |[Le reti virtuali devono usare il gateway di rete virtuale specificato](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff1776c76-f58c-4245-a8d0-2b207198dc8b) |Questo criterio controlla le reti virtuali per verificare che la route predefinita punti al gateway di rete virtuale specificato. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VirtualNetwork_ApprovedVirtualNetworkGateway_AuditIfNotExists.json) |
 |[Web Application Firewall (WAF) deve essere abilitato per il gateway applicazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F564feb30-bf6a-4854-b4bb-0d2d2d1e6c66) |Distribuire Azure Web Application Firewall (WAF) davanti ad applicazioni Web pubbliche per un'ulteriore ispezione del traffico in ingresso. Web Application Firewall (WAF) fornisce protezione centralizzata delle applicazioni Web dagli exploit e dalle vulnerabilità più comuni, ad esempio attacchi SQL injection, scripting intersito, esecuzioni file locali e remote. È inoltre possibile limitare l'accesso alle applicazioni Web in base a paesi, intervalli di indirizzi IP e altri parametri HTTP/HTTPS, tramite le regole personalizzate. |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayEnabled_Audit.json) |
-|[Web Application Firewall (WAF) deve essere abilitato per il servizio Frontdoor di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Distribuire Azure Web Application Firewall (WAF) davanti ad applicazioni Web pubbliche per un'ulteriore ispezione del traffico in ingresso. Web Application Firewall (WAF) fornisce protezione centralizzata delle applicazioni Web dagli exploit e dalle vulnerabilità più comuni, ad esempio attacchi SQL injection, scripting intersito, esecuzioni file locali e remote. È inoltre possibile limitare l'accesso alle applicazioni Web in base a paesi, intervalli di indirizzi IP e altri parametri HTTP/HTTPS, tramite le regole personalizzate. |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
+|[Il Web Application Firewall (WAF) deve essere abilitato per il servizio Azure front door Service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F055aa869-bc98-4af8-bafc-23f1ab6ffe2c) |Distribuire Azure Web Application Firewall (WAF) davanti ad applicazioni Web pubbliche per un'ulteriore ispezione del traffico in ingresso. Web Application Firewall (WAF) fornisce protezione centralizzata delle applicazioni Web dagli exploit e dalle vulnerabilità più comuni, ad esempio attacchi SQL injection, scripting intersito, esecuzioni file locali e remote. È inoltre possibile limitare l'accesso alle applicazioni Web in base a paesi, intervalli di indirizzi IP e altri parametri HTTP/HTTPS, tramite le regole personalizzate. |Audit, Deny, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Enabled_Audit.json) |
 |[Web Application Firewall (WAF) deve usare la modalità specificata per il gateway applicazione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12430be1-6cc8-4527-a9a8-e3d38f250096) |Impone che la modalità "Rilevamento" o "Prevenzione" sia attiva in tutti i criteri di Web Application Firewall per il gateway applicazione. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AppGatewayMode_Audit.json) |
 |[Web Application Firewall (WAF) deve usare la modalità specificata per il servizio Frontdoor di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F425bea59-a659-4cbb-8d31-34499bd030b8) |Impone che la modalità "Rilevamento" o "Prevenzione" sia attiva in tutti i criteri di Web Application Firewall per il servizio Frontdoor di Azure. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/WAF_AFD_Mode_Audit.json) |

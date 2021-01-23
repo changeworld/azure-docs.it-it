@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 7e6f19e03eee6fb6ddf946ea79d197a231f5f113
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690637"
+ms.locfileid: "98702955"
 ---
-# <a name="tutorial-for-configuring-keyless-with-azure-active-directory-b2c"></a>Esercitazione per la configurazione di senza chiave con Azure Active Directory B2C
+# <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Esercitazione: configurare senza chiave con Azure Active Directory B2C
 
 In questa esercitazione di esempio vengono fornite istruzioni su come configurare Azure Active Directory (AD) B2C con [autochiave](https://keyless.io/). Con Azure AD B2C come provider di identità, è possibile integrare la chiave digitale con le applicazioni dei clienti per offrire agli utenti un'autenticazione senza password vera e propria.
 
@@ -83,7 +83,7 @@ Per configurare un provider di identità, attenersi alla procedura seguente:
 1. Selezionare il **tipo di provider di identità**  >  **OpenID Connect (anteprima)**
 2. Compilare il modulo per configurare il provider di identità:
 
-   |Proprietà | Valore |
+   |Proprietà | valore |
    |:-----| :-----------|
    | Nome   | Keyless |
    | URL dei metadati | Inserire l'URI dell'app di autenticazione con chiave digitale ospitata, seguita dal percorso specifico, ad esempio https://keyless.auth/.well-known/openid-configuration |
@@ -99,7 +99,7 @@ Per configurare un provider di identità, attenersi alla procedura seguente:
 
 5. Compilare il modulo per eseguire il mapping del provider di identità:
 
-   |Proprietà | Valore |
+   |Proprietà | valore |
    |:-----| :-----------|
    | UserID    | Dalla sottoscrizione |
    | Nome visualizzato | Dalla sottoscrizione |
@@ -129,7 +129,7 @@ A questo punto dovrebbe essere visualizzato un nuovo provider di identità OIDC 
 
 9. In **attributi utente e attestazioni token** selezionare **indirizzo di posta elettronica** nell'opzione Raccogli attributo. È possibile aggiungere tutti gli attributi che Azure Active Directory possibile raccogliere sull'utente insieme alle attestazioni che Azure AD B2C possibile restituire all'applicazione client.
 
-10. Selezionare **Create** (Crea).
+10. Selezionare **Crea**.
 
 11. Al termine della creazione, selezionare il nuovo **flusso utente**.
 

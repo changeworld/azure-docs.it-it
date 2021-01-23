@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: ed79d9fb3be192d300587eda5198d9b153109241
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209781"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702203"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparare i dati per Riconoscimento vocale personalizzato
 
@@ -76,7 +76,7 @@ I dati audio sono ottimali per il test dell'accuratezza del modello di sintesi v
 
 Usare questa tabella per assicurarsi che i file audio siano formattati correttamente per l'uso con Riconoscimento vocale personalizzato:
 
-| Proprietà                 | Valore                 |
+| Proprietà                 | valore                 |
 |--------------------------|-----------------------|
 | Formato file              | RIFF (WAV)            |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz |
@@ -104,7 +104,7 @@ Per misurare l'accuratezza dell'accuratezza del riconoscimento vocale di Microso
 
 I file audio possono avere un silenzio all'inizio e alla fine della registrazione. Se possibile, includere almeno un mezzo secondo di silenzio prima e dopo il riconoscimento vocale in ogni file di esempio. Anche se l'audio con un volume di registrazione basso o un rumore di fondo a disturbo non è utile, non dovrebbe danneggiare il modello personalizzato. Provare sempre a aggiornare i microfoni e l'hardware di elaborazione dei segnali prima di raccogliere esempi di audio.
 
-| Proprietà                 | Valore                               |
+| Proprietà                 | valore                               |
 |--------------------------|-------------------------------------|
 | Formato file              | RIFF (WAV)                          |
 | Frequenza di campionamento              | 8.000 Hz o 16.000 Hz               |
@@ -166,7 +166,7 @@ Come materiale sussidiario generale, l'adattamento del modello è più efficace 
 
 Usare questa tabella per assicurarsi che il file di dati correlato per le espressioni sia formattato correttamente:
 
-| Proprietà | Valore |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | UTF-8 BOM |
 | N. di espressioni per riga | 1 |
@@ -174,7 +174,7 @@ Usare questa tabella per assicurarsi che il file di dati correlato per le espres
 
 Inoltre, è opportuno tenere conto delle restrizioni seguenti:
 
-* Evitare di ripetere i caratteri più di quattro volte. Ad esempio: "aaaa" o "uuuu".
+* Evitare di ripetere caratteri, parole o gruppi di parole più di tre volte. Ad esempio: "aaaa", "Sì Sì Sì Sì" o "questo è il suo vero". Il servizio riconoscimento vocale potrebbe rilasciare righe con troppe ripetizioni.
 * Non usare i caratteri speciali o i caratteri UTF-8 precedenti `U+00A1` .
 * Gli URI verranno rifiutati.
 
@@ -204,7 +204,7 @@ La pronuncia personalizzata è disponibile in inglese ( `en-US` ) e tedesco ( `d
 
 Usare la tabella seguente per assicurarsi che il file di dati correlato per le pronunce sia formattato correttamente. I file di pronuncia sono di dimensioni ridotte e devono contenere solo pochi kilobyte.
 
-| Proprietà | Valore |
+| Proprietà | valore |
 |----------|-------|
 | Codifica testo | BOM UTF-8 (ANSI è supportato anche per l'inglese) |
 | numero di pronunce per riga | 1 |

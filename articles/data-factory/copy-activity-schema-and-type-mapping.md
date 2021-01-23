@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: ce7c0cba4a231fbdb33679f8cdac7d57c79845f5
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: afcc7ad34807b74fa0b1ddaaa29223d8a6e25584
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968875"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702220"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Schema e mapping dei tipi di dati nell'attività di copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ Se l'origine è un file di testo senza riga di intestazione, il [mapping esplici
 2. Applica il mapping definito.
 3. Scrive i dati nel sink.
 
-Altre informazioni su:
+Sono disponibili altre informazioni su:
 
 - [Da origine tabulare a sink tabulare](#tabular-source-to-tabular-sink)
 - [Da origine gerarchica a sink tabulare](#hierarchical-source-to-tabular-sink)
@@ -186,6 +186,9 @@ E si desidera copiarlo in un file di testo nel formato seguente con la riga di i
 
 3. Eseguire il mapping dei campi necessari per il sink. Data Factory determina automaticamente i percorsi JSON corrispondenti per il lato gerarchico.
 
+> [!NOTE]
+> Per i record in cui la matrice contrassegnata come riferimento alla raccolta è vuota e la casella di controllo è selezionata, l'intero record viene ignorato.
+
 ![Mappa gerarchica a tabulare usando l'interfaccia utente](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
 È anche possibile passare all' **Editor avanzato**, nel qual caso è possibile visualizzare e modificare direttamente i percorsi JSON dei campi. Se si sceglie di aggiungere nuovo mapping in questa visualizzazione, specificare il percorso JSON.
@@ -283,16 +286,16 @@ L'attività di copia supporta attualmente i tipi di dati provvisori seguenti: bo
 
 Le conversioni dei tipi di dati seguenti sono supportate tra i tipi provvisori dall'origine al sink.
 
-| Source\Sink | Booleano | Matrice di byte | Decimal | Data/ora <small>(1)</small> | Virgola mobile <small>(2)</small> | GUID | Integer <small>(3)</small> | Stringa | TimeSpan |
+| Source\Sink | Boolean | Matrice di byte | Decimal | Data/ora <small>(1)</small> | Virgola mobile <small>(2)</small> | GUID | Integer <small>(3)</small> | string | TimeSpan |
 | ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Booleano     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
+| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Matrice di byte  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
 | Data/ora   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
 | Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | Virgola mobile | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
 | GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
 | Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Stringa      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
+| string      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
 | TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
 
 (1) la data e l'ora includono DateTime e DateTimeOffset.

@@ -3,12 +3,12 @@ title: Backup offline per Data Protection Manager (DPM) e server di Backup di Mi
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per le versioni precedenti di DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b747fd3c682dc1caf7312ba7279470a1e6b38bd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0405ab66b7714f00349419e94bb064267ca711a6
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88890094"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702186"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (versioni precedenti)
 
@@ -17,7 +17,7 @@ ms.locfileid: "88890094"
 
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali in genere trasferiscono grandi quantità di dati e richiedono una maggiore larghezza di banda di rete rispetto ai backup successivi, che trasferiscono solo i dati delta/incrementali. Backup di Azure comprime i backup iniziali. Tramite il processo di seeding offline, Backup di Azure può usare i dischi per il caricamento offline dei dati di backup iniziali compressi in Azure.
 
-Il processo di seeding offline di backup di Azure è strettamente integrato con il [servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md). È possibile usare questo servizio per trasferire i dati in Azure usando dischi. Se si hanno terabyte (TBs) di dati di backup iniziali che devono essere trasferiti in una rete a bassa latenza e larghezza di banda ridotta, è possibile usare il flusso di lavoro di seeding offline per inviare la copia di backup iniziale su uno o più dischi rigidi a un Data Center di Azure. Questo articolo fornisce una panoramica e altri passaggi che completano il flusso di lavoro per System Center Data Protection Manager (DPM) e Backup di Microsoft Azure Server (MAB).
+Il processo di seeding offline di backup di Azure è strettamente integrato con il [servizio importazione/esportazione di Azure](../import-export/storage-import-export-service.md). È possibile usare questo servizio per trasferire i dati in Azure usando dischi. Se si hanno terabyte (TBs) di dati di backup iniziali che devono essere trasferiti in una rete a bassa latenza e larghezza di banda ridotta, è possibile usare il flusso di lavoro di seeding offline per inviare la copia di backup iniziale su uno o più dischi rigidi a un Data Center di Azure. Questo articolo fornisce una panoramica e altri passaggi che completano il flusso di lavoro per System Center Data Protection Manager (DPM) e Backup di Microsoft Azure Server (MAB).
 
 > [!NOTE]
 > Il processo di backup non in linea per l'agente Servizi di ripristino di Microsoft Azure (MARS) è diverso da DPM e da MAB. Per informazioni sull'uso del backup offline con l'agente MARS, vedere [flusso di lavoro di backup offline in backup di Azure](backup-azure-backup-import-export.md). Il backup offline non è supportato per i backup dello stato del sistema eseguiti con l'agente di backup di Azure.
@@ -66,7 +66,7 @@ Prima di avviare il flusso di lavoro di backup offline, verificare che siano sod
   ![Creare un account di archiviazione con Gestione risorse sviluppo](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva (esterna o interna) del computer con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si desidera eseguire il backup di un file server da 500 GB, assicurarsi che l'area di gestione temporanea sia almeno 500 GB. La capacità usata sarà inferiore a causa della compressione.
-* Per i dischi inviati ad Azure, assicurarsi che vengano usati solo dischi rigidi SSD da 2,5 pollici o 2,5-pollice o 3,5-inch SATA II/III. È possibile usare dischi rigidi con capacità fino a 10 TB. Vedere la documentazione del [servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) per informazioni sul set di unità più recente supportato dal servizio.
+* Per i dischi inviati ad Azure, assicurarsi che vengano usati solo dischi rigidi SSD da 2,5 pollici o 2,5-pollice o 3,5-inch SATA II/III. È possibile usare dischi rigidi con capacità fino a 10 TB. Vedere la documentazione del [servizio Importazione/Esportazione di Azure](../import-export/storage-import-export-requirements.md#supported-hardware) per informazioni sul set di unità più recente supportato dal servizio.
 * Le unità SATA devono essere connesse a un computer, denominato *computer di copia*, da cui vengono copiati i dati di backup del percorso di gestione temporanea nell'unità SATA. Verificare che BitLocker sia abilitato nel computer di copia.
 
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Preparare il server per il processo di backup offline
@@ -107,7 +107,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
 
 1. Selezionare l'applicazione. In **Gestisci** nel riquadro sinistro passare a **certificati & segreti**.
 1. Verificare la presenza di certificati preesistenti o di chiavi pubbliche. Se non è presente alcun valore, è possibile eliminare l'applicazione in modo sicuro selezionando il pulsante **Elimina** nella pagina **Panoramica** dell'applicazione. Quindi, è possibile ripetere i passaggi per [preparare il server per il](#prepare-the-server-for-the-offline-backup-process) processo di backup non in linea e ignorare i passaggi seguenti. In caso contrario, continuare a seguire questa procedura dall'istanza di DPM o dal server di backup di Azure in cui si desidera configurare il backup offline.
-1. Da **Start** : **Esegui**, digitare *Certlm. msc*. Nella finestra **certificati-computer locale** selezionare la scheda **certificati – personal computer locale**  >  **Personal** . cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Da **Start** : **Esegui**, digitare *Certlm. msc*. Nella finestra **certificati-computer locale** selezionare la scheda **certificati – personal computer locale**  >   . cercare il certificato con il nome `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Selezionare il certificato, fare clic con il pulsante destro del mouse su **tutte le attività**, quindi scegliere **Esporta**, senza una chiave privata, nel formato CER.
 1. Passare all'applicazione di backup offline di Azure nel portale di Azure.
 1. Selezionare **Manage**  >  **Certificates & Secrets**  >  **upload certificate**. Caricare il certificato esportato nel passaggio precedente.
@@ -116,7 +116,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
 
 1. Nel server aprire il registro di sistema immettendo **Regedit** nella finestra Esegui.
 1. Passare alla voce del registro di sistema *Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
-1. Fare clic con il pulsante destro del mouse su **CloudBackupProvider**e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
+1. Fare clic con il pulsante destro del mouse su **CloudBackupProvider** e aggiungere un nuovo valore stringa con il nome `AzureADAppCertThumbprint_<Azure User Id>` .
 
     >[!NOTE]
     > Per trovare l'ID utente di Azure, eseguire una delle operazioni seguenti:
@@ -124,8 +124,8 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
     >* In PowerShell connesso ad Azure eseguire il comando `Get-AzureRmADUser -UserPrincipalName "Account Holder's email as appears in the portal"`.
     >* Passare al percorso del registro di sistema `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;` .
 
-1. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7. Quindi scegliere **OK**.
-1. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale**e copiare il valore.
+1. Fare clic con il pulsante destro del mouse sulla stringa aggiunta nel passaggio precedente e scegliere **modifica**. Nel valore specificare l'identificazione personale del certificato esportato nel passaggio 7. Selezionare **OK**.
+1. Per ottenere il valore dell'identificazione personale, fare doppio clic sul certificato. Selezionare la scheda **Dettagli** e scorrere verso il basso fino a visualizzare il campo identificazione personale. Selezionare **identificazione personale** e copiare il valore.
 
     ![Copia valore dal campo identificazione personale](./media/offline-backup-dpm-mabs-previous-versions/thumbprint-field.png)
 
@@ -133,7 +133,7 @@ Attenersi alla procedura seguente per caricare manualmente il certificato di bac
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-Le informazioni contenute in questa sezione consentono di completare il flusso di lavoro di backup offline in modo che i dati possano essere recapitati a un Data Center di Azure e caricati in archiviazione di Azure. In caso di domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la [documentazione sulla panoramica del servizio di importazione](../storage/common/storage-import-export-service.md) a cui si fa riferimento in precedenza.
+Le informazioni contenute in questa sezione consentono di completare il flusso di lavoro di backup offline in modo che i dati possano essere recapitati a un Data Center di Azure e caricati in archiviazione di Azure. In caso di domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la [documentazione sulla panoramica del servizio di importazione](../import-export/storage-import-export-service.md) a cui si fa riferimento in precedenza.
 
 ### <a name="initiate-offline-backup"></a>Avviare il backup offline
 
@@ -150,7 +150,7 @@ Le informazioni contenute in questa sezione consentono di completare il flusso d
    * **Percorso di gestione temporanea**: Percorso di archiviazione temporanea in cui viene scritta la copia di backup iniziale. Il percorso di gestione temporanea potrebbe trovarsi in una condivisione di rete o in un computer locale. Se il computer di copia e il computer di origine sono diversi, specificare il percorso di rete completo del percorso di gestione temporanea.
    * **Impostazioni di pubblicazione di Azure**: percorso locale del file di impostazioni di pubblicazione.
    * **Nome del processo di importazione di Azure**: nome univoco con cui il servizio importazione/esportazione di Azure e backup di Azure tengono traccia del trasferimento dei dati inviati su dischi ad Azure.
-   * **ID sottoscrizione**di Azure: ID sottoscrizione di Azure per la sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione di Azure.
+   * **ID sottoscrizione** di Azure: ID sottoscrizione di Azure per la sottoscrizione da cui è stato scaricato il file di impostazioni di pubblicazione di Azure.
    * **Account di archiviazione di Azure**: nome dell'account di archiviazione nella sottoscrizione di Azure associata al file delle impostazioni di pubblicazione di Azure.
    * **Contenitore di archiviazione di Azure**: nome del BLOB di archiviazione di destinazione nell'account di archiviazione di Azure in cui verranno importati i dati del backup.
 
@@ -160,7 +160,7 @@ Le informazioni contenute in questa sezione consentono di completare il flusso d
 
     ![Esegui backup ora](./media/offline-backup-dpm-mabs-previous-versions/backup-now.png)
 
-    Per completare il flusso di lavoro corrispondente in DPM o server di Backup di Azure, fare clic con il pulsante destro del mouse sul **gruppo protezione**dati. Selezionare l'opzione **Crea punto di ripristino** . Selezionare quindi l'opzione **protezione dati online** .
+    Per completare il flusso di lavoro corrispondente in DPM o server di Backup di Azure, fare clic con il pulsante destro del mouse sul **gruppo protezione** dati. Selezionare l'opzione **Crea punto di ripristino** . Selezionare quindi l'opzione **protezione dati online** .
 
     ![Backup di DPM e MAB](./media/offline-backup-dpm-mabs-previous-versions/dpm-backup-now.png)
 
@@ -271,7 +271,7 @@ Per verificare lo stato del processo di importazione:
 
     ![Controllare lo stato del processo di importazione](./media/offline-backup-dpm-mabs-previous-versions/import-job-status-reporting.png)<br/>
 
-Per altre informazioni sui vari Stati del processo di importazione di Azure, vedere [visualizzare lo stato dei processi di importazione/esportazione di Azure](../storage/common/storage-import-export-view-drive-status.md).
+Per altre informazioni sui vari Stati del processo di importazione di Azure, vedere [visualizzare lo stato dei processi di importazione/esportazione di Azure](../import-export/storage-import-export-view-drive-status.md).
 
 ### <a name="finish-the-workflow"></a>Terminare il flusso di lavoro
 
@@ -283,4 +283,4 @@ Al successivo backup pianificato, Backup di Azure eseguirà il backup incrementa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per domande sul flusso di lavoro del servizio importazione/esportazione di Azure, vedere [usare il servizio importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../storage/common/storage-import-export-service.md).
+* Per domande sul flusso di lavoro del servizio importazione/esportazione di Azure, vedere [usare il servizio importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../import-export/storage-import-export-service.md).

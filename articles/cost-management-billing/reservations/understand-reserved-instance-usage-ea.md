@@ -1,24 +1,24 @@
 ---
-title: Informazioni sull'utilizzo delle prenotazioni di Azure per i contratti Enterprise Agreement
-description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata la prenotazione di Azure per l'iscrizione Enterprise.
+title: Informazioni sull'utilizzo delle prenotazioni di Azure per Contratto Enterprise e il contratto del cliente Microsoft
+description: Informazioni su come leggere le informazioni sull'utilizzo per comprendere in che modo viene applicata una prenotazione di Azure per Contratto Enterprise e l'utilizzo del contratto clienti Microsoft.
 author: bandersmsft
 ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/19/2020
 ms.author: banders
-ms.openlocfilehash: 874d5cb022a38b172bb37009bd86b5e6988f3204
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
-ms.translationtype: HT
+ms.openlocfilehash: 0c69e9533130d6ca70c57422c7cdd5fc75adff72
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545605"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98683718"
 ---
-# <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Ottenere informazioni sui costi di prenotazione e l'utilizzo dei contratti Enterprise Agreement
+# <a name="get-enterprise-agreement-and-microsoft-customer-agreement-reservation-costs-and-usage"></a>Ottenere i costi e l'utilizzo di Contratto Enterprise e del contratto di servizio Microsoft
 
-I costi di prenotazione e i dati di utilizzo sono disponibili per gli utenti con contratto Enterprise Agreement nel portale di Azure e nelle API REST. Questo articolo offre informazioni utili per:
+I dati avanzati per i costi di prenotazione e l'utilizzo sono disponibili per l'utilizzo di Contratto Enterprise (EA) e Microsoft Customer Agreement (MCA) in gestione costi. Questo articolo offre informazioni utili per:
 
 - Ottenere i dati sugli acquisti di prenotazioni
 - Individuare la sottoscrizione, il gruppo di risorse o la risorsa che ha usato la prenotazione
@@ -61,9 +61,7 @@ Sono state modificate altre informazioni disponibili nei dati di utilizzo di Azu
 
 È possibile ottenere i dati usando l'API o scaricarli dal portale di Azure.
 
-Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list). Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](../understand/understand-usage.md). Il chiamante deve essere un amministratore dell'organizzazione per il contratto Enterprise Agreement che usa [EA Portal](https://ea.azure.com). Anche gli amministratori dell'organizzazione in sola lettura possono ottenere i dati.
-
-Tenere presente che questi dati non sono disponibili in [API di creazione di report per i clienti Enterprise - Dettagli di utilizzo](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Per ottenere i nuovi dati, chiamare l'[API Dettagli utilizzo](/rest/api/consumption/usagedetails/list). Per informazioni dettagliate sulla terminologia, vedere [Comprendere i termini di utilizzo nel file su utilizzo e costi di Azure](../understand/understand-usage.md).
 
 Ecco una chiamata di esempio all'API Dettagli sull'utilizzo:
 
@@ -87,7 +85,7 @@ Le informazioni riportate nella tabella seguente sulla metrica e sul filtro poss
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Scaricare il file CSV dei dati di utilizzo con i nuovi dati
 
-Gli amministratori EA possono scaricare il file CSV contenente i nuovi dati di utilizzo dal portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
+Se si è un amministratore EA, è possibile scaricare il file CSV contenente i nuovi dati di utilizzo da portale di Azure. Questi dati non sono disponibili in EA Portal (ea.azure.com), occorre scaricare il file di utilizzo dal portale di Azure (portal.azure.com) per visualizzare i nuovi dati.
 
 Nel portale di Azure passare a [Gestione dei costi e fatturazione](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
@@ -150,7 +148,7 @@ I costi di prenotazione sono disponibili nell'[analisi dei costi](https://aka.ms
 
 Raggruppare per tipo di addebito per visualizzare una ripartizione di utilizzo, acquisti e rimborsi. Raggruppare per prenotazione per una ripartizione dei costi della prenotazione e su richiesta. Tenere presente che gli unici costi di prenotazione che verranno visualizzati quando si esaminano i costi effettivi sono gli acquisti, mentre quando si esaminano i costi ammortizzati i costi verranno allocati alle singole risorse che hanno usato il vantaggio. Quando si esamina il costo ammortizzato, viene visualizzato anche un nuovo tipo di addebito **UnusedReservation**.
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

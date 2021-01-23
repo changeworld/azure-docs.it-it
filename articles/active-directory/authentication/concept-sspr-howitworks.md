@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5bcc6503af5f5f685ee589ed7671b4715834fef
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 496a8dba9b9ea7fb82ad9016479154d6a61cb767
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779363"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703276"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -137,7 +137,7 @@ Quando si usa un'app per dispositivi mobili come metodo per la reimpostazione de
 Gli utenti non hanno la possibilità di registrare l'app per dispositivi mobili durante la registrazione per la reimpostazione della password self-service da [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Gli utenti possono registrare l'app per dispositivi mobili in [https://aka.ms/mfasetup](https://aka.ms/mfasetup) o nella registrazione delle informazioni di sicurezza combinata all'indirizzo [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) .
 
 > [!IMPORTANT]
-> Non è possibile selezionare l'app Authenticator come unico metodo di autenticazione quando è richiesto solo il metodo. Analogamente, non è possibile selezionare l'app Authenticator e un solo metodo aggiuntivo quando sono necessari due metodi.
+> Non è possibile selezionare l'app Authenticator come unico metodo di autenticazione quando è richiesto un solo metodo. Analogamente, non è possibile selezionare l'app Authenticator e un solo metodo aggiuntivo quando sono necessari due metodi.
 >
 > Quando si configurano i criteri di SSPR che includono l'app Authenticator come metodo, è necessario selezionare almeno un metodo aggiuntivo quando è necessario un metodo ed è necessario selezionare almeno due metodi aggiuntivi quando si configurano due metodi.
 >

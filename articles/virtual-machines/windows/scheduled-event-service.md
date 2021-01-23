@@ -1,20 +1,20 @@
 ---
-title: Monitorare gli eventi pianificati per le macchine virtuali Windows in Azure
+title: Monitorare gli eventi pianificati per le macchine virtuali in Azure
 description: Informazioni su come monitorare gli eventi pianificati delle macchine virtuali di Azure.
 author: mysarn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: 0d1edde5ac1b83feab458eb5d12d524163d3ffb1
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483301"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702271"
 ---
-# <a name="monitoring-scheduled-events"></a>Monitoraggio di Eventi pianificati
+# <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorare gli eventi pianificati per le macchine virtuali di Azure
 
 Ogni giorno, vengono applicati aggiornamenti a diverse parti di Azure per mantenere i servizi in esecuzione sempre sicuri e aggiornati. Oltre agli aggiornamenti pianificati, possono verificarsi anche eventi non pianificati. Ad esempio, se vengono rilevati errori o riduzioni nelle prestazioni hardware, i servizi di Azure potrebbero eseguire una manutenzione non pianificata. Usando la migrazione in tempo reale, con utilizzo limitato di memoria da parte degli aggiornamenti e in generare limitandone l'impatto, nella maggior parte dei casi questi eventi sono quasi trasparenti e non hanno alcun effetto per i clienti o, al massimo causano, alcuni secondi di blocco della macchina virtuale. Tuttavia, per alcune applicazioni, anche alcuni secondi di blocco della macchina virtuale potrebbero avere un impatto negativo. Per garantire la migliore esperienza per le applicazioni, è utile conoscere con anticipo la tempistica delle operazioni di manutenzione previste. Il [servizio Eventi pianificati](scheduled-events.md) offre un'interfaccia programmatica che consente di ricevere notifiche sugli eventi di manutenzione imminenti e consente di gestirli in modo appropriato. 
 
@@ -39,7 +39,7 @@ Sarà anche necessario [creare un'area di lavoro di Log Analytics](../../azure-m
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
 
-A questo punto dovrebbero essere presenti due macchine virtuali iniziali in un set di disponibilità. Ora è necessario creare nello stesso set di disponibilità una terza macchina virtuale denominata myCollectorVM. 
+A questo punto dovrebbero essere presenti due macchine virtuali iniziali in un set di disponibilità. A questo punto è necessario creare una terza macchina virtuale, denominata `myCollectorVM` , nello stesso set di disponibilità. 
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -150,7 +150,7 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
     | project-away RenderedDescription,ReqJson
     ```
 
-1. Selezionare **Salva**, quindi digitare *logQuery* per il nome, lasciare **query** come tipo, digitare *VMLogs* come **categoria** e selezionare **Salva**. 
+1. Selezionare **Save (Salva**) e digitare `ogQuery` per il nome, lasciare **query** come tipo, digitare `VMLogs` come **Category** e quindi selezionare Save ( **Salva**). 
 
     ![Salvare la query](./media/notifications/save-query.png)
 
@@ -160,7 +160,7 @@ Una volta effettuato il push degli eventi in Log Analytics, è possibile eseguir
 1. In **Valore soglia** immettere *0* e quindi selezionare **Operazione completata**.
 1. Da **Azioni** selezionare **Crea gruppo di azioni**. Viene visualizzata la pagina **Aggiungi gruppo di azione**.
 1. In **Nome gruppo di azioni** digitare *myActionGroup*.
-1. In **Nome breve** digitare **myActionGroup**.
+1. In **Nome breve** digitare *myActionGroup*.
 1. In **Gruppo di risorse** selezionare **myResourceGroupAvailability**.
 1. In Azioni digitare **Email** per **NOME AZIONE** quindi selezionare **Email/SMS/Push/Voice** (E-mail/SMS/Push/Voce). Viene visualizzata la pagina **Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce)** .
 1. Selezionare **Email**, digitare l'indirizzo di posta elettronica, quindi selezionare **OK**.

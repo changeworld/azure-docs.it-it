@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
-ms.openlocfilehash: 4a9a6b61e392ed2efd68cdcb1cf7e53d6bde5ccd
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 8d984a303234a24423ceae100bd139cb484d6495
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249730"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702786"
 ---
 # <a name="estimate-and-manage-capacity-of-an-azure-cognitive-search-service"></a>Stimare e gestire la capacità di un servizio ricerca cognitiva di Azure
 
 Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il funzionamento della capacità e come modificare le repliche e le partizioni per gestire la fluttuazione del carico di lavoro.
 
-La capacità è una funzione del [livello di servizio](search-sku-tier.md). I livelli si differenziano per archiviazione massima, archiviazione per partizione e i limiti massimi per il numero di oggetti che è possibile creare. Il livello Basic è progettato per le app con requisiti di archiviazione modesto (solo una partizione), ma con la possibilità di eseguire in una configurazione a disponibilità elevata (3 repliche). Altri livelli sono progettati per carichi di lavoro o modelli specifici, ad esempio la multitenant. Internamente, i servizi creati su tali livelli traggono vantaggio dall'hardware che consente tali scenari.
+La capacità è una funzione del [livello di servizio](search-sku-tier.md), che stabilisce la quantità massima di spazio di archiviazione per ogni servizio, per partizione e i limiti massimi per il numero di oggetti che è possibile creare. Il livello Basic è progettato per le app con requisiti di archiviazione modesto (solo una partizione), ma con la possibilità di eseguire in una configurazione a disponibilità elevata (3 repliche). Altri livelli sono progettati per carichi di lavoro o modelli specifici, ad esempio la multitenant. Internamente, i servizi creati su tali livelli traggono vantaggio dall'hardware che consente tali scenari.
 
 L'architettura di scalabilità in Azure ricerca cognitiva si basa su combinazioni flessibili di repliche e partizioni, in modo da poter variare la capacità a seconda che sia necessaria una maggiore potenza di query o di indicizzazione. Una volta creato un servizio, è possibile aumentare o ridurre il numero di repliche o partizioni in modo indipendente. I costi verranno applicati a ogni risorsa fisica aggiuntiva, ma una volta completati i carichi di lavoro di grandi dimensioni, è possibile ridurre la scalabilità per abbassare la fattura. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore.
 

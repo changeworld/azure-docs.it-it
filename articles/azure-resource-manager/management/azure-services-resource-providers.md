@@ -3,12 +3,12 @@ title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 5e89b2b7cf7c27a501d93f63c74d81d8fb40883c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c319a6d06cbbcf5d36178c37207cc13f295a5897
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033545"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702854"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -59,12 +59,12 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.CognitiveServices | [Servizi cognitivi](../../cognitive-services/index.yml) |
 | Microsoft. Commerce- [registrato](#registration) | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
-| Microsoft. consumo- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
+| Microsoft. consumo- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
 | Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
-| Microsoft. CostManagement- [registrato](#registration) | [Gestione costi](/azure/cost-management/) |
-| Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
+| Microsoft. CostManagement- [registrato](#registration) | [Gestione dei costi](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Gestione dei costi](/azure/cost-management/) |
 | Microsoft.CustomerLockbox | [Customer Lockbox per Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft.CustomProviders | [Provider personalizzati di Azure](../custom-providers/overview.md) |
 | Microsoft.DataBox | [Azure Data Box](../../databox/index.yml) |
@@ -80,9 +80,9 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.DBforMariaDB | [Database di Azure per MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Database di Azure per MySQL](../../mysql/index.yml) |
 | Microsoft.DBforPostgreSQL | [Database di Azure per PostgreSQL](../../postgresql/index.yml) |
-| Microsoft.DeploymentManager | [Deployment Manager di Azure](../templates/deployment-manager-overview.md) |
+| Microsoft.DeploymentManager | [Gestione distribuzione di Azure](../templates/deployment-manager-overview.md) |
 | Microsoft.DesktopVirtualization | [Desktop virtuale Windows](../../virtual-desktop/index.yml) |
-| Microsoft.Devices | [Hub IoT Azure](../../iot-hub/index.yml)<br />[Servizio Device Provisioning in hub IoT di Azure](../../iot-dps/index.yml) |
+| Microsoft.Devices | [Hub IoT di Azure](../../iot-hub/index.yml)<br />[Servizio Device Provisioning in hub IoT di Azure](../../iot-dps/index.yml) |
 | Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](../../dev-spaces/index.yml) |
 | Microsoft.DevTestLab | [Azure Lab Services](../../lab-services/index.yml) |
@@ -102,7 +102,7 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zone perimetrali private](../../networking/edge-zones-overview.md) |
-| Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) |
+| Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../import-export/storage-import-export-service.md) |
 | microsoft.insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Gemelli digitali di Azure](../../digital-twins/index.yml) |
@@ -165,16 +165,16 @@ I provider di risorse contrassegnati con **-registered** sono registrati per imp
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Database SQL di Azure](../../azure-sql/database/index.yml)<br /> [Istanza gestita di database SQL di Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Storage](../../storage/index.yml) |
+| Microsoft.Storage | [Archiviazione](../../storage/index.yml) |
 | Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
-| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
+| Microsoft.StorageSync | [Archiviazione](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
 | Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | Microsoft. support- [registrato](#registration) | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
 | Microsoft.TimeSeriesInsights | [Azure Time Series Insights](../../time-series-insights/index.yml) |
-| Microsoft.Token | token |
+| Microsoft.Token | Token |
 | Microsoft.VirtualMachineImages | [Azure Image Builder](../../virtual-machines/linux/image-builder-overview.md) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VMware | [Soluzione Azure VMware](../../azure-vmware/index.yml) |

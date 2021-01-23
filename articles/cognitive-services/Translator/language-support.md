@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 60da61d094316b29c8fbc5454472bb898d693937
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e8e54a97c13a69fce2e80676fa68d6d795736a83
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681584"
+ms.locfileid: "98703123"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -194,6 +194,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Linguaggio    | Codice lingua | Script | A/da | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabo | `ar` | Arabo `Arab` | <--> | Latino `Latn` |
+| Assamese | `as` | Bengalese `Beng` | <--> | Latino `Latn` |
 | Bengalese  | `bn` | Bengalese `Beng` | <--> | Latino `Latn` |
 |Bielorusso| `be` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 |Bulgaro| `bg` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
@@ -208,6 +209,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Giapponese | `ja` | Giapponese `Jpan` | <--> | Latino `Latn` |
 | Kannada | `kn` | Kannada `Knda` | <--> | Latino `Latn` |
 |Kazako| `kk` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
+|Coreano| `ko` | Coreano `Kore`  | <--> | Latino `Latn` |
 |kirghiso| `ky` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 |Macedone| `mk` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | <--> | Latino `Latn` |
@@ -220,6 +222,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Serbo (alfabeto cirillico) | `sr-Cyrl` | Cirillico `Cyrl`  | --> | Latino `Latn` |
 | Serbo (alfabeto latino) | `sr-Latn` | Latino `Latn` | --> | Cirillico `Cyrl`|
 |Sindhi| `sd` | Arabo `Arab`  | <--> | Latino `Latn` |
+|Singalese| `si` | Singalese `Sinh`  | <--> | Latino `Latn` |
 |Tagico| `tg` | Cirillico `Cyrl`  | <--> | Latino `Latn` |
 | Tamil | `ta` | Tamil `Taml` | <--> | Latino `Latn` |
 |Tatar| `tt` | Cirillico `Cyrl`  | <--> | Latino `Latn` |

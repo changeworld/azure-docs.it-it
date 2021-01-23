@@ -6,14 +6,14 @@ author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.author: duau
-ms.openlocfilehash: 589f8bef7e5023a3667ce0ebf9a14637b007223d
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a97efd3e1a0384ba9896ba68bc67d4cf67c0c046
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664062"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98702744"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Partner di connettività e località di peering per ExpressRoute
 
@@ -132,7 +132,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Londra, Newport (Galles), San Paolo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supportato |Supportato |Busan, Seoul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Supportato |Supportato |Città del Capo, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato |Supportato |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublino, Francoforte, Ginevra, Hong Kong SAR, Las Vegas, Londra, London2, Los Angeles, Melbourne, Miami, Montreal, New York, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stoccolma, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Washington DC, Washington DC2, Zurigo |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supportato |Supportato |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublino, Francoforte, Ginevra, Hong Kong, Hong Kong2, Las Vegas, Londra, London2, Los Angeles, Melbourne, Miami, Montreal, New York, Osaka, Oslo, Perth, Quebec City, San Antonio, Seattle, Silicon Valley, Singapore, Singapore2, Stavanger, Stoccolma, Sydney, Sydney2, Tokyo, Tokyo2 Toronto, Washington DC, Washington DC2, Zurigo |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Supportato |Supportato |Londra |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Supportato |Supportato |Dallas, Los Angeles, Miami, San Paolo, Washington DC |
 | **[Dati di nuova generazione](https://vantage-dc-cardiff.co.uk/)** |Supportato |Supportato |Newport(Wales) |

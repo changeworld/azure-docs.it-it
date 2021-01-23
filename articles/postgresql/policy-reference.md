@@ -1,18 +1,18 @@
 ---
 title: Definizioni di criteri predefiniti per Database di Azure per PostgreSQL
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Database di Azure per PostgreSQL. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: reference
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 688b48fb05ea272ae3b61138f285f296c9c0670c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 43697fbc7df0af1d260e57dc202c9c8be871b59f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049251"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703353"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-postgresql"></a>Definizioni predefinite di Criteri di Azure per Database di Azure per PostgreSQL
 

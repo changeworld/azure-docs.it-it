@@ -1,30 +1,30 @@
 ---
 title: Cambiare l'offerta per la sottoscrizione di Azure
-description: Informazioni su come cambiare la sottoscrizione di Azure e passare a un'offerta diversa tramite il Centro account di Azure.
+description: Informazioni su come modificare la sottoscrizione di Azure e passare a un'offerta diversa.
 author: bandersmsft
 ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 01/20/2021
 ms.author: banders
-ms.openlocfilehash: e62ea7052420e2d0c20b99935659a5443540a942
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: dd8040effc5972d86e620793e437f5b185e12603
+ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686820"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98685464"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Modificare una sottoscrizione di Azure in un'offerta diversa
 
-I clienti con una [sottoscrizione individuale con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) possono passare a un'offerta diversa per la sottoscrizione di Azure nel [Centro account](https://account.windowsazure.com/Subscriptions). È ad esempio possibile usare questa funzionalità per sfruttare il [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+I clienti con una sottoscrizione con [pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo possono passare la sottoscrizione di Azure a un'altra offerta nel portale di Azure. È ad esempio possibile usare questa funzionalità per sfruttare il [Credito Azure mensile per sottoscrittori di Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 **Per eseguire l'aggiornamento dalla versione di valutazione gratuita**, Vedere [Aggiornare la sottoscrizione](upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Attività supportate:
 
-È possibile passare da una sottoscrizione individuale con pagamento in base al consumo a:
+È possibile passare da una sottoscrizione con pagamento in base al consumo a:
 
 - [Sviluppo/test con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
@@ -35,43 +35,31 @@ I clienti con una [sottoscrizione individuale con pagamento in base al consumo](
 
 > [!NOTE]
 > Per altre modifiche di offerte, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
->
->
 
 ## <a name="switch-subscription-offer"></a>Passare a un'offerta di sottoscrizione diversa
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Switch-to-a-different-Azure-offer/player]
->
->
-
-1. Accedere al [Centro account di Azure](https://account.windowsazure.com/Subscriptions).
-1. Selezionare la sottoscrizione individuale con pagamento in base al consumo.
-1. Fare clic su **Passa a un'altra offerta**. L'opzione è disponibile solo se si dispone di una sottoscrizione individuale con pagamento in base al consumo e si è completato il primo periodo di fatturazione.
-
-   ![Si noti il pulsante Cambia offerta sul lato destro della pagina](./media/switch-azure-offer/switchbutton.png)
-1. **Selezionare l'offerta preferita** dall'elenco di offerte disponibili per l'aggiornamento della sottoscrizione. L'elenco varia in base alle appartenenze associate all'account. Se non sono disponibili opzioni, controllare l'[elenco di offerte disponibili a cui è possibile passare](#whats-supported) e assicurarsi che siano disponibili le appartenenze corrette.
-
-   ![Selezionare un'offerta a cui passare](./media/switch-azure-offer/selectoffer.png)
-1. A seconda dell'offerta a cui si passa, può essere visualizzata una nota relativa all'impatto del passaggio. Leggere attentamente l'elenco e seguire le istruzioni prima di continuare.
-
-   ![Esaminare le note](./media/switch-azure-offer/thingstonote.png)
-1. È possibile rinominare la sottoscrizione. Per impostazione predefinita, non viene impostata sul nuovo nome dell'offerta. Fare clic su **Cambia offerta** per completare il processo.
-
-   ![Fare clic sul pulsante verde](./media/switch-azure-offer/confirmpage.png)
-1. Operazione riuscita. La sottoscrizione viene ora trasferita alla nuova offerta.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a **sottoscrizioni** e quindi selezionare la sottoscrizione con pagamento in base al consumo.
+1. Nella parte superiore della pagina selezionare **Switch offer**. L'opzione è disponibile solo se si dispone di una sottoscrizione con pagamento in base al consumo e si è completato il primo periodo di fatturazione.  
+    :::image type="content" source="./media/switch-azure-offer/switch-offer.png" alt-text="ALTImage che mostra i dettagli della sottoscrizione con l'opzione offerta optionTEXT" lightbox="./media/switch-azure-offer/switch-offer.png" :::
+1. Selezionare l'offerta desiderata dall'elenco di offerte a cui è possibile passare la sottoscrizione. L'elenco varia in base alle appartenenze associate all'account. Se non sono disponibili opzioni, controllare l'[elenco di offerte disponibili a cui è possibile passare](#whats-supported) e assicurarsi che siano disponibili le appartenenze corrette. Selezionare quindi **Avanti**.
+    :::image type="content" source="./media/switch-azure-offer/select-offer.png" alt-text="Selezionare un'offerta a cui passare" lightbox="./media/switch-azure-offer/select-offer.png" :::
+    A seconda dell'offerta a cui si passa, può essere visualizzata una nota relativa all'impatto del passaggio. Leggere attentamente l'elenco e seguire le istruzioni prima di continuare. Potrebbe inoltre essere necessario verificare il numero di telefono.
+1. Dopo aver esaminato eventuali note o aver verificato il numero di telefono, selezionare **Cambia offerta**.
+1. La sottoscrizione viene ora trasferita alla nuova offerta.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 Le sezioni seguenti includono le risposte alle domande più frequenti.
 
 ### <a name="what-is-an-azure-offer"></a>Che cos'è un'offerta di Azure?
 
-Per offerta di Azure si intende il *tipo* di sottoscrizione di Azure di cui si dispone. Ad esempio, [una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sono tutte offerte di Azure. Tutte le offerte presentano diversi [termini](https://azure.microsoft.com/support/legal/offer-details/) e alcune offrono vantaggi speciali. L'offerta di sottoscrizione è disponibile nella pagina della sottoscrizione del Centro account. Fare clic sul nome dell'offerta per visualizzare maggiori dettagli.
+Per offerta di Azure si intende il *tipo* di sottoscrizione di Azure di cui si dispone. Ad esempio, [una sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) sono tutte offerte di Azure. Tutte le offerte presentano diversi [termini](https://azure.microsoft.com/support/legal/offer-details/) e alcune offrono vantaggi speciali. L'offerta della sottoscrizione viene visualizzata nella pagina dei dettagli della sottoscrizione.
 
-   ![Fare clic sul collegamento dell'offerta nel Centro account per ottenere maggiori dettagli](./media/switch-azure-offer/offerlink01.png)
+:::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Pagina dei dettagli della sottoscrizione che mostra il tipo di offerta" lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
 ### <a name="why-dont-i-see-the-button"></a>Perché il pulsante non è visualizzato?
 
-L'opzione **Passa a un'altra offerta** potrebbe non essere visibile se:
+L'opzione opzione **offerta** potrebbe non essere visibile se:
 
 * Non si dispone di una [sottoscrizione con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Attualmente solo le sottoscrizioni con pagamento in base al consumo possono essere convertite in un'altra offerta.
   * Se si usa la [versione di valutazione gratuita](https://azure.microsoft.com/free/), vedere le informazioni relative a come [eseguire l'aggiornamento alla versione con pagamento in base al consumo](upgrade-azure-subscription.md).
@@ -85,7 +73,7 @@ L'opzione **Passa a un'altra offerta** potrebbe non essere visibile se:
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Qual è l'effetto del passaggio a un'altra offerta di Azure sul servizio e sulla fatturazione?
 
-Le informazioni dettagliate seguenti illustrano gli effetti del passaggio ad altre offerte di Azure nel Centro account.
+Ecco i dettagli di ciò che accade quando si passano le offerte di Azure.
 
 #### <a name="no-service-downtime"></a>Non sono previsti tempi di inattività del servizio
 
@@ -102,7 +90,7 @@ Il giorno del passaggio viene generata una fattura per tutti gli addebiti in sos
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>È possibile eseguire la migrazione da una sottoscrizione con pagamento in base al consumo a Cloud Solution Provider (CSP) o al contratto Enterprise Agreement?
 
 * Per eseguire la migrazione a CSP, vedere [Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP](transfer-subscriptions-subscribers-csp.md).
-* Per migrare la sottoscrizione esistente a un contratto Enterprise, chiedere all'amministratore dell'iscrizione di aggiungere l'account al contratto Enterprise. Seguire le istruzioni incluse nell'invito ricevuto tramite posta elettronica per lo spostamento delle sottoscrizioni nell'ambito dell'iscrizione al contratto Enterprise. Per altre informazioni, vedere [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) (Associare un account esistente) nel portale EA.
+* Per migrare la sottoscrizione esistente a un contratto Enterprise, chiedere all'amministratore dell'iscrizione di aggiungere l'account al contratto Enterprise. Seguire le istruzioni nel messaggio di posta elettronica di invito per spostare le sottoscrizioni nella registrazione EA.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>È possibile eseguire la migrazione di dati e servizi a una nuova sottoscrizione?
 
