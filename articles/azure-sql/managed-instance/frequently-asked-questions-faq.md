@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5d15947254d80d97b6a241a717fb7d33a3d5ccb5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92779867"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724017"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -118,7 +118,7 @@ La modifica di un nome di istanza gestita non è supportata.
 
 Sì, Istanza gestita zona DNS predefinita *. database.Windows.NET* può essere modificata. 
 
-Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.com* : 
+Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.com*: 
 - Usare CliConfig per definire un alias. Lo strumento è semplicemente un wrapper di impostazioni del registro di sistema, pertanto può essere eseguito anche tramite criteri di gruppo o uno script.
 - Usare *CNAME* con l'opzione *TrustServerCertificate = true* .
 
@@ -339,7 +339,7 @@ Il peering del circuito Express route è il modo migliore per eseguire questa op
 > [!IMPORTANT]
 > [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
-Se il peering del circuito Express Route e il peering di rete virtuale globale non sono possibili, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), l'interfaccia della riga di comando di [Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
+Se il peering del circuito Express Route e il peering di rete virtuale globale non sono possibili, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), l'interfaccia della riga di comando di [Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Attenuazione dei rischi exfiltration  
 
@@ -409,8 +409,8 @@ Sì, è possibile. Per eseguire la migrazione di un database SQL Server crittogr
 
 Sì, non è necessario decrittografare il database per ripristinarlo in SQL Istanza gestita. Per poter leggere i dati dal file di backup crittografato, è necessario fornire un certificato o una chiave usati come protezione con chiave di crittografia nel sistema di origine a SQL Istanza gestita. È possibile procedere in due modi:
 
-- *Caricare la protezione da certificato a SQL istanza gestita* . Questa operazione può essere eseguita solo tramite PowerShell. Lo [script di esempio](./tde-certificate-migrate.md) descrive l'intero processo.
-- *Caricare la protezione con chiave asimmetrica per Azure Key Vault e puntare SQL istanza gestita* . Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione Key Vault per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per SQL Istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)Transparent Data Encryption e non selezionare la casella di controllo imposta la **chiave selezionata come protezione** Transparent Data Encryption.
+- *Caricare la protezione da certificato a SQL istanza gestita*. Questa operazione può essere eseguita solo tramite PowerShell. Lo [script di esempio](./tde-certificate-migrate.md) descrive l'intero processo.
+- *Caricare la protezione con chiave asimmetrica per Azure Key Vault e puntare SQL istanza gestita*. Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione Key Vault per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per SQL Istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)Transparent Data Encryption e non selezionare la casella di controllo imposta la **chiave selezionata come protezione** Transparent Data Encryption.
 
 Dopo aver reso disponibile la protezione della crittografia per SQL Istanza gestita, è possibile procedere con la procedura di ripristino del database standard.
 
@@ -443,7 +443,7 @@ Per esplorare Istanza gestita opzioni di prezzo, vedere la [pagina dei prezzi](h
 
 **Come è possibile tenere traccia dei costi di fatturazione per l'istanza gestita?**
 
-Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](../../cost-management-billing/index.yml). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi** . 
+Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](../../cost-management-billing/index.yml). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi**. 
 
 Usare l'opzione **costi accumulati** , quindi filtrare in base al **tipo di risorsa** `microsoft.sql/managedinstances` .
 
@@ -490,7 +490,7 @@ Ogni account di accesso deve impostare la relativa password al momento dell'acce
 | Validità massima password | 42 giorni |
 | Validità minima password | 1 giorno |
 | Lunghezza minima password | 10 caratteri |
-| Le password devono essere conformi ai requisiti di complessità | Attivato |
+| Le password devono essere conformi ai requisiti di complessità | Abilitato |
 
 **È possibile disabilitare la complessità e la scadenza delle password in SQL Istanza gestita al livello di accesso?**
 

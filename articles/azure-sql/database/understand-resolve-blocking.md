@@ -14,12 +14,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 1/14/2020
-ms.openlocfilehash: d3bd63566daaf6e1d3e3343b5956d8a8d5fc8ea5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b73e72969a851428034499d447ecb162a61aa9ab
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224481"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725787"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Comprendere e risolvere i problemi di blocco del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -185,7 +185,7 @@ Vedere il documento che illustra come usare la [procedura guidata nuova sessione
     -   Sql_batch_completed
     -   Sql_batch_starting
 
--   Blocca
+-   Lock
     -   Lock_deadlock
 
 -   Sessione
@@ -208,7 +208,7 @@ Esaminando le informazioni sopra riportate, è possibile determinare la causa de
 
     | Stato | Significato |
     |:-|:-|
-    | Background | Lo SPID sta eseguendo un'attività in background, ad esempio il rilevamento dei deadlock, il writer di log o il checkpoint. |
+    | Sfondo | Lo SPID sta eseguendo un'attività in background, ad esempio il rilevamento dei deadlock, il writer di log o il checkpoint. |
     | Sospeso | Il SPID non è attualmente in esecuzione. Questo indica in genere che lo SPID è in attesa di un comando dell'applicazione. |
     | In esecuzione | Lo SPID è attualmente in esecuzione in un'utilità di pianificazione. |
     | Eseguibile | Lo SPID si trova nella coda eseguibile di un'utilità di pianificazione e in attesa di ottenere l'ora dell'utilità di pianificazione. |
@@ -345,7 +345,7 @@ Gli scenari seguenti si espanderanno in questi scenari.
     Dopo l'invio di una query al server, tutte le applicazioni devono recuperare immediatamente tutte le righe dei risultati fino al completamento. Se un'applicazione non recupera tutte le righe di risultati, i blocchi possono essere lasciati nelle tabelle, bloccando altri utenti. Se si utilizza un'applicazione che invia in modo trasparente istruzioni SQL al server, l'applicazione deve recuperare tutte le righe di risultati. In caso contrario (e se non è possibile configurarlo), potrebbe non essere possibile risolvere il problema di blocco. Per evitare il problema, è possibile limitare le applicazioni che si sono comportate in modo non corretto a un database di Reporting o di supporto decisionale.
     
     > [!NOTE]
-    > Vedere [linee guida per la logica di ripetizione dei tentativi](/azure/azure-sql/database/troubleshoot-common-connectivity-issues#retry-logic-for-transient-errors) per le applicazioni che si connettono al database SQL 
+    > Vedere [linee guida per la logica di ripetizione dei tentativi](./troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) per le applicazioni che si connettono al database SQL 
     
     **Soluzione**: l'applicazione deve essere riscritta per recuperare tutte le righe del risultato fino al completamento. Questa operazione non esclude l'utilizzo di [offset e FETCH nella clausola ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql#using-offset-and-fetch-to-limit-the-rows-returned) di una query per eseguire il paging lato server.
 

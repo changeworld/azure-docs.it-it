@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6da9f27e25fa5543f949716824f54af2b9f1ad1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 12b5c95b67f8fada29914d3a8de559280e6145f8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132546"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724221"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -100,7 +100,7 @@ Le funzionalità di gestione dei diritti sono ora disponibili per tutti i tenant
 - [Bizagi Studio for Digital Process Automation](../saas-apps/bizagi-studio-for-digital-process-automation-provisioning-tutorial.md)
 - [CybSafe](../saas-apps/cybsafe-provisioning-tutorial.md)
 - [GroupTalk](../saas-apps/grouptalk-provisioning-tutorial.md)
-- [PaperCut Cloud Print Management](/azure/active-directory/saas-apps/papercut-cloud-print-management-provisioning-tutorial)
+- [PaperCut Cloud Print Management](../saas-apps/papercut-cloud-print-management-provisioning-tutorial.md)
 - [Parsable](../saas-apps/parsable-provisioning-tutorial.md)
 - [Shopify Plus](../saas-apps/shopify-plus-provisioning-tutorial.md)
 
@@ -191,7 +191,7 @@ Per elencare l'applicazione nella raccolta di app Azure AD, vedere qui i dettagl
 **Categoria di servizio:** RBAC  
 **Funzionalità del prodotto:** Controllo di accesso
  
- [I ruoli RBAC personalizzati per la gestione delle applicazioni aziendali delegate](../users-groups-roles/roles-custom-available-permissions.md) sono ora in anteprima pubblica. Queste nuove autorizzazioni si basano sui ruoli personalizzati per la gestione della registrazione delle app, che consente un controllo con granularità fine sugli accessi degli amministratori. Nel corso del tempo, verranno rilasciate autorizzazioni aggiuntive per delegare la gestione dei Azure AD.
+ [I ruoli RBAC personalizzati per la gestione delle applicazioni aziendali delegate](../roles/custom-available-permissions.md) sono ora in anteprima pubblica. Queste nuove autorizzazioni si basano sui ruoli personalizzati per la gestione della registrazione delle app, che consente un controllo con granularità fine sugli accessi degli amministratori. Nel corso del tempo, verranno rilasciate autorizzazioni aggiuntive per delegare la gestione dei Azure AD.
 
 Alcuni scenari di delega comuni:
 - assegnazione di utenti e gruppi che possono accedere alle applicazioni Single Sign-On basate su SAML
@@ -247,7 +247,7 @@ Con l'iscrizione e l'accesso ai numeri di telefono, gli sviluppatori e le aziend
 - [TIC-TAC mobile](../saas-apps/tic-tac-mobile-provisioning-tutorial.md)
 - [Visibly](../saas-apps/visibly-provisioning-tutorial.md)
 
-Per altre informazioni, vedere [automatizzare il provisioning degli utenti in applicazioni SaaS con Azure ad](../manage-apps/user-provisioning.md).
+Per altre informazioni, vedere [automatizzare il provisioning degli utenti in applicazioni SaaS con Azure ad](../app-provisioning/user-provisioning.md).
  
 ---
 
@@ -301,7 +301,7 @@ L'agente di provisioning cloud è stato rilasciato in anteprima pubblica ed è o
  
 In precedenza era possibile ripristinare le chiavi BitLocker tramite l'endpoint/BitLocker. Alla fine verrà deprecato questo endpoint e i clienti devono iniziare a consumare l'API che ora rientra in/informationProtection. 
 
-Per riflettere queste modifiche, vedere [API di ripristino di BitLocker](https://docs.microsoft.com/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) per gli aggiornamenti della documentazione.
+Per riflettere queste modifiche, vedere [API di ripristino di BitLocker](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta) per gli aggiornamenti della documentazione.
 
 ---
 
@@ -622,7 +622,7 @@ Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel clou
 
 - Esperienza di mapping degli attributi tramite portale di Azure
 
-    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-provisioning/how-to-attribute-mapping.md)
+    Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Altre informazioni](../cloud-provisioning/how-to-attribute-mapping.md)
 
 - Esperienza utente di test o provisioning su richiesta
 
@@ -1126,4 +1126,3 @@ Se l'organizzazione USA Azure multi-factor authentication SDK, è necessario ese
 
 ---
 
- 

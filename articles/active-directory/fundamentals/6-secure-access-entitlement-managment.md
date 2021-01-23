@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9de0ce5e83b33cd793953e2b863f26dffafe58ee
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: f06a54f59405d9833194b2e7d4488bc93d2437ae
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222395"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725179"
 ---
 # <a name="manage-external-access-with-entitlement-management"></a>Gestire l'accesso esterno con la gestione dei diritti 
 
@@ -94,15 +94,15 @@ Per ulteriori informazioni sulle verifiche di accesso, vedere [Planning a Azure 
 
 ## <a name="using-automation-in-entitlement-management"></a>Uso dell'automazione nella gestione dei diritti
 
-È possibile eseguire le [funzioni di gestione dei diritti utilizzando Microsoft Graph](https://docs.microsoft.com/graph/tutorial-access-package-api), tra cui
+È possibile eseguire le [funzioni di gestione dei diritti utilizzando Microsoft Graph](/graph/tutorial-access-package-api), tra cui
 
-* [Gestire i pacchetti di accesso](https://docs.microsoft.com/graph/api/resources/accesspackage?view=graph-rest-beta)
+* [Gestire i pacchetti di accesso](/graph/api/resources/accesspackage?view=graph-rest-beta)
 
-* [Gestire le verifiche di accesso](https://docs.microsoft.com/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
+* [Gestire le verifiche di accesso](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta)
 
-* [Gestire le organizzazioni connesse](https://docs.microsoft.com/graph/api/resources/connectedorganization?view=graph-rest-beta)
+* [Gestire le organizzazioni connesse](/graph/api/resources/connectedorganization?view=graph-rest-beta)
 
-* [Gestire le impostazioni di gestione dei diritti](https://docs.microsoft.com/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
+* [Gestire le impostazioni di gestione dei diritti](/graph/api/resources/entitlementmanagementsettings?view=graph-rest-beta)
 
 ## <a name="recommendations"></a>Consigli 
 
@@ -112,7 +112,7 @@ Per ulteriori informazioni sulle verifiche di accesso, vedere [Planning a Azure 
 
 * Se nella directory sono già presenti utenti B2B, è anche possibile assegnarli direttamente ai pacchetti di accesso appropriati.
 
-* È possibile assegnare l'accesso all' [portale di Azure](../governance/entitlement-management-access-package-assignments.md)o tramite [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
+* È possibile assegnare l'accesso all' [portale di Azure](../governance/entitlement-management-access-package-assignments.md)o tramite [Microsoft Graph](/graph/api/resources/accesspackageassignmentrequest?view=graph-rest-beta).
 
 **Usare le impostazioni di governance delle identità per rimuovere gli utenti dalla directory quando i pacchetti di accesso scadono**.
 
@@ -173,4 +173,3 @@ Vedere gli articoli seguenti sulla protezione dell'accesso esterno alle risorse.
 
  
 
- 

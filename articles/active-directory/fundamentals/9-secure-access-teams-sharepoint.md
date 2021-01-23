@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18036644dc4df51bfacc5019f70ae7694757f753
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 218208891cccb4f606a574a9c1c09f30c4ac0b11
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222242"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725079"
 ---
 # <a name="secure-external-access-to-microsoft-teams-sharepoint-and-onedrive-for-business"></a>Sicurezza dell'accesso esterno a Microsoft teams, SharePoint e OneDrive for business 
 
@@ -77,7 +77,7 @@ Sono disponibili tre opzioni per le restrizioni di collaborazione. I requisiti a
 
 ## <a name="govern-access-in-teams"></a>Governare l'accesso nei team
 
-I [Team differenziano gli utenti esterni (chiunque all'esterno dell'organizzazione) e gli utenti Guest (quelli con account Guest)](https://docs.microsoft.com/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH). L'impostazione collaborazione viene gestita nel [portale di amministrazione dei team](https://admin.teams.microsoft.com/company-wide-settings/external-communications) in impostazioni a livello di organizzazione. 
+I [Team differenziano gli utenti esterni (chiunque all'esterno dell'organizzazione) e gli utenti Guest (quelli con account Guest)](/microsoftteams/communicate-with-users-from-other-organizations?WT.mc_id=TeamsAdminCenterCSH%e2%80%8b). L'impostazione collaborazione viene gestita nel [portale di amministrazione dei team](https://admin.teams.microsoft.com/company-wide-settings/external-communications) in impostazioni a livello di organizzazione. 
 
 > [!NOTE]
 > Le impostazioni di collaborazione delle identità esterne in Azure Active Directory controllano le autorizzazioni valide. È possibile aumentare le restrizioni nei team, ma non ridurle rispetto a quanto impostato in Azure AD.
@@ -88,13 +88,13 @@ I [Team differenziano gli utenti esterni (chiunque all'esterno dell'organizzazio
 
 Per ulteriori informazioni sulla gestione dell'accesso esterno nei team, vedere le risorse seguenti.
 
-* [Gestire l'accesso esterno in Microsoft Teams](https://docs.microsoft.com/microsoftteams/manage-external-access)
+* [Gestire l'accesso esterno in Microsoft Teams](/microsoftteams/manage-external-access)
 
-* [Modelli di identità Microsoft 365 e Azure Active Directory](https://docs.microsoft.com/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
+* [Modelli di identità Microsoft 365 e Azure Active Directory](/microsoft-365/enterprise/about-microsoft-365-identity?view=o365-worldwide)
 
-* [Modelli di identità e autenticazione per Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/identify-models-authentication)
+* [Modelli di identità e autenticazione per Microsoft Teams](/MicrosoftTeams/identify-models-authentication)
 
-* [Etichette di riservatezza per Microsoft Teams](https://docs.microsoft.com/MicrosoftTeams/sensitivity-labels)
+* [Etichette di riservatezza per Microsoft Teams](/MicrosoftTeams/sensitivity-labels)
 
 ## <a name="govern-access-in-sharepoint-and-onedrive"></a>Governare l'accesso in SharePoint e OneDrive
 
@@ -102,9 +102,9 @@ Gli amministratori di SharePoint dispongono di molte impostazioni disponibili pe
 
 ### <a name="integrating-sharepoint-and-one-drive-with-azure-ad-b2b"></a>Integrazione di SharePoint e One-Drive con Azure AD B2B
 
-Come parte della strategia complessiva per la gestione della collaborazione esterna, è consigliabile [abilitare l'anteprima dell'integrazione di SharePoint e OneDrive con Azure ad B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview) .
+Come parte della strategia complessiva per la gestione della collaborazione esterna, è consigliabile [abilitare l'anteprima dell'integrazione di SharePoint e OneDrive con Azure ad B2B](/sharepoint/sharepoint-azureb2b-integration-preview) .
 
-Azure AD B2B fornisce l'autenticazione e la gestione degli utenti guest. Con l'integrazione con SharePoint e OneDrive, [Azure ad i codici](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) di accesso monouso B2B vengono usati per la condivisione esterna di file, cartelle, voci di elenco, raccolte documenti e siti. Questa funzionalità offre un'esperienza aggiornata dall'esperienza del [destinatario della condivisione esterna protetta](https://docs.microsoft.com/sharepoint/what-s-new-in-sharing-in-targeted-release)esistente.
+Azure AD B2B fornisce l'autenticazione e la gestione degli utenti guest. Con l'integrazione con SharePoint e OneDrive, [Azure ad i codici](../external-identities/one-time-passcode.md) di accesso monouso B2B vengono usati per la condivisione esterna di file, cartelle, voci di elenco, raccolte documenti e siti. Questa funzionalità offre un'esperienza aggiornata dall'esperienza del [destinatario della condivisione esterna protetta](/sharepoint/what-s-new-in-sharing-in-targeted-release)esistente.
 
 > [!NOTE]
 > Se si Abilita l'anteprima per Azure AD integrazione B2B, la condivisione di SharePoint e OneDrive è soggetta alle impostazioni di Azure AD relazioni organizzative, ad esempio i **membri possono invitare** e i **Guest possono invitare**.
@@ -171,9 +171,9 @@ Non è consigliabile abilitare collegamenti a chiunque. In tal caso, è consigli
 
 Per ulteriori informazioni su come gestire l'accesso esterno a SharePoint, vedere gli argomenti seguenti:
 
-* [Panoramica della condivisione esterna di SharePoint](https://docs.microsoft.com/sharepoint/external-sharing-overview)
+* [Panoramica della condivisione esterna di SharePoint](/sharepoint/external-sharing-overview)
 
-* [Integrazione di SharePoint e OneDrive con Azure AD B2B](https://docs.microsoft.com/sharepoint/sharepoint-azureb2b-integration-preview)
+* [Integrazione di SharePoint e OneDrive con Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration-preview)
 
 #### <a name="next-steps"></a>Passaggi successivi
 

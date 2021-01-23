@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c556940ace02f2e7bf0354e67d32df7c5c6714e
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: eb01a3e0fc5bc11a4d3de62b16aafb7dd308e34a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032763"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724272"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Autorizzazioni utente predefinite in Azure Active Directory
 In Azure Active Directory (Azure AD) a tutti gli utenti viene concesso un set di autorizzazioni predefinite. L'accesso di un utente è costituito dal tipo di utente, dalle [assegnazioni di ruolo](active-directory-users-assign-role-azure-portal.md) e dalla proprietà di singoli oggetti. Questo articolo descrive tali autorizzazioni predefinite e contiene un confronto delle impostazioni predefinite degli utenti membro e guest. Le autorizzazioni utente predefinite possono essere modificate solo nelle impostazioni utente in Azure AD.
@@ -63,7 +63,7 @@ Le autorizzazioni predefinite per gli utenti guest possono essere limitate nei m
 
 Autorizzazione | Spiegazione dell'impostazione
 ---------- | ------------
-Limitazioni di accesso utente Guest (anteprima) | Per impostazione predefinita, l'impostazione di questa opzione su **utenti Guest ha lo stesso accesso ai membri che** concede a tutti gli utenti Guest le autorizzazioni per l'utente Guest.<p>L'impostazione di questa opzione sull' **accesso utente Guest è limitata alle proprietà e le appartenenze dei propri oggetti directory** limitano l'accesso guest solo al proprio profilo utente per impostazione predefinita. L'accesso ad altri utenti non è più consentito anche durante la ricerca in base al nome dell'entità utente, al valore ObjectId o al nome visualizzato. Anche l'accesso alle informazioni sui gruppi, incluse le appartenenze ai gruppi, non è più consentito.<p>**Nota**: questa impostazione non impedisce l'accesso ai gruppi aggiunti in alcuni servizi Microsoft 365 come Microsoft teams. Per ulteriori informazioni, vedere [Microsoft teams Guest Access](https://docs.microsoft.com/MicrosoftTeams/guest-access) .<p>Gli utenti guest possono comunque essere aggiunti ai ruoli di amministratore indipendentemente dalle impostazioni di autorizzazione.
+Limitazioni di accesso utente Guest (anteprima) | Per impostazione predefinita, l'impostazione di questa opzione su **utenti Guest ha lo stesso accesso ai membri che** concede a tutti gli utenti Guest le autorizzazioni per l'utente Guest.<p>L'impostazione di questa opzione sull' **accesso utente Guest è limitata alle proprietà e le appartenenze dei propri oggetti directory** limitano l'accesso guest solo al proprio profilo utente per impostazione predefinita. L'accesso ad altri utenti non è più consentito anche durante la ricerca in base al nome dell'entità utente, al valore ObjectId o al nome visualizzato. Anche l'accesso alle informazioni sui gruppi, incluse le appartenenze ai gruppi, non è più consentito.<p>**Nota**: questa impostazione non impedisce l'accesso ai gruppi aggiunti in alcuni servizi Microsoft 365 come Microsoft teams. Per ulteriori informazioni, vedere [Microsoft teams Guest Access](/MicrosoftTeams/guest-access) .<p>Gli utenti guest possono comunque essere aggiunti ai ruoli di amministratore indipendentemente dalle impostazioni di autorizzazione.
 Gli utenti guest possono invitare | Se si imposta questa opzione su Sì, i Guest potranno invitare altri guest. Per altre informazioni, vedere [delegare gli inviti per la collaborazione B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) .
 I membri possono invitare | L'impostazione di questa opzione su Sì consente ai membri non amministratori della directory di invitare i guest. Per altre informazioni, vedere [delegare gli inviti per la collaborazione B2B](../external-identities/delegate-invitations.md#configure-b2b-external-collaboration-settings) .
 Amministratori e utenti nel ruolo mittente dell'invito guest possono invitare | Se si imposta questa opzione su Sì, gli amministratori e gli utenti del ruolo "invitato Guest" possono invitare i guest. Se l'opzione è impostata su Sì, gli utenti del ruolo di invito Guest saranno comunque in grado di invitare i guest, indipendentemente dal fatto che i membri possano invitare l'impostazione. Per altre informazioni, vedere [delegare gli inviti per la collaborazione B2B](../external-identities/delegate-invitations.md#assign-the-guest-inviter-role-to-a-user) .

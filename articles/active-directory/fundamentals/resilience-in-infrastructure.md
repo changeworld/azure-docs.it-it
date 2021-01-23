@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f65ab02e06319519548eaa2c02120691a0ceef02
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 64fe4b8c217ec46cbb6dd046339c3ac65eebb121
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498558"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724678"
 ---
 # <a name="build-resilience-in-your-identity-and-access-management-infrastructure"></a>Resilienza della compilazione nell'infrastruttura di gestione delle identità e dell'accesso
 
@@ -32,7 +32,7 @@ Il set di documenti è progettato per
 
 * Team operativi delle identità
 
-Vedere anche la documentazione per [gli sviluppatori di applicazioni](https://aka.ms/azureadresilience/developer) e per i [sistemi Azure ad B2C](resilience-b2c.md).
+Vedere anche la documentazione per [gli sviluppatori di applicazioni](./resilience-app-development-overview.md) e per i [sistemi Azure ad B2C](resilience-b2c.md).
 
 ## <a name="what-is-resilience"></a>Che cos'è la resilienza?
 
@@ -44,7 +44,7 @@ Ogni chiamata al sistema di autenticazione è soggetta a rotture se un component
 
 In un sistema di autenticazione basato su token come Azure AD, un'applicazione dell'utente (client) deve acquisire un token di sicurezza dal sistema di identità prima di poter accedere a un'applicazione o a un'altra risorsa. Durante il periodo di validità, un client può presentare lo stesso token più volte per accedere all'applicazione.
 
-Quando il token presentato all'applicazione scade, l'applicazione rifiuta il token e il client deve acquisire un nuovo token da Azure AD. L'acquisizione di un nuovo token richiede potenzialmente l'interazione dell'utente, ad esempio la richiesta di credenziali o la soddisfazione di altri requisiti del sistema di autenticazione. Riducendo la frequenza delle chiamate di autenticazione con token di lunga durata si diminuiscono le interazioni non necessarie. Tuttavia, è necessario bilanciare la vita del token con i rischi creati da un minor numero di valutazioni dei criteri. Per ulteriori informazioni sulla gestione delle durate dei token, vedere questo articolo sull' [ottimizzazione delle richieste di riautenticazione](https://docs.microsoft.com/azure/active-directory/authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime).
+Quando il token presentato all'applicazione scade, l'applicazione rifiuta il token e il client deve acquisire un nuovo token da Azure AD. L'acquisizione di un nuovo token richiede potenzialmente l'interazione dell'utente, ad esempio la richiesta di credenziali o la soddisfazione di altri requisiti del sistema di autenticazione. Riducendo la frequenza delle chiamate di autenticazione con token di lunga durata si diminuiscono le interazioni non necessarie. Tuttavia, è necessario bilanciare la vita del token con i rischi creati da un minor numero di valutazioni dei criteri. Per ulteriori informazioni sulla gestione delle durate dei token, vedere questo articolo sull' [ottimizzazione delle richieste di riautenticazione](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ## <a name="ways-to-increase-resilience"></a>Modi per aumentare la resilienza
 Il diagramma seguente illustra sei metodi concreti per aumentare la resilienza. Ogni metodo è illustrato in dettaglio negli articoli collegati nella sezione passaggi successivi di questo articolo.

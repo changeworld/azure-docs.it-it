@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0d63df3e5525b200723db209d05e5eb5013e23
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 654e1c163a16f427958320ea081c38338e0ab4e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222361"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725393"
 ---
 # <a name="transition-to-governed-collaboration-with-azure-active-directory-b2b-collaboration"></a>Transizione alla collaborazione governata con Azure Active Directory collaborazione B2B 
 
@@ -100,7 +100,7 @@ Determinare chi può invitare gli utenti guest ad accedere alle risorse.
 
 Se si usa Azure AD gestione dei diritti, è possibile configurare le domande per la risposta degli utenti esterni. Le domande verranno quindi visualizzate agli approvatori per consentire loro di prendere una decisione. È possibile configurare diversi set di domande per ogni [criterio del pacchetto di accesso](../governance/entitlement-management-access-package-approval-policy.md) in modo che i responsabili approvazione possano disporre di informazioni rilevanti per l'accesso che sta approvando. Se, ad esempio, un pacchetto di accesso è destinato all'accesso del fornitore, al richiedente potrebbe essere richiesto il numero di contratto del fornitore. Un pacchetto di accesso diverso destinato ai fornitori può richiedere il proprio paese di origine.
 
-Se si usa un portale self-service, è possibile usare i [connettori API](../external-identities/api-connectors-overview.md) per raccogliere attributi aggiuntivi sugli utenti durante l'iscrizione. È quindi possibile utilizzare potenzialmente tali attributi per assegnare l'accesso. Se, ad esempio, durante il processo di iscrizione si raccoglie il proprio ID fornitore, è possibile utilizzare tale attributo per assegnarli dinamicamente a un gruppo o a un pacchetto di accesso per tale fornitore. È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). 
+Se si usa un portale self-service, è possibile usare i [connettori API](../external-identities/api-connectors-overview.md) per raccogliere attributi aggiuntivi sugli utenti durante l'iscrizione. È quindi possibile utilizzare potenzialmente tali attributi per assegnare l'accesso. Se, ad esempio, durante il processo di iscrizione si raccoglie il proprio ID fornitore, è possibile utilizzare tale attributo per assegnarli dinamicamente a un gruppo o a un pacchetto di accesso per tale fornitore. È possibile creare attributi personalizzati nel portale di Azure e usarli nei flussi utente di iscrizione self-service. Questi attributi possono anche essere scritti e letti usando l'[API Microsoft Graph](../../active-directory-b2c/manage-user-accounts-graph-api.md). 
 
 ### <a name="troubleshoot-invitation-redemption-to-azure-ad-users"></a>Risolvere i problemi di riscatto dell'invito per Azure AD utenti
 
@@ -132,7 +132,7 @@ Per gli utenti Guest sono consigliate le restrizioni seguenti.
 
 * **Blocca l'accesso al portale di Azure. È possibile eseguire rare eccezioni necessarie**. 
 
-   * Creare un criterio di accesso condizionale che includa tutti gli utenti guest ed External, quindi [implementare i criteri per bloccare l'accesso](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management).
+   * Creare un criterio di accesso condizionale che includa tutti gli utenti guest ed External, quindi [implementare i criteri per bloccare l'accesso](../../role-based-access-control/conditional-access-azure-management.md).
 
  
 
@@ -185,7 +185,7 @@ Per impostazione predefinita, i team consentono l'accesso esterno, il che signif
 
 ### <a name="direct-sharing-through-sharepoint-and-onedrive"></a>Condivisione diretta tramite SharePoint e OneDrive
 
-La condivisione diretta tramite SharePoint e OneDrive può aggiungere utenti al di fuori del processo di gestione dei diritti. Per informazioni dettagliate su queste configurazioni [, vedere gestire l'accesso con Microsoft teams, SharePoint e OneDrive for business](9-secure-access-teams-sharepoint.md) . è anche possibile [bloccare l'uso di OneDrive personali dell'utente](https://docs.microsoft.com/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , se lo si desidera.
+La condivisione diretta tramite SharePoint e OneDrive può aggiungere utenti al di fuori del processo di gestione dei diritti. Per informazioni dettagliate su queste configurazioni [, vedere gestire l'accesso con Microsoft teams, SharePoint e OneDrive for business](9-secure-access-teams-sharepoint.md) . è anche possibile [bloccare l'uso di OneDrive personali dell'utente](/office365/troubleshoot/group-policy/block-onedrive-use-from-office) , se lo si desidera.
 
 ### <a name="sending-documents-through-email"></a>Invio di documenti tramite posta elettronica
 
@@ -197,9 +197,9 @@ Il panorama degli strumenti di collaborazione è vasto. È probabile che gli ute
 
 Per ulteriori informazioni sulla gestione di applicazioni non approvate, vedere:
 
-* [Governance delle app connesse](https://docs.microsoft.com/cloud-app-security/governance-actions)
+* [Governance delle app connesse](/cloud-app-security/governance-actions)
 
-* [Approvazione e annullamento dell'approvazione di un'applicazione.](https://docs.microsoft.com/cloud-app-security/governance-discovery)
+* [Approvazione e annullamento dell'approvazione di un'applicazione.](/cloud-app-security/governance-discovery)
 
  
 ### <a name="next-steps"></a>Passaggi successivi

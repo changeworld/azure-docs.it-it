@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd782cdab625934fe60617142e5ac0baf756398
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 614b3f927dc22bc534168f8fe95cc2f97031b621
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80128769"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725524"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Risoluzione dei problemi relativi ai dispositivi tramite il comando dsregcmd
 
@@ -305,10 +305,10 @@ In questa sezione viene visualizzato l'output dei controlli di integrità di int
 
 ## <a name="ngc-prerequisite-check"></a>Controllo dei prerequisiti NGC
 
-Questa sezione esegue i controlli prerequisito per il provisioning di Windows Hello for business (WHFB). 
+Questa sezione esegue i controlli dei prerequisiti per il provisioning di Windows Hello for business (WHFB). 
 
 > [!NOTE]
-> Non è possibile visualizzare i dettagli del controllo dei prerequisiti di NGC in dsregcmd/status se l'utente è già stato configurato correttamente WHFB.
+> Non è possibile visualizzare i dettagli del controllo dei prerequisiti NGC in dsregcmd/status se l'utente ha già configurato correttamente WHFB.
 
 - **IsDeviceJoined:** impostare su "Yes" Se il dispositivo è stato aggiunto al Azure ad.
 - **IsUserAzureAD:** impostare su "Yes" se l'utente connesso è presente in Azure ad.

@@ -3,12 +3,12 @@ title: Procedure consigliate per la sicurezza e la conformità in batch
 description: Informazioni sulle procedure consigliate e suggerimenti utili per migliorare la sicurezza con le soluzioni Azure Batch.
 ms.date: 12/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9732ffb810a1038a6f402a46fa8b809f180f0a8
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 6ec4a1d89ebaa9318986fc0d51e832652ba51683
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802287"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723813"
 ---
 # <a name="batch-security-and-compliance-best-practices"></a>Procedure consigliate per la sicurezza e la conformità in batch
 
@@ -137,8 +137,8 @@ Per impostazione predefinita, i nodi di calcolo batch hanno due dischi: un disco
 
 Per una maggiore sicurezza, crittografare questi dischi usando una di queste funzionalità di crittografia dischi di Azure:
 
-- [Crittografia dei dischi gestiti inattivi con chiavi gestite dalla piattaforma](../virtual-machines/windows/disk-encryption.md#platform-managed-keys)
-- [Crittografia nell'host mediante una chiave gestita dalla piattaforma](../virtual-machines/windows/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Crittografia dei dischi gestiti inattivi con chiavi gestite dalla piattaforma](../virtual-machines/disk-encryption.md#platform-managed-keys)
+- [Crittografia nell'host mediante una chiave gestita dalla piattaforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](disk-encryption.md)
 
 ## <a name="securely-access-services-from-compute-nodes"></a>Accedere in modo sicuro ai servizi dai nodi di calcolo

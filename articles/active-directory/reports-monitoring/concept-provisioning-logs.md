@@ -17,12 +17,12 @@ ms.date: 1/19/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c7d02b48d30fa558f8fd12f92705046dab74057
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: deab3460baf9c46e2a3073eb41b738b0e7ad586f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624236"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726302"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -48,7 +48,7 @@ Questo argomento offre una panoramica dei log di provisioning. Forniscono rispos
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
 * I proprietari dell'applicazione possono visualizzare i log per le applicazioni di loro proprietà
 * Utenti nei ruoli amministratore sicurezza, lettore sicurezza, lettore report, amministratore applicazione e amministratore applicazione cloud
-* Utenti in un ruolo personalizzato con l' [autorizzazione provisioningLogs](https://docs.microsoft.com/azure/active-directory/roles/custom-enterprise-app-permissions#full-list-of-permissions)
+* Utenti in un ruolo personalizzato con l' [autorizzazione provisioningLogs](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 * Amministratori globali
 
 

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4b649942a52c51aef0d6edd17b913f75e1fb247b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a1b621b5d5601e6d8bffef48e23d217e0eee1d6a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674168"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725820"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure
 
@@ -212,9 +212,11 @@ Se si definisce in modo esplicito il piano a consumo, sarà necessario impostare
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
+Le impostazioni richieste da un'app per le funzioni in esecuzione nel piano a consumo rinviano tra Windows e Linux. 
+
 #### <a name="windows"></a>Windows
 
-In Windows un piano a consumo richiede due impostazioni aggiuntive nella configurazione del sito: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Queste proprietà consentono di configurare l'account di archiviazione e il percorso in cui vengono archiviati il codice dell'app per le funzioni e la configurazione.
+In Windows un piano a consumo richiede un'impostazione aggiuntiva nella configurazione del sito: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Questa proprietà configura l'account di archiviazione in cui sono archiviati il codice e la configurazione dell'app per le funzioni.
 
 ```json
 {
@@ -238,10 +240,6 @@ In Windows un piano a consumo richiede due impostazioni aggiuntive nella configu
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -259,9 +257,12 @@ In Windows un piano a consumo richiede due impostazioni aggiuntive nella configu
 }
 ```
 
+> [!IMPORTANT]
+> Non impostare l' [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) impostazione perché viene generata automaticamente quando il sito viene creato per la prima volta.  
+
 #### <a name="linux"></a>Linux
 
-In Linux l'app per le funzioni deve avere la `kind` proprietà impostata su `functionapp,linux` e la proprietà deve essere `reserved` impostata su `true` :
+In Linux l'app per le funzioni deve avere la `kind` proprietà impostata su `functionapp,linux` e la proprietà deve essere `reserved` impostata su `true` . 
 
 ```json
 {
@@ -299,8 +300,9 @@ In Linux l'app per le funzioni deve avere la `kind` proprietà impostata su `fun
 }
 ```
 
-<a name="premium"></a>
+Le [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) Impostazioni e non sono supportate in Linux.
 
+<a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>Distribuisci nel piano Premium
 
 Il piano Premium offre la stessa scalabilità del piano a consumo, ma include risorse dedicate e funzionalità aggiuntive. Per altre informazioni, vedere [piano Premium di funzioni di Azure](./functions-premium-plan.md).
@@ -332,7 +334,7 @@ Un piano Premium è un tipo speciale di risorsa "server farm". È possibile spec
 
 ### <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` proprietà impostata sull'ID risorsa del piano creato in precedenza. Inoltre, un piano Premium richiede due impostazioni aggiuntive nella configurazione del sito: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` e `WEBSITE_CONTENTSHARE` . Queste proprietà consentono di configurare l'account di archiviazione e il percorso in cui vengono archiviati il codice dell'app per le funzioni e la configurazione.
+Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` proprietà impostata sull'ID risorsa del piano creato in precedenza. Inoltre, un piano Premium richiede un'impostazione aggiuntiva nella configurazione del sito: [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) . Questa proprietà configura l'account di archiviazione in cui sono archiviati il codice e la configurazione dell'app per le funzioni.
 
 ```json
 {
@@ -358,10 +360,6 @@ Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` propriet
                     "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2019-06-01').keys[0].value)]"
                 },
                 {
-                    "name": "WEBSITE_CONTENTSHARE",
-                    "value": "[toLower(variables('functionAppName'))]"
-                },
-                {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
                 },
@@ -378,6 +376,8 @@ Un'app per le funzioni in un piano Premium deve avere la `serverFarmId` propriet
     }
 }
 ```
+> [!IMPORTANT]
+> Non impostare l' [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) impostazione perché viene generata automaticamente quando il sito viene creato per la prima volta.  
 
 <a name="app-service-plan"></a>
 

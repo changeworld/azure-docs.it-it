@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 8/26/2020
 ms.author: alkemper
-ms.openlocfilehash: 6996fdd9dce4314e9365177815d7d310ac80c7cb
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 96efc0ea6300e482ddeeda8fa177847f02b7e126
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046074"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724253"
 ---
 # <a name="quickstart-add-feature-flags-to-an-azure-functions-app"></a>Avvio rapido: Aggiungere flag di funzionalità a un'app di Funzioni di Azure
 
@@ -46,7 +46,7 @@ Le librerie di Gestione funzionalità di .NET estendono il framework con il supp
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 
-Questo progetto usa l'[inserimento di dipendenze in Funzioni di Azure .NET](/azure/azure-functions/functions-dotnet-dependency-injection). Aggiunge Configurazione app di Azure come origine di configurazione supplementare in cui vengono archiviati i flag di funzionalità.
+Questo progetto usa l'[inserimento di dipendenze in Funzioni di Azure .NET](../azure-functions/functions-dotnet-dependency-injection.md). Aggiunge Configurazione app di Azure come origine di configurazione supplementare in cui vengono archiviati i flag di funzionalità.
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto.
    - [Microsoft.Extensions.Configuration.AzureAppConfiguration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration/) versione 4.1.0 o successiva

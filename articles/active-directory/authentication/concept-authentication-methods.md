@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 01/22/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 24b29cfb1f58a61193f67ba924e583d4264dfc51
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 1459dd41fcdc30a29a5f9f93ec9704083767a342
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562124"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725672"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quali metodi di autenticazione e verifica sono disponibili in Azure Active Directory?
 
@@ -40,14 +40,14 @@ Nella tabella seguente vengono descritte le considerazioni sulla sicurezza per i
 
 | Metodo di autenticazione          | Sicurezza | Usabilità | Disponibilità |
 |--------------------------------|:--------:|:---------:|:------------:|
-| Windows Hello for Business     | Alta     | Alta      | Alta         |
-| App Microsoft Authenticator    | Alta     | Alta      | Alta         |
-| Chiave di sicurezza FIDO2 (anteprima)   | Alta     | Alta      | Alta         |
-| Token hardware OATH (anteprima) | Livello medio   | Livello medio    | Alta         |
-| Token software OATH           | Livello medio   | Livello medio    | Alta         |
+| Windows Hello for Business     | Alto     | Alto      | Alto         |
+| App Microsoft Authenticator    | Alto     | Alto      | Alto         |
+| Chiave di sicurezza FIDO2 (anteprima)   | Alto     | Alto      | Alto         |
+| Token hardware OATH (anteprima) | Livello medio   | Livello medio    | Alto         |
+| Token software OATH           | Livello medio   | Livello medio    | Alto         |
 | SMS                            | Media   | Alto      | Medio       |
 | Chiamata vocale                          | Livello medio   | Livello medio    | Livello medio       |
-| Password                       | Basso      | Alto      | Alta         |
+| Password                       | Basso      | Alto      | Alto         |
 
 Per informazioni aggiornate sulla sicurezza, vedere i post di Blog seguenti:
 
@@ -70,7 +70,7 @@ La tabella seguente illustra quando è possibile usare un metodo di autenticazio
 | Chiave di sicurezza FIDO2 (anteprima)   | Sì                    | MFA                       |
 | Token hardware OATH (anteprima) | No                     | MFA                       |
 | Token software OATH           | No                     | MFA                       |
-| SMS                            | Sì (anteprima)          | Autenticazione a più fattori e SSPR              |
+| SMS                            | Sì                    | Autenticazione a più fattori e SSPR              |
 | Chiamata vocale                     | No                     | Autenticazione a più fattori e SSPR              |
 | Password                       | Sì                    |                           |
 
@@ -83,7 +83,7 @@ Per altre informazioni sul funzionamento di ogni metodo di autenticazione, veder
 * [Chiave di sicurezza FIDO2 (anteprima)](concept-authentication-passwordless.md#fido2-security-keys)
 * [Token hardware OATH (anteprima)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Token software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
-* [Accesso SMS (anteprima)](howto-authentication-sms-signin.md) e [Verifica](concept-authentication-phone-options.md#mobile-phone-verification)
+* [Accesso](howto-authentication-sms-signin.md) e [Verifica](concept-authentication-phone-options.md#mobile-phone-verification) tramite SMS
 * [Verifica della chiamata vocale](concept-authentication-phone-options.md)
 * Password
 

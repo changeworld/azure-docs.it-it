@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5229175af618f897caeae7310338cbe51966a48d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 4b8292d99bd16f9b6f98f4ae8ca82edbfc02ff76
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859613"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725755"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Esercitazione: Creare un tenant di Azure Active Directory B2C
 
@@ -68,7 +68,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     ![Modulo di creazione tenant con valori di esempio nel portale di Azure](media/tutorial-create-tenant/review-and-create-tenant.png)
 
 1. Selezionare **Rivedi e crea**.
-1. Esaminare le impostazioni della directory. Selezionare quindi **Crea**.
+1. Esaminare le impostazioni della directory. Selezionare quindi **Crea**. Per la [risoluzione degli errori di distribuzione](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
 È possibile collegare più tenant di Azure AD B2C a una singola sottoscrizione di Azure ai fini della fatturazione. Per collegare un tenant, è necessario essere un amministratore nel tenant di Azure AD B2C a cui è stato assegnato almeno un ruolo di Collaboratore nella sottoscrizione di Azure. Vedere [Collegare un tenant di Azure AD B2C a una sottoscrizione](billing.md#link-an-azure-ad-b2c-tenant-to-a-subscription).
 

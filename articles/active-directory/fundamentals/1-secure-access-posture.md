@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6814cafcf6dafa6f007bdd9d3623d30ef079084
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 37c27e84f15a01a2d8832baae137518685de59a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222446"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725442"
 ---
 # <a name="determine-your-security-posture-for-external-access"></a>Determinare il comportamento di sicurezza per l'accesso esterno 
 
@@ -69,7 +69,7 @@ A seconda di quale sia l'organizzazione e gli scenari, è necessario:
 
 * **Controllare l'accesso ad applicazioni, dati e contenuto**. Questa operazione può essere eseguita tramite diversi metodi, a seconda delle versioni di [Azure ad](https://azure.microsoft.com/pricing/details/active-directory/) e [Microsoft 365](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans). 
 
-* **Ridurre la superficie di attacco**. [Privileged Identity Management](../privileged-identity-management/pim-configure.md), la [prevenzione della perdita dei dati (DLP)](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) e le [funzionalità di crittografia](https://docs.microsoft.com/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) riducono la superficie di attacco.
+* **Ridurre la superficie di attacco**. [Privileged Identity Management](../privileged-identity-management/pim-configure.md), la [prevenzione della perdita dei dati (DLP)](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) e le [funzionalità di crittografia](/exchange/security-and-compliance/data-loss-prevention/data-loss-prevention) riducono la superficie di attacco.
 
 * **Controllare regolarmente le attività e il registro di controllo per verificare la conformità**. Può delegare le decisioni di accesso ai proprietari aziendali tramite la gestione dei diritti, mentre le verifiche di accesso consentono di confermare periodicamente l'accesso continuo. La classificazione automatica dei dati con etichette di riservatezza consente di automatizzare la crittografia dei contenuti sensibili, semplificando la conformità degli utenti finali ai dipendenti.
 
@@ -96,4 +96,3 @@ Vedere gli articoli seguenti sulla protezione dell'accesso esterno alle risorse.
 9. [Accesso sicuro a Microsoft teams, OneDrive e SharePoint](9-secure-access-teams-sharepoint.md)
  
 
- 

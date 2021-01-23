@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8bfc3fb239f30911eddf0aa27496a465e36c486
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8fed78d7d2250d749ced7fe343689df76329b60d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95919565"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724661"
 ---
 # <a name="build-resilience-in-application-access-with-application-proxy"></a>Resilienza della compilazione nell'accesso alle applicazioni con il proxy di applicazione
 
@@ -27,7 +27,7 @@ Application Proxy è una funzionalità di Azure AD che consente agli utenti di a
 Gli utenti accedono alle risorse locali tramite un URL pubblicato tramite il proxy di applicazione. Vengono reindirizzati alla pagina di accesso Azure AD. Il servizio proxy di applicazione in Azure AD quindi Invia un token al connettore del proxy di applicazione nella rete aziendale, che passa il token al Active Directory locale. l'utente autenticato può quindi accedere alla risorsa locale. Nel diagramma seguente i [connettori](../manage-apps/application-proxy-connectors.md) vengono visualizzati in un [gruppo di connettori](../manage-apps/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> Quando si pubblicano le applicazioni tramite il proxy di applicazione, è necessario implementare [la pianificazione della capacità e la ridondanza appropriata per i connettori del proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#capacity-planning).
+> Quando si pubblicano le applicazioni tramite il proxy di applicazione, è necessario implementare [la pianificazione della capacità e la ridondanza appropriata per i connettori del proxy di applicazione](../manage-apps/application-proxy-connectors.md#capacity-planning).
 
 ![Diagramma dell'architettura dell'applicazione y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 

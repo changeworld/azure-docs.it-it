@@ -12,12 +12,12 @@ manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1aebfaa176992b7e20824518bc214a6688ae493
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703586"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725496"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticazione del codice di accesso monouso tramite posta elettronica
 
@@ -102,7 +102,7 @@ Se si è scelto in precedenza l'anteprima pubblica di un codice di accesso monou
 
 ![Abilita la password monouso per la posta elettronica](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-Tuttavia, se si preferisce rifiutare esplicitamente la funzionalità e consentirne l'abilitazione automatica nel 2021 marzo, è possibile ripristinare le impostazioni predefinite usando il [tipo di risorsa di configurazione del metodo di autenticazione della posta elettronica](https://aka.ms/exid-graphemailauth)Microsoft Graph API. Dopo aver ripristinato le impostazioni predefinite, le opzioni seguenti saranno disponibili con il **codice di posta elettronica** monouso per i guest:
+Tuttavia, se si preferisce rifiutare esplicitamente la funzionalità e consentirne l'abilitazione automatica nel 2021 marzo, è possibile ripristinare le impostazioni predefinite usando il [tipo di risorsa di configurazione del metodo di autenticazione della posta elettronica](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Dopo aver ripristinato le impostazioni predefinite, le opzioni seguenti saranno disponibili con il **codice di posta elettronica** monouso per i guest:
 
 - **Abilitare automaticamente il codice di accesso monouso tramite posta elettronica per i guest nel 2021 marzo**. Predefinita Se la funzionalità di accesso monouso per il messaggio di posta elettronica non è già abilitata per il tenant, verrà attivata automaticamente il 2021 marzo. Non è necessaria alcuna azione aggiuntiva se si desidera che la funzionalità sia abilitata in quel momento. Se la funzionalità è già stata abilitata o disabilitata, questa opzione non sarà disponibile.
 

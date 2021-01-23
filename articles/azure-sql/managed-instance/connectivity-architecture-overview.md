@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 9a35c0dc8a3b994b015d7a8d64f76f7e10d95a00
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 58563629b30e7be764732a9810162e1a0b1931e6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722403"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98725837"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architettura della connettività per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 - **Indirizzi IP sufficienti:** La subnet SQL Istanza gestita deve avere almeno 32 indirizzi IP. Per ulteriori informazioni, vedere [determinare le dimensioni della subnet per SQL istanza gestita](vnet-subnet-determine-size.md). È possibile distribuire le istanze gestite nella [rete esistente](vnet-existing-add-subnet.md) dopo averla configurata in modo da soddisfare [i requisiti di rete per SQL istanza gestita](#network-requirements). In caso contrario, creare [una nuova rete e una nuova subnet](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Quando viene creata un'istanza gestita, nella subnet vengono applicati criteri relativi alle finalità di rete per impedire modifiche non conformi alla configurazione di rete. Dopo la rimozione dell'ultima istanza dalla subnet, vengono rimossi anche i criteri relativi alle finalità di rete. Le regole seguenti sono solo a scopo informativo e non devono essere distribuite tramite il modello ARM/PowerShell/CLI. Se si vuole usare il modello ufficiale più recente, è sempre possibile [recuperarlo dal portale](https://docs.microsoft.com/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal).
+> Quando viene creata un'istanza gestita, nella subnet vengono applicati criteri relativi alle finalità di rete per impedire modifiche non conformi alla configurazione di rete. Dopo la rimozione dell'ultima istanza dalla subnet, vengono rimossi anche i criteri relativi alle finalità di rete. Le regole seguenti sono solo a scopo informativo e non devono essere distribuite tramite il modello ARM/PowerShell/CLI. Se si vuole usare il modello ufficiale più recente, è sempre possibile [recuperarlo dal portale](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regole di sicurezza in ingresso obbligatorie con la configurazione della subnet con il supporto del servizio
 

@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695466fbd50435a85c63842ceb50ce80765760
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f6896a812ec173994a1299a28ff2e99a0f351391
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630293"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724442"
 ---
 # <a name="resilient-end-user-experience"></a>Esperienza utente finale resiliente
 
@@ -34,19 +34,19 @@ L'esperienza dell'utente finale per l'iscrizione e l'accesso è costituita dagli
 
 ## <a name="choose-between-user-flow-and-custom-policy"></a>Scegliere tra il flusso utente e i criteri personalizzati  
 
-Per semplificare la configurazione delle attività di identità più comuni, Azure AD B2C fornisce [flussi utente](https://docs.microsoft.com/azure/active-directory-b2c/user-flow-overview)configurabili incorporati. È anche possibile creare [criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)che offrono la massima flessibilità. Tuttavia, è consigliabile usare criteri personalizzati solo per risolvere scenari complessi.
+Per semplificare la configurazione delle attività di identità più comuni, Azure AD B2C fornisce [flussi utente](../../active-directory-b2c/user-flow-overview.md)configurabili incorporati. È anche possibile creare [criteri personalizzati](../../active-directory-b2c/custom-policy-overview.md)che offrono la massima flessibilità. Tuttavia, è consigliabile usare criteri personalizzati solo per risolvere scenari complessi.
 
 ### <a name="how-to-decide-between-user-flow-and-custom-policy"></a>Come scegliere tra il flusso utente e i criteri personalizzati
 
 Scegliere flussi utente predefiniti se i requisiti aziendali possono essere soddisfatti. Dal momento che è stato testato da Microsoft, è possibile ridurre al minimo i test necessari per convalidare le funzionalità, le prestazioni e la scalabilità di questi flussi utente Identity a livello di criteri. È comunque necessario testare le applicazioni per le funzionalità, le prestazioni e la scalabilità.
 
-Se si [scelgono criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started) a causa dei requisiti aziendali, assicurarsi di eseguire test a livello di criteri per funzionalità, prestazioni o scalabilità oltre al test a livello di applicazione.
+Se si [scelgono criteri personalizzati](../../active-directory-b2c/custom-policy-get-started.md) a causa dei requisiti aziendali, assicurarsi di eseguire test a livello di criteri per funzionalità, prestazioni o scalabilità oltre al test a livello di applicazione.
 
-Vedere l'articolo che consente di [confrontare i flussi utente e i criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview#comparing-user-flows-and-custom-policies) per la scelta.
+Vedere l'articolo che consente di [confrontare i flussi utente e i criteri personalizzati](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies) per la scelta.
 
 ## <a name="choose-multiple-idps"></a>Scegliere più IDP
 
-Quando si usa un [provider di identità esterno](https://docs.microsoft.com/azure/active-directory-b2c/technical-overview#external-identity-providers) , ad esempio Facebook, assicurarsi di disporre di un piano di fallback nel caso in cui il provider esterno diventi non disponibile.
+Quando si usa un [provider di identità esterno](../../active-directory-b2c/technical-overview.md#external-identity-providers) , ad esempio Facebook, assicurarsi di disporre di un piano di fallback nel caso in cui il provider esterno diventi non disponibile.
 
 ### <a name="how-to-set-up-multiple-idps"></a>Come configurare più IDP
 
@@ -58,11 +58,11 @@ Nell'ambito del processo di registrazione del provider di identità esterno, inc
 
  2. Configurare un criterio del profilo per consentire agli utenti di [collegare l'altra identità al proprio account dopo l'](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/account-linking) accesso.
 
- 3. Notificare e consentire agli utenti di [passare a un provider di identità alternativo](https://docs.microsoft.com/azure/active-directory-b2c/customize-ui-with-html#configure-dynamic-custom-page-content-uri) durante un'interruzione del servizio.
+ 3. Notificare e consentire agli utenti di [passare a un provider di identità alternativo](../../active-directory-b2c/customize-ui-with-html.md#configure-dynamic-custom-page-content-uri) durante un'interruzione del servizio.
 
 ## <a name="availability-of-multi-factor-authentication"></a>Disponibilità di autenticazione a più fattori
 
-Quando si usa un [servizio telefonico per multi-factor authentication](https://docs.microsoft.com/azure/active-directory-b2c/phone-authentication), assicurarsi di prendere in considerazione un provider di servizi alternativo. Il servizio telco locale o il provider di servizi telefonici può compromettere l'utilizzo del servizio.
+Quando si usa un [servizio telefonico per multi-factor authentication](../../active-directory-b2c/phone-authentication.md), assicurarsi di prendere in considerazione un provider di servizi alternativo. Il servizio telco locale o il provider di servizi telefonici può compromettere l'utilizzo del servizio.
 
 ### <a name="how-to-choose-an-alternate-mfa"></a>Come scegliere un'autenticazione a più fattori alternativa  
 

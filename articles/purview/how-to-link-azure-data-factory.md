@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 01af7b251c9ce3bfebb87016c85ea3efd9c0e8ac
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928767"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98723881"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -99,9 +99,9 @@ L'integrazione tra Data Factory e la competenza supporta solo un subset dei sist
 
 | Sistema di archiviazione dati | Supportato come origine | Supportato come sink |
 | ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 (nessun supporto JSON) | Sì | Sì (solo copia non binaria) |
-| ADLS Gen2 (nessun supporto JSON) | Sì | Sì |
-| BLOB di Azure (nessun supporto JSON) | Sì | Sì |
+| ADLS Gen1 | Sì | Sì (solo copia non binaria) |
+| ADLS Gen2 | Sì | Sì |
+| BLOB Azure | Sì | Sì |
 | Azure Cosmos DB (API SQL) | Sì | Sì |
 | Azure Cosmos DB (API Mongo) | Sì | Sì |
 | Ricerca cognitiva di Azure | Sì | Sì |
