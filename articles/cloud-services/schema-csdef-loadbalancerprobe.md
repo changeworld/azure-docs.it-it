@@ -1,22 +1,25 @@
 ---
-title: Schema def. LoadBalancerProbe di servizi cloud di Azure | Microsoft Docs
+title: Schema dei servizi cloud di Azure (versione classica) def. LoadBalancerProbe | Microsoft Docs
 description: Il LoadBalancerProbe definito dal cliente è un probe di integrità degli endpoint nelle istanze del ruolo. Combina i ruoli Web o di lavoro in un file di definizione del servizio.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 14
-author: georgewallace
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3dca519f7fb4523ce9d9267f7629c1177cc5e3b6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79537347"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739788"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di Servizi cloud di Azure
+# <a name="azure-cloud-services-classic-definition-loadbalancerprobe-schema"></a>Schema LoadBalancerProbe di definizione di servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Il probe di bilanciamento del carico è un probe di integrità definito dal cliente per gli endpoint UDP e gli endpoint nelle istanze del ruolo. `LoadBalancerProbe` non è un elemento autonomo. Viene combinato con il ruolo Web o il ruolo di lavoro in un file di definizione del servizio. `LoadBalancerProbe` può essere usato da più di un ruolo.
 
 L'estensione predefinita per il file di definizione del servizio è csdef.
@@ -59,10 +62,10 @@ La tabella seguente descrive gli attributi dell'elemento `LoadBalancerProbe`:
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Obbligatorio. Nome del probe di bilanciamento del carico. Il nome deve essere univoco.|
 | `protocol`          | `string` | Obbligatorio. Specifica il protocollo dell'endpoint. I possibili valori sono `http` o `tcp`. Se viene specificato `tcp`, è necessario ricevere una risposta ACK per completare il probe. Se viene specificato `http`, è necessario ricevere una risposta 200 OK dall'URI specificato per completare il probe.|
-| `path`              | `string` | URI usato per richiedere lo stato di integrità alla macchina virtuale. `path` è obbligatorio se `protocol` impostato su `http`. In caso contrario, non è consentito.<br /><br /> Non è disponibile alcun valore predefinito.|
-| `port`              | `integer` | Facoltativa. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
-| `intervalInSeconds` | `integer` | Facoltativa. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
-| `timeoutInSeconds`  | `integer` | Facoltativa. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
+| `path`              | `string` | URI usato per richiedere lo stato di integrità alla macchina virtuale. `path` è obbligatorio se `protocol` impostato su `http`. In caso contrario, non è consentito.<br /><br /> Non è previsto alcun valore predefinito.|
+| `port`              | `integer` | facoltativo. Porta per la comunicazione del probe. È facoltativo per qualsiasi endpoint, perché verrà usata la stessa porta per il probe. È anche possibile configurare una porta diversa per il probe. L'intervallo di valori possibili è compresa tra 1 e 65535 inclusi.<br /><br /> Il valore predefinito viene impostato dall'endpoint.|
+| `intervalInSeconds` | `integer` | facoltativo. Intervallo, in secondi, per la frequenza con cui controllare lo stato di integrità dell'endpoint. L'intervallo è in genere leggermente inferiore alla metà del periodo di timeout allocato (in secondi) il che consente due probe completi prima di escludere l'istanza dalla rotazione.<br /><br /> Il valore predefinito è 15, il valore minimo è 5.|
+| `timeoutInSeconds`  | `integer` | facoltativo. Periodo di timeout, in secondi, applicato al probe, entro il quale nessuna risposta interromperà l'invio di altro traffico all'endpoint. Questo valore consente agli endpoint di essere esclusi dalla rotazione in tempi più rapidi o più brevi di quelli abitualmente usati in Azure (valori predefiniti).<br /><br /> Il valore predefinito è 31, il valore minimo è 11.|
 
 ## <a name="see-also"></a>Vedere anche
 [Cloud Service (classic) Definition Schema](schema-csdef-file.md) (Schema di definizione di Servizi cloud - Versione classica)

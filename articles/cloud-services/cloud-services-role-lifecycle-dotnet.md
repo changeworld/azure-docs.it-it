@@ -1,22 +1,25 @@
 ---
-title: Gestire eventi del ciclo di vita dei servizi cloud | Documentazione Microsoft
+title: Gestire eventi del ciclo di vita del servizio cloud (versione classica) | Microsoft Docs
 description: Informazioni su come usare i metodi del ciclo di vita di un ruolo del servizio cloud in .NET, incluso RoleEntryPoint, che fornisce i metodi per rispondere agli eventi del ciclo di vita.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: d64414abfbc62e52b172a2c42796ec8d89d1719f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: b5aa4bd061647f63ebcc70109f0ba21b39e814cc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88930061"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741333"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Quando si crea un ruolo di lavoro, si estende la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli Web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Estendere la classe RoleEntryPoint
@@ -26,7 +29,7 @@ Quando si estende **RoleEntryPoint**, è necessario tenere presenti i seguenti c
 
 * Il metodo [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) restituisce un valore booleano, pertanto è possibile restituire **false** da questo metodo.
   
-   Se il codice restituisce **false**il processo del ruolo viene interrotto improvvisamente, senza eseguire nessuna sequenza di arresto in programma. In generale, è consigliabile evitare la restituzione di **false** dal metodo **OnStart**.
+   Se il codice restituisce **false** il processo del ruolo viene interrotto improvvisamente, senza eseguire nessuna sequenza di arresto in programma. In generale, è consigliabile evitare la restituzione di **false** dal metodo **OnStart**.
 * Le eccezioni non rilevate all'interno di un overload di un metodo **RoleEntryPoint** vengono trattate come eccezioni non gestite.
   
    Se si verifica un'eccezione all'interno di uno dei metodi del ciclo di vita, Azure genera l’evento [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) e il processo viene interrotto. Quando il ruolo viene portato offline, viene riavviato da Azure. Quando si verifica un'eccezione non gestita, l’evento [Stopping](/previous-versions/azure/reference/ee758136(v=azure.100)) non viene generato e il metodo **OnStop** non viene chiamato.

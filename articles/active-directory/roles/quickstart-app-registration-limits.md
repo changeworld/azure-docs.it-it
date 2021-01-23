@@ -2,23 +2,23 @@
 title: Rimuovere i limiti per la creazione di registrazioni per l'app - Azure AD | Microsoft Docs
 description: Assegnare un ruolo personalizzato per concedere registrazioni per l'app senza restrizioni in Azure AD Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: quickstart
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
-ms.translationtype: HT
+ms.openlocfilehash: 260b0621bf204c6d7593b3696c602665c42ad77e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378789"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740857"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni per l'app illimitate
 
@@ -29,7 +29,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Creare un ruolo personalizzato usando il portale di Azure AD
 
 1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con autorizzazioni di Amministratore ruolo con privilegi o Amministratore globale nell'organizzazione di Azure AD.
-1. Selezionare **Azure Active Directory** , selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
+1. Selezionare **Azure Active Directory**, selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
 
     ![Creare e modificare i ruoli nella pagina Ruoli e amministratori](./media/quickstart-app-registration-limits/new-custom-role.png)
 

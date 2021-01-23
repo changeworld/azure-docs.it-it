@@ -2,23 +2,23 @@
 title: Rimuovere le assegnazioni di ruolo da un gruppo in Azure Active Directory | Microsoft Docs
 description: Anteprima dei ruoli di Azure AD personalizzati per la delega della gestione delle identità. Gestire i ruoli di Azure nel portale di Azure, in PowerShell o nell'API Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 89fa3bb94f72ab04c2ea68641b8d1dff7695aa53
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378381"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741027"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Rimuovere le assegnazioni di ruolo da un gruppo in Azure Active Directory
 
@@ -28,7 +28,7 @@ Questo articolo descrive come un amministratore IT può rimuovere Azure AD ruoli
 
 1. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
 
-1. Selezionare **ruoli e amministratori** > * *_nome ruolo_* _.
+1. Selezionare **ruoli e amministratori** > **_nome ruolo_* _.
 
 1. Selezionare il gruppo da cui si desidera rimuovere l'assegnazione di ruolo e selezionare _ * Rimuovi assegnazione * *.
 
@@ -36,7 +36,7 @@ Questo articolo descrive come un amministratore IT può rimuovere Azure AD ruoli
 
 1. Quando viene richiesto di confermare l'azione, selezionare **Sì**.
 
-## <a name="using-powershell"></a>Uso di PowerShell
+## <a name="using-powershell"></a>Utilizzo di PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Creare un gruppo che può essere assegnato al ruolo
 

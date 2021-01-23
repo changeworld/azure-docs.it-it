@@ -3,23 +3,23 @@ title: Unità amministrative in Azure Active Directory | Microsoft Docs
 description: Usare le unità amministrative per la delega più granulare delle autorizzazioni in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 792e8cd1e70f901385ed3b225a753024e06f2df0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
-ms.translationtype: HT
+ms.openlocfilehash: e82be52cff824c69dd2fe4ea5e7e1c0d7489be1d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394595"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740330"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unità amministrative in Azure Active Directory
 
@@ -81,26 +81,26 @@ Le sezioni seguenti descrivono il supporto corrente per gli scenari delle unità
 
 | Autorizzazioni |   Graph/PowerShell   | Portale di Azure AD | Interfaccia di amministrazione di Microsoft 365 |
 | --- | --- | --- | --- |
-| Creazione ed eliminazione di unità amministrative   |    Supportato    |   Funzionalità supportata   |    Non supportate |
-| Aggiunta e rimozione di membri dell'unità amministrativa singolarmente    |   Supportato    |   Funzionalità supportata   |    Non supportato |
+| Creazione ed eliminazione di unità amministrative   |    Supportato    |   Supportato   |    Non supportate |
+| Aggiunta e rimozione di membri dell'unità amministrativa singolarmente    |   Supportato    |   Supportato   |    Non supportato |
 | Aggiunta e rimozione in blocco di membri di unità amministrative mediante file CSV   |    Non supportato     |  Supportato   |    Nessun piano di supporto |
-| Assegnazione di amministratori con ambito unità amministrativa  |     Supportato    |   Funzionalità supportata    |   Non supportato |
-| Aggiunta e rimozione di membri dell'unità amministrativa in modo dinamico in base ad attributi | Non supportate | Non supportato | Non supportate
+| Assegnazione di amministratori con ambito unità amministrativa  |     Supportato    |   Supportato    |   Non supportato |
+| Aggiunta e rimozione di membri dell'unità amministrativa in modo dinamico in base ad attributi | Non supportato | Non supportato | Non supportate
 
 ### <a name="user-management"></a>Gestione utente
 
 | Autorizzazioni |   Graph/PowerShell   | Portale di Azure AD | Interfaccia di amministrazione di Microsoft 365 |
 | --- | --- | --- | --- |
-| Gestione con ambito unità amministrativa di proprietà utente, password e licenze   |    Supportato     |  Funzionalità supportata   |   Supportato |
-| Blocco e sblocco con ambito unità amministrativa degli accessi degli utenti    |   Supportato   |    Funzionalità supportata   |    Supportato |
-| Gestione con ambito unità amministrativa delle credenziali di autenticazione a più fattori degli utenti   |    Supportato   |   Funzionalità supportata   |   Non supportate |
+| Gestione con ambito unità amministrativa di proprietà utente, password e licenze   |    Supportato     |  Supportato   |   Supportato |
+| Blocco e sblocco con ambito unità amministrativa degli accessi degli utenti    |   Supportato   |    Supportato   |    Supportato |
+| Gestione con ambito unità amministrativa delle credenziali di autenticazione a più fattori degli utenti   |    Supportato   |   Supportato   |   Non supportate |
 
 ### <a name="group-management"></a>Gestione di gruppi
 
 | Autorizzazioni |   Graph/PowerShell   | Portale di Azure AD | Interfaccia di amministrazione di Microsoft 365 |
 | --- | --- | --- | --- |
-| Gestione con ambito unità amministrativa di proprietà e membri del gruppo     |  Supportato   |    Funzionalità supportata    |  Non supportato |
-| Gestione con ambito unità amministrativa delle licenze del gruppo   |    Supportato  |    Funzionalità supportata   |   Non supportate |
+| Gestione con ambito unità amministrativa di proprietà e membri del gruppo     |  Supportato   |    Supportato    |  Non supportato |
+| Gestione con ambito unità amministrativa delle licenze del gruppo   |    Supportato  |    Supportato   |   Non supportate |
 
 Le unità amministrative applicano l'ambito solo alle autorizzazioni di gestione. Non impediscono a membri o agli amministratori di usare le proprie [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md) per esplorare altri utenti, gruppi o risorse all'esterno dell'unità amministrativa. Nell'interfaccia di amministrazione di Microsoft 365 gli utenti esterni alle unità amministrative dell'amministratore con ambito vengono esclusi. È tuttavia possibile esplorare altri utenti nel portale di Azure AD, in PowerShell e in altri servizi Microsoft.
 

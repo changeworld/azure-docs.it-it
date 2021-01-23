@@ -2,22 +2,22 @@
 title: Autorizzazioni per il consenso alle app per ruoli personalizzati in Azure Active Directory | Microsoft Docs
 description: Anteprima delle autorizzazioni per il consenso alle app per ruoli personalizzati di Azure AD nel portale di Azure, in PowerShell o nell'API Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: 358a458698ec1fd8443e15f71a84e057f33af527
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
-ms.translationtype: HT
+ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376732"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740109"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Autorizzazioni per il consenso alle app per ruoli personalizzati in Azure Active Directory
 

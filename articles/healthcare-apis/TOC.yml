@@ -21,8 +21,13 @@
         - name: Uso di un modello di Resource Manager
           displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
-    - name: Distribuire il connettore Azure IoT per FHIR (anteprima) - Portale
-      href: iot-fhir-portal-quickstart.md
+    - name: Distribuire il connettore Azure IoT per FHIR (anteprima)
+      expanded: false
+      items:
+        - name: Uso del portale
+          href: iot-fhir-portal-quickstart.md
+        - name: Uso di un modello di Resource Manager
+          href: iot-fhir-arm-template-quickstart.md
 - name: Esercitazioni
   expanded: false
   items:

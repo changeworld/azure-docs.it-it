@@ -1,21 +1,25 @@
 ---
-title: Attività di avvio comuni per Servizi cloud | Documentazione Microsoft
+title: Attività di avvio comuni per i servizi cloud (versione classica) | Microsoft Docs
 description: Questo articolo fornisce alcuni esempi delle attività di avvio comuni che è possibile eseguire nel ruolo Web o di lavoro dei servizi cloud.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 77cea7ebd333b958675438aaeb5e0e2a326a5866
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f55b225e615a3e7a5fbcf56b405054883d3b5413
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075179"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741197"
 ---
-# <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
+# <a name="common-cloud-service-classic-startup-tasks"></a>Attività di avvio comuni del servizio cloud (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
 
 Per comprendere il funzionamento delle attività di avvio e in particolare la modalità di creazione delle voci che definiscono un'attività di avvio, vedere [questo articolo](cloud-services-startup-tasks.md) .
@@ -52,13 +56,13 @@ Le variabili possono inoltre usare un [valore XPath di Azure valido](cloud-servi
 
 
 ## <a name="configure-iis-startup-with-appcmdexe"></a>Configurare l'avvio IIS con AppCmd.exe
-Lo strumento da riga di comando [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) può essere usato per gestire le impostazioni IIS all'avvio in Azure. *AppCmd.exe* offre un comodo accesso da riga di comando alle impostazioni di configurazione da usare nelle attività di avvio in Azure. Tramite *AppCmd.exe*è possibile aggiungere, modificare o rimuovere impostazioni per applicazioni e siti Web.
+Lo strumento da riga di comando [AppCmd.exe](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj635852(v=ws.11)) può essere usato per gestire le impostazioni IIS all'avvio in Azure. *AppCmd.exe* offre un comodo accesso da riga di comando alle impostazioni di configurazione da usare nelle attività di avvio in Azure. Tramite *AppCmd.exe* è possibile aggiungere, modificare o rimuovere impostazioni per applicazioni e siti Web.
 
 È necessario tuttavia tenere conto di alcuni aspetti se si usa *AppCmd.exe* come attività di avvio:
 
 * Le attività di avvio possono essere eseguite più di una volta tra un riavvio e l'altro. Ad esempio, quando un ruolo viene riciclato.
 * Se eseguita più volte, l'azione *AppCmd.exe* potrebbe generare un errore. Ad esempio, il tentativo di aggiungere due volte una sezione a *Web.config* potrebbe generare un errore.
-* Le attività di avvio danno esito negativo se restituiscono un codice di uscita o un valore di **errorlevel**diverso da zero. Ad esempio, quando *AppCmd.exe* genera un errore.
+* Le attività di avvio danno esito negativo se restituiscono un codice di uscita o un valore di **errorlevel** diverso da zero. Ad esempio, quando *AppCmd.exe* genera un errore.
 
 È consigliabile controllare il valore di **errorlevel** dopo la chiamata di *AppCmd.exe*, operazione semplice se si esegue il wrapping della chiamata a *AppCmd.exe* con un file con estensione *.cmd*. Se si rileva un valore di **errorlevel** noto, è possibile ignorarlo oppure restituirlo.
 
@@ -83,7 +87,7 @@ Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di segui
 Nel file batch *Startup.cmd* viene usato *AppCmd.exe* per aggiungere una sezione di compressione e una voce di compressione per JSON al file *Web.config*. Il valore di **errorlevel** previsto di 183 viene impostato su zero tramite il programma da riga di comando VERIFY.EXE. I valori di errorlevel imprevisti vengono registrati in StartupErrorLog.txt.
 
 ```cmd
-REM   *** Add a compression section to the Web.config file. ***
+REM   **_ Add a compression section to the Web.config file. _*_
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
@@ -98,7 +102,7 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Add compression for json. ***
+REM   _*_ Add compression for json. _*_
 %windir%\system32\inetsrv\appcmd set config  -section:system.webServer/httpCompression /+"dynamicTypes.[mimeType='application/json; charset=utf-8',enabled='True']" /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 IF %ERRORLEVEL% NEQ 0 (
@@ -106,10 +110,10 @@ IF %ERRORLEVEL% NEQ 0 (
     GOTO ErrorExit
 )
 
-REM   *** Exit batch file. ***
+REM   _*_ Exit batch file. _*_
 EXIT /b 0
 
-REM   *** Log error and exit ***
+REM   _*_ Log error and exit _*_
 :ErrorExit
 REM   Report the date, time, and ERRORLEVEL of the error.
 DATE /T >> "%TEMP%\StartupLog.txt" 2>&1
@@ -125,7 +129,7 @@ Il secondo controlla le connessioni tra la macchina virtuale e i processi al suo
 
 In Azure vengono create regole di firewall per i processi avviati nei ruoli. Quando si avvia un servizio o un programma, ad esempio, in Azure vengono create automaticamente le regole di firewall necessarie per consentire la comunicazione del servizio con Internet. Tuttavia, se si crea un servizio che viene avviato da un processo esterno al ruolo, come un servizio COM+ o un'attività pianificata di Windows, è necessario creare manualmente una regola di firewall per consentire l'accesso al servizio. Queste regole di firewall possono essere create usando un'attività di avvio.
 
-In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][Task] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
+Un'attività di avvio che crea una regola del firewall deve avere un'[attività] [ExecutionContext]di _ * con privilegi elevati * *. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -506,7 +510,7 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Variabile]: /previous-versions/azure/reference/gg557552(v=azure.100)#Variable
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue
 [RoleEnvironment]: /previous-versions/azure/reference/ee773173(v=azure.100)
-[Endpoints]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
+[Endpoint]: /previous-versions/azure/reference/gg557552(v=azure.100)#Endpoints
 [LocalStorage]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalStorage
 [LocalResources]: /previous-versions/azure/reference/gg557552(v=azure.100)#LocalResources
 [RoleInstanceValue]: /previous-versions/azure/reference/gg557552(v=azure.100)#RoleInstanceValue

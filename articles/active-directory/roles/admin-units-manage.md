@@ -3,23 +3,23 @@ title: Aggiungere e rimuovere unità amministrative-Azure Active Directory | Mic
 description: Usare unità amministrative per limitare l'ambito delle autorizzazioni dei ruoli in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbe76d21d948525421790f574830da7b3a163216
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395394"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740449"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gestire le unità amministrative in Azure Active Directory
 
@@ -85,7 +85,7 @@ In Azure AD, è possibile rimuovere un'unità amministrativa che non è più nec
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Nella portale di Azure passare a **Azure ad** , quindi selezionare **unità amministrative**. 
+1. Nella portale di Azure passare a **Azure ad**, quindi selezionare **unità amministrative**. 
 1. Selezionare l'unità amministrativa da eliminare, quindi selezionare **Elimina**. 
 1. Per confermare che si vuole eliminare l'unità amministrativa, selezionare **Sì**. L'unità amministrativa viene eliminata.
 

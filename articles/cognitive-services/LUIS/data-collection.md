@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: bb00595a5d5be130bf6c1177004bf3042ef8f9f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c901d4024292ad03a9195ad0cbd226f473917ee4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327188"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738085"
 ---
 # <a name="data-collection-for-your-app"></a>Raccolta dei dati per l'app
 
@@ -71,7 +71,7 @@ I seguenti passaggi di pre-elaborazione consentiranno di creare un'app LUIS migl
 
 ## <a name="test-data-selection-for-batch-testing"></a>Selezione dei dati di test per test batch
 
-Tutti i principi elencati sopra per le espressioni di formazione si applicano a espressioni che è necessario usare per il [set di test](luis-concept-batch-test.md). Assicurarsi che la distribuzione tra gli Intent e le entità rispecchi la distribuzione reale il più possibile.
+Tutti i principi elencati sopra per le espressioni di formazione si applicano a espressioni che è necessario usare per il [set di test](./luis-how-to-batch-test.md). Assicurarsi che la distribuzione tra gli Intent e le entità rispecchi la distribuzione reale il più possibile.
 
 Non riutilizzare le espressioni del set di training nel set di test. Questa operazione polarizza in modo errato i risultati e non fornisce l'indicazione corretta del modo in cui l'app LUIS verrà eseguita nell'ambiente di produzione.
 

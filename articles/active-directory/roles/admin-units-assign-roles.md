@@ -3,23 +3,23 @@ title: Assegnare ed elencare i ruoli con ambito unità amministrativa-Azure Acti
 description: Usare unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: ecfa9186ef42d4822c9b3053d76b7c0160841621
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93393439"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740398"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
@@ -54,7 +54,7 @@ Le seguenti entità di sicurezza possono essere assegnate a un ruolo con un ambi
 
 1. Nella portale di Azure passare a **Azure ad**.
 
-1. Selezionare **unità amministrative** , quindi selezionare l'unità amministrativa a cui si desidera assegnare un ambito del ruolo utente. 
+1. Selezionare **unità amministrative**, quindi selezionare l'unità amministrativa a cui si desidera assegnare un ambito del ruolo utente. 
 
 1. Nel riquadro sinistro selezionare **ruoli e amministratori** per elencare tutti i ruoli disponibili.
 
@@ -107,9 +107,9 @@ Request body
 
 1. Nella portale di Azure passare a **Azure ad**.
 
-1. Nel riquadro sinistro selezionare **unità amministrative** , quindi selezionare l'unità amministrativa per l'elenco di assegnazioni di ruolo che si desidera visualizzare. 
+1. Nel riquadro sinistro selezionare **unità amministrative**, quindi selezionare l'unità amministrativa per l'elenco di assegnazioni di ruolo che si desidera visualizzare. 
 
-1. Selezionare **ruoli e amministratori** , quindi aprire un ruolo per visualizzare le assegnazioni nell'unità amministrativa.
+1. Selezionare **ruoli e amministratori**, quindi aprire un ruolo per visualizzare le assegnazioni nell'unità amministrativa.
 
 ### <a name="use-powershell"></a>Usare PowerShell
 

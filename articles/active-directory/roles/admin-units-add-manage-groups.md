@@ -3,23 +3,23 @@ title: Aggiunta, rimozione ed elenco di gruppi in un'unità amministrativa-Azure
 description: Gestire i gruppi e le autorizzazioni relative ai ruoli in un'unità amministrativa in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: d628903f98f96fc205c9a6c9196a90b251e52af2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394748"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740551"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Aggiunta e gestione di gruppi in un'unità amministrativa in Azure Active Directory
 
@@ -99,7 +99,7 @@ Esempio:
 
 1. Nella portale di Azure passare a **Azure ad**.
 
-1. Nel riquadro sinistro selezionare **unità amministrative** , quindi selezionare l'unità amministrativa di cui si desidera visualizzare i gruppi. Per impostazione predefinita, **tutti gli utenti** sono selezionati nel riquadro sinistro. 
+1. Nel riquadro sinistro selezionare **unità amministrative**, quindi selezionare l'unità amministrativa di cui si desidera visualizzare i gruppi. Per impostazione predefinita, **tutti gli utenti** sono selezionati nel riquadro sinistro. 
 
 1. Nel riquadro sinistro selezionare **gruppi**. Il riquadro di destra visualizza un elenco dei gruppi che sono membri dell'unità amministrativa selezionata.
 

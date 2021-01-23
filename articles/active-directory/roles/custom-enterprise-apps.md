@@ -2,23 +2,23 @@
 title: Autorizzazioni per i ruoli personalizzati per le assegnazioni di accesso alle app aziendali-Azure Active Directory | Microsoft Docs
 description: Creare e assegnare ruoli di Azure AD personalizzati per l'accesso alle app aziendali in Azure Active Directory
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: d3cb65503ffab610f9545acb313f7284ffb11ed1
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378551"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741146"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Assegnare ruoli personalizzati per gestire le app aziendali in Azure Active Directory
 
@@ -46,7 +46,7 @@ La concessione dell'autorizzazione Update viene eseguita in due passaggi:
 > I ruoli personalizzati vengono creati e gestiti a livello dell'organizzazione e sono disponibili solo dalla pagina Panoramica dell'organizzazione.
 
 1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione.
-1. Selezionare **Azure Active Directory** , selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
+1. Selezionare **Azure Active Directory**, selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
 
     ![Aggiungere un nuovo ruolo personalizzato dall'elenco dei ruoli in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -70,7 +70,7 @@ La concessione dell'autorizzazione Update viene eseguita in due passaggi:
 
     ![Aprire ruoli e amministratori e cercare il ruolo personalizzato](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. Selezionare **Aggiungi assegnazione** , selezionare l'utente desiderato e quindi fare clic su **Seleziona** per aggiungere l'assegnazione di ruolo all'utente.
+1. Selezionare **Aggiungi assegnazione**, selezionare l'utente desiderato e quindi fare clic su **Seleziona** per aggiungere l'assegnazione di ruolo all'utente.
 
     ![Aggiungere un'assegnazione per il ruolo personalizzato all'utente](./media/custom-enterprise-apps/assign-user-to-role.png)
 

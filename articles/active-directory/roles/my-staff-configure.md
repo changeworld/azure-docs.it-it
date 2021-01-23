@@ -3,22 +3,22 @@ title: Usare il personale per delegare la gestione degli utenti (anteprima)-Azur
 description: Delegare la gestione degli utenti tramite il personale e le unità amministrative
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.date: 05/08/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 927d1f6dff9a24fb8427bb9c353e6cc61ac6a1f0
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375279"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740143"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
 
@@ -54,7 +54,7 @@ Per completare le procedure descritte in questo articolo, sono necessari i privi
 Una volta configurata la funzionalità AUs, è possibile applicare questo ambito agli utenti che accedono al personale. Solo gli utenti a cui è assegnato un ruolo amministrativo possono accedere al personale. Per abilitare il personale, attenersi alla procedura seguente:
 
 1. Accedere al portale di Azure come amministratore utente.
-2. Passare a **Azure Active Directory**  >  **impostazioni utente le**  >  **anteprime**delle funzionalità utente  >  **Gestisci le impostazioni di anteprima delle funzionalità utente**.
+2. Passare a **Azure Active Directory**  >  **impostazioni utente le**  >  **anteprime** delle funzionalità utente  >  **Gestisci le impostazioni di anteprima delle funzionalità utente**.
 3. In gli **amministratori possono accedere al personale**, è possibile scegliere di abilitare per tutti gli utenti, gli utenti selezionati o nessun accesso utente.
 
 > [!Note]
@@ -88,9 +88,9 @@ Quando un utente passa al personale, vengono visualizzati i nomi delle [unità a
 I ruoli seguenti sono autorizzati a reimpostare la password di un utente:
 
 - [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
-- [Amministratore autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
+- [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
 - [Amministratore globale](permissions-reference.md#global-administrator--company-administrator)
-- [Amministratore dell'help desk](permissions-reference.md#helpdesk-administrator)
+- [Amministratore helpdesk](permissions-reference.md#helpdesk-administrator)
 - [Amministratore utenti](permissions-reference.md#user-administrator)
 - [Amministratore password](permissions-reference.md#password-administrator)
 
@@ -115,8 +115,8 @@ A seconda delle impostazioni, l'utente può quindi usare il numero di telefono c
 
 Per gestire il numero di telefono di un utente, è necessario disporre di uno dei ruoli seguenti:
 
-- [Amministratore dell'autenticazione](permissions-reference.md#authentication-administrator)
-- [Amministratore autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
+- [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
+- [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
 - [Amministratore globale](permissions-reference.md#global-administrator--company-administrator)
 
 ## <a name="search"></a>Ricerca

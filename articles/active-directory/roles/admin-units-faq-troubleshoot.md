@@ -3,23 +3,23 @@ title: Risoluzione dei problemi e domande frequenti sulle unità amministrative-
 description: Esaminare le unità amministrative per concedere autorizzazioni con ambito limitato in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
 ms.date: 11/04/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 0fb61388b13b912166c9c07b9ee28b365c4a63b9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394680"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98740381"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Azure AD unità amministrative: risoluzione dei problemi e domande frequenti
 
@@ -47,7 +47,7 @@ Per evitare un'elevazione dei privilegi, un amministratore con ambito di unità 
 
 **D: perché sono necessarie unità amministrative? Non è stato possibile usare i gruppi di sicurezza come metodo per definire un ambito?**
 
-**R:** I gruppi di sicurezza hanno un modello di scopo e autorizzazione esistente. Un *amministratore utente* , ad esempio, può gestire l'appartenenza di tutti i gruppi di sicurezza nell'organizzazione Azure ad. Il ruolo può usare i gruppi per gestire l'accesso ad applicazioni come Salesforce. Un *amministratore utente* non deve essere in grado di gestire il modello di delega, come risultato se i gruppi di sicurezza sono stati estesi per supportare scenari di "raggruppamento di risorse". 
+**R:** I gruppi di sicurezza hanno un modello di scopo e autorizzazione esistente. Un *amministratore utente*, ad esempio, può gestire l'appartenenza di tutti i gruppi di sicurezza nell'organizzazione Azure ad. Il ruolo può usare i gruppi per gestire l'accesso ad applicazioni come Salesforce. Un *amministratore utente* non deve essere in grado di gestire il modello di delega, come risultato se i gruppi di sicurezza sono stati estesi per supportare scenari di "raggruppamento di risorse". 
 
 Le unità amministrative, ad esempio le unità organizzative in Windows Server Active Directory, consentono di definire l'ambito di amministrazione di una vasta gamma di oggetti directory. I gruppi di sicurezza possono essere membri degli ambiti delle risorse. L'uso di gruppi di sicurezza per definire il set di gruppi di sicurezza che un amministratore è in grado di gestire potrebbe creare confusione.
 

@@ -1,21 +1,24 @@
 ---
-title: Raccogliere dati con i contatori delle prestazioni in Servizi cloud di Azure | Microsoft Docs
+title: Raccogliere i contatori delle prestazioni in servizi cloud di Azure (versione classica) | Microsoft Docs
 description: Informazioni su come individuare, usare e creare contatori delle prestazioni in Servizi cloud con Diagnostica di Azure e Application Insights.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 02/02/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 39843ad83830a72b5d6b01cc00ecd65269c02e12
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16b54e8a59eb42c6e2351d37ec0a29d775161493
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078596"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98739837"
 ---
-# <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Raccogliere dati con i contatori delle prestazioni per il servizio cloud di Azure
+# <a name="collect-performance-counters-for-your-azure-cloud-service-classic"></a>Raccogliere i contatori delle prestazioni per il servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 I contatori delle prestazioni consentono di rilevare le prestazioni di applicazioni e host. Windows Server include molti contatori delle prestazioni diversi relativi a hardware, applicazioni, sistema operativo e altri aspetti. Con la raccolta e l'invio di dati dei contatori delle prestazioni ad Azure, è possibile analizzare queste informazioni a supporto di un migliore processo decisionale. 
 
@@ -112,7 +115,7 @@ Application Insights raccoglie automaticamente i dati per i contatori delle pres
 
 Per altre informazioni, vedere [Contatori delle prestazioni di sistema in Application Insights](../azure-monitor/app/performance-counters.md) e [Application Insights per Servizi cloud di Azure](../azure-monitor/app/cloudservices.md#performance-counters).
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 > [!IMPORTANT]
 > Mentre tutti questi dati vengono aggregati nell'account di archiviazione, il portale **non** fornisce un modo nativo per creare un grafico dei dati. È consigliabile integrare un altro servizio di diagnostica, come Application Insights, nell'applicazione.
@@ -257,7 +260,7 @@ Come già indicato, i contatori delle prestazioni per Application Insights vengo
 <!-- ... cut to save space ... -->
 ```
 
-### <a name="azure-diagnostics"></a>Diagnostica Azure
+### <a name="azure-diagnostics"></a>Diagnostica di Azure
 
 Come indicato in precedenza, i contatori delle prestazioni da includere nella raccolta sono definiti nel file **diagnostics.wadcfgx**. Aprire questo file (definito per ruolo) in Visual Studio e trovare l'elemento **DiagnosticsConfiguration**  >  **PublicConfig**  >  **WadCfg**  >  **DiagnosticMonitorConfiguration**  >  **PerformanceCounters** . Aggiungere un nuovo elemento **PerformanceCounterConfiguration** come elemento figlio. Impostare l'attributo `counterSpecifier` sulla categoria e il nome del contatore delle prestazioni creato nel codice. 
 

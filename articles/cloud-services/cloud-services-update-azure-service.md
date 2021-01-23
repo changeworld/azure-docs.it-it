@@ -1,20 +1,24 @@
 ---
-title: Come aggiornare un servizio cloud | Documentazione Microsoft
+title: Come aggiornare un servizio cloud (versione classica) | Microsoft Docs
 description: Informazioni su come aggiornare i servizi cloud in Azure. Informazioni su come viene eseguito un aggiornamento in un servizio cloud per assicurare la disponibilità.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075043"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98741112"
 ---
-# <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Come aggiornare un servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 L'aggiornamento di un servizio cloud, inclusi i ruoli e il sistema operativo guest, è un processo in tre passaggi. Prima devono essere caricati i file binari e di configurazione per la nuova versione del nuovo servizio cloud o del sistema operativo. Quindi Azure riserva le risorse di calcolo e di rete per il servizio cloud in base ai requisiti della nuova versione del servizio cloud. Infine Azure esegue un aggiornamento in sequenza per aggiornare in modo incrementale il tenant alla nuova versione o al nuovo sistema operativo guest, mantenendo nello stesso tempo la disponibilità. Questo articolo illustra i dettagli dell'ultimo passaggio, l'aggiornamento in sequenza.
 
