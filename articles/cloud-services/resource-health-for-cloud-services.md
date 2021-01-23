@@ -1,20 +1,25 @@
 ---
 title: Integrità risorse per i servizi cloud (versione classica)
 description: Questo articolo illustra il supporto di Integrità risorse check (RHC) per Servizi cloud di Microsoft Azure (versione classica)
-services: cloud-services
-author: tanmaygore
-ms.service: cloud-services
 ms.topic: article
-ms.date: 9/1/2020
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 37294e681066eb27ace69bcacee3a813b750b8eb
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072714"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743509"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Supporto di Integrità risorse check (RHC) per servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Questo articolo illustra il supporto di Integrità risorse check (RHC) per [servizi cloud di Microsoft Azure (versione classica)](https://azure.microsoft.com/services/cloud-services)
 
 [Integrità risorse di Azure](../service-health/resource-health-overview.md) per i servizi cloud consente di diagnosticare e ottenere supporto per i problemi del servizio che interessano la distribuzione del servizio cloud, i ruoli & le istanze del ruolo. Segnala l'integrità corrente e passata dei servizi cloud in fase di distribuzione, ruolo & livello di istanza del ruolo.
@@ -45,7 +50,7 @@ Unknown indica che non è possibile determinare l'integrità aggregata della dis
 Poiché le istanze del ruolo sono fondamentalmente macchine virtuali e il controllo dell'integrità delle macchine virtuali viene riutilizzato per le istanze del ruolo, per rappresentare le istanze del ruolo viene usato il termine della macchina virtuale. 
 
 ## <a name="cloud-services-deployment-level-annotations--their-meanings"></a>Annotazioni di servizi cloud (livello di distribuzione) & il significato
-| Annotazione | Description | 
+| Annotazione | Descrizione | 
 | --- | --- | 
 | Disponibile| Non sono presenti problemi noti della piattaforma Azure che influiscono sulla distribuzione del servizio cloud |
 | Sconosciuto | Non è possibile determinare lo stato di integrità della distribuzione del servizio cloud in questo momento | 
@@ -58,7 +63,7 @@ Poiché le istanze del ruolo sono fondamentalmente macchine virtuali e il contro
 | Sconosciuto e probabilmente interessato | Non è possibile determinare lo stato di integrità della distribuzione del servizio cloud in questo momento. Il problema potrebbe essere causato da un'interruzione del servizio di Azure in corso che potrebbe avere un effetto su questa macchina virtuale, che verrà ripristinata automaticamente quando viene risolta l'interruzione |
 
 ## <a name="cloud-services-role-instance-level-annotations--their-meanings"></a>Annotazioni dei servizi cloud (a livello di istanza del ruolo) & il significato
-| Annotazione | Description | 
+| Annotazione | Descrizione | 
 | --- | --- | 
 | Disponibile | Non sono presenti problemi noti della piattaforma Azure che hanno effetto su questa macchina virtuale | 
 | Sconosciuto | Non è possibile determinare lo stato di integrità della macchina virtuale in questo momento |

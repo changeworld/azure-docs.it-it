@@ -1,0 +1,97 @@
+- name: Documentazione di servizi cloud (supporto esteso)
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sui servizi cloud (supporto esteso)
+      href: overview.md
+    - name: Prerequisiti per la distribuzione
+      href: deploy-prerequisite.md
+    - name: File di configurazione e creazione di pacchetti
+      href: cloud-services-model-and-package.md
+- name: Esercitazioni
+  items:
+    - name: Distribuire un servizio cloud-portale
+      href: deploy-portal.md
+    - name: Distribuire un servizio cloud-PowerShell
+      href: deploy-powershell.md
+    - name: Distribuire un servizio cloud-modello
+      href: deploy-template.md
+    - name: Distribuire un servizio cloud-Visual Studio
+      href: deploy-visual-studio.md
+  expanded: true
+- name: Concetti
+  items:
+    - name: Dimensioni delle macchine virtuali disponibili
+      href: available-sizes.md
+    - name: Domande frequenti
+      href: faq.md
+    - name: Patch per il sistema operativo guest
+      href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: Ritiro del sistema operativo guest
+      href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: Novità sulle versioni del sistema operativo guest
+      href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+    - name: XML Schema
+      items:
+        - name: XML Schema csdef
+          href: schema-csdef-file.md
+        - name: Schema LoadBalancerProbe
+          href: schema-csdef-loadbalancerprobe.md
+        - name: Schema WebRole
+          href: schema-csdef-webrole.md
+        - name: Schema WorkerRole
+          href: schema-csdef-workerrole.md
+        - name: Schema NetworkTrafficRules
+          href: schema-csdef-networktrafficrules.md
+        - name: XML Schema cscfg
+          href: schema-cscfg-file.md
+        - name: Schema del ruolo
+          href: schema-cscfg-role.md
+        - name: Schema NetworkConfiguration
+          href: schema-cscfg-networkconfiguration.md
+- name: Procedure
+  items:
+    - name: Panoramica delle estensioni
+      href: extensions.md
+    - name: Applica estensione Desktop remoto
+      href: enable-rdp.md
+    - name: Applica estensione WAD
+      href: enable-wad.md
+    - name: Attivare gli avvisi
+      href: enable-alerts.md
+    - name: Configurare la scalabilità
+      href: configure-scaling.md
+    - name: Certificati
+      href: certificates-and-key-vault.md
+- name: Esempi
+  items:
+    - name: creare un nuovo servizio cloud
+      href: sample-create-cloud-service.md
+    - name: Ottenere i dettagli del servizio cloud
+      href: sample-get-cloud-service.md
+    - name: Reimpostare un servizio cloud
+      href: sample-reset-cloud-service.md
+- name: Informazioni di riferimento
+  items:
+    - name: AZ. CloudService (modulo)
+      href: 'https://www.powershellgallery.com/packages/Az.CloudService/0.1.0'
+    - name: Cmdlet PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice'
+    - name: Riferimento al modello ARM
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Percorso di apprendimento
+      href: /learn/paths/azure-fundamentals/
+    - name: Domande e risposte Microsoft
+      href: 'https://docs.microsoft.com/answers/topics/azure-cloud-services.html'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cloud-services/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
