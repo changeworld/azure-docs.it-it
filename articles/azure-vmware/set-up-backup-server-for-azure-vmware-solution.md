@@ -3,12 +3,12 @@ title: Configurare server di Backup di Azure per la soluzione VMware di Azure
 description: Configurare l'ambiente della soluzione VMware di Azure per eseguire il backup di macchine virtuali con server di Backup di Azure.
 ms.topic: how-to
 ms.date: 10/23/2020
-ms.openlocfilehash: e71ec19402d22643d51f1435d1abcf56b20a290b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7885c0bc73bd5f7cd802e76ed9db470f77eda30d
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517379"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703403"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurare server di Backup di Azure per la soluzione VMware di Azure
 
@@ -74,7 +74,7 @@ La tabella riepiloga il numero massimo di carichi di lavoro protetti per ogni se
 
 | Numero massimo di carichi di lavoro protetti | Dimensioni medie del carico di lavoro | Varianza media del carico di lavoro (giornaliera) | IOPS di archiviazione minima | Dimensioni/tipo di disco consigliati      | Dimensione VM consigliata |
 |-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Varianza del 5% netto                   | 2.000             | HDD Standard (dimensione 8 TB o superiore per disco)  | A4V2       |
+| 20                      | 100 GB                | Varianza del 5% netto                   | 2\.000             | HDD Standard (dimensione 8 TB o superiore per disco)  | A4V2       |
 | 40                      | 150 GB                | Varianza del 10% netto                  | 4\.500             | SSD Premium * (dimensione 1 TB o superiore per disco) | DS3_V2     |
 | 60                      | 200 GB                | Varianza del 10% netto                  | 10.500            | SSD Premium * (dimensioni di 8 TB o superiori per ogni disco) | DS3_V2     |
 
@@ -154,7 +154,7 @@ Un insieme di credenziali di servizi di ripristino è un'entità di archiviazion
 
    Si apre la finestra di dialogo **Insieme di credenziali dei Servizi di ripristino**.
 
-1. Immettere i valori per **nome**, **sottoscrizione**, **gruppo di risorse**e **località**.
+1. Immettere i valori per **nome**, **sottoscrizione**, **gruppo di risorse** e **località**.
 
    ![Configurare l'insieme di credenziali di servizi di ripristino.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
@@ -178,9 +178,9 @@ L'opzione di replica di archiviazione consente di scegliere tra l'archiviazione 
 > [!IMPORTANT]
 > La modifica dell'impostazione del **tipo di replica di archiviazione localmente ridondante/con ridondanza geografica** per un insieme di credenziali di servizi di ripristino deve essere eseguita prima di configurare i backup nell'insieme di credenziali. Dopo aver configurato i backup, l'opzione per modificarla è disabilitata e non è possibile modificare il tipo di replica di archiviazione.
 
-1. Da insiemi di credenziali **dei servizi di ripristino**selezionare il nuovo insieme di credenziali. 
+1. Da insiemi di credenziali **dei servizi di ripristino** selezionare il nuovo insieme di credenziali. 
 
-1. In **Impostazioni** selezionare **Proprietà**. In **configurazione backup**selezionare **Aggiorna**.
+1. In **Impostazioni** selezionare **Proprietà**. In **configurazione backup** selezionare **Aggiorna**.
 
 1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
 
@@ -192,7 +192,7 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio successivo. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto e ci si trova nella portale di Azure, scegliere **Sfoglia**dal menu principale.
+1. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio successivo. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto e ci si trova nella portale di Azure, scegliere **Sfoglia** dal menu principale.
 
    1. Nell'elenco delle risorse immettere **servizi di ripristino**.
 
@@ -218,21 +218,21 @@ Attenersi alla procedura descritta in questa sezione per scaricare, estrarre e i
 
    1. Dal menu **dove è in esecuzione il carico di lavoro?** selezionare **locale**.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-on-premises-workload.png" alt-text="Dove viene eseguito il carico di lavoro?":::
 
    1. Selezionare i carichi di lavoro da proteggere utilizzando server di Backup di Azure dal menu di cui si desidera eseguire il **backup?** .
 
    1. Selezionare **preparare l'infrastruttura** per scaricare e installare server di backup di Azure e le credenziali dell'insieme di credenziali.
 
-      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.":::
+      :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure.png" alt-text="Preparare l'infrastruttura":::
 
 1. Nella finestra **prepara infrastruttura** visualizzata:
 
    1. Selezionare il collegamento **download** per installare server di backup di Azure.
 
-   1. 1. Selezionare **già scaricato o usare l'installazione server di backup di Azure più recente** e quindi **scaricare** per scaricare le credenziali dell'insieme di credenziali. Queste credenziali verranno usate quando si registra il server di Backup di Azure nell'insieme di credenziali di servizi di ripristino. I collegamenti consentono di passare all'area download, in cui è possibile scaricare il pacchetto software.
+   1. Selezionare **già scaricato o usare l'installazione server di backup di Azure più recente** e quindi **scaricare** per scaricare le credenziali dell'insieme di credenziali. Queste credenziali verranno usate quando si registra il server di Backup di Azure nell'insieme di credenziali di servizi di ripristino. I collegamenti consentono di passare all'area download, in cui è possibile scaricare il pacchetto software.
 
-   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Server di Backup di Azure viene distribuito come macchina virtuale IaaS (Infrastructure as a Service) di Azure per proteggere le macchine virtuali della soluzione VMware di Azure.":::
+   :::image type="content" source="media/azure-vmware-solution-backup/deploy-mabs-prepare-infrastructure2.png" alt-text="Preparare l'infrastruttura-server di Backup di Azure":::
 
 1. Nella pagina di download selezionare tutti i file e fare clic su **Avanti**.
 
@@ -263,7 +263,7 @@ Se il pacchetto software è stato scaricato in un altro server, copiare i file n
 
 ### <a name="install-the-software-package"></a>Installare il pacchetto software
 
-1. Nella finestra di installazione in **Installa**selezionare **backup di Microsoft Azure** per aprire l'installazione guidata.
+1. Nella finestra di installazione in **Installa** selezionare **backup di Microsoft Azure** per aprire l'installazione guidata.
 
    ![Nella finestra di installazione in Installa selezionare Backup di Microsoft Azure per aprire l'installazione guidata.](../backup/media/backup-azure-microsoft-azure-backup/launch-screen2.png)
 
@@ -304,8 +304,8 @@ Se il pacchetto software è stato scaricato in un altro server, copiare i file n
 
    * **Account del servizio**: **usare l'account predefinito** deve essere **servizio di rete**.
    * **URL servizio Web**: la **directory virtuale** deve **essere \<SQLInstanceName> ReportServer_**.
-   * **Database**: **DatabaseName** deve essere **ReportServer $ \<SQLInstanceName> **.
-   * **URL del portale Web**: la **directory virtuale** deve essere **reports_ \<SQLInstanceName> **.
+   * **Database**: **DatabaseName** deve essere **ReportServer $ \<SQLInstanceName>**.
+   * **URL del portale Web**: la **directory virtuale** deve essere **reports_ \<SQLInstanceName>**.
 
    [Altre informazioni](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode) sulla configurazione di SSRS.
 
@@ -332,7 +332,7 @@ Se il pacchetto software è stato scaricato in un altro server, copiare i file n
 
    ![Selezionare se si desidera utilizzare Microsoft Update per verificare la disponibilità di aggiornamenti e selezionare Avanti.](../backup/media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
 
-1. Esaminare il **Riepilogo delle impostazioni**e selezionare **Installa**.
+1. Esaminare il **Riepilogo delle impostazioni** e selezionare **Installa**.
 
    L'installazione avviene a fasi. 
    - La prima fase consente di installare l'agente di Servizi di ripristino di Microsoft Azure.

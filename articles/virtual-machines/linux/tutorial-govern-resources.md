@@ -1,6 +1,6 @@
 ---
 title: "Esercitazione: Gestire le macchine virtuali con l'interfaccia della riga di comando"
-description: Questa esercitazione illustra come usare l'interfaccia della riga di comando di Azure per gestire le macchine virtuali di Azure applicando il Controllo degli accessi in base al ruolo di Azure, oltre a criteri, blocchi e tag.
+description: Questa esercitazione descrive come usare l'interfaccia della riga di comando di Azure per gestire le macchine virtuali di Azure applicando controllo degli accessi in base al ruolo, criteri, blocchi e tag di Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 565315ad78a2994f44973c4fdcd4519ab9e03ea8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: d1fb9347e33c56c647e15b9e90df4afe5dd55b65
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831787"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704743"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Esercitazione: Informazioni sulla gestione di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -55,7 +55,7 @@ Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli sp
 
 Invece di assegnare ruoli ai singoli utenti, è spesso più facile usare un gruppo di Azure Active Directory con utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per questo articolo, usare un gruppo esistente per la gestione della macchina virtuale oppure usare il portale per [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [az role assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) per assegnare al nuovo gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.
+Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [az role assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) per assegnare al nuovo gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.
 
 ```azurecli-interactive
 adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
@@ -69,7 +69,7 @@ In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Accoun
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-I [Criteri di Azure](../../governance/policy/overview.md) consentono di verificare che tutte le risorse nella sottoscrizione soddisfino gli standard aziendali. La sottoscrizione include già alcune definizioni dei criteri. Per visualizzare le definizioni dei criteri disponibili, usare il comando [az policy definition list](/cli/azure/policy/definition?view=azure-cli-latest#az-policy-definition-list):
+I [Criteri di Azure](../../governance/policy/overview.md) consentono di verificare che tutte le risorse nella sottoscrizione soddisfino gli standard aziendali. La sottoscrizione include già alcune definizioni dei criteri. Per visualizzare le definizioni dei criteri disponibili, usare il comando [az policy definition list](/cli/azure/policy/definition#az-policy-definition-list):
 
 ```azurecli-interactive
 az policy definition list --query "[].[displayName, policyType, name]" --output table
@@ -81,7 +81,7 @@ Vengono visualizzate le definizioni dei criteri esistenti. Il tipo di criterio �
 * Limitare gli SKU per le macchine virtuali.
 * Controllare le macchine virtuali che non usano dischi gestiti.
 
-L'esempio seguente recupera tre definizioni di criteri in base al nome visualizzato. Viene usato il comando [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) per assegnare queste definizioni al gruppo di risorse. Per alcuni criteri occorre fornire i valori dei parametri per specificare i valori consentiti.
+L'esempio seguente recupera tre definizioni di criteri in base al nome visualizzato. Viene usato il comando [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) per assegnare queste definizioni al gruppo di risorse. Per alcuni criteri occorre fornire i valori dei parametri per specificare i valori consentiti.
 
 ```azurecli-interactive
 # Get policy definitions for allowed locations, allowed SKUs, and auditing VMs that don't use managed disks
@@ -143,7 +143,7 @@ I [blocchi delle risorse](../../azure-resource-manager/management/lock-resources
 
 Per creare o eliminare i blocchi di gestione, è necessario avere accesso alle azioni `Microsoft.Authorization/locks/*`. Dei ruoli predefiniti, solo **Proprietario** e **Amministratore Accesso utenti** garantiscono tali azioni.
 
-Per bloccare la macchina virtuale e il gruppo di sicurezza di rete, usare il comando [az lock create](/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-create):
+Per bloccare la macchina virtuale e il gruppo di sicurezza di rete, usare il comando [az lock create](/cli/azure/resource/lock#az-resource-lock-create):
 
 ```azurecli-interactive
 # Add CanNotDelete lock to the VM
@@ -175,7 +175,7 @@ I [tag](../../azure-resource-manager/management/tag-resources.md) vengono applic
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Per applicare tag a una macchina virtuale, usare il comando [az resource tag](/cli/azure/resource?view=azure-cli-latest#az-resource-list). Gli eventuali tag già applicati alla risorsa non vengono mantenuti.
+Per applicare tag a una macchina virtuale, usare il comando [az resource tag](/cli/azure/resource#az-resource-list). Gli eventuali tag già applicati alla risorsa non vengono mantenuti.
 
 ```azurecli-interactive
 az resource tag -n myVM \
@@ -186,7 +186,7 @@ az resource tag -n myVM \
 
 ### <a name="find-resources-by-tag"></a>Trovare le risorse in base al tag
 
-Per trovare le risorse tramite un nome e un valore di tag, usare il comando [az resource list](/cli/azure/resource?view=azure-cli-latest#az-resource-list):
+Per trovare le risorse tramite un nome e un valore di tag, usare il comando [az resource list](/cli/azure/resource#az-resource-list):
 
 ```azurecli-interactive
 az resource list --tag Environment=Test --query [].name
@@ -204,7 +204,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-È possibile eliminare il gruppo di sicurezza di rete bloccato solo dopo la rimozione del blocco. Per rimuovere il blocco, recuperare gli ID dei blocchi e fornirli al comando [az lock delete](/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete):
+È possibile eliminare il gruppo di sicurezza di rete bloccato solo dopo la rimozione del blocco. Per rimuovere il blocco, recuperare gli ID dei blocchi e fornirli al comando [az lock delete](/cli/azure/resource/lock#az-resource-lock-delete):
 
 ```azurecli-interactive
 vmlock=$(az lock show --name LockVM \
@@ -218,7 +218,7 @@ nsglock=$(az lock show --name LockNSG \
 az lock delete --ids $vmlock $nsglock
 ```
 
-Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Chiudere la sessione SSH per la macchina virtuale, quindi eliminare le risorse come segue:
+Quando non servono più, è possibile usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuovere il gruppo di risorse, la macchina virtuale e tutte le risorse correlate. Chiudere la sessione SSH per la macchina virtuale, quindi eliminare le risorse come segue:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

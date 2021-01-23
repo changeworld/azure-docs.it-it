@@ -9,12 +9,12 @@ ms.date: 12/08/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13d1ad0b1b5e32ea2ca86e7556dd910c542bcbe2
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070559"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703505"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -379,7 +379,7 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, all
 | Hub eventi di Azure         | Microsoft.EventHub         | Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](../../event-hubs/event-hubs-capture-overview.md). |
 | Sincronizzazione file di Azure          | Microsoft.StorageSync      | Consente di trasformare il file server locale in una cache per le condivisioni file di Azure. Consente la sincronizzazione multisito, il ripristino di emergenza rapido e il backup sul cloud. [Altre informazioni](../files/storage-sync-files-planning.md) |
 | HDInsight di Azure          | Microsoft.HDInsight        | Consente di effettuare il provisioning del contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) |
-| Importazione/Esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in archiviazione di Azure o l'esportazione di dati da archiviazione di Azure tramite il servizio di importazione/esportazione di archiviazione di Azure. [Altre informazioni](./storage-import-export-service.md)  |
+| Importazione/Esportazione di Azure      | Microsoft.ImportExport     | Consente l'importazione di dati in archiviazione di Azure o l'esportazione di dati da archiviazione di Azure tramite il servizio di importazione/esportazione di archiviazione di Azure. [Altre informazioni](../../import-export/storage-import-export-service.md)  |
 | Monitoraggio di Azure            | Microsoft.Insights         | Consente la scrittura di dati di monitoraggio in un account di archiviazione protetto, inclusi i log delle risorse, i log di accesso e di controllo di Azure Active Directory e i log di Microsoft Intune. [Altre informazioni](../../azure-monitor/platform/roles-permissions-security.md) |
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
@@ -398,7 +398,7 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
 | Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
 | Azure Synapse Analytics       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
-| database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
+| Database SQL di Azure       | Microsoft.Sql                          | Consente l' [importazione](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) di dati da account di archiviazione e la [scrittura](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) dei dati di controllo negli account di archiviazione dietro il firewall. |
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
 

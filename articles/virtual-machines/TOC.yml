@@ -1,34 +1,1874 @@
 - name: Documentazione delle macchine virtuali
   href: index.yml
-- name: Macchine virtuali Linux in Azure
-  href: ./linux/index.yml
-- name: Macchine virtuali Windows in Azure
-  href: ./windows/index.yml
-- name: Documentazione delle estensioni di VM
-  href: ./extensions/overview.md
+- name: Panoramica
+  items:
+    - name: Informazioni su macchine virtuali Linux
+      href: ./linux/overview.md
+    - name: Informazioni su macchine virtuali Windows
+      href: ./windows/overview.md
+- name: Avvi rapidi
+  items:
+    - name: Creare una macchina virtuale Linux
+      items:
+        - name: CLI
+          href: ./linux/quick-create-cli.md
+        - name: Portale
+          href: ./linux/quick-create-portal.md
+        - name: PowerShell
+          href: ./linux/quick-create-powershell.md
+        - name: Modello ARM
+          displayName: 'Resource Manager, template, json'
+          href: ./linux/quick-create-template.md
+    - name: Creare un'app Windows
+      items:
+        - name: CLI
+          href: ./windows/quick-create-cli.md
+        - name: Portale
+          href: ./windows/quick-create-portal.md
+        - name: PowerShell
+          href: ./windows/quick-create-powershell.md
+        - name: Modello ARM
+          displayName: 'Resource Manager, template, json'
+          href: ./windows/quick-create-template.md
+  expanded: true
+- name: Esercitazioni
+  items:
+    - name: Linux
+      items:
+        - name: 1 - Creare/gestire macchine virtuali
+          href: ./linux/tutorial-manage-vm.md
+        - name: 2 - Creare/gestire dischi
+          href: ./linux/tutorial-manage-disks.md
+        - name: 3 - Automatizzare la configurazione
+          href: ./linux/tutorial-automate-vm-deployment.md
+        - name: 4 - Creare immagini di VM
+          href: ./linux/tutorial-custom-images.md
+        - name: 5 - VM a disponibilità elevata
+          href: ./linux/tutorial-availability-sets.md
+        - name: 6 - Creare un set di scalabilità
+          href: ./linux/tutorial-create-vmss.md
+        - name: 7 - Bilanciare il carico delle VM
+          href: ./linux/tutorial-load-balancer.md
+        - name: 8 - Gestire la rete
+          href: ./linux/tutorial-virtual-network.md
+    - name: Windows
+      items:
+        - name: 1 - Creare/gestire una macchina virtuale
+          href: ./windows/tutorial-manage-vm.md
+        - name: 2 - Creare/gestire dischi
+          href: ./windows/tutorial-manage-data-disk.md
+        - name: 3 - Automatizzare la configurazione
+          href: ./windows/tutorial-automate-vm-deployment.md
+        - name: 4 - Creare immagini di VM
+          href: ./windows/tutorial-custom-images.md
+        - name: 5 - VM a disponibilità elevata
+          href: ./windows/tutorial-availability-sets.md
+        - name: 6 - Creare un set di scalabilità
+          href: ./windows/tutorial-create-vmss.md
+        - name: 7 - Bilanciare il carico delle VM
+          href: ./windows/tutorial-load-balancer.md
+        - name: 8 - Gestire la rete
+          href: ./windows/tutorial-virtual-network.md
 - name: Carichi di lavoro
   items:
     - name: Red Hat
       href: ./workloads/redhat/overview.md
-    - name: HPC (High Performance Computing)
-      href: ./workloads/hpc/overview.md
-    - name: SAP
-      href: ./workloads/sap/get-started.md
+    - name: Cloud Foundry
+      href: ../cloudfoundry/index.yml
+    - name: Cassandra
+      href: /azure/architecture/reference-architectures/n-tier/n-tier-cassandra
+    - name: OpenShift
+      items:
+        - name: Panoramica di OpenShift
+          href: ./linux/openshift-get-started.md
+        - name: OpenShift Container Platform 4.x
+          href: ./linux/openshift-container-platform-4x.md
+        - name: Prerequisiti di OpenShift Container Platform 3.11
+          href: ./linux/openshift-container-platform-3x-prerequisites.md
+        - name: OpenShift Container Platform 3.11
+          href: ./linux/openshift-container-platform-3x.md
+        - name: OpenShift Container Platform 3.11 autogestito nel Marketplace
+          href: ./linux/openshift-container-platform-3x-marketplace-self-managed.md
+        - name: Azure Stack
+          href: ./linux/openshift-azure-stack.md
+        - name: Attività di post-distribuzione di OpenShift Container Platform 3.11
+          href: ./linux/openshift-container-platform-3x-post-deployment.md
+        - name: Risoluzione dei problemi relativi alle distribuzioni di OpenShift Container Platform 3.11
+          href: ./linux/openshift-container-platform-3x-troubleshooting.md
+        - name: Distribuisci OKD
+          href: ./linux/openshift-okd.md
+    - name: SAP in Azure
+      items:
+        - name: Introduzione
+          href: ./workloads/sap/get-started.md
+        - name: Certificazioni
+          href: ./workloads/sap/sap-certifications.md
+        - name: SAP HANA in Azure (istanze Large)
+          items:
+            - name: Panoramica
+              items:
+                - name: SAP HANA in Azure (istanze Large)
+                  href: ./workloads/sap/hana-overview-architecture.md
+                - name: Conoscere i termini
+                  href: ./workloads/sap/hana-know-terms.md
+                - name: Certificazione
+                  href: ./workloads/sap/hana-certification.md
+                - name: SKU disponibili per HLI
+                  href: ./workloads/sap/hana-available-skus.md
+                - name: Ridimensionamento
+                  href: ./workloads/sap/hana-sizing.md
+                - name: Requisiti di onboarding
+                  href: ./workloads/sap/hana-onboarding-requirements.md
+                - name: Nodi di estensione e suddivisione in livelli dei dati di SAP HANA
+                  href: ./workloads/sap/hana-data-tiering-extension-nodes.md
+                - name: Responsabilità e modello operativo
+                  href: ./workloads/sap/hana-operations-model.md
+                - name: Sistemi operativi compatibili
+                  href: ./workloads/sap/os-compatibility-matrix-hana-large-instance.md
+        - name: Architecture
+          items:
+            - name: Architettura generale
+              href: ./workloads/sap/hana-architecture.md
+            - name: Architettura di rete
+              href: ./workloads/sap/hana-network-architecture.md
+            - name: Architettura di archiviazione
+              href: ./workloads/sap/hana-storage-architecture.md
+            - name: Scenari HLI supportati
+              href: ./workloads/sap/hana-supported-scenario.md
+        - name: Infrastruttura e connettività
+          items:
+            - name: Distribuzione HLI
+              href: ./workloads/sap/hana-overview-infrastructure-connectivity.md
+            - name: Connessione di macchine virtuali di Azure a istanze Large di HANA
+              href: ./workloads/sap/hana-connect-azure-vm-large-instances.md
+            - name: Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA
+              href: ./workloads/sap/hana-connect-vnet-express-route.md
+            - name: Requisiti di rete aggiuntivi
+              href: ./workloads/sap/hana-additional-network-requirements.md
+        - name: Installare SAP HANA
+          items:
+            - name: Convalidare la configurazione
+              href: ./workloads/sap/hana-installation.md
+            - name: Installazione di SAP HANA
+              href: ./workloads/sap/hana-example-installation.md
+        - name: Disponibilità elevata e ripristino di emergenza
+          items:
+            - name: Opzioni e considerazioni
+              href: ./workloads/sap/hana-overview-high-availability-disaster-recovery.md
+            - name: Backup e ripristino
+              href: ./workloads/sap/hana-backup-restore.md
+            - name: Principi e preparazione
+              href: ./workloads/sap/hana-concept-preparation.md
+            - name: Procedura di failover di ripristino di emergenza
+              href: ./workloads/sap/hana-failover-procedure.md
+        - name: Eseguire la risoluzione dei problemi e il monitoraggio
+          items:
+            - name: Monitoraggio di HLI
+              href: ./workloads/sap/troubleshooting-monitoring.md
+            - name: Monitoraggio e risoluzione dei problemi dal lato HANA
+              href: ./workloads/sap/hana-monitor-troubleshoot.md
+        - name: Procedure
+          items:
+            - name: Controllo di istanze Large di HANA in Azure tramite il portale di Azure
+              href: ./workloads/sap/hana-li-portal.md
+            - name: Configurazione a disponibilità elevata con STONITH
+              href: ./workloads/sap/ha-setup-with-stonith.md
+            - name: Backup del sistema operativo per SKU di tipo II
+              href: ./workloads/sap/os-backup-type-ii-skus.md
+            - name: Abilitare kdump per le istanze large di HANA
+              href: ./workloads/sap/hana-large-instance-enable-kdump.md
+            - name: Aggiornamento del sistema operativo per istanze Large di Hana
+              href: ./workloads/sap/os-upgrade-hana-large-instance.md
+            - name: Configurazione del server SMT per SUSE Linux
+              href: ./workloads/sap/hana-setup-smt.md
+            - name: Migrazione da HLI a VM di Azure
+              href: ./workloads/sap/hana-large-instance-virtual-machine-migration.md
+            - name: Acquistare una prenotazione di SAP HANA in istanze Large
+              href: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?context=/azure/virtual-machines/context/context
+    - name: SAP HANA nelle macchine virtuali di Azure
+      items:
+        - name: Installazione di SAP HANA in macchine virtuali di Azure
+          href: ./workloads/sap/hana-get-started.md
+        - name: Guida alla distribuzione di CAL SAP S/4 HANA o BW/4 HANA
+          href: ./workloads/sap/cal-s4h.md
+        - name: Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
+          href: ./workloads/sap/hana-vm-operations.md
+        - name: Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
+          href: ./workloads/sap/hana-vm-operations-storage.md
+        - name: Volumi NFS v4.1 in Azure NetApp Files per SAP HANA
+          href: ./workloads/sap/hana-vm-operations-netapp.md
+        - name: Disponibilità di SAP HANA in Macchine virtuali di Azure
+          items:
+            - name: Panoramica della disponibilità di SAP HANA in Azure
+              href: ./workloads/sap/sap-hana-availability-overview.md
+            - name: Disponibilità di SAP HANA in un'area di Azure
+              href: ./workloads/sap/sap-hana-availability-one-region.md
+            - name: Disponibilità di SAP HANA tra aree di Azure
+              href: ./workloads/sap/sap-hana-availability-across-regions.md
+            - name: Configurare la replica di sistema SAP HANA in SLES
+              href: ./workloads/sap/sap-hana-high-availability.md
+            - name: Configurare la replica di sistema SAP HANA in RHEL
+              href: ./workloads/sap/sap-hana-high-availability-rhel.md
+            - name: Configurare la replica di sistema SAP HANA con ANF in RHEL
+              href: ./workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md
+            - name: Risolvere i problemi relativi all'aumento del numero di istanze di SAP HANA e Pacemaker in SLES
+              href: ./workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md
+            - name: Sistema SAP HANA con scalabilità orizzontale e replica di sistema HANA con Pacemaker in RHEL
+              href: ./workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md
+            - name: Scalabilità orizzontale di SAP HANA con nodo di standby con Azure NetApp Files in SLES
+              href: ./workloads/sap/sap-hana-scale-out-standby-netapp-files-suse.md
+            - name: Sistema SAP HANA scale-out con nodo di standby con Azure NetApp Files in RHEL
+              href: ./workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md
+        - name: Panoramica del backup di SAP HANA
+          href: ./workloads/sap/sap-hana-backup-guide.md
+        - name: Backup a livello di file di SAP HANA
+          href: ./workloads/sap/sap-hana-backup-file-level.md
+    - name: SAP NetWeaver e Business One nelle macchine virtuali di Azure
+      items:
+        - name: Checklist per la pianificazione e la distribuzione di carichi di lavoro SAP
+          href: ./workloads/sap/sap-deployment-checklist.md
+        - name: Pianificare e implementare SAP NetWeaver in Azure
+          href: ./workloads/sap/planning-guide.md
+          items:
+            - name: Tipi di Archiviazione di Azure per carichi di lavoro SAP
+              href: ./workloads/sap/planning-guide-storage.md
+            - name: Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure
+              href: ./workloads/sap/sap-planning-supported-configurations.md
+            - name: Quale software SAP è supportato per le distribuzioni di Azure
+              href: ./workloads/sap/sap-supported-product-on-azure.md
+        - name: Guida alla distribuzione di SAP NetWeaver
+          href: ./workloads/sap/deployment-guide.md
+        - name: Guide alla distribuzione DBMS per un carico di lavoro SAP
+          items:
+            - name: Distribuzione DBMS generale di Macchine virtuali di Azure per un carico di lavoro SAP
+              href: ./workloads/sap/dbms_guide_general.md
+            - name: Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un carico di lavoro SAP
+              href: ./workloads/sap/dbms_guide_sqlserver.md
+            - name: Distribuzione DBMS per Oracle di macchine virtuali di Azure per un carico di lavoro SAP
+              href: ./workloads/sap/dbms_guide_oracle.md
+            - name: Distribuzione DBMS per IBM DB2 di macchine virtuali di Azure per un carico di lavoro SAP
+              href: ./workloads/sap/dbms_guide_ibm.md
+            - name: Disponibilità elevata di IBN D2 LUW in macchine virtuali di Azure su SUSE Linux Enterprise Server
+              href: ./workloads/sap/dbms-guide-ha-ibm.md
+            - name: Disponibilità elevata di IBN Db2 LUW in macchine virtuali di Azure su Red Hat Enterprise Linux Server
+              href: ./workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md
+            - name: Distribuzione DBMS per SAP ASE di macchine virtuali di Azure per un carico di lavoro SAP
+              href: ./workloads/sap/dbms_guide_sapase.md
+            - name: 'Distribuzione di SAP MaxDB, SAP liveCache e SAP Content Server in Azure'
+              href: ./workloads/sap/dbms_guide_maxdb.md
+            - name: Disponibilità di SAP HANA in Macchine virtuali di Azure
+              items:
+                - name: Panoramica della disponibilità di SAP HANA in Azure
+                  href: ./workloads/sap/sap-hana-availability-overview.md
+                - name: Disponibilità di SAP HANA in un'area di Azure
+                  href: ./workloads/sap/sap-hana-availability-one-region.md
+                - name: Disponibilità di SAP HANA tra aree di Azure
+                  href: ./workloads/sap/sap-hana-availability-across-regions.md
+        - name: SAP Business One nelle macchine virtuali di Azure
+          href: ./workloads/sap/business-one-azure.md
+        - name: Guida alla distribuzione di SAP IDES in Windows/SQL Server SAP CAL
+          href: ./workloads/sap/cal-ides-erp6-erp7-sp3-sql.md
+        - name: Connettore SAP LaMa per Azure
+          href: ./workloads/sap/lama-installation.md
+        - name: Disponibilità elevata in Windows e Linux
+          items:
+            - name: Panoramica
+              href: ./workloads/sap/sap-high-availability-guide-start.md
+            - name: Architettura a disponibilità elevata
+              items:
+                - name: Architettura e scenari a disponibilità elevata
+                  href: ./workloads/sap/sap-high-availability-architecture-scenarios.md
+                - name: Architettura e scenari a disponibilità più elevata
+                  href: ./workloads/sap/sap-higher-availability-architecture-scenarios.md
+                - name: Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
+                  href: ./workloads/sap/sap-ha-availability-zones.md
+                - name: Disponibilità elevata in Windows con disco condiviso per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-guide-wsfc-shared-disk.md
+                - name: Disponibilità elevata in Windows con condivisione file SOFS per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-guide-wsfc-file-share.md
+                - name: Disponibilità elevata per SAP NetWeaver in Windows con Azure NetApp Files (SMB)
+                  href: ./workloads/sap/high-availability-guide-windows-netapp-files-smb.md
+                - name: Disponibilità elevata in SUSE Linux per l'istanza (A)SCS
+                  href: ./workloads/sap/high-availability-guide-suse.md
+                - name: Disponibilità elevata in SUSE Linux per l'istanza (A)SCS con Azure NetApp Files
+                  href: ./workloads/sap/high-availability-guide-suse-netapp-files.md
+                - name: Disponibilità elevata in Red Hat Enterprise Linux per l'istanza (A)SCS
+                  href: ./workloads/sap/high-availability-guide-rhel.md
+                - name: Disponibilità elevata in Red Hat Enterprise Linux per l'istanza (A)SCS con Azure NetApp Files
+                  href: ./workloads/sap/high-availability-guide-rhel-netapp-files.md
+            - name: Preparazione dell'infrastruttura di Azure
+              items:
+                - name: Windows con disco condiviso per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk.md
+                - name: Windows con condivisione file SOFS per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-infrastructure-wsfc-file-share.md
+                - name: Disponibilità elevata per NFS in macchine virtuali di Azure in SLES
+                  href: ./workloads/sap/high-availability-guide-suse-nfs.md
+                - name: GlusterFS in VM di Azure in Red Hat Enterprise Linux per SAP NetWeaver
+                  href: ./workloads/sap/high-availability-guide-rhel-glusterfs.md
+                - name: Pacemaker in SLES
+                  href: ./workloads/sap/high-availability-guide-suse-pacemaker.md
+                - name: Pacemaker in RHEL
+                  href: ./workloads/sap/high-availability-guide-rhel-pacemaker.md
+                - name: Connettività dell'endpoint pubblico per macchine virtuali con Load Balancer Standard di Azure in scenari SAP a disponibilità elevata
+                  href: ./workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections.md
+            - name: Installazione di SAP
+              items:
+                - name: Windows con disco condiviso per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-installation-wsfc-shared-disk.md
+                - name: Windows con condivisione file SOFS per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-high-availability-installation-wsfc-file-share.md
+                - name: Disponibilità elevata per SAP NetWeaver in Windows con Azure NetApp Files (SMB)
+                  href: ./workloads/sap/high-availability-guide-windows-netapp-files-smb.md
+                - name: SUSE Linux con NFS per l'istanza (A)SCS
+                  href: ./workloads/sap/high-availability-guide-suse.md
+                - name: SUSE Linux con NFS per l'istanza (A)SCS con Azure NetApp Files
+                  href: ./workloads/sap/high-availability-guide-suse-netapp-files.md
+                - name: Disponibilità elevata per SAP NetWeaver in Red Hat Enterprise Linux
+                  href: ./workloads/sap/high-availability-guide-rhel.md
+                - name: Red Hat Enterprise Linux con NFS per l'istanza (A)SCS con Azure NetApp Files
+                  href: ./workloads/sap/high-availability-guide-rhel-netapp-files.md
+            - name: Configurazione SAP a più SID
+              items:
+                - name: Windows con disco condiviso di Azure per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md
+                - name: Windows con disco condiviso per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk.md
+                - name: Windows con condivisione file SOFS per l'istanza (A)SCS
+                  href: ./workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share.md
+                - name: SLES con multi-SID Pacemaker per l'istanza A(SCS)
+                  href: ./workloads/sap/high-availability-guide-suse-multi-sid.md
+                - name: RHEL con multi-SID Pacemaker per l'istanza A(SCS)
+                  href: ./workloads/sap/high-availability-guide-rhel-multi-sid.md
+        - name: Azure Site Recovery per il ripristino di emergenza di SAP
+          href: ../site-recovery/site-recovery-workload.md#protect-sap
+        - name: Gruppi di selezione host di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP
+          href: ./workloads/sap/sap-proximity-placement-scenarios.md
+        - name: Piattaforma di business intelligence SAP BusinessObjects in Azure
+          items:
+            - name: Guida alla pianificazione e all'implementazione della piattaforma di business intelligence SAP BusinessObjects in Azure
+              href: ./workloads/sap/businessobjects-deployment-guide.md
+            - name: Guida alla distribuzione della piattaforma di business intelligence SAP BusinessObjects per Linux in Azure
+              href: ./workloads/sap/businessobjects-deployment-guide-linux.md
+        - name: Integrare Azure AD con applicazioni SAP
+          items:
+            - name: Eseguire il provisioning di utenti da SAP SuccessFactors ad Active Directory
+              href: ../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Eseguire il provisioning di utenti da SAP SuccessFactors ad Azure AD
+              href: ../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Eseguire il writeback di utenti da Azure AD a SAP SuccessFactors
+              href: ../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Eseguire il provisioning di utenti in SAP Cloud Platform Identity Authentication Service
+              href: ../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Cloud Platform Identity Authentication Service
+              href: ../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP SuccessFactors
+              href: ../active-directory/saas-apps/successfactors-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Analytics Cloud
+              href: ../active-directory/saas-apps/sapboc-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Fiori
+              href: ../active-directory/saas-apps/sap-fiori-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Qualtrics
+              href: ../active-directory/saas-apps/qualtrics-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Ariba
+              href: ../active-directory/saas-apps/ariba-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Concur Travel and Expense
+              href: ../active-directory/saas-apps/concur-travel-and-expense-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Cloud Platform
+              href: ../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP NetWeaver
+              href: ../active-directory/saas-apps/sap-netweaver-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Business ByDesign
+              href: ../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP HANA
+              href: ../active-directory/saas-apps/saphana-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Cloud for Customer
+              href: ../active-directory/saas-apps/sap-customer-cloud-tutorial.md?context=/azure/virtual-machines/context/context
+            - name: Configurare l'accesso SSO con SAP Fiori Launchpad
+              href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
+        - name: Integrazione di Servizi di Azure in SAP
+          items:
+            - name: Usare SAP HANA in Power BI Desktop
+              href: /power-bi/desktop-sap-hana
+            - name: DirectQuery e SAP HANA
+              href: /power-bi/desktop-directquery-sap-hana
+            - name: Usare il connettore SAP BW in Power BI Desktop
+              href: /power-bi/desktop-sap-bw-connector
+            - name: Azure Data Factory offre l'integrazione di dati SAP HANA e Business Warehouse
+              href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+        - name: Monitoraggio di Azure per soluzioni SAP
+          items:
+            - name: Panoramica di Monitoraggio di Azure per soluzioni SAP
+              href: ./workloads/sap/azure-monitor-overview.md
+            - name: Provider di Monitoraggio di Azure per soluzioni SAP
+              href: ./workloads/sap/azure-monitor-providers.md
+            - name: Configurare Monitoraggio di Azure per soluzioni SAP - Portale
+              href: ./workloads/sap/azure-monitor-sap-quickstart.md
+            - name: Configurare Monitoraggio di Azure per soluzioni SAP - Azure PowerShell
+              href: ./workloads/sap/azure-monitor-sap-quickstart-powershell.md
+            - name: Domande frequenti su Monitoraggio di Azure per soluzioni SAP
+              href: ./workloads/sap/azure-monitor-faq.md
+        - name: Informazioni di riferimento
+          items:
+            - name: Interfaccia della riga di comando di Azure
+              href: /cli/azure/ext/sap-hana/hanainstance
+            - name: Azure PowerShell
+              href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
     - name: Oracle
-      href: ./workloads/oracle/oracle-overview.md
-    - name: Re-hosting del mainframe
-      href: ./workloads/mainframe-rehosting/overview.md
-- name: Distribuzioni classiche
+      href: ./workloads/oracle/oracle-database-quick-create.md
+    - name: Elasticsearch
+      href: ./linux/tutorial-elasticsearch.md
+    - name: Packet Filter di FreeBSD
+      href: ./linux/freebsd-pf-nat.md
+    - name: Database
+      items:
+        - name: MySQL in SUSE
+          href: ./linux/mysql-on-opensuse.md
+        - name: MongoDB
+          items:
+            - name: Linux
+              href: ./linux/install-mongodb.md
+            - name: Windows
+              href: ./windows/install-mongodb.md
+        - name: PostgreSQL
+          href: ./linux/postgresql-install.md
+        - name: MS SQL in Linux
+          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: High Performance Computing (HPC)
+      href: /azure/architecture/topics/high-performance-computing/
+    - name: IBM Db2 pureScale
+      items:
+        - name: Architettura
+          href: ./linux/ibm-db2-purescale-azure.md
+        - name: Distribuzione
+          href: ./linux/deploy-ibm-db2-purescale-azure.md
+    - name: Contenitori
+      items:
+        - name: Creare un host Docker
+          href: 'https://github.com/Azure/azure-docker-extension/blob/master/README.md'
+        - name: Usare Docker Machine
+          href: ./linux/docker-machine.md
+        - name: Usare Docker Compose
+          href: ./linux/docker-compose-quickstart.md
+    - name: Visual Studio
+      href: ./windows/using-visual-studio-vm.md
+- name: Istanze
   items:
-    - name: Macchine virtuali Linux con distribuzione classica
-      href: /previous-versions/azure/virtual-machines/linux/classic/
-    - name: Macchine virtuali Windows con distribuzione classica
-      href: /previous-versions/azure/virtual-machines/windows/classic/
+    - name: Dimensioni
+      items:
+        - name: Panoramica
+          href: sizes.md
+        - name: Modificare le dimensioni della macchina virtuale
+          items:
+            - name: CLI
+              href: ./linux/change-vm-size.md
+            - name: Portale o PowerShell
+              href: ./windows/resize-vm.md
+        - name: Macchine virtuali di seconda generazione
+          href: generation-2.md
+        - name: Scopo generico
+          items:
+            - name: Panoramica
+              href: sizes-general.md
+            - name: Serie Av2
+              href: av2-series.md
+            - name: Serie B con possibilità di burst
+              href: sizes-b-series-burstable.md
+            - name: Serie DCv2
+              href: dcv2-series.md
+            - name: Serie Dv2 e DSv2
+              href: dv2-dsv2-series.md
+            - name: Serie Dv3 e Dsv3
+              href: dv3-dsv3-series.md
+            - name: Serie Dav4 e Dasv4
+              href: dav4-dasv4-series.md
+            - name: Serie Ddv4 e Ddsv4
+              href: ddv4-ddsv4-series.md
+            - name: Serie Dv4 e Dsv4
+              href: dv4-dsv4-series.md
+        - name: Ottimizzate per il calcolo
+          items:
+            - name: Panoramica
+              href: sizes-compute.md
+            - name: Serie Fsv2
+              href: fsv2-series.md
+        - name: Ottimizzate per la memoria
+          displayName: Esv3 Ev3 Easv4 Eav4 M-series GS G-series DSv2 Dv2
+          items:
+            - name: Panoramica
+              href: sizes-memory.md
+            - name: Serie Dv2 e DSv2 da 11 a 15
+              href: dv2-dsv2-series-memory.md
+            - name: Serie Ev3 e Esv3
+              href: ev3-esv3-series.md
+            - name: Serie Eav4 e Easv4
+              href: eav4-easv4-series.md
+            - name: Serie Edv4 e Edsv4
+              href: edv4-edsv4-series.md
+            - name: Serie Ev4 e Esv4
+              href: ev4-esv4-series.md
+            - name: Serie M
+              href: m-series.md
+            - name: Serie Mv2
+              href: mv2-series.md
+            - name: vCPU vincolate
+              href: constrained-vcpu.md
+        - name: Ottimizzate per l'archiviazione
+          items:
+            - name: Panoramica
+              href: sizes-storage.md
+            - name: Serie Lsv2
+              href: lsv2-series.md
+            - name: Ottimizzare le prestazioni
+              items:
+                - name: Linux
+                  href: ./linux/storage-performance.md
+                - name: Windows
+                  href: ./windows/storage-performance.md
+        - name: GPU - calcolo con accelerazione
+          items:
+            - name: Panoramica
+              href: sizes-gpu.md?context=/azure/virtual-machines/context/context
+            - name: Serie NC
+              href: nc-series.md
+            - name: Serie NCv2
+              href: ncv2-series.md
+            - name: Serie NCv3
+              href: ncv3-series.md
+            - name: Serie NCasT4_v3
+              href: nct4-v3-series.md
+            - name: Serie ND
+              href: nd-series.md
+            - name: Serie NDv2
+              href: ndv2-series.md
+            - name: Serie NV
+              href: nv-series.md
+            - name: Serie NVv3
+              href: nvv3-series.md
+            - name: Serie NVv4
+              href: nvv4-series.md
+            - name: Configurare i driver di GPU NVIDIA
+              items:
+                - name: Linux
+                  href: ./linux/n-series-driver-setup.md
+                - name: Windows
+                  href: ./windows/n-series-driver-setup.md
+            - name: Configurare i driver per la GPU AMD
+              href: ./windows/n-series-amd-driver-setup.md
+        - name: High Performance Computing (HPC)
+          displayName: H-series
+          items:
+            - name: Panoramica
+              href: sizes-hpc.md
+            - name: Serie H
+              href: h-series.md
+            - name: Serie HB
+              href: hb-series.md
+            - name: Serie HBv2
+              href: hbv2-series.md
+            - name: Serie HC
+              href: hc-series.md
+        - name: Quote vCPU
+          items:
+            - name: CLI
+              href: ./linux/quotas.md
+            - name: PowerShell
+              href: ./windows/quotas.md
+        - name: Macchine virtuali di Azure senza disco temporaneo
+          href: azure-vms-no-temp-disk.md
+        - name: Convenzioni di denominazione delle dimensioni delle macchine virtuali di Azure
+          href: vm-naming-conventions.md
+        - name: Generazioni precedenti
+          displayName: D-series Ds-series A-series Basic
+          href: sizes-previous-gen.md
+        - name: Dimensioni per ambiente isolato
+          href: isolation.md
+        - name: Unità di calcolo di Azure
+          href: acu.md
+        - name: Punteggi di benchmark
+          items:
+            - name: Linux
+              href: ./linux/compute-benchmark-scores.md
+            - name: Windows
+              href: ./windows/compute-benchmark-scores.md
+    - name: Host dedicati
+      items:
+        - name: Panoramica
+          href: ./linux/dedicated-hosts.md
+        - name: CLI
+          href: ./linux/dedicated-hosts-cli.md
+        - name: Portale
+          href: dedicated-hosts-portal.md
+        - name: PowerShell
+          href: ./windows/dedicated-hosts-powershell.md
+    - name: Opzioni di acquisto
+      items:
+        - name: VM Spot
+          displayName: 'pre-empt, preempt, spot'
+          items:
+            - name: Panoramica
+              href: spot-vms.md
+            - name: CLI
+              href: ./linux/spot-cli.md
+            - name: Portale
+              href: spot-portal.md
+            - name: PowerShell
+              href: ./windows/spot-powershell.md
+            - name: Modello ARM
+              displayName: template ARM
+              href: ./linux/spot-template.md
+            - name: Codici di errore
+              href: error-codes-spot.md
+        - name: Vantaggio Azure Hybrid
+          items:
+            - name: Linux
+              href: ./linux/azure-hybrid-benefit-linux.md
+            - name: Windows
+              items:
+                - name: Usare la licenza con il vantaggio Azure Hybrid
+                  href: ./windows/hybrid-use-benefit-licensing.md
+                - name: Usare diritti di hosting multi-tenant per Windows 10
+                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+        - name: Istanze riservate
+          items:
+            - name: Pagare in anticipo le VM
+              href: ./linux/prepay-reserved-vm-instances.md
+            - name: Pagare in anticipo gli host dedicati
+              href: prepay-dedicated-hosts-reserved-instances.md
+            - name: Cosa sono le prenotazioni di Azure?
+              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+            - name: Flessibilità delle dimensioni istanza di VM
+              href: reserved-vm-instance-size-flexibility.md
+    - name: Creare macchine virtuali Linux
+      items:
+        - name: Distribuzioni approvate
+          href: ./linux/endorsed-distros.md
+        - name: Usare l'interfaccia della riga di comando
+          href: ./linux/create-cli-complete.md
+        - name: Usare un modello di Azure Resource Manager
+          displayName: Azure Resource Manager
+          href: ./linux/create-ssh-secured-vm-from-template.md
+        - name: Usare l'API REST
+          href: ./linux/create-vm-rest-api.md
+        - name: Copiare una VM usando l'interfaccia della riga di comando
+          href: ./linux/copy-vm.md
+        - name: Compilazione con Jenkins
+          href: /azure/developer/jenkins/pipeline-with-github-and-docker
+        - name: Integrare Jenkins con Azure DevOps
+          href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
+        - name: Configurare la strategia di distribuzione in sequenza
+          href: ./linux/tutorial-devops-azure-pipelines-classic.md
+        - name: Configurare la strategia di distribuzione Canary
+          href: ./linux/tutorial-azure-devops-canary-strategy.md
+        - name: Configurare Blue-Green strategia di distribuzione
+          href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+        - name: CI/CD con Azure Pipelines (YAML)
+          href: ./linux/tutorial-build-deploy-azure-pipelines.md
+        - name: Crea stack LAMP
+          href: ./linux/tutorial-lamp-stack.md
+        - name: Secure web server with SSL (Proteggere il server Web con SSL)
+          items:
+            - name: Linux
+              href: ./linux/tutorial-secure-web-server.md
+            - name: Windows
+              href: ./windows/tutorial-secure-web-server.md
+    - name: Connettersi a VM Linux
+      items:
+        - name: SSH per VM Linux
+          items:
+            - name: In Linux o macOS
+              href: ./linux/mac-create-ssh-keys.md
+            - name: In Windows
+              href: ./linux/ssh-from-windows.md
+            - name: Nel portale
+              href: ssh-keys-portal.md
+            - name: Procedura dettagliata
+              href: ./linux/create-ssh-keys-detailed.md
+        - name: Desktop remoto per Linux
+          href: ./linux/use-remote-desktop.md
+    - name: Creare macchine virtuali Windows
+      items:
+        - name: Usare C#
+          href: ../azure-resource-manager/templates/deploy-rest.md?context=/azure/virtual-machines/context/context
+        - name: Usare un disco specializzato
+          items:
+            - name: Portale
+              href: ./windows/create-vm-specialized-portal.md
+            - name: PowerShell
+              href: ./windows/create-vm-specialized.md
+        - name: Creare una VM con Chef
+          href: /azure/developer/chef/windows-vm-configure
+        - name: Usare Java
+          href: ./windows/java.md
+        - name: Usare Python
+          href: ./windows/python.md
+        - name: Usare un modello di Azure Resource Manager
+          displayName: Azure Resource Manager template
+          href: ./windows/ps-template.md
+    - name: Connettersi alle macchine virtuali Windows
+      href: ./windows/connect-logon.md
+      items:
+        - name: WinRM
+          href: ./windows/winrm.md
+    - name: Estensioni
+      items:
+        - name: Panoramica
+          href: ./extensions/overview.md
+        - name: Linux
+          items:
+            - name: Funzionalità di Linux
+              href: ./extensions/features-linux.md
+            - name: Agente di macchine virtuali Linux
+              href: ./extensions/agent-linux.md
+        - name: Windows
+          items:
+            - name: Funzionalità di Windows
+              href: ./extensions/features-windows.md
+            - name: Agente di macchine virtuali Windows
+              href: ./extensions/agent-windows.md
+        - name: Azure Disk Encryption
+          items:
+            - name: Linux
+              href: ./extensions/azure-disk-enc-linux.md
+            - name: Windows
+              href: ./extensions/azure-disk-enc-windows.md
+        - name: Insieme di credenziali chiave di Azure
+          items:
+            - name: Linux
+              href: ./extensions/key-vault-linux.md
+            - name: Windows
+              href: ./extensions/key-vault-windows.md
+        - name: Backup di Azure per SQL Server
+          items:
+            - name: Backup di Azure per SQL Server
+              href: ./extensions/backup-azure-sql-server-running-azure-vm.md
+        - name: Custom Script
+          items:
+            - name: Linux - versione 2
+              href: ./extensions/custom-script-linux.md
+            - name: Windows
+              href: ./extensions/custom-script-windows.md
+        - name: Antimalware IaaS per Windows
+          href: ./extensions/iaas-antimalware-windows.md
+        - name: Snapshot di macchina virtuale
+          items:
+            - name: Linux
+              href: ./extensions/vmsnapshot-linux.md
+            - name: Windows
+              href: ./extensions/vmsnapshot-windows.md
+        - name: Estensione Network Watcher
+          items:
+            - name: Linux
+              href: ./extensions/network-watcher-linux.md
+            - name: Windows
+              href: ./extensions/network-watcher-windows.md
+            - name: Eseguire l'aggiornamento alla versione più recente
+              href: ./extensions/network-watcher-update.md
+        - name: Driver InfiniBand
+          items:
+            - name: Linux
+              href: ./extensions/hpc-compute-infiniband-linux.md
+            - name: Windows
+              href: ./extensions/hpc-compute-infiniband-windows.md
+        - name: Driver GPU NVIDIA
+          items:
+            - name: Linux
+              href: ./extensions/hpccompute-gpu-linux.md
+            - name: Windows
+              href: ./extensions/hpccompute-gpu-windows.md
+        - name: Driver per la GPU AMD
+          items:
+            - name: Windows
+              href: ./extensions/hpccompute-amd-gpu-windows.md
+        - name: Monitoraggio di Azure
+          items:
+            - name: Agente di Monitoraggio di Azure
+              href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+            - name: Estensione di Diagnostica
+              href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+            - name: Log Analytics
+              items:
+                - name: Linux
+                  href: ./extensions/oms-linux.md
+                - name: Windows
+                  href: ./extensions/oms-windows.md
+            - name: Monitoraggio di Azure per le macchine virtuali
+              items:
+                - name: Dependency Agent per Linux
+                  href: ./extensions/agent-dependency-linux.md
+                - name: Dependency Agent per Windows
+                  href: ./extensions/agent-dependency-windows.md
+        - name: PowerShell DSC
+          href: ./extensions/dsc-overview.md
+          items:
+            - name: DSC e Linux
+              href: ./extensions/dsc-linux.md
+            - name: DSC e Windows
+              href: ./extensions/dsc-windows.md
+            - name: Gestire le credenziali
+              href: ./extensions/dsc-credentials.md
+            - name: Usare modelli
+              href: ./extensions/dsc-template.md
+        - name: Accesso alle macchine virtuali
+          href: ./extensions/vmaccess.md
+        - name: Estensioni di terze parti
+          items:
+            - name: Chef
+              href: ./extensions/chef.md
+            - name: Stackify Retrace
+              href: ./extensions/stackify-retrace-linux.md
+            - name: Symantec
+              href: ./extensions/symantec.md
+        - name: Limitare l'installazione dell'estensione
+          items:
+            - name: Linux
+              href: ./extensions/extensions-rmpolicy-howto-cli.md
+            - name: Windows
+              href: ./extensions/extensions-rmpolicy-howto-ps.md
+        - name: Aggiornare l'agente Linux
+          href: ./extensions/update-linux-agent.md
+        - name: Estensioni di esportazione
+          href: ./extensions/export-templates.md
+        - name: Risolvere problemi
+          href: ./extensions/troubleshoot.md
+        - name: Problemi dei sistemi Linux abilitati per Python 3
+          href: ./extensions/issues-using-vm-extensions-python-3.md
+    - name: Eseguire la migrazione dal modello di distribuzione classica ad Azure Resource Manager
+      items:
+        - name: Ritiro a partire dal 1° marzo 2023
+          href: classic-vm-deprecation.md
+        - name: Panoramica della migrazione
+          href: migration-classic-resource-manager-overview.md
+        - name: Approfondimento sulla migrazione
+          href: migration-classic-resource-manager-deep-dive.md
+        - name: Pianificare la migrazione
+          href: migration-classic-resource-manager-plan.md
+        - name: Eseguire la migrazione usando l'interfaccia della riga di comando
+          href: migration-classic-resource-manager-cli.md
+        - name: Eseguire la migrazione con PowerShell
+          href: migration-classic-resource-manager-ps.md
+        - name: Errori comuni di migrazione
+          href: migration-classic-resource-manager-errors.md
+        - name: Strumenti della community per la migrazione
+          href: migration-classic-resource-manager-community-tools.md
+        - name: Domande frequenti
+          href: migration-classic-resource-manager-faq.md
+    - name: Nozioni fondamentali sulla gestione
+      items:
+        - name: Gestione di risorse
+          items:
+            - name: Linux
+              href: ./linux/tutorial-govern-resources.md
+            - name: Windows
+              href: ./windows/tutorial-govern-resources.md
+        - name: Sincronizzazione dell'ora
+          items:
+            - name: Linux
+              href: ./linux/time-sync.md
+            - name: Windows
+              href: ./windows/time-sync.md
+        - name: Eseguire script in una macchina virtuale
+          items:
+            - name: Estensione di script personalizzati
+              items:
+                - name: Linux
+                  href: ./extensions/custom-script-linux.md
+                - name: Windows
+                  href: ./extensions/custom-script-windows.md
+            - name: Eseguire un comando
+              items:
+                - name: Linux
+                  href: ./linux/run-command.md
+                - name: Windows
+                  href: ./windows/run-command.md
+            - name: Ruolo di lavoro ibrido per runbook
+              href: ../automation/automation-hybrid-runbook-worker.md
+            - name: Console seriale
+              items:
+                - name: Linux
+                  href: ./troubleshooting/serial-console-linux.md
+                - name: Windows
+                  href: ./troubleshooting/serial-console-windows.md
+        - name: Abilitare la virtualizzazione annidata
+          href: ./windows/nested-virtualization.md
+        - name: Archiviazione file
+          items:
+            - name: Montaggio Linux tramite SMB
+              href: ./linux/mount-azure-file-storage-on-linux-using-smb.md
+            - name: Copiare file in una VM Linux
+              href: ./linux/copy-files-to-linux-vm-using-scp.md
+        - name: Aggiornamenti e patch
+          items:
+            - name: Red Hat Update Infrastructure
+              href: ./workloads/redhat/redhat-rhui.md
+- name: Immagini
+  items:
+    - name: Immagini del Marketplace
+      items:
+        - name: Trovare immagini di Azure Marketplace
+          items:
+            - name: CLI
+              href: ./linux/cli-ps-findimage.md
+            - name: PowerShell
+              href: ./windows/cli-ps-findimage.md
+            - name: Immagini client Windows
+              href: ./windows/client-images.md
+    - name: Immagini personalizzate Linux
+      items:
+        - name: Panoramica
+          href: ./linux/imaging.md
+        - name: Provisioning di Linux
+          href: ./linux/provisioning.md
+        - name: Requisiti specifici per la distribuzione di Linux
+          items:
+            - name: Procedura generica
+              href: ./linux/create-upload-generic.md
+            - name: CentOS
+              href: ./linux/create-upload-centos.md
+            - name: Debian
+              href: ./linux/debian-create-upload-vhd.md
+            - name: Flatcar Container Linux
+              href: ./linux/flatcar-create-upload-vhd.md
+            - name: FreeBSD
+              href: ./linux/freebsd-intro-on-azure.md
+            - name: Oracle Linux
+              href: ./linux/oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: ./linux/create-upload-openbsd.md
+            - name: Red Hat
+              href: ./linux/redhat-create-upload-vhd.md
+            - name: SUSE
+              href: ./linux/suse-create-upload-vhd.md
+            - name: Ubuntu
+              href: ./linux/create-upload-ubuntu.md
+        - name: Usare cloud-init
+          items:
+            - name: Panoramica di cloud-init
+              href: ./linux/using-cloud-init.md
+            - name: Approfondimento
+              href: ./linux/cloud-init-deep-dive.md
+            - name: Risoluzione dei problemi
+              href: ./linux/cloud-init-troubleshooting.md
+            - name: Configurare il nome host di una VM
+              href: ./linux/cloudinit-update-vm-hostname.md
+            - name: Aggiornare pacchetti in una VM
+              href: ./linux/cloudinit-update-vm.md
+            - name: Aggiungere un utente in una VM
+              href: ./linux/cloudinit-add-user.md
+            - name: Configurare un file di scambio
+              href: ./linux/cloudinit-configure-swapfile.md
+            - name: Eseguire uno script bash esistente
+              href: ./linux/cloudinit-bash-script.md
+            - name: Preparare una VM esistente per cloud-init
+              href: ./linux/cloudinit-prepare-custom-image.md
+        - name: Creare immagini Linux senza un agente di provisioning
+          href: ./linux/no-agent.md
+        - name: Disabilitare il provisioning dell'agente Linux
+          href: ./linux/disable-provisioning.md
+        - name: Acquisire una VM in un'immagine gestita
+          href: ./linux/capture-image.md
+    - name: Immagini personalizzate di Windows
+      items:
+        - name: Preparare un disco rigido virtuale da caricare
+          href: ./windows/prepare-for-upload-vhd-image.md
+        - name: Caricare un disco rigido virtuale e creare un'immagine gestita
+          href: ./windows/upload-generalized-managed.md
+        - name: Acquisire un'immagine gestita
+          href: ./windows/capture-image-resource.md
+        - name: Creare una macchina virtuale da un'immagine gestita
+          href: ./windows/create-vm-generalized-managed.md
+    - name: Raccolte di immagini condivise
+      items:
+        - name: Panoramica
+          href: ./linux/shared-image-galleries.md
+        - name: CLI
+          items:
+            - name: Creare una raccolta
+              href: shared-images-cli.md
+            - name: Creare un'immagine
+              items:
+                - name: Da una VM
+                  href: image-version-vm-cli.md
+                - name: Da un disco gestito o da uno snapshot
+                  href: image-version-snapshot-cli.md
+                - name: Clonare un'immagine gestita
+                  href: image-version-managed-image-cli.md
+                - name: Copiare da un'altra raccolta
+                  href: image-version-another-gallery-cli.md
+            - name: Creare una macchina virtuale
+              items:
+                - name: Generalizzata
+                  href: vm-generalized-image-version-cli.md
+                - name: Specializzata
+                  href: vm-specialized-image-version-cli.md
+            - name: Aggiornare le risorse immagini
+              href: update-image-resources-cli.md
+            - name: Registrazione delle app per la condivisione
+              items:
+                - name: Linux
+                  href: ./linux/share-images-across-tenants.md
+                - name: Windows
+                  href: ./windows/share-images-across-tenants.md
+        - name: PowerShell
+          items:
+            - name: Creare una raccolta
+              href: shared-images-powershell.md
+            - name: Creare una versione di immagine
+              items:
+                - name: Da una VM
+                  href: image-version-vm-powershell.md
+                - name: Da un disco gestito o da uno snapshot
+                  href: image-version-snapshot-powershell.md
+                - name: Clonare un'immagine gestita
+                  href: image-version-managed-image-powershell.md
+                - name: Copiare da un'altra raccolta
+                  href: image-version-another-gallery-powershell.md
+            - name: Creare una macchina virtuale
+              items:
+                - name: Generalizzata
+                  href: vm-generalized-image-version-powershell.md
+                - name: Specializzata
+                  href: vm-specialized-image-version-powershell.md
+                - name: Aggiornare le risorse immagini
+                  href: update-image-resources-powershell.md
+                - name: Registrazione delle app per la condivisione
+                  href: windows/share-images-across-tenants.md
+        - name: Portale
+          items:
+            - name: 'Creare una raccolta, un''immagine e una VM'
+              items:
+                - name: Linux
+                  href: ./linux/shared-images-portal.md
+                - name: Windows
+                  href: ./windows/shared-images-portal.md
+        - name: Modelli di Resource Manager
+          items:
+            - name: Creare una Raccolta immagini condivise
+              href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+            - name: Creare una definizione di immagine in una raccolta di immagini condivise
+              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+            - name: Creare una versione di immagine in una raccolta di immagini condivise
+              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+            - name: Creare una VM da una versione di immagine
+              href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+        - name: Risolvere i problemi relativi alle immagini condivise
+          href: troubleshooting-shared-images.md
+        - name: Uso delle chiavi gestite dal cliente
+          displayName: 'SSE, CMK, encrypt'
+          href: image-version-encryption.md
+        - name: Disco gestito da una versione dell'immagine
+          href: managed-disk-from-image-version.md
+    - name: Generatore di immagini (anteprima)
+      items:
+        - name: Panoramica
+          href: image-builder-overview.md
+        - name: CLI
+          items:
+            - name: Linux
+              href: ./linux/image-builder.md
+            - name: Windows
+              href: ./windows/image-builder.md
+        - name: PowerShell
+          href: ./windows/image-builder-powershell.md
+        - name: Usare una rete virtuale
+          items:
+            - name: CLI
+              href: ./linux/image-builder-vnet.md
+            - name: PowerShell
+              href: ./windows/image-builder-vnet.md
+        - name: Opzioni di rete
+          href: ./linux/image-builder-networking.md
+        - name: Configurare le autorizzazioni
+          items:
+            - name: CLI
+              href: ./linux/image-builder-permissions-cli.md
+            - name: PowerShell
+              href: ./linux/image-builder-permissions-powershell.md
+        - name: Attività DevOps
+          href: ./linux/image-builder-devops-task.md
+        - name: Informazioni di riferimento sui modelli di Image Builder
+          displayName: json
+          href: ./linux/image-builder-json.md
+        - name: Creare immagini per le raccolte
+          items:
+            - name: Linux
+              href: ./linux/image-builder-gallery.md
+            - name: Windows
+              href: ./windows/image-builder-gallery.md
+        - name: Aggiornare un'immagine esistente
+          items:
+            - name: Linux
+              href: ./linux/image-builder-gallery-update-image-version.md
+            - name: Windows
+              href: ./windows/image-builder-gallery-update-image-version.md
+        - name: Script per l'archiviazione
+          href: ./linux/image-builder-user-assigned-identity.md
+        - name: Risolvere problemi
+          href: ./linux/image-builder-troubleshoot.md
+    - name: Informazioni sui piani di acquisto
+      href: marketplace-images.md
+    - name: Creare un'immagine con Packer
+      items:
+        - name: Linux
+          href: ./linux/build-image-with-packer.md
+        - name: Windows
+          href: ./windows/build-image-with-packer.md
+- name: Disponibilità e scalabilità
+  items:
+    - name: Set di scalabilità
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Disponibilità
+      href: availability.md
+    - name: Co-location
+      href: ./linux/co-location.md
+    - name: Prestazioni di rete
+      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
+    - name: Stati e ciclo di vita
+      href: states-lifecycle.md
+    - name: Autoscale
+      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Disponibilità elevata
+      href: manage-availability.md
+    - name: Set di disponibilità
+      items:
+        - name: Linux
+          href: ./linux/tutorial-availability-sets.md
+        - name: Windows
+          items:
+            - name: Creare un set di disponibilità
+              href: ./windows/tutorial-availability-sets.md
+            - name: Modificare il set di disponibilità
+              href: ./windows/change-availability-set.md
+    - name: Creare un gruppo di selezione host di prossimità
+      displayName: PPG aligned colocation co-location
+      items:
+        - name: CLI
+          href: ./linux/proximity-placement-groups.md
+        - name: Portale
+          href: ./windows/proximity-placement-groups-portal.md
+        - name: PowerShell
+          href: ./windows/proximity-placement-groups.md
+    - name: Creare una macchina virtuale in una zona di disponibilità
+      href: ./linux/create-cli-availability-zone.md
+- name: Dischi
+  items:
+    - name: Introduzione ai dischi gestiti
+      href: managed-disks-overview.md
+    - name: Selezionare un tipo di disco per macchine virtuali IaaS
+      href: disks-types.md
+    - name: Dischi condivisi
+      href: disks-shared.md
+    - name: Abilitare i dischi condivisi
+      href: disks-shared-enable.md
+    - name: Crittografia
+      items:
+        - name: Modello di crittografia lato server
+          items:
+            - name: Panoramica della crittografia lato server
+              href: disk-encryption.md
+            - name: Abilitare chiavi gestite dal cliente
+              items:
+                - name: Portale
+                  href: disks-enable-customer-managed-keys-portal.md
+                - name: PowerShell
+                  href: windows/disks-enable-customer-managed-keys-powershell.md
+                - name: CLI
+                  href: linux/disks-enable-customer-managed-keys-cli.md
+            - name: Abilitare la crittografia nell'host
+              items:
+                - name: Portale
+                  href: disks-enable-host-based-encryption-portal.md
+                - name: PowerShell
+                  href: windows/disks-enable-host-based-encryption-powershell.md
+                - name: CLI
+                  href: linux/disks-enable-host-based-encryption-cli.md
+            - name: Abilitare la crittografia doppia dei dati inattivi
+              items:
+                - name: Portale
+                  href: disks-enable-double-encryption-at-rest-portal.md
+                - name: PowerShell
+                  href: windows/disks-enable-double-encryption-at-rest-powershell.md
+                - name: CLI
+                  href: linux/disks-enable-double-encryption-at-rest-cli.md
+        - name: Scenari di crittografia dischi di Azure
+          items:
+            - name: Panoramica di crittografia dischi di Azure
+              items:
+                - name: Windows
+                - name: Linux
+            - name: Linux
+              href: ./linux/disk-encryption-linux.md
+            - name: Windows
+              href: ./windows/disk-encryption-windows.md
+            - name: CLI
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-cli-quickstart.md
+                - name: Windows
+                  href: ./windows/disk-encryption-cli-quickstart.md
+            - name: PowerShell
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-powershell-quickstart.md
+                - name: Windows
+                  href: ./windows/disk-encryption-powershell-quickstart.md
+            - name: Portale
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-portal-quickstart.md
+                - name: Windows
+                  href: ./windows/disk-encryption-portal-quickstart.md
+            - name: Key Vault per Crittografia dischi di Azure
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-key-vault.md
+                - name: Windows
+                  href: ./windows/disk-encryption-key-vault.md
+            - name: Script di esempio
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-sample-scripts.md
+                - name: Windows
+                  href: ./windows/disk-encryption-sample-scripts.md
+            - name: Crittografia dischi di Azure in una rete isolata
+              href: ./linux/disk-encryption-isolated-network.md
+            - name: Come verificare lo stato della crittografia
+              href: ./linux/how-to-verify-encryption-status.md
+            - name: Come configurare RAID LVM con la crittografia
+              href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+            - name: Come ridimensionare i volumi LVM crittografati
+              href: ./linux/how-to-resize-encrypted-lvm.md
+            - name: Ridimensionare le partizioni del sistema operativo GPT Linux
+              href: linux/resize-os-disk-gpt-partition.md
+            - name: Risoluzione dei problemi
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-troubleshooting.md
+                - name: Windows
+                  href: ./windows/disk-encryption-troubleshooting.md
+            - name: Domande frequenti
+              items:
+                - name: Linux
+                  href: ./linux/disk-encryption-faq.md
+                - name: Windows
+                  href: ./windows/disk-encryption-faq.md
+            - name: Crittografia dischi di Azure-versione precedente
+              items:
+                - name: Panoramica
+                  items:
+                    - name: Linux
+                      href: ./linux/disk-encryption-overview-aad.md
+                    - name: Windows
+                      href: ./windows/disk-encryption-overview-aad.md
+                - name: Key Vault per Crittografia dischi di Azure
+                  items:
+                    - name: Linux
+                      href: ./linux/disk-encryption-key-vault-aad.md
+                    - name: Windows
+                      href: ./windows/disk-encryption-key-vault-aad.md
+                - name: Scenari di crittografia del disco
+                  items:
+                    - name: Linux
+                      href: ./linux/disk-encryption-linux-aad.md
+                    - name: Windows
+                      href: ./windows/disk-encryption-windows-aad.md
+    - name: Ottimizzazione delle prestazioni e dei costi
+      items:
+        - name: Dischi Ultra
+          href: disks-enable-ultra-ssd.md
+        - name: Prestazioni di macchine virtuali e dischi
+          href: disks-performance.md
+        - name: Prenotazioni di archiviazione su disco
+          href: ../cost-management-billing/reservations/understand-disk-reservations.md?context=/azure/virtual-machines/context/context
+        - name: Riservare archiviazione su disco
+          href: disks-reserved-capacity.md
+        - name: Progettare per prestazioni elevate
+          href: premium-storage-performance.md
+        - name: Bursting del disco
+          href: disk-bursting.md
+        - name: Livelli di prestazioni dei dischi
+          href: disks-change-performance.md
+        - name: Modificare il livello di prestazioni del disco
+          items:
+            - name: Interfaccia della riga di comando e PowerShell
+              href: disks-performance-tiers.md
+            - name: Portale
+              href: disks-performance-tiers-portal.md
+        - name: Abilitare l'acceleratore di scrittura
+          href: how-to-enable-write-accelerator.md
+        - name: Misurare il benchmark di un disco
+          href: disks-benchmarks.md
+    - name: Obiettivi di scalabilità per i dischi
+      href: disks-scalability-targets.md
+    - name: Backup e protezione dei dati
+      items:
+        - name: Backup e ripristino di emergenza per i dischi
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Abilita snapshot incrementali
+          href: disks-incremental-snapshots.md
+        - name: Snapshot di un disco-interfaccia della riga di comando
+          href: ./linux/snapshot-copy-managed-disk.md
+        - name: Snapshot di un disco-PowerShell
+          href: ./windows/snapshot-copy-managed-disk.md
+        - name: Eseguire il backup di dischi non gestiti
+          href: ./linux/incremental-snapshots.md
+    - name: Dischi del sistema operativo temporanei
+      href: ephemeral-os-disks.md
+    - name: Migrazione e conversione
+      items:
+        - name: Convertire il disco tra archiviazione Standard e Premium
+          items:
+            - name: CLI
+              href: ./linux/convert-disk-storage.md
+            - name: PowerShell
+              href: ./windows/convert-disk-storage.md
+        - name: Eseguire la migrazione a SSD Premium con Azure Site Recovery
+          items:
+            - name: Linux
+              href: ./linux/migrate-to-premium-storage-using-azure-site-recovery.md
+            - name: Windows
+              href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
+        - name: Eseguire la migrazione a Managed Disks
+          href: ./windows/migrate-to-managed-disks.md
+        - name: VM non gestita a Managed Disks
+          items:
+            - name: CLI
+              href: ./linux/convert-unmanaged-to-managed-disks.md
+            - name: PowerShell
+              href: ./windows/convert-unmanaged-to-managed-disks.md
+    - name: Aggiungere un disco dati
+      items:
+        - name: Linux
+          items:
+            - name: Interfaccia della riga di comando di Azure
+              href: ./linux/add-disk.md
+            - name: Portale di Azure
+              href: ./linux/attach-disk-portal.md
+        - name: Windows
+          items:
+            - name: Azure PowerShell
+              href: ./windows/attach-disk-ps.md
+            - name: Portale di Azure
+              href: ./windows/attach-managed-disk-portal.md
+            - name: Modificare la lettera di unità disco Temp
+              href: ./windows/change-drive-letter.md
+    - name: Scollegare un disco
+      items:
+        - name: Linux
+          href: ./linux/detach-disk.md
+        - name: Windows
+          href: ./windows/detach-disk.md
+    - name: Espandere il disco del sistema operativo
+      items:
+        - name: Linux
+          href: ./linux/expand-disks.md
+        - name: Windows
+          href: ./windows/expand-os-disk.md
+    - name: Gestire l'archiviazione
+      items:
+        - name: Distribuire dischi con un modello di Azure Resource Manager
+          displayName: Azure Resource Manager
+          href: using-managed-disks-template-deployments.md
+        - name: Importare/esportare in modo sicuro un disco
+          items:
+            - name: Configurare collegamenti privati per i dischi-interfaccia della riga di comando
+              href: ./linux/disks-export-import-private-links-cli.md
+            - name: Configurare i collegamenti privati per i dischi-portale
+              href: disks-enable-private-links-for-import-export-portal.md
+            - name: Caricare un VHD su disco - PowerShell
+              href: ./windows/disks-upload-vhd-to-managed-disk-powershell.md
+            - name: Caricare un disco rigido virtuale in un disco - Interfaccia della riga di comando
+              href: ./linux/disks-upload-vhd-to-managed-disk-cli.md
+            - name: Scaricare il VHD
+              items:
+                - name: Linux
+                  href: ./linux/download-vhd.md
+                - name: Windows
+                  href: ./windows/download-vhd.md
+        - name: Usare Storage Explorer per gestire i dischi
+          href: disks-use-storage-explorer-managed-disks.md
+        - name: Scambiare il disco del sistema operativo-interfaccia della riga di comando
+          href: ./linux/os-disk-swap.md
+        - name: Scambiare il disco del sistema operativo-PowerShell
+          href: ./windows/os-disk-swap.md
+        - name: Mappare il disco gestito al disco Guest-Linux
+          href: ./linux/azure-to-guest-disk-mapping.md
+        - name: Mappare il disco gestito al disco Guest-Windows
+          href: ./windows/azure-to-guest-disk-mapping.md
+        - name: Trovare dischi non collegati
+          items:
+            - name: CLI
+              href: ./linux/find-unattached-disks.md
+            - name: PowerShell
+              href: ./windows/find-unattached-disks.md
+            - name: Portale
+              href: disks-find-unattached-portal.md
+        - name: Domande frequenti sui dischi
+          href: faq-for-disks.md
+    - name: Esempi di codice
+      items:
+        - name: CLI
+          items:
+            - name: Creare un disco gestito da un disco rigido virtuale
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md'
+            - name: Creare un disco gestito da uno snapshot
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md'
+            - name: Copiare un disco gestito nella stessa sottoscrizione o in una sottoscrizione diversa
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md'
+            - name: Copiare uno snapshot nella stessa sottoscrizione o in una sottoscrizione diversa
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md'
+            - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md'
+            - name: Esportare un disco gestito come disco rigido virtuale in un account di archiviazione
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md'
+        - name: PowerShell
+          items:
+            - name: Creare un disco gestito da un disco rigido virtuale
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md'
+            - name: Creare un disco gestito da uno snapshot
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md'
+            - name: Copiare uno snapshot nella stessa sottoscrizione o in una sottoscrizione diversa
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md'
+            - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md'
+            - name: Esportare un disco gestito come disco rigido virtuale in un account di archiviazione
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md'
+            - name: Creare uno snapshot da un disco rigido virtuale
+              href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
+- name: Rete
+  items:
+    - name: Panoramica
+      href: network-overview.md
+    - name: Creare una rete virtuale
+      href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
+    - name: Aprire porte per una VM
+      items:
+        - name: CLI
+          href: ./linux/nsg-quickstart.md
+        - name: PowerShell
+          href: ./windows/nsg-quickstart-powershell.md
+        - name: Portale
+          href: ./windows/nsg-quickstart-portal.md
+    - name: Assegnare un indirizzo IP pubblico
+      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+    - name: Usare più schede di interfaccia di rete
+      items:
+        - name: Linux con l'interfaccia della riga di comando
+          href: ./linux/multiple-nics.md
+        - name: Windows con PowerShell
+          href: ./windows/multiple-nics.md
+    - name: Usare la rete accelerata
+      href: ../virtual-network/create-vm-accelerated-networking-cli.md?context=/azure/virtual-machines/context/context
+    - name: Assegnare un nome DNS pubblico
+      href: create-fqdn.md
+    - name: Trovare ed eliminare schede di interfaccia di rete scollegate
+      href: ./linux/find-unattached-nics.md
+    - name: Risoluzione DNS
+      href: ./linux/azure-dns.md
+    - name: Usare un DNS interno
+      href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
+- name: Sicurezza
+  items:
+    - name: Centro sicurezza di Azure
+      href: ../security-center/security-center-introduction.md
+    - name: Baseline di sicurezza
+      items:
+        - name: Linux
+          href: ./linux/security-baseline.md
+        - name: Windows
+          href: ./windows/security-baseline.md
+    - name: Consigli
+      href: security-recommendations.md
+    - name: Accesso just-in-time
+      href: ../security-center/security-center-just-in-time.md
+    - name: Policy
+      items:
+        - name: Panoramica
+          href: security-policy.md
+        - name: Controlli per criterio
+          displayName: 'regulatory, compliance, standards, domains'
+          href: security-controls-policy.md
+        - name: Riferimento ai criteri
+          href: policy-reference.md
+        - name: Usare i criteri
+          items:
+            - name: Linux
+              href: ./linux/policy.md
+            - name: Windows
+              href: ./windows/policy.md
+    - name: Bastion
+      items:
+        - name: Panoramica
+          href: ../bastion/bastion-overview.md
+        - name: Creare un host bastion
+          items:
+            - name: Portale
+              href: ../bastion/bastion-create-host-portal.md
+            - name: PowerShell
+              href: ../bastion/bastion-create-host-powershell.md
+            - name: CLI
+              href: ../bastion/create-host-cli.md
+            - name: Connessione SSH Bastion
+              href: ../bastion/bastion-connect-vm-ssh.md
+              items: null
+            - name: Connessione RDP Bastion
+              href: ../bastion/bastion-connect-vm-rdp.md
+        - name: Usare i controlli di accesso
+          href: ../role-based-access-control/overview.md
+        - name: Creare un insieme di credenziali delle chiavi
+          items:
+            - name: CLI
+              href: ./linux/key-vault-setup.md
+            - name: PowerShell
+              href: ./windows/key-vault-setup.md
+    - name: Attenuazione dell'esecuzione speculativa
+      href: mitigate-se.md
+    - name: Aggiungere una VM Linux a Azure Active Directory
+      displayName: Azure AD
+      items:
+        - name: Red Hat Enterprise Linux
+          href: ../active-directory-domain-services/join-rhel-linux-vm.md
+        - name: CentOS
+          href: ../active-directory-domain-services/join-centos-linux-vm.md
+        - name: Ubuntu
+          href: ../active-directory-domain-services/join-ubuntu-linux-vm.md
+    - name: Configurare le identità gestite
+      items:
+        - name: Portale
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md?context=/azure/virtual-machines/context/context
+        - name: PowerShell
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md?context=/azure/virtual-machines/context/context
+        - name: Modello di Azure Resource Manager
+          displayName: ARM
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md?context=/azure/virtual-machines/context/context
+        - name: REST
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-rest-vm.md?context=/azure/virtual-machines/context/context
+        - name: Azure SDK
+          href: ../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md?context=/azure/virtual-machines/context/context
+    - name: Accesso Active Directory Linux
+      href: ./linux/login-using-aad.md
+- name: Manutenzione e aggiornamenti
+  items:
+    - name: Panoramica
+      href: maintenance-and-updates.md
+    - name: Applicazione automatica di patch guest alle macchine virtuali (anteprima)
+      href: ./windows/automatic-vm-guest-patching.md
+    - name: Controllo della manutenzione
+      items:
+        - name: Notifiche di manutenzione
+          items:
+            - name: Panoramica
+              href: maintenance-notifications.md
+            - name: CLI
+              href: maintenance-notifications-cli.md
+            - name: Portale
+              href: maintenance-notifications-portal.md
+            - name: PowerShell
+              href: maintenance-notifications-powershell.md
+        - name: Manutenzione della piattaforma
+          items:
+            - name: Panoramica
+              href: maintenance-control.md
+            - name: CLI
+              href: maintenance-control-cli.md
+            - name: PowerShell
+              href: maintenance-control-powershell.md
+            - name: Portale
+              href: maintenance-control-portal.md
+        - name: Eventi pianificati
+          items:
+            - name: Linux
+              href: ./linux/scheduled-events.md
+            - name: Windows
+              href: ./windows/scheduled-events.md
+        - name: Rilevare e aggiornare le macchine virtuali
+          items:
+            - name: Linux
+              href: ./linux/tutorial-config-management.md
+            - name: Windows
+              href: ./windows/tutorial-config-management.md
+        - name: Aggiornamenti delle immagini del sistema operativo del set di scalabilità di macchine virtuali
+          items:
+            - name: Aggiornamenti automatici del sistema operativo
+              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
+            - name: Controllo della manutenzione
+              items:
+                - name: Panoramica (anteprima)
+                  href: virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (anteprima)
+                  href: virtual-machine-scale-sets-maintenance-control-powershell.md
+- name: Monitoraggio
+  items:
+    - name: Panoramica
+      href: ../azure-monitor/insights/monitor-vm-azure.md?context=/azure/virtual-machines/context/context
+    - name: Monitoraggio di macchine virtuali
+      items:
+        - name: Linux
+          href: ./linux/tutorial-monitor.md
+        - name: Windows
+          href: ./windows/tutorial-monitor.md
+    - name: Agenti
+      items:
+        - name: Panoramica degli agenti
+          href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+        - name: Domande frequenti
+          href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
+        - name: Estensione di Diagnostica di Azure
+          items:
+            - name: Panoramica
+              href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
+            - name: Estensione di diagnostica Linux
+              items:
+                - name: Panoramica
+                  href: ../virtual-machines/extensions/diagnostics-linux.md?context=/azure/virtual-machines/context/context
+                - name: Raccogliere metriche con Telegraf
+                  href: ../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md?context=/azure/virtual-machines/context/context
+                  displayname: diagnostics extension
+        - name: Agente di Log Analytics
+          items:
+            - name: Panoramica
+              href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
+            - name: Agenti Linux
+              href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+            - name: Gateway di Log Analytics
+              href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
+            - name: Gestione dell'agente
+              href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+            - name: Integrità agente
+              href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
+            - name: Origini dati
+              items:
+                - name: Panoramica
+                  href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+                - name: Dati JSON personalizzati
+                  href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+                - name: Dati sulle prestazioni di collectD
+                  href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+                - name: syslog
+                  href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+                - name: Contatori delle prestazioni
+                  href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+                - name: Prestazioni dell'applicazione Linux
+                  href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+                - name: Log personalizzati
+                  href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+                - name: Campi personalizzati
+                  href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
+        - name: Risolvere problemi
+          items:
+            - name: Estensione macchina virtuale di Log Analytics
+              href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
+              displayname: 'troubleshoot, troubleshooting'
+            - name: Agente Linux di Log Analytics
+              href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+              displayname: 'troubleshoot, troubleshooting'
+        - name: Monitoraggio di Azure per le macchine virtuali
+          items:
+            - name: Panoramica
+              href: ../azure-monitor/insights/vminsights-overview.md?context=/azure/virtual-machines/context/context
+            - name: Domande frequenti sulla disponibilità generale
+              href: ../azure-monitor/insights/vminsights-ga-release-faq.md?context=/azure/virtual-machines/context/context
+            - name: Domande frequenti
+              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#azure-monitor-for-vms
+            - name: Abilitare il monitoraggio
+              items:
+                - name: Abilitare il monitoraggio - Panoramica
+                  href: ../azure-monitor/insights/vminsights-enable-overview.md?context=/azure/virtual-machines/context/context
+                - name: Eseguire l'abilitazione per una singola macchina virtuale di Azure
+                  href: ../azure-monitor/insights/vminsights-enable-portal.md?context=/azure/virtual-machines/context/context
+                - name: Eseguire l'abilitazione con Criteri di Azure
+                  href: ../azure-monitor/insights/vminsights-enable-policy.md?context=/azure/virtual-machines/context/context
+                - name: Abilitare con Azure PowerShell
+                  href: ../azure-monitor/insights/vminsights-enable-powershell.md?context=/azure/virtual-machines/context/context
+                - name: Eseguire l'abilitazione per l'ambiente ibrido
+                  href: ../azure-monitor/insights/vminsights-enable-hybrid.md?context=/azure/virtual-machines/context/context
+            - name: Eseguire il mapping delle dipendenze
+              href: ../azure-monitor/insights/vminsights-maps.md?context=/azure/virtual-machines/context/context
+            - name: Monitorare le prestazioni
+              href: ../azure-monitor/insights/vminsights-performance.md?context=/azure/virtual-machines/context/context
+            - name: Analizzare i dati con le query sui log
+              href: ../azure-monitor/insights/vminsights-log-search.md?context=/azure/virtual-machines/context/context
+            - name: Visualizzare i dati con la cartella di lavoro
+              href: ../azure-monitor/insights/vminsights-workbooks.md?context=/azure/virtual-machines/context/context
+            - name: Creazione di regole di avviso
+              href: ../azure-monitor/insights/vminsights-alerts.md?context=/azure/virtual-machines/context/context
+            - name: Aggiornare Dependency Agent
+              href: ../azure-monitor/insights/vminsights-dependency-agent-maintenance.md?context=/azure/virtual-machines/context/context
+            - name: Disabilitare il monitoraggio
+              href: ../azure-monitor/insights/vminsights-optout.md?context=/azure/virtual-machines/context/context
+    - name: Utilizzo delle VM
+      href: vm-usage.md
+    - name: Assegnare un tag a una VM
+      items:
+        - name: CLI
+          href: tag-cli.md
+        - name: Portale
+          href: tag-portal.md
+        - name: PowerShell
+          href: tag-powershell.md
+        - name: Modello
+          href: tag-template.md
+    - name: Monitorare i metadati
+      items:
+        - name: CLI
+          href: ./linux/instance-metadata-service.md
+        - name: PowerShell
+          href: ./windows/instance-metadata-service.md
+    - name: Ottenere le metriche di utilizzo con REST
+      href: ./linux/metrics-vm-usage-rest.md
+    - name: Diagnostica di avvio
+      href: boot-diagnostics.md
+- name: Backup e ripristino
+  items:
+    - name: Panoramica
+      href: backup-recovery.md
+    - name: Rotture del servizio
+      href: virtual-machines-disaster-recovery-guidance.md
+    - name: Eseguire il backup delle VM
+      items:
+        - name: Panoramica
+          href: ../backup/backup-azure-vms-introduction.md
+        - name: Avvi rapidi
+          items:
+            - name: CLI
+              href: ../backup/quick-backup-vm-cli.md
+            - name: PowerShell
+              href: ../backup/quick-backup-vm-powershell.md
+            - name: Portale
+              href: ../backup/quick-backup-vm-portal.md
+            - name: Modello
+              href: ../backup/quick-backup-vm-template.md
+        - name: Eseguire il backup di più macchine virtuali
+          href: ../backup/tutorial-backup-vm-at-scale.md
+        - name: Opzioni di ripristino
+          href: /backup/backup-azure-arm-restore-vms.md
+        - name: Matrice di supporto
+          href: ../backup/backup-support-matrix-iaas.md
+        - name: Prezzi
+          href: ../backup/azure-backup-pricing.md
+        - name: Domande frequenti
+          href: ../backup/backup-azure-vm-backup-faq.md
+    - name: Ripristino di emergenza
+      items:
+        - name: Panoramica
+          href: ../site-recovery/site-recovery-overview.md
+        - name: Abilitare il ripristino di emergenza
+          items:
+            - name: Linux
+              href: ./linux/tutorial-disaster-recovery.md
+            - name: Windows
+              href: ./windows/tutorial-disaster-recovery.md
+        - name: Abilitare il ripristino di emergenza per una macchina virtuale
+          href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
+        - name: Eseguire un'esercitazione sul ripristino di emergenza per una macchina virtuale
+          href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
+        - name: Effettuare il failover di una macchina virtuale in un'altra area
+          href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
+    - name: Spostare le VM ed eseguirne la migrazione
+      items:
+        - name: Cambiare sottoscrizione o gruppo di risorse
+          items:
+            - name: CLI
+              href: ./linux/move-vm.md
+            - name: PowerShell
+              href: ./windows/move-vm.md
+        - name: Spostare le macchine virtuali in un'altra area
+          href: ../site-recovery/azure-to-azure-tutorial-migrate.md
+        - name: Spostare in una zona di disponibilità
+          href: ../site-recovery/move-azure-vms-avset-azone.md
+        - name: Spostare le configurazioni del controllo di manutenzione in un'altra area
+          href: move-region-maintenance-configuration.md
+        - name: Spostare le risorse di configurazione del controllo di manutenzione in un'altra area
+          href: move-region-maintenance-configuration-resources.md
+        - name: Eseguire la migrazione di AWS e macchine virtuali locali
+          href: ./windows/on-prem-to-azure.md
+          items:
+            - name: Eseguire la migrazione da Amazon Web Services (AWS) ad Azure
+              href: ./windows/aws-to-azure.md
+            - name: Caricare una macchina virtuale locale
+              href: ./linux/upload-vhd.md
+            - name: Usare Azure Site Recovery
+              href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
+- name: Automatizzazione dell'infrastruttura
+  items:
+    - name: Panoramica
+      href: infrastructure-automation.md
+    - name: Dati personalizzati
+      href: custom-data.md
+    - name: Ansible
+      items:
+        - name: Installazione e configurazione
+          href: /azure/developer/ansible/install-on-linux-vm
+        - name: Creare una macchina virtuale Linux
+          href: /azure/developer/ansible/vm-configure
+        - name: Gestire una VM Linux
+          href: /azure/developer/ansible/vm-manage
+    - name: Terraform
+      items:
+        - name: Installazione e configurazione
+          href: /azure/developer/terraform/install-configure
+        - name: Creare una VM completa
+          href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
+    - name: Jenkins
+      href: /azure/developer/jenkins/overview
+      items:
+        - name: Creare un server Jenkins
+          href: /azure/developer/jenkins/configure-on-linux-vm
+        - name: Scalabilità con gli agenti di macchine virtuali
+          href: /azure/developer/jenkins/scale-deployments-using-vm-agents
+        - name: Pubblicare elementi in Archiviazione
+          href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
+        - name: Proteggere Jenkins
+          href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
+    - name: Azure DevOps
+      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
+- name: Risolvere problemi
+  href: ./troubleshooting/index.yml
 - name: Risorse
   items:
+    - name: Cloud Adoption Framework
+      href: /azure/cloud-adoption-framework/get-started/
+    - name: Centro architetture
+      href: /azure/architecture/
+    - name: Domande e risposte Microsoft
+      href: /answers/topics/azure-virtual-machines.html
+    - name: Modelli di avvio rapido di Azure
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: Disponibilità a livello di area
+      href: 'https://azure.microsoft.com/regions/services/'
     - name: Sviluppare le proprie competenze con Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Esempi
+      items:
+        - name: Repository di esempi dell'interfaccia della riga di comando
+          href: 'https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine'
+        - name: Repository di esempi di PowerShell
+          href: 'https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine'
+    - name: Comandi dell'interfaccia della riga di comando comuni
+      href: ./linux/cli-manage.md
+    - name: Comandi comuni di PowerShell
+      href: ./windows/ps-common-ref.md
+    - name: Comandi comuni di PowerShell per rete
+      href: ./windows/ps-common-network-ref.md
+    - name: Descrizione modello di macchina virtuale
+      href: ./windows/template-description.md
+    - name: Distribuzioni classiche
+      items:
+        - name: Macchine virtuali Linux con distribuzione classica
+          href: /previous-versions/azure/virtual-machines/linux/classic/
+        - name: Macchine virtuali Windows con distribuzione classica
+          href: /previous-versions/azure/virtual-machines/windows/classic/
+    - name: Domande frequenti
+      items:
+        - name: Linux
+          href: ./linux/faq.md
+        - name: Windows
+          href: ./windows/faq.md

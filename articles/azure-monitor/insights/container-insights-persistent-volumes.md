@@ -3,12 +3,12 @@ title: Configurare il monitoraggio PV con monitoraggio di Azure per i contenitor
 description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con volumi permanenti con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: e7c547c137fc84e6e6dfb2807b871ef0329a3c13
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d7da6bc88e7c8526e3940714502d3c92d2f37dd8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186848"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704474"
 ---
 # <a name="configure-pv-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio PV con monitoraggio di Azure per i contenitori
 

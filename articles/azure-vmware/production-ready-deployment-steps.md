@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 2cc4d40fd8088a632e0c24e3c4b770ebdc9de2e8
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: cdf4ddd6166920fa7461bfd85e01ef0efd6dfbb9
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912734"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704566"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -95,26 +95,32 @@ Occorre ricordare che:
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rete virtuale di Azure da collegare alla soluzione Azure VMware
 
-Per accedere al cloud privato della soluzione Azure VMware, il circuito ExpressRoute, incluso nella soluzione Azure VMware, deve essere collegato a una Rete virtuale di Azure.  Durante la distribuzione è possibile definire una nuova rete virtuale o sceglierne una esistente.
+In questo passaggio si identificherà un gateway di rete virtuale ExpressRoute e si supporterà la rete virtuale di Azure usata per connettere il circuito ExpressRoute della soluzione VMware di Azure.  Il circuito ExpressRoute facilita la connettività da e verso il cloud privato della soluzione VMware di Azure ad altri servizi di Azure, le risorse di Azure e gli ambienti locali.
 
-Il circuito ExpressRoute dalla soluzione Azure VMware si connette a un gateway ExpressRoute nella Rete virtuale di Azure definita in questo passaggio.  
-
->[!IMPORTANT]
->È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione Azure VMware, purché non si superi il limite di quattro circuiti ExpressRoute per rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute, è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.  
-
-Se si vuole connettere il circuito ExpressRoute dalla soluzione Azure VMware a un gateway ExpressRoute esistente, è possibile eseguire questa operazione dopo la distribuzione.  
-
-Per riepilogare, si vuole connettere la soluzione Azure VMware a un gateway ExpressRoute esistente?  
-
-* **Sì**: identificare la rete virtuale che non viene usata durante la distribuzione.
-* **No**: identificare una rete virtuale esistente o crearne una nuova durante la distribuzione.
-
-In entrambi i casi, è necessario documentare le operazioni da eseguire in questo passaggio.
-
->[!NOTE]
->Questa rete virtuale viene visualizzata dall'ambiente locale e dalla soluzione Azure VMware, quindi è necessario assicurarsi che non siano presenti sovrapposizioni per il segmento IP usato in questa rete virtuale e nelle subnet.
+È possibile usare un gateway di rete virtuale ExpressRoute *nuovo* o *esistente* .
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificazione - Rete virtuale di Azure da collegare alla soluzione Azure VMware" border="false":::
+
+### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>Usare un gateway di rete virtuale ExpressRoute esistente
+
+Se si usa un gateway di rete virtuale ExpressRoute *esistente* , il circuito ExpressRoute della soluzione VMware di Azure viene stabilito dopo la distribuzione del cloud privato.  Non è quindi necessario popolare il campo **rete virtuale** .  
+
+Prendere nota del gateway di rete virtuale ExpressRoute che verrà usato e continuare con il passaggio successivo.
+
+### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Creare un nuovo gateway di rete virtuale ExpressRoute
+
+Se si crea un *nuovo* gateway di rete virtuale ExpressRoute, è possibile usare una rete virtuale di Azure esistente oppure creare una nuova rete virtuale di Azure.  
+
+Se si sceglie di usare una rete virtuale di Azure esistente, verificare che non esistano gateway di rete virtuale ExpressRoute preesistenti nella rete virtuale e selezionarlo nell'elenco a discesa rete virtuale della schermata creare una distribuzione cloud privata.
+
+Se si sceglie di creare una nuova rete virtuale di Azure, è possibile crearla in anticipo o durante la distribuzione facendo clic sulla sezione creare una nuova opzione di rete virtuale della schermata creare una distribuzione cloud privata.
+
+Per riferimento, di seguito è riportata un'immagine della schermata **creare una distribuzione cloud privata** e descritta in rosso è il campo **rete virtuale** di Azure a cui si fa riferimento in questa sezione.
+
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot della schermata di distribuzione della soluzione VMware di Azure con il gateway di rete virtuale con cerchio.":::
+
+>[!NOTE]
+>Eventuali reti virtuali che verranno usate o create possono essere visualizzate dall'ambiente locale e dalla soluzione VMware di Azure, quindi assicurarsi che il segmento IP usato in questa rete virtuale e le subnet non si sovrappongano.
 
 ## <a name="vmware-hcx-network-segments"></a>Segmenti di rete di VMware HCX
 

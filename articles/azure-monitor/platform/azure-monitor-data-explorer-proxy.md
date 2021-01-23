@@ -7,15 +7,15 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 1a35b80ceec12b378a01555f42b7a0500b8f6229
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5671ec68901be289a87c23b6883160f9cda2b651
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060453"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733184"
 ---
 # <a name="cross-resource-query-azure-data-explorer-by-using-azure-monitor"></a>Eseguire query tra risorse in Azure Esplora dati usando monitoraggio di Azure
-Monitoraggio di Azure supporta query tra servizi tra Esplora dati di Azure, [Application Insights](/azure/azure-monitor/app/app-insights-overview)e [log Analytics](/azure/azure-monitor/platform/data-platform-logs). È quindi possibile eseguire query nel cluster di Azure Esplora dati usando gli strumenti Log Analytics/Application Insights e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi.
+Monitoraggio di Azure supporta query tra servizi tra Esplora dati di Azure, [Application Insights](../app/app-insights-overview.md)e [log Analytics](./data-platform-logs.md). È quindi possibile eseguire query nel cluster di Azure Esplora dati usando gli strumenti Log Analytics/Application Insights e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi.
 
 Il diagramma seguente illustra il flusso tra servizi di monitoraggio di Azure:
 
@@ -62,8 +62,8 @@ Le query tra tenant tra i servizi non sono supportate. È stato eseguito l'acces
 
 Se la risorsa Azure Esplora dati si trova nel tenant A e l'area di lavoro Log Analytics è nel tenant B, usare uno dei metodi seguenti:
 
-*  Esplora dati di Azure consente di aggiungere ruoli per le entità di sicurezza in tenant diversi. Aggiungere l'ID utente nel tenant B come utente autorizzato nel cluster di Azure Esplora dati. Verificare che la proprietà [TrustedExternalTenant](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster) nel cluster Esplora dati di Azure contenga il tenant b. eseguire la query incrociata completamente nel tenant b.
-*  Usare [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) per proiettare la risorsa di monitoraggio di Azure nel tenant a.
+*  Esplora dati di Azure consente di aggiungere ruoli per le entità di sicurezza in tenant diversi. Aggiungere l'ID utente nel tenant B come utente autorizzato nel cluster di Azure Esplora dati. Verificare che la proprietà [TrustedExternalTenant](/powershell/module/az.kusto/update-azkustocluster) nel cluster Esplora dati di Azure contenga il tenant b. eseguire la query incrociata completamente nel tenant b.
+*  Usare [Lighthouse](../../lighthouse/index.yml) per proiettare la risorsa di monitoraggio di Azure nel tenant a.
 
 ## <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Connettersi a cluster di Esplora dati di Azure da tenant diversi
 
@@ -72,6 +72,6 @@ Kusto Explorer accede automaticamente al tenant a cui appartiene originariamente
 `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=TenantId`
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Scrivere query](https://docs.microsoft.com/azure/data-explorer/write-queries)
-* [Eseguire query sui dati in monitoraggio di Azure tramite Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/query-monitor-data)
-* [Eseguire query di log su più risorse in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query)
+* [Scrivere query](/azure/data-explorer/write-queries)
+* [Eseguire query sui dati in monitoraggio di Azure tramite Esplora dati di Azure](/azure/data-explorer/query-monitor-data)
+* [Eseguire query di log su più risorse in Monitoraggio di Azure](../log-query/cross-workspace-query.md)

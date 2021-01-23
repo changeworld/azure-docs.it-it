@@ -7,16 +7,16 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8942735ed65f8aa0cf6d315568e00412adcb353a
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a31ef69d84f64e4bcaa46adac26a29d2cc367351
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060538"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731701"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Eseguire query sui dati in Monitoraggio di Azure con Esplora dati di Azure (anteprima)
 
-Il Esplora dati di Azure supporta le query tra i servizi tra Esplora dati di Azure, [Application Insights (ai)](/azure/azure-monitor/app/app-insights-overview)e [log Analytics (la)](/azure/azure-monitor/platform/data-platform-logs). È quindi possibile eseguire una query nell'area di lavoro Log Analytics/Application Insights usando gli strumenti di Esplora dati di Azure e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi e come aggiungere l'area di lavoro Log Analytics/Application Insights ad Azure Esplora dati interfaccia utente Web.
+Il Esplora dati di Azure supporta le query tra i servizi tra Esplora dati di Azure, [Application Insights (ai)](../app/app-insights-overview.md)e [log Analytics (la)](./data-platform-logs.md). È quindi possibile eseguire una query nell'area di lavoro Log Analytics/Application Insights usando gli strumenti di Esplora dati di Azure e farvi riferimento in una query tra servizi. Questo articolo illustra come eseguire una query tra servizi e come aggiungere l'area di lavoro Log Analytics/Application Insights ad Azure Esplora dati interfaccia utente Web.
 
 Flusso di query tra servizi Esplora dati di Azure: :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-monitor-flow.png" alt-text="flusso del proxy di Esplora dati di Azure.":::
 
@@ -62,7 +62,7 @@ Flusso di query tra servizi Esplora dati di Azure: :::image type="content" sourc
 > * Il nome del database deve avere lo stesso nome della risorsa specificata nella query tra servizi. I nomi fanno distinzione tra maiuscole e minuscole.
 > * Nelle query tra cluster assicurarsi che la denominazione delle app di Application Insights e delle aree di lavoro Log Analytics sia corretta.
 > * Se i nomi contengono caratteri speciali, vengono sostituiti dalla codifica URL nella query tra servizi.
-> * Se un nome contiene caratteri non conformi alle [regole di denominazione degli identificatori KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/schema-entities/entity-names), questi vengono sostituiti con il carattere trattino ( **-** ).
+> * Se un nome contiene caratteri non conformi alle [regole di denominazione degli identificatori KQL](/azure/data-explorer/kusto/query/schema-entities/entity-names), questi vengono sostituiti con il carattere trattino ( **-** ).
 
 ### <a name="direct-query-on-your-log-analytics-or-application-insights-workspaces-from-azure-data-explorer-client-tools"></a>Indirizzare la query sulle aree di lavoro Log Analytics o Application Insights dagli strumenti client di Esplora dati di Azure
 
@@ -90,7 +90,7 @@ union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<tabl
 
 :::image type="content" source="media\azure-data-explorer-monitor-proxy\azure-data-explorer-cross-query-proxy.png" alt-text="Query tra i servizi dalla Esplora dati di Azure.":::
 
-Se si usa l'[operatore `join`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator) invece di union potrebbe essere necessario un [`hint`](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator#join-hints) per l'esecuzione nel cluster nativo di Esplora dati di Azure.
+Se si usa l'[operatore `join`](/azure/data-explorer/kusto/query/joinoperator) invece di union potrebbe essere necessario un [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) per l'esecuzione nel cluster nativo di Esplora dati di Azure.
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Unire tramite join i dati di un cluster di Esplora dati di Azure in un tenant con una risorsa di Monitoraggio di Azure in un altro
 
@@ -98,9 +98,9 @@ Le query tra tenant tra i servizi non sono supportate. Si è connessi a un solo 
 
 Se la risorsa di Esplora dati di Azure è nel tenant 'A' e l'area di lavoro Log Analytics è nel tenant 'B', usare uno dei due metodi seguenti:
 
-1. Esplora dati di Azure consente di aggiungere ruoli per le entità di sicurezza in tenant diversi. Aggiungere il proprio ID utente nel tenant "B" come utente autorizzato nel cluster di Esplora dati di Azure. Verificare che la proprietà *['TrustedExternalTenant'](https://docs.microsoft.com/powershell/module/az.kusto/update-azkustocluster)* nel cluster di Esplora dati di Azure contenga il tenant "B". Eseguire la query incrociata completamente nel tenant "B".
+1. Esplora dati di Azure consente di aggiungere ruoli per le entità di sicurezza in tenant diversi. Aggiungere il proprio ID utente nel tenant "B" come utente autorizzato nel cluster di Esplora dati di Azure. Verificare che la proprietà *['TrustedExternalTenant'](/powershell/module/az.kusto/update-azkustocluster)* nel cluster di Esplora dati di Azure contenga il tenant "B". Eseguire la query incrociata completamente nel tenant "B".
 
-2. Usare [Lighthouse](https://docs.microsoft.com/azure/lighthouse/) per proiettare la risorsa di Monitoraggio di Azure nel tenant "A".
+2. Usare [Lighthouse](../../lighthouse/index.yml) per proiettare la risorsa di Monitoraggio di Azure nel tenant "A".
 ### <a name="connect-to-azure-data-explorer-clusters-from-different-tenants"></a>Connettersi a cluster di Esplora dati di Azure da tenant diversi
 
 Kusto Explorer esegue automaticamente l'accesso dell'utente nel tenant a cui appartiene originariamente l'account utente. Per accedere a risorse in altri tenant con lo stesso account utente, è necessario specificare in modo esplicito il `tenantId` nella stringa di connessione: `Data Source=https://ade.applicationinsights.io/subscriptions/SubscriptionId/resourcegroups/ResourceGroupName;Initial Catalog=NetDefaultDB;AAD Federated Security=True;Authority ID=`**TenantId**
@@ -134,4 +134,4 @@ Quando si chiamano i cluster Log Analytics o Application Insights, sono disponib
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Scopri di più sulla [struttura dei dati di log Analytics aree di lavoro e Application Insights](data-platform-logs.md).
-- Informazioni su come [scrivere query in Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/write-queries).
+- Informazioni su come [scrivere query in Azure Esplora dati](/azure/data-explorer/write-queries).

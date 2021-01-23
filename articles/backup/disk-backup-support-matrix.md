@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni di supporto e delle limita
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 099e83d8a2fb109da862657265dad8be8143f608
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 447283ba1d63267722e4167e0727a827e63d2e0d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624935"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732980"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice di supporto di backup su disco di Azure (in anteprima)
 
@@ -18,7 +18,7 @@ ms.locfileid: "98624935"
 >
 >[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
 
-È possibile usare [backup di Azure](https://docs.microsoft.com/azure/backup/backup-overview) per proteggere i dischi di Azure. Questo articolo riepiloga la disponibilità delle aree, gli scenari supportati e le limitazioni.
+È possibile usare [backup di Azure](./backup-overview.md) per proteggere i dischi di Azure. Questo articolo riepiloga la disponibilità delle aree, gli scenari supportati e le limitazioni.
 
 ## <a name="supported-regions"></a>Aree supportate
 
@@ -36,9 +36,9 @@ Quando diventano disponibili, verranno annunciate altre aree.
 
 - Attualmente, l'opzione di ripristino Original-Location (OLR) da ripristinare sostituendo i dischi di origine esistenti in cui sono stati eseguiti i backup non è supportata. È possibile eseguire il ripristino dal punto di ripristino per creare un nuovo disco nello stesso gruppo di risorse del disco di origine da cui sono stati eseguiti i backup o in qualsiasi altro gruppo di risorse. Questa operazione è nota come Alternate-Location Recovery (ALR).
 
-- Backup di Azure per Managed Disks USA snapshot incrementali, che sono limitati a 200 snapshot per disco. Per consentire il backup su richiesta da parte di backup pianificati, i criteri di backup limitano il totale dei backup a 180. Altre informazioni sullo [snapshot incrementale](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) per Managed Disks.
+- Backup di Azure per Managed Disks USA snapshot incrementali, che sono limitati a 200 snapshot per disco. Per consentire il backup su richiesta da parte di backup pianificati, i criteri di backup limitano il totale dei backup a 180. Altre informazioni sullo [snapshot incrementale](../virtual-machines/disks-incremental-snapshots.md#restrictions) per Managed Disks.
 
-- La [sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-machine-disk-limits) di Azure e i limiti del servizio si applicano al numero totale di snapshot del disco per area per sottoscrizione.
+- La [sottoscrizione](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machine-disk-limits) di Azure e i limiti del servizio si applicano al numero totale di snapshot del disco per area per sottoscrizione.
 
 - Gli snapshot temporizzati di più dischi collegati a una macchina virtuale non sono supportati.
 
@@ -58,13 +58,13 @@ Quando diventano disponibili, verranno annunciate altre aree.
 
 - Attualmente (durante l'anteprima), l'uso di PowerShell e dell'interfaccia della riga di comando di Azure per configurare il backup e il ripristino dei dischi non è supportato.
 
-- Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
+- Quando si configura il backup, il disco selezionato per il backup e il gruppo di risorse snapshot in cui devono essere archiviati gli snapshot devono far parte della stessa sottoscrizione. Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Altre informazioni sugli [snapshot incrementali](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) per il disco gestito. Per altre informazioni su come scegliere un gruppo di risorse snapshot, vedere  [configurare il backup](backup-managed-disks.md#configure-backup).
 
 - Per operazioni di backup e ripristino riuscite, le assegnazioni di ruolo sono richieste dall'identità gestita dell'insieme di credenziali di backup. Utilizzare solo le definizioni di ruolo fornite nella documentazione. L'uso di altri ruoli, come proprietario, collaboratore e così via, non è supportato. È possibile che si verifichino problemi di autorizzazione, se si inizia a configurare le operazioni di backup o ripristino subito dopo l'assegnazione di ruoli. Ciò è dovuto al fatto che le assegnazioni di ruolo hanno effetto solo alcuni minuti.
 
-- I dischi gestiti consentono di modificare il livello di prestazioni in fase di distribuzione o successivamente senza modificare le dimensioni del disco. La soluzione di backup su disco di Azure supporta le modifiche al livello di prestazioni del disco di origine di cui è in corso il backup. Durante il ripristino, il livello di prestazioni del disco ripristinato sarà uguale a quello del disco di origine al momento del backup. Seguire la documentazione [qui](https://docs.microsoft.com/azure/virtual-machines/disks-performance-tiers-portal) per modificare il livello di prestazioni del disco dopo l'operazione di ripristino.
+- I dischi gestiti consentono di modificare il livello di prestazioni in fase di distribuzione o successivamente senza modificare le dimensioni del disco. La soluzione di backup su disco di Azure supporta le modifiche al livello di prestazioni del disco di origine di cui è in corso il backup. Durante il ripristino, il livello di prestazioni del disco ripristinato sarà uguale a quello del disco di origine al momento del backup. Seguire la documentazione [qui](../virtual-machines/disks-performance-tiers-portal.md) per modificare il livello di prestazioni del disco dopo l'operazione di ripristino.
 
-- Il supporto dei [collegamenti privati](https://docs.microsoft.com/azure/virtual-machines/disks-enable-private-links-for-import-export-portal) per Managed disks consente di limitare l'esportazione e l'importazione di dischi gestiti in modo che si verifichino solo all'interno della rete virtuale di Azure. Il backup su disco di Azure supporta il backup di dischi con endpoint privati abilitati. Questa operazione non include i dati o gli snapshot di backup accessibili tramite l'endpoint privato.
+- Il supporto dei [collegamenti privati](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) per Managed disks consente di limitare l'esportazione e l'importazione di dischi gestiti in modo che si verifichino solo all'interno della rete virtuale di Azure. Il backup su disco di Azure supporta il backup di dischi con endpoint privati abilitati. Questa operazione non include i dati o gli snapshot di backup accessibili tramite l'endpoint privato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

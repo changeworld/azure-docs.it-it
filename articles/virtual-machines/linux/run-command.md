@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dae77dfb72fb6b11721500686991f2b199606b99
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970572"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737864"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Eseguire script della shell nella macchina virtuale Linux usando Esegui comando
 
@@ -21,7 +21,7 @@ La funzionalità Esegui comando usa l'agente di macchine virtuali per eseguire g
 
 ## <a name="benefits"></a>Vantaggi
 
-È possibile accedere alle macchine virtuali in diversi modi. La funzionalità Esegui comando può eseguire script nelle macchine virtuali in modalità remota, tramite l'agente per la macchina virtuale. Può essere usato tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o l'[interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) per le macchine virtuali Linux.
+È possibile accedere alle macchine virtuali in diversi modi. La funzionalità Esegui comando può eseguire script nelle macchine virtuali in modalità remota, tramite l'agente per la macchina virtuale. Può essere usato tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o l'[interfaccia della riga di comando di Azure](/cli/azure/vm/run-command#az_vm_run_command_invoke) per le macchine virtuali Linux.
 
 Questa funzionalità è utile in tutti gli scenari in cui si vuole eseguire uno script all'interno di una macchina virtuale. È uno dei pochi modi per risolvere e correggere i problemi in una macchina virtuale che non ha la porta RDP o SSH aperta a causa di una configurazione non corretta della rete o dell'utente amministratore.
 
@@ -56,7 +56,7 @@ The entity was not found in this Azure location
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Linux di Azure.
+L'esempio seguente usa il comando [az vm run-command](/cli/azure/vm/run-command#az_vm_run_command_invoke) per eseguire uno script della shell su una macchina virtuale Linux di Azure.
 
 ```azurecli-interactive
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "apt-get update && apt-get install -y nginx"

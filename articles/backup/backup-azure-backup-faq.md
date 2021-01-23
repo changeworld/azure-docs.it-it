@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: bd84ff553b486d200ec4501b89b42335335b223f
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572528"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703420"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -58,9 +58,9 @@ Se il backup è già stato configurato e deve essere spostato da GRS a con ridon
 - Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
 - ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup da server di Backup di Azure (MAB) o System Center DPM.
 
-### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Come è possibile spostare i dati dall'insieme di credenziali dei servizi di ripristino in locale?
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Come è possibile spostare i dati dall'insieme di credenziali di Servizi di ripristino a locale?
 
-L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](../databox/data-box-overview.md) o [importazione/esportazione](../storage/common/storage-import-export-service.md).
+L'esportazione dei dati direttamente dall'insieme di credenziali dei servizi di ripristino in locale usando Data Box non è supportata. I dati devono essere ripristinati in un account di archiviazione e quindi possono essere spostati in locale tramite [Data Box](../databox/data-box-overview.md) o [importazione/esportazione](../import-export/storage-import-export-service.md).
 
 ### <a name="what-is-the-difference-between-a-geo-redundant-storage-grs-vault-with-and-without-the-cross-region-restore-crr-capability-enabled"></a>Qual è la differenza tra un insieme di credenziali di archiviazione con ridondanza geografica (GRS) con e senza la funzionalità di ripristino tra aree (CRR) abilitata?
 

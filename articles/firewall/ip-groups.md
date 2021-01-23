@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/22/2021
 ms.author: victorh
-ms.openlocfilehash: dc1eb64b5cfb527c10967a1a46525a418fdc37e3
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 6910fda855402d2f99994da1e835560be84ca2dd
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673998"
+ms.locfileid: "98703378"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>Gruppi IP nel firewall di Azure
 
@@ -28,7 +28,7 @@ Un gruppo IP può avere un solo indirizzo IP, più indirizzi IP o uno o più int
 I gruppi IP possono essere riutilizzati nelle regole di DNAT, rete e applicazione del firewall di Azure per più firewall tra aree e sottoscrizioni in Azure. I nomi dei gruppi devono essere univoci. È possibile configurare un gruppo IP nel portale di Azure, nell'interfaccia della riga di comando di Azure o nell'API REST. Per iniziare, è disponibile un modello di esempio.
 
 > [!NOTE]
-> I gruppi IP non sono attualmente disponibili negli ambienti cloud nazionali di Azure.
+> I gruppi IP non sono attualmente disponibili in ambienti cloud nazionali di Azure.
 
 ## <a name="sample-format"></a>Formato del campione
 

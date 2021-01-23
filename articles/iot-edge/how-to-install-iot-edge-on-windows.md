@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: e603e99c1aa9c49d20bdb281bbfd96131ae2efdd
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 3470e07c1b5673efa6cd015e43e077828da1573e
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663622"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703666"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Installare ed eseguire il provisioning di Azure IoT Edge per Linux in un dispositivo Windows (anteprima)
 
@@ -162,7 +162,7 @@ Installare IoT Edge per Linux in Windows sul dispositivo di destinazione, se non
    Se i criteri di esecuzione di `local machine` non sono `AllSigned` , è possibile impostare i criteri di esecuzione utilizzando:
 
    ```azurepowershell-interactive
-   Set-ExecutionPolicy - ExecutionPolicy AllSigned -Force
+   Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
 1. Creare il IoT Edge per Linux per la distribuzione di Windows.

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: b263d3e62ae97914fc8e06580486bddd0cb9b3b7
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968450"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703870"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione di VMware
 
@@ -62,15 +62,15 @@ La tabella riepiloga i requisiti di migrazione senza agenti per le macchine virt
 **Dimensioni disco** | disco del sistema operativo da 2 TB;  32 TB per i dischi dati.
 **Limiti del disco** |  Fino a 60 dischi per macchina virtuale.
 **Dischi/volumi crittografati** | Le macchine virtuali con dischi/volumi crittografati non sono supportate per la migrazione.
-**Cluster di dischi condivisi** | Non supportata.
-**Dischi indipendenti** | Non supportata.
+**Cluster di dischi condivisi** | Non supportato.
+**Dischi indipendenti** | Non supportato.
 **Dischi RDM/passthrough** | Se le VM contengono dischi RDM o passthrough, questi dischi non verranno replicati in Azure.
 **NFS** | I volumi NFS montati come volumi nelle macchine virtuali non verranno replicati.
 **destinazioni iSCSI** | Le macchine virtuali con destinazioni iSCSI non sono supportate per la migrazione senza agenti.
-**I/o a percorsi multipli** | Non supportata.
-**Storage vMotion** | Non supportata. La replica non funziona se una macchina virtuale usa Storage vMotion.
-**NIC raggruppate** | Non supportata.
-**IPv6** | Non supportata.
+**I/o a percorsi multipli** | Non supportato.
+**Storage vMotion** | Non supportato. La replica non funziona se una macchina virtuale usa Storage vMotion.
+**NIC raggruppate** | Non supportato.
+**IPv6** | Non supportato.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, SSD standard, unità SSD Premium) in Azure.
 **Replica simultanea** | 300 VM per ogni server vCenter. Se si dispone di altro, eseguirne la migrazione in batch di 300.
 **Installazione automatica dell'agente di macchine virtuali di Azure (agente Windows)** | Supportato per Windows Server 2008 R2 e versioni successive.
@@ -125,15 +125,15 @@ La tabella riepiloga il supporto delle VM VMware per le macchine virtuali VMware
 **Dimensioni disco** | disco del sistema operativo da 2 TB; 32 TB per i dischi dati.
 **Limiti del disco** |  Fino a 63 dischi per macchina virtuale.
 **Dischi/volumi crittografati** | Le macchine virtuali con dischi/volumi crittografati non sono supportate per la migrazione.
-**Cluster di dischi condivisi** | Non supportata.
+**Cluster di dischi condivisi** | Non supportato.
 **Dischi indipendenti** | Supportata.
 **Dischi pass-through** | Supportata.
 **NFS** | I volumi NFS montati come volumi nelle macchine virtuali non verranno replicati.
 **destinazioni iSCSI** | Supportata.
-**I/o a percorsi multipli** | Non supportata.
-**Storage vMotion** | Funzionalità supportata
-**NIC raggruppate** | Non supportata.
-**IPv6** | Non supportata.
+**I/o a percorsi multipli** | Non supportato.
+**Storage vMotion** | Supportato
+**NIC raggruppate** | Non supportato.
+**IPv6** | Non supportato.
 
 
 
@@ -166,11 +166,11 @@ Architettura del sistema operativo guest | 64 bit.
 Dimensioni disco del sistema operativo | Fino a 2.048 GB. 
 Conteggio dischi del sistema operativo | 1 
 Conteggio dischi dati | 64 o un numero inferiore. 
-Dimensioni del disco dati | Fino a 8.095 GB
+Dimensioni del disco dati | Fino a 32 TB
 Schede di rete | Sono supportate più schede.
-VHD condiviso | Non supportata. 
-Disco FC | Non supportata. 
-BitLocker | Non supportata.<br/><br/> Prima di eseguire la migrazione della macchina virtuale, è necessario disabilitare BitLocker.
+VHD condiviso | Non supportato. 
+Disco FC | Non supportato. 
+BitLocker | Non supportato.<br/><br/> Prima di eseguire la migrazione della macchina virtuale, è necessario disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. 
 Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che siano aggiunte regole TCP e UDP per il profilo **Pubblico** e che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md)
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/><br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/><br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa.<br/><br/> Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale.  

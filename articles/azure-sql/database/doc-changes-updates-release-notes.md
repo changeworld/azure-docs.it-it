@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 607b588d3371b20c2b3fa9854e27a7ccdfe2e551
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93391994"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703768"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,7 +78,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 ### <a name="sql-managed-instance-h2-2019-updates"></a>Aggiornamenti di SQL Istanza gestita H2 2019
 
 - La [configurazione della subnet assistita da servizi](https://azure.microsoft.com/updates/service-aided-subnet-configuration-for-managed-instance-in-azure-sql-database-available/) è un modo sicuro e pratico per gestire la configurazione delle subnet in cui è possibile controllare il traffico dei dati mentre SQL istanza gestita garantisce il flusso ininterrotto del traffico di gestione.
-- [Transparent Data Encryption (Transparent Data Encryption) con Bring your own key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) consente uno scenario BYOK (Bring your own key) per la protezione dei dati inattivi e consente alle organizzazioni di separare i compiti di gestione per chiavi e dati.
+- Transparent Data Encryption (Transparent Data [Encryption) con Bring your own key (BYOK)](https://azure.microsoft.com/updates/general-avilability-transparent-data-encryption-with-customer-managed-keys-for-azure-sql-database-managed-instance/) consente lo scenario Bring your own key (BYOK) per la protezione dei dati inattivi e consente alle organizzazioni di separare i compiti di gestione per chiavi e dati.
 - I [Gruppi di failover automatico](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) consentono di replicare tutti i database dall'istanza primaria a un'istanza secondaria in un'altra area.
 - I [flag di traccia globali](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/) consentono di configurare il comportamento di SQL istanza gestita.
 
@@ -92,12 +92,13 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
   - Configurare SQL Istanza gestita per usare gli [endpoint pubblici](../managed-instance/public-endpoint-configure.md), la connessione per [l'override del proxy](connectivity-architecture.md#connection-policy) per ottenere prestazioni di rete migliori, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vcore di generazione hardware quinta generazione</a> o <a href="/azure/azure-sql/database/automated-backups-overview">configurare la conservazione dei backup fino a 35 giorni per il</a> ripristino temporizzato. La [Conservazione del backup a lungo termine](long-term-retention-overview.md#sql-managed-instance-support) (fino a 10 anni) è attualmente in anteprima pubblica limitata.  
   - Le nuove funzionalità consentono di <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">eseguire il ripristino geografico del database in un altro data center tramite PowerShell</a>, [rinominare il database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [eliminare il cluster virtuale](../managed-instance/virtual-cluster-delete.md).
   - Il nuovo [ruolo Collaboratore Istanza](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) predefinito abilita la conformità della separazione dei compiti con i principi di sicurezza e la conformità agli standard aziendali.
-  - SQL Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per la versione GA (US Gov Texas, US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
+  - SQL Istanza gestita è disponibile nelle aree di Azure per enti pubblici seguenti per GA (US Gov Texas, US Gov Arizona) e in Cina settentrionale 2 e Cina orientale 2. È disponibile anche nelle aree pubbliche seguenti: Australia centrale, Australia centrale 2, Brasile meridionale, Francia meridionale, Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali, Sudafrica settentrionale, Sudafrica occidentale.
 
 ## <a name="known-issues"></a>Problemi noti
 
 |Problema  |Data individuata  |Stato  |Data risolta  |
 |---------|---------|---------|---------|
+|[La procedura sp_send_dbmail può generare errori temporanei quando @query si usa il parametro](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|Gennaio 2021|Ha una soluzione alternativa||
 |[Le transazioni distribuite possono essere eseguite dopo aver rimosso Istanza gestita dal gruppo di trust del server](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020 ottobre|Ha una soluzione alternativa||
 |[Non è possibile eseguire le transazioni distribuite dopo Istanza gestita operazione di ridimensionamento](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020 ottobre|Ha una soluzione alternativa||
 |[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql) / [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) in SQL di Azure e l' `BACKUP` / `RESTORE` istruzione in istanza gestita non possono usare Azure ad gestire l'identità per l'autenticazione in archiviazione di Azure|2020 Sep|Ha una soluzione alternativa||
@@ -115,7 +116,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |[Potrebbe essere necessario riconfigurare Resource Governor sul livello di servizio business critical dopo il failover](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Settembre 2019|Ha una soluzione alternativa||
 |[È necessario reinizializzare le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio](#cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade)|Agosto 2019|Ha una soluzione alternativa||
 |[La rappresentazione dei tipi di account di accesso Azure AD non è supportata](#impersonation-of-azure-ad-login-types-is-not-supported)|Luglio 2019|Nessuna soluzione alternativa||
-|[Parametro @query non supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|April 2019|Nessuna soluzione alternativa||
+|[Parametro @query non supportato in sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|April 2019|Risolto|Gennaio 2021|
 |[È necessario riconfigurare la replica transazionale dopo il failover geografico](#transactional-replication-must-be-reconfigured-after-geo-failover)|Marzo 2019|Nessuna soluzione alternativa||
 |[Il database temporaneo viene usato durante l'operazione RESTORE](#temporary-database-is-used-during-restore-operation)||Ha una soluzione alternativa||
 |[La struttura e il contenuto di TEMPDB vengono ricreati](#tempdb-structure-and-content-is-re-created)||Nessuna soluzione alternativa||
@@ -128,6 +129,29 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |Il ripristino temporizzato di database dal livello business critical al livello utilizzo generico non avrà esito positivo se il database di origine contiene oggetti OLTP in memoria.||Risolto|Ottobre 2019|
 |Funzionalità posta elettronica database con server di posta elettronica esterni (non Azure) tramite connessione protetta||Risolto|Ottobre 2019|
 |Database indipendenti non supportati in SQL Istanza gestita||Risolto|Agosto 2019|
+
+### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>La procedura sp_send_dbmail può generare errori temporanei quando @query si usa il parametro
+
+La procedura sp_send_dbmail può generare errori temporanei quando `@query` si usa il parametro. Quando si verifica questo problema, ogni seconda esecuzione della procedura sp_send_dbmail ha esito negativo con errore `Msg 22050, Level 16, State 1` e messaggio `Failed to initialize sqlcmd library with error number -2147467259` . Per visualizzare correttamente questo errore, è necessario chiamare la stored procedure con il valore predefinito 0 per il parametro `@exclude_query_output` ; in caso contrario, l'errore non verrà propagato.
+Questo problema è causato da un bug noto correlato al modo in cui sp_send_dbmail utilizza la rappresentazione e il pool di connessioni.
+Per risolvere il problema, inserire il codice per l'invio di messaggi di posta elettronica in una logica di ripetizione dei tentativi basata sul parametro di output `@mailitem_id` . Se l'esecuzione ha esito negativo, il valore del parametro sarà NULL, che indica sp_send_dbmail dovrebbe essere chiamato una sola volta per inviare correttamente un messaggio di posta elettronica. Ecco un esempio di questa logica di ripetizione dei tentativi.
+```sql
+CREATE PROCEDURE send_dbmail_with_retry AS
+BEGIN
+    DECLARE @miid INT
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+        @mailitem_id = @miid OUTPUT
+
+    -- If sp_send_dbmail returned NULL @mailidem_id then retry sending email.
+    --
+    IF (@miid is NULL)
+    EXEC msdb.dbo.sp_send_dbmail
+        @recipients = 'name@mail.com', @subject = 'Subject', @query = 'select * from dbo.test_table',
+        @profile_name ='AzureManagedInstance_dbmail_profile', @execute_query_database = 'testdb',
+END
+```
 
 ### <a name="distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group"></a>Le transazioni distribuite possono essere eseguite dopo aver rimosso Istanza gestita dal gruppo di trust del server
 
@@ -150,19 +174,19 @@ GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**Soluzione alternativa** : usare la [firma di accesso condiviso per l'autenticazione nella](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)risorsa di archiviazione.
+**Soluzione alternativa**: usare la [firma di accesso condiviso per l'autenticazione nella](/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage)risorsa di archiviazione.
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>L'entità servizio non può accedere a Azure AD e AKV
 
 In alcune circostanze potrebbe esistere un problema con l'entità servizio usata per accedere ai servizi Azure AD e Azure Key Vault (AKV). Questo problema influisca quindi sull'utilizzo dell'autenticazione Azure AD e della crittografia Transparent Database Encryption (Transparent Database Encryption) con SQL Istanza gestita. Questo potrebbe essere un problema di connettività intermittente o non essere in grado di eseguire istruzioni, ad esempio creare un account di accesso/utente da un PROVIDER esterno o eseguire come account di accesso/utente. La configurazione di Transparent Data Encryption con una chiave gestita dal cliente in un nuovo Istanza gestita SQL di Azure potrebbe anche non funzionare in alcune circostanze.
 
-**Soluzione alternativa** : per evitare che questo problema si verifichi nel istanza gestita SQL prima di eseguire i comandi di aggiornamento o, nel caso in cui il problema sia già stato riscontrato dopo l'aggiornamento, passare a portale di Azure, accedere a sql istanza gestita [Active Directory admin](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verificare che venga visualizzato il messaggio di errore "Istanza gestita necessaria un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio ". Se è stato rilevato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non è stato risolto.
+**Soluzione alternativa**: per evitare che questo problema si verifichi nel istanza gestita SQL prima di eseguire i comandi di aggiornamento o, nel caso in cui il problema sia già stato riscontrato dopo l'aggiornamento, passare a portale di Azure, accedere a sql istanza gestita [Active Directory admin](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal). Verificare che venga visualizzato il messaggio di errore "Istanza gestita necessaria un'entità servizio per accedere Azure Active Directory. Fare clic qui per creare un'entità servizio ". Se è stato rilevato questo messaggio di errore, fare clic su di esso e seguire le istruzioni dettagliate fornite fino a quando l'errore non è stato risolto.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo
 
 In alcuni casi, il backup manuale dei database eseguiti in un'istanza gestita senza CHECKSUM potrebbe non essere ripristinato. In questi casi, riprovare a ripristinare il backup fino a quando l'operazione non viene completata.
 
-**Soluzione alternativa** : eseguire il backup manuale dei database nelle istanze gestite con checksum abilitato.
+**Soluzione alternativa**: eseguire il backup manuale dei database nelle istanze gestite con checksum abilitato.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti
 
@@ -172,19 +196,19 @@ In alcuni casi, la modifica, la disabilitazione o l'abilitazione di un processo 
 
 Quando il ruolo Azure collaboratore SQL Istanza gestita viene applicato a un gruppo di risorse (RG), non viene applicato a SQL Istanza gestita e non ha alcun effetto.
 
-**Soluzione temporanea** : configurare un ruolo di collaboratore di SQL istanza gestita per gli utenti a livello di sottoscrizione.
+**Soluzione temporanea**: configurare un ruolo di collaboratore di SQL istanza gestita per gli utenti a livello di sottoscrizione.
 
 ### <a name="limitation-of-manual-failover-via-portal-for-failover-groups"></a>Limitazione del failover manuale tramite il portale per i gruppi di failover
 
 Se un gruppo di failover si estende su più istanze in sottoscrizioni o gruppi di risorse di Azure diversi, non è possibile avviare il failover manuale dall'istanza primaria del gruppo di failover.
 
-**Soluzione temporanea** : avviare il failover tramite il portale dall'istanza geografica secondaria.
+**Soluzione temporanea**: avviare il failover tramite il portale dall'istanza geografica secondaria.
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli accessi diversi da sysadmin
 
 Se gli account di accesso non sysadmin vengono aggiunti ai [ruoli predefiniti del database di SQL Agent](/sql/ssms/agent/sql-server-agent-fixed-database-roles), esiste un problema per cui le autorizzazioni Execute esplicite devono essere concesse alle stored procedure master per il funzionamento di tali account di accesso. Se si verifica questo problema, si riceve l'errore "The EXECUTE permission was denied on the object <object_name> (Microsoft SQL Server, Error: 229) [L'autorizzazione EXECUTE è stata negata per l'oggetto <object_name> (Microsoft SQL Server, Error: 229)]".
 
-**Soluzione alternativa** : dopo aver aggiunto gli account di accesso a un ruolo predefinito del database di SQL Agent (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), per ognuno degli account di accesso aggiunti a questi ruoli, eseguire lo script T-SQL seguente per concedere esplicitamente le autorizzazioni Execute alle stored procedure elencate.
+**Soluzione alternativa**: dopo aver aggiunto gli account di accesso a un ruolo predefinito del database di SQL Agent (SQLAgentUserRole, SQLAgentReaderRole o SQLAgentOperatorRole), per ognuno degli account di accesso aggiunti a questi ruoli, eseguire lo script T-SQL seguente per concedere esplicitamente le autorizzazioni Execute alle stored procedure elencate.
 
 ```tsql
 USE [master]
@@ -204,33 +228,33 @@ GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
 
 In alcuni casi, il livello di servizio business critical non applica correttamente i [limiti di memoria massima per gli oggetti ottimizzati per la memoria](../managed-instance/resource-limits.md#in-memory-oltp-available-space) . SQL Istanza gestita può consentire al carico di lavoro di usare più memoria per le operazioni di OLTP in memoria, che potrebbero influire sulla disponibilità e sulla stabilità dell'istanza. Le query di OLTP in memoria che raggiungono i limiti potrebbero non avere subito esito negativo. Questo problema verrà risolto a breve. Le query che usano una quantità maggiore di memoria OLTP in memoria avranno esito negativo prima di raggiungere i [limiti](../managed-instance/resource-limits.md#in-memory-oltp-available-space).
 
-**Soluzione alternativa** : [monitorare l'utilizzo dell'archiviazione OLTP in memoria](../in-memory-oltp-monitor-space.md) utilizzando [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) per garantire che il carico di lavoro non utilizzi una quantità di memoria superiore a quella disponibile. Aumentare i limiti di memoria che dipendono dal numero di vCore oppure ottimizzare il carico di lavoro per usare meno memoria.
+**Soluzione alternativa**: [monitorare l'utilizzo dell'archiviazione OLTP in memoria](../in-memory-oltp-monitor-space.md) utilizzando [SQL Server Management Studio](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) per garantire che il carico di lavoro non utilizzi una quantità di memoria superiore a quella disponibile. Aumentare i limiti di memoria che dipendono dal numero di vCore oppure ottimizzare il carico di lavoro per usare meno memoria.
  
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Errore sbagliato restituito durante il tentativo di rimozione di un file non vuoto
 
 SQL Server e SQL Istanza gestita [non consentono a un utente di eliminare un file non vuoto](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Se si tenta di rimuovere un file di dati non vuoto utilizzando un' `ALTER DATABASE REMOVE FILE` istruzione, l'errore `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` non verrà restituito immediatamente. SQL Istanza gestita continuerà a provare a eliminare il file e l'operazione avrà esito negativo dopo 30 minuti con `Internal server error` .
 
-**Soluzione temporanea** : rimuovere il contenuto del file utilizzando il `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` comando. Se si tratta dell'unico file del gruppo di file, è necessario eliminare i dati dalla tabella o dalla partizione associata a questo gruppo di file prima di compattare il file e, facoltativamente, caricare i dati in un'altra tabella o partizione.
+**Soluzione temporanea**: rimuovere il contenuto del file utilizzando il `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` comando. Se si tratta dell'unico file del gruppo di file, è necessario eliminare i dati dalla tabella o dalla partizione associata a questo gruppo di file prima di compattare il file e, facoltativamente, caricare i dati in un'altra tabella o partizione.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Le operazioni che consentono di modificare il livello di servizio e creare istanze sono bloccate dal ripristino di database in corso
 
 `RESTORE`L'istruzione continuativa, il processo di migrazione del servizio migrazione dei dati e il ripristino temporizzato incorporato bloccano l'aggiornamento di un livello di servizio o il ridimensionamento dell'istanza esistente e la creazione di nuove istanze fino al termine del processo di ripristino. 
 
-Il processo di ripristino bloccherà queste operazioni sulle istanze gestite e sui pool di istanze nella stessa subnet in cui è in esecuzione il processo di ripristino. Le istanze nei pool di istanze non sono interessate. La creazione o la modifica delle operazioni del livello di servizio non avrà esito negativo o il timeout. Verranno eseguiti dopo il completamento o l'annullamento del processo di ripristino.
+Il processo di ripristino bloccherà queste operazioni sulle istanze gestite e sui pool di istanze nella stessa subnet in cui è in esecuzione il processo di ripristino. Le istanze nei pool di istanze non sono interessate. Le operazioni di creazione o modifica del livello di servizio non avranno esito negativo o timeout. Verranno eseguiti dopo il completamento o l'annullamento del processo di ripristino.
 
-**Soluzione temporanea** : attendere il completamento del processo di ripristino o annullare il processo di ripristino se l'operazione di creazione o aggiornamento del livello di servizio ha una priorità più alta.
+**Soluzione temporanea**: attendere il completamento del processo di ripristino o annullare il processo di ripristino se l'operazione di creazione o aggiornamento del livello di servizio ha una priorità più alta.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Potrebbe essere necessario riconfigurare Resource Governor sul livello di servizio business critical dopo il failover
 
 La funzionalità [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) che consente di limitare le risorse assegnate al carico di lavoro dell'utente potrebbe classificare erroneamente un carico di lavoro dell'utente dopo il failover o una modifica avviata dall'utente del livello di servizio (ad esempio, la modifica delle dimensioni massime di archiviazione delle istanze di vCore o max).
 
-**Soluzione temporanea** : eseguire `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente o come parte di un processo di SQL Agent che esegue l'attività SQL quando l'istanza viene avviata se si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
+**Soluzione temporanea**: eseguire `ALTER RESOURCE GOVERNOR RECONFIGURE` periodicamente o come parte di un processo di SQL Agent che esegue l'attività SQL quando l'istanza viene avviata se si usa [Resource Governor](/sql/relational-databases/resource-governor/resource-governor).
 
 ### <a name="cross-database-service-broker-dialogs-must-be-reinitialized-after-service-tier-upgrade"></a>È necessario reinizializzare le finestre di dialogo Service Broker tra database dopo l'aggiornamento del livello di servizio
 
 Le finestre di dialogo Service Broker tra database interromperanno l'invio di messaggi ai servizi di altri database dopo l'operazione di modifica del livello di servizio. I messaggi *non vengono persi* ed è possibile trovarli nella coda del mittente. Qualsiasi modifica delle dimensioni di archiviazione dell'istanza o di Vcore in SQL Istanza gestita causerà la modifica di un `service_broke_guid` valore nella vista [sys. databases](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) per tutti i database. Qualsiasi `DIALOG` oggetto creato utilizzando un'istruzione [BEGIN DIALOG](/sql/t-sql/statements/begin-dialog-conversation-transact-sql) che fa riferimento a broker di servizio in un altro database arresterà il recapito dei messaggi al servizio di destinazione.
 
-**Soluzione temporanea** : arrestare tutte le attività che usano le conversazioni di dialogo Service Broker tra database prima di aggiornare un livello di servizio e reinizializzarle successivamente. Se sono presenti messaggi rimanenti che non vengono recapitati dopo una modifica del livello di servizio, leggere i messaggi dalla coda di origine e inviarli nuovamente alla coda di destinazione.
+**Soluzione temporanea**: arrestare tutte le attività che usano le conversazioni di dialogo Service Broker tra database prima di aggiornare un livello di servizio e reinizializzarle successivamente. Se sono presenti messaggi rimanenti che non vengono recapitati dopo una modifica del livello di servizio, leggere i messaggi dalla coda di origine e inviarli nuovamente alla coda di destinazione.
 
 ### <a name="impersonation-of-azure-ad-login-types-is-not-supported"></a>La rappresentazione dei tipi di account di accesso Azure AD non è supportata
 
@@ -258,7 +282,7 @@ Il database in stato di *ripristino* avrà temporaneamente un valore GUID casual
 
 Nella fase iniziale, un utente può accedere al database vuoto e persino creare tabelle o caricare dati in questo database. Questo database temporaneo verrà rimosso quando il servizio di ripristino avvierà la seconda fase.
 
-**Soluzione alternativa** : non accedere al database in fase di ripristino fino al completamento dell'operazione.
+**Soluzione alternativa**: non accedere al database in fase di ripristino fino al completamento dell'operazione.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>La struttura e il contenuto di TEMPDB vengono ricreati
 
@@ -285,7 +309,7 @@ In questo esempio, i database esistenti continuano a funzionare e possono cresce
 
 In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, XEvent e voci del log degli errori sono visualizzati gli identificatori GUID dei database anziché i nomi effettivi. Non fare affidamento su questi identificatori GUID, in quanto vengono sostituiti dai nomi effettivi dei database in futuro.
 
-**Soluzione temporanea** : utilizzare la vista sys. databases per risolvere il nome del database effettivo dal nome del database fisico, specificato sotto forma di identificatori del database GUID:
+**Soluzione temporanea**: utilizzare la vista sys. databases per risolvere il nome del database effettivo dal nome del database fisico, specificato sotto forma di identificatori del database GUID:
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
@@ -324,13 +348,13 @@ using (var scope = new TransactionScope())
 
 ```
 
-**Soluzione alternativa (non necessaria dal 2020 marzo)** : usare [SqlConnection. ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) per usare un altro database in un contesto di connessione anziché usare due connessioni.
+**Soluzione alternativa (non necessaria dal 2020 marzo)**: usare [SqlConnection. ChangeDatabase (String)](/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) per usare un altro database in un contesto di connessione anziché usare due connessioni.
 
 ### <a name="clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address"></a>I moduli CLR e i server collegati a volte non riescono a fare riferimento all'indirizzo IP locale
 
 I moduli CLR in SQL Istanza gestita e i server collegati o le query distribuite che fanno riferimento a un'istanza corrente talvolta non riescono a risolvere l'indirizzo IP di un'istanza locale. Questo errore è un problema temporaneo.
 
-**Soluzione temporanea** : se possibile, usare connessioni di contesto in un modulo CLR.
+**Soluzione temporanea**: se possibile, usare connessioni di contesto in un modulo CLR.
 
 ## <a name="updates"></a>Aggiornamenti
 

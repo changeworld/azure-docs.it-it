@@ -1,16 +1,16 @@
 ---
 title: Aree supportate per l'area di lavoro Log Analytics collegata
 description: Questo articolo descrive i mapping dell'area supportati tra un account di automazione e un'area di lavoro di Log Analytics in relazione a determinate funzionalità di automazione di Azure.
-ms.date: 12/15/2020
+ms.date: 01/21/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 95537bd54ecb476055608c89ac68a46d410288b6
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590886"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704322"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
@@ -32,13 +32,17 @@ La tabella seguente mostra i mapping supportati:
 |**Stati Uniti**||
 |EastUS<sup>1</sup>|EastUS2|
 |EastUS2<sup>2</sup>|EastUS|
+|WestUS|WestUS|
 |Stati Uniti occidentali 2|Stati Uniti occidentali 2|
+|CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
 |**Canada**||
 |CanadaCentral|CanadaCentral|
 |**Asia Pacifico**||
+|AustraliaEast|AustraliaEast|
 |AustraliaSoutheast|AustraliaSoutheast|
+|EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
 |ChinaEast2<sup>3</sup>|ChinaEast2|

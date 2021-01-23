@@ -13,16 +13,16 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba7b8ff2555fd7014cf16f66745721c6425ff868
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: b40918db03c260f899c36d306c892b787cc6371c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96029524"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98724892"
 ---
 # <a name="build-resilience-in-your-customer-identity-and-access-management-with-azure-active-directory-b2c"></a>Resilienza della compilazione nella gestione delle identità e dell'accesso dei clienti con Azure Active Directory B2C
 
-[Azure Active Directory (ad) B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) è una piattaforma di gestione delle identità e degli accessi (CIAM) del cliente progettata per facilitare l'avvio corretto delle applicazioni critiche per i clienti. Sono disponibili molte funzionalità predefinite per la [resilienza](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) progettate per consentire il ridimensionamento del servizio in base alle esigenze e migliorare la resilienza in caso di potenziali interruzioni. Inoltre, quando si avvia un'applicazione mission-critical, è importante prendere in considerazione vari elementi di progettazione e configurazione dell'applicazione, nonché il modo in cui l'applicazione viene configurata all'interno Azure AD B2C per assicurarsi di ottenere un comportamento resiliente in risposta a scenari di interruzione o di errore. In questo articolo verranno illustrate alcune procedure consigliate che consentono di aumentare la resilienza.
+[Azure Active Directory (ad) B2C](../../active-directory-b2c/overview.md) è una piattaforma di gestione delle identità e degli accessi (CIAM) del cliente progettata per facilitare l'avvio corretto delle applicazioni critiche per i clienti. Sono disponibili molte funzionalità predefinite per la [resilienza](https://azure.microsoft.com/blog/advancing-azure-active-directory-availability/) progettate per consentire il ridimensionamento del servizio in base alle esigenze e migliorare la resilienza in caso di potenziali interruzioni. Inoltre, quando si avvia un'applicazione mission-critical, è importante prendere in considerazione vari elementi di progettazione e configurazione dell'applicazione, nonché il modo in cui l'applicazione viene configurata all'interno Azure AD B2C per assicurarsi di ottenere un comportamento resiliente in risposta a scenari di interruzione o di errore. In questo articolo verranno illustrate alcune procedure consigliate che consentono di aumentare la resilienza.
 
 Un servizio resiliente è un servizio che continua a funzionare nonostante le interruzioni. Per contribuire a migliorare la resilienza nel servizio, è possibile:
 
@@ -49,3 +49,6 @@ Quando si sviluppa l'applicazione, è consigliabile considerare come [aumentare 
 - [Resilienza di compilazione nell'infrastruttura di autenticazione](resilience-in-infrastructure.md)
 
 - [Aumentare la resilienza dell'autenticazione e dell'autorizzazione nelle applicazioni](resilience-app-development-overview.md)
+
+Guarda questo video per scoprire come creare flussi resilienti e scalabili usando Azure AD B2C.
+>[!Video https://www.youtube.com/embed/8f_Ozpw9yTs]

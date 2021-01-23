@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: cc373a67ee0f4ed2e900e7b41cbcb96d31d67b34
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: eafdebc795d5bede7fa52a3562d33c806035697f
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126887"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704432"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Come creare trascrizioni con etichetta umana
 
@@ -47,6 +47,8 @@ La normalizzazione del testo è la trasformazione delle parole in un formato coe
 - I caratteri non alfabetici o i caratteri alfanumerici misti devono essere trascritti come pronunciati.
 - Le abbreviazioni pronunciate come parole non devono essere modificate (ad esempio "radar", "laser", "RAM" o "NATO").
 - Scrivere abbreviazioni pronunciate come lettere separate con ogni lettera separata da uno spazio.
+- Se si usa audio, i numeri vengono trascritti come parole che corrispondono all'audio (ad esempio, "101" potrebbe essere pronunciato come "1 0 1" o "101").
+- Evitare di ripetere i caratteri, le parole o i gruppi di parole più di tre volte, ad esempio "Sì Sì Sì Sì". Le righe con tali ripetizioni potrebbero essere eliminate dal servizio di riconoscimento vocale.
 
 Di seguito sono riportati alcuni esempi di normalizzazione che è necessario eseguire nella trascrizione:
 

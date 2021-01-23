@@ -1,15 +1,15 @@
 ---
 title: Elenco di iniziative di criteri predefinite
 description: Elenco di iniziative di criteri predefinite per Criteri di Azure. Le categorie includono Conformità con le normative, Configurazione guest e altro ancora.
-ms.date: 01/08/2021
+ms.date: 01/21/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 5265005862dd047e347beda2dd2b2f512688464a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 3b2dd497053364bfd5e5778443c2371a8494c455
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046386"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704013"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Definizioni di iniziative predefinite di Criteri di Azure
 

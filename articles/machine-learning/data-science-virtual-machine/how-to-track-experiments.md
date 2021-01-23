@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307445"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704541"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Tenere traccia degli esperimenti e distribuire modelli in Azure Machine Learning
 
@@ -30,7 +30,7 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 
 ## <a name="create-a-new-notebook"></a>Creare un nuovo notebook
 
-Il Azure Machine Learning e MLFlow SDK sono preinstallati nel Data Science VM ed è possibile accedervi nell'ambiente * *azureml_py36_ \** _ conda. In Jupyterlab fare clic sul pulsante di avvio e selezionare il seguente kernel:
+Il Azure Machine Learning e MLFlow SDK sono preinstallati nel Data Science VM ed è possibile accedervi nell'ambiente **azureml_py36_ \** _ conda. In JupyterLab fare clic sul pulsante di avvio e selezionare il seguente kernel:
 
 ![selezione kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 

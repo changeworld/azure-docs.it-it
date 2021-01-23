@@ -4,18 +4,18 @@ description: Informazioni su come usare backup di Azure per inviare dati dalla r
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: f3cf44a34babab79d135923db040630a1c8e3dfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea470c2e732b7e0ef46e9e5fa78c744aa30c955
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88892015"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704364"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali in genere trasferiscono grandi quantità di dati e richiedono una maggiore larghezza di banda di rete rispetto ai backup successivi, che trasferiscono solo i dati delta/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
 
-Il processo di seeding offline di backup di Azure è strettamente integrato con il [servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md). È possibile usare questo servizio per trasferire i dati di backup iniziali in Azure usando dischi. Se si hanno terabyte (TBs) di dati di backup iniziali che devono essere trasferiti in una rete a bassa latenza e larghezza di banda ridotta, è possibile usare il flusso di lavoro di seeding offline per inviare la copia di backup iniziale in uno o più dischi rigidi a un Data Center di Azure. La figura seguente offre una panoramica dei passaggi del flusso di lavoro.
+Il processo di seeding offline di backup di Azure è strettamente integrato con il [servizio importazione/esportazione di Azure](../import-export/storage-import-export-service.md). È possibile usare questo servizio per trasferire i dati di backup iniziali in Azure usando dischi. Se si hanno terabyte (TBs) di dati di backup iniziali che devono essere trasferiti in una rete a bassa latenza e larghezza di banda ridotta, è possibile usare il flusso di lavoro di seeding offline per inviare la copia di backup iniziale in uno o più dischi rigidi a un Data Center di Azure. La figura seguente offre una panoramica dei passaggi del flusso di lavoro.
 
   ![Panoramica del processo del flusso di lavoro di importazione offline](./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png)
 
@@ -64,12 +64,12 @@ Prima di avviare il flusso di lavoro di backup offline, completare i prerequisit
         ![Registrare il provider di risorse](./media/backup-azure-backup-import-export/registerimportexport.png)
 
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva (esterna o interna) del computer con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si desidera eseguire il backup di un file server da 500 GB, assicurarsi che l'area di gestione temporanea sia almeno 500 GB. La capacità usata sarà inferiore a causa della compressione.
-* Quando si inviano dischi ad Azure, usare solo i dischi rigidi interni SATA II/III a 2,5 2,5 pollice o 3,5-pollice. È possibile usare dischi rigidi con capacità fino a 10 TB. Vedere la documentazione del [servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware) per informazioni sul set di unità più recente supportato dal servizio.
+* Quando si inviano dischi ad Azure, usare solo i dischi rigidi interni SATA II/III a 2,5 2,5 pollice o 3,5-pollice. È possibile usare dischi rigidi con capacità fino a 10 TB. Vedere la documentazione del [servizio Importazione/Esportazione di Azure](../import-export/storage-import-export-requirements.md#supported-hardware) per informazioni sul set di unità più recente supportato dal servizio.
 * Le unità SATA devono essere connesse a un computer, denominato *computer di copia*, da cui vengono copiati i dati di backup del percorso di gestione temporanea nell'unità SATA. Verificare che BitLocker sia abilitato nel computer di copia.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
-Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati possano essere recapitati a un Data Center di Azure e caricati in archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione di [Panoramica del servizio importazione/esportazione di Azure](../storage/common/storage-import-export-service.md).
+Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati possano essere recapitati a un Data Center di Azure e caricati in archiviazione di Azure. Per domande sul servizio di importazione o su qualsiasi aspetto del processo, vedere la documentazione di [Panoramica del servizio importazione/esportazione di Azure](../import-export/storage-import-export-service.md).
 
 ## <a name="initiate-offline-backup"></a>Avviare il backup offline
 
@@ -77,12 +77,12 @@ Questa sezione descrive il flusso di lavoro di backup offline in modo che i dati
 
     ![Importa pagina](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
-1. Selezionare l'opzione **trasferimento usando i dischi**personali.
+1. Selezionare l'opzione **trasferimento usando i dischi** personali.
 
     > [!NOTE]
     > Utilizzare l'opzione Azure Data Box per trasferire i dati di backup iniziali offline. Questa opzione consente di risparmiare sul lavoro richiesto per ottenere i dischi compatibili con Azure. Offre dispositivi Microsoft, protetti e manomissione Azure Data Box in cui i dati di backup possono essere scritti direttamente dall'agente di servizi di ripristino.
 
-1. Selezionare **Avanti**e compilare attentamente le caselle.
+1. Selezionare **Avanti** e compilare attentamente le caselle.
 
     ![Immettere i dettagli del disco](./media/backup-azure-backup-import-export/your-disk-details.png)
 
@@ -202,7 +202,7 @@ La quantità di tempo necessaria per elaborare un processo di importazione di Az
 
 ### <a name="monitor-azure-import-job-status"></a>Monitorare lo stato del processo di importazione di Azure
 
-È possibile monitorare lo stato del processo di importazione dal portale di Azure. Passare alla pagina **importazione/esportazione processi** e selezionare il processo. Per altre informazioni sullo stato dei processi di importazione, vedere [che cos'è il servizio importazione/esportazione di Azure?](../storage/common/storage-import-export-service.md).
+È possibile monitorare lo stato del processo di importazione dal portale di Azure. Passare alla pagina **importazione/esportazione processi** e selezionare il processo. Per altre informazioni sullo stato dei processi di importazione, vedere [che cos'è il servizio importazione/esportazione di Azure?](../import-export/storage-import-export-service.md).
 
 ### <a name="finish-the-workflow"></a>Terminare il flusso di lavoro
 
@@ -218,4 +218,4 @@ Al termine del backup iniziale, è possibile eliminare in modo sicuro i dati imp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per domande sul flusso di lavoro del servizio importazione/esportazione di Azure, vedere [usare il servizio importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../storage/common/storage-import-export-service.md).
+* Per domande sul flusso di lavoro del servizio importazione/esportazione di Azure, vedere [usare il servizio importazione/esportazione di Microsoft Azure per trasferire i dati nell'archivio BLOB](../import-export/storage-import-export-service.md).

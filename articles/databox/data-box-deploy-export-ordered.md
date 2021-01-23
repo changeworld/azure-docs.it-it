@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: ac86dfba02b54730773a1d243981e85d563517e7
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: aac1fb8e2da7a3c84b3abff47c8f476b9fb9049c
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183831"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704339"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box
 
@@ -80,7 +80,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti.
 
-    |Impostazione  |Valore  |
+    |Impostazione  |valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -100,7 +100,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Account di archiviazione     | L'account di archiviazione di Azure da cui si desidera esportare i dati. |
     |Tipo di esportazione     | Specifica il tipo di dati da esportare da **tutti gli oggetti** e **utilizzare il file XML**.<ul><li> **Tutti gli oggetti** : specifica che il processo Esporta tutti i dati a seconda della selezione effettuata per le **Opzioni di trasferimento**.</li><li> **Usa file XML** : specifica un file XML che contiene un set di percorsi e prefissi per i BLOB e/o i file da esportare dall'account di archiviazione. Il file XML deve trovarsi nel contenitore dell'account di archiviazione selezionato e la selezione da condivisioni file non è attualmente supportata. Il file deve essere un file XML non vuoto.</li></ul>        |
-    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto**, **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i blob e file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../storage/common/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
+    |Opzioni di trasferimento     |  Specifica le opzioni di trasferimento dati da **Seleziona tutto**, **tutti i BLOB** e **tutti i file**. <ul><li> **Select All** : specifica che tutti i blob e file di Azure vengono esportati. Se si usa un account di archiviazione che supporta solo BLOB (account di archiviazione BLOB), l'opzione **tutti i file** non sarà selezionabile.</li><li> **All Blobs** : specifica che vengono esportati solo i BLOB in blocchi e di pagine.</li><li> **Tutti i file** : specifica che tutti i file vengono esportati, esclusi i BLOB. Il tipo di account di archiviazione in cui si dispone (utilizzo generico V1 e GPv2, archiviazione Premium o archiviazione BLOB) determina i tipi di dati che è possibile esportare. Per altre informazioni, vedere [account di archiviazione supportati per l'esportazione](../import-export/storage-import-export-requirements.md#supported-storage-types).</li></ul>         |
     |Includi log dettagliato     | Indica se si desidera un file di log dettagliato contenente un elenco di tutti i file che sono stati esportati correttamente.        |
 
     > [!NOTE]
@@ -181,7 +181,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
     Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che è possibile usare per gestire più risorse. Per altre informazioni, vedere [Tipi di identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).  
 
-    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente tramite il portale di Azure](../../articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selezionare un'identità utente](./media/data-box-deploy-export-ordered/customer-managed-key-10.png)
 

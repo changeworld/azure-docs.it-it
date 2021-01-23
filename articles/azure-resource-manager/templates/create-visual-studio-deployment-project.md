@@ -3,18 +3,18 @@ title: Creare e distribuire progetti Gruppo di risorse con Visual Studio
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372647"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98704415"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
 Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile distribuire l'host Web, il sito Web e il codice per il sito Web. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo verrà distribuita un'app Web.
 
-Questo articolo illustra come usare [Visual Studio 2019 o versione successiva con i carichi di lavoro Sviluppo di Azure e ASP.NET installati](/visualstudio/install/install-visual-studio?view=vs-2019). Se si usa Visual Studio 2017, l'esperienza sarà molto simile.
+Questo articolo illustra come usare [Visual Studio 2019 o versione successiva con i carichi di lavoro Sviluppo di Azure e ASP.NET installati](/visualstudio/install/install-visual-studio). Se si usa Visual Studio 2017, l'esperienza sarà molto simile.
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 

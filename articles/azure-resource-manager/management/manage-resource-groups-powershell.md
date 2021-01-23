@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: e5449dc26197a0aa2e2b0da49ad9e5ca4fb19e82
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: fb8cd45842e2f9b64048aa939f7b6adc9b0e6e0a
+ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185760"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98703683"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gestire i gruppi di risorse Azure Resource Manager tramite Azure PowerShell
 
@@ -69,7 +69,7 @@ Per altre informazioni su come Azure Resource Manager Ordina l'eliminazione dell
 
 Vedere [distribuire le risorse in un gruppo di risorse esistente](manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
 
-Per convalidare la distribuzione di un gruppo di risorse, vedere [test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment?view=azps-1.3.0).
+Per convalidare la distribuzione di un gruppo di risorse, vedere [test-AzResourceGroupDeployment](/powershell/module/Az.Resources/Test-AzResourceGroupDeployment).
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Distribuire un gruppo di risorse e le risorse
 
