@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: IoT Device'
 - devx-track-js
 - devx-track-azurecli
-ms.openlocfilehash: 912e59197970e60f57a13c049ffadbd2ad938a9b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 7dbc0404679927bcef1647dfdf46ce3360216a79
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621413"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733301"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -73,11 +73,11 @@ az extension add --name azure-iot
 # Create a resource group:
 az group create --name tutorial-iot-hub-rg --location $location
 
-# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription:
-az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
+# Create your free-tier IoT Hub. You can only have one free IoT Hub per subscription.
+az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --partition-count 2 --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --name $hubname --policy-name service -o table
+az iot hub connection-string show --name $hubname --policy-name service -o table
 
 ```
 
@@ -91,7 +91,7 @@ hubname=tutorial-iot-hub
 az iot hub device-identity create --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg
 
 # Retrieve the device connection string, you need this later:
-az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
+az iot hub device-identity connection-string show --device-id MyTwinDevice --hub-name $hubname --resource-group tutorial-iot-hub-rg -o table
 
 ```
 
@@ -118,7 +118,7 @@ Il codice seguente ottiene un dispositivo gemello dall'oggetto client:
 
 ### <a name="sample-desired-properties"></a>Proprietà desiderate di esempio
 
-È possibile strutturare le proprietà desiderate in modo utile all'applicazione. Questo esempio usa una proprietà di livello superiore chiamata **fanOn** e raggruppa le proprietà restanti in **componenti** distinti. Il frammento di codice JSON seguente mostra la struttura delle proprietà desiderate usate in questa esercitazione:
+È possibile strutturare le proprietà desiderate in modo utile all'applicazione. Questo esempio usa una proprietà di livello superiore chiamata **fanOn** e raggruppa le proprietà restanti in **componenti** distinti. Il frammento di codice JSON seguente mostra la struttura delle proprietà desiderate utilizzate in questa esercitazione. Il file JSON si trova nel desired.jssu file.
 
 [!code[Sample desired properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/desired.json "Sample desired properties")]
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 986019ec4de2fc25b6d8714a8c687cc9342f47b8
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3d2652d2f6c1bb56dd009a9e4de375c42786986d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696067"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735000"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Creare un controller di dati di Azure ARC usando il [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
@@ -59,7 +59,7 @@ kubectl config current-context
 
 ### <a name="connectivity-modes"></a>Modalità di connettività
 
-Come descritto in [modalità e requisiti di connettività](https://docs.microsoft.com/azure/azure-arc/data/connectivity), è possibile distribuire il controller dati di Azure Arc con la `direct` modalità di `indirect` connettività o. Con la `direct` modalità di connettività, i dati di utilizzo vengono inviati automaticamente e continuamente ad Azure. In questo articolo gli esempi specificano la `direct` modalità di connettività, come indicato di seguito:
+Come descritto in [modalità e requisiti di connettività](./connectivity.md), è possibile distribuire il controller dati di Azure Arc con la `direct` modalità di `indirect` connettività o. Con la `direct` modalità di connettività, i dati di utilizzo vengono inviati automaticamente e continuamente ad Azure. In questo articolo gli esempi specificano la `direct` modalità di connettività, come indicato di seguito:
 
    ```console
    --connectivity-mode direct

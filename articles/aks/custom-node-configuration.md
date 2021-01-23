@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: f1e9d65baacb9c712b92ef6f00abda169031b47e
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: d60a241506dbcf3e038f79c99830ef1a81c06b88
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582285"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735265"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizzare la configurazione dei nodi per i pool di nodi del servizio Kubernetes di Azure (AKS) (anteprima)
 
@@ -61,13 +61,13 @@ I parametri Kubelet supportati e i valori accettati sono elencati di seguito.
 
 | Parametro | Valori consentiti/intervallo | Predefinito | Descrizione |
 | --------- | ----------------------- | ------- | ----------- |
-| `cpuManagerPolicy` | nessuno, statico | none | Il criterio statico consente ai contenitori in [Pod garantiti](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) con CPU di tipo Integer di accedere a CPU esclusive nel nodo. |
+| `cpuManagerPolicy` | nessuno, statico | Nessuno | Il criterio statico consente ai contenitori in [Pod garantiti](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) con CPU di tipo Integer di accedere a CPU esclusive nel nodo. |
 | `cpuCfsQuota` | true, false | true |  Abilitare/disabilitare l'imposizione della quota CFS CPU per i contenitori che specificano i limiti della CPU. | 
 | `cpuCfsQuotaPeriod` | Intervallo in millisecondi (MS) | `100ms` | Imposta il valore del periodo di quota di CPU CFS. | 
 | `imageGcHighThreshold` | 0-100 | 85 | Percentuale di utilizzo del disco dopo il quale l'immagine Garbage Collection viene sempre eseguita. Utilizzo minimo del disco **che attiverà** Garbage Collection. Per disabilitare Garbage Collection immagine, impostare su 100. | 
 | `imageGcLowThreshold` | 0-100, non superiore a `imageGcHighThreshold` | 80 | Percentuale di utilizzo del disco prima del quale l'immagine Garbage Collection non viene mai eseguita. Utilizzo minimo del disco che **può** attivare Garbage Collection. |
-| `topologyManagerPolicy` | None, best-effort, Restricted, Single-NUMA-node | none | Per ottimizzare l'allineamento del nodo NUMA, vedere [qui](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Solo kubernetes v 1.18 +. |
-| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Nessuno | Elenco consentiti di sysctl non sicuri o di modelli sysctl non sicuri. | 
+| `topologyManagerPolicy` | None, best-effort, Restricted, Single-NUMA-node | Nessuno | Per ottimizzare l'allineamento del nodo NUMA, vedere [qui](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Solo kubernetes v 1.18 +. |
+| `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | nessuno | Elenco consentiti di sysctl non sicuri o di modelli sysctl non sicuri. | 
 
 ### <a name="linux-os-custom-configuration"></a>Configurazione personalizzata del sistema operativo Linux
 
@@ -127,12 +127,12 @@ Le impostazioni riportate di seguito possono essere usate per ottimizzare il fun
 | `vm.max_map_count` |  65530-262144 | 65530 | Questo file contiene il numero massimo di aree mappa di memoria che possono essere presenti in un processo. Le aree della mappa di memoria vengono utilizzate come effetto collaterale della chiamata di `malloc` , direttamente da `mmap` , `mprotect` e e `madvise` anche durante il caricamento di librerie condivise. | 
 | `vm.vfs_cache_pressure` | 1 - 500 | 100 | Questo valore percentuale controlla la tendenza del kernel a recuperare la memoria usata per la memorizzazione nella cache degli oggetti directory e inode. |
 | `vm.swappiness` | 0 - 100 | 60 | Questo controllo viene usato per definire l'aggressività con cui il kernel scambierà le pagine di memoria. I valori più elevati aumentano l'aggressività e i valori più bassi diminuiscono la quantità di spazio di swapping. Il valore 0 indica al kernel di non avviare lo scambio fino a quando la quantità di pagine libere e con backup di file è inferiore al limite massimo in una zona. | 
-| `swapFileSizeMB` | 1 MB: dimensioni del [disco temporaneo](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | Nessuno | SwapFileSizeMB specifica la dimensione in MB di un file di scambio che verrà creata nei nodi dell'agente da questo pool di nodi. | 
+| `swapFileSizeMB` | 1 MB: dimensioni del [disco temporaneo](../virtual-machines/managed-disks-overview.md#temporary-disk) (/dev/sdb) | nessuno | SwapFileSizeMB specifica la dimensione in MB di un file di scambio che verrà creata nei nodi dell'agente da questo pool di nodi. | 
 | `transparentHugePageEnabled` | `always`, `madvise`, `never` | `always` | [Transparent hugepage](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge) è una funzionalità di kernel Linux progettata per migliorare le prestazioni grazie a un uso più efficiente dell'hardware di mapping della memoria del processore. Quando è abilitata, il kernel tenta di allocare `hugepages` ogni volta che è possibile e qualsiasi processo di Linux riceverà le pagine da 2 MB se l' `mmap` area è allineata naturalmente a 2 MB. In alcuni casi `hugepages` , quando sono abilitati a livello di sistema, è possibile che le applicazioni finiscano di allocare più risorse di memoria. Un'applicazione può `mmap` avere un'area di grandi dimensioni, ma solo 1 byte, in questo caso una pagina da 2 MB potrebbe essere allocata anziché una pagina 4K per nessun motivo valido. Questo scenario è il motivo per cui è possibile disabilitare l' `hugepages` intero sistema o solo in `MADV_HUGEPAGE madvise` aree. | 
 | `transparentHugePageDefrag` | `always`, `defer`, `defer+madvise`, `madvise`, `never` | `madvise` | Questo valore determina se il kernel deve usare in modo aggressivo la compattazione della memoria per rendere più `hugepages` disponibile. | 
 
 > [!IMPORTANT]
-> Per semplificare la ricerca e la leggibilità, le impostazioni del sistema operativo vengono visualizzate in questo documento in base al nome, ma devono essere aggiunte al file JSON di configurazione o all'API AKS usando la convenzione per la [CamelCase delle maiuscole](https://docs.microsoft.com/dotnet/standard/design-guidelines/capitalization-conventions).
+> Per semplificare la ricerca e la leggibilità, le impostazioni del sistema operativo vengono visualizzate in questo documento in base al nome, ma devono essere aggiunte al file JSON di configurazione o all'API AKS usando la convenzione per la [CamelCase delle maiuscole](/dotnet/standard/design-guidelines/capitalization-conventions).
 
 Creare un `kubeletconfig.json` file con il contenuto seguente:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: af1c2fc3c7dcafe538f87527e04d1c3a78ab1a28
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: 967ad66434a09252c1b7afa195facee20279f4dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607865"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735282"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cequence-application-security-platform"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Cequence Application Security Platform
 
@@ -139,11 +139,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 2. Passare direttamente all'URL di accesso di Cequence Application Security Platform e avviare il flusso di accesso da questa posizione.
 
-3. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di Cequence Application Security Platform nel pannello di accesso, si verrà reindirizzati a Cequence Application Security Platform. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro di Cequence Application Security Platform nel pannello di accesso, si verrà reindirizzati a Cequence Application Security Platform. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Cequence Application Security Platform, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dopo aver configurato Cequence Application Security Platform, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

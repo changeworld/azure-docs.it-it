@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 3b60ab21bb1e8f5270512d3f1e77aeab2baedc31
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 91dfdcef01a121c8282b8fad2e75f67989b75dc3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968637"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Esercitazione: Integrazione di Azure Active Directory con HubSpot
 
@@ -212,7 +212,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su **Test this application** (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di HubSpot per cui si è configurato l'accesso SSO 
 
-È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di HubSpot in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di HubSpot per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di HubSpot in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di HubSpot per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 11aac69816714611c168cd05c2828dd1ae85786e
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-ms.translationtype: HT
+ms.openlocfilehash: 794934e9c3e45f2aeed9310636a0f3ec30daf7de
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813650"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735340"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-aws-clientvpn"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con AWS ClientVPN
 
@@ -156,11 +156,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di AWS ClientVPN e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di AWS ClientVPN in App personali, si verrà reindirizzati all'URL di accesso di AWS ClientVPN. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di AWS ClientVPN in App personali, si verrà reindirizzati all'URL di accesso di AWS ClientVPN. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato AWS ClientVPN, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dopo aver configurato AWS ClientVPN, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

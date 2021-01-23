@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 6f25ff02dee16812898d77d0e801f927b354dc78
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918209"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734175"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitoraggio di Azure per Esplora dati di Azure (anteprima)
 
@@ -49,7 +49,7 @@ Nella scheda **Panoramica** per la sottoscrizione selezionata la tabella Visuali
 
 Il riquadro contatore, sotto l'elenco a discesa, esegue il rollup del numero totale di cluster Esplora dati di Azure nelle sottoscrizioni selezionate e riflette il numero di selezioni selezionate. Per le colonne sono disponibili codifiche dei colori condizionali: Mantieni attivo, CPU, utilizzo di inserimenti e utilizzo della cache. Le celle con codifica arancione hanno valori che non sono sostenibili per il cluster. 
 
-Per comprendere meglio la rappresentazione di ogni metrica, è consigliabile leggere la documentazione relativa alle metriche di [Esplora dati di Azure](https://docs.microsoft.com/azure/data-explorer/using-metrics#cluster-metrics).
+Per comprendere meglio la rappresentazione di ogni metrica, è consigliabile leggere la documentazione relativa alle metriche di [Esplora dati di Azure](/azure/data-explorer/using-metrics#cluster-metrics).
 
 ### <a name="query-performance-tab"></a>Scheda prestazioni query
 
@@ -81,7 +81,7 @@ Per accedere a monitoraggio di Azure per i cluster di Azure Esplora dati diretta
 
 È anche possibile accedere a queste viste selezionando il nome della risorsa di un cluster di Azure Esplora dati nella visualizzazione di Azure monitor Insights.
 
-Monitoraggio di Azure per Azure Esplora dati combina i log e le metriche per offrire una soluzione di monitoraggio globale. L'inclusione delle visualizzazioni basate su log richiede agli utenti di [abilitare la registrazione diagnostica del cluster Esplora dati di Azure e di inviarli a un'area di lavoro di log Analytics.](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) I log di diagnostica che devono essere abilitati sono: **Command**, **query**, **TableDetails** e **TableUsageStatistics**.
+Monitoraggio di Azure per Azure Esplora dati combina i log e le metriche per offrire una soluzione di monitoraggio globale. L'inclusione delle visualizzazioni basate su log richiede agli utenti di [abilitare la registrazione diagnostica del cluster Esplora dati di Azure e di inviarli a un'area di lavoro di log Analytics.](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) I log di diagnostica che devono essere abilitati sono: **Command**, **query**, **TableDetails** e **TableUsageStatistics**.
 
 ![Screenshot del pulsante blu che Visualizza il testo "Abilita log per il monitoraggio"](./media/data-explorer/enable-logs.png)
 
@@ -90,7 +90,7 @@ Monitoraggio di Azure per Azure Esplora dati combina i log e le metriche per off
 
 - I riquadri di metrica evidenziano la disponibilità e lo stato complessivo del cluster per valutarne rapidamente l'integrità.
 
-- Riepilogo delle raccomandazioni di Active [Advisor](https://docs.microsoft.com/azure/data-explorer/azure-advisor) e dello stato di [integrità delle risorse](https://docs.microsoft.com/azure/data-explorer/monitor-with-resource-health) .
+- Riepilogo delle raccomandazioni di Active [Advisor](/azure/data-explorer/azure-advisor) e dello stato di [integrità delle risorse](/azure/data-explorer/monitor-with-resource-health) .
 
 - Grafici che mostrano i principali consumer di CPU e memoria e il numero di utenti univoci nel tempo.
 
@@ -114,7 +114,7 @@ La scheda **utilizzo** consente agli utenti di approfondire le prestazioni dei c
 
 La scheda **tabelle** Mostra le proprietà più recenti e cronologiche delle tabelle nel cluster. È possibile vedere quali tabelle utilizzano la maggior parte dello spazio, tenere traccia della cronologia di crescita in base alle dimensioni della tabella, ai dati sensibili e al numero di righe nel tempo.
 
-La scheda **cache** consente agli utenti di analizzare i modelli di ricerca di query effettivi e di confrontarli con i criteri di cache configurati (per ogni tabella). È possibile identificare le tabelle utilizzate dalla maggior parte delle query e tabelle per le quali non vengono eseguite query e adattare di conseguenza i criteri della cache. È possibile ottenere raccomandazioni specifiche sui criteri di cache per tabelle specifiche in Azure Advisor (attualmente, le raccomandazioni relative alla cache sono disponibili solo dal [dashboard Azure Advisor principale](https://docs.microsoft.com/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), in base alle query effettive riesaminate negli ultimi 30 giorni e un criterio di cache non ottimizzato per almeno il 95% delle query. Le raccomandazioni per la riduzione della cache in Azure Advisor sono disponibili per i cluster "delimitati da dati" (ovvero il cluster ha una CPU ridotta e un basso utilizzo di inserimento, ma a causa della capacità elevata dei dati, il cluster non è stato in grado di aumentare o ridurre il volume).
+La scheda **cache** consente agli utenti di analizzare i modelli di ricerca di query effettivi e di confrontarli con i criteri di cache configurati (per ogni tabella). È possibile identificare le tabelle utilizzate dalla maggior parte delle query e tabelle per le quali non vengono eseguite query e adattare di conseguenza i criteri della cache. È possibile ottenere raccomandazioni specifiche sui criteri di cache per tabelle specifiche in Azure Advisor (attualmente, le raccomandazioni relative alla cache sono disponibili solo dal [dashboard Azure Advisor principale](/azure/data-explorer/azure-advisor#use-the-azure-advisor-recommendations)), in base alle query effettive riesaminate negli ultimi 30 giorni e un criterio di cache non ottimizzato per almeno il 95% delle query. Le raccomandazioni per la riduzione della cache in Azure Advisor sono disponibili per i cluster "delimitati da dati" (ovvero il cluster ha una CPU ridotta e un basso utilizzo di inserimento, ma a causa della capacità elevata dei dati, il cluster non è stato in grado di aumentare o ridurre il volume).
 
 [![Schermata dei dettagli della cache](./media/data-explorer/cache-tab.png)](./media/data-explorer/cache-tab.png#lightbox)
 
@@ -153,7 +153,7 @@ Vengono mostrate solo le sottoscrizioni che contengono cluster Esplora dati di A
 
 ### <a name="why-do-i-not-see-any-data-for-my-azure-data-explorer-cluster-under-the-usage-tables-or-cache-sections"></a>Perché non vengono visualizzati dati per il cluster di Azure Esplora dati nelle sezioni utilizzo, tabelle o cache?
 
-Per visualizzare i dati basati su log, è necessario abilitare i [log di diagnostica](https://docs.microsoft.com/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) per ogni cluster di Azure Esplora dati che si vuole monitorare. Questa operazione può essere eseguita con le impostazioni di diagnostica per ogni cluster. Sarà necessario inviare i dati a un'area di lavoro Log Analytics. I log di diagnostica che devono essere abilitati sono: Command, query, TableDetails e TableUsageStatistics.
+Per visualizzare i dati basati su log, è necessario abilitare i [log di diagnostica](/azure/data-explorer/using-diagnostic-logs?tabs=commands-and-queries#enable-diagnostic-logs) per ogni cluster di Azure Esplora dati che si vuole monitorare. Questa operazione può essere eseguita con le impostazioni di diagnostica per ogni cluster. Sarà necessario inviare i dati a un'area di lavoro Log Analytics. I log di diagnostica che devono essere abilitati sono: Command, query, TableDetails e TableUsageStatistics.
 
 ### <a name="i-have-already-enabled-logs-for-my-azure-data-explorer-cluster-why-am-i-still-unable-to-see-my-data-under-commands-and-queries"></a>Sono già stati abilitati i log per il cluster Azure Esplora dati, perché I dati non sono ancora visibili in comandi e query?
 

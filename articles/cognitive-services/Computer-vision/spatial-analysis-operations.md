@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: b530fc320f6c29dd7a86a39c5a7019265bb6b724
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624423"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734540"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -61,7 +61,7 @@ Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaz
 |---------|---------|
 | ID operazione | Identificatore dell'operazione della tabella precedente.|
 | Enabled | Booleano: true o false|
-| VIDEO_URL| URL RTSP per il dispositivo della fotocamera (esempio: `rtsp://username:password@url` ). L'analisi spaziale supporta il flusso con codifica H. 264 tramite RTSP, http o MP4. Video_URL può essere fornito come valore stringa Base64 offuscato usando la crittografia AES e se l'URL del video viene offuscato `KEY_ENV` e `IV_ENV` deve essere fornito come variabile di ambiente. L'utilità di esempio per generare chiavi e crittografia è disponibile [qui](https://docs.microsoft.com/dotnet/api/system.security.cryptography.aesmanaged?view=net-5.0&preserve-view=true). |
+| VIDEO_URL| URL RTSP per il dispositivo della fotocamera (esempio: `rtsp://username:password@url` ). L'analisi spaziale supporta il flusso con codifica H. 264 tramite RTSP, http o MP4. Video_URL può essere fornito come valore stringa Base64 offuscato usando la crittografia AES e se l'URL del video viene offuscato `KEY_ENV` e `IV_ENV` deve essere fornito come variabile di ambiente. L'utilità di esempio per generare chiavi e crittografia è disponibile [qui](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
 | VIDEO_SOURCE_ID | Nome descrittivo per il dispositivo della fotocamera o il flusso video. Questa operazione verrà restituita con l'output JSON dell'evento.|
 | VIDEO_IS_LIVE| True per i dispositivi della fotocamera; false per i video registrati.|
 | VIDEO_DECODE_GPU_INDEX| GPU da cui decodificare il fotogramma video. Per impostazione predefinita, è 0. Deve corrispondere `gpu_index` a in altre configurazioni del nodo, ad esempio `VICA_NODE_CONFIG` `DETECTOR_NODE_CONFIG` .|
@@ -89,8 +89,8 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 
 | Nome | Type| Descrizione|
 |---------|---------|---------|
-| `gpu_index` | stringa| Indice GPU in cui verrà eseguita l'operazione.|
-| `do_calibration` | stringa | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** . per impostazione predefinita, do_calibration è impostato su true. |
+| `gpu_index` | string| Indice GPU in cui verrà eseguita l'operazione.|
+| `do_calibration` | string | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** . per impostazione predefinita, do_calibration è impostato su true. |
 | `enable_recalibration` | bool | Indica se la ritaratura automatica è attivata. Il valore predefinito è `true`.|
 | `calibration_quality_check_frequency_seconds` | INT | Numero minimo di secondi tra ogni controllo di qualità per determinare se è necessario o meno la ritaratura. Il valore predefinito è `86400` (24 ore). Utilizzato solo quando `enable_recalibration=True` .|
 | `calibration_quality_check_sampling_num` | INT | Numero di campioni di dati archiviati selezionati in modo casuale da utilizzare per la misurazione degli errori di controllo di qualità. Il valore predefinito è `80`. Utilizzato solo quando `enable_recalibration=True` .|
@@ -125,13 +125,13 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 | Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
-| `name` | stringa| Nome descrittivo per questa zona.|
+| `name` | string| Nome descrittivo per questa zona.|
 | `polygon` | list| Ogni coppia valore rappresenta la x, y per i vertici di un poligono. Il poligono rappresenta le aree in cui gli utenti vengono rilevati o conteggiati e i punti poligono sono basati su coordinate normalizzate (0-1), in cui l'angolo superiore sinistro è (0,0, 0,0) e l'angolo inferiore destro è (1,0, 1,0).   
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. |
-| `type` | stringa| Per **cognitiveservices. Vision. spatialanalysis-PersonCount** deve essere `count` .|
-| `trigger` | stringa| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
-| `interval` | stringa| Tempo in secondi durante il quale il conteggio delle persone viene aggregato prima che venga generato un evento. L'operazione continuerà ad analizzare la scena a una velocità costante e restituisce il conteggio più comune rispetto a tale intervallo. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
-| `focus` | stringa| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
+| `type` | string| Per **cognitiveservices. Vision. spatialanalysis-PersonCount** deve essere `count` .|
+| `trigger` | string| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
+| `interval` | string| Tempo in secondi durante il quale il conteggio delle persone viene aggregato prima che venga generato un evento. L'operazione continuerà ad analizzare la scena a una velocità costante e restituisce il conteggio più comune rispetto a tale intervallo. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
+| `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
 
 ### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Configurazione della linea per cognitiveservices. Vision. spatialanalysis-personcrossingline
 
@@ -170,14 +170,14 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 | Nome | Type| Descrizione|
 |---------|---------|---------|
 | `lines` | list| Elenco di righe.|
-| `name` | stringa| Nome descrittivo per questa riga.|
+| `name` | string| Nome descrittivo per questa riga.|
 | `line` | list| Definizione della riga. Si tratta di una linea direzionale che consente di comprendere "entry" e "Exit".|
 | `start` | coppia valore| coordinate x, y per il punto iniziale della linea. I valori float rappresentano la posizione del vertice rispetto all'angolo superiore sinistro. Per calcolare i valori x assoluti, si moltiplicano questi valori con le dimensioni del frame. |
 | `end` | coppia valore| coordinate x, y per il punto finale della linea. I valori float rappresentano la posizione del vertice rispetto all'angolo superiore sinistro. Per calcolare i valori x assoluti, si moltiplicano questi valori con le dimensioni del frame. |
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. Il valore predefinito è 16. Si tratta del valore consigliato per ottenere la massima precisione. |
-| `type` | stringa| Per **cognitiveservices. Vision. spatialanalysis-personcrossingline** deve essere `linecrossing` .|
-|`trigger`|stringa|Tipo di trigger per l'invio di un evento.<br>Valori supportati: "Event": viene attivato quando un utente incrocia la riga.|
-| `focus` | stringa| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona. Il valore predefinito è footprint.|
+| `type` | string| Per **cognitiveservices. Vision. spatialanalysis-personcrossingline** deve essere `linecrossing` .|
+|`trigger`|string|Tipo di trigger per l'invio di un evento.<br>Valori supportati: "Event": viene attivato quando un utente incrocia la riga.|
+| `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona. Il valore predefinito è footprint.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Configurazione della zona per cognitiveservices. Vision. spatialanalysis-personcrossingpolygon
 
@@ -216,12 +216,12 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 | Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
-| `name` | stringa| Nome descrittivo per questa zona.|
+| `name` | string| Nome descrittivo per questa zona.|
 | `polygon` | list| Ogni coppia valore rappresenta la x, y per i vertici del poligono. Il poligono rappresenta le aree in cui gli utenti vengono rilevati o conteggiati. I valori float rappresentano la posizione del vertice rispetto all'angolo superiore sinistro. Per calcolare i valori x assoluti, si moltiplicano questi valori con le dimensioni del frame. 
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. Il valore predefinito è 48 quando il tipo è zonecrossing e 16 quando l'ora è DwellTime. Questi sono i valori consigliati per ottenere la massima precisione.  |
-| `type` | stringa| Per **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** deve essere `zonecrossing` o `zonedwelltime` .|
-| `trigger`|stringa|Tipo di trigger per l'invio di un evento<br>Valori supportati: "Event": viene attivato quando un utente immette o esce dalla zona.|
-| `focus` | stringa| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona. Il valore predefinito è footprint.|
+| `type` | string| Per **cognitiveservices. Vision. spatialanalysis-personcrossingpolygon** deve essere `zonecrossing` o `zonedwelltime` .|
+| `trigger`|string|Tipo di trigger per l'invio di un evento<br>Valori supportati: "Event": viene attivato quando un utente immette o esce dalla zona.|
+| `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona. Il valore predefinito è footprint.|
 
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Configurazione della zona per cognitiveservices. Vision. spatialanalysis-persondistance
 
@@ -250,16 +250,16 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 | Nome | Type| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
-| `name` | stringa| Nome descrittivo per questa zona.|
+| `name` | string| Nome descrittivo per questa zona.|
 | `polygon` | list| Ogni coppia valore rappresenta la x, y per i vertici del poligono. Il poligono rappresenta le aree in cui vengono conteggiate le persone e viene misurata la distanza tra le persone. I valori float rappresentano la posizione del vertice rispetto all'angolo superiore sinistro. Per calcolare i valori x assoluti, si moltiplicano questi valori con le dimensioni del frame. 
 | `threshold` | float| Gli eventi vengono uscita quando la confidenza dei modelli di intelligenza artificiale è maggiore o uguale a questo valore. |
-| `type` | stringa| Per **cognitiveservices. Vision. spatialanalysis-persondistance** deve essere `people_distance` .|
-| `trigger` | stringa| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
-| `interval` | stringa | Tempo in secondi durante il quale le violazioni verranno aggregate prima che venga generato un evento. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
+| `type` | string| Per **cognitiveservices. Vision. spatialanalysis-persondistance** deve essere `people_distance` .|
+| `trigger` | string| Tipo di trigger per l'invio di un evento. I valori supportati sono `event` per l'invio di eventi quando il conteggio cambia o `interval` per l'invio periodico di eventi, indipendentemente dal fatto che il conteggio sia stato modificato o meno.
+| `interval` | string | Tempo in secondi durante il quale le violazioni verranno aggregate prima che venga generato un evento. L'intervallo di aggregazione è applicabile sia a `event` che a `interval` .|
 | `output_frequency` | INT | Frequenza con cui gli eventi vengono uscita. Quando `output_frequency` = x, ogni evento X è uscita, ad esempio. `output_frequency` = 2 indica che ogni altro evento viene restituito. Il output_frequency è applicabile sia a `event` che a `interval` .|
 | `minimum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooClose" quando le persone sono inferiori a tale distanza.|
 | `maximum_distance_threshold` | float| Distanza in metri che attiverà un evento "TooFar" quando le persone sono più grandi della distanza.|
-| `focus` | stringa| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
+| `focus` | string| Posizione del punto nel riquadro delimitatore della persona utilizzata per calcolare gli eventi. Il valore dello stato attivo può essere `footprint` (il footprint della persona), `bottom_center` (il centro inferiore del rettangolo di delimitazione della persona), `center` ovvero il centro del rettangolo di delimitazione della persona.|
 
 Vedere le linee guida per la [selezione host](spatial-analysis-camera-placement.md) per informazioni sulle configurazioni di zone e linee.
 
@@ -364,20 +364,20 @@ Esempio di JSON per l'output di un evento da questa operazione.
 
 | Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID evento|
-| `type` | stringa| Tipo di evento|
+| `id` | string| ID evento|
+| `type` | string| Tipo di evento|
 | `detectionsId` | array| Matrice di dimensioni 1 dell'identificatore univoco del rilevamento della persona che ha attivato l'evento|
 | `properties` | collection| Raccolta di valori|
-| `trackinId` | stringa| Identificatore univoco della persona rilevata|
-| `zone` | stringa | Il campo "Name" del poligono che rappresenta la zona attraversata|
-| `trigger` | stringa| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
+| `trackinId` | string| Identificatore univoco della persona rilevata|
+| `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
+| `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
 | Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID rilevamento|
-| `type` | stringa| Tipo di rilevamento|
+| `id` | string| ID rilevamento|
+| `type` | string| Tipo di rilevamento|
 | `region` | collection| Raccolta di valori|
-| `type` | stringa| Tipo di area|
+| `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 | `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
@@ -385,20 +385,20 @@ Esempio di JSON per l'output di un evento da questa operazione.
 
 | Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| Camera ID|
+| `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
 | `width` | INT | Larghezza fotogramma video|
 | `height` | INT | Altezza del fotogramma video|
 | `frameId` | INT | Identificatore frame|
 | `cameraCallibrationInfo` | collection | Raccolta di valori|
-| `status` | stringa | Stato della calibratura nel formato `state[;progress description]` . Lo stato può essere `Calibrating` , `Recalibrating` (se la ritaratura è abilitata) o `Calibrated` . La parte della descrizione dello stato di avanzamento è valida solo quando si trova nello `Calibrating` `Recalibrating` stato e, che viene usato per mostrare lo stato di avanzamento del processo di calibrazione corrente.|
+| `status` | string | Stato della calibratura nel formato `state[;progress description]` . Lo stato può essere `Calibrating` , `Recalibrating` (se la ritaratura è abilitata) o `Calibrated` . La parte della descrizione dello stato di avanzamento è valida solo quando si trova nello `Calibrating` `Recalibrating` stato e, che viene usato per mostrare lo stato di avanzamento del processo di calibrazione corrente.|
 | `cameraHeight` | float | Altezza della fotocamera sopra la superficie in piedi. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
 
 | Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| Camera ID|
+| `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
 | `width` | INT | Larghezza fotogramma video|
 | `height` | INT | Altezza del fotogramma video|
@@ -463,20 +463,20 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 ```
 | Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID evento|
-| `type` | stringa| Tipo di evento|
+| `id` | string| ID evento|
+| `type` | string| Tipo di evento|
 | `detectionsId` | array| Matrice di dimensioni 1 dell'identificatore univoco del rilevamento della persona che ha attivato l'evento|
 | `properties` | collection| Raccolta di valori|
-| `trackinId` | stringa| Identificatore univoco della persona rilevata|
-| `status` | stringa| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
-| `zone` | stringa | Il campo "nome" della riga che è stata superata|
+| `trackinId` | string| Identificatore univoco della persona rilevata|
+| `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
+| `zone` | string | Il campo "nome" della riga che è stata superata|
 
 | Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID rilevamento|
-| `type` | stringa| Tipo di rilevamento|
+| `id` | string| ID rilevamento|
+| `type` | string| Tipo di rilevamento|
 | `region` | collection| Raccolta di valori|
-| `type` | stringa| Tipo di area|
+| `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 | `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
@@ -484,7 +484,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 
 | Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| Camera ID|
+| `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
 | `width` | INT | Larghezza fotogramma video|
 | `height` | INT | Altezza del fotogramma video|
@@ -608,22 +608,22 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
 
 | Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID evento|
-| `type` | stringa| Tipo di evento. Il valore può essere _personZoneDwellTimeEvent_ o _personZoneEnterExitEvent_|
+| `id` | string| ID evento|
+| `type` | string| Tipo di evento. Il valore può essere _personZoneDwellTimeEvent_ o _personZoneEnterExitEvent_|
 | `detectionsId` | array| Matrice di dimensioni 1 dell'identificatore univoco del rilevamento della persona che ha attivato l'evento|
 | `properties` | collection| Raccolta di valori|
-| `trackinId` | stringa| Identificatore univoco della persona rilevata|
-| `status` | stringa| Direzione degli incroci del poligono, ovverò Enter ' o ' Exit '|
+| `trackinId` | string| Identificatore univoco della persona rilevata|
+| `status` | string| Direzione degli incroci del poligono, ovverò Enter ' o ' Exit '|
 | `side` | INT| Il numero di lato del poligono attraversato dall'utente. Ogni lato è un bordo numerato tra i due vertici del poligono che rappresenta la zona. Il bordo tra i primi due vertici del poligono rappresenta il primo lato|
 | `durationMs` | float | Il numero di millisecondi che rappresenta il tempo impiegato dall'utente nella zona. Questo campo viene fornito quando il tipo di evento è _personZoneDwellTimeEvent_|
-| `zone` | stringa | Il campo "Name" del poligono che rappresenta la zona attraversata|
+| `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 
 | Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID rilevamento|
-| `type` | stringa| Tipo di rilevamento|
+| `id` | string| ID rilevamento|
+| `type` | string| Tipo di rilevamento|
 | `region` | collection| Raccolta di valori|
-| `type` | stringa| Tipo di area|
+| `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 | `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
@@ -723,25 +723,25 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 
 | Nome campo evento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID evento|
-| `type` | stringa| Tipo di evento|
+| `id` | string| ID evento|
+| `type` | string| Tipo di evento|
 | `detectionsId` | array| Matrice di dimensioni 1 dell'identificatore univoco del rilevamento della persona che ha attivato l'evento|
 | `properties` | collection| Raccolta di valori|
 | `personCount` | INT| Numero di persone rilevate quando è stato emesso l'evento|
 | `averageDistance` | float| Distanza media tra tutti gli utenti rilevati in piedi|
 | `minimumDistanceThreshold` | float| Distanza in metri che attiverà un evento "TooClose" quando le persone sono inferiori a tale distanza.|
 | `maximumDistanceThreshold` | float| Distanza in metri che attiverà un evento "TooFar" quando gli utenti sono più grandi della distanza.|
-| `eventName` | stringa| `TooClose`Il nome dell'evento è `minimumDistanceThreshold` violato, `TooFar` quando `maximumDistanceThreshold` viene violato o quando la `unknown` calibrazione automatica non è stata completata|
+| `eventName` | string| `TooClose`Il nome dell'evento è `minimumDistanceThreshold` violato, `TooFar` quando `maximumDistanceThreshold` viene violato o quando la `unknown` calibrazione automatica non è stata completata|
 | `distanceViolationPersonCount` | INT| Numero di persone rilevate in violazione di `minimumDistanceThreshold` o `maximumDistanceThreshold`|
-| `zone` | stringa | Il campo "Name" del poligono che rappresenta la zona monitorata per l'allontanamento tra le persone|
-| `trigger` | stringa| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
+| `zone` | string | Il campo "Name" del poligono che rappresenta la zona monitorata per l'allontanamento tra le persone|
+| `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
 | Nome campo rilevamento | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| ID rilevamento|
-| `type` | stringa| Tipo di rilevamento|
+| `id` | string| ID rilevamento|
+| `type` | string| Tipo di rilevamento|
 | `region` | collection| Raccolta di valori|
-| `type` | stringa| Tipo di area|
+| `type` | string| Tipo di area|
 | `points` | collection| Punti in alto a sinistra e in basso a destra quando il tipo di area è rettangolo |
 | `confidence` | float| Confidenza degli algoritmi|
 | `centerGroundPoint` | 2 valori float| `x`, `y` i valori con le coordinate della posizione dedotta della persona sulla superficie in piedi. `x` e `y` sono coordinate sul piano di piano, supponendo che il piano sia di livello. La posizione della fotocamera è l'origine. |
@@ -755,13 +755,13 @@ In this example, l'evento `centerGroundPoint` è `{x: 4, y: 5}`. Ciò significa 
 
 | Nome campo SourceInfo | Type| Descrizione|
 |---------|---------|---------|
-| `id` | stringa| Camera ID|
+| `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
 | `width` | INT | Larghezza fotogramma video|
 | `height` | INT | Altezza del fotogramma video|
 | `frameId` | INT | Identificatore frame|
 | `cameraCallibrationInfo` | collection | Raccolta di valori|
-| `status` | stringa | Stato della calibratura nel formato `state[;progress description]` . Lo stato può essere `Calibrating` , `Recalibrating` (se la ritaratura è abilitata) o `Calibrated` . La parte della descrizione dello stato di avanzamento è valida solo quando si trova nello `Calibrating` `Recalibrating` stato e, che viene usato per mostrare lo stato di avanzamento del processo di calibrazione corrente.|
+| `status` | string | Stato della calibratura nel formato `state[;progress description]` . Lo stato può essere `Calibrating` , `Recalibrating` (se la ritaratura è abilitata) o `Calibrated` . La parte della descrizione dello stato di avanzamento è valida solo quando si trova nello `Calibrating` `Recalibrating` stato e, che viene usato per mostrare lo stato di avanzamento del processo di calibrazione corrente.|
 | `cameraHeight` | float | Altezza della fotocamera sopra la superficie in piedi. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|

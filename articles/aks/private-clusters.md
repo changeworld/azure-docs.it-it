@@ -4,12 +4,12 @@ description: Informazioni su come creare un cluster privato del servizio Azure K
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 2b0cc8a2fe9a45120bf0b74dbad5e107fd860845
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 66072032b3fd1ac33bef60922c62f73a8cfb11bd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664368"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734665"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creare un cluster privato del servizio Azure Kubernetes
 
@@ -121,18 +121,18 @@ Come indicato in precedenza, il peering di rete virtuale è un modo per accedere
 3. Negli scenari in cui la VNet che contiene il cluster dispone di impostazioni DNS personalizzate (4), la distribuzione del cluster ha esito negativo a meno che la zona DNS privata non sia collegata alla VNet che contiene i resolver DNS personalizzati (5). Questo collegamento può essere creato manualmente dopo la creazione della zona privata durante il provisioning del cluster o tramite automazione al rilevamento della creazione della zona usando i meccanismi di distribuzione basati su eventi, ad esempio griglia di eventi di Azure e funzioni di Azure.
 
 > [!NOTE]
-> Se si usa la [tabella di route Bring your own con kubenet](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) e si porta il proprio DNS con il cluster privato, la creazione del cluster avrà esito negativo. Al termine della creazione del cluster, sarà necessario associare la [RouteTable](https://docs.microsoft.com/azure/aks/configure-kubenet#bring-your-own-subnet-and-route-table-with-kubenet) nel gruppo di risorse del nodo alla subnet, in modo da consentire la corretta creazione.
+> Se si usa la [tabella di route Bring your own con kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) e si porta il proprio DNS con il cluster privato, la creazione del cluster avrà esito negativo. Al termine della creazione del cluster, sarà necessario associare la [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) nel gruppo di risorse del nodo alla subnet, in modo da consentire la corretta creazione.
 
 ## <a name="limitations"></a>Limitazioni 
 * Gli intervalli autorizzati IP non possono essere applicati all'endpoint server dell'API privata, ma si applicano solo al server API pubblico
 * [Le limitazioni del servizio Collegamento privato di Azure][private-link-service] si applicano ai cluster privati.
-* Nessun supporto per gli agenti ospitati da Microsoft di Azure DevOps con cluster privati. Si consiglia di usare gli [agenti self-hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops&tabs=browser&preserve-view=true). 
+* Nessun supporto per gli agenti ospitati da Microsoft di Azure DevOps con cluster privati. Si consiglia di usare gli [agenti self-hosted](/azure/devops/pipelines/agents/agents?preserve-view=true&tabs=browser&view=azure-devops). 
 * Per i clienti che devono consentire al Registro contenitori di Azure di lavorare con il servizio Azure Kubernetes, è necessario eseguire il peering della rete virtuale Registro contenitori con la rete virtuale del cluster di agenti.
 * Nessun supporto per la conversione di cluster AKS esistenti in cluster privati
 * Se si elimina o si modifica l'endpoint privato nella subnet del cliente, il cluster smette di funzionare. 
 * Non è attualmente supportato Monitoraggio di Azure per i contenitori Live Data.
 * Dopo che i clienti hanno aggiornato il record A nei propri server DNS, questi Pod risolveranno comunque il nome di dominio completo (FQDN) di apiserver nell'IP precedente dopo la migrazione fino a quando non vengono riavviati. I clienti devono riavviare i pod hostNetwork e i pod DNSPolicy predefiniti dopo la migrazione del piano di controllo.
-* In caso di manutenzione sul piano di controllo, l' [IP AKS](https://docs.microsoft.com/azure/aks/limit-egress-traffic#:~:text=By%20default%2C%20AKS%20clusters%20have%20unrestricted%20outbound%20%28egress%29,be%20accessible%20to%20maintain%20healthy%20cluster%20maintenance%20tasks.) potrebbe cambiare. In questo caso è necessario aggiornare il record A che punta all'indirizzo IP privato del server API nel server DNS personalizzato e riavviare tutti i pod o le distribuzioni personalizzati usando hostNetwork.
+* In caso di manutenzione sul piano di controllo, l' [IP AKS](./limit-egress-traffic.md) potrebbe cambiare. In questo caso è necessario aggiornare il record A che punta all'indirizzo IP privato del server API nel server DNS personalizzato e riavviare tutti i pod o le distribuzioni personalizzati usando hostNetwork.
 
 <!-- LINKS - internal -->
 [az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

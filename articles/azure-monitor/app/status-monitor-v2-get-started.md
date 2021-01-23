@@ -4,14 +4,14 @@ description: Guida introduttiva per Application Insights Agent. Monitora le pres
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
-ms.date: 04/23/2019
+ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 690304ecef80d988f9a554cd10ce4689f5c72133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0c0102f4d0f23fd7f306f431de7e90174796a56
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070140"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732646"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Introduzione a monitoraggio di Azure Application Insights Agent per i server locali
 
@@ -25,7 +25,14 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Scaricare e installare tramite PowerShell Gallery
 
-### <a name="install-prerequisites"></a>Prerequisiti di installazione
+### <a name="install-prerequisites"></a>Installare i prerequisiti
+
+> [!NOTE]
+> A partire dal 2020 aprile, PowerShell Gallery ha deprecato TLS 1,1 e 1,0.
+>
+> Per i prerequisiti extra che potrebbero essere necessari, vedere [PowerShell Gallery supporto TLS](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support).
+>
+
 Eseguire PowerShell come amministratore.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force

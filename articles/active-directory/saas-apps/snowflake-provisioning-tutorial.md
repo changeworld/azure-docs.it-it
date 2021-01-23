@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: cc88712dd686983baed858de47e11dfa44e85350
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
-ms.translationtype: HT
+ms.openlocfilehash: 9190585face277d92ef86c9bfa045d6d8c05b01c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955519"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734871"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: Configurare Snowflake per il provisioning utenti automatico
 
@@ -164,7 +164,7 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 * **Intervalli di indirizzi IP** 
 
-   Il servizio di provisioning di Azure AD usa attualmente particolari intervalli IP. Di conseguenza, se necessario, è possibile limitare altri intervalli IP e aggiungere gli intervalli IP particolari all'elenco elementi consentiti dell'applicazione per controllare il flusso del traffico dal servizio di provisioning di Azure AD all'applicazione. Vedere la documentazione in [Indirizzi IP](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#ip-ranges).
+   Il servizio di provisioning di Azure AD usa attualmente particolari intervalli IP. Di conseguenza, se necessario, è possibile limitare altri intervalli IP e aggiungere gli intervalli IP particolari all'elenco elementi consentiti dell'applicazione per controllare il flusso del traffico dal servizio di provisioning di Azure AD all'applicazione. Vedere la documentazione in [Indirizzi IP](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges).
 
 ## <a name="change-log"></a>Registro delle modifiche
 

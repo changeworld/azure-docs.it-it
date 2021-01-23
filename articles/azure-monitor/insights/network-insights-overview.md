@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: e4b555f4727d2d1fb5b64814ae07aa15b78da42c
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510924"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734157"
 ---
 # <a name="azure-monitor-for-networks"></a>Monitoraggio di Azure per le reti
 
-Monitoraggio di Azure per le reti offre una panoramica completa dell' [integrità](../../service-health/resource-health-checks-resource-types.md) e delle [metriche](../platform/metrics-supported.md) per tutte le risorse di rete distribuite, senza richiedere alcuna configurazione. Fornisce inoltre l'accesso alle funzionalità di monitoraggio della rete, come il [monitoraggio della connessione](../../network-watcher/connection-monitor-preview.md), [la registrazione dei flussi per i gruppi di sicurezza di rete (gruppi)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [analisi del traffico](../../network-watcher/traffic-analytics.md). E fornisce altre funzionalità di [diagnostica](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) di rete.
+Monitoraggio di Azure per le reti offre una panoramica completa dell' [integrità](../../service-health/resource-health-checks-resource-types.md) e delle [metriche](../platform/metrics-supported.md) per tutte le risorse di rete distribuite, senza richiedere alcuna configurazione. Fornisce inoltre l'accesso alle funzionalità di monitoraggio della rete, come il [monitoraggio della connessione](../../network-watcher/connection-monitor-overview.md), [la registrazione dei flussi per i gruppi di sicurezza di rete (gruppi)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [analisi del traffico](../../network-watcher/traffic-analytics.md). E fornisce altre funzionalità di [diagnostica](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) di rete.
 
 Il monitoraggio di Azure per le reti è strutturato attorno a questi componenti chiave del monitoraggio:
 - [Metriche e integrità della rete](#networkhealth)

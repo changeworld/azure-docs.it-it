@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Introduzione a Always Encrypted con enclave sicure nel database SQL di Azure'
+title: 'Esercitazione: Introduzione ad Always Encrypted con enclave sicure nel database SQL di Azure'
 description: Questa esercitazione illustra come creare un ambiente di base per Always Encrypted con le enclave sicure nel database SQL di Azure e come crittografare i dati sul posto ed eseguire query riservate complesse sulle colonne crittografate usando SQL Server Management Studio (SSMS).
 keywords: Crittografa dati, crittografia SQL, crittografia del database, dati sensibili, Always Encrypted, enclavi sicure, SGX, attestazione
 services: sql-database
@@ -11,33 +11,33 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 94923b13181290a290f13339da5b05f6fdddff38
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: d9c2bec575f2c7a948f3eb6e65be6a735a3c03e8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98252166"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733813"
 ---
-# <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Esercitazione: Introduzione a Always Encrypted con enclave sicure nel database SQL di Azure
+# <a name="tutorial-getting-started-with-always-encrypted-with-secure-enclaves-in-azure-sql-database"></a>Esercitazione: Introduzione ad Always Encrypted con enclave sicure nel database SQL di Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
 > Always Encrypted con enclave sicure per il database SQL di Azure è attualmente disponibile in **anteprima pubblica**.
 
-Questa esercitazione illustra come iniziare a usare [Always Encrypted con le enclave sicure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) nel database SQL di Azure. L'esercitazione spiega:
+Questa esercitazione illustra come iniziare a usare [Always Encrypted con le enclave sicure](/sql/relational-databases/security/encryption/always-encrypted-enclaves) nel database SQL di Azure. L'esercitazione spiega:
 
 > [!div class="checklist"]
 > - Come creare un ambiente per il test e la valutazione di Always Encrypted con enclave sicure.
-> - Come crittografare i dati sul posto ed eseguire query riservate complesse sulle colonne crittografate usando SQL Server Management Studio (SSMS).
+> - Come crittografare i dati in locale ed eseguire query avanzate riservate su colonne crittografate usando SQL Server Management Studio (SSMS).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa esercitazione richiede Azure PowerShell e [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+Questa esercitazione richiede Azure PowerShell e [SSMS](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ### <a name="powershell-requirements"></a>Requisiti di PowerShell
 
-Per informazioni su come installare ed eseguire Azure PowerShell, vedere [Panoramica di Azure PowerShell](https://docs.microsoft.com/powershell/azure). 
+Per informazioni su come installare ed eseguire Azure PowerShell, vedere [Panoramica di Azure PowerShell](/powershell/azure). 
 
 Versione minima dei moduli Az necessaria per supportare le operazioni di attestazione:
 
@@ -66,7 +66,7 @@ Per continuare a interagire con PowerShell Gallery, eseguire il comando seguente
 
 ### <a name="ssms-requirements"></a>Requisiti di SSMS
 
-Per informazioni su come scaricare SSMS, vedere [scaricare SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) .
+Per informazioni su come scaricare SSMS, vedere [scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) .
 
 La versione minima richiesta di SSMS è 18,8.
 
@@ -75,7 +75,7 @@ La versione minima richiesta di SSMS è 18,8.
 
  In questo passaggio si creerà un nuovo server logico di database SQL di Azure e un nuovo database usando la configurazione hardware della serie DC. Always Encrypted con enclavi sicure nel database SQL di Azure usa le enclave Intel SGX, che sono supportate nella configurazione hardware della serie DC. Per ulteriori informazioni, vedere [serie DC](service-tiers-vcore.md#dc-series).
 
-1. Aprire una console di PowerShell e accedere ad Azure. Se necessario, [passare alla sottoscrizione](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps) usata per questa esercitazione.
+1. Aprire una console di PowerShell e accedere ad Azure. Se necessario, [passare alla sottoscrizione](/powershell/azure/manage-subscriptions-azureps) usata per questa esercitazione.
 
   ```PowerShell
   Connect-AzAccount
@@ -356,10 +356,10 @@ In questo passaggio verranno crittografati i dati archiviati nelle colonne **SSN
 ## <a name="next-steps"></a>Passaggi successivi
 
 Al termine dell'esercitazione, è possibile passare a una delle esercitazioni seguenti:
-- [Esercitazione: Sviluppare un'applicazione .NET usando Always Encrypted con enclave sicure](https://docs.microsoft.com/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
-- [Esercitazione: Sviluppare un'applicazione .NET Framework usando Always Encrypted con enclave sicuri](https://docs.microsoft.com/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
-- [Esercitazione: Creazione e uso di indici sulle colonne abilitate per l'enclave tramite la crittografia casuale](https://docs.microsoft.com/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
+- [Esercitazione: Sviluppare un'applicazione .NET usando Always Encrypted con enclave sicure](/sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps)
+- [Esercitazione: Sviluppare un'applicazione .NET Framework usando Always Encrypted con enclave sicuri](/sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps)
+- [Esercitazione: Creazione e uso di indici sulle colonne abilitate per l'enclave tramite la crittografia casuale](/sql/relational-databases/security/tutorial-creating-using-indexes-on-enclave-enabled-columns-using-randomized-encryption)
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Configurare e usare Always Encrypted con enclave sicuri](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)
+- [Configurare e usare Always Encrypted con enclave sicuri](/sql/relational-databases/security/encryption/configure-always-encrypted-enclaves)

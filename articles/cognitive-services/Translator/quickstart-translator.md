@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traduttore, servizio traduttore, tradurre testo, eseguire la traslitterazione di testo, rilevamento della lingua
-ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: 38bd4d28a8ae4c737155cd74bcb39d1acfaf699c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369529"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733495"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Avvio rapido: Introduzione a Traduttore
 
@@ -59,7 +59,7 @@ In questo argomento di avvio rapido si apprenderà come usare il servizio Tradut
 # <a name="java"></a>[Java](#tab/java)
 
 * Creare una directory di lavoro per il progetto. Ad esempio: `mkdir sample-project`.
-* Inizializzare il progetto con Gradle: `gradle init --type basic`. Quando viene chiesto di scegliere un linguaggio **DSL** , selezionare **Kotlin**.
+* Inizializzare il progetto con Gradle: `gradle init --type basic`. Quando viene chiesto di scegliere un linguaggio **DSL**, selezionare **Kotlin**.
 * Aggiornare `build.gradle.kts`. Tenere presente che sarà necessario aggiornare il valore di `mainClassName` in base all'esempio.
   ```java
   plugins {
@@ -968,7 +968,8 @@ Se occorre eseguire la traduzione in una lingua che usa un alfabeto (o fonemi) d
 
 Per ottenere una traslitterazione dall'endpoint `translate`, usare il parametro `toScript`.
 
-> ![NOTA] Per un elenco completo delle lingue e delle opzioni di traslitterazione disponibili, vedere [Lingue supportate](language-support.md).
+> [!NOTE]
+> Per un elenco completo delle lingue e delle opzioni di traslitterazione disponibili, vedere [supporto](language-support.md)per le lingue.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1247,7 +1248,8 @@ Dopo una chiamata riuscita, si dovrebbe vedere la risposta seguente. Tenere pres
 
 Si può anche usare l'endpoint `transliterate` per ottenere una traslitterazione. Quando si usa l'endpoint di traslitterazione, è necessario specificare la lingua di origine (`language`), l'alfabeto di origine (`fromScript`) e l'alfabeto di output (`toScript`) come parametri. In questo esempio si otterrà la traslitterazione di สวัสดี. 
 
-> ![NOTA] Per un elenco completo delle lingue e delle opzioni di traslitterazione disponibili, vedere [Lingue supportate](language-support.md).
+> [!NOTE]
+> Per un elenco completo delle lingue e delle opzioni di traslitterazione disponibili, vedere [supporto](language-support.md)per le lingue.
 
 # <a name="c"></a>[C#](#tab/csharp)
 

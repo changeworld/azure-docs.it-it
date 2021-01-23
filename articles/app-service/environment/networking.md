@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 680b1f3b6af186eba27a4dd926016a04cd863760
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0a1221a8de10fd18768a1a0f0ac08277dc2901d6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013490"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735034"
 ---
 # <a name="app-service-environment-networking"></a>Rete ambiente del servizio app
 
@@ -52,7 +52,7 @@ A differenza di ASEv2, con ASEv3 è possibile impostare i gruppi di sicurezza di
 
 ## <a name="dns"></a>DNS
 
-Le app nell'ambiente del servizio app utilizzeranno il DNS con cui è configurata la VNet. Seguire le istruzioni riportate in [uso di un ambiente del servizio app](https://docs.microsoft.com/azure/app-service/environment/using#dns-configuration) per configurare il server DNS in modo che punti all'ambiente del servizio app. Se si vuole che alcune app usino un server DNS diverso rispetto a quello con cui è configurata la VNet, è possibile impostarla manualmente in base all'app con le impostazioni dell'app WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. L'impostazione app WEBSITE_DNS_ALT_SERVER configura il server DNS secondario. Il server DNS secondario viene usato solo quando non è presente alcuna risposta dal server DNS primario. 
+Le app nell'ambiente del servizio app utilizzeranno il DNS con cui è configurata la VNet. Seguire le istruzioni riportate in [uso di un ambiente del servizio app](./using.md#dns-configuration) per configurare il server DNS in modo che punti all'ambiente del servizio app. Se si vuole che alcune app usino un server DNS diverso rispetto a quello con cui è configurata la VNet, è possibile impostarla manualmente in base all'app con le impostazioni dell'app WEBSITE_DNS_SERVER e WEBSITE_DNS_ALT_SERVER. L'impostazione app WEBSITE_DNS_ALT_SERVER configura il server DNS secondario. Il server DNS secondario viene usato solo quando non è presente alcuna risposta dal server DNS primario. 
 
 ## <a name="preview-limitation"></a>Limitazione anteprima
 
@@ -61,4 +61,3 @@ Alcune funzionalità di rete non sono disponibili con ASEv3.  Gli elementi che n
 • FTP • debug remoto • distribuzione del servizio di bilanciamento del carico esterno • possibilità di accedere a un registro contenitori privato per le distribuzioni di contenitori • possibilità di effettuare chiamate a reti virtuali con peering globale • possibilità di eseguire il backup o il ripristino con un endpoint del servizio o un endpoint privato protetto account di archiviazione • possibilità di fare riferimento alle impostazioni dell'insieme di credenziali delle app per l'endpoint di servizio o per l'endpoint privato proteggere gli account dell'insieme di credenziali delle credenziali • possibilità di usare BYOS per un endpoint di servizio o un endpoint privato protetto account di archiviazione • uso del flusso Network Watcher o NSG nel traffico in uscita
     
     
-

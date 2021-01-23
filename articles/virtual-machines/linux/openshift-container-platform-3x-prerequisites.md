@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 68bd748e890659e4b79d76e4ccab038f251a937a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51f6a2ac4f524ac2a504fb8e0c3dd90ec25c9f93
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016030"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734731"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift container Platform 3,11 in Azure
 
@@ -134,7 +134,7 @@ Prendere nota della proprietà appId e della password restituite dal comando:
  > [!WARNING] 
  > Assicurarsi di annotare la password sicura perché non sarà possibile recuperarla nuovamente.
 
-Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>Prerequisiti applicabili solo al modello di Gestione risorse
 

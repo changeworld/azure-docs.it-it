@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: c41856c394166f2e3b8fd3bde794f0f294ef6af9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 4448ce051b0c9e73865e8057cc4f224c9cbeb571
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253456"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732745"
 ---
 # <a name="plan-for-intel-sgx-enclaves-and-attestation-in-azure-sql-database"></a>Pianificare le enclavi e l'attestazione di Intel SGX nel database SQL di Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "98253456"
 > [!NOTE]
 > Always Encrypted con enclave sicure per il database SQL di Azure è attualmente disponibile in **anteprima pubblica**.
 
-[Always Encrypted con enclavi sicure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves) nel database SQL di Azure usa le enclave [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e richiede [Microsoft Azure attestazione](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
+[Always Encrypted con enclavi sicure](/sql/relational-databases/security/encryption/always-encrypted-enclaves) nel database SQL di Azure usa le enclave [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) e richiede [Microsoft Azure attestazione](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
 ## <a name="plan-for-intel-sgx-in-azure-sql-database"></a>Pianificare Intel SGX nel database SQL di Azure
 
@@ -49,13 +49,13 @@ Per usare l'attestazione di Azure per l'attestazione delle enclave Intel SGX nel
 
 ## <a name="roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation"></a>Ruoli e responsabilità quando si configurano le enclave e l'attestazione SGX
 
-La configurazione dell'ambiente per supportare le enclave e l'attestazione di Intel SGX per Always Encrypted nel database SQL di Azure comporta la configurazione di componenti di tipi diversi: attestazione Microsoft Azure, database SQL di Azure e applicazioni che attivano l'attestazione dell'enclave. La configurazione dei componenti di ogni tipo viene eseguita dagli utenti presumendo uno dei seguenti ruoli distinti:
+La configurazione dell'ambiente per supportare le enclave e l'attestazione di Intel SGX per Always Encrypted nel database SQL di Azure comporta la configurazione di componenti di tipi diversi: attestazione Microsoft Azure, database SQL di Azure e applicazioni che attivano l'attestazione dell'enclave. La configurazione dei componenti di ogni tipo viene eseguita dagli utenti presupponendo uno dei ruoli distinti seguenti:
 
 - Amministratore di attestazione: crea un provider di attestazione in Microsoft Azure attestazione, autore dei criteri di attestazione, concede l'accesso al server logico di Azure SQL al provider di attestazione e condivide l'URL di attestazione che punta al criterio agli amministratori dell'applicazione.
 - Amministratore del database SQL di Azure: Abilita le enclave SGX nei database selezionando la generazione di hardware della serie DC e fornisce all'amministratore di attestazione l'identità del server logico SQL di Azure che deve accedere al provider di attestazione.
 - Amministratore applicazione: configura le applicazioni con l'URL di attestazione ottenuto dall'amministratore di attestazione.
 
-Negli ambienti di produzione (che gestiscono dati sensibili), è importante che l'organizzazione si attenga alla separazione dei ruoli durante la configurazione dell'attestazione, in cui ogni ruolo distinto viene assunto da persone diverse. In particolare, se l'obiettivo della distribuzione di Always Encrypted nell'organizzazione consiste nel ridurre la superficie di attacco, assicurandosi che gli amministratori del database SQL di Azure non possano accedere ai dati sensibili, gli amministratori del database SQL di Azure non devono controllare i criteri di attestazione.
+Negli ambienti di produzione (che gestiscono dati sensibili reali), è importante che l'organizzazione rispetti la separazione dei ruoli durante la configurazione dell'attestazione, assicurandosi che ogni ruolo distinto venga assunto da persone diverse. In particolare, se l'obiettivo della distribuzione di Always Encrypted nell'organizzazione consiste nel ridurre la superficie di attacco, assicurandosi che gli amministratori del database SQL di Azure non possano accedere ai dati sensibili, gli amministratori del database SQL di Azure non devono controllare i criteri di attestazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -63,4 +63,4 @@ Negli ambienti di produzione (che gestiscono dati sensibili), è importante che 
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Esercitazione: Introduzione a Always Encrypted con enclave sicure nel database SQL di Azure](always-encrypted-enclaves-getting-started.md)
+- [Esercitazione: Introduzione ad Always Encrypted con enclave sicure nel database SQL di Azure](always-encrypted-enclaves-getting-started.md)

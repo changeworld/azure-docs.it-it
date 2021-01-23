@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 444b514dfb1798ff810e84fc4e9d50001dbaee1c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 8e260ae8310807ef9e0dad7d4fe21df8caad9b48
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685789"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735294"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. 
@@ -148,7 +148,7 @@ Se non si ricevono notifiche sul messaggio di *posta elettronica principale*, è
 Un Gruppo di azioni può contenere un numero limitato di azioni di posta elettronica. Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Funzione
-Chiama un endpoint di trigger HTTP esistente in [Funzioni di Azure](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+Chiama un endpoint di trigger HTTP esistente in [Funzioni di Azure](../../azure-functions/functions-get-started.md).
 
 Un Gruppo di azioni può contenere un numero limitato di funzioni.
 

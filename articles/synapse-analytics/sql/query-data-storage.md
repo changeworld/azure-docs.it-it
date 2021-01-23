@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9500d682a99e6345289a83b4b3b2fc29ffe18457
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b5025aa322ae26f9dd7c683d0e54762fd33eb355
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676885"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735382"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Eseguire query sui file dell'archiviazione con il pool SQL serverless in Azure Synapse Analytics
 
@@ -184,7 +184,7 @@ Per impostazione predefinita, la funzione `OPENROWSET` abbina il nome e il perco
 - La funzione restituisce un valore scalare, ad esempio int, decimal e varchar, dall'elemento specificato e nel percorso specificato per tutti i tipi Parquet che non sono inclusi nel gruppo di tipi annidati.
 - Se il percorso punta a un elemento che è di un tipo annidato, la funzione restituisce un frammento JSON a partire dal primo elemento nel percorso specificato. Il frammento JSON è di tipo varchar(8000).
 - Se la proprietà non si trova in corrispondenza dell'elemento column_name specificato, la funzione restituisce un errore.
-- Se la proprietà non si trova in corrispondenza dell'elemento column_path specificato, in base alla [modalità Path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), la funzione restituisce un errore se in modalità strict o Null se in modalità lax.
+- Se la proprietà non si trova in corrispondenza dell'elemento column_path specificato, in base alla [modalità Path](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true#PATHMODE), la funzione restituisce un errore se in modalità strict o Null se in modalità lax.
 
 Per esempi di query, vedere la sezione Accesso agli elementi di colonne annidate nell'articolo [Eseguire query su tipi annidati di Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 

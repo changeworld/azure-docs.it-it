@@ -7,17 +7,17 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 0b32158ad58a663f7d85b9814bb4f2c1c55e4178
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
-ms.translationtype: HT
+ms.openlocfilehash: 5cb767c639c7ff1d9888085caa036571376cc596
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922449"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734148"
 ---
 # <a name="examples-of-an-attestation-policy-signer-certificate"></a>Esempi di un certificato del firmatario di criteri di attestazione
 
 I certificati del firmatario di criteri associati a un provider di attestazioni verranno usati da Attestazione di Microsoft Azure per convalidare i criteri firmati.
-Altre informazioni sui [vantaggi della firma dei criteri](/azure/attestation/basic-concepts/#benefits-of-policy-signing)
+Altre informazioni sui [vantaggi della firma dei criteri](./basic-concepts.md#benefits-of-policy-signing)
 
 **Formato di file del certificato del firmatario di criteri da usare nel flusso di creazione del provider**
 

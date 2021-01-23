@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 18d75d5c49eecb0fe198ce2afc432870fb3783e6
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 2d046f5f039555e58d9ce4c028e750ce083fd5f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97969045"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733690"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Esercitazione: Integrare Qlik Sense Enterprise con Azure Active Directory
 
@@ -251,7 +251,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Qlik Sense Enterprise e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Qlik Sense Enterprise in App personali, si verrà reindirizzati all'URL di accesso di Qlik Sense Enterprise. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Qlik Sense Enterprise in App personali, si verrà reindirizzati all'URL di accesso di Qlik Sense Enterprise. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

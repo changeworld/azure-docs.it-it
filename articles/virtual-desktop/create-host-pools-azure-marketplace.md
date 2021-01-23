@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287390"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735182"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -118,7 +118,7 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
       - Windows 10 Enterprise multisessione, versione 2004
       - Windows 10 Enterprise multisessione, versione 2004 + Microsoft 365 Apps
 
-     Se non viene visualizzata l'immagine desiderata, selezionare **Esplora tutte le immagini e i dischi** che consente di selezionare un'altra immagine della raccolta o un'immagine fornita da Microsoft e da altri editori.
+     Se non viene visualizzata l'immagine desiderata, selezionare **Esplora tutte le immagini e i dischi** che consente di selezionare un'altra immagine della raccolta o un'immagine fornita da Microsoft e da altri editori. Assicurarsi che l'immagine scelta sia una delle [Immagini del sistema operativo supportate](overview.md#supported-virtual-machine-os-images).
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot del Marketplace con un elenco di immagini di Microsoft visualizzate.](media/marketplace-images.png)

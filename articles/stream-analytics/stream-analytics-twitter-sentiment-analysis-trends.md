@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.openlocfilehash: 3b321e318621c5687a2e3e5f0649985210a2d16c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 6a461ad906f7611c8a13e2ee495f4d2f62fedd53
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019874"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734840"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -40,6 +40,10 @@ In questa guida pratica si usa un'applicazione client che si connette a Twitter 
 * L'applicazione TwitterClientCore, che legge il feed di Twitter. Per questa applicazione, scaricare [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
 * Installare l'[interfaccia della riga di comando di .NET Core](/dotnet/core/tools/?tabs=netcore2x) versione 2.1.0.
+
+Di seguito è riportata l'architettura della soluzione che si intende implementare.
+
+   ![Diagramma che mostra diversi componenti di servizi e applicazioni usati per compilare la soluzione.](./media/stream-analytics-twitter-sentiment-analysis-trends/solution-diagram.png "Diagramma della soluzione")
 
 ## <a name="create-an-event-hub-for-streaming-input"></a>Creare un hub eventi per l'input di streaming
 

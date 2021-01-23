@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 2bb1e667758a1430e34d222b9a5c537381c07624
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 40ea367c1298a916df541d362b85e8d485d193f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505274"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734933"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -91,7 +91,7 @@ Per entrambe le richieste di visualizzazione ed esportazione dei dati, utilizzar
 Nell'ambito della gestione dei dati privati è stato reso disponibile un percorso dell'API di *ripulitura*. Questo percorso deve essere usato solo in casi limitati a causa dei rischi associati, del potenziale impatto sulle prestazioni e della possibilità di un'asimmetria di tutte le aggregazioni, le misure e altri aspetti dei dati di Log Analytics. Vedere la sezione [Strategia per la gestione dei dati personali](#strategy-for-personal-data-handling) per approcci alternativi per la gestione dei dati privati.
 
 > [!NOTE]
-> Una volta eseguita l'operazione di ripulitura, non è possibile accedere ai dati mentre lo [stato dell'operazione di ripulitura](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/getpurgestatus) è *in sospeso*. 
+> Una volta eseguita l'operazione di ripulitura, non è possibile accedere ai dati mentre lo [stato dell'operazione di ripulitura](/rest/api/loganalytics/workspacepurge/getpurgestatus) è *in sospeso*. 
 
 La ripulitura è un'operazione con privilegi elevati che nessuna app o nessun utente in Azure (incluso anche il proprietario della risorsa) avrà l'autorizzazione di eseguire senza disporre esplicitamente di un ruolo in Azure Resource Manager. Questo ruolo è _Responsabile ripulitura dati_ e deve essere delegato con attenzione a causa della potenziale perdita di dati. 
 
@@ -129,4 +129,3 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni su come i dati di Log Analitica sono raccolti, elaborati e protetti, vedere [la protezione dei dati di Log Analitica](./data-security.md).
 - Per altre informazioni sul modo in cui i dati vengono raccolti, elaborati e protetti, vedere [Sicurezza dei dati di Application Insights](../app/data-retention-privacy.md).
-

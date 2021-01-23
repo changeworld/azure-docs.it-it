@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: tagore
-ms.openlocfilehash: ff3e8916a6634c564aa98b21b7e8d7c89fa1b17e
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: bc12d626d8a331981cbbad015b376b826c617209
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897179"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735133"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Approfondimento tecnico sulla migrazione supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 
@@ -163,11 +163,11 @@ La tabella seguente mostra la rappresentazione delle risorse nel modello di dist
 | Regole NAT in ingresso |Regole NAT in ingresso |Gli endpoint di input definiti nella VM vengono convertiti in regole NAT in ingresso nel servizio di bilanciamento del carico durante la migrazione. |
 | Indirizzo VIP |Indirizzo IP pubblico con nome DNS |L'indirizzo IP virtuale diventa un indirizzo IP pubblico e viene associato al servizio di bilanciamento del carico. La migrazione di un indirizzo IP virtuale può essere eseguita solo se all'indirizzo è assegnato un endpoint di input. |
 | Rete virtuale |Rete virtuale |Viene eseguita la migrazione della rete virtuale con tutte le relative proprietà nel modello di distribuzione di Resource Manager. Viene creato un nuovo gruppo di risorse con il nome `-migrated`. |
-| IP riservati |Indirizzo IP pubblico con allocationMethod statico |Gli indirizzi IP riservati associati al servizio di bilanciamento del carico vengono trasferiti con la migrazione del servizio cloud o della macchina virtuale. È possibile eseguire la migrazione di indirizzi IP riservati non associati tramite [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip?view=azuresmps-4.0.0).  |
+| IP riservati |Indirizzo IP pubblico con allocationMethod statico |Gli indirizzi IP riservati associati al servizio di bilanciamento del carico vengono trasferiti con la migrazione del servizio cloud o della macchina virtuale. È possibile eseguire la migrazione di indirizzi IP riservati non associati tramite [Move-AzureReservedIP](/powershell/module/servicemanagement/azure.service/move-azurereservedip).  |
 | Indirizzo IP pubblico per VM |Indirizzo IP pubblico con Allocationmethod dinamico |L'indirizzo IP pubblico associato alla VM viene convertito come risorsa indirizzo IP pubblico con il metodo di allocazione impostato su statico. |
-| Gruppi di sicurezza di rete |Gruppi di sicurezza di rete |I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di gruppi di sicurezza di rete non associati tramite [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup?view=azuresmps-4.0.0).|
+| Gruppi di sicurezza di rete |Gruppi di sicurezza di rete |I gruppi di sicurezza di rete associati a una subnet vengono clonati come parte della migrazione nel modello di distribuzione di Resource Manager. Il gruppo di sicurezza di rete nel modello di distribuzione classica non viene rimosso durante la migrazione. Tuttavia, le operazioni del piano di gestione per il gruppo di sicurezza di rete vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di gruppi di sicurezza di rete non associati tramite [Move-AzureNetworkSecurityGroup](/powershell/module/servicemanagement/azure.service/move-azurenetworksecuritygroup).|
 | Server DNS |Server DNS |Viene eseguita la migrazione dei server DNS associati a una rete virtuale o alla VM come parte della migrazione delle risorse corrispondenti insieme a tutte le proprietà. |
-| Route definite dall'utente |Route definite dall'utente |Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Il routing definito dall'utente nel modello di distribuzione classica non viene rimosso durante la migrazione. Le operazioni del piano di gestione per il routing definito dall'utente vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di route definite dall'utente non associate tramite [Move-AzureRouteTable](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable?view=azuresmps-4.0.0). |
+| Route definite dall'utente |Route definite dall'utente |Le route definite dall'utente associate a una subnet vengono clonate come parte della migrazione al modello di distribuzione di Resource Manager. Il routing definito dall'utente nel modello di distribuzione classica non viene rimosso durante la migrazione. Le operazioni del piano di gestione per il routing definito dall'utente vengono bloccate mentre la migrazione è in corso. È possibile eseguire la migrazione di route definite dall'utente non associate tramite [Move-AzureRouteTable](/powershell/module/servicemanagement/azure.service/Move-AzureRouteTable). |
 | Proprietà di inoltro IP nella configurazione di rete di una VM |Proprietà di inoltro IP nella scheda di rete |La proprietà di IP in una VM viene convertita in una proprietà nell'interfaccia di rete durante la migrazione. |
 | Servizio di bilanciamento del carico con più IP |Servizio di bilanciamento del carico con più risorse IP pubblico |Ogni indirizzo IP pubblico associato al servizio di bilanciamento del carico viene convertito in una risorsa IP pubblico e associato al servizio di bilanciamento del carico al termine della migrazione. |
 | Nomi DNS interni nella VM |Nomi DNS interni nella NIC |Durante la migrazione, i suffissi DNS interni per le VM vengono migrati a una proprietà di sola lettura chiamata "InternalDomainNameSuffix" sulla scheda di interfaccia di rete. Il suffisso non subisce modifiche dopo la migrazione e la risoluzione della macchina virtuale continua a funzionare come in precedenza. |

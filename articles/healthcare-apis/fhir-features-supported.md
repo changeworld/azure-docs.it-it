@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: 9a4c331d82695aecb53990fd604ade82f3361959
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad663b345d3d150b55e0e018afd1430775d77162
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452927"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733470"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -27,9 +27,9 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 
 ## <a name="rest-api"></a>API REST
 
-| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento                                             |
+| API                            | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment                                             |
 |--------------------------------|-----------|-----------|-----------|-----------------------------------------------------|
-| leggere                           | Sì       | Sì       | Sì       |                                                     |
+| lettura                           | Sì       | Sì       | Sì       |                                                     |
 | VREAD                          | Sì       | Sì       | Sì       |                                                     |
 | update                         | Sì       | Sì       | Sì       |                                                     |
 | aggiornamento con blocco ottimistico | Sì       | Sì       | Sì       |                                                     |
@@ -40,25 +40,25 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | history                        | Sì       | Sì       | Sì       |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       | [#1382](https://github.com/microsoft/fhir-server/issues/1382) problema |
-| ricerca                         | Partial   | Partial   | Partial   | Vedere di seguito                                           |
+| ricerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
 | ricerca concatenata                 | No        | Sì       | No        |                                           |
 | ricerca inversa concatenata         | No        | No        | No        |                                            |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
 | o batch                          | Sì       | Sì       | Sì       |                                                     |
 | transaction                    | No        | Sì       | No        |                                                     |
-| paging                         | Partial   | Partial   | Partial   | `self` e `next` sono supportati                     |
+| paging                         | Parziale   | Parziale   | Parziale   | `self` e `next` sono supportati                     |
 | intermediari                 | No        | No        | No        |                                                     |
 
 ## <a name="search"></a>Ricerca
 
 Sono supportati tutti i tipi di parametro di ricerca. 
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
-| Numero                | Sì       | Sì       | Sì       |         |
+| Number                | Sì       | Sì       | Sì       |         |
 | Date/DateTime         | Sì       | Sì       | Sì       |         |
 | string                | Sì       | Sì       | Sì       |         |
-| token                 | Sì       | Sì       | Sì       |         |
+| Token                 | Sì       | Sì       | Sì       |         |
 | Informazioni di riferimento             | Sì       | Sì       | Sì       |         |
 | Composite             | Sì       | Sì       | Sì       |         |
 | Quantità              | Sì       | Sì       | Sì       |         |
@@ -86,7 +86,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_id`                   | Sì       | Sì       | Sì       |         |
 | `_lastUpdated`          | Sì       | Sì       | Sì       |         |
 | `_tag`                  | Sì       | Sì       | Sì       |         |
-| `_profile`              | Sì       | Sì       | Sì       |         |
+| `_profile`              | Parziale   | Parziale   | Parziale   | Supportato solo in STU3, nessun supporto in R4 |
 | `_security`             | Sì       | Sì       | Sì       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
@@ -96,14 +96,14 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | `_query`                | No        | No        | No        |         |
 | `_filter`               | No        | No        | No        |         |
 
-| Parametri dei risultati della ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
+| Parametri dei risultati della ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
-| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` è supportato       |
+| `_sort`                 | Parziale        | Parziale   | Parziale        |   `_sort=_lastUpdated` è supportato       |
 | `_count`                | Sì       | Sì       | Sì       | `_count` è limitato a 100 caratteri. Se è impostato su un valore superiore a 100, verrà restituito solo 100 e nel bundle verrà restituito un avviso. |
 | `_include`              | Sì       | Sì       | Sì       |Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
 | `_revinclude`           | Sì       | Sì       | Sì       | Gli elementi inclusi sono limitati a 100. L'inclusione in PaaS e OSS in Cosmos DB non include: iterate support.|
-| `_summary`              | Partial   | Partial   | Partial   | `_summary=count` è supportato |
-| `_total`                | Partial   | Partial   | Partial   | _total = non e _total = accurate      |
+| `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
+| `_total`                | Parziale   | Parziale   | Parziale   | _total = non e _total = accurate      |
 | `_elements`             | Sì       | Sì       | Sì       |         |
 | `_contained`            | No        | No        | No        |         |
 | `containedType`         | No        | No        | No        |         |
@@ -113,7 +113,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 
 Tutte le operazioni supportate che estendono l'API RESTful.
 
-| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
+| Tipo di parametro di ricerca | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Comment |
 |------------------------|-----------|-----------|-----------|---------|
 | $export (intero sistema) | Sì       | Sì       | Sì       |         |
 | Paziente/$export        | Sì       | Sì       | Sì       |         |
@@ -137,7 +137,7 @@ Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *
 
 * [**Unità richiesta (UR)**](../cosmos-db/concepts-limits.md) : è possibile configurare fino a 10.000 UR nel portale per l'API di Azure per FHIR. Sarà necessario un minimo di 400 ur o 10 UR/GB, a seconda del valore maggiore. Se sono necessarie più di 10.000 UR, è possibile inserire un ticket di supporto per aumentare il numero di unità. Il valore massimo disponibile è 1 milione.
 
-* Connessioni e **istanze** **simultanee** : per dafault, sono disponibili cinque connessioni simultanee in due istanze del cluster (per un totale di 10 richieste simultanee). Se ritieni di avere bisogno di più richieste simultanee, Apri un ticket di supporto con i dettagli sulle tue esigenze.
+* Connessioni e **istanze** **simultanee** : per impostazione predefinita, sono disponibili cinque connessioni simultanee in due istanze del cluster (per un totale di 10 richieste simultanee). Se ritieni di avere bisogno di più richieste simultanee, Apri un ticket di supporto con i dettagli sulle tue esigenze.
 
 * **Dimensioni bundle** : ogni bundle è limitato a 500 di elementi.
 

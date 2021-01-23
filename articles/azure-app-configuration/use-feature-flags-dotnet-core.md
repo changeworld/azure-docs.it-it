@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 1794d5b15c724008d95cfc59b16960b7ae6a0783
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 2f141b896ef11fecdf156d062a78252ce6f7ffb3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661570"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734984"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -105,7 +105,7 @@ Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, u
               .UseStartup<Startup>();
    ```
 
-2. Aprire il file *Startup.cs* e aggiornare il metodo `Configure` per aggiungere il middleware predefinito `UseAzureAppConfiguration`. Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
+2. Aprire *Startup.cs* e aggiornare il `Configure` `ConfigureServices` metodo e per aggiungere il middleware incorporato denominato `UseAzureAppConfiguration` . Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -115,6 +115,13 @@ Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, u
    }
    ```
 
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddAzureAppConfiguration();
+   }
+   ```
+   
 I valori di flag di funzionalità devono cambiare nel tempo. Per impostazione predefinita, i valori dei flag di funzionalità vengono memorizzati nella cache per un periodo di 30 secondi, in modo che un'operazione di aggiornamento attivata quando il middleware riceve la richiesta non aggiorni il valore fino alla scadenza del valore memorizzato nella cache. Il codice seguente mostra come modificare l'intervallo di scadenza della cache o l'intervallo di polling impostandolo su 5 minuti nella chiamata a `options.UseFeatureFlags()`.
 
 ```csharp

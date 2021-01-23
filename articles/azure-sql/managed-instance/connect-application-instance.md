@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791257"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732612"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Connettere l'applicazione a un'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ Il peering è preferibile perché usa la rete backbone Microsoft. Pertanto, dal 
 
 Per la connessione locale a una rete virtuale di Azure sono disponibili due opzioni:
 
-- Connessione VPN da sito a sito ([portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), interfaccia della riga di comando di [Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
+- Connessione VPN da sito a sito ([portale di Azure](../../vpn-gateway/tutorial-site-to-site-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), interfaccia della riga di comando di [Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
 - Connessione [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
 Se è stata stabilita una connessione da locale ad Azure e non è possibile stabilire una connessione a SQL Istanza gestita, controllare se il firewall ha una connessione in uscita aperta sulla porta SQL 1433 e l'intervallo di porte 11000-11999 per il reindirizzamento.
@@ -71,10 +71,10 @@ Un altro scenario implementato dai clienti è la posizione in cui un gateway VPN
 
 ![Peering di rete virtuale](./media/connect-application-instance/vnet-peering.png)
 
-Dopo aver configurato l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa visualizzare gli indirizzi IP nella rete virtuale che ospita SQL Istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering** .
+Dopo aver configurato l'infrastruttura di base, è necessario modificare alcune impostazioni in modo che il gateway VPN possa visualizzare gli indirizzi IP nella rete virtuale che ospita SQL Istanza gestita. Per fare ciò, apportare le seguenti modifiche molto specifiche in **Impostazioni di peering**.
 
-1. Nella rete virtuale che ospita il gateway VPN passare a **peering** , passare alla connessione di rete virtuale con peering per SQL istanza gestita e quindi fare clic su **Consenti transito gateway** .
-2. Nella rete virtuale che ospita Istanza gestita SQL passare a **peering** , passare alla connessione di rete virtuale con peering per il gateway VPN e quindi fare clic su **Usa gateway remoti** .
+1. Nella rete virtuale che ospita il gateway VPN passare a **peering**, passare alla connessione di rete virtuale con peering per SQL istanza gestita e quindi fare clic su **Consenti transito gateway**.
+2. Nella rete virtuale che ospita Istanza gestita SQL passare a **peering**, passare alla connessione di rete virtuale con peering per il gateway VPN e quindi fare clic su **Usa gateway remoti**.
 
 ## <a name="connect-azure-app-service"></a>Connetti app Azure servizio 
 
@@ -101,7 +101,7 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
 - Se non si è in grado di connettersi a SQL Istanza gestita da una macchina virtuale di Azure all'interno della stessa rete virtuale, ma di una subnet diversa, verificare se è stato impostato un gruppo di sicurezza di rete nella subnet VM che potrebbe bloccare l'accesso. Aprire inoltre la connessione in uscita sulla porta SQL 1433 e le porte nell'intervallo 11000-11999, perché sono necessarie per la connessione tramite reindirizzamento all'interno del limite di Azure.
 - Assicurarsi che la propagazione BGP sia impostata su **abilitato** per la tabella di route associata alla rete virtuale.
-- Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita** . I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
+- Se si utilizza la VPN P2S, controllare la configurazione nel portale Azure per vedere se si vedono i numeri **Ingresso/Uscita**. I numeri diversi da zero indicano che Azure indirizza il traffico da/per un’istanza locale.
 
    ![Numeri in ingresso/in uscita](./media/connect-application-instance/ingress-egress-numbers.png)
 

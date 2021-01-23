@@ -3,12 +3,12 @@ title: Unità di istanza di BareMetal in Azure
 description: Informazioni su come identificare e interagire con le unità di istanza di BareMetal tramite il portale di Azure.
 ms.topic: how-to
 ms.date: 1/4/2021
-ms.openlocfilehash: 30e1661e82546dbaf6d8dc4288ad896df89f401e
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: b089b45c35ff05f10ae59f8ce793645361be1e9b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861037"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733264"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gestire istanze bare metal tramite il portale di Azure
  
@@ -50,7 +50,7 @@ Per altre informazioni, vedere l'articolo relativo ai [provider e ai tipi di ris
 1. Selezionare **provider di risorse** e immettere **BareMetalInfrastructure** nella ricerca. Il provider di risorse deve essere **registrato**, come illustrato nell'immagine.
  
 >[!NOTE]
->Se il provider di risorse non è registrato, selezionare **registra**.
+>Se il provider di risorse non è registrato, selezionare **Registra**.
  
 :::image type="content" source="media/baremetal-infrastructure-portal/register-resource-provider-azure-portal.png" alt-text="Screenshot che mostra l'unità dell'istanza di BareMetal registrata":::
  
@@ -97,7 +97,7 @@ Le revisioni hardware possibili sono:
 >[!NOTE]
 >Rev 4,2 è la versione più recente dell'infrastruttura BareMetal con l'architettura Rev 4 esistente. Il Rev 4 fornisce una prossimità più vicina agli host della macchina virtuale (VM) di Azure. Offre miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanza BareMetal distribuite in indicatori o righe Rev 4. È possibile accedere alle istanze di BareMetal e gestirle tramite il portale di Azure. Per altre informazioni, vedere [infrastruttura Baremetal in Azure](baremetal-overview-architecture.md).
  
-Sul lato destro è anche disponibile il nome del [gruppo di posizionamento di prossimità di Azure](../../../virtual-machines/linux/co-location.md) , creato automaticamente per ogni unità di istanza Baremetal distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello dell'applicazione, fare riferimento al gruppo di posizionamento di prossimità. Quando si usa il gruppo di posizionamento di prossimità associato all'unità di istanza di BareMetal, si garantisce che le macchine virtuali di Azure vengano distribuite vicino all'unità di istanza di BareMetal.
+Sul lato destro è anche disponibile il nome del [gruppo di posizionamento di prossimità di Azure](../../../virtual-machines/co-location.md) , creato automaticamente per ogni unità di istanza Baremetal distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello dell'applicazione, fare riferimento al gruppo di posizionamento di prossimità. Quando si usa il gruppo di posizionamento di prossimità associato all'unità di istanza di BareMetal, si garantisce che le macchine virtuali di Azure vengano distribuite vicino all'unità di istanza di BareMetal.
  
 >[!TIP]
 >Per individuare il livello dell'applicazione nello stesso data center di Azure di revisione 4. x, vedere [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale](../../../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).

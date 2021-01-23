@@ -3,12 +3,12 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 291c50d4ac52d34a218b1b7cc76d625da3119d25
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 691fe991ad141696c0c68e915d7225001a1befd0
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968994"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733571"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
@@ -49,7 +49,7 @@ Di seguito è illustrato come Backup di Azure completa un backup per le macchine
 
 Quando si esegue il backup di macchine virtuali di Azure con Backup di Azure, viene eseguita la crittografia dei dati inattivi delle macchine virtuali con la crittografia del servizio di archiviazione. Backup di Azure può anche eseguire il backup di macchine virtuali di Azure crittografate tramite crittografia dischi di Azure.
 
-**Crittografia** | **Dettagli** | **Supporto tecnico**
+**Crittografia** | **Dettagli** | **Supporto**
 --- | --- | ---
 **Crittografia del servizio di archiviazione** | Con SSE, archiviazione di Azure offre la crittografia dei dati inattivi crittografando automaticamente i dati prima di archiviarli. Archiviazione di Azure decrittografa anche i dati prima di recuperarli. Backup di Azure supporta i backup di macchine virtuali con due tipi di crittografia del servizio di archiviazione:<li> **SSE con chiavi gestite dalla piattaforma**: questa crittografia è per impostazione predefinita per tutti i dischi delle macchine virtuali. Per altre informazioni, vedere [qui](../virtual-machines/disk-encryption.md#platform-managed-keys).<li> **SSE con chiavi gestite dal cliente**. Con CMK, è possibile gestire le chiavi usate per crittografare i dischi. Per altre informazioni, vedere [qui](../virtual-machines/disk-encryption.md#customer-managed-keys). | Backup di Azure usa SSE per la crittografia inattiva delle VM di Azure.
 **Azure Disk Encryption** | Crittografia dischi di Azure crittografa i dischi dati e del sistema operativo per le macchine virtuali di Azure.<br/><br/> Crittografia dischi di Azure si integra con le chiavi di crittografia di BitLocker (BEKs), che vengono protette in un insieme di credenziali delle chiavi come segreti. Crittografia dischi di Azure si integra inoltre con Azure Key Vault chiavi di crittografia della chiave (KEKs). | Backup di Azure supporta il backup di macchine virtuali di Azure gestite e non gestite crittografate solo con BEKs o con BEKs insieme a KEKs.<br/><br/> Viene eseguito il backup e la crittografia sia di BEKs che di KEKs.<br/><br/> Poiché viene eseguito il backup di KEKs e BEKs, gli utenti con le autorizzazioni necessarie possono ripristinare chiavi e segreti nell'insieme di credenziali delle chiavi, se necessario. Questi utenti possono anche ripristinare la macchina virtuale crittografata.<br/><br/> Le chiavi e i segreti crittografati non possono essere letti da utenti non autorizzati o da Azure.
@@ -121,7 +121,7 @@ Quando si configurano backup per macchine virtuali, è consigliabile seguire que
 - Se si ripristinano le macchine virtuali da un unico insieme di credenziali, è consigliabile usare [account di archiviazione di uso generico V2](../storage/common/storage-account-upgrade.md) diversi per assicurarsi che l'account di archiviazione di destinazione non venga limitato. Ogni macchina virtuale, ad esempio, deve avere un account di archiviazione diverso. Se, ad esempio, vengono ripristinate 10 macchine virtuali, usare 10 account di archiviazione diversi.
 - Per il backup delle macchine virtuali che usano archiviazione Premium con il ripristino immediato, si consiglia di allocare lo spazio disponibile del *50%* dello spazio di archiviazione totale allocato, necessario **solo** per il primo backup. Il 50% di spazio disponibile non è un requisito per i backup dopo il completamento del primo backup
 - Il limite relativo al numero di dischi per account di archiviazione dipende dalla modalità con cui le applicazioni in esecuzione in una macchina virtuale IaaS accedono ai dischi. Come regola generale, se sono presenti da 5 a 10 o più dischi in un solo account di archiviazione, bilanciare il carico spostando alcuni dischi in account di archiviazione separati.
-- Per ripristinare le macchine virtuali con dischi gestiti usando PowerShell, specificare il parametro aggiuntivo **_TargetResourceGroupName_* _ per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. [altre informazioni](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-managed-disks)sono disponibili qui.
+- Per ripristinare le macchine virtuali con dischi gestiti usando PowerShell, specificare il parametro aggiuntivo **_TargetResourceGroupName_* _ per specificare il gruppo di risorse in cui verranno ripristinati i dischi gestiti. [altre informazioni](./backup-azure-vms-automation.md#restore-managed-disks)sono disponibili qui.
 
 ## <a name="backup-costs"></a>Costi di backup
 

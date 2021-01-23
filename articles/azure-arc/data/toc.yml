@@ -235,4 +235,4 @@
 - name: Risorse
   items:
     - name: Guide di avvio rapido per Azure Arc
-      href: 'https://github.com/microsoft/azure_arc'
+      href: 'https://azurearcjumpstart.io'

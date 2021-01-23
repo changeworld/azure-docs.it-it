@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 32ca39685772272ae93ccbe0c2afcbd1f66894b1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 786925799d19bf01e8edebbf85de04d92213298b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354804"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732846"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-retrievermediadatabase"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con RetrieverMediaDatabase
 
@@ -118,10 +118,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 1. Dopo aver fatto clic su Test this application (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di RetrieverMediaDatabase per cui si è configurato l'accesso SSO
 
-1. È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di RetrieverMediaDatabase in App personali, si dovrebbe accedere automaticamente all'applicazione RetrieverMediaDatabase per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di RetrieverMediaDatabase in App personali, si dovrebbe accedere automaticamente all'applicazione RetrieverMediaDatabase per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato RetrieverMediaDatabase, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dopo aver configurato RetrieverMediaDatabase, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

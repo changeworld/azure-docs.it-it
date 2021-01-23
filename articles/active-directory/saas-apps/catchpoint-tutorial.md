@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 940915186176efcb39be03efe6673c138132ebd6
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: a8515920985c569df74b1e328d6bfe1c4ec97195
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916304"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735315"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Catchpoint
 
@@ -101,7 +101,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD, seguire questa procedura nel
     | namespace | user.assignedrole |
 
     > [!NOTE]
-    > È necessario eseguire il mapping dell'attestazione di `namespace` con il nome dell'account. Questo nome dell'account deve essere configurato con un ruolo in Azure AD, che verrà restituito nella risposta SAML. Per altre informazioni sui ruoli in Azure AD, vedere [Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+    > È necessario eseguire il mapping dell'attestazione di `namespace` con il nome dell'account. Questo nome dell'account deve essere configurato con un ruolo in Azure AD, che verrà restituito nella risposta SAML. Per altre informazioni sui ruoli in Azure AD, vedere [Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Passare alla pagina **Configura l'accesso Single Sign-On con SAML**. Nella sezione **Certificato di firma SAML** individuare il **certificato (Base64)** . Selezionare **Scarica** per salvare il certificato nel computer.
 
@@ -176,7 +176,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su **Testa l'applicazione** nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Catchpoint per cui si è configurato l'accesso SSO 
 
-È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di Catchpoint in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di Catchpoint per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+È anche possibile usare App personali Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di Catchpoint in App personali, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di Catchpoint per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 > [!NOTE]

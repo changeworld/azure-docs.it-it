@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/28/2020
 ms.author: jgao
-ms.openlocfilehash: 4d2a55355318a1bf916017fa77026a87a95b7f57
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 574dcf50111c14f4924f009a74ed6f2ac2bb31e9
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809718"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733841"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usare gli script di distribuzione nei modelli ARM
 
@@ -542,7 +542,7 @@ Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel 
 > [!NOTE]
 > Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.
 
-L'istanza del contenitore e l'account di archiviazione vengono eliminati in base a `cleanupPreference` . Tuttavia, se lo script non riesce e `cleanupPreference` non è impostato su **Always**, il processo di distribuzione mantiene automaticamente il contenitore in esecuzione per un'ora. Questa ora può essere usata per risolvere i problemi relativi allo script. Se si desidera lasciare il contenitore in esecuzione dopo le distribuzioni riuscite, aggiungere un passaggio di sospensione allo script. Ad esempio, aggiungere [Start-Sleep](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) alla fine dello script. Se non si aggiunge il passaggio di sospensione, il contenitore viene impostato su uno stato terminale e non è possibile accedervi anche se non è ancora stato eliminato.
+L'istanza del contenitore e l'account di archiviazione vengono eliminati in base a `cleanupPreference` . Tuttavia, se lo script non riesce e `cleanupPreference` non è impostato su **Always**, il processo di distribuzione mantiene automaticamente il contenitore in esecuzione per un'ora. Questa ora può essere usata per risolvere i problemi relativi allo script. Se si desidera lasciare il contenitore in esecuzione dopo le distribuzioni riuscite, aggiungere un passaggio di sospensione allo script. Ad esempio, aggiungere [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) alla fine dello script. Se non si aggiunge il passaggio di sospensione, il contenitore viene impostato su uno stato terminale e non è possibile accedervi anche se non è ancora stato eliminato.
 
 ## <a name="run-script-more-than-once"></a>Eseguire lo script più di una volta
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 138e3ee5272d790130cebfd8a1f61da7bed970d8
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 587078f1f084d002e4d725ca3be64bcec36b4c45
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663969"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734648"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -107,7 +107,7 @@ Per le nuove versioni **secondarie** di Kubernetes
 1. AKS pubblica un annuncio preliminare con la data pianificata di una nuova versione della versione e la relativa deprecazione obsoleta nelle note sulla versione di [AKS](https://aka.ms/aks/releasenotes) almeno 30 giorni prima della rimozione.
 2. AKS pubblica una [notifica sull'integrità del servizio](../service-health/service-health-overview.md) disponibile per tutti gli utenti con accesso AKS e Portal e invia un messaggio di posta elettronica agli amministratori della sottoscrizione con le date di rimozione della versione pianificata.
 ````
-To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#assign-a-subscription-administrator).
+To find out who is your subscription administrators or to change it, please refer to [manage Azure subscriptions](../cost-management-billing/manage/add-change-subscription-administrator.md#assign-a-subscription-administrator).
 ````
 3. Gli utenti hanno **30 giorni** dalla rimozione della versione per eseguire l'aggiornamento a una versione secondaria supportata per continuare a ricevere supporto.
 

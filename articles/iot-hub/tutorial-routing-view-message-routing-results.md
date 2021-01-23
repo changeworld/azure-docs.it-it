@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 0db05c8caae8483de3b55448bfbe6b2bcfc23187
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: fdfb2470e83cefaeb6df35115f7bb46149d8ffe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625283"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734001"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Esercitazione: Parte 2 - Visualizzare i messaggi instradati
 
@@ -48,7 +48,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    **Località**: usare la propria località. Questa esercitazione usa **Stati Uniti occidentali**.
 
-   **Log Analytics**: questo interruttore deve essere disattivato.
+   **Enable log Analytics**: questo interruttore deve essere disattivato.
 
    ![Schermata Crea app per la logica](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
@@ -151,6 +151,8 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
    **Nome del set di dati**: il nome del set di dati da usare in Power BI. Questa esercitazione usa **contosodataset**. 
 
    **Nome tabella**: il nome della tabella da usare in Power BI. Questa esercitazione usa **contosotable**.
+
+  **Modalità di autenticazione**: selezionare la modalità da usare.
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 

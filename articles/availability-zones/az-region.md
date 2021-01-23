@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: ea21a56249c8eaa7c6b329b755e96b21b91ebaa1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c63ea4f9cdb961ca492d5dcf22a89627864236cd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632309"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98733201"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -37,7 +37,7 @@ I servizi di Azure che supportano zone di disponibilità rientrano in tre catego
 - **Servizi non** a livello di area: servizi che non hanno dipendenze da un'area di Azure specifica, rendendoli resilienti a interruzioni a livello di zona, oltre a interruzioni a livello di area.
 
 
-Per garantire la continuità aziendale completa in Azure, creare l'architettura delle applicazioni combinando le zone di disponibilità con coppie di aree di Azure. È possibile replicare in modo sincrono le applicazioni e i dati usando le zone di disponibilità all'interno di un'area di Azure per la disponibilità elevata ed eseguire repliche asincrone tra le aree di Azure per la protezione con ripristino di emergenza. Per altre informazioni, vedere [la pagina relativa alla creazione di soluzioni per la disponibilità elevata con zone di disponibilità](https://docs.microsoft.com/azure/architecture/high-availability/building-solutions-for-high-availability). 
+Per garantire la continuità aziendale completa in Azure, creare l'architettura delle applicazioni combinando le zone di disponibilità con coppie di aree di Azure. È possibile replicare in modo sincrono le applicazioni e i dati usando le zone di disponibilità all'interno di un'area di Azure per la disponibilità elevata ed eseguire repliche asincrone tra le aree di Azure per la protezione con ripristino di emergenza. Per altre informazioni, vedere [la pagina relativa alla creazione di soluzioni per la disponibilità elevata con zone di disponibilità](/azure/architecture/high-availability/building-solutions-for-high-availability). 
 
 
 ### <a name="azure-services-supporting-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità
@@ -205,8 +205,8 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Creare una macchina virtuale](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Aggiungere un disco gestito usando PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard)
-- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard)
+- [Bilanciare il carico delle macchine virtuali tra zone usando un servizio Load Balancer Standard con un front-end con ridondanza della zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
+- [Bilanciare il carico delle macchine virtuali all'interno di una zona usando un servizio Load Balancer Standard con un front-end di zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard)
 - [Archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md)
 - [Livello utilizzo generico database SQL](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Ripristino di emergenza geografico di Hub eventi](../event-hubs/event-hubs-geo-dr.md#availability-zones)
@@ -214,7 +214,7 @@ Per le macchine virtuali distribuite in una zona di disponibilità non sono prev
 - [Creare un gateway di rete virtuale con ridondanza della zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 - [Aggiungere un'area con ridondanza della zona per Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
 - [Introduzione cache di Azure per Redis zone di disponibilità](https://gist.github.com/JonCole/92c669ea482bbb7996f6428fb6c3eb97#file-redisazgettingstarted-md)
-- [Creare un'istanza di Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance)
+- [Creare un'istanza di Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md)
 - [Creare un cluster Azure Kubernetes Service (AKS) che usa zone di disponibilità](../aks/availability-zones.md)
 
 

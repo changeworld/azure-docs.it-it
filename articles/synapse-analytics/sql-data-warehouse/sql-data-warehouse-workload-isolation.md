@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ce2451ddf775b7aff63b43ec02041ecd5440c580
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 506aed16f1b8a6c631a759bb1367aef8242859ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678390"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734781"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Isolamento del gruppo di carico di lavoro di Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ La configurazione dell'isolamento del carico di lavoro definisce in modo implici
 [Concorrenza garantita] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE]
-> Per min_percentage_resource ci sono valori validi minimi specifici per il livello di servizio.  Per altre informazioni, vedere [Valori effettivi](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values).
+> Per min_percentage_resource ci sono valori validi minimi specifici per il livello di servizio.  Per altre informazioni, vedere [Valori effettivi](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json?view=azure-sqldw-latest&preserve-view=true#effective-values).
 
 In assenza di isolamento del carico di lavoro, le richieste funzionano nel [pool condiviso](#shared-pool-resources) di risorse.  L'accesso alle risorse nel pool condiviso non è garantito e viene assegnato in base all'[importanza](sql-data-warehouse-workload-importance.md).
 

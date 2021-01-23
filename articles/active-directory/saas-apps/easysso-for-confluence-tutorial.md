@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: e5477b0ce45b1e888e472ebf7582607034c55800
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-ms.translationtype: HT
+ms.openlocfilehash: 325f6ad7d9685fac17e17b28c4ffbe31b1245cca
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813463"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-confluence"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EasySSO for Confluence
 
@@ -197,7 +197,7 @@ Se, però, non si vuole abilitare il provisioning utenti automatico al primo acc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando App personali.
 
-Quando si fa clic sul riquadro di EasySSO for Confluence in App personali, si dovrebbe accedere automaticamente all'istanza di Confluence per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di EasySSO for Confluence in App personali, si dovrebbe accedere automaticamente all'istanza di Confluence per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Flusso di lavoro avviato da SP
 

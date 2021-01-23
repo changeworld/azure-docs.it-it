@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 65efc47fcb8c9751342db04b270eb877d10c6886
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.openlocfilehash: b0c772b3f30b211cf83512ca2ff2f10325fb4bc1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364423"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735090"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Equinix Federation App
 
@@ -132,11 +132,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Equinix Federation App e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Equinix Federation App in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Equinix Federation App. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Equinix Federation App in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Equinix Federation App. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Equinix Federation App, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dopo aver configurato Equinix Federation App, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

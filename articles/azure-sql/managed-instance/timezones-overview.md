@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790628"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734580"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusi orari in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Le funzioni T-SQL come [GETDATE ()](/sql/t-sql/functions/getdate-transact-sql) o
 
 Un set di fusi orari supportati viene ereditato dal sistema operativo sottostante dell'istanza gestita. Viene regolarmente aggiornata per ottenere nuove definizioni di fuso orario e riflettere le modifiche apportate a quelle esistenti.
 
-I [criteri per le modifiche dell'ora legale e del fuso orario](https://aka.ms/time) garantiscono l'accuratezza cronologica da 2010 in poi.
+I [criteri per le modifiche dell'ora legale e del fuso orario](/troubleshoot/windows-client/system-management-components/daylight-saving-time-help-support) garantiscono l'accuratezza cronologica da 2010 in poi.
 
 Un elenco con i nomi dei fusi orari supportati viene esposto tramite la vista di sistema [sys.time_zone_info](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 

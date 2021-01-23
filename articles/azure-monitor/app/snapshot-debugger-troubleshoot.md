@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3e45b5a48f9a7fb66d7539e83f385203ae371ad7
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673553"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732728"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
 Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile usare queste istruzioni per la risoluzione dei problemi.
@@ -272,4 +272,4 @@ Se non viene ancora visualizzata un'eccezione con l'ID dello snapshot, il record
 
 Se l'applicazione si connette a Internet tramite un proxy o un firewall, potrebbe essere necessario aggiornare le regole per comunicare con il servizio Snapshot Debugger.
 
-Gli indirizzi IP usati da Application Insights Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure. Per ulteriori informazioni, vedere la [documentazione dei tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+Gli indirizzi IP usati da Application Insights Snapshot Debugger sono inclusi nel tag del servizio di monitoraggio di Azure. Per ulteriori informazioni, vedere la [documentazione dei tag di servizio](../../virtual-network/service-tags-overview.md).

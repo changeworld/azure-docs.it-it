@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
-ms.translationtype: HT
+ms.openlocfilehash: f66395b1e0f45f1e80cd0ac93bf8c9ae8674a0f2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147029"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732963"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -38,7 +38,7 @@ Si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Completare la guida di avvio rapido [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-* Verificare che nella sottoscrizione sia disponibile un'app Funzioni di Azure. Per altre informazioni, vedere [come creare un'app per le funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Deve contenere funzioni con trigger HTTP e livello di autorizzazione impostato su *Anonimo* o su *Funzione*.
+* Verificare che nella sottoscrizione sia disponibile un'app Funzioni di Azure. Per altre informazioni, vedere [come creare un'app per le funzioni di Azure](../azure-functions/functions-get-started.md). Deve contenere funzioni con trigger HTTP e livello di autorizzazione impostato su *Anonimo* o su *Funzione*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -112,8 +112,8 @@ Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa
 
 L'importazione di un'app per le funzioni di Azure genera automaticamente:
 
-* la chiave host nell'app per le funzioni, con il nome apim-{ *nome istanza del servizio Gestione API di Azure* },
-* il valore denominato nell'istanza di Gestione API di Azure, con il nome { *nome istanza dell'app per le funzioni di Azure* }-key, che contiene la chiave host creata.
+* la chiave host nell'app per le funzioni, con il nome apim-{*nome istanza del servizio Gestione API di Azure*},
+* il valore denominato nell'istanza di Gestione API di Azure, con il nome {*nome istanza dell'app per le funzioni di Azure*}-key, che contiene la chiave host creata.
 
 Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità *Back-end* associata all'app per le funzioni.
 
@@ -150,7 +150,7 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 
 3. Selezionare un'operazione.
 
-    La pagina visualizza campi per le intestazioni e campi per i parametri di query. Una delle intestazioni è **Ocp-Apim-Subscription-Key** , per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
+    La pagina visualizza campi per le intestazioni e campi per i parametri di query. Una delle intestazioni è **Ocp-Apim-Subscription-Key**, per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
 
 4. Selezionare **Send** (Invia).
 

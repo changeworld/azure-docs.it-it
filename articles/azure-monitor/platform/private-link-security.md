@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: e8d0dcae81944d5799841c22093585b942934b79
-ms.sourcegitcommit: a89a517622a3886b3a44ed42839d41a301c786e0
+ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97732105"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98734967"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -149,7 +149,7 @@ Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un en
  
    b.    Scegliere **Sì** per **Integra con la zona DNS privato** e consentire la creazione automatica di una nuova zona DNS privato. Le zone DNS effettive potrebbero essere diverse da quelle illustrate nella schermata seguente. 
    > [!NOTE]
-   > Se si sceglie **No** e si preferisce gestire i record DNS manualmente, completare prima di tutto la configurazione del collegamento privato, inclusi questo endpoint privato e la configurazione AMPLS. Configurare quindi il DNS seguendo le istruzioni riportate in [configurazione DNS dell'endpoint privato di Azure](../../private-link/private-endpoint-dns.md). Assicurarsi di non creare record vuoti come preparazione per la configurazione del collegamento privato. I record DNS creati possono sostituire le impostazioni esistenti e influiscano sulla connettività con monitoraggio di Azure.
+   > Se si sceglie **No** e si preferisce gestire i record DNS manualmente, completare prima di tutto la configurazione del collegamento privato, inclusi questo endpoint privato e la configurazione AMPLS. Quindi configurare il DNS seguendo le istruzioni riportate in [Configurazione del DNS dell'endpoint privato di Azure](../../private-link/private-endpoint-dns.md). Assicurarsi di non creare record vuoti come preparazione per la configurazione del collegamento privato. I record DNS creati possono sostituire le impostazioni esistenti e influire sulla connettività con Monitoraggio di Azure.
  
    c.    Fare clic su **Rivedi e crea**.
  
@@ -217,7 +217,7 @@ Questo tipo di limitazione dell'accesso si applica solo ai dati nella risorsa Ap
 
 È possibile automatizzare il processo descritto in precedenza usando modelli di Azure Resource Manager, REST e interfacce della riga di comando.
 
-Per creare e gestire ambiti di collegamento privati, usare l' [API REST](https://docs.microsoft.com/rest/api/monitor/private%20link%20scopes%20(preview)) o l'interfaccia della riga di comando di [Azure (AZ monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Per creare e gestire ambiti di collegamento privati, usare l' [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o l'interfaccia della riga di comando di [Azure (AZ monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
 
 Per gestire l'accesso alla rete, usare i flag `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` in [Aree di lavoro Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) o [Componenti Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
 

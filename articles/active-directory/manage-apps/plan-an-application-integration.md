@@ -1,26 +1,22 @@
 ---
-title: Introduzione all'integrazione di Azure AD con le app | Documentazione Microsoft
+title: Introduzione all'integrazione di Azure AD con le app
 description: Questo articolo è una guida introduttiva per l'integrazione di Azure Active Directory (AD) con applicazioni locali e applicazioni cloud.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 913b7975de4598bba7240647c1d9e8c81cd1cec9
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: db3d3623e175d582a2fe271d73aa452ca07b8e8d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659098"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735067"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -77,9 +73,7 @@ Gli articoli seguenti illustrano i diversi modi in cui le applicazioni si integr
 Con il proxy di applicazione di Microsoft Azure AD è possibile garantire l'accesso ad applicazioni che si trovano all'interno della rete privata in modo sicuro da qualsiasi posizione e su qualsiasi dispositivo. Dopo aver installato un connettore del proxy di applicazione all'interno dell'ambiente, è possibile configurarlo facilmente con Azure AD.
 
 ### <a name="integrating-custom-applications"></a>Integrazione di applicazioni personalizzate
-Se si scrive una nuova applicazione e si vuole aiutare gli sviluppatori a sfruttare la potenza di Azure AD, vedere [Guida per gli sviluppatori](./developer-guidance-for-integrating-applications.md).
-
-Per aggiungere un'applicazione personalizzata alla raccolta di applicazioni di Azure, vedere il post di blog su ["Bring your own app" con la configurazione SAML Self-Service di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
+Se si vuole aggiungere l'applicazione personalizzata alla raccolta di applicazione Azure, vedere [pubblicare l'app nella raccolta di app Azure ad](../develop/v2-howto-app-gallery-listing.md).
 
 ## <a name="managing-access-to-applications"></a>Gestione dell'accesso alle applicazioni
 Gli articoli seguenti illustrano i modi in cui è possibile gestire l'accesso alle applicazioni dopo l'integrazione con Azure AD mediante i connettori di Azure AD e Azure AD.
@@ -96,6 +90,6 @@ Per informazioni dettagliate, è possibile scaricare i piani di distribuzione di
 Per scaricare un piano di distribuzione dal portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **applicazioni aziendali**  |  **scegliere un piano di distribuzione dell'app**  |  **Deployment Plan**.
+2. Selezionare **applicazioni aziendali**  |  **scegliere un piano di distribuzione dell'app**  |  .
 
 Fornire commenti e suggerimenti sui piani di distribuzione grazie all'uso di [Sondaggio piano di distribuzione](https://aka.ms/DeploymentPlanFeedback).

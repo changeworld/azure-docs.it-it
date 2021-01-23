@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 885ee993748a0a571f396cc0dc28f2c0c1a4a0c3
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
-ms.translationtype: HT
+ms.openlocfilehash: fcb53dc22cfb4bf7308b92ee76e5aaaf3bb0dead
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792518"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735098"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per il provisioning utenti automatico
 
@@ -86,7 +86,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 9. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to ThousandEyes** (Sincronizza utenti di Azure Active Directory in ThousandEyes).
 
-10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a ThousandEyes. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Parsable per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API Parsable supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+10. Nella sezione **Mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure AD a ThousandEyes. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per l'abbinamento con gli account utente in Parsable per le operazioni di aggiornamento. Se si sceglie di modificare l'[attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), sarà necessario assicurarsi che l'API Parsable supporti il filtro degli utenti basato su tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
      |Attributo|Type|Supportato per il filtro|
      |---|---|---|
@@ -98,7 +98,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
      |name.formatted|string|
 
 
-11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Per abilitare il servizio di provisioning di Azure AD per ThousandEyes, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
@@ -117,15 +117,15 @@ L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:
 
-1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
-2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
-3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Usare i [log di provisioning](../reports-monitoring/concept-provisioning-logs.md) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
+2. Controllare l'[indicatore di stato](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
+3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione del provisioning degli account utente per app aziendali](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../manage-apps/check-status-user-account-provisioning.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)

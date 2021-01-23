@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.subservice: application-insights
-ms.openlocfilehash: f59dce5a450cd745ad05ea3b53d85606706a8eaa
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 8da719f399c0c49efd478f05a0114d85233c880f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97513369"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732629"
 ---
 # <a name="application-insights-standard-metrics"></a>Metrica Application Insights standard
 
@@ -56,31 +56,31 @@ Le metriche del browser vengono raccolte dal Application Insights JavaScript SDK
 
 |Unità di misura|Aggregazioni supportate| Dimensioni supportate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ### <a name="client-processing-time-browsertimingprocessingduration"></a>Tempo di elaborazione client (browserTiming/processingDuration)
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Tempo di connessione alla rete di caricamento della pagina (browserTimings/networkDuration)
 
 |Unità di misura|Aggregazioni supportate| Dimensioni supportate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Ricezione del tempo di risposta (browserTimings/receiveDuration)
 
 |Unità di misura|Aggregazioni supportate| Dimensioni supportate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ### <a name="send-request-time-browsertimingssendduration"></a>Tempo di invio richiesta (browserTimings/sendDuration)
 
 |Unità di misura|Aggregazioni supportate| Dimensioni supportate|
 |---|---|---|
-|Millisecondi|Media, min, max|Nessuno|
+|Millisecondi|Media, min, max|nessuno|
 
 ## <a name="failure-metrics"></a>Metriche errori
 
@@ -218,7 +218,7 @@ Questa metrica si riferisce alla durata delle chiamate alle dipendenze.
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-| Ora | Media, min, max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
+| Tempo | Media, min, max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
 
 
 ### <a name="server-request-rate-requestscount"></a>Frequenza richieste server (richieste/conteggio)
@@ -241,7 +241,7 @@ Questa metrica riflette il tempo impiegato dai server per elaborare le richieste
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-| Ora | Media, min, max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Tempo | Media, min, max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ## <a name="usage-metrics"></a>Metriche di utilizzo
 
@@ -251,7 +251,7 @@ Questa metrica si riferisce alla quantità di tempo impiegato per il caricamento
 
 |Unità di misura|Aggregazioni supportate|Dimensioni supportate|
 |---|---|---|
-| Ora | Media, min, max | `Cloud role name`, `Is traffic synthetic` |
+| Tempo | Media, min, max | `Cloud role name`, `Is traffic synthetic` |
 
 ### <a name="page-views-pageviewscount"></a>Visualizzazioni pagina (pagine di visualizzazione/conteggio)
 
@@ -272,5 +272,5 @@ Numero di istruzioni di traccia registrate con la chiamata API TrackTrace () App
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle [metriche basate su log e pre-aggregate](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics).
-* [Query e definizioni delle metriche basate su log](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics).
+* Informazioni sulle [metriche basate su log e pre-aggregate](./pre-aggregated-metrics-log-metrics.md).
+* [Query e definizioni delle metriche basate su log](../platform/app-insights-metrics.md).
