@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Documentazione di servizi cloud di Azure (supporto esteso)
+summary: Informazioni su come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità. Viene illustrato come gestire gli host di macchine virtuali e configurare, applicare patch e installare software.
+metadata:
+  title: Documentazione di servizi cloud di Azure (supporto esteso)
+  description: Descrive come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+  ms.openlocfilehash: 8f999851c1566b2a488daa4bdc5da73761f7ce0b
+  ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+  ms.translationtype: MT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98745252"
+landingContent:
+- title: Informazioni sui servizi cloud (supporto esteso)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono i servizi cloud (supporto esteso)?
+      url: overview.md
+    - text: Prerequisiti per la distribuzione
+      url: deploy-prerequisite.md
+    - text: File di configurazione e creazione di pacchetti
+      url: cloud-services-model-and-package.md
+- title: Esercitazioni
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuire tramite PowerShell
+      url: deploy-powershell.md
+    - text: Distribuire tramite il portale di Azure
+      url: deploy-portal.md
+    - text: Eseguire la distribuzione usando i modelli ARM
+      url: deploy-template.md
+    - text: Eseguire la distribuzione usando Visual Studio
+      url: deploy-visual-studio.md
+- title: Concetti
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Dimensioni disponibili
+      url: available-sizes.md
+    - text: Domande frequenti
+      url: faq.md
+- title: Guide pratiche
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Estensioni
+      url: extensions.md
+    - text: Attivare gli avvisi
+      url: enable-alerts.md
+    - text: Configurare la scalabilità
+      url: configure-scaling.md
+    - text: Certificati
+      url: certificates-and-key-vault.md
+- title: Esempi
+  linkLists:
+  - linkListType: sample
+    links:
+    - text: Creare una distribuzione del servizio cloud
+      url: sample-create-cloud-service.md
+    - text: Recuperare informazioni su una distribuzione del servizio cloud
+      url: sample-get-cloud-service.md
+    - text: Aggiornare una distribuzione del servizio cloud
+      url: sample-update-cloud-service.md
+    - text: Reimpostare una distribuzione del servizio cloud
+      url: sample-reset-cloud-service.md
+- title: Informazioni sullo schema
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Schema di configurazione
+      url: schema-cscfg-file.md
+    - text: Schema di definizione
+      url: schema-csdef-file.md
+    - text: Schema del ruolo config
+      url: schema-cscfg-role.md

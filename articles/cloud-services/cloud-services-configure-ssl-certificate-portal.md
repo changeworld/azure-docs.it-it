@@ -1,21 +1,24 @@
 ---
 title: Configurare TLS per un servizio cloud | Microsoft Docs
 description: Informazioni su come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato TLS/SSL per proteggere l'applicazione. Questi esempi utilizzano il portale di Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/26/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: c69b74cf91d8e097f8ad8a9ba2a16f3375f483ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 33aa088efd7768153d4a17472d82e0826f4ffa6b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024847"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742642"
 ---
 # <a name="configuring-tls-for-an-application-in-azure"></a>Configurazione di TLS per un'applicazione in Azure
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 Transport Layer Security (TLS), noto in precedenza come crittografia SSL (Secure Socket Layer), è il metodo usato più di frequente per proteggere i dati inviati attraverso Internet. Questa attività comune illustra come specificare un endpoint HTTPS per un ruolo Web e come caricare un certificato TLS/SSL per proteggere l'applicazione.
 
@@ -34,7 +37,7 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati TLS/SSL in
 
 * Il certificato deve contenere una chiave pubblica.
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se il nome di dominio personalizzato è **contoso.com** , è necessario richiedere un certificato dalla CA per ***. contoso.com** o **www \. contoso.com**.
+* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato TLS/SSL da un'autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se il nome di dominio personalizzato è **contoso.com** , è necessario richiedere un certificato dalla CA per **_. contoso.com_* o **www \. contoso.com**.
 * Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato auto firmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.

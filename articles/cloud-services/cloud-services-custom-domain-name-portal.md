@@ -1,21 +1,25 @@
 ---
-title: Configurare un nome di dominio personalizzato nei servizi cloud | Microsoft Docs
+title: Configurare un nome di dominio personalizzato nei servizi cloud (versione classica) | Microsoft Docs
 description: Informazioni su come esporre i dati su internet o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS.  Questi esempi utilizzano il portale di Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 012801d0aada8ee55bb0eb05eaf75caa95878765
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: bced2345473dbcbb5b9adf0269de0bef0549e862
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92069926"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742370"
 ---
-# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
+# <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service-classic"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come `http://contoso.cloudapp.net`. Azure assegna anche un indirizzo IP virtuale.
 
 Tuttavia, è anche possibile esporre l'applicazione con il proprio nome di dominio, ad esempio **contoso.com**. In questo articolo viene illustrato come riservare o configurare un nome di dominio personalizzato per i ruoli Web del servizio cloud.
@@ -44,7 +48,7 @@ Un record CNAME esegue il mapping di un dominio *specifico* , ad esempio **conto
 > Alcuni registrar consentono di eseguire il mapping solo dei sottodomini quando si usa un record CNAME, ad esempio www \. contoso.com, e non dei nomi radice, ad esempio contoso.com. Per altre informazioni sui record CNAME, vedere la documentazione fornita dal registrar, la [voce di Wikipedia sui record CNAME](https://en.wikipedia.org/wiki/CNAME_record) oppure il documento di IETF relativo a [implementazione e specifiche dei nomi di dominio](https://tools.ietf.org/html/rfc1035).
 
 ### <a name="a-record"></a>Record A
-Un record *a* esegue il mapping di un dominio, ad esempio **contoso.com** o **www \. contoso.com**, *o di un dominio con caratteri jolly* , ad esempio ** \* . contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Il principale vantaggio di un record A su un record CNAME è il fatto che è possibile avere una voce che usa un carattere jolly, ad esempio \* **. contoso.com**, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com**o **www \. contso.com**.
+Un record *a* esegue il mapping di un dominio, ad esempio **contoso.com** o **www \. contoso.com**, *o di un dominio con caratteri jolly* , ad esempio **\* . contoso.com**, a un indirizzo IP. Nel caso di un servizio cloud di Azure, si tratta dell'IP virtuale del servizio. Il principale vantaggio di un record A su un record CNAME è il fatto che è possibile avere una voce che usa un carattere jolly, ad esempio \* *_. contoso.com_*, che gestirà le richieste per più sottodomini, ad esempio **mail.contoso.com**, **login.contoso.com** o **www \. contso.com**.
 
 > [!NOTE]
 > Poiché il mapping di un record A viene eseguito a un indirizzo IP statico, il record non è in grado di risolvere automaticamente le modifiche all'indirizzo IP del servizio cloud. L'indirizzo IP usato dal servizio cloud viene allocato la prima volta che si esegue la distribuzione in uno slot vuoto, ovvero produzione o gestione temporanea. Se si elimina la distribuzione per lo slot, l'indirizzo IP viene rilasciato da Azure e tutte le distribuzioni future dello slot potrebbero ricevere un nuovo indirizzo IP.
@@ -105,7 +109,7 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
      Salvare l'indirizzo IP, poiché sarà necessario per la creazione di un record A.
 2. Accedere al sito Web del registrar DNS e passare alla pagina di gestione dei DNS. Individuare collegamenti o aree del sito denominate **Domain Name**, **DNS** o **Name Server Management**.
 3. Trovare la sezione in cui è possibile selezionare o immettere i record A. Può essere necessario selezionare un tipo di record in un elenco a discesa oppure passare a una pagina di impostazioni avanzate.
-4. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Ad esempio, selezionare **www** se si vuole creare un alias per **www \. customdomain.com**. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****'. Questo coprirà tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com**e **www \. customdomain.com**.
+4. Selezionare o immettere il dominio o sottodominio che utilizzerà il record A. Ad esempio, selezionare **www** se si vuole creare un alias per **www \. customdomain.com**. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****'. Questo coprirà tutti i sottodomini, ad esempio **mail.customdomain.com**, **login.customdomain.com** e **www \. customdomain.com**.
 
     Se si vuole creare un record A per il dominio radice, è possibile che venga elencato come simbolo ' **\@** ' negli strumenti DNS del registrar.
 5. Immettere l'indirizzo IP del servizio cloud nell'apposito campo. La voce del dominio usata nel record A verrà associata all'indirizzo IP della distribuzione del servizio cloud.

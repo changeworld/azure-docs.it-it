@@ -1,22 +1,25 @@
 ---
-title: Schema NetworkConfiguration dei Servizi cloud di Microsoft Azure| Microsoft Docs
+title: Schema di NetworkConfiguration per servizi cloud di Azure (versione classica) | Microsoft Docs
 description: Informazioni sugli elementi figlio dell'elemento NetworkConfiguration del file di configurazione del servizio, che specifica la rete virtuale e i valori DNS.
-ms.custom: ''
-ms.date: 12/07/2016
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 28
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: a3f62bb33332e818cc40c5195a1cc2f667f819b4
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+'---thor': tagore
+ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072578"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743458"
 ---
-# <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schema Config NetworkConfiguration dei Servizi cloud di Microsoft Azure
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Schema NetworkConfiguration di configurazione di servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 L'elemento `NetworkConfiguration` del file di configurazione del servizio specifica i valori Rete virtuale e DNS. Queste impostazioni sono facoltative per i servizi cloud.
 

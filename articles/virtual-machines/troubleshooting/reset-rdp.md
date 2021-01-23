@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 2f242de3bfa6a2bc95dc46b4ca5c10222b755a2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 720d25079e1350315c9f403a8215f650db49ceb7
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200924"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743084"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Reimpostare Servizi Desktop remoto o la relativa password di amministratore in una macchina virtuale Windows
 Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione di Servizi Desktop remoto (opzione non supportata nei controller di dominio Windows). Per reimpostare la password, usare il portale di Azure o l'estensione di accesso alla macchina virtuale in Azure PowerShell. Dopo aver effettuato l'accesso alla macchina virtuale, reimpostare la password per l'amministratore locale.  
@@ -90,10 +90,14 @@ Innanzitutto, verificare che il [modulo di PowerShell più recente sia installat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se l'estensione di accesso alla macchina virtuale di Azure non risponde e non è possibile reimpostare la password, provare a [reimpostare la password di Windows locale offline](reset-local-password-without-agent.md). Questo metodo è un processo più avanzato e richiede di connettere il disco rigido virtuale della macchina virtuale problematica a un'altra macchina virtuale. Seguire prima i passaggi illustrati in questo articolo e provare il metodo di reimpostazione della password offline solo se questi passaggi non funzionano.
+
+- Se l'installazione dell'estensione di accesso alle VM di Azure non riesce, è possibile [risolvere i problemi di estensione della macchina virtuale](../extensions/troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+
+- Se non si è in grado di reimpostare la password usando l'estensione di accesso alla macchina virtuale, è possibile [reimpostare la password di Windows locale offline](reset-local-password-without-agent.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Questo metodo è un processo più avanzato e richiede di connettere il disco rigido virtuale della macchina virtuale problematica a un'altra macchina virtuale. Seguire prima i passaggi illustrati in questo articolo e provare il metodo di reimpostazione della password offline solo se questi passaggi non funzionano.
 
 - Informazioni [sulle estensioni e sulle funzionalità delle macchine virtuali di Azure](../extensions/features-windows.md).
 
 - [Connettersi a una macchina virtuale di Azure con RDP o SSH](/previous-versions/azure/dn535788(v=azure.100)).
 
-- [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md).
+
+- [Risolvere i problemi di connessioni Desktop remoto a una macchina virtuale di Azure basata su Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -1,26 +1,25 @@
 ---
-title: Schema di def. WebRole di servizi cloud di Azure | Microsoft Docs
+title: Schema di servizi cloud di Azure (versione classica) def. WebRole | Microsoft Docs
 description: Il ruolo Web di Azure è personalizzato per la programmazione di applicazioni Web che supporta ASP.NET, PHP, WCF e FastCGI. Informazioni sugli elementi di definizione del servizio di un ruolo Web.
-ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
-caps.latest.revision: 60
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4368bb38a280461fdd77348de60a0e5793ee9582
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 3c5811649d7d6c0aa1e90ed34c61be6a7f9339f8
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011320"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743152"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
+# <a name="azure-cloud-services-classic-definition-webrole-schema"></a>Schema WebRole di definizione di servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Il ruolo Web di Azure è un ruolo che viene personalizzato per la programmazione di applicazioni Web supportata da IIS 7, ad esempio ASP.NET, PHP, Windows Communication Foundation e FastCGI.
 
 L'estensione predefinita per il file di definizione del servizio è csdef.
@@ -106,7 +105,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [LocalStorage](#LocalStorage)
 
-[Endpoints](#Endpoints)
+[Endpoint](#Endpoints)
 
 [InternalEndpoint](#InternalEndpoint)
 

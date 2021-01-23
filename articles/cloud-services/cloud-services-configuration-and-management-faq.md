@@ -1,28 +1,24 @@
 ---
 title: Domande frequenti sui problemi di configurazione e gestione
-titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla configurazione e alla gestione per Servizi cloud di Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: genli
-ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c5dd09292897d69f90606e8661b4e6cb28090612
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011023"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742591"
 ---
-# <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
+# <a name="configuration-and-management-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per servizi cloud di Azure (versione classica): domande frequenti
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 Questo articolo include le domande frequenti relative ai problemi di configurazione e gestione per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 
@@ -62,7 +58,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 
 **Generico**
 
-- [Come si aggiunge "nosniff" al sito Web?](#how-do-i-add-nosniff-to-my-website)
+- [Ricerca per categorie Aggiungi `nosniff` al sito Web?](#how-do-i-add-nosniff-to-my-website)
 - [Come si personalizza IIS per un ruolo Web?](#how-do-i-customize-iis-for-a-web-role)
 - [Qual è il limite di quota per il servizio cloud?](#what-is-the-quota-limit-for-my-cloud-service)
 - [Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?](#why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space)
@@ -128,7 +124,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Sarà disponibile a breve la possibilità di scegliere BLOB o locale come percorso di caricamento dei file con estensione csdef e cscfg. Usare [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0) per impostare il valore di ciascuna posizione.
+Sarà disponibile a breve la possibilità di scegliere BLOB o locale come percorso di caricamento dei file con estensione csdef e cscfg. Usare [New-AzureDeployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment?view=azuresmps-4.0.0&preserve-view=true) per impostare il valore di ciascuna posizione.
 
 Possibilità di monitorare le metriche a livello di istanza. In [Come monitorare i servizi cloud](cloud-services-how-to-monitor.md) sono disponibili funzionalità di monitoraggio aggiuntive.
 
@@ -148,7 +144,7 @@ Per altre informazioni, vedere i documenti seguenti:
 2. [Abilita tramite codice .NET](./cloud-services-dotnet-diagnostics.md)
 3. [Abilitare tramite PowerShell](./cloud-services-diagnostics-powershell.md)
 
-Per ottenere le impostazioni di Diagnostica di Microsoft Azure corrente del servizio cloud, è possibile usare il comando [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) di PowerShell oppure è possibile visualizzarle tramite il portale dal pannello "Servizi cloud --> Estensioni".
+Per ottenere le impostazioni di WAD correnti del servizio cloud, è possibile usare [Get-AzureServiceDiagnosticsExtensions](./cloud-services-diagnostics-powershell.md#get-current-diagnostics-extension-configuration) PowerShell cmd oppure è possibile visualizzarlo tramite il portale dal pannello "servizi cloud--> Extensions".
 
 
 ## <a name="network-configuration"></a>Configurazione di rete
@@ -233,7 +229,7 @@ Questo errore può verificarsi se si usa il file RDP da un computer aggiunto ad 
 1. Fare clic con il pulsante destro del mouse sul file RDP scaricato e quindi scegliere **Modifica**.
 2. Aggiungere "&#92;" come prefisso prima del nome utente. Ad esempio, usare **.\nomeutente** invece di **nomeutente**.
 
-## <a name="scaling"></a>Scalabilità
+## <a name="scaling"></a>Ridimensionamento
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>Impossibile eseguire la scalabilità per un numero di istanze superiore a X
 La sottoscrizione di Azure presenta un limite al numero di memorie centrali che è possibile usare. Se vengono usate tutte le memorie centrali disponibili, la scalabilità non funziona. Ad esempio, se si dispone di un limite di 100 memorie centrali, vuol dire che è possibile avere 100 istanze di macchina virtuale con dimensioni A1 per il servizio cloud o 50 istanze di macchine virtuali con dimensioni A2.
@@ -254,7 +250,7 @@ Per altre informazioni su come abilitare la registrazione diagnostica di Azure p
 
 ## <a name="generic"></a>Generico
 
-### <a name="how-do-i-add-nosniff-to-my-website"></a>Come si aggiunge "nosniff" al sito Web?
+### <a name="how-do-i-add-nosniff-to-my-website"></a>Ricerca per categorie Aggiungi `nosniff` al sito Web?
 Per impedire che i client eseguano lo sniffing dei tipi MIME, aggiungere un'impostazione a *web.config*.
 
 ```xml
@@ -284,11 +280,11 @@ Vedere [Limiti specifici del servizio](../azure-resource-manager/management/azur
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Perché l'unità della macchina virtuale del servizio cloud ha pochissimo spazio libero su disco?
 Questo comportamento è previsto e non dovrebbe causare alcun problema all'applicazione. L'inserimento nel giornale di registrazione è attivato per l'unità %approot% nelle macchine virtuali PaaS di Azure e ciò comporta essenzialmente l'utilizzo del doppio della quantità di spazio normalmente occupata dai file. Ci sono tuttavia alcuni aspetti da considerare che permettono di capire come questo non sia un vero problema.
 
-Le dimensioni dell'unità% AppRoot% vengono calcolate come \<size of .cspkg + max journal size + a margin of free space> o 1,5 GB, a seconda del numero maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
+Le dimensioni dell'unità %approot% vengono calcolate come <dimensioni del file con estensione cspkg + dimensioni massime del giornale di registrazione + margine di spazio libero> oppure 1,5 GB, a seconda di quale sia il valore maggiore. Le dimensioni della VM non sono rilevanti per questo calcolo. Le dimensioni della VM influiscono solo sulle dimensioni del disco C temporaneo. 
 
 La scrittura nell'unità %approot% non è supportata. Se si scrive nella VM di Azure, è necessario farlo in una risorsa LocalStorage temporanea (o in un'altra posizione, ad esempio archiviazione BLOB, File di Azure e così via). La quantità di spazio disponibile nella cartella %approot% non è quindi significativa. Se non si è certi del fatto che l'applicazione scriva nell'unità %approot%, è possibile lasciare il servizio in esecuzione per alcuni giorni e quindi confrontare le dimensioni prima e dopo. 
 
-Azure non scrive nell'unità %approot%. Una volta che il disco rigido virtuale viene creato dal file con estensione cspkg e montato nella VM di Azure, l'unica cosa che potrebbe scrivere in questa unità è l'applicazione. 
+Azure non scrive nell'unità %approot%. Una volta creato il disco rigido virtuale da `.cspkg` e montato nella macchina virtuale di Azure, l'unica cosa che potrebbe scrivere in questa unità è l'applicazione. 
 
 Le impostazioni del giornale di registrazione non sono configurabili e quindi non possono essere disattivate.
 
@@ -297,7 +293,7 @@ Le impostazioni del giornale di registrazione non sono configurabili e quindi no
 È possibile abilitare l'estensione Antimalware usando lo script PowerShell nell'attività di avvio. Per l'implementazione seguire i passaggi descritti in questi articoli: 
  
 - [Creare un'attività di avvio di PowerShell](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](/powershell/module/servicemanagement/azure.service/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0&preserve-view=true)
 
 Per altre informazioni sugli scenari di distribuzione dell'estensione Antimalware e sulla relativa abilitazione dal portale, vedere [Scenari di distribuzione di Antimalware](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
@@ -315,7 +311,7 @@ New-WebBinding -Name $WebsiteName -Protocol "https" -Port 443 -IPAddress $IPAddr
 
 Come descritto [qui](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee790567(v=technet.10)), $sslFlags potrebbe assumere uno dei valori seguenti:
 
-|Valore|Significato|
+|valore|Significato|
 ------|------
 |0|Nessuna indicazione nome server|
 |1|Indicazione nome server abilitata|

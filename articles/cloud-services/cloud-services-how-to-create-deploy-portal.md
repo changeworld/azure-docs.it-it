@@ -1,21 +1,25 @@
 ---
-title: Come creare e distribuire un servizio Cloud | Documentazione Microsoft
+title: Come creare e distribuire un servizio cloud (versione classica) | Microsoft Docs
 description: Informazioni su come usare il metodo creazione rapida per creare un servizio cloud e usare carica per caricare e distribuire un pacchetto del servizio cloud in Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 879b86714adf50b5a4da4398389405063ac046dc
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164165"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743407"
 ---
-# <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
+# <a name="how-to-create-and-deploy-an-azure-cloud-service-classic"></a>Come creare e distribuire un servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
 
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
@@ -56,7 +60,8 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa > Calcolo**, quindi scorrere verso il basso e fare clic su **Servizio cloud**.
 
-    ![Screenshot che evidenzia l'opzione del servizio cloud in creare una risorsa > calcolo.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Pubblicare il cloud Service1](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+
 3. Nel nuovo riquadro **Servizio cloud** immettere un valore per il **nome DNS**.
 4. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 5. Selezionare un **percorso**.
@@ -65,16 +70,16 @@ Per creare un servizio cloud con le distribuzioni dei ruoli Web o dei ruoli di l
 8. Fare clic su **OK** per chiudere il riquadro **Carica un pacchetto**.
 9. Se non è disponibile un certificato da aggiungere, fare clic su **Crea**.
 
-    ![Pubblicare il servizio cloud](media/cloud-services-how-to-create-deploy-portal/select-package.png)
+    ![Pubblicare il cloud Service2](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Caricamento di un certificato
 Se il pacchetto di distribuzione è stato [configurato per usare i certificati](cloud-services-configure-ssl-certificate-portal.md#modify), a questo punto è possibile caricare il certificato.
 
-1. Selezionare **certificati**e nel riquadro **Aggiungi certificati** Selezionare il file con estensione pfx del certificato TLS/SSL e quindi specificare la **password** per il certificato.
+1. Selezionare **certificati** e nel riquadro **Aggiungi certificati** Selezionare il file con estensione pfx del certificato TLS/SSL e quindi specificare la **password** per il certificato.
 2. Fare clic su **Collega certificato** e quindi su **OK** nel riquadro **Aggiungi certificati**.
 3. Fare clic su **Crea** nel riquadro **Servizio cloud**. Quando la distribuzione ha raggiunto lo stato **Ready** , è possibile procedere con i passaggi successivi.
 
-    ![Schermata che evidenzia il processo di caricamento di un certificato.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Pubblicare il cloud Service3](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verificare che la distribuzione sia stata completata correttamente
 1. Fare clic sull'istanza del servizio cloud.

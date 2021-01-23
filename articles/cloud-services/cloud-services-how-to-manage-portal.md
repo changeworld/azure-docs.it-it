@@ -1,21 +1,25 @@
 ---
 title: Attività comuni di gestione di servizi cloud | Documentazione Microsoft
 description: Informazioni su come gestire Servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 07/05/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 306da8dae31c2bbdb487e7128e3a2e24424c239d
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076709"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743390"
 ---
-# <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
+# <a name="manage-cloud-services-classic-in-the-azure-portal"></a>Gestire i servizi cloud (versione classica) nell'portale di Azure
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Nell'area **Servizi cloud** del portale di Azure è possibile:
 
 * Aggiornare un ruolo o una distribuzione del servizio.
@@ -77,7 +81,7 @@ Esistono due prerequisiti chiave per lo scambio corretto di distribuzioni:
 
 - Se si vuole usare un indirizzo IP statico per lo slot di produzione, è necessario riservarne uno anche per lo slot di staging. In caso contrario, lo scambio ha esito negativo.
 
-- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello **Panoramica** del portale di Azure. In alternativa, è possibile usare il comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0) in Windows PowerShell.
+- Tutte le istanze dei ruoli devono essere in esecuzione prima di poter eseguire lo scambio. È possibile controllare lo stato delle istanze nel pannello **Panoramica** del portale di Azure. In alternativa, è possibile usare il comando [Get-AzureRole](/powershell/module/servicemanagement/azure.service/get-azurerole?view=azuresmps-3.7.0&preserve-view=true) in Windows PowerShell.
 
 Si noti che anche gli aggiornamenti del sistema operativo guest e le operazioni di correzione del servizio possono ostacolare il corretto scambio delle distribuzioni. Per altre informazioni, vedere [Risolvere eventuali problemi di distribuzione dei servizi cloud](cloud-services-troubleshoot-deployment-problems.md).
 

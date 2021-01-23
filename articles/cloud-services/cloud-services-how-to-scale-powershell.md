@@ -1,21 +1,24 @@
 ---
-title: Aumentare o ridurre il numero di istanze per un servizio cloud Azure in Windows PowerShell | Documentazione Microsoft
+title: Ridimensionare un servizio cloud di Azure (versione classica) in Windows PowerShell | Microsoft Docs
 description: (classico) Informazioni su come usare PowerShell per aumentare o ridurre il numero di istanze per un ruolo Web o un ruolo di lavoro in Azure.
-services: cloud-services
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/01/2016
-ms.author: memccror
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c2cec08d86760694ec3c41a98af62c6b86e0a4c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a090da1933b0fcd6edb5b2415c773f9efcb27387
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071092"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743305"
 ---
-# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Come aumentare o ridurre il numero di istanze per un servizio cloud in PowerShell
+# <a name="how-to-scale-an-azure-cloud-service-classic-in-powershell"></a>Come scalare un servizio cloud di Azure (classico) in PowerShell
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 È possibile usare Windows PowerShell per aumentare o ridurre il numero di istanze per un ruolo Web o un ruolo di lavoro.  
 

@@ -1,28 +1,24 @@
 ---
 title: Domande frequenti relative ai problemi di distribuzione per Servizi cloud di Microsoft Azure| Microsoft Docs
 description: Questo articolo elenca le domande frequenti relative alla distribuzione per Servizi cloud di Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75980637"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742217"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemi di distribuzione per servizi cloud di Azure (versione classica): domande frequenti
 
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 Questo articolo include le domande frequenti relative ai problemi di distribuzione per [Servizi cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la pagina [Dimensioni dei servizi cloud](cloud-services-sizes-specs.md) .
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -63,9 +59,9 @@ Non è possibile modificare le dimensioni di una VM di un servizio cloud distrib
 
 Per altre informazioni, vedere [Come aggiornare un servizio cloud](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
 
-Poiché il servizio cloud è una risorsa classica non direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarla ai Azure Resource Manager account di archiviazione. Di seguito sono riportate alcune opzioni: 
+Poiché il servizio cloud è una risorsa classica non direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarla ai Azure Resource Manager account di archiviazione. Di seguito sono riportate alcune opzioni: 
 
 - Distribuzione tramite l'API REST.
 
@@ -73,7 +69,7 @@ Poiché il servizio cloud è una risorsa classica non direttamente compatibile c
 
 - Distribuzione tramite il [portale di Azure](https://portal.azure.com).
 
-    Questa operazione funzionerà dal [portale di Azure](https://portal.azure.com) perché la chiamata passa attraverso un proxy/shim che consente la comunicazione tra Azure Resource Manager e le risorse classiche. 
+    Questa operazione funzionerà dal [portale di Azure](https://portal.azure.com) perché la chiamata passa attraverso un proxy/shim che consente la comunicazione tra Azure Resource Manager e le risorse classiche. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione?
 

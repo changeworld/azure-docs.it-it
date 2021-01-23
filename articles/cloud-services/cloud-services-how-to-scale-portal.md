@@ -1,20 +1,24 @@
 ---
-title: Configurazione della scalabilità automatica di un servizio cloud nel portale | Documentazione Microsoft
+title: Ridimensionare automaticamente un servizio cloud (classico) nel portale | Microsoft Docs
 description: Informazioni su come usare il portale per configurare le regole di scalabilità automatica per un ruolo Web o un ruolo di lavoro del servizio cloud in Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165486"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743356"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud nel portale
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Come configurare la scalabilità automatica per un servizio cloud (classico) nel portale
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 È possibile impostare condizioni per un ruolo di lavoro del servizio cloud che attivano operazioni di scalabilità verticale o orizzontale. Le condizioni per il ruolo possono essere basate sulla CPU, sul disco o sul carico di rete del ruolo. È anche possibile impostare una condizione in base a una coda di messaggi o alla metrica di un'altra risorsa di Azure associata alla sottoscrizione.
 
@@ -34,7 +38,7 @@ Prima di configurare la scalabilità per l'applicazione, tenere presente quanto 
 
 * Per abilitare la disponibilità elevata dell'applicazione, è necessario accertarsi che sia distribuita con due o più istanze del ruolo. Per altre informazioni, vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
-* La scalabilità automatica si verifica solo se tutti i ruoli sono nello stato **Pronto**.  
+* La scalabilità automatica si verifica solo se tutti i ruoli sono nello stato **Pronto**.  
 
 
 ## <a name="where-scale-is-located"></a>Posizione della scalabilità
@@ -53,7 +57,7 @@ Dopo aver selezionato il servizio cloud, viene visualizzato il pannello del serv
 
 Impostare l'opzione **Ridimensiona di** su **regole per la pianificazione e le prestazioni**.
 
-![Screenshot che mostra l'opzione relativa alle regole relative alle pianificazioni e alle prestazioni.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![impostazioni di scalabilità dei servizi cloud immagini con profilo e regola](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. Un profilo esistente.
 2. Aggiungere una regola per il profilo padre.

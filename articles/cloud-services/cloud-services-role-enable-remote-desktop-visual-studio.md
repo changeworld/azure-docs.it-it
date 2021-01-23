@@ -1,28 +1,27 @@
 ---
-title: Uso di Visual Studio, Abilita Desktop remoto per un ruolo (servizi cloud di Azure)
+title: Uso di Visual Studio, abilitare Desktop remoto per un ruolo (servizi cloud di Azure classico)
 description: Come configurare l'applicazione del servizio cloud di Azure per consentire le connessioni Desktop remoto
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-ms.openlocfilehash: f4622e44c795182ee68c617f335c9e1651d3adcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ad95cefbdf839c28b0979b051e217a1dfec76eea
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80294378"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743237"
 ---
-# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
+# <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-classic-using-visual-studio"></a>Abilitare Connessione Desktop remoto per un ruolo in servizi cloud di Azure (versione classica) con Visual Studio
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -47,7 +46,7 @@ Quando si usa Visual Studio 2017 versione 15.4 e precedenti, è possibile usare 
    > [!Note]
    > I certificati necessari per una connessione Desktop remoto sono diversi da quelli usati per altre operazioni di Azure. Il certificato di accesso remoto deve avere una chiave privata.
 
-5. Selezionare un certificato dall'elenco o scegliere ** &lt; Crea... &gt; **. Se si crea un nuovo certificato, specificare un nome descrittivo per il nuovo certificato quando viene richiesto e selezionare **OK**. Il nuovo certificato verrà visualizzato nell'elenco a discesa.
+5. Selezionare un certificato dall'elenco o scegliere **&lt; Crea... &gt;**. Se si crea un nuovo certificato, specificare un nome descrittivo per il nuovo certificato quando viene richiesto e selezionare **OK**. Il nuovo certificato verrà visualizzato nell'elenco a discesa.
 
 6. Specificare un nome utente e una password. Non è possibile usare un account esistente. Non usare "Administrator" come nome utente per il nuovo account.
 

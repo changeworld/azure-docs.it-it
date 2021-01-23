@@ -1,21 +1,24 @@
 ---
-title: Come configurare un servizio cloud (portale) | Documentazione Microsoft
+title: Come configurare un servizio cloud (versione classica)-portale | Microsoft Docs
 description: Informazioni su come configurare un servizio cloud in Azure. Informazioni su come aggiornare la configurazione del servizio cloud e configurare l'accesso remoto per le istanze del ruolo. Questi esempi utilizzano il portale di Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/07/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 4f2b5716e253f2810ff953a10c879574c6a6c342
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: f16fcfe227663958279281659b09929a4cd2d386
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576660"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743424"
 ---
-# <a name="how-to-configure-cloud-services"></a>Come configurare i servizi cloud
+# <a name="how-to-configure-and-azure-cloud-service-classic"></a>Come configurare e il servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 È possibile configurare le impostazioni più comuni di un servizio cloud nel portale di Azure. In alternativa, se si preferisce aggiornare direttamente i file di configurazione, scaricare un file di configurazione del servizio da aggiornare, quindi caricare il file aggiornato e aggiornare il servizio cloud con le modifiche apportate alla configurazione. In ogni caso, per gli aggiornamenti della configurazione viene effettuato il push in tutte le istanze del ruolo.
 
@@ -92,10 +95,10 @@ Potrebbe essere necessario riconfigurare il servizio cloud con il file di [confi
     ![Blade Configurazione](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Fare clic sul pulsante **Download** .
 
-    ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Scarica](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Dopo aver aggiornato il file di configurazione del servizio, caricare e applicare gli aggiornamenti della configurazione:
 
-    ![Caricamento](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Carica](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selezionare il file con estensione cscfg e fare clic su **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,23 +1,24 @@
 ---
-title: Introduzione a Python e Servizi cloud di Azure | Documentazione Microsoft
+title: Introduzione a Python e servizi cloud di Azure (versione classica) | Microsoft Docs
 description: Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 16aa6918c0f4b0df5ebf23f28268f8cbe5223fce
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079242"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743288"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Informazioni su come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 

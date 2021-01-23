@@ -2,23 +2,23 @@
 title: Assegnare un ruolo a un gruppo cloud in Azure Active Directory | Microsoft Docs
 description: Assegnare un ruolo Azure AD a un gruppo assegnabile al ruolo in portale di Azure, PowerShell o API Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 816009abb688525cd7663311c79300a6d12cf146
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379146"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742948"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Assegnare un ruolo a un gruppo cloud in Azure Active Directory
 
@@ -44,7 +44,7 @@ L'assegnazione di un gruppo a un ruolo Azure AD è simile all'assegnazione di ut
 
 Per ulteriori informazioni sull'assegnazione delle autorizzazioni per i ruoli, vedere [assegnare ruoli di amministratore e non amministratore agli utenti](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## <a name="using-powershell"></a>Uso di PowerShell
+## <a name="using-powershell"></a>Utilizzo di PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Creare un gruppo che può essere assegnato al ruolo
 

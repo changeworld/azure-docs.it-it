@@ -1,25 +1,26 @@
 ---
-title: Come usare la diagnostica di Azure (.NET) con i servizi cloud | Documentazione Microsoft
+title: Come usare la diagnostica di Azure (.NET) con i servizi cloud (versione classica) | Microsoft Docs
 description: Uso della diagnostica di Azure per raccogliere dati dai servizi cloud di Azure per debug, valutazione delle prestazioni, monitoraggio, analisi del traffico e altro ancora.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-csharp
 ms.topic: article
-ms.date: 05/22/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6a015a8d56cf3991d04b212db73d5b752c13a793
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 89ba50b91e8ff2e2d7a05d59f2b738a1f87a5fd2
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077542"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742149"
 ---
-# <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Abilitazione di Diagnostica di Azure in servizi cloud di Azure
-Vedere [Panoramica di Diagnostica di Azure](../azure-monitor/platform/diagnostics-extension-overview.md) per un'introduzione a Diagnostica di Azure.
+# <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Abilitazione di Diagnostica di Azure nei servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
+Vedere [Panoramica di Diagnostica di Azure](../azure-diagnostics.md) per un'introduzione a Diagnostica di Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Come abilitare la diagnostica in un ruolo di lavoro
 Questa procedura dettagliata descrive come implementare un ruolo di lavoro di Azure che emette i dati di telemetria con la classe EventSource .NET. Il modulo Diagnostica Azure viene usato per raccogliere i dati di telemetria e memorizzarli in un account di archiviazione di Azure. Quando si crea un ruolo di lavoro, Visual Studio abilita automaticamente Diagnostica 1.0 come parte della soluzione in Azure SDK per .NET 2.4 e versioni precedenti. Le seguenti istruzioni descrivono il processo per creare il ruolo di lavoro, disabilitare Diagnostica 1.0 dalla soluzione e implementare Diagnostica 1.2 o 1.3 nel ruolo di lavoro.

@@ -1,22 +1,25 @@
 ---
-title: Schema di definizione di Servizi cloud di Azure (file con estensione cscfg) | Microsoft Docs
+title: Schema di definizione di servizi cloud di Azure (versione classica) (file con estensione cscfg) | Microsoft Docs
 description: Un file di configurazione del servizio (con estensione cscfg) specifica il numero di istanze del ruolo da distribuire per ogni ruolo, i valori di configurazione e le identificazioni personali del certificato per un ruolo.
-services: cloud-services
-ms.custom: ''
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: cb77181e00c97b7f426429793f17af3cb5e84ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: ba933d4981fb7ed209a7fb5d5c41113750f312de
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79534746"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743475"
 ---
-# <a name="azure-cloud-services-config-schema-cscfg-file"></a>Schema di configurazione di Servizi cloud di Azure (file con estensione cscfg)
+# <a name="azure-cloud-services-classic-config-schema-cscfg-file"></a>Schema di configurazione di servizi cloud di Azure (versione classica) (file con estensione cscfg)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Il file di configurazione del servizio specifica il numero di istanze del ruolo da distribuire per ogni ruolo nel servizio, i valori delle impostazioni di configurazione e le identificazioni personali per i certificati associati a un ruolo. Se il servizio fa parte di una rete virtuale, le informazioni di configurazione della rete devono essere specificate nel file di configurazione del servizio e nel file di configurazione della rete virtuale. L'estensione predefinita per il file di configurazione del servizio è cscfg.
 
 Il modello del servizio viene descritto dallo [schema di definizione di Servizi cloud (versione classica)](schema-csdef-file.md).
@@ -59,8 +62,8 @@ La tabella seguente descrive gli attributi dell'elemento `ServiceConfiguration`.
 | Attributo | Descrizione |
 | --------- | ----------- |
 |serviceName|Obbligatorio. Nome del servizio cloud. Il nome assegnato qui deve corrispondere al nome specificato nel file di definizione del servizio.|
-|osFamily|Facoltativa. Specifica il sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per informazioni sulle versioni del sistema operativo guest supportate, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se non si include un valore `osFamily` e non si è impostato l'attributo `osVersion` su una versione specifica del sistema operativo guest, viene usato il valore predefinito 1.|
-|osVersion|Facoltativa. Specifica la versione del sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> È possibile specificare che il sistema operativo guest deve essere automaticamente aggiornato alla versione più recente. A questo scopo, impostare il valore dell'attributo `osVersion` su `*`. Quando viene impostato su `*`, le istanze del ruolo vengono distribuite usando la versione più recente del sistema operativo guest per la famiglia di sistemi operativi specificata e verranno automaticamente aggiornate quando verranno rilasciate nuove versioni del sistema operativo guest.<br /><br /> Per specificare manualmente una determinata versione, usare `Configuration String` della tabella della sezione **Versioni future, correnti e di transizione del sistema operativo guest** di [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Il valore predefinito per l'attributo `osVersion` è `*`.|
-|schemaVersion|Facoltativa. Specifica la versione dello schema di configurazione del servizio. La versione dello schema consente a Visual Studio di selezionare gli strumenti SDK corretti da usare per la convalida dello schema se più di una versione dell'SDK è installata side-by-side. Per altre informazioni sullo schema e sulla compatibilità delle versioni, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md)|
+|osFamily|facoltativo. Specifica il sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per informazioni sulle versioni del sistema operativo guest supportate, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Se non si include un valore `osFamily` e non si è impostato l'attributo `osVersion` su una versione specifica del sistema operativo guest, viene usato il valore predefinito 1.|
+|osVersion|facoltativo. Specifica la versione del sistema operativo guest che verrà eseguito sulle istanze del ruolo nel servizio cloud. Per altre informazioni sulle versioni del sistema operativo guest, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> È possibile specificare che il sistema operativo guest deve essere automaticamente aggiornato alla versione più recente. A questo scopo, impostare il valore dell'attributo `osVersion` su `*`. Quando viene impostato su `*`, le istanze del ruolo vengono distribuite usando la versione più recente del sistema operativo guest per la famiglia di sistemi operativi specificata e verranno automaticamente aggiornate quando verranno rilasciate nuove versioni del sistema operativo guest.<br /><br /> Per specificare manualmente una determinata versione, usare `Configuration String` della tabella della sezione **Versioni future, correnti e di transizione del sistema operativo guest** di [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md).<br /><br /> Il valore predefinito per l'attributo `osVersion` è `*`.|
+|schemaVersion|facoltativo. Specifica la versione dello schema di configurazione del servizio. La versione dello schema consente a Visual Studio di selezionare gli strumenti SDK corretti da usare per la convalida dello schema se più di una versione dell'SDK è installata side-by-side. Per altre informazioni sullo schema e sulla compatibilità delle versioni, vedere [Versioni del sistema operativo guest di Azure e matrice di compatibilità SDK](cloud-services-guestos-update-matrix.md)|
 
 Il file di configurazione del servizio deve contenere un elemento `ServiceConfiguration`. L'elemento `ServiceConfiguration` può includere un numero qualsiasi di elementi `Role` e zero o 1 elemento `NetworkConfiguration`.

@@ -1,27 +1,25 @@
 ---
 title: Risolvere i problemi dei ruoli che non vengono avviati | Documentazione Microsoft
 description: Informazioni su alcuni motivi comuni del mancato avvio di un ruolo del servizio cloud. Include anche soluzioni per questi problemi.
-services: cloud-services
-documentationcenter: ''
-author: simonxjx
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
+ms.topic: article
 ms.service: cloud-services
-ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 06/15/2018
-ms.author: v-six
-ms.openlocfilehash: bedf4dd2a955a8ffe648b47c1691e77ac1fdb8f5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2453fa2d9b4e78b60d4922e09347799266a84cff
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187800"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743220"
 ---
-# <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
+# <a name="troubleshoot-azure-cloud-service-classic-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud di Azure (versione classica) che non vengono avviati
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -69,7 +67,7 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 7. Digitare `IPconfig`.
 8. Annotare il valore dell'indirizzo IPV4.
 9. Aprire Internet Explorer.
-10. Digitare l'indirizzo e il nome dell'applicazione Web, Ad esempio, `http://<IPV4 Address>/default.aspx`
+10. Digitare l'indirizzo e il nome dell'applicazione Web, Ad esempio: `http://<IPV4 Address>/default.aspx`.
 
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 

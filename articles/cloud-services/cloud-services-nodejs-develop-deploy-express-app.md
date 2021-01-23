@@ -1,24 +1,24 @@
 ---
-title: Creare e distribuire un'app Express in Node.js in Servizi cloud di Azure
-titleSuffix: Azure Cloud Services
+title: Creare e distribuire un'app Node.js Express in servizi cloud di Azure (versione classica)
 description: Usare questa esercitazione per creare una nuova applicazione usando il modulo Express, che fornisce un framework MVC per la creazione di applicazioni Web Node.js.
-services: cloud-services
-documentationcenter: nodejs
-author: tgore03
-ms.service: cloud-services
-ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/17/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-js
-ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: e15af589b3a3c496738c97c0c2c6429ba708ba7e
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071864"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743339"
 ---
-# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Creare e distribuire un'applicazione Web Node.js usando Express in Servizi cloud di Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services-classic"></a>Creare e distribuire un'applicazione Web di Node.js usando Express in un servizio cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 Node.js include un set minimo di funzionalità nel runtime core.
 Gli sviluppatori usano spesso moduli di terze parti per fornire funzionalità aggiuntive durante lo sviluppo di un'applicazione Node.js. In questa esercitazione si creerà una nuova applicazione usando il modulo [Express](https://github.com/expressjs/express) che fornisce un framework MVC per la creazione di applicazioni Web Node.js.

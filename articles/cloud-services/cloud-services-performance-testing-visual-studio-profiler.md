@@ -1,27 +1,25 @@
 ---
-title: Profilatura di un servizio cloud in locale nell'emulatore di calcolo | Documentazione Microsoft
-services: cloud-services
+title: Profilatura di un servizio cloud (classico) localmente nell'emulatore di calcolo | Microsoft Docs
 description: Analizzare i problemi di prestazioni nei servizi cloud con il profiler di Visual Studio
-documentationcenter: ''
-author: mikejo
-manager: jillfra
-editor: ''
-tags: ''
-ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/18/2016
-ms.author: mikejo
-ms.openlocfilehash: 6b5707405879c462a1d919e04730d368332ba68c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 2f924d84967c1a1928a47b59fd3a8c28da091130
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077156"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743560"
 ---
-# <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test locale delle prestazioni di un servizio cloud nell'emulatore di calcolo di Azure mediante il profiler di Visual Studio
+# <a name="testing-the-performance-of-a-cloud-service-classic-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Test delle prestazioni di un servizio cloud (classico) localmente nell'emulatore di calcolo di Azure con il profiler di Visual Studio
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 È possibile usare diversi strumenti e tecniche per il test delle prestazioni di servizi cloud.
 Quando si pubblica un servizio cloud in Azure, è possibile impostare Visual Studio per la raccolta di dati di profilatura e quindi per l'analisi locale di tali dati, come illustrato in [Profilatura di un'applicazione di Azure][1].
 È anche possibile usare gli strumenti di diagnostica per tenere traccia di diversi contatori delle prestazioni, come illustrato in [Uso dei contatori delle prestazioni in Azure][2].
@@ -153,7 +151,7 @@ Nei rapporti vengono evidenziate le differenze tra le due esecuzioni.
 
 ![Report di confronto][16]
 
-A questo punto, sono state eseguite le operazioni preliminari con il profiler.
+Congratulazioni! sono state eseguite le operazioni preliminari con il profiler.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 * Assicurarsi di eseguire la profilatura di una compilazione di rilascio e avviarla senza eseguire il debug.

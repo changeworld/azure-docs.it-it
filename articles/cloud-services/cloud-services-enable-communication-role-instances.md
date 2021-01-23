@@ -1,22 +1,25 @@
 ---
-title: Comunicazione per i ruoli in servizi Cloud | Documentazione Microsoft
+title: Comunicazione per i ruoli in servizi cloud (versione classica) | Microsoft Docs
 description: Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l'esterno oppure tra le altre istanze del ruolo.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
 ms.topic: article
-ms.date: 12/14/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 82aa1579a1f7feb36732153341e1eacf266a7218
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75386341"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743033"
 ---
-# <a name="enable-communication-for-role-instances-in-azure"></a>Abilitare la comunicazione delle istanze del ruolo in azure
+# <a name="enable-communication-for-role-instances-in-azure-cloud-services-classic"></a>Abilitare la comunicazione per le istanze del ruolo nei servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.
 
 ## <a name="input-endpoint"></a>Endpoint di input
@@ -106,7 +109,7 @@ La proprietà **Instances** restituisce una raccolta di oggetti **RoleInstance**
 > 
 > 
 
-Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
+Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile usare la [`InstanceEndpoints`](/previous-versions/azure/reference/ee741917(v=azure.100)) proprietà per restituire un oggetto Dictionary che contiene i nomi degli endpoint e le porte e gli indirizzi IP corrispondenti. La [`IPEndpoint`](/previous-versions/azure/reference/ee741919(v=azure.100)) proprietà restituisce l'indirizzo IP e la porta per un endpoint specificato. La `PublicIPEndpoint` proprietà restituisce la porta per un endpoint con carico bilanciato. La parte dell'indirizzo IP della `PublicIPEndpoint` proprietà non viene utilizzata.
 
 Di seguito è riportato un esempio che consente di eseguire l’iterazione delle istanze del ruolo.
 
@@ -124,7 +127,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Di seguito è riportato un esempio di un ruolo di lavoro che ottiene l'endpoint esposto tramite la definizione del servizio e avvia l'ascolto per le connessioni.
 
 > [!WARNING]
-> Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi**InstanceInputEndpoint** ) vengono ignorati.
+> Questo codice funziona solo per un servizio distribuito. Durante l'esecuzione nell'emulatore di calcolo di Azure, gli elementi di configurazione del servizio che creano endpoint porte dirette (elementi **InstanceInputEndpoint** ) vengono ignorati.
 > 
 > 
 

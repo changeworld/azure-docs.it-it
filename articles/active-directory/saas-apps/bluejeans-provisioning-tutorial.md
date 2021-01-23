@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: 8e155a253910cc5ee3f4fc71cf9ea66ced5cb46f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357641"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742115"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Esercitazione: Configurare BlueJeans per il provisioning utenti automatico
 
@@ -91,49 +91,51 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 3. Selezionare la scheda **Provisioning**.
 
-    ![Screenshot della barra laterale di BlueJeans Enterprise Application con l'opzione Provisioning evidenziata.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Scheda Provisioning](common/provisioning.png)
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Screenshot della pagina Provisioning con le sezioni Modalità di provisioning e Credenziali amministratore evidenziate.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Automatico nella scheda Provisioning](common/provisioning-automatic.png)
 
-5. Nella sezione **Credenziali amministratore** completare i campi **Nome utente amministratore** e **Password amministratore** dell'account BlueJeans. Ecco alcuni esempi di questi valori:
+5. Nella sezione **credenziali amministratore** immettere l'URL del tenant di BlueJeans e il token segreto. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a BlueJeans. Se la connessione non riesce, verificare che l'account BlueJeans abbia autorizzazioni di amministratore e riprovare.
 
-   * Nel campo **Nome utente amministratore** immettere il nome utente dell'account amministratore nel tenant di BlueJeans. Esempio: admin@contoso.com.
+    ![token](common/provisioning-testconnection-tenanturltoken.png)
 
-   * Nel campo **Password amministratore** inserire la password corrispondente al nome utente amministratore.
 
-6. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a BlueJeans. Se la connessione non riesce, verificare che l'account BlueJeans abbia autorizzazioni di amministratore e riprovare.
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
-    ![Screenshot della sezione Credenziali amministratore con l'opzione Test connessione evidenziata.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+7. Fare clic su **Salva**.
 
-    ![Screenshot della casella di testo Indirizzo di posta elettronica per le notifiche.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+8. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to BlueJeans** (Sincronizza utenti di Azure Active Directory con BlueJeans).
 
-8. Fare clic su **Salva**.
+9. Esaminare gli attributi utente sincronizzati da Azure AD a BlueJeans nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in BlueJeans per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-9. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to BlueJeans** (Sincronizza utenti di Azure Active Directory con BlueJeans).
+|Attributo|Type|Supportato per il filtro|
+|---|---|---|
+|userName|string|&check;|
+|active|Boolean|
+|title|string|
+|emails[type eq "work"].value|string|
+|name.givenName|string|
+|name.familyName|string|
+|phoneNumbers[type eq "work"].value|string|
+|urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|string|
 
-    ![Screenshot della sezione Mapping con l'opzione Synchronize Azure Active Directory Users to BlueJeans (Sincronizza utenti di Azure Active Directory con BlueJeans) evidenziata.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-10. Esaminare gli attributi utente sincronizzati da Azure AD a BlueJeans nella sezione **Mapping degli attributi**. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in BlueJeans per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
+11. Per abilitare il servizio di provisioning di Azure AD per BlueJeans, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-    ![Screenshot della sezione Mapping degli attributi con i sette mapping visualizzati.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![Stato del provisioning attivato](common/provisioning-toggle-on.png)
 
-11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in BlueJeans selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
 
-12. Per abilitare il servizio di provisioning di Azure AD per BlueJeans, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
+    ![Ambito di provisioning](common/provisioning-scope.png)
 
-    ![Screenshot della sezione Impostazioni con l'opzione Stato del provisioning impostata su Sì.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+13. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
-13. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in BlueJeans selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**.
-
-    ![Screenshot dell'impostazione Ambito con l'opzione Sincronizza solo utenti e gruppi assegnati evidenziata.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
-
-14. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
-
-    ![Screenshot della barra laterale di BlueJeans Enterprise Application con l'opzione Salva evidenziata.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività di provisioning, che descrivono tutte le azioni eseguite dal servizio di provisioning di Azure AD in BlueJeans.
 
@@ -141,7 +143,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* BlueJeans non consente nomi utente che superano i 30 caratteri.
+* Bluejeans non consente nomi utente che superano i 30 caratteri.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

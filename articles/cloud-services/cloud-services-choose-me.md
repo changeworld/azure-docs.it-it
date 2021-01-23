@@ -1,20 +1,25 @@
 ---
-title: Informazioni su Servizi cloud di Azure | Microsoft Docs
+title: Informazioni sui servizi cloud di Azure (versione classica) | Microsoft Docs
 description: Informazioni sui servizi cloud di Azure, in particolare per supportare applicazioni scalabili, affidabili ed economiche da usare.
-services: cloud-services
-author: tgore03
-ms.service: multiple
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 0013a3a29bae9d2dde7896b3ae23d0d358946f2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: cbb9aae57b952c05aa722f81309158a11aef826b
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88224289"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742812"
 ---
-# <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
+# <a name="overview-of-azure-cloud-services-classic"></a>Panoramica dei servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
 
 ![Schema di Servizi cloud di Azure](./media/cloud-services-choose-me/diagram.png)

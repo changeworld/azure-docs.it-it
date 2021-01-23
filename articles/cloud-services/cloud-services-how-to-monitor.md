@@ -1,21 +1,24 @@
 ---
-title: Monitorare un servizio cloud di Azure | Microsoft Docs
+title: Monitorare un servizio cloud di Azure (versione classica) | Microsoft Docs
 description: Descrive cosa comporta monitorare un servizio cloud di Azure e alcune opzioni degli utenti.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 01/29/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 60f320f86860cca482cdf25c7d93f84dae8c4e5f
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847247"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743373"
 ---
-# <a name="introduction-to-cloud-service-monitoring"></a>Presentazione del monitoraggio del servizio cloud
+# <a name="introduction-to-cloud-service-classic-monitoring"></a>Introduzione al monitoraggio del servizio cloud (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 È possibile monitorare le metriche di prestazioni chiave per qualsiasi servizio cloud. Ogni ruolo del servizio cloud raccoglie dati minimi: utilizzo della CPU, utilizzo della rete e utilizzo del disco. Se il servizio cloud ha l'estensione `Microsoft.Azure.Diagnostics` applicata a un ruolo, tale ruolo può raccogliere altri dati. Questo articolo fornisce un'introduzione a Diagnostica di Azure per Servizi cloud.
 

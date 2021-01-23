@@ -2,23 +2,23 @@
 title: Creazione di un gruppo per l'assegnazione di ruoli in Azure Active Directory | Microsoft Docs
 description: Informazioni su come creare un gruppo assegnabile ai ruoli in Azure AD. Gestire i ruoli di Azure nel portale di Azure, in PowerShell o nell'API Graph.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3f06a1e9ea83fc7ad758ad17245ffa5d7ca973f6
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378619"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742099"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creare un gruppo assegnabile al ruolo in Azure Active Directory
 
@@ -46,7 +46,7 @@ ms.locfileid: "93378619"
 
 Il gruppo viene creato con tutti i ruoli che potrebbero essere stati assegnati.
 
-## <a name="using-powershell"></a>Uso di PowerShell
+## <a name="using-powershell"></a>Utilizzo di PowerShell
 
 ### <a name="install-the-azure-ad-preview-module"></a>Installare il modulo Azure AD Preview
 

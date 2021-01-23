@@ -1,28 +1,24 @@
 ---
 title: Problemi di connettività e di rete
-titleSuffix: Azure Cloud Services
 description: Questo articolo elenca le domande frequenti relative alla connettività e alla rete per Servizi cloud di Microsoft Azure.
-services: cloud-services
-documentationcenter: ''
-author: genlin
-manager: dcscontentpm
-editor: ''
-tags: top-support-issue
-ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
-ms.service: cloud-services
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/23/2018
-ms.author: genli
-ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: c7b83c615e4ac19e10b5c4f6cc1a102206b1a39a
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070028"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742421"
 ---
-# <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per Servizi cloud di Azure: domande frequenti
+# <a name="connectivity-and-networking-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemi di connettività e rete per servizi cloud di Azure (versione classica): domande frequenti
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
 
 Questo articolo include le domande frequenti relative ai problemi di connettività e rete per [Servizi cloud di Azure](https://azure.microsoft.com/services/cloud-services). Per informazioni sulle dimensioni, vedere la [pagina Dimensioni delle macchine virtuali per i servizi cloud](cloud-services-sizes-specs.md).
 

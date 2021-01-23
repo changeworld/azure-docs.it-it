@@ -1,24 +1,25 @@
 ---
-title: Installare .NET nei ruoli di Servizi cloud di Azure | Microsoft Docs
+title: Installare .NET nei ruoli di servizi cloud di Azure (versione classica) | Microsoft Docs
 description: Questo articolo illustra come installare manualmente .NET Framework nei ruoli Web e di lavoro del servizio cloud
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 6de4b79560557fc86edb9e1a25e32a6a1983ceb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88932237"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742778"
 ---
-# <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
+# <a name="install-net-on-azure-cloud-services-classic-roles"></a>Installare .NET nei ruoli di servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.
 
 Ad esempio, è possibile installare .NET Framework 4.6.2 nella famiglia 4 del sistema operativo guest, che non è disponibile con nessuna versione di .NET Framework 4,6. (La famiglia di sistemi operativi guest 5 è con .NET Framework 4,6). Per informazioni aggiornate sulle versioni del sistema operativo guest di Azure, vedere le [notizie sulla versione del sistema operativo guest Azure](cloud-services-guestos-update-matrix.md). 

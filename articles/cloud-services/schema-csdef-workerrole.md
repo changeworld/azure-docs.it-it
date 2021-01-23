@@ -1,26 +1,25 @@
 ---
-title: Schema def. WorkerRole di servizi cloud di Azure | Microsoft Docs
+title: Schema dei servizi cloud di Azure (versione classica) def. WorkerRole | Microsoft Docs
 description: Il ruolo di lavoro di Azure viene usato per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web. Informazioni sullo schema del ruolo di lavoro di Azure.
-services: cloud-services
-ms.custom: ''
-ms.date: 04/14/2015
-ms.reviewer: ''
+ms.topic: article
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
-ms.topic: reference
-ms.assetid: 41cd46bc-c479-43fa-96e5-d6c83e4e6d89
-caps.latest.revision: 55
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
-ms.openlocfilehash: 26225442c72fb209bb1ac4cd2bf4777fb39542fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: ''
+ms.openlocfilehash: 0871527187a3d678cb2b94bd8dc342cf2abde1ba
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005164"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98743135"
 ---
-# <a name="azure-cloud-services-definition-workerrole-schema"></a>Schema WorkerRole di definizione di Servizi cloud di Azure
+# <a name="azure-cloud-services-classic-definition-workerrole-schema"></a>Schema WorkerRole di definizione di servizi cloud di Azure (versione classica)
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Il ruolo di lavoro di Azure è un ruolo utile per lo sviluppo generalizzato e può eseguire l'elaborazione in background per un ruolo Web.
 
 L'estensione predefinita per il file di definizione del servizio è csdef.
@@ -98,7 +97,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [LocalStorage](#LocalStorage)
 
-[Endpoints](#Endpoints)
+[Endpoint](#Endpoints)
 
 [InputEndpoint](#InputEndpoint)
 

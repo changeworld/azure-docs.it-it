@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70bcf5bce1c8c07633baf070149a9bb80c331d9c
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075672"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742574"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Risoluzione dei problemi causati da applicazioni che non supportano TLS 1.2
+
+> [!IMPORTANT]
+> [Servizi cloud di Azure (supporto esteso)](../cloud-services-extended-support/overview.md) è un nuovo modello di distribuzione basato su Azure Resource Manager per il prodotto servizi cloud di Azure.Con questa modifica, i servizi cloud di Azure in esecuzione nel modello di distribuzione basato su Service Manager di Azure sono stati rinominati come servizi cloud (versione classica) e tutte le nuove distribuzioni devono usare i [servizi cloud (supporto esteso)](../cloud-services-extended-support/overview.md).
+
 Questo articolo descrive come abilitare i protocolli TLS precedenti (TLS 1.0 e 1.1), nonché come applicare pacchetti di crittografia legacy per supportare i protocolli aggiuntivi nei ruoli Web e di lavoro del servizio cloud di Windows Server 2019. 
 
 Microsoft comprende che, pur con i vari passaggi previsti e annunciati per deprecare TLS 1.0 e TLS 1.1, è possibile che i clienti debbano supportare i protocolli e i pacchetti di crittografia precedenti fino a quando non potranno pianificarne la deprecazione.  Sebbene non sia consigliabile riabilitare questi valori legacy, vengono fornite indicazioni a riguardo per aiutare i clienti. Si consiglia ai clienti di valutare il rischio di regressione prima di implementare le modifiche descritte in questo articolo. 

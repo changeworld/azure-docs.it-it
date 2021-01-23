@@ -2,23 +2,23 @@
 title: Domande frequenti sulla risoluzione dei problemi assegnati al gruppo di Cloud-Azure Active Directory | Microsoft Docs
 description: Informazioni sulle domande comuni e suggerimenti per la risoluzione dei problemi per l'assegnazione di ruoli a gruppi in Azure Active Directory.
 services: active-directory
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8735a0d34b9fcf5b86b6592980ffc5c7c3e3073c
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0ff906654dc91c7b1980292efd2a737503e684e9
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861936"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742914"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud
 
@@ -61,7 +61,7 @@ Amministratore del servizio Teams | Proprietario Catalogo  | &nbsp; | ✔️  | 
 Amministratore di SharePoint | Proprietario Catalogo | &nbsp; | ✔️  | &nbsp;  | ✔️ 
 Amministratore di applicazioni | Proprietario Catalogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
 Amministratore di applicazioni cloud | Proprietario Catalogo  | &nbsp;  | &nbsp; | ✔️  | &nbsp;
-Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app  | &nbsp;
+User | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app  | &nbsp;
 
 \*Il gruppo non è assegnabile al ruolo; ovvero isAssignableToRole = false. Se un gruppo è assegnabile al ruolo, l'utente che crea il pacchetto di accesso deve essere anche proprietario del gruppo assegnabile al ruolo.
 

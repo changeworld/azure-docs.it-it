@@ -3,23 +3,23 @@ title: Delega ruoli per attività di amministrazione-Azure Active Directory | Mi
 description: Ruoli da delegare per attività di identità in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
 ms.date: 11/05/2020
-ms.author: curtand
+ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
+ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379095"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98742931"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -44,14 +44,14 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 Creare applicazioni B2C | Amministratore globale | 
-Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore applicazione
+Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
 Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore dei criteri IEF B2C | 
 Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore dei provider di identità esterni | 
-Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente ID esterno | 
-Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | Amministratore flusso utente ID esterno | 
-Creare, leggere, aggiornare ed eliminare flussi utente con accesso | Amministratore flusso utente ID esterno | 
-Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |Amministratore flusso utente ID esterno | 
-Creare, leggere, aggiornare ed eliminare attributi utente | Amministratore attributo flusso utente ID esterno | 
+Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | ID esterno - Amministratore dei flussi utente | 
+Creare, leggere, aggiornare ed eliminare flussi utente con modifica dei profili | ID esterno - Amministratore dei flussi utente | 
+Creare, leggere, aggiornare ed eliminare flussi utente con accesso | ID esterno - Amministratore dei flussi utente | 
+Creare, leggere, aggiornare ed eliminare flussi utente con iscrizione |ID esterno - Amministratore dei flussi utente | 
+Creare, leggere, aggiornare ed eliminare attributi utente | ID esterno - Amministratore degli attributi dei flussi utente | 
 Creare, leggere, aggiornare ed eliminare utenti | Amministratore utenti
 Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura globali | 
 Log di controllo di B2C di lettura | Lettore globale ([vedere la documentazione](../../active-directory-b2c/faq.md)) | 
