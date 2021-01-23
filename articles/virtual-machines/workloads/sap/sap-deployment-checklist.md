@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 601f268f81c222ada5a4f99b05ae8ffcdfc13a23
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916287"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728441"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -66,7 +66,7 @@ Durante questa fase si pianifica la migrazione del carico di lavoro SAP alla pia
     - Architettura di disponibilità elevata e ripristino di emergenza.
         - In base a RTO e RPO, è necessario definire l'aspetto dell'architettura di disponibilità elevata e ripristino di emergenza.
         - Per una disponibilità elevata all'interno di una zona, controllare il sistema DBMS da offrire in Azure. La maggior parte dei pacchetti DBMS offre metodi sincroni di una hot standby sincrona, consigliata per i sistemi di produzione. Vedere anche la documentazione relativa a SAP per database diversi, a partire dalle [considerazioni per la distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](./dbms_guide_general.md) e documenti correlati.
-           L'uso di Windows Server failover clustering con una configurazione di dischi condivisi per il livello DBMS come, ad esempio, [descritto per SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017&preserve-view=true), non è supportato. Usare invece soluzioni come:
+           L'uso di Windows Server failover clustering con una configurazione di dischi condivisi per il livello DBMS come, ad esempio, [descritto per SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server), non è supportato. Usare invece soluzioni come:
            - [SQL Server Always On](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups)
            - [Oracle Data Guard](../oracle/configure-oracle-dataguard.md)
            - [Replica di sistema HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 01/12/2020
+ms.date: 01/22/2020
 ms.author: b-juche
-ms.openlocfilehash: c914ab007f482e4d2b560b1cb461e27d4f4442ec
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 47aefecce846f58128335768018ba59d3520bd87
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133158"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726681"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Creazione di un volume a doppio protocollo (NFSv3 e SMB) per Azure NetApp Files
 
@@ -51,6 +51,7 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
     | `Unix`    | NFS   | Bit in modalità NFSv3   | UNIX  | NFS e Windows   |
     | `Ntfs`    | Windows   | ACL NTFS     | NTFS  |NFS e Windows|
 * Gli utenti UNIX che montano il volume di stile di sicurezza NTFS usando NFS verranno autenticati come utente `root` di Windows per UNIX `root` e `pcuser` per tutti gli altri utenti. Prima di montare il volume quando si usa NFS, verificare che questi account utente esistano nel Active Directory. 
+* Non è necessario un certificato CA radice server per la creazione di un volume a doppio protocollo. È necessario solo se LDAP su TLS è abilitato.
 
 
 ## <a name="create-a-dual-protocol-volume"></a>Creare un volume con doppio protocollo

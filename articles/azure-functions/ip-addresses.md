@@ -3,12 +3,12 @@ title: Indirizzi IP in Funzioni di Azure
 description: Informazioni su come trovare gli indirizzi IP in ingresso e in uscita per le app per le funzioni e sugli elementi che ne causano la modifica.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 291a1cda7b8a2acc5426ea255519e1c2e58a2d7c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fcc92e61e180d25bc67d5ca3f9e2bff4af01fd3f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936720"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98726732"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Indirizzi IP in Funzioni di Azure
 
@@ -27,8 +27,7 @@ Ogni app per le funzioni ha un singolo indirizzo IP in ingresso. Per trovare tal
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Passare all'app per le funzioni.
-3. Selezionare **funzionalità della piattaforma**.
-4. Selezionare **Proprietà**. L'indirizzo IP in ingresso verrà visualizzati in **Indirizzo IP virtuale**.
+3. In **Impostazioni** selezionare **Proprietà**. Nell'indirizzo IP **virtuale** viene visualizzato l'indirizzo IP in ingresso.
 
 ## <a name="function-app-outbound-ip-addresses"></a><a name="find-outbound-ip-addresses"></a>Indirizzi IP in uscita delle app per le funzioni
 

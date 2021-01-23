@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale da portale di Azure
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi dal portale di Azure.
-ms.date: 11/06/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359086"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728951"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Abilitare le estensioni di VM di Azure dalla portale di Azure
 
@@ -25,7 +25,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 
 2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
-3. Scegliere **estensioni** , quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics.
+3. Scegliere **estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics.
 
     ![Selezionare l'estensione della macchina virtuale per il computer selezionato](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -40,6 +40,18 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
 
+## <a name="list-extensions-installed"></a>Elenca estensioni installate
+
+È possibile ottenere un elenco delle estensioni di macchina virtuale nel server abilitato per Arc dal portale di Azure. Per visualizzarli, seguire questa procedura.
+
+1. Nel browser passare al [portale di Azure](https://portal.azure.com).
+
+2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
+
+3. Scegliere **estensioni** e viene restituito l'elenco delle estensioni installate.
+
+    ![Elenca estensione VM distribuita nel computer selezionato](./media/manage-vm-extensions/list-vm-extensions.png)
+
 ## <a name="uninstall-extension"></a>Disinstalla estensione
 
 È possibile rimuovere una o più estensioni da un server abilitato per l'arco dal portale di Azure. Per rimuovere un'estensione, attenersi alla procedura riportata di seguito.
@@ -48,7 +60,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 
 2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
-3. Scegliere **estensioni** , quindi selezionare un'estensione nell'elenco delle estensioni installate.
+3. Scegliere **estensioni**, quindi selezionare un'estensione nell'elenco delle estensioni installate.
 
 4. Selezionare **Disinstalla** e quando viene richiesto di verificare, selezionare **Sì** per continuare.
 

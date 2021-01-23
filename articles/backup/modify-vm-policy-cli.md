@@ -3,12 +3,12 @@ title: Aggiornare i criteri di backup delle macchine virtuali esistenti usando l
 description: Informazioni su come aggiornare i criteri di backup delle VM esistenti usando l'interfaccia della riga di comando di Azure.
 ms.topic: conceptual
 ms.date: 12/31/2020
-ms.openlocfilehash: ba4ded4c82a1eaea7c20ea94da580a8702467b85
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 33083d6585d2b9296cd184ba258b8d2143d685b4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858834"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728579"
 ---
 # <a name="update-the-existing-vm-backup-policy-using-cli"></a>Aggiornare i criteri di backup delle macchine virtuali esistenti usando l'interfaccia della riga
 
@@ -18,7 +18,7 @@ ms.locfileid: "97858834"
 
 Per modificare un criterio di backup della macchina virtuale esistente, attenersi alla procedura seguente:
 
-1. Eseguire il comando [AZ backup policy Show](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_show) per recuperare i dettagli dei criteri che si desidera aggiornare.
+1. Eseguire il comando [AZ backup policy Show](/cli/azure/backup/policy#az_backup_policy_show) per recuperare i dettagli dei criteri che si desidera aggiornare.
 
     Esempio:
 
@@ -101,14 +101,14 @@ Per modificare un criterio di backup della macchina virtuale esistente, atteners
     ```
 
 1. Salvare le modifiche.
-1. Eseguire il comando [AZ backup policy set](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_set) e passare il percorso completo del file JSON aggiornato come valore per il parametro **--policy** .
+1. Eseguire il comando [AZ backup policy set](/cli/azure/backup/policy#az_backup_policy_set) e passare il percorso completo del file JSON aggiornato come valore per il parametro **--policy** .
 
     ```azurecli
     az backup policy set --resource-group rg1234 --vault-name testvault --policy C:\temp2\Policy.json --name testing123
     ```
 
 >[!NOTE]
->È anche possibile recuperare il criterio JSON di esempio eseguendo il comando [AZ backup Policy Get-default-for-VM](https://docs.microsoft.com/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
+>È anche possibile recuperare il criterio JSON di esempio eseguendo il comando [AZ backup Policy Get-default-for-VM](/cli/azure/backup/policy#az_backup_policy_get_default_for_vm) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

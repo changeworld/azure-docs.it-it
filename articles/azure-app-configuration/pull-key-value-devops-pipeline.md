@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: fbe517c766b3835bf4265a1309b8737a25925b7c
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914961"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728092"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Impostazioni pull per la configurazione dell'app con Azure Pipelines
 
@@ -47,7 +47,7 @@ Ora che è stata creata la connessione al servizio, trovare il nome dell'entità
 
 Assegnare il ruolo di configurazione dell'app appropriato alla connessione del servizio usata all'interno dell'attività in modo che l'attività possa accedere all'archivio di configurazione dell'app.
 
-1. Passare all'archivio di configurazione dell'app di destinazione. Per una procedura dettagliata sull'impostazione di un archivio di configurazione dell'app, vedere [creare un archivio di configurazione delle app](/azure/azure-app-configuration/quickstart-dotnet-core-app#create-an-app-configuration-store) in una delle guide introduttive alla configurazione app Azure.
+1. Passare all'archivio di configurazione dell'app di destinazione. Per una procedura dettagliata sull'impostazione di un archivio di configurazione dell'app, vedere [creare un archivio di configurazione delle app](./quickstart-dotnet-core-app.md#create-an-app-configuration-store) in una delle guide introduttive alla configurazione app Azure.
 1. A sinistra selezionare controllo di **accesso (IAM)**.
 1. Nella parte superiore selezionare **+ Aggiungi** e scegliere **Aggiungi assegnazione ruolo**.
 1. In **ruolo** selezionare **lettore dati di configurazione dell'app**. Questo ruolo consente all'attività di leggere dall'archivio di configurazione dell'app. 

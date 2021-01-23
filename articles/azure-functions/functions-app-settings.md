@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 72b42e392f350a8693ca8a052bdec1d5fd337234
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937111"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98728993"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -46,7 +46,7 @@ Per altre informazioni, vedere [stringhe di connessione](../azure-monitor/app/sd
 
 Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano un collegamento per inviare chiamate API da proxy direttamente alle funzioni nella stessa app per le funzioni. Questo tasto di scelta rapida viene utilizzato anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare il comportamento del collegamento.
 
-|Chiave|Valore|Descrizione|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
@@ -55,7 +55,7 @@ Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano 
 
 Questa impostazione determina se i caratteri `%2F` vengono decodificati come barre nei parametri di route quando vengono inseriti nell'URL back-end. 
 
-|Chiave|Valore|Descrizione|
+|Chiave|valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |
@@ -229,11 +229,13 @@ Il valore di questa chiave viene fornito nel formato `<DESTINATION>:<VERBOSITY>`
 
 ## <a name="website_contentazurefileconnectionstring"></a>SITO Web \_ CONTENTAZUREFILECONNECTIONSTRING
 
-Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di archiviazione in cui sono archiviati il codice e la configurazione dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+Stringa di connessione per l'account di archiviazione in cui il codice e la configurazione dell'app per le funzioni vengono archiviati nei piani di scalabilità basati su eventi in esecuzione in Windows. Per altre informazioni, vedere [creare un'app](functions-infrastructure-as-code.md#windows)per le funzioni.
 
 |Chiave|Valore di esempio|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nome];AccountKey=[chiave]|
+
+Utilizzato solo quando si esegue la distribuzione in un piano a consumo o Premium in esecuzione in Windows. Non supportato per Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted). 
 
 ## <a name="website_contentovervnet"></a>SITO Web \_ CONTENTOVERVNET
 
@@ -245,11 +247,15 @@ Solo per i piani Premium. Il valore `1` consente la scalabilità dell'app per le
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Per l'utilizzo & solo piani Premium. Il percorso del file per il codice e la configurazione dell’app per le funzioni. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#create-a-function-app).
+Il percorso del file per il codice e la configurazione dell'app per le funzioni in un piano di scalabilità basato su eventi in Windows. Usato con WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Il valore predefinito è una stringa univoca che inizia con il nome dell’app per le funzioni. Vedere [Creare un'app per le funzioni](functions-infrastructure-as-code.md#windows).
 
 |Chiave|Valore di esempio|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
+
+Usato solo dalle app per le funzioni in un piano a consumo o Premium in esecuzione in Windows. Non supportato per Linux. La modifica o la rimozione di questa impostazione può impedire l'avvio dell'app per le funzioni. Per altre informazioni, vedere [questo articolo sulla risoluzione dei problemi](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+
+Quando si usa un Azure Resource Manager per creare un'app per le funzioni durante la distribuzione, non includere WEBSITE_CONTENTSHARE nel modello. Questa impostazione dell'applicazione viene generata durante la distribuzione. Per altre informazioni, vedere [automatizzare la distribuzione delle risorse per l'app per le funzioni](functions-infrastructure-as-code.md#windows).   
 
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
