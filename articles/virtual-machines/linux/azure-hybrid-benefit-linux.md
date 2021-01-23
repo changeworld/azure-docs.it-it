@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: 990c396c859477c83e0ef421659a299920ee0c35
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 44d78d9a47f86520a3a4778806c4ddc0f96eec94
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209135"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737898"
 ---
 # <a name="how-azure-hybrid-benefit-applies-for-linux-virtual-machines"></a>Come si applica Vantaggio Azure Hybrid per le macchine virtuali Linux
 
@@ -227,4 +227,4 @@ Questa sezione elenca i problemi comuni che potrebbero verificarsi e i passaggi 
 | "Non è stato possibile completare l'azione perché i nostri record indicano che non è stato abilitato correttamente Red Hat cloud Access nella sottoscrizione di Azure..." | Per usare il vantaggio con le VM RHEL, è necessario prima [registrare le sottoscrizioni di Azure con Red Hat cloud Access](https://access.redhat.com/management/cloud).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Informazioni su come creare e aggiornare le macchine virtuali e aggiungere i tipi di licenza (RHEL_BYOS, SLES_BYOS) per Vantaggio Azure Hybrid usando l'interfaccia della riga di comando di Azure](/cli/azure/vm?preserve-view=true&view=azure-cli-latest)
+* [Informazioni su come creare e aggiornare le macchine virtuali e aggiungere i tipi di licenza (RHEL_BYOS, SLES_BYOS) per Vantaggio Azure Hybrid usando l'interfaccia della riga di comando di Azure](/cli/azure/vm)

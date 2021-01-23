@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: bb40586a93a40c2aaa3f0f884a0e747f168c324b
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: db21f1170dacbfa1e4367e7f22143ec3d0b0f6e4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98186090"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737337"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -62,7 +62,7 @@ In questo articolo vengono scaricati e installati i pacchetti software seguenti.
 * [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) Runtime.
 
 #### <a name="azure-vm-with-gpu"></a>[VM di Azure con GPU](#tab/virtual-machine)
-In questo esempio, si utilizzerà una [VM serie NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) con una GPU K80.
+In questo esempio, si utilizzerà una [VM serie NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con una GPU K80.
 
 ---
 
@@ -266,7 +266,7 @@ sudo az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id
 
 Se il computer host non è un dispositivo Azure Stack Edge, sarà necessario installare [Azure IOT Edge](../../iot-edge/how-to-install-iot-edge.md) versione 1.0.9. Per scaricare la versione corretta, attenersi alla procedura seguente:
 
-Server Ubuntu 18,04:
+Ubuntu Server 18.04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
 ```
@@ -309,13 +309,13 @@ Sul computer host aperto  `/etc/iotedge/config.yaml` per la modifica. Sostituire
 sudo systemctl restart iotedge
 ```
 
-Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
+Distribuire il contenitore di analisi spaziale come un modulo di Internet delle cose nel computer host, dall' [portale di Azure](../../iot-edge/how-to-deploy-modules-portal.md) o dall'interfaccia della riga di comando di [Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows). Se si usa il portale, impostare l'URI dell'immagine sul percorso del Container Registry di Azure. 
 
 Usare i passaggi seguenti per distribuire il contenitore usando l'interfaccia della riga di comando di Azure.
 
 #### <a name="azure-vm-with-gpu"></a>[VM di Azure con GPU](#tab/virtual-machine)
 
-Una macchina virtuale di Azure con una GPU può essere usata anche per eseguire l'analisi spaziale. Nell'esempio seguente viene usata una VM [serie NC](https://docs.microsoft.com/azure/virtual-machines/nc-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) con una GPU K80.
+Una macchina virtuale di Azure con una GPU può essere usata anche per eseguire l'analisi spaziale. Nell'esempio seguente viene usata una VM [serie NC](../../virtual-machines/nc-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) con una GPU K80.
 
 #### <a name="create-the-vm"></a>Creare la macchina virtuale
 
@@ -335,7 +335,7 @@ Quindi selezionare **Nc6** o **NC6_Promo**.
 
 Successivamente, creare la macchina virtuale. Una volta creato, passare alla risorsa della macchina virtuale nella portale di Azure e selezionare `Extensions` dal riquadro sinistro. La finestra estensioni verrà visualizzata con tutte le estensioni disponibili. Selezionare `NVIDIA GPU Driver Extension` , fare clic su Crea e completare la procedura guidata.
 
-Una volta completata l'applicazione, passare alla pagina principale della macchina virtuale nella portale di Azure e fare clic su `Connect` . È possibile accedere alla macchina virtuale tramite SSH o RDP. Il protocollo RDP sarà utile in quanto consente di visualizzare la finestra del Visualizzatore (illustrata più avanti). Configurare l'accesso RDP attenendosi alla [procedura](https://docs.microsoft.com/azure/virtual-machines/linux/use-remote-desktop) seguente e aprendo una connessione Desktop remoto alla macchina virtuale.
+Una volta completata l'applicazione, passare alla pagina principale della macchina virtuale nella portale di Azure e fare clic su `Connect` . È possibile accedere alla macchina virtuale tramite SSH o RDP. Il protocollo RDP sarà utile in quanto consente di visualizzare la finestra del Visualizzatore (illustrata più avanti). Configurare l'accesso RDP attenendosi alla [procedura](../../virtual-machines/linux/use-remote-desktop.md) seguente e aprendo una connessione Desktop remoto alla macchina virtuale.
 
 ### <a name="verify-graphics-drivers-are-installed"></a>Verificare che i driver grafici siano installati
 
@@ -406,7 +406,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | Valore | Descrizione|
+| Nome dell'impostazione | valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -426,7 +426,7 @@ La tabella seguente illustra le diverse variabili di ambiente usate dal modulo I
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
-Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [un computer desktop o una](https://go.microsoft.com/fwlink/?linkid=2152270) [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando seguente dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows) per distribuire il contenitore nel computer host, come modulo di IOT Edge.
+Dopo aver aggiornato il manifesto di distribuzione per i [dispositivi Azure stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179), [un computer desktop o una](https://go.microsoft.com/fwlink/?linkid=2152270) [VM di Azure con GPU](https://go.microsoft.com/fwlink/?linkid=2152189) con le proprie impostazioni e la selezione delle operazioni, è possibile usare il comando seguente dell'interfaccia della riga di comando di [Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows) per distribuire il contenitore nel computer host, come modulo di IOT Edge.
 
 ```azurecli
 sudo az login
@@ -457,7 +457,7 @@ Una volta completata la distribuzione e il contenitore è in esecuzione, il **co
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Ridistribuire o eliminare la distribuzione
 
-Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli?tabs=windows).
+Se è necessario aggiornare la distribuzione, è necessario assicurarsi che le distribuzioni precedenti siano state distribuite correttamente oppure è necessario eliminare IoT Edge le distribuzioni di dispositivi che non sono state completate. In caso contrario, le distribuzioni continueranno, lasciando il sistema in uno stato non valido. È possibile usare l'portale di Azure o l'interfaccia della riga di comando di [Azure](../cognitive-services-apis-create-account-cli.md?tabs=windows).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Usare l'output generato dal contenitore
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 390cda604b71404735b7c14382d30067e154ef70
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e409211c167f7b29128faf9fdfc02aa5c0a7d0e3
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976184"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736255"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 
@@ -197,7 +197,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, verificare i criteri seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                  |                                                                            Policy                                                                            |                           valore                            |
+    |                 Obiettivo                  |                                                                            Policy                                                                            |                           Valore                            |
     | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
     | RDP è abilitato                        | Configurazione computer\Criteri\Impostazioni di Windows \Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Connessioni         | Consenti la connessione remota tramite Servizi Desktop remoto    |
     | Criteri di gruppo NLA                      | Impostazioni\Modelli amministrativi\Componenti\Servizi Desktop remoto\Host sessione Desktop remoto\Sicurezza                                                    | Richiedere l'autenticazione utente per l'accesso remoto usando NLA |
@@ -241,7 +241,7 @@ Verificare che le impostazioni seguenti siano configurate correttamente per l'ac
 
 1. Se la macchina virtuale fa parte di un dominio, controllare i criteri di Azure AD seguenti per assicurarsi che le impostazioni precedenti non vengano ripristinate.
 
-    |                 Obiettivo                 |                                                                         Policy                                                                          |                  valore                  |
+    |                 Obiettivo                 |                                                                         Policy                                                                          |                  Valore                  |
     | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
     | Abilitare i profili di Windows Firewall | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Proteggi tutte le connessioni di rete         |
     | Abilitare RDP                           | Configurazione computer\Criteri\Impostazioni di Windows\Modelli amministrativi\Rete\Connessione di rete\Windows Firewall\Profilo di dominio\Windows Firewall   | Consenti eccezioni per Desktop remoto in ingresso |
@@ -385,7 +385,7 @@ Idealmente, è consigliabile lasciare aggiornato il computer al *livello di patc
 |                         | win32k.sys     | 6.1.7601.23807 - KB4022719                | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726          | 10.0.14393.594 - KB4022715                  | -                          | -                                           | -                                           |
 |                         | rdpdd.dll      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
 |                         | rdpwd.sys      | 6.1.7601.23403 - KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |
-| Security                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                           | KB4012606                                   | KB4012606                  | -                                           | -                                           |
+| Sicurezza                | MS17-010       | KB4012212                                 | KB4012213                                   | KB4012213                           | KB4012606                                   | KB4012606                  | -                                           | -                                           |
 |                         |                |                                           | KB4012216                                   |                                     | KB4013198                                   | KB4013198                  | -                                           | -                                           |
 |                         |                | KB4012215                                 | KB4012214                                   | KB4012216                           | KB4013429                                   | KB4013429                  | -                                           | -                                           |
 |                         |                |                                           | KB4012217                                   |                                     | KB4013429                                   | KB4013429                  | -                                           | -                                           |
@@ -423,17 +423,17 @@ In particolare, Sysprep richiede che le unità vengano decrittografate completam
 1. Eseguire una sessione di PowerShell come amministratore.
 1. Eliminare la directory Panther (C:\Windows\Panther).
 1. Passare alla directory `%windir%\system32\sysprep` . Quindi eseguire `sysprep.exe`.
-1. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Accedi alla configurazione guidata**e verificare che la casella di controllo **generalizza** sia selezionata.
+1. Nella finestra di dialogo **Utilità preparazione sistema** selezionare **Accedi alla configurazione guidata** e verificare che la casella di controllo **generalizza** sia selezionata.
 
     ![Utilità preparazione sistema](media/prepare-for-upload-vhd-image/syspre.png)
 1. In **Opzioni di arresto del sistema** selezionare **Arresta il sistema**.
-1. Scegliere **OK**.
+1. Selezionare **OK**.
 1. Quando Sysprep termina, arresta la macchina virtuale. Non usare **Riavvia** per arrestare la macchina virtuale.
 
 A questo punto il disco rigido virtuale è pronto per essere caricato. Per altre informazioni su come creare una macchina virtuale da un disco generalizzato, vedere [caricare un disco rigido virtuale generalizzato e usarlo per creare una nuova macchina virtuale in Azure](/previous-versions/azure/virtual-machines/windows/sa-upload-generalized).
 
 >[!NOTE]
-> Un file di *unattend.xml* personalizzato non è supportato. Anche se la proprietà **additionalUnattendContent** è supportata, questo fornisce solo un supporto limitato per l'aggiunta di opzioni [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) al file *unattend.xml* usato dall'agente di provisioning di Azure. È possibile usare, ad esempio, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet&preserve-view=true) per aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [esempio di AdditionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Un file di *unattend.xml* personalizzato non è supportato. Anche se la proprietà **additionalUnattendContent** è supportata, questo fornisce solo un supporto limitato per l'aggiunta di opzioni [Microsoft-Windows-Shell-setup](/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) al file *unattend.xml* usato dall'agente di provisioning di Azure. È possibile usare, ad esempio, [additionalUnattendContent](/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent) per aggiungere FirstLogonCommands e LogonCommands. Per altre informazioni, vedere [esempio di AdditionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-vhd"></a>Convertire il disco virtuale in un disco rigido virtuale a dimensione fissa
 

@@ -3,12 +3,12 @@ title: Eseguire il backup di Azure Managed Disks
 description: Informazioni su come eseguire il backup di Azure Managed Disks dalla portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 2169e2f44e3ffb2c05c674d633efabed2c531878
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: ca86550c4dec4b51c60d9ecdef124e38783a3764
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573123"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738153"
 ---
 # <a name="back-up-azure-managed-disks-in-preview"></a>Eseguire il backup di Managed Disks di Azure (in anteprima)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98573123"
 >
 >[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
 
-Questo articolo illustra come eseguire il backup di [Azure Managed disk](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) dal portale di Azure.
+Questo articolo illustra come eseguire il backup di [Azure Managed disk](../virtual-machines/managed-disks-overview.md) dal portale di Azure.
 
 In questo articolo si apprenderà come:
 
@@ -46,7 +46,7 @@ Un insieme di credenziali per il backup è un'entità di archiviazione di Azure 
 
    ![Avvio: crea insieme di credenziali](./media/backup-managed-disks/initiate-create-vault.png)
 
-1. Nella scheda **nozioni di base** , specificare la sottoscrizione, il gruppo di risorse, il nome dell'insieme di credenziali di backup, l'area e la ridondanza dell'archiviazione Continuare selezionando **Verifica + crea**. Altre informazioni sulla creazione di un insieme di credenziali per [il backup](https://docs.microsoft.com/azure/backup/backup-vault-overview#create-a-backup-vault).
+1. Nella scheda **nozioni di base** , specificare la sottoscrizione, il gruppo di risorse, il nome dell'insieme di credenziali di backup, l'area e la ridondanza dell'archiviazione Continuare selezionando **Verifica + crea**. Altre informazioni sulla creazione di un insieme di credenziali per [il backup](./backup-vault-overview.md#create-a-backup-vault).
 
    ![Esaminare e creare l'insieme di credenziali](./media/backup-managed-disks/review-and-create.png)
 
@@ -67,7 +67,7 @@ Un insieme di credenziali per il backup è un'entità di archiviazione di Azure 
 
    ![Selezione frequenza pianificazione backup](./media/backup-managed-disks/backup-schedule-frequency.png)
 
-   Il backup su disco di Azure offre più backup al giorno. Se sono necessari backup più frequenti, scegliere la frequenza di backup **oraria** con la possibilità di eseguire i backup con intervalli di ogni 4, 6, 8 o 12 ore. I backup sono pianificati in base all'intervallo di **tempo** selezionato. Se, ad esempio, si seleziona **ogni 4 ore**, i backup vengono eseguiti approssimativamente nell'intervallo di ogni 4 ore, in modo che i backup vengano distribuiti equamente durante il giorno. Se è sufficiente un backup di una volta al giorno, scegliere la frequenza di backup **giornaliera** . Nella frequenza di backup giornaliera è possibile specificare l'ora del giorno in cui vengono eseguiti i backup. È importante notare che l'ora del giorno indica l'ora di inizio del backup e non l'ora di completamento del backup. Il tempo necessario per il completamento dell'operazione di backup dipende da diversi fattori, tra cui le dimensioni del disco e la velocità di varianza tra backup consecutivi. Tuttavia, backup su disco di Azure è un backup senza agente che usa [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal), che non influisca sulle prestazioni dell'applicazione di produzione.
+   Il backup su disco di Azure offre più backup al giorno. Se sono necessari backup più frequenti, scegliere la frequenza di backup **oraria** con la possibilità di eseguire i backup con intervalli di ogni 4, 6, 8 o 12 ore. I backup sono pianificati in base all'intervallo di **tempo** selezionato. Se, ad esempio, si seleziona **ogni 4 ore**, i backup vengono eseguiti approssimativamente nell'intervallo di ogni 4 ore, in modo che i backup vengano distribuiti equamente durante il giorno. Se è sufficiente un backup di una volta al giorno, scegliere la frequenza di backup **giornaliera** . Nella frequenza di backup giornaliera è possibile specificare l'ora del giorno in cui vengono eseguiti i backup. È importante notare che l'ora del giorno indica l'ora di inizio del backup e non l'ora di completamento del backup. Il tempo necessario per il completamento dell'operazione di backup dipende da diversi fattori, tra cui le dimensioni del disco e la velocità di varianza tra backup consecutivi. Tuttavia, backup su disco di Azure è un backup senza agente che usa [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md), che non influisca sulle prestazioni dell'applicazione di produzione.
 
 1. Nella scheda **criteri di backup** selezionare impostazioni di conservazione che soddisfino il requisito dell'obiettivo del punto di ripristino (RPO).
 
@@ -80,7 +80,7 @@ Un insieme di credenziali per il backup è un'entità di archiviazione di Azure 
    ![Impostazioni di conservazione](./media/backup-managed-disks/retention-settings.png)
 
    >[!NOTE]
-   >Backup di Azure per Managed Disks USA snapshot incrementali limitati a 200 snapshot per disco. Per consentire l'esecuzione di backup su richiesta a parte i backup pianificati, i criteri di backup limitano i backup totali a 180. Altre informazioni sugli [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) per il disco gestito.
+   >Backup di Azure per Managed Disks USA snapshot incrementali limitati a 200 snapshot per disco. Per consentire l'esecuzione di backup su richiesta a parte i backup pianificati, i criteri di backup limitano i backup totali a 180. Altre informazioni sugli [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) per il disco gestito.
 
 1. Per completare la creazione dei criteri di backup, selezionare **Verifica + crea**.
 
@@ -88,7 +88,7 @@ Un insieme di credenziali per il backup è un'entità di archiviazione di Azure 
 
 L'insieme di credenziali di backup usa l'identità gestita per accedere ad altre risorse di Azure. Per configurare il backup dei dischi gestiti, l'identità gestita dell'insieme di credenziali di backup richiede un set di autorizzazioni per i dischi di origine e i gruppi di risorse in cui vengono creati e gestiti gli snapshot.
 
-Un'identità gestita assegnata dal sistema è limitata a una per risorsa ed è associata al ciclo di vita di questa risorsa. È possibile concedere le autorizzazioni all'identità gestita usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Identità gestita è un'entità servizio di un tipo speciale che può essere usata solo con le risorse di Azure. Altre informazioni sulle [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Un'identità gestita assegnata dal sistema è limitata a una per risorsa ed è associata al ciclo di vita di questa risorsa. È possibile concedere le autorizzazioni all'identità gestita usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Identità gestita è un'entità servizio di un tipo speciale che può essere usata solo con le risorse di Azure. Altre informazioni sulle [identità gestite](../active-directory/managed-identities-azure-resources/overview.md).
 
 Per configurare il backup dei dischi gestiti sono necessari i prerequisiti seguenti:
 
@@ -115,7 +115,7 @@ Per configurare il backup dei dischi gestiti sono necessari i prerequisiti segue
 
    - È possibile usare questo gruppo di risorse per archiviare gli snapshot tra più dischi che vengono sottoposti a backup (o pianificati).  
 
-   - Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Quindi, scegliere il gruppo di risorse nella stessa sottoscrizione del disco di cui eseguire il backup. Altre informazioni sullo [snapshot incrementale](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) per Managed Disks.
+   - Non è possibile creare uno snapshot incrementale per un disco specifico al di fuori della sottoscrizione del disco. Quindi, scegliere il gruppo di risorse nella stessa sottoscrizione del disco di cui eseguire il backup. Altre informazioni sullo [snapshot incrementale](../virtual-machines/disks-incremental-snapshots.md#restrictions) per Managed Disks.
 
    Per assegnare il ruolo, attenersi alla procedura seguente:
 
@@ -129,8 +129,6 @@ Per configurare il backup dei dischi gestiti sono necessari i prerequisiti segue
    >Digitare il nome dell'insieme di credenziali di backup per selezionare l'identità gestita dell'insieme di credenziali.
 
    ![Aggiungi ruolo Collaboratore snapshot disco](./media/backup-managed-disks/disk-snapshot-contributor-role.png)
-
-1. Se il disco di cui eseguire il backup viene crittografato con le [chiavi gestite dal cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) o con la [crittografia doppia usando chiavi gestite dalla piattaforma e chiavi gestite dal cliente](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), assegnare l'autorizzazione del ruolo **lettore** all'identità gestita dell'insieme di credenziali di backup nella risorsa del set di **crittografia del disco** .
 
 1. Verificare che l'identità gestita dell'insieme di credenziali di backup includa il set corretto di assegnazioni di ruolo nel disco di origine e nel gruppo di risorse che funge da archivio dati snapshot.
 
@@ -154,7 +152,7 @@ Per configurare il backup dei dischi gestiti sono necessari i prerequisiti segue
    ![Selezionare il disco di Azure](./media/backup-managed-disks/select-azure-disk.png)
 
    >[!NOTE]
-   >Backup di Azure usa [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots-portal#restrictions) dei dischi gestiti, che archiviano solo le modifiche delta apportate al disco dall'ultimo snapshot in HDD standard archiviazione, indipendentemente dal tipo di archiviazione del disco padre. Per una maggiore affidabilità, per impostazione predefinita gli snapshot incrementali vengono archiviati nell'archiviazione con ridondanza della zona (ZRS) nelle aree che supportano ZRS. Il backup su disco di Azure supporta attualmente il backup operativo di dischi gestiti che non copia i backup nell'archivio dell'insieme di credenziali di backup. Quindi, l'impostazione di ridondanza dell'archiviazione di backup dell'insieme di credenziali di backup non si applica ai punti di ripristino.
+   >Backup di Azure usa [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md#restrictions) dei dischi gestiti, che archiviano solo le modifiche delta apportate al disco dall'ultimo snapshot in HDD standard archiviazione, indipendentemente dal tipo di archiviazione del disco padre. Per una maggiore affidabilità, per impostazione predefinita gli snapshot incrementali vengono archiviati nell'archiviazione con ridondanza della zona (ZRS) nelle aree che supportano ZRS. Il backup su disco di Azure supporta attualmente il backup operativo di dischi gestiti che non copia i backup nell'archivio dell'insieme di credenziali di backup. Quindi, l'impostazione di ridondanza dell'archiviazione di backup dell'insieme di credenziali di backup non si applica ai punti di ripristino.
 
 1. Nella scheda **criteri di backup** scegliere un criterio di backup.
 

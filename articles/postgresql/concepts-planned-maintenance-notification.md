@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 0691411f57944f8203120ec2a6ed19013135458c
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 8db556709f68a1184046989a15fad147542a05a7
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920254"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735742"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Notifica di manutenzione pianificata nel Database di Azure per PostgreSQL - Server singolo
 
@@ -25,7 +25,7 @@ Una manutenzione pianificata è una finestra di manutenzione quando questi aggio
 
 ## <a name="planned-maintenance---duration-and-customer-impact"></a>Manutenzione pianificata-durata e conseguenze per i clienti
 
-Una manutenzione pianificata per una determinata area di Azure è in genere prevista per l'esecuzione di 15 ore. La finestra include anche il tempo del buffer per eseguire un piano di rollback, se necessario. Durante la manutenzione pianificata, possono essere presenti riavvii o failover del server di database, che potrebbero causare una breve indisponibilità dei server di database per gli utenti finali. I server del database di Azure per PostgreSQL sono in esecuzione nei contenitori, quindi i riavvii del server di database sono in genere rapidi e si prevede di essere completati 60-120 in genere in L'intero evento di manutenzione pianificata che include tutti i riavvii del server viene monitorato attentamente dal team di progettazione. Il tempo di failover del server dipende dal tempo di recupero del database. in questo modo, il database può essere connesso più a lungo se si dispone di un'attività transazionale intensa sul server al momento del failover. Per evitare tempi di riavvio più lunghi, è consigliabile evitare transazioni con esecuzione prolungata (caricamenti bulk) durante gli eventi di manutenzione pianificata.
+Una manutenzione pianificata per una determinata area di Azure è in genere prevista per il completamento entro 15 ore. Questa finestra temporale include anche il tempo del buffer per eseguire un piano di rollback, se necessario. I server del database di Azure per PostgreSQL sono in esecuzione in contenitori in modo che i riavvii del server di database in genere imprendano 60-120 secondi per il completamento, ma non esiste un modo deterministico per capire quando entro questo intervallo di 15 ore verrà interessato il server. L'intero evento di manutenzione pianificata che include tutti i riavvii del server viene monitorato attentamente dal team di progettazione. Il tempo di failover del server dipende dal recupero del database. in questo modo, il database può essere connesso più a lungo se si dispone di un'attività transazionale intensa nel server al momento del failover. Per evitare tempi di riavvio più lunghi, è consigliabile evitare transazioni con esecuzione prolungata (caricamenti bulk) durante gli eventi di manutenzione pianificata.
 
 In breve, mentre l'evento di manutenzione pianificata viene eseguito per 15 ore, l'effetto del singolo server dura generalmente 60 secondi, a seconda dell'attività transazionale sul server. Una notifica viene inviata 72 ore di calendario prima dell'avvio della manutenzione pianificata e ne è in corso un'altra durante la manutenzione per una determinata area.
 

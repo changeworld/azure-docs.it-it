@@ -7,13 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 00e6802f37ec60467edbea98038dd23fcba1239a
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: c193565035435b29f77177086c535fae0903ccd4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185496"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737779"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 

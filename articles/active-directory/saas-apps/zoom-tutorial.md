@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 2fd4346467b0cacbbb4eeb78072749e416b16de1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
-ms.translationtype: HT
+ms.openlocfilehash: d105c83ba3db9502cf83f943dec6fcbfd5640d07
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358521"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zoom"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zoom
 
@@ -183,7 +183,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Zoom e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Zoom in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Zoom. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Zoom in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Zoom. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

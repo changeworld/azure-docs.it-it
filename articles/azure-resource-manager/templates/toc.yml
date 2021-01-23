@@ -298,8 +298,6 @@
       href: template-best-practices.md
     - name: Domande frequenti
       href: frequently-asked-questions.md
-    - name: Specifiche di modello
-      href: template-specs.md
     - name: Modelli per la coerenza del cloud
       href: templates-cloud-consistency.md
     - name: Modalità di distribuzione
@@ -423,6 +421,12 @@
           href: test-toolkit.md
         - name: Test case
           href: test-cases.md
+    - name: Specifiche dei modelli
+      items:
+        - name: Creare e distribuire le specifiche dei modelli
+          href: template-specs.md
+        - name: Convertire la raccolta di modelli del portale
+          href: convert-to-template-spec.md
     - name: Integrazione continua/Distribuzione continua
       items:
         - name: Modelli di Azure Resource Manager con pipeline

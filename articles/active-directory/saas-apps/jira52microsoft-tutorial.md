@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 8afbf80fb6fa57db9de57122d7a4bfdb64e456bc
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
-ms.translationtype: HT
+ms.openlocfilehash: 7b85cc064babf44b14e80abc02669573b4730da2
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185513"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736891"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Esercitazione: integrazione di Azure Active Directory con JIRA SAML SSO by Microsoft (V5.2)
 
@@ -229,7 +229,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di JIRA SAML SSO by Microsoft (V5.2) e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di JIRA SAML SSO by Microsoft (V5.2) in App personali, si verrà reindirizzati all'URL di accesso di JIRA SAML SSO by Microsoft (V5.2). Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di JIRA SAML SSO by Microsoft (V5.2) in App personali, si verrà reindirizzati all'URL di accesso di JIRA SAML SSO by Microsoft (V5.2). Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

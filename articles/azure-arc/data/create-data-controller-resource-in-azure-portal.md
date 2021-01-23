@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 297efa83fb1563e3a360f652a6ac1bc2b1679998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd8c079e91a6765dff8ad347085c44d0aa2f8d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939978"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737304"
 ---
 # <a name="create-an-azure-arc-data-controller-in-the-azure-portal"></a>Creare un controller di dati di Azure Arc nell'portale di Azure
 
@@ -40,12 +40,16 @@ Attenersi alla procedura seguente per creare un controller di dati di Azure ARC 
 6. Fare clic sul pulsante **Dettagli controller dati** .
 7. Scegliere una sottoscrizione, un gruppo di risorse e una località di Azure esattamente come per qualsiasi altra risorsa da creare nel portale di Azure. In questo caso, il percorso di Azure selezionato sarà quello in cui verranno archiviati i metadati relativi alla risorsa.  La risorsa stessa verrà creata in base a qualsiasi infrastruttura scelta. Non è necessario che si trovi nell'infrastruttura di Azure.
 8. Immettere un nome per il controller dati.
-9. Solo la modalità connessa indirettamente è attualmente supportata nell'anteprima.
-10. Selezionare un profilo di configurazione della distribuzione.
-11. Fare clic sul pulsante **Apri in Azure studio** .
-12. Nella schermata successiva verrà visualizzato un riepilogo delle selezioni e un notebook generato.  Per scaricare il notebook, è possibile fare clic sul pulsante **Scarica Notebook di provisioning** .
-13. Aprire il notebook in Azure Data Studio e fare clic sul pulsante **Esegui tutto** nella parte superiore.
-14. Seguire i prompt e le istruzioni nel notebook per completare la creazione del controller di dati.
+9. Selezionare la modalità di connettività per il controller dati. Altre informazioni sulle [modalità di connettività e sui requisiti](./connectivity.md). 
+
+   > [!NOTE] 
+   > Se si seleziona la modalità di connettività **diretta** , assicurarsi che le credenziali dell'entità servizio siano impostate tramite le variabili di ambiente, come descritto in [creare un'entità servizio](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal). 
+
+1. Selezionare un profilo di configurazione della distribuzione.
+1. Fare clic sul pulsante **Apri in Azure studio** .
+1. Nella schermata successiva verrà visualizzato un riepilogo delle selezioni e un notebook generato.  Per scaricare il notebook, è possibile fare clic sul pulsante **Scarica Notebook di provisioning** .
+1. Aprire il notebook in Azure Data Studio e fare clic sul pulsante **Esegui tutto** nella parte superiore.
+1. Seguire i prompt e le istruzioni nel notebook per completare la creazione del controller di dati.
 
 ## <a name="monitoring-the-creation-status"></a>Monitoraggio dello stato di creazione
 

@@ -3,12 +3,12 @@ title: Risoluzione degli errori di backup nel backup su disco di Azure
 description: Informazioni su come risolvere gli errori di backup nel backup su disco di Azure
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 3e7c81d70fc898528532a841a484bf6fff8b83a7
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 855c6c5b19b10bdb699a25f89ebc29001b7941ac
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611237"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737728"
 ---
 # <a name="troubleshooting-backup-failures-in-azure-disk-backup-in-preview"></a>Risoluzione degli errori di backup nel backup su disco di Azure (in anteprima)
 
@@ -115,7 +115,7 @@ Azione consigliata: concedere all'identità gestita dell'insieme di credenziali 
 
 Messaggio di errore: l'operazione non è riuscita perché è stato raggiunto il limite massimo di quota del disco per la sottoscrizione.
 
-Azione consigliata: fare riferimento alla [sottoscrizione di Azure e ai limiti del servizio e alla documentazione relativa alle quote](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) oppure contattare supporto tecnico Microsoft per ulteriori istruzioni.
+Azione consigliata: fare riferimento alla [sottoscrizione di Azure e ai limiti del servizio e alla documentazione relativa alle quote](../azure-resource-manager/management/azure-subscription-service-limits.md) oppure contattare supporto tecnico Microsoft per ulteriori istruzioni.
 
 ### <a name="error-code-usererrordiskbackuprestorergormsipermissionsnotpresent"></a>Codice di errore: UserErrorDiskBackupRestoreRGOrMSIPermissionsNotPresent
 

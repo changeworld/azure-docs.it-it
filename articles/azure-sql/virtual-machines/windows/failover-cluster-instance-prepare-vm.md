@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8d88167dac6b2d0b1ba2afc90c443fd80b9e46
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223160"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737796"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparare le macchine virtuali per un'istanza FCI (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Le impostazioni di configurazione per la macchina virtuale variano in base all'o
 
 ## <a name="configure-vm-availability"></a>Configurare la disponibilità della macchina virtuale 
 
-Per la funzionalità cluster di failover di è necessario che le macchine virtuali siano inserite in un [set di disponibilità](../../../virtual-machines/linux/tutorial-availability-sets.md) o in una [zona di disponibilità](../../../availability-zones/az-overview.md#availability-zones). Se si scelgono i set di disponibilità, è possibile usare i [gruppi di posizionamento di prossimità](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) per individuare le VM più vicine. Infatti, i gruppi di posizionamento di prossimità sono un prerequisito per l'uso dei dischi condivisi di Azure. 
+Per la funzionalità cluster di failover di è necessario che le macchine virtuali siano inserite in un [set di disponibilità](../../../virtual-machines/linux/tutorial-availability-sets.md) o in una [zona di disponibilità](../../../availability-zones/az-overview.md#availability-zones). Se si scelgono i set di disponibilità, è possibile usare i [gruppi di posizionamento di prossimità](../../../virtual-machines/co-location.md#proximity-placement-groups) per individuare le VM più vicine. Infatti, i gruppi di posizionamento di prossimità sono un prerequisito per l'uso dei dischi condivisi di Azure. 
 
 Selezionare con attenzione l'opzione della disponibilità della macchina virtuale corrispondente alla configurazione del cluster desiderata: 
 

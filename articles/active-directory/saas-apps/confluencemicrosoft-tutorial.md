@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/25/2020
 ms.author: jeedes
-ms.openlocfilehash: 939db97a03b69335c9d648c894f453cbb2010edb
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967062"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737000"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Confluence SAML SSO by Microsoft
 
@@ -252,7 +252,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Confluence SAML SSO by Microsoft e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Confluence SAML SSO by Microsoft in App personali, si verrà reindirizzati all'URL di accesso di Confluence SAML SSO by Microsoft. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Confluence SAML SSO by Microsoft in App personali, si verrà reindirizzati all'URL di accesso di Confluence SAML SSO by Microsoft. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

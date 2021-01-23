@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 4c7ba5806707e818f0ef13717d5f00b542c37614
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092738"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736172"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Come usare le identità gestite nel servizio app e in Funzioni di Azure
 
@@ -526,4 +526,4 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 - [Accedere in modo sicuro ad archiviazione di Azure usando un'identità gestita](scenario-secure-app-access-storage.md)
 - [Chiamare Microsoft Graph in modo sicuro usando un'identità gestita](scenario-secure-app-access-microsoft-graph-as-app.md)
 
-[Documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication]: ../key-vault/general/service-to-service-authentication.md
+[Documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication]: /dotnet/api/overview/azure/service-to-service-authentication

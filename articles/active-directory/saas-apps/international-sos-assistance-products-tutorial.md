@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 2a654e8934b52909a52ef4179948bc5bf8b0f37c
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 77d5ace7ce45ed820053ce8c52d375868c8de305
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247616"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736919"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-international-sos-assistance-products"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con prodotti di assistenza SOS internazionali
 
@@ -131,11 +131,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso ai prodotti di assistenza SOS internazionale e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro International SOS Assistance Products in My Apps, viene reindirizzato all'URL di accesso ai prodotti di assistenza SOS internazionale. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro International SOS Assistance Products in My Apps, viene reindirizzato all'URL di accesso ai prodotti di assistenza SOS internazionale. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurati i prodotti International SOS Assistance, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una volta configurati i prodotti International SOS Assistance, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

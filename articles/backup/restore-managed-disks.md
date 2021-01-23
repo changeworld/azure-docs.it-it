@@ -3,12 +3,12 @@ title: Ripristinare Managed Disks di Azure
 description: Informazioni su come ripristinare Managed Disks di Azure dall'portale di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: 848a7476b1c5095d4e4d3156d4c7ce33da777090
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611135"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737377"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Ripristinare Managed Disks di Azure (in anteprima)
 
@@ -17,7 +17,7 @@ ms.locfileid: "98611135"
 >
 >[Compilare questo modulo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) per iscriversi all'anteprima.
 
-Questo articolo illustra come ripristinare [Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) da un punto di ripristino creato da backup di Azure.
+Questo articolo illustra come ripristinare [Managed Disks di Azure](../virtual-machines/managed-disks-overview.md) da un punto di ripristino creato da backup di Azure.
 
 Attualmente, l'opzione di ripristino Original-Location (OLR) di ripristino sostituendo il disco di origine esistente da cui sono stati eseguiti i backup non è supportata. È possibile eseguire il ripristino da un punto di ripristino per creare un nuovo disco nello stesso gruppo di risorse del disco di origine da cui sono stati eseguiti i backup o in qualsiasi altro gruppo di risorse. Questa operazione è nota come Alternate-Location Recovery (ALR) e consente di gestire sia il disco di origine sia il disco ripristinato (nuovo).
 
@@ -31,7 +31,7 @@ In questo articolo si apprenderà come:
 
 L'insieme di credenziali di backup usa l'identità gestita per accedere ad altre risorse di Azure. Per eseguire il ripristino da un backup, l'identità gestita dell'insieme di credenziali di backup richiede un set di autorizzazioni per il gruppo di risorse in cui deve essere ripristinato il disco.
 
-L'insieme di credenziali per il backup usa un'identità gestita assegnata dal sistema, che è limitata a una per risorsa ed è associata al ciclo di vita di questa risorsa. È possibile concedere le autorizzazioni all'identità gestita usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Identità gestita è un'entità servizio di un tipo speciale che può essere usata solo con le risorse di Azure. Altre informazioni sulle [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+L'insieme di credenziali per il backup usa un'identità gestita assegnata dal sistema, che è limitata a una per risorsa ed è associata al ciclo di vita di questa risorsa. È possibile concedere le autorizzazioni all'identità gestita usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Identità gestita è un'entità servizio di un tipo speciale che può essere usata solo con le risorse di Azure. Altre informazioni sulle [identità gestite](../active-directory/managed-identities-azure-resources/overview.md).
 
 Per eseguire un'operazione di ripristino sono necessari i prerequisiti seguenti:
 
@@ -89,7 +89,7 @@ Una volta soddisfatti i prerequisiti, attenersi alla procedura seguente per eseg
     ![Parametri di ripristino](./media/restore-managed-disks/restore-parameters.png)
 
     >[!TIP]
-    >I dischi di cui viene eseguito il backup da backup di Azure tramite la soluzione di backup su disco possono anche essere sottoposti a backup da backup di Azure tramite la soluzione di backup delle VM di Azure con l'insieme di credenziali di servizi di ripristino Se è stata configurata la protezione della macchina virtuale di Azure a cui è collegato il disco, è anche possibile usare l'operazione di ripristino della macchina virtuale di Azure. È possibile scegliere di ripristinare la macchina virtuale o i dischi e i file o le cartelle dal punto di ripristino dell'istanza di backup della macchina virtuale di Azure corrispondente. Per altre informazioni, vedere [backup di macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/about-azure-vm-restore).
+    >I dischi di cui viene eseguito il backup da backup di Azure tramite la soluzione di backup su disco possono anche essere sottoposti a backup da backup di Azure tramite la soluzione di backup delle VM di Azure con l'insieme di credenziali di servizi di ripristino Se è stata configurata la protezione della macchina virtuale di Azure a cui è collegato il disco, è anche possibile usare l'operazione di ripristino della macchina virtuale di Azure. È possibile scegliere di ripristinare la macchina virtuale o i dischi e i file o le cartelle dal punto di ripristino dell'istanza di backup della macchina virtuale di Azure corrispondente. Per altre informazioni, vedere [backup di macchine virtuali di Azure](./about-azure-vm-restore.md).
 
 1. Una volta completata la convalida, selezionare **Ripristina** per avviare l'operazione di ripristino.
 
@@ -109,9 +109,9 @@ Restore creerà un nuovo disco dal punto di ripristino selezionato nel gruppo di
 
     ![Scambia dischi del sistema operativo](./media/restore-managed-disks/swap-os-disks.png)
 
-- Per le macchine virtuali Windows, se il disco ripristinato è un disco dati, seguire le istruzioni per [scollegare il disco dati originale](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) dalla macchina virtuale. Quindi, [alleghi il disco ripristinato](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) alla macchina virtuale. Seguire le istruzioni per [scambiare il disco del sistema operativo](https://docs.microsoft.com/azure/virtual-machines/windows/os-disk-swap) della macchina virtuale con il disco ripristinato.
+- Per le macchine virtuali Windows, se il disco ripristinato è un disco dati, seguire le istruzioni per [scollegare il disco dati originale](../virtual-machines/windows/detach-disk.md#detach-a-data-disk-using-the-portal) dalla macchina virtuale. Quindi, [alleghi il disco ripristinato](../virtual-machines/windows/attach-managed-disk-portal.md) alla macchina virtuale. Seguire le istruzioni per [scambiare il disco del sistema operativo](../virtual-machines/windows/os-disk-swap.md) della macchina virtuale con il disco ripristinato.
 
-- Per le macchine virtuali Linux, se il disco ripristinato è un disco dati, seguire le istruzioni per [scollegare il disco dati originale](https://docs.microsoft.com/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) dalla macchina virtuale. Quindi, [alleghi il disco ripristinato](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) alla macchina virtuale. Seguire le istruzioni per [scambiare il disco del sistema operativo](https://docs.microsoft.com/azure/virtual-machines/linux/os-disk-swap) della macchina virtuale con il disco ripristinato.
+- Per le macchine virtuali Linux, se il disco ripristinato è un disco dati, seguire le istruzioni per [scollegare il disco dati originale](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) dalla macchina virtuale. Quindi, [alleghi il disco ripristinato](../virtual-machines/linux/attach-disk-portal.md#attach-an-existing-disk) alla macchina virtuale. Seguire le istruzioni per [scambiare il disco del sistema operativo](../virtual-machines/linux/os-disk-swap.md) della macchina virtuale con il disco ripristinato.
 
 È consigliabile revocare l'assegnazione del ruolo dell' **operatore di ripristino del disco** dall'identità gestita dell'insieme di credenziali di backup nel gruppo di risorse di **destinazione** dopo il completamento dell'operazione di ripristino.
 

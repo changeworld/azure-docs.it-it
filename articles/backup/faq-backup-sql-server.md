@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 7518fc49f7d6d728bd8faa0de4cf0edc1c6d5831
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734114"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735810"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -108,7 +108,7 @@ Sì, backup di Azure supporta il backup di database SQL Server o server con Tran
 
 ## <a name="does-azure-backup-perform-a-checksum-operation-on-the-data-stream"></a>Backup di Azure esegue un'operazione di checksum sul flusso di dati?
 
-Viene eseguita un'operazione di checksum sul flusso di dati. Tuttavia, questo non deve essere confuso con il [checksum SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
+Viene eseguita un'operazione di checksum sul flusso di dati. Tuttavia, questo non deve essere confuso con il [checksum SQL](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 Il backup del carico di lavoro di Azure calcola il checksum nel flusso di dati e lo archivia in modo esplicito durante l'operazione di backup. Questo flusso di checksum viene quindi considerato un riferimento e verificato in modo incrociato con il checksum del flusso di dati durante l'operazione di ripristino per assicurarsi che i dati siano coerenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

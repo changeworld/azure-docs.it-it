@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8343c06992c896986ba26a90171e25f9c8c4f2f8
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9b8dafa4a69358b3f6f09551ac426b908750e2f4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600093"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735473"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---single-server-compute-resources-with-reserved-capacity"></a>PrePay per database di Azure per PostgreSQL-risorse di calcolo a server singolo con capacità riservata
 
@@ -35,7 +35,7 @@ Per informazioni dettagliate sul modo in cui i clienti aziendali e i clienti con
 
 Le dimensioni della prenotazione devono essere basate sulla quantità totale di risorse di calcolo usate dai server esistenti o presto distribuiti in un'area specifica e usando lo stesso livello di prestazioni e la stessa generazione di hardware.</br>
 
-Si supponga, ad esempio, di eseguire un database PostgreSQL quinta generazione-32 vCore per utilizzo generico e due database PostgreSQL con ottimizzazione per la memoria quinta generazione-16 vCore. Si supponga inoltre di pianificare la distribuzione nel prossimo mese di un server di database quinta generazione-32 vCore aggiuntivo per utilizzo generico e un server di database quinta generazione-16 con ottimizzazione per la memoria. Supponiamo che tu sappia che queste risorse sono necessarie per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 64 (2x32) Vcore, un anno per utilizzo generico per un singolo database-quinta generazione e una prenotazione 48 (2x16 + 16) vCore di un anno per l'ottimizzazione della memoria per database singolo-quinta generazione
+Si supponga, ad esempio, di eseguire un database PostgreSQL quinta generazione-32 vCore per utilizzo generico e due database PostgreSQL con ottimizzazione per la memoria quinta generazione-16 vCore. Si supponga, inoltre, di pianificare la distribuzione nel prossimo mese per un server di database quinta generazione-8 vCore per utilizzo generico e un server di database quinta generazione-32 con ottimizzazione per la memoria. Supponiamo che tu sappia che queste risorse sono necessarie per almeno un anno. In questo caso, è necessario acquistare una prenotazione di 40 (32 + 8) Vcore, un anno per utilizzo generico per un singolo database-quinta generazione e un 64 (2x16 + 32) vCore di un anno per l'ottimizzazione della memoria per database singolo-quinta generazione
 
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Acquistare la capacità riservata di database di Azure per PostgreSQL
@@ -67,7 +67,8 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 ## <a name="vcore-size-flexibility"></a>Flessibilità delle dimensioni vCore
 
-La flessibilità delle dimensioni vCore consente di aumentare o ridurre la quantità di risorse all'interno di un livello di prestazioni e di un'area, senza perdere il vantaggio della capacità riservata. 
+La flessibilità delle dimensioni vCore consente di aumentare o ridurre la quantità di risorse all'interno di un livello di prestazioni e di un'area, senza perdere il vantaggio della capacità riservata. Se si passa a una Vcore superiore rispetto alla capacità riservata, verranno addebitati i Vcore in eccesso usando i prezzi con pagamento in base al consumo.
+
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

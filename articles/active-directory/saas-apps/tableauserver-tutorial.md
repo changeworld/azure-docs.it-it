@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 531b22122ff19eb3653400cd7e5d06e2162e0365
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
-ms.translationtype: HT
+ms.openlocfilehash: 3c9d79ef4fd73adbe3ba376f1723693ea8e85197
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045139"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736508"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Tableau Server
 
@@ -165,7 +165,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Tableau Server e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Tableau Server in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Tableau Server. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Tableau Server in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Tableau Server. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

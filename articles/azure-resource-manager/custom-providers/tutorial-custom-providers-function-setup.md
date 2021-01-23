@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
-ms.translationtype: HT
+ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948953"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737321"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurare Funzioni di Azure per i provider personalizzati di Azure
 
@@ -21,7 +21,7 @@ Un provider personalizzato è un contratto tra Azure e un endpoint. Con i provid
 > [!NOTE]
 > In questa esercitazione viene creato un semplice endpoint di servizio che usa un'app per le funzioni di Azure. Tuttavia, un provider personalizzato può usare qualsiasi endpoint accessibile pubblicamente. Le alternative includono App per la logica di Azure, Gestione API di Azure e la funzionalità App Web del Servizio app di Azure.
 
-Prima di avviare questa esercitazione, è necessario seguire l'esercitazione per [creare la prima app per le funzioni di Azure nel portale di Azure](../../azure-functions/functions-create-first-azure-function.md). Questa esercitazione consente di creare una funzione webhook di .NET Core modificabile nel portale di Azure. Rappresenta anche la base per l'esercitazione corrente.
+Prima di avviare questa esercitazione, è necessario seguire l'esercitazione per [creare la prima app per le funzioni di Azure nel portale di Azure](../../azure-functions/functions-get-started.md). Questa esercitazione consente di creare una funzione webhook di .NET Core modificabile nel portale di Azure. Rappresenta anche la base per l'esercitazione corrente.
 
 ## <a name="install-azure-table-storage-bindings"></a>Installare i binding di archiviazione tabelle di Azure
 

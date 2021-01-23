@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 54386bd7431c2003dd29a905b3b696f69a39d2d9
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: c87eb3b52843f4de39d0c037bdf452160be1ca2b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914434"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735965"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-colortokens-ztna"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ColorTokens ZTNA
 
@@ -92,7 +92,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Gruppo | user.groups |
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) per informazioni su come configurare i ruoli in Azure AD.
+    > Fare clic [qui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) per informazioni su come configurare i ruoli in Azure AD.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -142,7 +142,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di ColorTokens ZTNA e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di ColorTokens ZTNA in App personali, verrà eseguito il reindirizzamento all'URL di accesso di ColorTokens ZTNA. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di ColorTokens ZTNA in App personali, verrà eseguito il reindirizzamento all'URL di accesso di ColorTokens ZTNA. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

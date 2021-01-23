@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 3db6fd2e6df96590d7d405157cbb33900c7d8531
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
-ms.translationtype: HT
+ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127805"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Amazon Web Services (AWS)
 
@@ -120,7 +120,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | SessionDuration | "inserire un valore compreso tra 900 secondi (15 minuti) e 43200 secondi (12 ore)" |  `https://aws.amazon.com/SAML/Attributes` |
 
     > [!NOTE]
-    > AWS prevede ruoli per gli utenti assegnati all'applicazione. Configurare questi ruoli in Azure AD in modo che agli utenti possano essere assegnati i ruoli appropriati. Per informazioni su come configurare i ruoli in Azure AD, vedere [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui)
+    > AWS prevede ruoli per gli utenti assegnati all'applicazione. Configurare questi ruoli in Azure AD in modo che agli utenti possano essere assegnati i ruoli appropriati. Per informazioni su come configurare i ruoli in Azure AD, vedere [qui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview)
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** nella finestra di dialogo **Certificato di firma SAML** (Passaggio 3) selezionare **Aggiungi un certificato**.
 

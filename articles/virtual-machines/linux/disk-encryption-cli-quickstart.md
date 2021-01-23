@@ -8,12 +8,12 @@ ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3a9c859c32ef9ad387c56d5fc20f2173ee14fac5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
-ms.translationtype: HT
+ms.openlocfilehash: addfa90f5ec793600072aaaaf2786cfe3d5dad38
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975179"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737016"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-with-the-azure-cli"></a>Guida introduttiva: Creare e crittografare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +25,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -33,7 +33,7 @@ az group create --name "myResourceGroup" --location "eastus"
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
-Creare una VM con il comando [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). L'esempio seguente crea una macchina virtuale denominata *myVM*.
+Creare una VM con il comando [az vm create](/cli/azure/vm#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM*.
 
 ```azurecli-interactive
 az vm create \
@@ -61,7 +61,7 @@ La creazione della macchina virtuale e delle risorse di supporto richiede alcuni
 
 ## <a name="create-a-key-vault-configured-for-encryption-keys"></a>Creare un insieme di credenziali delle chiavi configurato per le chiavi di crittografia
 
-Crittografia dischi di Azure archivia la chiave di crittografia in Azure Key Vault. Creare un insieme di credenziali delle chiavi con [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create). Per consentire all'insieme di credenziali delle chiavi di archiviare le chiavi di crittografia, usare il parametro --enabled-for-disk-encryption.
+Crittografia dischi di Azure archivia la chiave di crittografia in Azure Key Vault. Creare un insieme di credenziali delle chiavi con [az keyvault create](/cli/azure/keyvault#az_keyvault_create). Per consentire all'insieme di credenziali delle chiavi di archiviare le chiavi di crittografia, usare il parametro --enabled-for-disk-encryption.
 
 > [!Important]
 > Ogni insieme di credenziali delle chiavi deve avere un nome univoco in Azure. Negli esempi riportati di seguito sostituire <nome univoco dell'insieme di credenziali> con il nome scelto.
@@ -72,7 +72,7 @@ az keyvault create --name "<your-unique-keyvault-name>" --resource-group "myReso
 
 ## <a name="encrypt-the-virtual-machine"></a>Crittografare la macchina virtuale
 
-Crittografare la macchina virtuale con [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-latest), specificando il nome univoco dell'insieme di credenziali delle chiavi nel parametro --disk-encryption-keyvault.
+Crittografare la macchina virtuale con [az vm encryption](/cli/azure/vm/encryption), specificando il nome univoco dell'insieme di credenziali delle chiavi nel parametro --disk-encryption-keyvault.
 
 ```azurecli-interactive
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"

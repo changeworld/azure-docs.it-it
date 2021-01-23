@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 12/04/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4681039f60154b95eeb7e40196ca33055a192c74
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 2059608faa8ce148e5823e48eff6abf9e71c9b01
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222106"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735434"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link-preview"></a>Eseguire query Azure Cosmos DB dati con un pool SQL senza server nell'anteprima di Azure sinapsi link
 
@@ -24,7 +24,7 @@ ms.locfileid: "98222106"
 
 Un pool SQL senza server consente di analizzare i dati nei contenitori Azure Cosmos DB abilitati con il [collegamento sinapsi di Azure](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in tempo quasi reale senza influire sulle prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall' [Archivio analitico](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e la connettività integrata a un'ampia gamma di strumenti di query di Business Intelligence (BI) ed ad hoc tramite l'interfaccia t-SQL.
 
-Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , che include la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Create external table As Select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Attualmente non è possibile archiviare i risultati di query del pool SQL senza server per Azure Cosmos DB usando CETAS.
+Per eseguire query Azure Cosmos DB, la superficie di attacco di [selezione](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) completa è supportata tramite la funzione [OPENROWSET](develop-openrowset.md) , che include la maggior parte degli [operatori e delle funzioni SQL](overview-features.md). È anche possibile archiviare i risultati della query che legge i dati da Azure Cosmos DB insieme ai dati nell'archivio BLOB di Azure o Azure Data Lake Storage usando [Create external table As Select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). Attualmente non è possibile archiviare i risultati di query del pool SQL senza server per Azure Cosmos DB usando CETAS.
 
 Questo articolo illustra come scrivere una query con un pool SQL senza server che eseguirà query sui dati da contenitori di Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È quindi possibile ottenere altre informazioni sulla creazione di viste del pool SQL senza server su Azure Cosmos DB contenitori e sulla connessione ai modelli di Power BI in [questa esercitazione](./tutorial-data-analyst.md).
 

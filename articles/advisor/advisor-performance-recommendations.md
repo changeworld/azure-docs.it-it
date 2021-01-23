@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: d7d4e87670ca529f38465e928c4067daec802b8f
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98248429"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735529"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -179,7 +179,7 @@ Scopri di più su [immersive Reader SDK](../cognitive-services/immersive-reader/
 
 Advisor rileva che si dispone di un pool di host con un primo set di profondità come algoritmo di bilanciamento del carico e che il limite massimo della sessione del pool host è maggiore o uguale a 999999. Il bilanciamento del carico in profondità usa il limite massimo di sessioni per determinare il numero massimo di utenti che possono disporre di sessioni simultanee in un singolo host della sessione. Se il limite massimo della sessione è troppo elevato, tutte le sessioni utente verranno indirizzate allo stesso host di sessione e ciò causerà problemi di prestazioni e affidabilità. Pertanto, quando si imposta un pool di host in modo da avere un primo bilanciamento del carico di profondità, è necessario impostare un limite massimo di sessioni appropriato in base alla configurazione della distribuzione e della capacità delle macchine virtuali. 
 
-Per ulteriori informazioni sul bilanciamento del carico in desktop virtuali Windows, vedere [configurare il metodo di bilanciamento del carico per desktop virtuali Windows](/azure/virtual-desktop/troubleshoot-set-up-overview).
+Per ulteriori informazioni sul bilanciamento del carico in desktop virtuali Windows, vedere [configurare il metodo di bilanciamento del carico per desktop virtuali Windows](../virtual-desktop/troubleshoot-set-up-overview.md).
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor
 

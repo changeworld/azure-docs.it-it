@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2617308d342be19f74e1f3145a1137fadb04d073
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: e1c9cf0a60446fba6fae5c850231b0805e7ea135
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97914689"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736653"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Esercitazione: Creare e distribuire macchine virtuali a disponibilità elevata con Azure PowerShell
 
@@ -75,7 +75,7 @@ Per garantirne la corretta distribuzione nell'hardware, le VM devono essere crea
 
 Quando si crea una VM con [New-AzVM](/powershell/module/az.compute/new-azvm), si usa il parametro `-AvailabilitySetName` per specificare il nome del set di disponibilità.
 
-Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1&preserve-view=true):
+Impostare prima di tutto nome utente e password dell'amministratore della macchina virtuale con il comando [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential):
 
 ```azurepowershell-interactive
 $cred = Get-Credential

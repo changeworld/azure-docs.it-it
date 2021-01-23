@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ed41a2f3e967cc947f671b73e3f44aabf8c4034c
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 8ae693d7f6974415eac294289288879d9668604c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967721"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735593"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con UltiPro
 
@@ -153,7 +153,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di UltiPro e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di UltiPro in App personali, verrà eseguito il reindirizzamento all'URL di accesso di UltiPro. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di UltiPro in App personali, verrà eseguito il reindirizzamento all'URL di accesso di UltiPro. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

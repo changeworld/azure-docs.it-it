@@ -3,12 +3,12 @@ title: Sintassi del filtro SQL per la regola di sottoscrizione del bus di serviz
 description: Questo articolo fornisce informazioni dettagliate sulla grammatica del filtro SQL. Un filtro SQL supporta un subset dello standard SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 60f3cb6e85cef7a166c353f78cfb50405b962bdd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 93739b0d64fb029f4d2af1d8dbbf91947085337d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633172"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737660"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintassi del filtro SQL per la regola di sottoscrizione
 
@@ -52,7 +52,7 @@ Il bus di servizio Premium supporta anche la [sintassi del selettore dei messagg
   
 -   `<scope>` è una stringa facoltativa che indica l'ambito di `<property_name>`. I valori validi sono `sys` o `user`. Il `sys` valore indica l'ambito del sistema in cui `<property_name>` è il nome di una proprietà pubblica della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica l'ambito dell'utente in cui `<property_name>` è una chiave del dizionario della [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . `user` l'ambito è l'ambito predefinito se `<scope>` non è specificato.  
   
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Un tentativo di accedere a una proprietà di sistema inesistente è un errore, mentre un tentativo di accedere a una proprietà utente inesistente non è un errore. Una proprietà utente inesistente viene invece valutata internamente come valore sconosciuto. Un valore sconosciuto viene gestito in modo speciale durante la valutazione degli operatori.  
   
@@ -105,7 +105,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       <expression>  
 ```  
   
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
   
 `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE.      e può contenere i caratteri jolly seguenti.  
   
@@ -120,7 +120,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       <expression>  
 ```  
   
-### <a name="remarks"></a>Commenti  
+### <a name="remarks"></a>Osservazioni  
 
 `<escape_char>` deve essere un'espressione valutata come stringa di lunghezza 1. Viene usato come carattere di escape per l'operatore LIKE.  
   
@@ -169,7 +169,7 @@ Un `<regular_identifier>` non può essere una parola chiave riservata.
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Commenti  
+### <a name="remarks"></a>Osservazioni  
 
 Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**. I valori sono archiviati come `System.Boolean`.  
   
@@ -179,7 +179,7 @@ Le costanti booleane sono rappresentate dalle parole chiave **TRUE** e **FALSE**
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Commenti  
+### <a name="remarks"></a>Osservazioni  
 
 Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qualsiasi carattere Unicode valido. Le virgolette singole incorporate in una costante di tipo stringa sono rappresentate con due virgolette singole.  
   
@@ -191,7 +191,7 @@ Le costanti di tipo stringa sono racchiuse tra virgolette singole e includono qu
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Commenti
+### <a name="remarks"></a>Osservazioni
   
 La `newid()` funzione restituisce un oggetto `System.Guid` generato dal `System.Guid.NewGuid()` metodo.  
   
@@ -272,6 +272,65 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
 
 ## <a name="examples"></a>Esempi
 
+### <a name="filter-on-system-properties"></a>Filtrare le proprietà di sistema
+Per fare riferimento a una proprietà di sistema in un filtro, utilizzare il formato seguente: `sys.<system-property-name>` . 
+
+```csharp
+sys.Label LIKE '%bus%'`
+sys.messageid = 'xxxx'
+sys.correlationid like 'abc-%'
+```
+
+## <a name="filter-on-message-properties"></a>Filtrare le proprietà del messaggio
+Ecco gli esempi di utilizzo delle proprietà dei messaggi in un filtro. È possibile accedere alle proprietà del messaggio usando `user.property-name` o semplicemente `property-name` .
+
+```csharp
+MessageProperty = 'A'
+SuperHero like 'SuperMan%'
+```
+
+### <a name="filter-on-message-properties-with-special-characters"></a>Filtrare le proprietà dei messaggi con caratteri speciali
+Se il nome della proprietà del messaggio contiene caratteri speciali, utilizzare le virgolette doppie ( `"` ) per racchiudere il nome della proprietà. Se, ad esempio, il nome della proprietà è `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"` , usare la sintassi seguente nel filtro. 
+
+```csharp
+"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName" = 'account'
+```
+
+### <a name="filter-on-message-properties-with-numeric-values"></a>Filtrare le proprietà del messaggio con valori numerici
+Negli esempi seguenti viene illustrato come è possibile utilizzare le proprietà con valori numerici nei filtri. 
+
+```csharp
+MessageProperty = 1
+MessageProperty > 1
+MessageProperty > 2.08
+MessageProperty = 1 AND MessageProperty2 = 3
+MessageProperty = 1 OR MessageProperty2 = 3
+```
+
+### <a name="parameter-based-filters"></a>Filtri basati su parametri
+Di seguito sono riportati alcuni esempi di utilizzo di filtri basati su parametri. In questi esempi, `DataTimeMp` è una proprietà del messaggio di tipo `DateTime` e `@dtParam` è un parametro passato al filtro come `DateTime` oggetto.
+
+```csharp
+DateTimeMp < @dtParam
+DateTimeMp > @dtParam
+
+(DateTimeMp2-DateTimeMp1) <= @timespan //@timespan is a parameter of type TimeSpan
+DateTimeMp2-DateTimeMp1 <= @timespan
+```
+
+### <a name="using-in-and-not-in"></a>Uso di IN e NOT IN
+
+```csharp
+StoreId IN('Store1', 'Store2', 'Store3')"
+
+sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
+
+sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
+```
+
+Per un esempio C#, vedere l' [argomento relativo ai filtri di esempio su GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
+
+
 ### <a name="set-rule-action-for-a-sql-filter"></a>Imposta azione regola per un filtro SQL
 
 ```csharp
@@ -296,30 +355,6 @@ var filterActionRule = new RuleDescription
 await this.mgmtClient.CreateRuleAsync(topicName, subscriptionName, filterActionRule);
 ```
 
-### <a name="sql-filter-on-a-system-property"></a>Filtro SQL su una proprietà di sistema
-
-```csharp
-sys.Label LIKE '%bus%'`
-```
-
-### <a name="using-or"></a>Utilizzando o 
-
-```csharp
- sys.Label LIKE '%bus%'` OR `user.tag IN ('queue', 'topic', 'subscription')
-```
-
-### <a name="using-in-and-not-in"></a>Uso di IN e NOT IN
-
-```csharp
-StoreId IN('Store1', 'Store2', 'Store3')"
-
-sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'
-
-sys.To NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','Store4','Store5','Store6','Store7','Store8')
-```
-
-Per un esempio C#, vedere l' [argomento relativo ai filtri di esempio su GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Azure.Messaging.ServiceBus/BasicSendReceiveTutorialwithFilters).
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -327,5 +362,5 @@ Per un esempio C#, vedere l' [argomento relativo ai filtri di esempio su GitHub]
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)
 - [Classe SqlFilter (Java)](/java/api/com.microsoft.azure.servicebus.rules.SqlFilter)
 - [SqlRuleFilter (JavaScript)](/javascript/api/@azure/service-bus/sqlrulefilter)
-- [AZ ServiceBus topic Subscription Rule](/cli/azure/servicebus/topic/subscription/rule)
+- [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
 - [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

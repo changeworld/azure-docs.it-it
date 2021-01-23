@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 2bf56379a32bf8035ea2d0d3fe797776ec6ba40d
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: e31eb8deb3102ab03809f01e33b1e6548113dae4
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250401"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736390"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introduzione a Esplora metriche di Azure
 
@@ -29,7 +29,7 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 Per creare un grafico delle metriche, da una risorsa, un gruppo di risorse, una sottoscrizione o una vista di monitoraggio di Azure, aprire la scheda **metriche** e seguire questa procedura:
 
-1. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito delle risorse. In questo modo sarà possibile selezionare le risorse per cui si vogliono visualizzare le metriche. La risorsa deve essere già popolata se si apre Esplora metriche dal menu della risorsa. Per informazioni su come visualizzare le metriche in più risorse, [vedere questo articolo](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-dynamic-scope).
+1. Fare clic sul pulsante "selezionare un ambito" per aprire la selezione dell'ambito delle risorse. In questo modo sarà possibile selezionare le risorse per cui si vogliono visualizzare le metriche. La risorsa deve essere già popolata se si apre Esplora metriche dal menu della risorsa. Per informazioni su come visualizzare le metriche in più risorse, [vedere questo articolo](./metrics-dynamic-scope.md).
     > ![Selezionare una risorsa](./media/metrics-getting-started/scope-picker.png)
 
 2. Per alcune risorse, è necessario selezionare uno spazio dei nomi. Lo spazio dei nomi è semplicemente un modo per organizzare le metriche e individuarle più facilmente. Ad esempio, gli account di archiviazione hanno spazi dei nomi distinti per l'archiviazione delle metriche di file, tabelle, BLOB e code. Molti tipi di risorse hanno solo uno spazio dei nomi.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ea8f3bccd97e1aaa15a21ae605a163b11c8ae39
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197932"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736089"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Baseline della sicurezza di Azure per il servizio app
 
@@ -71,7 +71,7 @@ Usa il firewall di Azure per inviare il traffico e creare, applicare e registrar
 
 - [Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure](../security-center/security-center-network-recommendations.md)
 
-- [Come abilitare il monitoraggio e la protezione del servizio app](/azure/security-center/defender-for-app-service-introduction)
+- [Come abilitare il monitoraggio e la protezione del servizio app](../security-center/defender-for-app-service-introduction.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -168,7 +168,7 @@ Per ulteriori informazioni, esaminare i collegamenti a cui si fa riferimento.
 
 - [Come configurare TLS end-to-end usando il gateway applicazione con il portale](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](/azure/app-service/environment/firewall-integration)
+- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](./environment/firewall-integration.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -205,7 +205,7 @@ Per ulteriori informazioni, esaminare i collegamenti a cui si fa riferimento.
 
 - [Come configurare TLS end-to-end usando il gateway applicazione con il portale](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](/azure/app-service/environment/firewall-integration)
+- [Proteggere l'ambiente del servizio app come descritto in bloccare un servizio app](./environment/firewall-integration.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -221,7 +221,7 @@ Applicare una delle definizioni di criteri di Azure predefinite correlate agli e
 
 - [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-- [Restrizioni di accesso al servizio app Azure](/azure/app-service/app-service-ip-restrictions)
+- [Restrizioni di accesso al servizio app Azure](./app-service-ip-restrictions.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

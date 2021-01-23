@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 6634ab3521fee3062ecee465eaf6dcda80ee6ff8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0a462c7d713ea9285096db48b4a3bb5c5b0d9874
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98699515"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737388"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -508,15 +508,14 @@ Le variabili, funzioni e viste seguenti restituiscono risultati diversi:
 
 ### <a name="subnet"></a>Subnet
 -  Non è possibile inserire altre risorse, ad esempio macchine virtuali, nella subnet in cui è stato distribuito il Istanza gestita SQL. Distribuire queste risorse usando una subnet diversa.
-- La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements)disponibili. Il valore minimo è 16, mentre la raccomandazione prevede almeno 32 indirizzi IP nella subnet.
-- Gli [endpoint di servizio non possono essere associati alla subnet di SQL istanza gestita](connectivity-architecture-overview.md#network-requirements). Verificare che l'opzione Endpoint di servizio sia disabilitata durante la creazione della rete virtuale.
+- La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements)disponibili. Il valore minimo prevede almeno 32 indirizzi IP nella subnet.
 - Il numero di Vcore e i tipi di istanze che è possibile distribuire in un'area presentano [vincoli e limiti](resource-limits.md#regional-resource-limitations).
-- [Per la subnet è necessario applicare alcune regole di sicurezza](connectivity-architecture-overview.md#network-requirements).
+- È necessario applicare una [configurazione di rete](connectivity-architecture-overview.md#network-requirements) alla subnet.
 
 ### <a name="vnet"></a>Rete virtuale
 - VNet può essere distribuito usando il modello di risorse. il modello classico per VNet non è supportato.
 - Dopo la creazione di un Istanza gestita SQL, lo stato di trasferimento di SQL Istanza gestita o VNet a un altro gruppo di risorse o a una sottoscrizione non è supportato.
-- Alcuni servizi come gli ambienti del servizio app, le app per la logica e i Istanza gestita SQL (usati per la replica geografica, la replica transazionale o tramite server collegati) non possono accedere a SQL Istanza gestita in aree diverse se i reti virtuali sono connessi tramite il [peering globale](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). È possibile connettersi a queste risorse tramite ExpressRoute o da VNet a VNet tramite gateway VNet.
+- Per le istanze gestite di SQL ospitate in cluster virtuali creati prima di 9/22/2020 il [peering globale](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) non è supportato. È possibile connettersi a queste risorse tramite ExpressRoute o da VNet a VNet tramite gateway VNet.
 
 ### <a name="failover-groups"></a>Gruppi di failover
 I database di sistema non vengono replicati nell'istanza secondaria in un gruppo di failover. Pertanto, gli scenari che dipendono da oggetti dei database di sistema non saranno possibili nell'istanza secondaria, a meno che gli oggetti non vengano creati manualmente sul database secondario.

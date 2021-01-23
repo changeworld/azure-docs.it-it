@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/21/2020
 ms.author: jeedes
-ms.openlocfilehash: fec95dc033eb5eacaf79f5bbd2b6b294628667b9
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
-ms.translationtype: HT
+ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97725086"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735969"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EasySSO for Bamboo
 
@@ -199,7 +199,7 @@ Se, però, non si vuole abilitare il provisioning utenti automatico al primo acc
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando App personali.
 
-Quando si fa clic sul riquadro di EasySSO for Bamboo in App personali, si dovrebbe accedere automaticamente all'istanza di Bamboo per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di EasySSO for Bamboo in App personali, si dovrebbe accedere automaticamente all'istanza di Bamboo per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Flusso di lavoro avviato da SP
 

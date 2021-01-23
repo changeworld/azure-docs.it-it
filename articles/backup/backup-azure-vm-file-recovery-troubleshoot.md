@@ -3,12 +3,12 @@ title: Risolvere i problemi di ripristino del file di VM di Azure
 description: Risolvere i problemi relativi al ripristino di file e cartelle da un backup di VM di Azure.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: aec69b91ad1dae5864e5e8fba61c53e6d15887f4
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624507"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735878"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Risolvere i problemi relativi al ripristino dei file di un backup di una macchina virtuale di Azure
 
@@ -46,7 +46,7 @@ In questa sezione vengono illustrati i passaggi per risolvere i problemi comuni 
 
 ### <a name="you-cant-download-the-script"></a>Non è possibile scaricare lo script
 
-1. Assicurarsi di disporre delle [autorizzazioni necessarie per scaricare lo script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#select-recovery-point-who-can-generate-script).
+1. Assicurarsi di disporre delle [autorizzazioni necessarie per scaricare lo script](./backup-azure-restore-files-from-vm.md#select-recovery-point-who-can-generate-script).
 1. Verificare la connessione agli indirizzi IP di destinazione di Azure. Eseguire uno dei comandi seguenti da un prompt dei comandi con privilegi elevati:
 
    `nslookup download.microsoft.com`
@@ -67,7 +67,7 @@ Quando si esegue lo script Python per il ripristino a livello di elemento (ILR) 
 
 Potrebbe essere visualizzato il messaggio di errore "eccezione intercettata durante la connessione al target".
 
-1. Verificare che il computer in cui viene eseguito lo script soddisfi i [requisiti di accesso](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-4-access-requirements-to-successfully-run-the-script).
+1. Verificare che il computer in cui viene eseguito lo script soddisfi i [requisiti di accesso](./backup-azure-restore-files-from-vm.md#step-4-access-requirements-to-successfully-run-the-script).
 1. Verificare la connessione agli indirizzi IP di destinazione di Azure. Eseguire uno dei comandi seguenti da un prompt dei comandi con privilegi elevati:
 
    `nslookup download.microsoft.com`

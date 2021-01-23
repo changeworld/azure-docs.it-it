@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 3ae300ca2746ab9e3478d3fe14fd6fc49c95a93d
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: dc9f7dfdf33411f11d51734b48105be200874d02
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071732"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98738119"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -45,7 +45,7 @@ Quando si crea una macchina virtuale nella portale di Azure, l'impostazione pred
 :::image type="content" source="./media/boot-diagnostics/boot-diagnostics-enable-portal.png" alt-text="Screenshot che Abilita la diagnostica di avvio gestito durante la creazione della macchina virtuale.":::
 
 ### <a name="enable-managed-boot-diagnostics-using-cli"></a>Abilitare la diagnostica di avvio gestito tramite CLI
-Diagnostica di avvio con un account di archiviazione gestito è supportato nell'interfaccia della riga di comando di Azure 2.12.0 e versioni successive. Se non si desidera immettere un nome o un URI per un account di archiviazione, verrà utilizzato un account gestito. Per ulteriori informazioni ed esempi di codice, vedere la documentazione dell'interfaccia della riga [di comando per diagnostica di avvio](/cli/azure/vm/boot-diagnostics?preserve-view=true&view=azure-cli-latest).
+Diagnostica di avvio con un account di archiviazione gestito è supportato nell'interfaccia della riga di comando di Azure 2.12.0 e versioni successive. Se non si desidera immettere un nome o un URI per un account di archiviazione, verrà utilizzato un account gestito. Per ulteriori informazioni ed esempi di codice, vedere la documentazione dell'interfaccia della riga [di comando per diagnostica di avvio](/cli/azure/vm/boot-diagnostics).
 
 ### <a name="enable-managed-boot-diagnostics-using-azure-resource-manager-arm-templates"></a>Abilitare la diagnostica di avvio gestito usando modelli di Azure Resource Manager (ARM)
 Tutti gli elementi dopo la versione API 2020-06-01 supportano la diagnostica di avvio gestito. Per altre informazioni, vedere [visualizzazione dell'istanza di diagnostica di avvio](/rest/api/compute/virtualmachines/createorupdate#bootdiagnostics).

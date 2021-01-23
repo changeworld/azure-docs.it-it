@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 30c72f6cf602925db6369a1f56362326e9c60df1
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: f12ab30d0c08c5efc064df73842bc3af4b47b017
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916423"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735991"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-apptio"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Apptio
 
@@ -80,7 +80,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     Nella casella di testo **Identificatore** digitare un URL: `urn:federation:apptio`
 
-1. Le attestazioni di ruolo sono preconfigurate, quindi non è necessario configurarle, ma è comunque necessario crearle in Azure AD usando le informazioni incluse in questo [articolo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+1. Le attestazioni di ruolo sono preconfigurate, quindi non è necessario configurarle, ma è comunque necessario crearle in Azure AD usando le informazioni incluse in questo [articolo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -128,9 +128,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su Testa l'applicazione nel portale di Azure, si dovrebbe accedere automaticamente all'applicazione Apptio per cui si è configurato l'accesso SSO
 
-* È possibile usare App personali Microsoft. Facendo clic sul riquadro di Apptio in App personali, si dovrebbe accedere automaticamente all'istanza di Apptio per cui è stato configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Facendo clic sul riquadro di Apptio in App personali, si dovrebbe accedere automaticamente all'istanza di Apptio per cui è stato configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Apptio, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Apptio, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

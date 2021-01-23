@@ -3,16 +3,16 @@ title: Errori SKU non disponibili
 description: Viene descritto come risolvere l'errore SKU non disponibile durante la distribuzione di risorse con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: 15df8c5ff45994a03e12731cf3798f7f4c2a295b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948613"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737151"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Risolvere gli errori dovuti all'indisponibilità di SKU
 
-Questo articolo descrive come risolvere l'errore **SkuNotAvailable**. Se non si riesce a trovare uno SKU appropriato in tale area/area o in un'area/area alternativa che soddisfi le esigenze aziendali, inviare una [richiesta di SKU](../../azure-portal/supportability/sku-series-unavailable.md) al supporto tecnico di Azure.
+Questo articolo descrive come risolvere l'errore **SkuNotAvailable**. Se non si riesce a trovare uno SKU appropriato in tale area/area o in un'area/area alternativa che soddisfi le esigenze aziendali, inviare una [richiesta di SKU](/troubleshoot/azure/general/region-access-request-process) al supporto tecnico di Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

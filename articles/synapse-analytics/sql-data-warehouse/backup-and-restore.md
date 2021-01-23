@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: d8c680ec30dcecc56c064f08e4690cbbde9c2377
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 842f2f92133664f58ca60d6d30181d48d63271eb
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679914"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736306"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e ripristino nel pool SQL dedicato a sinapsi di Azure
 
@@ -71,8 +71,16 @@ Quando si rilascia un pool SQL dedicato, viene creato e salvato uno snapshot fin
 
 Un backup geografico viene creato una volta al giorno per un [Data Center abbinato](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). L'obiettivo del punto di ripristino per un ripristino geografico è di 24 ore. È possibile ripristinare il backup geografico in un server in qualsiasi altra area in cui è supportato il pool SQL dedicato. Un backup geografico assicura la possibilità di ripristinare un data warehouse nel caso in cui non si possa accedere ai punti di ripristino nell'area primaria.
 
+Se non sono necessari backup geografici per il pool SQL dedicato, è possibile disabilitarli e salvare i costi di archiviazione per il ripristino di emergenza. A tale scopo, vedere [la guida alla procedura: disabilitare i backup geografici per un pool SQL dedicato (in precedenza SQL DW)](disable-geo-backup.md). Si noti che se si disabilitano i backup geografici, non sarà possibile ripristinare il pool SQL dedicato nell'area di Azure abbinata se il data center primario di Azure non è disponibile. 
+
 > [!NOTE]
 > Se occorre un RPO più breve per i backup geografici, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse in un'area diversa. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. occorre una copia attiva del data warehouse, la ripresa dell'esecuzione del data warehouse dovrebbe richiedere solo alcuni minuti.
+
+## <a name="data-residency"></a>Residenza dei dati 
+
+Se il data center abbinato si trova al di fuori del limite geografico, è possibile assicurarsi che i dati rimangano entro i confini geografici scegliendo l'archiviazione con ridondanza geografica. Questa operazione può essere eseguita durante il provisioning del pool SQL dedicato (in precedenza SQL DW) tramite l'opzione di archiviazione con ridondanza geografica durante la creazione o il ripristino di un pool SQL dedicato (in precedenza SQL DW). 
+
+Per verificare che il data center associato si trovi in un paese diverso, vedere [aree abbinate di Azure](../../best-practices-availability-paired-regions.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="backup-and-restore-costs"></a>Costi di backup e di ripristino
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 94e3b95e5e1d3c65550046c5db56e0f783fd60c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8ae41167b642be75c7bb99042bca829fd8c1728e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976301"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736352"
 ---
 # <a name="use-azure-image-builder-for-windows-vms-allowing-access-to-an-existing-azure-vnet"></a>Usare Azure Image Builder per macchine virtuali Windows consentendo l'accesso a una VNET di Azure esistente
 
@@ -90,7 +90,7 @@ Creare il gruppo di risorse.
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 ```
 
-## <a name="configure-networking"></a>Configurare le impostazioni di rete
+## <a name="configure-networking"></a>Configurare la rete
 
 Se non si dispone di un VNET\Subnet\NSG esistente, usare lo script seguente per crearne uno.
 
@@ -258,7 +258,7 @@ $runOutJsonStatus
 ```
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
-A questo punto, la compilazione è stata completata, è possibile creare una macchina virtuale dall'immagine. Usare gli esempi della [documentazione di PowerShell New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.5.0#description).
+A questo punto, la compilazione è stata completata, è possibile creare una macchina virtuale dall'immagine. Usare gli esempi della [documentazione di PowerShell New-AzVM](/powershell/module/az.compute/new-azvm#description).
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 

@@ -1,15 +1,15 @@
 ---
 title: Organizzare le risorse con i gruppi di gestione - Governance di Azure
 description: Informazioni sui gruppi di gestione, sul funzionamento delle autorizzazioni e sul relativo utilizzo.
-ms.date: 11/17/2020
+ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 9f23a279733169f17f0f82cb80aa08bfafcd45d0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030672"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736323"
 ---
 # <a name="what-are-azure-management-groups"></a>Che cosa sono i gruppi di gestione di Azure?
 
@@ -162,16 +162,16 @@ Sono disponibili alcune opzioni diverse per correggere questo scenario:
 - Rimuovere l'assegnazione di ruolo dalla sottoscrizione prima di spostare la sottoscrizione in un nuovo gruppo di gestione padre.
 - Aggiungere la sottoscrizione all'ambito assegnabile della definizione del ruolo.
 - Modificare l'ambito assegnabile all'interno della definizione del ruolo. Nell'esempio precedente, è possibile aggiornare gli ambiti assegnabili da Marketing a Root Management Group in modo che la definizione possa essere raggiunta da entrambi i rami della gerarchia.  
-- Creare un ruolo personalizzato aggiuntivo che verrà definito nell'altro ramo. Per questo nuovo ruolo sarà necessario modificare anche l'assegnazione di ruolo nella sottoscrizione.  
+- Creare un altro ruolo personalizzato definito nell'altro ramo. Per questo nuovo ruolo è necessario modificare anche l'assegnazione di ruolo nella sottoscrizione.  
 
 ### <a name="limitations"></a>Limitazioni  
 
 Esistono alcune limitazioni quando si usano i ruoli personalizzati nei gruppi di gestione. 
 
  - È possibile definire un solo gruppo di gestione negli ambiti assegnabili di un nuovo ruolo. Questa limitazione è prevista per ridurre il numero di situazioni in cui le definizioni del ruolo e le assegnazioni di ruolo sono disconnesse. Questa situazione si verifica quando una sottoscrizione o un gruppo di gestione con un'assegnazione di ruolo viene spostato in un elemento padre diverso che non contiene la definizione del ruolo.  
- - Le azioni del piano dati del provider di risorse non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con l'aggiornamento dei provider di risorse del piano dati.
-   Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
- - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione non corretto, la definizione del ruolo verrà comunque creata.
+ - Le azioni del piano dati del provider di risorse non possono essere definite nei ruoli personalizzati del gruppo di gestione. Questa restrizione è prevista perché si verifica un problema di latenza con l'aggiornamento dei provider di risorse del piano dati. Questo problema di latenza è in fase di analisi e queste azioni verranno disabilitate dalla definizione del ruolo per ridurre eventuali rischi.
+ - Azure Resource Manager non convalida l'esistenza del gruppo di gestione nell'ambito assegnabile della definizione del ruolo. Se è presente un errore di digitazione o un ID gruppo di gestione errato, viene comunque creata la definizione di ruolo.
+ - L'assegnazione di ruolo per un ruolo con _Dataactions_ non è supportata. Creare invece l'assegnazione di ruolo nell'ambito della sottoscrizione.
 
 > [!IMPORTANT]
 > L'aggiunta di un gruppo di gestione a `AssignableScopes` è attualmente in fase di anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn
-ms.openlocfilehash: ee172203d6aa54b4b539356835f8a6bf2d21bad3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea50d0fdc5a772cae449951901af36eed4e93771
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288423"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737626"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-azure-cli"></a>Distribuire macchine virtuali in gruppi di posizionamento di prossimità usando l'interfaccia della riga di comando di Azure
 
@@ -67,7 +67,7 @@ az ppg show --name myppg --resource-group myppggroup --query "virtualMachines"
 
 ## <a name="scale-sets"></a>Set di scalabilità
 
-È anche possibile creare un set di scalabilità nel gruppo di posizionamento di prossimità. Usare lo stesso `--ppg` parametro con il comando [AZ vmss create](/cli/azure/vmss?view=azure-cli-latest#az-vmss-create) per creare un set di scalabilità e tutte le istanze verranno create nello stesso gruppo di posizionamento di prossimità.
+È anche possibile creare un set di scalabilità nel gruppo di posizionamento di prossimità. Usare lo stesso `--ppg` parametro con il comando [AZ vmss create](/cli/azure/vmss#az_vmss_create) per creare un set di scalabilità e tutte le istanze verranno create nello stesso gruppo di posizionamento di prossimità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

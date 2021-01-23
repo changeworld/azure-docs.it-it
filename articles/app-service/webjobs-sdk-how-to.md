@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: f941c394c3dab0e5e6997898a48a248f6a0cfe42
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 5666a489cfd0f0d92120c9ec7e3c8d3c2d083b5e
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352440"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737270"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -794,7 +794,7 @@ public static void RemoveItem([QueueTrigger("remove-item")] string message)
 
 ### <a name="viewing-lease-blobs"></a>Visualizzazione dei BLOB di lease
 
-WebJobs SDK usa i [lease del BLOB di Azure](../storage/common/storage-concurrency.md#pessimistic-concurrency-for-blobs) sullo sfondo per implementare il blocco distribuito. I BLOB di lease usati da Singleton sono disponibili nel contenitore `azure-webjobs-host` dell'account di archiviazione `AzureWebJobsStorage` nei blocchi del percorso. Ad esempio, il percorso del BLOB di lease per il primo esempio `ProcessImage` mostrato sopra potrebbe essere `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Tutti i percorsi includono l'ID JobHost, in questo caso 061851c758f04938a4426aa9ab3869c0.
+WebJobs SDK usa i [lease del BLOB di Azure](../storage/blobs/concurrency-manage.md#pessimistic-concurrency-for-blobs) sullo sfondo per implementare il blocco distribuito. I BLOB di lease usati da Singleton sono disponibili nel contenitore `azure-webjobs-host` dell'account di archiviazione `AzureWebJobsStorage` nei blocchi del percorso. Ad esempio, il percorso del BLOB di lease per il primo esempio `ProcessImage` mostrato sopra potrebbe essere `locks/061851c758f04938a4426aa9ab3869c0/WebJobs.Functions.ProcessImage`. Tutti i percorsi includono l'ID JobHost, in questo caso 061851c758f04938a4426aa9ab3869c0.
 
 ## <a name="async-functions"></a>Funzioni asincrone
 

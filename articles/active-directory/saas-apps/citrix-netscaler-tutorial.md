@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: jeedes
-ms.openlocfilehash: e5f1f16ba9a2f276d41373eaf4c819522f2d9e2b
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
-ms.translationtype: HT
+ms.openlocfilehash: 75d46edb332fb28132592e414e78bad64e75fef5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607576"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736424"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-adc-kerberos-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Citrix ADC (autenticazione basata su Kerberos)
 
@@ -440,7 +440,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di Citrix ADC e avviare il flusso di accesso da questa posizione.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Citrix ADC in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Citrix ADC. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Citrix ADC in App personali, verrà eseguito il reindirizzamento all'URL di accesso di Citrix ADC. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

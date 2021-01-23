@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: c9db5ab471f743ffbf3ae4e140ad4cb32d0a3d6c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
-ms.translationtype: HT
+ms.openlocfilehash: 6e4cb3c372b696b203d2441c74a6cafff175af47
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670193"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736136"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Alibaba Cloud Service (Role-based SSO)
 
@@ -94,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!Note]
     > Se i valori di **Identificatore** e **URL di risposta** non vengono popolati automaticamente, inserirli manualmente in base alle proprie esigenze.
 
-1. Con Alibaba Cloud Service (Role-based SSO) è necessario configurare i ruoli in Azure AD. Le attestazioni di ruolo sono preconfigurate, quindi non è necessario configurarle, ma è comunque necessario crearle in Azure AD usando le informazioni incluse in questo [articolo](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui).
+1. Con Alibaba Cloud Service (Role-based SSO) è necessario configurare i ruoli in Azure AD. Le attestazioni di ruolo sono preconfigurate, quindi non è necessario configurarle, ma è comunque necessario crearle in Azure AD usando le informazioni incluse in questo [articolo](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview).
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

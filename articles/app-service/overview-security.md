@@ -5,12 +5,12 @@ keywords: servizio app di azure, app web, app per dispositivi mobili, app per le
 ms.topic: article
 ms.date: 08/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55ffb2d03a42809a41583e6be25066b0b8e104b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61bffcfa8b98ed666e450c344023258b752e4880
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961500"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736106"
 ---
 # <a name="security-in-azure-app-service"></a>Sicurezza in Servizio app di Azure
 
@@ -43,7 +43,7 @@ Il servizio app supporta FTP e FTPS per la distribuzione dei file. Se possibile,
 
 Per impostazione predefinita, l'app del servizio app accetta le richieste da tutti gli indirizzi IP da Internet, ma è possibile limitare tale accesso a un sottoinsieme ristretto di indirizzi IP. Il servizio app in Windows consente di definire un elenco di indirizzi IP che possono accedere all'app. Questo elenco può includere singoli indirizzi IP o un intervallo di indirizzi IP definito da una subnet mask. Per altre informazioni, vedere [Restrizioni IP statico del Servizio app di Azure](app-service-ip-restrictions.md).
 
-Per il servizio app in Windows, è anche possibile limitare dinamicamente gli indirizzi IP configurando il _web.config_. Per ulteriori informazioni, vedere [sicurezza \<dynamicIpSecurity> dinamica degli indirizzi IP ](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+Per il servizio app in Windows, è anche possibile limitare dinamicamente gli indirizzi IP configurando il _web.config_. Per ulteriori informazioni, vedere [sicurezza \<dynamicIpSecurity> dinamica degli indirizzi IP](/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## <a name="client-authentication-and-authorization"></a>Autenticazione e autorizzazione dei client
 
@@ -85,8 +85,8 @@ Per isolare completamente la connettività delle risorse dalle reti condivise in
 È possibile accedere in modo sicuro alle risorse locali, ad esempio database, in tre modi: 
 
 - [Connessioni ibride](app-service-hybrid-connections.md), che stabiliscono una connessione da punto a punto alla risorsa remota tramite un tunnel TCP. Il tunnel TCP viene stabilito tramite TLS 1.2 con chiavi di firma di accesso condiviso (SAS).
-- [Integrazione della rete virtuale](web-sites-integrate-with-vnet.md) con VPN da sito a sito, come descritto in [Risorse all'interno di una rete virtuale di Azure](#resources-inside-an-azure-virtual-network), ma la rete virtuale può essere connessa alla rete locale tramite una [VPN da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). In questa topologia di rete l'app può connettersi alle risorse locali, ad esempio ad altre risorse nella rete virtuale.
-- [Ambiente del servizio app](environment/intro.md) con VPN da sito a sito, come descritto in [Risorse all'interno di una rete virtuale di Azure](#resources-inside-an-azure-virtual-network), ma la rete virtuale può essere connessa alla rete locale tramite una [VPN da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md). In questa topologia di rete l'app può connettersi alle risorse locali, ad esempio ad altre risorse nella rete virtuale.
+- [Integrazione della rete virtuale](web-sites-integrate-with-vnet.md) con VPN da sito a sito, come descritto in [Risorse all'interno di una rete virtuale di Azure](#resources-inside-an-azure-virtual-network), ma la rete virtuale può essere connessa alla rete locale tramite una [VPN da sito a sito](../vpn-gateway/tutorial-site-to-site-portal.md). In questa topologia di rete l'app può connettersi alle risorse locali, ad esempio ad altre risorse nella rete virtuale.
+- [Ambiente del servizio app](environment/intro.md) con VPN da sito a sito, come descritto in [Risorse all'interno di una rete virtuale di Azure](#resources-inside-an-azure-virtual-network), ma la rete virtuale può essere connessa alla rete locale tramite una [VPN da sito a sito](../vpn-gateway/tutorial-site-to-site-portal.md). In questa topologia di rete l'app può connettersi alle risorse locali, ad esempio ad altre risorse nella rete virtuale.
 
 ## <a name="application-secrets"></a>Segreti dell'applicazione
 

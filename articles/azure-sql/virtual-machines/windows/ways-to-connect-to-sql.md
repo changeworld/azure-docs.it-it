@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 28b68178b98e53b7a7d4192ad20c05a667344969
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 37cb8f5a2ff0916f53ae50f5750664204ab1ba75
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356724"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737490"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Connettersi a una macchina virtuale di SQL Server in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -82,7 +82,7 @@ Se nel portale si sceglie **Privata** in **Connettività SQL**, Azure configura 
 > [!IMPORTANT]
 > Le immagini delle macchine virtuali per SQL Server Express Edition e SQL Server Developer Edition non abilitano automaticamente il protocollo TCP/IP. Per Developer Edition ed Express Edition è necessario usare Gestione configurazione SQL Server per [abilitare manualmente il protocollo TCP/IP](#manualtcp) dopo avere creato la VM.
 
-La connettività privata viene spesso usata in combinazione con una [rete virtuale](../../../virtual-network/virtual-networks-overview.md), che consente diversi scenari. È possibile connettere le VM nella stessa rete virtuale, anche se si trovano in gruppi di risorse diversi. Con una [VPN da sito a sito](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)è possibile creare un'architettura ibrida che connette le macchine virtuali a computer e reti locali.
+La connettività privata viene spesso usata in combinazione con una [rete virtuale](../../../virtual-network/virtual-networks-overview.md), che consente diversi scenari. È possibile connettere le VM nella stessa rete virtuale, anche se si trovano in gruppi di risorse diversi. Con una [VPN da sito a sito](../../../vpn-gateway/tutorial-site-to-site-portal.md)è possibile creare un'architettura ibrida che connette le macchine virtuali a computer e reti locali.
 
 Le reti virtuali consentono inoltre di aggiungere le macchine virtuali di Azure a un dominio. Si tratta dell'unico modo per usare l'autenticazione di Windows per SQL Server. Gli altri scenari di connessione richiedono l'autenticazione SQL con nomi utente e password.
 

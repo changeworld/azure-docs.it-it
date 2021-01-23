@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 73984694d764234e9e1ec11e6b189a9ad85d97a8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969977"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737405"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Risolvere i problemi del servizio Azure Image Builder
 
@@ -152,11 +152,11 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 Quando si esegue la compilazione dell'immagine, i log vengono creati e archiviati in un account di archiviazione. Azure Image Builder crea l'account di archiviazione nel gruppo di risorse temporaneo quando si crea un elemento del modello di immagine.
 
-Il nome dell'account di archiviazione usa il modello seguente: **it_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\> **
+Il nome dell'account di archiviazione usa il modello seguente: **it_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
 
 Ad esempio, *IT_aibmdi_helloImageTemplateLinux01*.
 
-È possibile visualizzare il file customization. log nell'account di archiviazione nel gruppo di risorse selezionando BLOB dell' **account di archiviazione**  >  **Blobs**  >  `packerlogs` .  Quindi selezionare **directory > Customization. log**.
+È possibile visualizzare il file customization. log nell'account di archiviazione nel gruppo di risorse selezionando BLOB dell' **account di archiviazione**  >    >  `packerlogs` .  Quindi selezionare **directory > Customization. log**.
 
 
 ### <a name="understanding-the-customization-log"></a>Informazioni sul log di personalizzazione
@@ -320,7 +320,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### <a name="cause"></a>Causa
 
-Timeout di Image Builder durante l'attesa dell'aggiunta e della replica dell'immagine nella raccolta di immagini condivise (SIG). Se l'immagine viene inserita nel SIG, è possibile ipotizzare che la compilazione dell'immagine abbia avuto esito positivo. Tuttavia, il processo complessivo non è riuscito perché il generatore di immagini era in attesa della raccolta immagini condivisa per completare la replica. Anche se la compilazione ha avuto esito negativo, la replica continua. È possibile ottenere le proprietà della versione dell'immagine controllando la *runOutput*di distribuzione.
+Timeout di Image Builder durante l'attesa dell'aggiunta e della replica dell'immagine nella raccolta di immagini condivise (SIG). Se l'immagine viene inserita nel SIG, è possibile ipotizzare che la compilazione dell'immagine abbia avuto esito positivo. Tuttavia, il processo complessivo non è riuscito perché il generatore di immagini era in attesa della raccolta immagini condivisa per completare la replica. Anche se la compilazione ha avuto esito negativo, la replica continua. È possibile ottenere le proprietà della versione dell'immagine controllando la *runOutput* di distribuzione.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -586,7 +586,7 @@ Nei casi in cui è necessario esaminare le compilazioni riuscite e si desidera e
 
 Se la compilazione non è stata annullata da un utente, è stata annullata dall'agente utente di Azure DevOps. Probabilmente il timeout di 1 ora si è verificato a causa delle funzionalità di Azure DevOps. Se si usa un progetto privato e un agente, si ottengono 60 minuti di tempo di compilazione. Se la compilazione supera il timeout, DevOps Annulla l'attività in esecuzione.
 
-Per altre informazioni sulle funzionalità e sulle limitazioni di Azure DevOps, vedere [agenti ospitati da Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Per altre informazioni sulle funzionalità e sulle limitazioni di Azure DevOps, vedere [agenti ospitati da Microsoft](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)
  
 #### <a name="solution"></a>Soluzione
 
@@ -606,7 +606,7 @@ Per prima cosa, nel controllo della compilazione dell'immagine non sono necessar
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>Le macchine virtuali create da immagini AIB non vengono create correttamente
 
-Per impostazione predefinita, il generatore di immagini di Azure esegue il *deprovisioning* del codice alla fine di ogni fase di personalizzazione dell'immagine per *generalizzare* l'immagine. Generalizzare è un processo in cui l'immagine viene configurata per essere riutilizzata per creare più macchine virtuali ed è possibile passare le impostazioni della macchina virtuale, ad esempio nome host, nome utente e così via. Per Windows, Azure Image Builder esegue *Sysprep*e per le esecuzioni di Azure Image Builder per Linux `waagent -deprovision` . 
+Per impostazione predefinita, il generatore di immagini di Azure esegue il *deprovisioning* del codice alla fine di ogni fase di personalizzazione dell'immagine per *generalizzare* l'immagine. Generalizzare è un processo in cui l'immagine viene configurata per essere riutilizzata per creare più macchine virtuali ed è possibile passare le impostazioni della macchina virtuale, ad esempio nome host, nome utente e così via. Per Windows, Azure Image Builder esegue *Sysprep* e per le esecuzioni di Azure Image Builder per Linux `waagent -deprovision` . 
 
 Per Windows, Azure Image Builder usa un comando Sysprep generico. Tuttavia, questo potrebbe non essere adatto a ogni generalizzazione di Windows completata. Il generatore di immagini di Azure consente di personalizzare il comando Sysprep. Si noti che il generatore di immagini di Azure è uno strumento di automazione delle immagini. È responsabile dell'esecuzione corretta del comando Sysprep. Tuttavia, potrebbero essere necessari comandi sysprep diversi per riutilizzarla. Per Linux, Azure Image Builder usa un `waagent -deprovision+user` comando generico. Per ulteriori informazioni, vedere [Microsoft Azure documentazione dell'agente Linux](https://github.com/Azure/WALinuxAgent#command-line-options).
 

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 0c201ce984a216a5cc62e221c0433f83a7eeabae
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021763"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736802"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modello Time Series in Azure Time Series Insights Gen2
 
@@ -26,7 +26,7 @@ Questo articolo descrive il modello Time Series, le funzionalità e come iniziar
 > * Passare all'ambiente [demo di Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) per un esempio di modello Live Time Series.
 > * Informazioni [su come usare il modello Time Series](./how-to-edit-your-model.md) con Esplora Azure Time Series Insights.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I dati raccolti dai dispositivi IoT non includono in genere informazioni contestuali, cosa che rende difficile trovare e analizzare rapidamente i sensori. La motivazione principale per il modello Time Series è semplificare la ricerca e l'analisi dei dati delle serie temporali o degli Internet. Questo obiettivo viene raggiunto consentendo la cura, la manutenzione e l'arricchimento dei dati relativi alle serie temporali per preparare i set di dati pronti per il consumo per l'analisi.
 
@@ -75,7 +75,7 @@ Questi componenti vengono combinati per specificare un modello Time Series e per
 
 [![Grafico di panoramica del modello Time Series](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-È possibile creare e gestire un modello Time Series tramite [esplora Azure Time Series Insights](). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](/rest/api/time-series-insights/reference-model-apis).
+È possibile creare e gestire un modello Time Series tramite [esplora Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). Le impostazioni del modello Time Series possono essere gestite tramite l' [API delle impostazioni del modello](/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Istanze di modello serie temporale
 

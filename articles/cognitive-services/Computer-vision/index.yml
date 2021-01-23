@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: 8a1710a44ebd93db352dbc63bd350aad8bfa2785
-  ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
-  ms.translationtype: HT
+  ms.openlocfilehash: cc986f0b29798cef62df2746a5af9a5d34bcef16
+  ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96533894"
+  ms.lasthandoff: 01/23/2021
+  ms.locfileid: "98737711"
 landingContent:
 - title: Informazioni su Visione artificiale
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-    - text: Tramite l'API REST
+    - text: Uso dell'API REST
       url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Rilevare oggetti nelle immagini
   linkLists:
@@ -70,7 +70,7 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-    - text: Tramite l'API REST
+    - text: Uso dell'API REST
       url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Applicare tag di contenuto alle immagini
   linkLists:
@@ -90,7 +90,7 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Uso di Go SDK
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-    - text: Tramite l'API REST
+    - text: Uso dell'API REST
       url: quickstarts-sdk/client-library.md?pivots=programming-language-rest-api
 - title: Usare il contenitore Read
   linkLists:
@@ -105,7 +105,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Usare istanze di contenitore
-      url: deploy-computer-vision-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
     - text: Usare con Kubernetes e Jenkins
       url: deploy-computer-vision-on-premises.md
 - title: Usare il contenitore Analisi spaziale

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 710164fa3712058d64e5d23006b986eb3dc3eaba
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: HT
+ms.openlocfilehash: 7e641af184351aa0d975738439c88724027751dd
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882756"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736573"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-imperva-data-security"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Imperva Data Security
 
@@ -132,11 +132,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su Test this application (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Imperva Data Security per cui si è configurato l'accesso SSO
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Imperva Data Security in App personali, si dovrebbe accedere automaticamente all'istanza di Imperva Data Security per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro di Imperva Data Security in App personali, si dovrebbe accedere automaticamente all'istanza di Imperva Data Security per cui si è configurato l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Imperva Data Security, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Dopo aver configurato Imperva Data Security, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

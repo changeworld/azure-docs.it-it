@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: ricmmartins
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/15/2021
+ms.date: 01/22/2021
 ms.author: ricmart
-ms.openlocfilehash: 3b9e60eb037182318e9d1ef7336565908a9c8f32
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a0655ce1d2e9939981bb4fd3280af80e359ea1e1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664784"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737745"
 ---
 # <a name="create-a-vpn-connection-between-azure-and-aws-using-managed-solutions"></a>Creare una connessione VPN tra Azure e AWS usando le soluzioni gestite
 
@@ -42,6 +42,8 @@ Creare un gateway VPN per la rete virtuale. Per istruzioni, vedere [esercitazion
 
 In questo articolo vengono usati i valori e le impostazioni di esempio seguenti:
 
+* **Nome del gateway:** VPN-Azure-AWS
+* **Area:** Stati Uniti orientali
 * **Tipo di gateway:** VPN
 * **Tipo di VPN:** basato su route
 * **SKU:** VpnGw1
@@ -173,15 +175,13 @@ In questa sezione viene creata una seconda connessione per garantire la disponib
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-tunnels.png" alt-text="Stato connessione di Azure":::
 
-1. Visualizzare le connessioni AWS.
+1. Visualizzare le connessioni AWS. In questo esempio, è possibile osservare che le connessioni sono ora stabilite.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-tunnels.png" alt-text="Stato connessione AWS":::
 
-Sono ora stabilite le connessioni.
+## <a name="to-test-connections"></a>Per verificare le connessioni
 
-## <a name="test-connections"></a>Testare le connessioni
-
-1. Aggiungere un gateway Internet al VPC in AWS. Il gateway Internet è una connessione logica tra una VPN Amazon e Internet. Questa risorsa consente di connettersi attraverso la macchina virtuale di test dall'IP pubblico di AWS tramite Internet. Questa risorsa non è necessaria per la connessione VPN. Viene usato solo per eseguire il test.
+1. Aggiungere un **gateway Internet** a VPC in AWS. Il gateway Internet è una connessione logica tra una VPN Amazon e Internet. Questa risorsa consente di connettersi attraverso la macchina virtuale di test dall'IP pubblico di AWS tramite Internet. Questa risorsa non è necessaria per la connessione VPN. Viene usato solo per eseguire il test.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/create-igw.png" alt-text="Creare il gateway Internet":::
 
@@ -201,11 +201,11 @@ Sono ora stabilite le connessioni.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-effective-routes.png" alt-text="Verificare le route valide":::
 
-1. Da una VM Linux in Azure, l'ambiente è simile all'esempio seguente.
+1. È possibile eseguire il test da una macchina virtuale Linux in Azure. Il risultato verrà visualizzato in modo analogo all'esempio seguente.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/azure-overview.png" alt-text="Panoramica di Azure dalla VM Linux":::
 
-1. Da una VM Linux in AWS, l'ambiente è simile all'esempio seguente.
+1. È anche possibile testare questa operazione da una VM Linux in AWS. Il risultato verrà visualizzato in modo analogo all'esempio seguente.
 
    :::image type="content" source="./media/create-vpn-azure-aws-managed-solutions/aws-overview.png" alt-text="Panoramica di AWS dalla VM Linux":::
 

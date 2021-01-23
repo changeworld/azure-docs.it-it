@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: 877251ba7e0c1f3c33cab37e20d609479b69520c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251829"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736145"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Monitoraggio di Azure per i clienti esistenti di Operations Manager
-Questo articolo fornisce indicazioni per i clienti che attualmente usano [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/welcome) e pianificano una transizione a [monitoraggio di Azure](overview.md) durante la migrazione di applicazioni aziendali e altre risorse in Azure. Si presuppone che l'obiettivo finale sia una transizione completa nel cloud, sostituendo il maggior Operations Manager possibile le funzionalità con monitoraggio di Azure, senza compromettere i requisiti operativi aziendali e IT. 
+Questo articolo fornisce indicazioni per i clienti che attualmente usano [System Center Operations Manager](/system-center/scom/welcome) e pianificano una transizione a [monitoraggio di Azure](overview.md) durante la migrazione di applicazioni aziendali e altre risorse in Azure. Si presuppone che l'obiettivo finale sia una transizione completa nel cloud, sostituendo il maggior Operations Manager possibile le funzionalità con monitoraggio di Azure, senza compromettere i requisiti operativi aziendali e IT. 
 
 Le raccomandazioni specifiche riportate in questo articolo cambieranno come monitoraggio di Azure e Operations Manager aggiungono funzionalità. La strategia fondamentale, tuttavia, rimarrà coerente.
 
@@ -22,13 +22,13 @@ Le raccomandazioni specifiche riportate in questo articolo cambieranno come moni
 > Per l'implementazione di diverse funzionalità di monitoraggio di Azure descritte di seguito, è necessario valutare il relativo valore prima della distribuzione nell'intero ambiente.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Questo articolo presuppone che l'utente usi già [Operations Manager](https://docs.microsoft.com/system-center/scom) e abbia almeno una conoscenza di base di [monitoraggio di Azure](overview.md). Per un confronto completo tra i due, vedere [Guida al monitoraggio cloud: Panoramica delle piattaforme di monitoraggio](/azure/cloud-adoption-framework/manage/monitor/platform-overview). In questo articolo vengono illustrate le differenze di funzionalità specifiche tra i due per comprendere alcune delle raccomandazioni fornite qui. 
+Questo articolo presuppone che l'utente usi già [Operations Manager](/system-center/scom) e abbia almeno una conoscenza di base di [monitoraggio di Azure](overview.md). Per un confronto completo tra i due, vedere [Guida al monitoraggio cloud: Panoramica delle piattaforme di monitoraggio](/azure/cloud-adoption-framework/manage/monitor/platform-overview). In questo articolo vengono illustrate le differenze di funzionalità specifiche tra i due per comprendere alcune delle raccomandazioni fornite qui. 
 
 
 ## <a name="general-strategy"></a>Strategia generale
 Non sono disponibili strumenti di migrazione per convertire asset da Operations Manager a monitoraggio di Azure poiché le piattaforme sono fondamentalmente differenti. La migrazione costituirà invece un' [implementazione di monitoraggio di Azure standard](deploy.md) mentre si continua a usare Operations Manager. Quando si Personalizza monitoraggio di Azure per soddisfare i requisiti per applicazioni e componenti diversi e si ottengono più funzionalità, è possibile iniziare a ritirare diversi Management Pack e agenti in Operations Manager.
 
-La strategia generale consigliata in questo articolo è identica a quella di [Cloud Monitoring Guide](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/monitor/), che consiglia una strategia di [monitoraggio cloud ibrido](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) che consente di eseguire una transizione graduale al cloud. Sebbene alcune funzionalità possano sovrapporsi, questa strategia consentirà di mantenere i processi aziendali esistenti Man mano che si acquisisce familiarità con la nuova piattaforma. Allontanarsi da Operations Manager funzionalità perché è possibile sostituirla con monitoraggio di Azure. L'uso di più strumenti di monitoraggio consente di aggiungere complessità, ma consente di sfruttare i vantaggi della capacità di monitoraggio di Azure di monitorare i carichi di lavoro cloud di nuova generazione, mantenendo al tempo stesso la capacità Operations Manager di monitorare i componenti del software e dell'infrastruttura del server che possono essere in locale o in altri cloud. 
+La strategia generale consigliata in questo articolo è identica a quella di [Cloud Monitoring Guide](/azure/cloud-adoption-framework/manage/monitor/), che consiglia una strategia di [monitoraggio cloud ibrido](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring) che consente di eseguire una transizione graduale al cloud. Sebbene alcune funzionalità possano sovrapporsi, questa strategia consentirà di mantenere i processi aziendali esistenti Man mano che si acquisisce familiarità con la nuova piattaforma. Allontanarsi da Operations Manager funzionalità perché è possibile sostituirla con monitoraggio di Azure. L'uso di più strumenti di monitoraggio consente di aggiungere complessità, ma consente di sfruttare i vantaggi della capacità di monitoraggio di Azure di monitorare i carichi di lavoro cloud di nuova generazione, mantenendo al tempo stesso la capacità Operations Manager di monitorare i componenti del software e dell'infrastruttura del server che possono essere in locale o in altri cloud. 
 
 
 ## <a name="components-to-monitor"></a>Componenti da monitorare
@@ -37,7 +37,7 @@ Consente di suddividere in categorie i diversi tipi di carichi di lavoro che è 
 Prima del cloud è stato usato Operations Manager per monitorare tutti i livelli. Quando si avvia la transizione con l'infrastruttura distribuita come servizio (IaaS), si continua a usare Operations Manager per le macchine virtuali, ma si inizia a usare monitoraggio di Azure per le risorse cloud. Quando si esegue ulteriormente la transizione alle applicazioni moderne usando la piattaforma distribuita come servizio (PaaS), è possibile concentrarsi maggiormente sul monitoraggio di Azure e iniziare a ritirare Operations Manager funzionalità.
 
 
-![Modelli cloud](https://docs.microsoft.com/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
+![Modelli cloud](/azure/cloud-adoption-framework/strategy/media/monitoring-strategy/cloud-models.png)
 
 Questi livelli possono essere semplificati nelle categorie seguenti, descritti in modo più dettagliato nella parte restante di questo articolo. Sebbene tutti i carichi di lavoro di monitoraggio nell'ambiente in uso non rientrino in una di queste categorie, ognuno deve essere sufficientemente vicino a una determinata categoria in modo da applicare le indicazioni generali.
 

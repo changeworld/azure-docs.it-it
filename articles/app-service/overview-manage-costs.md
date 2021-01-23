@@ -5,19 +5,19 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 85035ff894127df4e9eb8334702fd9546d7a63c3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9d742606435f62d48446bb8ad56ece7a31b76e47
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598714"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736222"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Pianificare e gestire i costi per il servizio app Azure
 
 <!-- Check out the following published examples:
-- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs)
-- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs)
-- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost)
+- [https://docs.microsoft.com/azure/cosmos-db/plan-manage-costs](../cosmos-db/plan-manage-costs.md)
+- [https://docs.microsoft.com/azure/storage/common/storage-plan-manage-costs](../storage/common/storage-plan-manage-costs.md)
+- [https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost](../machine-learning/concept-plan-manage-cost.md)
 -->
 
 <!-- Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
@@ -25,7 +25,7 @@ ms.locfileid: "98598714"
 
 <!-- Note for Azure service writer: Modify the following for your service. -->
 
-Questo articolo descrive come pianificare e gestire i costi per il servizio app Azure. Usare prima di tutto il calcolatore dei prezzi di Azure per pianificare i costi del servizio app prima di aggiungere le risorse per il servizio per stimare i costi. Successivamente, quando si aggiungono le risorse di Azure, esaminare i costi stimati. Dopo aver iniziato a usare le risorse del servizio app, usare le funzionalità di [gestione dei costi](https://docs.microsoft.com/azure/cost-management-billing/?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per impostare i budget e monitorare i costi. È anche possibile esaminare i costi previsti e identificare le tendenze di spesa per identificare le aree in cui si vuole agire. I costi per app Azure servizio sono solo una parte dei costi mensili nella fattura di Azure. Sebbene questo articolo spieghi come pianificare e gestire i costi per il servizio app, vengono addebitati tutti i servizi e le risorse di Azure usati nella sottoscrizione di Azure, inclusi i servizi di terze parti.
+Questo articolo descrive come pianificare e gestire i costi per il servizio app Azure. Usare prima di tutto il calcolatore dei prezzi di Azure per pianificare i costi del servizio app prima di aggiungere le risorse per il servizio per stimare i costi. Successivamente, quando si aggiungono le risorse di Azure, esaminare i costi stimati. Dopo aver iniziato a usare le risorse del servizio app, usare le funzionalità di [gestione dei costi](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per impostare i budget e monitorare i costi. È anche possibile esaminare i costi previsti e identificare le tendenze di spesa per identificare le aree in cui si vuole agire. I costi per app Azure servizio sono solo una parte dei costi mensili nella fattura di Azure. Sebbene questo articolo spieghi come pianificare e gestire i costi per il servizio app, vengono addebitati tutti i servizi e le risorse di Azure usati nella sottoscrizione di Azure, inclusi i servizi di terze parti.
 
 ## <a name="relevant-costs-for-app-service"></a>Costi rilevanti per il servizio app
 
@@ -36,10 +36,10 @@ Il servizio app viene eseguito nell'infrastruttura di Azure che accumula i costi
 A seconda della funzionalità usata nel servizio app, è possibile che vengano create le risorse di accumulo di costi seguenti:
 
 - **Piano di servizio app**  Obbligatorio per ospitare un'app del servizio app.
-- **Livello isolato**  Per un ambiente del servizio app è necessaria una [rete virtuale](/azure/virtual-network/) .
-- **Esegui backup**  Per eseguire i backup è necessario un [account di archiviazione](/azure/storage/) .
-- **Log di diagnostica**  È possibile selezionare [account di archiviazione](/azure/storage/) come opzione di registrazione o eseguire l'integrazione con [log Analytics di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
-- **Certificati del servizio app**  I certificati acquistati in Azure devono essere conservati in [Azure Key Vault](/azure/key-vault/).
+- **Livello isolato**  Per un ambiente del servizio app è necessaria una [rete virtuale](../virtual-network/index.yml) .
+- **Esegui backup**  Per eseguire i backup è necessario un [account di archiviazione](../storage/index.yml) .
+- **Log di diagnostica**  È possibile selezionare [account di archiviazione](../storage/index.yml) come opzione di registrazione o eseguire l'integrazione con [log Analytics di Azure](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Certificati del servizio app**  I certificati acquistati in Azure devono essere conservati in [Azure Key Vault](../key-vault/index.yml).
 
 Altre risorse di costo per il servizio app sono (vedere [prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/) per informazioni dettagliate):
 
@@ -155,7 +155,7 @@ Nell'esempio precedente viene visualizzato il costo corrente per il servizio. Ve
 
 <!-- Note to Azure service writer: Modify the following as needed for your service. -->
 
-È possibile creare [budget](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per gestire i costi e creare [avvisi](../cost-management/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) che notificano automaticamente agli stakeholder le anomalie di spesa e i rischi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. 
+È possibile creare [budget](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) per gestire i costi e creare [avvisi](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) che notificano automaticamente agli stakeholder le anomalie di spesa e i rischi. Gli avvisi si basano sul confronto tra la spesa e le soglie definite budget e costi. I budget e gli avvisi vengono creati per le sottoscrizioni e i gruppi di risorse di Azure, quindi sono utili come parte di una strategia di monitoraggio dei costi complessiva. 
 
 I budget possono essere creati con filtri per risorse o servizi specifici in Azure se si vuole una maggiore granularità nel monitoraggio. I filtri consentono di evitare di creare inavvertitamente nuove risorse che costano denaro aggiuntivo. Per ulteriori informazioni sulle opzioni di filtro disponibili quando si crea un budget, vedere [Opzioni di gruppo e filtro](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -168,8 +168,8 @@ I budget possono essere creati con filtri per risorse o servizi specifici in Azu
 - Scopri di più su come funziona il prezzo con archiviazione di Azure. Vedere [prezzi del servizio app](https://azure.microsoft.com/pricing/details/app-service/).
 - Informazioni [su come ottimizzare l'investimento nel cloud con gestione costi di Azure](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Altre informazioni sulla gestione dei costi con l' [analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Informazioni su come [evitare costi imprevisti](../cost-management-billing/manage/getting-started.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
-- Segui il corso di apprendimento guidato per [Gestione costi](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) .
+- Informazioni su come [evitare costi imprevisti](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Segui il corso di apprendimento guidato per [Gestione costi](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) .
 
 <!-- Insert links to other articles that might help users save and manage costs for you service here.
 

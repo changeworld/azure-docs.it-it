@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 6914fb50cdb157cf8ef7b5433ebbde47eff8fc32
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 4e8dce970c9e7cfb2aa7887cf1fb3ed6ef9030a1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539807"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Beta
 
@@ -108,7 +108,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     g. Selezionare **Salva**.
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) per informazioni su come configurare un ruolo in Azure AD.
+    > Fare clic [qui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) per informazioni su come configurare un ruolo in Azure AD.
 
 7. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare **Scarica** per scaricare il file **Certificato (Base64)**. Salvarlo nel computer.
 
@@ -236,7 +236,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso di zScaler beta e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro zScaler beta in app personali, questo verrà reindirizzato all'URL di accesso di zScaler beta. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro zScaler beta in app personali, questo verrà reindirizzato all'URL di accesso di zScaler beta. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

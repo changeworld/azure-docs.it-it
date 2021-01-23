@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 30bcf907e1a2759c8a9977e50cb4880c2e254ca2
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562761"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735861"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -77,7 +77,7 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 
 **Con PowerShell:**
 
-Usare il comando [Update-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) per abilitare l'identità gestita assegnata dal sistema per l'insieme di credenziali di servizi di ripristino.
+Usare il comando [Update-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/update-azrecoveryservicesvault) per abilitare l'identità gestita assegnata dal sistema per l'insieme di credenziali di servizi di ripristino.
 
 Esempio:
 
@@ -121,7 +121,7 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
 **Con PowerShell**:
 
-Usare il comando [set-AzRecoveryServicesVaultProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
+Usare il comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) per abilitare la crittografia usando chiavi gestite dal cliente e per assegnare o aggiornare la chiave di crittografia da usare.
 
 Esempio:
 
@@ -290,7 +290,7 @@ Il set di crittografia del disco viene specificato in impostazioni di crittograf
 
 **Con PowerShell**:
 
-Usare il comando [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con il parametro [ `-DiskEncryptionSetId <string>` ] per [specificare la des](https://docs.microsoft.com/powershell/module/az.compute/get-azdiskencryptionset) da usare per crittografare il disco ripristinato. Per altre informazioni sul ripristino dei dischi dal backup delle macchine virtuali, vedere [questo articolo](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-an-azure-vm).
+Usare il comando [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) con il parametro [ `-DiskEncryptionSetId <string>` ] per [specificare la des](/powershell/module/az.compute/get-azdiskencryptionset) da usare per crittografare il disco ripristinato. Per altre informazioni sul ripristino dei dischi dal backup delle macchine virtuali, vedere [questo articolo](./backup-azure-vms-automation.md#restore-an-azure-vm).
 
 Esempio:
 

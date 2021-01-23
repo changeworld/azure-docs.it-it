@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 5e83c599ceed76927f2a313f78c83638d708f1bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985135"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737117"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -18,7 +18,7 @@ Il modulo [Azure PowerShell](/powershell/azure/new-azureps-module-az) viene usat
 
 [Backup di Azure](backup-overview.md) esegue il backup di computer e app locali, oltre che delle VM di Azure. Questo articolo illustra come eseguire il backup di una VM di Azure con il modulo AZ. In alternativa, è possibile eseguire il backup di una VM con l'[interfaccia della riga di comando di Azure](quick-backup-vm-cli.md) oppure nel [portale di Azure](quick-backup-vm-portal.md).
 
-Questa guida introduttiva abilita il backup in una VM di Azure esistente. Se necessario, è possibile [creare una VM con Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+Questa guida introduttiva abilita il backup in una VM di Azure esistente. Se necessario, è possibile [creare una VM con Azure PowerShell](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 Per questo argomento di avvio rapido è necessario il modulo Azure PowerShell versione 1.0.0 o successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere come [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -45,7 +45,7 @@ Un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-servi
 Quando viene creato l'insieme di credenziali:
 
 - Per il gruppo di risorse e la località, specificare il gruppo di risorse e la località della VM di cui eseguire il backup.
-- Se la VM è stata creata usando lo [script di esempio](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json), il gruppo di risorse è **myResourceGroup**, la VM è ***myVM** e le risorse si trovano nell'area **WestEuropa**.
+- Se è stato usato questo [script di esempio](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm?toc=%2fpowershell%2fmodule%2ftoc.json) per creare la macchina virtuale, il gruppo di risorse è **myResourceGroup**, la macchina virtuale è **_myVM_* e le risorse si trovano nell'area **WestEurope** .
 - Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
 
 Creare ora un insieme di credenziali:

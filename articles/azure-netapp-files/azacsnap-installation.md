@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: 5c2182fc80c3745e0238c378c1cade0530393181
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 00aaa5bdc0d48adb735679fc4a71b3431970ef09
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632846"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737168"
 ---
 # <a name="install-azure-application-consistent-snapshot-tool-preview"></a>Installare applicazione Azure strumento di snapshot coerente (anteprima)
 
@@ -34,9 +34,9 @@ Il programma di installazione automatico tenta di determinare le impostazioni e 
 
 Seguire le linee guida per configurare ed eseguire gli snapshot e i comandi per il ripristino di emergenza. Si consiglia di completare i passaggi seguenti come radice prima di installare e usare gli strumenti di snapshot.
 
-1. **Sistema operativo con patch**: vedere applicazione di patch e configurazione di SMT in [come installare e configurare SAP Hana (istanze large) in Azure](/azure/virtual-machines/workloads/sap/hana-installation#setting-up-smt-server-for-suse-linux).
+1. **Sistema operativo con patch**: vedere applicazione di patch e configurazione di SMT in [come installare e configurare SAP Hana (istanze large) in Azure](../virtual-machines/workloads/sap/hana-installation.md#operating-system).
 1. **La sincronizzazione dell'ora è configurata**. Il cliente dovrà fornire un server ora compatibile con NTP e configurare il sistema operativo di conseguenza.
-1. **Hana è installato** : vedere le istruzioni di installazione di Hana nell' [installazione di SAP NETWEAVER nel database Hana](https://blogs.msdn.microsoft.com/saponsqlserver/2017/11/21/sap-netweaver-installation-on-hana-database/).
+1. **Hana è installato** : vedere le istruzioni di installazione di Hana nell' [installazione di SAP NETWEAVER nel database Hana](/archive/blogs/saponsqlserver/sap-netweaver-installation-on-hana-database).
 1. **[Abilitare la comunicazione con l'archiviazione](#enable-communication-with-storage)** (per altre informazioni, vedere la sezione separata): il cliente deve configurare SSH con una coppia di chiavi pubblica/privata e fornire la chiave pubblica per ogni nodo in cui è pianificato l'esecuzione degli strumenti di snapshot per le operazioni Microsoft per l'installazione nel back-end di archiviazione.
    1. **Per Azure NetApp Files (per informazioni dettagliate, vedere la sezione separata)**: il cliente deve generare il file di autenticazione dell'entità servizio.
    1. **Per istanze di grandi dimensioni di Azure (vedere la sezione separata per i dettagli)**: il cliente deve configurare SSH con una coppia di chiavi privata/pubblica e fornire la chiave pubblica per ogni nodo in cui gli strumenti di snapshot sono pianificati per l'esecuzione in operazioni Microsoft per l'installazione nel back-end di archiviazione.

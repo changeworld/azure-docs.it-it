@@ -139,7 +139,7 @@
         - name: Esplorare un'app di elaborazione delle immagini
           href: Tutorials/CSharpTutorial.md
         - name: Altri esempi di Visione artificiale
-          href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=computer-vision'
+          href: /samples/browse/?products=azure&terms=computer-vision
     - name: Domande frequenti
       href: FAQ.md
     - name: Tassonomia delle categorie

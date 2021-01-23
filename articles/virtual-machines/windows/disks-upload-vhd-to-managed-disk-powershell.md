@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 17b99a9d3fa6b2934705d913170f2f617c856998
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 1655c48eeb9227bf934c7fd9bb37610327b2b98c
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915760"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736272"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Caricare un disco rigido virtuale in Azure o copiare un disco gestito in un'altra area: Azure PowerShell
 
@@ -44,7 +44,7 @@ Questo tipo di disco gestito ha due stati univoci:
 
 Prima di poter creare un HDD standard vuoto per il caricamento, saranno necessarie le dimensioni del file VHD da caricare, in byte. Il codice di esempio otterrà questa operazione, ma è possibile usare: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length` . Questo valore viene usato quando si specifica il parametro **-UploadSizeInBytes** .
 
-A questo punto, nella shell locale creare un HDD standard vuoto per il caricamento specificando l'impostazione di **caricamento** nel parametro **-CreateOption** e il parametro **-UploadSizeInBytes** nel cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0&preserve-view=true) . Quindi chiamare [New-AzDisk](/powershell/module/az.compute/new-azdisk?view=azps-1.8.0&preserve-view=true) per creare il disco.
+A questo punto, nella shell locale creare un HDD standard vuoto per il caricamento specificando l'impostazione di **caricamento** nel parametro **-CreateOption** e il parametro **-UploadSizeInBytes** nel cmdlet [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) . Quindi chiamare [New-AzDisk](/powershell/module/az.compute/new-azdisk) per creare il disco.
 
 Sostituire `<yourdiskname>` , `<yourresourcegroupname>` , `<yourregion>` quindi eseguire i comandi seguenti:
 

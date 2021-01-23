@@ -3,12 +3,12 @@ title: Usare la libreria client di Azure Batch per Node.js
 description: Informazioni sui concetti di base di Azure Batch e compilazione di una soluzione semplice con Node.js.
 ms.topic: how-to
 ms.date: 10/08/2020
-ms.openlocfilehash: 8d34d5bbb302e3781aabdd697de11d3d492b879a
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: HT
+ms.openlocfilehash: 36a127a20014e87554f0d3e3927b05679b6f72f1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106700"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737287"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
@@ -38,7 +38,7 @@ Il client Node.js distribuisce un processo batch con un'attività di preparazion
 
 > [!TIP]
 > Il client Node.js del collegamento riportato non contiene codice specifico da distribuire come app per le funzioni di Azure. Per istruzioni per crearne una, vedere i collegamenti seguenti.
-> - [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md)
+> - [Creare un'app per le funzioni](../azure-functions/functions-get-started.md)
 > - [Creare una funzione trigger timer](../azure-functions/functions-bindings-timer.md)
 
 ## <a name="build-the-application"></a>Compilare l'applicazione

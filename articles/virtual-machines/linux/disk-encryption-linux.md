@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: efe24b3d1f6e22cc7f054691cb75a4ccede7aa4b
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: eb7db3c95fb56ebbd62d6cf882a75ce03baeb75d
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97912445"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736055"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -42,11 +42,11 @@ La funzionalità Crittografia dischi di Azure può essere abilitata e gestita tr
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento da riga di comando per la gestione delle risorse di Azure. L'interfaccia della riga di comando è progettata per eseguire query sui dati in modo flessibile, supportare operazioni a esecuzione prolungata come processi non bloccanti e semplificare la creazione di script. È possibile installarla in locale seguendo i passaggi descritti in [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli?view=azure-cli-latest).
+L'[interfaccia della riga di comando di Azure 2.0](/cli/azure) è uno strumento da riga di comando per la gestione delle risorse di Azure. L'interfaccia della riga di comando è progettata per eseguire query sui dati in modo flessibile, supportare operazioni a esecuzione prolungata come processi non bloccanti e semplificare la creazione di script. È possibile installarla in locale seguendo i passaggi descritti in [Installare l'interfaccia della riga di comando di Azure.](/cli/azure/install-azure-cli).
 
  
 
-Per [accedere all'account di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), usare il comando [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Per [accedere all'account di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli), usare il comando [az login](/cli/azure/reference-index#az_login).
 
 ```azurecli
 az login
@@ -72,13 +72,13 @@ Il [modulo az di Azure PowerShell](/powershell/azure/new-azureps-module-az) offr
 
 Se è già installato in locale, assicurarsi di usare la versione più recente di Azure PowerShell SDK per configurare Crittografia dischi di Azure. Scaricare la versione più recente di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Per [accedere all'account di Azure con Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), usare il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Per [accedere all'account di Azure con Azure PowerShell](/powershell/azure/authenticate-azureps), usare il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Se si hanno più sottoscrizioni e si vuole specificarne una, usare il cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) per elencarle, seguito dal cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0):
+Se si hanno più sottoscrizioni e si vuole specificarne una, usare il cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) per elencarle, seguito dal cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext):
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
@@ -86,7 +86,7 @@ Set-AzContext -Subscription -Subscription <SubscriptionId>
 
 L'esecuzione del cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) verifica la selezione della sottoscrizione corretta.
 
-Per controllare che i cmdlet di Crittografia dischi di Azure siano installati, usare il cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6):
+Per controllare che i cmdlet di Crittografia dischi di Azure siano installati, usare il cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command):
      
 ```powershell
 Get-command *diskencryption*
@@ -104,9 +104,9 @@ In questo scenario è possibile abilitare la crittografia usando il modello di R
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-using-azure-cli"></a>Abilitare la crittografia in una macchina virtuale Linux esistente o in esecuzione tramite l'interfaccia della riga di comando di Azure 
 
-È possibile abilitare la crittografia dischi nel disco rigido virtuale crittografato installando e usando lo strumento di [interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest). È possibile usarlo nel browser con [Azure Cloud Shell](../../cloud-shell/overview.md) oppure installarlo nel computer locale e usarlo in una sessione di PowerShell. Per abilitare la crittografia in macchine virtuali Linux esistenti o in esecuzione in Azure, usare i comandi dell'interfaccia della riga di comando seguenti:
+È possibile abilitare la crittografia dischi nel disco rigido virtuale crittografato installando e usando lo strumento di [interfaccia della riga di comando di Azure](/cli/azure/). È possibile usarlo nel browser con [Azure Cloud Shell](../../cloud-shell/overview.md) oppure installarlo nel computer locale e usarlo in una sessione di PowerShell. Per abilitare la crittografia in macchine virtuali Linux esistenti o in esecuzione in Azure, usare i comandi dell'interfaccia della riga di comando seguenti:
 
-Usare il comando [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-show) per abilitare la crittografia in una macchina virtuale in esecuzione in Azure.
+Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_show) per abilitare la crittografia in una macchina virtuale in esecuzione in Azure.
 
 - **Crittografare una macchina virtuale in esecuzione:**
 
@@ -283,7 +283,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGName -VMName $vmName -Di
     echo "/dev/disk/azure/scsi1/lun0-part1 /mnt/mountpoint ext4 defaults,nofail 0 2" >> /etc/fstab
     ```
     
-1. Eseguire il cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-3.8.0&preserve-view=true) di Azure PowerShell con -EncryptFormatAll per crittografare questi dischi.
+1. Eseguire il cmdlet [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) di Azure PowerShell con -EncryptFormatAll per crittografare questi dischi.
 
     ```azurepowershell-interactive
     $KeyVault = Get-AzKeyVault -VaultName "MySecureVault" -ResourceGroupName "MySecureGroup"

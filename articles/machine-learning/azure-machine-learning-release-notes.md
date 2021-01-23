@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 117bc71ba304445e3186b4e633f5888647be9223
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685630"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737966"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -36,6 +36,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
     + Correzione del problema relativo al servizio. ricaricare () per rilevare le modifiche apportate in score.py nella distribuzione locale.
     + `run.get_details()` dispone di un campo aggiuntivo denominato "submittedBy" che Visualizza il nome dell'autore per questa esecuzione.
     + Modificata la documentazione del metodo Model. Register per informazioni su come registrare il modello dall'esecuzione diretta
+    + Correzione del problema di gestione della modifica dello stato della connessione IOT-Server.
    
 
 ## <a name="2020-12-31"></a>2020-12-31

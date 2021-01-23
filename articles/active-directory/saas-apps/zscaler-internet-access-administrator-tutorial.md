@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
-ms.openlocfilehash: c3a2f2b04827fac06a0729e45b46765928aedd34
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 8af8d92ca66cfbd3d6223bc9a73125c457164d82
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539787"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -119,7 +119,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     d. Fare clic su **Salva**.
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps#app-roles-ui) per informazioni su come configurare un ruolo in Azure AD.
+    > Fare clic [qui](../develop/howto-add-app-roles-in-azure-ad-apps.md#app-roles-ui--preview) per informazioni su come configurare un ruolo in Azure AD.
 
 7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
@@ -189,7 +189,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente all'amministratore di accesso zScaler Internet per il quale si configura SSO
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro zScaler Internet Access Administrator in app personali, si dovrebbe accedere automaticamente all'amministratore di accesso a Internet zScaler per il quale si configura SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro zScaler Internet Access Administrator in app personali, si dovrebbe accedere automaticamente all'amministratore di accesso a Internet zScaler per il quale si configura SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

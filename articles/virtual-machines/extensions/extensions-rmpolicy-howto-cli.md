@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 26874c33c496b57bf6317a7b837b3afddc2f5e37
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 41457f26c22e3b8ed529ce77cfaf452618b03655
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94955651"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98737643"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
@@ -98,7 +98,7 @@ Al termine, premere **ESC** e quindi digitare **:wq** per salvare e chiudere il 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione di criteri usa i file di regole e parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment).
 
 In questo esempio le regole e i parametri sono i file creati e archiviati come file JSON in Cloud Shell.
 
@@ -117,7 +117,7 @@ az policy definition create \
 
 Questo esempio assegna i criteri a un gruppo di risorse usando [az policy assignment create](/cli/azure/policy/assignment). Qualsiasi macchina virtuale creata nel gruppo di risorse **myResourceGroup** non potrà installare le estensioni dell'accesso alle macchine virtuali Linux o di script personalizzato per Linux. Prima di poter assegnare i criteri, il gruppo di risorse deve essere già presente.
 
-Usare [az account list](/cli/azure/account?view=azure-cli-latest) per ottenere l'ID sottoscrizione da usare al posto di quello nell'esempio.
+Usare [az account list](/cli/azure/account) per ottenere l'ID sottoscrizione da usare al posto di quello nell'esempio.
 
 
 ```azurecli-interactive

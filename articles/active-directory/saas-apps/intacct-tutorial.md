@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: e1858047e9fc64be67cdea82aaca8113135f0b2a
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 5a216e39ca32b16de405c7924d08da52c6eae4c1
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250741"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98736960"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
 
@@ -206,7 +206,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Fare clic su test questa applicazione in portale di Azure e si dovrebbe accedere automaticamente al Intacct Sage per il quale si configura l'accesso SSO
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Sage Intacct in app personali, si dovrebbe accedere automaticamente al Intacct Sage per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro Sage Intacct in app personali, si dovrebbe accedere automaticamente al Intacct Sage per il quale si configura l'accesso SSO. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

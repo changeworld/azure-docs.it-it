@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: 179e44e16a5facb5e0659e6a55ffd221fdac03fa
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: e8a392f72af1ae5a3da8d8e3306f05cdec390591
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247619"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98735895"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-navex-one"></a>Esercitazione: integrazione di Azure Active Directory Single Sign-On (SSO) con NAVEX One
 
@@ -124,10 +124,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Passare direttamente all'URL di accesso a NAVEX e avviare il flusso di accesso da qui.
 
-* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro NAVEX One in app personali, questo verrà reindirizzato a NAVEX un URL di accesso. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* È possibile usare App personali Microsoft. Quando si fa clic sul riquadro NAVEX One in app personali, questo verrà reindirizzato a NAVEX un URL di accesso. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Una volta configurato NAVEX, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una volta configurato NAVEX, è possibile applicare il controllo della sessione, che protegge exfiltration e infiltrando i dati sensibili dell'organizzazione in tempo reale. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

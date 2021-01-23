@@ -366,6 +366,8 @@
           href: sql-data-warehouse-restore-deleted-dw.md
         - name: Eseguire il ripristino da un backup geografico
           href: sql-data-warehouse-restore-from-geo-backup.md
+        - name: Disabilitare i backup geografici
+          href: disable-geo-backup.md
     - name: Integrare
       items:
         - name: Usare Machine Learning
