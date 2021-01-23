@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: phjensen
-ms.openlocfilehash: c34ca08ae2ede9430804f6b8bb33f2bfcb0b39ab
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 70e1823b30814d7dc29fef69215fcb53a2a2ab96
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632837"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730871"
 ---
 # <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Ripristino di emergenza con applicazione Azure strumento di snapshot coerente (anteprima)
 
@@ -40,7 +40,7 @@ Prima di pianificare il failover di ripristino di emergenza, è necessario soddi
 - La replica di archiviazione è funzionante. Il team operativo Microsoft esegue la configurazione della replica di archiviazione al momento del provisioning automatico del ripristino di emergenza. È possibile monitorare la replica di archiviazione usando il comando `azacsnap -c details --details replication` nel sito di ripristino di emergenza.
 - Gli snapshot di archiviazione sono stati impostati e configurati nella posizione primaria.
 - Si dispone di un'istanza di HANA installata nel sito di ripristino di emergenza per il database primario con lo stesso SID dell'istanza primaria.
-- Leggere e comprendere la procedura di failover di ripristino di [emergenza descritta in SAP Hana in istanze large disponibilità elevata e ripristino di emergenza in Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure)
+- Leggere e comprendere la procedura di failover di ripristino di [emergenza descritta in SAP Hana in istanze large disponibilità elevata e ripristino di emergenza in Azure](../virtual-machines/workloads/sap/hana-failover-procedure.md)
 - Gli snapshot di archiviazione sono stati impostati e configurati nella posizione di ripristino di emergenza.
 - Un file di configurazione (ad esempio `DR.json` ) è stato creato con i volumi di archiviazione di ripristino di emergenza e le informazioni associate sul server di ripristino di emergenza.
 - Sono stati completati i passaggi nel sito di ripristino di emergenza per:

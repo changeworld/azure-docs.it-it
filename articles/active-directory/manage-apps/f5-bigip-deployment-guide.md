@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c03009b08dcf33bf4b84bc91232af96e7ba2c71
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095186"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730658"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro
 
@@ -71,15 +71,15 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
 5. Selezionare **F5 Big-IP Virtual Edition (BYOL)**  >  **selezionare un piano software**  >  **F5 Big-IP ve-all (BYOL, 2 posizioni di avvio)**
 
-6. Selezionare **Create** (Crea).
+6. Selezionare **Crea**.
 
 ![L'immagine mostra i passaggi per selezionare un piano software](./media/f5ve-deployment-plan/software-plan.png)
 
 7. Scorrere il menu **nozioni di base** e usare le impostazioni seguenti
 
- |  Dettagli del progetto     |  Valore     |
+ |  Dettagli del progetto     |  valore     |
  |:-------|:--------|
- |Sottoscrizione|Sottoscrizione di destinazione per la distribuzione di macchine virtuali BIG-IP|
+ |Subscription|Sottoscrizione di destinazione per la distribuzione di macchine virtuali BIG-IP|
  |Resource group | Gruppo di risorse di Azure esistente in cui verrà distribuita la VM BIG-IP o ne verrà creata una. Deve essere lo stesso gruppo di risorse del controller di dominio e delle macchine virtuali IIS|
  | **Dettagli istanza**|  |
  |Nome macchina virtuale| Esempio di BIG-IP-VM |
@@ -90,7 +90,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
  |Dimensione| La specifica minima dovrebbe essere 2 vCPU e 8 GB di memoria|
  |**Account amministratore**|  |
  |Tipo di autenticazione|Selezionare la password per il momento. È possibile passare a una coppia di chiavi in un secondo momento |
- |Nome utente|Identità che verrà creata come account locale BIG-IP per l'accesso alle interfacce di gestione. Il nome utente distingue tra MAIUSCOLe e minuscole.|
+ |Username|Identità che verrà creata come account locale BIG-IP per l'accesso alle interfacce di gestione. Il nome utente distingue tra MAIUSCOLe e minuscole.|
  |Password|Proteggere l'accesso amministratore con una password complessa|
  |**Regole porta in ingresso**|  |
  |Porte in ingresso pubbliche|Nessuno|
@@ -111,7 +111,7 @@ Completare le attività seguenti per distribuire BIG-IP VE da [Azure Marketplace
 
 10. Selezionare **Avanti: gestione** e completare queste impostazioni.
 
- |Monitoraggio|    Valore |
+ |Monitoraggio|    valore |
  |:---------|:-----|
  |Monitoraggio dettagliato| Off|
  |Diagnostica di avvio|Abilitare con l'account di archiviazione personalizzato. Consente la connessione all'interfaccia di Secure Shell BIG-IP (SSH) tramite l'opzione console seriale nell'portale di Azure. Selezionare un account di archiviazione di Azure disponibile|
@@ -212,11 +212,11 @@ I passaggi seguenti presuppongono che la zona DNS del dominio pubblico usato per
 
 6. Usare i dettagli seguenti per creare il primo record di alias DNS:
 
- | Campo | Valore |
+ | Campo | valore |
  |:-------|:-----------|
- |Sottoscrizione| Stessa sottoscrizione della BIG-IP-VM|
+ |Subscription| Stessa sottoscrizione della BIG-IP-VM|
  |Zona DNS| Zona DNS autorevole per il suffisso di dominio verificato che i siti Web pubblicati utilizzeranno, ad esempio, www.contoso.com |
- |Name | Il nome host specificato verrà risolto nell'indirizzo IP pubblico associato all'IP secondario selezionato. Assicurarsi di definire il DNS corretto per i mapping IP. Vedere la sezione Last Image in networking configs, ad esempio intranet.contoso.com > 13.77.148.215|
+ |Nome | Il nome host specificato verrà risolto nell'indirizzo IP pubblico associato all'IP secondario selezionato. Assicurarsi di definire il DNS corretto per i mapping IP. Vedere la sezione Last Image in networking configs, ad esempio intranet.contoso.com > 13.77.148.215|
  | TTL | 1 |
  |Unità TTL | Ore |
 
@@ -241,16 +241,16 @@ Per impostazione predefinita, Azure reti virtuali e le subnet associate sono ret
 
 2. Selezionare **Aggiungi** regola connessioni in entrata per immettere le proprietà della regola NSG seguenti:
 
- |     Campo   |   Valore        |
+ |     Campo   |   valore        |
  |:------------|:------------|
  |Source (Sorgente)| Qualsiasi|
  |Intervalli di porte di origine| *|
  |Indirizzi IP di destinazione|Elenco delimitato da virgole di tutti gli indirizzi IP privati secondari della macchina virtuale di grandi dimensioni|
  |Porte di destinazione| 80,443|
  |Protocollo| TCP |
- |Azione| Consenti|
+ |Azione| Allow|
  |Priorità|Valore minimo disponibile compreso tra 100 e 4096|
- |Name | Nome descrittivo, ad esempio: `BIG-IP-VM_Web_Services_80_443`|
+ |Nome | Nome descrittivo, ad esempio: `BIG-IP-VM_Web_Services_80_443`|
 
 3. Selezionare **Aggiungi** per confermare le modifiche e chiudere il menu **rete** .
 
@@ -264,7 +264,7 @@ Un sistema BIG-IP viene amministrato tramite l'interfaccia utente di configurazi
 
 - Da un client VPN connesso alla rete interna della macchina virtuale BIG-IP-VM
 
-- Pubblicato tramite [Azure ad proxy di applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application)
+- Pubblicato tramite [Azure ad proxy di applicazione](./application-proxy-add-on-premises-application.md)
 
 È necessario scegliere il metodo più adatto per poter procedere con le configurazioni rimanenti. Se necessario, è possibile connettersi direttamente alla configurazione Web da Internet configurando l'IP primario di BIG-IP con un indirizzo IP pubblico. Aggiungere quindi una regola NSG per consentire il traffico 8443 a tale indirizzo IP primario. Assicurarsi di limitare l'origine a un indirizzo IP attendibile, altrimenti chiunque potrà connettersi.
 
@@ -276,7 +276,7 @@ Al termine, verificare che sia possibile connettersi alla configurazione Web del
 
 Un sistema BIG-IP può anche essere gestito tramite l'ambiente SSH sottostante, che in genere viene usato per le attività della riga di comando e l'accesso a livello radice. Sono disponibili diverse opzioni per la connessione all'interfaccia della riga di comando, tra cui:
 
-- [Servizio Bastion di Azure](https://docs.microsoft.com/azure/bastion/bastion-overview): consente connessioni veloci e sicure a qualsiasi macchina virtuale all'interno di una vNET, da qualsiasi posizione
+- [Servizio Bastion di Azure](../../bastion/bastion-overview.md): consente connessioni veloci e sicure a qualsiasi macchina virtuale all'interno di una vNET, da qualsiasi posizione
 
 - Connettersi direttamente tramite un client SSH come PuTTy tramite l'approccio JIT
 
@@ -329,7 +329,7 @@ La protezione del traffico di gestione da e verso BIG-IPs configurazione Web è 
 
 6. Dalla barra di spostamento a sinistra passare a configurazione di **sistema**  >    >  **dispositivo**  >  **NTP**
 
-7. Specificare un'origine NTP affidabile e selezionare **Aggiungi**, quindi **Aggiorna**. Ad esempio, usare `time.windows.com`
+7. Specificare un'origine NTP affidabile e selezionare **Aggiungi**, quindi **Aggiorna**. Ad esempio: `time.windows.com`
 
 È ora necessario un record DNS per risolvere il nome FQDN BIG-IPs specificato nei passaggi precedenti, nel relativo indirizzo IP privato primario. È necessario aggiungere un record al DNS interno dell'ambiente o al file localhost di un PC che verrà usato per connettersi alla configurazione Web di BIG-IP. In entrambi i casi, l'avviso del browser non dovrebbe più essere visualizzato quando ci si connette direttamente alla configurazione Web. Ovvero non tramite il proxy di applicazione o qualsiasi altro proxy inverso.
 
@@ -423,7 +423,7 @@ Con il sistema BIG-IP ora sottoposta a provisioning completo, è consigliabile e
 
 6. Salvare l'archivio del set di configurazione utente (UCS) localmente scegliendo il collegamento del backup e selezionare **Scarica**.
 
-Come passaggio facoltativo, è anche possibile eseguire un backup dell'intero disco del sistema usando gli [snapshot di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk), che a differenza del backup della configurazione Web fornirebbe alcune contingenze per il testing tra le versioni di le TMO o il rollback a un nuovo sistema.
+Come passaggio facoltativo, è anche possibile eseguire un backup dell'intero disco del sistema usando gli [snapshot di Azure](../../virtual-machines/windows/snapshot-copy-managed-disk.md), che a differenza del backup della configurazione Web fornirebbe alcune contingenze per il testing tra le versioni di le TMO o il rollback a un nuovo sistema.
 
 ```PowerShell
 # Install modules

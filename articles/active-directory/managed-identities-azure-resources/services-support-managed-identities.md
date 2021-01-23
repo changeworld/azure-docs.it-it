@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 2da0407f848b0795414b071b9e082c7ed60a633d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861885"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98729913"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -250,7 +250,7 @@ Per altre informazioni, vedere [usare identità gestite con Azure Machine Learni
 
 Vedere l'elenco seguente per configurare l'identità gestita per i criteri di Azure (nelle aree in cui sono disponibili):
 
-- [Portale di Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment#az-policy-assignment-create)
 - [Modelli di Gestione risorse di Azure](/azure/templates/microsoft.authorization/policyassignments)
@@ -326,9 +326,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
 | Assegnata dal sistema | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
-| Assegnata dall'utente | [Disponibile in aree supportate](../../virtual-machines/windows/image-builder-overview.md#regions) | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | [Disponibile in aree supportate](../../virtual-machines/image-builder-overview.md#regions) | Non disponibile | Non disponibile | Non disponibile |
 
-Per informazioni su come configurare l'identità gestita per generatore di immagini di VM di Azure (in aree in cui è disponibile), vedere [Panoramica di Image Builder](../../virtual-machines/windows/image-builder-overview.md#permissions).
+Per informazioni su come configurare l'identità gestita per generatore di immagini di VM di Azure (in aree in cui è disponibile), vedere [Panoramica di Image Builder](../../virtual-machines/image-builder-overview.md#permissions).
 ### <a name="azure-signalr-service"></a>Servizio Azure SignalR
 
 Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |

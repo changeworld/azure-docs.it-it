@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jodowns
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 409ba7a954830bb2370ce83989b9e8b08b742fe7
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: f2d844054e3744aafa01f43ded354a5b5d9f8b4b
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631177"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98732098"
 ---
 # <a name="assign-a-managed-identity-access-to-an-application-role-using-powershell"></a>Assegnare un accesso a identità gestite a un ruolo applicazione tramite PowerShell
 
@@ -36,7 +36,7 @@ In questo articolo si apprenderà come assegnare un'identità gestita a un ruolo
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
 - Per eseguire gli script di esempio, sono disponibili due opzioni:
     - Usare il [Azure cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **prova** nell'angolo superiore destro dei blocchi di codice.
-    - Eseguire gli script localmente installando la versione più recente di [Azure ad PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+    - Eseguire gli script localmente installando la versione più recente di [Azure ad PowerShell](/powershell/azure/active-directory/install-adv2).
 
 ## <a name="assign-a-managed-identity-access-to-another-applications-app-role"></a>Assegnare un accesso a identità gestite al ruolo app di un'altra applicazione
 

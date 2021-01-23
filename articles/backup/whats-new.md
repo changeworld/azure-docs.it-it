@@ -3,12 +3,12 @@ title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 62a6146990863c339917777b2624fee76ebe60d8
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569420"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98730290"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
@@ -37,7 +37,7 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup su disco di Azure (in anteprima)
 
-Il backup su disco di Azure offre una soluzione chiavi in mano che fornisce la gestione del ciclo di vita dello snapshot per [Managed Disks di Azure](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview) automatizzando la creazione periodica di snapshot e la conservazione per una durata configurata usando i criteri di backup. È possibile gestire gli snapshot del disco con costi di infrastruttura zero e senza la necessità di generare script personalizzati o di qualsiasi sovraccarico di gestione. Si tratta di una soluzione di backup coerente con l'arresto anomalo del sistema che esegue un backup temporizzato di un disco gestito utilizzando [snapshot incrementali](https://docs.microsoft.com/azure/virtual-machines/windows/disks-incremental-snapshots) con supporto per più backup al giorno. È anche una soluzione senza agente e non influisca sulle prestazioni dell'applicazione di produzione. Supporta il backup e il ripristino dei dischi del sistema operativo e dei dati (inclusi i dischi condivisi), indipendentemente dal fatto che siano attualmente collegati a una macchina virtuale di Azure in esecuzione.
+Il backup su disco di Azure offre una soluzione chiavi in mano che fornisce la gestione del ciclo di vita dello snapshot per [Managed Disks di Azure](../virtual-machines/managed-disks-overview.md) automatizzando la creazione periodica di snapshot e la conservazione per una durata configurata usando i criteri di backup. È possibile gestire gli snapshot del disco con costi di infrastruttura zero e senza la necessità di generare script personalizzati o di qualsiasi sovraccarico di gestione. Si tratta di una soluzione di backup coerente con l'arresto anomalo del sistema che esegue un backup temporizzato di un disco gestito utilizzando [snapshot incrementali](../virtual-machines/disks-incremental-snapshots.md) con supporto per più backup al giorno. È anche una soluzione senza agente e non influisca sulle prestazioni dell'applicazione di produzione. Supporta il backup e il ripristino dei dischi del sistema operativo e dei dati (inclusi i dischi condivisi), indipendentemente dal fatto che siano attualmente collegati a una macchina virtuale di Azure in esecuzione.
 
 Per altre informazioni, vedere [backup su disco di Azure (in anteprima)](disk-backup-overview.md).
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-js
-ms.openlocfilehash: 3d26da693d83fd680c644849d581ea35ca7b49af
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
-ms.translationtype: HT
+ms.openlocfilehash: 4ca431290fe168f8fc073908bb3735ecb5992562
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739706"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731252"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
 
@@ -24,7 +24,7 @@ L'integrazione continua (CI) e la distribuzione continua (CD) formano una pipeli
 
 Azure Pipelines offre un set completo di strumenti di automazione CI/CD per le distribuzioni in macchine virtuali, sia in locale che su qualsiasi cloud.
 
-In questa esercitazione si configurerà una pipeline CI/CD basata su YAML per distribuire l'app in un [ambiente](/azure/devops/pipelines/process/environments?view=azure-devops) di Azure Pipelines con macchine virtuali Linux come risorse, ognuna delle quali funge da server Web per l'esecuzione dell'app.
+In questa esercitazione si configurerà una pipeline CI/CD basata su YAML per distribuire l'app in un [ambiente](/azure/devops/pipelines/process/environments) di Azure Pipelines con macchine virtuali Linux come risorse, ognuna delle quali funge da server Web per l'esecuzione dell'app.
 
 Si apprenderà come:
 
@@ -41,7 +41,7 @@ Si apprenderà come:
   È possibile ottenere un'[organizzazione di Azure DevOps Services gratuita](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Per altre informazioni, vedere [Connettersi ad Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects?view=vsts).
+  > Per altre informazioni, vedere [Connettersi ad Azure DevOps Services](/azure/devops/organizations/projects/connect-to-projects).
 
 *  È necessaria una macchina virtuale Linux per una destinazione di distribuzione.  Per altre informazioni, vedere [Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure](./tutorial-manage-vm.md).
 
@@ -222,7 +222,7 @@ Per altre informazioni, seguire la procedura descritta in [Compilare l'app Node.
        tags: web
    ```
 2. È possibile selezionare set specifici di macchine virtuali dell'ambiente per ricevere la distribuzione specificando i **tag** definiti per ogni macchina virtuale nell'ambiente.
-[Qui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) è disponibile lo schema YAML completo per il processo di distribuzione.
+[Qui](/azure/devops/pipelines/yaml-schema?tabs=schema#deployment-job) è disponibile lo schema YAML completo per il processo di distribuzione.
 
 3. È possibile specificare `runOnce` o `rolling` come strategia di distribuzione. 
 

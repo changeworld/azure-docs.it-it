@@ -4,16 +4,16 @@ description: I pool di immagini personalizzati sono un modo efficiente per confi
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: eb21a9e0d355274142e34fbb5c90a4d293c88ef1
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 98dbb965d77da43d937dccbc0f99abf12c195929
+ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327305"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98731362"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
-Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con un' [immagine della raccolta immagini condivisa](../virtual-machines/windows/shared-image-galleries.md).
+Quando si crea un pool in Azure Batch usando la configurazione della macchina virtuale, specificare l'immagine di macchina virtuale (VM) che fornisce la configurazione del sistema operativo per ogni nodo di calcolo nel pool. È possibile creare un pool di macchine virtuali con un'immagine di Azure Marketplace supportata o creare un'immagine personalizzata con un' [immagine della raccolta immagini condivisa](../virtual-machines/shared-image-galleries.md).
 
 ## <a name="benefits-of-the-shared-image-gallery"></a>Vantaggi della Raccolta immagini condivise
 
@@ -31,7 +31,7 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 - **Copiare grandi quantità di dati una volta sola.** Incorporare i dati statici nell'Immagine condivisa gestita copiandoli nei dischi dati di un'immagine gestita. Questa operazione deve essere eseguita solo una volta e consente di rendere i dati disponibili per ogni nodo del pool.
 - **Aumentare le dimensioni dei pool.** Con la Raccolta immagini condivise è possibile creare pool di dimensioni maggiori con le immagini personalizzate, insieme a un maggior numero di repliche di Immagini condivise.
 - **Prestazioni migliori rispetto all'utilizzo di una sola immagine gestita come immagine personalizzata.** Per un pool di immagini personalizzate per immagini condivise, il tempo per raggiungere lo stato stabile è più veloce del 25% e la latenza di inattività della macchina virtuale è fino al 30% più breve.
-- **Controllo delle versioni delle immagini e raggruppamento per la semplificazione della gestione.** La definizione di raggruppamento delle immagini contiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e le informazioni sull'uso. Il raggruppamento delle immagini consente una gestione più semplice delle stesse. Per altre informazioni, vedere [Definizioni delle immagini](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Controllo delle versioni delle immagini e raggruppamento per la semplificazione della gestione.** La definizione di raggruppamento delle immagini contiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e le informazioni sull'uso. Il raggruppamento delle immagini consente una gestione più semplice delle stesse. Per altre informazioni, vedere [Definizioni delle immagini](../virtual-machines/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -226,4 +226,4 @@ Se si prevede di creare un pool con centinaia o migliaia di VM o più con un'imm
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica approfondita di Batch, vedere [Flusso di lavoro e risorse del servizio Batch](batch-service-workflow-features.md).
-- Informazioni su [Raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md).
+- Informazioni su [Raccolta immagini condivise](../virtual-machines/shared-image-galleries.md).
