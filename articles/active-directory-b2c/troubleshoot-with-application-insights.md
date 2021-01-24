@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132058"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746003"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Raccogliere i log di Azure Active Directory B2C con Application Insights
 
@@ -26,7 +26,7 @@ Questo articolo illustra i passaggi per la raccolta di log da Active Directory B
 I log attività dettagliati descritti in questa sezione devono essere abilitati **solo** durante lo sviluppo dei criteri personalizzati.
 
 > [!WARNING]
-> Non impostare `DeploymentMode` su `Developer` negli ambienti di produzione. I log raccolgono tutte le attestazioni inviate da e verso i provider di identità. Gli sviluppatori si assumono la responsabilità di tutti i dati personali raccolti nei log del Application Insights. Questi log dettagliati vengono raccolti solo quando i criteri vengono inseriti in **modalità sviluppatore**.
+> Non impostare `DeploymentMode` su `Development` negli ambienti di produzione. I log raccolgono tutte le attestazioni inviate da e verso i provider di identità. Gli sviluppatori si assumono la responsabilità di tutti i dati personali raccolti nei log del Application Insights. Questi log dettagliati vengono raccolti solo quando i criteri vengono inseriti in **modalità sviluppatore**.
 
 ## <a name="set-up-application-insights"></a>Configurare Application Insights
 
@@ -59,7 +59,7 @@ Se non ne è già presente uno, creare un'istanza di Application Insights nella 
     ```
 
     * `DeveloperMode="true"` indica a ApplicationInsights di accelerare i dati di telemetria attraverso la pipeline di elaborazione. Ideale per lo sviluppo, ma vincolato a volumi elevati. In produzione, impostare `DeveloperMode` su `false` .
-    * `ClientEnabled="true"` Invia lo script del lato client di ApplicationInsights per tenere traccia degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"` , si aggiungono Application Insights allo script di pagina e si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi, i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo**e è impostato su per `false` impostazione predefinita.
+    * `ClientEnabled="true"` Invia lo script del lato client di ApplicationInsights per tenere traccia degli errori sul lato client e sulla visualizzazione pagina. È possibile visualizzarli nella tabella **browserTimings** nel portale di Application Insights. Impostando `ClientEnabled= "true"` , si aggiungono Application Insights allo script di pagina e si ottengono i tempi di caricamento delle pagine e le chiamate AJAX, i conteggi, i dettagli delle eccezioni del browser e degli errori Ajax, nonché i conteggi degli utenti e delle sessioni. Questo campo è **facoltativo** e è impostato su per `false` impostazione predefinita.
     * `ServerEnabled="true"` invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights.
 
     Ad esempio:

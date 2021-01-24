@@ -65,10 +65,12 @@
       href: howto-manage-digital-twin.md
     - name: Certificare un dispositivo
       href: howto-certify-device.md
-    - name: Installare e usare il bridge IoT Plug and Play
+    - name: Come connettere un esempio Plug and Play Bridge
       href: howto-use-iot-pnp-bridge.md
-    - name: 'Creare, distribuire, estendere il bridge Plug and Play IoT'
+    - name: Compila e Distribuisci Plug and Play Bridge
       href: howto-build-deploy-extend-pnp-bridge.md
+    - name: Estendi Plug and Play Bridge
+      href: howto-author-pnp-bridge-adapter.md
 - name: Informazioni di riferimento
   items:
     - name: Librerie e SDK

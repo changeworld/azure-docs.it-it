@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 7336078d1f04b9dcb6c2f229654f1c36d9b3114b
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96919964"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746799"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -345,7 +345,9 @@ Ciò si verifica se il codice invia tali dati. Può succedere anche se le variab
 
 **Tutti** gli ottetti dell'indirizzo Web del client sono sempre impostati su 0 dopo che viene eseguita la ricerca degli attributi relativi alla località geografica.
 
-### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La chiave di strumentazione personale è visibile nell'origine della pagina Web. 
+Per impostazione predefinita, il [Application Insights JavaScript SDK](app/javascript.md) non include i dati personali nel completamento automatico. Tuttavia, alcuni dati personali usati nell'applicazione possono essere prelevati dall'SDK (ad esempio, nomi completi in `window.title` o ID account nei parametri di query dell'URL XHR). Per il mascheramento dei dati personali personalizzato, aggiungere un [inizializzatore di telemetria](app/api-filtering-sampling.md#javascript-web-applications).
+
+### <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La chiave di strumentazione personale è visibile nell'origine della pagina Web.
 
 * Questo è una pratica comune nelle soluzioni di monitoraggio.
 * Questo valore non può essere usato per appropriarsi dei dati personali.

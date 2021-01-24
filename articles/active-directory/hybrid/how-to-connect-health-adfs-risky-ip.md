@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d74272d77183baa2284265aee298967f641250
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504883"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746071"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report IP rischioso (anteprima pubblica)
 AD FS clienti possono esporre gli endpoint di autenticazione tramite password a Internet per fornire ai servizi di autenticazione per gli utenti finali l'accesso ad applicazioni SaaS, ad esempio Microsoft 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />
@@ -37,9 +37,6 @@ AD FS clienti possono esporre gli endpoint di autenticazione tramite password a 
 > Per usare questo report, è necessario verificare che il servizio di controllo AD FS sia abilitato. Per altre informazioni, vedere [Abilitare il controllo per AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
 > Per accedere all'anteprima, è necessaria un'autorizzazione di amministratore globale o di [Ruolo con autorizzazioni di lettura per la sicurezza](../../role-based-access-control/built-in-roles.md#security-reader).  
 >
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ## <a name="what-is-in-the-report"></a>Informazioni sul report
 Gli indirizzi IP del client dell'attività di accesso non riusciti vengono aggregati tramite i server proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Fornisce le informazioni seguenti: ![ screenshot che mostra un report IP rischioso con le intestazioni di colonna evidenziate.](./media/how-to-connect-health-adfs/report4a.png)

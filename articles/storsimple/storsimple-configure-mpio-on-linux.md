@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 6584b2ecc54efd257bb30c479fd0f22150e8d9e1
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 2b7ddf6423db4c471ee2065635f4e3e89f7eb7b2
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608589"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745734"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -21,10 +21,6 @@ Questa procedura è applicabile a tutti i modelli di dispositivi della serie Sto
 
 > [!NOTE]
 > Questa procedura non può essere usata per un'appliance cloud StorSimple. Per altre informazioni, vedere come configurare i server host per l'appliance cloud.
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine *blacklist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
-
 
 ## <a name="about-multipathing"></a>Informazioni sui percorsi multipli
 La funzionalità di percorsi multipli consente di configurare più percorsi I/O tra un server host e un dispositivo di archiviazione. I percorsi I/O sono connessioni SAN fisiche che possono includere cavi, switch, interfacce di rete e controller separati. I percorsi multipli aggregano i percorsi I/O per configurare un nuovo dispositivo associato a tutti i percorsi aggregati.
@@ -54,7 +50,7 @@ Il file multipath.conf è composto da cinque sezioni:
 
 - **System level defaults** *(defaults)*: è possibile ignorare i valori predefiniti a livello di sistema.
 - **Blacklisted devices** *(blacklist)*: è possibile specificare l'elenco dei dispositivi che il mapper dei dispositivi non deve controllare.
-- **Blacklist exceptions** *(blacklist_exceptions)*: è possibile identificare i dispositivi specifici da considerare come dispositivi a percorsi multipli anche se elencati nella blacklist.
+- **Eccezioni blacklist** *(blacklist_exceptions)*: è possibile identificare dispositivi specifici da trattare come dispositivi a percorsi multipli anche se elencati nell'elenco di blocco.
 - **Storage controller specific settings** *(devices)*: è possibile specificare impostazioni di configurazione che verranno applicate ai dispositivi con informazioni sul fornitore e sul prodotto.
 - **Device specific settings** *(multipaths)*: è possibile usare questa sezione per ottimizzare le impostazioni di configurazione per le singole unità logiche.
 
@@ -215,12 +211,12 @@ I dispositivi supportati da percorsi multipli possono essere individuati e confi
     ```
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Passaggio 2: Configurare i percorsi multipli per volumi StorSimple
-Per impostazione predefinita, tutti i dispositivi sono elencati nella blacklist del file multipath.conf neri e verranno ignorati. È necessario creare eccezioni di blacklist per consentire percorsi multipli per volumi dai dispositivi StorSimple.
+Per impostazione predefinita, tutti i dispositivi sono Blocklisting nel file multipath. conf e verranno ignorati. Sarà necessario creare eccezioni di blocco per consentire percorsi multipli per i volumi dai dispositivi StorSimple.
 
 1. Modificare il file `/etc/mulitpath.conf`. Digitare:
    
     `vi /etc/multipath.conf`
-1. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blacklist in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
+1. Trovare la sezione blacklist_exceptions nel file multipath.conf. Il dispositivo StorSimple deve essere elencato come eccezione di blocco in questa sezione. È possibile rimuovere il commento dalle righe pertinenti in questo file per modificarlo, come mostrato di seguito (usare solo il modello specifico del dispositivo in uso):
    
     ```config
     blacklist_exceptions {

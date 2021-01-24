@@ -14,15 +14,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b323268c625ed25236cf4a9f9faa17606bd967c
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 0a0f17df13b5b101aebf585b7f1f3fb2a5b48006
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570066"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746054"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -84,6 +84,7 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
+- 01/23/2021: introduce la funzionalità del partizionamento del volume di dati HANA come funzionalità per eseguire lo striping delle operazioni di I/O sui file di dati HANA in diversi dischi di Azure o condivisioni NFS senza usare un volume Disk Manager negli articoli [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e i [volumi NFS v 4.1 Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 01/18/2021: è stato aggiunto il supporto per NFS per Oracle in macchine virtuali di Azure per il [carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) e per la regolazione dei numeri decimali nella tabella in Document [NFS v 4.1 volumes in Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
 - 01/11/2021: modifiche minime in [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL guida](./high-availability-guide-rhel-multi-sid.md) a più SID per modificare i comandi da usare sia per RHEL8 che per RHEL7 e ENSA1 e ENSA2
 - 01/05/2021: modifiche apportate all' [SAP Hana con scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con e in SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con e in RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), modificando la configurazione consigliata per consentire all'agente host SAP di gestire l'intervallo di porte locali  

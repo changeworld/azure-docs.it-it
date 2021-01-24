@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6d656dbb3fb50091fc8721ba40431b37f77c4ad6
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 1b034c0f1c62eecf8139ed908a5a242060f3e886
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98662948"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746561"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Modifiche importanti che interesseranno il Centro sicurezza di Azure
 
@@ -31,10 +31,40 @@ Se si cercano le note sulla versione più recenti, vedere [Novità del Centro si
 
 ## <a name="planned-changes"></a>Modifiche pianificate
 
+- [Le raccomandazioni per la protezione del carico di lavoro Kubernetes verranno presto rilasciate per la disponibilità generale (GA)](#kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga)
 - [Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Miglioramenti alla raccomandazione di classificazione dei dati SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark](#35-preview-recommendations-being-added-to-increase-coverage-of-azure-security-benchmark)
 
+
+### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>Le raccomandazioni per la protezione del carico di lavoro Kubernetes verranno presto rilasciate per la disponibilità generale (GA)
+
+**Data stimata per la modifica:** gennaio 2021
+
+I consigli sulla protezione del carico di lavoro Kubernetes descritti in [proteggere i carichi di lavoro di Kubernetes](kubernetes-workload-protections.md) sono attualmente in anteprima. Mentre una raccomandazione è in anteprima, non esegue il rendering di una risorsa non integro e non è inclusa nei calcoli del Punteggio sicuro.
+
+Questi consigli verranno presto rilasciati per la disponibilità generale (GA), quindi *verranno* inclusi nel calcolo del punteggio. Se non sono già stati corretti, questo potrebbe causare un lieve effetto sul punteggio sicuro.
+
+Correggerli laddove possibile (informazioni su come correggere le [raccomandazioni nel centro sicurezza di Azure](security-center-remediate-recommendations.md)).
+
+Le raccomandazioni per la protezione del carico di lavoro Kubernetes sono:
+
+- Il componente aggiuntivo di criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster
+- È consigliabile applicare limiti per la CPU e la memoria dei contenitori
+- I contenitori con privilegi devono essere evitati
+- Per i contenitori deve essere imposto il file system radice non modificabile (di sola lettura)
+- È consigliabile evitare i contenitori con escalation dei privilegi
+- È consigliabile evitare l'esecuzione di contenitori come utente radice
+- I contenitori che condividono spazi dei nomi host sensibili devono essere evitati
+- Per i contenitori devono essere imposte le funzionalità Linux con privilegi minimi
+- L'utilizzo dei montaggi dei volumi HostPath dei pod deve essere limitato a un elenco noto
+- I contenitori devono essere in ascolto solo sulle porte consentite
+- I servizi devono essere in ascolto solo sulle porte consentite
+- L'utilizzo della rete host e delle porte deve essere limitato
+- La sovrascrittura o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata
+- Le immagini del contenitore devono essere distribuite solo da registri attendibili             
+
+Altre informazioni su questi consigli sono disponibili in [proteggere i carichi di lavoro Kubernetes](kubernetes-workload-protections.md).
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Due consigli dal controllo di sicurezza "Applica aggiornamenti del sistema" obsoleti 
 

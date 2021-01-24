@@ -4,12 +4,12 @@ description: Questo articolo illustra le domande generali più frequenti su Azur
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: add5874dc828f05c7c51f0f378988c94cbd42486
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109556"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746476"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -344,6 +344,14 @@ Sì, è possibile usare il ripristino nel percorso alternativo per eseguire il f
 
 * [Per macchine virtuali VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Per macchine virtuali Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
+
+### <a name="what-is-the-difference-between-complete-migration-commit-and-disable-replication"></a>Qual è la differenza tra la migrazione completa, il commit e la disabilitazione della replica?
+
+Una volta eseguito il failover di un computer dal percorso di origine al percorso di destinazione, è possibile scegliere tra tre opzioni. Tutti e tre gli scopi sono diversi:
+
+1.  Il **completamento della migrazione** significa che non sarà più possibile tornare al percorso di origine. È stata eseguita la migrazione all'area di destinazione e a questo punto l'operazione è terminata. Facendo clic su completa trigger di migrazione, eseguire il commit e quindi disabilitare la replica internamente. 
+2.  Il **commit** indica che non si tratta della fine del processo di replica. L'elemento Replication insieme a tutta la configurazione rimarrà attivo e sarà possibile riattivare la **riprotezione** in un secondo momento per riattivare la replica dei computer nell'area di origine. 
+3.  **Disabilitando la replica** , la replica viene disabilitata e la configurazione correlata viene rimossa. Non influirà sul computer già esistente nell'area di destinazione.
 
 ## <a name="automation"></a>Automazione
 

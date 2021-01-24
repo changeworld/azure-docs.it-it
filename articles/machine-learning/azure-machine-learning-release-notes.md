@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 38f37ff2fe150a9e1998fbe5e963b8737a6e1533
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737966"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746731"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -493,8 +493,8 @@ Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](
     + Gli utenti possono ora specificare una frequenza della serie temporale per le attività di previsione utilizzando il `freq` parametro.
   + **azureml-train-automl-runtime**
     + Miglioramento dell'output della console quando le spiegazioni migliori del modello hanno esito negativo.
-    + Il parametro di input "backlist_models" è stato rinominato in "blocked_models".
-      + Il parametro di input "whitelist_models" è stato rinominato in "allowed_models".
+    + Il parametro di input è stato rinominato in "blocked_models" per rimuovere un termine sensibile.
+      + Il parametro di input è stato rinominato in "allowed_models" per rimuovere un termine sensibile.
     + Gli utenti possono ora specificare una frequenza della serie temporale per le attività di previsione utilizzando il `freq` parametro.
 
   

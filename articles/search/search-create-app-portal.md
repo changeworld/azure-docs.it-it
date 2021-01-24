@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/25/2020
-ms.openlocfilehash: b69feec7249c80fc63d803a14f360614bcf880fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.date: 01/23/2021
+ms.openlocfilehash: 590afe4c396942c5179826cd831908e37f48c3e4
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91399823"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745751"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app demo nel portale di Azure (Ricerca cognitiva di Azure)
 
@@ -61,7 +61,7 @@ La procedura guidata fornisce un layout di base per i risultati della ricerca co
 
 1. In Descrizione scegliere un campo che fornisca dettagli che potrebbero aiutare gli utenti a decidere se fare clic su quel particolare documento.
 
-   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="pagina origine dati per i dati di esempio" border="false":::
+   :::image type="content" source="media/search-create-app-portal/configure-results.png" alt-text="configurare i risultati per i dati di esempio" border="false":::
 
 ## <a name="add-a-sidebar"></a>Aggiungere una barra laterale
 
@@ -72,8 +72,9 @@ In Ricerca cognitiva di Azure l'esplorazione in base a facet è un'esperienza di
 > [!TIP]
 > È possibile visualizzare lo schema dell'intero indice nel portale. Cercare il collegamento **Definizione di indice (JSON)** nella pagina Panoramica di ogni indice. I campi idonei per l'esplorazione in base a facet hanno gli attributi "filterable: true" e "facetable: true".
 
-Accettare la selezione corrente dei facet e passare alla pagina successiva.
+1. Nella parte superiore della pagina della procedura guidata selezionare la scheda **Sidebar** . Verrà visualizzato un elenco di tutti i campi attribuiti come filtrabili e con facet nell'indice.
 
+1. Accettare la selezione corrente dei campi con facet e passare alla pagina successiva.
 
 ## <a name="add-typeahead"></a>Aggiungere il completamento automatico
 
@@ -83,20 +84,44 @@ I suggerimenti sono abilitati per definizioni di campo specifiche. La procedura 
 
 Lo screenshot seguente mostra le opzioni della procedura guidata, affiancate a una pagina con rendering nell'app. È possibile visualizzare il modo in cui vengono usate le selezioni dei campi e il modo in cui viene usato "Mostra nome campo" per includere o escludere l'etichettatura all'interno del suggerimento.
 
-:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="pagina origine dati per i dati di esempio":::
+:::image type="content" source="media/search-create-app-portal/suggestions.png" alt-text="Configurazione di un suggerimento di query":::
+
+## <a name="add-suggestions"></a>Aggiungere suggerimenti
+
+I suggerimenti fanno riferimento a richieste di query automatiche collegate alla casella di ricerca. Ricerca cognitiva supporta due: *completamento automatico* di un termine di ricerca parzialmente immesso e *suggerimenti* per un elenco a discesa di potenziali documenti corrispondenti basati su.
+
+La procedura guidata supporta i suggerimenti e i campi che possono fornire risultati suggeriti sono derivati da un [`Suggesters`](index-add-suggesters.md) costrutto nell'indice:
+
+```JSON
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": [
+        "number",
+        "street",
+        "city",
+        "region",
+        "postCode",
+        "tags"
+      ]
+```
+
+1. Nella procedura guidata selezionare la scheda **suggerimenti** nella parte superiore della pagina. Verrà visualizzato un elenco di tutti i campi designati nello schema dell'indice come provider di suggerimenti.
+
+1. Accettare la selezione corrente e passare alla pagina successiva.
 
 ## <a name="create-download-and-execute"></a>Creare, scaricare ed eseguire
 
-1. Selezionare **Crea app demo** per generare il file HTML.
+1. Selezionare **Crea app demo** nella parte inferiore della pagina per generare il file HTML.
 
 1. Quando richiesto, selezionare **Scarica l'app** per scaricare il file.
 
-1. Open the file. Verrà visualizzata una pagina simile a quella raffigurata nello screenshot seguente. Immettere un termine e usare i filtri per restringere i risultati. 
+1. Aprire il file e fare clic sul pulsante Search (Cerca). Questa azione esegue una query, che può essere una query vuota ( `*` ) che restituisce un set di risultati arbitrario. La pagina dovrebbe essere simile alla schermata seguente. Immettere un termine e usare i filtri per restringere i risultati. 
 
 L'indice sottostante è costituito da dati fittizi generati che sono stati duplicati tra i documenti e le descrizioni talvolta non corrispondono all'immagine. Quando si crea un'app in base ai propri indici, è possibile aspettarsi un'esperienza più coerente.
 
-:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="pagina origine dati per i dati di esempio":::
-
+:::image type="content" source="media/search-create-app-portal/run-app.png" alt-text="Eseguire l'app":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -108,7 +133,7 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Sebbene l'app predefinita sia utile per l'esplorazione iniziale e piccole attività, l'esame anticipato delle API consentirà di comprendere i concetti e il flusso di lavoro a un livello più approfondito:
+L'app demo è utile per la creazione di prototipi perché è possibile simulare un'esperienza dell'utente finale senza dover scrivere codice JavaScript o front-end. Per ulteriori informazioni sulle funzionalità front-end, iniziare con l'esplorazione in base a facet:
 
 > [!div class="nextstepaction"]
-> [Creare un indice tramite .NET SDK](./search-get-started-dotnet.md)
+> [Come compilare un filtro facet](search-filters-facets.md)

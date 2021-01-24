@@ -7,14 +7,14 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/05/2020
+ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
-ms.translationtype: HT
+ms.openlocfilehash: 4bda56f3037469477ddfe059dd20c14cd34586d8
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787959"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745718"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Esercitazione: Contenuto ricercabile generato tramite intelligenza artificiale da BLOB di Azure con .NET SDK
 
@@ -23,8 +23,8 @@ Se Archiviazione BLOB di Azure contiene immagini o testo non strutturato, una [p
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Configurare un ambiente di sviluppo.
-> * Definire una pipeline sui BLOB usando il riconoscimento ottico dei caratteri (OCR), il rilevamento della lingua e il riconoscimento di entità e frasi chiave.
+> * Configurare un ambiente di sviluppo
+> * Definire una pipeline che usa OCR, il rilevamento della lingua e il riconoscimento di entità e frasi chiave.
 > * Eseguire la pipeline per richiamare trasformazioni e per creare e caricare un indice di ricerca.
 > * Esplorare i risultati tramite un ricerca full-text e una sintassi di query avanzata.
 
@@ -32,9 +32,11 @@ Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://a
 
 ## <a name="overview"></a>Panoramica
 
-Questa esercitazione usa C# e la libreria client **Azure.Search.Documents** per creare un'origine dati, un indice, un indicizzatore e un set di competenze.
+Questa esercitazione USA C# e la [libreria client di **Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme) per creare un'origine dati, un indice, un indicizzatore e un oggetto di competenze.
 
-Il set di competenze usa competenze predefinite basate sull'API Servizi cognitivi. I passaggi della pipeline includono il riconoscimento ottico dei caratteri (OCR) sulle immagini, il rilevamento della lingua sul testo, l'estrazione di frasi chiave e il riconoscimento di entità (organizzazioni). Le nuove informazioni vengono archiviate in nuovi campi che è possibile sfruttare in query, facet e filtri.
+L'indicizzatore si connette a un contenitore BLOB specificato nell'oggetto origine dati e invia tutto il contenuto indicizzato a un indice di ricerca esistente.
+
+Il skillt è associato all'indicizzatore. USA competenze predefinite di Microsoft per trovare ed estrarre informazioni. I passaggi della pipeline includono il riconoscimento ottico dei caratteri (OCR) sulle immagini, il rilevamento della lingua sul testo, l'estrazione di frasi chiave e il riconoscimento di entità (organizzazioni). Le nuove informazioni create dalla pipeline vengono archiviate in nuovi campi di un indice. Una volta popolato l'indice, è possibile utilizzare i campi in query, facet e filtri.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -52,7 +54,7 @@ I dati di esempio sono costituiti da 14 file con tipo di contenuto misto che ver
 
 1. Aprire questa [cartella OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e nell'angolo in alto a sinistra fare clic su **Scarica** per copiare i file nel computer. 
 
-1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto** . Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
+1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto**. Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
 
 È anche possibile scaricare il codice sorgente per questa esercitazione. Il codice sorgente è reperibile nella cartella **tutorial-ai-enrichment/v11** nel repository [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
@@ -64,7 +66,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 ### <a name="start-with-azure-storage"></a>Iniziare con Archiviazione di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa** .
+1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa**.
 
 1. Cercare *account di archiviazione* e selezionare l'offerta Account di archiviazione di Microsoft.
 
@@ -72,21 +74,21 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Nella scheda Informazioni di base gli elementi seguenti sono obbligatori. Accettare le impostazioni predefinite per tutti gli altri elementi.
 
-   * **Gruppo di risorse** . Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
+   * **Gruppo di risorse**. Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
 
-   * **Nome account di archiviazione** . Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus* . 
+   * **Nome account di archiviazione**. Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus*. 
 
-   * **Località** . Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
+   * **Località**. Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
 
-   * **Tipologia account** . Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
+   * **Tipologia account**. Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
 
 1. Fare clic su **Rivedi e crea** per creare il servizio.
 
 1. Al termine dell'operazione, fare clic su **Vai alla risorsa** per aprire la pagina Panoramica.
 
-1. Fare clic sul servizio **BLOB** .
+1. Fare clic sul servizio **BLOB**.
 
-1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo* .
+1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo*.
 
 1. Selezionare *cog-search-demo* e quindi fare clic su **Carica** per aprire la cartella in cui sono stati salvati i file di download. Selezionare tutti i quattordici file e fare clic su **OK** per caricarli.
 
@@ -94,7 +96,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Prima di uscire da Archiviazione di Azure, ottenere una stringa di connessione in modo che sia possibile definire una connessione in Ricerca cognitiva di Azure. 
 
-   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstoragewestus* ). 
+   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstoragewestus*). 
 
    1. Nel riquadro di spostamento sinistro selezionare **Chiavi di accesso** e copiare una delle stringhe di connessione. 
 
@@ -142,23 +144,23 @@ Iniziare aprendo Visual Studio e creando un nuovo progetto di app console che pu
 
 Per questo progetto, installare la versione 11 o successiva di `Azure.Search.Documents` e l'ultima versione di `Microsoft.Extensions.Configuration`.
 
-1. In Visual Studio selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per la soluzione** .
+1. In Visual Studio selezionare **Strumenti** > **Gestione pacchetti NuGet** > **Gestisci pacchetti NuGet per la soluzione**.
 
 1. Cercare [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Selezionare la versione più recente e fare clic su **Installa** .
+1. Selezionare la versione più recente e fare clic su **Installa**.
 
 1. Ripetere i passaggi precedenti per installare [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) e [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
 ### <a name="add-service-connection-information"></a>Aggiungere le informazioni di connessione del servizio
 
-1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Aggiungi** > **Nuovo elemento** . 
+1. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Aggiungi** > **Nuovo elemento**. 
 
-1. Assegnare un nome al file `appsettings.json` e selezionare **Aggiungi** . 
+1. Assegnare un nome al file `appsettings.json` e selezionare **Aggiungi**. 
 
 1. Includere questo file nella directory di output.
-    1. Fare clic con il pulsante destro del mouse su `appsettings.json` e scegliere **Proprietà** . 
-    1. Modificare il valore di **Copia nella directory di output** impostandolo su **Copia se più recente** .
+    1. Fare clic con il pulsante destro del mouse su `appsettings.json` e scegliere **Proprietà**. 
+    1. Modificare il valore di **Copia nella directory di output** impostandolo su **Copia se più recente**.
 
 1. Copiare il codice JSON seguente nel nuovo file JSON.
 
@@ -173,7 +175,7 @@ Per questo progetto, installare la versione 11 o successiva di `Azure.Search.Doc
 
 Aggiungere le informazioni dell'account per il servizio di ricerca e l'archivio BLOB. Tenere presente che è possibile ottenere queste informazioni dalla procedura di provisioning del servizio indicata nella sezione precedente.
 
-Per **SearchServiceUri** , immettere l'URL completo.
+Per **SearchServiceUri**, immettere l'URL completo.
 
 ### <a name="add-namespaces"></a>Aggiungere spazi dei nomi
 
@@ -285,7 +287,7 @@ Compilare ed eseguire la soluzione. Trattandosi della prima richiesta, controlla
 
 ### <a name="step-2-create-a-skillset"></a>Passaggio 2: Creare un set di competenze
 
-In questa sezione viene definito un set di passaggi di arricchimento da applicare ai dati. Ogni passaggio di arricchimento è noto come *competenza* e il set di passaggi di arricchimento è un *set di competenze* . Questa esercitazione usa [competenze cognitive predefinite](cognitive-search-predefined-skills.md) per il set di competenze:
+In questa sezione viene definito un set di passaggi di arricchimento da applicare ai dati. Ogni passaggio di arricchimento è noto come *competenza* e il set di passaggi di arricchimento è un *set di competenze*. Questa esercitazione usa [competenze cognitive predefinite](cognitive-search-predefined-skills.md) per il set di competenze:
 
 * [Riconoscimento ottico dei caratteri](cognitive-search-skill-ocr.md) per riconoscere testo stampato e scritto a mano nei file di immagine.
 
@@ -377,7 +379,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Competenza di rilevamento lingua
 
-La competenza di **rilevamento lingua** rileva la lingua del testo di input e restituisce un codice lingua singolo per ogni documento inviato nella richiesta. Si userà l'output della competenza di **rilevamento lingua** come parte dell'input per la competenza di **divisione del testo** .
+La competenza di **rilevamento lingua** rileva la lingua del testo di input e restituisce un codice lingua singolo per ogni documento inviato nella richiesta. Si userà l'output della competenza di **rilevamento lingua** come parte dell'input per la competenza di **divisione del testo**.
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -580,7 +582,7 @@ Questo esercizio usa i campi e i tipi di campi seguenti:
 
 I campi per questo indice vengono definiti usando una classe modello. Ogni proprietà della classe modello contiene attributi che determinano i comportamenti correlati alla ricerca del campo di indice corrispondente. 
 
-La classe modello verrà aggiunta a un nuovo file C#. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi** > **Nuovo elemento** , selezionare "Classe", assegnare al file il nome `DemoIndex.cs` e quindi selezionare **Aggiungi** .
+La classe modello verrà aggiunta a un nuovo file C#. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi** > **Nuovo elemento**, selezionare "Classe", assegnare al file il nome `DemoIndex.cs` e quindi selezionare **Aggiungi**.
 
 Indicare che si vogliono usare i tipi degli spazi dei nomi `Azure.Search.Documents.Indexes` e `System.Text.Json.Serialization`.
 
@@ -826,13 +828,13 @@ Nelle app console dell'esercitazione su Ricerca cognitiva di Azure in genere vie
 
 L'opzione più semplice è costituita da [Esplora ricerche](search-explorer.md) nel portale. È possibile eseguire prima una query vuota che restituisce tutti i documenti oppure una ricerca più mirata che restituisce il nuovo contenuto del campo creato dalla pipeline. 
 
-1. Nel portale di Azure, nella pagina di panoramica della ricerca, selezionare **Indici** .
+1. Nel portale di Azure, nella pagina di panoramica della ricerca, selezionare **Indici**.
 
 1. Trovare **`demoindex`** nell'elenco. Dovrebbero essere presenti 14 documenti. Se il numero di documenti è zero, significa l'indicizzatore è ancora in esecuzione o che la pagina non è stata ancora aggiornata. 
 
-1. Selezionare **`demoindex`** . Esplora ricerche è la prima scheda.
+1. Selezionare **`demoindex`**. Esplora ricerche è la prima scheda.
 
-1. È possibile iniziare a eseguire ricerche nel contenuto subito dopo il caricamento del primo documento. Per verificare se esiste contenuto, eseguire una query non specificata facendo clic su **Cerca** . Questa query restituisce tutti i documenti attualmente indicizzati, offrendo un'idea del contenuto dell'indice.
+1. È possibile iniziare a eseguire ricerche nel contenuto subito dopo il caricamento del primo documento. Per verificare se esiste contenuto, eseguire una query non specificata facendo clic su **Cerca**. Questa query restituisce tutti i documenti attualmente indicizzati, offrendo un'idea del contenuto dell'indice.
 
 1. Incollare quindi la stringa seguente per ottenere risultati più gestibili: `search=*&$select=id, languageCode, organizations`
 

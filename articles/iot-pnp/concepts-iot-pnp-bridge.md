@@ -3,17 +3,17 @@ title: Plug and Play Bridge | Microsoft Docs
 description: Informazioni sul Bridge Plug and Play e su come usarlo per connettere i dispositivi esistenti collegati a un gateway Windows o Linux come dispositivi Plug and Play.
 author: usivagna
 ms.author: ugans
-ms.date: 09/22/2020
+ms.date: 1/20/2021
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 34af380d057ad47811e394da1e7a29198e102920
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672781"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746493"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Bridge Plug and Play IoT
 
@@ -36,7 +36,7 @@ Per impostazione predefinita, i tipi di periferiche Plug and Play Bridge support
 |L' [Adapter SerialPnP](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/serialpnp/Readme.md) connette i dispositivi che comunicano tramite una connessione seriale.               |Sì|Sì|
 |Le [periferiche USB di Windows](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/docs/coredevicehealth_adapter.md) usano un elenco di classi di interfaccia del dispositivo supportate dall'adapter per connettere i dispositivi con un ID hardware specifico.  |Sì|Non applicabile|
 
-Per informazioni su come estendere il Plug and Play Bridge per supportare altri protocolli del dispositivo, vedere [compilare, distribuire ed estendere il bridge plug and Play](howto-build-deploy-extend-pnp-bridge.md).
+Per informazioni su come estendere il Plug and Play Bridge per supportare altri protocolli del dispositivo, vedere [estendere il bridge plug and Play](howto-author-pnp-bridge-adapter.md). Per informazioni su come creare e distribuire il Bridge Plug and Play, vedere [creare e distribuire il bridge plug and Play](howto-build-deploy-extend-pnp-bridge.md).
 
 ## <a name="iot-plug-and-play-bridge-architecture"></a>Architettura Plug and Play Bridge
 
@@ -148,6 +148,7 @@ Il Bridge Plug and Play usa un file di configurazione basato su JSON che specifi
 
 Ora che si dispone di una panoramica dell'architettura di Internet delle cose Plug and Play Bridge, i passaggi successivi sono ulteriori informazioni su:
 
-- [Come usare il Bridge Plug and Play](./howto-use-iot-pnp-bridge.md)
-- [Crea, Distribuisci ed Estendi Plug and Play Bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Come connettere un esempio Plug and Play Bridge in esecuzione in Linux o Windows all'hub Internet](./howto-use-iot-pnp-bridge.md)
+- [Compila e Distribuisci Plug and Play Bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Estendi Plug and Play Bridge](howto-build-deploy-extend-pnp-bridge.md)
 - [Plug and Play Bridge su GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

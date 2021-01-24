@@ -1,23 +1,23 @@
 ---
-title: 'Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning'
+title: "Esempio: creare e distribuire un'abilità personalizzata con Azure Machine Learning"
 titleSuffix: Azure Cognitive Search
-description: Questa esercitazione illustra come usare Azure Machine Learning per creare e distribuire una competenza personalizzata per la pipeline di arricchimento tramite intelligenza artificiale di Ricerca cognitiva di Azure.
+description: Questo esempio illustra come usare Azure Machine Learning per compilare e distribuire un'abilità personalizzata per la pipeline di arricchimento AI ricerca cognitiva di Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fa961a5a6d3a3b827a082fbac2acc3431ac40949
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: 98d8395236bf955eed88f36c03c96981fa0e4b6b
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057604"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745635"
 ---
-# <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning 
+# <a name="example-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esempio: creare e distribuire un'abilità personalizzata con Azure Machine Learning 
 
-In questa esercitazione si userà il [set di dati delle recensioni di hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito con la licenza Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare una [competenza personalizzata](./cognitive-search-aml-skill.md) usando Azure Machine Learning per estrarre il sentiment basato sull'aspetto dalle recensioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
+In questo esempio si utilizzerà il [set di dati di revisioni dell'Hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito in base alla licenza Creative Commons, [CC BY-NC-SA 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare un' [abilità personalizzata](./cognitive-search-aml-skill.md) usando Azure Machine Learning per estrarre i sentimenti basati su aspetto dalle revisioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
 
 Per eseguire il training del modello di sentiment basato sull'aspetto in Azure Machine Learning, si userà il [repository nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Il modello verrà quindi distribuito come endpoint in un cluster di Azure Kubernetes. Una volta distribuito, il modello verrà aggiunto alla pipeline di arricchimento come competenza di Azure Machine Learning che verrà usata dal servizio Ricerca cognitiva.
 
@@ -82,15 +82,15 @@ La sezione 4 del notebook contiene quattro celle che aggiornano il set di compet
 
 Nel portale passare a Set di competenze e selezionare il collegamento Definizione del set di competenze (JSON). Il portale visualizzerà il codice JSON del set di competenze creato nelle prime celle del notebook. A destra della visualizzazione è disponibile un menu a discesa in cui è possibile selezionare il modello di definizione delle competenze. Selezionare il modello Azure Machine Learning (AML). Specificare il nome dell'area di lavoro di Azure Machine Learning e l'endpoint del modello distribuito nel cluster di inferenza. Il modello verrà aggiornato con l'URI e la chiave dell'endpoint.
 
-> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modello di definizione del set di competenze&quot;:::
+> :::image type="content" source="media/cognitive-search-aml-skill/portal-aml-skillset-definition.png" alt-text="Modello di definizione del set di competenze":::
 
 Copiare il modello di set di competenze dalla finestra e incollarlo nella definizione di set di competenze a sinistra. Modificare il modello per fornire i valori mancanti per:
 
 * Nome
 * Descrizione
 * Context
-* &quot;name&quot; e &quot;source&quot; di &quot;inputs&quot;
-* &quot;name&quot; e &quot;targetName&quot; di &quot;outputs"
+* "name" e "source" di "inputs"
+* "name" e "targetName" di "outputs"
 
 Salvare il set di competenze.
 

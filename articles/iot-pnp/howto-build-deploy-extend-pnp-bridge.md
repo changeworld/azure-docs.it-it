@@ -1,27 +1,26 @@
 ---
-title: Come compilare, distribuire ed estendere Plug and Play Bridge | Microsoft Docs
-description: Identificare i componenti Plug and Play Bridge. Informazioni su come estendere il Bridge e su come eseguirlo nei dispositivi, nei gateway e in un modulo IoT Edge.
+title: Come compilare e distribuire l'Plug and Play Bridge | Microsoft Docs
+description: Identificare i componenti Plug and Play Bridge. Informazioni su come eseguire questa operazione su dispositivi, gateway e come modulo IoT Edge.
 author: usivagna
 ms.author: ugans
-ms.date: 12/11/2020
+ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 43c89b0fac08bf9f2c72f885fbf4788371876b17
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678577"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745668"
 ---
-# <a name="build-deploy-and-extend-the-iot-plug-and-play-bridge"></a>Crea, Distribuisci ed Estendi i Plug and Play Bridge
+# <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Creare e distribuire il Bridge Plug and Play
 
-Il Bridge Internet delle cose Plug and Play consente di connettere i dispositivi esistenti collegati a un gateway all'hub Internet. Si usa il Bridge per eseguire il mapping delle interfacce Plug and Play ai dispositivi collegati. Un'interfaccia Plug and Play di Internet delle cose definisce i dati di telemetria inviati da un dispositivo, le proprietà sincronizzate tra il dispositivo e il cloud e i comandi a cui risponde il dispositivo. È possibile installare e configurare l'applicazione Bridge Open Source nei gateway Windows o Linux.
+Il [Bridge](concepts-iot-pnp-bridge.md#iot-plug-and-play-bridge-architecture) Internet delle cose plug and Play consente di connettere i dispositivi esistenti collegati a un gateway all'hub Internet. Si usa il Bridge per eseguire il mapping delle interfacce Plug and Play ai dispositivi collegati. Un'interfaccia Plug and Play di Internet delle cose definisce i dati di telemetria inviati da un dispositivo, le proprietà sincronizzate tra il dispositivo e il cloud e i comandi a cui risponde il dispositivo. È possibile installare e configurare l'applicazione Bridge Open Source nei gateway Windows o Linux. Inoltre, il Bridge può essere eseguito come modulo di runtime Azure IoT Edge.
 
 Questo articolo illustra in dettaglio come:
 
 - Configurare un Bridge.
-- Estendere un bridge creando nuovi adapter.
 - Come compilare ed eseguire il Bridge in diversi ambienti.
 
 Per un semplice esempio in cui viene illustrato come usare il Bridge, vedere [come connettere l'esempio plug and Play Bridge eseguito in Linux o Windows all'hub](howto-use-iot-pnp-bridge.md)Internet.
@@ -77,97 +76,6 @@ Lo [schema del file di configurazione](https://github.com/Azure/iot-plug-and-pla
 ### <a name="iot-edge-module-configuration"></a>Configurazione del modulo IoT Edge
 
 Quando il Bridge viene eseguito come modulo IoT Edge in un runtime IoT Edge, il file di configurazione viene inviato dal cloud come aggiornamento alla `PnpBridgeConfig` proprietà desiderata. Il Bridge attende che questa proprietà venga aggiornata prima di configurare gli adapter e i componenti.
-
-## <a name="extend-the-bridge"></a>Estendere il Bridge
-
-Per estendere le funzionalità del Bridge, è possibile creare schede Bridge personalizzate.
-
-Il Bridge usa gli adapter per:
-
-- Stabilire una connessione tra un dispositivo e il cloud.
-- Abilitare il flusso di dati tra un dispositivo e il cloud.
-- Abilitare la gestione dei dispositivi dal cloud.
-
-Ogni adattatore del Bridge deve:
-
-- Creare un'interfaccia di dispositivi gemelli digitali.
-- Usare l'interfaccia per associare funzionalità lato dispositivo a funzionalità basate su cloud come la telemetria, le proprietà e i comandi.
-- Stabilire la comunicazione tra il controllo e i dati con l'hardware o il firmware del dispositivo.
-
-Ogni adattatore Bridge interagisce con un tipo specifico di dispositivo in base al modo in cui l'adapter si connette e interagisce con il dispositivo. Anche se per la comunicazione con un dispositivo viene usato un protocollo di handshake, un adattatore Bridge può avere diversi modi per interpretare i dati dal dispositivo. In questo scenario, l'adattatore Bridge usa le informazioni per l'adapter nel file di configurazione per determinare la *configurazione dell'interfaccia* che l'adapter deve usare per analizzare i dati.
-
-Per interagire con il dispositivo, un adattatore Bridge usa un protocollo di comunicazione supportato dal dispositivo e dalle API fornite dal sistema operativo sottostante o dal fornitore del dispositivo.
-
-Per interagire con il cloud, un adattatore Bridge usa le API fornite da Azure Internet per dispositivi C SDK per inviare dati di telemetria, creare interfacce digitali gemelle, inviare aggiornamenti delle proprietà e creare funzioni di callback per gli aggiornamenti e i comandi delle proprietà.
-
-### <a name="create-a-bridge-adapter"></a>Creare un adattatore Bridge
-
-Il Bridge prevede che un adattatore del Bridge implementi le API definite nell'interfaccia [_PNP_ADAPTER](https://github.com/Azure/iot-plug-and-play-bridge/blob/9964f7f9f77ecbf4db3b60960b69af57fd83a871/pnpbridge/src/pnpbridge/inc/pnpadapter_api.h#L296) :
-
-```c
-typedef struct _PNP_ADAPTER {
-  // Identity of the IoT Plug and Play adapter that is retrieved from the config
-  const char* identity;
-
-  PNPBRIDGE_ADAPTER_CREATE createAdapter;
-  PNPBRIDGE_COMPONENT_CREATE createPnpComponent;
-  PNPBRIDGE_COMPONENT_START startPnpComponent;
-  PNPBRIDGE_COMPONENT_STOP stopPnpComponent;
-  PNPBRIDGE_COMPONENT_DESTROY destroyPnpComponent;
-  PNPBRIDGE_ADAPTER_DESTOY destroyAdapter;
-} PNP_ADAPTER, * PPNP_ADAPTER;
-```
-
-In questa interfaccia:
-
-- `PNPBRIDGE_ADAPTER_CREATE` Crea l'adapter e configura le risorse di gestione dell'interfaccia. Un adapter può inoltre basarsi sui parametri dell'adapter globale per la creazione dell'adapter. Questa funzione viene chiamata una volta per un singolo adapter.
-- `PNPBRIDGE_COMPONENT_CREATE` Crea le interfacce client dei dispositivi gemelli digitali e associa le funzioni di callback. L'adapter avvia il canale di comunicazione al dispositivo. L'adapter può configurare le risorse per abilitare il flusso di dati di telemetria, ma non avvia la creazione di report di telemetria finché non `PNPBRIDGE_COMPONENT_START` viene chiamato. Questa funzione viene chiamata una volta per ogni componente dell'interfaccia nel file di configurazione.
-- `PNPBRIDGE_COMPONENT_START` viene chiamato per consentire all'adapter Bridge di avviare l'invio della telemetria dal dispositivo al client gemello digitale. Questa funzione viene chiamata una volta per ogni componente dell'interfaccia nel file di configurazione.
-- `PNPBRIDGE_COMPONENT_STOP` arresta il flusso di telemetria.
-- `PNPBRIDGE_COMPONENT_DESTROY` Elimina il client gemello digitale e le risorse di interfaccia associate. Questa funzione viene chiamata una volta per ogni componente dell'interfaccia nel file di configurazione quando il Bridge viene eliminato o quando si verifica un errore irreversibile.
-- `PNPBRIDGE_ADAPTER_DESTROY` pulisce le risorse dell'adattatore del Bridge.
-
-### <a name="bridge-core-interaction-with-bridge-adapters"></a>Interazione dei componenti di base di Bridge con adattatori Bridge
-
-Nell'elenco seguente vengono descritte le operazioni eseguite all'avvio del Bridge:
-
-1. All'avvio del Bridge, Gestione adapter Bridge esamina ogni componente dell'interfaccia definito nel file di configurazione e chiama `PNPBRIDGE_ADAPTER_CREATE` sull'adapter appropriato. L'adapter può usare i parametri di configurazione dell'adapter globale per configurare le risorse per supportare le varie *configurazioni di interfaccia*.
-1. Per ogni dispositivo nel file di configurazione, il gestore del Bridge avvia la creazione dell'interfaccia chiamando `PNPBRIDGE_COMPONENT_CREATE` nell'adattatore Bridge appropriato.
-1. L'adapter riceve tutte le impostazioni di configurazione facoltative dell'adapter per il componente dell'interfaccia e usa queste informazioni per configurare le connessioni al dispositivo.
-1. L'adapter crea le interfacce client dei dispositivi gemelli digitali e associa le funzioni di callback per i comandi e gli aggiornamenti della proprietà. La definizione delle connessioni del dispositivo non deve bloccare il ritorno dei callback dopo che la creazione dell'interfaccia del dispositivo gemello digitale è riuscita. La connessione al dispositivo attivo è indipendente dal client di interfaccia attivo creato dal Bridge. Se una connessione ha esito negativo, l'adapter presuppone che il dispositivo non sia attivo. L'adattatore Bridge può scegliere di riprovare a eseguire la connessione.
-1. Dopo la creazione di tutti i componenti di interfaccia specificati nel file di configurazione, il gestore dell'adapter Bridge registra tutte le interfacce con l'hub Azure. La registrazione è una chiamata asincrona bloccante. Al termine della chiamata, viene attivato un callback nell'adattatore Bridge che può quindi iniziare a gestire i callback di proprietà e comandi dal cloud.
-1. Bridge Adapter Manager chiama quindi `PNPBRIDGE_INTERFACE_START` su ogni componente e l'adattatore Bridge avvia la segnalazione dei dati di telemetria al client gemello digitale.
-
-### <a name="design-guidelines"></a>Linee guida di progettazione
-
-Quando si sviluppa una nuova scheda Bridge, attenersi alle seguenti linee guida:
-
-- Determinare quali funzionalità del dispositivo sono supportate e l'aspetto della definizione dell'interfaccia dei componenti che usano l'adapter.
-- Determinare l'interfaccia e i parametri globali necessari per l'adapter definiti nel file di configurazione.
-- Identificare la comunicazione del dispositivo di basso livello necessaria per supportare le proprietà e i comandi dei componenti.
-- Determinare il modo in cui l'adapter deve analizzare i dati non elaborati dal dispositivo e convertirli nei tipi di telemetria specificati dalla definizione dell'interfaccia Plug and Play.
-- Implementare l'interfaccia dell'adattatore Bridge descritta in precedenza.
-- Aggiungere il nuovo adapter al manifesto dell'adapter e compilare il Bridge.
-
-### <a name="enable-a-new-bridge-adapter"></a>Abilita una nuova scheda Bridge
-
-Per abilitare gli adapter nel Bridge, è necessario aggiungere un riferimento in [adapter_manifest. c](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/shared/adapter_manifest.c):
-
-```c
-  extern PNP_ADAPTER MyPnpAdapter;
-  PPNP_ADAPTER PNP_ADAPTER_MANIFEST[] = {
-    .
-    .
-    &MyPnpAdapter
-  }
-```
-
-> [!IMPORTANT]
-> I callback dell'adapter Bridge vengono richiamati in sequenza. Un adapter non deve bloccare un callback perché impedisce lo stato di avanzamento del Bridge core.
-
-### <a name="sample-camera-adapter"></a>Scheda fotocamera di esempio
-
-Il [file Leggimi della fotocamera](https://github.com/Azure/iot-plug-and-play-bridge/blob/master/pnpbridge/src/adapters/src/Camera/readme.md) descrive una scheda di esempio della fotocamera che è possibile abilitare.
 
 ## <a name="build-and-run-the-bridge-on-an-iot-device-or-gateway"></a>Compilare ed eseguire il Bridge su un dispositivo o un gateway Internet
 
@@ -378,7 +286,6 @@ Avviare VS Code, aprire il riquadro comandi, immettere *Remote WSL: Apri cartell
 Aprire il file *pnpbridge\Dockerfile.amd64* . Modificare le definizioni delle variabili di ambiente come segue:
 
 ```dockerfile
-ENV IOTHUB_DEVICE_CONNECTION_STRING="{Add your device connection string here}"
 ENV PNP_BRIDGE_ROOT_MODEL_ID="dtmi:com:example:RootPnpBridgeSampleDevice;1"
 ENV PNP_BRIDGE_HUB_TRACING_ENABLED="false"
 ENV IOTEDGE_WORKLOADURI="something"

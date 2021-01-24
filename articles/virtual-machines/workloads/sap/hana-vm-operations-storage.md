@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/26/2020
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c4aa608e892867daaf954284a9dfce997a9ae1f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01c6a2eb53e82965dd96deaa1a09afb1e70dda24
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484278"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746748"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -63,10 +63,22 @@ Alcuni principi guida per la selezione della configurazione di archiviazione per
 - Decidere il tipo di archiviazione in base ai [tipi di archiviazione di Azure per il carico di lavoro SAP](./planning-guide-storage.md) e [selezionare un tipo di disco](../../disks-types.md)
 - La velocità effettiva complessiva di I/O delle macchine virtuali e i limiti di IOPS quando si dimensiona o si decide per una macchina virtuale. La velocità effettiva complessiva di archiviazione delle VM è documentata nell'articolo [dimensioni delle macchine virtuali con ottimizzazione](../../sizes-memory.md) per la memoria
 - Quando si decide la configurazione dell'archiviazione, provare a rimanere sotto la velocità effettiva complessiva della VM con la configurazione del volume **/Hana/data** . La scrittura di salvataggio, SAP HANA può essere un sistema di I/o di emissione aggressivo. Quando si scrive un salvataggio, è possibile eseguire facilmente il push fino a limiti di velocità effettiva del volume **/Hana/data** . Se i dischi che compilano il volume **/Hana/data** hanno una velocità effettiva superiore a quella consentita dalla VM, è possibile che si verifichino situazioni in cui la velocità effettiva utilizzata dalla scrittura salvataggio interferisca con le richieste di velocità effettiva delle Scritture del log di rollforward. Situazione che può influisca sulla velocità effettiva dell'applicazione
-- Se si usa archiviazione Premium di Azure, la configurazione meno costosa consiste nell'usare i gestori di volumi logici per creare set di striping per compilare i volumi **/Hana/data** e **/Hana/log**
+
 
 > [!IMPORTANT]
 > I suggerimenti per le configurazioni di archiviazione sono intesi come istruzioni per iniziare con. L'esecuzione del carico di lavoro e l'analisi dei modelli di utilizzo dello spazio di archiviazione, si potrebbe notare che non si utilizza tutta la larghezza di banda di archiviazione o IOPS fornita. È possibile prendere in considerazione la riduzione dell'archiviazione. Oppure, al contrario, il carico di lavoro potrebbe richiedere una maggiore velocità effettiva di archiviazione rispetto a quanto suggerito con queste configurazioni. Di conseguenza, potrebbe essere necessario distribuire più capacità, IOPS o velocità effettiva. Nel campo del tensionamento tra capacità di archiviazione necessaria, latenza di archiviazione necessaria, velocità effettiva di archiviazione e IOPS necessari e configurazione meno costosa, Azure offre un numero sufficiente di tipi di archiviazione con diverse funzionalità e punti di prezzo diversi per trovare e adattare il compromesso giusto per l'utente e il carico di lavoro HANA.
+
+
+## <a name="stripe-sets-versus-sap-hana-data-volume-partitioning"></a>Set di striping rispetto a SAP HANA partizionamento del volume di dati
+Con archiviazione Premium di Azure è possibile raggiungere il miglior rapporto prezzo/prestazioni quando si esegue lo striping del volume **/Hana/data** e/o **/Hana/log** tra più dischi di Azure. Anziché distribuire volumi di dischi di dimensioni maggiori che forniscano maggiore spazio su IOPS o velocità effettiva necessaria. Fino ad ora questa operazione è stata realizzata con LVM e MDADM volume Manager che fanno parte di Linux. Il metodo di striping dei dischi è di decenni vecchi e ben noti. Per quanto riguarda i volumi con striping che consentono di ottenere le funzionalità di IOPS o di velocità effettiva che potrebbero essere necessarie, si aggiungono complessità sulla gestione dei volumi con striping. Soprattutto nei casi in cui i volumi devono essere estesi nella capacità. Almeno per **/Hana/data**, in SAP è stato introdotto un metodo alternativo che raggiunge lo stesso obiettivo dello striping tra più dischi di Azure. Poiché SAP HANA 2,0 SPS03, HANA indexserver è in grado di eseguire lo striping dell'attività di I/O tra più file di dati HANA che si trovano in dischi di Azure diversi. Il vantaggio è che non è necessario prestare attenzione alla creazione e alla gestione di un volume con striping in diversi dischi di Azure. La funzionalità SAP HANA del partizionamento del volume di dati è descritta in dettaglio in:
+
+- [Guida dell'amministratore di HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sui SAP HANA: partizionamento dei volumi di dati](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Nota SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Nota SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
+Leggendo i dettagli, è evidente che l'uso di questa funzionalità prende le complessità dei set di striping basati su Volume Manager. Si è inoltre consapevoli che il partizionamento del volume di dati HANA non funziona solo per l'archiviazione di blocchi di Azure, ad esempio archiviazione Premium di Azure. È possibile usare questa funzionalità anche per eseguire lo striping tra le condivisioni NFS nel caso in cui le condivisioni abbiano limitazioni di IOPS o velocità effettiva.  
+
 
 ## <a name="linux-io-scheduler-mode"></a>Modalità di pianificazione I/O Linux
 Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione comune per i fornitori di Linux e SAP consiste nel riconfigurare la modalità di pianificazione I/O per i volumi di dischi dalla modalità **mq-deadline** o **kyber** alla modalità **noop** (non multiqueue) o **none** per (multiqueue). Informazioni dettagliate sono disponibili nella [nota SAP #1984787](https://launchpad.support.sap.com/#/notes/1984787). 
@@ -148,7 +160,7 @@ Configurazione per il volume **/Hana/data** di SAP:
 | --- | --- | --- | --- | --- | --- | --- | 
 | M32ts | 192 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
 | M32ls | 256 GiB | 500 MBps | 4 x P6 | 200 MBps | 680 MBps | 960 | 14.000 |
-| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2.000 | 14.000 |
+| M64ls | 512 GiB | 1\.000 MBps | 4 x P10 | 400 MBps | 680 MBps | 2\.000 | 14.000 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 4 x P15 | 500 MBps | 680 MBps | 4.400 | 14.000 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200 | 14.000 |  
 | M128s | 2\.000 GiB | 2.000 MBps | 4 x P20 | 600 MBps | 680 MBps | 9.200| 14.000 | 
@@ -245,7 +257,7 @@ Le raccomandazioni spesso superano i requisiti minimi di SAP indicati in precede
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | E20ds_v4 | GiB 160 | 480 MB/s | 200 GB | 400 MBps | 2\.500 | 80 GB | 250 MB | 1.800 |
 | E32ds_v4 | 256 GiB | 768 MB/s | 300 GB | 400 MBps | 2\.500 | 128 GB | 250 MBps | 1.800 |
-| E48ds_v4 | GiB 384 | 1152 MB/s | 460 GB | 400 MBps | 3.000 | 192 GB | 250 MBps | 1.800 |
+| E48ds_v4 | GiB 384 | 1152 MB/s | 460 GB | 400 MBps | 3,000 | 192 GB | 250 MBps | 1.800 |
 | E64ds_v4 | GiB 504 | 1200 MB/s | 610 GB | 400 MBps | 3\.500 |  256 GB | 250 MBps | 1.800 |
 | E64s_v3 | 432 GiB | 1\.200 MB/s | 610 GB | 400 MBps | 3\.500 | 220 GB | 250 MB | 1.800 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 2\.500 | 96 GB | 250 MBps  | 1.800 |

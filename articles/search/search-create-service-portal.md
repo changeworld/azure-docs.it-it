@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/14/2020
-ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
-ms.translationtype: HT
+ms.date: 01/23/2021
+ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102813"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746697"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
-Ricerca cognitiva di Azure è una risorsa autonoma usata per aggiungere un'esperienza di ricerca alle app personalizzate. Ricerca cognitiva di Azure si integra facilmente con altri servizi di Azure, con le app dei server di rete o con il software in esecuzione in altre piattaforme cloud.
+[Azure ricerca cognitiva](search-what-is-azure-search.md) è una risorsa di Azure usata per l'aggiunta di un'esperienza di ricerca full-text alle app personalizzate. Puoi integrarlo facilmente con altri servizi di Azure che forniscono dati o elaborazione aggiuntiva, con app nei server di rete o con il software in esecuzione su altre piattaforme cloud.
 
-In questo articolo verrà illustrato come creare una risorsa nel [portale di Azure](https://portal.azure.com/).
+In questo articolo viene illustrato come creare un servizio di ricerca nell' [portale di Azure](https://portal.azure.com/).
 
 [![GIF animata](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -30,8 +30,8 @@ Se si preferisce PowerShell, usare il [modello di servizio](https://azure.micros
 Le proprietà seguenti sono fisse per la durata del servizio e per modificarne una qualsiasi di esse è richiesto un nuovo servizio. Dal momento che sono fisse, valutare le implicazioni di utilizzo seguenti quando si inseriscono le singole proprietà:
 
 * Il nome del servizio diventa parte dell'endpoint dell'URL ([vedere i suggerimenti](#name-the-service) per i nomi di servizio utili).
-* Il livello di servizio [influisce sulla fatturazione](search-sku-tier.md) e imposta un limite massimo per la capacità. Alcune funzionalità non sono disponibili nel livello gratuito.
-* L'area del servizio può determinare la disponibilità di determinati scenari. Se servono [funzionalità con livelli di sicurezza elevati](search-security-overview.md) o [arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md), sarà necessario posizionare Ricerca cognitiva di Azure nella stessa area degli altri servizi o in aree che offrono la funzionalità in questione. 
+* Il [livello di servizio](search-sku-tier.md) influisca sulla fatturazione e imposta un limite crescente per la capacità. Alcune funzionalità non sono disponibili nel livello gratuito.
+* L'area del servizio può determinare la disponibilità di determinati scenari. Se sono necessarie [funzionalità di sicurezza elevata](search-security-overview.md) o l' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md), sarà necessario creare ricerca cognitiva di Azure nella stessa area di altri servizi o in aree che forniscono la funzionalità in questione. 
 
 ## <a name="subscribe-free-or-paid"></a>Sottoscrizione gratuita o a pagamento
 
@@ -43,9 +43,9 @@ In alternativa, [attivare i benefici della sottoscrizione MSDN](https://azure.mi
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Fare clic sul segno più ("+ Crea risorsa") nell'angolo superiore sinistro.
+1. Fare clic sul segno più (**"+ Crea risorsa"**) nell'angolo superiore sinistro.
 
-1. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure** .
+1. Usare la barra di ricerca per trovare "Ricerca cognitiva di Azure" o passare alla risorsa selezionando **Web** > **Ricerca cognitiva di Azure**.
 
 :::image type="content" source="media/search-create-service-portal/find-search3.png" alt-text="Creare una risorsa nel portale" border="false":::
 
@@ -59,18 +59,18 @@ Un gruppo di risorse è un contenitore con risorse correlate per la soluzione Az
 
 Se non si combinano le risorse in un singolo gruppo o se i gruppi di risorse esistenti sono riempiti con risorse usate in soluzioni non correlate, creare un nuovo gruppo di risorse solo per la risorsa Ricerca cognitiva di Azure. 
 
-:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Creare una risorsa nel portale" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-resource-group.png" alt-text="Creare un nuovo gruppo di risorse" border="false":::
 
 Nel tempo, è possibile tenere traccia dei costi correnti e previsti a livello globale oppure visualizzare i costi per le singole risorse. Lo screenshot seguente mostra il tipo di informazioni sui costi che è possibile prevedere quando si combinano più risorse in un unico gruppo.
 
-:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Creare una risorsa nel portale" border="false":::
+:::image type="content" source="media/search-create-service-portal/resource-group-cost-management.png" alt-text="Gestire i costi a livello di gruppo di risorse" border="false":::
 
 > [!TIP]
 > I gruppi di risorse semplificano la pulizia, in quanto eliminando un gruppo verranno eliminati tutti i servizi al suo interno. Per i progetti prototipo che usano più servizi, l'inserimento di tutti gli elementi nello stesso gruppo di risorse ne semplifica l'eliminazione al termine del progetto.
 
 ## <a name="name-the-service"></a>Assegnare un nome al servizio
 
-In Dettagli istanza fornire un nome per il servizio nel campo **URL** . Questo nome fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API: `https://your-service-name.search.windows.net`. Se ad esempio si vuole che l'endpoint sia `https://myservice.search.windows.net`, immettere `myservice`.
+In Dettagli istanza fornire un nome per il servizio nel campo **URL**. Questo nome fa parte dell'endpoint dell'URL in cui vengono eseguite le chiamate API: `https://your-service-name.search.windows.net`. Se ad esempio si vuole che l'endpoint sia `https://myservice.search.windows.net`, immettere `myservice`.
 
 Requisiti per i nomi di servizio:
 
@@ -94,7 +94,7 @@ Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elen
 
 ### <a name="requirements"></a>Requisiti
 
- Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area* .
+ Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
 
  I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](../best-practices-availability-paired-regions.md#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
 
@@ -114,11 +114,11 @@ Tenere presente che non è possibile modificare il piano tariffario dopo aver cr
 
 Dopo aver fornito gli input necessari, procedere con la creazione del servizio. 
 
-:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Creare una risorsa nel portale" border="false":::
+:::image type="content" source="media/search-create-service-portal/new-service3.png" alt-text="Rivedere e creare il servizio" border="false":::
 
 Il servizio viene distribuito entro pochi minuti. È possibile monitorare lo stato di avanzamento tramite le notifiche di Azure. Aggiungere il servizio al dashboard per accedervi facilmente in futuro.
 
-:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Creare una risorsa nel portale" border="false":::
+:::image type="content" source="media/search-create-service-portal/monitor-notifications.png" alt-text="Monitorare e aggiungere il servizio" border="false":::
 
 ## <a name="get-a-key-and-url-endpoint"></a>Ottenere una chiave e un endpoint dell'URL
 
@@ -128,7 +128,7 @@ A meno che non si usi il portale, per accedere al nuovo servizio a livello di co
 
 2. Nella pagina **Chiavi** copiare una delle chiavi di amministrazione (equivalenti). Le chiavi API di amministrazione sono necessarie per creare, aggiornare ed eliminare oggetti nel servizio. Al contrario, le chiavi di query forniscono l'accesso in lettura al contenuto dell'indice.
 
-   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Creare una risorsa nel portale" border="false":::
+   :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Pagina Panoramica del servizio con endpoint dell'URL" border="false":::
 
 Per le attività basate sul portale, l'endpoint e la chiave non sono necessari. Il portale è già collegato alla risorsa di Ricerca cognitiva di Azure con diritti amministrativi. Per una procedura dettagliata per il portale, iniziare con [Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale](search-get-started-portal.md).
 
@@ -136,9 +136,9 @@ Per le attività basate sul portale, l'endpoint e la chiave non sono necessari. 
 
 Al termine del provisioning del servizio, è possibile ridimensionare il servizio per adattarlo alle proprie esigenze. Se è stato scelto il piano tariffario Standard per il servizio Ricerca cognitiva di Azure, è possibile ridimensionare il servizio in due dimensioni, ovvero partizioni e repliche. Se fosse stato scelto il piano Basic, sarebbe stato possibile aggiungere solo le repliche. Se è stato effettuato il provisioning del servizio Gratuito, la scalabilità non è disponibile.
 
-Le ***partizioni*** consentono di archiviare e di eseguire ricerche in un numero maggiore di documenti nel servizio.
+**_Partizioni_* _ consentono al servizio di archiviare ed eseguire ricerche in più documenti.
 
-***Repliche*** consentire al servizio gestire un carico superiore di query di ricerca.
+Le _*_repliche_*_ consentono al servizio di gestire un carico superiore di query di ricerca.
 
 L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/) consente di capire le ramificazioni della fattura dovute all'aggiunta di risorse. Tenere presente che è possibile modificare le risorse in base al carico. Ad esempio, è possibile aumentare le risorse per creare un indice iniziale completo e ridurle successivamente a un livello più appropriato per l'indicizzazione incrementale.
 
@@ -146,10 +146,10 @@ L'aggiunta di risorse fa aumentare la fattura mensile. Il [calcolatore prezzi](h
 > Un servizio deve disporre di [2 repliche per ogni contratto di servizio di sola lettura e 3 repliche per ogni contratto di servizio di lettura/scrittura](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Passare alla pagina del servizio di ricerca nel portale di Azure.
-2. Nel riquadro di navigazione a sinistra selezionare **Impostazioni** > **Scalabilità** .
+2. Nel riquadro di spostamento a sinistra selezionare _ *Settings** > **scale**.
 3. Usare la barra di scorrimento per aggiungere risorse di entrambi i tipi.
 
-:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Creare una risorsa nel portale" border="false":::
+:::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Aggiungere capacità tramite repliche e partizioni" border="false":::
 
 > [!Note]
 > A livelli superiori la velocità e lo spazio di archiviazione per partizione aumentano. Per altre informazioni, vedere l'articolo su [capacità e limiti](search-limits-quotas-capacity.md).

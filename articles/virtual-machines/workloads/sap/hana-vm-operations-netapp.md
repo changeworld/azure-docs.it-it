@@ -13,15 +13,15 @@ ms.subservice: workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2021
+ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c7ea804e9e85578076969f0ec6bdf90b571bb75
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 906879c44a2d7a3248f3d3ac0c9fec7ced7f2a4f
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570083"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746544"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumi NFS v4.1 in Azure NetApp Files per SAP HANA
 
@@ -62,7 +62,13 @@ Importante comprendere è la relazione tra le prestazioni e la dimensione e la p
 
 La tabella seguente illustra che può essere utile creare un volume "standard" di grandi dimensioni per archiviare i backup e che non ha senso creare un volume "ultra" maggiore di 12 TB perché la capacità della larghezza di banda fisica di un singolo LIF verrebbe superata. 
 
-La velocità effettiva massima per un LIF e una singola sessione Linux è compresa tra 1,2 e 1,4 GB/s. 
+La velocità effettiva massima per un LIF e una singola sessione Linux è compresa tra 1,2 e 1,4 GB/s. Se è necessaria una velocità effettiva maggiore per/Hana/data, è possibile usare SAP HANA il partizionamento del volume dei dati per eseguire lo striping dell'attività di I/O durante il ricaricamento dei dati o HANA salvataggio tra più file di dati HANA che si trovano in più condivisioni NFS. Per altri dettagli sullo striping del volume di dati HANA, vedere questi articoli:
+
+- [Guida dell'amministratore di HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
+- [Blog sui SAP HANA: partizionamento dei volumi di dati](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
+- [Nota SAP #2400005](https://launchpad.support.sap.com/#/notes/2400005)
+- [Nota SAP #2700123](https://launchpad.support.sap.com/#/notes/2700123)
+
 
 | Dimensione  | Velocità effettiva standard | Velocità effettiva Premium | Velocità effettiva ultra |
 | --- | --- | --- | --- |

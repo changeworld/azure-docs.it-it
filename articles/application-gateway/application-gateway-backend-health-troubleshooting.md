@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 05df2144b892aed764f9606fb19bd6a3242b97f3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5e5be79371b640431603409a34b1a7812ed5c2a3
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934901"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746105"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -21,9 +21,6 @@ ms.locfileid: "97934901"
 --------
 
 Per impostazione predefinita, il gateway applicazione di Azure verifica tramite probe i server back-end per controllarne lo stato integrità e determinare se sono pronti per gestire le richieste. Gli utenti possono anche creare probe personalizzati per indicare il nome host, il percorso da verificare tramite probe e i codici di stato da accettare come integri. In ogni caso, se il server back-end non risponde correttamente, il gateway applicazione contrassegna il server come non integro e interrompe l'inoltro delle richieste al server. Quando il server inizia a rispondere correttamente, il gateway applicazione riprende l'inoltro delle richieste.
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ### <a name="how-to-check-backend-health"></a>Come controllare l'integrità del back-end
 
@@ -245,7 +242,7 @@ Per altre informazioni su come estrarre e caricare certificati radice attendibil
 
 #### <a name="trusted-root-certificate-mismatch"></a>Mancata corrispondenza del certificato radice attendibile
 
-**Messaggio:** The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Ensure that you add the correct root certificate to whitelist the backend (Il certificato radice del certificato del server usato dal back-end non corrisponde al certificato radice attendibile aggiunto al gateway applicazione. Assicurarsi di aggiungere il certificato radice corretto per aggiungere il back-end all'elenco elementi consentiti).
+**Messaggio:** The root certificate of the server certificate used by the backend does not match the trusted root certificate added to the application gateway. Assicurarsi di aggiungere il certificato radice corretto per consentire il back-end.
 
 **Causa:** SSL end-to-end con il gateway applicazione V2 richiede che il certificato del server back-end sia verificato per considerare integro il server.
 Affinché un certificato TLS/SSL venga considerato attendibile, il certificato del server back-end deve essere stato emesso da un'autorità di certificazione inclusa nell'archivio attendibile del gateway applicazione. Se il certificato non è stato emesso da un'autorità di certificazione attendibile, ad esempio è stato usato un certificato autofirmato, gli utenti devono caricare il certificato dell'autorità emittente nel gateway applicazione.

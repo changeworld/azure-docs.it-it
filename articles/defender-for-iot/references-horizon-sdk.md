@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d6105f65508eff59164246020d9a3f286b68c5a1
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210649"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746020"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissettore del protocollo proprietario Horizon
 
@@ -885,7 +885,7 @@ Per ulteriori informazioni, vedere [create mapping files (JSON)](#create-mapping
 
 Ad esempio, per il valore, che è basato su TCP, è possibile usare i valori del livello IPv4. Da questo livello è possibile estrarre valori come l'origine del pacchetto e la destinazione.
 
-Per ottenere questo risultato, è necessario aggiornare il file di configurazione JSON utilizzando la `whitelist` Proprietà.
+Per ottenere questo risultato, è necessario aggiornare il file di configurazione JSON utilizzando la `whitelists` Proprietà.
 
 ## <a name="allow-list-data-mining-fields"></a>Campi Consenti elenco (data mining)
 
@@ -1148,8 +1148,8 @@ Le proprietà che possono essere configurate in questo file sono:
 
 | Campo | Descrizione |
 |--|--|
-| Key | Indica la chiave. |
-| valore | Indica il campo di implementazione da utilizzare per fornire i dati. |
+| key | Indica la chiave. |
+| Valore | Indica il campo di implementazione da utilizzare per fornire i dati. |
 | is_static_key | Indica se il `key` campo è derivato come valore dal pacchetto o se è un valore predefinito. |
 
 ### <a name="working-with-static-keys-only"></a>Utilizzo solo di chiavi statiche

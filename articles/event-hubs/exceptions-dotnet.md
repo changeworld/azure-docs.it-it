@@ -3,8 +3,7 @@ title: Hub eventi di Azure-eccezioni .NET
 description: Questo articolo fornisce un elenco delle eccezioni di messaggistica .NET di hub eventi di Azure e le azioni consigliate.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -12,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
 ms.date: 09/23/2020
-ms.author: shvija
-ms.openlocfilehash: 6a1d7c969d31033ae9d00d212cc8f1a45abbeda1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: spelluru
+ms.openlocfilehash: af2d820fd255d041ade21a00d7d7a9ac6b12fcba
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91344572"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98745903"
 ---
 # <a name="eventhubsexception---net"></a>EventHubsException-.NET
 Un **EventHubsException** viene attivato quando un'operazione specifica di hub eventi ha causato un problema, inclusi entrambi gli errori nel servizio e specifici per il client. 

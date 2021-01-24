@@ -8,19 +8,16 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 890e2b972818cf9805623d94709ce5631b50aaf5
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: e2c88091072921f1ca674868e401c34d354418de
+ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608606"
+ms.lasthandoff: 01/24/2021
+ms.locfileid: "98746510"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regole e gruppi di regole CRS del Web Application Firewall
 
 Il Web application firewall (WAF) di Gateway applicazione protegge le applicazioni Web da vulnerabilità ed exploit comuni. Questa operazione viene eseguita tramite regole definite in base ai set di regole OWASP Core 3,1, 3,0 o 2.2.9. Queste regole possono essere disabilitate in base alla regola. Questo articolo contiene le regole e i set di regole attualmente disponibili.
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine *blacklist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 ## <a name="core-rule-sets"></a>Set di regole principali
 
@@ -262,7 +259,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |941150|Filtro XSS, categoria 5: attributi HTML non consentiti|
 |941160|NoScript XSS InjectionChecker: inserimento HTML|
 |941170|NoScript XSS InjectionChecker: inserimento di attributi|
-|941180|Parole chiave in blacklist convalida nodi|
+|941180|Parole chiave Node-Validator di blocco|
 |941190|XSS con fogli di stile|
 |941200|XSS con frame la|
 |941210|XSS con JavaScript offuscato|
@@ -490,7 +487,7 @@ Le regole e i gruppi di regole seguenti sono disponibili quando si usa il Web Ap
 |941130|Filtro XSS, categoria 3: vettore attributi|
 |941140|Filtro XSS, categoria 4: vettore URI Javascript|
 |941150|Filtro XSS, categoria 5: attributi HTML non consentiti|
-|941180|Parole chiave in blacklist convalida nodi|
+|941180|Parole chiave Node-Validator di blocco|
 |941190|XSS con fogli di stile|
 |941200|XSS con frame la|
 |941210|XSS con JavaScript offuscato|
