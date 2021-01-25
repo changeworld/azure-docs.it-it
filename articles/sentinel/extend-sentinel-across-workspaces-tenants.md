@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 60e86c7c849bf09b3a5577453a6935466ab447f6
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95483914"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757120"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -94,18 +94,18 @@ Una funzione può anche semplificare un'Unione di uso comune. Ad esempio, è pos
 
 È quindi possibile scrivere una query in entrambe le aree di lavoro iniziando da `unionSecurityEvent | where ...` .
 
-#### <a name="scheduled-alerts"></a>Avvisi pianificati
+#### <a name="cross-workspace-analytics-rules"></a>Regole di analisi tra aree di lavoro<a name="scheduled-alerts"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
+Le query tra aree di lavoro possono ora essere incluse nelle regole di analisi pianificate, soggette alle limitazioni seguenti:
 
-È ora possibile includere le query tra aree di lavoro negli avvisi pianificati nelle regole di analisi, in base alle limitazioni seguenti:
-
-- In una singola query è possibile includere fino a 10 aree di lavoro.
+- In una singola query è possibile includere fino a 15 aree di lavoro.
 - Azure Sentinel deve essere distribuito in ogni area di lavoro a cui viene fatto riferimento nella query.
 
 > [!NOTE] 
 > L'esecuzione di query su più aree di lavoro nella stessa query può influire sulle prestazioni ed è quindi consigliabile solo quando la logica richiede questa funzionalità.
 
-### <a name="using-cross-workspace-workbooks"></a>Uso di cartelle di lavoro tra aree di lavoro
-
+#### <a name="cross-workspace-workbooks"></a>Cartelle di lavoro tra aree di lavoro<a name="using-cross-workspace-workbooks"></a>
+<!-- Bookmark added for backward compatibility with old heading -->
 Le [cartelle di lavoro](./overview.md#workbooks) di forniscono dashboard e app a Sentinel di Azure. Quando si lavora con più aree di lavoro, vengono forniti monitoraggio e azioni tra le aree di lavoro.
 
 Le cartelle di lavoro possono fornire query tra aree di lavoro in uno dei tre metodi, ognuno dei quali soddisfa i diversi livelli di esperienza degli utenti finali:
@@ -117,7 +117,7 @@ Le cartelle di lavoro possono fornire query tra aree di lavoro in uno dei tre me
 | Modificare la cartella di lavoro in modo interattivo | Un utente avanzato che modifica una cartella di lavoro esistente può modificarvi le query, selezionando le aree di lavoro di destinazione usando il selettore dell'area di lavoro nell'editor. | Questa opzione consente a un utente Power di modificare facilmente le cartelle di lavoro esistenti in modo da usare più aree di lavoro. |
 |
 
-### <a name="cross-workspace-hunting"></a>Caccia tra aree di lavoro
+#### <a name="cross-workspace-hunting"></a>Caccia tra aree di lavoro
 
 Azure Sentinel fornisce esempi di query precaricati progettati per iniziare e acquisire familiarità con le tabelle e il linguaggio di query. Queste query di caccia predefinite vengono sviluppate dai ricercatori della sicurezza Microsoft su base continuativa, sia l'aggiunta di nuove query che l'ottimizzazione delle query esistenti, per fornire un punto di ingresso per cercare nuovi rilevamenti e identificare i segnali di intrusione che potrebbero non essere stati rilevati dagli strumenti di sicurezza.  
 

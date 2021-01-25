@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ade92e445897e36139e74353fa703ddf50d3f9b3
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562727"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757407"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -81,6 +81,7 @@ Per i backup Linux delle macchine virtuali di Azure, il servizio Backup di Azure
 - Backup di Azure non supporta i sistemi operativi a 32 bit.
 - Altre distribuzioni Bring Your Own Linux potrebbero funzionare, a condizione che l'[agente di macchine virtuali di Azure per Linux](../virtual-machines/extensions/agent-linux.md) sia disponibile nella macchina virtuale e che Python sia supportato.
 - Backup di Azure non supporta una VM Linux configurata tramite proxy se non è installata la versione 2,7 di Python.
+- Backup di Azure non supporta il backup di file NFS montati dalla risorsa di archiviazione o da qualsiasi altro server NFS a computer Linux o Windows. Esegue solo il backup dei dischi collegati localmente alla macchina virtuale.
 
 ## <a name="backup-frequency-and-retention"></a>Frequenza e conservazione dei backup
 
@@ -129,7 +130,7 @@ Ripristino della macchina virtuale direttamente in un set di disponibilità | Pe
 Ripristino del backup di macchine virtuali non gestite dopo l'aggiornamento a macchine virtuali gestite| Supportato.<br/><br/> È possibile ripristinare i dischi e quindi creare una macchina virtuale gestita.
 Ripristino di una macchina virtuale a un punto di ripristino prima della migrazione di tale macchina a dischi gestiti | Supportato.<br/><br/> È possibile eseguire il ripristino in dischi non gestiti (impostazione predefinita), convertire i dischi ripristinati in un disco gestito e creare una macchina virtuale con i dischi gestiti.
 Ripristino di una macchina virtuale eliminata. | Supportato.<br/><br/> È possibile ripristinare la macchina virtuale da un punto di ripristino.
-Ripristinare una macchina virtuale del controller di dominio  | Supportato. Per informazioni dettagliate, vedere [ripristinare macchine virtuali controller di dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+Ripristinare una macchina virtuale del controller di dominio  | Supportata. Per informazioni dettagliate, vedere [ripristinare macchine virtuali controller di dominio](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 Ripristino di una macchina virtuale in una rete virtuale diversa |Supportato.<br/><br/> La rete virtuale deve trovarsi nella stessa sottoscrizione e nella stessa area.
 
 ## <a name="vm-compute-support"></a>Supporto del calcolo delle macchine virtuali
@@ -144,10 +145,11 @@ Backup di macchine virtuali distribuite da un'immagine personalizzata (terze par
 Backup di macchine virtuali di cui è stata eseguita la migrazione in Azure| Supportato.<br/><br/> Per eseguire il backup della macchina virtuale, l'agente di macchine virtuali deve essere installato nella macchina sottoposta a migrazione.
 Backup della coerenza tra più macchine virtuali | Backup di Azure non garantisce la coerenza dei dati e delle applicazioni tra più macchine virtuali.
 Backup con [impostazioni di diagnostica](../azure-monitor/platform/platform-logs-overview.md)  | Non supportato. <br/><br/> Se il ripristino della macchina virtuale di Azure con impostazioni di diagnostica viene attivato usando l'opzione [Crea nuova](backup-azure-arm-restore-vms.md#create-a-vm), il ripristino ha esito negativo.
-Ripristino di macchine virtuali aggiunte alla zona | Supportato (per una macchina virtuale di cui è stato eseguito il backup dopo Jan 2019 e in cui sono disponibili le [zone di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) ).<br/><br/>È attualmente supportato il ripristino nella stessa zona bloccata nelle VM. Se tuttavia la zona non è disponibile, il ripristino ha esito negativo.
+Ripristino di macchine virtuali aggiunte alla zona | Supportato (per una macchina virtuale di cui è stato eseguito il backup dopo Jan 2019 e in cui sono disponibili le [zone di disponibilità](https://azure.microsoft.com/global-infrastructure/availability-zones/) ).<br/><br/>È attualmente supportato il ripristino nella stessa zona bloccata nelle VM. Tuttavia, se la zona non è disponibile a causa di un'interruzione, il ripristino avrà esito negativo.
 Macchine virtuali di seconda generazione | Supportato <br> Backup di Azure supporta il backup e il ripristino di [macchine virtuali di seconda generazione](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando queste VM vengono ripristinate dal punto di ripristino, vengono ripristinate come [macchine virtuali Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup di macchine virtuali di Azure con blocchi | Non supportato per le macchine virtuali non gestite. <br><br> Supportato per le macchine virtuali gestite.
 [VM Spot](../virtual-machines/spot-vms.md) | Non supportato. Backup di Azure Ripristina le VM spot come normali macchine virtuali di Azure.
+[Host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supportato
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
 
@@ -165,6 +167,7 @@ Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o Scale-Out file server non è supportato. È probabile che i writer Volume condiviso cluster generino un errore durante il backup. Al momento del ripristino, i dischi contenenti volumi Volume condiviso cluster potrebbero non essere disponibili.
 [Dischi condivisi](../virtual-machines/disks-shared-enable.md) | Non supportato.
 Dischi Ultra SSD | Non supportato. Per ulteriori informazioni, vedere queste [limitazioni](selective-disk-backup-restore.md#limitations).
+[Dischi temporanei](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | I dischi temporanei non vengono sottoposti a backup da backup di Azure.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali
 

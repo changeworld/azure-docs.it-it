@@ -1,25 +1,25 @@
 ---
 title: Definizioni di criteri predefiniti per Centro sicurezza di Azure
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Centro sicurezza di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/21/2021
+ms.date: 01/24/2021
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3f667ed48a5188ce63665025786e990c47a9690b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 1192e765dc3cc001f8d1a1c6a28fe1a5cf4c9ecc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98700793"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757272"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definizioni predefinite di Criteri di Azure per Centro sicurezza di Azure
 
 Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../governance/policy/overview.md) correlate al centro sicurezza di Azure. Sono disponibili i seguenti raggruppamenti di definizioni dei criteri:
 
 - Il gruppo [iniziative](#azure-security-center-initiatives) elenca le definizioni delle iniziative di criteri di Azure nella categoria "Centro sicurezza".
-- Il gruppo [Initiative predefinito](#azure-security-center-initiatives) elenca tutte le definizioni di criteri di Azure che fanno parte dell'iniziativa predefinita del [Centro sicurezza di Azure](./index.yml) .
+- Il gruppo [Initiative predefinito](#azure-security-center-initiatives) elenca tutte le definizioni di criteri di Azure che fanno parte dell'iniziativa predefinita del Centro sicurezza, [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md). Questo benchmark creato da Microsoft, ampiamente rispettato si basa sui controlli provenienti da [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 - Il gruppo [categoria](#azure-security-center-category) elenca tutte le definizioni di criteri di Azure nella categoria ' Centro sicurezza '.
 
 Per altre informazioni sui criteri di sicurezza, vedere [Utilizzo dei criteri di sicurezza](./tutorial-security-policy.md). Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).

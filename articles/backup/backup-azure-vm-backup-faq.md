@@ -3,12 +3,12 @@ title: 'Domande frequenti: backup di macchine virtuali di Azure'
 description: In questo articolo vengono fornite le risposte alle domande comuni sul backup di macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: ba2779305302e91f68cb2664c90f53fdf9a9ca55
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: edc48aaf0a05867de81bd7d5f64f8be4e54ddb8a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008351"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757509"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -113,6 +113,10 @@ Backup di Azure ora supporta il backup e il ripristino selettivi dei dischi tram
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Le identità gestite vengono mantenute se si verifica una modifica del tenant durante il backup?
 
 Se si verificano [modifiche al tenant](/azure/devops/organizations/accounts/change-azure-ad-connection) , è necessario disabilitare e riabilitare le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) per eseguire nuovamente il backup.
+
+### <a name="does-azure-backup-support-backing-up-nfs-files-mounted-from-storage"></a>Backup di Azure supporta il backup dei file NFS montati dalla risorsa di archiviazione?
+
+Backup di Azure non supporta il backup di file NFS montati dalla risorsa di archiviazione o da qualsiasi altro server NFS a computer Linux o Windows. Esegue solo il backup dei dischi collegati localmente alla macchina virtuale.
 
 ## <a name="restore"></a>Restore
 

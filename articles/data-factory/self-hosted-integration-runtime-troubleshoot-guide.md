@@ -5,14 +5,14 @@ services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 11/17/2020
+ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: ccebdbf428180f8ff4ab10dc6007c3ec35a66362
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: e81a12f4c5d817670fe1f7968184bcc97e78a53c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503574"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757679"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -67,31 +67,6 @@ Una nuova attività può generare un errore di memoria insufficiente se il compu
 #### <a name="resolution"></a>Soluzione
 
 Controllare l'utilizzo delle risorse e l'esecuzione di attività simultanee nel nodo IR. Modificare il tempo interno e il trigger delle esecuzioni di attività per evitare un'esecuzione eccessiva in un singolo nodo IR nello stesso momento.
-
-
-### <a name="ssltls-certificate-issue"></a>Problema relativo al certificato SSL/TLS
-
-#### <a name="symptoms"></a>Sintomi
-
-Quando si tenta di abilitare un certificato TLS (/Transport Level Layer Security) Secure Sockets Layer (SSL) scegliendo il certificato (dopo aver selezionato il runtime di integrazione **self-hosted Configuration Manager**  >  **accesso remoto da Intranet**), viene ottenuto l'errore seguente:
-
-"Le impostazioni di accesso remoto non sono valide. Il controllo dell'identità non è riuscito per il messaggio in uscita. L'identità DNS prevista dell'endpoint remoto è' abc.microsoft.com ', ma l'endpoint remoto ha fornito l'attestazione DNS ' microsoft.com '. Se si tratta di un endpoint remoto legittimo, è possibile risolvere il problema specificando esplicitamente l'identità DNS ' microsoft.com ' come proprietà Identity di EndpointAddress durante la creazione del proxy del canale ".
-
-Nell'esempio precedente, al certificato scelto è stato aggiunto "microsoft.com".
-
-#### <a name="cause"></a>Causa
-
-Si tratta di un problema noto in Windows Communication Foundation (WCF). La convalida WCF SSL/TLS controlla solo l'ultimo DNSName nel campo **nome alternativo soggetto** (San). 
-
-#### <a name="resolution"></a>Soluzione
-
-Un certificato con caratteri jolly è supportato nel runtime di integrazione self-hosted Azure Data Factory V2. Questo problema si verifica in genere perché il certificato SSL non è corretto. L'ultimo DNSName della SAN deve essere valido. 
-
-Per verificare e correggere il DNSName, eseguire le operazioni seguenti: 
-
-1. Aprire la console di gestione di.
-1. In **Dettagli certificato**, controllare il valore nelle caselle **oggetto** e **nome alternativo oggetto** . Ad esempio, "DNS Name = microsoft.com.com" non è un nome valido.
-1. Contattare la società emittente del certificato per rimuovere il DNSName errato.
 
 ### <a name="concurrent-jobs-limit-issue"></a>Problemi nelle limiti dei processi simultanei
 
@@ -376,7 +351,7 @@ Per verificare l'errore, passare al registro eventi di Integration Runtime.
     
         ![Screenshot del riquadro "Accedi" per l'account del servizio.](media/self-hosted-integration-runtime-troubleshoot-guide/logon-service-account.png)
 
-    1. Verificare se l'account del servizio di accesso dispone di autorizzazioni **Accedi come servizio** per l'avvio del servizio Windows:
+    1. Verificare che l'account del servizio di accesso disponga dell'autorizzazione **Accedi come servizio** per l'avvio del servizio Windows:
 
         ![Screenshot del riquadro delle proprietà "accesso come servizio".](media/self-hosted-integration-runtime-troubleshoot-guide/logon-as-service.png)
 

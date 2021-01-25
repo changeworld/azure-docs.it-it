@@ -12,18 +12,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: b52fbd820c4b4603481f585ea0b0983720cabb22
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
-ms.translationtype: HT
+ms.openlocfilehash: 3ed290cc35195dfb02db9fbb72f092f6f4688291
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709087"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757306"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
-
-[!INCLUDE [Solorigate banner](../../includes/security-center-solorigate.md)]
 
 Centro sicurezza di Azure è un sistema di gestione della sicurezza delle infrastrutture unificato che rafforza la sicurezza dei data center e fornisce protezione avanzata dalle minacce per i carichi di lavoro ibridi su cloud, di Azure o meno, e in locale.
 
@@ -74,7 +72,7 @@ Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminan
 
 ### <a name="continuous-assessments"></a>Valutazioni continue
 
-Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer.
+Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer. Questo elenco di raccomandazioni è abilitato e supportato dal [benchmark di sicurezza di Azure](../security/benchmarks/introduction.md), il set di linee guida per la sicurezza e la conformità di Azure, creato da Microsoft, per le procedure consigliate per la sicurezza e la conformità basate su Framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
 
 Per consentire agli utenti di comprendere l'importanza delle singole raccomandazioni ai fini del comportamento di sicurezza complessivo, Centro sicurezza raggruppa le raccomandazioni in controlli di sicurezza e aggiunge a ogni controllo un valore che indica il **punteggio di sicurezza**. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
 

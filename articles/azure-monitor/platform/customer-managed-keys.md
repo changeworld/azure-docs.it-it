@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747224"
+ms.locfileid: "98757543"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -126,7 +126,7 @@ Queste impostazioni possono essere aggiornate in Key Vault tramite l'interfaccia
 ## <a name="create-cluster"></a>Creare cluster
 
 I cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): assegnati dal sistema e assegnati dall'utente, mentre una singola identità può essere definita in un cluster a seconda dello scenario. 
-- L'identità gestita assegnata dal sistema è più semplice e viene generata automaticamente con la creazione del cluster quando Identity `type` è impostato su "*SystemAssigned*". Questa identità può essere usata in un secondo momento per concedere al cluster l'accesso al Key Vault. 
+- L'identità gestita assegnata dal sistema è più semplice e viene generata automaticamente con la creazione del cluster quando Identity `type` è impostato su "*SystemAssigned*". Questa identità può essere usata in un secondo momento per concedere l'accesso di archiviazione al Key Vault per le operazioni di wrapping e unwrap. 
   
   Impostazioni di identità nel cluster per l'identità gestita assegnata dal sistema
   ```json
@@ -137,7 +137,7 @@ I cluster supportano due [tipi di identità gestiti](../../active-directory/mana
   }
   ```
 
-- Se si vuole configurare la chiave gestita dal cliente durante la creazione del cluster, è necessario disporre di una chiave e di un'identità assegnata dall'utente nell'Key Vault prima, quindi creare il cluster con le impostazioni seguenti: Identity `type` As "*UserAssigned*" `UserAssignedIdentities` con l'ID risorsa dell'identità.
+- Se si vuole configurare la chiave gestita dal cliente durante la creazione del cluster, è necessario disporre di una chiave e di un'identità assegnata dall'utente nella Key Vault in anticipo, quindi creare il cluster con queste impostazioni: Identity `type` As "*UserAssigned*" `UserAssignedIdentities` con l' *ID risorsa* dell'identità.
 
   Impostazioni Identity nel cluster per l'identità gestita assegnata dall'utente
   ```json
@@ -151,27 +151,7 @@ I cluster supportano due [tipi di identità gestiti](../../active-directory/mana
   ```
 
 > [!IMPORTANT]
-> Non è possibile usare la chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault è in Private-Link (vNet). In questo scenario è possibile utilizzare l'identità gestita assegnata dal sistema.
-
-```json
-{
-  "identity": {
-    "type": "SystemAssigned"
-}
-```
- 
-Con:
-
-```json
-{
-  "identity": {
-  "type": "UserAssigned",
-    "userAssignedIdentities": {
-      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
-      }
-}
-```
-
+> Non è possibile usare l'identità gestita assegnata dall'utente se il Key Vault è in Private-Link (vNet). In questo scenario è possibile utilizzare l'identità gestita assegnata dal sistema.
 
 Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 

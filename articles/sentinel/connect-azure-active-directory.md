@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: e84484990725b0c39b132aead51e9b01dbb7e7ef
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632292"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757763"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connettere i dati da Azure Active Directory (Azure AD)
 
@@ -44,12 +44,12 @@ ms.locfileid: "98632292"
 
 1. Selezionare le caselle di controllo accanto ai tipi di log che si vuole trasmettere in Azure Sentinel, quindi fare clic su **Connetti**. Questi sono i tipi di log tra cui è possibile scegliere:
 
-    - Log di accesso
-    - Log di controllo
-    - Log di accesso utente non interattivo
-    - Log di accesso dell'entità servizio
-    - Log di accesso dell'identità gestita
-    - Log di provisioning
+    - **Log di accesso**: informazioni sull'uso delle applicazioni gestite e delle attività di accesso degli utenti.
+    - **Log di controllo**: informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory.
+    - **Log di accesso utente non interattivo**: informazioni sugli accessi eseguiti da un client per conto di un utente, che non richiedono alcuna interazione o fattore di autenticazione da parte dell'utente.
+    - **Log di accesso dell'entità servizio**: informazioni sugli accessi in base alle app e alle entità servizio che non coinvolgono alcun utente. In questi accessi l'app o il servizio fornisce una credenziale per il proprio conto per l'autenticazione o l'accesso alle risorse.
+    - **Log di accesso dell'identità gestita**: accessi in base alle risorse di Azure con segreti gestiti da Azure.
+    - **Log di provisioning**: informazioni sulle attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning dal servizio di provisioning di Azure ad.
 
 ## <a name="find-your-data"></a>Trovare i dati
 

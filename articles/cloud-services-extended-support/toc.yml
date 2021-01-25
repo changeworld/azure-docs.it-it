@@ -21,10 +21,10 @@
   expanded: true
 - name: Concetti
   items:
+    - name: Estensioni
+      href: extensions.md
     - name: Dimensioni delle macchine virtuali disponibili
       href: available-sizes.md
-    - name: Domande frequenti
-      href: faq.md
     - name: Patch per il sistema operativo guest
       href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
     - name: Ritiro del sistema operativo guest
@@ -49,10 +49,10 @@
           href: schema-cscfg-role.md
         - name: Schema NetworkConfiguration
           href: schema-cscfg-networkconfiguration.md
+    - name: Domande frequenti
+      href: faq.md
 - name: Procedure
   items:
-    - name: Panoramica delle estensioni
-      href: extensions.md
     - name: Applica estensione Desktop remoto
       href: enable-rdp.md
     - name: Applica estensione WAD
@@ -83,6 +83,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: SDK
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Risorse
   items:
     - name: Roadmap per Azure

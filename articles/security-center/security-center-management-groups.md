@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2020
 ms.author: memildin
-ms.openlocfilehash: d03177e3224bbd3f53320871efc6a0d6b3ea479d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 5b257e45a86a7b22e9064fcfc6092b3c946ae99b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922668"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757644"
 ---
 # <a name="organize-management-groups-subscriptions-and-tenant-wide-visibility"></a>Organizzare i gruppi di gestione, le sottoscrizioni e la visibilità a livello di tenant
 
@@ -81,7 +81,7 @@ Per una panoramica dettagliata dei gruppi di gestione, vedere l'articolo [Organi
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Concedere autorizzazioni a livello di tenant a se stessi
 
-Un utente con il ruolo Azure Active Directory **amministratore globale** potrebbe avere responsabilità a livello di tenant, ma non dispone delle autorizzazioni di Azure per visualizzare le informazioni a livello di organizzazione nel centro sicurezza di Azure. 
+Un utente con il ruolo **Amministratore globale** di Azure Active Directory potrebbe avere responsabilità a livello di tenant ma non avere le autorizzazioni di Azure per visualizzare queste informazioni nell'intera organizzazione in Azure Active Directory. 
 
 > [!TIP]
 > Se l'organizzazione gestisce l'accesso alle risorse con [Azure ad Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md)o qualsiasi altro strumento PIM, il ruolo amministratore globale deve essere attivo per le modifiche apportate dall'utente.
@@ -106,6 +106,36 @@ Per assegnare autorizzazioni a livello di tenant:
 1. Disconnettersi dal portale di Azure, quindi riconnettersi.
 
 1. Dopo avere ottenuto l'accesso con privilegi elevati, aprire o aggiornare il Centro sicurezza di Azure per verificare di avere visibilità su tutte le sottoscrizioni nel tenant di Azure AD. 
+
+
+## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Richiedere autorizzazioni a livello di tenant quando il proprio non è sufficiente
+
+Se si accede al centro sicurezza e viene visualizzato un banner che informa che la visualizzazione è limitata, è possibile fare clic per inviare una richiesta all'amministratore globale dell'organizzazione. Nella richiesta è possibile includere il ruolo che si desidera assegnare e l'amministratore globale deciderà quale ruolo concedere. 
+
+L'amministratore globale decide se accettare o rifiutare queste richieste. 
+
+> [!IMPORTANT]
+> È possibile inviare una richiesta ogni sette giorni.
+
+Per richiedere autorizzazioni elevate all'amministratore globale:
+
+1. Dal portale di Azure aprire il Centro sicurezza di Azure.
+
+1. Se viene visualizzato il banner "vengono visualizzate informazioni limitate". selezionarlo.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
+
+1. Nel modulo di richiesta dettagliata selezionare il ruolo desiderato e la giustificazione per il motivo per cui sono necessarie queste autorizzazioni.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-details.png" alt-text="Pagina dei dettagli per la richiesta di autorizzazioni a livello di tenant da amministratore globale di Azure":::
+
+1. Selezionare **Richiedi accesso**.
+
+    Un messaggio di posta elettronica viene inviato all'amministratore globale. Il messaggio di posta elettronica contiene un collegamento al centro sicurezza in cui è possibile approvare o rifiutare la richiesta.
+
+    :::image type="content" source="media/security-center-management-groups/request-tenant-permissions-email.png" alt-text="Invia un messaggio di posta elettronica all'amministratore globale per le nuove autorizzazioni":::
+
+    Quando l'amministratore globale seleziona **Controlla la richiesta** e completa il processo, la decisione viene inviata tramite posta elettronica all'utente richiedente. 
 
 ## <a name="assign-azure-roles-to-other-users"></a>Assegnare i ruoli di Azure ad altri utenti
 
@@ -149,6 +179,7 @@ Per assegnare autorizzazioni a livello di tenant:
     ```
 
 ## <a name="remove-elevated-access"></a>Rimuovere l'accesso con privilegi elevati 
+
 Una volta assegnati i ruoli di Azure agli utenti, l'amministratore tenant deve rimuovere se stesso dal ruolo amministratore accesso utenti.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com).

@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limiti del supporto pe
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: be0c576da6e38233423a79f562f767de806d7640
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 833837c317d22bf031aee4608ff4c93775736a34
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008368"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757441"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice di supporto per Backup di Azure
 
@@ -150,7 +150,7 @@ Backup di Azure ha aggiunto la funzionalità di ripristino tra aree per rafforza
 
 | Tipo di gestione di backup | Supportato                                                    | Aree supportate |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Macchina virtuale di Azure               | Sì.   Supportato per VM e VM crittografate con meno di 4 TB di dischi | Tutte le aree pubbliche di Azure.  |
+| Macchina virtuale di Azure               | Supportato per le macchine virtuali di Azure con dischi gestiti e non gestiti. Non supportata per le macchine virtuali classiche. | Tutte le aree pubbliche di Azure.  |
 | SQL/SAP HANA | Sì                                                          | Tutte le aree pubbliche ad eccezione della Francia |
 | Agente MARS/locale  | No                                                           | N/D               |
 | AFS (condivisioni file di Azure)                 | No                                                           | N/D               |

@@ -3,16 +3,16 @@ title: Connettere l'account GCP al Centro sicurezza di Azure
 description: Monitoraggio delle risorse di GCP dal Centro sicurezza di Azure
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1095222f332e7a66f684feddf1fdab17704ca658
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96573545"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757611"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Connettere gli account GCP al Centro sicurezza di Azure
 
@@ -36,7 +36,7 @@ Lo screenshot seguente mostra i progetti GCP visualizzati nel dashboard di panor
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario** o **Collaboratore** nella sottoscrizione di Azure pertinente|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|

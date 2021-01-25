@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 12943d5d22a9e81c7e99522fa4728f4798549682
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 01a88be9c54a2701130daace26c44159ee364e4c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499952"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757244"
 ---
 # <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configurare le regole del firewall IP per consentire le connessioni all'indicizzatore (ricerca cognitiva di Azure)
 
@@ -30,7 +30,7 @@ Ottenere il nome di dominio completo (FQDN) del servizio di ricerca. L'aspetto s
 
    ![Ottenere il nome di dominio completo del servizio](media\search-indexer-howto-secure-access\search-service-portal.png "Ottenere il nome di dominio completo del servizio")
 
-È possibile ottenere l'indirizzo IP del servizio di ricerca eseguendo un `nslookup` (o un `ping` ) del nome di dominio completo. Nell'esempio seguente viene aggiunto "10.50.10.50" a una regola in ingresso nel firewall di archiviazione di Azure.
+È possibile ottenere l'indirizzo IP del servizio di ricerca eseguendo un `nslookup` (o un `ping` ) del nome di dominio completo. Nell'esempio seguente viene aggiunto "150.0.0.1" a una regola in ingresso nel firewall di archiviazione di Azure. Potrebbero essere necessari fino a 15 minuti dopo l'aggiornamento delle impostazioni del firewall per consentire all'indicizzatore del servizio di ricerca di accedere all'account di archiviazione di Azure.
 
 ```azurepowershell
 

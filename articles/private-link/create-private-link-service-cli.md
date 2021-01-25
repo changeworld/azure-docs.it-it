@@ -2,164 +2,274 @@
 title: Creazione di un servizio di collegamento privato di Azure tramite l'interfaccia della riga di comando
 description: Informazioni su come creare un servizio di collegamento privato Azure con l'interfaccia della riga di comando di Azure
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: how-to
-ms.date: 09/16/2019
+ms.date: 01/22/2021
 ms.author: allensu
-ms.openlocfilehash: cfffafaab2e2d4ef6b165ef03beb827342c94608
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 567ed736c52e8b3cbb03edeb19b3c0e2364e4112
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96018053"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98757340"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Creare un servizio di collegamento privato usando l'interfaccia della riga di comando
-Questo articolo illustra come creare un servizio di collegamento privato in Azure usando l'interfaccia della riga di comando di Azure.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Introduzione alla creazione di un servizio Collegamento privato che fa riferimento al proprio servizio.  Assegnare l'accesso con collegamento privato al servizio o alla risorsa distribuita dietro un'istanza di Azure Load Balancer Standard.  Gli utenti del servizio hanno accesso privato dalla loro rete virtuale.
 
-- Questo articolo richiede la versione più recente dell'interfaccia della riga di comando di Azure. Se si usa Azure Cloud Shell, la versione più recente è già installata.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
-### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)] 
 
-Per poter creare una rete virtuale, è prima necessario creare un gruppo di risorse per l'hosting della rete virtuale. Come prima cosa creare un gruppo di risorse con [az group create](/cli/azure/group). Questo esempio crea un gruppo di risorse denominato *myResourceGroup* nella località *westcentralus*:
+- Questa guida di avvio rapido richiede l'interfaccia della riga di comando di Azure versione 2.0.28 o successiva. Se si usa Azure Cloud Shell, la versione più recente è già installata.
 
-```azurecli-interactive
-az group create --name myResourceGroup --location westcentralus
-```
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
-Creare una rete virtuale con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale predefinita denominata *myVirtualNetwork* con una subnet denominata *Subnet*:
+## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-```azurecli-interactive
-az network vnet create --resource-group myResourceGroup --name myVirtualNetwork --address-prefix 10.0.0.0/16  
-```
-### <a name="create-a-subnet"></a>Creare una subnet
-Creare una subnet per la rete virtuale con [AZ Network VNET subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). In questo esempio viene creata una subnet *denominata subnet nella* rete virtuale *myVirtualNetwork* :
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+
+Come prima cosa creare con [az group create](/cli/azure/group#az_group_create) un gruppo di risorse:
+
+* Denominato **CreatePrivLinkService-RG**. 
+* Nella posizione **eastus**.
 
 ```azurecli-interactive
-az network vnet subnet create --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --address-prefixes 10.0.0.0/24    
+  az group create \
+    --name CreatePrivLinkService-rg \
+    --location eastus2
+
 ```
-### <a name="create-a-internal-load-balancer"></a>Creare un Load Balancer interno 
-Creare un servizio di bilanciamento del carico interno con [AZ Network lb create](/cli/azure/network/lb#az-network-lb-create). Questo esempio crea un servizio di bilanciamento del carico interno denominato *myILB* nel gruppo di risorse denominato *myResourceGroup*. 
+
+## <a name="create-an-internal-load-balancer"></a>Creare un bilanciamento del carico interno
+
+In questa sezione si crea una rete virtuale e un'istanza interna di Azure Load Balancer.
+
+### <a name="virtual-network"></a>Rete virtuale
+
+In questa sezione si creano la rete virtuale e la subnet che ospiteranno l'istanza di Load Balancer usata per accedere al servizio Collegamento privato.
+
+Con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) creare una rete virtuale:
+
+* Denominata **myVNet**.
+* Prefisso indirizzo **10.1.0.0/16**.
+* **Subnet denominata subnet**.
+* Prefisso subnet **10.1.0.0/24**.
+* Nel gruppo di risorse **CreatePrivLinkService-RG** .
+* Percorso di **eastus2**.
+* Disabilitare i criteri di rete per il servizio di collegamento privato nella subnet.
 
 ```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myILB --sku standard --vnet-name MyVirtualNetwork --subnet mySubnet --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool
+  az network vnet create \
+    --resource-group CreatePrivLinkService-rg \
+    --location eastus2 \
+    --name myVNet \
+    --address-prefixes 10.1.0.0/16 \
+    --subnet-name mySubnet \
+    --subnet-prefixes 10.1.0.0/24
+
 ```
 
-### <a name="create-a-load-balancer-health-probe"></a>Creare un probe di integrità per il servizio di bilanciamento del carico
+Per aggiornare la subnet per disabilitare i criteri di rete del servizio di collegamento privato, usare [AZ Network VNET subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
-Un probe di integrità controlla tutte le istanze di una macchina virtuale per assicurarsi che possano ricevere il traffico di rete. L'istanza della macchina virtuale con controlli di probe falliti non viene rimossa dal servizio di bilanciamento del carico fino a quando non è nuovamente online e il controllo dei probe ne certifica l'integrità. Creare un probe di integrità con il comando [az network lb probe create](/cli/azure/network/lb/probe?view=azure-cli-latest) per monitorare l'integrità delle macchine virtuali. 
+```azurecli-interactive
+az network vnet subnet update \
+    --name mySubnet \
+    --resource-group CreatePrivLinkService-rg \
+    --vnet-name myVNet \
+    --disable-private-link-service-network-policies true
+```
+
+### <a name="create-standard-load-balancer"></a>Creare un servizio di bilanciamento del carico standard
+
+Questa sezione descrive dettagliatamente come creare e configurare i componenti seguenti del servizio di bilanciamento del carico:
+
+  * Un pool IP front-end che riceve il traffico di rete in ingresso sul servizio di bilanciamento del carico.
+  * Un pool IP back-end a cui il pool front-end invia il traffico di rete con carico bilanciato.
+  * Un probe di integrità che determina l'integrità delle istanze delle macchine virtuali back-end.
+  * Una regola di bilanciamento del carico che definisce come verrà distribuito il traffico alle macchine virtuali.
+
+### <a name="create-the-load-balancer-resource"></a>Creare la risorsa di bilanciamento del carico
+
+Con [az network lb create](/cli/azure/network/lb#az-network-lb-create) creare un servizio di bilanciamento del carico pubblico:
+
+* Denominato **myLoadBalancer**.
+* Un pool front-end denominato **myFrontEnd**.
+* Un pool back-end denominato **myBackEndPool**.
+* Associato alla rete virtuale **myVNet**.
+* Associato **alla subnet di** back-end della subnet.
+
+```azurecli-interactive
+  az network lb create \
+    --resource-group CreatePrivLinkService-rg \
+    --name myLoadBalancer \
+    --sku Standard \
+    --vnet-name myVnet \
+    --subnet mySubnet \
+    --frontend-ip-name myFrontEnd \
+    --backend-pool-name myBackEndPool
+```
+
+### <a name="create-the-health-probe"></a>Creare il probe di integrità
+
+Un probe di integrità controlla tutte le istanze di macchine virtuali per verificare che possano inviare traffico di rete. 
+
+Una macchina virtuale con un controllo probe non riuscito viene rimossa dal servizio di bilanciamento del carico. La macchina virtuale viene nuovamente aggiunta al servizio di bilanciamento del carico quando il problema viene risolto.
+
+Con [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create) creare un probe di integrità:
+
+* Che esegua il monitoraggio dello stato delle macchine virtuali.
+* Denominato **myHealthProbe**.
+* Protocollo **TCP**.
+* Porta **80** per il monitoraggio.
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroup \
-    --lb-name myILB \
+    --resource-group CreatePrivLinkService-rg \
+    --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
-    --port 80   
+    --port 80
 ```
 
-### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
+### <a name="create-the-load-balancer-rule"></a>Creare la regola di bilanciamento del carico
 
-Una regola di bilanciamento del carico definisce la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alla porta di origine e di destinazione necessaria. Creare una regola di bilanciamento del carico *myHTTPRule* con il comando [az network lb rule create](/cli/azure/network/lb/rule?view=azure-cli-latest) per l'ascolto sulla porta 80 nel pool front-end *myFrontEnd* e l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end *myBackEndPool* sempre tramite la porta 80. 
+Una regola di bilanciamento del carico definisce:
+
+* La configurazione IP front-end per il traffico in ingresso.
+* Il pool IP back-end in cui ricevere il traffico.
+* La porta di origine e destinazione richiesta. 
+
+Con [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create) creare una regola di bilanciamento del carico:
+
+* Denominata **myHTTPRule**.
+* In attesa sulla porta **80** nel pool front-end **myFrontEnd**.
+* Per l'invio del traffico di rete con carico bilanciato al pool di indirizzi back-end **myBackEndPool** tramite la porta **80**. 
+* Che usa il probe di integrità **myHealthProbe**.
+* Protocollo **TCP**.
+* Timeout di inattività di **15 minuti**.
+* Abilitare la reimpostazione TCP.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroup \
-    --lb-name myILB \
+    --resource-group CreatePrivLinkService-rg \
+    --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
     --frontend-port 80 \
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe  
+    --probe-name myHealthProbe \
+    --idle-timeout 15 \
+    --enable-tcp-reset true
 ```
-### <a name="create-backend-servers"></a>Creare i server back-end
 
-In questo esempio non viene trattata la creazione di macchine virtuali. È possibile seguire la procedura descritta in [avvio rapido: creare un servizio di bilanciamento del carico interno per bilanciare il carico](../load-balancer/quickstart-load-balancer-standard-internal-cli.md) delle macchine virtuali usando l'interfaccia della riga di comando di Azure per creare due macchine virtuali da usare come server back-end per il bilanciamento del carico 
+## <a name="create-a-private-link-service"></a>Creare un servizio Collegamento privato
 
+In questa sezione viene creato un servizio di collegamento privato che usa il Azure Load Balancer creato nel passaggio precedente.
 
-### <a name="disable-private-link-service-network-policies-on-subnet"></a>Disabilitare i criteri di rete del servizio di collegamento privato nella subnet 
-Il servizio di collegamento privato richiede un indirizzo IP da qualsiasi subnet scelta all'interno di una rete virtuale. Attualmente non sono supportati i criteri di rete in questi IP.  Di conseguenza, è necessario disabilitare i criteri di rete nella subnet. Aggiornare la subnet per disabilitare i criteri di rete del servizio di collegamento privato con [AZ Network VNET subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
+Creare un servizio di collegamento privato usando una configurazione IP front-end di Load Balancer standard con [AZ network private-Link-Service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
-```azurecli-interactive
-az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
-```
- 
-## <a name="create-a-private-link-service-using-standard-load-balancer"></a>Creare un servizio di collegamento privato utilizzando Load Balancer Standard 
- 
-Creare un servizio di collegamento privato usando Load Balancer Standard configurazione IP front [-end con AZ network private-Link-Service create](/cli/azure/network/private-link-service#az-network-private-link-service-create). Questo esempio crea un servizio di collegamento privato denominato *myPLS* usando Load Balancer standard denominato *myLoadBalancer* nel gruppo di risorse denominato *myResourceGroup*. 
+* Denominato **myPrivateLinkService**.
+* Nella rete virtuale **myVNet**.
+* Associato a **myLoadBalancer** di bilanciamento del carico standard e a **frontend** per la configurazione front-end.
+* Nel percorso **eastus2** .
  
 ```azurecli-interactive
 az network private-link-service create \
---resource-group myResourceGroup \
---name myPLS \
---vnet-name myVirtualNetwork \
---subnet mySubnet \
---lb-name myILB \
---lb-frontend-ip-configs myFrontEnd \
---location westcentralus 
+    --resource-group CreatePrivLinkService-rg \
+    --name myPrivateLinkService \
+    --vnet-name myVNet \
+    --subnet mySubnet \
+    --lb-name myLoadBalancer \
+    --lb-frontend-ip-configs myFrontEnd \
+    --location eastus2
 ```
-Una volta creati, prendere nota dell'ID del servizio di collegamento privato. Questa operazione sarà necessaria in seguito per la richiesta di connessione al servizio.  
- 
-In questa fase, il servizio di collegamento privato viene creato correttamente ed è pronto per ricevere il traffico. Si noti che nell'esempio precedente viene illustrata la creazione di un servizio di collegamento privato tramite l'interfaccia della riga di comando  I pool back-end del servizio di bilanciamento del carico o qualsiasi applicazione nei pool back-end non sono stati configurati per l'ascolto del traffico. Se si desidera visualizzare i flussi di traffico end-to-end, è consigliabile configurare l'applicazione dietro la Load Balancer Standard.  
- 
-Verrà ora illustrato come eseguire il mapping di questo servizio a un endpoint privato in una rete virtuale diversa usando l'interfaccia della riga di comando di Azure. Anche in questo caso, è possibile creare l'endpoint privato e connettersi al servizio di collegamento privato creato in precedenza tramite l'interfaccia della riga di comando di Azure. Inoltre, è possibile creare macchine virtuali nella rete virtuale per inviare/ricevere traffico all'endpoint privato.        
- 
-## <a name="private-endpoints"></a>Endpoint privati
 
-### <a name="create-the-virtual-network"></a>Creare la rete virtuale 
-Creare una rete virtuale con [AZ Network VNET create](/cli/azure/network/vnet#az-network-vnet-create). Questo esempio crea una rete virtuale denominata  *myPEVNet*   nel gruppo di risorse denominato *myResourcegroup*: 
+Il servizio di collegamento privato viene creato e può ricevere traffico. Per visualizzare i flussi di traffico, configurare l'applicazione in base al servizio di bilanciamento del carico standard.
+
+
+## <a name="create-private-endpoint"></a>Creare un endpoint privato
+
+In questa sezione si eseguirà il mapping del servizio di collegamento privato a un endpoint privato. Una rete virtuale contiene l'endpoint privato per il servizio di collegamento privato. Questa rete virtuale contiene le risorse che accederanno al servizio di collegamento privato.
+
+### <a name="create-private-endpoint-virtual-network"></a>Crea rete virtuale endpoint privato
+
+Con [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) creare una rete virtuale:
+
+* Denominato **myVNetPE**.
+* Prefisso dell'indirizzo **11.1.0.0/16**.
+* Subnet denominata **mySubnetPE**.
+* Prefisso della subnet di **11.1.0.0/24**.
+* Nel gruppo di risorse **CreatePrivLinkService-RG** .
+* Percorso di **eastus2**.
+
 ```azurecli-interactive
-az network vnet create \
---resource-group myResourceGroup \
---name myPEVnet \
---address-prefix 10.0.0.0/16  
+  az network vnet create \
+    --resource-group CreatePrivLinkService-rg \
+    --location eastus2 \
+    --name myVNetPE \
+    --address-prefixes 11.1.0.0/16 \
+    --subnet-name mySubnetPE \
+    --subnet-prefixes 11.1.0.0/24
 ```
-### <a name="create-the-subnet"></a>Creare la subnet 
-Creare una subnet nella rete virtuale con [AZ Network VNET subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create). Questo esempio crea una  *subnet denominata subnet*   nella rete virtuale denominata *myPEVnet* nel gruppo di risorse denominato *myResourcegroup*: 
 
-```azurecli-interactive 
-az network vnet subnet create \
---resource-group myResourceGroup \
---vnet-name myPEVnet \
---name myPESubnet \
---address-prefixes 10.0.0.0/24 
-```   
-## <a name="disable-private-endpoint-network-policies-on-subnet"></a>Disabilitare i criteri di rete dell'endpoint privato nella subnet 
-L'endpoint privato può essere creato in qualsiasi subnet di propria scelta all'interno di una rete virtuale. Attualmente non sono supportati i criteri di rete sugli endpoint privati.  Di conseguenza, è necessario disabilitare i criteri di rete nella subnet. Aggiornare la subnet per disabilitare i criteri di rete di endpoint privati con [AZ Network VNET subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update). 
+Per aggiornare la subnet per disabilitare i criteri di rete degli endpoint privati, usare [AZ Network VNET subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
---resource-group myResourceGroup \
---vnet-name myPEVnet \
---name myPESubnet \
---disable-private-endpoint-network-policies true 
+    --name mySubnetPE \
+    --resource-group CreatePrivLinkService-rg \
+    --vnet-name myVNetPE \
+    --disable-private-endpoint-network-policies true
 ```
-## <a name="create-private-endpoint-and-connect-to-private-link-service"></a>Creare un endpoint privato e connettersi al servizio di collegamento privato 
-Creare un endpoint privato per l'utilizzo del servizio di collegamento privato creato in precedenza nella rete virtuale:
-  
+
+### <a name="create-endpoint-and-connection"></a>Crea endpoint e connessione
+
+* Usare [AZ network private-Link-Service Show](/cli/azure/network/private-link-service#az_network_private_link_service_show) per ottenere l'ID risorsa del servizio di collegamento privato. Il comando inserisce l'ID risorsa in una variabile per un uso successivo.
+
+* Usare [AZ network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) per creare l'endpoint privato nella rete virtuale creata in precedenza.
+
+* Denominato **MyPrivateEndpoint**.
+* Nel gruppo di risorse **CreatePrivLinkService-RG** .
+* Nome della connessione **myPEconnectiontoPLS**.
+* Percorso di **eastus2**.
+* Nella rete virtuale **myVNetPE** e nella subnet **mySubnetPE**.
+
 ```azurecli-interactive
-az network private-endpoint create \
---resource-group myResourceGroup \
---name myPE \
---vnet-name myPEVnet \
---subnet myPESubnet \
---private-connection-resource-id {PLS_resourceURI} \
---connection-name myPEConnectingPLS \
---location westcentralus 
+  export resourceid=$(az network private-link-service show \
+    --name myPrivateLinkService \
+    --resource-group CreatePrivLinkService-rg \
+    --query id \
+    --output tsv)
+
+  az network private-endpoint create \
+    --connection-name myPEconnectiontoPLS \
+    --name myPrivateEndpoint \
+    --private-connection-resource-id $resourceid \
+    --resource-group CreatePrivLinkService-rg \
+    --subnet mySubnetPE \
+    --manual-request false \
+    --vnet-name myVNetPE 
+
 ```
-È possibile ottenere la *connessione privata-Resource-ID* con il `az network private-link-service show` servizio di collegamento privato. L'ID sarà simile al seguente:   
-/subscriptions/subID/resourceGroups/*resourcegroupname*/Providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
- 
-## <a name="show-private-link-service-connections"></a>Mostra connessioni al servizio di collegamento privato 
- 
-Vedere la pagina relativa alle richieste di connessione nel servizio di collegamento privato tramite [AZ network private-Link-Service Show](/cli/azure/network/private-link-service#az-network-private-link-service-show).    
-```azurecli-interactive 
-az network private-link-service show --resource-group myResourceGroup --name myPLS 
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, usare il comando [AZ Group Delete](/cli/azure/group#az-group-delete) per rimuovere il gruppo di risorse, il servizio di collegamento privato, il servizio di bilanciamento del carico e tutte le risorse correlate.
+
+```azurecli-interactive
+  az group delete \
+    --name CreatePrivLinkService-rg 
 ```
+
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sul [servizio di collegamento privato di Azure](private-link-service-overview.md)
+
+In questo argomento di avvio rapido:
+
+* Sono state create una rete virtuale e un'istanza interna di Azure Load Balancer.
+* È stato creato un servizio Collegamento privato
+
+Per altre informazioni sull'endpoint privato di Azure, passare a:
+> [!div class="nextstepaction"]
+> [Avvio rapido: Creare un endpoint privato con l'interfaccia della riga di comando di Azure](create-private-endpoint-cli.md)
