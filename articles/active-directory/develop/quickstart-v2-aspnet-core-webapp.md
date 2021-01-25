@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 34af3a7b6c3dd9420c07b6b29ff114b8139fea39
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011969"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754507"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -38,7 +38,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Passare a [Registrazioni app nel portale di Azure](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Passare all'esperienza di avvio rapido <a href="https://aka.ms/aspnetcore2-1-aad-quickstart-v2/" target="_blank">Portale di Azure - Registrazioni app<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
 > 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
 >
@@ -52,11 +52,11 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. Cercare e selezionare **Azure Active Directory**.
 > 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
 > 1. Immettere un **Nome** per l'applicazione, ad esempio `AspNetCore-Quickstart`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
-> 1. Immettere `https://localhost:44321/` per **URI di reindirizzamento**
+> 1. Immettere un **URI** di Reindirizzamento `https://localhost:44321/` .
 > 1. Selezionare **Registra**.
 > 1. In **Gestisci** selezionare **Autenticazione**.
-> 1. In **URI di reindirizzamento** selezionare **Aggiungi URI** e quindi immettere `https://localhost:44321/signin-oidc`
-> 1. Immettere `https://localhost:44321/signout-oidc` per **URI di disconnessione**
+> 1. In **URI di reindirizzamento** selezionare **Aggiungi URI**, quindi immettere `https://localhost:44321/signin-oidc` .
+> 1. Immettere un **URL di disconnessione** di `https://localhost:44321/signout-oidc` .
 > 1. In **Concessione implicita** selezionare **Token ID**.
 > 1. Selezionare **Salva**.
 
@@ -148,7 +148,7 @@ Il middleware *Microsoft.AspNetCore.Authentication* usa una classe `Startup` che
 
 Il metodo `AddAuthentication()` configura il servizio in modo da aggiungere l'autenticazione basata su cookie (usata in scenari con browser) e impostare la richiesta su OpenID Connect.
 
-La riga contenente `.AddMicrosoftIdentityWebApp` aggiunge l'autenticazione di Microsoft Identity Platform all'applicazione. Viene quindi configurata per l'accesso tramite l'endpoint di Microsoft Identity Platform in base alle informazioni disponibili nella sezione `AzureAD` del file di configurazione *appsettings.json*:
+La riga contenente `.AddMicrosoftIdentityWebApp` aggiunge l'autenticazione di Microsoft Identity Platform all'applicazione. Viene quindi configurato per l'accesso tramite la piattaforma Microsoft Identity in base alle informazioni contenute nella `AzureAD` sezione del *appsettings.jsnel* file di configurazione:
 
 | Chiave *appsettings.json* | Descrizione                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

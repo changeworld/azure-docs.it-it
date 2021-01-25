@@ -1,6 +1,6 @@
 ---
 title: Esempi di codice per Microsoft Identity Platform
-description: Fornisce un indice di esempi di codice per Microsoft Identity Platform (endpoint versione 2.0) disponibili, organizzati in base allo scenario.
+description: Fornisce un indice degli esempi di codice di piattaforma Microsoft Identity disponibili, organizzati in base allo scenario.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -12,23 +12,23 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3baeb87bf3fe1cdcd5e9f27aed2587eed060c5a8
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
-ms.translationtype: HT
+ms.openlocfilehash: 368a1acdfda66c3714979d27037737a75bbada5a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064522"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756639"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Esempi di codice per Microsoft Identity Platform (endpoint versione 2.0)
 
-È possibile usare Microsoft Identity Platform per:
+È possibile usare la piattaforma Microsoft Identity per:
 
 - Aggiungere l'autenticazione e l'autorizzazione alle applicazioni Web e alle API Web.
 - Richiedere un token di accesso per accedere a un'API Web protetta.
 
-Questo articolo descrive brevemente gli esempi per l'endpoint Microsoft Identity Platform e fornisce i relativi collegamenti. Questi esempi descrivono la procedura da seguire e riportano frammenti di codice che è possibile usare nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili argomenti dettagliati contenenti informazioni sui requisiti e le procedure di installazione e configurazione. I commenti presenti nel codice facilitano la comprensione delle sezioni critiche.
+Questo articolo descrive brevemente e fornisce collegamenti a esempi per la piattaforma di identità Microsoft. Questi esempi descrivono la procedura da seguire e riportano frammenti di codice che è possibile usare nelle applicazioni. Nella pagina relativa agli esempi di codice sono disponibili argomenti dettagliati contenenti informazioni sui requisiti e le procedure di installazione e configurazione. I commenti presenti nel codice facilitano la comprensione delle sezioni critiche.
 
-Per conoscere lo scenario di base di ogni tipo di esempio, vedere [Tipi di app per l'endpoint Microsoft Identity Platform](v2-app-types.md).
+Per comprendere lo scenario di base per ogni tipo di esempio, vedere [tipi di app per la piattaforma di identità Microsoft](v2-app-types.md).
 
 È possibile contribuire agli esempi su GitHub. Per sapere come, vedere [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory) (Esempi e documentazione su Microsoft Azure Active Directory).
 
@@ -121,7 +121,7 @@ Gli esempi seguenti illustrano come configurare l'applicazione in modo che accet
 
 ## <a name="web-apis"></a>API Web
 
-Gli esempi seguenti illustrano come proteggere un'API Web con l'endpoint Microsoft Identity Platform e come chiamare un'API downstream dall'API Web.
+Gli esempi seguenti illustrano come proteggere un'API Web con la piattaforma di identità Microsoft e come chiamare un'API downstream dall'API Web.
 
 | Piattaforma | Esempio |
 | -------- | ------------------- |
@@ -133,7 +133,7 @@ Gli esempi seguenti illustrano come proteggere un'API Web con l'endpoint Microso
 
 ## <a name="azure-functions-as-web-apis"></a>Funzioni di Azure come API Web
 
-Gli esempi seguenti illustrano come proteggere una funzione di Azure tramite HttpTrigger ed esporre un'API Web con l'endpoint Microsoft Identity Platform e come chiamare un'API downstream dall'API Web.
+Gli esempi seguenti illustrano come proteggere una funzione di Azure usando HttpTrigger ed esporre un'API Web con la piattaforma di identità Microsoft e come chiamare un'API downstream dall'API Web.
 
 | Piattaforma | Esempio |
 | -------- | ------------------- |

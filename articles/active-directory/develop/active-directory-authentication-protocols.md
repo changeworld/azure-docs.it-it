@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: ffd9b415d3b2a8e1aa716caa0e8289c6ae127b71
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 803f52666fb09a836eae3294410584ebbd71a1b6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065083"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755882"
 ---
 # <a name="microsoft-identity-platform-authentication-protocols"></a>Protocolli di autenticazione della piattaforma Microsoft Identity
 
-Microsoft Identity Platform supporta diversi protocolli di autenticazione e autorizzazione più diffusi. Negli argomenti di questa sezione vengono descritti i protocolli supportati e la relativa implementazione nella piattaforma di identità Microsoft. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.
+La piattaforma Microsoft Identity supporta diversi protocolli di autenticazione e autorizzazione più diffusi. Negli argomenti di questa sezione vengono descritti i protocolli supportati e la relativa implementazione nella piattaforma di identità Microsoft. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.
 
 ## <a name="authentication-protocols-articles-and-reference"></a>Articoli e informazioni di riferimento sui protocolli di autenticazione
 

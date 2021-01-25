@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 018b5396563ac3a4b92b371d396c38afa3d2962f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 601eefa7957972daa2d538e6ba0d9b7a5311c79d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064267"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756472"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Chiamare un'API Web da un'app per dispositivi mobili
 
@@ -119,7 +119,7 @@ task.resume()
 
 Se è necessario chiamare la stessa API più volte o chiamare più API, durante la creazione dell'app considerare gli argomenti seguenti.
 
-- **Consenso incrementale**: Microsoft Identity Platform consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni, anziché interamente all'inizio. Ogni volta che l'app è pronta per chiamare un'API, dovrà richiedere solo gli ambiti necessari.
+- **Consenso incrementale**: la piattaforma Microsoft Identity consente alle app di ottenere il consenso dell'utente quando sono necessarie le autorizzazioni anziché tutte all'inizio. Ogni volta che l'app è pronta per chiamare un'API, dovrà richiedere solo gli ambiti necessari.
 
 - **Accesso condizionale**: quando si effettuano diverse richieste API, in determinati scenari potrebbe essere necessario soddisfare requisiti di accesso condizionale aggiuntivi. In questo modo, i requisiti possono aumentare se la prima richiesta non ha criteri di accesso condizionale e l'app tenta di accedere automaticamente a una nuova API che richiede l'accesso condizionale. Per gestire questo problema, assicurarsi di rilevare gli errori dalle richieste automatiche e di essere preparati per effettuare una richiesta interattiva.  Per altre informazioni, vedere [Linee guida per l'accesso condizionale](../azuread-dev/conditional-access-dev-guide.md).
 

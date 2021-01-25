@@ -1,5 +1,6 @@
 ---
-title: Risolvere i problemi di verifica dell'autore - Microsoft Identity Platform | Azure
+title: Risolvere i problemi di verifica dell'editore | Azure
+titleSuffix: Microsoft identity platform
 description: Viene descritto come risolvere i problemi di verifica dell'editore per la piattaforma di identità Microsoft chiamando Microsoft Graph API.
 services: active-directory
 author: rwike77
@@ -12,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 857659cdd97666dba585c1ec22c750e29bf28879
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169172"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756183"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 

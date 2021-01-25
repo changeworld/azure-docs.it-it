@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: c3d9cd5e710eb263707e87c4afe0f08809b8d50c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443943"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756452"
 ---
 # <a name="protected-web-api-app-registration"></a>API Web protetta: registrazione dell'app
 
@@ -27,11 +27,11 @@ Per i passaggi comuni per la registrazione di un'app, vedere [Guida introduttiva
 
 ## <a name="accepted-token-version"></a>Versione del token accettata
 
-L'endpoint della piattaforma Microsoft Identity può emettere token v 1.0 e token v 2.0. Per altre informazioni su questi token, vedere [token di accesso](access-tokens.md).
+La piattaforma di identità Microsoft può emettere token v 1.0 e token v 2.0. Per altre informazioni su questi token, vedere [token di accesso](access-tokens.md).
 
 La versione del token che l'API può accettare dipende dalla selezione dei **tipi di account supportati** quando si crea la registrazione dell'applicazione API web nel portale di Azure.
 
-- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** , la versione del token accettata deve essere v 2.0.
+- Se il valore dei **tipi di account supportati** è **account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**, la versione del token accettata deve essere v 2.0.
 - In caso contrario, la versione del token accettata può essere v 1.0.
 
 Dopo aver creato l'applicazione, è possibile determinare o modificare la versione del token accettato attenendosi alla seguente procedura:
@@ -40,11 +40,11 @@ Dopo aver creato l'applicazione, è possibile determinare o modificare la versio
 1. Individuare la proprietà **accessTokenAcceptedVersion** nel manifesto.
 1. Il valore specifica di Azure Active Directory (Azure AD) la versione del token accettata dall'API Web.
     - Se il valore è 2, l'API Web accetta i token v 2.0.
-    - Se il valore è **null** , l'API Web accetta i token v 1.0.
+    - Se il valore è **null**, l'API Web accetta i token v 1.0.
 1. Se è stata modificata la versione del token, selezionare **Salva**.
 
 > [!NOTE]
-> L'API Web specifica la versione del token accettata. Quando un client richiede un token per l'API Web dall'endpoint della piattaforma Microsoft Identity Platform (v 2.0), il client ottiene un token che indica la versione del token accettata dall'API Web.
+> L'API Web specifica la versione del token accettata. Quando un client richiede un token per l'API Web dalla piattaforma di identità Microsoft, il client ottiene un token che indica la versione del token accettata dall'API Web.
 
 ## <a name="no-redirect-uri"></a>Nessun URI di Reindirizzamento
 
@@ -143,9 +143,9 @@ Per aggiungere questa maggiore sicurezza:
 
    > [!IMPORTANT]
    >
-   > Se si imposta **assegnazione utente obbligatoria?** su **Sì** , Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà il messaggio di errore "invalid_client: AADSTS501051: l'applicazione \<application name\> non è assegnata a un ruolo per \<web API\> ".
+   > Se si imposta **assegnazione utente obbligatoria?** su **Sì**, Azure ad controlla le assegnazioni di ruolo dell'app di un client quando richiede un token di accesso all'API Web. Se il client non è assegnato ad alcun ruolo app, Azure AD restituirà il messaggio di errore "invalid_client: AADSTS501051: l'applicazione \<application name\> non è assegnata a un ruolo per \<web API\> ".
    >
-   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No** , Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web. Qualsiasi client daemon, ovvero qualsiasi client che usa il flusso di credenziali client, può ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione può accedere all'API senza dover richiedere le autorizzazioni.
+   > Se si mantiene l' **assegnazione utente obbligatoria?** impostare su **No**, Azure ad non verificherà le assegnazioni di ruolo dell'app quando un client richiede un token di accesso per l'API Web. Qualsiasi client daemon, ovvero qualsiasi client che usa il flusso di credenziali client, può ottenere un token di accesso per l'API semplicemente specificandone i destinatari. Qualsiasi applicazione può accedere all'API senza dover richiedere le autorizzazioni.
    >
    > Tuttavia, come illustrato nella sezione precedente, l'API Web può sempre verificare che l'applicazione disponga del ruolo corretto, che è autorizzato dall'amministratore del tenant. L'API esegue questa verifica convalidando che il token di accesso disponga di un'attestazione Roles e che il valore di questa attestazione sia corretto. Nell'esempio JSON precedente, il valore è `access_as_application` .
 

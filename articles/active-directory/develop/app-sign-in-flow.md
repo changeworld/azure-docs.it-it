@@ -1,7 +1,7 @@
 ---
-title: Flusso di accesso alle app con Microsoft Identity Platform | Azure
+title: Flusso di accesso all'app con la piattaforma di identità Microsoft | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sul flusso di accesso alle app Web, desktop e per dispositivi mobili in Microsoft Identity Platform (v2.0).
+description: Informazioni sul flusso di accesso di app Web, desktop e per dispositivi mobili nella piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83772200"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755699"
 ---
-# <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Flusso di accesso alle app con Microsoft Identity Platform
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Flusso di accesso all'app con la piattaforma di identità Microsoft
 
 Questo argomento illustra il flusso di accesso di base per app Web, desktop e per dispositivi mobili con Microsoft Identity Platform. Per informazioni sugli scenari di accesso supportati da Microsoft Identity Platform, vedere [Flussi di autenticazione e scenari di app](authentication-flows-app-scenarios.md).
 
@@ -30,11 +30,11 @@ Quando un utente accede dal browser a un'app Web, si verifica quanto segue:
 
 * L'app Web determina se l'utente è autenticato.
 * Se l'utente non è autenticato, l'app Web delega ad Azure AD la procedura di accesso dell'utente. Tale accesso sarà conforme ai criteri dell'organizzazione, che possono ad esempio richiedere all'utente di immettere le proprie credenziali, usando l'[autenticazione a più fattori](../authentication/concept-mfa-howitworks.md) (talvolta definita autenticazione a due fattori o 2FA), oppure non richiedere l'immissione di alcuna password, ad esempio usando Windows Hello.
-* All'utente viene richiesto di fornire il consenso per l'accesso necessario per l'app client. Questo è il motivo per cui le app client devono essere registrate con Azure AD, affinché Microsoft Identity Platform possa fornire i token che rappresentano l'accesso per cui l'utente ha fornito il consenso.
+* All'utente viene richiesto di fornire il consenso per l'accesso necessario per l'app client. Questo è il motivo per cui le app client devono essere registrate con Azure AD, in modo che la piattaforma di identità Microsoft possa fornire token che rappresentano l'accesso a cui l'utente ha acconsentito.
 
 Dopo l'autenticazione dell'utente:
 
-* Microsoft Identity Platform invia un token all'app Web.
+* La piattaforma Microsoft Identity Invia un token all'app Web.
 * Viene salvato un cookie, associato al dominio di Azure AD, che contiene l'identità dell'utente nell'archivio cookie del browser. La volta successiva che un'app usa il browser per passare all'endpoint di autorizzazione di Microsoft Identity Platform, il browser presenta il cookie in modo che l'utente non debba eseguire di nuovo l'accesso. Questo è anche il modo in cui funziona l'accesso SSO. Il cookie viene generato da Azure AD e può essere riconosciuto solo da Azure AD.
 * L'app Web convalida quindi il token. Se la convalida ha esito positivo, l'app Web visualizza la pagina protetta e salva un cookie di sessione nell'archivio cookie del browser. Quando l'utente passa a un'altra pagina, l'app Web sa che l'utente è autenticato in base al cookie di sessione.
 
@@ -48,12 +48,12 @@ Gli sviluppatori di app Web possono indicare se tutte o solo determinate pagine 
 
 Questo attributo fa in modo che ASP.NET verifichi la presenza di un cookie di sessione contenente l'identità dell'utente. Se non è presente un cookie, ASP.NET reindirizza l'autenticazione al provider di identità specificato. Se il provider di identità è Azure AD, l'app Web reindirizza l'autenticazione a `https://login.microsoftonline.com`, che visualizza una finestra di dialogo di accesso.
 
-### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>In che modo un'app Web delega l'accesso a Microsoft Identity Platform e ottiene un token
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>Delega dell'accesso di un'app Web alla piattaforma di identità Microsoft e ottenimento di un token
 
 L'autenticazione utente avviene tramite il browser. Il protocollo OpenID usa messaggi di protocollo HTTP standard.
 
 * L'app Web invia una richiesta HTTP 302 (reindirizzamento) al browser per usare Microsoft Identity Platform.
-* Quando l'utente viene autenticato, Microsoft Identity Platform invia il token all'app Web usando un reindirizzamento tramite il browser.
+* Quando l'utente viene autenticato, la piattaforma Microsoft Identity invia il token all'app Web usando un reindirizzamento tramite il browser.
 * Il reindirizzamento viene fornito dall'app Web sotto forma di URI di reindirizzamento. Questo URI di reindirizzamento viene registrato con l'oggetto applicazione Azure AD. Possono essere presenti diversi URI di reindirizzamento perché l'applicazione potrebbe essere stata distribuita in numerosi URL. Di conseguenza, l'app Web dovrà specificare l'URI di reindirizzamento da usare.
 * Azure AD verifica che l'URI di reindirizzamento inviato dall'app Web sia uno degli URI di reindirizzamento registrati per l'app.
 

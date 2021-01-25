@@ -1,5 +1,6 @@
 ---
-title: Acquisire un token per chiamare un'API Web (app a singola pagina)-piattaforma di identità Microsoft | Azure
+title: Acquisire un token per chiamare un'API Web (app a singola pagina) | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'applicazione a singola pagina (acquisire un token per chiamare un'API)
 services: active-directory
 author: negoe
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 3d91e69d7d9eac9f8cae1a1a122a13afd19ef631
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 83896b2599f03961b2dcaf34ea9b55fe16c13b9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443875"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756435"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Applicazione a pagina singola: acquisire un token per chiamare un'API
 

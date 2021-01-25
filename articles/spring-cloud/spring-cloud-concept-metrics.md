@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c4299bc41a656fd678c14d63ae1d4987dba327b
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060640"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755479"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -87,7 +87,7 @@ La visualizzazione predefinita include tutte le metriche dell'applicazione di un
 
 Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 
-### <a name="error"></a>Errore di
+### <a name="error"></a>Errore
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
@@ -97,8 +97,9 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome metrica attuatore molla | Unità | Dettagli |
 >|----|----|----|------------|
->| System. CPU. Usage | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
->| Process. CPU. Usage | App CPU Usage Percentage (Percentuale di utilizzo CPU app) | Percentuale | Utilizzo di CPU recente per il processo Java Virtual Machine. Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
+>| System. CPU. Usage | System. CPU. Usage | Percentuale | Utilizzo di CPU recente per l'intero sistema (obsoleto e sconsigliato per l'uso). Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che tutte le CPU erano inattive durante il periodo di tempo recente osservato, mentre un valore pari a 1,0 indica che tutte le CPU stavano eseguendo attivamente il 100% del tempo durante l'osservazione del periodo recente.|
+>| Process. CPU. Usage | App CPU Usage Percentage (Percentuale di utilizzo CPU app) | Percentuale | Utilizzo della CPU recente per il processo di Java Virtual Machine (obsoleto e sconsigliato di utilizzarlo). Questo valore è un valore Double nell'intervallo [0.0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
+>| AppCpuUsage | Utilizzo CPU app (anteprima) | Percentuale | Utilizzo della CPU recente del processo JVM sulla CPU allocata a questa app, valore di tipo Double compreso tra [0,0, 1.0]. Il valore 0,0 indica che nessuna CPU stava eseguendo thread dal processo JVM durante il periodo di tempo recente osservato, mentre il valore 1,0 indica che tutte le CPU stavano eseguendo attivamente i thread dalla JVM 100% del tempo durante il periodo recente osservato. I thread del JVM includono i thread dell'applicazione, nonché i thread interni JVM.|
 >| JVM. memory. commit | JVM. memory. commit | Byte | Rappresenta la quantità di memoria che deve essere disponibile per l'utilizzo da parte della JVM. JVM può rilasciare memoria al sistema e il commit potrebbe essere inferiore a init. il commit sarà sempre maggiore o uguale a quello usato. |
 >| JVM. memory. used | JVM. memory. used | Byte | Rappresenta la quantità di memoria attualmente utilizzata in byte. |
 >| JVM. memory. max | JVM. memory. max | Byte | Rappresenta la quantità massima di memoria che può essere utilizzata per la gestione della memoria. La quantità di memoria utilizzata e di cui è stato eseguito il commit sarà sempre minore o uguale a max se è definito max. Un'allocazione di memoria potrebbe non riuscire se tenta di aumentare la memoria utilizzata, in modo da usare > eseguito il commit anche se utilizzata <= Max sarebbe ancora true (ad esempio, quando il sistema è insufficiente nella memoria virtuale). |

@@ -1,6 +1,6 @@
 ---
 title: Protocolli di consenso dell'amministratore di Microsoft Identity Platform
-description: Descrizione dell'autorizzazione nell'endpoint della piattaforma di identità Microsoft, inclusi gli ambiti, le autorizzazioni e il consenso.
+description: Descrizione dell'autorizzazione nella piattaforma di identità Microsoft, inclusi gli ambiti, le autorizzazioni e il consenso.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 12/18/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 353c349ebe348addac60c5f9f7b1bf0fbb1fc425
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 13cff9f3a6037a16d7c3b9cf233d26c6e9518bc1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97703315"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756102"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consenso dell'amministratore sulla piattaforma di identità Microsoft
 
@@ -27,7 +27,7 @@ Alcune autorizzazioni richiedono il consenso di un amministratore per poter esse
 
 In genere, durante la compilazione di un'applicazione che usa l'endpoint di consenso dell'amministratore, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di iscrizione all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
-L'accesso dell'utente nell'app consente di identificarne l'organizzazione di appartenenza dell'amministratore prima di richiedere l'approvazione delle autorizzazioni necessarie. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti dell'organizzazione. Per accedere all'utente, seguire le [esercitazioni del protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
+L'accesso dell'utente nell'app consente di identificarne l'organizzazione di appartenenza dell'amministratore prima di richiedere l'approvazione delle autorizzazioni necessarie. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti dell'organizzazione. Per accedere all'utente, seguire le [esercitazioni sul protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
 
 ## <a name="request-the-permissions-from-a-directory-admin"></a>Richiedere le autorizzazioni da un amministratore di directory
 
@@ -46,11 +46,11 @@ https://graph.microsoft.com/mail.send
 
 | Parametro | Condizione | Descrizione |
 | ---: | ---: | :---: |
-| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `organizations` come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato di GUID o nome descrittivo OPPURE con il riferimento generico `organizations` come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
 | `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
-|`scope` | Richiesto | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using `/.default` ) o dinamici. Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). |
+|`scope` | Necessario | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using `/.default` ) o dinamici. Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). |
 
 A questo punto, Azure AD richiede che solo un amministratore tenant possa accedere per completare la richiesta. All'amministratore viene chiesto di approvare tutte le autorizzazioni richieste nel `scope` parametro.  Se è stato usato un valore statico ( `/.default` ), funzionerà come l'endpoint di consenso dell'amministratore v 1.0 e richiederà il consenso per tutti gli ambiti presenti nelle autorizzazioni necessarie (utente e app). Per richiedere le autorizzazioni dell'app, è necessario usare il `/.default` valore. Se non si vuole che gli amministratori visualizzino un'autorizzazione specificata nella schermata di consenso dell'amministratore ogni volta che si usa `/.default` , la procedura consigliata consiste nel non inserire l'autorizzazione nella sezione autorizzazioni necessarie. In alternativa, è possibile utilizzare il consenso dinamico per aggiungere le autorizzazioni che si desidera includere nella schermata di consenso in fase di esecuzione, anziché utilizzare `/.default` .
 

@@ -1,7 +1,7 @@
 ---
 title: Token di sicurezza | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni sulle nozioni di base dei token di sicurezza nella piattaforma di identità Microsoft (v 2.0).
+description: Informazioni sulle nozioni di base dei token di sicurezza nella piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 88dc4bb86459cd0390c4c01deb871aa93e39c6d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9668d3b0b57e36fb95421f8b502b9b743be8eb31
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84266747"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756217"
 ---
 # <a name="security-tokens"></a>Token di sicurezza
 
-Un provider di identità centralizzato è particolarmente utile per le app che hanno utenti dislocati in tutto il mondo che non devono necessariamente accedere dalla rete aziendale. Microsoft Identity Platform autentica gli utenti e fornisce i token di sicurezza, ad esempio [token di accesso](developer-glossary.md#access-token), token di [aggiornamento](developer-glossary.md#refresh-token)e [token ID](developer-glossary.md#id-token), che consentono a un' [applicazione client](developer-glossary.md#client-application) di accedere alle risorse protette in un [server di risorse](developer-glossary.md#resource-server).
+Un provider di identità centralizzato è particolarmente utile per le app che hanno utenti dislocati in tutto il mondo che non devono necessariamente accedere dalla rete aziendale. La piattaforma Microsoft Identity autentica gli utenti e fornisce i token di sicurezza, ad [esempio token di accesso](developer-glossary.md#access-token), token di [aggiornamento](developer-glossary.md#refresh-token)e [token ID](developer-glossary.md#id-token), che consentono a un' [applicazione client](developer-glossary.md#client-application) di accedere alle risorse protette in un [server di risorse](developer-glossary.md#resource-server).
 
 Un **token di accesso** è un token di sicurezza emesso da un [server di autorizzazione](developer-glossary.md#authorization-server) come parte di un flusso [OAuth 2,0](active-directory-v2-protocols.md) . Contiene informazioni sull'utente e sull'app per cui è previsto il token. che può essere usato per accedere alle API Web e ad altre risorse protette. Per altre informazioni sul modo in cui la piattaforma di identità Microsoft rilascia i token di accesso, vedere [token di accesso](access-tokens.md).
 

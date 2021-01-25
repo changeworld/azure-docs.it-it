@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/08/2020
+ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78932e5852453fe996e26a278f8a1859a8ecf546
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89437871"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755017"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -53,9 +53,9 @@ A seconda di come viene compilata l'applicazione client, può usare uno o più f
 Molti di questi flussi supportano l'acquisizione di token sia interattivi che non interattivi.
 
   - **Interactive** indica che all'utente può essere richiesto di immettere l'input. Ad esempio, richiedendo all'utente di eseguire l'accesso, eseguire l'autenticazione a più fattori o concedere il consenso aggiuntivo alle risorse.
-  - L'autenticazione **non interattiva**o *invisibile*all'utente tenta di acquisire un token in un modo in cui il server di accesso *non può* richiedere informazioni aggiuntive.
+  - L'autenticazione **non interattiva** o *invisibile* all'utente tenta di acquisire un token in un modo in cui il server di accesso *non può* richiedere informazioni aggiuntive.
 
-L'applicazione basata su MSAL deve prima tentare di acquisire un token in modo *invisibile all'utente*e quindi in modo interattivo solo se il metodo non interattivo ha esito negativo. Per ulteriori informazioni su questo modello, vedere [acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
+L'applicazione basata su MSAL deve prima tentare di acquisire un token in modo *invisibile all'utente* e quindi in modo interattivo solo se il metodo non interattivo ha esito negativo. Per ulteriori informazioni su questo modello, vedere [acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
 
 ## <a name="authorization-code"></a>Codice di autorizzazione
 
@@ -223,7 +223,7 @@ Questo significa che una delle seguenti condizioni è vera:
 - È stato fornito un modo per consentire agli utenti di fornire il consenso all'applicazione; vedere [richiesta di consenso utente singolo](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - È stato fornito un modo per consentire all'amministratore del tenant di concedere il consenso per l'applicazione. vedere il [consenso dell'amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-Il flusso di autenticazione integrata di Windows è abilitato per le app .NET desktop, .NET Core e Windows Universal Platform. In .NET Core è necessario fornire il nome utente all'autenticazione integrata di Windows, perché .NET Core non è in grado di ottenere i nomi utente dal sistema operativo.
+Il flusso di autenticazione integrata di Windows è abilitato per le app .NET desktop, .NET Core e Windows Universal Platform.
 
 Per altre informazioni sul consenso, vedere [autorizzazioni e consenso v 2.0](v2-permissions-and-consent.md).
 

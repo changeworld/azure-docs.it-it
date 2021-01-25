@@ -1,6 +1,6 @@
 ---
 title: Librerie di autenticazione della piattaforma Microsoft Identity
-description: Librerie client compatibili e librerie middleware del server, insieme alla libreria, all'origine e ai collegamenti di esempio correlati, per l'endpoint della piattaforma di identità Microsoft.
+description: Librerie client compatibili e librerie middleware del server, insieme alla libreria, all'origine e ai collegamenti di esempio correlati, per la piattaforma di identità Microsoft.
 services: active-directory
 author: negoe
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a7792e989444c87ba80088f8a850cacb4aa0dc3c
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 51b60d7b81d7402f69415b79cd575f51915dc38f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064564"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756655"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Librerie di autenticazione della piattaforma Microsoft Identity
 
-L' [endpoint della piattaforma Microsoft Identity](../azuread-dev/azure-ad-endpoint-comparison.md) supporta i protocolli standard del settore OAuth 2,0 e OpenID Connect 1,0. Microsoft Authentication Library (MSAL) è progettato per funzionare con l'endpoint della piattaforma Microsoft Identity. È anche possibile usare librerie open source che supportano OAuth 2,0 e OpenID Connect 1,0.
+La [piattaforma Microsoft Identity ](../azuread-dev/azure-ad-endpoint-comparison.md) supporta i protocolli standard del settore OAuth 2,0 e OpenID Connect 1,0. Microsoft Authentication Library (MSAL) è progettato per funzionare con la piattaforma di gestione delle identità Microsoft. È anche possibile usare librerie open source che supportano OAuth 2,0 e OpenID Connect 1,0.
 
 Si consiglia di usare le librerie scritte da esperti del dominio del protocollo che seguono una metodologia Security Development Lifecycle (SDL). Tali metodologie includono quella [che Microsoft segue][Microsoft-SDL]. Se si passa codice per i protocolli, è consigliabile seguire una metodologia, ad esempio Microsoft SDL. Prestare particolare attenzione alle considerazioni sulla sicurezza nelle specifiche degli standard per ogni protocollo.
 
@@ -30,7 +30,7 @@ Si consiglia di usare le librerie scritte da esperti del dominio del protocollo 
 
 ## <a name="types-of-libraries"></a>Tipi di librerie
 
-L'endpoint della piattaforma Microsoft Identity funziona con due tipi di librerie:
+La piattaforma Microsoft Identity funziona con due tipi di librerie:
 
 * **Librerie client**: i client e i server nativi usano le librerie client per acquisire i token di accesso per chiamare una risorsa, ad esempio Microsoft Graph.
 * **Librerie middleware server**: le app Web usano librerie middleware server per l'accesso degli utenti. e dalle API Web per convalidare i token inviati da client nativi o altri server.
@@ -40,15 +40,15 @@ L'endpoint della piattaforma Microsoft Identity funziona con due tipi di libreri
 Le librerie dispongono di due categorie di supporto:
 
 * **Librerie supportate da Microsoft**: Microsoft offre correzioni per queste librerie e ha applicato la due diligence SDL a queste librerie.
-* **Compatibile**: Microsoft ha testato queste librerie in scenari di base e ha confermato che funzionano con l'endpoint della piattaforma di identità Microsoft. Microsoft non fornisce correzioni per queste librerie e non ha eseguito una revisione di tali librerie. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria.
+* **Compatibile**: Microsoft ha testato queste librerie in scenari di base e ha confermato che funzionano con la piattaforma di identità Microsoft. Microsoft non fornisce correzioni per queste librerie e non ha eseguito una revisione di tali librerie. Le richieste relative a problemi e funzionalità devono essere indirizzate al progetto open source della libreria.
 
-Per un elenco di librerie che funzionano con l'endpoint della piattaforma di identità Microsoft, vedere le sezioni seguenti.
+Per un elenco delle librerie che funzionano con la piattaforma di identità Microsoft, vedere le sezioni seguenti.
 
 ## <a name="microsoft-supported-client-libraries"></a>Librerie client supportate da Microsoft
 
 Usare le librerie di autenticazione client per acquisire un token per chiamare un'API Web protetta.
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Informazioni di riferimento | Documenti di carattere concettuale | Roadmap |
+| Piattaforma | Libreria | Scarica | Codice sorgente | Esempio | Informazioni di riferimento | Documenti di carattere concettuale | Roadmap |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js  | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/README.md) |  [App a singola pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) | [Riferimento](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-core/) | [Documentazione concettuale](msal-overview.md)| [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL angolare | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | [SPA angolare](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-angular) | [Riferimento](https://azuread.github.io/microsoft-authentication-library-for-js/ref/msal-angular/) | [Documentazione concettuale](msal-overview.md) | [Roadmap](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki#roadmap)
@@ -63,11 +63,11 @@ Usare le librerie di autenticazione client per acquisire un token per chiamare u
 
 Usare le librerie middleware per proteggere le applicazioni Web e le API Web. App Web o API Web scritte con ASP.NET o ASP.NET Core usano le librerie middleware.
 
-| Piattaforma | Libreria | Download | Codice sorgente | Esempio | Informazioni di riferimento
+| Piattaforma | Libreria | Scarica | Codice sorgente | Esempio | Informazioni di riferimento
 | --- | --- | --- | --- | --- | --- |
 | ![.NET](media/sample-v2-code/logo_NET.png) ![.NET Core](media/sample-v2-code/logo_NETcore.png) | ASP.NET Security |[NuGet](https://www.nuget.org/packages/Microsoft.AspNet.Mvc/) |[GitHub](https://github.com/aspnet/AspNetCore) |[App MVC](quickstart-v2-aspnet-webapp.md) |[Informazioni di riferimento sulle API REST](/dotnet/api/?view=aspnetcore-2.0&preserve-view=true) |
 | ![.NET](media/sample-v2-code/logo_NET.png)| Estensioni IdentityModel per .NET| |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | [App MVC](quickstart-v2-aspnet-webapp.md) |[Riferimento](/dotnet/api/overview/azure/activedirectory/client?view=azure-dotnet&preserve-view=true) |
-| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passport Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [App Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
+| ![Node.js](media/sample-v2-code/logo_nodejs.png) | Passport Azure AD |[NPM](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [app Web](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs) | |
 
 ## <a name="microsoft-supported-libraries-by-os--language"></a>Librerie supportate da Microsoft per sistema operativo/lingua
 
@@ -98,16 +98,16 @@ Vedere anche [scenari per piattaforme e linguaggi supportati](authentication-flo
 | ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth: 1.3.1<br />omniauth-OAuth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 | iOS, macOS, & Android  | [Autenticazione dell'app nativa React](https://github.com/FormidableLabs/react-native-app-auth) | [Versione 4.2.0](https://github.com/FormidableLabs/react-native-app-auth/releases/tag/v4.2.0) | [Autenticazione dell'app nativa React](https://github.com/FormidableLabs/react-native-app-auth) | |
 
-Per qualsiasi libreria conforme agli standard, è possibile usare l'endpoint della piattaforma Microsoft Identity. È importante conoscerne il supporto:
+Per qualsiasi libreria conforme agli standard, è possibile usare la piattaforma Microsoft Identity. È importante conoscerne il supporto:
 
 * Per problemi e richieste di nuove funzionalità nel codice della libreria, contattare il proprietario della libreria.
 * Per problemi e richieste di nuove funzionalità nell'implementazione del protocollo sul lato servizio, contattare Microsoft.
 * Consente di [archiviare una richiesta](https://feedback.azure.com/forums/169401-azure-active-directory) di funzionalità per le funzionalità aggiuntive che si desidera visualizzare nel protocollo.
-* [Creare una richiesta di supporto](../../azure-portal/supportability/how-to-create-azure-support-request.md) se si riscontra un problema per cui l'endpoint della piattaforma Microsoft Identity non è conforme a OAuth 2,0 o OpenID Connect 1,0.
+* [Creare una richiesta di supporto](../../azure-portal/supportability/how-to-create-azure-support-request.md) se si riscontra un problema per cui la piattaforma di identità Microsoft non è conforme a OAuth 2,0 o OpenID Connect 1,0.
 
 ## <a name="related-content"></a>Contenuti correlati
 
-Per ulteriori informazioni sull'endpoint della piattaforma Microsoft Identity, vedere la [Panoramica della piattaforma di identità Microsoft][AAD-App-Model-V2-Overview].
+Per ulteriori informazioni sulla piattaforma Microsoft Identity, vedere la [Panoramica della piattaforma di identità Microsoft][AAD-App-Model-V2-Overview].
 
 <!--Image references-->
 

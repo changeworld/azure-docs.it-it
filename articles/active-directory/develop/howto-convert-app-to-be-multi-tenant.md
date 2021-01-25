@@ -13,12 +13,12 @@ ms.date: 10/27/2020
 ms.author: ryanwi
 ms.reviewer: marsma, jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 22d6cacc36363b17f9bc32d354982eb71974b31d
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f87c3fd0cfda2db535b2c8f7f7330a273e6b767
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779754"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755346"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -52,7 +52,7 @@ In un'applicazione a tenant singolo, le richieste di accesso vengono inviate all
 
 Con un'applicazione multi-tenant, l'applicazione non determina in anticipo il tenant di provienienza dell'utente, pertanto non è possibile inviare richieste all'endpoint del tenant. Al contrario, le richieste vengono inviate a un endpoint che esegue il multiplexing tra tutti i tenant di Azure Active Directory: `https://login.microsoftonline.com/common`
 
-Quando la piattaforma di identità Microsoft riceve una richiesta per l'endpoint/Common, firma l'utente in e, di conseguenza, individua il tenant da cui l'utente fa parte. L'endpoint/Common funziona con tutti i protocolli di autenticazione supportati dal Azure AD: OpenID Connect, OAuth 2,0, SAML 2,0 e WS-Federation.
+Quando la piattaforma Microsoft Identity riceve una richiesta per l'endpoint/Common, firma l'utente in e, di conseguenza, individua il tenant da cui l'utente fa parte. L'endpoint/Common funziona con tutti i protocolli di autenticazione supportati dal Azure AD: OpenID Connect, OAuth 2,0, SAML 2,0 e WS-Federation.
 
 La risposta di accesso all'applicazione di accesso contiene un token che rappresenta l'utente. Il valore dell'autorità di certificazione nel token indica a un'applicazione il tenant di provenienza dell'utente. Quando l'endpoint /common restituisce una risposta, il valore dell'autorità di certificazione nel token corrisponde al tenant dell'utente.
 
@@ -110,7 +110,7 @@ Per un'applicazione multi-tenant, la registrazione iniziale per l'applicazione s
 
 ![Illustra il consenso all'app a un solo livello][Consent-Single-Tier]
 
-Questa esperienza di consenso è interessata dalle autorizzazioni richieste dall'applicazione. Microsoft Identity Platform supporta due tipi di autorizzazioni, solo app e Delegate.
+Questa esperienza di consenso è interessata dalle autorizzazioni richieste dall'applicazione. La piattaforma Microsoft Identity supporta due tipi di autorizzazioni, solo app e Delegate.
 
 * Un'autorizzazione delegata concede a un'applicazione la possibilità di agire come utente connesso per un sottoinsieme di operazioni che l'utente può eseguire. Ad esempio, è possibile concedere a un'applicazione l'autorizzazione delegata per la lettura del calendario dell'utente connesso.
 * Un'autorizzazione solo app viene concessa direttamente all'identità dell'applicazione. Ad esempio, è possibile concedere a un'applicazione l'autorizzazione solo app per leggere l'elenco di utenti in un tenant, indipendentemente dall'utente che ha eseguito l'accesso all'applicazione.

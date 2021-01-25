@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6b5c328503a28c6eb92c2c20ca54d4d3d80c9a15
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232472"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756033"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -31,7 +31,7 @@ Le attestazioni facoltative possono essere usate per:
 
 Per gli elenchi di attestazioni standard, vedere la documentazione relativa alle attestazioni [token di accesso](access-tokens.md) e [id_token](id-tokens.md).
 
-Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0 e v2.0, oltre che nei token SAML, l'utilizzo risulta particolarmente vantaggioso passando dalla versione 1.0 alla versione 2.0. Uno degli obiettivi dell'[endpoint Microsoft Identity Platform v2.0](./v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
+Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0 e v2.0, oltre che nei token SAML, l'utilizzo risulta particolarmente vantaggioso passando dalla versione 1.0 alla versione 2.0. Uno degli obiettivi della [piattaforma Microsoft Identity](./v2-overview.md) è costituito da dimensioni di token inferiori per garantire prestazioni ottimali da parte dei client. Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
 
 **Tabella 1: applicabilità**
 
@@ -201,7 +201,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrizione                                           |
+| Nome          | Type                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -214,7 +214,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |

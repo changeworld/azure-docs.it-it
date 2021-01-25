@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 383bdaebaa8a1795a9bfddb7da23e172aea111a0
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: c441d8e9fa5a3375b1ec4cd3e68d92e92738261d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96762935"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755786"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flussi di autenticazione e scenari di applicazioni
 
-L'endpoint di Microsoft Identity Platform (v2.0) supporta l'autenticazione per diversi tipi di moderne architetture di applicazioni. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md). Usando le [librerie di autenticazione per la piattaforma di identità Microsoft](reference-v2-libraries.md), le applicazioni autenticano le identità e acquisiscono i token per accedere alle API protette.
+La piattaforma di identità Microsoft supporta l'autenticazione per diversi tipi di architetture di applicazioni moderne. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0 e OpenID Connect](active-directory-v2-protocols.md). Usando le [librerie di autenticazione per la piattaforma di identità Microsoft](reference-v2-libraries.md), le applicazioni autenticano le identità e acquisiscono i token per accedere alle API protette.
 
 Questo articolo descrive i flussi di autenticazione e gli scenari di applicazione in cui sono usati.
 
@@ -79,7 +79,7 @@ Per ulteriori informazioni, vedere [tipi di account supportati](v2-supported-acc
 
 ## <a name="application-scenarios"></a>Scenari applicativi
 
-L'endpoint della piattaforma di identità Microsoft supporta l'autenticazione per queste architetture di app:
+La piattaforma di identità Microsoft supporta l'autenticazione per queste architetture di app:
 
 - App a pagina singola
 - App Web
@@ -95,7 +95,7 @@ Le applicazioni usano flussi di autenticazione diversi per concedere l'accesso a
 
 Molte app Web moderne sono compilate come applicazioni a singola pagina sul lato client. Queste applicazioni usano JavaScript o un Framework come angolare, VME e React. Queste applicazioni vengono eseguite in un Web browser.
 
-Le applicazioni a singola pagina sono diverse dalle app Web tradizionali sul lato server in termini di caratteristiche di autenticazione. Usando Microsoft Identity Platform, le applicazioni a pagina singola possono concedere l'accesso agli utenti e ottenere i token per l'accesso a servizi back-end o API Web. Microsoft Identity Platform offre due tipi di concessione per le applicazioni JavaScript: 
+Le applicazioni a singola pagina sono diverse dalle app Web tradizionali sul lato server in termini di caratteristiche di autenticazione. Usando Microsoft Identity Platform, le applicazioni a pagina singola possono concedere l'accesso agli utenti e ottenere i token per l'accesso a servizi back-end o API Web. La piattaforma Microsoft Identity offre due tipi di concessione per le applicazioni JavaScript: 
 
 | MSAL.js (2. x) | MSAL.js (1. x) |
 |---|---|
@@ -131,7 +131,7 @@ Esiste un'altra possibilità per le applicazioni ospitate in Windows in computer
 
 Le applicazioni in esecuzione in un dispositivo privo di browser potranno comunque chiamare un'API per conto di un utente. Per eseguire l'autenticazione, l'utente dovrà eseguire l'accesso in un altro dispositivo che include un Web browser. Per questo scenario è necessario usare il [flusso del codice del dispositivo](https://aka.ms/msal-net-device-code-flow).
 
-![Flusso del codice del dispositivo](media/scenarios/device-code-flow-app.svg)
+![Flusso di codice del dispositivo](media/scenarios/device-code-flow-app.svg)
 
 Sebbene non sia consigliabile usarlo, il flusso di [nome utente/password](scenario-desktop-acquire-token.md#username-and-password) è disponibile nelle applicazioni client pubbliche. Questo flusso è ancora necessario in alcuni scenari, come DevOps.
 
@@ -160,7 +160,7 @@ Per altre informazioni, vedere [App per dispositivi mobili che chiama le API Web
 
 ### <a name="protected-web-api"></a>API Web protetta
 
-È possibile usare l'endpoint della piattaforma Microsoft Identity per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Un'API Web protetta viene chiamata tramite un token di accesso. Il token consente di proteggere i dati dell'API e di autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP.
+È possibile usare la piattaforma Microsoft Identity per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Un'API Web protetta viene chiamata tramite un token di accesso. Il token consente di proteggere i dati dell'API e di autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP.
 
 Se si vuole proteggere l'API Web ASP.NET o ASP.NET Core, è necessario convalidare il token di accesso. A questo scopo verrà usato il middleware JWT ASP.NET. La convalida viene eseguita dalla libreria delle [estensioni IdentityModel per .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e non da MSAL.NET
 
@@ -305,7 +305,7 @@ Nella colonna Windows della tabella seguente, ogni volta che viene menzionato .N
 | [App Web che offre l'accesso agli utenti](scenario-web-app-sign-user-overview.md) <br/>[![App Web per l'accesso degli utenti](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
 | [App Web che chiama le API Web](scenario-web-app-call-api-overview.md) <br/> <br/>[![App Web che chiama le API Web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
 | [App desktop che chiama le API Web](scenario-desktop-overview.md) <br/> <br/>[ ![ App desktop che chiama le API Web](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ Flusso del codice del dispositivo](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS/Objective C o swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
-| [App per dispositivi mobili che chiama le API Web](scenario-mobile-overview.md) <br/> [![App per dispositivi mobili che chiama le API Web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/Objective C o swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL.Android
+| [App per dispositivi mobili che chiama le API Web](scenario-mobile-overview.md) <br/> [![App per dispositivi mobili che chiama le API Web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![Piattaforma UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/Objective C o swift](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL.Android
 | [App daemon](scenario-daemon-overview.md) <br/> [![App daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [App Web che chiama le API Web](scenario-web-api-call-api-overview.md) <br/><br/> [![App Web che chiama le API Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 

@@ -1,5 +1,6 @@
 ---
-title: Spostare un'app daemon che chiama API Web in produzione-piattaforma di identità Microsoft | Azure
+title: Spostare un'app daemon che chiama API Web nell'ambiente di produzione | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come spostare un'app daemon che chiama API Web nell'ambiente di produzione
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 72e6d0a8677f7a8175223b80541c99026a9eb16f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99fd79fb6c51f577d9b62d15ac006b068a685bcf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119165"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756546"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>App daemon che chiama le API Web-passa all'ambiente di produzione
 

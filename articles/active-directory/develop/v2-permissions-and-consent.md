@@ -12,16 +12,16 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: 35499810ae13a8ddc5b7bb6306deafef0ef24e0f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246792"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756057"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorizzazioni e consenso in Microsoft Identity Platform
 
-Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. L'implementazione del modello di autorizzazione è stata aggiornata nell'endpoint della piattaforma di identità Microsoft. Viene modificato il modo in cui un'app deve interagire con la piattaforma di identità Microsoft. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
+Le applicazioni che si integrano con la piattaforma di identità Microsoft seguono un modello di autorizzazione che consente agli utenti e agli amministratori di controllare la modalità di accesso ai dati. L'implementazione del modello di autorizzazione è stata aggiornata sulla piattaforma di identità Microsoft. Viene modificato il modo in cui un'app deve interagire con la piattaforma di identità Microsoft. Questo articolo illustra i concetti di base di questo modello di autorizzazione, inclusi gli ambiti, le autorizzazioni e il consenso.
 
 ## <a name="scopes-and-permissions"></a>Ambiti e autorizzazioni
 
@@ -53,7 +53,7 @@ Un'app richiede in genere queste autorizzazioni specificando gli ambiti nelle ri
 
 ## <a name="permission-types"></a>Tipi di autorizzazioni
 
-Microsoft Identity Platform supporta due tipi di autorizzazioni: *autorizzazioni delegate* e *autorizzazioni dell'applicazione*.
+La piattaforma Microsoft Identity supporta due tipi di autorizzazioni: *autorizzazioni delegate* e autorizzazioni per le *applicazioni*.
 
 * Le **autorizzazioni delegate** sono usate dalle app con un utente connesso. Per queste app, l'utente o un amministratore acconsente alle autorizzazioni richieste dall'app. L'app è autorizzata a fungere da utente connesso quando effettua chiamate alla risorsa di destinazione. 
 
@@ -128,7 +128,7 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Il parametro `scope` è un elenco di autorizzazioni delegate separate da spazi richieste dall'app. Ogni autorizzazione è indicata aggiungendo il valore di autorizzazione all'identificatore della risorsa (URI ID applicazione). Nella richiesta di esempio precedente, l'app richiede l'autorizzazione per la lettura del calendario dell'utente e l'invio di messaggi di posta elettronica come utente.
 
-Dopo che l'utente immette le proprie credenziali, l'endpoint della piattaforma di identità Microsoft verifica la presenza di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato e se l'amministratore non ha acconsentito a queste autorizzazioni per conto dell'intera organizzazione, l'endpoint della piattaforma Microsoft Identity chiede all'utente di concedere le autorizzazioni richieste.
+Dopo che l'utente immette le proprie credenziali, la piattaforma di identità Microsoft verifica la presenza di un record corrispondente di *consenso dell'utente*. Se l'utente non ha acconsentito a nessuna delle autorizzazioni richieste in passato e se l'amministratore non ha acconsentito a queste autorizzazioni per conto dell'intera organizzazione, la piattaforma Microsoft Identity chiede all'utente di concedere le autorizzazioni richieste.
 
 Al momento, l'autorizzazione `offline_access` ("Mantieni l'accesso ai dati a cui è stato concesso l'accesso a") e `user.read` ("Accedi e leggi il profilo") viene automaticamente inclusa nel consenso iniziale per un'applicazione.  Queste autorizzazioni sono in genere necessarie per le funzionalità di app appropriate. L' `offline_access` autorizzazione consente all'app di accedere ai token di aggiornamento cruciali per le app native e le app Web. L' `user.read` autorizzazione consente di accedere all' `sub` attestazione. Consente al client o all'app di identificare correttamente l'utente nel tempo e accedere a informazioni rudimentali sugli utenti.
 
@@ -164,7 +164,7 @@ Se l'applicazione richiede le autorizzazioni dell'applicazione e un amministrato
 
 Dopo aver usato l'endpoint di consenso dell'amministratore per concedere il consenso dell'amministratore, l'operazione è terminata. Gli utenti non devono eseguire altre azioni. Una volta concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione. Il token di accesso risultante ha le autorizzazioni consentite.
 
-Quando un amministratore della società usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, Microsoft Identity Platform rileva il ruolo dell'utente. Viene chiesto se l'amministratore della società vuole dare il consenso per conto dell'intero tenant per le autorizzazioni richieste. È invece possibile usare un endpoint di consenso dell'amministratore dedicato per richiedere in modo proattivo a un amministratore di concedere l'autorizzazione per conto dell'intero tenant. Questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione. Non è possibile richiedere le autorizzazioni dell'applicazione usando l'endpoint di autorizzazione.
+Quando un amministratore della società usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, la piattaforma Microsoft Identity rileva il ruolo dell'utente. Viene chiesto se l'amministratore della società vuole dare il consenso per conto dell'intero tenant per le autorizzazioni richieste. È invece possibile usare un endpoint di consenso dell'amministratore dedicato per richiedere in modo proattivo a un amministratore di concedere l'autorizzazione per conto dell'intero tenant. Questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione. Non è possibile richiedere le autorizzazioni dell'applicazione usando l'endpoint di autorizzazione.
 
 Seguendo questa procedura, l'app può richiedere le autorizzazioni per tutti gli utenti di un tenant, inclusi gli ambiti riservati all'amministratore. Questa operazione è con privilegi elevati. Usare l'operazione solo se necessario per lo scenario.
 
@@ -335,7 +335,7 @@ response_type=token            //Code or a hybrid flow is also possible here
 
 Questo esempio di codice genera una pagina di consenso per tutte le autorizzazioni registrate se le descrizioni precedenti del consenso e `/.default` si applicano allo scenario. Il codice restituisce quindi un `id_token` , anziché un token di accesso.  
 
-Questo comportamento include alcuni client legacy che passano da Autenticazione di Azure AD Library (ADAL) a Microsoft Authentication Library (MSAL). Questa configurazione *non deve* essere usata dai nuovi client destinati all'endpoint della piattaforma Microsoft Identity.
+Questo comportamento include alcuni client legacy che passano da Autenticazione di Azure AD Library (ADAL) a Microsoft Authentication Library (MSAL). Questa configurazione *non deve* essere usata da nuovi client destinati alla piattaforma delle identità Microsoft.
 
 ### <a name="client-credentials-grant-flow-and-default"></a>Flusso di concessione delle credenziali client e/.default  
 

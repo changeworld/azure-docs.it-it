@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a4e7389952b81df13dae929dc1aec664fcc0b7
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705997"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755650"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per sviluppatori Microsoft Identity Platform
 
@@ -117,7 +117,7 @@ Per ulteriori informazioni, vedere il [riferimento al token della piattaforma Mi
 
 ## <a name="microsoft-identity-platform"></a>Microsoft Identity Platform
 
-Microsoft Identity Platform è un'evoluzione della piattaforma per sviluppatori e del servizio di gestione delle identità di Azure Active Directory (Azure AD). Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare Microsoft Graph, altre API Microsoft o API create dagli sviluppatori. È una piattaforma completa che include un servizio di autenticazione, librerie, la configurazione e la registrazione delle applicazioni, esempi di codice e una documentazione esaustiva e altri contenuti per gli sviluppatori. Microsoft Identity Platform supporta protocolli standard di settore come OAuth 2.0 e OpenID Connect.
+La piattaforma Microsoft Identity è un'evoluzione del servizio di identità Azure Active Directory (Azure AD) e della piattaforma per sviluppatori. Consente agli sviluppatori di creare applicazioni che supportano l'accesso per tutte le identità Microsoft e il recupero di token per chiamare Microsoft Graph, altre API Microsoft o API create dagli sviluppatori. È una piattaforma completa che include un servizio di autenticazione, librerie, la configurazione e la registrazione delle applicazioni, esempi di codice e una documentazione esaustiva e altri contenuti per gli sviluppatori. Microsoft Identity Platform supporta protocolli standard di settore come OAuth 2.0 e OpenID Connect.
 
 ## <a name="multi-tenant-application"></a>applicazione multi-tenant
 
@@ -222,7 +222,7 @@ Tipo di [applicazione client](#client-application) che esegue tutto il codice su
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-La [Guida per gli sviluppatori di Microsoft Identity Platform][AAD-Dev-Guide] è la pagina di destinazione da usare per tutti gli argomenti relativi allo sviluppo della piattaforma Microsoft Identity, inclusa una panoramica dell' [integrazione dell'applicazione][AAD-How-To-Integrate] e le nozioni di base dell' [autenticazione della piattaforma Microsoft Identity e degli scenari di autenticazione supportati][AAD-Auth-Scenarios]. È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+La [Guida per gli sviluppatori di Microsoft Identity Platform][AAD-Dev-Guide] è la pagina di destinazione da usare per tutti gli argomenti relativi allo sviluppo della piattaforma di identità Microsoft, tra cui una panoramica dell' [integrazione dell'applicazione][AAD-How-To-Integrate] e le nozioni di base dell' [autenticazione della piattaforma Microsoft Identity e degli scenari di autenticazione supportati][AAD-Auth-Scenarios]. È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire questo contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
 
@@ -235,7 +235,7 @@ Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiuta
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [Graph-Perm-Scopes]: /graph/permissions-reference
 [Graph-App-Resource]: /graph/api/resources/application
-[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta
+[Graph-Sp-Resource]: /graph/api/resources/serviceprincipal?view=graph-rest-beta&preserve-view=true
 [Graph-User-Resource]: /graph/api/resources/user
 [AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md

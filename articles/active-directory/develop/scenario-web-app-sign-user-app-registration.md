@@ -1,5 +1,6 @@
 ---
-title: Registrare un'app Web che esegue l'accesso agli utenti-piattaforma di identità Microsoft | Azure
+title: Registrare un'app Web che esegue l'accesso agli utenti | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come registrare un'app Web per l'accesso degli utenti
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7ca294d3d7764737d4e2be55aae25bc8ff08a8d1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011527"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756265"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
@@ -41,7 +42,7 @@ Per registrare l'applicazione, è possibile usare:
 > Il portale da usare varia a seconda che l'applicazione venga eseguita nel cloud pubblico Microsoft Azure o in un cloud nazionale o sovrano. Per altre informazioni, vedere [cloud nazionali](./authentication-national-cloud.md#app-registration-endpoints).
 
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. 
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>. 
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.

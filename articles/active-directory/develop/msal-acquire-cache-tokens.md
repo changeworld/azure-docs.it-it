@@ -13,12 +13,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 34cdaa42f3a41ae04c73c570bb4fede01a786af2
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 98ae81626db637f5b0bd6bfe9e294c32293d09e5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107839"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755063"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)
 
@@ -30,7 +30,7 @@ MSAL memorizza nella cache un token dopo che è stato acquisito. Il codice dell'
 
 ## <a name="scopes-when-acquiring-tokens"></a>Ambiti durante l'acquisizione dei token
 
-Gli [ambiti](v2-permissions-and-consent.md) sono le autorizzazioni che un'API Web espone a cui le applicazioni client possono richiedere l'accesso. Le applicazioni client richiedono il consenso dell'utente per questi ambiti quando si effettuano richieste di autenticazione per ottenere i token per l'accesso alle API Web. MSAL consente di ottenere i token per accedere alle API di Azure AD per sviluppatori (v1.0) e Microsoft Identity Platform (v2.0). Il protocollo della versione 2.0 usa gli ambiti invece delle risorse nelle richieste. Per altre informazioni, leggere il [confronto tra v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Sulla base della configurazione dell'API Web della versione del token che accetta, l'endpoint v2.0 restituisce il token di accesso a MSAL.
+Gli [ambiti](v2-permissions-and-consent.md) sono le autorizzazioni che un'API Web espone a cui le applicazioni client possono richiedere l'accesso. Le applicazioni client richiedono il consenso dell'utente per questi ambiti quando si effettuano richieste di autenticazione per ottenere i token per l'accesso alle API Web. MSAL consente di ottenere i token per accedere Azure AD per gli sviluppatori (v 1.0) e le API della piattaforma di identità Microsoft. Il protocollo della versione 2.0 usa gli ambiti invece delle risorse nelle richieste. Per altre informazioni, leggere il [confronto tra v1.0 e v2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Sulla base della configurazione dell'API Web della versione del token che accetta, l'endpoint v2.0 restituisce il token di accesso a MSAL.
 
 Molti dei metodi di acquisizione di token di MSAL richiedono un `scopes` parametro. Il `scopes` parametro è un elenco di stringhe che dichiarano le autorizzazioni desiderate e le risorse richieste. Gli ambiti noti sono le [autorizzazioni Microsoft Graph](/graph/permissions-reference).
 

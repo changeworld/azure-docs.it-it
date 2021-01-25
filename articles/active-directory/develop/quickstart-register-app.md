@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: cc0d908f479fe5bdf14abb2ace0e6c046fd6d7d5
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 6052e2243f8b31aa57d4abf27c24a4b045c9eae2
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011950"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754626"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -84,8 +84,8 @@ Per configurare le impostazioni dell'applicazione in base alla piattaforma o al 
 
     | Piattaforma | Impostazioni di configurazione |
     | -------- | ---------------------- |
-    | **Web** | Immettere un **URI di reindirizzamento** per l'app, ovvero la posizione a cui Microsoft Identity Platform reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma per le applicazioni Web standard eseguite in un server. |
-    | **Applicazione a pagina singola** | Immettere un **URI di reindirizzamento** per l'app, ovvero la posizione a cui Microsoft Identity Platform reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma se si sta creando un'app Web lato client in JavaScript o con un framework come Angular, Vue.js, React.js o Blazor WebAssembly. |
+    | **Web** | Immettere un **URI di reindirizzamento** per l'app, la posizione in cui la piattaforma Microsoft Identity reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma per le applicazioni Web standard eseguite in un server. |
+    | **Applicazione a pagina singola** | Immettere un **URI di reindirizzamento** per l'app, la posizione in cui la piattaforma Microsoft Identity reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma se si sta creando un'app Web lato client in JavaScript o con un framework come Angular, Vue.js, React.js o Blazor WebAssembly. |
     | **iOS/macOS** | Immettere l'**ID bundle** dell'app, disponibile nell'ambiente XCode nel file *Info.plist* o nelle impostazioni di compilazione.<br/><br/>Quando si specifica un ID bundle, viene generato automaticamente un URI di reindirizzamento. |
     | **Android** | Immettere il **nome del pacchetto** dell'app, disponibile nel file *AndroidManifest.xml* e quindi generare e immettere l'**hash della firma**.<br/><br/>Quando si specificano queste impostazioni, viene generato automaticamente un URI di reindirizzamento. |
     | **Applicazioni per dispositivi mobili e desktop** | Selezionare uno dei valori in **URI di reindirizzamento suggeriti** o specificare un **URI di reindirizzamento personalizzato**.<br/>Per le applicazioni desktop è consigliabile:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selezionare questa piattaforma per le applicazioni per dispositivi mobili che non usano la libreria MSAL (Microsoft Authentication Library) più recente o che non usano un broker. Selezionare questa piattaforma anche per le applicazioni desktop. |
@@ -97,7 +97,7 @@ Sono previste diverse restrizioni relative al formato degli URI di reindirizzame
 
 ## <a name="add-credentials"></a>Aggiungere le credenziali
 
-Le credenziali vengono usate dalle applicazioni client riservate che accedono a un'API Web. Esempi di client riservati sono le app Web, altri tipi di API Web oppure applicazioni di tipo servizio e daemon. Le credenziali consentono all'applicazione di eseguire l'autenticazione in modo autonomo, senza richiedere alcuna interazione utente in fase di esecuzione.
+Le credenziali vengono usate dalle [applicazioni client riservate](msal-client-applications.md) che accedono a un'API Web. Esempi di client riservati sono [app Web](scenario-web-app-call-api-overview.md), altre [API Web](scenario-protected-web-api-overview.md)o [applicazioni di tipo servizio e daemon](scenario-daemon-overview.md). Le credenziali consentono all'applicazione di eseguire l'autenticazione in modo autonomo, senza richiedere alcuna interazione utente in fase di esecuzione. 
 
 È possibile aggiungere sia certificati che segreti client (una stringa) come credenziali della registrazione dell'app client riservata.
 
@@ -105,7 +105,7 @@ Le credenziali vengono usate dalle applicazioni client riservate che accedono a 
 
 ### <a name="add-a-certificate"></a>Aggiungere un certificato
 
-Noti talvolta come *chiave pubblica*, i certificati sono il tipo di credenziale consigliato perché offrono un livello di garanzia superiore rispetto a un segreto client.
+Noti talvolta come *chiave pubblica*, i certificati sono il tipo di credenziale consigliato perché offrono un livello di garanzia superiore rispetto a un segreto client. Per ulteriori informazioni sull'utilizzo del certificato come metodo di autenticazione nell'applicazione, vedere credenziali del [certificato di autenticazione dell'applicazione della piattaforma Microsoft Identity](active-directory-certificate-credentials.md) .
 
 1. Selezionare l'applicazione in **Registrazioni app** nel portale di Azure.
 1. Selezionare **Certificati e segreti** > **Carica certificato**.
@@ -114,7 +114,7 @@ Noti talvolta come *chiave pubblica*, i certificati sono il tipo di credenziale 
 
 ### <a name="add-a-client-secret"></a>Aggiungere un segreto client
 
-Il segreto client, noto anche come *password dell'applicazione*, è un valore stringa che l'app può usare al posto di un certificato per identificarsi. È tra i due tipi di credenziali quello più facile da usare e viene spesso usato in fase di sviluppo, ma è considerato meno sicuro di un certificato. È infatti consigliabile usare i certificati nelle applicazioni in esecuzione nell'ambiente di produzione.
+Il segreto client, noto anche come *password dell'applicazione*, è un valore stringa che l'app può usare al posto di un certificato per identificarsi. È tra i due tipi di credenziali quello più facile da usare e viene spesso usato in fase di sviluppo, ma è considerato meno sicuro di un certificato. È infatti consigliabile usare i certificati nelle applicazioni in esecuzione nell'ambiente di produzione. Per ulteriori informazioni sulle raccomandazioni relative alla sicurezza delle applicazioni, vedere procedure consigliate [e consigli per la piattaforma Microsoft Identity](identity-platform-integration-checklist.md#security) .
 
 1. Selezionare l'applicazione in **Registrazioni app** nel portale di Azure.
 1. Selezionare **Certificati e segreti** >  **Nuovo segreto client**.
@@ -122,6 +122,8 @@ Il segreto client, noto anche come *password dell'applicazione*, è un valore st
 1. Selezionare una durata.
 1. Selezionare **Aggiungi**.
 1. **Prendere nota del valore del segreto** per usarlo nel codice dell'applicazione client in quando *non verrà più visualizzato* dopo che si chiude questa pagina.
+
+**Nota:** L'ID generato insieme al valore del segreto è l'ID del segreto, che è diverso dall'ID applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

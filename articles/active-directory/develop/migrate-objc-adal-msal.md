@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fb66d8a4bf97a6f8a10534c9c4459123ad6a2654
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 7dc3241198fbc6eeddba059251f28c6dc35c8a29
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107921"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754928"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Eseguire la migrazione di applicazioni a MSAL per iOS e macOS
 
@@ -38,14 +38,14 @@ La piattaforma di identità Microsoft presenta alcune differenze principali risp
 
 ### <a name="standards-compliance"></a>Conformità agli standard
 
-* L'endpoint della piattaforma Microsoft Identity segue gli standard OAuth 2,0 e OpenId Connect.
+* La piattaforma di identità Microsoft segue gli standard OAuth 2,0 e OpenId Connect.
 
 ### <a name="incremental-and-dynamic-consent"></a>Consenso incrementale e dinamico
 
 * Per l'endpoint Azure Active Directory v 1.0 è necessario dichiarare in anticipo tutte le autorizzazioni durante la registrazione dell'applicazione. Ciò significa che le autorizzazioni sono statiche.
 * La piattaforma Microsoft Identity consente di richiedere le autorizzazioni in modo dinamico. Le app possono richiedere le autorizzazioni solo in base alle esigenze e richiedere un maggior numero di richieste.
 
-Per ulteriori informazioni sulle differenze tra Azure Active Directory v 1.0 e la piattaforma Microsoft Identity, vedere la pagina relativa [all'aggiornamento alla piattaforma di identità Microsoft (v 2.0)](../azuread-dev/azure-ad-endpoint-comparison.md).
+Per altre informazioni sulle differenze tra Azure Active Directory v 1.0 e la piattaforma Microsoft Identity, vedere [perché eseguire l'aggiornamento alla piattaforma di identità Microsoft?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Differenze tra la libreria ADAL e MSAL
 
@@ -61,7 +61,7 @@ In MSAL, l'interazione principale avviene tramite un `MSALPublicClientApplicatio
 
 In ADAL un'app doveva fornire un identificatore di *risorsa* come `https://graph.microsoft.com` per acquisire i token dall'endpoint Azure Active Directory versione 1.0. Una risorsa può definire un certo numero di ambiti, o oAuth2Permissions nel manifesto dell'applicazione, che riconosce. In questo modo le app client possono richiedere token da tale risorsa per un determinato set di ambiti predefiniti durante la registrazione dell'app.
 
-In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio, usare `https://graph.microsoft.com/user.read`
+In MSAL, invece di un singolo identificatore di risorsa, le app forniscono un set di ambiti per ogni richiesta. Un ambito è un identificatore di risorsa seguito da un nome di autorizzazione nel formato risorsa/autorizzazione. Ad esempio: `https://graph.microsoft.com/user.read`
 
 Esistono due modi per specificare gli ambiti in MSAL:
 
@@ -226,7 +226,7 @@ Non è necessario modificare l'applicazione AAD esistente per passare a MSAL e a
 
 Il formato dell'URI di reindirizzamento deve essere il seguente: `msauth.<app.bundle.id>://auth` . Sostituire `<app.bundle.id>` con l'ID bundle dell'applicazione. Specificare l'URI di reindirizzamento nel [portale di Azure](https://aka.ms/MobileAppReg).
 
-Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Ad esempio, usare `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+Solo per iOS, per supportare l'autenticazione basata su certificati, è necessario registrare un URI di reindirizzamento aggiuntivo nell'applicazione e il portale di Azure nel formato seguente: `msauth://code/<broker-redirect-uri-in-url-encoded-form>` . Ad esempio: `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 È consigliabile che tutte le app registrino entrambi gli URI di reindirizzamento.
 

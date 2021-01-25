@@ -13,16 +13,16 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3222c790ccd0cee936b246253a16b5c434c61c8
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 50a2f56824db67b73199439922e662339ff30872
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602207"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755286"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato per l'autenticazione di un'applicazione con Microsoft Identity Platform
 
-Microsoft Identity Platform consente a un'applicazione di usare le proprie credenziali per l'autenticazione ovunque sia possibile usare un segreto client, ad esempio nel flusso di  [concessione delle credenziali client](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 e nel flusso [di per conto di](v2-oauth2-on-behalf-of-flow.md) (OBO).
+La piattaforma Microsoft Identity consente a un'applicazione di usare le proprie credenziali per l'autenticazione ovunque sia possibile usare un segreto client, ad esempio nel flusso di  [concessione delle credenziali client](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 e nel flusso [di per conto di](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
 Una forma di credenziale che un'applicazione può usare per l'autenticazione è un'asserzione [JSON Web token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) firmata con un certificato di proprietà dell'applicazione.
 
@@ -40,7 +40,7 @@ Per calcolare l'asserzione, è possibile usare una delle numerose librerie JWT n
 
 ### <a name="claims-payload"></a>Attestazioni (payload)
 
-Tipo di attestazione | Valore | Descrizione
+Tipo di attestazione | valore | Descrizione
 ---------- | ---------- | ----------
 aud | `https://login.microsoftonline.com/{tenantId}/v2.0` | L'attestazione "AUD" (audience) identifica i destinatari a cui è destinato il JWT (in questo Azure AD) vedere [RFC 7519, sezione 4.1.3](https://tools.ietf.org/html/rfc7519#section-4.1.3).  In questo caso, il destinatario è il server di accesso (login.microsoftonline.com).
 exp | 1601519414 | L'attestazione "exp" (expiration time) identifica l'ora di scadenza a partire dalla quale o successivamente alla quale il token JWT non deve essere accettato per l'elaborazione. Vedere la [specifica RFC 7519, sezione 4.1.4](https://tools.ietf.org/html/rfc7519#section-4.1.4).  Questo consente di usare l'asserzione fino a quel momento, quindi mantenerla a breve-5-10 minuti dopo `nbf` al massimo.  Azure AD non applica restrizioni al `exp` momento attuale. 
@@ -89,7 +89,7 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ## <a name="register-your-certificate-with-microsoft-identity-platform"></a>Registrare un certificato con Microsoft Identity Platform
 
-È possibile associare la credenziale del certificato all'applicazione client in Microsoft Identity Platform tramite il portale di Azure usando uno dei metodi seguenti:
+È possibile associare la credenziale del certificato all'applicazione client nella piattaforma Microsoft Identity tramite il portale di Azure usando uno dei metodi seguenti:
 
 ### <a name="uploading-the-certificate-file"></a>Caricamento del file del certificato
 
@@ -131,7 +131,7 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 
 Le asserzioni client possono essere utilizzate ovunque venga utilizzato un segreto client.  Nel [flusso del codice di autorizzazione](v2-oauth2-auth-code-flow.md), ad esempio, è possibile passare un `client_secret` per dimostrare che la richiesta è proveniente dall'app. È possibile sostituire con i `client_assertion` `client_assertion_type` parametri e. 
 
-| Parametro | Valore | Descrizione|
+| Parametro | valore | Descrizione|
 |-----------|-------|------------|
 |`client_assertion_type`|`urn:ietf:params:oauth:client-assertion-type:jwt-bearer`| Si tratta di un valore fisso, che indica che si sta utilizzando una credenziale del certificato. |
 |`client_assertion`| Token JSON Web |Si tratta del JWT creato in precedenza. |

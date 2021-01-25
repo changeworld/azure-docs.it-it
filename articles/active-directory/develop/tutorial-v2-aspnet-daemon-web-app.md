@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 5f2560cdc062edb41ecda935eb9b8efe630949dc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015947"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756142"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -49,7 +49,7 @@ Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un
 
 ![Diagramma che mostra l'app UserSync con tre elementi locali che si connettono ad Azure, con Start.Auth che acquisisce un token in modo interattivo per connettersi ad Azure AD, AccountController che ottiene il consenso dell'amministratore per connettersi ad Azure AD e SyncController che legge l'utente per connettersi a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
-Per altre informazioni sui concetti di questo esempio, leggere la [documentazione relativa al protocollo di credenziali client per l'endpoint di Identity Platform](v2-oauth2-client-creds-grant-flow.md).
+Per ulteriori informazioni sui concetti usati in questo esempio, vedere la [documentazione relativa al protocollo di credenziali client per la piattaforma di identità](v2-oauth2-client-creds-grant-flow.md).
 
 ## <a name="clone-or-download-this-repository"></a>Clonare o scaricare questo repository
 

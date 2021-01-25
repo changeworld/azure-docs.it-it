@@ -1,5 +1,6 @@
 ---
-title: Spostare l'app desktop che chiama le API Web nell'ambiente di produzione-piattaforma di identità Microsoft | Azure
+title: Spostare un'app desktop che chiama API Web nell'ambiente di produzione | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come spostare un'app desktop che chiama API Web nell'ambiente di produzione
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 325f95f2830ef021a4ac79de48695dda570f7817
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 05b93848bff66adc49d2855ee98fff6c9b7a2d3d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629783"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756512"
 ---
 # <a name="desktop-app-that-calls-web-apis-move-to-production"></a>App desktop che chiama le API Web: passa all'ambiente di produzione
 
@@ -31,7 +32,7 @@ Nei diversi flussi si è appreso come gestire gli errori per i flussi invisibile
 > [!NOTE]
 > Ottenere il consenso per diverse risorse funziona per la piattaforma di identità Microsoft, ma non per Azure Active Directory (Azure AD) B2C. Azure AD B2C supporta solo il consenso dell'amministratore, non il consenso dell'utente.
 
-Non è possibile ottenere un token per più risorse contemporaneamente con l'endpoint della piattaforma Microsoft Identity Platform (v 2.0). Il `scopes` parametro può contenere ambiti solo per una singola risorsa. È possibile verificare che l'utente preacconsente a diverse risorse tramite il `extraScopesToConsent` parametro.
+Non è possibile ottenere un token per più risorse contemporaneamente con la piattaforma di identità Microsoft. Il `scopes` parametro può contenere ambiti solo per una singola risorsa. È possibile verificare che l'utente preacconsente a diverse risorse tramite il `extraScopesToConsent` parametro.
 
 È possibile, ad esempio, che siano presenti due risorse con due ambiti:
 

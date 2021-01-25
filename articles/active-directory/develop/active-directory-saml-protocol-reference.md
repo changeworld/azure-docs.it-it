@@ -12,22 +12,22 @@ ms.date: 10/05/2018
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 06f80f94be25e42c9e8f0270e6cb15aca086ae18
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4e9d63b8fe7fc281a87deb27ddadd794e14fa04d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994401"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755625"
 ---
-# <a name="how-microsoft-identity-platform-uses-the-saml-protocol"></a>Modalità di utilizzo del protocollo SAML da parte della piattaforma Microsoft Identity
+# <a name="how-the-microsoft-identity-platform-uses-the-saml-protocol"></a>Modalità di utilizzo del protocollo SAML da parte della piattaforma Microsoft Identity
 
-Microsoft Identity Platform usa il protocollo SAML 2,0 per consentire alle applicazioni di fornire agli utenti un'esperienza Single Sign-On. I profili SAML [Single Sign-on](single-sign-on-saml-protocol.md) e [Single Sign-out](single-sign-out-saml-protocol.md) di Azure ad illustrano il modo in cui le asserzioni SAML, i protocolli e le associazioni vengono usati nel servizio del provider di identità.
+La piattaforma Microsoft Identity usa il protocollo SAML 2,0 per consentire alle applicazioni di fornire agli utenti un'esperienza Single Sign-On. I profili SAML [Single Sign-on](single-sign-on-saml-protocol.md) e [Single Sign-out](single-sign-out-saml-protocol.md) di Azure ad illustrano il modo in cui le asserzioni SAML, i protocolli e le associazioni vengono usati nel servizio del provider di identità.
 
 Il protocollo SAML richiede che il provider di identità (piattaforma di identità Microsoft) e il provider di servizi (l'applicazione) scambino informazioni relative a se stessi.
 
 Quando un'applicazione viene registrata in Azure AD, lo sviluppatore dell'app registra le informazioni relative alla federazione con Azure AD. Tali informazioni includono l'**URI di reindirizzamento** e l'**URI dei metadati** dell'applicazione.
 
-Microsoft Identity Platform usa l' **URI dei metadati** del servizio cloud per recuperare la chiave di firma e l'URI di disconnessione. Il cliente può aprire l'app in **Azure AD -> Registrazione per l'app** e poi in **Impostazioni -> Proprietà** può aggiornare l'URL di disconnessione. In questo modo, la piattaforma Microsoft Identity può inviare la risposta all'URL corretto. 
+La piattaforma Microsoft Identity usa l' **URI dei metadati** del servizio cloud per recuperare la chiave di firma e l'URI di disconnessione. Il cliente può aprire l'app in **Azure AD -> Registrazione per l'app** e poi in **Impostazioni -> Proprietà** può aggiornare l'URL di disconnessione. In questo modo, la piattaforma di identità Microsoft può inviare la risposta all'URL corretto. 
 
 Azure Active Directory espone endpoint di Single Sign-On e Single Sign-Out specifici del tenant e comuni (indipendenti dal tenant). Questi URL non sono semplici identificatori, ma rappresentano posizioni indirizzabili. È quindi possibile accedere all'endpoint per leggere i metadati.
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: dbddf35b0aa1494ef719803fa84cafae04f3ec50
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e2a71313294457e09e2bb152dea98c84b7730236
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178586"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754414"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso Microsoft Identity Platform a un'app Web ASP.NET
 
@@ -169,7 +169,7 @@ public void Configuration(IAppBuilder app)
 > |---------|---------|
 > | `ClientId`     | ID dell'applicazione registrata nel portale di Azure |
 > | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere `https://login.microsoftonline.com/{tenant}/v2.0` per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |
-> | `RedirectUri`  | URL a cui vengono indirizzati gli utenti dopo l'autenticazione con l'endpoint di Microsoft Identity Platform |
+> | `RedirectUri`  | URL in cui gli utenti vengono inviati dopo l'autenticazione con la piattaforma di identità Microsoft |
 > | `PostLogoutRedirectUri`     | URL a cui vengono indirizzati gli utenti dopo la disconnessione |
 > | `Scope`     | Elenco di ambiti richiesti, separati da spazi |
 > | `ResponseType`     | Richiesta che la risposta dell'autenticazione contenga un ID token |

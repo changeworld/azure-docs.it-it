@@ -1,7 +1,7 @@
 ---
-title: "Avvio rapido: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform | Azure"
+title: "Guida introduttiva: chiamare un'API Web ASP.NET protetta dalla piattaforma di identità Microsoft | Azure"
 titleSuffix: Microsoft identity platform
-description: Questa guida di avvio rapido illustra come chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform da un'applicazione desktop di Windows (WPF).
+description: Questa Guida introduttiva illustra come chiamare un'API Web ASP.NET protetta dalla piattaforma Microsoft Identity da un'applicazione desktop di Windows (WPF).
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 2967476d06b8f6f88b740f811a94c5fdb4284b4d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011867"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754315"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Avvio rapido: Chiamare un'API Web ASP.NET protetta da Microsoft Identity Platform
 

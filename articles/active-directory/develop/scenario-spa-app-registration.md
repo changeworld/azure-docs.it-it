@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 0050eb61aac53b69c74306b9aaab797d8adfa915
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: d4189e466d5e9b41247723165ce2a5c14c4a8dfa
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017001"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756412"
 ---
 # <a name="single-page-application-app-registration"></a>Applicazione a pagina singola: Registrazione delle app
 
@@ -27,7 +27,7 @@ Per registrare un'applicazione a pagina singola (SPA) in Microsoft Identity Plat
 
 Sia per le applicazioni basate su MSAL.js 1.0 che per quelle basate su MSAL.js 2.0, iniziare completando la procedura seguente per creare la registrazione iniziale dell'app.
 
-1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
 1. Cercare e selezionare **Azure Active Directory**.
 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.

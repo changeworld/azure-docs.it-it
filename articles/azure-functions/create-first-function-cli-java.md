@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom:
 - devx-track-java
 - devx-track-azurecli
-ms.openlocfilehash: 504d3a834760605149c93c0beea84bbe1b59e263
-ms.sourcegitcommit: 17e9cb8d05edaac9addcd6e0f2c230f71573422c
-ms.translationtype: HT
+ms.openlocfilehash: 5ebb30101d191bb254017db7b0de2f9b8bce145d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97707555"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755174"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-from-the-command-line"></a>Avvio rapido: Creare una funzione Java in Azure dalla riga di comando
 
@@ -79,7 +79,7 @@ In Funzioni di Azure un progetto di funzione è un contenitore per una o più fu
 1. Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
     Quando richiesto, specificare i valori seguenti:
 
-    | Prompt | Valore | Descrizione |
+    | Prompt | valore | Descrizione |
     | ------ | ----- | ----------- |
     | **groupId** | `com.fabrikam` | Un valore che identifica in modo univoco il progetto tra tutti gli altri, seguendo le [regole di denominazione dei pacchetti](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) per Java. |
     | **artifactId** | `fabrikam-functions` | Un valore che corrisponde al nome del jar, senza un numero di versione. |
@@ -113,7 +113,7 @@ Il messaggio di risposta viene generato dall'API [HttpResponseMessage.Builder](/
 
 Le impostazioni per le risorse di Azure create per ospitare l'app sono definite nell'elemento **configuration** del plug-in con un elemento **groupId** di `com.microsoft.azure` nel file pom.xml generato. Ad esempio, l'elemento configuration seguente indica a una distribuzione basata su Maven di creare un'app per le funzioni nel gruppo di risorse `java-functions-group` nell'area `westus`. L'app per le funzioni viene eseguita in Windows ospitata nel piano `java-functions-app-service-plan`, che per impostazione predefinita è un piano a consumo serverless.
 
-:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-107":::
 
 È possibile modificare queste impostazioni per controllare la modalità di creazione delle risorse in Azure, ad esempio cambiando `runtime.os` da `windows` a `linux` prima della distribuzione iniziale. Per un elenco completo delle impostazioni supportate dal plug-in Maven, vedere i [dettagli di configurazione](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 

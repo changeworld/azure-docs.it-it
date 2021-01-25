@@ -13,15 +13,15 @@ ms.date: 04/30/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 6333d935e1a902ba173017f8149c098f44398955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9dbcbb6c32969b66cd446db634e83ce81f3c92
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165873"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754740"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>L'utente ottiene il consenso per diverse risorse usando MSAL.NET
-L'endpoint della piattaforma di identità Microsoft non consente di ottenere un token per più risorse contemporaneamente. Quando si usa Microsoft Authentication Library per .NET (MSAL.NET), il parametro Scopes nel metodo di acquisizione del token deve contenere solo ambiti per una singola risorsa. Tuttavia, è possibile pre-concedere il consenso a più risorse in anticipo specificando gli ambiti aggiuntivi tramite il `.WithExtraScopeToConsent` metodo del generatore.
+La piattaforma di identità Microsoft non consente di ottenere un token per più risorse contemporaneamente. Quando si usa Microsoft Authentication Library per .NET (MSAL.NET), il parametro Scopes nel metodo di acquisizione del token deve contenere solo ambiti per una singola risorsa. Tuttavia, è possibile pre-concedere il consenso a più risorse in anticipo specificando gli ambiti aggiuntivi tramite il `.WithExtraScopeToConsent` metodo del generatore.
 
 > [!NOTE]
 > Ottenere il consenso per diverse risorse funziona per la piattaforma di identità Microsoft, ma non per Azure AD B2C. Azure AD B2C supporta solo il consenso dell'amministratore, non il consenso dell'utente.

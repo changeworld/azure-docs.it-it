@@ -14,12 +14,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: eec24ca19af8c41a842b1db3db4b9e16f748f029
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 6a1f4a02ebf42c0f181b595aae0a5fa0bcc9b41d
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653249"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755905"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
@@ -89,7 +89,7 @@ Questo elenco Mostra le attestazioni JWT che si trovano nella maggior parte dei 
 |`groups:src1`|Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Per ulteriori informazioni, vedere [gruppi di attestazione in eccedenza](#groups-overage-claim).|
 
 > [!NOTE]
-> Le id_token v 1.0 e v 2.0 presentano differenze nella quantità di informazioni che verranno riportate come illustrato negli esempi precedenti. La versione è basata sull'endpoint dal quale è stata richiesta. Sebbene le applicazioni esistenti usino probabilmente l'endpoint Azure AD, le nuove applicazioni devono usare l'endpoint della versione 2.0 "piattaforma di identità Microsoft".
+> Le id_token v 1.0 e v 2.0 presentano differenze nella quantità di informazioni che verranno riportate come illustrato negli esempi precedenti. La versione è basata sull'endpoint dal quale è stata richiesta. Sebbene le applicazioni esistenti usino probabilmente l'endpoint Azure AD, le nuove applicazioni devono usare la "piattaforma di identità Microsoft".
 >
 > - v 1.0: endpoint Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v 2.0: endpoint della piattaforma di identità Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

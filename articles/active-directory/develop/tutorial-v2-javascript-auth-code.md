@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: b7d14ee321a1160420d106151276ae6aef513c5b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
-ms.translationtype: HT
+ms.openlocfilehash: 1ec046ca6b42a5ca8f33b0347c562c85abd42684
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064403"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756169"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a pagina singola JavaScript usando il flusso del codice di autenticazione
 
@@ -28,7 +28,7 @@ In questa esercitazione:
 > * Eseguire il flusso del codice di autorizzazione OAuth 2.0 con PKCE
 > * Accedere agli account Microsoft personali, oltre che agli account aziendali e dell'istituto di istruzione
 > * Acquisire un token di accesso
-> * Chiamare l'API Microsoft Graph o le proprie API che richiedono token di accesso ottenuti dall'endpoint di Microsoft Identity Platform
+> * Chiamare Microsoft Graph o un'API che richiede token di accesso ottenuti dalla piattaforma di identità Microsoft
 
 MSAL.js 2.0 rappresenta un miglioramento rispetto a MSAL.js 1.0 in quanto supporta il flusso del codice di autorizzazione nel browser invece del flusso di concessione implicita. MSAL.js 2.0 **NON** supporta il flusso implicito.
 
@@ -41,7 +41,7 @@ MSAL.js 2.0 rappresenta un miglioramento rispetto a MSAL.js 1.0 in quanto suppor
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagramma che mostra il flusso del codice di autorizzazione in un'applicazione a pagina singola":::
 
-In questa esercitazione viene creata a un'applicazione a pagina singola JavaScript che esegue query sull'API Microsoft Graph acquisendo token di sicurezza dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto e aggiunto un token di accesso alle richieste HTTP nell'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL.js) per JavaScript.
+L'applicazione creata in questa esercitazione consente a una SPA JavaScript di eseguire query sull'API Microsoft Graph acquisendo i token di sicurezza dalla piattaforma Microsoft Identity. Per questo scenario, dopo l'accesso di un utente, viene richiesto e aggiunto un token di accesso alle richieste HTTP nell'intestazione dell'autorizzazione. L'acquisizione e il rinnovo del token vengono gestiti da Microsoft Authentication Library (MSAL.js) per JavaScript.
 
 Questa esercitazione la libreria seguente:
 
@@ -558,13 +558,13 @@ L'applicazione a pagina singola creata in questa esercitazione chiama `acquireTo
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-Dopo l'accesso iniziale, l'app non dovrà chiedere agli utenti di ripetere l'autenticazione (ossia, non dovrà richiedere un token) ogni volta che vogliono accedere a una risorsa protetta. Per impedire tali richieste di riautenticazione, chiamare `acquireTokenSilent`. In alcune situazioni, tuttavia, può essere necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform. Ad esempio:
+Dopo l'accesso iniziale, l'app non dovrà chiedere agli utenti di ripetere l'autenticazione (ossia, non dovrà richiedere un token) ogni volta che vogliono accedere a una risorsa protetta. Per impedire tali richieste di riautenticazione, chiamare `acquireTokenSilent`. In alcune situazioni, tuttavia, potrebbe essere necessario forzare gli utenti a interagire con la piattaforma di identità Microsoft. Ad esempio:
 
 - Gli utenti devono reimmettere le proprie credenziali perché la password è scaduta.
 - L'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente.
 - È necessaria l'autenticazione a due fattori.
 
-Se si chiama `acquireTokenPopup`, viene aperta una finestra popup oppure `acquireTokenRedirect` reindirizza gli utenti all'endpoint di Microsoft Identity Platform. In questa finestra gli utenti devono interagire confermando le proprie credenziali, fornendo il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
+`acquireTokenPopup`La chiamata a apre una finestra popup (oppure `acquireTokenRedirect` reindirizza gli utenti alla piattaforma di identità Microsoft). In questa finestra gli utenti devono interagire confermando le proprie credenziali, fornendo il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
@@ -618,7 +618,7 @@ La creazione dell'applicazione è stata completata ed è ora possibile avviare i
 
 ### <a name="sign-in-to-the-application"></a>Accedere all'applicazione
 
-Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
+Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Viene richiesto di accedere con la piattaforma di identità Microsoft:
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/spa-01-signin-dialog.png" alt-text="Web browser che visualizza la finestra di dialogo di accesso":::
 

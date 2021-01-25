@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 2c03e6940d392e3e2c03bf6508de41a7a19aef3b
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063774"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754956"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Eseguire la migrazione di un'app a pagina singola JavaScript da una concessione implicita al flusso del codice di autorizzazione
 
@@ -90,7 +90,7 @@ Quando si deselezionano le impostazioni per la concessione implicita nella regis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul flusso del codice di autorizzazione, incluse le differenze tra i flussi di codice implicito e di autenticazione, vedere [Flusso del codice di autorizzazione di Microsoft Identity Platform e OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Per altre informazioni sul flusso del codice di autorizzazione, incluse le differenze tra i flussi di codice implicito e di autenticazione, vedere la [piattaforma Microsoft Identity e il flusso del codice di autorizzazione OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 Se si vuole approfondire lo sviluppo di applicazioni a pagina singola JavaScript con Microsoft Identity Platform, la serie di articoli in più parti [Scenario: applicazione a pagina singola](scenario-spa-overview.md) può essere utile per iniziare.
 

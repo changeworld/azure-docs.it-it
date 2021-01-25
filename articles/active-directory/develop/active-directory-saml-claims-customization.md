@@ -13,20 +13,20 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 9fb5e229882532fed076f2e0d800f32acfcdbf4c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013788"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756075"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
-Microsoft Identity Platform, attualmente, supporta Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse entrambe le applicazioni preintegrate nella raccolta di app Azure AD e nelle applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione tramite la piattaforma Microsoft Identity usando il protocollo SAML 2,0, la piattaforma Microsoft Identity Invia un token all'applicazione (tramite un HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
+Attualmente, la piattaforma di identità Microsoft supporta la Single Sign-On (SSO) con la maggior parte delle applicazioni aziendali, incluse le applicazioni preintegrate nella raccolta di app Azure AD e applicazioni personalizzate. Quando un utente esegue l'autenticazione a un'applicazione tramite la piattaforma Microsoft Identity usando il protocollo SAML 2,0, la piattaforma Microsoft Identity Invia un token all'applicazione (tramite un HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente, note come *attestazioni*.
 
 Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](https://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, Microsoft Identity Platform rilascia un token SAML all'applicazione che contiene un' `NameIdentifier` attestazione con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure ad, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
+Per impostazione predefinita, la piattaforma di identità Microsoft rilascia un token SAML all'applicazione che contiene un' `NameIdentifier` attestazione con un valore del nome utente dell'utente (noto anche come nome dell'entità utente) in Azure ad, che può identificare in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Quindi aprire la sezione **Attributi utente e attestazioni**.
 
@@ -50,7 +50,7 @@ Per modificare NameID (valore dell'identificatore del nome):
 
 Se la richiesta SAML contiene l'elemento NameIDPolicy con un formato specifico, la piattaforma di identità Microsoft rispetterà il formato nella richiesta.
 
-Se la richiesta SAML non contiene un elemento per NameIDPolicy, la piattaforma Microsoft Identity NameID rilascerà il formato specificato dall'utente. Se non viene specificato alcun formato, Microsoft Identity Platform utilizzerà il formato di origine predefinito associato all'origine dell'attestazione selezionata.
+Se la richiesta SAML non contiene un elemento per NameIDPolicy, la piattaforma Microsoft Identity rilascerà il NameID con il formato specificato. Se non viene specificato alcun formato, la piattaforma Microsoft Identity utilizzerà il formato di origine predefinito associato all'origine attestazione selezionata.
 
 Nell'elenco a discesa **Scegliere il formato per l'identificatore del nome** è possibile selezionare una delle opzioni seguenti.
 
@@ -168,7 +168,7 @@ Per aggiungere una condizione per l'attestazione:
 
 L'ordine in cui si aggiungono le condizioni è importante. Azure AD valuta le condizioni dall'alto verso il basso per decidere quale valore generare nell'attestazione. L'ultimo valore che corrisponde all'espressione verrà generato nell'attestazione.
 
-Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Considerata la configurazione seguente per l'applicazione Fabrikam, quando Britta tenta di accedere a Fabrikam, Microsoft Identity Platform valuterà le condizioni come segue.
+Britta Simon, ad esempio, è un utente guest nel tenant di Contoso. Appartiene a un'altra organizzazione che usa Azure AD. Considerata la configurazione seguente per l'applicazione Fabrikam, quando Britta tenta di accedere a Fabrikam, la piattaforma Microsoft Identity valuterà le condizioni come segue.
 
 Per prima cosa, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `All guests` . Poiché questo è vero, la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.extensionattribute1` . In secondo luogo, la piattaforma di identità Microsoft verifica se il tipo di utente di Britta è `AAD guests` , poiché questo è vero anche se la piattaforma Microsoft Identity assegna l'origine per l'attestazione a `user.mail` . Infine, l'attestazione viene creata con il valore `user.mail` per Britta.
 

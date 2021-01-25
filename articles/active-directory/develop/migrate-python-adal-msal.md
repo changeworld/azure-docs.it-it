@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 213184409c9f5ee21ac9f61be1ad138fbbaa3590
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 42ffc7ffba20868b23675fd8613fd3ef11b0924a
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97107856"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755056"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guida alla migrazione da ADAL a MSAL per Python
 
@@ -38,13 +38,13 @@ Supporto:
   - OAuth v 2.0
   - OpenID Connect (OIDC)
 
-Per ulteriori informazioni, vedere la pagina relativa [all'endpoint della piattaforma Microsoft Identity (v 2.0)](../azuread-dev/azure-ad-endpoint-comparison.md) .
+Per ulteriori informazioni, vedere la pagina relativa [alle differenze relative alla piattaforma di identità Microsoft](../azuread-dev/azure-ad-endpoint-comparison.md) .
 
 ### <a name="scopes-not-resources"></a>Ambiti e non risorse
 
 ADAL Python acquisisce i token per le risorse, ma MSAL Python acquisisce i token per gli ambiti. La superficie dell'API in MSAL Python non dispone più del parametro Resource. È necessario specificare gli ambiti come un elenco di stringhe che dichiarano le autorizzazioni e le risorse desiderate richieste. Per vedere alcuni esempi di ambiti, vedere [ambiti di Microsoft Graph](/graph/permissions-reference).
 
-È possibile aggiungere il `/.default` suffisso di ambito alla risorsa per facilitare la migrazione delle app dall'endpoint v 1.0 (adal) all'endpoint della piattaforma Microsoft Identity (MSAL). Ad esempio, per il valore della risorsa di `https://graph.microsoft.com` , il valore dell'ambito equivalente è `https://graph.microsoft.com/.default` .  Se la risorsa non è nel formato URL, ma un ID risorsa del modulo `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , è comunque possibile usare il valore di ambito come `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
+È possibile aggiungere il `/.default` suffisso di ambito alla risorsa per facilitare la migrazione delle app dall'endpoint v 1.0 (adal) alla piattaforma Microsoft Identity Platform (MSAL). Ad esempio, per il valore della risorsa di `https://graph.microsoft.com` , il valore dell'ambito equivalente è `https://graph.microsoft.com/.default` .  Se la risorsa non è nel formato URL, ma un ID risorsa del modulo `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` , è comunque possibile usare il valore di ambito come `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default` .
 
 Per altri dettagli sui diversi tipi di ambiti, fare riferimento [a autorizzazioni e consenso nella piattaforma di identità Microsoft](./v2-permissions-and-consent.md) e agli [ambiti per un'API Web che accettano gli articoli relativi ai token v 1.0](./msal-v1-app-scopes.md) .
 
@@ -92,7 +92,7 @@ def get_preexisting_rt_and_their_scopes_from_elsewhere():
     # You may be able to append "/.default" to your v1 resource to form a scope
     # See https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope
 
-    # Or maybe you have an app already talking to Microsoft identity platform v2,
+    # Or maybe you have an app already talking to the Microsoft identity platform,
     # powered by some 3rd-party auth library, and persist its tokens somehow.
 
     # Either way, you need to extract RTs from there, and return them like this.

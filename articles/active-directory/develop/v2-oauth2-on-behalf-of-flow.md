@@ -13,12 +13,12 @@ ms.date: 08/7/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8c8167142876dfac0ae0aeff51e85b66c65c607b
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: ff8e03b813e2cb890192667e3466d920eaabc72c
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208849"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98756089"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0
 
@@ -130,7 +130,7 @@ Una risposta di esito positivo è una risposta OAuth 2.0 JSON con i parametri se
 
 | Parametro | Descrizione |
 | --- | --- |
-| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato da Microsoft Identity Platform è `Bearer`. Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
+| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato dalla piattaforma di identità Microsoft è `Bearer` . Per altre informazioni sui bearer token, vedere [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Framework di autorizzazione di OAuth 2.0: uso dei bearer token - RFC 6750). |
 | `scope` | L'ambito di accesso concesso nel token. |
 | `expires_in` | Il periodo di validità, in secondi, del token di accesso. |
 | `access_token` | Token di accesso richiesto. Il servizio chiamante può usare questo token per l'autenticazione nel servizio ricevente. |
@@ -151,7 +151,7 @@ L'esempio seguente mostra una risposta corretta a una richiesta di token di acce
 }
 ```
 
-Il token di accesso precedente è un token in formato v 1.0 per Microsoft Graph. Questo perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlato agli endpoint usati per richiederlo. L'API Microsoft Graph è configurata per accettare token v1.0, di conseguenza Microsoft Identity Platform genera i token di accesso v1.0 quando un client richiede i token per Microsoft Graph. Altre app possono indicare che vogliono usare i token di formato v 2.0, i token di formato v 1.0 o anche i formati di token crittografati o proprietari.  Entrambi gli endpoint v 1.0 e v 2.0 possono emettere uno dei due formati di token. in questo modo, la risorsa può ottenere sempre il formato corretto del token indipendentemente dalla modalità o dal punto in cui il token è stato richiesto dal client. 
+Il token di accesso precedente è un token in formato v 1.0 per Microsoft Graph. Questo perché il formato del token è basato sulla **risorsa** a cui si accede e non è correlato agli endpoint usati per richiederlo. Il Microsoft Graph è configurato per accettare i token v 1.0, quindi la piattaforma Microsoft Identity produce token di accesso v 1.0 quando un client richiede token per Microsoft Graph. Altre app possono indicare che vogliono usare i token di formato v 2.0, i token di formato v 1.0 o anche i formati di token crittografati o proprietari.  Entrambi gli endpoint v 1.0 e v 2.0 possono emettere uno dei due formati di token. in questo modo, la risorsa può ottenere sempre il formato corretto del token indipendentemente dalla modalità o dal punto in cui il token è stato richiesto dal client. 
 
 Solo le applicazioni devono esaminare i token di accesso. I client **non devono** esaminarli. Esaminando i token di accesso per le altre app nel codice, l'app si interrompe in modo imprevisto quando tale app modifica il formato dei token o inizia a crittografarli. 
 
@@ -201,7 +201,7 @@ A seconda dell'architettura o dell'utilizzo dell'applicazione, è possibile pren
 
 ### <a name="default-and-combined-consent"></a>/.default e consenso combinato
 
-L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. Nell'endpoint Microsoft Identity Platform, questa operazione viene eseguita usando l'[ambito `/.default`](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni **sia** del client per l'API di livello intermedio e richiederà anche le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
+L'applicazione di livello intermedio aggiunge il client all'elenco delle applicazioni client note nel relativo manifesto e quindi il client può attivare un flusso di consenso combinato per se stesso e l'applicazione di livello intermedio. Nella piattaforma Microsoft Identity questa operazione viene eseguita usando l' [ `/.default` ambito](v2-permissions-and-consent.md#the-default-scope). Quando si attiva una schermata di consenso con le applicazioni client note e `/.default`, la schermata di consenso visualizzerà le autorizzazioni **sia** del client per l'API di livello intermedio e richiederà anche le eventuali autorizzazioni necessarie per l'API di livello intermedio. L'utente fornisce il consenso per entrambe le applicazioni e quindi il flusso OBO funziona.
 
 ### <a name="pre-authorized-applications"></a>Applicazioni preautorizzate
 

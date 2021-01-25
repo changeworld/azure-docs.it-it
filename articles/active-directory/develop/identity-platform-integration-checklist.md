@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 011acdf98c8430bfb7ba1b02ec24a170f829e48f
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063791"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755258"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per Microsoft Identity Platform
 
@@ -30,7 +30,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 > [!TIP]
 > *Integration Assistant* nella portale di Azure può essere utile per applicare molti di questi consigli e procedure consigliate. Selezionare una delle registrazioni per l' [app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nel portale di Azure, quindi selezionare la voce di menu **Integration Assistant** per iniziare a usare l'assistente.
 
-## <a name="basics"></a>Informazioni di base
+## <a name="basics"></a>Operazioni di base
 
 ![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo leggere e comprendere i [criteri della piattaforma Microsoft](/legal/microsoft-identity-platform/terms-of-use). Assicurarsi che l'applicazione soddisfi le condizioni descritte in quanto sono progettate per proteggere gli utenti e la piattaforma.
 
@@ -104,7 +104,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 
 Approfondimento su v2.0:
 
-* [Piattaforma Microsoft Identity (panoramica della versione 2.0)](v2-overview.md)
+* [Piattaforma di identità Microsoft (panoramica)](v2-overview.md)
 * [Riferimenti per i protocolli della piattaforma Microsoft Identity](active-directory-v2-protocols.md)
 * [Riferimento ai token di accesso](access-tokens.md)
 * [Informazioni di riferimento sui token ID](id-tokens.md)

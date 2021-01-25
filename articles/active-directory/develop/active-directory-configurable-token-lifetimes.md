@@ -1,7 +1,7 @@
 ---
 title: Durata del token configurabile
 titleSuffix: Microsoft identity platform
-description: Informazioni su come impostare la durata dei token di accesso, SAML e ID rilasciati dalla piattaforma di identità Microsoft.
+description: Informazioni su come impostare la durata dei token di accesso, SAML e ID emessi dalla piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,16 +13,16 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 33dffa40e0236483d641c2e2bbe318bb62a7724d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f4ae26a489b823e2347841cf72690d6cd8462611
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678188"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755309"
 ---
-# <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
+# <a name="configurable-token-lifetimes-in-the-microsoft-identity-platform-preview"></a>Durata dei token configurabili nella piattaforma di identità Microsoft (anteprima)
 
-È possibile specificare la durata di un accesso, un ID o un token SAML rilasciato dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Attualmente, tuttavia, non è supportata la configurazione delle durate dei token per le [entità servizio gestite di identità](../managed-identities-azure-resources/overview.md).
+È possibile specificare la durata di un token di accesso, ID o SAML emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Attualmente, tuttavia, non è supportata la configurazione delle durate dei token per le [entità servizio gestite di identità](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole applicazioni o a tutte le applicazioni di un'organizzazione. Ogni tipo di criteri ha una struttura univoca con un set di proprietà che vengono applicate agli oggetti a cui sono assegnate.
 
@@ -50,7 +50,7 @@ I client usano i token di accesso per accedere a una risorsa protetta. I token d
 
 ### <a name="saml-tokens"></a>Token SAML
 
-I token SAML vengono utilizzati da numerose applicazioni SAAS basate sul Web e vengono ottenuti utilizzando l'endpoint del protocollo SAML2 di Azure Active Directory. Vengono inoltre utilizzate da applicazioni che utilizzano WS-Federation. La durata predefinita del token è 1 ora. Dal punto di vista di un'applicazione, il periodo di validità del token viene specificato dal valore NotOnOrAfter dell' `<conditions …>` elemento nel token. Al termine del periodo di validità del token, il client deve avviare una nuova richiesta di autenticazione, che verrà spesso soddisfatta senza l'accesso interattivo come risultato del token di sessione Single Sign-on (SSO).
+I token SAML vengono utilizzati da numerose applicazioni SaaS basate sul Web e vengono ottenuti utilizzando l'endpoint del protocollo SAML2 di Azure Active Directory. Vengono inoltre utilizzate da applicazioni che utilizzano WS-Federation. La durata predefinita del token è 1 ora. Dal punto di vista di un'applicazione, il periodo di validità del token viene specificato dal valore NotOnOrAfter dell' `<conditions …>` elemento nel token. Al termine del periodo di validità del token, il client deve avviare una nuova richiesta di autenticazione, che verrà spesso soddisfatta senza l'accesso interattivo come risultato del token di sessione Single Sign-on (SSO).
 
 Il valore di NotOnOrAfter può essere modificato utilizzando il `AccessTokenLifetime` parametro in un oggetto `TokenLifetimePolicy` . Verrà impostato sulla durata configurata nel criterio, se presente, più un fattore di sfasamento di clock di cinque minuti.
 
@@ -106,9 +106,9 @@ I client pubblici non possono archiviare in modo sicuro una password client, ovv
 La proprietà validità massima indica il periodo di tempo in cui è possibile usare un singolo token. 
 
 ### <a name="single-sign-on-session-tokens"></a>Token di sessione Single Sign-On
-Quando un utente esegue l'autenticazione con Microsoft Identity Platform, viene stabilita una sessione di Single Sign-On (SSO) con il browser dell'utente e la piattaforma delle identità Microsoft. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
+Quando un utente esegue l'autenticazione con la piattaforma di identità Microsoft, viene stabilita una sessione di Single Sign-On (SSO) con il browser dell'utente e la piattaforma di identità Microsoft. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
 
-Microsoft Identity Platform usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
+La piattaforma Microsoft Identity usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
 
 I token di sessione non permanenti hanno una durata di 24 ore, I token permanenti hanno una durata di 90 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 90 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
@@ -234,7 +234,7 @@ Fattori:
 
 Alle ore 12:00, l'utente avvia una nuova sessione del browser e tenta di accedere all'applicazione Web A. L'utente viene reindirizzato alla piattaforma di identità Microsoft e viene richiesto di effettuare l'accesso. Nel browser viene creato un cookie con un token di sessione. L'utente viene di nuovo reindirizzato all'applicazione Web A con un token ID che gli consente di accedere all'applicazione.
 
-Alle 12:15, l'utente tenta di accedere all'applicazione Web B. Il browser reindirizza a Microsoft Identity Platform, che rileva il cookie di sessione. L'entità servizio dell'applicazione Web B è collegata ai criteri per la durata dei token 2, ma è anche parte dell'elemento organizzazione padre associato ai criteri per la durata dei token 1 predefiniti. Vengono applicati i criteri per la durata dei token 2 perché i criteri collegati alle entità servizio hanno una priorità maggiore rispetto a quelli predefiniti dell'organizzazione. Il token di sessione è stato rilasciato negli ultimi 30 minuti, quindi è considerato valido. L'utente viene di nuovo reindirizzato all'applicazione Web B con un token ID che consente l'accesso.
+Alle 12:15, l'utente tenta di accedere all'applicazione Web B. Il browser reindirizza alla piattaforma di identità Microsoft, che rileva il cookie di sessione. L'entità servizio dell'applicazione Web B è collegata ai criteri per la durata dei token 2, ma è anche parte dell'elemento organizzazione padre associato ai criteri per la durata dei token 1 predefiniti. Vengono applicati i criteri per la durata dei token 2 perché i criteri collegati alle entità servizio hanno una priorità maggiore rispetto a quelli predefiniti dell'organizzazione. Il token di sessione è stato rilasciato negli ultimi 30 minuti, quindi è considerato valido. L'utente viene di nuovo reindirizzato all'applicazione Web B con un token ID che consente l'accesso.
 
 Alle ore 1:00, l'utente tenta di accedere all'applicazione Web A. L'utente viene reindirizzato alla piattaforma di identità Microsoft. L'applicazione Web A non è collegata a criteri, ma si trova in un'organizzazione con criteri per la durata dei token 1 predefiniti. Vengono quindi applicati tali criteri. Viene rilevato il cookie di sessione rilasciato nelle ultime otto ore. L'utente viene reindirizzato automaticamente all'applicazione Web A con un nuovo token ID. Non è necessario che l'utente esegua l'autenticazione.
 

@@ -3,16 +3,16 @@ title: Connettere l'account AWS al Centro sicurezza di Azure
 description: Monitoraggio delle risorse di AWS dal Centro sicurezza di Azure
 author: memildin
 ms.author: memildin
-ms.date: 12/29/2020
+ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4c919115efb39a8e8c008eab69dc087792f7b105
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
-ms.translationtype: HT
+ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814313"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98755152"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connettere gli account AWS a Centro sicurezza di Azure
 
@@ -33,13 +33,13 @@ L'onboarding dell'account di AWS nel Centro sicurezza consente di integrare AWS 
 
 Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di panoramica del Centro sicurezza.
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
+:::image type="content" source="./media/quickstart-onboard-aws/aws-account-in-overview.png" alt-text="Tre progetti GCP elencati nel dashboard di panoramica del Centro sicurezza" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## <a name="availability"></a>Disponibilità
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario** nella sottoscrizione di Azure pertinente<br>Anche un utente con il ruolo **Collaboratore** può connettere un account AWS se un proprietario fornisce i dettagli dell'entità servizio|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
@@ -136,9 +136,9 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
 1. Configurare le opzioni disponibili nella scheda **Autenticazione AWS**:
     1. Immettere un **Nome visualizzato** per il connettore.
     1. Verificare che la sottoscrizione sia corretta. Si tratta della sottoscrizione che includerà il connettore e le raccomandazioni di AWS Security Hub.
-    1. In base all'opzione di autenticazione scelta in [Passaggio 2. Configurare l'autenticazione per il Centro sicurezza in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
+    1. A seconda dell'opzione di autenticazione, è stato scelto nel [passaggio 2. Configurare l'autenticazione per il Centro sicurezza in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Selezionare **Assumi il ruolo** e incollare il file ARN come descritto in [Creare un ruolo di IAM per il Centro sicurezza](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Incollare il file ARN nel campo appropriato della connessione guidata AWS nel portale di Azure":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Incollare il file ARN nel campo pertinente della connessione guidata AWS nel portale di Azure":::
 
             OR
 
@@ -164,7 +164,7 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
 
 ### <a name="step-6-confirmation"></a>Passaggio 6. Conferma
 
-Quando il connettore è stato creato e la configurazione di AWS Security Hub è stata definita correttamente:
+Quando il connettore viene creato correttamente e l'hub di sicurezza AWS è stato configurato correttamente:
 
 - Il Centro sicurezza analizza l'ambiente per individuare istanze di AWS EC2, eseguirne l'onboarding in Azure Arc, installare l'agente di Log Analytics e fornire protezione dalle minacce e raccomandazioni sulla sicurezza. 
 - Il servizio Centro sicurezza di Azure esegue ogni 6 ore l'analisi per individuare nuove istanze di AWS EC2 e ne esegue l'onboarding in base alla configurazione.
@@ -190,7 +190,7 @@ Per visualizzare tutte le raccomandazioni attive per le risorse in base al tipo 
 Sistemi operativi supportati per l'onboarding automatico in Azure Arc per computer AWS
 
 - Ubuntu 16.04 - SSM Agent preinstallato per impostazione predefinita
-- Ubuntu 18.04 -SSM Agent preinstallato per impostazione predefinita
+- Ubuntu 18,04-SSM Agent è preinstallato, per impostazione predefinita
 - Windows Server - SSM Agent preinstallato per impostazione predefinita
 - CentOS Linux 7 – SSM da installare manualmente o sottoporre a onboarding separatamente
 - SUSE Linux Enterprise Server (SLES) 15 (x64) -SSM da installare manualmente o sottoporre a onboarding separatamente
