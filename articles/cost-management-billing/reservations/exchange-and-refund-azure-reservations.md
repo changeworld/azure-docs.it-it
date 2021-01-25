@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b0f17149eb646b6108dc6a81922e6e5b00f143d6
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 045ab35a35aa4caefb1e1bcbbf7bf78b726c09f7
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560543"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601464"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Scambi e rimborsi in modalità self-service per le prenotazioni di Azure
 
@@ -47,7 +47,7 @@ In primo luogo, Microsoft annulla la prenotazione esistente e rimborsa l'importo
 
 ### <a name="enterprise-agreement-customers"></a>Clienti con Contratto Enterprise
 
-Il denaro viene aggiunto all'impegno monetario per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando uno di questi. Se il termine dell'impegno monetario con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine dell'impegno monetario del contratto Enterprise corrente. Il credito è valido per 90 giorni dalla data del rimborso. Il credito inutilizzato scade al termine dei 90 giorni.
+Il credito viene aggiunto al pagamento anticipato di Azure (in precedenza detto impegno monetario) per gli scambi e i rimborsi se l'acquisto originale è stato effettuato usando tale opzione. Se il termine del pagamento anticipato di Azure con cui è stata acquistata la prenotazione non è più attivo, il credito viene aggiunto al termine del pagamento anticipato di Azure del contratto Enterprise corrente. Il credito è valido per 90 giorni dalla data del rimborso. Il credito inutilizzato scade al termine dei 90 giorni.
 
 Se l'acquisto originale è stato effettuato come eccedenza, la fattura originale in cui è stata acquistata la prenotazione e tutte le fatture successive verranno riaperte e modificate. Microsoft emette una nota di credito per i rimborsi.
 

@@ -3,17 +3,17 @@ title: Contratti Azure EA e modifiche
 description: Questo articolo illustra l'impatto dei contratti Azure EA e delle relative modifiche su Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 9e6750bd8404b4f9b910dda93859a0ca3fd268d4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
-ms.translationtype: HT
+ms.openlocfilehash: c2c3636e98d67616826b03cca9657b806c5bd653
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442531"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598015"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contratti Azure EA e modifiche
 
@@ -21,7 +21,7 @@ Questo articolo descrive l'impatto che possono avere i contratti Azure EA e le r
 
 ## <a name="enrollment-provisioning-status"></a>Stato di provisioning della registrazione
 
-La data di inizio di un nuovo pagamento anticipato di Azure è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di pagamento anticipato di Azure tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto indica l'inizio del pagamento anticipato di Azure. La data di inizio della copertura corrisponde a quella in cui il pagamento anticipato di Azure viene visualizzato in Azure EA Portal.
+La data di inizio di un nuovo pagamento anticipato di Azure (in precedenza detto impegno monetario) è definita dalla data in cui è stato elaborato dal centro operativo locale. Poiché gli ordini di pagamento anticipato di Azure tramite Azure EA Portal vengono elaborati nel fuso orario UTC, può verificarsi un ritardo se l'ordine di acquisto è stato elaborato in un'area diversa. La data di inizio della copertura nell'ordine di acquisto indica l'inizio del pagamento anticipato di Azure. La data di inizio della copertura corrisponde a quella in cui il pagamento anticipato di Azure viene visualizzato in Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Supporto per i clienti aziendali
 
@@ -60,7 +60,7 @@ Microsoft non accederà né utilizzerà il ricarico specificato e i prezzi assoc
 
 ### <a name="how-the-calculation-works"></a>Come funziona il calcolo
 
-Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in EA Portal.  Tutte le informazioni commerciali sul portale verranno incrementate in base alla percentuale specificata dall'LSP. Esempio:
+Il Licensing Solution Provider (LSP) specifica un singolo valore percentuale in EA Portal.    Tutte le informazioni commerciali sul portale verranno incrementate in base alla percentuale specificata dall'LSP. Esempio:
 
 - Il cliente firma un contratto Enterprise con pagamento anticipato di Azure di 100.000 USD.
 - La tariffa del contatore per il Servizio A è 10 USD all'ora.
@@ -101,13 +101,14 @@ Assicurarsi di esaminare le informazioni commerciali, ovvero i dati sul saldo mo
 Rivedere il prezzo di ricarico in _Riepilogo utilizzo_ per il periodo di pagamento anticipato nella visualizzazione del cliente. Il prezzo Microsoft rimarrà disponibile nella visualizzazione del partner. È possibile attivare o disattivare le visualizzazioni usando l'interruttore relativo alle "persone" per il ricarico del partner in alto a destra.
 
 1. Rivedere i prezzi nell'elenco.
-1. Prima di procedere alla pubblicazione è possibile apportare modifiche selezionando **Modifica** nella scheda _View Usage Summary > Customer View_ (Visualizza riepilogo utilizzo > Visualizzazione cliente).  
-  Ai prezzi dei servizi e ai saldi del pagamento anticipato verranno applicate le stesse percentuali di ricarico. Se si prevede di applicare percentuali diverse per il saldo monetario e le tariffe dei contatori oppure per servizi diversi, non usare questa funzionalità.
+1. Prima di procedere alla pubblicazione è possibile apportare modifiche selezionando **Modifica** nella scheda _View Usage Summary > Customer View_ (Visualizza riepilogo utilizzo > Visualizzazione cliente). 
+   
+Ai prezzi dei servizi e ai saldi del pagamento anticipato verranno applicate le stesse percentuali di ricarico. Se si prevede di applicare percentuali diverse per il saldo monetario e le tariffe dei contatori oppure per servizi diversi, non usare questa funzionalità.
 
 **Passaggio 3: Pubblicare**
 
 Dopo aver esaminato e convalidato i prezzi, fare clic su **Pubblica**.
-  
+  
 I prezzi con ricarico saranno disponibili per gli amministratori dell'organizzazione immediatamente dopo la selezione del comando di pubblicazione. Non è possibile apportare modifiche al ricarico. Per modificarlo è necessario disabilitarlo e ricominciare dal passaggio 1.
 
 ### <a name="which-enrollments-have-a-markup-enabled"></a>Per quali registrazioni è abilitato il ricarico?

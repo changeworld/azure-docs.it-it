@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 01/13/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0cdd25b2937dd1fb2cc70ef7b1c5a9e9ddaef375
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
-ms.translationtype: HT
+ms.openlocfilehash: bd155ea3c98231cf20fa7c62325e3c2ecfb89920
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780604"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185921"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>Creare sottoscrizioni con contratto Enterprise di Azure a livello di codice con le API più recenti
 
@@ -31,7 +31,9 @@ Quando si crea una sottoscrizione di Azure a livello di codice, tale sottoscrizi
 Per creare una sottoscrizione, è necessario avere un ruolo Proprietario o un account di registrazione. È possibile ottenere il ruolo in due modi:
 
 * L'amministratore dell'organizzazione della registrazione può [configurare l'utente come proprietario dell'account](https://ea.azure.com/helpdocs/addNewAccount) (accesso obbligatorio), in modo che diventi un proprietario dell'account di registrazione.
-* Un proprietario esistente dell'account di registrazione può [concedere l'accesso](grant-access-to-create-subscription.md). Analogamente, per usare un'entità servizio per creare la sottoscrizione con Contratto Enterprise, è necessario [concedere a tale entità servizio la possibilità di creare sottoscrizioni](grant-access-to-create-subscription.md).
+* Un proprietario esistente dell'account di registrazione può [concedere l'accesso](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Analogamente, per usare un'entità servizio per creare la sottoscrizione con Contratto Enterprise, è necessario [concedere a tale entità servizio la possibilità di creare sottoscrizioni](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+  > [!NOTE]
+  > Assicurarsi di usare la versione corretta dell'API per concedere le autorizzazioni di proprietario dell'account di registrazione. Per questo articolo e per le API documentate, usare l'API [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). Se si esegue la migrazione per usare le API più recenti, è necessario concedere nuovamente l'autorizzazione di proprietario usando [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configurazione precedente eseguita con la [versione 2015-07-01](grant-access-to-create-subscription.md) non viene convertita automaticamente per l'uso con le API più recenti.
 
 ## <a name="find-accounts-you-have-access-to"></a>Trovare gli account a cui si ha accesso
 

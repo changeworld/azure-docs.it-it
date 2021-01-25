@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f60e21f98092df65ef01e68fe9c2e64833a24855
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: a678e8545f761e98abbdf026886afa624f9d2b4e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063213"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753644"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scenario: Applicazione per dispositivi mobili che chiama le API Web
 
@@ -34,7 +34,7 @@ Se non è già stato fatto, creare la prima applicazione completando una guida i
 
 ## <a name="overview"></a>Panoramica
 
-Un'esperienza utente personalizzata e trasparente è essenziale per le app per dispositivi mobili.  Microsoft Identity Platform consente agli sviluppatori di dispositivi mobili di creare questa esperienza per gli utenti iOS e Android. L'applicazione può accedere Azure Active Directory (Azure AD) utenti, utenti account Microsoft personali e utenti Azure AD B2C. Può inoltre acquisire token per chiamare un'API Web per loro conto. Per implementare questi flussi, si userà Microsoft Authentication Library (MSAL). MSAL implementa il flusso del [codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md)standard di settore.
+Un'esperienza utente personalizzata e trasparente è essenziale per le app per dispositivi mobili. La piattaforma Microsoft Identity consente agli sviluppatori di dispositivi mobili di creare questa esperienza per gli utenti iOS e Android. L'applicazione può accedere Azure Active Directory (Azure AD) utenti, utenti account Microsoft personali e utenti Azure AD B2C. Può inoltre acquisire token per chiamare un'API Web per loro conto. Per implementare questi flussi, si userà Microsoft Authentication Library (MSAL). MSAL implementa il flusso del [codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md)standard di settore.
 
 ![App daemon](./media/scenarios/mobile-app.svg)
 

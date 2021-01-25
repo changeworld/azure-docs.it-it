@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 040f9fa67617b058138926310706f4bc56c4ff62
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680974"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753777"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -439,7 +439,7 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
 
 - Questo flusso è abilitato per le app .NET Desktop, .NET Core e UWP.
 
-Per altre informazioni sul consenso, vedere [Autorizzazioni e consenso in Microsoft Identity Platform](./v2-permissions-and-consent.md).
+Per ulteriori informazioni sul consenso, vedere le [autorizzazioni e il consenso della piattaforma Microsoft Identity](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Informazioni su come usare l'SDK
 

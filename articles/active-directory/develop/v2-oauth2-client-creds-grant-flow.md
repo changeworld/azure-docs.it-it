@@ -12,16 +12,16 @@ ms.date: 10/2/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 89a4c62044e3be849650de703d2daa9ca3e2a975
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 96f7d7c94ce908d953a6941bfa237fe8da1dc482
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932584"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752655"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft Identity Platform e il flusso di credenziali client OAuth 2,0
 
-La [concessione di credenziali client OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) specificata in RFC 6749, anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Questo tipo di concessione viene comunemente usato per le interazioni da server a server che devono essere eseguite in background, senza interazione immediata con un utente. Questi tipi di applicazioni sono spesso denominati *daemon* o *account di servizio*.
+La [concessione di credenziali client OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.4) specificata in RFC 6749, anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Questo tipo di concessione viene comunemente usato per le interazioni da server a server che devono essere eseguite in background, senza l'interazione immediata con un utente. Questi tipi di applicazioni sono spesso denominati *daemon* o *account di servizio*.
 
 Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione. Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
@@ -46,9 +46,9 @@ Questi due metodi sono i più comuni in Azure AD e sono consigliati per i client
 
 ### <a name="access-control-lists"></a>Elenchi di controllo di accesso
 
-Un provider di risorse potrebbe imporre un controllo delle autorizzazioni in base a un elenco di ID applicazione (client) che riconosce e a cui concede uno specifico livello di accesso. Quando la risorsa riceve un token dall'endpoint della piattaforma di identità Microsoft, può decodificare il token ed estrarre l'ID dell'applicazione del client `appid` dalle `iss` attestazioni e. A quel punto, la risorsa verifica la presenza dell'applicazione nell'elenco di controllo di accesso (ACL) esistente. La granularità e il metodo relativi all'elenco possono variare in maniera sostanziale da risorsa a risorsa.
+Un provider di risorse potrebbe imporre un controllo delle autorizzazioni in base a un elenco di ID applicazione (client) che riconosce e a cui concede uno specifico livello di accesso. Quando la risorsa riceve un token dalla piattaforma di identità Microsoft, può decodificare il token ed estrarre l'ID dell'applicazione del client dalle `appid` `iss` attestazioni e. A quel punto, la risorsa verifica la presenza dell'applicazione nell'elenco di controllo di accesso (ACL) esistente. La granularità e il metodo relativi all'elenco possono variare in maniera sostanziale da risorsa a risorsa.
 
-Un caso d'uso comune prevede l'uso di un ACL per eseguire test per un'applicazione Web o per un'API Web. L'API Web potrebbe fornire solo un sottoinsieme delle autorizzazioni complete a un client specifico. Per eseguire test end-to-end sull'API, creare un client di prova che acquisisca i token dall'endpoint della piattaforma Microsoft Identity e li invia all'API. L'API controlla quindi nell'ACL se è presente l'ID dell'applicazione del client di test per concedere accesso completo alle funzionalità dell'API. Se si usa questo tipo di ACL, assicurarsi di convalidare non solo il valore `appid` del chiamante, ma verificare anche che il valore `iss` del token sia attendibile.
+Un caso d'uso comune prevede l'uso di un ACL per eseguire test per un'applicazione Web o per un'API Web. L'API Web potrebbe fornire solo un sottoinsieme delle autorizzazioni complete a un client specifico. Per eseguire test end-to-end sull'API, creare un client di prova che acquisisca i token dalla piattaforma di identità Microsoft e li invia all'API. L'API controlla quindi nell'ACL se è presente l'ID dell'applicazione del client di test per concedere accesso completo alle funzionalità dell'API. Se si usa questo tipo di ACL, assicurarsi di convalidare non solo il valore `appid` del chiamante, ma verificare anche che il valore `iss` del token sia attendibile.
 
 Questo tipo di autorizzazione è comune per gli account daemon e di servizio che devono accedere ai dati di proprietà di utenti che dispongono di account Microsoft personale. Per i dati appartenenti a organizzazioni, è consigliabile acquisire l'autorizzazione necessaria tramite le autorizzazioni dell'applicazione.
 
@@ -77,11 +77,11 @@ Per ulteriori informazioni sulle autorizzazioni dell'applicazione, vedere [autor
 
 In genere, durante la compilazione di un'applicazione che usa le autorizzazioni, l'app necessita di una pagina o vista che consenta all'amministratore di approvare le autorizzazioni dell'applicazione. Questa pagina può essere parte del flusso di accesso all'app, delle impostazioni dell'applicazione o di un flusso di "connessione" dedicato. In molti casi, è utile per l'applicazione visualizzare la pagina di "connessione" solo dopo che un utente ha eseguito l'accesso con un account di lavoro o dell'istituto di istruzione Microsoft.
 
-Se si esegue l'accesso dell'utente all'app, è possibile identificare l'organizzazione a cui appartiene l'utente prima di richiedere all'utente di approvare le autorizzazioni dell'applicazione. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti. Per accedere all'utente, seguire le [esercitazioni del protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
+Se si esegue l'accesso dell'utente all'app, è possibile identificare l'organizzazione a cui appartiene l'utente prima di richiedere all'utente di approvare le autorizzazioni dell'applicazione. Sebbene non sia strettamente necessario, questo consente di creare un'esperienza più intuitiva per gli utenti. Per accedere all'utente, seguire le [esercitazioni sul protocollo Microsoft Identity Platform](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Richiedere le autorizzazioni da un amministratore di directory
 
-Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'organizzazione, è possibile reindirizzare l'utente all'endpoint di *consenso dell'amministratore*di Microsoft Identity Platform.
+Quando si è pronti per richiedere le autorizzazioni all'amministratore dell'organizzazione, è possibile reindirizzare l'utente all'endpoint di *consenso dell'amministratore* di Microsoft Identity Platform.
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman. Usare il proprio ID app per ottenere risultati ottimali. l'applicazione dell'esercitazione non richiederà autorizzazioni utili. [ ![ Provare a eseguire la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
@@ -104,9 +104,9 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatoria | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID. Se non si conosce il tenant di appartenenza dell'utente e si desidera consentire l'accesso con qualsiasi tentant, usare `common`. |
-| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
+| `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria | URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL e disporre di segmenti di percorso aggiuntivi. |
-| `state` | Implementazione consigliata | Valore incluso nella richiesta che viene restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| `state` | Consigliato | Valore incluso nella richiesta che viene restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Lo stato viene usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 
 A questo punto, Azure AD impone che solo un amministratore tenant possa accedere per completare la richiesta. L'amministratore dovrà approvare tutte le autorizzazioni dirette dell'applicazione richieste per l'app nel portale di registrazione.
 
@@ -141,7 +141,7 @@ Dopo aver ricevuto una risposta con esito positivo dall'endpoint di provisioning
 
 ## <a name="get-a-token"></a>Acquisizione di un token
 
-Dopo aver acquisito l'autorizzazione necessaria per l'applicazione, è possibile procedere con l'acquisizione dei token di accesso per le API. Per ottenere un token usando la concessione delle credenziali client, inviare una richiesta POST all' `/token` endpoint della piattaforma di identità Microsoft:
+Dopo aver acquisito l'autorizzazione necessaria per l'applicazione, è possibile procedere con l'acquisizione dei token di accesso per le API. Per ottenere un token usando la concessione delle credenziali client, inviare una richiesta POST alla `/token` piattaforma di identità Microsoft:
 
 > [!TIP]
 > Provare a eseguire la richiesta in Postman. Usare il proprio ID app per ottenere risultati ottimali. l'applicazione dell'esercitazione non richiederà autorizzazioni utili. [ ![ Provare a eseguire la richiesta in un post](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
@@ -167,9 +167,9 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatoria | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
-| `client_id` | Obbligatoria | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
-| `scope` | Obbligatoria | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore indica all'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, l'endpoint deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obbligatoria | Segreto client generato per l'app nel portale di registrazione delle app. Il segreto client deve essere codificato nell'URL prima dell'invio. |
+| `client_id` | Necessario | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
+| `scope` | Necessario | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore indica alla piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, l'endpoint deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
+| `client_secret` | Necessario | Segreto client generato per l'app nel portale di registrazione delle app. Il segreto client deve essere codificato nell'URL prima dell'invio. |
 | `grant_type` | Obbligatoria | Il valore deve essere impostato su `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta di un token di accesso con un certificato
@@ -189,9 +189,9 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | Parametro | Condizione | Descrizione |
 | --- | --- | --- |
 | `tenant` | Obbligatoria | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
-| `client_id` | Obbligatoria |ID applicazione (client) assegnato all'app. |
-| `scope` | Obbligatoria | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore informa l'endpoint della piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, deve emettere un token per quelli associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
-| `client_assertion_type` | Obbligatoria | Il valore deve essere impostato su `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_id` | Necessario |ID applicazione (client) assegnato all'app. |
+| `scope` | Necessario | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. <br/>Questo valore informa la piattaforma di identità Microsoft che di tutte le autorizzazioni dirette dell'applicazione configurate per l'app, deve emettere un token per gli elementi associati alla risorsa che si vuole usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
+| `client_assertion_type` | Necessario | Il valore deve essere impostato su `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Leggere l'articolo relativo alle [credenziali basate su certificato](active-directory-certificate-credentials.md) per informazioni sulla registrazione del certificato e il formato dell'asserzione.|
 | `grant_type` | Obbligatoria | Il valore deve essere impostato su `client_credentials`. |
 
@@ -212,7 +212,7 @@ Una risposta con esito positivo ha un aspetto simile al seguente:
 | Parametro | Descrizione |
 | --- | --- |
 | `access_token` | Token di accesso richiesto. L'app può usare questo token per l'autenticazione alla risorsa protetta, ad esempio un'API Web. |
-| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato da Microsoft Identity Platform è `bearer`. |
+| `token_type` | Indica il valore del tipo di token. L'unico tipo supportato dalla piattaforma di identità Microsoft è `bearer` . |
 | `expires_in` | Periodo di validità di un token di accesso (in secondi). |
 
 ### <a name="error-response"></a>Risposta di errore

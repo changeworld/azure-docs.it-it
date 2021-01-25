@@ -1,5 +1,6 @@
 ---
-title: Scrivere un'app Web per l'accesso/uscita degli utenti-piattaforma di identità Microsoft | Azure
+title: Scrivere un'app Web per l'accesso o l'uscita degli utenti | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app Web per l'accesso degli utenti
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: e7397f6d02d71a6344953b8210b0349b9ee26360
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443552"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753006"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -213,7 +214,7 @@ Dopo che l'utente ha eseguito l'accesso all'app, è opportuno abilitarne la disc
 La disconnessione da un'app Web prevede più di rimuovere le informazioni relative all'account connesso dallo stato dell'app Web.
 L'app Web deve anche reindirizzare l'utente all'endpoint della piattaforma Microsoft Identity `logout` per disconnettersi.
 
-Quando l'app Web reindirizza l'utente all' `logout` endpoint, questo endpoint Cancella la sessione dell'utente dal browser. Se l'app non è stata inviata all' `logout` endpoint, l'utente eseguirà di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali. Il motivo è che avranno una sessione Single Sign-on valida con l'endpoint della piattaforma di identità Microsoft.
+Quando l'app Web reindirizza l'utente all' `logout` endpoint, questo endpoint Cancella la sessione dell'utente dal browser. Se l'app non è stata inviata all' `logout` endpoint, l'utente eseguirà di nuovo l'autenticazione all'app senza immettere di nuovo le credenziali. Il motivo è che avranno una sessione Single Sign-in valida con la piattaforma di identità Microsoft.
 
 Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-oidc.md#send-a-sign-out-request) di disconnessione nella [piattaforma di identità Microsoft e nella documentazione del protocollo OpenID Connect](v2-protocols-oidc.md) .
 

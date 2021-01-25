@@ -1,5 +1,5 @@
 ---
-title: Acquisire i token per chiamare un'API Web (app daemon)-piattaforma di identità Microsoft | Azure
+title: Acquisire i token per chiamare un'API Web (app daemon)-la piattaforma di identità Microsoft | Azure
 description: Informazioni su come creare un'app daemon che chiama API Web (acquisizione di token)
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9416005c708cafe5adbad2b09ce70c41fae66fd7
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 295897be03a7dd8e397e8202ff1cf10e6d59cdfb
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936023"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753859"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>App daemon che chiama le API Web-Acquisisci un token
 

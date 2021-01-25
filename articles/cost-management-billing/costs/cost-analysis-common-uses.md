@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c03bf5e52ae7f6b259c7b744e6033d760af23dd0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
-ms.translationtype: HT
+ms.openlocfilehash: 72b371fd1184c9c9e69593c5ad7e57310abf1de2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683675"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98600036"
 ---
 # <a name="common-cost-analysis-uses"></a>Utilizzi dell'analisi dei costi comune
 
@@ -198,7 +198,7 @@ Vengono mostrati i costi solo per la registrazione attiva. Se una registrazione 
 
 
 1. Nel portale di Azure passare a **Gestione dei costi e fatturazione** > **Panoramica**.
-1. Fare clic su **Ripartizione** per il mese corrente e visualizzare il burn-down dell'impegno monetario.  
+1. Fare clic su **Ripartizione** per il mese corrente e visualizzare il burn-down del pagamento anticipato di Azure (in precedenza detto impegno monetario).  
     [![Panoramica dei costi EA - riepilogo della ripartizione](./media/cost-analysis-common-uses/breakdown1.png)](./media/cost-analysis-common-uses/breakdown1.png#lightbox)
 1.  Fare clic sulla scheda **Utilizzo e addebiti** e visualizzare la ripartizione del mese precedente nell'intervallo di tempo scelto.  
     [![Scheda Utilizzo e addebiti](./media/cost-analysis-common-uses/breakdown2.png)](./media/cost-analysis-common-uses/breakdown2.png#lightbox)

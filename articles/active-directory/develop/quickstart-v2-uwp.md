@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 4610d4d677d2d340340aab5edcddb658ac32e5e4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 074b64debc0a5aa08967efce69b7e5d14b4d90e4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178203"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754057"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Avvio rapido: Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (Universal Windows Platform)
 
@@ -124,7 +124,7 @@ Quando viene visualizzata la finestra dell'app, è possibile selezionare il puls
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere token di sicurezza. I token di sicurezza vengono usati per accedere a un'API protetta da Microsoft Identity Platform per gli sviluppatori. È possibile installare MSAL eseguendo questo comando in *Console di Gestione pacchetti* in Visual Studio:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) è la libreria usata per concedere l'accesso agli utenti e richiedere token di sicurezza. I token di sicurezza vengono usati per accedere a un'API protetta dalla piattaforma di identità Microsoft. È possibile installare MSAL eseguendo questo comando in *Console di Gestione pacchetti* in Visual Studio:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -155,7 +155,7 @@ In MSAL sono disponibili due metodi per acquisire i token in un'app UWP: `Acquir
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-In alcune situazioni è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform tramite una finestra popup per convalidare le relative credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
+In alcune situazioni è necessario forzare gli utenti a interagire con la piattaforma di identità Microsoft tramite una finestra popup per convalidare le credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
 
 - La prima volta che gli utenti accedono all'applicazione
 - Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta

@@ -13,12 +13,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40, contperf-fy21q2
-ms.openlocfilehash: e5a9292097933ff35eb8b77445f07f10def6e5c3
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 662523b1544fe3ca9e8bda993efa7b578b9f69cc
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029618"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752571"
 ---
 # <a name="what-is-the-microsoft-identity-platform"></a>Che cos'è Microsoft Identity Platform?
 
@@ -78,7 +78,7 @@ Set di articoli consigliati sull'applicazione dei concetti di base dell'autentic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si ha un account Azure, si ha già accesso a un tenant di Azure Active Directory, ma la maggior parte degli sviluppatori di Microsoft Identity Platform ha bisogno di un proprio tenant di Azure AD da usare durante lo sviluppo di applicazioni, ovvero un "tenant per sviluppatori".
+Se si dispone di un account Azure, si ha già accesso a un tenant di Azure Active Directory, ma la maggior parte degli sviluppatori di Microsoft Identity Platform necessita di un tenant Azure AD per l'uso durante lo sviluppo di applicazioni, un "tenant di sviluppo".
 
 Leggere informazioni su come creare un proprio tenant da usare per lo sviluppo di applicazioni:
 

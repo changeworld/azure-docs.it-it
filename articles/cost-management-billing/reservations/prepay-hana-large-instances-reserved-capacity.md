@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.openlocfilehash: ea1ee2311d8655ce17017c73309bc69e89f4b5f4
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151509"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599106"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Risparmiare su SAP HANA in istanze Large con una prenotazione di Azure
 
@@ -224,7 +224,7 @@ Le informazioni seguenti spiegano il significato dei diversi campi della prenota
 
   **Reserved Resource type** (Tipo di risorsa riservata) `SapHana`
 
-  **Sottoscrizione** Sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P or MS-AZR-0148P) o un Contratto del cliente Microsoft. Gli addebiti vengono dedotti dal saldo dell'impegno monetario, se disponibile, o vengono addebitati come eccedenza.
+  **Sottoscrizione** Sottoscrizione usata per pagare la prenotazione. I costi per la prenotazione vengono addebitati al metodo di pagamento specificato nella sottoscrizione. Il tipo di sottoscrizione deve essere un contratto Enterprise (numeri offerta: MS-AZR-0017P or MS-AZR-0148P) o un Contratto del cliente Microsoft. Gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario), se disponibile, oppure vengono applicati come eccedenza.
 
   **Ambito** L'ambito della prenotazione deve essere un ambito singolo.
 

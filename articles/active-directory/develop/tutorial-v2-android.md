@@ -13,16 +13,16 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7bdb36566d7c501dc5ca5604f8c6963258aa951c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: f3dee72180d0850ce6d920c7e3180cebcbe2f4b4
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208540"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753041"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Esercitazione: Accesso utenti e chiamata dell'API Microsoft Graph da un'applicazione Android
 
-In questa esercitazione si creerà un'app Android che si integra con Microsoft Identity Platform per consentire l'accesso degli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph.
+In questa esercitazione viene compilata un'app Android che si integra con la piattaforma di identità Microsoft per accedere agli utenti e ottenere un token di accesso per chiamare l'API Microsoft Graph.
 
 Al termine dell'esercitazione, l'applicazione accetterà accessi di account Microsoft personali (ad esempio outlook.com, live.com e di altro tipo) e di account aziendali o dell'istituto di istruzione di qualsiasi azienda o organizzazione che usi Azure Active Directory.
 

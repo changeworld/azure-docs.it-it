@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 01/06/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: d37225f988cc906bdd92467afcf3f286220eebda
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: ae588708a41c1259628b726a3a471034dba7d131
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027867"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98601530"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
 
@@ -72,6 +72,18 @@ Se è stata accettata la proprietà di fatturazione di una sottoscrizione di Azu
    1. Chiavi di accesso per servizi quali Archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../../storage/common/storage-account-create.md).
    1. Credenziali di accesso remoto per servizi quali macchine virtuali di Azure.
 1. Se si lavora con un partner, è consigliabile aggiornare l'ID partner nella sottoscrizione. È possibile aggiornare l'ID partner nel [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Collegare un ID partner agli account Azure](link-partner-id.md)
+
+## <a name="cancel-a-transfer-request"></a>Annullare una richiesta di trasferimento
+
+È attiva una sola richiesta di trasferimento alla volta. Una richiesta di trasferimento è valida per 15 giorni. Trascorsi i 15 giorni, la richiesta di trasferimento scade.
+
+Per annullare una richiesta di trasferimento:
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Passare a **sottoscrizioni** > selezionare la sottoscrizione a cui è stata inviata una richiesta di trasferimento > selezionare **Trasferisci la proprietà di fatturazione**.
+1. Nella parte inferiore della pagina selezionare **Annulla la richiesta di trasferimento**.
+
+:::image type="content" source="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" alt-text="Esempio che mostra la finestra Trasferisci la proprietà di fatturazione con l'opzione Annulla la richiesta di trasferimento" lightbox="./media/billing-subscription-transfer/transfer-billing-owership-cancel-request.png" :::
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

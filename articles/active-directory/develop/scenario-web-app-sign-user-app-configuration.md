@@ -1,5 +1,6 @@
 ---
-title: Configurare un'app Web per l'accesso degli utenti a Microsoft Identity Platform | Azure
+title: Configurare un'app Web per l'accesso degli utenti | Azure
+titleSuffix: Microsoft identity platform
 description: Informazioni su come creare un'app Web per l'accesso degli utenti (configurazione del codice)
 services: active-directory
 author: jmprieur
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 45f3a066283a921f60909a4aa3cfdc76f3faad06
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443654"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753263"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>App Web che esegue l'accesso degli utenti: configurazione del codice
 
@@ -202,7 +203,7 @@ SESSION_TYPE = "filesystem"  # So the token cache will be stored in a server-sid
 
 ## <a name="initialization-code"></a>Codice di inizializzazione
 
-Il codice di inizializzazione è diverso a seconda della piattaforma. Per ASP.NET Core e ASP.NET, l'accesso degli utenti viene delegato al middleware OpenID Connect. Il modello ASP.NET o ASP.NET Core genera applicazioni Web per l'endpoint Azure Active Directory (Azure AD) v 1.0. Alcune configurazioni sono necessarie per adattarle all'endpoint della piattaforma Microsoft Identity (v 2.0). Nel caso di Java, viene gestito da Spring con la collaborazione dell'applicazione.
+Il codice di inizializzazione è diverso a seconda della piattaforma. Per ASP.NET Core e ASP.NET, l'accesso degli utenti viene delegato al middleware OpenID Connect. Il modello ASP.NET o ASP.NET Core genera applicazioni Web per l'endpoint Azure Active Directory (Azure AD) v 1.0. Alcune configurazioni sono necessarie per adattarle alla piattaforma delle identità Microsoft. Nel caso di Java, viene gestito da Spring con la collaborazione dell'applicazione.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
@@ -262,7 +263,7 @@ Nel codice precedente:
 - Il `AddMicrosoftIdentityWebAppAuthentication` metodo di estensione è definito in **Microsoft. Identity. Web**. È
   - Aggiunge il servizio di autenticazione.
   - Configura le opzioni per la lettura del file di configurazione (qui dalla sezione "AzureAD")
-  - Configura le opzioni di OpenID Connect in modo che l'autorità sia l'endpoint della piattaforma di identità Microsoft.
+  - Configura le opzioni di OpenID Connect in modo che l'autorità sia la piattaforma di identità Microsoft.
   - Convalida l'emittente del token.
   - Garantisce che le attestazioni corrispondenti al nome siano mappate dall' `preferred_username` attestazione nel token ID.
 
@@ -291,7 +292,7 @@ Il codice correlato all'autenticazione in un'app Web ASP.NET e in API Web si tro
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
+     // Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0.
      // `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/.
      ClientId = clientId,
@@ -316,7 +317,7 @@ Per informazioni dettagliate, vedere il `doFilter()` metodo in [AuthFilter. Java
 > [!NOTE]
 > Il codice di `doFilter()` viene scritto in un ordine leggermente diverso, ma il flusso è quello descritto.
 
-Per informazioni dettagliate sul flusso del codice di autorizzazione attivato da questo metodo, vedere [Microsoft Identity Platform e il flusso del codice di autorizzazione OAuth 2,0](v2-oauth2-auth-code-flow.md).
+Per informazioni dettagliate sul flusso del codice di autorizzazione attivato da questo metodo, vedere la [piattaforma Microsoft Identity e il flusso del codice di autorizzazione OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
 # <a name="python"></a>[Python](#tab/python)
 

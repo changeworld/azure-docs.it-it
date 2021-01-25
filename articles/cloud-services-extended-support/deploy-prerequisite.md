@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 45f2b75be9a0090b883c5cc62a0886366e81a302
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 28c7f2c0a61150b2014f669f37ac84ee3a94aebf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744415"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752151"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Prerequisiti per la distribuzione di servizi cloud di Azure (supporto esteso)
 
@@ -42,12 +42,12 @@ CloudServices           Microsoft.Compute    Registered
 ## <a name="required-service-configuration-cscfg-file-updates"></a>Aggiornamenti file necessari per la configurazione del servizio (. cscfg)
 
 ### <a name="1-virtual-network"></a>1) rete virtuale
-Le distribuzioni del servizio cloud (supporto esteso) devono trovarsi in una rete virtuale. La rete virtuale può essere creata tramite [portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) o il [modello ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). È necessario fare riferimento anche alla rete virtuale e alle subnet nella configurazione del servizio (. cscfg) nella `NetworkConfiguration` sezione. 
+Le distribuzioni del servizio cloud (supporto esteso) devono trovarsi in una rete virtuale. La rete virtuale può essere creata tramite [portale di Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal), [PowerShell](https://docs.microsoft.com/azure/virtual-network/quick-create-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) o il [modello ARM](https://docs.microsoft.com/azure/virtual-network/quick-create-template). È necessario fare riferimento anche alla rete virtuale e alle subnet nella configurazione del servizio (con estensione cscfg) nella sezione [NetworkConfiguration](schema-cscfg-networkconfiguration.md) . 
 
 Per le reti virtuali appartenenti allo stesso gruppo di risorse del servizio cloud, è sufficiente fare riferimento solo al nome della rete virtuale nel file di configurazione del servizio (con estensione cscfg). Se la rete virtuale e il servizio cloud si trovano in due gruppi di risorse diversi, è necessario specificare l'ID Azure Resource Manager completo della rete virtuale nel file di configurazione del servizio (con estensione cscfg).
  
 #### <a name="virtual-network-located-in-same-resource-group"></a>Rete virtuale che si trova nello stesso gruppo di risorse
-```json
+```xml
 <VirtualNetworkSite name="<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
@@ -58,8 +58,8 @@ Per le reti virtuali appartenenti allo stesso gruppo di risorse del servizio clo
 ```
 
 #### <a name="virtual-network-located-in-different-resource-group"></a>Rete virtuale che si trova in un gruppo di risorse diverso
-```json
-“/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/> 
+```xml
+<VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> 
 <AddressAssignments> 
 <InstanceAddress roleName="<role-name>"> 
 <Subnets> 

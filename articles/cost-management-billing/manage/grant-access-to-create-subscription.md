@@ -4,20 +4,23 @@ description: Informazioni su come fornire a un utente o un'entità servizio la c
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.reviewer: amberb
+ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 01/13/2021
 ms.author: banders
-ms.openlocfilehash: c13670df26e5d0f7774b5a2aac81f656de94c960
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 039e728f6518d21ddfb9c7c359a6cf2ec743f232
+ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844711"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98185105"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Concedere l'accesso per creare sottoscrizioni di Azure Enterprise (anteprima)
 
 Come cliente di Azure, in [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), è possibile fornire a un altro utente o entità servizio l'autorizzazione per creare sottoscrizioni fatturate al proprio account. Questo articolo descrive come usare il [controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md) per condividere la capacità di creare sottoscrizioni e come controllare le creazioni di sottoscrizioni. È necessario disporre di un ruolo Proprietario per l'account da condividere.
+
+> [!NOTE]
+> Questa API funziona solo con le [API di anteprima per la creazione di sottoscrizioni](programmatically-create-subscription-preview.md). Se si vuole usare la [versione in disponibilità generale](programmatically-create-subscription-enterprise-agreement.md), usare la versione più recente [2019-10-01-Preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) dell'API. Se si esegue la migrazione per usare le API più recenti, è necessario concedere nuovamente le autorizzazioni di proprietario usando [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). La configurazione precedente eseguita con le API seguenti non viene convertita automaticamente per l'uso con le API più recenti.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

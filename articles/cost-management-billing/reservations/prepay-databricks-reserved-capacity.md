@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b7d7380114046fbeaaf4b6eb2660997d64168715
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
-ms.translationtype: HT
+ms.openlocfilehash: 390a8b421a7b34391bde689e4b968fa98cdbaf76
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91368567"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98599169"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Ottimizzare i costi di Azure Databricks con un preacquisto
 
@@ -48,7 +48,7 @@ Prima dell'acquisto, calcolare la quantità totale di unità Databricks utilizza
 **Per effettuare l'acquisto:**
 
 1. Accedere al [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D).
-1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. I costi vengono detratti dal saldo dell'impegno monetario della registrazione oppure addebitati come eccedenza.
+1. Selezionare una sottoscrizione. Usare l'elenco **Sottoscrizione** per selezionare la sottoscrizione usata per pagare la capacità riservata. I costi iniziali relativi alla capacità riservata vengono addebitati in base al metodo di pagamento della sottoscrizione. Gli addebiti vengono dedotti dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario) oppure vengono applicati come eccedenza.
 1. Selezionare un ambito. Usare l'elenco **Ambito** per selezionare un ambito della sottoscrizione.
     - **Gruppo di risorse singolo**: lo sconto per la prenotazione si applica solo alle risorse corrispondenti incluse nel gruppo di risorse selezionato.
     - **Sottoscrizione singola**: lo sconto della prenotazione viene applicato alle risorse corrispondenti incluse nella sottoscrizione selezionata.

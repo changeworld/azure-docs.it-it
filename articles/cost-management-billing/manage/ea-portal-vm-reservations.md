@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 7c8a35e7c8ecd0952f8e02b66c5071253d9b0445
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 072377f98939d996547cb6ee9f9a535b4b32a3dc
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96348926"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98597955"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Istanze riservate di VM per Azure EA
 
@@ -25,7 +25,7 @@ Questo articolo descrive come risparmiare sui costi della registrazione Enterpri
 
 ### <a name="partial-refunds"></a>Rimborsi parziali
 
-Viene emesso un rimborso parziale quando i clienti con contratto Enterprise restituiscono le prenotazioni acquistate tramite eccedenza e non con un impegno monetario.
+Viene emesso un rimborso parziale quando i clienti con contratto Enterprise restituiscono le prenotazioni acquistate tramite eccedenza e non con il pagamento anticipato di Azure (in precedenza detto impegno monetario).
 
 Il rimborso verrà visualizzato in EA Portal come rettifica negativa nel mese precedente e come rettifica positiva in quello corrente. Verrà mostrato in modo analogo allo scambio di prenotazioni. La nota di credito farà riferimento al numero di fattura originale; pertanto, per riconciliare l'acquisto iniziale con la nota di credito, fare riferimento al numero di fattura originale.
 

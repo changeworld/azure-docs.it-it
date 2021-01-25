@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 51b548beae57ce1da32006b61dfd222b0a4e6218
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
-ms.translationtype: HT
+ms.openlocfilehash: 874488e5de7888edad5310afce1afd1baec4ece0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015862"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753074"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Esercitazione: Eseguire l'accesso degli utenti e chiamare l'API Microsoft Graph da un'applicazione a singola pagina (SPA) di JavaScript
 
@@ -45,7 +45,7 @@ Contenuto dell'esercitazione:
 
 ![Illustra come funziona l'app di esempio generata da questa esercitazione](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
-L'applicazione di esempio creata in questa guida consente a un'applicazione a pagina singola JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dall'endpoint di Microsoft Identity Platform. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. Questo token verrà usato per acquisire il profilo dell'utente e gli indirizzi di posta elettronica tramite l'**API Microsoft Graph**.
+L'applicazione di esempio creata in questa guida consente a una SPA JavaScript di eseguire query sull'API Microsoft Graph o su un'API Web che accetta token dalla piattaforma di identità Microsoft. Per questo scenario, dopo l'accesso di un utente, viene richiesto un token di accesso che viene aggiunto a richieste HTTP tramite l'intestazione dell'autorizzazione. Questo token verrà usato per acquisire il profilo dell'utente e gli indirizzi di posta elettronica tramite l'**API Microsoft Graph**.
 
 L'acquisizione e il rinnovo del token vengono gestiti da [Microsoft Authentication Library (MSAL) per JavaScript](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
@@ -413,13 +413,13 @@ L'applicazione a pagina singola generata da questa guida chiama `acquireTokenSil
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-Dopo l'accesso iniziale, per non chiedere agli utenti di ripetere l'autenticazione ogni volta che devono richiedere un token per accedere a una risorsa, si dovrà usare *acquireTokenSilent* per acquisire i token nella maggior parte dei casi. In alcune situazioni, tuttavia, è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform. Tra gli esempi sono inclusi:
+Dopo l'accesso iniziale, per non chiedere agli utenti di ripetere l'autenticazione ogni volta che devono richiedere un token per accedere a una risorsa, si dovrà usare *acquireTokenSilent* per acquisire i token nella maggior parte dei casi. In alcune situazioni, tuttavia, è necessario forzare gli utenti a interagire con la piattaforma di identità Microsoft. Tra gli esempi sono inclusi:
 
 - Gli utenti devono reimmettere le proprie credenziali perché la password è scaduta.
 - L'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente.
 - È necessaria l'autenticazione a due fattori.
 
-La chiamata ad *acquireTokenPopup* apre una finestra popup (oppure *acquireTokenRedirect* reindirizza gli utenti all'endpoint di Microsoft Identity Platform). In questa finestra gli utenti devono interagire confermando le proprie credenziali, fornendo il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
+La chiamata a *acquireTokenPopup* apre una finestra popup (o *acquireTokenRedirect* reindirizza gli utenti alla piattaforma di identità Microsoft). In questa finestra gli utenti devono interagire confermando le proprie credenziali, fornendo il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
@@ -483,7 +483,7 @@ Nell'applicazione di esempio creata in questa guida, viene usato il metodo `call
    ```
 1. Nel browser immettere **http://localhost:3000** o **http://localhost:{port}** , dove *porta* è la porta su cui il server Web è in ascolto. Dovrebbero essere visibili il contenuto del file *index.html* e il pulsante **Accedi**.
 
-Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Verrà chiesto di accedere con l'endpoint Microsoft Identity Platform:
+Dopo che il browser ha caricato il file *index.html*, fare clic su **Accedi**. Viene richiesto di accedere con la piattaforma di identità Microsoft:
 
 ![Finestra di accesso all'account JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

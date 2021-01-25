@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0d759b3af097067ba0c9215b65b212d50474d571
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
-ms.translationtype: HT
+ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178348"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752765"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Esercitazione: Chiamare l'API Microsoft Graph da un'app Windows Desktop
 
@@ -47,7 +47,7 @@ L'applicazione di esempio creata in questa guida consente a un'applicazione per 
 
 ## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestione dell'acquisizione di token per l'accesso ad API Web protette
 
-Dopo l'autenticazione dell'utente, l'applicazione di esempio riceve un token che può essere usato per eseguire query sull'API Microsoft Graph o su un'API Web protetta da Microsoft Identity Platform per sviluppatori.
+Dopo che l'utente è stato autenticato, l'applicazione di esempio riceve un token che è possibile usare per eseguire query Microsoft Graph API o un'API Web protetta dalla piattaforma di identità Microsoft.
 
 Le API come Microsoft Graph richiedono un token per consentire l'accesso a specifiche risorse. È necessario un token, ad esempio, per leggere il profilo di un utente, accedere al calendario di un utente o inviare posta elettronica. L'applicazione può richiedere un token di accesso usando MSAL per accedere alle risorse tramite la specifica degli ambiti dell'API. Questo token di accesso viene quindi aggiunto all'intestazione di autorizzazione HTTP per ogni chiamata effettuata per la risorsa protetta.
 

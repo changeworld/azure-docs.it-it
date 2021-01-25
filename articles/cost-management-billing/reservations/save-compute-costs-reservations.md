@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 12/15/2020
 ms.author: banders
-ms.openlocfilehash: b79bde204d82b069b3314855a45a680b863c3f69
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 0e45e9741e92bb9e1fe23af79695cae06e64e871
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560492"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602057"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -56,7 +56,7 @@ Per altre informazioni, vedere  [Acquistare una prenotazione](prepare-buy-rese
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione? 
 
-La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Il costo della prenotazione viene sottratto dal saldo dell'impegno monetario, se disponibile. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva. 
+La prenotazione viene addebitata in base al metodo di pagamento associato alla sottoscrizione. Il costo della prenotazione viene dedotto dal saldo del pagamento anticipato di Azure (in precedenza detto impegno monetario), se disponibile. Se tale saldo non copre il costo della prenotazione, l'eccedenza verrà fatturata. Se si ha una sottoscrizione di un singolo piano con pagamento in base al consumo, sulla carta di credito associata all'account verranno immediatamente addebitati gli acquisti anticipati. I pagamenti mensili vengono visualizzati nella fattura e addebitati mensilmente sulla carta di credito. Se l'addebito avviene tramite fattura, il costo risulterà visibile sulla fattura successiva. 
 
 ## <a name="who-can-manage-a-reservation-by-default"></a>Chi può gestire una prenotazione per impostazione predefinita
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 58e8fd5006e72465e35912a5b15cade1201d680f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 323c9e207e5a16ba3e5907862e7a1eba84cc02e6
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680316"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754192"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Guida introduttiva: accedere e ottenere un token di accesso in una SPA React usando il flusso del codice di autenticazione
 
@@ -40,9 +40,7 @@ Questa Guida introduttiva usa MSAL React con il flusso del codice di autorizzazi
 >
 > ### <a name="option-1-express-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1 (Modalità rapida): Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
 >
-> 1. Accedere al [portale di Azure](https://portal.azure.com).
-> 1. Se l'account consente di accedere a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure AD che si vuole usare.
-> 1. Selezionare [Registrazioni per l'app](https://aka.ms/AAatrux).
+> 1. Passare all'esperienza di avvio rapido <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs" target="_blank">Portale di Azure - Registrazioni app<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 > 1. Immettere un nome per l'applicazione.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Selezionare **Registra**.
@@ -52,18 +50,17 @@ Questa Guida introduttiva usa MSAL React con il flusso del codice di autorizzazi
 >
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Accedere al [portale di Azure](https://portal.azure.com).
-> 1. Se l'account consente di accedere a più tenant, selezionare l'account in alto a destra e quindi impostare la sessione del portale sul tenant di Azure AD che si vuole usare.
-> 1. Selezionare [Registrazioni per l'app](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selezionare **Nuova registrazione**.
+> 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+> 1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant in cui si vuole registrare un'applicazione.
+> 1. Cercare e selezionare **Azure Active Directory**.
+> 1. In **Gestisci** selezionare **Registrazioni app** > **Nuova registrazione**.
 > 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
 > 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
 > 1. Selezionare **Registra**. Nella pagina **Panoramica** dell'app prendere nota del valore del campo **ID applicazione (client)** per uso successivo.
-> 1. Nel riquadro sinistro dell'applicazione registrata selezionare **Autenticazione**.
-> 1. In **configurazioni piattaforma** selezionare `Add a platform` .
-> 1. Nella finestra risultante selezionare applicazione a **pagina singola**.
+> 1. In **Gestisci** selezionare **Autenticazione**.
+> 1. In **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma**. Nel riquadro visualizzato selezionare **Applicazione a pagina singola**.
 > 1. Impostare il valore **URI di reindirizzamento** su `http://localhost:3000/` . Questa è la porta predefinita NodeJS che resterà in ascolto sul computer locale. Verrà restituita la risposta di autenticazione a questo URI dopo che l'utente è stato autenticato correttamente. 
-> 1. Per applicare le modifiche, fare clic sul pulsante **Configura** .
+> 1. Selezionare **Configura** per applicare le modifiche.
 > 1. In **configurazioni piattaforma** espandere **applicazione a pagina singola**.
 > 1. Verificare che in **Concedi tipi** ![ già configurati ](media/quickstart-v2-javascript/green-check.png) l'URI di reindirizzamento sia idoneo per il flusso del codice di autorizzazione con PKCE.
 
@@ -179,7 +176,7 @@ Eseguire il progetto con un server Web usandoNode.js:
 
 ### <a name="msaljs"></a>msal.js
 
-Con la libreria MSAL.js è possibile concedere l'accesso agli utenti e richiedere i token usati per accedere a un'API protetta da Microsoft Identity Platform.
+La libreria MSAL.js firma gli utenti e richiede i token usati per accedere a un'API protetta dalla piattaforma di identità Microsoft.
 
 Se Node.js è già installato, è possibile scaricare l'ultima versione usando Node.js Package Manager (npm):
 

@@ -13,23 +13,23 @@ ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 39cd25c2c84e92a0b06bc2ee6c6229ecb2d296d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0282e4f52db8557364cdabe197fa0da63204e42
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812540"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752648"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft Identity Platform e credenziali di tipo password del proprietario della risorsa OAuth 2.0
 
-Microsoft Identity Platform supporta la [concessione di credenziali di tipo password del proprietario della risorsa (ROPC) OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), attraverso la quale un'applicazione consente all'utente di accedere gestendo direttamente la sua password.  Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
+La piattaforma Microsoft Identity supporta la [concessione delle credenziali password del proprietario della risorsa OAuth 2,0 (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), che consente a un'applicazione di accedere all'utente gestendo direttamente la propria password.  Questo articolo descrive come programmare direttamente in base al protocollo nell'applicazione.  Quando possibile, è consigliabile usare le librerie di autenticazione Microsoft (MSAL) supportate anziché [acquisire i token e chiamare le API Web protette](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Vedere anche le [app di esempio che usano MSAL](sample-v2-code.md).
 
 > [!WARNING]
 > Microsoft consiglia di _non_ usare il flusso ROPC. Per la maggior parte degli scenari sono disponibili e consigliate alternative più sicure. Questo flusso richiede un livello di attendibilità molto elevato nell'applicazione e comporta rischi che non sono presenti in altri flussi. Usare questo flusso solo quando non è possibile usare altri flussi più sicuri.
 
 > [!IMPORTANT]
 >
-> * L'endpoint di Microsoft Identity Platform supporta solo ROPC per tenant di Azure AD, non per gli account personali. Questo significa che è necessario usare un endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`) o l'endpoint `organizations`.
+> * La piattaforma Microsoft Identity supporta solo ROPC per Azure AD tenant, non per gli account personali. Questo significa che è necessario usare un endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`) o l'endpoint `organizations`.
 > * Gli account personali che sono invitati in un tenant di Azure AD non possono usare ROPC.
 > * Gli account che non dispongono di password non possono accedere tramite ROPC. Per questo scenario, è consigliabile utilizzare un flusso diverso per l'app.
 > * Se gli utenti devono usare [Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md) per accedere all'applicazione, saranno invece bloccati.

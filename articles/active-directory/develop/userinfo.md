@@ -13,12 +13,12 @@ ms.date: 09/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 8f3fd462a52b035cd5b5447560e5472b41f237fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd0621d607b121f19bc47c717343b8e2e39b04f
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653231"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752734"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Endpoint UserInfo di Microsoft Identity Platform
 
@@ -28,7 +28,7 @@ L'endpoint UserInfo fa parte dello [standard OpenID Connect](https://openid.net/
 
 È possibile individuare l'endpoint UserInfo a livello di codice usando il documento di individuazione di OpenID Connect, all'indirizzo `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` . Viene elencato nel `userinfo_endpoint` campo e questo modello può essere usato tra i cloud per fare riferimento all'endpoint corretto.  Non è consigliabile impostare come hardcoded l'endpoint UserInfo nell'app. utilizzare il documento di individuazione OIDC per trovare questo endpoint in fase di esecuzione.
 
-Come parte della specifica di OpenID Connect, l'endpoint UserInfo viene spesso chiamato automaticamente da [librerie conformi a OIDC](https://openid.net/developers/certified/)  per ottenere informazioni sull'utente.  Senza l'hosting di un endpoint di questo tipo, la piattaforma di identità Microsoft non sarà conforme agli standard e alcune librerie avranno esito negativo.  Dall' [elenco di attestazioni identificato nello standard OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , le attestazioni del nome, l'attestazione dell'oggetto e il messaggio di posta elettronica vengono prodotti quando disponibili e sono consentiti per.  
+Come parte della specifica di OpenID Connect, l'endpoint UserInfo viene spesso chiamato automaticamente da [librerie conformi a OIDC](https://openid.net/developers/certified/)  per ottenere informazioni sull'utente.  Senza ospitare un endpoint di questo tipo, la piattaforma di identità Microsoft non sarà conforme agli standard e alcune librerie avranno esito negativo.  Dall' [elenco di attestazioni identificato nello standard OIDC](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims) , le attestazioni del nome, l'attestazione dell'oggetto e il messaggio di posta elettronica vengono prodotti quando disponibili e sono consentiti per.  
 
 ## <a name="consider-use-an-id-token-instead"></a>Prendere in considerazione: usare invece un token ID
 

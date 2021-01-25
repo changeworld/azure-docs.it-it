@@ -3,18 +3,18 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/16/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3ca4d3ddf73469cd1f1fc065eccb369cf765af
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905679"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602177"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -71,9 +71,9 @@ Dopo aver eseguito l'onboarding dei clienti a un Contratto del cliente Microsoft
 
 Usare l'ambito dell'account di fatturazione per visualizzare i costi pre-imposta per tutti i clienti e i profili di fatturazione. I costi di fatturazione vengono visualizzati solo per i prodotti con fatturazione in base al consumo del cliente previsti dal Contratto del cliente Microsoft. Tuttavia, i costi di fatturazione sono indicati in base agli acquisti di prodotti per i clienti sia del Contratto del cliente Microsoft che dell'offerta CSP. Attualmente la valuta predefinita per la visualizzazione dei costi nell'ambito è il dollaro statunitense. Anche i budget impostati per l'ambito sono in USD.
 
-Indipendentemente dalle diverse valute usate dai clienti per la fatturazione, i partner usano l'ambito dell'account di fatturazione per impostare i budget e gestire i costi in USD per tutti i clienti, le sottoscrizioni, le risorse e i gruppi di risorse.
+Indipendentemente dalle diverse valute usate per la fatturazione, i partner usano l'ambito dell'account di fatturazione per impostare i budget e gestire i costi in USD per tutti i clienti, le sottoscrizioni, le risorse e i gruppi di risorse.
 
-I partner filtrano inoltre i costi in una specifica valuta di fatturazione per tutti i clienti nella visualizzazione dell'analisi dei costi. Selezionare l'elenco **Costo effettivo** per visualizzare i costi nelle valute di fatturazione supportate per il cliente.
+I partner filtrano inoltre i costi in una specifica valuta di fatturazione per tutti i clienti nella visualizzazione dell'analisi dei costi. Selezionare l'elenco **Costo effettivo** per visualizzare i costi nelle valute di fatturazione supportate.
 
 ![Esempio di selezione dei costi effettivi per le valute](./media/get-started-partners/actual-cost-selector.png)
 
@@ -83,7 +83,7 @@ Usare la [vista dei costi ammortizzati](quick-acm-cost-analysis.md#customize-cos
 
 Usare l'ambito del profilo di fatturazione per visualizzare i costi pre-imposta nella valuta di fatturazione di tutti i clienti per tutti i prodotti e le sottoscrizioni inclusi in una fattura. È possibile filtrare i costi in un profilo di fatturazione per una fattura specifica usando il filtro **InvoiceID**. Il filtro indica il consumo e i costi di acquisto del prodotto per una fattura specifica. È anche possibile filtrare i costi per un cliente specifico sulla fattura per visualizzare i costi pre-imposta.
 
-Dopo l'onboarding dei clienti a un Contratto del cliente Microsoft, si riceve una fattura che include tutti gli addebiti per tutti i prodotti (consumo, acquisti ed entitlement) per questi clienti del Contratto del cliente Microsoft. Se fatturate nella stessa valuta, queste fatture includono anche gli addebiti per l'entitlement e i prodotti acquistati, ad esempio SaaS, Azure Marketplace e le prenotazioni per i clienti che sono ancora nell'offerta CSP.
+Dopo l'onboarding dei clienti a un Contratto del cliente Microsoft, si riceve una fattura che include tutti gli addebiti per tutti i prodotti (consumo, acquisti ed entitlement) per questi clienti del Contratto del cliente Microsoft. Se fatturate nella stessa valuta, queste fatture includono anche gli addebiti per l'entitlement e i prodotti acquistati, ad esempio SaaS, Azure Marketplace e prenotazioni per i clienti che usufruiscono ancora dell'offerta CSP classica e non del piano di Azure.
 
 Per favorire la riconciliazione delle spese rispetto alla fattura del cliente, l'ambito del profilo di fatturazione consente di visualizzare tutti i costi accumulati per una fattura per i clienti. Analogamente alla fattura, l'ambito indica i costi di ogni cliente nel nuovo Contratto del cliente Microsoft. L'ambito indica anche ogni addebito per i prodotti con entitlement dei clienti ancora nell'offerta CSP corrente.
 
@@ -91,7 +91,7 @@ Gli ambiti del profilo di fatturazione e dell'account di fatturazione sono gli u
 
 I profili di fatturazione definiscono le sottoscrizioni incluse in una fattura. I profili di fatturazione sono l'equivalente funzionale di un'iscrizione Enterprise Agreement. Un profilo di fatturazione è l'ambito in cui vengono generate le fatture.
 
-Attualmente, la valuta di fatturazione del cliente è la valuta predefinita quando si visualizzano i costi nell'ambito del profilo di fatturazione. I budget impostati nell'ambito del profilo di fatturazione sono nella valuta di fatturazione.
+Attualmente, la valuta di fatturazione è quella predefinita per la visualizzazione dei costi nell'ambito del profilo di fatturazione. I budget impostati nell'ambito del profilo di fatturazione sono nella valuta di fatturazione.
 
 I partner possono usare l'ambito per la riconciliazione delle fatture e per impostare i budget nella valuta di fatturazione per gli elementi seguenti:
 
@@ -220,7 +220,7 @@ I campi dati seguenti si trovano nei file dei dettagli dell'utilizzo e nelle API
 | Quantità | Quantità misurata di acquisti o consumi. Quantità indicata dal contatore usata durante il periodo di fatturazione. | Numero di unità. Verificare che corrisponda alle informazioni presenti nel sistema di fatturazione durante la riconciliazione. |
 | unitOfMeasure | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB e ore. | Identifica l'unità in base alla quale viene addebitato il servizio. Ad esempio, GB, ore e decine di migliaia. |
 | pricingCurrency | La valuta che definisce il prezzo unitario. | La valuta usata nell'elenco prezzi.|
-| billingCurrency | La valuta che definisce il costo fatturato. | La valuta dell'area geografica del cliente. |
+| billingCurrency | La valuta che definisce il costo fatturato. | La valuta definita come valuta di fatturazione nella fattura. |
 | chargeType | Definisce il tipo di addebito rappresentato dal costo in Gestione costi di Azure, ad esempio acquisto e rimborso. | Tipo di addebito o rettifica. Non disponibile per l'attività corrente. |
 | costinBillingCurrency | ExtendedCost o costo misto pre-imposta nella valuta fatturata. | N/D |
 | costinPricingCurrency | ExtendedCost o costo misto pre-imposta nella valuta dei prezzi per la correlazione con i prezzi. | N/D |

@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: eed4e919684575bb2c63170d91517b661fac4acf
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104581"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753969"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Gestire ITP in Safari e in altri browser in cui i cookie di terze parti sono bloccati
 
@@ -77,7 +77,7 @@ Un modello comune nelle app Web consiste nell'usare un iframe per incorporare un
 
 Il rilascio dei token di aggiornamento al browser è considerato un problema di sicurezza. Gli attacchi di tipo cross-site scripting XSS (cross-site scripting) o i pacchetti JS compromessi possono rubare il token di aggiornamento e usarlo in modalità remota fino alla scadenza o alla revoca. Per ridurre al minimo il rischio di furto di token di aggiornamento, alle applicazioni a pagina singola verranno rilasciati token validi solo 24 ore. Dopo 24 ore, l'app deve acquisire un nuovo codice di autorizzazione tramite una visita del frame di primo livello alla pagina di accesso.
 
-Questo modello di token di aggiornamento a durata limitata è stato scelto come compromesso tra la sicurezza e un'esperienza utente con prestazioni non ottimali. Senza i token di aggiornamento o i cookie di terze parti, il flusso del codice di autorizzazione (come consigliato dalla [bozza di procedure consigliate per la sicurezza di OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) diventa oneroso quando sono necessari token nuovi o aggiuntivi. È necessario un reindirizzamento di pagina completo o un popup per ogni singolo token, ogni volta che un token scade (di norma ogni ora per i token di Microsoft Identity Platform).
+Questo modello di token di aggiornamento a durata limitata è stato scelto come compromesso tra la sicurezza e un'esperienza utente con prestazioni non ottimali. Senza i token di aggiornamento o i cookie di terze parti, il flusso del codice di autorizzazione (come consigliato dalla [bozza di procedure consigliate per la sicurezza di OAuth](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14)) diventa oneroso quando sono necessari token nuovi o aggiuntivi. È necessario un reindirizzamento o un popup completo della pagina per ogni singolo token, ogni volta che un token scade (ogni ora in genere, per i token della piattaforma di identità Microsoft).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

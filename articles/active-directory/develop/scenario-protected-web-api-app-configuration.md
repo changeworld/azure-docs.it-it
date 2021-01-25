@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9ffb77db4f7bcd5a07e25085eed17e8972aa9a33
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3a26157949ff6ef69c9c009dfdd40781b47bc761
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683760"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753578"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protetta: configurazione del codice
 
@@ -55,7 +55,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 ```
 
 > [!IMPORTANT]
-> Un'applicazione client richiede l'bearer token all'endpoint della piattaforma di identità Microsoft *per l'API Web*. L'API Web è l'unica applicazione che deve verificare il token e visualizzare le attestazioni in esso contenute. Le app client non devono mai provare a esaminare le attestazioni nei token.
+> Un'applicazione client richiede la bearer token alla piattaforma di identità Microsoft *per l'API Web*. L'API Web è l'unica applicazione che deve verificare il token e visualizzare le attestazioni in esso contenute. Le app client non devono mai provare a esaminare le attestazioni nei token.
 >
 > In futuro, l'API Web potrebbe richiedere la crittografia del token. Questo requisito impedisce l'accesso per le app client in grado di visualizzare i token di accesso.
 
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione. Non eseguono l'accesso agli utenti con account personali. Tuttavia, è possibile modificare i modelli per usare l'endpoint della piattaforma Microsoft Identity usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) sostituendo il codice in *Startup.cs*:
+ Attualmente, i modelli di ASP.NET Core creano API Web di Azure Active Directory (Azure AD) che confirmano gli utenti all'interno dell'organizzazione o di qualsiasi organizzazione. Non eseguono l'accesso agli utenti con account personali. Tuttavia, è possibile modificare i modelli per usare la piattaforma Microsoft Identity usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) sostituendo il codice in *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;

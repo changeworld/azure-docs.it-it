@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: d171e3a7f1f0d63d0a5d130c6e19b246bf0cd795
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661815"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752281"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -33,13 +33,40 @@ Per informazioni sulle modifiche *pianificate* che saranno presto disponibili ne
 
 ## <a name="january-2021"></a>Gennaio 2021
 
-Gli aggiornamenti di dicembre includono:
+Gli aggiornamenti in gennaio includono:
 
+- [Il benchmark di sicurezza di Azure è ora l'iniziativa di criteri predefinita per il Centro sicurezza di Azure](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
 - [La valutazione della vulnerabilità per computer locali e più cloud viene rilasciata per la disponibilità a livello generale](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Il Punteggio sicuro per i gruppi di gestione è ora disponibile in anteprima](#secure-score-for-management-groups-is-now-available-in-preview)
 - [L'API per il Punteggio sicuro è stata rilasciata per la disponibilità generale (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [I connettori a più cloud vengono rilasciati per la disponibilità a livello generale](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Esentare le raccomandazioni intere dal punteggio sicuro per le sottoscrizioni e i gruppi di gestione](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
+- [Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
+- [Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Esportazione in CSV dell'elenco filtrato di raccomandazioni](#csv-export-of-filtered-list-of-recommendations)
 - [Le risorse "non applicabili" sono ora segnalate come "conformi" nelle valutazioni dei criteri di Azure](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
 
+
+### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Il benchmark di sicurezza di Azure è ora l'iniziativa di criteri predefinita per il Centro sicurezza di Azure
+
+Azure Security Benchmark è il set di linee guida specifiche di Azure create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Questo benchmark ampiamente rispettato si basa sui controlli di [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) con particolare attenzione alla sicurezza incentrata sul cloud.
+
+Negli ultimi mesi, l'elenco dei consigli di sicurezza incorporati del Centro sicurezza è aumentato significativamente per ampliare la copertura del benchmark.
+
+Da questa versione, il benchmark è la base per le raccomandazioni del Centro sicurezza e completamente integrato come iniziativa per i criteri predefiniti. 
+
+Nella documentazione di tutti i servizi di Azure è disponibile una pagina di base della sicurezza. Ad esempio, [si tratta della linea di base del Centro sicurezza](security-baseline.md). Queste linee di base sono basate sul benchmark di sicurezza di Azure.
+
+Se si usa il dashboard di conformità alle normative del Centro sicurezza, verranno visualizzate due istanze del benchmark durante un periodo di transizione:
+
+:::image type="content" source="media/release-notes/regulatory-compliance-with-azure-security-benchmark.png" alt-text="Dashboard di conformità normativa del Centro sicurezza di Azure che mostra il benchmark di sicurezza di Azure":::
+
+Le raccomandazioni esistenti non sono interessate e, man mano che aumenta il benchmark, le modifiche verranno applicate automaticamente all'interno del Centro sicurezza. 
+
+Per ulteriori informazioni, vedere le pagine seguenti:
+
+- [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Personalizzazione del set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga"></a>La valutazione della vulnerabilità per computer locali e più cloud viene rilasciata per la disponibilità a livello generale
 
@@ -63,6 +90,14 @@ Funzionalità principali:
 [Altre informazioni sui server con abilitazione di Azure Arc](../azure-arc/servers/index.yml).
 
 
+### <a name="secure-score-for-management-groups-is-now-available-in-preview"></a>Il Punteggio sicuro per i gruppi di gestione è ora disponibile in anteprima
+
+La pagina Punteggio sicuro Mostra ora i punteggi sicuri aggregati per i gruppi di gestione, oltre al livello di sottoscrizione. Ora è possibile visualizzare l'elenco dei gruppi di gestione nell'organizzazione e il punteggio per ciascun gruppo di gestione.
+
+:::image type="content" source="media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Visualizzazione dei punteggi sicuri per i gruppi di gestione.":::
+
+Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
+
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>L'API per il Punteggio sicuro è stata rilasciata per la disponibilità generale (GA)
 
 È ora possibile accedere al Punteggio tramite l' [API per il Punteggio sicuro](/rest/api/securitycenter/securescores/). I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
@@ -70,6 +105,87 @@ Funzionalità principali:
 Per esempi di strumenti esterni consentiti dall'API Secure Score, vedere l'[area relativa a Secure Score della community di GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
+
+
+### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>I connettori a più cloud vengono rilasciati per la disponibilità a livello generale
+
+I carichi di lavoro cloud si estendono in genere su più piattaforme cloud, quindi anche i servizi di sicurezza cloud devono adottare lo stesso approccio.
+
+Il Centro sicurezza di Azure protegge i carichi di lavoro in Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
+
+La connessione degli account AWS o GCP integra gli strumenti di sicurezza nativi come AWS Security Hub e GCP Security Command Center nel centro sicurezza di Azure.
+
+Questa funzionalità significa che il Centro sicurezza offre visibilità e protezione in tutti gli ambienti cloud principali. Alcuni dei vantaggi di questa integrazione:
+
+- Provisioning automatico dell'agente-Centro sicurezza USA Azure Arc per distribuire l'agente di Log Analytics nelle istanze di AWS
+- Gestione dei criteri
+- Gestione vulnerabilità
+- Rilevamento di endpoint e risposta incorporato
+- Rilevamento degli errori di configurazione per la sicurezza
+- Una singola visualizzazione che mostra le raccomandazioni sulla sicurezza di tutti i provider di servizi cloud
+- Incorporare tutte le risorse nei calcoli di Punteggio sicuro del Centro sicurezza
+- Valutazioni della conformità alle normative delle risorse AWS e GCP
+
+Dal menu del Centro sicurezza selezionare **connettori multicloud** . verranno visualizzate le opzioni per la creazione di nuovi connettori:
+
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Pulsante Aggiungi un account AWS nella pagina Connettori per più cloud del Centro sicurezza":::
+
+Scopri di più in:
+- [Connettere gli account AWS a Centro sicurezza di Azure](quickstart-onboard-aws.md)
+- [Connettere gli account GCP a Centro sicurezza di Azure](quickstart-onboard-gcp.md)
+
+
+### <a name="exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups"></a>Esentare le raccomandazioni intere dal punteggio sicuro per le sottoscrizioni e i gruppi di gestione
+
+Stiamo espandendo la funzionalità di esenzione per includere intere raccomandazioni. Fornire altre opzioni per ottimizzare le raccomandazioni di sicurezza che il Centro sicurezza apporta per le sottoscrizioni, il gruppo di gestione o le risorse.
+
+Occasionalmente, una risorsa viene elencata come non integra quando si sa che il problema è stato risolto da uno strumento di terze parti che non è stato rilevato dal centro sicurezza. In alternativa, una raccomandazione verrà visualizzata in un ambito in cui si ritiene che non appartenga. Il suggerimento potrebbe non essere appropriato per una sottoscrizione specifica. È possibile che l'organizzazione abbia semplicemente deciso di accettare i rischi correlati alla risorsa o al Consiglio specifico.
+
+Con questa funzionalità di anteprima, è ora possibile creare un'esenzione per un Consiglio per:
+
+- **Esentare una risorsa** per assicurarsi che non sia elencata con le risorse non integre in futuro e non influisca sul punteggio sicuro. La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato come "esentato" con la giustificazione specifica selezionata.
+
+- **Esentare una sottoscrizione o un gruppo di gestione** per assicurarsi che la raccomandazione non influisca sul punteggio sicuro e non venga visualizzata per la sottoscrizione o il gruppo di gestione in futuro. Questo si riferisce alle risorse esistenti e a quelle create in futuro. La raccomandazione verrà contrassegnata con la giustificazione specifica che si seleziona per l'ambito selezionato.
+
+Per altre informazioni [, vedere esentare le risorse e le raccomandazioni dal punteggio sicuro](exempt-resource.md).
+
+
+
+### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale
+
+Se un utente non dispone delle autorizzazioni per visualizzare i dati del Centro sicurezza, visualizzerà ora le autorizzazioni di richiesta di collegamento dell'amministratore globale dell'organizzazione. La richiesta include il ruolo che desidera e la giustificazione del motivo per cui è necessario.
+
+:::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
+
+Per altre informazioni, vedere [richiedere autorizzazioni a livello di tenant quando](security-center-management-groups.md#request-tenant-wide-permissions-when-yours-are-insufficient) il proprio non è sufficiente.
+
+
+### <a name="35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark
+
+Il benchmark di sicurezza di Azure è l'iniziativa di criteri predefinita nel centro sicurezza di Azure. 
+
+Per aumentare la copertura di questo benchmark, al centro sicurezza sono state aggiunte le seguenti raccomandazioni di anteprima 35.
+
+> [!TIP]
+> Le raccomandazioni in anteprima non contrassegnano una risorsa come non integra e non sono incluse nei calcoli del punteggio di sicurezza. Correggerle non appena possibile, in modo che possano contribuire al punteggio al termine del periodo di anteprima. Per altre informazioni su come rispondere a queste raccomandazioni, vedere [Correzione delle raccomandazioni nel Centro sicurezza di Azure](security-center-remediate-recommendations.md).
+
+| Controllo di sicurezza                     | Nuove raccomandazioni                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Abilita la crittografia dei dati inattivi            | - Gli account Azure Cosmos DB devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi<br>- Le aree di lavoro di Azure Machine Learning devono essere crittografate con una chiave gestita dal cliente<br>- La protezione dei dati BYOK (Bring Your Own Key) deve essere abilitata per i server MySQL<br>- La protezione dei dati BYOK (Bring Your Own Key) deve essere abilitata per i server PostgreSQL<br>- Per gli account di Servizi cognitivi è necessario abilitare la crittografia dei dati con chiave gestita dal cliente<br>- I registri contenitori devono essere crittografati con una chiave gestita dal cliente<br>- Le istanze gestite di SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi<br>- I server SQL devono usare chiavi gestite dal cliente per la crittografia dei dati inattivi<br>- Gli account di archiviazione devono usare la chiave gestita dal cliente per la crittografia                                                                                                                                                              |
+| Implementa le procedure consigliate per la sicurezza    | - Per le sottoscrizioni deve essere impostato un indirizzo di posta elettronica di contatto per i problemi relativi alla sicurezza<br> - Il provisioning automatico dell'agente di Log Analytics deve essere abilitato nella sottoscrizione<br> - Le notifiche di posta elettronica devono essere abilitate per gli avvisi con gravità alta<br> - Le notifiche di posta elettronica al proprietario della sottoscrizione devono essere abilitate per gli avvisi con gravità alta<br> - Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva<br> - Negli insiemi di credenziali delle chiavi deve essere abilitata la funzionalità di eliminazione temporanea |
+| Gestire l'accesso e le autorizzazioni        | - Per le app per le funzioni deve essere abilitata l'opzione 'Certificati client (certificati client in ingresso)' |
+| Proteggi le applicazioni da attacchi DDoS | - Web Application Firewall (WAF) deve essere abilitato per il gateway applicazione<br> - Web Application Firewall (WAF) deve essere abilitato per il servizio Frontdoor di Azure |
+| Limita l'accesso non autorizzato alla rete | - Il firewall deve essere abilitato in Key Vault<br> - L'endpoint privato deve essere configurato per Key Vault<br> - Configurazione app deve usare collegamenti privati<br> - La cache di Azure per Redis deve risiedere all'interno di una rete virtuale<br> - I domini di Griglia di eventi di Azure devono usare collegamenti privati<br> - Gli argomenti di Griglia di eventi di Azure devono usare collegamenti privati<br> - Le aree di lavoro di Azure Machine Learning devono usare collegamenti privati<br> - Il servizio Azure SignalR deve usare collegamenti privati<br> - Azure Spring Cloud deve usare l'aggiunta alla rete<br> - I registri contenitori non devono consentire l'accesso alla rete senza restrizioni<br> - I registri contenitori devono usare collegamenti privati<br> - L'accesso alla rete pubblica deve essere disabilitato per i server MariaDB<br> - L'accesso alla rete pubblica deve essere disabilitato per i server MySQL<br> - L'accesso alla rete pubblica deve essere disabilitato per i server PostgreSQL<br> - L'account di archiviazione deve usare una connessione collegamento privato<br> - Gli account di archiviazione devono limitare l'accesso alla rete usando regole di rete virtuale<br> - I modelli di Image Builder per macchine virtuali devono usare un collegamento privato|
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Collegamenti correlati:
+
+- [Altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Altre informazioni su Database di Azure per MariaDB](../mariadb/overview.md)
+- [Altre informazioni su Database di Azure per MySQL](../mysql/overview.md)
+- [Altre informazioni su Database di Azure per PostgreSQL](../postgresql/overview.md)
+
+
 
 
 ### <a name="csv-export-of-filtered-list-of-recommendations"></a>Esportazione in CSV dell'elenco filtrato di raccomandazioni 

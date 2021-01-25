@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Concedere l'accesso agli utenti e chiamare Microsoft Graph in un'app desktop della piattaforma UWP (Universal Windows Platform) | Azure"
-description: Questa guida di avvio rapido illustra come un'applicazione desktop Windows .NET (XAML) può ottenere un token di accesso e chiamare un'API protetta da un endpoint di Microsoft Identity Platform
+description: Questa Guida introduttiva illustra come un'applicazione .NET per desktop Windows (XAML) può ottenere un token di accesso e chiamare un'API protetta dalla piattaforma di identità Microsoft.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1cac8ab4ccf23047bd5eb2d15c174a2009f2864a
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: b54438441b0e34cccda7fbec37dc1d1740101e9e
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178297"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98754009"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Avvio rapido: Acquisire un token e chiamare l'API Microsoft Graph da un'app di Windows Desktop
 
@@ -145,7 +145,7 @@ In MSAL sono disponibili due metodi per acquisire i token: `AcquireTokenInteract
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
-In alcune situazioni è necessario forzare gli utenti a interagire con l'endpoint di Microsoft Identity Platform tramite una finestra popup per convalidare le relative credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
+Per alcune situazioni è necessario forzare gli utenti a interagire con la piattaforma di identità Microsoft tramite una finestra popup per convalidare le credenziali o per concedere il consenso. Di seguito sono riportati alcuni esempi:
 
 - La prima volta che gli utenti accedono all'applicazione
 - Quando gli utenti devono immettere nuovamente le credenziali perché la password è scaduta

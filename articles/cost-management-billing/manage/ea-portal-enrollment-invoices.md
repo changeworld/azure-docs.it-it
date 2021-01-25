@@ -3,18 +3,18 @@ title: Fatture per la registrazione ad Azure Enterprise
 description: Questo articolo illustra come gestire la fattura della registrazione EA di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/09/2020
+ms.date: 01/19/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c64127f7ebbb416d9dfebb5e417cd27d51697665
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 90ae9bdcee5f5f4c4281f2c3f931389b2ebf9486
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030723"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598068"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fatture per la registrazione ad Azure Enterprise
 
@@ -238,7 +238,7 @@ Per informazioni su prezzi pubblici di base, unità di misura, domande frequenti
 
 ### <a name="enterprise-agreement-units-of-measure"></a>Unità di misura del Contratto Enterprise
 
-Le unità di misura per i contratti Enterprise sono spesso diverse da quelle di altri programmi Microsoft, ad esempio il Contratto di Sottoscrizione Microsoft Online. Questa differenza indica che, per diversi servizi, l'unità di misura viene aggregata per offrire prezzi normalizzati. L'unità di misura nella visualizzazione Usage Summary (Riepilogo utilizzo) di Azure Enterprise Portal è sempre la misura Enterprise. Un elenco completo delle unità di misura e conversioni correnti per ogni servizio è disponibile nel file di Excel [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx).
+Le unità di misura per i contratti Enterprise sono spesso diverse da quelle di altri programmi Microsoft, ad esempio il Contratto di Sottoscrizione Microsoft Online. Questa differenza indica che, per diversi servizi, l'unità di misura viene aggregata per offrire prezzi normalizzati. L'unità di misura nella visualizzazione Usage Summary (Riepilogo utilizzo) di Azure Enterprise Portal è sempre la misura Enterprise. Un elenco completo di unità di misura e conversioni correnti per ogni servizio è disponibile inviando una [richiesta di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="conversion-between-usage-detail-report-and-the-usage-summary-page"></a>Conversione tra il report relativo ai dettagli dell'utilizzo e la pagina di riepilogo dell'utilizzo
 
@@ -324,13 +324,6 @@ Se la modifica del partner canale viene eseguita a metà del mese, il cliente ri
 Le fatture verranno rilasciate il mese successivo al termine del periodo di fatturazione. Se la cadenza di fatturazione è mensile, la fattura di settembre verrà rilasciata nel mese di ottobre per entrambi i partner. Se il ciclo di fatturazione è trimestrale o annuale, il cliente può aspettarsi una fattura per il precedente partner associato per l'utilizzo nel relativo periodo, mentre il restante periodo riguarderà il nuovo partner in base alla cadenza di fatturazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- I file di Excel seguenti offrono informazioni dettagliate sui servizi di Azure e vengono aggiornati il giorno 6 e 20 di ogni mese:
-
-   | Titolo | Descrizione | Nome file |
-   | --- | --- | --- |
-   | [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Elenca tutti i servizi attivi e include: <br>  <ul><li>categoria del servizio</li>   <li>nome descrittivo del servizio</li>   <li>nome del pagamento anticipato e numero di parte</li> <li>nome del consumo e numero di parte</li>   <li>unità di misura</li>   <li>fattori di conversione tra utilizzo indicato nel report e utilizzo visualizzato in Azure Enterprise Portal</li></ul> | Friendly\_Service\_Names.xlsx |
-   | [Service Download Fields](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Questo foglio di calcolo fornisce un elenco di tutte le possibili combinazioni dei campi relativi ai servizi nel report di download dell'utilizzo. | Service\_Download\_Fields.xlsx |
 
 - Per informazioni su come comprendere la fattura e gli addebiti, vedere [Informazioni sulla fattura del contratto Enterprise di Azure](../understand/review-enterprise-agreement-bill.md).
 - Per iniziare a usare Azure Enterprise Portal, vedere [Introduzione ad Azure Enterprise Portal](ea-portal-get-started.md).

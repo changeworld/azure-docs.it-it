@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: dcb8675350442274418920bb9439b65643f1b046
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
-ms.translationtype: HT
+ms.openlocfilehash: 8b12df62a7080e57e47b52cb79ed8a67e12bd526
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178246"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98753107"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Esercitazione: Aggiungere le informazioni di accesso a Microsoft in un'app Web ASP.NET
 
 In questa esercitazione si creerà un'app Web MVC ASP.NET che esegue l'accesso degli utenti usando il middleware Open Web Interface for .NET (OWIN) e Microsoft Identity Platform.
 
-Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, come quelli di outlook.com e live.com. L'accesso all'app sarà consentito anche ad account aziendali o dell'istituto di istruzione di qualsiasi organizzazione o azienda che abbia eseguito l'integrazione con Microsoft Identity Platform.
+Al termine di questa guida, l'applicazione potrà accettare accessi di account personali, come quelli di outlook.com e live.com. Inoltre, gli account aziendali e dell'Istituto di istruzione di qualsiasi azienda o organizzazione integrata con la piattaforma di identità Microsoft potranno accedere all'app.
 
 Contenuto dell'esercitazione:
 
@@ -119,7 +119,7 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
 
-        // Authority is the URL for authority, composed by Microsoft identity platform endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
+        // Authority is the URL for authority, composed of the Microsoft identity platform and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
 
         /// <summary>
@@ -406,14 +406,13 @@ Quando si è pronti per eseguire il test, usare un account Azure AD (aziendale o
 <br/><br/>
 ![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-#### <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
-
-Le applicazioni che si integrano con Microsoft Identity Platform seguono un modello di autorizzazione che offre a utenti e amministratori il controllo sulle modalità di accesso ai dati. Quando un utente esegue l'autenticazione con Microsoft Identity Platform per accedere a questa applicazione, viene richiesto di fornire il consenso alle autorizzazioni richieste dall'applicazione ("Visualizza il profilo di base personale" e "Conservazione dell'accesso ai dati per cui è stato autorizzato l'accesso"). Dopo aver accettato queste autorizzazioni, l'utente potrà passare ai risultati dell'applicazione. È tuttavia possibile che all'utente venga visualizzata la pagina **Need admin consent** (Consenso amministratore richiesto) se si verifica una delle condizioni seguenti:
+#### <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorizzazioni e consenso in Microsoft Identity Platform
+Le applicazioni che si integrano con la piattaforma di identità Microsoft seguono un modello di autorizzazione che consente agli utenti e agli amministratori di controllare la modalità di accesso ai dati. Quando un utente esegue l'autenticazione con la piattaforma di identità Microsoft per accedere a questa applicazione, viene richiesto di fornire il consenso per le autorizzazioni richieste dall'applicazione ("visualizzare il profilo di base" e "mantenere l'accesso ai dati a cui è stato concesso l'accesso"). Dopo aver accettato queste autorizzazioni, l'utente potrà passare ai risultati dell'applicazione. È tuttavia possibile che all'utente venga visualizzata la pagina **Need admin consent** (Consenso amministratore richiesto) se si verifica una delle condizioni seguenti:
 
 - Lo sviluppatore dell'applicazione inserisce autorizzazioni aggiuntive che richiedono il **consenso dell'amministratore**.
 - La configurazione del tenant (accessibile in **Applicazioni aziendali -> Impostazioni utente**) è tale che gli utenti non possono concedere alle app il consenso per accedere ai dati aziendali per proprio conto.
 
-Per altre informazioni, vedere [Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform](./v2-permissions-and-consent.md).
+Per ulteriori informazioni, vedere [autorizzazioni e consenso nella piattaforma di identità Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: d1546ef92d923b9d72c4aca0ddf61d2b93646656
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131905"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98602352"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Usare gli avvisi per i costi per monitorare l'uso e le spese
 
@@ -29,7 +29,7 @@ Nel portale di Azure i budget vengono definiti in base al costo. Usando l'API pe
 
 ## <a name="credit-alerts"></a>Avvisi relativi al credito
 
-Gli avvisi relativo al credito notificano quando gli impegni monetari del credito Azure vengono consumati. Gli impegni monetari sono destinati alle organizzazioni con contratti Enterprise. Gli avvisi relativi al credito vengono generati automaticamente quando il saldo del credito Azure raggiunge il 90% e il 100%. Ogni volta che viene generato un avviso, questo viene riflesso negli avvisi relativi ai costi e nel messaggio di posta elettronica inviato ai proprietari dell'account.
+Gli avvisi relativi al credito inviano una notifica quando il pagamento anticipato di Azure (in precedenza detto impegno monetario) viene consumato. Il pagamento anticipato di Azure è riservato alle organizzazioni con contratti Enterprise. Gli avvisi relativi al credito vengono generati automaticamente al 90% e al 100% del saldo del credito del pagamento anticipato di Azure. Ogni volta che viene generato un avviso, questo viene riflesso negli avvisi relativi ai costi e nel messaggio di posta elettronica inviato ai proprietari dell'account.
 
 ## <a name="department-spending-quota-alerts"></a>Avvisi sulla quota di spesa del reparto
 

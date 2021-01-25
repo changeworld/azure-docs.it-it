@@ -1,6 +1,6 @@
 ---
-title: Tipi di applicazioni per Microsoft Identity Platform | Azure
-description: Tipi di app e scenari supportati dall'endpoint della piattaforma di identità Microsoft.
+title: Tipi di applicazioni per la piattaforma di identità Microsoft | Azure
+description: Tipi di app e scenari supportati dalla piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,20 +12,20 @@ ms.date: 11/13/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q2
-ms.openlocfilehash: fd1fc59fd1ade6036c57f15415afccfc693f7bff
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7ec309f016e73642262399bd75e7b5146bc5e497
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029754"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752787"
 ---
-# <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per Microsoft Identity Platform
+# <a name="application-types-for-the-microsoft-identity-platform"></a>Tipi di applicazioni per la piattaforma di identità Microsoft
 
-L'endpoint della piattaforma di identità Microsoft supporta l'autenticazione per un'ampia gamma di architetture di app moderne, tutte basate sui protocolli standard del settore [OAuth 2,0 o OpenID Connect](active-directory-v2-protocols.md). Questo articolo descrive brevemente i tipi di app che è possibile compilare usando Microsoft Identity Platform, indipendentemente dal linguaggio o dalla piattaforma preferita. Le informazioni sono progettate per semplificare la comprensione degli scenari di alto livello prima di iniziare a usare il codice negli [scenari di applicazione](authentication-flows-app-scenarios.md#application-scenarios).
+La piattaforma di identità Microsoft supporta l'autenticazione per un'ampia gamma di architetture di app moderne, tutte basate sui protocolli standard del settore [OAuth 2,0 o OpenID Connect](active-directory-v2-protocols.md). Questo articolo descrive brevemente i tipi di app che è possibile compilare usando Microsoft Identity Platform, indipendentemente dal linguaggio o dalla piattaforma preferita. Le informazioni sono progettate per semplificare la comprensione degli scenari di alto livello prima di iniziare a usare il codice negli [scenari di applicazione](authentication-flows-app-scenarios.md#application-scenarios).
 
 ## <a name="the-basics"></a>Nozioni di base
 
-È necessario registrare ogni app che usa l'endpoint di Microsoft Identity Platform in [Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Il processo di registrazione delle app raccoglie e assegna all'app questi valori:
+È necessario registrare ogni app che usa la piattaforma di identità Microsoft nella portale di Azure [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). Il processo di registrazione delle app raccoglie e assegna all'app questi valori:
 
 * Un **ID applicazione (client)**  che identifica l'app in modo univoco
 * Un **URI di reindirizzamento** che può essere usato per reindirizzare le risposte all'app
@@ -33,7 +33,7 @@ L'endpoint della piattaforma di identità Microsoft supporta l'autenticazione pe
 
 Per i dettagli, vedere come [registrare un'app](quickstart-register-app.md).
 
-Dopo la registrazione, l'app comunica con Microsoft Identity Platform inviando richieste all'endpoint. Microsoft offre framework e librerie open source che gestiscono i dettagli di queste richieste. È sempre possibile implementare personalmente la logica di autenticazione creando richieste a questi endpoint:
+Dopo la registrazione dell'app, l'app comunica con la piattaforma di identità Microsoft inviando richieste all'endpoint. Microsoft offre framework e librerie open source che gestiscono i dettagli di queste richieste. È sempre possibile implementare personalmente la logica di autenticazione creando richieste a questi endpoint:
 
 ```HTTP
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -42,7 +42,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>App a singola pagina (JavaScript)
 
-Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript, spesso con un framework come Angular, React o Vue. L'endpoint della piattaforma Microsoft Identity supporta queste app usando il protocollo [OpenID Connect](v2-protocols-oidc.md) per l'autenticazione e il [flusso di concessione implicita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) o il codice di [autorizzazione OAuth 2,0 più recente + flusso PKCE](v2-oauth2-auth-code-flow.md) per l'autorizzazione (vedere di seguito).
+Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript, spesso con un framework come Angular, React o Vue. La piattaforma Microsoft Identity supporta queste app usando il protocollo [OpenID Connect](v2-protocols-oidc.md) per l'autenticazione e il [flusso di concessione implicita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) o il [codice di autorizzazione OAuth 2,0 più recente + flusso PKCE](v2-oauth2-auth-code-flow.md) per l'autorizzazione (vedere di seguito).
 
 Il diagramma di flusso seguente illustra la concessione del codice di autorizzazione OAuth 2,0 (con informazioni dettagliate su PKCE omesso), in cui l'app riceve un codice dall'endpoint della piattaforma di identità Microsoft `authorize` e lo riscatta per i token e i token di aggiornamento usando le richieste Web tra siti. Il token di aggiornamento scade ogni 24 ore e l'app deve richiedere un altro codice. Oltre al token di accesso, un oggetto `id_token` che rappresenta l'utente che ha eseguito l'accesso all'applicazione client viene in genere richiesto anche tramite lo stesso flusso e/o una richiesta di OpenID Connect separata (non illustrata di seguito).
 
@@ -73,13 +73,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Altre informazioni sui diversi tipi di token usati nell'endpoint di Microsoft Identity Platform sono disponibili nelle informazioni di riferimento per il [token di accesso](access-tokens.md) e per [id_token](id-tokens.md)
+Altre informazioni sui diversi tipi di token usati nella piattaforma di identità Microsoft sono disponibili nelle informazioni di riferimento sui [token di accesso](access-tokens.md) e [id_token](id-tokens.md)
 
 Nelle app del server Web, il flusso di autenticazione dell'accesso esegue i passaggi generali seguenti:
 
 ![Mostra il flusso di autenticazione dell'app Web](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
-È possibile verificare l'identità dell'utente convalidando il token ID con una chiave di firma pubblica ricevuta dall'endpoint di Microsoft Identity Platform. Viene anche impostato un cookie di sessione che può essere usato per identificare l'utente nelle richieste di pagina successive.
+È possibile verificare l'identità dell'utente convalidando il token ID con una chiave di firma pubblica ricevuta dalla piattaforma di identità Microsoft. Viene anche impostato un cookie di sessione che può essere usato per identificare l'utente nelle richieste di pagina successive.
 
 Per vedere questo scenario in azione, provare gli esempi di codice nell' [app Web che esegue lo scenario degli utenti](scenario-web-app-sign-user-overview.md).
 
@@ -87,7 +87,7 @@ Oltre al semplice accesso, un'app per server Web potrebbe dover accedere ad altr
 
 ## <a name="web-apis"></a>API Web
 
-È possibile usare l'endpoint di Microsoft Identity Platform per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Le API Web possono essere implementate in numerose piattaforme e linguaggi. Possono inoltre essere implementate usando trigger HTTP in Funzioni di Azure. Al posto dei token ID e dei cookie di sessione, un'API Web usa un token di accesso OAuth 2.0 per proteggere i dati e autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP come illustrato di seguito:
+È possibile usare la piattaforma Microsoft Identity per proteggere i servizi Web, ad esempio l'API Web RESTful dell'app. Le API Web possono essere implementate in numerose piattaforme e linguaggi. Possono inoltre essere implementate usando trigger HTTP in Funzioni di Azure. Al posto dei token ID e dei cookie di sessione, un'API Web usa un token di accesso OAuth 2.0 per proteggere i dati e autenticare le richieste in ingresso. Il chiamante di un'API Web aggiunge un token di accesso nell'intestazione dell'autorizzazione di una richiesta HTTP come illustrato di seguito:
 
 ```HTTP
 GET /api/items HTTP/1.1
@@ -97,9 +97,9 @@ Accept: application/json
 ...
 ```
 
-L'API Web usa il token di accesso per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token di accesso. Altre informazioni sui diversi tipi di token usati nell'endpoint di Microsoft Identity Platform sono disponibili nelle informazioni di riferimento per il [token di accesso](access-tokens.md) e per [id_token](id-tokens.md).
+L'API Web usa il token di accesso per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token di accesso. Altre informazioni sui diversi tipi di token usati nella piattaforma di identità Microsoft sono disponibili nelle informazioni di riferimento sui [token di accesso](access-tokens.md) e [id_token](id-tokens.md) .
 
-Un'API Web può consentire agli utenti di fornire il consenso o rifiutare esplicitamente specifici dati o funzionalità esponendo le autorizzazioni, note anche come [ambiti](v2-permissions-and-consent.md). Per far sì che un'app chiamante acquisisca l'autorizzazione ad accedere a un ambito, l'utente deve fornire il consenso all'ambito durante un flusso. L'endpoint di Microsoft Identity Platform chiede l'autorizzazione all'utente e quindi registra le autorizzazioni nei token di accesso ricevuti dall'API Web. L'API Web convalida i token di accesso ricevuti ad ogni chiamata ed esegue i controlli di autorizzazione appropriati.
+Un'API Web può consentire agli utenti di fornire il consenso o rifiutare esplicitamente specifici dati o funzionalità esponendo le autorizzazioni, note anche come [ambiti](v2-permissions-and-consent.md). Per far sì che un'app chiamante acquisisca l'autorizzazione ad accedere a un ambito, l'utente deve fornire il consenso all'ambito durante un flusso. La piattaforma Microsoft Identity chiede all'utente l'autorizzazione e quindi registra le autorizzazioni in tutti i token di accesso ricevuti dall'API Web. L'API Web convalida i token di accesso ricevuti ad ogni chiamata ed esegue i controlli di autorizzazione appropriati.
 
 Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app per server Web, desktop, per dispositivi mobili, a singola pagina, daemon sul lato server e anche altre API Web. Il flusso generale per un'API Web è simile al seguente:
 
@@ -107,13 +107,13 @@ Un'API Web può ricevere token di accesso da tutti i tipi di app, tra cui app pe
 
 Per informazioni su come proteggere un'API Web usando i token di accesso OAuth2, vedere gli esempi di codice dell'API Web nello [scenario dell'API Web protetta](scenario-protected-web-api-overview.md).
 
-In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Microsoft Identity Platform. A questo scopo, le API Web possono ricorrere al flusso **On-Behalf-Of**, che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita. Per altre informazioni, vedere [Microsoft Identity Platform e flusso On-Behalf-Of di OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+In molti casi, le API Web devono anche effettuare richieste in uscita ad altre API Web downstream protette da Microsoft Identity Platform. A questo scopo, le API Web possono ricorrere al flusso **On-Behalf-Of**, che consente all'API Web di scambiare un token di accesso in ingresso con un altro token di accesso da usare in richieste in uscita. Per altre informazioni, vedere la [piattaforma Microsoft Identity e OAuth 2,0 per conto di Microsoft Flow](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>App per dispositivi mobili e native
 
 Le app installate in un dispositivo, ad esempio app desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web che archiviano i dati ed eseguono funzioni per conto dell'utente. Queste app possono aggiungere accesso e autorizzazioni ai servizi back-end tramite il [flusso del codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-In questo flusso, l'app riceve un codice di autorizzazione dall'endpoint di Microsoft Identity Platform quando l'utente effettua l'accesso. Questo codice rappresenta l'autorizzazione dell'app a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può scambiare il codice di autorizzazione in background con un token di accesso OAuth 2.0 e un token di aggiornamento. L'app può usare il token di accesso per l'autenticazione all'API Web nelle richieste HTTP e il token di aggiornamento per ottenere nuovi token di accesso quando i precedenti scadono.
+In questo flusso, l'app riceve un codice di autorizzazione dalla piattaforma di identità Microsoft quando l'utente accede. Questo codice rappresenta l'autorizzazione dell'app a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'app può scambiare il codice di autorizzazione in background con un token di accesso OAuth 2.0 e un token di aggiornamento. L'app può usare il token di accesso per l'autenticazione all'API Web nelle richieste HTTP e il token di aggiornamento per ottenere nuovi token di accesso quando i precedenti scadono.
 
 ![Mostra il flusso di autenticazione dell'app nativa](./media/v2-app-types/convergence-scenarios-native.svg)
 

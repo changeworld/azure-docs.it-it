@@ -9,18 +9,18 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
-ms.translationtype: HT
+ms.openlocfilehash: 643aac7927cc7b14693387fbb5765bdcd0214dc2
+ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150070"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98598241"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Informazioni sulla fattura del contratto Enterprise di Azure
 
 I clienti di Azure con un Contratto Enterprise ricevono una fattura quando superano il credito dell'organizzazione o usano i servizi che non sono coperti dal credito.
 
-Il credito della propria organizzazione include l'impegno monetario. L'impegno monetario è l'importo anticipato pagato dall'organizzazione per l'uso dei servizi di Azure. È possibile aggiungere fondi di impegno monetario al Contratto Enterprise contattando l'account manager o il rivenditore Microsoft.
+Il credito dell'organizzazione include il prepagamento di Azure (in precedenza detto impegno monetario). Il pagamento anticipato di Azure è l'importo anticipato pagato dall'organizzazione per l'uso dei servizi di Azure. È possibile aggiungere fondi di pagamento anticipato di Azure al contratto Enterprise contattando l'account manager o il rivenditore Microsoft.
 
 Questa esercitazione si applica solo ai clienti di Azure con un Contratto Enterprise di Azure.
 
@@ -155,7 +155,7 @@ Alcuni motivi delle differenze nei prezzi:
 
 ## <a name="request-detailed-usage-information"></a>Richiedere informazioni dettagliate sull'utilizzo
 
-Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, l'impegno monetario utilizzato e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
+Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, la quota utilizzata di Pagamento anticipato di Azure e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
 
 Per visualizzare i dettagli dell'utilizzo in account specifici, scaricare il report relativo ai dettagli sull'utilizzo scegliendo **Report** > **Scarica utilizzo**.
 
@@ -166,7 +166,7 @@ Per le registrazioni indirette, il partner deve abilitare la funzione di markup 
 
 ## <a name="reports"></a>Report
 
-Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, l'impegno monetario utilizzato e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
+Gli amministratori aziendali possono visualizzare un riepilogo dei dati di utilizzo, la quota utilizzata di Pagamento anticipato di Azure e gli addebiti associati all'utilizzo aggiuntivo in Azure Enterprise Portal. Gli addebiti vengono presentati a livello di riepilogo in tutti gli account e le sottoscrizioni.
 
 ### <a name="azure-enterprise-reports"></a>Record di Azure Enterprise
 

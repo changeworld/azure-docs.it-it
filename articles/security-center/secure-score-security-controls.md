@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: memildin
-ms.openlocfilehash: 1e6b66fce6b22dfd12c162d469ce44137c94ab87
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: e881c61d16cd167ace78abb96dca7e714436cfc0
+ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916372"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98752208"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -54,7 +54,7 @@ Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Ottenere il Punteggio sicuro dal portale
 
-Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è il primo riquadro principale della pagina Panoramica del Centro sicurezza. Selezionando questo riquadro, viene visualizzata la pagina del Punteggio sicuro dedicato, in cui verrà visualizzato il Punteggio suddiviso in base alla sottoscrizione. Selezionare una singola sottoscrizione per visualizzare l'elenco dettagliato delle raccomandazioni con priorità e il potenziale impatto che il monitoraggio e l'aggiornamento avranno sul punteggio della sottoscrizione.
+Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è il primo riquadro principale della pagina Panoramica del Centro sicurezza. Selezionando questo riquadro, viene visualizzata la pagina del Punteggio sicuro dedicato, in cui verrà visualizzato il Punteggio suddiviso in base alla sottoscrizione. Selezionare una singola sottoscrizione per visualizzare l'elenco dettagliato delle raccomandazioni con priorità e il potenziale impatto che il monitoraggio e l'aggiornamento avranno sul punteggio della sottoscrizione. 
 
 Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nelle pagine del portale del Centro sicurezza.
 
@@ -62,9 +62,14 @@ Per riepilogo, il Punteggio sicuro viene visualizzato nei percorsi seguenti nell
 
     :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Punteggio sicuro nel dashboard del Centro sicurezza":::
 
-- Nella pagina del **Punteggio sicuro** dedicato:
+- Nella pagina **Punteggio sicuro** dedicato è possibile visualizzare il Punteggio sicuro per la sottoscrizione e i gruppi di gestione:
 
-    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Il Punteggio sicuro nella pagina del Punteggio sicuro del Centro sicurezza":::
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Il Punteggio sicuro per le sottoscrizioni nella pagina del Punteggio sicuro del Centro sicurezza":::
+
+    :::image type="content" source="./media/secure-score-security-controls/secure-score-management-groups.png" alt-text="Il Punteggio sicuro per i gruppi di gestione nella pagina del Punteggio sicuro del Centro sicurezza":::
+
+    > [!NOTE]
+    > I gruppi di gestione per i quali non si dispone di autorizzazioni sufficienti indicheranno il punteggio come "Restricted". 
 
 - Nella parte superiore della pagina **raccomandazioni** :
 
@@ -125,7 +130,7 @@ Il dashboard contiene i due report seguenti che consentono di analizzare lo stat
 - **Riepilogo delle risorse** : fornisce dati riepilogati sull'integrità delle risorse.
 - **Riepilogo del Punteggio sicuro** : fornisce dati riepilogati relativi all'avanzamento del punteggio. Usare il grafico "Punteggio sicuro nel tempo per sottoscrizione" per visualizzare le modifiche apportate al punteggio. Se si nota un cambiamento significativo nel punteggio, controllare la tabella "modifiche rilevate che potrebbero influire sul punteggio sicuro" per le possibili modifiche che potrebbero avere causato la modifica. Questa tabella presenta le risorse eliminate, le risorse appena distribuite o le risorse per cui è stato modificato lo stato di sicurezza per una delle raccomandazioni.
 
-:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Il dashboard Power bi facoltativo per il rilevamento del Punteggio sicuro nel tempo e l'analisi delle modifiche":::
+:::image type="content" source="./media/secure-score-security-controls/power-bi-secure-score-dashboard.png" alt-text="Il Punteggio sicuro facoltativo nel tempo Power BI Dashboard per tenere traccia del Punteggio sicuro nel tempo e analizzare le modifiche":::
 
 
 
