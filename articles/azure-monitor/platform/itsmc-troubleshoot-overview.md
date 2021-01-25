@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: a4a7b7a4008d5cc4636e2d533c225a618f35af05
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: e43c5fb36c5395e12fd0b9c2c67b787a1137f5d0
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611186"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761991"
 ---
 # <a name="troubleshooting-problems-in-itsm-connector"></a>Risolvere i problemi di Connettore di Gestione dei servizi IT
 
@@ -43,24 +43,23 @@ Se si usa Mapping dei servizi, è possibile visualizzare gli elementi del Servic
 
 ![Screenshot che mostra la schermata Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-## <a name="troubleshoot-itsm-connections"></a>Risolvere i problemi delle connessioni di Gestione dei servizi IT
-
-- Se una connessione non riesce a connettersi al sistema ITSM e si verifica un **errore durante il salvataggio** del messaggio di connessione, seguire questa procedura:
-   - Per ServiceNow, Cherwell e Provance Connections:  
-     - Assicurarsi di aver immesso correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
-     - Assicurarsi di disporre di privilegi sufficienti nel prodotto ITSM corrispondente per effettuare la connessione.  
-   - Per le connessioni Service Manager:  
-     - Verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione venga stabilita correttamente con il computer Service Manager locale, passare all'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
-
-- Se Log Analytics gli avvisi vengono attivati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM, se gli elementi di configurazione non vengono creati/collegati agli elementi di lavoro o per altre informazioni, vedere le risorse seguenti:
-   -  CONNETTORE: la soluzione Mostra un [Riepilogo delle connessioni](itsmc-dashboard.md), degli elementi di lavoro, dei computer e molto altro. Selezionare il riquadro con l'etichetta **stato connettore** . In questo modo, viene eseguita la **Ricerca log** con la query pertinente. `LogType_S`Per ulteriori informazioni, esaminare i record del log con un di `ERROR` .
-   È possibile visualizzare i dettagli relativi ai messaggi nella [tabella.](itsmc-dashboard-errors.md)
-   - Pagina **Ricerca log** : consente di visualizzare gli errori e le informazioni correlate direttamente usando la query `*ServiceDeskLog_CL*` .
-
 ## <a name="common-symptoms---how-should-it-be-resolved"></a>Sintomi comuni: come risolverlo?
 
 L'elenco seguente contiene i sintomi comuni e il modo in cui risolverlo:
 
+* **Sintomo**: se una connessione non riesce a connettersi al sistema ITSM e si verifica un **errore durante il salvataggio** del messaggio di connessione.
+
+    **Motivo**: la ragione può essere una delle opzioni seguenti:
+    * Credenziali non corrette
+     * Privilegi insufficienti
+     * L'app Web deve essere distribuita correttamente
+
+    **Risoluzione**:
+    * Per ServiceNow, Cherwell e Provance Connections:
+        * Assicurarsi di aver immesso correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
+        * Per ServiceNow: assicurarsi di disporre di privilegi sufficienti nel prodotto ITSM corrispondente per eseguire la connessione come [specificato](itsmc-connections-servicenow.md#install-the-user-app-and-create-the-user-role).
+  * Per le connessioni Service Manager:  
+      * Verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione venga stabilita correttamente con il computer Service Manager locale, passare all'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](./itsmc-connections-scsm.md#configure-the-hybrid-connection).  
 * **Sintomo**: vengono creati elementi di lavoro duplicati
 
     **Motivo**: la ragione può essere una delle due opzioni seguenti:

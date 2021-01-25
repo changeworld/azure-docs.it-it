@@ -13,12 +13,12 @@ ms.date: 11/20/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9ec8a5fe5de751e40ebaa17629ff72c5f6b2adca
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: 46626c3ebe9d70600be1cc5f73c43677f67bcd09
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94979988"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761371"
 ---
 # <a name="application-configuration-options"></a>Opzioni di configurazione dell'applicazione
 
@@ -119,7 +119,7 @@ Se sei uno sviluppatore di app client pubbliche che usa MSAL:
   | Piattaforma | URI di reindirizzamento |
   |--|--|
   | App desktop (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` |
-  | UWP | valore di `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Questo consente l'accesso SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker. GetCurrentApplicationCallbackUri () che è necessario registrare |
+  | Piattaforma UWP | valore di `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()` . Questo consente l'accesso SSO con il browser impostando il valore sul risultato di WebAuthenticationBroker. GetCurrentApplicationCallbackUri () che è necessario registrare |
   | .NET Core | `https://localhost`. Ciò consente all'utente di usare il browser di sistema per l'autenticazione interattiva perché .NET Core non dispone al momento di un'interfaccia utente per la visualizzazione Web incorporata. |
 
 - Non è necessario aggiungere un URI di reindirizzamento se si sta creando un'applicazione Novell Android e iOS che non supporta Service Broker (l'URI di reindirizzamento viene impostato automaticamente su `msal{ClientId}://auth` per Novell Android e iOS
@@ -147,8 +147,20 @@ Per le app daemon non è necessario specificare un URI di reindirizzamento.
 Questa opzione specifica il segreto client per l'app client riservata. Questo segreto (password dell'app) viene fornito dal portale di registrazione delle applicazioni o fornito a Azure AD durante la registrazione dell'app con PowerShell AzureAD, PowerShell AzureRM o l'interfaccia della riga di comando di Azure.
 
 ## <a name="logging"></a>Registrazione
+Per semplificare il debug e gli scenari di risoluzione degli errori di autenticazione, Microsoft Authentication Library fornisce il supporto predefinito per la registrazione. La registrazione è illustrata negli articoli seguenti:
 
-Le altre opzioni di configurazione consentono la registrazione e la risoluzione dei problemi. Per informazioni dettagliate su come usarli, vedere l'articolo relativo alla [registrazione](msal-logging.md) .
+:::row:::
+    :::column:::
+        - [Registrazione in MSAL.NET](msal-logging-dotnet.md)
+        - [Registrazione in MSAL per Android](msal-logging-android.md)
+        - [Registrazione in MSAL.js](msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Registrazione in MSAL per iOS/macOS](msal-logging-ios.md)
+        - [Registrazione in MSAL per Java](msal-logging-java.md)
+        - [Registrazione in MSAL per Python](msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

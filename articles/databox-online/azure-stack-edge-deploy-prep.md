@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/06/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: aabc141666fe5c9fb52a3eac5ee1866f390e4551
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
-ms.translationtype: HT
+ms.openlocfilehash: 07b526d443b5f1b41bc6f811b7cccc0fbc6165ee
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968499"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761707"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro  
 
@@ -37,7 +37,7 @@ Per distribuire Azure Stack Edge Pro, fare riferimento alle esercitazioni seguen
 
 | **#** | **In questo passaggio** | **Usare questi documenti** |
 | --- | --- | --- | 
-| 1. |**[Preparare il portale di Azure per Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare un dispositivo fisico Azure Stack Edge. |
+| 1. |**[Preparare il portale di Azure per Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)** |Creare e configurare la risorsa Azure Stack Edge prima di installare un dispositivo fisico Azure Stack Box Edge. |
 | 2. |**[Installare Azure Stack Edge Pro](azure-stack-edge-deploy-install.md)**|Disimballare, installare in rack e cablare il dispositivo fisico Azure Stack Edge Pro.  |
 | 3. |**[Connettere, configurare e attivare Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md)** |Connettersi all'interfaccia utente Web locale, completare la configurazione del dispositivo e attivare il dispositivo. Il dispositivo è pronto per la configurazione di condivisioni SMB o NFS.  |
 | 4. |**[Trasferire i dati con Azure Stack Edge Pro](azure-stack-edge-deploy-add-shares.md)** |Aggiungere condivisioni e connettersi alle condivisioni da SMB o NFS. |
@@ -60,7 +60,7 @@ Prima di iniziare, verificare che:
   * Per concedere l'accesso di tipo Collaboratore, è necessario essere un **Proprietario** a livello della sottoscrizione. Per concedere l'accesso di tipo Collaboratore a un altro utente, nel portale di Azure passare a **Tutti i servizi** > **Sottoscrizioni** > **Controllo di accesso (IAM)**  >  **+ Aggiungi** > **Aggiungi assegnazione di ruolo**. Per altre informazioni, vedere [Esercitazione: Concedere l'accesso alle risorse di Azure a un utente usando il portale di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
   * Per creare qualsiasi risorsa Azure Stack Edge/Data Box Gateway, è necessario disporre di autorizzazioni di Collaboratore o superiori con ambito a livello di gruppo di risorse. È anche necessario assicurarsi che il provider di risorse `Microsoft.DataBoxEdge` sia registrato. Per informazioni su come registrare un provider di risorse, vedere [Registrare un provider di risorse](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-  * Per creare qualsiasi risorsa hub IoT, assicurarsi che il provider Microsoft.Devices sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Per creare tutte le risorse dell'hub tutto, assicurarsi che il provider Microsoft. Devices sia registrato. Per informazioni sulla registrazione, vedere [Registrare i provider di risorse](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Per creare una risorsa account di archiviazione, è ugualmente necessario l'accesso di tipo Collaboratore o superiore con ambito a livello di gruppo di risorse. Archiviazione di Azure è un provider di risorse registrato per impostazione predefinita.
 * Si abbia accesso all'API Graph di Azure Active Directory Graph come utente o amministratore. Per altre informazioni, vedere [API Graph di Azure Active Directory](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * Si dispone dell'account di archiviazione di Microsoft Azure con credenziali di accesso.
@@ -91,7 +91,7 @@ Prima di iniziare, verificare che:
 
 Se si ha già una risorsa Azure Stack Edge per la gestione del dispositivo fisico, saltare questo passaggio e procedere con il passaggio [Ottenere la chiave di attivazione](#get-the-activation-key).
 
-Per creare la risorsa Azure Stack Edge, completare i passaggi seguenti nel portale di Azure.
+Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di Azure.
 
 1. Usare le credenziali di Microsoft Azure per accedere a: 
 
@@ -118,14 +118,14 @@ Per creare la risorsa Azure Stack Edge, completare i passaggi seguenti nel porta
 
     |Impostazione  |valore  |
     |---------|---------|
-    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome deve contenere da 2 a 50 caratteri tra lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
+    |Nome   | Nome descrittivo per identificare la risorsa.<br>Il nome ha da 2 a 50 caratteri, tra cui lettere, numeri e trattini.<br> Il nome deve iniziare e finire con una lettera o un numero.        |
     |Region     |Per un elenco delle aree in cui la risorsa Azure Stack Edge è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Se si usa Azure per enti pubblici, sono disponibili tutte le aree per enti pubblici riportate in [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Scegliere la località più vicina all'area geografica in cui si vuole distribuire il dispositivo.|
 
     ![Dettagli del progetto e dell'istanza](media/azure-stack-edge-deploy-prep/data-box-edge-resource.png)
 
 5. Selezionare **Avanti: Indirizzo di spedizione**.
 
-    - Se si ha già un dispositivo, selezionare la casella combinata **Ho un dispositivo Azure Stack Edge Pro**.
+    - Se si dispone già di un dispositivo, selezionare la casella combinata per **avere un dispositivo Azure stack Edge**.
     - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, la società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
 
     ![Indirizzo di spedizione per il nuovo dispositivo](media/azure-stack-edge-deploy-prep/data-box-edge-resource1.png)
@@ -138,19 +138,23 @@ Per creare la risorsa Azure Stack Edge, completare i passaggi seguenti nel porta
 
 8. Selezionare **Create** (Crea).
 
-La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
+   La creazione della risorsa richiede alcuni minuti. Al termine della creazione e della distribuzione della risorsa, si riceverà una notifica. Selezionare **Vai alla risorsa**.
 
-![Andare alla risorsa Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
+   ![Andare alla risorsa Azure Stack Edge](media/azure-stack-edge-deploy-prep/data-box-edge-resource3.png)
 
 Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
 
 ![Notifica della verifica dell'ordine di Azure Stack Edge Pro](media/azure-stack-edge-deploy-prep/data-box-edge-resource4.png)
 
+
+> [!NOTE]
+> Per creare più ordini contemporaneamente o clonare un ordine esistente, è possibile usare gli [script negli esempi di Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Per altre informazioni, vedere il file README.
+
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 
 Quando la risorsa Azure Stack Edge è configurata e operativa, è necessario ottenere la chiave di attivazione. Questa chiave viene usata per attivare il dispositivo Azure Stack Edge Pro e connetterlo alla risorsa. È possibile ottenere questa chiave ora nel portale di Azure.
 
-1. Passare alla risorsa creata e selezionare **Panoramica**. Verrà visualizzata una notifica per indicare che l'ordine è in fase di elaborazione.
+1. Passare alla risorsa creata e selezionare **Overview (panoramica**). Verrà visualizzata una notifica per indicare che l'ordine è in fase di elaborazione.
 
     ![Selezionare Panoramica](media/azure-stack-edge-deploy-prep/data-box-edge-select-devicesetup.png)
 

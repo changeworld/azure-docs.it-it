@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: cf7c4b881697b664403d8c817c3b9e48fb48944d
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 969f60cd92e8c1cbe93f1646cccd08c942ad9923
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746765"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762835"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Informazioni sui servizi cloud di Azure (supporto esteso)
 
@@ -27,9 +27,11 @@ Con questa modifica, il modello di distribuzione basato su Azure Service Manager
 
 ## <a name="what-does-not-change"></a>Cosa non cambia 
 - È possibile creare il codice, definire le configurazioni e distribuirlo in Azure. Azure configura l'ambiente di calcolo, esegue il codice, quindi lo monitora e lo gestisce.
-- I servizi cloud (supporto esteso) supportano anche due tipi di ruoli, [Web e di lavoro](../cloud-services/cloud-services-choose-me.md). 
-- I tre componenti, la definizione del servizio (con estensione csdef), la configurazione del servizio (con estensione cscfg) e un pacchetto del servizio (con estensione cspkg) di un servizio cloud vengono portati avanti e non vi sono modifiche nei rispettivi [formati](cloud-services-model-and-package.md). 
-- Non è necessario apportare modifiche al codice di runtime perché il piano dati è lo stesso e il piano di controllo sta cambiando.  
+- I servizi cloud (supporto esteso) supportano anche due tipi di ruoli, [Web e di lavoro](../cloud-services/cloud-services-choose-me.md). Non sono state apportate modifiche alla progettazione, all'architettura o ai componenti dei ruoli Web e di lavoro. 
+- I tre componenti di un servizio cloud, la definizione del servizio (con estensione csdef), la configurazione del servizio (. cscfg) e il pacchetto del servizio (. cspkg) vengono portati avanti e non vi sono modifiche nei rispettivi [formati](cloud-services-model-and-package.md). 
+- Non è necessario apportare modifiche al codice di runtime perché il piano dati è lo stesso e il piano di controllo sta cambiando. 
+- Le versioni Guest di Azure e gli aggiornamenti associati sono allineati ai servizi cloud (versione classica)
+- Processo di aggiornamento sottostante per quanto riguarda i domini di aggiornamento, il modo in cui l'aggiornamento procede, il rollback e le modifiche al servizio consentite durante un aggiornamento non cambiano
 
 ## <a name="changes-in-deployment-model"></a>Modifiche nel modello di distribuzione
 

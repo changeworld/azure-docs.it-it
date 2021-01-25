@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742027"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763075"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Risolvere i problemi relativi a Azure Stack Edge Pro
 
@@ -26,6 +26,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > * Eseguire la diagnostica
 > * Ottenere il pacchetto per il supporto
 > * Usare i log per risolvere i problemi
+> * Risolvere gli errori di IoT Edge
 
 ## <a name="run-diagnostics"></a>Eseguire la diagnostica
 
@@ -49,11 +50,11 @@ Un pacchetto di log è costituito da tutti i log rilevanti utili al supporto tec
 
 Per ottenere un pacchetto di supporto, usare la procedura seguente.
 
-1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Supporto**. Selezionare **Crea pacchetto**per il supporto. Il sistema inizia a ottenere il pacchetto per il supporto. Questa operazione potrebbe richiedere alcuni minuti.
+1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Supporto**. Selezionare **Crea pacchetto** per il supporto. Il sistema inizia a ottenere il pacchetto per il supporto. Questa operazione potrebbe richiedere alcuni minuti.
 
     ![Fare clic su Aggiungi utente](media/azure-stack-edge-troubleshoot/collect-logs-1.png)
 
-2. Dopo aver creato il pacchetto per il supporto, selezionare **Scarica pacchetto**per il supporto. Un pacchetto compresso viene scaricato nel percorso selezionato. È possibile decomprimere il pacchetto e visualizzare i file di log del registro di sistema.
+2. Dopo aver creato il pacchetto per il supporto, selezionare **Scarica pacchetto** per il supporto. Un pacchetto compresso viene scaricato nel percorso selezionato. È possibile decomprimere il pacchetto e visualizzare i file di log del registro di sistema.
 
     ![Fare clic su Aggiungi utente 2](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
@@ -81,6 +82,10 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 3. Quando viene visualizzato un errore in questo file (evidenziato nell'esempio), annotare il codice di errore, in questo caso è 16001. Cercare la descrizione di questo codice di errore con il riferimento di errore seguente.
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
+
+## <a name="troubleshoot-iot-edge-errors"></a>Risolvere gli errori di IoT Edge
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

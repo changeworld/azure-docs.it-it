@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: 7c15b3a854b533d93bc05f7e5302671711da75c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/22/2021
+ms.openlocfilehash: a4d1543c5c4ce7a44825a879b838e7829b8c84fd
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936125"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760632"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Panoramica: anteprima di app per la logica di Azure
 
@@ -139,6 +139,8 @@ L'anteprima di app per la logica di Azure include molte funzionalità correnti e
 
 * Abilitare la registrazione diagnostica e le funzionalità di traccia per l'app per la logica usando [Application Insights](../azure-monitor/app/app-insights-overview.md) quando supportato dalla sottoscrizione di Azure e dalle impostazioni dell'app per la logica.
 
+* Rigenerare le chiavi di accesso per le connessioni gestite usate da singoli flussi di lavoro in una risorsa di app per la **logica (anteprima)** . Per questa attività, [seguire la stessa procedura per la risorsa app per la **logica** , ma a livello di singolo flusso di lavoro](logic-apps-securing-a-logic-app.md#regenerate-access-keys), non a livello di risorsa dell'app per la logica.
+
 > [!NOTE]
 > Per informazioni sui problemi noti correnti, vedere la pagina relativa alle app per la [logica Public Preview problemi noti in GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -165,7 +167,7 @@ Per ulteriori informazioni sui modelli di determinazione prezzi applicabili a qu
 
 ## <a name="changed-limited-unavailable-or-unsupported-capabilities"></a>Funzionalità modificate, limitate, non disponibili o non supportate
 
-Nell'anteprima di app per la logica di Azure le funzionalità sono state modificate o sono attualmente limitate, non disponibili o non supportate:
+Nell'anteprima di app per la logica di Azure queste funzionalità sono state modificate o sono attualmente limitate, non disponibili o non supportate:
 
 * **Trigger e azioni**: alcuni trigger predefiniti non sono disponibili, ad esempio finestra temporale scorrevole e batch. Per avviare il flusso di lavoro, usare la [ricorrenza, la richiesta, il http, il webhook http, l'hub eventi o il trigger del bus di servizio predefiniti](../connectors/apis-list.md). I trigger e le azioni predefiniti vengono eseguiti in modo nativo nel runtime di anteprima di app per la logica di Azure, mentre i connettori gestiti vengono distribuiti in Azure. Nella finestra di progettazione, i trigger e le azioni predefiniti vengono visualizzati nella scheda **incorporata** , mentre i trigger e le azioni del connettore gestito vengono visualizzati nella scheda **Azure** .
 

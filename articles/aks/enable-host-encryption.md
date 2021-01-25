@@ -4,12 +4,12 @@ description: Informazioni su come configurare una crittografia basata su host in
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 14ec39272bf2f434aaa57217a90667a62e82901a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6b23bf285d89a5f3285825feef849b3d168ed62f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183295"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762041"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -26,34 +26,32 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 ### <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.55 o versione successiva
-- Assicurarsi che sia stato `EncryptionAtHost` abilitato il flag funzionalità `Microsoft.Compute` .
 - Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
 
+Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per ottenere la funzionalità abilitata per le sottoscrizioni.
+
 ### <a name="register-encryptionathost--preview-features"></a>Registrare le `EncryptionAtHost`  funzionalità di anteprima
+
+> [!IMPORTANT]
+> encryptionAtHost@microsoftPer ottenere la funzionalità abilitata per le risorse di calcolo, è necessario inviare tramite posta elettronica. com gli ID sottoscrizione. Non è possibile abilitarlo per queste risorse. È possibile abilitarlo autonomamente nel servizio contenitore.
 
 Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare `EnableEncryptionAtHostPreview` i `EncryptionAtHost` flag della funzionalità e nella sottoscrizione.
 
 Registrare il `EncryptionAtHost` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
-
 az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
-
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione `Microsoft.ContainerService` dei `Microsoft.Compute` provider di risorse e usando il comando [AZ provider Register][az-provider-register] :
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-
 az provider register --namespace Microsoft.ContainerService
 ```
 

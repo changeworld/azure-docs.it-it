@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 588efd692119c9e2831e16c1ce26c2759898a1e5
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1c290032f7a33079b560d3c4cc1fcb9526e70331
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97607365"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762155"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronizzare il repository GitHub con Configurazione app
 
@@ -20,9 +20,9 @@ I team che vogliono continuare a usare le procedure di controllo del codice sorg
 &nbsp;&nbsp;&nbsp;&nbsp;• Aggiornamento della configurazione senza dover ridistribuire l'intera app <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integrazione con servizi come Servizio app e Funzioni di Azure. 
 
-Un [flusso di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) di GitHub Actions definisce un processo automatizzato in un repository GitHub. L'azione *Sincronizzazione di Configurazione app di Azure* attiva gli aggiornamenti a un'istanza di Configurazione app quando si apportano modifiche al repository di origine. L'azione usa un file YAML (.yml) disponibile nel percorso `/.github/workflows/` del repository per definire i passaggi e i parametri. È possibile attivare gli aggiornamenti della configurazione quando si effettua il push, la revisione o la diramazione dei file di configurazione delle app, proprio come avviene con il codice delle app.
+Un [flusso di lavoro](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) di GitHub Actions definisce un processo automatizzato in un repository GitHub. L'azione *Sincronizzazione di Configurazione app di Azure* attiva gli aggiornamenti a un'istanza di Configurazione app quando si apportano modifiche al repository di origine. L'azione usa un file YAML (.yml) disponibile nel percorso `/.github/workflows/` del repository per definire i passaggi e i parametri. È possibile attivare gli aggiornamenti della configurazione quando si effettua il push, la revisione o la diramazione dei file di configurazione delle app, proprio come avviene con il codice delle app.
 
-La [documentazione](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) di GitHub offre una panoramica approfondita dei flussi di lavoro e delle azioni di GitHub. 
+La [documentazione](https://docs.github.com/en/actions/learn-github-actions/introduction-to-github-actions) di GitHub offre una panoramica approfondita dei flussi di lavoro e delle azioni di GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Abilitare GitHub Actions nel repository
 Per iniziare a usare questa azione GitHub, passare al repository e selezionare la scheda **azioni** . Selezionare **nuovo flusso di lavoro**, quindi **configurare manualmente un flusso di lavoro**. Infine, cercare "Sincronizzazione di Configurazione app di Azure" nel marketplace.
@@ -35,7 +35,7 @@ Per iniziare a usare questa azione GitHub, passare al repository e selezionare l
 ## <a name="sync-configuration-files-after-a-push"></a>Sincronizzare i file di configurazione dopo un push
 Questa azione sincronizza i file di Configurazione app di Azure quando viene eseguito il push di una modifica in `appsettings.json`. Quando uno sviluppatore esegue il push di una modifica in `appsettings.json`, l'azione di sincronizzazione di Configurazione app aggiorna l'istanza di Configurazione app con i nuovi valori.
 
-La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente nel `appsettings.json` ramo *principale* . Nella seconda sezione vengono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file rilevanti e aggiorna l'istanza di Configurazione app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso dei segreti in GitHub, vedere l'[articolo di GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) sulla creazione e l'uso di segreti crittografati.
+La prima sezione di questo flusso di lavoro specifica che l'azione *attiva un* *push* contenente nel `appsettings.json` ramo *principale* . Nella seconda sezione vengono elencati i processi eseguiti dopo l'attivazione dell'azione. L'azione estrae i file rilevanti e aggiorna l'istanza di Configurazione app usando la stringa di connessione archiviata come segreto nel repository.  Per altre informazioni sull'uso dei segreti in GitHub, vedere l'[articolo di GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) sulla creazione e l'uso di segreti crittografati.
 
 ```json
 on: 
@@ -300,7 +300,7 @@ Data una profondità di 2, l'esempio precedente restituisce ora la coppia chiave
 | Object:Inner | {"InnerKey":"InnerValue"} |
 
 ## <a name="understand-action-inputs"></a>Informazioni sugli input di azione
-I parametri di input specificano i dati usati dall'azione durante il runtime.  La tabella seguente contiene i parametri di input accettati dalla sincronizzazione di Configurazione app e i valori previsti per ognuno di essi.  Per altre informazioni sugli input di azione per GitHub Actions, vedere la [documentazione](https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs) di GitHub.
+I parametri di input specificano i dati usati dall'azione durante il runtime.  La tabella seguente contiene i parametri di input accettati dalla sincronizzazione di Configurazione app e i valori previsti per ognuno di essi.  Per altre informazioni sugli input di azione per GitHub Actions, vedere la [documentazione](https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions#inputs) di GitHub.
 
 > [!Note]
 > Per i gli ID input non viene fatta distinzione tra maiuscole e minuscole.

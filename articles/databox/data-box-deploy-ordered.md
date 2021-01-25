@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: fd165795be85c26cdfcaee3c4fd01427274a7316
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 91b3e2e86394c889f6fa40f527dd0dd212e1cb57
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210342"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763104"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -231,7 +231,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Paese/area geografica di origine    |    Selezionare il paese/area in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).            |
 
-    [![Avvio di un ordine di importazione di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
+    ![Avvio di un ordine di importazione di Azure Data Box](media/data-box-deploy-ordered/select-data-box-import-04-b.png#lightbox)
 
 5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
 

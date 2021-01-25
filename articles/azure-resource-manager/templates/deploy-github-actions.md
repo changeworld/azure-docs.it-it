@@ -4,16 +4,16 @@ description: Viene descritto come distribuire modelli di Azure Resource Manager 
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 4c1f59e9a18e7359ae543b0311baea0c2a4ab8d6
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 67d4ac51e3e1f84f6a9acd0fc94d5818355d3954
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674333"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762087"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Distribuire i modelli ARM usando le azioni di GitHub
 
-[Azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions) è una suite di funzionalità di GitHub che consente di automatizzare i flussi di lavoro di sviluppo del software nella stessa posizione in cui si archivia il codice e si collabora alle richieste pull e ai problemi.
+[Azioni di GitHub](https://docs.github.com/en/actions) è una suite di funzionalità di GitHub che consente di automatizzare i flussi di lavoro di sviluppo del software nella stessa posizione in cui si archivia il codice e si collabora alle richieste pull e ai problemi.
 
 Usare l' [azione Distribuisci modello di Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) per automatizzare la distribuzione di un modello di Azure Resource Manager (modello ARM) in Azure.
 
@@ -21,7 +21,7 @@ Usare l' [azione Distribuisci modello di Azure Resource Manager](https://github.
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Un account GitHub. Se non è disponibile, iscriversi per riceverne uno [gratuito](https://github.com/join).
-    - Repository GitHub in cui archiviare i modelli di Gestione risorse e i file del flusso di lavoro. Per crearne uno, vedere [Creazione di un nuovo repository](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
+    - Repository GitHub in cui archiviare i modelli di Gestione risorse e i file del flusso di lavoro. Per crearne uno, vedere [Creazione di un nuovo repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 
 
 ## <a name="workflow-file-overview"></a>Panoramica dei file del flusso di lavoro

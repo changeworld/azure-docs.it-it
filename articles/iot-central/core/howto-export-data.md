@@ -8,12 +8,12 @@ ms.date: 11/05/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 3079b8384a24642322d6f6eb86e2ca7f0927db15
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 74de0481bf6786d245fb96f5d102ab72a00031c8
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065389"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760896"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Esportare i dati delle cose nelle destinazioni cloud usando l'esportazione dei dati
 
@@ -35,6 +35,8 @@ Ad esempio, è possibile:
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per utilizzare le funzionalità di esportazione dei dati, è necessario disporre di un' [applicazione v3](howto-get-app-info.md)ed è necessario disporre dell'autorizzazione [esportazione dati](howto-manage-users-roles.md) .
+
+Se si dispone di un'applicazione V2, vedere [eseguire la migrazione dell'applicazione IoT Central V2 alla versione V3](howto-migrate.md).
 
 ## <a name="set-up-export-destination"></a>Configurare la destinazione di esportazione
 
@@ -273,7 +275,7 @@ L'esempio seguente mostra un messaggio di modifica delle proprietà esportato ri
 
 Nella tabella seguente vengono illustrate le differenze tra l' [esportazione dei dati legacy](howto-export-data-legacy.md) e le nuove funzionalità di esportazione dei dati:
 
-| Capabilities  | Esportazione dei dati legacy | Nuova esportazione dei dati |
+| Funzionalità  | Esportazione dei dati legacy | Nuova esportazione dei dati |
 | :------------- | :---------- | :----------- |
 | Tipi di dati disponibili | Telemetria, dispositivi, modelli di dispositivo | Telemetria, modifiche delle proprietà |
 | Filtro | nessuno | Dipende dal tipo di dati esportato. Per la telemetria, filtra per telemetria, proprietà del messaggio, valori delle proprietà |

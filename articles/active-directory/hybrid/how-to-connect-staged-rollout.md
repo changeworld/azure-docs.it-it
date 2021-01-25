@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d348b8c2325c7bc2cdaa28356151647a9430684f
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247047"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762984"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -61,7 +61,10 @@ Per l'implementazione a fasi sono supportati gli scenari riportati di seguito. L
 - Utenti di cui è stato effettuato il provisioning per Azure AD tramite Azure AD Connect. Non si applica a utenti solo cloud.
 
 - Traffico di accesso utente in browser e client  *con autenticazione moderna*. Le applicazioni o i servizi cloud che usano l'autenticazione legacy eseguiranno il fallback ai flussi di autenticazione federati, ad esempio Exchange Online con l'autenticazione moderna disattivata oppure Outlook 2010, che non supporta l'autenticazione moderna.
+
 - Le dimensioni del gruppo sono attualmente limitate a 50.000 utenti.  Se i gruppi hanno più di 50.000 utenti, è consigliabile suddividerli in più gruppi per poter usare l'implementazione a fasi.
+
+- Join ibrido di Windows 10 o Azure AD aggiungere un token di aggiornamento primario senza linea di visione al server federativo per Windows 10 versione 1903 e successive, quando l'UPN dell'utente è instradabile e il suffisso di dominio viene verificato in Azure AD.
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
@@ -87,6 +90,10 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 - Quando un gruppo di sicurezza viene aggiunto per l'implementazione a fasi per la prima volta, il limite di utenti è 200 per evitare che si verifichi un timeout nell'esperienza utente. Dopo aver aggiunto il gruppo, è possibile aggiungervi altri utenti direttamente, se necessario.
 
 - Mentre gli utenti sono in fase di implementazione temporanea, quando EnforceCloudPasswordPolicyForPasswordSyncedUsers è abilitato, i criteri di scadenza delle password sono impostati su 90 giorni senza alcuna opzione per personalizzarli. 
+
+- Windows 10 Hybrid join o Azure AD join Primary Refresh token Acquisition per Windows 10 versione precedente alla 1903. Questo scenario verrà eseguito il fallback all'endpoint WS-Trust del server federativo, anche se l'utente che esegue l'accesso è nell'ambito dell'implementazione di gestione temporanea.
+
+- Join ibrido di Windows 10 o Azure AD aggiunta del token di aggiornamento primario per tutte le versioni, quando l'UPN locale dell'utente non è instradabile. Questo scenario esegue il fallback all'endpoint WS-Trust durante la modalità di implementazione temporanea, ma smette di funzionare quando la migrazione di gestione temporanea è completa e l'accesso utente non è più basato sul server federativo.
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introduzione all'implementazione a fasi

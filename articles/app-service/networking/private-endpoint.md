@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bebc7dcbc18a25b0d6d0761a8ca3ac476e83e581
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183040"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763036"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso di endpoint privati per l'app Web di Azure
 
@@ -116,7 +116,7 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 Quando si usa una funzione di Azure in un piano elastico Premium con endpoint privato, per eseguire la funzione nel portale Web di Azure, è necessario avere accesso diretto alla rete oppure si riceverà un errore HTTP 403. In altre parole, il browser deve essere in grado di raggiungere l'endpoint privato per eseguire la funzione dal portale Web di Azure. 
 
-È possibile connettersi fino a 100 endpoint privato a un'app Web specifica.
+È possibile connettere fino a 100 endpoint privati a un'app Web specifica.
 
 Gli slot non possono usare un endpoint privato.
 

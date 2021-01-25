@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Mini R device so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4535368b7d8d044469a4b0effee914176aca78e4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: b6745ed879f02a341027417b54eb459b5bfed705
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935408"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762954"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-mini-r"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Mini R
 
@@ -121,11 +121,11 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
 7. Selezionare **Avanti: Indirizzo di spedizione**.
 
-    - Se si ha già un dispositivo, selezionare la casella combinata **I already have a device** (Ho già un dispositivo).
+   - Se si ha già un dispositivo, selezionare la casella combinata **I already have a device** (Ho già un dispositivo).
 
      ![Creare una risorsa 5](media/azure-stack-edge-mini-r-deploy-prep/create-resource-5.png)
 
-    - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, il nome della società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
+   - Se si sta ordinando un nuovo dispositivo, immettere il nome del contatto, il nome della società, l'indirizzo a cui spedire il dispositivo e le informazioni di contatto.
 
      ![Creare una risorsa 6](media/azure-stack-edge-mini-r-deploy-prep/create-resource-6.png)
 
@@ -145,9 +145,12 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
     
     ![Andare alla risorsa Azure Stack Edge Pro](media/azure-stack-edge-mini-r-deploy-prep/azure-stack-edge-resource-1.png)
     
-    Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
+Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
 
-   Se si verificano problemi durante il processo di ordine, vedere [Risolvere i problemi relativi all'ordine](azure-stack-edge-troubleshoot-ordering.md).
+> [!NOTE]
+> Per creare più ordini contemporaneamente o clonare un ordine esistente, è possibile usare gli [script negli esempi di Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Per altre informazioni, vedere il file README.
+
+Se si verificano problemi durante il processo di ordine, vedere [Risolvere i problemi relativi all'ordine](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Ottenere la chiave di attivazione
 

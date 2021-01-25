@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/10/2020
+ms.date: 1/25/2021
 ms.author: kenwith
-ms.openlocfilehash: efdbec10c74a6b1892df13b8308538e61f42f679
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2a27124ea76d6e5aaa7ec4b8ca36c388718ffb94
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673502"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761308"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Esercitazione: Personalizzare i mapping di attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -75,7 +75,7 @@ Oltre a questa proprietà i mapping degli attributi supportano i seguenti attrib
   - **Solo durante la creazione**: applica il mapping solo alle azioni di creazione dell'utente.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Corrispondenza degli utenti nei sistemi di origine e di destinazione
-Il servizio di provisioning di Azure AD può essere distribuito sia in scenari "Greenfield" (dove gli utenti non esistono nel sistema di destinazione), sia in scenari "Brownfield" (dove gli utenti esistono già nel sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributi corrispondenti. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
+Il servizio di provisioning Azure AD può essere distribuito in scenari "verdi" (in cui gli utenti non vengono chiusi nel sistema di destinazione) e negli scenari "Brownfield" (dove gli utenti sono già presenti nel sistema di destinazione). Per supportare entrambi gli scenari, il servizio di provisioning usa il concetto di attributi corrispondenti. Gli attributi corrispondenti consentono di determinare come identificare in modo univoco un utente nell'origine e associare l'utente nella destinazione. Nell'ambito della pianificazione della distribuzione, identificare l'attributo che può essere usato per identificare in modo univoco un utente nei sistemi di origine e di destinazione. Aspetti da considerare:
 
 - **Gli attributi corrispondenti devono essere univoci:** I clienti spesso usano attributi come userPrincipalName, mail o ID oggetto come attributo corrispondente.
 - **È possibile usare più attributi come attributi corrispondenti:** È possibile definire più attributi da valutare quando si abbinano gli utenti e l'ordine in cui vengono valutati (definito come precedenza abbinamento nell'interfaccia utente). Se, ad esempio, si definiscono tre attributi come attributi corrispondenti e un utente viene abbinato in modo univoco dopo aver valutato i primi due attributi, il servizio non valuterà il terzo attributo. Il servizio valuterà gli attributi corrispondenti nell'ordine specificato e arresterà la valutazione quando viene trovata una corrispondenza.  
@@ -156,6 +156,7 @@ Gli attributi personalizzati non possono essere referenziali, multivalore o di t
       "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
       "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
      "userName":"bjensen",
+     "id": "48af03ac28ad4fb88478",
      "externalId":"bjensen",
      "name":{
        "formatted":"Ms. Barbara J Jensen III",

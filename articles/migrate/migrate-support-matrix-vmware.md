@@ -1,17 +1,17 @@
 ---
 title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
-author: rashi-ms
-ms.author: rajosh
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 02757477ca4a07f4526df0339291122eda57c9b5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: ce8a1d77ae74a3946174ef58abf9add2e81eb90b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567418"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762990"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -37,7 +37,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **Server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5, 6,7 o 7,0.<br/><br/> L'individuazione delle macchine virtuali VMware fornendo i dettagli dell'host ESXi nell'appliance non è attualmente supportata.
-**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve abilitare i privilegi per  >  **le operazioni Guest** delle macchine virtuali.
+**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve avere i privilegi abilitati per  >  **le operazioni Guest** delle macchine virtuali.
 
 ## <a name="vm-requirements"></a>Requisiti della macchina virtuale
 **VMware** | **Dettagli**

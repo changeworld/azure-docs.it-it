@@ -4,17 +4,17 @@ description: Questo articolo descrive come risolvere i problemi relativi all'age
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 01/16/2020
+ms.date: 01/25/2020
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 92020313fccf1b8be0add58a7bafab62b5daa4d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5c2cc014c87a345507e9c0f99c507d151d59b86
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187133"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762122"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Risolvere i problemi relativi all'agente di aggiornamento Windows
 
@@ -27,10 +27,10 @@ I motivi per cui il computer non risulta pronto (integro) durante una distribuzi
 > [!NOTE]
 > È possibile che si verifichi un lieve ritardo tra quanto visualizzato dal portale di Azure e lo stato corrente di un computer.
 
-Questo articolo descrive come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline). 
+Questo articolo descrive come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 > [!NOTE]
-> Lo script di risoluzione dei problemi include ora i controlli per Windows Server Update Services (WSUS) e per le chiavi di download e di installazione. 
+> Lo script di risoluzione dei problemi include ora i controlli per Windows Server Update Services (WSUS) e per le chiavi di download e di installazione.
 
 ## <a name="start-the-troubleshooter"></a>Avviare la risoluzione dei problemi
 
@@ -110,7 +110,7 @@ Il controllo dell'accesso alla cartella Crypto determina se l'account di sistema
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Ottenere lo script seguente da PowerShell Gallery: [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Per eseguire lo script, deve essere installato WMF 4.0 o versione successiva. Per scaricare la versione più recente di PowerShell vedere [Installazione delle diverse versioni di PowerShell](/powershell/scripting/install/installing-powershell).
+È possibile usare la risoluzione dei problemi per un ruolo di lavoro ibrido per runbook offline eseguendo lo script in locale. Ottenere lo script seguente da GitHub: [UM_Windows_Troubleshooter_Offline.ps1](https://github.com/Azure/updatemanagement/blob/main/UM_Windows_Troubleshooter_Offline.ps1). Per eseguire lo script, deve essere installato WMF 4.0 o versione successiva. Per scaricare la versione più recente di PowerShell vedere [Installazione delle diverse versioni di PowerShell](/powershell/scripting/install/installing-powershell).
 
 L'output di questo script è simile al seguente:
 

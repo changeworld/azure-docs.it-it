@@ -2,17 +2,20 @@
 title: Distribuire e configurare la soluzione Azure VMware
 description: Informazioni su come usare le informazioni raccolte nella fase di pianificazione per distribuire il cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 11/09/2020
-ms.openlocfilehash: 7e31b9236a3c75009d15bde35019036b6db55cab
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.date: 12/24/2020
+ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861520"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760877"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuire e configurare la soluzione Azure VMware
 
-In questo articolo verranno usate le informazioni raccolte della [sezione di pianificazione](production-ready-deployment-steps.md) per distribuire la soluzione Azure VMware. Se tali informazioni non sono state definite, tornare alla [sezione di pianificazione](production-ready-deployment-steps.md) prima di continuare.
+In questo articolo verranno usate le informazioni raccolte della [sezione di pianificazione](production-ready-deployment-steps.md) per distribuire la soluzione Azure VMware. 
+
+>[!IMPORTANT]
+>Se le informazioni non sono ancora state definite, tornare alla [sezione pianificazione](production-ready-deployment-steps.md) prima di continuare.
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
@@ -36,25 +39,26 @@ Usare le informazioni raccolte nell'articolo [Pianificazione della distribuzione
 >[!IMPORTANT]
 >Se l'opzione **Rete virtuale** è stata lasciata vuota durante il passaggio di provisioning iniziale nella schermata **Crea un cloud privato**, completare l'esercitazione [Configurare la rete per il cloud privato VMware](tutorial-configure-networking.md) **prima** di continuare con questa sezione.  
 
-Dopo la distribuzione della soluzione Azure VMware, verrà creata la jump box della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
+Dopo aver distribuito la soluzione VMware di Azure, verrà creata la finestra Jump della rete virtuale che si connette a vCenter e NSX. Dopo la configurazione dei circuiti ExpressRoute e di Copertura globale ExpressRoute, la jump box non è necessaria.  Risulta tuttavia utile per raggiungere vCenter e NSX nella soluzione Azure VMware.  
 
 :::image type="content" source="media/pre-deployment/jump-box-diagram.png" alt-text="Creare la jump box della soluzione Azure VMware" border="false" lightbox="media/pre-deployment/jump-box-diagram.png":::
 
-Per creare una macchina virtuale nella rete virtuale [identificata o creata come parte del processo di distribuzione](production-ready-deployment-steps.md#azure-virtual-network-to-attach-azure-vmware-solution), seguire queste istruzioni: 
+Per creare una macchina virtuale (VM) nella rete virtuale [identificata o creata come parte del processo di distribuzione](production-ready-deployment-steps.md#attach-virtual-network-to-azure-vmware-solution), seguire queste istruzioni: 
 
 [!INCLUDE [create-avs-jump-box-steps](includes/create-jump-box-steps.md)]
 
 ## <a name="connect-to-a-virtual-network-with-expressroute"></a>Connettersi a una rete virtuale con ExpressRoute
 
-Se nel passaggio di distribuzione non è stata definita alcuna rete virtuale e si intende connettere l'istanza di ExpressRoute della soluzione Azure VMware a un gateway ExpressRoute esistente, seguire questa procedura.
+>[!IMPORTANT]
+>Se una rete virtuale è già stata definita nella schermata di distribuzione in Azure, passare alla sezione successiva.
 
-Se una rete virtuale è già stata definita nella schermata di distribuzione in Azure, passare alla sezione successiva.
+Se nella fase di distribuzione non è stata definita una rete virtuale e si intende connettere la ExpressRoute della soluzione VMware di Azure a un gateway ExpressRoute esistente, seguire questa procedura.
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 
 ## <a name="verify-network-routes-advertised"></a>Verificare le route di rete annunciate
 
-La jump box si trova nella rete virtuale in cui la soluzione Azure VMware si connette tramite il circuito ExpressRoute.  In Azure passare all'interfaccia di rete della jump box e [visualizzare le route valide](../virtual-network/manage-route-table.md#view-effective-routes).
+La Jump box si trova nella rete virtuale in cui la soluzione VMware di Azure si connette tramite il circuito ExpressRoute.  In Azure passare all'interfaccia di rete della jump box e [visualizzare le route valide](../virtual-network/manage-route-table.md#view-effective-routes).
 
 Nell'elenco di route valide dovrebbero essere visualizzate le reti create come parte della distribuzione della soluzione Azure VMware. Verranno visualizzate più reti derivate dalla rete [`/22` definita](production-ready-deployment-steps.md#ip-address-segment) durante il [passaggio di distribuzione](#deploy-azure-vmware-solution) disponibile in precedenza in questo articolo.
 
@@ -70,7 +74,7 @@ Accedere alla jump box creata nel passaggio precedente. Dopo l'accesso, aprire u
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Creare un segmento di rete nella soluzione Azure VMware
 
-Usare NSX-T per creare nuovi segmenti di rete nell'ambiente della soluzione Azure VMware.  Nella [sezione di pianificazione](production-ready-deployment-steps.md) sono state definite le reti da creare.  Se le reti non sono state definite, tornare alla [sezione di pianificazione](production-ready-deployment-steps.md) prima di continuare.
+Usare NSX-T per creare nuovi segmenti di rete nell'ambiente della soluzione Azure VMware.  Sono state definite le reti che si desidera creare nella [sezione relativa alla pianificazione](production-ready-deployment-steps.md).  Se le reti non sono state definite, tornare alla [sezione di pianificazione](production-ready-deployment-steps.md) prima di continuare.
 
 >[!IMPORTANT]
 >Assicurarsi che il blocco di indirizzi di rete CIDR definito non si sovrapponga con altri elementi in Azure o negli ambienti locali.  
@@ -79,9 +83,9 @@ Per creare un segmento di rete NSX-T nella soluzione Azure VMware, seguire l'ese
 
 ## <a name="verify-advertised-nsx-t-segment"></a>Verificare un segmento NSX-T annunciato
 
-Tornare al passaggio [Verificare le route di rete annunciate](#verify-network-routes-advertised). Nell'elenco verranno visualizzate una o più route aggiuntive che rappresentano uno o più segmenti di rete creati nel passaggio precedente.  
+Tornare al passaggio [Verificare le route di rete annunciate](#verify-network-routes-advertised). Verranno visualizzate altre route nell'elenco che rappresentano i segmenti di rete creati nel passaggio precedente.  
 
-Per le macchine virtuali si assegneranno i segmenti creati nel passaggio [Creare un segmento di rete nella soluzione Azure VMware](#create-a-network-segment-on-azure-vmware-solution).  
+Per le macchine virtuali, verranno assegnati i segmenti creati nel passaggio [creare un segmento di rete in una soluzione VMware di Azure](#create-a-network-segment-on-azure-vmware-solution) .  
 
 Poiché il server DNS è obbligatorio, identificare il server DNS da usare.  
 
@@ -94,7 +98,7 @@ Poiché il server DNS è obbligatorio, identificare il server DNS da usare.
 
 ## <a name="optional-provide-dhcp-services-to-nsx-t-network-segment"></a>(Facoltativo) Specificare i servizi DHCP per il segmento di rete NSX-T
 
-Se si prevede di usare DHCP in uno o più segmenti NSX-T, continuare con questa sezione. In caso contrario, passare alla sezione [Aggiungere una VM nel segmento di rete NSX-T](#add-a-vm-on-the-nsx-t-network-segment).  
+Se si prevede di usare DHCP nei segmenti NSX-T, continuare con questa sezione. In caso contrario, passare alla sezione [Aggiungere una VM nel segmento di rete NSX-T](#add-a-vm-on-the-nsx-t-network-segment).  
 
 Ora che è stato creato il segmento di rete NSX-T, è possibile creare e gestire il protocollo DHCP nella soluzione Azure VMware in due modi:
 
@@ -104,13 +108,13 @@ Ora che è stato creato il segmento di rete NSX-T, è possibile creare e gestire
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Aggiungere una VM nel segmento di rete NSX-T
 
-Nell'istanza di vCenter della soluzione Azure VMware, distribuire una VM e usarla per verificare la connettività da una o più reti della soluzione Azure VMware a:
+Nella soluzione VMware VMware di Azure, distribuire una macchina virtuale e usarla per verificare la connettività dalle reti della soluzione VMware di Azure a:
 
 - Internet
 - Reti virtuali di Azure
 - In locale.  
 
-Distribuire la VM con la stessa procedura usata in un ambiente vSphere.  Associare la VM a uno dei segmenti di rete creati in precedenza in NSX-T.  
+Distribuire la VM con la stessa procedura usata in un ambiente vSphere.  Alleghi la macchina virtuale a uno dei segmenti di rete creati in precedenza in NSX-T.  
 
 >[!NOTE]
 >Se si configura un server DHCP, si riceverà la configurazione della VM da tale server. Occorre ricordare di configurare l'ambito.  Se si vuole eseguire la configurazione statica, seguire la procedura di configurazione usata normalmente.
@@ -119,15 +123,14 @@ Distribuire la VM con la stessa procedura usata in un ambiente vSphere.  Associa
 
 Accedere alla VM creata nel passaggio precedente e verificare la connettività.
 
-1. Effettuare il ping di un IP su Internet.
-2. Passare a un sito Internet tramite un Web browser.
+1. Effettuare il ping di un indirizzo IP su Internet.
+2. In un Web browser passare a un sito Internet.
 3. Effettuare il ping della jump box che si trova nella Rete virtuale di Azure.
 
->[!IMPORTANT]
->A questo punto la soluzione Azure VMware è attiva e in esecuzione ed è stata stabilita la connettività verso e dalla Rete virtuale di Azure e Internet.
+La soluzione VMware di Azure è ora funzionante ed è stata stabilita la connettività da e verso la rete virtuale di Azure e Internet.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella sezione successiva verrà stabilita la connessione della soluzione Azure VMware con la rete locale tramite ExpressRoute.
+Nella sezione successiva si connetterà la soluzione VMware di Azure alla rete locale tramite ExpressRoute.
 > [!div class="nextstepaction"]
 > [Connettere la soluzione Azure VMware con l'ambiente locale](azure-vmware-solution-on-premises.md)

@@ -4,16 +4,16 @@ description: Configurare un'azione GitHub che consente di automatizzare i passag
 ms.topic: article
 ms.date: 08/20/2020
 ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: c6c030e05953dc98c82c573704018c3b482d2fea
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 1409d8fc1430cd9bf67bd735d9826a74979d495b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814279"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762961"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurare un'azione GitHub per creare un'istanza di contenitore
 
-[Azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions) è una suite di funzionalità di GitHub che consente di automatizzare i flussi di lavoro di sviluppo del software nella stessa posizione in cui si archivia il codice e si collabora alle richieste pull e ai problemi.
+[Azioni di GitHub](https://docs.github.com/en/actions) è una suite di funzionalità di GitHub che consente di automatizzare i flussi di lavoro di sviluppo del software nella stessa posizione in cui si archivia il codice e si collabora alle richieste pull e ai problemi.
 
 Usare l'azione [Distribuisci in istanze di contenitore di Azure](https://github.com/azure/aci-deploy) in GitHub per automatizzare la distribuzione di un singolo contenitore in istanze di contenitore di Azure. L'azione consente di impostare le proprietà per un'istanza del contenitore simile a quelle del comando [AZ container create][az-container-create] .
 
@@ -31,7 +31,7 @@ Questo articolo illustra due modi per configurare il flusso di lavoro:
 > [!IMPORTANT]
 > L'azione GitHub per istanze di contenitore di Azure è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Account github** : https://github.com se non si ha già un account, crearne uno.
 * **Interfaccia** della riga di comando di Azure: è possibile usare l'Azure cloud Shell o un'installazione locale dell'interfaccia della riga di comando di Azure per completare i passaggi della CLI di Azure Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
@@ -177,7 +177,7 @@ Dopo aver eseguito il commit del file del flusso di lavoro, viene attivato il fl
 
 ![Visualizza lo stato del flusso di lavoro](./media/container-instances-github-action/github-action-progress.png)
 
-Per informazioni sulla visualizzazione dello stato e dei risultati di ogni passaggio nel flusso di lavoro, vedere [visualizzazione della cronologia di esecuzione del flusso di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history) . Se il flusso di lavoro non viene completato, vedere [visualizzazione dei log per diagnosticare gli errori](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
+Per informazioni sulla visualizzazione dello stato e dei risultati di ogni passaggio nel flusso di lavoro, vedere [visualizzazione della cronologia di esecuzione del flusso di lavoro](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history) . Se il flusso di lavoro non viene completato, vedere [visualizzazione dei log per diagnosticare gli errori](https://docs.github.com/en/actions/managing-workflow-runs/using-workflow-run-logs#viewing-logs-to-diagnose-failures).
 
 Quando il flusso di lavoro viene completato correttamente, ottenere informazioni sull'istanza del contenitore denominata *ACI-SampleApp* eseguendo il comando [AZ container Show][az-container-show] . Sostituire il nome del gruppo di risorse: 
 
@@ -237,7 +237,7 @@ az container app up \
 
 ### <a name="command-progress"></a>Stato comando
 
-* Quando richiesto, specificare le credenziali di GitHub o fornire un [token di accesso personale](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token) (Pat) GitHub con ambiti di *repository* e *utenti* per l'autenticazione con l'account github. Se si forniscono le credenziali di GitHub, il comando crea automaticamente un PAT. Seguire le istruzioni aggiuntive per configurare il flusso di lavoro.
+* Quando richiesto, specificare le credenziali di GitHub o fornire un [token di accesso personale](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token) (Pat) GitHub con ambiti di *repository* e *utenti* per l'autenticazione con l'account github. Se si forniscono le credenziali di GitHub, il comando crea automaticamente un PAT. Seguire le istruzioni aggiuntive per configurare il flusso di lavoro.
 
 * Il comando crea i segreti del repository per il flusso di lavoro:
 
@@ -258,7 +258,7 @@ Workflow succeeded
 Your app is deployed at:  http://acr-build-helloworld-node.eastus.azurecontainer.io:8080/
 ```
 
-Per visualizzare lo stato del flusso di lavoro e i risultati di ogni passaggio nell'interfaccia utente di GitHub, vedere [visualizzazione della cronologia di esecuzione del flusso di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/managing-workflow-runs/viewing-workflow-run-history).
+Per visualizzare lo stato del flusso di lavoro e i risultati di ogni passaggio nell'interfaccia utente di GitHub, vedere [visualizzazione della cronologia di esecuzione del flusso di lavoro](https://docs.github.com/en/actions/managing-workflow-runs/viewing-workflow-run-history).
 
 ### <a name="validate-workflow"></a>Convalida flusso di lavoro
 

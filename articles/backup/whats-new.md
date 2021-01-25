@@ -3,12 +3,12 @@ title: Novità di Backup di Azure
 description: Informazioni sulle nuove funzionalità di backup di Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 935c2a806ed3b08f19e680bf1522d98a9ad67666
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730290"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762365"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novità di Backup di Azure
 
@@ -19,20 +19,20 @@ Per ulteriori informazioni sulle nuove versioni, è possibile aggiungere un segn
 ## <a name="updates-summary"></a>Riepilogo aggiornamenti
 
 - Gennaio 2021
-  - [Backup su disco di Azure (in anteprima)](disk-backup-overview.md)
-  - [Crittografia dei componenti inattivi con chiavi gestite dal cliente ora disponibile a livello generale](encryption-at-rest-with-cmk.md)
+  - [Backup su disco di Azure (in anteprima)](#azure-disk-backup-in-preview)
+  - [Crittografia dei componenti inattivi con chiavi gestite dal cliente (disponibilità generale)](#encryption-at-rest-using-customer-managed-keys)
 - Novembre 2020
   - [Modello di Azure Resource Manager per il backup di una condivisione file di Azure](#azure-resource-manager-template-for-afs-backup)
-  - [Backup incrementali per database SAP HANA in macchine virtuali di Azure](#incremental-backups-for-sap-hana-databases)
+  - [Backup incrementali per database SAP HANA in macchine virtuali di Azure (in anteprima)](#incremental-backups-for-sap-hana-databases-in-preview)
 - Settembre 2020
-  - [Centro backup](#backup-center)
-  - [Eseguire il backup di Database di Azure per PostgreSQL](#backup-azure-database-for-postgresql)
+  - [Centro di backup (in anteprima)](#backup-center-in-preview)
+  - [Backup di database di Azure per PostgreSQL (in anteprima)](#backup-azure-database-for-postgresql-in-preview)
   - [Backup e ripristino di dischi selettivi](#selective-disk-backup-and-restore)
-  - [Ripristino tra aree per database SQL Server e SAP HANA in macchine virtuali di Azure](#cross-region-restore-for-sql-server-and-sap-hana)
-  - [Supporto per il backup di macchine virtuali con un massimo di 32 dischi](#support-for-backup-of-vms-with-up-to-32-disks)
+  - [Ripristino tra aree per database SQL Server e SAP HANA in macchine virtuali di Azure (in anteprima)](#cross-region-restore-for-sql-server-and-sap-hana-in-preview)
+  - [Supporto per il backup di macchine virtuali con un massimo di 32 dischi (disponibilità generale)](#support-for-backup-of-vms-with-up-to-32-disks)
   - [Esperienza di configurazione di backup semplificata per SQL in macchine virtuali di Azure](#simpler-backup-configuration-for-sql-in-azure-vms)
-  - [Backup SAP HANA in macchine virtuali di Azure RHEL](#backup-sap-hana-in-rhel-azure-virtual-machines)
-  - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup](#zone-redundant-storage-zrs-for-backup-data)
+  - [Backup SAP HANA in macchine virtuali di Azure RHEL (in anteprima)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
+  - [Archiviazione con ridondanza della zona (ZRS) per i dati di backup (in anteprima)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Eliminazione temporanea per carichi di lavoro di SQL Server e SAP HANA in macchine virtuali di Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup su disco di Azure (in anteprima)
@@ -53,13 +53,13 @@ Backup di Azure supporta ora la configurazione del backup per le condivisioni fi
 
 Per altre informazioni, vedere [modelli di Azure Resource Manager per backup di Azure](backup-rm-template-samples.md).
 
-## <a name="incremental-backups-for-sap-hana-databases"></a>Backup incrementali per database SAP HANA
+## <a name="incremental-backups-for-sap-hana-databases-in-preview"></a>Backup incrementali per database SAP HANA (in anteprima)
 
 Backup di Azure supporta ora backup incrementali per i database SAP HANA ospitati nelle VM di Azure. In questo modo è possibile eseguire backup più veloci e più convenienti dei dati SAP HANA.
 
 Per ulteriori informazioni, vedere [diverse opzioni disponibili durante la creazione di un criterio di backup](sap-hana-faq-backup-azure-vm.md#policy) e [come creare criteri di backup per SAP Hana database](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
-## <a name="backup-center"></a>Centro backup
+## <a name="backup-center-in-preview"></a>Centro di backup (in anteprima)
 
 Backup di Azure ha abilitato una nuova funzionalità di gestione nativa per gestire l'intero patrimonio di backup da una console centrale. Il centro di backup ti offre la possibilità di monitorare, operare, governare e ottimizzare la protezione dei dati su larga scala in modo unificato, coerente con le esperienze di gestione native di Azure.
 
@@ -67,7 +67,7 @@ Con backup Center puoi ottenere una visualizzazione aggregata dell'inventario in
 
 Per ulteriori informazioni, vedere [Panoramica di Centro backup](backup-center-overview.md).
 
-## <a name="backup-azure-database-for-postgresql"></a>Eseguire il backup di Database di Azure per PostgreSQL
+## <a name="backup-azure-database-for-postgresql-in-preview"></a>Backup di database di Azure per PostgreSQL (in anteprima)
 
 Backup di Azure e i servizi di database di Azure sono disponibili per creare una soluzione di backup di livello aziendale per Azure PostgreSQL (ora disponibile in anteprima). È ora possibile soddisfare le esigenze di protezione e conformità dei dati con criteri di backup controllati dal cliente che consentono la conservazione dei backup per un massimo di 10 anni. In questo modo si dispone di un controllo granulare per gestire le operazioni di backup e ripristino a livello di singolo database. Analogamente, è possibile eseguire il ripristino in più versioni di PostgreSQL o nell'archiviazione BLOB con facilità.
 
@@ -79,7 +79,7 @@ Backup di Azure supporta il backup di tutti i dischi (sistema operativo e dati) 
 
 Per altre informazioni, vedere [backup e ripristino di dischi selettivi per macchine virtuali di Azure](selective-disk-backup-restore.md).
 
-## <a name="cross-region-restore-for-sql-server-and-sap-hana"></a>Ripristino tra aree per SQL Server e SAP HANA
+## <a name="cross-region-restore-for-sql-server-and-sap-hana-in-preview"></a>Ripristino tra aree per SQL Server e SAP HANA (in anteprima)
 
 Con l'introduzione del ripristino tra più aree, è ora possibile avviare i ripristini in un'area secondaria in modo da mitigare i problemi di tempo di inattività reali in un'area primaria per l'ambiente. In questo modo, l'area secondaria esegue il ripristino completamente controllato dal cliente. Backup di Azure usa i dati di cui è stato eseguito il backup replicati nell'area secondaria per tali ripristini.
 
@@ -99,13 +99,13 @@ La configurazione dei backup per la SQL Server in macchine virtuali di Azure è 
 
 Per altre informazioni, vedere [eseguire il backup di un SQL Server dal riquadro VM](backup-sql-server-vm-from-vm-pane.md).
 
-## <a name="backup-sap-hana-in-rhel-azure-virtual-machines"></a>Backup SAP HANA in macchine virtuali di Azure RHEL
+## <a name="backup-sap-hana-in-rhel-azure-virtual-machines-in-preview"></a>Backup SAP HANA in macchine virtuali di Azure RHEL (in anteprima)
 
 Backup di Azure è la soluzione di backup nativa per Azure e BackInt è certificata da SAP. Backup di Azure ora ha aggiunto il supporto per Red Hat Enterprise Linux (RHEL), uno dei sistemi operativi Linux più diffusi che eseguono SAP HANA.
 
 Per ulteriori informazioni, vedere la [matrice di supporto dello scenario di backup del database SAP Hana](sap-hana-backup-support-matrix.md#scenario-support).
 
-## <a name="zone-redundant-storage-zrs-for-backup-data"></a>Archiviazione con ridondanza della zona (ZRS) per i dati di backup
+## <a name="zone-redundant-storage-zrs-for-backup-data-in-preview"></a>Archiviazione con ridondanza della zona (ZRS) per i dati di backup (in anteprima)
 
 Archiviazione di Azure offre un ottimo equilibrio tra prestazioni elevate, disponibilità elevata e resilienza elevata dei dati con le varie opzioni di ridondanza. Backup di Azure consente di estendere questi vantaggi anche ai dati di backup, con le opzioni per archiviare i backup nell'archiviazione con ridondanza locale (con ridondanza locale) e nell'archiviazione con ridondanza geografica (GRS). Sono ora disponibili opzioni di durabilità aggiuntive con il supporto aggiunto per l'archiviazione con ridondanza della zona (ZRS).
 

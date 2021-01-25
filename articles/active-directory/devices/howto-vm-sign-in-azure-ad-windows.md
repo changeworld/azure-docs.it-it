@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22a4bdc92ea2a91425c1070a5837c672307de665
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683777"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760996"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -350,7 +350,9 @@ Verificare che il PC Windows 10 che si sta usando per avviare la connessione Des
 > [!NOTE]
 > Windows 10 Build 20H1 è stato aggiunto il supporto per un computer Azure AD registrato per avviare la connessione RDP alla macchina virtuale. Quando si usa Azure AD un computer registrato (non Azure AD aggiunto o ibrido Azure AD aggiunto) come client RDP per avviare le connessioni alla macchina virtuale, è necessario immettere le credenziali nel formato AzureAD\UPn (ad esempio AzureAD\john@contoso.com ).
 
-Verificare inoltre che l'estensione AADLoginForWindows non sia stata disinstallata dopo il completamento di Azure AD join.
+Verificare che l'estensione AADLoginForWindows non sia stata disinstallata al termine dell'aggiunta del Azure AD.
+
+Inoltre, assicurarsi che i criteri di sicurezza "sicurezza di rete: Consenti richieste di autenticazione PKU2U al computer per l'utilizzo delle identità online" siano abilitati sia nel server *che* nel client.
  
 #### <a name="mfa-sign-in-method-required"></a>È necessario il metodo di accesso a multi-factor authentication
 

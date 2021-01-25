@@ -9,16 +9,16 @@ ms.reviewer: dineshm
 ms.date: 01/11/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: d8727bd747ef6d035cabbccf2ad42b80937a06a8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: d3aa0ca83b28708fde81cba12993ac6e79e79a88
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180201"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760606"
 ---
 # <a name="set-up-a-github-actions-workflow-to-deploy-your-static-website-in-azure-storage"></a>Configurare un flusso di lavoro di GitHub Actions per distribuire il sito Web statico in Archiviazione di Azure
 
-Iniziare a usare le [azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions) usando un flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro di azioni di GitHub, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
+Iniziare a usare le [azioni di GitHub](https://docs.github.com/en/actions) usando un flusso di lavoro per distribuire un sito statico in un account di archiviazione di Azure. Dopo aver configurato un flusso di lavoro di azioni di GitHub, sarà possibile distribuire automaticamente il sito in Azure da GitHub quando si apportano modifiche al codice del sito.
 
 > [!NOTE]
 > Se si usano [app Web statiche di Azure](../../static-web-apps/index.yml), non è necessario configurare manualmente un flusso di lavoro di azioni di GitHub.

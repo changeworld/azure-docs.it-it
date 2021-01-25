@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 0c10cc683d8c8c2496ca8fdbd00f0e5065e2db35
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 59eb56dd188edf258c3631cde957c0864454ad76
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97604924"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762656"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
-Inizia a usare le [azioni di GitHub](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions) per automatizzare il flusso di lavoro e distribuirlo in [app Azure servizio](overview.md) da GitHub. 
+Inizia a usare le [azioni di GitHub](https://docs.github.com/en/actions/learn-github-actions) per automatizzare il flusso di lavoro e distribuirlo in [app Azure servizio](overview.md) da GitHub. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -38,7 +38,7 @@ Il file è costituito da tre sezioni:
 |Sezione  |Attività  |
 |---------|---------|
 |**autenticazione** | 1. definire un'entità servizio o un profilo di pubblicazione. <br /> 2. Creare un segreto GitHub. |
-|**Build** | 1. configurare l'ambiente. <br /> 2. compilare l'app Web. |
+|**Compila** | 1. configurare l'ambiente. <br /> 2. compilare l'app Web. |
 |**Distribuzione** | 1. distribuire l'app Web. |
 
 ## <a name="use-the-deployment-center"></a>Usare il centro distribuzione
@@ -63,7 +63,7 @@ Verrà eseguito il commit del file del flusso di lavoro nel repository. Il fluss
 
 Il metodo consigliato per l'autenticazione con app Azure Services per le azioni di GitHub è con un profilo di pubblicazione. È anche possibile eseguire l'autenticazione con un'entità servizio, ma il processo richiede più passaggi. 
 
-Salvare la credenziale del profilo di pubblicazione o l'entità servizio come [segreto GitHub](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) per l'autenticazione con Azure. Si accederà al segreto all'interno del flusso di lavoro. 
+Salvare la credenziale del profilo di pubblicazione o l'entità servizio come [segreto GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) per l'autenticazione con Azure. Si accederà al segreto all'interno del flusso di lavoro. 
 
 # <a name="publish-profile"></a>[Profilo di pubblicazione](#tab/applevel)
 
@@ -746,7 +746,7 @@ Il set di azioni raggruppate in repository diversi è disponibile in GitHub. Ogn
 
 - [Docker login/logout](https://github.com/Azure/docker-login)
 
-- [Eventi che attivano i flussi di lavoro](https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows)
+- [Eventi che attivano i flussi di lavoro](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
 
 - [Distribuzione Kubernetes](https://github.com/Azure/k8s-deploy)
 

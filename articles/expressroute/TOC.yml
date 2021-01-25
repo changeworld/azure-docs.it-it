@@ -82,7 +82,7 @@
           href: about-upgrade-circuit-bandwidth.md
         - name: Spostamento dei circuiti dal modello classico a Resource Manager
           href: expressroute-move.md
-    - name: Informazioni sui gateway Expressroute
+    - name: Informazioni sui gateway ExpressRoute
       href: expressroute-about-virtual-network-gateways.md
     - name: Informazioni su ExpressRoute FastPath
       href: about-fastpath.md

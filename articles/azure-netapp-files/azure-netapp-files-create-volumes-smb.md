@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: b-juche
-ms.openlocfilehash: cd2a293ebcc35d4884211f50783738a502dcc7de
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 48ee05eebd91c60fa2cfecc80898d3be54367269
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854826"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762681"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Creare un volume SMB per Azure NetApp Files
 
@@ -74,7 +74,7 @@ Azure NetApp Files supporta la creazione di volumi tramite NFS (NFSv3 e NFSv 4.1
 
     Vedere [Progettazione della topologia del sito](/windows-server/identity/ad-ds/plan/designing-the-site-topology) per siti e servizi di Active Directory. 
     
-* È possibile abilitare la crittografia AES per un volume SMB selezionando la casella **crittografia AES** nella finestra [join Active Directory](#create-an-active-directory-connection) . Azure NetApp Files supporta i tipi di crittografia DES, Kerberos AES 128 e Kerberos AES 256 (dal meno sicuro al più sicuro). Se si Abilita la crittografia AES, le credenziali utente usate per unire Active Directory devono avere l'opzione account corrispondente più alta abilitata che corrisponde alle funzionalità abilitate per il Active Directory.    
+* È possibile abilitare la crittografia AES per l'autenticazione di Active Directory selezionando la casella **crittografia AES** nella finestra [join Active Directory](#create-an-active-directory-connection) . Azure NetApp Files supporta i tipi di crittografia DES, Kerberos AES 128 e Kerberos AES 256 (dal meno sicuro al più sicuro). Se si Abilita la crittografia AES, le credenziali utente usate per unire Active Directory devono avere l'opzione account corrispondente più alta abilitata che corrisponde alle funzionalità abilitate per il Active Directory.    
 
     Se, ad esempio, il Active Directory dispone solo della funzionalità AES-128, è necessario abilitare l'opzione relativa all'account AES-128 per le credenziali utente. Se il Active Directory ha la funzionalità AES-256, è necessario abilitare l'opzione relativa all'account AES-256, che supporta anche AES-128. Se il Active Directory non dispone di alcuna funzionalità di crittografia Kerberos, Azure NetApp Files USA DES per impostazione predefinita.  
 

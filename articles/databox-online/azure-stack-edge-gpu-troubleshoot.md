@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 10/07/2020
+ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: d07d9dccb0aa273f79b251f2ffb4a920f3cac2e7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447607"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761556"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Risolvere i problemi relativi al dispositivo GPU Azure Stack Edge Pro 
 
@@ -26,7 +26,7 @@ Questo articolo descrive come risolvere i problemi del dispositivo GPU Azure Sta
 
 Per diagnosticare e risolvere gli errori di qualsiasi dispositivo, è possibile eseguire i test di diagnostica. Per eseguire i test di diagnostica, usare la procedura seguente nell'interfaccia utente Web locale.
 
-1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Test diagnostici**. Selezionare il test che si desidera eseguire e selezionare **Esegui test**. Vengono eseguiti i test per diagnosticare eventuali problemi con la rete, il dispositivo, il proxy Web, l'ora o le impostazioni cloud. Si riceve una notifica in cui si comunica che il dispositivo sta eseguendo dei test.
+1. Nell'interfaccia utente Web locale passare a **Risoluzione dei problemi > Test diagnostici**. Selezionare il test che si desidera eseguire e selezionare **Esegui test**. Il test consente di diagnosticare eventuali problemi con le impostazioni di rete, dispositivo, proxy Web, ora o cloud. Si riceve una notifica in cui si comunica che il dispositivo sta eseguendo dei test.
 
     ![Selezionare i test ](media/azure-stack-edge-gpu-troubleshoot/run-diag-1.png)
  
@@ -147,7 +147,7 @@ Di seguito sono riportati gli errori che possono verificarsi durante la configur
 |Il servizio ha restituito un errore. Controllare InnerException per altri dettagli: la connessione sottostante è stata chiusa: Impossibile stabilire una relazione di trust per il canale sicuro SSL/TLS. |   Questo errore è probabilmente causato da uno o più passaggi di Bring your own certificate in modo errato. [Qui](./azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates)è possibile trovare informazioni aggiuntive. |
 |L'operazione ha restituito un codice di stato ' ServiceUnavailable ' non valido <br> Il codice di stato della risposta non indica esito positivo: 503 (servizio non disponibile). | Questo errore potrebbe essere dovuto a una di queste condizioni.<li>ArmStsPool è in stato interrotto.</li><li>Uno dei siti Web del servizio token di sicurezza/Azure Resource Manager è inattivo.</li><li>La risorsa cluster Azure Resource Manager è inattiva.</li><br><strong>Nota:</strong> Il riavvio dell'appliance potrebbe risolvere il problema, ma è necessario raccogliere il pacchetto per il supporto in modo che sia possibile eseguirne il debug.|
 |AADSTS50126: nome utente o password non valida.<br>ID traccia: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID correlazione: 1b9752c4-8cbf-4304-A714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: il server remoto ha restituito un errore: (400) richiesta non valida.<br>Alla riga: 1 carattere: 1 |Questo errore potrebbe essere dovuto a una di queste condizioni.<li>Per un nome utente e una password non validi, verificare che il cliente abbia modificato la password da portale di Azure attenendosi [alla procedura seguente](./azure-stack-edge-j-series-set-azure-resource-manager-password.md) e quindi usando la password corretta.<li>Per un ID tenant non valido, l'ID tenant è un GUID fisso e deve essere impostato su `c0257de7-538f-415c-993a-1b87a031879d`</li>|
-|Connect-AzureRmAccount: AADSTS90056: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.<br>ID traccia: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID correlazione: 75c8ef5a-830e-48B5-B039-595a96488ff9 timestamp: 2019-11-18 07:00:51Z: il server remoto ha restituito un errore: (400) non valido |Gli endpoint di risorsa usati nel `Add-AzureRmEnvironment` comando non sono corretti.|
+|Connect-AzureRmAccount: AADSTS90056: la risorsa è disabilitata o non esiste. Controllare il codice dell'app per verificare di avere specificato l'URL della risorsa esatta cui si sta tentando di accedere.<br>ID traccia: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID correlazione: 75c8ef5a-830e-48B5-B039-595a96488ff9 timestamp: 2019-11-18 07:00:51Z: il server remoto ha restituito un errore: (400) non valido |Gli endpoint della risorsa utilizzati nel `Add-AzureRmEnvironment` comando non sono corretti.|
 |Non è possibile ottenere gli endpoint dal cloud.<br>Assicurarsi di disporre di una connessione di rete. Dettagli errore: HTTPSConnectionPool (host =' Management. dbg-of4k6suvm.microsoftdatabox.com ', Port = 30005): numero massimo di tentativi superato con URL:/Metadata/Endpoints? API-Version = 2015-01-01 (causata da SSLError (SSLError ("handshake errato: Error ([(' routine SSL ',' tls_process_server_certificate ',' certificate Verify failed ')],)",),)) |Questo errore viene visualizzato principalmente in un ambiente Mac/Linux ed è dovuto ai problemi seguenti:<li>Un certificato di formato PEM non è stato aggiunto all'archivio certificati Python.</li> |
 
 ### <a name="verify-the-device-is-configured-properly"></a>Verificare che il dispositivo sia configurato correttamente
@@ -187,7 +187,7 @@ Ecco gli errori correlati all'archiviazione BLOB nel dispositivo Azure Stack Edg
 | **Problema/errori** |  **Risoluzione** | 
 |--------------------|-----------------|
 |Impossibile recuperare le risorse figlio. Il valore per una delle intestazioni HTTP non è nel formato corretto.| Dal menu **modifica** selezionare **destinazione API Azure stack**. Quindi, riavviare Azure Storage Explorer.|
-|funzione getaddrinfo ENOTFOUND <accountname> . blob. <serialnumber> . microsoftdatabox.com|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts nel percorso seguente: `C:\Windows\System32\drivers\etc\hosts` in Windows o `/etc/hosts` in Linux.|
+|`getaddrinfo ENOTFOUND <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts nel percorso seguente: `C:\Windows\System32\drivers\etc\hosts` in Windows o `/etc/hosts` in Linux.|
 |Impossibile recuperare le risorse figlio.<br> Dettagli: certificato autofirmato |Importare il certificato SSL del dispositivo in Azure Storage Explorer: <ol><li>Scaricare il certificato dal portale di Azure. Per ulteriori informazioni, vedere [scaricare il certificato](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate).</li><li>Scegliere certificati SSL dal menu **modifica** , quindi selezionare **Importa certificati**.</li></ol>|
 |Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore:<br>`Failed to enumerate directory https://… The remote name could not be resolved <accountname>.blob.<serialnumber>.microsoftdatabox.com`|Verificare che il nome dell'endpoint `<accountname>.blob.<serialnumber>.microsoftdatabox.com` venga aggiunto al file hosts in: `C:\Windows\System32\drivers\etc\hosts` .|
 |Il comando AzCopy sembra smettere di rispondere per un minuto prima di visualizzare questo errore:<br>`Error parsing source location. The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel`. |Importare il certificato SSL del dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate).|
@@ -197,8 +197,11 @@ Ecco gli errori correlati all'archiviazione BLOB nel dispositivo Azure Stack Edg
 |Il comando AzCopy sembra smettere di rispondere per 20 minuti prima di visualizzare l'errore seguente: `Error parsing source location… The SSL connection could not be established` .|Importare il certificato SSL del dispositivo nell'archivio certificati del sistema. Per ulteriori informazioni, vedere [scaricare il certificato](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate).|
 |Il valore per una delle intestazioni HTTP non è nel formato corretto.|La versione installata della libreria Archiviazione di Microsoft Azure per Python non è supportata da Data Box. Per informazioni sulle versioni supportate, vedere Azure Data Box requisiti di archiviazione BLOB.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED]...| Prima di eseguire python, impostare la variabile di ambiente REQUESTS_CA_BUNDLE sul percorso del file di certificato SSL con codifica Base64 (vedere How to [download the certificate](../databox/data-box-deploy-copy-data-via-rest.md#download-certificate). Ad esempio:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>In alternativa, aggiungere il certificato all'archivio certificati del sistema, quindi impostare questa variabile di ambiente sul percorso di tale archivio. Ad esempio, in Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
-|Timeout della connessione.|Accedere al Azure Stack Edge Pro e verificare che sia sbloccato. Ogni volta che il dispositivo viene riavviato, rimane bloccato fino a quando l'utente non esegue l'accesso.|
+|Timeout della connessione.|Accedere al Azure Stack Edge Pro e verificare che sia sbloccato. Ogni volta che il dispositivo viene riavviato, rimane bloccato fino a quando non viene effettuato l'accesso.|
 
+## <a name="troubleshoot-iot-edge-errors"></a>Risolvere gli errori di IoT Edge
+
+[!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 
 ## <a name="next-steps"></a>Passaggi successivi

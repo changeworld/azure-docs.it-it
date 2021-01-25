@@ -10,12 +10,12 @@ ms.date: 01/13/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ff2408e35d76a6ea0d5221e04c7a41ed6cde7ac9
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178977"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762882"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replica di oggetti per BLOB in blocchi
 
@@ -88,7 +88,9 @@ Quando si crea una regola di replica, per impostazione predefinita vengono copia
 
 È anche possibile specificare uno o più filtri come parte di una regola di replica per filtrare i BLOB in blocchi per prefisso. Quando si specifica un prefisso, solo i BLOB corrispondenti al prefisso nel contenitore di origine verranno copiati nel contenitore di destinazione.
 
-Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato i criteri di replica, il contenitore di destinazione diventa di sola lettura. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Tuttavia, è possibile chiamare l'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per spostarla nel livello archivio. Per altre informazioni sul livello archivio, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md#archive-access-tier).
+Devono esistere sia i contenitori di origine che di destinazione prima di poterli specificare in una regola. Dopo aver creato il criterio di replica, non sono consentite operazioni di scrittura nel contenitore di destinazione. Qualsiasi tentativo di scrittura nel contenitore di destinazione non riesce e viene restituito il codice errore 409 (conflitto). Per scrivere in un contenitore di destinazione per cui è configurata una regola di replica, è necessario eliminare la regola configurata per tale contenitore oppure rimuovere il criterio di replica. Le operazioni di lettura ed eliminazione nel contenitore di destinazione sono consentite quando il criterio di replica è attivo.
+
+È possibile chiamare l'operazione di [impostazione del livello BLOB](/rest/api/storageservices/set-blob-tier) su un BLOB nel contenitore di destinazione per spostarla nel livello archivio. Per altre informazioni sul livello archivio, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="replication-status"></a>Stato della replica
 

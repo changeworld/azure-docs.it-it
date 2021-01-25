@@ -3,12 +3,12 @@ title: Restrizioni di denominazione per le risorse
 description: Illustra le regole e le restrizioni di denominazione per le risorse di Azure.
 ms.topic: conceptual
 ms.date: 12/29/2020
-ms.openlocfilehash: 59babd9298fdca96b450b2dc67832c86c043c49c
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bd8ba72d43b7e3e5a9145d756741436f0a49e18b
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132750"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762490"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regole di denominazione e restrizioni per le risorse di Azure
 
@@ -633,9 +633,9 @@ Nelle tabelle seguenti il termine alfanumerico fa riferimento a:
 > [!div class="mx-tableFixed"]
 > | Entità | Scope | Length | Caratteri validi |
 > | --- | --- | --- | --- |
-> | managedInstances | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. |
+> | managedInstances | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. <br><br> Non possono contenere caratteri speciali, ad esempio `@` . |
 > | servers | globale | 1-63 | Lettere minuscole, numeri e trattini.<br><br>Non può iniziare o terminare con un trattino. |
-> | servers/administrators | server |  | Deve essere `ActiveDirectory`. |
+> | servers/administrators | server |  | Deve essere `ActiveDirectory`. <br><br> Non possono contenere caratteri speciali, ad esempio `@` .|
 > | servers/databases | server | 1-128 | Non è possibile usare:<br>`<>*%&:\/?`<br><br>Non può terminare con un punto o uno spazio. |
 > | servers/databases/syncGroups | database | 1-150 | Caratteri alfanumerici, trattini e caratteri di sottolineatura. |
 > | servers/elasticPools | server | 1-128 | Non è possibile usare:<br>`<>*%&:\/?`<br><br>Non può terminare con un punto o uno spazio. |

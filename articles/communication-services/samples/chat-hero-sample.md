@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fc757e1310369c48de24c0cc9253c668ca27495c
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
-ms.translationtype: HT
+ms.openlocfilehash: 80fdedb29f70c961431c987558a42d5fa46dfa7d
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888573"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98760795"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
 
@@ -111,6 +111,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 - Informazioni sui [concetti relativi alla chat](../concepts/chat/concepts.md)
 - Acquisire familiarità con la [libreria client della chat](../concepts/chat/sdk-features.md)
+- Esaminare l'esempio di [app Contoso Med](https://github.com/Azure-Samples/communication-services-contoso-med-app)
 
 ## <a name="additional-reading"></a>Altre letture
 

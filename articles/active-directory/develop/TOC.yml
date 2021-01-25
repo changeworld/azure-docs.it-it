@@ -329,7 +329,7 @@
               href: msal-error-handling-dotnet.md
               displayName: 'handling, catch'
             - name: Registrazione in MSAL.NET
-              href: msal-logging.md?tabs=dotnet
+              href: msal-logging-dotnet.md
             - name: Acquisire un token dalla cache
               href: msal-net-acquire-token-silently.md
             - name: Serializzazione della cache dei token
@@ -371,7 +371,7 @@
               href: msal-error-handling-js.md
               displayName: 'handling, catch'
             - name: Registrazione in MSAL.js
-              href: msal-logging.md?tabs=javascript
+              href: msal-logging-js.md
         - name: MSAL per iOS e MacOS
           items:
             - name: Differenze tra MSAL per iOS e macOS
@@ -401,7 +401,7 @@
               href: msal-error-handling-ios.md
               displayName: 'handling, catch'
             - name: Registrazione in MSAL per iOS/macOS
-              href: msal-logging.md?tabs=swift
+              href: msal-logging-ios.md
         - name: MSAL per Python
           items:
             - name: Serializzazione della cache dei token personalizzata
@@ -414,7 +414,7 @@
               href: msal-error-handling-python.md
               displayName: 'handling, catch'
             - name: Registrazione in MSAL per Python
-              href: msal-logging.md?tabs=python
+              href: msal-logging-python.md
         - name: MSAL per Java
           items:
             - name: Serializzazione della cache dei token personalizzata
@@ -429,7 +429,7 @@
               href: msal-error-handling-java.md
               displayName: 'handling, catch'
             - name: Registrazione in MSAL per Java
-              href: msal-logging.md?tabs=java
+              href: msal-logging-java.md
         - name: MSAL per Android
           items:
             - name: Account e profili del tenant
@@ -449,7 +449,7 @@
               href: msal-android-handling-exceptions.md
               displayName: 'android, mobile, handling, catch'
             - name: Registrazione in MSAL per Android
-              href: msal-logging.md?tabs=android
+              href: msal-logging-android.md
     - name: Personalizzare token e attestazioni
       items:
         - name: Configurare l'attestazione basata su ruolo

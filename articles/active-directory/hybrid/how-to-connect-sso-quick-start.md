@@ -16,21 +16,18 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eadb20bc570545356508d82c05e1746424a14b71
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59cc50274b291c23aeec4620ec7a09312cc0c1fb
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504390"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762249"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
 ## <a name="deploy-seamless-single-sign-on"></a>Distribuire l'accesso Single Sign-On facile
 
 L'accesso Single Sign-On facile di Azure Active Directory (Azure AD) consente l'accesso automatico degli utenti dai desktop collegati alla rete aziendale. Grazie a questa funzionalità, gli utenti possono accedere facilmente alle applicazioni basate sul cloud senza usare altri componenti a livello locale.
-
-> [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
 
 Per distribuire l'accesso SSO facile, seguire questa procedura.
 
@@ -40,7 +37,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 * **Configurare il server Azure ad Connect**: se si usa [l'autenticazione pass-through](how-to-connect-pta.md) come metodo di accesso, non è necessario alcun controllo dei prerequisiti aggiuntivo. Se si usa la [sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) come metodo di accesso e se è presente un firewall tra Azure AD Connect e Azure ad, assicurarsi che:
    - Usare Azure AD Connect 1.1.644.0 o versioni successive. 
-   - Se il firewall o il proxy consente, aggiungere le connessioni all'elenco di indirizzi consentiti per gli URL **\* . msappproxy.NET** sulla porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
+   - Se il firewall o il proxy consente, aggiungere le connessioni all'elenco di indirizzi consentiti per gli URL **\* . msappproxy.NET** sulla porta 443. Se è necessario un URL specifico anziché un carattere jolly per la configurazione del proxy, è possibile configurare **TenantId.registration.msappproxy.NET**, dove TenantId è il GUID del tenant in cui si sta configurando la funzionalità. Se nell'organizzazione non sono possibili eccezioni proxy basate su URL, è invece possibile consentire l'accesso agli [intervalli IP del Data Center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 
     >[!NOTE]
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione Azure ad Connect](./reference-connect-version-history.md) per altre informazioni.

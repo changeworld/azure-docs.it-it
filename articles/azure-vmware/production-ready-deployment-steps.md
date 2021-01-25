@@ -3,12 +3,12 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: cdf4ddd6166920fa7461bfd85e01ef0efd6dfbb9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704566"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762861"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
@@ -93,7 +93,7 @@ Occorre ricordare che:
 - Se si prevede di estendere le reti da locale, tali reti devono connettersi a un [commutatore distribuito di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) nell'ambiente VMware locale.  
 - Se la rete o le reti da estendere si trovano in un [commutatore standard di vSphere](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html), non sarà possibile estenderle.
 
-## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rete virtuale di Azure da collegare alla soluzione Azure VMware
+## <a name="attach-virtual-network-to-azure-vmware-solution"></a>Connetti la rete virtuale alla soluzione VMware di Azure
 
 In questo passaggio si identificherà un gateway di rete virtuale ExpressRoute e si supporterà la rete virtuale di Azure usata per connettere il circuito ExpressRoute della soluzione VMware di Azure.  Il circuito ExpressRoute facilita la connettività da e verso il cloud privato della soluzione VMware di Azure ad altri servizi di Azure, le risorse di Azure e gli ambienti locali.
 
@@ -103,21 +103,23 @@ In questo passaggio si identificherà un gateway di rete virtuale ExpressRoute e
 
 ### <a name="use-an-existing-expressroute-virtual-network-gateway"></a>Usare un gateway di rete virtuale ExpressRoute esistente
 
-Se si usa un gateway di rete virtuale ExpressRoute *esistente* , il circuito ExpressRoute della soluzione VMware di Azure viene stabilito dopo la distribuzione del cloud privato.  Non è quindi necessario popolare il campo **rete virtuale** .  
+Se si usa un gateway di rete virtuale ExpressRoute *esistente* , il circuito ExpressRoute della soluzione VMware di Azure viene stabilito dopo la distribuzione del cloud privato. In questo caso, lasciare vuoto il campo **rete virtuale** .  
 
 Prendere nota del gateway di rete virtuale ExpressRoute che verrà usato e continuare con il passaggio successivo.
 
 ### <a name="create-a-new-expressroute-virtual-network-gateway"></a>Creare un nuovo gateway di rete virtuale ExpressRoute
 
-Se si crea un *nuovo* gateway di rete virtuale ExpressRoute, è possibile usare una rete virtuale di Azure esistente oppure creare una nuova rete virtuale di Azure.  
+Quando si crea un *nuovo* gateway di rete virtuale ExpressRoute, è possibile usare una rete virtuale di Azure esistente o crearne uno nuovo.  
 
-Se si sceglie di usare una rete virtuale di Azure esistente, verificare che non esistano gateway di rete virtuale ExpressRoute preesistenti nella rete virtuale e selezionarlo nell'elenco a discesa rete virtuale della schermata creare una distribuzione cloud privata.
+- Per una rete virtuale di Azure esistente:
+   1. Verificare che non esistano gateway di rete virtuale ExpressRoute preesistenti nella rete virtuale. 
+   1. Selezionare la rete virtuale di Azure esistente dall'elenco **rete virtuale** .
 
-Se si sceglie di creare una nuova rete virtuale di Azure, è possibile crearla in anticipo o durante la distribuzione facendo clic sulla sezione creare una nuova opzione di rete virtuale della schermata creare una distribuzione cloud privata.
+- Per una nuova rete virtuale di Azure, è possibile crearla in anticipo o durante la distribuzione. Selezionare il collegamento **Crea nuovo** nell'elenco **rete virtuale** .
 
-Per riferimento, di seguito è riportata un'immagine della schermata **creare una distribuzione cloud privata** e descritta in rosso è il campo **rete virtuale** di Azure a cui si fa riferimento in questa sezione.
+Nell'immagine seguente viene mostrata la schermata **creare una distribuzione cloud privata** con il campo **rete virtuale** evidenziato.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot della schermata di distribuzione della soluzione VMware di Azure con il gateway di rete virtuale con cerchio.":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-deployment-screen-vnet-circle.png" alt-text="Screenshot della schermata di distribuzione della soluzione VMware di Azure con il campo rete virtuale evidenziato.":::
 
 >[!NOTE]
 >Eventuali reti virtuali che verranno usate o create possono essere visualizzate dall'ambiente locale e dalla soluzione VMware di Azure, quindi assicurarsi che il segmento IP usato in questa rete virtuale e le subnet non si sovrappongano.

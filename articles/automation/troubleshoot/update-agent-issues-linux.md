@@ -4,17 +4,17 @@ description: Questo articolo descrive come risolvere i problemi relativi all'age
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83680864"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762630"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Risolvere i problemi relativi all'agente di aggiornamento Linux
 
@@ -27,7 +27,7 @@ I motivi per cui il computer non risulta pronto (integro) in Gestione aggiorname
 > [!NOTE]
 > È possibile che si verifichi un lieve ritardo tra quanto visualizzato dal portale di Azure e lo stato corrente di un computer.
 
-Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline). 
+Questo articolo illustra come eseguire la risoluzione dei problemi per i computer Azure dal portale di Azure e per i computer non Azure nello [scenario offline](#troubleshoot-offline).
 
 > [!NOTE]
 > Lo script dello strumento di risoluzione dei problemi attualmente non instrada il traffico tramite un server proxy se ne è configurato uno.
@@ -90,7 +90,6 @@ Gestione aggiornamenti scarica i pacchetti del ruolo di lavoro ibrido per runboo
 
 Questo controllo garantisce che il ruolo di lavoro ibrido per runbook sia in esecuzione nel computer. I processi nell'esempio seguente devono essere presenti se il ruolo di lavoro ibrido per runbook è correttamente in esecuzione.
 
-
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -129,7 +128,7 @@ Questo controllo verifica che il computer abbia accesso agli endpoint necessari 
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Risolvere i problemi offline
 
-È possibile usare la risoluzione dei problemi offline per i ruoli di lavoro ibridi per runbook eseguendo lo script in locale. Lo script Python [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) è disponibile in Script Center. Di seguito è riportato un esempio dell'output di questo script:
+È possibile usare la risoluzione dei problemi offline per i ruoli di lavoro ibridi per runbook eseguendo lo script in locale. Lo script Python, [UM_Linux_Troubleshooter_Offline. py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py), è reperibile in GitHub. Di seguito è riportato un esempio dell'output di questo script:
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

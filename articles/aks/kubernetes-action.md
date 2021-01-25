@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: d03acab340e593a925f042ca41f9e8967b468858
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 94134360de49a066f825cbb0c85712995d90b37f
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97605446"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98761467"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Azioni di GitHub per la distribuzione nel servizio Kubernetes
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per la distribuzione in contenitori da Azure Container Registry al servizio Kubernetes di Azure con azioni di GitHub. 
+[GitHub Actions](https://docs.github.com/en/actions) offre la flessibilità necessaria per creare un flusso di lavoro automatizzato del ciclo di vita di sviluppo software. È possibile usare più azioni Kubernetes per la distribuzione in contenitori da Azure Container Registry al servizio Kubernetes di Azure con azioni di GitHub. 
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -34,7 +34,7 @@ Per un flusso di lavoro che ha come destinazione AKS, il file è costituito da t
 |Sezione  |Attività  |
 |---------|---------|
 |**autenticazione** | Accedere a un registro contenitori privato (ACR) |
-|**Build** | Compilare & eseguire il push dell'immagine del contenitore  |
+|**Compila** | Compilare & eseguire il push dell'immagine del contenitore  |
 |**Distribuzione** | 1. impostare il cluster AKS di destinazione |
 | |2. creare un segreto del registro di sistema generico/Docker nel cluster Kubernetes  |
 ||3. eseguire la distribuzione nel cluster Kubernetes|

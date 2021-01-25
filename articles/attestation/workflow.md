@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 09d793f3d8ed544a386a362677f24be6d18673d7
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-ms.translationtype: HT
+ms.openlocfilehash: 27a97ceb2ca9a7b58df7200930e4e47d89c9ae89
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748731"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762163"
 ---
 # <a name="workflow"></a>Flusso di lavoro
 
@@ -38,6 +38,18 @@ Ecco i passaggi generali di un tipico flusso di lavoro di attestazione dell'encl
 
 > [!Note]
 > Quando si inviano richieste di attestazione nella versione [2018-09-01-preview](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/attestation/data-plane/Microsoft.Attestation/stable/2018-09-01-preview) dell'API, il client deve inviare l'evidenza ad Attestazione di Azure insieme al token di accesso di Azure AD.
+
+## <a name="trusted-platform-module-tpm-enclave-validation-work-flow"></a>Flusso di lavoro di convalida dell'enclave Trusted Platform Module (TPM)
+
+Di seguito sono riportati i passaggi generali di un flusso di lavoro di attestazione dell'enclave TPM tipico (usando l'attestazione di Azure):
+
+1.  Nell'avvio del dispositivo/della piattaforma, diversi caricatori di avvio e servizi di avvio misurano gli eventi supportati dal TPM e archiviati in modo sicuro (log TCG).
+2.  Il client raccoglie i log TCG dal dispositivo e dalla virgoletta TPM, che funge da evidenza per l'attestazione.
+3.  Il client ha un URI che fa riferimento a un'istanza di Attestazione di Azure. Il client invia l'evidenza ad Attestazione di Azure. Le informazioni esatte inviate al provider dipendono dalla piattaforma.
+4.  Attestazione di Azure convalida le informazioni inviate e le valuta rispetto a un criterio configurato. Se la verifica ha esito positivo, Attestazione di Azure emette un token di attestazione e lo restituisce al client. Se questo passaggio ha esito negativo, Attestazione di Azure segnala un errore al client. La comunicazione tra il client e il servizio di attestazione è determinata dal protocollo TPM di attestazione di Azure.
+5.  Il client invia quindi il token di attestazione a relying party. La relying party chiama l'endpoint di metadati con chiave pubblica di Attestazione di Azure per recuperare i certificati di firma. Il relying party verifica quindi la firma del token di attestazione e garantisce l'affidabilità delle piattaforme.
+
+![Flusso di convalida TPM](./media/tpm-validation-flow.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Come creare e firmare un criterio di attestazione](author-sign-policy.md)

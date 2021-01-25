@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 01/15/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7bd85c60025475e8208847a12ccc2729743a975a
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: f550f96a8bd2e402556089061604654b11d47844
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803919"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98762889"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Eseguire un ripristino temporizzato sui dati BLOB in blocchi
 
@@ -23,7 +23,7 @@ ms.locfileid: "97803919"
 Per altre informazioni sul ripristino temporizzato, vedere [ripristino temporizzato per i BLOB in blocchi](point-in-time-restore-overview.md).
 
 > [!CAUTION]
-> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento.
+> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un intero contenitore, eliminare i singoli BLOB se si desidera ripristinarli in un secondo momento. Microsoft consiglia inoltre di abilitare l'eliminazione temporanea per contenitori e BLOB per proteggersi da eliminazioni accidentali. Per altre informazioni, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md) ed [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Abilitare e configurare il ripristino temporizzato
 
@@ -52,19 +52,16 @@ L'immagine seguente illustra un account di archiviazione configurato per il ripr
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per configurare il ripristino temporizzato con PowerShell, installare prima il modulo [AZ. storage](https://www.powershellgallery.com/packages/Az.Storage) versione 2.6.0 o successiva. Chiamare quindi il comando Enable-AzStorageBlobRestorePolicy per abilitare il ripristino temporizzato per l'account di archiviazione.
+Per configurare il ripristino temporizzato con PowerShell, installare prima il modulo [AZ. storage](https://www.powershellgallery.com/packages/Az.Storage) versione 2.6.0 o successiva. Chiamare quindi il comando [Enable-AzStorageBlobRestorePolicy](/powershell/module/az.storage/enable-azstorageblobrestorepolicy) per abilitare il ripristino temporizzato per l'account di archiviazione.
 
-L'esempio seguente abilita l'eliminazione temporanea e imposta il periodo di memorizzazione dell'eliminazione temporanea, Abilita il feed delle modifiche e il controllo delle versioni, quindi Abilita il ripristino temporizzato.    Quando si esegue l'esempio, assicurarsi di sostituire i valori tra parentesi uncinate con i propri valori:
+L'esempio seguente abilita l'eliminazione temporanea e imposta il periodo di memorizzazione dell'eliminazione temporanea, Abilita il feed delle modifiche e il controllo delle versioni, quindi Abilita il ripristino temporizzato. Quando si esegue l'esempio, assicurarsi di sostituire i valori tra parentesi uncinate con i propri valori:
 
 ```powershell
-# Sign in to your Azure account.
-Connect-AzAccount
-
 # Set resource group and account variables.
 $rgName = "<resource-group>"
 $accountName = "<storage-account>"
 
-# Enable soft delete with a retention of 14 days.
+# Enable blob soft delete with a retention of 14 days.
 Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
@@ -87,11 +84,33 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per configurare il ripristino temporizzato con l'interfaccia della riga di comando di Azure, installare prima l'interfaccia della riga di comando di Azure versione 2.2.0 o successiva. Chiamare quindi il comando [AZ storage account Blob-Service-Properties Update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) per abilitare il ripristino temporizzato e le altre impostazioni di protezione dati necessarie per l'account di archiviazione.
+
+Nell'esempio seguente viene abilitata l'eliminazione temporanea e il periodo di memorizzazione dell'eliminazione temporanea viene impostato su 14 giorni, viene abilitato il feed delle modifiche e il controllo delle versioni e viene abilitato il ripristino temporizzato con un periodo di ripristino di 7 giorni. Quando si esegue l'esempio, assicurarsi di sostituire i valori tra parentesi uncinate con i propri valori:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-delete-retention true \
+    --delete-retention-days 14 \
+    --enable-versioning true \
+    --enable-change-feed true \
+    --enable-restore-policy true \
+    --restore-days 7
+```
+
 ---
 
-## <a name="perform-a-restore-operation"></a>Eseguire un'operazione di ripristino
+## <a name="choose-a-restore-point"></a>Scegliere un punto di ripristino
 
-Quando si esegue un'operazione di ripristino, è necessario specificare il punto di ripristino come valore **DateTime** UTC. I contenitori e i BLOB verranno ripristinati allo stato corrispondente in quel giorno e ora. L'operazione di ripristino può richiedere diversi minuti.
+Il punto di ripristino è la data e l'ora in cui vengono ripristinati i dati. Archiviazione di Azure usa sempre un valore di data/ora UTC come punto di ripristino. Tuttavia, il portale di Azure consente di specificare il punto di ripristino nell'ora locale e quindi di convertire il valore di data/ora in un valore di data/ora UTC per eseguire l'operazione di ripristino.
+
+Quando si esegue un'operazione di ripristino con PowerShell o l'interfaccia della riga di comando di Azure, è necessario specificare il punto di ripristino come valore di data/ora UTC. Se il punto di ripristino viene specificato con un valore di ora locale anziché un valore di ora UTC, l'operazione di ripristino può comunque comportarsi come previsto in alcuni casi. Se, ad esempio, l'ora locale è UTC meno di cinque ore, specificando un valore di ora locale si ottiene un punto di ripristino di cinque ore prima del valore specificato. Se non sono state apportate modifiche ai dati nell'intervallo da ripristinare durante tale periodo di cinque ore, l'operazione di ripristino produrrà gli stessi risultati indipendentemente dal valore di ora specificato. È consigliabile specificare un'ora UTC per il punto di ripristino per evitare risultati imprevisti.
+
+## <a name="perform-a-restore-operation"></a>Eseguire un'operazione di ripristino
 
 È possibile ripristinare tutti i contenitori nell'account di archiviazione oppure è possibile ripristinare un intervallo di BLOB in uno o più contenitori. Un intervallo di BLOB è definito lessicografico, vale a dire nell'ordine del dizionario. Per ogni operazione di ripristino sono supportati fino a dieci intervalli lessicografico. L'inizio dell'intervallo è inclusivo e la fine dell'intervallo è esclusiva.
 
@@ -128,7 +147,7 @@ Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con 
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con PowerShell, chiamare il comando **Restore-AzStorageBlobRange** . Per impostazione predefinita, il comando **Restore-AzStorageBlobRange** viene eseguito in modo asincrono e restituisce un oggetto di tipo **PSBlobRestoreStatus** che è possibile usare per controllare lo stato dell'operazione di ripristino.
+Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con PowerShell, chiamare il comando **Restore-AzStorageBlobRange** e specificare il punto di ripristino come valore di data/ora UTC. Per impostazione predefinita, il comando **Restore-AzStorageBlobRange** viene eseguito in modo asincrono e restituisce un oggetto di tipo **PSBlobRestoreStatus** che è possibile usare per controllare lo stato dell'operazione di ripristino.
 
 Nell'esempio seguente vengono ripristinati in modo asincrono i contenitori nell'account di archiviazione nello stato 12 ore prima del momento corrente e vengono controllate alcune delle proprietà dell'operazione di ripristino:
 
@@ -136,7 +155,7 @@ Nell'esempio seguente vengono ripristinati in modo asincrono i contenitori nell'
 # Specify -TimeToRestore as a UTC value
 $restoreOperation = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -TimeToRestore (Get-Date).AddHours(-12)
+    -TimeToRestore (Get-Date).ToUniversalTime().AddHours(-12)
 
 # Get the status of the restore operation.
 $restoreOperation.Status
@@ -153,6 +172,22 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -TimeToRestore (Get-Date).AddHours(-12) -WaitForComplete
 ```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per ripristinare tutti i contenitori e i BLOB nell'account di archiviazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage BLOB Restore](/cli/azure/storage/blob#az_storage_blob_restore) e specificare il punto di ripristino come valore di data/ora UTC.
+
+Nell'esempio seguente vengono ripristinati in modo asincrono tutti i contenitori nell'account di archiviazione nello stato 12 ore prima di una data e un'ora specificate. Per controllare lo stato dell'operazione di ripristino, chiamare [AZ storage account Show](/cli/azure/storage/account#az_storage_account_show):
+
+```azurecli
+az storage blob restore \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --no-wait
+```
+
+Per eseguire il comando **AZ storage BLOB Restore** in modo sincrono e bloccarsi in fase di esecuzione fino al completamento dell'operazione di ripristino, omettere il `--no-wait` parametro.
 
 ---
 
@@ -244,6 +279,25 @@ $restoreOperation.Parameters.BlobRanges
 ```
 
 Per eseguire l'operazione di ripristino in modo sincrono e bloccarsi in fase di esecuzione fino al completamento, includere il parametro **-WaitForComplete** nel comando.
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+Per ripristinare un intervallo di BLOB, chiamare il comando [AZ storage BLOB Restore](/cli/azure/storage/blob#az_storage_blob_restore) e specificare un intervallo di lessicografico di nomi di contenitori e BLOB per il `--blob-range` parametro. Per specificare più intervalli, fornire il `--blob-range` parametro per ogni intervallo distinto.
+
+Ad esempio, per ripristinare i BLOB in un singolo contenitore denominato *container1*, è possibile specificare un intervallo che inizia con *container1* e termina con *container2*. Non è necessario che i contenitori denominati nell'intervallo iniziale e finale esistano. Poiché la fine dell'intervallo è esclusiva, anche se l'account di archiviazione include un contenitore denominato *container2*, verrà ripristinato solo il contenitore denominato *container1* .
+
+Per specificare un subset di BLOB in un contenitore da ripristinare, usare una barra (/) per separare il nome del contenitore dal modello di prefisso del BLOB. Nell'esempio riportato di seguito viene ripristinato in modo asincrono un intervallo di BLOB in un contenitore i cui nomi iniziano con le lettere `d` fino a `f` .
+
+```azurecli
+az storage blob restore \
+    --account-name <storage-account> \
+    --time-to-restore 2021-01-14T06:31:22Z \
+    --blob-range container1 container2
+    --blob-range container3/d container3/g
+    --no-wait
+```
+
+Per eseguire il comando **AZ storage BLOB Restore** in modo sincrono e bloccarsi in fase di esecuzione fino al completamento dell'operazione di ripristino, omettere il `--no-wait` parametro.
 
 ---
 

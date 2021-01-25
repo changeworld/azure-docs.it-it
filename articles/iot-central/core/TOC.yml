@@ -157,6 +157,8 @@
               href: howto-use-app-templates.md
             - name: Monitorare l'integrità delle applicazioni
               href: howto-monitor-application-health.md
+            - name: Eseguire la migrazione dell'applicazione V2 a V3
+              href: howto-migrate.md
             - name: Informazioni sull'applicazione
               href: howto-get-app-info.md
             - name: Aggiornare i certificati X.509
