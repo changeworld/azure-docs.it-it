@@ -93,6 +93,11 @@
           href: export-data.md
         - name: Esportazione per cui è stata annullata l'identificazione
           href: de-identified-export.md
+    - name: Converti dati
+      expanded: false
+      items:
+        - name: Modelli di estensione $convert-data e FHIR Converter
+          href: convert-data.md
     - name: Trovare ID oggetto identità
       href: find-identity-object-ids.md
     - name: Metriche e registrazione diagnostica

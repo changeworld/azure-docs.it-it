@@ -8,20 +8,21 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: aeb53e722eae588b7d5e2963afe67f299c2c3565
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dfbae5144ec19b795463bd44f1e84fcf2516c267
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745180"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747208"
 ---
 # <a name="create-a-cloud-service-extended-support-using-arm-templates"></a>Creare un servizio cloud (supporto esteso) usando i modelli ARM
+
+Questa esercitazione illustra come creare una distribuzione del servizio cloud (supporto esteso) usando i [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 > [!IMPORTANT]
 > Servizi cloud (supporto esteso) è attualmente disponibile in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa esercitazione illustra come creare una distribuzione del servizio cloud (supporto esteso) usando i [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 1. Esaminare i [prerequisiti di distribuzione](deploy-prerequisite.md) per i servizi cloud (supporto esteso) e creare le risorse associate. 

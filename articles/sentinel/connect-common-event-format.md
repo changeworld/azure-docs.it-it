@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 4b34477a40530a0e6f26b59dd9707c019418b2a4
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 6010242e7fbd14aa117c481dee0d05e92928ef1b
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655851"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747492"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando il formato di evento comune
 
@@ -77,6 +77,12 @@ Verificare che il computer Linux usato come server d'utilità di registrazione e
   - Syslog RFC 5424
  
 Verificare che il computer soddisfi anche i requisiti seguenti: 
+
+- Capacità
+  - Il computer deve avere almeno **4 core CPU e 8 GB di RAM**.
+
+    > [!NOTE]
+    > - Un singolo computer di server d'accesso di log che usa il daemon **rsyslog** ha una capacità supportata di un **massimo di 8500 eventi al secondo (EPS)** raccolti.
 
 - Autorizzazioni
   - È necessario disporre di autorizzazioni elevate (sudo) nel computer. 

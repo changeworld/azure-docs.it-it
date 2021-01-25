@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 43372eb0a9f7c08f6957627950769c1941580bd8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 28c01e99c0e8708750341b445b4a31f6eaeab3ce
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745868"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747526"
 ---
 # <a name="features"></a>Funzionalità
 
@@ -147,12 +147,14 @@ Attualmente, le azioni consentite per un determinato ruolo vengono applicate a *
 
 Le prestazioni del sistema dipendono dal numero di UR, dalle connessioni simultanee e dal tipo di operazioni eseguite (Put, post e così via). Di seguito sono riportati alcuni intervalli generali di ciò che è possibile aspettarsi in base alle UR configurate. In generale, le prestazioni vengono ridimensionate in modo lineare con un aumento delle UR:
 
-| numero di ur | Risorse/sec |
-|----------|---------------|
-| 400      | 5-10          |
-| 1\.000    | 100-150       |
-| 10,000   | 225-400       |
-| 100,000  | 2500-4000   |
+| numero di ur | Risorse/sec |    Spazio di archiviazione massimo (GB) *    |
+|----------|---------------|--------|                 
+| 400      | 5-10          |     40   |
+| 1\.000    | 100-150       |      100  |
+| 10,000   | 225-400       |      1\.000  |
+| 100,000  | 2500-4000   |      10,000  |
+
+Nota: per Cosmos DB requisito, è necessario disporre di una velocità effettiva minima di 10 UR/sec per GB di spazio di archiviazione. Per altre informazioni, vedere le [quote del servizio Cosmos DB](../cosmos-db/concepts-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

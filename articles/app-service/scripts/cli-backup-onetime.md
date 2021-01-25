@@ -1,5 +1,5 @@
 ---
-title: "Interfaccia della riga di comando: Eseguire il backup di un'app"
+title: "CLI: eseguire il backup di un'app"
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per automatizzare la distribuzione e la gestione dell'app Servizio app. Questo esempio illustra come eseguire il backup di un'app.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,12 +9,12 @@ ms.date: 12/07/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: cca0f927c6824642f11254743f3bdf275ca7e5d9
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
-ms.translationtype: HT
+ms.openlocfilehash: 4f87e610c1f3315b21a9c157f127e713ff5444f2
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97006855"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747543"
 ---
 # <a name="back-up-an-app-using-cli"></a>Eseguire il backup di un'app usando l'interfaccia della riga di comando
 

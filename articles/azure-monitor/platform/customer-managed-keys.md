@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 6061980ec556fccde3de882a291bc390b88c5a24
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: f2807501b1e18d4cbffaa34d70bccf8d70565266
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611084"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747224"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -125,11 +125,53 @@ Queste impostazioni possono essere aggiornate in Key Vault tramite l'interfaccia
 
 ## <a name="create-cluster"></a>Creare cluster
 
-> [!NOTE]
-> I cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): assegnati dal sistema e assegnati dall'utente, ognuno dei quali può essere basato sullo scenario. L'identità gestita assegnata dal sistema è più semplice e viene creata automaticamente con la creazione del cluster quando Identity `type` è impostato su "*SystemAssigned*". questa identità può essere usata in un secondo momento per concedere al cluster l'accesso al Key Vault. Se si vuole creare un cluster mentre la chiave gestita dal cliente è definita al momento della creazione del cluster, è necessario avere una chiave definita e l'identità assegnata dall'utente concessa in precedenza nel Key Vault, quindi creare il cluster con le impostazioni seguenti: Identity `type` As "*UserAssigned*", `UserAssignedIdentities` con l'ID risorsa dell'identità e `keyVaultProperties` con i dettagli della chiave.
+I cluster supportano due [tipi di identità gestiti](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types): assegnati dal sistema e assegnati dall'utente, mentre una singola identità può essere definita in un cluster a seconda dello scenario. 
+- L'identità gestita assegnata dal sistema è più semplice e viene generata automaticamente con la creazione del cluster quando Identity `type` è impostato su "*SystemAssigned*". Questa identità può essere usata in un secondo momento per concedere al cluster l'accesso al Key Vault. 
+  
+  Impostazioni di identità nel cluster per l'identità gestita assegnata dal sistema
+  ```json
+  {
+    "identity": {
+      "type": "SystemAssigned"
+      }
+  }
+  ```
+
+- Se si vuole configurare la chiave gestita dal cliente durante la creazione del cluster, è necessario disporre di una chiave e di un'identità assegnata dall'utente nell'Key Vault prima, quindi creare il cluster con le impostazioni seguenti: Identity `type` As "*UserAssigned*" `UserAssignedIdentities` con l'ID risorsa dell'identità.
+
+  Impostazioni Identity nel cluster per l'identità gestita assegnata dall'utente
+  ```json
+  {
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<cluster-assigned-managed-identity>"
+      }
+  }
+  ```
 
 > [!IMPORTANT]
-> Attualmente non è possibile definire una chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault si trova in Private-Link (vNet) e in questo caso è possibile usare l'identità gestita assegnata dal sistema.
+> Non è possibile usare la chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault è in Private-Link (vNet). In questo scenario è possibile utilizzare l'identità gestita assegnata dal sistema.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+}
+```
+ 
+Con:
+
+```json
+{
+  "identity": {
+  "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft. ManagedIdentity/UserAssignedIdentities/<user-assigned-managed-identity-name>"
+      }
+}
+```
+
 
 Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
 
@@ -243,15 +285,13 @@ Seguire la procedura illustrata nell' [articolo sui cluster dedicati](../log-que
 
 ## <a name="key-revocation"></a>Revoca della chiave
 
-È possibile revocare l'accesso ai dati disabilitando la chiave o eliminando i criteri di accesso del cluster nel Key Vault. 
-
 > [!IMPORTANT]
-> - Se il cluster è impostato con l'identità gestita assegnata dall'utente, `UserAssignedIdentities` l'impostazione di con `None` sospende il cluster e impedisce l'accesso ai dati, ma non è possibile ripristinare la revoca e attivare il cluster senza aprire la richiesta di supporto. Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
-> - L'azione di revoca della chiave consigliata è la disabilitazione della chiave nella Key Vault.
+> - Il modo consigliato per revocare l'accesso ai dati è disabilitare la chiave o eliminare i criteri di accesso nel Key Vault.
+> - L'impostazione del cluster `identity` `type` su "None" consente anche di revocare l'accesso ai dati, ma questo approccio non è consigliato perché non è possibile ripristinare la revoca quando si ridichiara il `identity` nel cluster senza aprire la richiesta di supporto.
 
-L'archiviazione del cluster rispetta sempre le modifiche apportate alle autorizzazioni chiave entro un'ora o prima e l'archiviazione non sarà più disponibile. Tutti i nuovi dati inseriti nelle aree di lavoro collegate al cluster vengono eliminati e non saranno recuperabili, i dati diventeranno inaccessibili e le query su tali aree di lavoro avranno esito negativo. I dati inseriti in precedenza rimangono nello spazio di archiviazione purché il cluster e le aree di lavoro non vengano eliminati. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati al raggiungimento della scadenza della conservazione. I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Anche questi dati vengono eliminati durante l'operazione di revoca della chiave e diventano inaccessibili.
+L'archiviazione del cluster rispetta sempre le modifiche apportate alle autorizzazioni chiave entro un'ora o prima e l'archiviazione non sarà più disponibile. Tutti i nuovi dati inseriti nelle aree di lavoro collegate al cluster vengono eliminati e non saranno recuperabili, i dati diventeranno inaccessibili e le query su tali aree di lavoro avranno esito negativo. I dati inseriti in precedenza rimangono nello spazio di archiviazione purché il cluster e le aree di lavoro non vengano eliminati. I dati inaccessibili sono regolati dai criteri di conservazione dei dati e verranno eliminati al raggiungimento della scadenza della conservazione. I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questa operazione viene eliminata durante l'operazione di revoca della chiave e diventa inaccessibile.
 
-L'archiviazione del cluster esegue periodicamente il polling del Key Vault per tentare di annullare il wrapping della chiave di crittografia e, una volta eseguito l'accesso, l'inserimento dei dati e la ripresa della query entro 30 minuti.
+L'archiviazione del cluster controlla periodicamente il Key Vault per tentare di annullare il wrapping della chiave di crittografia e, una volta eseguito l'accesso, l'inserimento e la query dei dati vengono ripresi entro 30 minuti.
 
 ## <a name="key-rotation"></a>Rotazione delle chiavi
 
@@ -259,7 +299,7 @@ La rotazione della chiave gestita dal cliente richiede un aggiornamento esplicit
 
 Tutti i dati rimarranno accessibili dopo l'operazione di rotazione della chiave perché i dati vengono sempre crittografati con la chiave di crittografia dell'account (AEK), mentre la chiave AEK viene ora crittografata con la nuova versione della chiave di crittografia della chiave (KEK) in Key Vault.
 
-## <a name="customer-managed-key-for-queries"></a>Chiave gestita dal cliente per le query
+## <a name="customer-managed-key-for-saved-queries"></a>Chiave gestita dal cliente per le query salvate
 
 Il linguaggio di query utilizzato nel Log Analytics è espressivo e può contenere informazioni riservate nei commenti aggiunti alle query o nella sintassi della query. Alcune organizzazioni richiedono che tali informazioni vengano mantenute protette con i criteri chiave gestiti dal cliente ed è necessario salvare le query crittografate con la chiave. Monitoraggio di Azure consente di archiviare le query salvate e per le *ricerche* con *avvisi di log* crittografate con la chiave nel proprio account di archiviazione quando si è connessi all'area di lavoro. 
 
@@ -410,7 +450,7 @@ Customer-Managed chiave viene fornita nel cluster dedicato e queste operazioni s
 
   - Se il cluster è impostato con l'identità gestita assegnata dall'utente, `UserAssignedIdentities` l'impostazione di con `None` sospende il cluster e impedisce l'accesso ai dati, ma non è possibile ripristinare la revoca e attivare il cluster senza aprire la richiesta di supporto. Questa limitazione non viene applicata all'identità gestita assegnata dal sistema.
 
-  - Attualmente non è possibile definire una chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault si trova in Private-Link (vNet) e in questo caso è possibile usare l'identità gestita assegnata dal sistema.
+  - Non è possibile usare la chiave gestita dal cliente con identità gestita assegnata dall'utente se il Key Vault è in Private-Link (vNet). In questo scenario è possibile utilizzare l'identità gestita assegnata dal sistema.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

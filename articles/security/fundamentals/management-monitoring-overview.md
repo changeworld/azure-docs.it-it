@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2019
+ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: 038f30ee186a5b3a9d87d64054726324051c37b4
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842754"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747174"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Questo articolo fornisce una panoramica dei servizi e delle funzionalità di sicurezza forniti da Azure per facilitare la gestione e il monitoraggio delle macchine virtuali e dei servizi cloud di Azure.
@@ -61,8 +61,8 @@ Multi-Factor Authentication permette di proteggere l'accesso ai dati e alle appl
 Altre informazioni:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [Che cos'è Azure AD Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Funzionamento di Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Informazioni su Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Come funziona Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="expressroute"></a>ExpressRoute
 
@@ -117,15 +117,18 @@ Altre informazioni:
 
 ## <a name="security-center"></a>Centro sicurezza
 
-Il Centro sicurezza di Azure consente di prevenire, rilevare e gestire le minacce. Il Centro sicurezza offre maggiore visibilità e controllo sulla sicurezza delle risorse di Azure. Integra il monitoraggio della sicurezza e la gestione dei criteri in tutte le sottoscrizioni di Azure. Aiuta a rilevare le minacce che potrebbero altrimenti passare inosservate e opera con un ampio ecosistema di soluzioni per la sicurezza.
+Il Centro sicurezza di Azure consente di prevenire, rilevare e gestire le minacce. Il Centro sicurezza offre maggiore visibilità e controllo sulla sicurezza delle risorse di Azure, oltre a quelle nell'ambiente cloud ibrido. 
+
+Il Centro sicurezza esegue valutazioni di sicurezza continue delle risorse connesse e ne confronta la configurazione e la distribuzione con il [benchmark di sicurezza di Azure](../benchmarks/introduction.md) per fornire indicazioni dettagliate sulla sicurezza per l'ambiente in uso.
 
 Il Centro sicurezza di Azure consente di ottimizzare e monitorare la sicurezza di delle risorse di Azure tramite le funzionalità seguenti:
 
-* Possibilità per l'utente di definire i criteri per le risorse di sottoscrizione di Azure in base a:
-  * Esigenze di sicurezza dell'azienda.
-  * Tipo di applicazioni o sensibilità dei dati in ogni sottoscrizione.
-* Il monitoraggio dello stato della rete, delle applicazioni e delle macchine virtuali di Azure.
-* Fornitura di un elenco di avvisi di sicurezza con priorità, inclusi gli avvisi di soluzioni partner integrate. Fornisce inoltre le informazioni necessarie per analizzare rapidamente un attacco e gli elementi consigliati su come risolverlo.
+- Possibilità per l'utente di definire i criteri per le risorse di sottoscrizione di Azure in base a:
+    - Esigenze di sicurezza dell'organizzazione.
+    - Tipo di applicazioni o sensibilità dei dati in ogni sottoscrizione.
+    - Tutti gli standard di settore o i benchmark normativi applicati alle sottoscrizioni. 
+- Il monitoraggio dello stato della rete, delle applicazioni e delle macchine virtuali di Azure.
+- Fornitura di un elenco di avvisi di sicurezza con priorità, inclusi gli avvisi di soluzioni partner integrate. Fornisce inoltre le informazioni necessarie per analizzare rapidamente un attacco e gli elementi consigliati su come risolverlo.
 
 Altre informazioni:
 

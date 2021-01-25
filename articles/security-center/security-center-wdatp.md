@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 553151aebeadf4ad4764e747b1bf6dcd8c552721
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98126853"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747241"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -118,20 +118,22 @@ Per generare un avviso di prova di Microsoft Defender per l'endpoint:
 1. Per esaminare l'avviso nel centro sicurezza, passare a **avvisi di sicurezza** riga di comando di  >  **PowerShell sospetti**.
 1. Dalla finestra di analisi selezionare il collegamento per passare a Microsoft Defender per endpoint Portal.
 
+    > [!TIP]
+    > L'avviso viene attivato con gravità **informativa** .
 
 ## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Domande frequenti per l'endpoint integrato di Microsoft Defender per il Centro sicurezza
 
 - [Quali sono i requisiti di licenza per Microsoft Defender per l'endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [Se si dispone già di una licenza per Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [Ricerca per categorie passare da uno strumento EDR di terze parti?](#how-do-i-switch-from-a-third-party-edr-tool)
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>Quali sono i requisiti di licenza per Microsoft Defender per l'endpoint?
 Defender for endpoint è incluso senza costi aggiuntivi con **Azure Defender per i server**. In alternativa, può essere acquistato separatamente per 50 o più computer.
 
-### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se si dispone già di una licenza per Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?
-Se si ha già una licenza per Microsoft Defender per l'endpoint, non sarà necessario pagare per tale parte della licenza di Azure Defender.
+### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Se si ha già una licenza di Microsoft Defender per endpoint, è possibile ottenere uno sconto per Azure Defender?
+Se si ha già una licenza per Microsoft Defender per endpoint, non sarà necessario pagare per tale parte della licenza di Azure Defender.
 
-Per confermare lo sconto, contattare il team di supporto di Security Center e fornire l'ID, l'area e le informazioni di licenza rilevanti per ogni licenza pertinente.
+Per confermare lo sconto, contattare il team di supporto del Centro sicurezza e fornire le informazioni appropriate per ID area di lavoro, area e licenza per ogni licenza pertinente.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Ricerca per categorie passare da uno strumento EDR di terze parti?
 Le istruzioni complete per il passaggio da una soluzione endpoint non Microsoft sono disponibili nella documentazione di Microsoft Defender per l'endpoint: [Panoramica della migrazione](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).

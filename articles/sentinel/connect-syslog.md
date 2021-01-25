@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati di syslog ad Azure Sentinel | Microsoft Docs
-description: Connettere un computer o un dispositivo che supporta syslog ad Azure Sentinel usando un agente in un computer Linux tra il dispositivo e Sentinel. 
+description: Connettere un computer o un dispositivo che supporta syslog ad Azure Sentinel usando un agente in un computer Linux tra il dispositivo e Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 7670d00a2dd25961a51d18c50c102e0f92b30975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88566149"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747191"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Raccogliere dati da origini basate su Linux usando syslog
 
@@ -30,7 +30,7 @@ ms.locfileid: "88566149"
 >
 > - Log Analytics supporta la raccolta di messaggi inviati dai daemon **rsyslog** o **syslog-ng** , dove rsyslog è il valore predefinito. Il daemon predefinito syslog nella versione 5 di Red Hat Enterprise Linux (RHEL), CentOS e Oracle Linux Version (**sysklog**) non è supportato per la raccolta di eventi syslog. Per raccogliere i dati di SysLog da questa versione delle distribuzioni, è necessario installare e configurare il daemon rsyslog in modo da sostituire sysklog.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 **Syslog** è un protocollo di registrazione eventi comune a Linux. Quando l' **agente di log Analytics per Linux** è installato nella macchina virtuale o nel dispositivo, la routine di installazione configura il daemon syslog locale per l'invio di messaggi all'agente sulla porta TCP 25224. L'agente invia quindi il messaggio all'area di lavoro di Log Analytics su HTTPS, dove viene analizzato in una voce del registro eventi nella tabella syslog in **Azure Sentinel > log**.
 
@@ -69,7 +69,7 @@ Per altre informazioni, vedere [origini dati syslog in monitoraggio di Azure](..
 
 1. Nella parte inferiore del pannello del connettore syslog fare clic sul collegamento **aprire la configurazione impostazioni avanzate dell'area di lavoro >** .
 
-1. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  **Syslog**. Aggiungere quindi le funzionalità per il connettore da raccogliere.
+1. Nel pannello **Impostazioni avanzate** selezionare syslog per **i dati**  >  . Aggiungere quindi le funzionalità per il connettore da raccogliere.
     
     - Aggiungere le funzionalità incluse nell'appliance syslog nelle intestazioni dei log. 
     
@@ -118,17 +118,21 @@ Questo rilevamento richiede una configurazione specifica del connettore dati sys
     > [!div class="mx-imgBorder"]
     > ![Funzionalità necessarie per il rilevamento anomalo degli accessi SSH](./media/connect-syslog/facilities-ssh-detection.png)
 
-2. Consente di ottenere tempo sufficiente per la raccolta delle informazioni syslog. Passare quindi ad **Azure Sentinel-logs**e copiare e incollare la query seguente:
+2. Consente di ottenere tempo sufficiente per la raccolta delle informazioni syslog. Passare quindi ad **Azure Sentinel-logs** e copiare e incollare la query seguente:
     
-    ```console
-    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```kusto
+    Syslog
+    | where Facility in ("authpriv","auth")
+    | extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)
+    | where isnotempty(c)
+    | count 
     ```
     
     Modificare l' **intervallo di tempo** , se necessario, e selezionare **Esegui**.
     
     Se il conteggio risultante è pari a zero, confermare la configurazione del connettore e verificare che l'attività di accesso dei computer monitorati sia riuscita per il periodo di tempo specificato per la query.
     
-    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento **Analytics**dal  >   rilevamento di accessi SSH anomali dei modelli di**regola**di analisi  >  **(anteprima)**.
+    Se il conteggio risultante è maggiore di zero, i dati syslog sono appropriati per il rilevamento anomalo degli accessi SSH. È possibile abilitare questo rilevamento dal  >   rilevamento di accessi SSH anomali dei modelli di **regola** di analisi  >  **(anteprima)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come connettere le appliance syslog locali ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

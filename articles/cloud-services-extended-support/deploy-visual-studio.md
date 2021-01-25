@@ -9,16 +9,16 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: 1c2264cb76e062f5f22c0460572ec01750086a04
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745075"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747258"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Creare e distribuire un servizio cloud di Azure (supporto esteso) con Visual Studio
 
-A partire da Visual Studio 2019 versione 16,9 Preview 1, è possibile lavorare con i servizi cloud (supporto esteso) usando Azure Resource Manager, che semplifica notevolmente e modernizza la manutenzione e la gestione delle risorse di Azure. È anche possibile convertire un progetto di servizio cloud esistente in un progetto di servizio cloud di supporto esteso.
+A partire da [Visual Studio 2019 versione 16,9](https://visualstudio.microsoft.com/vs/preview/) (attualmente in anteprima), è possibile lavorare con i servizi cloud usando Azure Resource Manager (ARM), che semplifica e modernizza notevolmente la manutenzione e la gestione delle risorse di Azure. Questa funzionalità è abilitata da un nuovo servizio di Azure denominato servizi cloud (supporto esteso). È possibile pubblicare un servizio cloud esistente in servizi cloud (supporto esteso). Per informazioni su questo servizio di Azure, vedere la [documentazione relativa ai servizi cloud (supporto esteso)](overview.md).
 
 > [!IMPORTANT]
 > Servizi cloud (supporto esteso) è attualmente disponibile in anteprima pubblica.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 617599e3eb6dcca74324a7bdfd51e604904a2fa1
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
+ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897502"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98747307"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passaggio 1: distribuire il server d'avanzamento log
 
@@ -42,6 +42,11 @@ In questo passaggio verrà designato e configurato il computer Linux che eseguir
 
 - Il computer Linux non deve essere connesso ad alcuna area di lavoro di Azure prima di installare l'agente di Log Analytics.
 
+- Il computer Linux deve avere almeno **4 core CPU e 8 GB di RAM**.
+
+    > [!NOTE]
+    > - Un singolo computer di server d'accesso di log che usa il daemon **rsyslog** ha una capacità supportata di un **massimo di 8500 eventi al secondo (EPS)** raccolti.
+
 - Potrebbero essere necessari l'ID dell'area di lavoro e la chiave primaria dell'area di lavoro in un determinato punto del processo. È possibile trovarli nella risorsa dell'area di lavoro in **Gestione agenti**.
 
 ## <a name="run-the-deployment-script"></a>Eseguire lo script di distribuzione
@@ -51,7 +56,7 @@ In questo passaggio verrà designato e configurato il computer Linux che eseguir
 1. In **1,2 installare l'agente di raccolta CEF nel computer Linux**, copiare il collegamento fornito in **eseguire lo script seguente per installare e applicare l'agente di raccolta CEF** oppure dal testo seguente (applicando l'ID dell'area di lavoro e la chiave primaria al posto dei segnaposto):
 
     ```bash
-    sudo wget -O https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
+    sudo wget -O cef_installer.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]
     ```
 
 1. Mentre lo script è in esecuzione, assicurarsi che non vengano visualizzati messaggi di errore o di avviso.
@@ -73,7 +78,7 @@ In questo passaggio verrà designato e configurato il computer Linux che eseguir
 > [!NOTE]
 > **Modifica dell'origine del campo TimeGenerated**
 >
-> - Per impostazione predefinita, l'agente di Log Analytics popola il campo *TimeGenerated* nello schema con il momento in cui l'agente ha ricevuto l'evento dal daemon syslog. Di conseguenza, l'ora in cui l'evento è stato generato nel sistema di origine non viene registrato in Sentinel di Azure.
+> - Per impostazione predefinita, l'agente di Log Analytics popola il campo *TimeGenerated* nello schema con il momento in cui l'agente ha ricevuto l'evento dal daemon syslog. Di conseguenza, l'ora in cui l'evento è stato generato nel sistema di origine non viene registrata in Azure Sentinel.
 >
 > - È tuttavia possibile eseguire il comando seguente, che consente di scaricare ed eseguire lo `TimeGenerated.py` script. Questo script consente di configurare l'agente di Log Analytics per popolare il campo *TimeGenerated* con l'ora originale dell'evento nel sistema di origine, invece del momento in cui è stato ricevuto dall'agente.
 >
@@ -94,8 +99,8 @@ Scegliere un daemon syslog per visualizzare la descrizione appropriata.
     - Scarica lo script di installazione per l'agente Linux Log Analytics (OMS).
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Installa l'agente di Log Analytics.
@@ -160,8 +165,8 @@ Scegliere un daemon syslog per visualizzare la descrizione appropriata.
     - Scarica lo script di installazione per l'agente Linux Log Analytics (OMS).
 
         ```bash
-        wget -O https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/
-            onboard_agent.sh
+        wget -O onboard_agent.sh https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/
+            master/installer/scripts/onboard_agent.sh
         ```
 
     - Installa l'agente di Log Analytics.
