@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js
-ms.openlocfilehash: 1bc751ae293abbb7aa330a99a4b66a917d150906
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b13086e11e1181bba91a3255e68e9f8a32e78450
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994979"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797779"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
@@ -303,6 +303,10 @@ Vedere il repository di [esempi di codice](https://github.com/Azure-Samples/medi
 | `embed-both-widgets`              | Incorpora VI Player e Insights e comunica tra loro.                      |
 | `url-generator`                   | Genera un URL di incorporamento personalizzato widget basato sulle opzioni specificate dall'utente.             |
 | `html5-player`                    | Incorpora VI Insights con un lettore video HTML5 predefinito.                           |
+
+## <a name="supported-browsers"></a>Browser supportati
+
+Per ulteriori informazioni, vedere [browser supportati](video-indexer-overview.md#supported-browsers).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

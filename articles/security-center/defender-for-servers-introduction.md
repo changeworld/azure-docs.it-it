@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
-ms.translationtype: HT
+ms.openlocfilehash: b7457e258cf8a9936e9a63ab9eec9edc0b54d3eb
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275244"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797732"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introduzione ad Azure Defender per server
 
@@ -20,7 +20,7 @@ Azure Defender per server aggiunte il rilevamento delle minacce e difese avanzat
 
 Per Windows, Azure Defender si integra con i servizi di Azure per monitorare e proteggere i computer basati su Windows. Il Centro sicurezza presenta gli avvisi e i suggerimenti per la correzione provenienti da tutti questi servizi in un formato di facile utilizzo.
 
-Per Linux, Azure Defender raccoglie record di controllo dai computer Linux usando **auditd** , uno dei framework di controllo di Linux più diffusi. Auditd risiede nel kernel mainline. 
+Per Linux, Azure Defender raccoglie record di controllo dai computer Linux usando **auditd**, uno dei framework di controllo di Linux più diffusi. Auditd risiede nel kernel mainline. 
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>Vantaggi di Azure Defender per server
@@ -34,27 +34,27 @@ Azure Defender offre funzionalità di rilevamento delle minacce e di protezione,
     > [!IMPORTANT]
     > Il sensore di **Microsoft Defender per endpoint** viene abilitato automaticamente nei server Windows che usano il Centro sicurezza.
 
-- **Analisi della valutazione delle vulnerabilità per le VM** : il rilevatore di vulnerabilità incluso nel Centro sicurezza di Azure è basato su tecnologia Qualys. 
+- **Analisi della valutazione delle vulnerabilità per le VM**: il rilevatore di vulnerabilità incluso nel Centro sicurezza di Azure è basato su tecnologia Qualys. 
 
     Il rilevatore di Qualys è uno degli strumenti migliori per l'identificazione in tempo reale delle vulnerabilità nelle macchine virtuali di Azure. Non è necessaria una licenza Qualys, né un account Qualys: tutto viene gestito senza interruzioni all'interno del Centro sicurezza. [Altre informazioni](deploy-vulnerability-assessment-vm.md)
 
-- **Accesso JIT (Just-in-Time) alle VM** : gli attori di minacce cercano attivamente computer accessibili con porte di gestione aperte, come RDP o SSH. Tutte le macchine virtuali sono obiettivi potenziali per un attacco. Quando una VM viene compromessa, viene usata come punto di ingresso per attaccare altre risorse nell'ambiente.
+- **Accesso JIT (Just-in-Time) alle VM**: gli attori di minacce cercano attivamente computer accessibili con porte di gestione aperte, come RDP o SSH. Tutte le macchine virtuali sono obiettivi potenziali per un attacco. Quando una VM viene compromessa, viene usata come punto di ingresso per attaccare altre risorse nell'ambiente.
 
     Quando si abilita Azure Defender per server, è possibile usare l'accesso Just-In-Time (JIT) alla VM per bloccare il traffico in ingresso verso le VM, in modo da ridurre l'esposizione agli attacchi, offrendo al tempo stesso un accesso facile per connettersi alle macchine virtuali quando necessario. [Altre informazioni](just-in-time-explained.md)
 
-- **Monitoraggio dell'integrità dei file** : Monitoraggio dell'integrità dei file, detto anche monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software delle applicazioni e altri elementi alla ricerca di modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
+- **Monitoraggio dell'integrità dei file**: Monitoraggio dell'integrità dei file, detto anche monitoraggio delle modifiche, esamina i file e i registri del sistema operativo, il software delle applicazioni e altri elementi alla ricerca di modifiche che potrebbero indicare un attacco. Viene usato un metodo di confronto per determinare se lo stato corrente del file è diverso rispetto all'ultima analisi. È possibile sfruttare questo confronto per determinare se sono state apportate modifiche sospette o valide ai file.
 
     Quando si abilita Azure Defender per server, è possibile usare Monitoraggio dell'integrità dei file per convalidare l'integrità dei file di Windows, dei registri di Windows e dei file di Linux. [Altre informazioni](security-center-file-integrity-monitoring.md)
 
-- **Controlli applicazioni adattivi** : i controlli applicazioni adattivi sono una soluzione intelligente e automatizzata per definire elenchi di applicazioni note sicure consentite per i computer.
+- **Controlli applicazioni adattivi**: i controlli applicazioni adattivi sono una soluzione intelligente e automatizzata per definire elenchi di applicazioni note sicure consentite per i computer.
 
     Dopo l'abilitazione e la configurazione dei controlli applicazioni adattivi, si riceveranno avvisi di sicurezza se viene eseguita un'applicazione non inclusa nell'elenco di applicazioni definite come sicure. [Altre informazioni](security-center-adaptive-application.md)
 
-- **Protezione avanzata adattiva per la rete** : l'applicazione dei gruppi di sicurezza di rete per filtrare il traffico verso e dalle risorse consente di migliorare il comportamento di sicurezza della rete. In alcuni casi, tuttavia, è comunque possibile che il traffico effettivo che attraversa il gruppo di sicurezza di rete corrisponda a un subset delle regole del gruppo di sicurezza di rete definite. In questi casi è possibile migliorare ancora il comportamento di sicurezza applicando la protezione avanzata alle regole del gruppo di sicurezza di rete, in base ai criteri effettivi del traffico.
+- **Protezione avanzata adattiva per la rete**: l'applicazione dei gruppi di sicurezza di rete per filtrare il traffico verso e dalle risorse consente di migliorare il comportamento di sicurezza della rete. In alcuni casi, tuttavia, è comunque possibile che il traffico effettivo che attraversa il gruppo di sicurezza di rete corrisponda a un subset delle regole del gruppo di sicurezza di rete definite. In questi casi è possibile migliorare ancora il comportamento di sicurezza applicando la protezione avanzata alle regole del gruppo di sicurezza di rete, in base ai criteri effettivi del traffico.
 
     Protezione avanzata adattiva per la rete fornisce raccomandazioni per migliorare la protezione avanzata delle regole del gruppo di sicurezza di rete. Usa un algoritmo di Machine Learning che prende in considerazione il traffico effettivo, la configurazione attendibile nota, l'intelligence sulle minacce e altri indicatori di compromissione e quindi fornisce raccomandazioni per consentire il traffico solo da tuple di IP/porta specifiche. [Altre informazioni](security-center-adaptive-network-hardening.md)
 
-- **Protezione avanzata per host Docker** : il Centro sicurezza di Azure identifica i contenitori non gestiti ospitati in VM Linux IaaS o in altri computer Linux che eseguono contenitori Docker. Il Centro sicurezza valuta continuamente le configurazioni di questi contenitori. Li confronta quindi con Center for Internet Security (CIS) Docker Benchmark. Il Centro sicurezza include l'intero set di regole di CIS Docker Benchmark e invia avvisi se i contenitori non soddisfano i controlli. [Altre informazioni](harden-docker-hosts.md)
+- **Protezione avanzata per host Docker**: il Centro sicurezza di Azure identifica i contenitori non gestiti ospitati in VM Linux IaaS o in altri computer Linux che eseguono contenitori Docker. Il Centro sicurezza valuta continuamente le configurazioni di questi contenitori. Li confronta quindi con Center for Internet Security (CIS) Docker Benchmark. Il Centro sicurezza include l'intero set di regole di CIS Docker Benchmark e invia avvisi se i contenitori non soddisfano i controlli. [Altre informazioni](harden-docker-hosts.md)
 
 - **Rilevamento di attacco senza file (solo Windows)** : gli attacchi senza file inseriscono payload dannosi nella memoria per evitare il rilevamento da parte delle tecniche di analisi basate su disco. Il payload dell'utente malintenzionato persiste nella memoria dei processi compromessi ed esegue numerose attività dannose.
 
@@ -97,4 +97,4 @@ Per i materiali correlati, vedere gli articoli seguenti:
 - Che un avviso venga generato dal Centro sicurezza o ricevuto dal Centro sicurezza da un prodotto di sicurezza diverso, è possibile esportarlo. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Esportazione di avvisi in un sistema SIEM](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Abilitare Azure Defender](security-center-pricing.md)
+    > [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender)

@@ -3,19 +3,19 @@ title: SQL Server SQL Server nella macchina virtuale di Azure (panoramica della 
 description: Informazioni sulle diverse strategie di migrazione quando si vuole eseguire la migrazione del SQL Server per SQL Server in macchine virtuali di Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: d08cb2761a8d8010c455ff959d6c247e8b64ef20
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 0eabb48aabcb50557b342385068807eb67a9b165
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746576"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797854"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Panoramica della migrazione: SQL Server SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -24,7 +24,7 @@ Informazioni sulle diverse strategie di migrazione per eseguire la migrazione de
 
 È possibile eseguire la migrazione di SQL Server in esecuzione in locale o in:
 
-- SQL Server nelle macchine virtuali  
+- SQL Server in macchine virtuali  
 - Amazon Web Services (AWS) EC2 
 - Servizio database relazionale di Amazon (AWS RDS) 
 - Motore di calcolo (Google Cloud Platform-GCP)
@@ -38,7 +38,7 @@ Eseguire la migrazione a [SQL Server in macchine virtuali di Azure](../../virtua
 Puoi risparmiare sui costi grazie al modello di licenza [vantaggio Azure Hybrid](../../virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md) o Estendi il supporto per SQL Server 2008 e SQL Server 2008 R2 ottenendo [aggiornamenti della sicurezza gratuiti](../../virtual-machines/windows/sql-server-2008-extend-end-of-support.md). 
 
 
-## <a name="choosing-appropriate-target"></a>Scelta della destinazione appropriata
+## <a name="choose-appropriate-target"></a>Scegliere la destinazione appropriata
 
 Le macchine virtuali di Azure vengono eseguite in molte aree diverse di Azure e offrono anche un'ampia gamma di [Opzioni di archiviazione](../../../virtual-machines/disks-types.md)e di dimensioni dei [computer](../../../virtual-machines/sizes.md) . Quando si determinano le dimensioni corrette della macchina virtuale e dello spazio di archiviazione per il carico di lavoro SQL Server, vedere le [linee guida sulle prestazioni per SQL Server in macchine virtuali di Azure.](../../virtual-machines/windows/performance-guidelines-best-practices.md#vm-size-guidance) Per determinare le dimensioni della macchina virtuale e i requisiti di archiviazione per il carico di lavoro. si consiglia di ridimensionarle tramite una [valutazione Performance-Based Azure migrate](../../../migrate/concepts-assessment-calculation.md#types-of-assessments). Se questa opzione non è disponibile, vedere l'articolo seguente sulla creazione [di una baseline personalizzata per le prestazioni](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 

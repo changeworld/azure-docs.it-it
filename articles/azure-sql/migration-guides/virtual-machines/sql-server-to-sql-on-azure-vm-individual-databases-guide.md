@@ -3,19 +3,19 @@ title: SQL Server SQL Server in macchine virtuali di Azure (Guida alla migrazion
 description: Seguire questa guida per eseguire la migrazione dei singoli database di SQL Server ai SQL Server in macchine virtuali (VM) di Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
-ms.subservice: ''
+ms.subservice: migration-guide
 ms.devlang: ''
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: 3b0fdccd3eaf6e6bd94b595107022f738bdd8382
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: cc2a641cb017edace24db5df69bc4adf3a607524
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325919"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797883"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guida alla migrazione: SQL Server di SQL Server in macchine virtuali di Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -152,7 +152,7 @@ La tabella seguente fornisce un elenco di componenti e metodi di migrazione cons
 
 | **Funzionalità** | **Componente** | **Metodo/i di migrazione** |
 | --- | --- | --- |
-| **Database** | Modellare  | Script con SQL Server Management Studio |
+| **Database** | Modello  | Script con SQL Server Management Studio |
 || TempDB | Pianificare lo spostamento di TempDB nel [disco temporaneo della macchina virtuale di Azure](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)per ottenere prestazioni ottimali. Assicurarsi di selezionare le dimensioni di una macchina virtuale con un'unità SSD locale sufficiente per gestire il database TempDB. |
 || Database utente con FILESTREAM |  Usare i metodi di [backup e ripristino](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) per la migrazione. DMA non supporta i database con FILESTREAM. |
 | **Sicurezza** | SQL Server e account di accesso di Windows | Usare DMA per [eseguire la migrazione degli account di accesso utente](/sql/dma/dma-migrateserverlogins). |

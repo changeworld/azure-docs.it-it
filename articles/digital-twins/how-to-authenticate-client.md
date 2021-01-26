@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2502fdd14acae206b8440fe602639aa49be55f4e
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045921"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797858"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
 Dopo aver [configurato un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione](how-to-set-up-instance-portal.md), è possibile creare un'applicazione client che si userà per interagire con l'istanza. Dopo aver configurato un progetto client iniziale, sarà necessario **scrivere il codice nell'app client per autenticarlo** nell'istanza di Azure Digital Twins.
 
-I dispositivi gemelli digitali di Azure eseguono l'autenticazione usando [Azure ad token di sicurezza basati su OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Per autenticare l'SDK, è necessario ottenere una bearer token con le autorizzazioni appropriate per i dispositivi gemelli digitali di Azure e passarla insieme alle chiamate API. 
+I dispositivi gemelli digitali di Azure eseguono l'autenticazione usando [Azure ad token di sicurezza basati su OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Per autenticare l'SDK, è necessario ottenere una bearer token con le autorizzazioni appropriate per i dispositivi gemelli digitali di Azure e passarla insieme alle chiamate API. 
 
 Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 

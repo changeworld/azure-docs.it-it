@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5594e8225b615bf6e1af5077bd68422edbbeec19
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: 9591dae058a19cea73d88513b7c4ff4ab8f88045
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905452"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797742"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Introduzione ad Azure Defender per Resource Manager
 
@@ -75,4 +75,4 @@ In questo articolo sono state fornite informazioni su Azure Defender per Resourc
 - Gli avvisi di sicurezza potrebbero essere generati dal Centro sicurezza o essere ricevuti dal Centro sicurezza da prodotti di sicurezza diversi. Per esportare tutti questi avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Esportazione degli avvisi in un sistema di informazioni di sicurezza e gestione degli eventi](continuous-export.md).
 
 - > [!div class="nextstepaction"]
-    > [Abilitare Azure Defender](security-center-pricing.md)
+    > [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender)

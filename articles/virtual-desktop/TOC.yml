@@ -120,6 +120,10 @@
       href: azure-monitor.md
     - name: Configurare un piano di ripristino di emergenza
       href: disaster-recovery.md
+    - name: Configurare il proxy KDC
+      href: key-distribution-center-proxy.md
+    - name: Configurare il ruolo Gateway Desktop remoto
+      href: rd-gateway-role.md
 - name: Concetti
   items:
     - name: Ruoli predefiniti
@@ -170,6 +174,10 @@
       href: azure-monitor-glossary.md
     - name: Posizioni dei dati
       href: data-locations.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Risolvere problemi
   items:
     - name: 'Panoramica della risoluzione dei problemi, feedback e supporto'
