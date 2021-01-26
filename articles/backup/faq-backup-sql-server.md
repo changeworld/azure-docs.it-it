@@ -4,12 +4,12 @@ description: Risposte alle domande frequenti sul backup di SQL Server database i
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 56dcf29a5c703a72fd137a5f1bf129f568a03b4b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: ca785e217da4355a44ffbb26b813d55d942c5c14
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735810"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787621"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sui database SQL Server in esecuzione in un backup di macchine virtuali di Azure
 
@@ -101,7 +101,10 @@ Un database rinominato viene considerato come nuovo database. Pertanto, il servi
 Un database che è possibile [aggiungere a un'istanza](backup-sql-server-database-azure-vms.md#enable-auto-protection) protetta in modo autoprotetto potrebbe non essere visualizzato immediatamente in elementi protetti. Il motivo è che l'individuazione viene eseguita in genere ogni 8 ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando **riindividuare** i database, come illustrato nella figura seguente:
 
   ![Individuare manualmente un database appena aggiunto](./media/backup-azure-sql-database/view-newly-added-database.png)
-  
+
+## <a name="can-i-protect-databases-on-virtual-machines-that-have-azure-disk-encryption-ade-enabled"></a>È possibile proteggere I database in macchine virtuali in cui è abilitato crittografia dischi di Azure (ADE)?
+Sì, è possibile proteggere i database in macchine virtuali in cui è abilitato crittografia dischi di Azure (ADE).
+
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>È possibile proteggere i database con Transparent Data Encryption (Transparent Data Encryption) accesi e il database rimane crittografato durante l'intero processo di backup?
 
 Sì, backup di Azure supporta il backup di database SQL Server o server con Transparent Data Encryption abilitato. Il backup supporta Transparent Data [Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption) con chiavi gestite da Azure o con chiavi gestite dal cliente (BYOK).  Il backup non esegue alcuna crittografia SQL come parte del processo di backup, in modo che il database rimane crittografato quando viene eseguito il backup.

@@ -3,18 +3,18 @@ title: Gestione dei progetti di migrazione su larga scala con Azure Migrate
 description: Informazioni su come usare efficacemente Azure Migrate sulle risorse dei clienti Delegate.
 ms.date: 12/4/2020
 ms.topic: how-to
-ms.openlocfilehash: 16b92f3aa4dc3bfcb71eb232170c4df30348f8db
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 53f7c390d9f16dcbccbb1d09f46e63fec13eee2d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095390"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788944"
 ---
 # <a name="manage-migration-projects-at-scale-with-azure-migrate"></a>Gestione dei progetti di migrazione su larga scala con Azure Migrate
 
 Come provider di servizi, è possibile che siano stati caricati più tenant del cliente nel [Faro di Azure](../overview.md). Azure Lighthouse consente ai provider di servizi di eseguire operazioni su larga scala tra più tenant Azure Active Directory (Azure AD) contemporaneamente, rendendo più efficienti le attività di gestione.
 
-[Azure migrate](../../migrate/migrate-services-overview.md) fornisce un hub centralizzato per la valutazione e la migrazione a server, infrastruttura, applicazioni e dati locali di Azure. In genere, i partner che eseguono valutazioni e migrazione su larga scala per più clienti devono accedere singolarmente a ogni sottoscrizione del cliente usando il [modello di sottoscrizione CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) o [creando un utente Guest nel tenant del cliente](/azure/active-directory/external-identities/what-is-b2b).
+[Azure migrate](../../migrate/migrate-services-overview.md) fornisce un hub centralizzato per la valutazione e la migrazione a server, infrastruttura, applicazioni e dati locali di Azure. In genere, i partner che eseguono valutazioni e migrazione su larga scala per più clienti devono accedere singolarmente a ogni sottoscrizione del cliente usando il [modello di sottoscrizione CSP (Cloud Solution Provider)](/partner-center/customers-revoke-admin-privileges) o [creando un utente Guest nel tenant del cliente](../../active-directory/external-identities/what-is-b2b.md).
 
 L'integrazione di Azure Lighthouse con Azure Migrate consente ai provider di servizi di individuare, valutare ed eseguire la migrazione di carichi di lavoro per clienti diversi su larga scala, consentendo al contempo ai clienti di avere visibilità e controllo completi dei propri ambienti. Attraverso la gestione delle risorse delegate di Azure, i provider di servizi hanno una singola visualizzazione di tutti i progetti Azure Migrate gestiti tra più tenant del cliente.
 
@@ -39,7 +39,7 @@ Questo approccio riduce al minimo il cambio di contesto per i provider di serviz
 Il flusso di lavoro per questo modello sarà simile al seguente:
 
 1. Il cliente è caricato [nel Faro di Azure](onboard-customer.md). Il ruolo predefinito collaboratore è necessario per l'identità che verrà utilizzata con Azure Migrate. Per un esempio di utilizzo di questo ruolo, vedere il modello di esempio [Delegated-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) .
-1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto di Azure migrate](/azure/migrate/create-manage-projects), selezionando la sottoscrizione appropriata del cliente delegato.
+1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto di Azure migrate](../../migrate/create-manage-projects.md), selezionando la sottoscrizione appropriata del cliente delegato.
 1. L'utente esegue quindi i [passaggi per l'individuazione e la valutazione](../../migrate/tutorial-discover-vmware.md).
 
    Per le macchine virtuali VMware, prima di configurare il dispositivo, è possibile limitare l'individuazione a server vCenter Data Center, cluster, una cartella di cluster, host, una cartella di host o singole macchine virtuali. Per impostare l'ambito, assegnare le autorizzazioni per l'account usato dall'appliance per accedere al server vCenter. Questa operazione è utile se le macchine virtuali di più clienti sono ospitate nell'hypervisor. Non è possibile limitare l'ambito di individuazione di Hyper-V.
@@ -61,7 +61,7 @@ Questo approccio consente ai provider di servizi di avviare rapidamente i proget
 Il flusso di lavoro per questo modello sarà simile al seguente:
 
 1. Il cliente è caricato [nel Faro di Azure](onboard-customer.md). Il ruolo predefinito collaboratore è necessario per l'identità che verrà utilizzata con Azure Migrate. Per un esempio di utilizzo di questo ruolo, vedere il modello di esempio [Delegated-Resource-Management-azmigrate](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/delegated-resource-management-azmigrate) .
-1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto Azure migrate](/azure/migrate/create-manage-projects) in una sottoscrizione appartenente al tenant di gestione.
+1. L'utente designato accede al tenant di gestione nell'portale di Azure, quindi passa a Azure Migrate. Questo utente [Crea un progetto Azure migrate](../../migrate/create-manage-projects.md) in una sottoscrizione appartenente al tenant di gestione.
 1. L'utente esegue quindi i [passaggi per l'individuazione e la valutazione](../../migrate/tutorial-discover-vmware.md). Le macchine virtuali locali verranno individuate e valutate nel progetto di migrazione creato nel tenant di gestione e quindi migrate da tale posizione.
 
    Se si gestiscono più clienti nello stesso host Hyper-V, è possibile individuare tutti i carichi di lavoro contemporaneamente. Le macchine virtuali specifiche del cliente possono essere selezionate nello stesso gruppo, quindi è possibile creare una valutazione e la migrazione può essere eseguita selezionando la sottoscrizione del cliente appropriata come destinazione di destinazione. Non è necessario limitare l'ambito di individuazione ed è possibile mantenere una panoramica completa di tutti i carichi di lavoro dei clienti in un progetto di migrazione.
@@ -80,4 +80,3 @@ Per altre informazioni, vedere [Collegare l'ID partner per verificare l'impatto 
 
 - Informazioni sulle [Azure migrate](../../migrate/migrate-services-overview.md).
 - Informazioni sulle [esperienze di gestione tra tenant](../concepts/cross-tenant-management-experience.md).
-

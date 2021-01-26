@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b33f765e936d7c0db301a5b2fcf38ccaf137f771
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535849"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787554"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test di espressioni di esempio in LUIS
 
@@ -33,7 +33,7 @@ Vedere i concetti relativi al [punteggio di stima](luis-concept-prediction-score
 Il test interattivo viene eseguito dal pannello **test** del portale Luis. È possibile immettere un'espressione per vedere in che modo vengono identificate le finalità e le entità e quale punteggio viene attribuito loro. Se LUIS non sta stimando gli Intent e le entità come previsto in un enunciato nel pannello di test, copiarlo nella pagina **finalità** come nuova espressione. Quindi etichettare le parti di tale espressione per le entità e Train LUIS. 
 
 ## <a name="batch-testing"></a>Test in batch
-Vedere [Test in batch](luis-concept-batch-test.md) se si testa più di un'espressione alla volta.
+Vedere [Test in batch](./luis-how-to-batch-test.md) se si testa più di un'espressione alla volta.
 
 ## <a name="endpoint-testing"></a>Test con endpoint
 È possibile eseguire il test con l'[endpoint](luis-glossary.md#endpoint) con un massimo di due versioni dell'app. Con la versione principale o in tempo reale dell'app impostata come endpoint di **produzione**, aggiungere una seconda versione all'endpoint di **staging**. Questo approccio fornisce tre versioni di un'espressione: il modello corrente nel riquadro Test del sito Web [LUIS](luis-reference-regions.md) e le due versioni ai due diversi endpoint. 

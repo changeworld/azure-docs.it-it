@@ -1,5 +1,5 @@
 ---
-title: Dynamic Data Masking
+title: Maschera dati dinamica
 description: La maschera dati dinamica limita l'esposizione dei dati sensibili mediante la maschera a utenti senza privilegi per il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics
 services: sql-database
 ms.service: sql-db-mi
@@ -10,31 +10,27 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/04/2020
+ms.date: 01/25/2021
 tags: azure-synpase
-ms.openlocfilehash: f8d352dac98f953f7f6d8033d0d9e1376c4da313
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 0f92d8dbfe423efa58231831fe012a27e45f9208
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96532245"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787689"
 ---
-# <a name="dynamic-data-masking"></a>Dynamic Data Masking 
+# <a name="dynamic-data-masking"></a>Maschera dati dinamica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics supportano la maschera dati dinamica. La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli agli utenti senza privilegi. 
 
 Il mascheramento dei dati dinamici impedisce l'accesso non autorizzato ai dati sensibili consentendo agli utenti di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi di database designati, senza modificare i dati nel database.
 
-Ad esempio, un addetto all'assistenza in un call center può identificare i chiamanti da alcune cifre del numero di carta di credito, ma tali elementi di dati non devono essere completamente visibili all'addetto all'assistenza. È possibile definire una regola di maschera che renda visibili solo le ultime quattro cifre del numero di carta di credito nel set di risultati di tutte le query. Come altro esempio, è possibile definire una maschera dati appropriata per proteggere i dati personali, in modo che uno sviluppatore possa eseguire query negli ambienti di produzione per la risoluzione dei problemi senza violare le normative di conformità.
+Ad esempio, un rappresentante del servizio in un Call Center può identificare i chiamanti da diverse cifre dell'indirizzo di posta elettronica, ma tali elementi di dati non devono essere completamente esposti al rappresentante del servizio. È possibile definire una regola di maschera che maschera tutti gli indirizzi di posta elettronica nel set di risultati di qualsiasi query. Come altro esempio, è possibile definire una maschera dati appropriata per proteggere i dati personali, in modo che uno sviluppatore possa eseguire query negli ambienti di produzione per la risoluzione dei problemi senza violare le normative di conformità.
 
 ## <a name="dynamic-data-masking-basics"></a>Nozioni di base sulla maschera dati dinamica
 
 È possibile configurare un criterio di maschera dati dinamica nel portale di Azure selezionando il pannello **Dynamic Data Masking** in **sicurezza** nel riquadro Configurazione del database SQL. Non è possibile impostare questa funzionalità usando il portale per SQL Istanza gestita (usare PowerShell o l'API REST). Per altre informazioni, vedere [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
-
-### <a name="dynamic-data-masking-permissions"></a>Autorizzazioni per il mascheramento dei dati dinamici
-
-Il mascheramento dei dati dinamici può essere configurato dai ruoli Amministratore del database SQL di Azure, Amministratore del server o [Gestore Sicurezza SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Criteri di mascheramento dei dati dinamici
 
@@ -83,3 +79,11 @@ Il motore di raccomandazioni DDM evidenzia determinati campi del database come p
 
 - [Crea o aggiorna](/rest/api/sql/datamaskingrules/createorupdate): crea o aggiorna una regola di maschera dati del database.
 - [List by database](/rest/api/sql/datamaskingrules/listbydatabase): ottiene un elenco di regole di maschera dati del database.
+
+## <a name="permissions"></a>Autorizzazioni
+
+La maschera dati dinamica può essere configurata dall'amministratore del database SQL di Azure, dall'amministratore del server o dal ruolo di [Gestione sicurezza SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager) in base al ruolo (RBAC).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking)

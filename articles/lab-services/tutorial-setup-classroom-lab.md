@@ -3,12 +3,12 @@ title: Configurare un lab per le classi con Azure Lab Services | Microsoft Docs
 description: In questa esercitazione si usa Azure Lab Services per configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: 3abbf5221382b46dbf4e73f9f4dc3b639bc5ecbd
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
-ms.translationtype: HT
+ms.openlocfilehash: 8093a1fd270cdba8bdccaf48737bf6737bdd394d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96602503"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787419"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -127,7 +127,7 @@ Quando si aggiungono utenti, per impostazione predefinita l'opzione **Limita l'a
 
 È possibile sincronizzare un elenco di utenti del lab con un gruppo di Azure Active Directory (Azure AD) esistente in modo da non dover aggiungere o eliminare manualmente gli utenti. 
 
-Un gruppo di Azure AD può essere creato all'interno di Azure Active Directory dell'organizzazione per accedere alle risorse dell'organizzazione e alle app basate sul cloud. Per altre informazioni, vedere [Gruppi di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups). Se l'organizzazione usa i servizi di Microsoft Office 365 o di Azure, avrà già gli amministratori che gestiscono Azure Active Directory. 
+Un gruppo di Azure AD può essere creato all'interno di Azure Active Directory dell'organizzazione per accedere alle risorse dell'organizzazione e alle app basate sul cloud. Per altre informazioni, vedere [Gruppi di Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md). Se l'organizzazione usa i servizi di Microsoft Office 365 o di Azure, avrà già gli amministratori che gestiscono Azure Active Directory. 
 
 > [!IMPORTANT]
 > Assicurarsi che l'elenco di utenti sia vuoto. Se sono già presenti utenti all'interno di un lab, aggiunti manualmente o tramite importazione di un file CSV, l'opzione per sincronizzare il lab con un gruppo esistente non verrà visualizzata. 
@@ -204,4 +204,3 @@ In questa esercitazione è stato creato un lab per la classe in Azure. Per infor
 
 > [!div class="nextstepaction"]
 > [Connettersi a una VM nel lab per le classi](tutorial-connect-virtual-machine-classroom-lab.md)
-

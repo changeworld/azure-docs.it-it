@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/1/2019
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 17f0af8c041042ddceccc1f8701e44ab8522840f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13e22633008a4a5df25d84920386a22696648c9a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022123"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789314"
 ---
 # <a name="testability-scenarios"></a>Scenari di testabilità
 Sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric offre agli sviluppatori la possibilità di scrivere servizi destinati ad essere eseguiti in infrastrutture inaffidabili. Per scrivere servizi di qualità elevata, gli sviluppatori devono essere in grado di mettere alla prova un'infrastruttura inaffidabile in modo da testarne la stabilità dei servizi.
@@ -125,7 +125,7 @@ class Test
 
 PowerShell
 
-Il modulo Service Fabric PowerShell include due modi per iniziare uno scenario Chaos. `Invoke-ServiceFabricChaosTestScenario` è basato su client e se il computer client viene arrestato a metà del test, non verranno introdotti altri errori. In alternativa, è disponibile un set di comandi per l'esecuzione del test in caso di arresto del computer. `Start-ServiceFabricChaos` Usa un servizio di sistema con stato e affidabile denominato FaultAnalysisService, garantendo che gli errori rimangano introdotti fino a quando il TimeToRun non è attivo. `Stop-ServiceFabricChaos` può essere utilizzato per arrestare manualmente lo scenario e `Get-ServiceFabricChaosReport` ottenere un report. Per altre informazioni, vedere le informazioni di [riferimento su Azure Service Fabric PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps) e [indurre Chaos controllato nei cluster di Service Fabric](service-fabric-controlled-chaos.md).
+Il modulo Service Fabric PowerShell include due modi per iniziare uno scenario Chaos. `Invoke-ServiceFabricChaosTestScenario` è basato su client e se il computer client viene arrestato a metà del test, non verranno introdotti altri errori. In alternativa, è disponibile un set di comandi per l'esecuzione del test in caso di arresto del computer. `Start-ServiceFabricChaos` Usa un servizio di sistema con stato e affidabile denominato FaultAnalysisService, garantendo che gli errori rimangano introdotti fino a quando il TimeToRun non è attivo. `Stop-ServiceFabricChaos` può essere utilizzato per arrestare manualmente lo scenario e `Get-ServiceFabricChaosReport` ottenere un report. Per altre informazioni, vedere le informazioni di [riferimento su Azure Service Fabric PowerShell](/powershell/module/servicefabric/) e [indurre Chaos controllato nei cluster di Service Fabric](service-fabric-controlled-chaos.md).
 
 ```powershell
 $connection = "localhost:19000"

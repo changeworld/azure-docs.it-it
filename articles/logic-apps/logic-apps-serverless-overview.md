@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 470857883144f4bf8c21a1921afacb7ba3f5ca00
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75666551"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788096"
 ---
 # <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure senza server: Panoramica per la creazione di soluzioni e app basate su cloud con app per la logica di Azure e funzioni di Azure
 
@@ -35,7 +35,7 @@ Per iniziare ad acquisire familiarità con App per la logica, [creare una prima 
 
 Funzioni di Azure è un servizio che consente di eseguire facilmente parti di codice o "funzioni" nel cloud. È possibile scrivere solo il codice necessario per il problema corrente, senza preoccuparsi di un'intera applicazione o dell'infrastruttura necessaria. Funzioni può rendere più produttiva l'attività di sviluppo e consente di usare il linguaggio di sviluppo preferito, ad esempio C#, F#, Node.js, Python o PHP. Si paga solo per il tempo di esecuzione del codice e Azure Scales in base alle esigenze.
 
-Per iniziare a usare funzioni di Azure, iniziare con [creare la prima funzione di Azure](../azure-functions/functions-create-first-azure-function.md). Per informazioni più tecniche sulle funzioni, vedere la Guida di riferimento per gli [sviluppatori](../azure-functions/functions-reference.md).
+Per iniziare a usare funzioni di Azure, iniziare con [creare la prima funzione di Azure](../azure-functions/functions-get-started.md). Per informazioni più tecniche sulle funzioni, vedere la Guida di riferimento per gli [sviluppatori](../azure-functions/functions-reference.md).
 
 ## <a name="how-can-i-build-and-deploy-serverless-apps-in-azure"></a>Come è possibile creare e distribuire app senza server in Azure?
 

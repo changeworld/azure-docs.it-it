@@ -1,5 +1,5 @@
 ---
-title: Azure Media Player installazione completa
+title: Configurazione completa di Azure Media Player
 description: Informazioni su come configurare il Azure Media Player.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -7,21 +7,26 @@ ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13abe333bcf3f67ea1a1ba823c693deaa60bc723
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296247"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788808"
 ---
 # <a name="azure-media-player-full-setup"></a>Configurazione completa di Azure Media Player #
 
 Azure Media Player è semplice da configurare. Sono necessari pochi istanti per ottenere la riproduzione di base del contenuto multimediale direttamente dall'account di servizi multimediali di Azure. Gli [esempi](https://github.com/Azure-Samples/azure-media-player-samples) sono disponibili anche nella directory degli esempi della versione.
 
+<!--//aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest-->
+
+Di seguito è riportato un esempio di video di AMS.
+
+> [!VIDEO https://aka.ms/ampembed?url=https%3A%2F%2Fxpouyatdemo-euwe.streaming.media.azure.net%2Fc9b6ac82-c187-4882-a3d3-1a67204ac58e%2Fconnect2017-v3.ism%2Fmanifest]
 
 ## <a name="step-1-include-the-javascript-and-css-files-in-the-head-of-your-page"></a>Passaggio 1: includere i file CSS e JavaScript all'inizio della pagina ##
 
-Con Azure Media Player, è possibile accedere agli script dalla versione ospitata della rete CDN. È spesso consigliabile inserire JavaScript prima del tag body finale `<body>` anziché `<head>` , ma Azure Media Player include un'HTML5 Shiv ', che deve essere in testa per le versioni precedenti di IE per rispettare il tag video come elemento valido.
+Con Azure Media Player, è possibile accedere agli script dalla versione ospitata della rete CDN. È spesso consigliabile inserire JavaScript prima del tag body finale `<body>` anziché `<head>` , ma Azure Meia Player include un'HTML5 Shiv ', che deve essere in testa per le versioni di IE precedenti, in modo da rispettare il tag video come elemento valido.
 
 > [!NOTE]
 > Se si usa già un oggetto Shiv HTML5 come [modernizzator](https://modernizr.com/) , è possibile includere il Azure Media Player JavaScript in qualsiasi posizione. Assicurarsi tuttavia che la versione di modernizzatore includa Shiv per video.

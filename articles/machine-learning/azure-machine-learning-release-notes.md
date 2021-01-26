@@ -9,16 +9,45 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: 11aa739beeb07c3de056d8a2430b556fcc40b178
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 6e92fb39845944898bebf6446c35f0932e13b5b8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746731"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788876"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
+
+ ## <a name="2021-01-25"></a>2021-01-25
+
+### <a name="azure-machine-learning-sdk-for-python-v1210"></a>SDK di Azure Machine Learning per Python v 1.21.0
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + Testo della Guida dell'interfaccia della riga di comando corretto quando si usa AmlCompute con identità UserAssigned
+  + **azureml-contrib-automl-DNN-Vision**
+    + I pulsanti Distribuisci e Scarica diventeranno visibili per le esecuzioni di AutoML Vision e i modelli possono essere distribuiti o scaricati in modo analogo ad altre esecuzioni di AutoML. Sono disponibili due nuovi file (scoring_file_v_1_0_0. py e conda_env_v_1_0_0. yml) che contengono uno script per eseguire l'inferenza e un file yml per ricreare l'ambiente conda. Il file ' Model. PTH ' è stato rinominato anche per l'uso dell'estensione '. PT '.
+  + **azureml-core**
+    + Supporto MSI per Azure-CLI-ml
+    + Supporto dell'identità gestita assegnata dall'utente.
+    + Con questa modifica, i clienti devono essere in grado di fornire un'identità assegnata dall'utente che può essere usata per recuperare la chiave dall'insieme di credenziali delle chiavi del cliente per la crittografia dei clienti inattivi.
+    +  correzione row_count = 0 per il profilo di file molto grandi-errore di correzione nella doppia conversione per i valori delimitati con spaziatura interna degli spazi vuoti
+    + Rimuovi flag sperimentale per il set di dati di output GA
+    + Documentazione sull'aggiornamento per recuperare una versione specifica di un modello
+    + Consenti l'aggiornamento dell'area di lavoro per l'accesso in modalità mista in caso di collegamento privato
+    + Correzione per rimuovere la registrazione aggiuntiva nell'archivio dati per la funzionalità di ripresa dell'esecuzione
+    + Aggiunta del supporto dell'interfaccia della riga di comando per l'aggiornamento dell'identità assegnata all'utente primario
+  + **azureml-interpret**
+    + aggiornamento di azureml-Interpret per interpretare-community 0.16.0
+    + ottimizzazioni della memoria per il client di spiegazione in azureml-interpreta
+  + **azureml-train-automl-runtime**
+    + Streaming abilitato per le esecuzioni ADB
+  + **azureml-train-core**
+    + Correzione per rimuovere la registrazione aggiuntiva nell'archivio dati per la funzionalità di ripresa dell'esecuzione
+  + **azureml-widgets**
+    + I clienti non devono visualizzare le modifiche apportate alla visualizzazione dei dati di esecuzione esistente usando il widget e ora avranno il supporto se, facoltativamente, usano gli iperparametri condizionali.
+    + Il widget esecuzione utente include ora una spiegazione dettagliata del motivo per cui un'esecuzione è nello stato in coda.
 
 
  ## <a name="2021-01-11"></a>2021-01-11
@@ -118,7 +147,7 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Esperienza di Azure Machine Learning Studio notebook (aggiornamento di novembre)
 + **Nuove funzionalità**
-   + Terminale nativo. Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il [terminale integrato.](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal)
+   + Terminale nativo. Gli utenti possono ora accedere a un terminale integrato e all'operazione git tramite il [terminale integrato.](./how-to-run-jupyter-notebooks.md#terminal)
   + Cartella duplicata 
   + Costi per l'elenco a discesa calcolo 
   + Pylance di calcolo offline 

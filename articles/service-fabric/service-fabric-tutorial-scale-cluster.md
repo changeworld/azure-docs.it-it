@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aumentare e ridurre il numero di
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 063c83818ec2e98491f9062e936b9a1e7b2c4356
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: HT
+ms.openlocfilehash: cdc7ba8d6c83ae72ffb8f1afae3954b3a46dc6ec
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702175"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788028"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: Ridimensionare un cluster di Service Fabric in Azure
 
@@ -809,7 +809,7 @@ Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un cl
 > [!WARNING]
 > Non è consigliabile usare frequentemente il comando Remove-AzServiceFabricNodeType per rimuovere un tipo di nodo da un cluster di produzione. È un comando molto pericoloso perché elimina la risorsa set di scalabilità di macchine virtuali presente dietro il tipo di nodo. 
 
-Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e l'operazione richiede qualche istante.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
+Per rimuovere il tipo di nodo, eseguire il cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  Il [livello di durabilità][durability] del tipo di nodo deve essere Silver o Gold. Il cmdlet elimina il set di scalabilità associato al tipo di nodo e l'operazione richiede qualche istante.  Eseguire quindi il cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) in ciascuno dei nodi da rimuovere, che consente di eliminare lo stato del nodo e di rimuovere i nodi dal cluster. Se nei nodi sono presenti servizi, questi vengono prima spostati in un altro nodo. Se Cluster Manager non è in grado di trovare un nodo per una replica o un servizio, l'operazione viene posticipata o bloccata.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"

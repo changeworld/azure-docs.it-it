@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: victorh
-ms.openlocfilehash: 6c71d9325ff7c1c5d2e7eff03a587a28335efd72
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 69eaf3ca60378afd810d712d85ea7ef732e41e3e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94652145"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788231"
 ---
 # <a name="azure-firewall-features"></a>Funzionalità di Firewall di Azure
 
@@ -101,7 +101,7 @@ Questo supporta gli scenari seguenti:
 
 ## <a name="azure-monitor-logging"></a>Registrazione di Monitoraggio di Azure
 
-Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure. Per gli esempi di log di monitoraggio di Azure, vedere [log di monitoraggio di Azure per il firewall di Azure](log-analytics-samples.md).
+Tutti gli eventi vengono integrati con Monitoraggio di Azure, per consentire di archiviare i log in un account di archiviazione e di trasmettere i flussi di eventi all'hub eventi o inviarli ai log di Monitoraggio di Azure. Per gli esempi di log di monitoraggio di Azure, vedere [log di monitoraggio di Azure per il firewall di Azure](./firewall-workbook.md).
 
 Per altre informazioni, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](./firewall-diagnostics.md). 
 

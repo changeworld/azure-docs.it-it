@@ -1,6 +1,6 @@
 ---
-title: Dati di esempio nell'archiviazione BLOB di Azure - Processo di analisi scientifica dei dati per i team
-description: Dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento tramite routine scritte in Python.
+title: Dati di esempio nell'archiviazione BLOB di Azure-processo di Data Science per i team
+description: Campionare i dati archiviati nell'archivio BLOB di Azure scaricarli a livello di codice e quindi campionarli usando le procedure scritte in Python.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c5827a0e07e537b66684f852d8f3e1500cd9febb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321898"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788842"
 ---
-# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Campionare i dati nell'archivio BLOB di Azure
+# <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dati di esempio nell'archivio BLOB di Azure
 
-Questo articolo descrive i dati di campionamento che è possibile memorizzare nell'archivio BLOB di Azure scaricandoli a livello di programmazione ed eseguendo il successivo campionamento tramite routine scritte in Python.
+Questo articolo descrive i dati di campionamento archiviati nell'archivio BLOB di Azure, eseguendone il download a livello di codice e quindi eseguendone il campionamento usando le procedure scritte in Python
 
 **Perché campionare i dati?**
 Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.

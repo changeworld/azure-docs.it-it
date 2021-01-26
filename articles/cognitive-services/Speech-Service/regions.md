@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18,references_regions
-ms.openlocfilehash: f11ccafd58cc64e6186ef590bbbccbfab3335ea4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.openlocfilehash: 646d29e72b91cd6afcde8e70ad8fd8715442b88e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854860"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786792"
 ---
 # <a name="speech-service-supported-regions"></a>Aree supportate del servizio riconoscimento vocale
 
@@ -50,7 +50,7 @@ Se si prevede di eseguire il training di un modello personalizzato con dati audi
 
 Le aree disponibili per il **riconoscimento finalità** tramite Speech SDK sono le seguenti:
 
-| Regione globale | Area           | Identificatore area |
+| Regione globale | Region           | Identificatore area |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asia orientale        | `eastasia`           |
 | Asia          | Asia sud-orientale   | `southeastasia`      |
@@ -69,9 +69,9 @@ Questo è un sottoinsieme delle aree di pubblicazione supportate per il [servizi
 
 ### <a name="voice-assistants"></a>Assistenti vocali
 
-[Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** tramite la voce [Direct Line](https://docs.microsoft.com/azure/cognitive-services/speech-service/direct-line-speech) in queste aree:
+[Speech SDK](speech-sdk.md) supporta le funzionalità di **Assistente vocale** tramite la voce [Direct Line](./direct-line-speech.md) in queste aree:
 
-| Regione globale | Area           | Identificatore area    |
+| Regione globale | Region           | Identificatore area    |
 | ------------- | ---------------- | -------------------- |
 | America del Nord | Stati Uniti occidentali          | `westus`             |
 | America del Nord | Stati Uniti occidentali 2        | `westus2`            |

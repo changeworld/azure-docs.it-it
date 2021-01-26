@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: alexeyo
-ms.openlocfilehash: 61be4b45df94c902c0473b94a6dd83237c72da3c
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 51989a9219cdbfebf833c99849dba67c939cf77a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196121"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786843"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Usare i servizi di riconoscimento vocale tramite un endpoint privato
 
@@ -216,7 +216,7 @@ Per creare endpoint privati, usare uno degli articoli seguenti. Questi articoli 
 
 Usare questi parametri anziché i parametri nell'articolo scelto:
 
-| Impostazione             | Valore                                    |
+| Impostazione             | valore                                    |
 |---------------------|------------------------------------------|
 | Tipo di risorsa       | **Microsoft. CognitiveServices/accounts** |
 | Risorsa            | **\<your-speech-resource-name>**         |
@@ -293,7 +293,7 @@ Servizi vocali ha API REST per [sintesi vocale](rest-speech-to-text.md) [e sinte
 Il riconoscimento vocale ha due API REST. Ogni API serve uno scopo diverso, USA endpoint diversi e richiede un approccio diverso quando lo si usa nello scenario abilitato per gli endpoint privati.
 
 Le API REST per sintesi vocale sono:
-- [API REST di sintesi vocale v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), che viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. v 3.0 è un [successore della versione 2.0](/azure/cognitive-services/speech-service/migrate-v2-to-v3)
+- [API REST di sintesi vocale v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30), che viene usata per la [trascrizione](batch-transcription.md) e la [riconoscimento vocale personalizzato](custom-speech-overview.md)di batch. v 3.0 è un [successore della versione 2.0](./migrate-v2-to-v3.md)
 - [API REST per sintesi vocale per brevi audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio), che viene usata per la trascrizione online 
 
 L'uso dell'API REST di sintesi vocale per l'audio breve e l'API REST di sintesi vocale nello scenario di endpoint privato è la stessa. Equivale al [caso dell'SDK di riconoscimento vocale](#speech-resource-with-a-custom-domain-name-and-a-private-endpoint-usage-with-the-speech-sdk) descritto più avanti in questo articolo. 

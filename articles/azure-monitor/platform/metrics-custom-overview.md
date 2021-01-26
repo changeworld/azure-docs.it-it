@@ -1,18 +1,18 @@
 ---
 title: Metriche personalizzate in monitoraggio di Azure (anteprima)
 description: Informazioni sulle metriche personalizzate in Monitoraggio di Azure e sul modo in cui vengono modellate.
-author: ancav
+author: anirudhcavale
 ms.author: ancav
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 73c9b2bf8cf88ca5e8576c451c9d9ac5f0eae8a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce081896292ec92c41dabc735df828ed167d86e7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88639903"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788503"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metriche personalizzate in monitoraggio di Azure (anteprima)
 
@@ -54,7 +54,7 @@ Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'appl
 > [!TIP]  
 > Quando si richiede che un token di Azure AD generi metriche personalizzate, assicurarsi che il destinatario o la risorsa per cui è richiesto il token sia `https://monitoring.azure.com/`. Assicurarsi di includere la barra finale (/).
 
-### <a name="subject"></a>Subject
+### <a name="subject"></a>Oggetto
 Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indicata la metrica personalizzata. L'informazione viene codificata nell'URL della chiamata API eseguita. Ogni API può inviare solo i valori delle metriche per una singola risorsa di Azure.
 
 > [!NOTE]  
@@ -105,7 +105,6 @@ Se ad esempio sono presenti quattro transazioni di accesso all'app durante un de
 |Transazione 1|Transazione 2|Transazione 3|Transazione 4|
 |---|---|---|---|
 |7 ms|4 ms|13 ms|16 ms|
-|
 
 Quindi la pubblicazione delle metriche risultante in Monitoraggio di Azure sarebbe la seguente:
 * Min: 4
@@ -134,7 +133,8 @@ Nell'esempio seguente si crea una metrica personalizzata denominata **Byte di me
         "metric": "Memory Bytes in Use",
         "namespace": "Memory Profile",
         "dimNames": [
-          "Process"        ],
+          "Process"
+        ],
         "series": [
           {
             "dimValues": [
@@ -174,7 +174,7 @@ Non è necessario predefinire una metrica personalizzata in Monitoraggio di Azur
 Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile esplorarle tramite il portale di Azure e sottoporle a query tramite le API REST di Monitoraggio di Azure. È inoltre possibile creare avvisi su di esse per ricevere una notifica quando vengono soddisfatte determinate condizioni.
 
 > [!NOTE]
-> È necessario essere un ruolo di lettore o collaboratore per visualizzare le metriche personalizzate.
+> È necessario essere un ruolo di lettore o collaboratore per visualizzare le metriche personalizzate. Vedere [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Esplorare le metriche personalizzate tramite il portale di Azure
 1.    Accedere al [portale di Azure](https://portal.azure.com).
@@ -184,34 +184,19 @@ Dopo l'invio delle metriche personalizzate a Monitoraggio di Azure, è possibile
 5.    Selezionare lo spazio dei nomi di metriche per la metrica personalizzata.
 6.    Selezionare la metrica personalizzata.
 
+> [!NOTE]
+> Per altre informazioni sulla visualizzazione delle metriche nel portale di Azure, vedere [Introduzione ad Azure Esplora metriche](./metrics-getting-started.md) .
+
 ## <a name="supported-regions"></a>Aree supportate
-Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. La seguente tabella elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
+Nella versione di anteprima pubblica la possibilità di pubblicare metriche personalizzate è disponibile solo in un subset di aree di Azure. Tale restrizione significa che le metriche possono essere pubblicate solo per le risorse in una delle aree supportate. Per altre informazioni sulle aree di Azure, vedere [geografie di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) . Il codice dell'area di Azure usato negli endpoint seguenti è solo il nome dell'area con spazi vuoti rimossi la tabella seguente elenca il set di aree di Azure supportate per le metriche personalizzate. Elenca inoltre gli endpoint corrispondenti nei quali le metriche per le risorse in tali aree devono essere pubblicate:
 
 |Area di Azure |Prefisso di endpoint a livello di area|
 |---|---|
-| **Stati Uniti e Canada** | |
-|Stati Uniti centro-occidentali | https: \/ /westcentralus.Monitoring.Azure.com |
-|West US 2       | https: \/ /westus2.Monitoring.Azure.com |
-|Stati Uniti centro-settentrionali | https: \/ /northcentralus.Monitoring.Azure.com
-|Stati Uniti centro-meridionali| https: \/ /southcentralus.Monitoring.Azure.com |
-|Stati Uniti centrali      | https: \/ /centralus.Monitoring.Azure.com |
-|Canada centrale | https: \/ /canadacentral.Monitoring.Azure.com |
-|Stati Uniti orientali| https: \/ /eastus.Monitoring.Azure.com |
-|Stati Uniti orientali 2 | https: \/ /eastus2.Monitoring.Azure.com |
-| **Europa** | |
-|Europa settentrionale    | https: \/ /northeurope.Monitoring.Azure.com |
-|Europa occidentale     | https: \/ /westeurope.Monitoring.Azure.com |
-|Regno Unito meridionale | https: \/ /uksouth.Monitoring.Azure.com
-|Francia centrale | https: \/ /francecentral.Monitoring.Azure.com |
-| **Africa** | |
-|Sudafrica settentrionale | https: \/ /southafricanorth.Monitoring.Azure.com |
-| **Asia** | |
-|Central India | https: \/ /centralindia.Monitoring.Azure.com |
-|Australia orientale | https: \/ /australiaeast.Monitoring.Azure.com |
-|Giappone orientale | https: \/ /japaneast.Monitoring.Azure.com |
-|Asia sud-orientale  | https: \/ /SouthEastAsia.Monitoring.Azure.com |
-|Asia orientale | https: \/ /eastasia.Monitoring.Azure.com |
-|Corea centrale   | https: \/ /koreacentral.Monitoring.Azure.com |
+| Tutte le aree del cloud pubblico | https://<azure_region_code>. monitoring.azure.com |
+| **Azure per enti pubblici** | |
+| US Gov Arizona | https: \/ /usgovarizona.Monitoring.Azure.US |
+| **Cina** | |
+| Cina orientale 2 | https: \/ /chinaeast2.Monitoring.Azure.cn |
 
 ## <a name="latency-and-storage-retention"></a>Latenza e conservazione dell'archiviazione
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: f002bfdd5aeb784b5b10b549389e663216fa0361
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561223"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788452"
 ---
 # <a name="testing-for-luis-devops"></a>Test per DevOps LUIS
 
@@ -28,7 +28,7 @@ Esistono due tipi diversi di test per un'app LUIS che è necessario eseguire nei
 Questo tipo di test è simile ai [test interattivi](./luis-concept-test.md) che è possibile eseguire nel [portale Luis](https://www.luis.ai/).
 
 - **Test batch** : il test batch è un test completo sul modello attualmente sottoposto a training per misurarne le prestazioni. Diversamente dagli unit test, i test batch non vengono superati | test non superati. La previsione con test batch non prevede che ogni test restituisca la finalità prevista e le entità previste. Al contrario, un test di batch consente di visualizzare l'accuratezza di ogni finalità ed entità nell'app e consente di confrontare nel tempo quando si apportano miglioramenti.  
-Questo tipo di test è identico a quello dei [test batch](./luis-concept-batch-test.md) che è possibile eseguire in modo interattivo nel portale Luis.
+Questo tipo di test è identico a quello dei [test batch](./luis-how-to-batch-test.md) che è possibile eseguire in modo interattivo nel portale Luis.
 
 È possibile usare il testing unità dall'inizio del progetto. I test batch sono solo di valore dopo aver sviluppato lo schema dell'app LUIS e si sta lavorando per migliorarne l'accuratezza.
 
@@ -42,7 +42,7 @@ Quando si scrive un set di test, per ogni test è necessario definire:
 * Finalità prevista
 * Entità previste.
 
-Usare la [sintassi del file batch](./luis-concept-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis per definire un gruppo di test in un file in formato JSON. Ad esempio:
+Usare la [sintassi del file batch](./luis-how-to-batch-test.md#batch-syntax-template-for-intents-with-entities) Luis per definire un gruppo di test in un file in formato JSON. Ad esempio:
 
 ```JSON
 [
@@ -85,7 +85,7 @@ Negli unit test, è consigliabile verificare che le entità chiave siano state r
 
 #### <a name="designing-batch-tests"></a>Progettazione di test batch
 
-I set di test batch devono contenere un numero elevato di test case, progettati per eseguire test su tutti gli Intent e tutte le entità nell'app LUIS. Per informazioni sulla definizione di un set di test batch, vedere [test di batch nel portale Luis](./luis-concept-batch-test.md) .
+I set di test batch devono contenere un numero elevato di test case, progettati per eseguire test su tutti gli Intent e tutte le entità nell'app LUIS. Per informazioni sulla definizione di un set di test batch, vedere [test di batch nel portale Luis](./luis-how-to-batch-test.md) .
 
 ### <a name="running-tests"></a>Esecuzione di test
 
@@ -93,7 +93,7 @@ Il portale LUIS offre funzionalità che consentono di eseguire test interattivi:
 
 * Il [**testing interattivo**](./luis-concept-test.md) consente di inviare un enunciato di esempio e di ottenere una risposta di Intent ed entità riconosciuti da Luis. Verificare l'esito positivo del test tramite l'ispezione visiva.
 
-* Il [**test batch**](./luis-concept-batch-test.md) usa un file di test batch come input per convalidare la versione con Training attivo per misurare l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva, visualizzando i risultati con un grafico.
+* Il [**test batch**](./luis-how-to-batch-test.md) usa un file di test batch come input per convalidare la versione con Training attivo per misurare l'accuratezza della stima. Un test batch consente di visualizzare l'accuratezza di ogni finalità ed entità nella versione attiva, visualizzando i risultati con un grafico.
 
 #### <a name="running-tests-in-an-automated-build-workflow"></a>Esecuzione di test in un flusso di lavoro di compilazione automatizzato
 

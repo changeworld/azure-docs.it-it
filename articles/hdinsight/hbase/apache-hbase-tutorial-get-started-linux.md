@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/14/2020
-ms.openlocfilehash: d24c63e3a2989173e718cd27fa43cecc50181047
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.date: 01/22/2021
+ms.openlocfilehash: 3aff700493fbdc0c2b8a9a3dcb4dbbafe9b10761
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533496"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98788775"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Esercitazione: Usare Apache HBase in Azure HDInsight
 
@@ -50,14 +50,14 @@ La procedura seguente usa un modello di Azure Resource Manager per creare un clu
     |Resource group|creare un nuovo gruppo di Azure Resource Manager o usarne uno esistente.|
     |Location|consente di specificare la posizione del gruppo di risorse. |
     |ClusterName|immettere un nome per il cluster HBase.|
-    |ID di accesso e password del cluster|Il nome di accesso predefinito è **admin** .|
-    |Nome utente e password SSH|Il nome utente predefinito è **sshuser** .|
+    |ID di accesso e password del cluster|Il nome di accesso predefinito è **admin**.|
+    |Nome utente e password SSH|Il nome utente predefinito è **sshuser**.|
 
     Gli altri parametri sono facoltativi.  
 
     Ogni cluster ha una dipendenza dall'account di Archiviazione di Azure. Dopo aver eliminato un cluster, i dati rimangono nell'account di archiviazione. Il nome dell'account di archiviazione predefinito del cluster è il nome del cluster a cui viene aggiunto "store". È hardcoded nella sezione delle variabili del modello.
 
-3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista** . La creazione di un cluster richiede circa 20 minuti.
+3. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**. La creazione di un cluster richiede circa 20 minuti.
 
 Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso contenitore di BLOB predefinito. Il nuovo cluster seleziona le tabelle HBase create nel cluster originale. Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster.
 
@@ -228,7 +228,7 @@ Non è necessario eseguire la query Hive per accedere ai dati di HBase dal clust
 
 L'API REST viene protetta tramite l' [autenticazione di base](https://en.wikipedia.org/wiki/Basic_access_authentication). Le richieste vengono sempre eseguite usando il protocollo HTTPS (Secure HTTP) per essere certi che le credenziali vengano inviate in modo sicuro al server.
 
-1. Per abilitare le API REST HBase nel cluster HDInsight, aggiungere lo script di avvio personalizzato seguente alla sezione **Script Action** . È possibile aggiungere lo script di avvio durante la creazione del cluster o successivamente. Per **Tipo di nodo** selezionare **Server di area** per assicurarsi che lo script venga eseguito solo in server di area HBase.
+1. Per abilitare le API REST HBase nel cluster HDInsight, aggiungere lo script di avvio personalizzato seguente alla sezione **Script Action**. È possibile aggiungere lo script di avvio durante la creazione del cluster o successivamente. Per **Tipo di nodo** selezionare **Server di area** per assicurarsi che lo script venga eseguito solo in server di area HBase.
 
 
     ```bash
@@ -344,15 +344,21 @@ HBase in HDInsight viene fornito con un'interfaccia utente Web per il monitoragg
    - attività
    - attributi di software
 
+## <a name="cluster-recreation"></a>Ricreazione del cluster
+
+Dopo l'eliminazione di un cluster HBase, è possibile creare un altro cluster HBase usando lo stesso contenitore di BLOB predefinito. Il nuovo cluster seleziona le tabelle HBase create nel cluster originale. Per evitare incoerenze, è tuttavia consigliabile disabilitare le tabelle HBase prima di eliminare il cluster. 
+
+È possibile usare il comando HBase `disable 'Contacts'`. 
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Per evitare incoerenze, è consigliabile disabilitare le tabelle HBase prima di eliminare il cluster. È possibile usare il comando HBase `disable 'Contacts'`. Se non si intende continuare a usare questa applicazione, eliminare il cluster HBase creato con i passaggi seguenti:
+Se non si intende continuare a usare questa applicazione, eliminare il cluster HBase creato con i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Nella casella **Ricerca** in alto digitare **HDInsight** .
-1. Selezionare **Cluster HDInsight** in **Servizi** .
+1. Nella casella **Ricerca** in alto digitare **HDInsight**.
+1. Selezionare **Cluster HDInsight** in **Servizi**.
 1. Nell'elenco di cluster HDInsight visualizzato, fare clic su **...** accanto al cluster creato per questa esercitazione.
-1. Fare clic su **Elimina** . Fare clic su **Sì** .
+1. Fare clic su **Elimina**. Fare clic su **Sì**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

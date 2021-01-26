@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2020205357c68e007a1a375c4853e8c04afd2019
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530863"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789061"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Come eseguire una verifica del possesso per certificati della CA X.509 con il servizio Device Provisioning
 
@@ -58,7 +58,7 @@ Microsoft offre strumenti ed esempi che facilitano la creazione di un certificat
 > [!IMPORTANT]
 > Oltre a eseguire la verifica del possesso, gli script di PowerShell e Bash citati in precedenza consentono anche di creare certificati radice, certificati intermedi e certificati foglia utilizzabili per eseguire l'autenticazione e il provisioning di dispositivi. Questi certificati devono essere usati solo per lo sviluppo. Non devono mai essere usati in un ambiente di produzione. 
 
-Gli script di PowerShell e Bash forniti nella documentazione e negli SDK si basano su [OpenSSL](https://www.openssl.org/). È anche possibile usare OpenSSL o altri strumenti di terze parti che consentono di eseguire la verifica del possesso. Per altre informazioni sugli strumenti forniti con gli SDK, vedere [Come usare gli strumenti disponibili negli SDK](how-to-use-sdk-tools.md). 
+Gli script di PowerShell e Bash forniti nella documentazione e negli SDK si basano su [OpenSSL](https://www.openssl.org/). È anche possibile usare OpenSSL o altri strumenti di terze parti che consentono di eseguire la verifica del possesso. Per un esempio di utilizzo degli strumenti forniti con gli SDK, vedere [creare una catena di certificati X. 509](tutorial-custom-hsm-enrollment-group-x509.md#create-an-x509-certificate-chain). 
 
 
 ## <a name="upload-the-signed-verification-certificate"></a>Caricare il certificato di verifica firmato

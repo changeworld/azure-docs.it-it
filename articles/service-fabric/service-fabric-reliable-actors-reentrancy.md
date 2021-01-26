@@ -4,12 +4,12 @@ description: Introduzione alla rientranza per Service Fabric Reliable Actors, un
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9578b676e46d21fe5d30de92ad59c852a8b05f70
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 90a8e9146d18d628fbf124307f1b79b912c9cef9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915879"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789381"
 ---
 # <a name="reliable-actors-reentrancy"></a>Rientranza di Reliable Actors
 Per impostazione predefinita, il runtime di Reliable Actors consente la reentrancy basata sul contesto di chiamata logico. Ciò consente agli attori di essere rientranti se si trovano nella stessa catena del contesto di chiamata. Ad esempio, l'attore A invia un messaggio all'attore B che invia un messaggio all'attore C. Durante l'elaborazione del messaggio, se l'attore C chiama l'attore A, il messaggio è rientrante e sarà quindi consentito. Tutti gli altri messaggi che fanno parte di un contesto di chiamata diverso verranno bloccati sull'attore A fino al completamento dell'elaborazione.
@@ -101,4 +101,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla rientranza nella [documentazione di riferimento dell'API Actor](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)
+* Altre informazioni sulla rientranza nella [documentazione di riferimento dell'API Actor](/dotnet/api/microsoft.servicefabric.actors)

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 4635bcc51d2ab626b16ddcf02e772bf3df3cad4d
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
-ms.translationtype: HT
+ms.openlocfilehash: c36353448c140450044f352062c3349939e3f7b5
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789011"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrazione di Key Vault con l'autorità di certificazione DigiCert
 
@@ -129,7 +129,7 @@ Se il certificato emesso ha lo stato 'disabilitato' nel portale di Azure, vedere
  ![Operazione relativa al certificato](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Messaggio di errore "Per completare questa richiesta di certificato, eseguire un'operazione di unione".
-Sarà necessario unire la richiesta di firma del certificato firmata dall'autorità di certificazione per completare questa richiesta. Fare clic [qui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate-signing-request) per altre informazioni
+Sarà necessario unire la richiesta di firma del certificato firmata dall'autorità di certificazione per completare questa richiesta. Fare clic [qui](./create-certificate-signing-request.md) per altre informazioni
 
 Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
 

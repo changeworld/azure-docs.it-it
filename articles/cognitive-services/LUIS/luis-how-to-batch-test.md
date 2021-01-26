@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
-ms.openlocfilehash: 0834b8f00e4c414b3a36314b80f6c99fb8f2aea2
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955213"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787013"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
@@ -99,7 +99,7 @@ Il codice JSON di esempio include un'espressione con un'entità etichettata per 
 
 Per esaminare i risultati del test in batch, selezionare **See results** (Visualizza risultati). I risultati del test mostrano graficamente il modo in cui le espressioni di test sono state previste rispetto alla versione attiva.
 
-Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. Il filtro contiene finalità ed entità. Quando si seleziona una [sezione del grafico](luis-concept-batch-test.md#batch-test-results) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico.
+Il grafico relativo al batch visualizza quattro quadranti d risultati. Nella parte destra del grafico è presente un filtro. Il filtro contiene finalità ed entità. Quando si seleziona una [sezione del grafico](#review-batch-results-for-intents) oppure un punto nel grafico, le espressioni associate vengono visualizzate sotto il grafico.
 
 Quando si passa il mouse sul grafico, la rotellina del mouse consente di ingrandire o ridurre la visualizzazione del grafico. Ciò è utile quando sono presenti molti punti nel grafico strettamente raggruppati.
 
@@ -166,7 +166,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 ## <a name="batch-testing-using-the-rest-api"></a>Test batch con l'API REST 
 
-LUIS consente di eseguire il test in batch usando il portale LUIS e l'API REST. Gli endpoint per l'API REST sono elencati di seguito. Per informazioni sui test batch tramite il portale LUIS, vedere [esercitazione: set di dati di test batch](luis-tutorial-batch-testing.md). Usare gli URL completi indicati di seguito, sostituendo i valori segnaposto con la chiave e l'endpoint di stima di LUIS. 
+LUIS consente di eseguire il test in batch usando il portale LUIS e l'API REST. Gli endpoint per l'API REST sono elencati di seguito. Per informazioni sui test batch tramite il portale LUIS, vedere [esercitazione: set di dati di test batch](). Usare gli URL completi indicati di seguito, sostituendo i valori segnaposto con la chiave e l'endpoint di stima di LUIS. 
 
 Ricordarsi di aggiungere la chiave LUIS a `Ocp-Apim-Subscription-Key` nell'intestazione e impostare `Content-Type` su `application/json` .
 
@@ -265,5 +265,3 @@ Se il test indica che l'app LUIS non riconosce le finalità e le entità corrett
 
 * [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md)
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md)
-* [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
-* [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).

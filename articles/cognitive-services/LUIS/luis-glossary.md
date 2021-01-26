@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151972"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786945"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossario per la comprensione del linguaggio con vocabolario e concetti comuni
 Il Glossario di Language Understanding (LUIS) illustra i termini che possono verificarsi durante l'utilizzo del servizio LUIS.
@@ -23,7 +23,7 @@ La versione attiva è la [versione](luis-how-to-manage-versions.md) dell'app che
 
 L'apprendimento attivo è una tecnica di apprendimento automatico in cui viene usato il modello di apprendimento automatico per identificare nuovi esempi informativi da etichettare. In LUIS, l'apprendimento attivo si riferisce all'aggiunta di espressioni dal traffico dell'endpoint le cui stime correnti non sono chiare per migliorare il modello. Fare clic su "verifica espressioni endpoint" per visualizzare le espressioni da etichettare.
 
-Vedere anche:
+Vedere anche la pagina relativa alla
 * [Informazioni concettuali](luis-concept-review-endpoint-utterances.md)
 * [Esercitazione per la revisione di espressioni endpoint](luis-tutorial-review-endpoint-utterances.md)
 * Come migliorare l'app LUIS esaminando gli [enunciati degli endpoint](luis-how-to-review-endpoint-utterances.md)
@@ -50,12 +50,13 @@ La risorsa di creazione ha una "tipologia" di Azure `LUIS-Authoring` .
 
 ## <a name="batch-test"></a>Test in batch
 
-Il test batch è la possibilità di convalidare i modelli di un'app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](luis-concept-batch-test.md#batch-file-format).
+Il test batch è la possibilità di convalidare i modelli di un'app LUIS corrente con un set di test coerente e noto di espressioni utente. Il test batch viene definito in un [file in formato JSON](./luis-how-to-batch-test.md#batch-test-file).
 
-Vedere anche:
-* [Concetti](luis-concept-batch-test.md)
+
+Vedere anche la pagina relativa alla
+* [Concetti](./luis-how-to-batch-test.md)
 * [Procedura:](luis-how-to-batch-test.md) eseguire un test batch
-* [Esercitazione](luis-tutorial-batch-testing.md) : creare ed eseguire un test batch
+* [Esercitazione](./luis-how-to-batch-test.md) : creare ed eseguire un test batch
 
 ### <a name="f-measure"></a>Misura F
 
@@ -102,7 +103,7 @@ Un collaboratore è concettualmente [uguale a quello](#contributor)di un collabo
 
 Un collaboratore non è il [proprietario](#owner) dell'app, ma ha le stesse autorizzazioni per aggiungere, modificare ed eliminare gli Intent, le entità, le espressioni. Un collaboratore fornisce il controllo degli accessi in base al ruolo di Azure (RBAC) a un'app LUIS.
 
-Vedere anche:
+Vedere anche la pagina relativa alla
 * [Procedura:](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource) aggiungere collaboratori
 
 ## <a name="descriptor"></a>Descrittore
@@ -240,7 +241,7 @@ La [chiave di stima](luis-how-to-azure-subscription.md) , nota in precedenza com
 
 Questa chiave non è la chiave di crezione. Se si dispone di una chiave dell'endpoint di stima, è consigliabile utilizzarla per tutte le richieste endpoint anziché per la chiave di creazione. È possibile visualizzare la chiave di stima corrente all'interno dell'URL dell'endpoint nella parte inferiore della pagina delle risorse di Azure nel sito Web LUIS. Si tratta del valore della coppia nome/valore della chiave di sottoscrizione.
 
-### <a name="prediction-resource"></a>Risorsa di stima
+### <a name="prediction-resource"></a>Risorsa Previsione
 
 La risorsa LUIS Prediction è un elemento gestibile disponibile tramite Azure. La risorsa è l'accesso alla stima associata del servizio di Azure. La risorsa include stime.
 
@@ -285,7 +286,7 @@ Nelle entità di LUIS [List](reference-entity-list.md)è possibile creare un val
 
 |Valore Nomalized| Sinonimi|
 |--|--|
-|Piccolo| il piccolo, 8 once|
+|Small| il piccolo, 8 once|
 |Media| normale, 12 once|
 |Grande| grande, 16 once|
 |Xtra Large| quello più grande, 24 once|
@@ -302,7 +303,7 @@ L'endpoint include [timezoneOffset](luis-concept-data-alteration.md#change-time-
 
 Vedere [Cambiare il fuso orario dell'entità datetimeV2 predefinita](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a>token
+## <a name="token"></a>Token
 Un [token](luis-language-support.md#tokenization) è la più piccola unità di testo che Luis può riconoscere. Questo comportamento differisce leggermente tra le lingue.
 
 Per l' **inglese**, un token è un intervallo continuo (senza spazi o punteggiatura) di lettere e numeri. Uno spazio non è un token.
@@ -314,7 +315,7 @@ Per l' **inglese**, un token è un intervallo continuo (senza spazi o punteggiat
 |`425-555-5555`|5|Numero di telefono. Ogni segno di punteggiatura è  `425-555-5555` costituito da un singolo token, quindi da 5 token:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
-## <a name="train"></a>Eseguire il training
+## <a name="train"></a>Treno
 
 Il [Training](luis-how-to-train.md) è il processo che consente di insegnare a Luis le modifiche apportate alla versione attiva dopo l'ultimo training.
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: af9087f0dd45212ec88b620dcd965c895b86bbce
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: baa071c8967c97cb5df2b8f522b3737436bdb359
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787706"
 ---
 # <a name="manage-qna-maker-resources"></a>Gestisci risorse QnA Maker
 
@@ -130,12 +130,12 @@ Altre informazioni su come configurare le [Impostazioni generali](../../../app-s
 ### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurare ambiente del servizio app per ospitare QnA Maker servizio app
 Il ambiente del servizio app (ASE) può essere usato per ospitare QnA Maker servizio app. Eseguire i passaggi seguenti:
 
-1. Creare una ambiente del servizio app e contrassegnarla come "External". Per istruzioni, seguire l' [esercitazione](https://docs.microsoft.com/azure/app-service/environment/create-external-ase) .
+1. Creare una ambiente del servizio app e contrassegnarla come "External". Per istruzioni, seguire l' [esercitazione](../../../app-service/environment/create-external-ase.md) .
 2.  Creare un servizio app all'interno del ambiente del servizio app.
     * Controllare la configurazione del servizio app e aggiungere "PrimaryEndpointKey" come impostazione dell'applicazione. Il valore di ' PrimaryEndpointKey ' deve essere impostato su " \<app-name\> -PrimaryEndpointKey". Il nome dell'app è definito nell'URL del servizio app. Ad esempio, se l'URL del servizio app è "mywebsite.myase.p.azurewebsite.net", il nome dell'app è "sito Web". In questo caso, il valore di ' PrimaryEndpointKey ' deve essere impostato su "sito Web-PrimaryEndpointKey".
     * Creare un servizio di ricerca di Azure.
     * Verificare che le impostazioni di ricerca di Azure e app siano configurate in modo appropriato. 
-      Seguire questa [esercitazione](https://docs.microsoft.com/azure/cognitive-services/qnamaker/reference-app-service?tabs=v1#app-service).
+      Seguire questa [esercitazione](../reference-app-service.md?tabs=v1#app-service).
 3.  Aggiornare il gruppo di sicurezza di rete associato al ambiente del servizio app
     * Aggiornare le regole di sicurezza in ingresso predefinite in base alle esigenze.
     * Aggiungere una nuova regola di sicurezza in ingresso con origine come ' tag di servizio ' e tag del servizio di origine come ' CognitiveServicesManagement '.

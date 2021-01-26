@@ -259,6 +259,8 @@
           href: troubleshoot-diagnostic-logs.md
         - name: Ottenere gli eventi della risorsa
           href: get-resource-events.md
+        - name: Controllo integrità
+          href: monitor-instances-health-check.md
         - name: Aprire una sessione SSH nel contenitore Linux
           href: configure-linux-open-ssh-session.md
     - name: Gestire un'app

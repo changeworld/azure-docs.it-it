@@ -3,12 +3,12 @@ title: Gestire le app per più ambienti
 description: Le applicazioni di Azure Service Fabric possono essere eseguite su cluster con dimensioni che variano da un solo computer a molte migliaia. In alcuni casi è possibile che si voglia configurare l'applicazione in modo diverso per i diversi ambienti. Questo articolo illustra come definire diversi parametri dell'applicazione per ogni ambiente,
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.openlocfilehash: 51bc77abca8ce2b3878df1c1859203618d3e2e27
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96574446"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787978"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -38,7 +38,7 @@ Si prendano in considerazione due semplici esempi:
 
 Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha la possibilità di passare parametri. La modalità di esecuzione di questa operazione dipende da come si crea l'istanza dell'applicazione.
 
-  - In PowerShell, il [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet accetta i parametri dell'applicazione come Hashtable.
+  - In PowerShell, il [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet accetta i parametri dell'applicazione come Hashtable.
   - Usando sfctl, il [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) comando accetta parametri come stringa JSON. Lo script install.sh usa sfctl.
   - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono usati per la pubblicazione da Visual Studio, usando Azure DevOps Services o Azure DevOps Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 

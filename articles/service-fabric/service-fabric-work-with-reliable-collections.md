@@ -3,12 +3,12 @@ title: Lavorare con le raccolte Reliable Collections
 description: Informazioni sulle procedure consigliate per l'uso di Reliable Collections all'interno di un'applicazione Service Fabric di Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2d027dc432d1a0a20888bfca4f59bc41866e358d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 908f24cc22c969a34a513ff3fd3ceaa788420620
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651907"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98787876"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Verrà ora esaminato un utilizzo tipico di un oggetto Reliable Dictionary e ne verrà verificata la realtà.
@@ -226,4 +226,4 @@ Per informazioni sulle procedure consigliate per il controllo delle versioni dei
 
 Per informazioni su come implementare contratti di dati a tolleranza di versione, vedere [Callback di serializzazione a tolleranza di versione](/dotnet/framework/wcf/feature-details/version-tolerant-serialization-callbacks)
 
-Per informazioni su come fornire una struttura di dati che possa interagire con più versioni, vedere [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject?view=netcore-3.1)
+Per informazioni su come fornire una struttura di dati che possa interagire con più versioni, vedere [IExtensibleDataObject](/dotnet/api/system.runtime.serialization.iextensibledataobject)
