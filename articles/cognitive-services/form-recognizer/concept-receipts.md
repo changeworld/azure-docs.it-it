@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 43eae43d11a48ee6c395e4a86b8e8c1353843991
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 7173efd3dab0e8d2fd3c948a3a9bac07641e78f3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131450"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792083"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modello di ricezione predefinito del riconoscimento moduli
 
-Il riconoscitore di form di Azure può analizzare ed estrarre le informazioni dalle ricevute di vendita usando il modello di ricezione precompilato. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) con la ricevuta informazioni sui modelli di apprendimento avanzato per estrarre le informazioni chiave dalle ricevute in inglese. L'API di ricezione estrae le informazioni chiave dalle ricevute di vendita in inglese, ad esempio nome Merchant, data transazione, totale transazione, voci e altro ancora. 
+Il riconoscitore di form di Azure può analizzare ed estrarre le informazioni dalle ricevute di vendita usando il modello di ricezione precompilato. Combina le potenti funzionalità di [riconoscimento ottico dei caratteri (OCR)](../computer-vision/concept-recognizing-text.md) con la ricevuta informazioni sui modelli di apprendimento avanzato per estrarre le informazioni chiave dalle ricevute in inglese. L'API di ricezione estrae le informazioni chiave dalle ricevute di vendita in inglese, ad esempio nome Merchant, data transazione, totale transazione, voci e altro ancora. 
 
 ## <a name="understanding-receipts"></a>Informazioni sulle ricevute 
 

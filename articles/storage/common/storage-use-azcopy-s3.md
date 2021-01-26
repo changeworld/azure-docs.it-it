@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 07a8d2b394e8ca690925c677af676643064a9ba8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96901831"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791998"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copiare dati da Amazon S3 ad archiviazione di Azure usando AzCopy
 
@@ -139,7 +139,7 @@ AWS S3 e Azure consentono diversi set di caratteri nei nomi delle chiavi degli o
 
 Come parte di un `copy` comando AzCopy, è possibile specificare un valore facoltativo per il `s2s-handle-invalid-metadata` flag che specifica come si desidera gestire i file in cui i metadati del file contengono nomi di chiave incompatibili. Nella tabella seguente viene descritto ogni valore di flag.
 
-| Valore del flag | Description  |
+| Valore del flag | Descrizione  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (Opzione predefinita) I metadati non sono inclusi nell'oggetto trasferito. AzCopy registra un avviso. |
 | **FailIfInvalid** | Gli oggetti non vengono copiati. AzCopy registra un errore e include tale errore nel conteggio non riuscito visualizzato nel riepilogo del trasferimento.  |

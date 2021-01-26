@@ -3,20 +3,20 @@ title: Argomenti avanzati sull'aggiornamento delle applicazioni
 description: Questo articolo illustra alcuni degli argomenti avanzati relativi all'aggiornamento di un'applicazione di Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: cc2fdc8f99b74078bd8d5274cbe52265ab8455ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6604300328f2d243077ba341a9028221438dce9d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022990"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792049"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Aggiornamento dell'applicazione Service Fabric: argomenti avanzati
 
 ## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Aggiungere o rimuovere i tipi di servizio durante l'aggiornamento di un'applicazione
 
-Se si aggiunge un nuovo tipo di servizio a un'applicazione pubblicata nel corso di un aggiornamento, il nuovo tipo di servizio viene aggiunto all'applicazione distribuita. Tale aggiornamento non influisce sulle istanze del servizio che facevano già parte dell'applicazione, ma è necessario creare un'istanza del tipo di servizio che è stato aggiunto per consentire l'attivazione del nuovo tipo di servizio (vedere [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
+Se si aggiunge un nuovo tipo di servizio a un'applicazione pubblicata nel corso di un aggiornamento, il nuovo tipo di servizio viene aggiunto all'applicazione distribuita. Tale aggiornamento non influisce sulle istanze del servizio che facevano già parte dell'applicazione, ma è necessario creare un'istanza del tipo di servizio che è stato aggiunto per consentire l'attivazione del nuovo tipo di servizio (vedere [New-ServiceFabricService](/powershell/module/servicefabric/new-servicefabricservice)).
 
-Analogamente, i tipi di servizio possono essere rimossi da un'applicazione durante un aggiornamento. Tuttavia, prima di procedere con l'aggiornamento è necessario rimuovere tutte le istanze del tipo di servizio da rimuovere (vedere [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
+Analogamente, i tipi di servizio possono essere rimossi da un'applicazione durante un aggiornamento. Tuttavia, prima di procedere con l'aggiornamento è necessario rimuovere tutte le istanze del tipo di servizio da rimuovere (vedere [Remove-ServiceFabricService](/powershell/module/servicefabric/remove-servicefabricservice)).
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Evitare le perdite di connessione durante i tempi di inattività pianificati
 
@@ -114,7 +114,7 @@ La durata del ritardo sottoposta a override si applica solo all'istanza di aggio
 
 In modalità *Monitored* Service Fabric applica criteri specifici per assicurare l'integrità dell'applicazione durante l'avanzamento dell'aggiornamento. Se i criteri di integrità non vengono rispettati, l'aggiornamento viene sospeso oppure viene eseguito il rollback automatico dell'operazione, a seconda dell'opzione specificata in *FailureAction*.
 
-In modalità *UnmonitoredManual* l'amministratore dell'applicazione ha il controllo completo sull'avanzamento dell'aggiornamento. Questa modalità è utile quando si applicano criteri di valutazione dell'integrità personalizzati o quando si eseguono aggiornamenti non convenzionali per escludere completamente il monitoraggio dello stato (ad esempio, l'applicazione ha già perso dati). Un aggiornamento in esecuzione in questa modalità viene sospeso automaticamente al termine di ogni UD e deve essere ripreso in modo esplicito usando [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Quando un aggiornamento sospeso è pronto per essere ripreso dall'utente, lo stato corrispondente sarà *RollforwardPending* (vedere [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
+In modalità *UnmonitoredManual* l'amministratore dell'applicazione ha il controllo completo sull'avanzamento dell'aggiornamento. Questa modalità è utile quando si applicano criteri di valutazione dell'integrità personalizzati o quando si eseguono aggiornamenti non convenzionali per escludere completamente il monitoraggio dello stato (ad esempio, l'applicazione ha già perso dati). Un aggiornamento in esecuzione in questa modalità viene sospeso automaticamente al termine di ogni UD e deve essere ripreso in modo esplicito usando [Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade). Quando un aggiornamento sospeso è pronto per essere ripreso dall'utente, lo stato corrispondente sarà *RollforwardPending* (vedere [UpgradeState](/dotnet/api/system.fabric.applicationupgradestate)).
 
 Infine, la modalità *UnmonitoredAuto* è utile per l'esecuzione di iterazioni di aggiornamento rapide durante lo sviluppo o il test del servizio, poiché non è richiesto alcun input da parte dell'utente e non viene valutato alcun criterio di integrità dell'applicazione.
 
@@ -180,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-A questo punto, aggiornare l'applicazione usando il cmdlet **Start-ServiceFabricApplicationUpgrade** . Questo esempio illustra un aggiornamento monitorato, ma è anche possibile usare un aggiornamento non monitorato. Per una descrizione completa dei flag accettati da questo cmdlet, vedere le informazioni di [riferimento sui moduli di Azure Service Fabric PowerShell](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
+A questo punto, aggiornare l'applicazione usando il cmdlet **Start-ServiceFabricApplicationUpgrade** . Questo esempio illustra un aggiornamento monitorato, ma è anche possibile usare un aggiornamento non monitorato. Per una descrizione completa dei flag accettati da questo cmdlet, vedere le informazioni di [riferimento sui moduli di Azure Service Fabric PowerShell](/powershell/module/servicefabric/start-servicefabricapplicationupgrade#parameters)
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
@@ -205,11 +205,11 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="roll-back-application-upgrades"></a>Eseguire il rollback degli aggiornamenti dell'applicazione
 
-Mentre il roll forward degli aggiornamenti può essere eseguito in tre modalità (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), il rollback può essere eseguito solo in modalità *UnmonitoredAuto* o *UnmonitoredManual*. Il rollback in modalità *UnmonitoredAuto* funziona esattamente come il roll forward, tranne per il fatto che il valore predefinito di *UpgradeReplicaSetCheckTimeout* è diverso. Vedere [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md). Il rollback in modalità *UnmonitoredManual* funziona esattamente come il roll forward. Il rollback viene sospeso automaticamente al termine di ogni UD e, per continuare, deve essere ripreso in modo esplicito usando [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps).
+Mentre il roll forward degli aggiornamenti può essere eseguito in tre modalità (*Monitored*, *UnmonitoredAuto* o *UnmonitoredManual*), il rollback può essere eseguito solo in modalità *UnmonitoredAuto* o *UnmonitoredManual*. Il rollback in modalità *UnmonitoredAuto* funziona esattamente come il roll forward, tranne per il fatto che il valore predefinito di *UpgradeReplicaSetCheckTimeout* è diverso. Vedere [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md). Il rollback in modalità *UnmonitoredManual* funziona esattamente come il roll forward. Il rollback viene sospeso automaticamente al termine di ogni UD e, per continuare, deve essere ripreso in modo esplicito usando [ Resume-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/resume-servicefabricapplicationupgrade).
 
-Le operazioni di rollback possono essere attivate automaticamente quando non vengono rispettati i criteri di integrità di un aggiornamento in modalità *Monitored* con *FailureAction* impostato su *Rollback* (vedere [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md)) oppure in modo esplicito usando [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+Le operazioni di rollback possono essere attivate automaticamente quando non vengono rispettati i criteri di integrità di un aggiornamento in modalità *Monitored* con *FailureAction* impostato su *Rollback* (vedere [Parametri di aggiornamento di un'applicazione](service-fabric-application-upgrade-parameters.md)) oppure in modo esplicito usando [Start-ServiceFabricApplicationRollback](/powershell/module/servicefabric/start-servicefabricapplicationrollback).
 
-Durante il rollback, il valore di *UpgradeReplicaSetCheckTimeout* e la modalità possono essere comunque modificati in qualsiasi momento usando [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
+Durante il rollback, il valore di *UpgradeReplicaSetCheckTimeout* e la modalità possono essere comunque modificati in qualsiasi momento usando [Update-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/update-servicefabricapplicationupgrade).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.

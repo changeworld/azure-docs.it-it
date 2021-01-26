@@ -4,12 +4,12 @@ description: In questo articolo vengono esaminati l'esperienza di distribuzione 
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b038f4a41ee02960a02c4445b65eb2360a75761
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309064"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792032"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ L'aggiornamento di un'applicazione in modalità monitorata può essere eseguito 
 L'aggiornamento in sequenza in modalità monitorata di Service Fabric consente all'amministratore di applicazioni di configurare i criteri di valutazione dell'integrità usati da Service Fabric per determinare se l'applicazione è integra. Inoltre, l'amministratore può configurare l'azione da intraprendere quando la valutazione dell'integrità ha esito negativo, ad esempio eseguendo un rollback automatico. Questa sezione illustra un aggiornamento monitorato per uno degli esempi di SDK che usano PowerShell. 
 
 > [!NOTE]
-> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -49,9 +49,9 @@ Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mo
 > 
 > 
 
-Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
+Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
-È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando `http://localhost:8081/visualobjects` nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
+È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando `http://localhost:8081/visualobjects` nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) per verificare lo stato dell'applicazione.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare che con la versione distribuita al passaggio 1 gli oggetti visivi non ruotano. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.
@@ -77,7 +77,7 @@ A questo punto il file *ApplicationManifest.xml*, disponibile nel progetto **Vis
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-A questo punto compilare il progetto selezionando solo il progetto **ActorService** e quindi facendo clic con il pulsante destro del mouse e scegliendo l'opzione **Compila** in Visual Studio. Se si seleziona **Ricompila tutto**, è necessario aggiornare le versioni per tutti i progetti, poiché il codice è stato modificato. È quindi possibile aggiungere l'applicazione aggiornata al pacchetto facendo clic con il pulsante destro del mouse sul progetto ***VisualObjectsApplication***, scegliendo il menu Service Fabric e quindi **Pacchetto**. In questo modo viene creato un pacchetto dell'applicazione che può essere distribuito.  L'applicazione aggiornata è pronta per essere distribuita.
+A questo punto compilare il progetto selezionando solo il progetto **ActorService** e quindi facendo clic con il pulsante destro del mouse e scegliendo l'opzione **Compila** in Visual Studio. Se si seleziona **Ricompila tutto**, è necessario aggiornare le versioni per tutti i progetti, poiché il codice è stato modificato. Successivamente, creare il pacchetto dell'applicazione aggiornata facendo clic con il pulsante destro del mouse su **_VisualObjectsApplication_*_, selezionando il menu Service Fabric e scegliendo _* pacchetto**. In questo modo viene creato un pacchetto dell'applicazione che può essere distribuito.  L'applicazione aggiornata è pronta per essere distribuita.
 
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passaggio 3: Scegliere i criteri di integrità e i parametri di aggiornamento
 È consigliabile acquisire familiarità con i [parametri di aggiornamento dell'applicazione](service-fabric-application-upgrade-parameters.md) e con il [processo di aggiornamento](service-fabric-application-upgrade.md) per conoscere i diversi parametri di aggiornamento, valori di timeout e criteri di integrità applicati. Per questa procedura dettagliata i criteri predefiniti di valutazione dell'integrità dei servizi sono impostati con i valori consigliati, quindi tutti i servizi e tutte le istanze saranno *integri* dopo l'aggiornamento.  
@@ -95,7 +95,7 @@ UpgradeDomainTimeoutSec = 1200
 UpgradeTimeout = 3000
 
 ## <a name="step-4-prepare-application-for-upgrade"></a>Passaggio 4: preparare l'applicazione per l'aggiornamento
-L'applicazione ora è compilata e pronta per l'aggiornamento. Se si apre una finestra di PowerShell come amministratore e si digita [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), verrà indicato che è stato distribuito il tipo di applicazione 1.0.0.0 di **VisualObject**.  
+L'applicazione ora è compilata e pronta per l'aggiornamento. Se si apre una finestra di PowerShell come amministratore e si digita [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication), verrà indicato che è stato distribuito il tipo di applicazione 1.0.0.0 di **VisualObject**.  
 
 Il pacchetto applicazione è archiviato nel percorso relativo seguente, dove è stato decompresso Service Fabric SDK - *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. In questa directory deve essere disponibile una cartella "Package", dove è archiviato il pacchetto dell'applicazione. Controllare i timestamp per assicurarsi che si tratti dell'ultima build. Potrebbe essere anche necessario modificare i percorsi in base alle esigenze.
 
@@ -105,7 +105,7 @@ Copiare ora il pacchetto applicazione aggiornato in ImageStore di Service Fabric
 Copy-ServiceFabricApplicationPackage -ApplicationPackagePath .\Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug\Package -ApplicationPackagePathInImageStore "VisualObjects\_V2"
 ```
 
-Il passaggio successivo consiste nel registrare l'applicazione con Service Fabric, operazione che può essere eseguita usando il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps):
+Il passaggio successivo consiste nel registrare l'applicazione con Service Fabric, operazione che può essere eseguita usando il comando [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype):
 
 ```powershell
 Register-ServiceFabricApplicationType -ApplicationPathInImageStore "VisualObjects\_V2"
@@ -120,7 +120,7 @@ Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "Visu
 ```
 
 ## <a name="step-5-start-the-application-upgrade"></a>Passaggio 5: avviare l'aggiornamento dell'applicazione
-Ora è tutto pronto per avviare l'aggiornamento dell'applicazione usando il comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps):
+Ora è tutto pronto per avviare l'aggiornamento dell'applicazione usando il comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade):
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -ApplicationTypeVersion 2.0.0.0 -HealthCheckStableDurationSec 60 -UpgradeDomainTimeoutSec 1200 -UpgradeTimeout 3000   -FailureAction Rollback -Monitored
@@ -129,7 +129,7 @@ Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/VisualObjects -Ap
 
 Il nome dell'applicazione è lo stesso descritto nel file *ApplicationManifest.xml* . Service Fabric usa questo nome per identificare l'applicazione che viene aggiornata. Se si imposta un valore di timeout troppo breve, è possibile che venga visualizzato un messaggio di errore che indica il problema. Vedere la sezione relativa alla risoluzione dei problemi o aumentare i valori di timeout.
 
-Man mano che l'aggiornamento dell'applicazione procede, è possibile monitorarlo con Service Fabric Explorer oppure con il comando di PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps): 
+Man mano che l'aggiornamento dell'applicazione procede, è possibile monitorarlo con Service Fabric Explorer oppure con il comando di PowerShell [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade): 
 
 ```powershell
 Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
