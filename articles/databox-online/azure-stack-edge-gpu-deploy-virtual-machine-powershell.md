@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/23/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 32685207f8d6e81d03c90d01b186337ce79f843a
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 1d286e7661fa14dd63bd55b133c39414e04decc6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763825"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802981"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge Pro tramite Azure PowerShell
 
-Questo articolo descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando Azure PowerShell. Questo articolo si applica ai dispositivi Azure Stack GPU Pro Edge, Azure Stack Edge Pro R e Azure Stack Edge Mini R.
+Questo articolo descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando Azure PowerShell. Questo articolo si applica a Azure Stack GPU Pro Edge, Azure Stack Edge Pro R e a dispositivi Mini R Azure Stack Edge.
 
 ## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
@@ -32,7 +32,7 @@ Il flusso di lavoro di distribuzione è illustrato nel diagramma seguente.
 
 ## <a name="query-for-built-in-subscription-on-the-device"></a>Eseguire una query per la sottoscrizione incorporata nel dispositivo
 
-Per Azure Resource Manager, è supportata una sola sottoscrizione fissa visibile per l'utente. Questa sottoscrizione è univoca per ogni dispositivo e il nome della sottoscrizione o l'ID sottoscrizione non può essere modificato.
+Per Azure Resource Manager, è supportata una sola sottoscrizione fissa visibile per l'utente. Questa sottoscrizione è univoca per ogni dispositivo e non è possibile modificare il nome della sottoscrizione o l'ID sottoscrizione.
 
 Questa sottoscrizione contiene tutte le risorse create per la creazione di macchine virtuali. 
 
@@ -118,7 +118,7 @@ Successfully created Resource Group:rg191113014333
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione usando il gruppo di risorse creato nel passaggio precedente. Si tratta di un **account di archiviazione locale** che verrà usato per caricare l'immagine del disco virtuale per la VM.
+Creare un nuovo account di archiviazione usando il gruppo di risorse creato nel passaggio precedente. Questo account è un **account di archiviazione locale** che verrà usato per caricare l'immagine del disco virtuale per la VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -177,7 +177,7 @@ key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 
 ## <a name="add-blob-uri-to-hosts-file"></a>Aggiungere l'URI del BLOB al file hosts
 
-È già stato aggiunto l'URI del BLOB nel file hosts per il client usato per connettersi all'archiviazione BLOB nella sezione [modificare il file host per la risoluzione dei nomi di endpoint](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Questa è la voce per l'URI del BLOB:
+È già stato aggiunto l'URI del BLOB nel file degli host per il client usato per connettersi all'archiviazione BLOB nella sezione modificare il [file host per la risoluzione dei nomi di endpoint](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Questa voce è stata usata per aggiungere l'URI del BLOB:
 
 \<Azure consistent network services VIP \>\<storage name\>. blob. \<appliance name\> .\<dnsdomain\>
 
@@ -256,7 +256,7 @@ $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –S
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
 ```
 
-Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0).
+Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmDisk](/powershell/module/azurerm.compute/new-azurermdisk?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 Tags               :
@@ -296,7 +296,7 @@ Set-AzureRmImageOsDisk -Image $imageConfig -OsType 'Linux' -OsState 'Generalized
 New-AzureRmImage -Image $imageConfig -ImageName <Image name>  -ResourceGroupName <Resource group name>
 ```
 
-Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0).
+Di seguito è riportato un output di esempio. Per ulteriori informazioni su questo cmdlet, vedere [New-AzureRmImage](/powershell/module/azurerm.compute/new-azurermimage?view=azurermps-6.13.0&preserve-view=true).
 
 ```powershell
 New-AzureRmImage -Image Microsoft.Azure.Commands.Compute.Automation.Models.PSImage -ImageName ig191113014333  -ResourceGroupName rg191113014333
@@ -319,8 +319,8 @@ Tags                 : {}
 > [!IMPORTANT]
 > Quando si crea una rete virtuale e un'interfaccia di rete virtuale, si applicano le regole seguenti:
 > - È possibile creare solo un VNET (anche tra gruppi di risorse), che deve corrispondere esattamente alla rete logica in termini di spazio degli indirizzi.
-> -   In VNET sarà consentita una sola subnet. La subnet deve corrispondere esattamente allo stesso spazio di indirizzi del vnet.
-> -   Durante la creazione del vNIC sarà consentito solo il metodo di allocazione statica e l'utente dovrà specificare un indirizzo IP privato.
+> - In VNET sarà consentita una sola subnet. La subnet deve corrispondere esattamente allo stesso spazio di indirizzi del vnet.
+> - Durante la creazione del vNIC sarà consentito solo il metodo di allocazione statica e l'utente dovrà specificare un indirizzo IP privato.
 
  
 **Eseguire una query sul VNET creato automaticamente**
@@ -498,7 +498,7 @@ Eseguire il cmdlet seguente per attivare una macchina virtuale in esecuzione nel
 `Start-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>`
 
 
-Per ulteriori informazioni su questo cmdlet, vedere [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="suspend-or-shut-down-the-vm"></a>Sospendere o arrestare la VM
 
@@ -510,7 +510,7 @@ Stop-AzureRmVM [-Name] <String> [-StayProvisioned] [-ResourceGroupName] <String>
 ```
 
 
-Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 ### <a name="add-a-data-disk"></a>Aggiungere un disco dati
 
@@ -530,10 +530,10 @@ Eseguire il cmdlet seguente per rimuovere una macchina virtuale dal dispositivo:
 Remove-AzureRmVM [-Name] <String> [-ResourceGroupName] <String>
 ```
 
-Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0).
+Per ulteriori informazioni su questo cmdlet, vedere il [cmdlet Remove-AzureRmVm](/powershell/module/azurerm.compute/remove-azurermvm?view=azurermps-6.13.0&preserve-view=true).
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: dbe6ce95427b559c037e38525f9f48195a2a76a4
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703420"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806653"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -70,7 +70,7 @@ Nel caso di un insieme di credenziali [GRS](azure-backup-glossary.md#grs) senza 
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Dove sono reperibili le domande comuni sull'agente di Backup di Azure per il backup della macchina virtuale di Azure?
 
-- Per l'agente in esecuzione sulle macchine virtuali di Azure, leggere queste [domande frequenti](backup-azure-vm-backup-faq.md).
+- Per l'agente in esecuzione sulle macchine virtuali di Azure, leggere queste [domande frequenti](backup-azure-vm-backup-faq.yml).
 - Per l'agente usato per eseguire il backup delle cartelle di file di Azure, leggere queste [domande frequenti](backup-azure-file-folder-backup-faq.md).
 
 ## <a name="general-backup"></a>Backup generale
@@ -236,5 +236,5 @@ La chiave usata per crittografare i dati di backup è presente solo sul posto. M
 
 Leggere le altre domande frequenti:
 
-- [Domande comuni](backup-azure-vm-backup-faq.md) sul backup della macchina virtuale di Azure.
+- [Domande comuni](backup-azure-vm-backup-faq.yml) sul backup della macchina virtuale di Azure.
 - [Domande comuni](backup-azure-file-folder-backup-faq.md) sull'agente di Backup di Azure

@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/25/2021
-ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789973"
+ms.locfileid: "98806083"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in Istanza gestita di SQL
 
@@ -125,7 +125,7 @@ Lo stato dell'operazione può essere rilevato tramite la revisione delle rispost
 
 ## <a name="monitor-the-failover"></a>Monitorare il failover
 
-Per monitorare lo stato del failover manuale avviato dall'utente, eseguire la query T-SQL seguente nel client preferito, ad esempio SSMS, in SQL Istanza gestita. Verrà letta la vista di sistema sys.dm_hadr_fabric_replica_states e le repliche di report disponibili nell'istanza. Aggiornare la stessa query dopo l'avvio del failover manuale.
+Per monitorare lo stato di failover avviato dall'utente per l'istanza di BC, eseguire la query T-SQL seguente nel client preferito, ad esempio SSMS, in SQL Istanza gestita. Verrà letta la vista di sistema sys.dm_hadr_fabric_replica_states e le repliche di report disponibili nell'istanza. Aggiornare la stessa query dopo l'avvio del failover manuale.
 
 ```T-SQL
 SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_hadr_fabric_replica_states
@@ -133,7 +133,13 @@ SELECT DISTINCT replication_endpoint_url, fabric_replica_role_desc FROM sys.dm_h
 
 Prima di avviare il failover, l'output indicherà la replica primaria corrente nel livello di servizio BC contenente uno primario e tre database secondari nel gruppo di disponibilità AlwaysOn. Al momento dell'esecuzione di un failover, è necessario che l'esecuzione di questa query indichi una modifica del nodo primario.
 
-Non sarà possibile visualizzare lo stesso output con il livello di servizio di GP come quello riportato sopra per BC. Questo perché il livello di servizio di GP si basa su un solo nodo. L'output di query T-SQL per il livello di servizio di GP mostrerà un solo nodo prima e dopo il failover. La perdita di connettività dal client durante il failover, che in genere dura meno di un minuto, sarà l'indicazione dell'esecuzione del failover.
+Non sarà possibile visualizzare lo stesso output con il livello di servizio di GP come quello riportato sopra per BC. Questo perché il livello di servizio di GP si basa su un solo nodo. È possibile usare una query T-SQL alternativa che mostra l'ora in cui è stato avviato il processo SQL nel nodo per l'istanza del livello di servizio di GP:
+
+```T-SQL
+SELECT sqlserver_start_time, sqlserver_start_time_ms_ticks FROM sys.dm_os_sys_info
+```
+
+La breve perdita di connettività dal client durante il failover, che in genere dura meno di un minuto, sarà l'indicazione dell'esecuzione del failover indipendentemente dal livello di servizio.
 
 > [!NOTE]
 > Il completamento del processo di failover (non la mancata disponibilità effettiva) potrebbe richiedere diversi minuti alla volta in caso di carichi di lavoro **ad alta intensità** . Questo perché il motore dell'istanza sta occupando tutte le transazioni correnti nel database primario e viene aggiornato sul nodo secondario, prima di poter eseguire il failover.

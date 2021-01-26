@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/20/2021
 ms.author: yelevin
-ms.openlocfilehash: 409a316bd9c4222dd9b8ff30e42e37d23805c38b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eb89d2a4e719e34ad5ea31656dc9e3c02472b07d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757763"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802262"
 ---
 # <a name="connect-data-from-azure-active-directory-azure-ad"></a>Connettere i dati da Azure Active Directory (Azure AD)
 
@@ -28,7 +28,7 @@ ms.locfileid: "98757763"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Eventuali licenze Azure AD (free/O365/P1/P2) sono sufficienti per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
+- È necessario avere una sottoscrizione di [Azure ad Premium P2](https://azure.microsoft.com/pricing/details/active-directory/) per inserire i log di accesso in Sentinel di Azure. Potrebbero essere applicati addebiti aggiuntivi per Gigabyte per monitoraggio di Azure (Log Analytics) e Sentinel di Azure.
 
 - All'utente deve essere assegnato il ruolo Collaboratore sentinella di Azure nell'area di lavoro.
 
@@ -46,10 +46,6 @@ ms.locfileid: "98757763"
 
     - **Log di accesso**: informazioni sull'uso delle applicazioni gestite e delle attività di accesso degli utenti.
     - **Log di controllo**: informazioni relative alle attività di sistema sulla gestione di utenti e gruppi, sulle applicazioni gestite e sulle attività di directory.
-    - **Log di accesso utente non interattivo**: informazioni sugli accessi eseguiti da un client per conto di un utente, che non richiedono alcuna interazione o fattore di autenticazione da parte dell'utente.
-    - **Log di accesso dell'entità servizio**: informazioni sugli accessi in base alle app e alle entità servizio che non coinvolgono alcun utente. In questi accessi l'app o il servizio fornisce una credenziale per il proprio conto per l'autenticazione o l'accesso alle risorse.
-    - **Log di accesso dell'identità gestita**: accessi in base alle risorse di Azure con segreti gestiti da Azure.
-    - **Log di provisioning**: informazioni sulle attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning dal servizio di provisioning di Azure ad.
 
 ## <a name="find-your-data"></a>Trovare i dati
 
@@ -57,10 +53,6 @@ Una volta stabilita la connessione, i dati vengono visualizzati nei **log**, nel
 
 - `SigninLogs`
 - `AuditLogs`
-- `AADNonInteractiveUserSignInLogs`
-- `AADServicePrincipalSignInLogs`
-- `AADManagedIdentitySignInLogs`
-- `AADProvisioningLogs`
 
 Per eseguire una query sui log di Azure AD, immettere il nome della tabella pertinente nella parte superiore della finestra della query.
 

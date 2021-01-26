@@ -3,12 +3,12 @@ title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 20de08ee30deae74954f2857b4de756b8cf46f08
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: baef641a741d12185029436e5a74039427c69f68
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802909"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -402,7 +402,7 @@ Per altre informazioni, vedere [dimensioni delle macchine virtuali](../../virtua
 
 #### <a name="disk-encryption-sets"></a>Set di crittografia del disco
 
-Esiste una limitazione di 50 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
+Esiste una limitazione di 1000 set di crittografia del disco per area, per sottoscrizione. Per ulteriori informazioni, vedere la documentazione sulla crittografia per le macchine virtuali [Linux](../../virtual-machines/disk-encryption.md#restrictions) o [Windows](../../virtual-machines/disk-encryption.md#restrictions) . Se è necessario aumentare la quota, contattare il supporto tecnico di Azure.
 
 ### <a name="managed-virtual-machine-disks"></a>Dischi delle macchine virtuali gestiti
 
@@ -446,7 +446,7 @@ Sono previsti limiti, per sottoscrizione, per la distribuzione delle risorse tra
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

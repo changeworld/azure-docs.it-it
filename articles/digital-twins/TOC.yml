@@ -264,7 +264,7 @@
         - name: Azure Cloud Shell
           href: 'https://shell.azure.com'
         - name: Azure PowerShell
-          href: /powershell/module/az.iothub#iot
+          href: /powershell/azure/
         - name: Portale di Azure
           href: 'https://portal.azure.com'
     - name: Documentazione del controllo degli accessi in base al ruolo di Azure

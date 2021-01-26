@@ -3,12 +3,12 @@ title: Informazioni sul processo di ripristino della macchina virtuale di Azure
 description: Informazioni su come il servizio backup di Azure Ripristina le macchine virtuali di Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f42266e64170b314f10fbfc026873d694ea58b9a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757729"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806838"
 ---
 # <a name="about-azure-vm-restore"></a>Informazioni sul ripristino di VM di Azure
 
@@ -50,6 +50,6 @@ Questo articolo descrive il modo in cui il [servizio backup di Azure](./backup-o
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Domande frequenti sul ripristino delle macchine virtuali](./backup-azure-vm-backup-faq.md#restore)
+- [Domande frequenti sul ripristino delle macchine virtuali](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Metodi di ripristino supportati](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Risolvere i problemi di ripristino](./backup-azure-vms-troubleshoot.md#restore)

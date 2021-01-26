@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione BLOB di Azure v12 - Xamarin'
-description: Questo argomento di avvio rapido illustra come usare la libreria client di Archiviazione BLOB di Azure versione 12 con Xamarin per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel dispositivo mobile e come elencare tutti i BLOB di un contenitore.
+title: 'Guida introduttiva: libreria di archiviazione BLOB di Azure V12-Novell'
+description: Questa Guida introduttiva illustra come usare la libreria client di archiviazione BLOB di Azure versione 12 con Novell per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel dispositivo mobile e come elencare tutti i BLOB di un contenitore.
 author: codemillmatt
 ms.author: masoucou
 ms.date: 10/09/2020
@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 641117414c855a044d3ed55004b6e6ea15b259ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
-ms.translationtype: HT
+ms.openlocfilehash: dab938a526aa89f6fe5a014e10869bd8da8b475d
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004739"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802357"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 con Xamarin
+# <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Guida introduttiva: libreria client di archiviazione BLOB di Azure V12 con Novell
 
-Introduzione alla libreria client di Archiviazione BLOB di Azure v12 con Xamarin. L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
+Introduzione alla libreria client di archiviazione BLOB di Azure V12 con Novell. Archiviazione BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. L'archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati.
 
-Usare la libreria client di Archiviazione BLOB di Azure v12 con Xamarin per:
+Usare la libreria client di archiviazione BLOB di Azure V12 con Novell per:
 
 * Creare un contenitore
 * Caricare un oggetto BLOB in Archiviazione di Azure
@@ -44,7 +44,7 @@ Collegamenti di riferimento:
 
 ## <a name="setting-up"></a>Configurazione
     
-Questa sezione illustra come preparare un progetto da usare con la libreria client di Archiviazione BLOB di Azure v12 con Xamarin.
+Questa sezione illustra la preparazione di un progetto per l'uso con la libreria client di archiviazione BLOB di Azure V12 con Novell.
     
 ### <a name="create-the-project"></a>Creare il progetto
 
@@ -80,7 +80,7 @@ Dalla directory **BlobQuickstartV12**:
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
+Il servizio Archiviazione BLOB di Azure è ottimizzato per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
 
 * L'account di archiviazione
 * Un contenitore nell'account di archiviazione
@@ -99,7 +99,7 @@ Per interagire con queste risorse, usare le classi .NET seguenti:
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le attività seguenti con la libreria client di Archiviazione BLOB di Azure per .NET in un'app Xamarin.Forms:
+Questi frammenti di codice di esempio illustrano come eseguire le attività seguenti con la libreria client di archiviazione BLOB di Azure per .NET in un'app Novell. Forms:
 
 * [Creare variabili a livello di classe](#create-class-level-variables)
 * [Creare un contenitore](#create-a-container)
@@ -110,7 +110,7 @@ Questi frammenti di codice di esempio illustrano come eseguire le attività segu
 
 ### <a name="create-class-level-variables"></a>Creare variabili a livello di classe
 
-Il codice seguente dichiara diverse variabili a livello di classe. Sono necessarie per comunicare con Archiviazione BLOB di Azure nel resto di questo esempio.
+Il codice seguente dichiara diverse variabili a livello di classe. Sono necessari per comunicare con l'archiviazione BLOB di Azure nel resto di questo esempio.
 
 Si aggiungono alla stringa di connessione per l'account di archiviazione impostata nella sezione [Configurare la stringa di connessione per l'account di archiviazione](#configure-your-storage-connection-string).
 
@@ -269,12 +269,12 @@ Dopo aver verificato i valori, confermare la richiesta di eliminazione del conte
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido si è appreso come caricare, scaricare ed elencare BLOB usando la libreria client di Archiviazione BLOB di Azure v12 con Xamarin.
+In questa Guida introduttiva si è appreso come caricare, scaricare ed elencare BLOB usando la libreria client di archiviazione BLOB di Azure V12 con Novell.
 
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempio dell'SDK di Archiviazione BLOB di Azure v12 per Xamarin](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
+> [Esempio Novell di Azure BLOB Storage SDK V12](https://github.com/Azure-Samples/storage-blobs-xamarin-quickstart)
 
 * Per esercitazioni, esempi, guide di avvio rapido e altra documentazione, vedere [Azure per sviluppatori di app per dispositivi mobili](/azure/mobile-apps).
 * Per altre informazioni su Xamarin, vedere l'[introduzione a Xamarin](/xamarin/get-started/).

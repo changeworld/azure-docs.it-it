@@ -4,12 +4,12 @@ description: Impedire agli utenti di aggiornare o eliminare le risorse di Azure 
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 53054f89c992139fbbd4f087d2a0344e26d97efc
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0e8fc74b2da0c253ec9c5bf34ec7543398aea48f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610200"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98802437"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -38,7 +38,7 @@ L'applicazione di blocchi può causare risultati imprevisti perché alcune opera
 
 * Un blocco non può essere eliminato in un **gruppo di risorse** impedisce a Azure Resource Manager di [eliminare automaticamente le distribuzioni](../templates/deployment-history-deletions.md) nella cronologia. Se si raggiungono 800 distribuzioni nella cronologia, le distribuzioni avranno esito negativo.
 
-* Un blocco cannot-delete applicato al **​​gruppo di risorse** creato dal **servizio Backup di Azure** causa l'esito negativo dei backup. Il servizio supporta un massimo di 18 punti di ripristino. Quando è bloccato, il servizio di backup non riesce a eseguire la pulizia dei punti di ripristino. Per altre informazioni, vedere [Domande frequenti-Eseguire il backup delle VM di Azure](../../backup/backup-azure-vm-backup-faq.md).
+* Un blocco cannot-delete applicato al **​​gruppo di risorse** creato dal **servizio Backup di Azure** causa l'esito negativo dei backup. Il servizio supporta un massimo di 18 punti di ripristino. Quando è bloccato, il servizio di backup non riesce a eseguire la pulizia dei punti di ripristino. Per altre informazioni, vedere [Domande frequenti-Eseguire il backup delle VM di Azure](../../backup/backup-azure-vm-backup-faq.yml).
 
 * Un blocco di sola lettura applicato a una **sottoscrizione** impedisce ad **Azure Advisor** di funzionare correttamente. Advisor non riesce ad archiviare i risultati delle relative query.
 
