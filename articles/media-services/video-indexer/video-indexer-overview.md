@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: 6b5a228c12cfc874673dda854de6d4dcc25f28c1
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014536"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783802"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Informazioni su Video Indexer di Servizi multimediali di Azure
 
@@ -115,6 +115,21 @@ Quando si esegue l'indicizzazione in base a un canale, sarà disponibile il risu
     Per altre informazioni, vedere  [Incorporare widget visivi nell'applicazione](video-indexer-embed-widgets.md).
 
 Se si usa il sito Web, le informazioni dettagliate vengono aggiunte come metadati e sono visibili nel portale. Se si usano le API, le informazioni dettagliate sono disponibili come file JSON.
+
+## <a name="supported-browsers"></a>Browser supportati
+
+L'elenco seguente mostra i browser supportati che è possibile usare per il sito Web di Video Indexer e per le app che incorporano i widget. L'elenco Mostra anche la versione minima supportata del browser:
+
+- Edge, versione: 16
+- Firefox, versione: 54
+- Chrome, versione: 58
+- Safari, versione: 11
+- Opera, versione: 44
+- Opera Mobile, versione: 59
+- Browser Android, versione: 81
+- Browser Samsung, versione: 7
+- Chrome per Android, versione: 87
+- Firefox per Android, versione: 83
 
 ## <a name="next-steps"></a>Passaggi successivi
 

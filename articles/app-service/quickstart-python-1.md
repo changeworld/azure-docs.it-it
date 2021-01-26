@@ -6,18 +6,16 @@ ms.date: 09/22/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 robots: noindex
-ms.openlocfilehash: ed2bd3f3bab81f6be56508a203600ec479cc20b6
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: ea320938f3e4f3b2d257947f605bb3b3f6f0886a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134484"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786209"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
 In questa esercitazione dell'avvio rapido si distribuirà una semplice app Web Python nel [Servizio app in Linux](overview.md#app-service-on-linux), il servizio di hosting Web con scalabilità elevata e applicazione automatica di patch. Si usa l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) locale in computer Mac, Linux o Windows per distribuire un esempio con il framework Flask o Django. L'app Web configurata usa un livello di servizio app Gratuito, affinché l'esecuzione delle procedure in questo articolo non comporti l'addebito di costi.
-
-Per le **definizioni dei termini comuni**, vedere [Terminologia di Azure in breve](/azure/developer/python/cloud-azure-terminology?toc=/azure/app-service/toc.json).
 
 > [!TIP]
 > Se si preferisce distribuire le app tramite un IDE, vedere **[Distribuire app Python nel servizio app da Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)** .

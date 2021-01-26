@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41cfff11e44a3d052614aa3c81a4623f59bbbbf5
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095288"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784681"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Pianificazione della capacità e scalabilità per Azure Service Fabric
 
@@ -42,7 +42,7 @@ Con il ridimensionamento automatico tramite i set di scalabilità di macchine vi
 
 ## <a name="vertical-scaling-considerations"></a>Considerazioni sul ridimensionamento verticale
 
-Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Esempio:
+Il [ridimensionamento verticale](./virtual-machine-scale-set-scale-node-type-scale-out.md) di un tipo di nodo in Azure Service Fabric richiede una serie di passaggi e considerazioni. Ad esempio:
 
 * Prima del ridimensionamento, il cluster deve essere integro, In caso contrario, sarà necessario destabilizzare ulteriormente il cluster.
 * Il livello di durabilità Silver o un valore superiore è necessario per tutti i tipi di nodo del cluster Service Fabric che ospitano i servizi con stato.
@@ -117,7 +117,7 @@ Per applicare la scalabilità manuale, aggiornare la capacità nella proprietà 
 }
 ```
 
-È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Esempio:
+È necessario preparare il nodo per la scalabilità a livello di codice. Trovare il nodo da rimuovere (il nodo di istanza più elevato). Ad esempio:
 
 ```csharp
 using (var client = new FabricClient())
@@ -160,8 +160,8 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
 
 > [!NOTE]
-> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). È possibile scegliere:
-> * Chiamare il [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps&preserve-view=true) con il nome del nodo appropriato.
+> Quando si esegue la scalabilità in un cluster, l'istanza di nodo/VM rimossa verrà visualizzata in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti che è possibile osservare in Service Fabric Explorer](./service-fabric-cluster-scale-in-out.md#behaviors-you-may-observe-in-service-fabric-explorer). È possibile:
+> * Chiamare il [comando Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate) con il nome del nodo appropriato.
 > * Distribuire il [Service Fabric applicazione di supporto per la scalabilità](https://github.com/Azure/service-fabric-autoscale-helper/) automatica nel cluster. Questa applicazione garantisce che i nodi con scalabilità orizzontale vengano cancellati dal Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Livelli di affidabilità

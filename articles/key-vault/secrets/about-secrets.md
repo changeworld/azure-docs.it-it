@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ded48fe8f04d2cdba40650974fd5002d659e381
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
-ms.translationtype: HT
+ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705269"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786040"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Informazioni sui segreti di Azure Key Vault
 
@@ -84,7 +84,7 @@ Guide pratiche per il controllo dell'accesso in Key Vault:
 
 ## <a name="azure-storage-account-key-management"></a>Gestione delle chiavi dell'account di archiviazione di Azure
 
-Key Vault può gestire le chiavi dell'[account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview):
+Key Vault può gestire le chiavi dell'[account di archiviazione di Azure](../../storage/common/storage-account-overview.md):
 
 - Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure. 
 - Key Vault rigenera (ruota) le chiavi con cadenza periodica.
@@ -92,7 +92,7 @@ Key Vault può gestire le chiavi dell'[account di archiviazione di Azure](https:
 - Key Vault gestisce le chiavi sia degli account di archiviazione sia degli account di archiviazione classici.
 
 Per altre informazioni, vedere:
-- [Chiavi di accesso dell'account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md)
 - [Gestione delle chiavi dell'account di archiviazione in Azure Key Vault](../secrets/overview-storage-keys.md))
 
 

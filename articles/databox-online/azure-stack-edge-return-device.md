@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903663"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784478"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Restituire il dispositivo Pro Azure Stack Edge
 
@@ -59,7 +59,7 @@ In alternativa, connettersi all'interfaccia di PowerShell del dispositivo e usar
 
 Per iniziare il processo di restituzione, seguire questa procedura.
 
-1. Passare alla risorsa Pro/Data Box Gateway di Azure Stack Edge in portale di Azure. Nella **Panoramica**passare alla barra dei comandi nel riquadro di destra e selezionare **return Device**. 
+1. Passare alla risorsa Pro/Data Box Gateway di Azure Stack Edge in portale di Azure. Nella **Panoramica** passare alla barra dei comandi nel riquadro di destra e selezionare **return Device**. 
 
     ![Restituisci dispositivo 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -101,7 +101,7 @@ Per iniziare il processo di restituzione, seguire questa procedura.
 Per pianificare un prelievo, seguire questa procedura.
 
 1. Arrestare il dispositivo. Nell'interfaccia utente Web locale passare a **Manutenzione > Power settings** (Impostazioni di alimentazione).
-2. Selezionare **Arresta**. Quando viene chiesta conferma, fare clic su **Sì** per continuare. Per altre informazioni, vedere [Gestire l'avvio/arresto](data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
+2. Selezionare **Arresta**. Quando viene chiesta conferma, fare clic su **Sì** per continuare. Per altre informazioni, vedere [Gestire l'avvio/arresto](../databox-gateway/data-box-gateway-manage-access-power-connectivity-mode.md#manage-power).
 3. Scollegare i cavi di alimentazione e rimuovere tutti i cavi di rete dal dispositivo.
 4. Preparare l'imballaggio di spedizione usando la propria scatola o la scatola vuota ricevuta da Azure. Collocare nella scatola il dispositivo e i cavi di alimentazione in dotazione con il dispositivo.
 5. Applicare l'etichetta di spedizione ricevuta da Azure sull'imballaggio.

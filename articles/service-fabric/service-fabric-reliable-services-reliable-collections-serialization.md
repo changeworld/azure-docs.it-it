@@ -4,12 +4,12 @@ description: Informazioni sulla serializzazione degli oggetti di Azure Service F
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1d29f5d3391bdea0b21997a392d4d2e053b7ec65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018621"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784360"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Serializzazione di un oggetto Reliable Collections in Azure Service Fabric
 Le raccolte Reliable Collections replicano e mantengono i propri elementi per garantirne la persistenza anche in caso di errori del computer o interruzioni dell'alimentazione.
@@ -20,7 +20,7 @@ Reliable State Manager contiene serializzatori predefiniti e consente la registr
 
 ## <a name="built-in-serializers"></a>Serializzatori predefiniti
 
-Reliable State Manager include serializzatori predefiniti per alcuni tipi comuni, così da consentirne una serializzazione efficiente per impostazione predefinita. Per altri tipi, Reliable State Manager esegue il fallback per l'uso di [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer?view=netcore-3.1).
+Reliable State Manager include serializzatori predefiniti per alcuni tipi comuni, così da consentirne una serializzazione efficiente per impostazione predefinita. Per altri tipi, Reliable State Manager esegue il fallback per l'uso di [DataContractSerializer](/dotnet/api/system.runtime.serialization.datacontractserializer).
 I serializzatori predefiniti risultano più efficienti perché sanno che i loro tipi non possono essere modificati e non hanno bisogno di includere informazioni sul tipo quali il nome.
 
 Reliable State Manager dispone di un serializzatore predefinito per i tipi seguenti: 
@@ -140,7 +140,7 @@ In questo modo ogni versione può leggere tutto quanto è in grado di leggere, s
 
 ## <a name="next-steps"></a>Passaggi successivi
   * [Serializzazione e aggiornamento](service-fabric-application-upgrade-data-serialization.md)
-  * [Guida di riferimento per gli sviluppatori per Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Guida di riferimento per gli sviluppatori per Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   * [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
   * L' [aggiornamento dell'applicazione tramite PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) illustra l'aggiornamento di un'applicazione tramite PowerShell.
   * Controllare il modo in cui l'applicazione viene aggiornata usando i [parametri di aggiornamento](service-fabric-application-upgrade-parameters.md).

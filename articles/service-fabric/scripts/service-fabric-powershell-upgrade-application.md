@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 1b04a0c4d2865cf72d9fbccb51f0f083872ea799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 7b55dc6a400f936ac23b233e4c84a6b1aebf45cb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87037883"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784698"
 ---
 # <a name="upgrade-a-service-fabric-application"></a>Aggiornare un'applicazione di Service Fabric
 
@@ -37,18 +37,18 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) | Ottiene tutte le applicazioni del cluster di Service Fabric o un'applicazione specifica.  |
-| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade?view=azureservicefabricps) | Ottiene lo stato dell'aggiornamento di un'applicazione di Service Fabric. |
-| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype?view=azureservicefabricps) | Ottiene i tipi di applicazioni di Service Fabric registrate nel cluster di Service Fabric. |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Annulla la registrazione del tipo di applicazione di Service Fabric.  |
-| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia il pacchetto dell'applicazione di Service Fabric nell'archivio immagini.  |
-| [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps) | Registra un tipo di applicazione di Service Fabric. |
-| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) | Aggiorna un'applicazione di Service Fabric alla versione del tipo di applicazione specificata. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Rimuove il pacchetto dell'applicazione di Service Fabric dall'archivio immagini.|
+| [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication) | Ottiene tutte le applicazioni del cluster di Service Fabric o un'applicazione specifica.  |
+| [Get-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/get-servicefabricapplicationupgrade) | Ottiene lo stato dell'aggiornamento di un'applicazione di Service Fabric. |
+| [Get-ServiceFabricApplicationType](/powershell/module/servicefabric/get-servicefabricapplicationtype) | Ottiene i tipi di applicazioni di Service Fabric registrate nel cluster di Service Fabric. |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype) | Annulla la registrazione del tipo di applicazione di Service Fabric.  |
+| [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) | Copia il pacchetto dell'applicazione di Service Fabric nell'archivio immagini.  |
+| [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) | Registra un tipo di applicazione di Service Fabric. |
+| [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade) | Aggiorna un'applicazione di Service Fabric alla versione del tipo di applicazione specificata. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage) | Rimuove il pacchetto dell'applicazione di Service Fabric dall'archivio immagini.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview?view=azureservicefabricps).
+Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview).
 
 Altri esempi di PowerShell per Azure Service Fabric sono disponibili in [Esempi di Azure PowerShell](../service-fabric-powershell-samples.md).

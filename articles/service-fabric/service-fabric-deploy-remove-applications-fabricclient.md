@@ -4,12 +4,12 @@ description: Usare le API del client Fabric per distribuire e rimuovere le appli
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 343a37c983b1d64a4b1986913d9d6fd648a113fe
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009301"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785550"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ FabricClient fabricClient = new FabricClient();
 ## <a name="upload-the-application-package"></a>Caricare il pacchetto applicazione
 Si supponga di compilare e assemblare un'applicazione denominata *MyApplication* in Visual Studio. Per impostazione predefinita, il nome del tipo di applicazione elencato nel file ApplicationManifest.xml è "MyApplicationType".  Il pacchetto dell'applicazione, che contiene il manifesto dell'applicazione necessario, i manifesti del servizio e i pacchetti di codice/configurazione/dati, si trova in *C:\Users \& lt; nomeutente &gt; \Documenti\Visual Studio 2019 \ Projects\MyApplication\MyApplication\pkg\Debug*.
 
-Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ovvero prima di caricarlo, utilizzare il cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage?view=azureservicefabricps) .
+Quando si carica il pacchetto dell'applicazione, lo si inserisce in un percorso accessibile ai componenti interni di Service Fabric. Service Fabric verifica il pacchetto dell'applicazione durante la registrazione. Tuttavia, se si desidera verificare il pacchetto dell'applicazione in locale, ovvero prima di caricarlo, utilizzare il cmdlet [test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) .
 
 L'API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) carica il pacchetto dell'applicazione nell'archivio immagini del cluster. 
 
@@ -92,7 +92,7 @@ Quando una determinata versione di un tipo di applicazione non è più necessari
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage chiede un parametro ImageStoreConnectionString
-Nell'ambiente Service Fabric SDK dovrebbero già essere configurate le impostazioni predefinite corrette. Tuttavia, se necessario, ImageStoreConnectionString per tutti i comandi deve corrispondere al valore che viene usato dal cluster Service Fabric. È possibile trovare ImageStoreConnectionString nel manifesto del cluster, recuperato tramite i comandi [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) e Get-ImageStoreConnectionStringFromClusterManifest:
+Nell'ambiente Service Fabric SDK dovrebbero già essere configurate le impostazioni predefinite corrette. Tuttavia, se necessario, ImageStoreConnectionString per tutti i comandi deve corrispondere al valore che viene usato dal cluster Service Fabric. È possibile trovare ImageStoreConnectionString nel manifesto del cluster, recuperato tramite i comandi [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest) e Get-ImageStoreConnectionStringFromClusterManifest:
 
 ```powershell
 PS C:\> Get-ImageStoreConnectionStringFromClusterManifest(Get-ServiceFabricClusterManifest)

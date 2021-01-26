@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef7b6d9495b1431e03808b830671e839b90d436
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 0da54bd28c1d9ea933e88b6c86cf6092c10d036a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98613800"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785186"
 ---
 # <a name="accidental-delete-prevention"></a>Prevenzione eliminazioni accidentali
 
@@ -24,9 +24,9 @@ Nel documento seguente viene descritta la funzionalità di eliminazione accident
 
 - configurare la possibilità di impedire eliminazioni accidentali automaticamente. 
 - Imposta il numero di oggetti (soglia) oltre i quali la configurazione diverrà effettiva 
-- consente di configurare un indirizzo di posta elettronica di notifica in modo da ricevere una notifica tramite posta elettronica quando il processo di sincronizzazione in questione viene messo in quarantena per questo scenario 
+- configurare un indirizzo di posta elettronica di notifica in modo che possano ricevere una notifica tramite posta elettronica quando il processo di sincronizzazione in questione viene messo in quarantena per questo scenario 
 
-Per utilizzare questa funzionalità, è necessario impostare la soglia per il numero di oggetti che, se eliminati, la sincronizzazione dovrebbe arrestarsi.  Se quindi si raggiunge questo numero, la sincronizzazione verrà arrestata e verrà inviata una notifica al messaggio di posta elettronica specificato.  In questo modo è possibile analizzare le attività in corso.
+Per utilizzare questa funzionalità, è necessario impostare la soglia per il numero di oggetti che, se eliminati, la sincronizzazione dovrebbe arrestarsi.  Se quindi si raggiunge questo numero, la sincronizzazione verrà arrestata e verrà inviata una notifica al messaggio di posta elettronica specificato.  Questa notifica consentirà di analizzare le attività in corso.
 
 
 ## <a name="configure-accidental-delete-prevention"></a>Configurare la prevenzione accidentale dell'eliminazione
@@ -40,13 +40,53 @@ Per usare la nuova funzionalità, attenersi alla procedura riportata di seguito.
 5. In **Impostazioni** compilare quanto segue:
     - **Posta elettronica di notifica** -posta elettronica usata per le notifiche
     - **Impedisci eliminazioni accidentali** -selezionare questa casella per abilitare la funzionalità
-    - **Soglia di eliminazione accidentale** : immettere un numero di oggetti per attivare l'arresto e la notifica della sincronizzazione
+    - **Soglia di eliminazione accidentale** : immettere il numero di oggetti per arrestare la sincronizzazione e inviare una notifica
 
 ![Eliminazioni accidentali](media/how-to-accidental-deletes/accident-1.png)
 
+## <a name="recovering-from-an-accidental-delete-instance"></a>Ripristino da un'istanza Delete accidentale
+Se si verifica un'eliminazione accidentale, questo verrà visualizzato sullo stato della configurazione dell'agente di provisioning.  Si dirà che la soglia di eliminazione è stata **superata**.
+ 
+![Stato di eliminazione accidentale](media/how-to-accidental-deletes/delete-1.png)
+
+Se si fa clic su **Elimina soglia superata**, vengono visualizzate le informazioni sullo stato di sincronizzazione.  Questo fornirà ulteriori dettagli. 
+ 
+ ![Stato di sincronizzazione](media/how-to-accidental-deletes/delete-2.png)
+
+Facendo clic con il pulsante destro del mouse sui puntini di sospensione, si otterranno le opzioni seguenti:
+ - Visualizza log di provisioning
+ - Visualizzare Agent
+ - Consenti eliminazioni
+
+ ![Fare clic](media/how-to-accidental-deletes/delete-3.png)
+
+Utilizzando **Visualizza log di provisioning**, è possibile visualizzare le voci **StagedDelete** ed esaminare le informazioni fornite sugli utenti che sono stati eliminati.
+ 
+ ![Log di provisioning](media/how-to-accidental-deletes/delete-7.png)
+
+### <a name="allowing-deletes"></a>Consentire le eliminazioni
+
+L'azione **Consenti eliminazioni** eliminerà gli oggetti che hanno attivato la soglia di eliminazione accidentale.  Utilizzare la procedura seguente per accettare le eliminazioni.  
+
+1. Fare clic con il pulsante destro del mouse sui puntini di sospensione e selezionare **Consenti eliminazioni**.
+2. Fare clic su **Sì** nella conferma per consentire le eliminazioni.
+ 
+ ![Sì alla conferma](media/how-to-accidental-deletes/delete-4.png)
+
+3. Verrà visualizzata la conferma che le eliminazioni sono state accettate e lo stato tornerà a integro con il ciclo successivo. 
+ 
+ ![Accetta eliminazioni](media/how-to-accidental-deletes/delete-8.png)
+
+### <a name="rejecting-deletions"></a>Rifiuto delle eliminazioni
+
+Se non si desidera consentire le eliminazioni, è necessario eseguire le operazioni seguenti:
+- esaminare l'origine delle eliminazioni
+- risolvere il problema (ad esempio, l'unità organizzativa è stata spostata fuori dall'ambito accidentalmente ed è stata nuovamente aggiunta all'ambito)
+- Esegui **riavvio sincronizzazione** sulla configurazione dell'agente
+
 ## <a name="next-steps"></a>Passaggi successivi 
 
-- [Che cos'è Azure AD Connect sincronizzazione cloud?](what-is-cloud-sync.md)
-- [Come installare Azure AD Connect sincronizzazione cloud](how-to-install.md)
+- [Azure AD Connect la risoluzione dei problemi di sincronizzazione cloud?](how-to-troubleshoot.md)
+- [Codici di errore Azure AD Connect Cloud Sync](reference-error-codes.md)
  
 

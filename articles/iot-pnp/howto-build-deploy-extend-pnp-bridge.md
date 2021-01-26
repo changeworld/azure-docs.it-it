@@ -7,12 +7,12 @@ ms.date: 1/20/2021
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b7947eab93ebc8e523e163af601893522132e06a
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 4612e1236af5fbe47db9a3569e2f4da2378017e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745668"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784898"
 ---
 # <a name="build-and-deploy-the-iot-plug-and-play-bridge"></a>Creare e distribuire il Bridge Plug and Play
 
@@ -212,7 +212,7 @@ Per completare questa sezione, è necessario disporre di un hub di Azure. Per in
 
 I passaggi descritti in questa sezione presuppongono che sia presente l'ambiente di sviluppo seguente in un computer Windows 10. Questi strumenti consentono di creare e distribuire un modulo IoT Edge nel dispositivo IoT Edge:
 
-- Sottosistema Windows per Linux (WSL) 2 che esegue Ubuntu 18,04 LTS. Per ulteriori informazioni, vedere la [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).
+- Sottosistema Windows per Linux (WSL) 2 che esegue Ubuntu 18,04 LTS. Per ulteriori informazioni, vedere la [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).
 - Docker desktop per Windows configurato per l'uso di WSL 2. Per altre informazioni, vedere [Docker desktop WSL 2 backend](https://docs.docker.com/docker-for-windows/wsl/).
 - [Visual Studio Code installato nell'ambiente Windows](https://code.visualstudio.com/docs/setup/windows) con le seguenti tre estensioni installate:
 

@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 2fae7d2526e6c95efe83ca8fa742a6d92457b897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22e0c7304f7a53a86bc5c6739a2061352d738d29
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86520750"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784813"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -67,7 +67,7 @@ Dopo avere ottenuto i dati del tweet e informazioni dettagliate sul tweet, è or
 
 ## <a name="process-data-with-azure-functions"></a>Elaborare i dati con Funzioni di Azure
 
-Prima di creare una funzione, creare un'app per le funzioni nella sottoscrizione di Azure. Inoltre, perché l'app per la logica possa chiamare direttamente una funzione, quest'ultima deve avere un'associazione a un trigger HTTP, ad esempio usare il modello **HttpTrigger**. Altre informazioni su come [creare la prima app per le funzioni e la funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
+Prima di creare una funzione, creare un'app per le funzioni nella sottoscrizione di Azure. Inoltre, perché l'app per la logica possa chiamare direttamente una funzione, quest'ultima deve avere un'associazione a un trigger HTTP, ad esempio usare il modello **HttpTrigger**. Altre informazioni su come [creare la prima app per le funzioni e la funzione nel portale di Azure](../azure-functions/functions-get-started.md).
 
 Per questo scenario, usare il testo del tweet come corpo della richiesta per la funzione di Azure. Nel codice della funzione definire la logica che determina se il testo del tweet contiene una parola chiave o una frase. La semplicità o la complessità della funzione dipende dallo scenario in uso.
 Alla fine della funzione, restituire una risposta all'app per la logica con alcuni dati, ad esempio un semplice valore booleano come `containsKeyword` o un oggetto complesso.

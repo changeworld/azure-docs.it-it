@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: fcfd3da30ef9ace723b4204f5924591b1e2717f8
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97503166"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785821"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Log di monitoraggio di Azure per Azure Load Balancer Standard
 
@@ -48,7 +48,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 6. Nel riquadro di creazione **impostazioni di diagnostica** immettere **MyLBDiagnostics** nella casella **nome** .
 7. Sono disponibili tre opzioni per le **impostazioni di diagnostica**. È possibile scegliere uno, due o tutti e tre e configurare ognuno per i requisiti:
 
-   * **Archivia in un account di archiviazione**. Per questo processo è necessario un account di archiviazione già creato. Per creare un account di archiviazione, vedi [Creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal).
+   * **Archivia in un account di archiviazione**. Per questo processo è necessario un account di archiviazione già creato. Per creare un account di archiviazione, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal).
      1. Selezionare la casella **di controllo archivia in un account di archiviazione** .
      2. Selezionare **Configura** per aprire il riquadro **selezionare un account di archiviazione** .
      3. Nell'elenco a discesa **sottoscrizione** selezionare la sottoscrizione in cui è stato creato l'account di archiviazione.
@@ -74,7 +74,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
-Il log attività viene generato per impostazione predefinita. È possibile configurarlo in modo che venga esportato a livello di sottoscrizione [seguendo le istruzioni riportate in questo articolo](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log). Per altre informazioni su questi log, leggere l'articolo [visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md) .
+Il log attività viene generato per impostazione predefinita. È possibile configurarlo in modo che venga esportato a livello di sottoscrizione [seguendo le istruzioni riportate in questo articolo](../azure-monitor/platform/activity-log.md). Per altre informazioni su questi log, leggere l'articolo [visualizzare i log attività per monitorare le azioni sulle risorse](../azure-resource-manager/management/view-activity-logs.md) .
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
@@ -112,5 +112,5 @@ La funzionalità di esportazione da metrica a log per Azure Load Balancer presen
 * Le metriche per le porte SNAT usate e le porte SNAT allocate non sono attualmente disponibili per l'esportazione come log.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Esaminare le metriche disponibili per il servizio di bilanciamento del carico](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics)
-* [Creare e testare le query seguendo le istruzioni di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+* [Esaminare le metriche disponibili per il servizio di bilanciamento del carico](./load-balancer-standard-diagnostics.md)
+* [Creare e testare le query seguendo le istruzioni di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)

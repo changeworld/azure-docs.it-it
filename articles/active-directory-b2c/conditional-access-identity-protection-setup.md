@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2472183673e5f06f5664a306a69d14c2eaf5f82d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 654206bccd25bf09fcdc5c3e7ee72ba97c75af2a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94949769"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785482"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Configurare Identity Protection e l'accesso condizionale in Azure AD B2C
 
@@ -94,9 +94,7 @@ Per aggiungere un criterio di accesso condizionale basato su rilevamenti di risc
 
 1. In **Sicurezza** selezionare **Accesso condizionale (anteprima)** . Viene visualizzata la pagina **Criteri di accesso condizionale**. 
 
-1. Selezionare **Nuovo criterio** e seguire la documentazione relativa all'accesso condizionale di Azure AD per creare un nuovo criterio. Di seguito è riportato un esempio:
-
-   - [Accesso condizionale basato sul rischio di accesso: abilitazione con i criteri di accesso condizionale](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy)
+1. Selezionare **Nuovo criterio** e seguire la documentazione relativa all'accesso condizionale di Azure AD per creare un nuovo criterio. Per i criteri basati sul rischio, è necessario configurare criteri distinti in base al rischio [utente](../active-directory/conditional-access/howto-conditional-access-policy-risk-user.md#enable-with-conditional-access-policy) o al [rischio di accesso](../active-directory/conditional-access/howto-conditional-access-policy-risk.md#enable-with-conditional-access-policy) , a seconda del tipo di rischio che si vuole usare come condizione. Non è consigliabile usare entrambi i tipi di rischio in un singolo criterio.
 
    > [!IMPORTANT]
    > Quando si selezionano gli utenti a cui si vuole applicare il criterio, non selezionare solo **Tutti gli utenti** altrimenti è possibile che l'accesso venga bloccato anche per il proprio account.

@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 11122b57a1971f328a8a83c3dea136813426c060
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 13d3809611714992f24a66a96c22074e69fba9bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96582362"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786657"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Sicurezza e protezione dei dati Azure Data Box Gateway
 
@@ -55,7 +55,7 @@ Per altre informazioni, vedere [ottenere una chiave di attivazione](data-box-gat
 
 Le password assicurano che solo gli utenti autorizzati possano accedere ai dati. I dispositivi Data Box Gateway vengono avviati in uno stato bloccato.
 
-È possibile scegliere:
+È possibile:
 
 - Connettersi all'interfaccia utente Web locale del dispositivo tramite un browser e quindi specificare una password per accedere al dispositivo.
 - Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. La gestione remota è attivata per impostazione predefinita. È quindi possibile specificare la password del dispositivo per accedere al dispositivo. Per altre informazioni, vedere [connettersi in remoto al dispositivo data box gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
@@ -85,7 +85,7 @@ Questa sezione descrive le funzionalità di sicurezza di Data Box Gateway che pr
 
 Per proteggere i dischi virtuali nella macchina virtuale Data Box Gateway, è consigliabile abilitare BitLocker. Per impostazione predefinita, BitLocker non è abilitato. Per altre informazioni, vedere:
 
-- [Impostazioni di supporto della crittografia nella console di gestione di Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Impostazioni di supporto della crittografia nella console di gestione di Hyper-V](/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
 - [Supporto di BitLocker in una macchina virtuale](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Gestisci informazioni personali

@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 39081bc7bec7cfd76ccfc9107d5c2286affb7df0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.openlocfilehash: e7e63ea56edc2b76383ee4c034fd39dd8b8259c1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913771"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786006"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-have-two-sets-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che hanno due set di credenziali di autenticazione
 
@@ -234,8 +234,8 @@ Modello di funzioni di rotazione per due set di credenziali e diverse funzioni p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Esercitazione: [Rotazione dei segreti per un set di credenziali](https://docs.microsoft.com/azure/key-vault/secrets/tutorial-rotation)
+- Esercitazione: [Rotazione dei segreti per un set di credenziali](./tutorial-rotation.md)
 - Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure](../general/event-grid-overview.md)
-- Procedura: [Creare la prima funzione nel portale di Azure](../../azure-functions/functions-create-first-azure-function.md)
+- Procedura: [Creare la prima funzione nel portale di Azure](../../azure-functions/functions-get-started.md)
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](../general/event-grid-logicapps.md)
 - Informazioni di riferimento: [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)

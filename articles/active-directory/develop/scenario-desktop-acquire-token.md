@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/06/2021
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: a2048a509bdbe11c948ac8eb2daa6e78013c2fa5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: c58f4a553073eb3ed062ef9ec2a66c8e4f40e57b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753777"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785126"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -451,7 +451,7 @@ In MSAL.NET è necessario usare:
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 ```
 
-In genere è necessario un solo parametro (`scopes`). A seconda del modo in cui l'amministratore di Windows ha configurato i criteri, è possibile che le applicazioni nel computer Windows non siano autorizzate a cercare l'utente che ha eseguito l'accesso. In tal caso, usare un secondo metodo, `.WithUsername()`e passare il nome utente dell'utente che ha eseguito l'accesso come formato UPN, ad esempio `joe@contoso.com`. In .NET Core è disponibile solo l'overload che accetta il nome utente perché la piattaforma .NET Core non può richiedere il nome utente al sistema operativo.
+In genere è necessario un solo parametro (`scopes`). A seconda del modo in cui l'amministratore di Windows ha configurato i criteri, è possibile che le applicazioni nel computer Windows non siano autorizzate a cercare l'utente che ha eseguito l'accesso. In tal caso, usare un secondo metodo, `.WithUsername()`e passare il nome utente dell'utente che ha eseguito l'accesso come formato UPN, ad esempio `joe@contoso.com`.
 
 Nell'esempio seguente viene presentato il caso più recente, con spiegazioni sulle possibili tipologie di eccezioni restituite e sulle relative mitigazioni.
 

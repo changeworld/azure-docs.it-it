@@ -4,7 +4,6 @@ description: Informazioni su come creare una macchina virtuale con un indirizzo 
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
@@ -17,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 2825d8d9f8be7c56d7beea767a1afb7a290eafa2
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 43c2e2c8905ca60e59caed3fdf1b4920f509fd88
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222599"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98783785"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Creare una macchina virtuale con un indirizzo IP privato statico tramite PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 È possibile creare una macchina virtuale (VM) con un indirizzo IP privato statico. Assegnare un indirizzo IP privato statico, anziché un indirizzo dinamico, se si vuole selezionare l'indirizzo da una subnet assegnato a una macchina virtuale. Altre informazioni sugli [indirizzi IP privati statici](./public-ip-addresses.md#allocation-method). Per modificare un indirizzo IP privato assegnato a una macchina virtuale esistente da dinamico a statico o per usare indirizzi IP pubblici, vedere [aggiungere, modificare o rimuovere indirizzi IP](virtual-network-network-interface-addresses.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 

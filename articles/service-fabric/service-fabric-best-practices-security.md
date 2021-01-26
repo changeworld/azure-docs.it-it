@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 90ffd1c01411982f56aed3332c499aa0c10b8a94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7af0a4c26a47644973e936eb37e221853d74c03
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257595"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784664"
 ---
 # <a name="azure-service-fabric-security"></a>Sicurezza di Azure Service Fabric 
 
@@ -56,7 +56,7 @@ Per distribuire i certificati da un insieme di credenziali con percorso condivis
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>Applicare un elenco di controllo di accesso (ACL) al certificato per il cluster di Service Fabric
 
-Per configurare la sicurezza dei nodi viene usato il modello [Estensioni set di scalabilità di macchine virtuali](/cli/azure/vmss/extension?view=azure-cli-latest) con editore Microsoft.Azure.ServiceFabric.
+Per configurare la sicurezza dei nodi viene usato il modello [Estensioni set di scalabilità di macchine virtuali](/cli/azure/vmss/extension) con editore Microsoft.Azure.ServiceFabric.
 Per applicare un ACL ai certificati per i processi del cluster di Service Fabric, usare le proprietà del modello di Resource Manager seguenti:
 
 ```json

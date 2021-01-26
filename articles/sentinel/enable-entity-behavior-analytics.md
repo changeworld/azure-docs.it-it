@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 140228a65be166bc172e81267c4449b49621e02c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 0dccd8ac4f852688bf7e59e7ed96c4458c08d18b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425780"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784729"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Abilitare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure 
 
 > [!IMPORTANT]
 >
-> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** nelle aree geografiche e aree geografiche di Sentinel di Azure seguenti:
->    - Geografia Stati Uniti
->    - Area Europa occidentale
->    - Geografia dell'Australia
->
-> - In tutte le altre aree geografiche e aree, queste funzionalità restano per il periodo di **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
+> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_* le aree geografiche e aree di Azure Sentinel.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,9 +33,9 @@ Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono 
 
 - L'utente deve essere un membro dell'Azure Active Directory dell'organizzazione e non un utente Guest.
 
-- All'utente deve essere assegnato il ruolo di amministratore **globale** o **amministratore della sicurezza** in Azure ad.
+- È necessario che all'utente siano assegnati i ruoli _ *amministratore globale** o **amministratore sicurezza** in Azure ad.
 
-- È necessario che all'utente sia assegnato almeno uno dei seguenti **ruoli di Azure** ( [altre informazioni su RBAC di Azure](roles.md)):
+- È necessario che all'utente sia assegnato almeno uno dei seguenti **ruoli di Azure** ([altre informazioni su RBAC di Azure](roles.md)):
     - **Collaboratore sentinella di Azure** a livello di area di lavoro o di gruppo di risorse.
     - **Log Analytics collaboratore** a livello di gruppo di risorse o di sottoscrizione.
 
@@ -50,7 +45,7 @@ Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono 
 
 1. Dal menu di navigazione di Azure Sentinel selezionare **comportamento entità**.
 
-1. Sotto l'intestazione **attiva** , impostare l'interruttore **su on**.
+1. Sotto l'intestazione **attiva**, impostare l'interruttore **su on**.
 
 1. Fare clic sul pulsante **Seleziona origini dati** .
 

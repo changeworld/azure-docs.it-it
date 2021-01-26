@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: d749c901b21651eec7b3e25ce111fb107e09b754
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 5c414a11085a6a37dee6be522dcf513e8990e5e2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883351"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786352"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -48,7 +48,7 @@ A partire dal 16 2020 novembre, HDInsight bloccherà i nuovi clienti creando clu
 
 ## <a name="behavior-changes"></a>Modifiche del comportamento
 ### <a name="add-nsg-rule-checking-before-scaling-operation"></a>Aggiungere il controllo delle regole NSG prima dell'operazione di ridimensionamento
-HDInsight ha aggiunto gruppi di sicurezza di rete (gruppi) e il controllo delle route definite dall'utente (UDR) con operazione di ridimensionamento. La stessa convalida viene eseguita per la scalabilità del cluster oltre alla creazione del cluster. Questa convalida consente di evitare errori imprevedibili. Se la convalida non viene superata, il ridimensionamento non riesce. Per altre informazioni su come configurare gruppi e UdR correttamente, vedere [indirizzi IP di gestione di HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+HDInsight ha aggiunto gruppi di sicurezza di rete (gruppi) e il controllo delle route definite dall'utente (UDR) con operazione di ridimensionamento. La stessa convalida viene eseguita per la scalabilità del cluster oltre alla creazione del cluster. Questa convalida consente di evitare errori imprevedibili. Se la convalida non viene superata, il ridimensionamento non riesce. Per altre informazioni su come configurare gruppi e UdR correttamente, vedere [indirizzi IP di gestione di HDInsight](./hdinsight-management-ip-addresses.md).
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nelle versioni future verranno apportate le modifiche seguenti.
@@ -84,4 +84,3 @@ HDInsight distribuisce correzioni e applica patch per tutti i cluster in esecuzi
 https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/replace_cacert_script.sh
 https://healingscriptssa.blob.core.windows.net/healingscripts/ChangeOOMPolicyAndApplyLatestConfigForClamav.sh
 ```
-

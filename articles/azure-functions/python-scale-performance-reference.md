@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare app di funzioni di Azure con Python
 ms.topic: article
 ms.date: 10/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: baa362f029678f266f154df912a9178a6626667d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e3bbdb8819062d45d071633e0208fb58a003da54
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935870"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786107"
 ---
 # <a name="improve-throughput-performance-of-python-apps-in-azure-functions"></a>Migliorare le prestazioni della velocità effettiva delle app Python in funzioni di Azure
 
@@ -22,10 +22,10 @@ Per impostazione predefinita, Funzioni di Azure monitora automaticamente il cari
 
 Le configurazioni predefinite sono adatte alla maggior parte delle applicazioni di funzioni di Azure. Tuttavia, è possibile migliorare le prestazioni della velocità effettiva delle applicazioni usando le configurazioni basate sul profilo del carico di lavoro. Il primo passaggio consiste nel comprendere il tipo di carico di lavoro in esecuzione.
 
-|| Carico di lavoro associato a I/O | Carico di lavoro associato alla CPU |
-|--| -- | -- |
-|Caratteristiche delle app per le funzioni| <ul><li>L'app deve gestire molte chiamate simultanee.</li> <li> L'app elabora un numero elevato di eventi di I/O, ad esempio chiamate di rete e lettura/scrittura su disco.</li> </ul>| <ul><li>L'app esegue calcoli a esecuzione prolungata, ad esempio il ridimensionamento delle immagini.</li> <li>L'app esegue la trasformazione dei dati.</li> </ul> |
-|Esempi| <ul><li>API Web</li><ul> | <ul><li>Elaborazione dati</li><li> Inferenza di Machine Learning</li><ul>|
+| Tipo di carico di lavoro | Caratteristiche delle app per le funzioni       | Esempi                                          |
+| ------------- | ---------------------------------- | ------------------------------------------------- |
+| **I/O-associato**     | • L'app deve gestire molte chiamate simultanee.<br>• L'app elabora un numero elevato di eventi di I/O, ad esempio chiamate di rete e lettura/scrittura su disco. | • API Web                                          |
+| **Associato alla CPU**     | • L'app esegue calcoli a esecuzione prolungata, ad esempio il ridimensionamento delle immagini.<br>• La trasformazione dei dati viene eseguita dall'app.                                                | • Elaborazione dati<br>• Inferenza di Machine Learning<br> |
 
  
 Poiché i carichi di lavoro di funzioni reali sono in genere una combinazione di I/O e di CPU, è consigliabile profilare l'app in carichi di produzione realistici.

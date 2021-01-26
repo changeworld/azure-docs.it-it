@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 349f0b72ad7f3cb98e8f4ae9105efa9718f0b11b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752281"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784949"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -39,6 +39,7 @@ Gli aggiornamenti in gennaio includono:
 - [La valutazione della vulnerabilità per computer locali e più cloud viene rilasciata per la disponibilità a livello generale](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
 - [Il Punteggio sicuro per i gruppi di gestione è ora disponibile in anteprima](#secure-score-for-management-groups-is-now-available-in-preview)
 - [L'API per il Punteggio sicuro è stata rilasciata per la disponibilità generale (GA)](#secure-score-api-is-released-for-general-availability-ga)
+- [Protezione di DNS sospesa aggiunta ad Azure Defender per il servizio app](#dangling-dns-protections-added-to-azure-defender-for-app-service)
 - [I connettori a più cloud vengono rilasciati per la disponibilità a livello generale](#multi-cloud-connectors-are-released-for-general-availability-ga)
 - [Esentare le raccomandazioni intere dal punteggio sicuro per le sottoscrizioni e i gruppi di gestione](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
@@ -107,6 +108,21 @@ Per esempi di strumenti esterni consentiti dall'API Secure Score, vedere l'[area
 Altre informazioni sul [punteggio di sicurezza e i controlli di sicurezza nel Centro sicurezza di Azure](secure-score-security-controls.md).
 
 
+### <a name="dangling-dns-protections-added-to-azure-defender-for-app-service"></a>Protezione di DNS sospesa aggiunta ad Azure Defender per il servizio app
+
+Le acquisizioni dei sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni. L'acquisizione di un sottodominio può verificarsi quando si dispone di un record DNS che punta a un sito Web di cui è stato effettuato il deprovisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia. 
+
+Le acquisizioni di sottodominio consentono agli attori minaccia di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
+
+Azure Defender per il servizio app ora rileva le voci DNS in sospeso quando un sito Web del servizio app viene ritirato. Questo è il momento in cui la voce DNS punta a una risorsa inesistente e il sito Web è vulnerabile a un'acquisizione di sottodominio. Queste protezioni sono disponibili se i domini vengono gestiti con DNS di Azure o un registrar esterno e si applicano sia al servizio app in Windows che al servizio app in Linux.
+
+Altre informazioni:
+
+- [Tabella di riferimento per gli avvisi del servizio app](alerts-reference.md#alerts-azureappserv) : include due nuovi avvisi di Azure Defender che vengono attivati quando viene rilevata una voce DNS in sospeso
+- [Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini](../security/fundamentals/subdomain-takeover.md) : informazioni sul rischio di acquisizione di sottodomini e sull'aspetto DNS in sospeso
+- [Introduzione ad Azure Defender per il servizio app](defender-for-app-service-introduction.md)
+
+
 ### <a name="multi-cloud-connectors-are-released-for-general-availability-ga"></a>I connettori a più cloud vengono rilasciati per la disponibilità a livello generale
 
 I carichi di lavoro cloud si estendono in genere su più piattaforme cloud, quindi anche i servizi di sicurezza cloud devono adottare lo stesso approccio.
@@ -153,7 +169,7 @@ Per altre informazioni [, vedere esentare le risorse e le raccomandazioni dal pu
 
 ### <a name="users-can-now-request-tenant-wide-visibility-from-their-global-administrator"></a>Gli utenti possono ora richiedere visibilità a livello di tenant dall'amministratore globale
 
-Se un utente non dispone delle autorizzazioni per visualizzare i dati del Centro sicurezza, visualizzerà ora le autorizzazioni di richiesta di collegamento dell'amministratore globale dell'organizzazione. La richiesta include il ruolo che desidera e la giustificazione del motivo per cui è necessario.
+Se un utente non dispone delle autorizzazioni per visualizzare i dati del Centro sicurezza, ora visualizzerà un collegamento per richiedere le autorizzazioni dall'amministratore globale dell'organizzazione. La richiesta include il ruolo che desidera e la giustificazione del motivo per cui è necessario.
 
 :::image type="content" source="media/security-center-management-groups/request-tenant-permissions.png" alt-text="Banner che informa un utente che può richiedere autorizzazioni a livello di tenant.":::
 
@@ -331,7 +347,7 @@ La raccomandazione "È consigliabile che le app Web richiedano un certificato SS
 
 L'impostazione della richiesta di un certificato da parte delle app Web le rende certamente più sicure. Questa impostazione è tuttavia irrilevante per le app Web pubbliche. se si accede al sito tramite HTTP e non HTTPS, non si riceveranno i certificati client. Pertanto, se l'applicazione richiede i certificati client, è consigliabile non consentire le richieste all'applicazione tramite HTTP. Per altre informazioni, vedere [Configurare l'autenticazione reciproca TLS per Servizio app di Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
-Con questa modifica, la raccomandazione è ora una procedura consigliata che non influisce sul punteggio. 
+Con questa modifica, la raccomandazione è ora una procedura consigliata che non influisca sul punteggio. 
 
 Per informazioni sulle raccomandazioni disponibili in ogni controllo di sicurezza, vedere [Controlli di sicurezza e relative raccomandazioni](secure-score-security-controls.md#security-controls-and-their-recommendations).
 
@@ -369,7 +385,7 @@ Questi strumenti sono stati migliorati e ampliati nei modi seguenti:
 
 - **I criteri DeployIfNotExists dell'esportazione continua sono stati migliorati**. Ora consentono di:
 
-    - **Verificare se la configurazione è abilitata.** Se non è abilitata, il criterio visualizza uno stato non conforme e crea una risorsa conforme. Per altre informazioni sui modelli di Criteri di Azure forniti, vedere la scheda "Distribuire su larga scala con Criteri di Azure" in [Configurare un'esportazione continua](continuous-export.md#set-up-a-continuous-export).
+    - **Verificare se la configurazione è abilitata.** Se non è abilitata, il criterio visualizza uno stato non conforme e crea una risorsa conforme. Per altre informazioni sui modelli di criteri di Azure forniti, vedere la sezione relativa alla distribuzione su larga scala con criteri di Azure in [configurare un'esportazione continua](continuous-export.md#set-up-a-continuous-export).
 
     - **Supportare l'esportazione dei risultati di sicurezza.** Usando i modelli di Criteri di Azure è possibile configurare l'esportazione continua in modo che includa i risultati. Questa configurazione è importante quando si esportano raccomandazioni che contengono "sottoraccomandazioni", ad esempio i risultati di analisi di valutazione delle vulnerabilità o aggiornamenti di sistema specifici per la raccomandazione "padre" "È consigliabile installare gli aggiornamenti del sistema nei computer".
     
@@ -389,7 +405,7 @@ Gli aggiornamenti del mese di novembre includono quanto segue:
 - [L'elenco di raccomandazioni ora include i filtri](#recommendations-list-now-includes-filters)
 - [Esperienza di provisioning automatico migliorata e ampliata](#auto-provisioning-experience-improved-and-expanded)
 - [Punteggio di sicurezza ora disponibile nell'esportazione continua (anteprima)](#secure-score-is-now-available-in-continuous-export-preview)
-- [Aggiunta di raccomandazioni secondarie alla raccomandazione "Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali"](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations)
+- [Il suggerimento "aggiornamenti del sistema deve essere installato nei computer" include ora le sottoraccomandazioni](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
 - [La pagina di gestione dei criteri nel portale di Azure ora mostra lo stato delle assegnazioni di criteri predefiniti](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Aggiunte 29 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark
@@ -468,13 +484,13 @@ Con l'esportazione continua del punteggio di sicurezza, è possibile trasmettere
 Per altre informazioni, vedere [Esportazione continua dei dati del Centro sicurezza](continuous-export.md).
 
 
-### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-sub-recommendations"></a>Aggiunta di raccomandazioni secondarie alla raccomandazione "Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali"
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>Il suggerimento "aggiornamenti del sistema deve essere installato nei computer" include ora le sottoraccomandazioni
 
-La raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** è stata ottimizzata. La nuova versione include raccomandazioni secondarie per ogni aggiornamento mancante e include i miglioramenti seguenti:
+La raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** è stata ottimizzata. La nuova versione include le sottoraccomandazioni per ogni aggiornamento mancante e apporta i miglioramenti seguenti:
 
 - Un'esperienza riprogettata nelle pagine del Centro sicurezza di Azure del portale di Azure. La pagina di dettagli della raccomandazione **Gli aggiornamenti di sistema devono essere installati nelle macchine virtuali** include l'elenco di risultati, come illustrato di seguito. Quando si seleziona un singolo risultato, viene visualizzato il riquadro dei dettagli con un collegamento alle informazioni sulla correzione e un elenco delle risorse interessate.
 
-    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura di una delle raccomandazioni secondarie nell'esperienza del portale per la raccomandazione aggiornata":::
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Apertura di una delle sottoraccomandazioni nell'esperienza del portale per la raccomandazione aggiornata":::
 
 - Dati della raccomandazione arricchiti da Azure Resource Graph. Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse. È possibile usare Azure Resource Graph per eseguire query su larga scala su un determinato set di sottoscrizioni, in modo da regolamentare efficacemente l'ambiente. 
 
@@ -560,7 +576,7 @@ Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [
 - L'inventario degli asset utilizza Azure Resource Graph
 - È stata documentata una query di esempio di Azure Resource Graph che illustra come [identificare gli account senza l'opzione Multi-Factor Authentication (MFA) abilitata](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
 
-Azure Resource Graph include tabelle di dati da usare nelle query.
+All'interno di ARG sono disponibili tabelle di dati da usare nelle query.
 
 :::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e le tabelle disponibili":::
 
@@ -716,7 +732,7 @@ Per altre informazioni, vedere [Azure Defender per Key Vault](defender-for-key-v
 
 È ora disponibile a livello generale il supporto per [File di Azure](../storage/files/storage-files-introduction.md) e [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-A partire dal 1° ottobre 2020 verranno applicati addebiti per la protezione delle risorse in questi servizi.
+Dal 1 ° ottobre 2020 verrà addebitato un addebito per la protezione delle risorse in questi servizi.
 
 Per altre informazioni, vedere [Azure Defender per Archiviazione](defender-for-storage-introduction.md).
 
@@ -826,7 +842,7 @@ Le raccomandazioni di sicurezza seguenti correlate ai gruppi di sicurezza di ret
 
 La raccomandazione in anteprima "I criteri di sicurezza pod devono essere definiti nei servizi Kubernetes" verrà deprecata come illustrato nella documentazione del [servizio Azure Kubernetes](../aks/use-pod-security-policies.md).
 
-La funzionalità Criteri di sicurezza dei pod (anteprima) è configurata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020. Verrà sostituita da Criteri di Azure per il servizio Azure Kubernetes.
+La funzionalità criteri di sicurezza pod (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020, a favore di criteri di Azure per AKS.
 
 Dopo la deprecazione di Criteri di sicurezza dei pod (anteprima), sarà necessario disabilitare la funzionalità in eventuali cluster esistenti che usano la funzionalità deprecata per eseguire aggiornamenti futuri del cluster e mantenere il supporto tecnico di Azure.
 
@@ -973,4 +989,4 @@ La fase iniziale di questo progetto include un'anteprima privata e l'aggiunta di
 È possibile ignorare questi criteri, senza impatto sull'ambiente. Se si vogliono abilitare i criteri, iscriversi all'anteprima in https://aka.ms/SecurityPrP e selezionare una delle opzioni seguenti:
 
 1. **Anteprima singola**: per partecipare solo a questa anteprima privata. Indicare esplicitamente "Analisi continua del Centro sicurezza di Azure" come anteprima a cui si vuole partecipare.
-1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. Sarà necessario completare un profilo e accettare un contratto sulla privacy.
+1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. È necessario completare un profilo e un accordo sulla privacy.

@@ -124,8 +124,6 @@
       items:
         - name: Gestire le registrazioni - Portale
           href: how-to-manage-enrollments.md
-        - name: Gestire le registrazioni - SDK per servizi
-          href: how-to-manage-enrollments-sdks.md
         - name: Configurare certificati della CA verificati
           href: how-to-verify-certificates.md
         - name: Rinnovare i certificati dei dispositivi
@@ -150,10 +148,6 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Usare meccanismi di attestazione con SDK
-      href: use-hsm-with-sdk.md
-    - name: Usare gli strumenti SDK per lo sviluppo
-      href: how-to-use-sdk-tools.md
     - name: Come inviare dati aggiuntivi dai dispositivi
       href: how-to-send-additional-data.md
     - name: Risoluzione dei problemi

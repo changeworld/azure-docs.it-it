@@ -3,12 +3,12 @@ title: Creare un cluster autonomo di Azure Service Fabric
 description: Creare un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
 ms.topic: conceptual
 ms.date: 2/21/2019
-ms.openlocfilehash: 36883f2c8b09fa3f8f013e0267dafa2a8220e5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41af655be07ccae2b66e75f5bfe87629cdb54924
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843193"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785685"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
 Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server. I cluster di Service Fabric tradizionali in Azure sono disponibili come servizio gestito, mentre i cluster di Service Fabric autonomi sono self-service. Per altre informazioni sulle differenze, vedere [Confronto tra Azure e i cluster autonomi di Service Fabric](./service-fabric-deploy-anywhere.md).
@@ -46,7 +46,7 @@ Trovare esempi di configurazione di cluster autonomi in: <br>
 <a id="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>Creare il cluster
-Con il pacchetto di installazione vengono installati diversi file di esempio per la configurazione del cluster. *ClusterConfig.Unsecure.DevCluster.json* è la configurazione del cluster più semplice: un cluster non sicuro, con tre nodi in esecuzione in un singolo computer.  Altri file di configurazione descrivono cluster con una o più macchine virtuali protetti con la sicurezza di Windows o certificati X.509.  Non è necessario modificare le impostazioni di configurazione predefinite per questa esercitazione, ma è consigliabile esaminare il file di configurazione per acquisire familiarità con le impostazioni.  La sezione **nodes** descrive i tre nodi nel cluster, indicando nome, indirizzo IP, [tipo di nodo, dominio di errore e dominio di aggiornamento](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  La sezione **properties** definisce le impostazioni per [sicurezza, livello di affidabilità, raccolta di dati di diagnostica e tipi di nodi ](service-fabric-cluster-manifest.md#cluster-properties) del cluster.
+Con il pacchetto di installazione vengono installati diversi file di esempio per la configurazione del cluster. *ClusterConfig.Unsecure.DevCluster.json* è la configurazione del cluster più semplice: un cluster non sicuro, con tre nodi in esecuzione in un singolo computer.  Altri file di configurazione descrivono cluster con una o più macchine virtuali protetti con la sicurezza di Windows o certificati X.509.  Non è necessario modificare le impostazioni di configurazione predefinite per questa esercitazione, ma è consigliabile esaminare il file di configurazione per acquisire familiarità con le impostazioni.  La sezione **nodes** descrive i tre nodi nel cluster, indicando nome, indirizzo IP, [tipo di nodo, dominio di errore e dominio di aggiornamento](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  La sezione **properties** definisce le impostazioni per [sicurezza, livello di affidabilità, raccolta di dati di diagnostica e tipi di nodi](service-fabric-cluster-manifest.md#cluster-properties) del cluster.
 
 Il cluster creato in questo articolo è senza protezione.  Chiunque si può connettere in modo anonimo ed eseguire operazioni di gestione. È quindi necessario proteggere sempre i cluster di produzione usando certificati X.509 o la sicurezza di Windows.  La sicurezza viene configurata solo in fase di creazione del cluster e non è possibile abilitare la sicurezza dopo la creazione del cluster. Per aggiornare il file di configurazione abilitare la [sicurezza basata su certificati](service-fabric-windows-cluster-x509-security.md) oppure la [sicurezza di Windows](service-fabric-windows-cluster-windows-security.md). Vedere [Proteggere un cluster](service-fabric-cluster-security.md) per altre informazioni sulla sicurezza dei cluster di Service Fabric.
 
@@ -116,7 +116,7 @@ Il pacchetto di runtime può essere scaricato separatamente da un altro computer
 *.\ClusterConfig.json* e *.\MicrosoftAzureServiceFabric.cab* sono rispettivamente i percorsi per la configurazione del cluster e per il file di runtime con estensione cab.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Passaggio 2: Stabilire la connessione al cluster
-Connettersi al cluster per verificare che il cluster sia in esecuzione e disponibile. Il modulo ServiceFabric di PowerShell viene installato con il runtime.  È possibile connettersi al cluster da uno dei nodi del cluster o da un computer remoto con il runtime di Service Fabric.  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) stabilisce una connessione al cluster.
+Connettersi al cluster per verificare che il cluster sia in esecuzione e disponibile. Il modulo ServiceFabric di PowerShell viene installato con il runtime.  È possibile connettersi al cluster da uno dei nodi del cluster o da un computer remoto con il runtime di Service Fabric.  Il cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) stabilisce una connessione al cluster.
 
 Per connettersi a un cluster non protetto, eseguire il seguente comando di PowerShell:
 
@@ -129,7 +129,7 @@ Ad esempio:
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.234:19000
 ```
 
-Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
+Per altri esempi di connessione a un cluster, vedere [Connettersi a un cluster sicuro](service-fabric-connect-to-secure-cluster.md). Dopo la connessione al cluster, usare il cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) per visualizzare un elenco dei nodi presenti nel cluster e informazioni di stato per ogni nodo. **HealthState** deve essere *OK* per ogni nodo.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005368"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786521"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -52,7 +52,7 @@ Nel diagramma seguente le linee verdi sono richieste di risorse che terminano ne
 
 Vedere i documenti seguenti per informazioni su come creare una rete virtuale di Azure connessa alla rete locale:
 
-* [Uso del portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Utilizzo di portale di Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Uso di Azure PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Utilizzare l'interfaccia della riga di comando di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -73,7 +73,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | Valore |
+    | Campo | valore |
     | --- | --- |
     |Subscription |Selezionare la sottoscrizione appropriata.|
     |Resource group |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|

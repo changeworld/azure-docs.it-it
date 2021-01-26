@@ -4,12 +4,12 @@ description: Configurare i certificati per l'app con il runtime di Service Fabri
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: pepogors
-ms.openlocfilehash: a97c8b8315fe3be405aed9c6570004afb8fafd1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70f9cc38d84681f68c10882889214648a4dd2624
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258677"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98785567"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificati e sicurezza nei cluster Linux
 
@@ -21,7 +21,7 @@ Service Fabric prevede, in genere, che i certificati X.509 si trovino nella dire
 
 Per i cluster Linux, Service Fabric prevede che i certificati siano presenti come un file con estensione pem contenente il certificato e la chiave privata oppure come un file con estensione crt contenente il certificato e un file con estensione key contenente la chiave privata. Tutti i file devono essere in formato PEM. 
 
-Se si installa il certificato da Azure Key Vault usando un [modello di Resource Manager](./service-fabric-cluster-creation-create-template.md) o i comandi [PowerShell](/powershell/module/az.servicefabric/?view=azps-2.6.0), il certificato viene installato nel formato corretto nella directory */var/lib/sfcerts* in ogni nodo. Se si installa un certificato con un altro metodo, è necessario assicurarsi che il certificato sia installato correttamente nei nodi del cluster.
+Se si installa il certificato da Azure Key Vault usando un [modello di Resource Manager](./service-fabric-cluster-creation-create-template.md) o i comandi [PowerShell](/powershell/module/az.servicefabric/), il certificato viene installato nel formato corretto nella directory */var/lib/sfcerts* in ogni nodo. Se si installa un certificato con un altro metodo, è necessario assicurarsi che il certificato sia installato correttamente nei nodi del cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificati a cui fa riferimento il manifesto dell'applicazione
 
@@ -33,7 +33,7 @@ Per alcuni servizi, è possibile configurare i certificati X.509 in [ConfigPacka
 
 ### <a name="using-x509-securitycredentialstype"></a>Uso di X509 per SecurityCredentialsType
 
-Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. Corrisponde al `X509Credentials` tipo ([.NET](/previous-versions/azure/reference/mt124925(v=azure.100)) / [Java](/java/api/system.fabric.x509credentials)) di (.NET `SecurityCredentials` [.NET](/previous-versions/azure/reference/mt124894(v=azure.100)) / [Java](/java/api/system.fabric.securitycredentials)).
+Con .NET SDK o Java SDK, è possibile specificare **X509** per **SecurityCredentialsType**. Corrisponde al `X509Credentials` tipo ([.NET](/previous-versions/azure/reference/mt124925(v=azure.100)) / [Java](/java/api/system.fabric.x509credentials)) di (.NET `SecurityCredentials` [](/previous-versions/azure/reference/mt124894(v=azure.100)) / [Java](/java/api/system.fabric.securitycredentials)).
 
 Il riferimento **X509** identifica la posizione del certificato in un archivio certificati. Il codice XML seguente illustra i parametri usati per specificare il percorso del certificato:
 
@@ -43,7 +43,7 @@ Il riferimento **X509** identifica la posizione del certificato in un archivio c
     <Parameter Name="CertificateStoreName" Value="My" />
 ```
 
-Per un servizio in esecuzione in Linux, **LocalMachine** / **My** fa riferimento al percorso predefinito per i certificati, ovvero la directory */var/lib/sfcerts* . Per Linux, tutte le altre combinazioni di **CertificateStoreLocation** e **CertificateStoreName** non sono definite. 
+Per un servizio in esecuzione in Linux, **LocalMachine** /  fa riferimento al percorso predefinito per i certificati, ovvero la directory */var/lib/sfcerts* . Per Linux, tutte le altre combinazioni di **CertificateStoreLocation** e **CertificateStoreName** non sono definite. 
 
 Specificare sempre **LocalMachine** per il parametro **CertificateStoreLocation**. Non è necessario specificare il parametro **CertificateStoreName** perché il valore predefinito è "My". Con un riferimento **X509**, i file di certificato devono trovarsi nella directory */var/lib/sfcerts* nel nodo del cluster.  
 

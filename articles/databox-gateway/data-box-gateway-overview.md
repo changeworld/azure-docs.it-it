@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: aa68b746ef5c22c97fcfdcca889bf71577c19479
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: adb0e12b81701acbdb33018f055bfe8fda2efc52
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583211"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98786640"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Informazioni su Azure Data Box Gateway
 
@@ -89,7 +89,7 @@ La soluzione Data Box Gateway è costituita dalla risorsa Data Box Gateway, dal 
 
 Il dispositivo fisico Data Box Gateway, la risorsa di Azure e l'account di archiviazione di destinazione in cui si trasferiscono i dati non devono necessariamente trovarsi tutti nella stessa area.
 
-- **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Data Box Gateway è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) (Informazioni su Azure per enti pubblici).
+- **Aree di disponibilità**: per un elenco delle aree in cui la risorsa Azure Data Box Gateway è disponibile, vedere l'[elenco dei prodotti Azure disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). È possibile distribuire Data Box Gateway anche nel cloud di Azure per enti pubblici. Per altre informazioni, vedere [What is Azure Government?](../azure-government/documentation-government-welcome.md) (Informazioni su Azure per enti pubblici).
 
 - **Account di archiviazione di destinazione**: gli account che archiviano i dati sono disponibili in tutte le aree di Azure.
 
@@ -101,4 +101,3 @@ Il dispositivo fisico Data Box Gateway, la risorsa di Azure e l'account di archi
 - Vedere i [requisiti di sistema di Data Box Gateway](data-box-gateway-system-requirements.md).
 - Comprendere i [limiti di Data Box Gateway](data-box-gateway-limits.md).
 - Distribuire [Azure Data Box Gateway](data-box-gateway-deploy-prep.md) nel portale di Azure.
-

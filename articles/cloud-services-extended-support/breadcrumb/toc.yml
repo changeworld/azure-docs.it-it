@@ -9,3 +9,6 @@
         - name: Servizi cloud
           tocHref: /azure/cloud-services/
           topicHref: /azure/cloud-services/index
+        - name: Distribuire Visual Studio
+          tocHref: /visualstudio-docs/docs/
+          topicHref: /visualstudio-docs/docs/index

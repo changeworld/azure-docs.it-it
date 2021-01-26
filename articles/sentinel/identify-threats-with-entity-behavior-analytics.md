@@ -12,25 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2020
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 2326746d274c68225cd4c8569df6a20d6050ec1a
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900893"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98784796"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
 > [!IMPORTANT]
 >
-> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** nelle aree geografiche e aree geografiche di Sentinel di Azure seguenti:
->    - Geografia Stati Uniti
->    - Area Europa occidentale
->    - Geografia dell'Australia
->
-> - In tutte le altre aree geografiche e aree, queste funzionalità restano per il periodo di **Anteprima**. Vedere le [**condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
+> - Le funzionalità di offrono dati e delle pagine di entità sono ora disponibili a livello **generale** in **_tutte_* le aree geografiche e aree di Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>Che cos'è l'analisi del comportamento dell'utente e dell'entità (offrono dati)?
 
@@ -50,7 +45,7 @@ Azure Sentinel raccoglie log e avvisi da tutte le relative origini dati connesse
 
 Ispirato dal paradigma di Gartner per le soluzioni offrono dati, Azure Sentinel offre un approccio "esterno a", basato su tre frame di riferimento:
 
-- **Casi d'uso:** Classificando in ordine di priorità gli scenari e i vettori di attacco pertinenti in base alla ricerca di sicurezza allineata con l'ATT MITRE&il Framework CK di tattiche, tecniche e sottotecniche che inserisce varie entità come vittime, autori o punti pivot nella catena di Kill; Azure Sentinel si concentra in particolare sui log più importanti che ogni origine dati può fornire.
+- _ *Casi d'uso:** assegnando la priorità ai vettori e agli scenari di attacco pertinenti in base alla ricerca di sicurezza allineata con l'ATT Mitre&il Framework CK di tattiche, tecniche e sottotecniche che inserisce varie entità come vittime, autori o punti pivot nella catena di Kill; Azure Sentinel si concentra in particolare sui log più importanti che ogni origine dati può fornire.
 
 - **Origini dati:** Per prima cosa supportano origini dati di Azure, Azure Sentinel seleziona in modo accurato le origini dati di terze parti per fornire dati corrispondenti agli scenari di minaccia.
 
@@ -163,7 +158,7 @@ Le pagine di entità sono progettate per essere parte di più scenari di utilizz
 | TimeProcessed             | timestamp dell'elaborazione dell'attività da parte del motore EBA            |
 | ActivityType              | categoria di alto livello dell'attività                                 |
 | ActionType                | nome normalizzato dell'attività                                     |
-| Nome utente                  | nome utente dell'utente che ha avviato l'attività                    |
+| UserName                  | nome utente dell'utente che ha avviato l'attività                    |
 | UserPrincipalName         | nome utente completo dell'utente che ha avviato l'attività               |
 | EventSource               | origine dati che ha fornito l'evento originale                        |
 | SourceIPAddress           | Indirizzo IP da cui è stata avviata l'attività                        |
