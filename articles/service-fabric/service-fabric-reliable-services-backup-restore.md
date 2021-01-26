@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: mcoskun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a60ebff06562c12415b2a106a9a11127feb94dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2674d1285544e4bc9b6fcb3d0b2e6f4b607786a2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021987"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791612"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Eseguire il backup e il ripristino di Reliable Services e Reliable Actors
 Azure Service Fabric è una piattaforma a disponibilità elevata che replica lo stato in più nodi per mantenere questa disponibilità elevata.  Anche in caso di errore di un nodo nel cluster, il servizio rimarrà quindi comunque disponibile. Anche se questa ridondanza predefinita fornita dalla piattaforma può essere sufficiente per alcune situazioni, in determinati casi è preferibile che il servizio esegua il backup dei dati in un archivio esterno.
@@ -150,7 +150,7 @@ ad esempio, se contiene il backup completo e il primo e il terzo backup incremen
 > 
 
 ## <a name="deleted-or-lost-service"></a>Servizio eliminato o perso
-Se un servizio viene rimosso, per ripristinare i dati sarà prima di tutto necessario ricrearlo.  È importante creare il servizio con la stessa configurazione, ad esempio con lo stesso schema di partizionamento, in modo che sia possibile ripristinare i dati senza problemi.  Quando il servizio è attivo, è necessario chiamare l'API per il ripristino dei dati (`OnDataLossAsync`, come indicato sopra) su ogni partizione del servizio. A tale scopo, usare [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient?view=azure-dotnet#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) in ogni partizione.  
+Se un servizio viene rimosso, per ripristinare i dati sarà prima di tutto necessario ricrearlo.  È importante creare il servizio con la stessa configurazione, ad esempio con lo stesso schema di partizionamento, in modo che sia possibile ripristinare i dati senza problemi.  Quando il servizio è attivo, è necessario chiamare l'API per il ripristino dei dati (`OnDataLossAsync`, come indicato sopra) su ogni partizione del servizio. A tale scopo, usare [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) in ogni partizione.  
 
 A partire da questo punto, l'implementazione è uguale a quella dello scenario precedente. Ogni partizione deve ripristinare il backup rilevante più recente dall'archivio esterno. Occorre prestare attenzione al fatto che ora l'ID della partizione potrebbe essere diverso, perché il runtime crea dinamicamente gli ID delle partizioni. Il servizio deve quindi archiviare le informazioni sulla partizione e il nome del servizio appropriati per identificare il più recente backup corretto da ripristinare per ogni partizione.
 
@@ -259,5 +259,5 @@ Fino a quando un servizio non completa correttamente l'API, restituendo true o f
   - [Guida introduttiva a Reliable Services](service-fabric-reliable-services-quick-start.md)
   - [Notifiche di Reliable Services](service-fabric-reliable-services-notifications.md)
   - [Configurazione di Reliable Services](service-fabric-reliable-services-configuration.md)
-  - [Guida di riferimento per gli sviluppatori per Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  - [Guida di riferimento per gli sviluppatori per Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Backup e ripristino periodici in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)

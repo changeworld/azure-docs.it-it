@@ -1,5 +1,5 @@
 ---
-title: Aggiornare o eliminare Azure Load Balancer esistenti usati dal set di scalabilità di macchine virtuali
+title: Aggiornare o eliminare le istanze esistenti di Azure Load Balancer usate da un set di scalabilità di macchine virtuali
 titleSuffix: Update or delete existing Azure Load Balancer used by Virtual Machine Scale Set
 description: Questo articolo illustra come iniziare a usare Azure Load Balancer Standard e i set di scalabilità di macchine virtuali.
 services: load-balancer
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/30/2020
 ms.author: irenehua
-ms.openlocfilehash: f8f664375e53a1cef28b0c7b95207770434f67fa
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d5614490bfd2cfb67b6b7afd7b7b8643bbf754bd
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97893268"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790090"
 ---
 # <a name="how-to-updatedelete-azure-load-balancer-used-by-virtual-machine-scale-sets"></a>Come aggiornare/eliminare Azure Load Balancer usati dai set di scalabilità di macchine virtuali
 
 ## <a name="how-to-set-up-azure-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Come configurare Azure Load Balancer per la scalabilità orizzontale di set di scalabilità di macchine virtuali
-  * Verificare che il Load Balancer disponga di un [pool NAT in ingresso](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurato e che il set di scalabilità di macchine virtuali sia inserito nel pool back-end del Load Balancer. Azure Load Balancer creerà automaticamente nuove regole NAT in ingresso nel pool NAT in ingresso quando vengono aggiunte nuove istanze di macchine virtuali al set di scalabilità di macchine virtuali. 
+  * Verificare che il Load Balancer disponga di un [pool NAT in ingresso](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurato e che il set di scalabilità di macchine virtuali sia inserito nel pool back-end del Load Balancer. Azure Load Balancer creerà automaticamente nuove regole NAT in ingresso nel pool NAT in ingresso quando vengono aggiunte nuove istanze di macchine virtuali al set di scalabilità di macchine virtuali. 
   * Per verificare se il pool NAT in ingresso è configurato correttamente, 
   1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
   
@@ -35,7 +35,7 @@ Se nel riquadro destro viene visualizzato un elenco di regole create per ogni si
 ## <a name="how-to-add-inbound-nat-rules"></a>Come aggiungere le regole NAT in ingresso? 
   * Non è possibile aggiungere una singola regola NAT in ingresso. Tuttavia, è possibile aggiungere un set di regole NAT in ingresso con l'intervallo di porte front-end definito e la porta back-end per tutte le istanze nel set di scalabilità di macchine virtuali.
   * Per aggiungere un intero set di regole NAT in ingresso per i set di scalabilità di macchine virtuali, è necessario prima creare un pool NAT in ingresso nella Load Balancer e quindi fare riferimento al pool NAT in ingresso dal profilo di rete del set di scalabilità di macchine virtuali. Di seguito è riportato un esempio completo di utilizzo dell'interfaccia della riga di comando.
-  * Il nuovo pool NAT in ingresso non deve avere un intervallo di porte front-end sovrapposto con i pool NAT in ingresso esistenti. Per visualizzare i pool NAT in ingresso esistenti impostati, è possibile usare questo [comando dell'interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
+  * Il nuovo pool NAT in ingresso non deve avere un intervallo di porte front-end sovrapposto con i pool NAT in ingresso esistenti. Per visualizzare i pool NAT in ingresso esistenti impostati, è possibile usare questo [comando dell'interfaccia della riga di comando](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list)
 ```azurecli-interactive
 az network lb inbound-nat-pool create 
         -g MyResourceGroup 
@@ -92,7 +92,7 @@ az network lb inbound-nat-pool update
    
 1. Nella pagina **Aggiungi indirizzo IP** front-end digitare i valori e selezionare **OK** .
 
-1. Se sono necessarie nuove regole di bilanciamento del carico, seguire i [passaggi 5](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) e [6](https://docs.microsoft.com/azure/load-balancer/load-balancer-multiple-ip#step-5-configure-the-health-probe) di questa esercitazione
+1. Se sono necessarie nuove regole di bilanciamento del carico, seguire i [passaggi 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) e [6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) di questa esercitazione
 
 1. Se necessario, creare un nuovo set di regole NAT in ingresso usando le configurazioni IP front-end appena create. L'esempio è disponibile nella [sezione precedente].
 

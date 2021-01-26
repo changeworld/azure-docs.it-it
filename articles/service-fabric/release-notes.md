@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: bb7708514de6a1d68ecad0c142d68c321293d728
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 41aa7f251bc12fd889a71f65da83c4730ebda9a7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219624"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789634"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -117,7 +117,7 @@ Verranno aggiornate anche le date di rilascio pianificate per indicare che quest
 #### <a name="key-announcements"></a>Annunci chiave
  - [**Supporto di KeyVaultReference per i segreti dell'applicazione (anteprima)**](./service-fabric-keyvault-references.md): Service Fabric le applicazioni che hanno abilitato le [identità gestite](./concepts-managed-identity.md) possono ora fare riferimento direttamente a un URL di Key Vault Secret come variabile di ambiente, parametro dell'applicazione o credenziale del repository del contenitore. Service Fabric risolverà automaticamente il segreto usando l'identità gestita dell'applicazione. 
      
-- **Miglioramento della sicurezza dell'aggiornamento per i servizi** senza stato: per garantire la disponibilità durante l'aggiornamento di un'applicazione, sono state introdotte nuove configurazioni per definire il [numero minimo di istanze per i servizi](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) senza stato da considerare disponibili. In precedenza questo valore era 1 per tutti i servizi e non era modificabile. Con questo nuovo controllo di sicurezza per servizio, è possibile assicurarsi che i servizi mantengano un numero minimo di istanze durante gli aggiornamenti dell'applicazione, gli aggiornamenti del cluster e altre operazioni di manutenzione che si basano sui controlli di integrità e sicurezza del Service Fabric.
+- **Miglioramento della sicurezza dell'aggiornamento per i servizi** senza stato: per garantire la disponibilità durante l'aggiornamento di un'applicazione, sono state introdotte nuove configurazioni per definire il [numero minimo di istanze per i servizi](/dotnet/api/system.fabric.description.statelessservicedescription) senza stato da considerare disponibili. In precedenza questo valore era 1 per tutti i servizi e non era modificabile. Con questo nuovo controllo di sicurezza per servizio, è possibile assicurarsi che i servizi mantengano un numero minimo di istanze durante gli aggiornamenti dell'applicazione, gli aggiornamenti del cluster e altre operazioni di manutenzione che si basano sui controlli di integrità e sicurezza del Service Fabric.
   
 - [**Limiti delle risorse per i servizi utente**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): gli utenti possono impostare i limiti delle risorse per i servizi utente in un nodo per evitare scenari come l'esaurimento delle risorse dei servizi di Service Fabric sistema. 
   

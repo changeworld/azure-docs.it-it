@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 6bed26227542cbf3ffc13ecc018aef9e659d026e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042897"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791629"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
 
@@ -111,7 +111,7 @@ In questo caso è possibile verificare che tra `2018-04-03T18:00:00Z` e `2018-04
 
 ## <a name="query-the-eventstore-programmatically"></a>Eseguire query su EventStore a livello di codice
 
-È anche possibile eseguire query su EventStore a livello di codice, tramite la [libreria client di Service Fabric](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
+È anche possibile eseguire query su EventStore a livello di codice, tramite la [libreria client di Service Fabric](/dotnet/api/overview/azure/service-fabric#client-library).
 
 Dopo aver configurato il client di Service Fabric, è possibile eseguire query per gli eventi accedendo a EventStore nel modo seguente: `sfhttpClient.EventStore.<request>`
 

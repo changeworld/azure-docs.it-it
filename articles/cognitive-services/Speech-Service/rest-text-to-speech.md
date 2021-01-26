@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: d858474eca34243a007d0d0ac1e023a4a0fab8ec
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 53be2f6795593bf44cafde149242b13ed4fdfe50
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572341"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790478"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
@@ -60,11 +60,9 @@ L' `voices/list` endpoint consente di ottenere un elenco completo delle voci per
 | Corea centrale | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centro-settentrionali | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa settentrionale | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Sudafrica settentrionale | `https://southafricanorth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti centro-meridionali | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asia sud-orientale | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Regno Unito meridionale | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Stati Uniti centro-occidentali | `https://westcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa occidentale | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti occidentali | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Stati Uniti occidentali 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -279,5 +277,5 @@ Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Creare un account Azure gratuito](https://azure.microsoft.com/free/cognitive-services/)
-- [Sintesi asincrona per audio a lungo termine](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Sintesi asincrona per audio a lungo termine](./long-audio-api.md)
 - [Introduzione a Voce personalizzata](how-to-custom-voice.md)

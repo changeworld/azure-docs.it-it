@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a4586c9c1be51b0ebbdebcf0c23289fc39f9eda
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 263e45928642aa74d682fc490e424a24deeb8076
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485502"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790682"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Criteri di posizionamento per i servizi di Service Fabric
 I criteri di posizionamento sono le regole aggiuntive che possono essere usate per definire la posizione del servizio in alcuni scenari specifici, meno comuni. Alcuni esempi di questi scenari sono:
@@ -150,7 +150,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> Attualmente il criterio è supportato solo per i servizi senza [stato con modalità di attivazione del pacchetto del servizio](/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet)ExclusiveProcess.
+> Attualmente il criterio è supportato solo per i servizi senza [stato con modalità di attivazione del pacchetto del servizio](/dotnet/api/system.fabric.description.servicepackageactivationmode)ExclusiveProcess.
 >
 
 > [!WARNING]
@@ -158,7 +158,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 >
 
 > [!NOTE]
-> L'uso di un valore elevato di [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) con questo criterio di posizionamento può causare l'aggiornamento bloccato delle applicazioni. Se, ad esempio, si dispone di un cluster a cinque nodi e si imposta InstanceCount = 10, si avranno due istanze in ogni nodo. Se si imposta MinInstanceCount = 9, un tentativo di aggiornamento dell'app può rimanere bloccato; con MinInstanceCount = 8, questa operazione può essere evitata.
+> L'uso di un valore elevato di [MinInstanceCount](/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount) con questo criterio di posizionamento può causare l'aggiornamento bloccato delle applicazioni. Se, ad esempio, si dispone di un cluster a cinque nodi e si imposta InstanceCount = 10, si avranno due istanze in ogni nodo. Se si imposta MinInstanceCount = 9, un tentativo di aggiornamento dell'app può rimanere bloccato; con MinInstanceCount = 8, questa operazione può essere evitata.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi

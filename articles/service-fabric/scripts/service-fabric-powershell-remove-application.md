@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8b4b07288ce2c3570da5482a446b9418c7319011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 686afa791df88382e3e5e1b2d233317c36bf1dd6
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086201"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791307"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Rimuovere un'applicazione da un cluster di Service Fabric con PowerShell
 
@@ -37,11 +37,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication?view=azureservicefabricps) | Rimuove un'istanza di applicazione di Service Fabric in esecuzione dal cluster.  |
-| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype?view=azureservicefabricps) | Annulla la registrazione di un tipo e una versione di applicazione di Service Fabric dal cluster. |
+| [Remove-ServiceFabricApplication](/powershell/module/servicefabric/remove-servicefabricapplication) | Rimuove un'istanza di applicazione di Service Fabric in esecuzione dal cluster.  |
+| [Unregister-ServiceFabricApplicationType](/powershell/module/servicefabric/unregister-servicefabricapplicationtype) | Annulla la registrazione di un tipo e una versione di applicazione di Service Fabric dal cluster. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview?view=azureservicefabricps).
+Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview).
 
 Altri esempi di PowerShell per Azure Service Fabric sono disponibili in [Esempi di Azure PowerShell](../service-fabric-powershell-samples.md).

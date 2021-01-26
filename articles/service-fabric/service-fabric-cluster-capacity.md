@@ -4,12 +4,12 @@ description: Tipi di nodo, durabilità, affidabilità e altri aspetti da conside
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 731dcfdf25efc4b2f44669dacd8a400037ed47f4
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576333"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790699"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 
@@ -146,7 +146,7 @@ Ecco la raccomandazione per la scelta del livello di affidabilità. Il numero di
 | 7 o 8 | Oro |
 | Da 9 in su | Platinum |
 
-Quando si aumentano o si riducono le dimensioni del cluster (la somma delle istanze di VM in tutti i tipi di nodo), è consigliabile aggiornare l'affidabilità del cluster da un livello a un altro. Così facendo si attivano gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema. Attendere che l'aggiornamento in corso venga completato prima di apportare altre modifiche al cluster, come l'aggiunta di nodi.  È possibile monitorare lo stato di avanzamento dell'aggiornamento in Service Fabric Explorer oppure eseguendo [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
+Quando si aumentano o si riducono le dimensioni del cluster (la somma delle istanze di VM in tutti i tipi di nodo), è consigliabile aggiornare l'affidabilità del cluster da un livello a un altro. Così facendo si attivano gli aggiornamenti del cluster necessari per modificare il totale di set di repliche dei servizi di sistema. Attendere che l'aggiornamento in corso venga completato prima di apportare altre modifiche al cluster, come l'aggiunta di nodi.  È possibile monitorare lo stato di avanzamento dell'aggiornamento in Service Fabric Explorer oppure eseguendo [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade).
 
 ### <a name="capacity-planning-for-reliability"></a>Pianificazione della capacità per l'affidabilità
 

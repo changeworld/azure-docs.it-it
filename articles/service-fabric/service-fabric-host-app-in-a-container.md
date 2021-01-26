@@ -3,12 +3,12 @@ title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabri
 description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 8be9de495fa6bc5689a2dba5384f5df3112cbb38
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: 85e9b553000c52131c04502d496aa050b73d6d8a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485536"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791663"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -27,11 +27,12 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
-3. Installare il [runtime di Service Fabric versione 6.2 o successiva](service-fabric-get-started.md) e [Service Fabric SDK versione 3.1](service-fabric-get-started.md) o versioni successive.
-4. Installare [Visual Studio 2019 versione 16.1](https://www.visualstudio.com/) o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
-5. Installare [Azure PowerShell][link-azure-powershell-install]
+1. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+2. Abilitare le funzionalità di Windows **Hyper-V** e i **contenitori**.
+3. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
+4. Installare il [runtime di Service Fabric versione 6.2 o successiva](service-fabric-get-started.md) e [Service Fabric SDK versione 3.1](service-fabric-get-started.md) o versioni successive.
+5. Installare [Visual Studio 2019 versione 16.1](https://www.visualstudio.com/) o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
+6. Installare [Azure PowerShell][link-azure-powershell-install]
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Scaricare ed eseguire Fabrikam Fiber CallCenter
 
@@ -40,16 +41,6 @@ In questa esercitazione verranno illustrate le procedure per:
 2. Verificare che l'applicazione di Fabrikam Fiber CallCenter venga compilata ed eseguita senza errori.  Avviare Visual Studio come **amministratore** e aprire il file [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Premere F5 per eseguire il debug dell'applicazione ed eseguirla.
 
    ![Screenshot della home page dell'applicazione Fabrikam Fiber CallCenter in esecuzione nell'host locale. La pagina mostra un dashboard con un elenco di chiamate al supporto.][fabrikam-web-page]
-
-## <a name="containerize-the-application"></a>Distribuire l'applicazione in un contenitore
-
-1. Fare clic con il pulsante destro del mouse sul progetto **FabrikamFiber.Web** > **Aggiungi** > **Supporto per l'agente di orchestrazione del contenitore**.  Selezionare **Service Fabric** come agente di orchestrazione del contenitore e fare clic su **OK**.
-
-2. Se richiesto, fare clic su **Sì** per impostare adesso Docker sui contenitori Windows.
-
-   Nella soluzione viene creato un nuovo progetto di applicazione di Service Fabric **FabrikamFiber.CallCenterApplication**.  Viene aggiunto un Dockerfile al progetto **FabrikamFiber.Web** esistente.  Viene anche aggiunta una directory **PackageRoot** al progetto **FabrikamFiber.Web**, che contiene il manifesto del servizio e le impostazioni per il nuovo servizio FabrikamFiber.Web.
-
-   Il contenitore è ora pronto per la compilazione e l'inserimento come pacchetto in un'applicazione di Service Fabric. Dopo aver creato l'immagine del contenitore sul computer, è possibile eseguirne il push in qualsiasi registro contenitori e quindi estrarla in qualsiasi host per l'esecuzione.
 
 ## <a name="create-an-azure-sql-db"></a>Creare un database SQL di Azure
 
@@ -120,9 +111,42 @@ Tornare al progetto **FabrikamFiber.Web** e aggiornare la stringa di connessione
 >[!NOTE]
 >Per il debug locale è possibile usare un'istanza di SQL Server a scelta, a condizione che sia raggiungibile dall'host. **localdb**, tuttavia, non supporta la comunicazione `container -> host`. Se si vuole usare un database SQL diverso durante la creazione di una compilazione di rilascio dell'applicazione Web, aggiungere un'altra stringa di connessione al file *web.release.config*.
 
+## <a name="containerize-the-application"></a>Distribuire l'applicazione in un contenitore
+
+1. Fare clic con il pulsante destro del mouse sul progetto **FabrikamFiber.Web** > **Aggiungi** > **Supporto per l'agente di orchestrazione del contenitore**.  Selezionare **Service Fabric** come agente di orchestrazione del contenitore e fare clic su **OK**.
+
+2. Se richiesto, fare clic su **Sì** per impostare adesso Docker sui contenitori Windows.
+
+   Nella soluzione viene creato un nuovo progetto di applicazione di Service Fabric **FabrikamFiber.CallCenterApplication**.  Viene aggiunto un Dockerfile al progetto **FabrikamFiber.Web** esistente.  Viene anche aggiunta una directory **PackageRoot** al progetto **FabrikamFiber.Web**, che contiene il manifesto del servizio e le impostazioni per il nuovo servizio FabrikamFiber.Web.
+
+   Il contenitore è ora pronto per la compilazione e l'inserimento come pacchetto in un'applicazione di Service Fabric. Dopo aver creato l'immagine del contenitore sul computer, è possibile eseguirne il push in qualsiasi registro contenitori e quindi estrarla in qualsiasi host per l'esecuzione.
+
 ## <a name="run-the-containerized-application-locally"></a>Eseguire l'applicazione in un contenitore in locale
 
 Premere **F5** per eseguire l'applicazione ed eseguirne il debug in un contenitore nel cluster di sviluppo locale di Service Fabric. Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
+
+Se l'esecuzione di F5 genera un'eccezione simile alla seguente, l'indirizzo IP corretto non è stato aggiunto al firewall del database di Azure.
+
+```text
+System.Data.SqlClient.SqlException
+HResult=0x80131904
+Message=Cannot open server 'fab-fiber-751718376' requested by the login. Client with IP address '123.456.789.012' is not allowed to access the server.  To enable access, use the Windows Azure Management Portal or run sp_set_firewall_rule on the master database to create a firewall rule for this IP address or address range.  It may take up to five minutes for this change to take effect.
+Source=.Net SqlClient Data Provider
+StackTrace:
+<Cannot evaluate the exception stack trace>
+```
+
+Per aggiungere l'indirizzo IP appropriato al firewall del database di Azure, eseguire il comando seguente.
+
+```powershell
+# The IP address of your development computer that accesses the SQL DB.
+$clientIPNew = "<client IP from the Error Message>"
+
+# Create the firewall rule to allow your development computer to access the server.
+New-AzSqlServerFirewallRule -ResourceGroupName $dbresourcegroupname `
+    -ServerName $servername `
+    -FirewallRuleName "AllowClientNew" -StartIpAddress $clientIPNew -EndIpAddress $clientIPNew
+```
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
@@ -151,7 +175,7 @@ Le applicazioni Service Fabric sono eseguite in un cluster, un set di macchine v
 
 Questa esercitazione consente di creare un cluster da Visual Studio, ideale per scenari di test. Se si crea un cluster in altri modi o si usa un cluster esistente, è possibile copiare e incollare l'endpoint della connessione o sceglierlo dalla sottoscrizione.
 
-Prima di iniziare aprire FabrikamFiber.Web->PackageRoot->ServiceManifest.xml in Esplora soluzioni. Prendere nota della porta per il front-end Web indicata in **Endpoint**.
+Prima di iniziare, aprire FabrikamFiber. Web-> PackageRoot-> ServiceManifest.xml nel Esplora soluzioni. Prendere nota della porta per il front-end Web indicata in **Endpoint**.
 
 Durante la creazione del cluster:
 
@@ -166,6 +190,9 @@ Durante la creazione del cluster:
 
     c. Selezionare la scheda **Certificato**. In questa scheda digitare una password che verrà usata per proteggere il certificato del cluster. Questo certificato consente di rendere sicuro il cluster. È anche possibile modificare il percorso in cui si vuole salvare il certificato. Visual Studio può anche importare automaticamente il certificato, perché questo passaggio è obbligatorio per la pubblicazione dell'applicazione nel cluster.
 
+    >[!NOTE]
+    >Prendere nota del percorso della cartella in cui viene importato il certificato. Il passaggio successivo dopo la creazione del cluster consiste nell'importare il certificato.
+
     d. Selezionare la scheda **Dettagli macchina virtuale**. Specificare la password che si vuole usare per le macchine virtuali (VM) che costituiscono il cluster. Il nome utente e la password possono essere usati per la connessione remota alle VM. Si deve anche selezionare una dimensione di macchina virtuale ed è possibile modificare l'immagine di VM, se necessario.
 
     > [!IMPORTANT]
@@ -176,6 +203,12 @@ Durante la creazione del cluster:
     f. Al termine della modifica delle impostazioni, selezionare il pulsante **Crea**.
 
 5. La creazione richiede alcuni minuti. Il completamento dell'operazione verrà indicato nella finestra di output.
+
+## <a name="install-the-imported-certificate"></a>Installare il certificato importato
+
+Installare il certificato importato durante il passaggio di creazione del cluster al percorso dell'archivio **utente corrente** e fornire la password della chiave privata specificata.
+
+È possibile confermare l'installazione aprendo **Gestisci certificati utente** dal pannello di controllo e conferma che il certificato è installato in certificati-certificati personali **dell'utente corrente**  ->    ->  . Il certificato deve essere simile a *[nome cluster]*. *[Percorso cluster]*. cloudapp.Azure.com, ad esempio *fabrikamfibercallcenter.southcentralus.cloudapp.Azure.com*. 
 
 ## <a name="allow-your-application-running-in-azure-to-access-sql-database"></a>Consentire all'applicazione in esecuzione in Azure di accedere al database SQL
 
@@ -233,9 +266,11 @@ Ora che l'applicazione è pronta, è possibile distribuirla nel cluster in Azure
 
 ![Pubblicare l'applicazione][publish-app]
 
-Seguire lo stato della distribuzione nella finestra di output. Al termine della distribuzione dell'applicazione, aprire un browser e digitare l'indirizzo del cluster e la porta dell'applicazione. Ad esempio: `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
+Seguire lo stato della distribuzione nella finestra di output. Al termine della distribuzione dell'applicazione, aprire un browser e digitare l'indirizzo del cluster e la porta dell'applicazione. Ad esempio: `http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/`.
 
 ![Screenshot della home page dell'applicazione Fabrikam Fiber CallCenter in esecuzione in azure.com. La pagina mostra un dashboard con un elenco di chiamate al supporto.][fabrikam-web-page-deployed]
+
+Se la pagina non viene caricata o non è possibile richiedere il certificato, provare ad aprire il percorso di esplorazione, ad esempio, `https://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:19080/Explorer` e selezionare il certificato appena installato.
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurare l'integrazione e la distribuzione continue con un cluster di Service Fabric
 

@@ -4,12 +4,12 @@ description: Informazioni su come distribuire un cluster Linux di Service Fabric
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 77cc49c1b79e5c24e78a67a69493aa0b0059d565
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738953"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791072"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -75,7 +75,7 @@ Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio 
 
 ### <a name="virtual-network-and-subnet"></a>Rete virtuale e subnet
 
-I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks** :
+I nomi della rete virtuale e della subnet sono dichiarati nei parametri del modello.  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
 
 * Spazio indirizzi della rete virtuale: 10.0.0.0/16
 * Spazio indirizzi della subnet di Service Fabric: 10.0.2.0/24
@@ -106,7 +106,7 @@ Il modello in questo articolo distribuisce un cluster che usa l'identificazione 
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creare un cluster usando un certificato esistente
 
-Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e il modello per distribuire un nuovo cluster protetto con un certificato esistente. Il comando crea anche un nuovo insieme di credenziali delle chiavi in Azure e carica il certificato.
+Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster) e il modello per distribuire un nuovo cluster protetto con un certificato esistente. Il comando crea anche un nuovo insieme di credenziali delle chiavi in Azure e carica il certificato.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -132,7 +132,7 @@ az sf cluster create --resource-group $ResourceGroupName --location $Location \
 
 ### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Creare un cluster usando un nuovo certificato autofirmato
 
-Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest) e un modello per distribuire un nuovo cluster in Azure. Il comando crea anche un insieme di credenziali delle chiavi in Azure, aggiunge un nuovo certificato autofirmato all'insieme di credenziali delle chiavi e scarica il file del certificato in locale.
+Lo script seguente usa il comando [az sf cluster create](/cli/azure/sf/cluster) e un modello per distribuire un nuovo cluster in Azure. Il comando crea anche un insieme di credenziali delle chiavi in Azure, aggiunge un nuovo certificato autofirmato all'insieme di credenziali delle chiavi e scarica il file del certificato in locale.
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"

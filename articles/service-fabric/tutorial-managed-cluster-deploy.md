@@ -4,12 +4,12 @@ description: In questa esercitazione verrà distribuito un cluster gestito di Se
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316176"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791712"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Esercitazione: Distribuire un cluster gestito di Service Fabric (anteprima)
 
@@ -37,7 +37,7 @@ Prima di iniziare questa esercitazione:
 
 * Installare [Service Fabric SDK e il modulo PowerShell](service-fabric-get-started.md).
 
-* Installare [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (o versione successiva).
+* Installare [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps#azservicefabric) (o versione successiva).
 
 ## <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 

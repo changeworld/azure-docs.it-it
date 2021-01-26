@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 985f9e741a1491a812c1d2b20de96381f8af3fa4
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 084ca039e7f388a11e15b29c579606c6ed3086db
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359847"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790428"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -101,7 +101,7 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
 > Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
 
 > [!IMPORTANT]
-> Potrebbe essere necessario abilitare TLS per l'app Web in modo da visualizzarlo al suo `https` indirizzo. Seguire le istruzioni in [abilitare un endpoint TLS](https://docs.microsoft.com/azure/container-instances/container-instances-container-group-ssl) per configurare un contenitore sidecar che Abilita TLS/SSL per l'app Web.
+> Potrebbe essere necessario abilitare TLS per l'app Web in modo da visualizzarlo al suo `https` indirizzo. Seguire le istruzioni in [abilitare un endpoint TLS](../../container-instances/container-instances-container-group-ssl.md) per configurare un contenitore sidecar che Abilita TLS/SSL per l'app Web.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

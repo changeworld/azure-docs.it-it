@@ -3,12 +3,12 @@ title: Azure DevTest Labs l'utilizzo in più laboratori e sottoscrizioni
 description: Informazioni su come creare report Azure DevTest Labs utilizzo in più laboratori e sottoscrizioni.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d789b9849ec798a396e99420649792937422470f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152201"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789939"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Segnala l'utilizzo di Azure DevTest Labs tra più laboratori e sottoscrizioni
 
@@ -82,5 +82,5 @@ Quando il sistema è configurato e i dati passano all'archiviazione a lungo term
     Gli utenti selezionano dimensioni delle macchine virtuali ad alte prestazioni (più costose)?
 -   Quali immagini del Marketplace vengono usate?
 
-    Sono immagini personalizzate la base di VM più comune, dovrebbe essere compilato un archivio immagini comune come [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md) o [Factory di immagini](image-factory-create.md).
+    Sono immagini personalizzate la base di VM più comune, dovrebbe essere compilato un archivio immagini comune come [raccolta immagini condivise](../virtual-machines/shared-image-galleries.md) o [Factory di immagini](image-factory-create.md).
 -   Quali immagini personalizzate vengono usate o meno?

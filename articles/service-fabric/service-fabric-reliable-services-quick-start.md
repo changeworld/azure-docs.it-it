@@ -4,12 +4,12 @@ description: Introduzione alla creazione di un’applicazione dell’infrastrutt
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev, devx-track-csharp
-ms.openlocfilehash: 1de77f870bce5766ab704249034d6d7b6c8b098e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45341c98a40cbcabfa8b96f2016f02f1755fe2b3
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012739"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791528"
 ---
 # <a name="get-started-with-reliable-services"></a>Introduzione a Reliable Services
 
@@ -127,7 +127,7 @@ A questo punto l'applicazione ha due servizi: il servizio senza stato *HelloWorl
 
 Un servizio con stato ha gli stessi punti di ingresso di un servizio senza stato. La differenza principale è la disponibilità di un *provider di stato* che può archiviare lo stato in modo affidabile. Service Fabric viene fornita con un'implementazione del provider di stato denominata [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), che consente di creare strutture di dati replicate tramite Reliable state Manager. Un servizio Reliable Services con stato usa questo provider di stato per impostazione predefinita.
 
-Aprire **HelloWorldStateful.cs** in *HelloWorldStateful*che contiene il metodo RunAsync seguente:
+Aprire **HelloWorldStateful.cs** in *HelloWorldStateful* che contiene il metodo RunAsync seguente:
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -169,11 +169,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2) è un'implementazione di dizionario che permette di archiviare in modo affidabile lo stato nel servizio. Grazie a Service Fabric e alle raccolte Reliable Collections è possibile archiviare i dati direttamente nel servizio, senza la necessità di un archivio esterno persistente. Le raccolte Reliable Collections garantiscono la disponibilità elevata dei dati. A tale scopo, Service Fabric crea e gestisce automaticamente più *repliche* del servizio. Offre anche un'API che consente di evitare le complessità di gestione di tali repliche e delle relative transizioni di stato.
+[IReliableDictionary](/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2#microsoft_servicefabric_data_collections_ireliabledictionary_2) è un'implementazione di dizionario che permette di archiviare in modo affidabile lo stato nel servizio. Grazie a Service Fabric e alle raccolte Reliable Collections è possibile archiviare i dati direttamente nel servizio, senza la necessità di un archivio esterno persistente. Le raccolte Reliable Collections garantiscono la disponibilità elevata dei dati. A tale scopo, Service Fabric crea e gestisce automaticamente più *repliche* del servizio. Offre anche un'API che consente di evitare le complessità di gestione di tali repliche e delle relative transizioni di stato.
 
 Le raccolte Reliable Collections possono archiviare qualsiasi tipo .NET, inclusi quelli personalizzati, con alcuni avvertimenti:
 
-* Service Fabric garantisce la disponibilità elevata dello stato *replicando* lo stato nei nodi, mentre Reliable Collections archivia i dati nel disco locale a ogni replica. Questo significa che tutti gli elementi archiviati in Reliable Collections devono essere *serializzabili*. Per impostazione predefinita, le raccolte Reliable Collections usano [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute?view=netcore-3.1) per la serializzazione. Quando si usa il serializzatore predefinito, è quindi importante assicurarsi che i tipi siano [supportati dal serializzatore dei contratti dati](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer).
+* Service Fabric garantisce la disponibilità elevata dello stato *replicando* lo stato nei nodi, mentre Reliable Collections archivia i dati nel disco locale a ogni replica. Questo significa che tutti gli elementi archiviati in Reliable Collections devono essere *serializzabili*. Per impostazione predefinita, le raccolte Reliable Collections usano [DataContract](/dotnet/api/system.runtime.serialization.datacontractattribute) per la serializzazione. Quando si usa il serializzatore predefinito, è quindi importante assicurarsi che i tipi siano [supportati dal serializzatore dei contratti dati](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer).
 * Quando si esegue il commit di transazioni nelle raccolte Reliable Collections, gli oggetti vengono replicati per assicurare disponibilità elevata. Gli oggetti archiviati nelle raccolte Reliable Collections vengono conservati nella memoria locale del servizio. Ciò significa che è presente un riferimento locale all'oggetto.
   
    È importante non apportare modifiche alle istanze locali degli oggetti senza prima eseguire un'operazione di aggiornamento sulla raccolta Reliable Collections in una transazione. Le modifiche apportate alle istanze locali di oggetti, infatti, non vengono replicate automaticamente. È necessario reinserire nuovamente l'oggetto nel dizionario o utilizzare uno dei metodi di *aggiornamento* sul dizionario.
@@ -195,7 +195,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 
 Le raccolte Reliable Collections hanno molte delle stesse operazioni eseguite dalle relative `System.Collections.Generic` `System.Collections.Concurrent` controparti e, ad eccezione di Language Integrated Query (LINQ). Le operazioni sulle raccolte Reliable Collections sono asincrone. Questo avviene perché le operazioni di scrittura sulle raccolte Reliable Collections eseguono operazioni di I/O per replicare e rendere persistenti i dati su disco.
 
-Le operazioni sulle raccolte Reliable Collections sono *transazionali*e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
+Le operazioni sulle raccolte Reliable Collections sono *transazionali* e consentono di mantenere lo stato coerente tra più raccolte Reliable Collections e operazioni. Ad esempio, è possibile rimuovere un elemento di lavoro da un oggetto ReliableQueue, eseguire un'operazione su tale elemento e salvare il risultato in un oggetto ReliableDictionary, il tutto all'interno di una singola transazione. Questa viene considerata come un'operazione atomica e garantisce la riuscita o il rollback dell'intera operazione. Se si verifica un errore dopo aver rimosso l'elemento dalla coda ma prima di aver salvato il risultato, viene eseguito il rollback dell'intera transazione e l'elemento rimane nella coda per l'elaborazione.
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 Tornare all'applicazione *HelloWorld* . È ora possibile compilare e distribuire i servizi. Quando si preme **F5**, l'applicazione viene compilata e distribuita nel cluster locale.

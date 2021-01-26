@@ -17,16 +17,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 41c0f9546b07158a2c7fb3344698598f0c38521f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 5bd52e8865bb704497740851f6a0e3c886ed9d6d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492081"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790208"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Indirizzare il traffico di rete con una tabella di route usando PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per impostazione predefinita, Azure indirizza automaticamente il traffico tra tutte le subnet di una rete virtuale. È possibile creare le proprie route per eseguire l'override del routing predefinito di Azure. La possibilità di creare route personalizzate è utile se, ad esempio, si vuole indirizzare il traffico tra subnet attraverso un'appliance virtuale di rete. In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -38,7 +36,7 @@ Per impostazione predefinita, Azure indirizza automaticamente il traffico tra tu
 * Distribuire le macchine virtuali in subnet diverse
 * Indirizzare il traffico da una subnet a un'altra attraverso un'appliance virtuale di rete
 
-Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

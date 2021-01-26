@@ -5,15 +5,15 @@ author: abhishekram
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: a38a11d9cf062cd0a45890d43afe9b2530b2b7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebaedb5369f3b39372262bfde526706e8d069418
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258465"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789617"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Actors
-Il runtime di Reliable Actors rende disponibili eventi [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) e [contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
+Il runtime di Reliable Actors rende disponibili eventi [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) e [contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter), che forniscono informazioni utili per comprendere il funzionamento del runtime e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 ## <a name="eventsource-events"></a>Eventi EventSource
 Il nome provider di EventSource per il runtime di Reliable Actors è "Microsoft-ServiceFabric-Actors". Gli eventi provenienti da questa origine vengono visualizzati nella finestra degli [eventi di diagnostica](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) quando l'applicazione attore viene sottoposta a [debug in Visual Studio](service-fabric-debugging-your-application.md).
@@ -50,7 +50,7 @@ Per la categoria `Service Fabric Actor`, i nomi delle istanze dei contatori sono
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
@@ -69,7 +69,7 @@ Per la categoria `Service Fabric Actor Method`, i nomi delle istanze dei contato
 
 *ActorsRuntimeMethodId* è la rappresentazione sotto forma di stringa di un numero intero a 32 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ActorRuntimeInternalID* è la rappresentazione sotto forma di stringa di un numero intero a 64 bit generato dal runtime di Fabric Actors per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 

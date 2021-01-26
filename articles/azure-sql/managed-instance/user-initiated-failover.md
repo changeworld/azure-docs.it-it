@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 12/16/2020
-ms.openlocfilehash: 4b1c98d8621267b300a82b697bce66a6b94e82f3
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.date: 01/25/2021
+ms.openlocfilehash: c12e1f4b01b0e2dd7fa21808cf33f45f9a5be59b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825919"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789973"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in Istanza gestita di SQL
 
@@ -143,6 +143,7 @@ Non sarà possibile visualizzare lo stesso output con il livello di servizio di 
 > - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **15 minuti**.
 > - Per le istanze BC è necessario che esista il quorum delle repliche affinché venga accettata la richiesta di failover.
 > - Per le istanze BC non è possibile specificare la replica secondaria leggibile su cui avviare il failover.
+> - Il failover non sarà consentito fino al completamento del primo backup completo per un nuovo database da parte dei sistemi di backup automatici.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

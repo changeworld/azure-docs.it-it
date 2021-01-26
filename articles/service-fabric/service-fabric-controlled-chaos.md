@@ -6,17 +6,17 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: motanv
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9e9127d9776169131c2ed7f4778052646e84f8b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013113"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789652"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Eseguire Chaos in ambiente controllato nei cluster di Service Fabric
 I sistemi distribuiti di grandi dimensioni come le infrastrutture cloud sono intrinsecamente inaffidabili. Azure Service Fabric consente agli sviluppatori di scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile. Per scrivere servizi distribuiti affidabili in un'infrastruttura inaffidabile, gli sviluppatori devono poter testare la stabilità dei servizi quando nell'infrastruttura inaffidabile sottostante si verificano transizioni di stato complesse a causa di errori.
 
-Il [servizio di fault injection e analisi del cluster](./service-fabric-testability-overview.md) (noto anche come servizio di analisi degli errori) offre agli sviluppatori la possibilità di causare errori per testare i servizi. Questi errori simulati mirati, ad esempio il [riavvio di una partizione](/powershell/module/servicefabric/start-servicefabricpartitionrestart?view=azureservicefabricps), consentono di generare le transizioni di stato più comuni. Gli errori simulati mirati sono tuttavia parziali per definizione e quindi possono non coprire i bug che si verificano solo in sequenze di transizioni di stato difficili da prevedere, lunghe e complesse. Per un test imparziale, è possibile usare Chaos.
+Il [servizio di fault injection e analisi del cluster](./service-fabric-testability-overview.md) (noto anche come servizio di analisi degli errori) offre agli sviluppatori la possibilità di causare errori per testare i servizi. Questi errori simulati mirati, ad esempio il [riavvio di una partizione](/powershell/module/servicefabric/start-servicefabricpartitionrestart), consentono di generare le transizioni di stato più comuni. Gli errori simulati mirati sono tuttavia parziali per definizione e quindi possono non coprire i bug che si verificano solo in sequenze di transizioni di stato difficili da prevedere, lunghe e complesse. Per un test imparziale, è possibile usare Chaos.
 
 Chaos simula errori periodici con interfoliazione, normali e anomali, nel cluster per lunghi periodi di tempo. Un errore normale è costituito da una serie di chiamate API di Service Fabric, ad esempio, il riavvio della replica. Questo errore è normale, poiché si tratta di una chiusura seguita da un'apertura in una replica. La rimozione di una replica e lo spostamento della replica primaria o della replica secondaria sono altri errori normali generati da Chaos. Sono errori anomali le uscite da processi, ad esempio il riavvio di un nodo o di un pacchetto di codice. 
 

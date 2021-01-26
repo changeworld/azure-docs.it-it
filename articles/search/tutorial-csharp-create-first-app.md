@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 01/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98762ac5918437e8fdb8426b54b79b1fb5b222
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
-ms.translationtype: HT
+ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939723"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791679"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Esercitazione: Creare la prima app di ricerca con .NET SDK
 
@@ -77,7 +77,7 @@ Se si vuole procedere direttamente a un'app funzionante, seguire la procedura se
 
 1. Si tratta di un indice di hotel, quindi digitare alcune parole che è possibile usare per cercare gli hotel (ad esempio "wifi", "view", "bar", "parking") ed esaminare i risultati.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Ricerca di *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-wifi.png" alt-text="Ricerca di *wifi*" border="true":::
 
 Il progetto non dovrebbe presentare problemi e l'app Web dovrebbe avviarsi. In questa app sono inclusi molti dei componenti essenziali per ricerche più sofisticate, pertanto è consigliabile esaminarla e ricrearla seguendo la procedura dettagliata. Le sezioni seguenti trattano queste procedure.
 
@@ -87,17 +87,17 @@ Per creare il progetto da zero e quindi approfondire i concetti relativi a Ricer
 
 1. In Visual Studio selezionare **Nuovo** > **Progetto** e quindi **Applicazione Web ASP.NET Core**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Ricerca di *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project1.png" alt-text="Creazione di un progetto cloud" border="true":::
 
 1. Assegnare un nome al progetto, ad esempio "FirstSearchApp", e impostare la località. Selezionare **Crea**.
 
 1. Scegliere il modello di progetto **Applicazione Web (Model-View-Controller)** .
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Ricerca di *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-project2.png" alt-text="Creazione di un progetto MVC" border="true":::
 
 1. Installare la libreria client. In **Strumenti** > **Gestione pacchetti NuGet** > **Gestisci i pacchetti NuGet per la soluzione** selezionare **Sfoglia** e quindi cercare "azure.search.documents". Installare **Azure.search.Documents** (versione 11 o successiva), accettando i contratti di licenza e le dipendenze.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Ricerca di *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Uso di NuGet per aggiungere librerie di Azure" border="true":::
 
 ### <a name="initialize-azure-cognitive-search"></a>Inizializzare Ricerca cognitiva di Azure
 
@@ -114,7 +114,7 @@ Per questo esempio, verranno usati dati di hotel disponibili pubblicamente. Ques
 
 1. In Esplora soluzioni selezionare il file, quindi in Proprietà impostare l'opzione **Copia nella directory di output** su **Copia se più recente**.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Ricerca di *pool*" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-copy-if-newer.png" alt-text="Copia delle impostazioni dell'app nell'output" border="true":::
 
 ## <a name="model-data-structures"></a>Modellare le strutture di dati
 
@@ -534,11 +534,11 @@ A questo punto, verificare se l'app viene eseguita correttamente.
 
 1. Selezionare **Debug** > **Avvia senza eseguire debug** oppure premere **F5**. Se l'app viene eseguita come previsto, si dovrà ottenere la visualizzazione Indice iniziale.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Ricerca di *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-index.png" alt-text="Apertura dell'app" border="true":::
 
 1. Immettere una stringa di query, ad esempio "beach" o un altro testo, quindi fare clic sull'icona di ricerca per inviare la richiesta.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Ricerca di *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-beach.png" alt-text="Ricerca di *beach*" border="true":::
 
 1. Provare a immettere "five star". Si noti che questa query non restituisce risultati. Una ricerca più sofisticata potrebbe considerare "five star" come un sinonimo di "luxury" e restituire risultati. Il supporto per i [sinonimi](search-synonyms.md) è disponibile in Ricerca cognitiva di Azure, ma non è trattato in questa serie di esercitazioni.
 
@@ -554,7 +554,7 @@ A questo punto, verificare se l'app viene eseguita correttamente.
 
 2. Eseguire l'app, immettere "bar" come testo di ricerca e fare clic sull'icona di ricerca. L'eccezione dovrebbe mostrare la vista di errore.
 
-     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Ricerca di *pool*" border="true":::
+     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-error.png" alt-text="Forzare un errore" border="true":::
 
     > [!Important]
     > Viene considerato un rischio per la sicurezza restituire i numeri di errori interni nelle pagine di errore. Se l'app è destinata a un uso generale, valutare le procedure di sicurezza e quelle consigliate su ciò che è opportuno restituire quando si verifica un errore.

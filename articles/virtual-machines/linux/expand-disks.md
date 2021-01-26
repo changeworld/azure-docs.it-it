@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: bbb959b6b1d71c81f7b920b3962f693716041e16
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d1d433c7db36a3f4fe5f528b7fbd17549bc08e4a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016234"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791494"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Espandere dischi rigidi virtuali in una macchina virtuale Linux con l'interfaccia della riga di comando di Azure
 
 Questo articolo descrive come espandere i dischi gestiti di una macchina virtuale Linux tramite l'interfaccia della riga di comando di Azure. È possibile [aggiungere dischi dati](add-disk.md) per fornire spazio di archiviazione aggiuntivo ed è anche possibile espandere un disco dati esistente. Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una macchina virtuale Linux in Azure. 
 
 > [!WARNING]
-> Assicurarsi sempre che il file System sia in uno stato integro, che il tipo di tabella della partizione del disco supporti le nuove dimensioni e assicurarsi che venga eseguito il backup dei dati prima di eseguire operazioni di ridimensionamento del disco. Per altre informazioni, vedere [Eseguire il backup di macchine virtuali Linux in Azure](tutorial-backup-vms.md). 
+> Assicurarsi sempre che il file System sia in uno stato integro, che il tipo di tabella della partizione del disco supporti le nuove dimensioni e assicurarsi che venga eseguito il backup dei dati prima di eseguire operazioni di ridimensionamento del disco. Per altre informazioni, vedere la [Guida introduttiva di backup di Azure](../../backup/quick-backup-vm-portal.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Espandere un disco gestito di Azure
 Assicurarsi di avere installato la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2) e di aver eseguito l'accesso a un account Azure tramite [az login](/cli/azure/reference-index#az-login).

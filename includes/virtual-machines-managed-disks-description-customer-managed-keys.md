@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: File di inclusione
+title: includere file
+description: includere file
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf79fe8766d36fe59595be43250341d49b5460c8
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559484"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98792358"
 ---
 È possibile scegliere di gestire la crittografia a livello di ogni disco gestito, con le proprie chiavi. La crittografia lato server per i dischi gestiti con chiavi gestite dal cliente offre un'esperienza integrata con Azure Key Vault. È possibile importare [le proprie chiavi RSA](../articles/key-vault/keys/hsm-protected-keys.md) nel proprio insieme di credenziali delle chiavi o generare nuove chiavi RSA in Azure Key Vault. 
 
@@ -22,8 +22,6 @@ I dischi gestiti di Azure gestiscono la crittografia e la decrittografia in modo
 #### <a name="full-control-of-your-keys"></a>Controllo completo delle chiavi
 
 È necessario concedere l'accesso a Managed disks nel Key Vault per usare le chiavi per la crittografia e la decrittografia della chiave di crittografia. Ciò consente di avere il controllo completo di dati e chiavi. È possibile disabilitare le chiavi o revocare l'accesso ai dischi gestiti in qualsiasi momento. È anche possibile controllare l'uso della chiave di crittografia con il monitoraggio di Azure Key Vault per garantire che solo i dischi gestiti o altri servizi di Azure attendibili accedano alle chiavi.
-
-Quando si disabilita o si elimina la chiave, tutte le VM con dischi che usano tale chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non potranno essere usate, a meno che la chiave non sia abilitata di nuovo o si assegni una nuova chiave.
 
 Per le unità SSD Premium, SSD Standard e HDD Standard: quando si disabilita o si elimina la chiave, tutte le macchine virtuali con dischi che usano quella chiave verranno arrestate automaticamente. In seguito, le macchine virtuali non potranno essere usate, a meno che la chiave non sia abilitata di nuovo o si assegni una nuova chiave.    
 

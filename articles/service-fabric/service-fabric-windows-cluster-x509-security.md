@@ -3,12 +3,12 @@ title: Proteggere un cluster in Windows con certificati
 description: Proteggere le comunicazioni all'interno del cluster autonomo o locale di Azure Service Fabric nonché tra i client e il cluster.
 ms.topic: conceptual
 ms.date: 10/15/2017
-ms.openlocfilehash: 34ba457ce0f39705393962d5c5ec8fa11668f413
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: d75c644be47ea44f6a8a6ccac91b785af0132833
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94686124"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791038"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -355,7 +355,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) per visualizzare un elenco di nodi nel cluster protetto.
+È quindi possibile eseguire altri comandi di PowerShell per usare questo cluster. È possibile, ad esempio, usare il comando [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode) per visualizzare un elenco di nodi nel cluster protetto.
 
 
 Per rimuovere il cluster, connettersi al nodo del cluster in cui è stato scaricato il pacchetto di Service Fabric, aprire una riga di comando e passare alla cartella del pacchetto. Eseguire ora il comando seguente:

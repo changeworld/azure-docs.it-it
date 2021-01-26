@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 1d3a7be429f730dd4dbd71bade1e3e51ea73c10f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1ff20ab19390dcdadb9a4aa79822f7ace3d31989
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188650"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791173"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Cosa sono le destinazioni di calcolo in Azure Machine Learning?
 
@@ -100,21 +100,21 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno. |
-| Dv2 | Nessuno. |  
-| Dv3 | Nessuno.|
-| DSv2 | Nessuno. | 
-| DSv3 | Nessuno.|
-| FSv2 | Nessuno. | 
+| D | Nessuna. |
+| Dv2 | Nessuna. |  
+| Dv3 | Nessuna.|
+| DSv2 | Nessuna. | 
+| DSv3 | Nessuna.|
+| FSv2 | Nessuna. | 
 | HBv2 | Richiede l'approvazione. |  
 | Servizio di elaborazione host | Richiede l'approvazione. |  
 | M | Richiede l'approvazione. |
-| NC | Nessuno. |    
+| NC | Nessuna. |    
 | NCsv2 | Richiede l'approvazione. |
 | NCsv3 | Richiede l'approvazione. |  
 | NDs | Richiede l'approvazione. |
 | NDv2 | Richiede l'approvazione. |
-| NV | Nessuno. |
+| NV | Nessuna. |
 | NVv3 | Richiede l'approvazione. | 
 
 
@@ -123,7 +123,7 @@ Mentre Azure Machine Learning supporta queste serie di macchine virtuali, potreb
 > [!NOTE]
 > Azure Machine Learning non supporta tutte le dimensioni delle macchine virtuali supportate da Azure computing. Per elencare le dimensioni delle macchine virtuali disponibili, usare uno dei metodi seguenti:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py.md#supported-vmsizes-workspace--location-none-)
 >
 
 ### <a name="compute-isolation"></a>Isolamento del calcolo

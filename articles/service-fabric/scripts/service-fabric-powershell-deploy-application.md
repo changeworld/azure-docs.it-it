@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 145372fa872c481ec1a7c3de016c35fdc0f9d960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 1d25ede5ae871eddd965594224b518ec42525451
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083804"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791291"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuire un'applicazione in un cluster di Service Fabric
 
@@ -41,14 +41,14 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps)| Crea una connessione a un cluster di Service Fabric. |
-|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Copia un pacchetto dell'applicazione nell'archivio immagini del cluster.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Registra un tipo di applicazione e la versione nel cluster. |
-|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Crea un'applicazione da un tipo di applicazione registrata. |
-| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage?view=azureservicefabricps) | Rimuove il pacchetto dell'applicazione di Service Fabric dall'archivio immagini.|
+|[Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster)| Crea una connessione a un cluster di Service Fabric. |
+|[Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) | Copia un pacchetto dell'applicazione nell'archivio immagini del cluster.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype)| Registra un tipo di applicazione e la versione nel cluster. |
+|[New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication)| Crea un'applicazione da un tipo di applicazione registrata. |
+| [Remove-ServiceFabricApplicationPackage](/powershell/module/servicefabric/remove-servicefabricapplicationpackage) | Rimuove il pacchetto dell'applicazione di Service Fabric dall'archivio immagini.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview?view=azureservicefabricps).
+Per altre informazioni sul modulo PowerShell in Service Fabric, vedere la [documentazione di Azure PowerShell](/powershell/azure/service-fabric/overview).
 
 Altri esempi di PowerShell per Azure Service Fabric sono disponibili in [Esempi di Azure PowerShell](../service-fabric-powershell-samples.md).

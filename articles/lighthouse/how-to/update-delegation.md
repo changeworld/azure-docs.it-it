@@ -3,12 +3,12 @@ title: Aggiornare una delega
 description: Informazioni su come aggiornare una delega per un cliente caricato in precedenza in Azure Lighthouse.
 ms.date: 12/03/2020
 ms.topic: how-to
-ms.openlocfilehash: e204d1f3546e6e978f91c7e808065a388a4af4b3
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093418"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791340"
 ---
 # <a name="update-a-delegation"></a>Aggiornare una delega
 
@@ -58,9 +58,9 @@ Al termine della distribuzione, [verificare che sia stata eseguita correttamente
 
 ## <a name="updating-managed-service-offers"></a>Aggiornamento delle offerte del servizio gestito
 
-Se il cliente è stato caricato tramite un'offerta di servizio gestito pubblicata in Azure Marketplace e si desidera aggiornare le autorizzazioni, è possibile aggiornare la delega [pubblicando una nuova versione dell'offerta](../../marketplace/partner-center-portal/update-existing-offer.md) con le [autorizzazioni](../../marketplace/partner-center-portal/create-new-managed-service-offer.md#authorization) che si desidera utilizzare aggiornate nel piano del cliente. Il cliente sarà quindi in grado di eseguire l'aggiornamento alla versione più recente nel portale di Azure.
+Se il cliente è stato caricato tramite un'offerta di servizio gestito pubblicata in Azure Marketplace e si desidera aggiornare le autorizzazioni, è possibile aggiornare la delega [pubblicando una nuova versione dell'offerta](../../marketplace/partner-center-portal/update-existing-offer.md) con le [autorizzazioni](../../marketplace/plan-managed-service-offer.md) che si desidera utilizzare aggiornate nel piano del cliente. Il cliente sarà quindi in grado di eseguire l'aggiornamento alla versione più recente nel portale di Azure.
 
-Se si desidera modificare il tenant di gestione, sarà necessario [creare e pubblicare una nuova offerta di servizio gestito](../../marketplace/partner-center-portal/create-new-managed-service-offer.md) che il cliente possa accettare.
+Se si desidera modificare il tenant di gestione, sarà necessario [creare e pubblicare una nuova offerta di servizio gestito](../../marketplace/plan-managed-service-offer.md) che il cliente possa accettare.
 
 > [!TIP]
 > Come indicato in precedenza, è consigliabile non usare più offerte diverse tra lo stesso cliente e la gestione del tenant. Se si pubblica una nuova offerta per lo stesso cliente che usa lo stesso tenant di gestione, assicurarsi che l'offerta precedente venga rimossa prima che il cliente accetti l'offerta più recente.

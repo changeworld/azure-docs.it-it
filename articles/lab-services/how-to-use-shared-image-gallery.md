@@ -3,15 +3,15 @@ title: Usare una raccolta di immagini condivise in Azure Lab Services | Microsof
 description: Informazioni su come configurare un account lab per l'uso di una raccolta di immagini condivise in modo che un utente possa condividere un'immagine con altri utenti e un altro utente possa usare l'immagine per creare una macchina virtuale modello nel lab.
 ms.topic: article
 ms.date: 09/11/2020
-ms.openlocfilehash: d9f4e75163f591680cc8f85ac42c1b6ada5f2365
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 984cb4c47099928ffab327895a728cbe8a8f9604
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94647767"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791391"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usare una raccolta di immagini condivise in Azure Lab Services
-Questo articolo illustra il modo in cui docenti e amministratori di lab possono salvare un'immagine di macchina virtuale modello in una [raccolta di immagini condivise](../virtual-machines/windows/shared-image-galleries.md) in modo che possa essere usata da altri utenti per creare lab. 
+Questo articolo illustra il modo in cui docenti e amministratori di lab possono salvare un'immagine di macchina virtuale modello in una [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md) in modo che possa essere usata da altri utenti per creare lab. 
 
 > [!IMPORTANT]
 > Quando si usa una raccolta di immagini condivise, Azure Lab Services supporta solo le immagini con meno di 128 GB di spazio su disco del sistema operativo. Le immagini con più di 128 GB di spazio su disco o più dischi non verranno visualizzate nell'elenco delle immagini di macchine virtuali durante la creazione del Lab.
@@ -48,7 +48,7 @@ Una volta collegata una raccolta di immagini condivise, un amministratore dell'a
     Dopo avere salvato l'immagine nella raccolta di immagini condivise, è possibile usare tale immagine dalla raccolta durante la creazione di un altro lab. È anche possibile caricare un'immagine nella raccolta di immagini condivise all'esterno del contesto di un lab. Per altre informazioni, consultare [Panoramica di raccolta di immagini condivise](../virtual-machines/shared-images-powershell.md). 
 
     > [!IMPORTANT]
-    > Quando si [Salva un'immagine modello di un Lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services in una raccolta di immagini condivise, l'immagine viene caricata nella raccolta come **immagine specializzata**. Le [Immagini specializzate](../virtual-machines/windows/shared-image-galleries.md#generalized-and-specialized-images) mantengono le informazioni e i profili utente specifici del computer. È comunque possibile caricare direttamente un'immagine generalizzata nella raccolta al di fuori della Azure Lab Services.    
+    > Quando si [Salva un'immagine modello di un Lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services in una raccolta di immagini condivise, l'immagine viene caricata nella raccolta come **immagine specializzata**. Le [Immagini specializzate](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) mantengono le informazioni e i profili utente specifici del computer. È comunque possibile caricare direttamente un'immagine generalizzata nella raccolta al di fuori della Azure Lab Services.    
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Usare un'immagine dalla raccolta di immagini condivise
 Un docente può scegliere un'immagine personalizzata disponibile nella raccolta di immagini condivise per il modello durante la creazione di un nuovo lab.
@@ -60,4 +60,4 @@ Un docente può scegliere un'immagine personalizzata disponibile nella raccolta 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle raccolte immagini condivise, consultare [raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md).
+Per altre informazioni sulle raccolte immagini condivise, consultare [raccolta immagini condivise](../virtual-machines/shared-image-galleries.md).

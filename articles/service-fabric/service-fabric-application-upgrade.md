@@ -3,18 +3,18 @@ title: Aggiornamento di un'applicazione di infrastruttura di servizi
 description: Questo articolo fornisce un'introduzione all'aggiornamento di un'applicazione di Service Fabric, inclusa la scelta delle modalità di aggiornamento e dei controlli di integrità eseguiti.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f3fad8d0ede92004706d9a1f4e14353715361b63
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309841"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98792015"
 ---
 # <a name="service-fabric-application-upgrade"></a>Aggiornamento di un'applicazione di infrastruttura di servizi
 Un'applicazione di Azure Service Fabric è una raccolta di servizi. Durante un aggiornamento, Service Fabric confronta il nuovo [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) con la versione precedente e determina quali servizi dell'applicazione richiedono aggiornamenti. Service Fabric confronta i numeri di versione nel manifesto del servizio con quelli della versione precedente. Se un servizio non è cambiato, non viene aggiornato.
 
 > [!NOTE]
-> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s non vengono mantenuti durante l'aggiornamento di un'applicazione. Per mantenere i parametri dell'applicazione correnti, l'utente deve prima ottenere i parametri e passarli alla chiamata API di aggiornamento come riportato di seguito:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -52,7 +52,7 @@ La modalità consigliata per l'aggiornamento dell'applicazione è la modalità m
 La modalità UnmonitoredManual richiede l'intervento manuale dopo ogni aggiornamento eseguito in un dominio di aggiornamento per passare al dominio di aggiornamento successivo. Non viene eseguito alcun controllo di integrità su Service Fabric. L'amministratore esegue i controlli di integrità o di stato previsti prima di avviare l'aggiornamento nel dominio di aggiornamento successivo.
 
 ## <a name="upgrade-default-services"></a>Aggiornare i servizi predefiniti
-Alcuni parametri di servizi predefiniti nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) possono essere aggiornati anche durante un aggiornamento dell'applicazione. Durante un aggiornamento possono essere modificati solo i parametri di servizi che supportano la modifica tramite [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps). Di seguito viene illustrato il comportamento in caso di modifica dei servizi predefiniti durante l'aggiornamento dell'applicazione:
+Alcuni parametri di servizi predefiniti nel [manifesto dell'applicazione](service-fabric-application-and-service-manifests.md) possono essere aggiornati anche durante un aggiornamento dell'applicazione. Durante un aggiornamento possono essere modificati solo i parametri di servizi che supportano la modifica tramite [Update-ServiceFabricService](/powershell/module/servicefabric/update-servicefabricservice). Di seguito viene illustrato il comportamento in caso di modifica dei servizi predefiniti durante l'aggiornamento dell'applicazione:
 
 1. I servizi predefiniti presenti nel nuovo manifesto dell'applicazione che ancora non esistono nel cluster vengono creati.
 2. I servizi predefiniti che esistono sia nel manifesto dell'applicazione precedente sia in quello nuovo vengono aggiornati. I parametri del servizio predefinito presente nel nuovo manifesto dell'applicazione sovrascrivono i parametri del servizio esistente. Se si verifica un errore durante l'aggiornamento di un servizio predefinito, verrà eseguito il rollback automatico dell'aggiornamento dell'applicazione.
@@ -64,7 +64,7 @@ Quando viene eseguito il rollback di un aggiornamento dell'applicazione, vengono
 > Il valore dell'impostazione di configurazione del cluster [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) deve essere *true* per abilitare le regole 2) e 3) indicate in precedenza (aggiornamento ed eliminazione di un servizio predefinito). Questa funzionalità è supportata in Service Fabric a partire dalla versione 5.5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Aggiornamento di più applicazioni con endpoint HTTPS
-Quando si usa HTTP**S**, è necessario prestare attenzione a non usare la **stessa porta** per istanze diverse della stessa applicazione. Ciò è dovuto al fatto che Service Fabric non sarà in grado di aggiornare il certificato per una delle istanze dell'applicazione. Ad esempio, se sia l'applicazione 1 che l'applicazione 2 desiderano eseguire l'aggiornamento del certificato 1 al certificato 2. Al momento dell'aggiornamento, Service Fabric potrebbe avere eliminato la registrazione del certificato 1 con http.sys anche se è ancora utilizzato dall'altra applicazione. Per evitare questo problema, Service Fabric rileva che è già presente un'altra istanza dell'applicazione registrata sulla porta con il certificato (a causa di http.sys) e l'operazione ha esito negativo.
+Quando si usa HTTP **S**, è necessario prestare attenzione a non usare la **stessa porta** per istanze diverse della stessa applicazione. Ciò è dovuto al fatto che Service Fabric non sarà in grado di aggiornare il certificato per una delle istanze dell'applicazione. Ad esempio, se sia l'applicazione 1 che l'applicazione 2 desiderano eseguire l'aggiornamento del certificato 1 al certificato 2. Al momento dell'aggiornamento, Service Fabric potrebbe avere eliminato la registrazione del certificato 1 con http.sys anche se è ancora utilizzato dall'altra applicazione. Per evitare questo problema, Service Fabric rileva che è già presente un'altra istanza dell'applicazione registrata sulla porta con il certificato (a causa di http.sys) e l'operazione ha esito negativo.
 
 Pertanto Service Fabric non supporta l'aggiornamento di due servizi diversi mediante **la stessa porta** in istanze dell'applicazione diverse. In altre parole, non è possibile utilizzare lo stesso certificato in servizi diversi sulla stessa porta. Se è necessario avere un certificato condiviso sulla stessa porta, occorre verificare che i servizi si trovino su computer diversi con vincoli di posizionamento. In alternativa, utilizzare le porte dinamiche di Service Fabric se possibile per ogni servizio in ogni istanza dell'applicazione. 
 

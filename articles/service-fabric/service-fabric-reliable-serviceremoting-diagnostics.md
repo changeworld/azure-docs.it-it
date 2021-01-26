@@ -5,15 +5,15 @@ author: suchiagicha
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
-ms.openlocfilehash: 89a7a545dd334f892ee27b97995de40d7b6416dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c7d466d6e8fd36b4445966b92ee753becf96c64
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86245926"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791762"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostica e monitoraggio delle prestazioni per Reliable Service Remoting
-Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter?view=dotnet-plat-ext-3.1) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
+Il runtime Reliable ServiceRemoting genera [i contatori delle prestazioni](/dotnet/api/system.diagnostics.performancecounter) che forniscono informazioni utili per comprendere il funzionamento di ServiceRemoting e per eseguire la risoluzione dei problemi e il monitoraggio delle prestazioni.
 
 
 ## <a name="performance-counters"></a>Contatori delle prestazioni
@@ -36,7 +36,7 @@ Per la categoria `Service Fabric Service`, i nomi delle istanze dei contatori so
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ServiceReplicaOrInstanceId* è la rappresentazione sotto forma di stringa di Service Fabric Replica/ID dell'istanza a cui è associata l'istanza del contatore delle prestazioni.
 
@@ -57,7 +57,7 @@ Per la categoria `Service Fabric Service Method`, i nomi delle istanze dei conta
 
 *ServiceRuntimeMethodId* è la rappresentazione sotto forma di stringa di un numero intero a 32 bit generato dal runtime di Fabric Service per l'uso interno. Viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altri nomi di istanze di contatori delle prestazioni. Agli utenti non serve tentare di interpretare questa parte del nome dell'istanza del contatore delle prestazioni.
 
-*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring?view=netcore-3.1#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
+*ServiceFabricPartitionID* è la rappresentazione di stringa dell'ID di partizione Service fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite il [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) metodo con l'identificatore di formato "D".
 
 *ServiceReplicaOrInstanceId* è la rappresentazione sotto forma di stringa di Service Fabric Replica/ID dell'istanza a cui è associata l'istanza del contatore delle prestazioni.
 

@@ -4,12 +4,12 @@ description: La comunicazione remota di Service Fabric consente a client e servi
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3659fea73abae3c9c5264f227b90d0af95a93e7
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a0486a27d76c978a65c4a3cfd81df52a12e4ea1d
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576656"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791578"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Comunicazione remota nei servizi C# con Reliable Services
 
@@ -160,7 +160,7 @@ Questi passaggi modificano il codice del modello per usare lo stack V2, mediante
    </Resources>
    ```
 
-2. Usare [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
+2. Usare [FabricTransportServiceRemotingListener](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime`.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -176,7 +176,7 @@ Questi passaggi modificano il codice del modello per usare lo stack V2, mediante
     }
    ```
 
-3. Usare [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`, per creare i client.
+3. Usare [FabricTransportServiceRemotingClientFactory](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory) dallo spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client`, per creare i client.
 
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
@@ -255,7 +255,7 @@ Per passare a uno stack V2_1, seguire questi passaggi.
     }
    ```
 
-3. Aggiungere l'[attributo assembly](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) nelle interfacce di comunicazione remota.
+3. Aggiungere l'[attributo assembly](/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute) nelle interfacce di comunicazione remota.
 
    ```csharp
     [assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
@@ -267,7 +267,7 @@ Compilare l'assembly client con l'assembly dell'interfaccia, per assicurarsi che
 
 ### <a name="use-explicit-remoting-classes-to-create-a-listenerclient-factory-for-the-v2-interface-compatible-version"></a>Usare le classi esplicite di comunicazione remota per creare un listener/client factory per la versione V2 (compatibile con l'interfaccia)
 
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Aggiungere una risorsa endpoint con il nome "ServiceEndpointV2_1" nel manifesto del servizio.
 
@@ -279,7 +279,7 @@ Seguire questa procedura:
    </Resources>
    ```
 
-2. Usare il [listener V2 per la comunicazione remota](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). Il nome predefinito della risorsa endpoint servizio usato è "ServiceEndpointV2_1". Quest'ultimo deve essere definito nel manifesto del servizio.
+2. Usare il [listener V2 per la comunicazione remota](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener). Il nome predefinito della risorsa endpoint servizio usato è "ServiceEndpointV2_1". Quest'ultimo deve essere definito nel manifesto del servizio.
 
    ```csharp
    protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -297,7 +297,7 @@ Seguire questa procedura:
     }
    ```
 
-3. Usare la versione V2 della [factory client](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
+3. Usare la versione V2 della [factory client](/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory).
    ```csharp
    var proxyFactory = new ServiceProxyFactory((c) =>
           {
@@ -356,7 +356,7 @@ Questo passaggio assicura che il servizio sia in ascolto solo sul listener V2.
 ### <a name="use-custom-serialization-with-a-remoting-wrapped-message"></a>Usare la serializzazione personalizzata con i messaggi di comunicazione remota su cui è stato eseguito il wrapping
 
 Nei messaggi di comunicazione remota su cui è stato eseguito il wrapping, si creano singoli oggetti sottoposti a wrapping, i cui parametri vengono visualizzati al loro interno come campi.
-Seguire questa procedura:
+A tale scopo, seguire questa procedura:
 
 1. Implementare l'interfaccia `IServiceRemotingMessageSerializationProvider`, al fine di fornire l'implementazione per la serializzazione personalizzata.
     Questo frammento di codice mostra come appare l'implementazione.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: a63a756448f9c7202c79c3b4625fc99d4a90dc52
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8e0c7324f5b73b3a2ac5e5fd6fa256202035077a
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014058"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790970"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedure consigliate per l'autenticazione e l'autorizzazione nel servizio Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Questo articolo sulle procedure consigliate è incentrato su come un operatore d
 > * Usare il controllo degli accessi in base al ruolo di Azure per controllare in modo granulare l'accesso alla risorsa AKS e l'API Kubernetes su larga scala, oltre che al kubeconfig.
 > * Usare un'identità gestita per autenticare i pod stessi con altri servizi
 
-## <a name="use-azure-active-directory"></a>Uso di Azure Active Directory
+## <a name="use-azure-active-directory"></a>Usare Azure Active Directory
 
 **Indicazioni sulle procedure consigliate**. Distribuire i cluster servizio Azure Kubernetes con l'integrazione di Azure AD. L'uso di Azure AD consente di centralizzare il componente di gestione delle identità. Qualsiasi modifica all'account utente o allo stato del gruppo viene aggiornata automaticamente nell'accesso al cluster servizio Azure Kubernetes. Usare ruoli o ClusterRole e associazioni, come descritto nella sezione successiva, per assegnare a utenti o gruppi il minor numero di autorizzazioni richieste.
 
@@ -98,39 +98,42 @@ Per informazioni su come controllare l'accesso alla risorsa AKS e al kubeconfig,
 2. Accesso all'API Kubernetes. Questo livello di accesso è controllato da [KUBERNETES RBAC](#use-kubernetes-role-based-access-control-kubernetes-rbac) (tradizionalmente) o dall'integrazione di Azure RBAC con AKS per l'autorizzazione Kubernetes.
 Per informazioni su come concedere in modo granulare le autorizzazioni all'API Kubernetes usando RBAC di Azure, vedere usare il controllo [degli](manage-azure-rbac.md)accessi in base al ruolo di Azure
 
-## <a name="use-pod-identities"></a>Usare le identità del pod
+## <a name="use-pod-managed-identities"></a>Usare le identità gestite da Pod
 
 **Indicazioni sulle procedure consigliate**. Non usare credenziali fisse all'interno dei pod o delle immagini del contenitore, essendo a rischio di esposizione o uso improprio. In alternativa, usare le identità del pod per richiedere automaticamente l'accesso tramite una soluzione centrale di gestione delle identità di Azure AD. Le identità pod sono destinate all'uso solo con i pod Linux e le immagini contenitore.
 
+> [!NOTE]
+> Il supporto per le identità gestite da Pod per i contenitori Windows sarà presto disponibile.
+
 Quando i pod richiedono l'accesso ad altri servizi di Azure, ad esempio Cosmos DB, Key Vault o Archiviazione BLOB, il pod necessita delle credenziali di accesso. Queste credenziali di accesso possono essere definite con l'immagine del contenitore o inserite come un segreto Kubernetes, ma devono essere create e assegnate manualmente. Spesso, le credenziali sono riutilizzate tra i pod e non vengono ruotate regolarmente.
 
-Le identità gestite per le risorse di Azure, attualmente implementate come progetto open source AKS associato, consentono di richiedere automaticamente l'accesso ai servizi tramite Azure AD. Le credenziali per i pod non vengono definite manualmente, ma è possibile richiedere un token di accesso in tempo reale da usare per accedere solo ai relativi servizi assegnati. In servizio Azure Kubernetes vengono distribuiti due componenti dall'operatore del cluster per consentire ai pod di usare le identità gestite:
+Le identità gestite da Pod per le risorse di Azure consentono di richiedere automaticamente l'accesso ai servizi tramite Azure AD. Le identità gestite da Pod sono ora in fase di anteprima per il servizio Azure Kubernetes. Per iniziare, fare riferimento alla documentazione relativa all' [Azure Active Directory uso di identità gestite da Pod in Azure Kubernetes Service (anteprima)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) . Con le identità gestite da Pod, non è possibile definire manualmente le credenziali per i pod, bensì richiedere un token di accesso in tempo reale e usarlo per accedere solo ai servizi assegnati. In AKS sono disponibili due componenti che gestiscono le operazioni per consentire ai pod di usare le identità gestite:
 
 * Il **server NMI (Node Management Identity)** è un pod che viene eseguito come DaemonSet su ogni nodo nel cluster servizio Azure Kubernetes. Il server NMI ascolta le richieste del pod ai servizi di Azure.
-* Il **controller MIC (Managed Identity Controller)** è un pod centrale che dispone di autorizzazioni per eseguire query nel server API Kubernetes e verifica la presenza di un mapping delle identità di Azure corrispondente a un pod.
+* **Il provider di risorse di Azure** esegue una query sul server API Kubernetes e verifica la presenza di un mapping di identità di Azure corrispondente a un pod.
 
-Quando i pod richiedono l'accesso a un servizio di Azure, le regole di rete reindirizzano il traffico verso il server NMI (Node Management Identity). Il server NMI identifica i pod che richiedono l'accesso ai servizi di Azure in base al relativo indirizzo remoto ed esegue una query nel controller MIC (Managed Identity Controller). Il MIC verifica la presenza dei mapping delle identità di Azure nel cluster servizio Azure Kubernetes e il server NMI richiede quindi un token di accesso da Azure Active Directory (AD) in base al mapping delle identità del pod. Azure AD fornisce l'accesso al server NMI, che viene restituito al pod. Questo token di accesso può essere quindi usato dal pod per richiedere l'accesso ai servizi di Azure.
+Quando i pod richiedono l'accesso a un servizio di Azure, le regole di rete reindirizzano il traffico verso il server NMI (Node Management Identity). Il server NMI identifica i pod che richiedono l'accesso ai servizi di Azure in base al relativo indirizzo remoto ed esegue una query sul provider di risorse di Azure. Il provider Azure risorsa verifica i mapping delle identità di Azure nel cluster AKS e il server NMI richiede un token di accesso da Azure Active Directory (AD) in base al mapping delle identità del Pod. Azure AD fornisce l'accesso al server NMI, che viene restituito al pod. Questo token di accesso può essere quindi usato dal pod per richiedere l'accesso ai servizi di Azure.
 
 Nell'esempio seguente uno sviluppatore crea un pod che usa un'identità gestita per richiedere l'accesso al database SQL di Azure:
 
 ![Le identità del pod consentono a un pod di richiedere automaticamente l'accesso ad altri servizi](media/operator-best-practices-identity/pod-identities.png)
 
 1. L'operatore del cluster crea innanzitutto un account del servizio che può essere usato per eseguire il mapping delle identità quando i pod richiedono l'accesso ai servizi.
-1. Il server NMI e il MIC vengono distribuiti per inoltrare le richieste dei pod per i token di accesso ad Azure AD.
+1. Il server NMI viene distribuito per inoltrare le richieste Pod, insieme al provider di risorse di Azure, per i token di accesso Azure AD.
 1. Uno sviluppatore distribuisce un pod con un'identità gestita che richiede un token di accesso tramite il server NMI.
 1. Il token viene restituito al Pod e usato per accedere al database SQL di Azure
 
 > [!NOTE]
-> Le identità dei Pod gestiti sono un progetto open source e non sono supportate dal supporto tecnico di Azure.
+> Le identità gestite da Pod sono attualmente in stato di anteprima.
 
-Per usare le identità del pod, vedere l'articolo sulle [identità di Azure Active Directory per le applicazioni Kubernetes][aad-pod-identity].
+Per usare le identità gestite da Pod, vedere [usare Azure Active Directory identità gestite da Pod nel servizio Azure Kubernetes (anteprima)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo sulle procedure consigliate ha illustrato l'autenticazione e l'autorizzazione per il cluster e le risorse. Per implementare alcune di queste procedure consigliate, vedere gli articoli seguenti:
 
 * [Integrare Azure Active Directory con servizio Azure Kubernetes][aks-aad]
-* [Usare identità gestite per le risorse di Azure con servizio Azure Kubernetes][aad-pod-identity]
+* [Usare Azure Active Directory identità gestite da Pod nel servizio Azure Kubernetes (anteprima)]( https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity)
 
 Per altre informazioni sulle operazioni cluster in servizio Azure Kubernetes, vedere le procedure consigliate seguenti:
 

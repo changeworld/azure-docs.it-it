@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 92a5ce539cdd61feb57722756ec8722916f346de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6770486158b9c5f2e896951d91ff41643b6c8813
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072384"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790141"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Gli endpoint servizio di rete virtuale consentono di limitare l'accesso di rete ad alcune risorse dei servizi di Azure a una subnet della rete virtuale. È anche possibile rimuovere l'accesso Internet alle risorse. Gli endpoint di servizio forniscono la connessione diretta dalla rete virtuale ai servizi di Azure supportati, consentendo di usare lo spazio indirizzi privato della rete virtuale per accedere ai servizi di Azure. Il traffico destinato alle risorse di Azure tramite gli endpoint di servizio rimane sempre nella rete backbone di Microsoft Azure. In questo articolo vengono illustrate le operazioni seguenti:
 

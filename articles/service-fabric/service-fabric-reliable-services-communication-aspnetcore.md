@@ -4,12 +4,12 @@ description: Informazioni su come usare ASP.NET Core in applicazioni Azure Servi
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba5626d477bbd6aa07d89703cc37b157f4cfd4d5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: a125c6a1972b51f518175a4c69248119f71ada7c
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576792"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791595"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 
@@ -190,7 +190,7 @@ Una porta dinamica allocata da una `Endpoint` configurazione fornisce solo una p
 ## <a name="kestrel-in-reliable-services"></a>Kestrel in Reliable Services
 È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener` , un'implementazione di `ICommunicationListener` . `KestrelCommunicationListener` consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
 
-Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
+Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](/aspnet/core/fundamentals/servers/kestrel).
 
 ![Diagramma gheppio][4]
 
@@ -469,11 +469,11 @@ Gheppio è il server Web consigliato per i servizi front-end che espongono endpo
  
 Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e stabile raggiungibile tramite un servizio di bilanciamento del carico. Questo URL verrà fornito agli utenti dell'applicazione. È consigliabile la configurazione seguente:
 
-| Tipo | Recommendation | Note |
+| Type | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Gheppio è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | static | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
-| ServiceFabricIntegrationOptions | Nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
+| ServiceFabricIntegrationOptions | nessuno | Usare l' `ServiceFabricIntegrationOptions.None` opzione quando si configura Service Fabric middleware di integrazione, in modo che il servizio non tenti di convalidare le richieste in ingresso per un identificatore univoco. Gli utenti esterni dell'applicazione non saranno in grado di riconoscere le informazioni di identificazione univoche utilizzate dal middleware. |
 | Conteggio istanze | -1 | Nei casi d'uso tipici, l'impostazione del numero di istanze deve essere impostata su *-1*. Questa operazione viene eseguita in modo che un'istanza sia disponibile in tutti i nodi che ricevono traffico da un servizio di bilanciamento del carico. |
 
 Se più servizi esposti esternamente condividono lo stesso set di nodi, è possibile usare HTTP.sys con un percorso URL univoco ma stabile. A tale scopo, è possibile modificare l'URL fornito durante la configurazione di IWebHost. Si noti che questo vale solo per HTTP.sys.
@@ -494,7 +494,7 @@ Se più servizi esposti esternamente condividono lo stesso set di nodi, è possi
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Servizio ASP.NET Core senza stato solo interno
 I servizi senza stato che vengono chiamati solo dall'interno del cluster devono usare URL univoci e porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Tipo | Recommendation | Note |
+| Type | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP.sys per i servizi interni senza stato, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
@@ -504,7 +504,7 @@ I servizi senza stato che vengono chiamati solo dall'interno del cluster devono 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Servizio ASP.NET Core con stato solo interno
 I servizi con stato che vengono chiamati solo dall'interno del cluster devono usare porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Tipo | Recommendation | Note |
+| Type | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | `HttpSysCommunicationListener`Non è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |

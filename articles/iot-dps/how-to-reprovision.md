@@ -3,30 +3,22 @@ title: Eseguire nuovamente il provisioning dei dispositivi nel servizio Device p
 description: Informazioni su come eseguire il provisioning dei dispositivi con l'istanza del servizio Device provisioning (DPS) e i motivi per cui potrebbe essere necessario eseguire questa operazione.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/04/2019
+ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e5cc5b557aa4dff793f7e87093eeb65028da4f8c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d704e8f9687f3987d80018d84b41c0fd519da172
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010946"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791897"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 
-Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Le ragioni di questo spostamento possono includere gli scenari seguenti:
+Durante il ciclo di vita di una soluzione IoT, è comune spostare i dispositivi tra hub IoT. Questo argomento è stato scritto per aiutare gli operatori della soluzione a configurare i criteri di nuovo provisioning.
 
-* **Georilevazione**: quando un dispositivo viene spostato tra le posizioni, la latenza della rete viene migliorata migrando il dispositivo su un hub IoT più vicino a ciascuna posizione.
-
-* **Multi-tenancy**: un dispositivo può essere usato all'interno della stessa soluzione IoT ma riassegnato o concesso in lease a un nuovo cliente oppure al sito del cliente. Questo nuovo cliente può essere servito usando un hub IoT diverso.
-
-* **Modifica della soluzione**: è stato possibile spostare un dispositivo in una soluzione IoT nuova o aggiornata. Questa riassegnazione potrebbe richiedere al dispositivo di comunicare con un nuovo hub IoT collegato ad altri componenti di back-end. 
-
-* **Quarantena**: simile a una modifica della soluzione. Un dispositivo malfunzionante, compromesso o obsoleto può essere riassegnato a un hub IoT in cui tutto ciò che può fare è aggiornare e ripristinare la conformità. Una volta che il dispositivo funziona correttamente, viene quindi migrato nuovamente al suo hub principale.
-
-Per una panoramica più dettagliata del nuovo provisioning, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](concepts-device-reprovision.md).
+Per una panoramica più dettagliata del nuovo provisioning degli scenari, vedere [concetti relativi al nuovo provisioning dei dispositivi dell'hub](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configurare i criteri di allocazione di registrazione

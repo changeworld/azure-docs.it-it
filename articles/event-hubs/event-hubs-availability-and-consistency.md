@@ -4,12 +4,12 @@ description: Come fornire la quantità massima di disponibilità e coerenza con 
 ms.topic: article
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5ffa2df992eb0c22aafbbb7436250405998d8073
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 884fe878b9524dcf8d97d1123dce35e02af34a24
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762819"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790750"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilità e coerenza nell'Hub eventi
 
@@ -26,7 +26,7 @@ Il teorema di Brewer definisce coerenza e disponibilità come segue:
 > [!NOTE]
 > Il termine **Partition** viene usato in contesti diversi in hub eventi e teorema Cap. 
 > - **Hub eventi** organizza gli eventi in una o più partizioni. Le partizioni sono indipendenti e contengono la propria sequenza di dati, spesso crescono a frequenze diverse. Per altre informazioni, vedere [Partizioni](event-hubs-features.md#partitions).
-> - Nel **teorema Cap** una partizione è un break di comunicazione tra i nodi di un sistema distribuito.
+> - Nel **teorema Cap** una partizione è un break di comunicazione tra i nodi in un sistema distribuito.
 
 ## <a name="partition-tolerance"></a>Tolleranza di partizione
 L'Hub eventi si basa su un modello di dati partizionato. È possibile configurare il numero di partizioni nell'hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario prendere una decisione relativa a disponibilità e coerenza dell'applicazione.

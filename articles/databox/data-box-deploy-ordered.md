@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 91b3e2e86394c889f6fa40f527dd0dd212e1cb57
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4c44fca7b443a4d289b7ac7e2e507a3c3f305089
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763104"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790784"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -338,9 +338,9 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 14. Selezionare un'identità utente da usare per gestire l'accesso a questa risorsa. Scegliere **Select a user identity** (Selezionare un'identità utente). Nel pannello a destra selezionare la sottoscrizione e l'identità gestita da usare. Quindi scegliere **Seleziona**.
 
-    Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che è possibile usare per gestire più risorse. Per altre informazioni, vedere [Tipi di identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).  
+    Un'identità gestita assegnata dall'utente è una risorsa di Azure autonoma che è possibile usare per gestire più risorse. Per altre informazioni, vedere [Tipi di identità gestita](../active-directory/managed-identities-azure-resources/overview.md).  
 
-    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente tramite il portale di Azure](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
+    Se è necessario creare una nuova identità gestita, seguire le istruzioni riportate in [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente tramite il portale di Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
     
     ![Selezionare un'identità utente](./media/data-box-deploy-ordered/customer-managed-key-10.png)
 

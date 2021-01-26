@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 09325289dd5cb83bfc26dd26b266d50b622fe098
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: e6fd69d7016a364d92e1873e0df1521a27612b79
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763075"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791477"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Risolvere i problemi relativi a Azure Stack Edge Pro
 
@@ -89,4 +89,4 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sui [problemi noti in questa versione](data-box-gateway-release-notes.md).
+* Altre informazioni sui [problemi noti in questa versione](../databox-gateway/data-box-gateway-release-notes.md).

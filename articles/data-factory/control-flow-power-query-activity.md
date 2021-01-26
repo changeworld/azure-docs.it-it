@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 3314053e5b81c597d6d29015a5ebda6e171731d1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: c0ad769ceba4fc3fa7f602d70188ea1942ca73aa
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634230"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791695"
 ---
 # <a name="power-query-activity-in-data-factory"></a>Attività di Power query in data factory
 
@@ -22,6 +22,8 @@ L'attività Power Query consente di compilare ed eseguire Power Query mash-up pe
 ![Screenshot che mostra Power Query nel riquadro risorse Factory.](media/data-flow/power-query-wrangling.png)
 
 In precedenza, data wrangling in Azure Data Factory veniva creato dall'opzione di menu flusso di dati. Questa operazione è stata modificata per la creazione da una nuova attività di Power Query. È possibile lavorare direttamente all'interno dell'editor di mash-up Power Query per eseguire l'esplorazione interattiva dei dati e quindi salvare il lavoro. Al termine, è possibile eseguire l'attività di Power Query e aggiungerla a una pipeline. Azure Data Factory lo scalerà automaticamente e rendere operativo i data wrangling usando l'ambiente Spark del flusso di dati di Azure Data Factory.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MFYn]
 
 ## <a name="translation-to-data-flow-script"></a>Conversione nello script del flusso di dati
 

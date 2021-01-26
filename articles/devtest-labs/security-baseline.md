@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: eabb55956f97f40312c894ccabd7a341ecc5688c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 09b4e28437c79961d53cf07b068e3169d20fe0c4
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202012"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789905"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -619,7 +619,7 @@ Inoltre, le immagini di macchine virtuali di Azure Marketplace pubblicate da Mic
 
 - [Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Panoramica di State Configuration di Automazione di Azure](../automation/automation-dsc-overview.md)
-- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 - [Come creare una factory di immagini in DevTest Labs](image-factory-create.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Sì

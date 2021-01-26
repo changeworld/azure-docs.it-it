@@ -4,12 +4,12 @@ description: Descrive come Reliable Actors si sovrappone a Reliable Services e u
 ms.topic: conceptual
 ms.date: 3/9/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c3bd67e0f71e20a8b5a74b4b38e5b423a14dc08d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: e204b47b7fa9f528341507c315c926159d524e13
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575619"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98789583"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Modalità d'uso della piattaforma Service Fabric da parte di Reliable Actors
 Questo articolo descrive il funzionamento di Reliable Actors sulla piattaforma Service Fabric di Azure. Reliable Actors eseguiti in un framework ospitato in un'implementazione di un servizio reliable con stato denominato *servizio Actor*. Il servizio attore contiene tutti i componenti necessari per gestire il ciclo di vita e l'invio di messaggi per gli attori:
@@ -35,7 +35,7 @@ In Reliable Services il servizio eredita la classe `StatefulService`. Questa cla
 
 Per altre informazioni, vedere [Implementazione di funzionalità a livello di servizio nel servizio Actor](service-fabric-reliable-actors-using.md).
 
-## <a name="application-model"></a>Modello di applicazione
+## <a name="application-model"></a>Modello applicativo
 I servizi Actor sono servizi Reliable Services, per cui il modello applicativo è lo stesso. Tuttavia, gli strumenti di compilazione del framework attore generano automaticamente alcuni dei file del modello applicativo.
 
 ### <a name="service-manifest"></a>Manifesto del servizio
@@ -89,7 +89,7 @@ Quando si usano GUID/UUID e stringhe, viene eseguito l'hashing dei valori in un 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Gestione dello stato degli attori](service-fabric-reliable-actors-state-management.md)
 * [Ciclo di vita degli attori e Garbage Collection](service-fabric-reliable-actors-lifecycle.md)
-* [Documentazione di riferimento delle API di Actors](/dotnet/api/microsoft.servicefabric.actors?view=azure-dotnet)
+* [Documentazione di riferimento delle API di Actors](/dotnet/api/microsoft.servicefabric.actors)
 * [Codice di esempio .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Codice di esempio Java](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 

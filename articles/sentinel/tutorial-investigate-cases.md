@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: aa9160f01ed0040123bd8ac932cfd2443f557bb6
-ms.sourcegitcommit: df66dff4e34a0b7780cba503bb141d6b72335a96
+ms.openlocfilehash: 8853f3774bb35361746c8b706f38bc54079d74f7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96511730"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790987"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Esercitazione: esaminare gli eventi imprevisti con Sentinel di Azure
 
 > [!IMPORTANT]
-> Il grafico di analisi è attualmente in **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
-
+> Il grafico di indagine è ora **disponibile** a livello generale. 
 
 Questa esercitazione consente di esaminare gli eventi imprevisti con Sentinel di Azure. Dopo aver connesso le origini dati ad Azure Sentinel, è necessario ricevere una notifica quando si verifica un evento sospetto. Per consentire l'esecuzione di questa operazione, Azure Sentinel consente di creare regole di avviso avanzate che generano eventi imprevisti che è possibile assegnare ed esaminare.
 
@@ -113,11 +112,11 @@ Per usare il grafico di analisi:
 
 Una volta risolto un evento imprevisto specifico, ad esempio quando l'indagine ha raggiunto la conclusione, è necessario impostare lo stato dell'evento imprevisto su **chiuso**. Quando si esegue questa operazione, verrà richiesto di classificare l'evento imprevisto specificando il motivo della chiusura. Questo passaggio è obbligatorio. Fare clic su **Seleziona classificazione** e scegliere una delle seguenti opzioni nell'elenco a discesa:
 
-- Vero positivo-attività sospetta
-- Benigno positivo-sospetto ma previsto
-- Falso positivo: logica di avviso non corretta
-- Falso positivo: dati non corretti
-- Non determinato
+- Vero positivo - attività sospetta
+- Positivo non dannoso - sospetto ma previsto
+- Falso positivo - logica di avviso non corretta
+- Falso positivo - dati non corretti
+- Indeterminato
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot che evidenzia le classificazioni disponibili nell'elenco Seleziona classificazione.":::
 

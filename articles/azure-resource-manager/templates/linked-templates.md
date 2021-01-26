@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Viene descritto come usare i modelli collegati in un modello di Azure Resource Manager (modello ARM) per creare una soluzione di modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: dd810167e07f1bb23f9563936cb481652953ccd1
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.date: 01/25/2021
+ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624859"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790936"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -111,6 +111,10 @@ L'ambito viene impostato tramite la `expressionEvaluationOptions` Proprietà. Pe
   },
   ...
 ```
+
+> [!NOTE]
+>
+> Quando l'ambito è impostato su `outer` , non è possibile usare la `reference` funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, usare l' `inner` ambito o convertire il modello annidato in un modello collegato.
 
 Il modello seguente illustra come vengono risolte le espressioni di modello in base all'ambito. Contiene una variabile denominata `exampleVar` definita sia nel modello padre che nel modello annidato. Restituisce il valore della variabile.
 
@@ -399,10 +403,6 @@ Nell'estratto di codice seguente vengono illustrati i valori sicuri e non sicuri
   ]
 }
 ```
-
-> [!NOTE]
->
-> Quando l'ambito è impostato su `outer` , non è possibile usare la `reference` funzione nella sezione Outputs di un modello annidato per una risorsa distribuita nel modello annidato. Per restituire i valori per una risorsa distribuita in un modello annidato, usare l' `inner` ambito o convertire il modello annidato in un modello collegato.
 
 ## <a name="linked-template"></a>Modello collegato
 

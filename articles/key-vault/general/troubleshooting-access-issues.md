@@ -7,19 +7,19 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 8e4e64cd872794354479c29d4aaa000cee45c5a3
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
-ms.translationtype: HT
+ms.openlocfilehash: c5fab8b856ff9c82a0de887dc9c322dbf541348b
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901216"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791408"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="i-am-not-able-to-list-or-get-secretskeyscertificate-i-am-seeing-something-went-wrong-error"></a>Non è possibile elencare o ottenere segreti/chiavi/certificati. Viene visualizzato un messaggio analogo a "Si è verificato un errore". Errore.
-Se si verificano problemi con l'elenco, il recupero, la creazione o l'accesso a un segreto, assicurarsi che siano definiti criteri di accesso per eseguire tale operazione: [Criteri di accesso di Key Vault](https://docs.microsoft.com/azure/key-vault/general/group-permissions-for-apps)
+Se si verificano problemi con l'elenco, il recupero, la creazione o l'accesso a un segreto, assicurarsi che siano definiti criteri di accesso per eseguire tale operazione: [Criteri di accesso di Key Vault](./assign-access-policy-cli.md)
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>In che modo è possibile identificare le tempistiche e le modalità di accesso agli insiemi di credenziali delle chiavi?
 

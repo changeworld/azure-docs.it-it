@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e92b17a5743e983ca3e77ad18c0973b9f056dfbd
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 40ce5f55b4109fee0099110c17f02b33c3eff808
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611169"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791425"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -74,7 +74,7 @@ Per ulteriori informazioni su libreria di Azure Identity client, vedere:
 |[Azure Identity SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 >[!Note]
-> [Libreria di autenticazione app](https://docs.microsoft.com/dotnet/api/overview/azure/service-to-service-authentication) , consigliata per Key Vault .NET SDK versione 3, attualmente obsoleta. Seguire [AppAuthentication in Azure. informazioni aggiuntive sulla migrazione di identità](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration) per la migrazione a Key Vault .NET SDK versione 4.
+> [Libreria di autenticazione app](/dotnet/api/overview/azure/service-to-service-authentication) , consigliata per Key Vault .NET SDK versione 3, attualmente obsoleta. Seguire [AppAuthentication in Azure. informazioni aggiuntive sulla migrazione di identità](/dotnet/api/overview/azure/app-auth-migration) per la migrazione a Key Vault .NET SDK versione 4.
 
 Per esercitazioni su come eseguire l'autenticazione a Key Vault nelle applicazioni, vedere:
 - [Eseguire l'autenticazione a Key Vault nell'applicazione ospitata in una macchina virtuale in .NET](./tutorial-net-virtual-machine.md)
@@ -89,7 +89,7 @@ L'accesso a chiavi, segreti e certificati è controllato dal piano dati. Il cont
 
 | Interfaccia della riga di comando di Azure | PowerShell | API REST | Gestione risorse | .NET | Python | Java | JavaScript |  
 |--|--|--|--|--|--|--|--|
-|[Riferimento](/cli/azure/keyvault/key)<br>[Guida introduttiva](../keys/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault/)<br>[Guida introduttiva](../keys/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#key-operations)|[Riferimento](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/keys)<br>[Guida introduttiva](../keys/quick-create-template.md)|[Riferimento](/dotnet/api/azure.security.keyvault.keys)<br>[Guida introduttiva](../keys/quick-create-net.md)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Guida introduttiva](../keys/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Guida introduttiva](../keys/quick-create-java.md)|[Riferimento](/javascript/api/@azure/keyvault-keys/)<br>[Guida introduttiva](../keys/quick-create-node.md)|
+|[Riferimento](/cli/azure/keyvault/key)<br>[Guida introduttiva](../keys/quick-create-cli.md)|[Riferimento](/powershell/module/az.keyvault/)<br>[Guida introduttiva](../keys/quick-create-powershell.md)|[Riferimento](/rest/api/keyvault/#key-operations)|[Riferimento](/azure/templates/microsoft.keyvault/vaults/keys)<br>[Guida introduttiva](../keys/quick-create-template.md)|[Riferimento](/dotnet/api/azure.security.keyvault.keys)<br>[Guida introduttiva](../keys/quick-create-net.md)|[Riferimento](/python/api/azure-mgmt-keyvault/azure.mgmt.keyvault)<br>[Guida introduttiva](../keys/quick-create-python.md)|[Riferimento](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-security-keyvault-keys/4.2.0/index.html)<br>[Guida introduttiva](../keys/quick-create-java.md)|[Riferimento](/javascript/api/@azure/keyvault-keys/)<br>[Guida introduttiva](../keys/quick-create-node.md)|
 
 **SDK e API dei certificati**
 

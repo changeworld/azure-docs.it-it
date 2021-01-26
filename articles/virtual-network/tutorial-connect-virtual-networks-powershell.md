@@ -15,16 +15,14 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6ec552ea525abe6a84bb5e34e00ad317cae038bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d93efaedbb0596382b0601a17098311e075618b7
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077853"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791981"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>Connettere reti virtuali con il peering reti virtuali usando PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 È possibile connettere due reti virtuali tra loro con il peering reti virtuali. Dopo che è stato eseguito il peering, le risorse delle due reti virtuali possono comunicare tra loro con la stessa larghezza di banda e la stessa latenza che sarebbero disponibili se si trovassero nella stessa rete virtuale. In questo articolo vengono illustrate le operazioni seguenti:
 

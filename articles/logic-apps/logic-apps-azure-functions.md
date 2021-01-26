@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: fd04e5a7f084de7a95f20b54b99a9e4590f10cd7
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7df9f7d072af7c5f6523fd1be0432ce51954fa10
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034765"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791880"
 ---
 # <a name="call-functions-from-azure-logic-apps"></a>Chiamare funzioni da app per la logica di Azure
 
@@ -31,7 +31,7 @@ Per eseguire frammenti di codice senza usare funzioni di Azure, vedere come [agg
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Un'app per le funzioni, che è un contenitore per una funzione creata in funzioni di Azure, insieme alla funzione creata. Se non si dispone di un'app per le funzioni, [occorre prima di tutto crearne una](../azure-functions/functions-create-first-azure-function.md). È quindi possibile creare la funzione all'esterno dell'app per la logica nel portale di Azure oppure [dall'interno dell'app per la logica](#create-function-designer) nella finestra Progettazione app per la logica.
+* Un'app per le funzioni, che è un contenitore per una funzione creata in funzioni di Azure, insieme alla funzione creata. Se non si dispone di un'app per le funzioni, [occorre prima di tutto crearne una](../azure-functions/functions-get-started.md). È quindi possibile creare la funzione all'esterno dell'app per la logica nel portale di Azure oppure [dall'interno dell'app per la logica](#create-function-designer) nella finestra Progettazione app per la logica.
 
 * Quando si lavora con le app per la logica, gli stessi requisiti si applicano alle app per le funzioni e alle funzioni, nuove o esistenti:
 
@@ -102,9 +102,9 @@ Ora che la funzione è stata creata in Azure, seguire la procedura per [aggiunge
 
 ## <a name="create-functions-inside-logic-apps"></a>Creare funzioni all'interno delle app per la logica
 
-È possibile creare funzioni direttamente dal flusso di lavoro dell'app per la logica usando l'azione incorporata funzioni di Azure nella finestra di progettazione dell'app per la logica, ma è possibile usare questo metodo solo per le funzioni scritte in JavaScript. Per altre lingue, è possibile creare funzioni tramite l'esperienza funzioni di Azure nell'portale di Azure. Per altre informazioni, vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
+È possibile creare funzioni direttamente dal flusso di lavoro dell'app per la logica usando l'azione incorporata funzioni di Azure nella finestra di progettazione dell'app per la logica, ma è possibile usare questo metodo solo per le funzioni scritte in JavaScript. Per altre lingue, è possibile creare funzioni tramite l'esperienza funzioni di Azure nell'portale di Azure. Per altre informazioni, vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-get-started.md).
 
-Tuttavia, prima di poter creare la funzione in Azure, è necessario avere già un'app per le funzioni, che è un contenitore per le funzioni. Se non si dispone di un'app per le funzioni, occorre prima di tutto crearne una. Vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-create-first-azure-function.md).
+Tuttavia, prima di poter creare la funzione in Azure, è necessario avere già un'app per le funzioni, che è un contenitore per le funzioni. Se non si dispone di un'app per le funzioni, occorre prima di tutto crearne una. Vedere [Creare la prima funzione nel portale di Azure](../azure-functions/functions-get-started.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: c78e15a0656abd510bbc241d39ffd026afddfd96
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c687b5b18c9cf7b0920b23f49e3c7a2607e0a89f
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353664"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791021"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -177,7 +177,7 @@ I risultati sono:
     ]
 ```
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Negli esempi precedenti vengono illustrati diversi aspetti del linguaggio di query di Cosmos DB:  
 
@@ -187,7 +187,7 @@ Negli esempi precedenti vengono illustrati diversi aspetti del linguaggio di que
 
 * Cosmos DB supporta solo gli elementi JSON completi. Il sistema di tipi e le espressioni sono quindi limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](https://www.json.org/).  
 
-* Un contenitore Cosmos è una raccolta senza schema di elementi JSON. Le relazioni all'interno e tra gli elementi contenitore vengono acquisite in modo implicito dal contenimento, non dalle relazioni di chiave primaria e chiave esterna. Questa funzionalità è importante per i join intra-Item descritti più avanti in questo articolo.
+* Un contenitore Cosmos è una raccolta senza schema di elementi JSON. Le relazioni all'interno e tra gli elementi contenitore vengono acquisite in modo implicito dal contenimento, non dalle relazioni di chiave primaria e chiave esterna. Questa funzionalità è importante per i join intra-elemento descritti in [join in Azure Cosmos DB](sql-query-join.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

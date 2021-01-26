@@ -1,26 +1,24 @@
 ---
 title: Azure Defender per il servizio app - Vantaggi e funzionalità
-description: Informazioni sui vantaggi e sulle funzionalità di Azure Defender per il servizio app.
+description: Informazioni sulle funzionalità di Azure Defender per il servizio app e su come abilitarlo nella sottoscrizione
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bb0e073d5ccf73434d05c801b9a8727c1d19fa47
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
-ms.translationtype: HT
+ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122230"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791837"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
-Servizio app di Azure è una piattaforma completamente gestita per la creazione e l'hosting di API e app Web senza l'onere della gestione dell'infrastruttura. Fornisce funzionalità di gestione e monitoraggio e informazioni operative dettagliate per soddisfare i requisiti di prestazioni, sicurezza e conformità di livello aziendale. Per altre informazioni, vedere [Servizio app di Azure](https://azure.microsoft.com/services/app-service/).
+App Azure servizio è una piattaforma completamente gestita per la creazione e l'hosting di API e app Web. Poiché la piattaforma è completamente gestita, non è necessario preoccuparsi dell'infrastruttura. Fornisce funzionalità di gestione e monitoraggio e informazioni operative dettagliate per soddisfare i requisiti di prestazioni, sicurezza e conformità di livello aziendale. Per altre informazioni, vedere [Servizio app di Azure](https://azure.microsoft.com/services/app-service/).
 
 **Azure Defender per il servizio app** sfrutta la scalabilità del cloud per identificare gli attacchi alle applicazioni in esecuzione sul servizio app. Gli utenti malintenzionati mettono alla prova le applicazioni Web per individuare e sfruttare i punti deboli. Prima di essere instradate verso ambienti specifici, le richieste alle applicazioni in esecuzione in Azure passano attraverso diversi gateway, in cui vengono ispezionate e registrate. Questi dati vengono poi usati per identificare exploit e utenti malintenzionati, oltre che per apprendere nuovi modelli che verranno usati successivamente.
-
-Grazie alla visibilità di cui Azure dispone come provider di servizi cloud, il Centro sicurezza analizza i log interni del servizio app per identificare la metodologia di attacco usata in più obiettivi. La metodologia comprende, ad esempio, analisi su larga scala e attacchi distribuiti. Gli attacchi di questo tipo in genere provengono da un piccolo subset di indirizzi IP e mostrano modelli di ricerca per indicizzazione in endpoint simili su più host. Questi attacchi cercano una pagina o un plug-in vulnerabile e non possono essere identificati dal punto di vista di un singolo host.
 
 
 ## <a name="availability"></a>Disponibilità
@@ -28,34 +26,68 @@ Grazie alla visibilità di cui Azure dispone come provider di servizi cloud, il 
 |Aspetto|Dettagli|
 |----|:----|
 |Stato della versione:|Disponibile a livello generale|
-|Prezzi:|[Azure Defender per il servizio app](azure-defender.md) è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
+|Prezzi:|[Azure Defender per il servizio app](azure-defender.md) è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)<br>Nella pagina prezzi e impostazioni è elencato il numero di istanze per la **quantità di risorse**. Tale numero è il numero totale di istanze di calcolo, in tutti i piani di servizio app in questa sottoscrizione, in esecuzione al momento dell'apertura della pagina piano tariffario.<br>Per convalidare il conteggio, aprire i **piani di servizio app** nel portale di Azure e verificare il numero di istanze di calcolo usate da ogni piano.|
 |Piani di servizio app supportati:|![Sì](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolato o Linux<br>![No](./media/icons/no-icon.png) Gratuito, Condiviso o Consumo<br>[Altre informazioni sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
-## <a name="what-does-azure-defender-for-app-service-protect"></a>Cosa è possibile proteggere con Azure Defender per il servizio app?
+## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quali sono i vantaggi di Azure Defender per il servizio app?
 
-Con il piano di servizio app abilitato, il Centro sicurezza valuta le risorse coperte da tale piano e genera raccomandazioni sulla sicurezza in base ai risultati ottenuti. Il Centro sicurezza protegge l'istanza di macchina virtuale in cui è in esecuzione il servizio app e l'interfaccia di gestione. Monitora anche le richieste e le risposte inviate da e verso le applicazioni in esecuzione nel servizio app.
+Quando si Abilita Azure Defender per il servizio app, si usufruisce immediatamente dei servizi seguenti offerti dal piano di Azure Defender:
 
-Se si sta eseguendo un piano di servizio app basato su Windows, il Centro sicurezza ha anche accesso alle sandbox e alle macchine virtuali sottostanti. Insieme ai dati di log indicati in precedenza, l'infrastruttura può fornire indicazioni su ciò che accade, da un nuovo attacco in circolazione alle compromissioni nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che le vulnerabilità di un'app Web sono già state sfruttate, potrebbe essere in grado di rilevare gli attacchi in atto.
+- **Sicuro** : il Centro sicurezza valuta le risorse coperte dal piano di servizio app e genera raccomandazioni sulla sicurezza in base ai risultati ottenuti. Usare le istruzioni dettagliate in questi consigli per rafforzare le risorse del servizio app.
+
+- **Rilevamento** : Azure Defender rileva una grande quantità di minacce per le risorse del servizio app monitorando:
+    - l'istanza di macchina virtuale in cui è in esecuzione il servizio app e la relativa interfaccia di gestione
+    - richieste e risposte inviate da e verso le app del servizio app
+    - sandbox e VM sottostanti
+    - Log interni del servizio app: disponibili grazie alla visibilità di Azure come provider di servizi cloud
+
+Azure Defender, una soluzione nativa del cloud, può identificare le metodologie di attacco applicabili a più destinazioni. Da un singolo host, ad esempio, sarebbe difficile identificare un attacco distribuito da un piccolo subset di indirizzi IP, ovvero eseguire la ricerca per indicizzazione su endpoint simili in più host.
+
+I dati di log e l'infrastruttura possono essere concatenati: da un nuovo attacco che circola in folle a compromessi nei computer dei clienti. Pertanto, anche se il Centro sicurezza viene distribuito dopo che le vulnerabilità di un'app Web sono già state sfruttate, potrebbe essere in grado di rilevare gli attacchi in atto.
 
 
-## <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggere le app Web e le API del servizio app di Azure
+## <a name="what-threats-can-azure-defender-for-app-service-detect"></a>Quali minacce possono essere rilevate da Azure Defender per il servizio app?
+
+### <a name="threats-by-mitre-attck-tactics"></a>Minacce per MITRE ATT&le tattiche CK
+
+Azure Defender monitora numerose minacce per le risorse del servizio app. Gli avvisi coprono quasi l'elenco completo delle strategie di controllo dell'ATT&CK, dal pre-attacco al comando e al controllo. Azure Defender può rilevare:
+
+- **Minacce di pre-attacco** : Defender può rilevare l'esecuzione di più tipi di scanner di vulnerabilità usati spesso da utenti malintenzionati per sondare le applicazioni per individuare eventuali debolezze.
+
+- Minacce di accesso **iniziali**  -  [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) consente di eseguire questi avvisi che includono l'attivazione di un avviso quando un indirizzo IP dannoso noto si connette all'interfaccia FTP del servizio app Azure.
+
+- **Minacce per l'esecuzione** : Defender può rilevare i tentativi di esecuzione di comandi con privilegi elevati, comandi di Linux in un servizio app di Windows, comportamenti di attacco senza file, strumenti di data mining digitali e molte altre attività di esecuzione di codice sospetto e dannoso.
+
+### <a name="dangling-dns-detection"></a>Rilevamento DNS in sospeso
+
+Azure Defender per il servizio app identifica anche eventuali voci DNS rimanenti nel registrar DNS quando un sito Web del servizio app viene ritirato. queste voci sono note come voci DNS in sospeso. A questo punto, la voce DNS punta a una risorsa inesistente e il sottodominio è vulnerabile a un'acquisizione. Azure Defender non esegue l'analisi del registrar DNS per le voci DNS in sospeso *esistenti* ; viene avvisato quando un sito Web del servizio app viene ritirato e il dominio personalizzato (voce DNS) non viene eliminato.
+
+Le acquisizioni dei sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni. Quando un attore di minacce rileva una voce DNS in sospeso, crea il proprio sito all'indirizzo di destinazione. Il traffico destinato al dominio dell'organizzazione viene quindi indirizzato al sito dell'attore minaccia e può utilizzare tale traffico per un'ampia gamma di attività dannose. 
+
+La protezione DNS sospesa è disponibile se i domini vengono gestiti con DNS di Azure o un registrar esterno e si applicano al servizio app in Windows e Linux.
+
+:::image type="content" source="media/defender-for-app-service-introduction/dangling-dns-alert.png" alt-text="Esempio di avviso di Azure Defender relativo a una voce DNS in sospeso individuata. Abilitare Azure Defender per il servizio app per ricevere questo e altri avvisi per l'ambiente." lightbox="media/defender-for-app-service-introduction/dangling-dns-alert.png":::
+
+Altre informazioni su DNS in sospeso e sul rischio di acquisizione di sottodomini, in [Impedisci le voci DNS in sospeso ed evitare l'acquisizione di sottodomini](../security/fundamentals/subdomain-takeover.md).
+
+Per un elenco completo degli avvisi del servizio app Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
+
+> [!NOTE]
+> Defender potrebbe non attivare avvisi DNS sospesi se il dominio personalizzato non punta direttamente a una risorsa del servizio app o se Defender non ha monitorato il traffico verso il sito Web perché la protezione DNS sospesa è stata abilitata (perché non ci saranno log per facilitare l'identificazione del dominio personalizzato).
+
+## <a name="how-to-protect-your-azure-app-service-web-apps-and-apis"></a>Come proteggere le app Web e le API del servizio app Azure
+
 Per proteggere il piano di servizio app di Azure con Azure Defender per il servizio app:
 
-- Verificare di avere un piano di servizio app supportato associato a computer dedicati. I piani supportati sono elencati sopra nella sezione [Disponibilità](#availability).
+1. Verificare di avere un piano di servizio app supportato associato a computer dedicati. I piani supportati sono elencati sopra nella sezione [Disponibilità](#availability).
 
-- Abilitare **Azure Defender** nella sottoscrizione (se si vuole è possibile abilitare solo il piano **Azure Defender per il servizio app**) come descritto in [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+2. Abilitare **Azure Defender** sulla sottoscrizione come descritto in [prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
-Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando la necessità di eseguire la distribuzione e l'onboarding; l'integrazione è trasparente.
+    Facoltativamente, è possibile abilitare singoli piani in Azure Defender, ad esempio Azure Defender per il servizio app.
 
->[!NOTE]
-> La pagina Prezzi e impostazioni elenca un numero di istanze per **Quantità delle risorse**. Questo numero rappresenta il numero totale di istanze di calcolo, in tutti i piani di servizio app in questa sottoscrizione, in esecuzione al momento dell'apertura della pagina del piano tariffario.
->
-> Servizio app di Azure offre una varietà di piani. Il piano di servizio app definisce il set di risorse di calcolo per l'esecuzione di un'app Web. Sono equivalenti alle server farm nell'hosting Web convenzionale. È possibile configurare una o più app per eseguirle nelle stesse risorse di calcolo (o nello stesso piano di servizio app).
->
->Per verificare il conteggio, passare a "Piani di servizio app" nel portale di Azure, dove è possibile vedere il numero di istanze di calcolo usate da ogni piano. 
-
+    Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando la necessità di eseguire la distribuzione e l'onboarding; l'integrazione è trasparente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -64,8 +96,8 @@ In questo articolo sono state fornite informazioni su Azure Defender per il serv
 
 Per i materiali correlati, vedere gli articoli seguenti: 
 
-- Che un avviso venga generato dal Centro sicurezza o ricevuto dal Centro sicurezza da un prodotto di sicurezza diverso, è possibile esportarlo. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
-- Per un elenco degli avvisi del servizio app di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
+- Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
+- Per un elenco degli avvisi di Azure Defender per il servizio app, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
 - Per altre informazioni sui piani di servizio app, vedere [Piani del servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
-- > [!div class="nextstepaction"]
-    > [Abilitare Azure Defender](security-center-pricing.md)
+> [!div class="nextstepaction"]
+> [Abilitare Azure Defender](security-center-pricing.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: harahma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3f6238bb72704d13fef4a7171aeaebee5f9141
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9932c11332a616928d59c213d4f4806feb81cfe2
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708697"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791646"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modello di hosting di Azure Service Fabric
 Questo articolo fornisce una panoramica dei modelli di hosting delle applicazioni offerti da Azure Service Fabric e descrive le differenze tra i modelli **Shared Process** (Processo condiviso) ed **Exclusive Process** (Processo esclusivo). Descrive l'aspetto di un'applicazione in un nodo di Service Fabric e la relazione tra le repliche (o istanze) del servizio e il processo host servizio.
@@ -172,7 +172,7 @@ Nell'esempio precedente, si potrebbe pensare che, se "MyCodePackageA" registra s
 
 ### <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services e sottoprocessi di fork dell’attore
 
-Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo ai processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento.
+Service Fabric non supporta servizi reliable services e di conseguenza i sottoprocessi di fork degli attori. Un esempio del motivo per cui non è supportato è che [CodePackageActivationContext](/dotnet/api/system.fabric.codepackageactivationcontext) non può essere usato per registrare un sottoprocesso non supportato e i token di annullamento vengono inviati solo ai processi registrati. Questo comporta diversi tipi di problemi, ad esempio errori di aggiornamento, quando i sottoprocessi non vengono chiusi dopo che il processo padre ha ricevuto un token di annullamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Creare il pacchetto di un'applicazione][a4] e prepararlo per la distribuzione.

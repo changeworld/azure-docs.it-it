@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità - Hub eventi di Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni dettagliate sulle funzionalità e la terminologia di Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 60dc964d1b827eec75ee4f65a5776710e57fd6eb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195790"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791947"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -56,7 +56,7 @@ Gli eventi pubblicati vengono rimossi da un hub eventi in base a un criterio di 
 >
 > L' [acquisizione di hub eventi](event-hubs-capture-overview.md) si integra direttamente con archiviazione BLOB di Azure e Azure Data Lake storage e, tramite tale integrazione, consente anche la [propagazione di eventi direttamente in sinapsi di Azure](store-captured-data-data-warehouse.md).
 >
-> Se si vuole usare il modello di origine [eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) per l'applicazione, è necessario allineare la strategia snapshot con i limiti di conservazione degli hub eventi. Non puntare a ricompilare viste materializzate da eventi non elaborati a partire dall'inizio del tempo. Probabilmente si rimpiangerebbe una strategia di questo tipo quando l'applicazione è in produzione per un periodo di tempo e viene usata correttamente e il generatore di proiezione deve derivare da anni di eventi di modifica durante il tentativo di recuperare le modifiche più recenti e in corso. 
+> Se si vuole usare il modello di origine [eventi](/azure/architecture/patterns/event-sourcing) per l'applicazione, è necessario allineare la strategia snapshot con i limiti di conservazione degli hub eventi. Non puntare a ricompilare viste materializzate da eventi non elaborati a partire dall'inizio del tempo. Probabilmente si rimpiangerebbe una strategia di questo tipo quando l'applicazione è in produzione per un periodo di tempo e viene usata correttamente e il generatore di proiezione deve derivare da anni di eventi di modifica durante il tentativo di recuperare le modifiche più recenti e in corso. 
 
 
 ### <a name="publisher-policy"></a>Criteri di autore

@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9c258d8d0a7aa26c96ab4f64017770ebdd153e60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d99b4d1fbf227d850de387b7ca24dcd3fd40646
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257506"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791156"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
 Una parte essenziale della disponibilità elevata è la garanzia che i servizi possano sopravvivere a tutti i diversi tipi di errori. Questa operazione è particolarmente importante per gli errori non pianificati e all'esterno del controllo. 
@@ -172,7 +172,7 @@ Le azioni seguenti potrebbero causare la perdita di dati. Verificare prima di pr
 >
 
 - Usare l' `Repair-ServiceFabricPartition -PartitionId` `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API o. Questa API consente di specificare l'ID della partizione per spostarsi fuori dalla perdita del quorum e in una potenziale perdita di dati.
-- Se nel cluster si verificano errori frequenti che fanno sì che i servizi entrano in uno stato di perdita del quorum e la potenziale _perdita di dati è accettabile, è_possibile specificare un valore [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice?view=azureservicefabricps) appropriato per consentire il ripristino automatico del servizio. Service Fabric attenderà il valore specificato `QuorumLossWaitDuration` (il valore predefinito è infinito) prima di eseguire il ripristino. Questo metodo *non* è consigliato perché può causare perdite di dati impreviste.
+- Se nel cluster si verificano errori frequenti che fanno sì che i servizi entrano in uno stato di perdita del quorum e la potenziale _perdita di dati è accettabile, è_ possibile specificare un valore [QuorumLossWaitDuration](/powershell/module/servicefabric/update-servicefabricservice) appropriato per consentire il ripristino automatico del servizio. Service Fabric attenderà il valore specificato `QuorumLossWaitDuration` (il valore predefinito è infinito) prima di eseguire il ripristino. Questo metodo *non* è consigliato perché può causare perdite di dati impreviste.
 
 ## <a name="availability-of-the-service-fabric-cluster"></a>Disponibilità del cluster di Service Fabric
 In generale, il cluster Service Fabric è un ambiente altamente distribuito senza singoli punti di errore. Un errore di un nodo non provocherà problemi di disponibilità o affidabilità per il cluster, principalmente perché i servizi di sistema Service Fabric seguono le stesse linee guida fornite in precedenza. Ovvero, vengono sempre eseguiti con tre o più repliche per impostazione predefinita e i servizi di sistema senza stato vengono eseguiti in tutti i nodi. 

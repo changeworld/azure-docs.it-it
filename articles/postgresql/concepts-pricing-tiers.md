@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 16e60b5015107c5f99e63f15bb21c5a375f05340
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 74d2654c54d1ab2ac5d47aa24449c41c20a90b74
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123253"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98791139"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Piani tariffari nel Database di Azure per PostgreSQL: server singolo
 
@@ -51,7 +51,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Operazioni di I/O al secondo | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 20.000 IOPS |
 
 > [!NOTE]
-> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Stati Uniti orientali, Stati Uniti orientali 2, Brasile meridionale, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Asia sudorientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia orientale, Australia sudorientale, Stati Uniti occidentali 2, Stati Uniti centro-occidentali , Canada orientale e Canada centrale.
+> Lo spazio di archiviazione fino a 16TB e 20.000 IOPS è supportato nelle aree seguenti: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Cina orientale 2, Cina settentrionale 2, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 1, Stati Uniti orientali 2, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Svizzera settentrionale , Svizzera occidentale, US Gov East, US Gov del, US Gov SouthWest, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali e Stati Uniti occidentali 2.
 >
 > Tutte le altre aree supportano fino a 4 TB di archiviazione e 6000 IOPS.
 >
@@ -59,7 +59,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 È possibile aggiungere ulteriore capacità di archiviazione durante e dopo la creazione del server e consentire al sistema di aumentare automaticamente le dimensioni di archiviazione in base al consumo di spazio di archiviazione del carico di lavoro.
 
 >[!NOTE]
-> Lo spazio di archiviazione può essere scalato solo, non inattivo.
+> L'archiviazione può essere solo aumentata, non ridotta.
 
 Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 

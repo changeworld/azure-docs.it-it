@@ -17,16 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: 1d4fcc280ba2e34d2fa81584846441ad6fe81431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8e300c9be8f3e59dc9443bf1f1806e4228992ad
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84708196"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790394"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Gestire i dati exfiltration negli account di archiviazione di Azure con i criteri dell'endpoint di servizio di rete virtuale usando Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 I criteri dell'endpoint del servizio rete virtuale consentono di applicare il controllo di accesso agli account di archiviazione di Azure dall'interno di una rete virtuale tramite endpoint di servizio. Si tratta di una chiave per proteggere i carichi di lavoro, la gestione degli account di archiviazione consentiti e la posizione in cui sono consentiti i dati exfiltration.
 In questo articolo vengono illustrate le operazioni seguenti:
@@ -38,6 +36,8 @@ In questo articolo vengono illustrate le operazioni seguenti:
 * Distribuire una macchina virtuale (VM) nella subnet.
 * Verificare l'accesso all'account di archiviazione consentito dalla subnet.
 * Verificare che l'accesso sia stato negato all'account di archiviazione non consentito dalla subnet.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

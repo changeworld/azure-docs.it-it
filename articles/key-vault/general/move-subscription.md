@@ -11,14 +11,14 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: d881394391b7967fe602155eefc9844e013de34e
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
+ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97724749"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98790292"
 ---
-# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
+# <a name="moving-an-azure-key-vault-to-another-subscription"></a>Spostamento di Azure Key Vault in un'altra sottoscrizione
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ ms.locfileid: "97724749"
 > Assicurarsi di comprendere l'effetto di questa modifica e seguire attentamente le istruzioni contenute in questo articolo prima di decidere di spostare l'insieme di credenziali delle chiavi in una nuova sottoscrizione.
 > Se si usano identità del servizio gestito (MSI), leggere le istruzioni di post-spostamento alla fine del documento. 
 
-[Azure Key Vault](overview.md) viene automaticamente associato all'ID tenant predefinito [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) per la sottoscrizione in cui viene creato. È possibile trovare l'ID tenant associato alla sottoscrizione seguendo le istruzioni riportate in questa [Guida](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant). Tutte le voci dei criteri di accesso e le assegnazioni di ruoli sono inoltre associate a questo ID tenant.  Se si sposta la sottoscrizione di Azure dal tenant A al tenant B, gli insiemi di credenziali delle chiavi esistenti saranno inaccessibili dalle entità servizio (utenti e applicazioni) nel tenant B. Per risolvere il problema, è necessario:
+[Azure Key Vault](overview.md) viene automaticamente associato all'ID tenant predefinito [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) per la sottoscrizione in cui viene creato. È possibile trovare l'ID tenant associato alla sottoscrizione seguendo le istruzioni riportate in questa [Guida](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). Tutte le voci dei criteri di accesso e le assegnazioni di ruoli sono inoltre associate a questo ID tenant.  Se si sposta la sottoscrizione di Azure dal tenant A al tenant B, gli insiemi di credenziali delle chiavi esistenti saranno inaccessibili dalle entità servizio (utenti e applicazioni) nel tenant B. Per risolvere il problema, è necessario:
 
 * Modificare l'ID tenant associato a tutti gli insiemi di credenziali delle chiavi esistenti nella sottoscrizione impostandolo sul tenant B.
 * Rimuovere tutte le voci dei criteri di accesso esistenti.
@@ -37,8 +37,8 @@ ms.locfileid: "97724749"
 
 Per ulteriori informazioni su Azure Key Vault e Azure Active Directory, vedere.
 - [Informazioni su Azure Key Vault](overview.md)
-- [Informazioni Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
-- [Come trovare l'ID tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-to-find-tenant)
+- [Informazioni Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)
+- [Come trovare l'ID tenant](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -49,11 +49,11 @@ Alcune entità servizio (utenti e applicazioni) sono associate a un tenant speci
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Accesso a livello di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o superiore alla sottoscrizione corrente in cui è presente l'insieme di credenziali delle chiavi. È possibile assegnare un ruolo usando [portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Accesso a livello di [collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) o superiore alla sottoscrizione in cui si vuole spostare l'insieme di credenziali delle chiavi. È possibile assegnare un ruolo usando [portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
-* Un gruppo di risorse nella nuova sottoscrizione. È possibile crearne uno usando [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell)o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli).
+* Accesso a livello di [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o superiore alla sottoscrizione corrente in cui è presente l'insieme di credenziali delle chiavi. È possibile assegnare un ruolo usando [portale di Azure](../../role-based-access-control/role-assignments-portal.md), l'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md)o [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Accesso a livello di [collaboratore](../../role-based-access-control/built-in-roles.md#contributor) o superiore alla sottoscrizione in cui si vuole spostare l'insieme di credenziali delle chiavi. È possibile assegnare un ruolo usando [portale di Azure](../../role-based-access-control/role-assignments-portal.md), l'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md)o [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+* Un gruppo di risorse nella nuova sottoscrizione. È possibile crearne uno usando [portale di Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md), [PowerShell](../../azure-resource-manager/management/manage-resource-groups-powershell.md)o l'interfaccia della riga di comando di [Azure](../../azure-resource-manager/management/manage-resource-groups-cli.md).
 
-È possibile controllare i ruoli esistenti usando [portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal), [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-cli)o l' [API REST](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-rest).
+È possibile controllare i ruoli esistenti usando [portale di Azure](../../role-based-access-control/role-assignments-list-portal.md), [PowerShell](../../role-based-access-control/role-assignments-list-powershell.md), l'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-list-cli.md)o l' [API REST](../../role-based-access-control/role-assignments-list-rest.md).
 
 
 ## <a name="moving-a-key-vault-to-a-new-subscription"></a>Trasferimento di un insieme di credenziali delle chiavi in una nuova sottoscrizione
@@ -96,7 +96,7 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 ### <a name="update-access-policies-and-role-assignments"></a>Aggiornare i criteri di accesso e le assegnazioni di ruolo
 
 > [!NOTE]
-> Se Key Vault usa il modello di autorizzazione [RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) . È necessario rimuovere anche le assegnazioni di ruolo di Key Vault. È possibile rimuovere assegnazioni di ruolo usando il [portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)o [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell). 
+> Se Key Vault usa il modello di autorizzazione [RBAC di Azure](../../role-based-access-control/overview.md) . È necessario rimuovere anche le assegnazioni di ruolo di Key Vault. È possibile rimuovere assegnazioni di ruolo usando il [portale di Azure](../../role-based-access-control/role-assignments-portal.md), l'interfaccia della riga di comando di [Azure](../../role-based-access-control/role-assignments-cli.md)o [PowerShell](../../role-based-access-control/role-assignments-powershell.md). 
 
 Ora che l'insieme di credenziali è associato all'ID tenant corretto e le voci dei criteri di accesso o le assegnazioni di ruolo precedenti sono state rimosse, impostare le nuove voci dei criteri di accesso o le assegnazioni di ruolo.
 
@@ -106,9 +106,9 @@ Per l'assegnazione dei criteri, vedere:
 - [Assegnare un criterio di accesso usando PowerShell](assign-access-policy-powershell.md)
 
 Per aggiungere assegnazioni di ruolo, vedere:
-- [Aggiungere un'assegnazione di ruolo tramite il portale](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
-- [Aggiungere un'assegnazione di ruolo usando l'interfaccia della riga di comando](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
-- [Aggiungere un'assegnazione di ruolo con PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)
+- [Aggiungere un'assegnazione di ruolo tramite il portale](../../role-based-access-control/role-assignments-portal.md)
+- [Aggiungere un'assegnazione di ruolo usando l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
+- [Aggiungere un'assegnazione di ruolo con PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Aggiorna identità gestite
