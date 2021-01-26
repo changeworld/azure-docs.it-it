@@ -13,18 +13,18 @@ ms.date: 12/3/2020
 ms.author: hirsin
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 50a2f56824db67b73199439922e662339ff30872
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 22352f6d0c7dc48b98be5fcb4101f262adc480d6
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755286"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795617"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Credenziali del certificato per l'autenticazione di un'applicazione con Microsoft Identity Platform
 
 La piattaforma Microsoft Identity consente a un'applicazione di usare le proprie credenziali per l'autenticazione ovunque sia possibile usare un segreto client, ad esempio nel flusso di  [concessione delle credenziali client](v2-oauth2-client-creds-grant-flow.md) OAuth 2,0 e nel flusso [di per conto di](v2-oauth2-on-behalf-of-flow.md) (OBO).
 
-Una forma di credenziale che un'applicazione può usare per l'autenticazione è un'asserzione [JSON Web token](./security-tokens.md#json-web-tokens-jwts-and-claims) (JWT) firmata con un certificato di proprietà dell'applicazione.
+Una forma di credenziale che un'applicazione può usare per l'autenticazione è un'asserzione [JSON Web token](./security-tokens.md#json-web-tokens-and-claims) (JWT) firmata con un certificato di proprietà dell'applicazione.
 
 ## <a name="assertion-format"></a>Formato di asserzione
 

@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637922"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796905"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Risolvere i problemi di gestione di SSIS Integration Runtime in Azure Data Factory
 
@@ -151,7 +151,7 @@ SSIS IR verrà aggiornato automaticamente a intervalli regolari. Durante l'aggio
 
 Se il provisioning di SSIS IR ha esito negativo, vengono eliminate tutte le risorse che sono state create. Tuttavia, se è presente un blocco di eliminazione delle risorse a livello di sottoscrizione o di gruppo di risorse, le risorse di rete virtuale non vengono eliminate come previsto. Per correggere l'errore, rimuovere il blocco di eliminazione e riavviare il runtime di integrazione.
 
-### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
+### <a name="vnetresourcegrouplockedduringstopvnetdeletelock"></a>VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
 Quando viene arrestato SSIS IR, vengono eliminate tutte le risorse correlate alla rete virtuale. L'eliminazione può tuttavia avere esito negativo se è presente un blocco di eliminazione delle risorse a livello di sottoscrizione o di gruppo di risorse. Anche in questo caso il cliente controlla e imposta il blocco di eliminazione. Di conseguenza, deve rimuoverlo e arrestare di nuovo SSIS IR.
 

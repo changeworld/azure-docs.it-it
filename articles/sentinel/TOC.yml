@@ -223,14 +223,26 @@
           href: bookmarks.md
         - name: Usare lo streaming live per la ricerca
           href: livestream.md
-        - name: Gestire le query di ricerca con l'API REST
-          href: hunting-with-rest-api.md
     - name: Rimuovere Azure Sentinel
       href: offboard.md
 - name: Informazioni di riferimento (novità)
   items:
+    - name: Ruoli del controllo degli accessi in base al ruolo di Azure
+      items:
+        - name: Tutti i ruoli di Azure
+          href: /azure/role-based-access-control/built-in-roles#all
+        - name: Ruoli di Sentinel di Azure
+          href: /azure/role-based-access-control/built-in-roles#security
     - name: API REST
-      href: /rest/api/securityinsights/
+      items:
+        - name: REST di Azure Sentinel-API
+          href: /rest/api/securityinsights/
+        - name: Gestire le query di ricerca con l'API REST
+          href: hunting-with-rest-api.md
+        - name: Gestire watchlists con REST-API
+          href: watchlist-with-rest-api.md
+    - name: Connettore per app per la logica di Azure Sentinel
+      href: /connectors/azuresentinel/
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
     - name: Arricchimenti tramite UEBA

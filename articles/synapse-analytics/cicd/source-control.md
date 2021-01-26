@@ -8,22 +8,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 1f1a74f3a26a079039e68eb8e59fac4c18ff0c32
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219743"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796965"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Controllo del codice sorgente in Azure sinapsi Studio
 
-Per impostazione predefinita, Azure sinapsi Studio crea direttamente il servizio sinapsi. Tuttavia, questa esperienza presenta le limitazioni seguenti:
+Per impostazione predefinita, Azure sinapsi Studio crea direttamente il servizio sinapsi. Se è necessario collaborare usando git per il controllo del codice sorgente, sinapsi Studio consente di associare l'area di lavoro a un repository git, Azure DevOps o GitHub. 
 
-- Sinapsi Studio non include un'archiviazione temporanea per l'archiviazione delle modifiche. L'unico modo per salvare e condividere le modifiche è tramite la **pubblicazione** e tutte le modifiche vengono pubblicate direttamente nel servizio sinapsi.
-
-- Sinapsi Studio non è ottimizzato per la collaborazione e il controllo della versione.
-
-Per fornire funzionalità di controllo del codice sorgente, sinapsi Studio consente di associare l'area di lavoro a un repository git, Azure DevOps o GitHub. Questo articolo descrive come configurare e lavorare in un'area di lavoro sinapsi con il repository git abilitato. Vengono inoltre evidenziate alcune procedure consigliate e una guida alla risoluzione dei problemi.
+Questo articolo descrive come configurare e lavorare in un'area di lavoro sinapsi con il repository git abilitato. Vengono inoltre evidenziate alcune procedure consigliate e una guida alla risoluzione dei problemi.
 
 > [!NOTE]
 > L'integrazione di Git in Azure sinapsi Studio non è disponibile nel cloud di Azure per enti pubblici.

@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c6d62cf7b93255336d87cec1d0fef2c567cde9f2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791837"
+ms.locfileid: "98796623"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
@@ -62,9 +62,9 @@ Azure Defender monitora numerose minacce per le risorse del servizio app. Gli av
 
 ### <a name="dangling-dns-detection"></a>Rilevamento DNS in sospeso
 
-Azure Defender per il servizio app identifica anche eventuali voci DNS rimanenti nel registrar DNS quando un sito Web del servizio app viene ritirato. queste voci sono note come voci DNS in sospeso. A questo punto, la voce DNS punta a una risorsa inesistente e il sottodominio è vulnerabile a un'acquisizione. Azure Defender non esegue l'analisi del registrar DNS per le voci DNS in sospeso *esistenti* ; viene avvisato quando un sito Web del servizio app viene ritirato e il dominio personalizzato (voce DNS) non viene eliminato.
+Azure Defender per il servizio app identifica anche eventuali voci DNS rimanenti nel registrar DNS quando un sito Web del servizio app viene ritirato. queste voci sono note come voci DNS in sospeso. Quando si rimuove un sito Web e non si rimuove il dominio personalizzato dal registrar DNS, la voce DNS punta a una risorsa inesistente e il sottodominio è vulnerabile a un'acquisizione. Azure Defender non esegue l'analisi del registrar DNS per le voci DNS in sospeso *esistenti* ; viene avvisato quando un sito Web del servizio app viene ritirato e il dominio personalizzato (voce DNS) non viene eliminato.
 
-Le acquisizioni dei sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni. Quando un attore di minacce rileva una voce DNS in sospeso, crea il proprio sito all'indirizzo di destinazione. Il traffico destinato al dominio dell'organizzazione viene quindi indirizzato al sito dell'attore minaccia e può utilizzare tale traffico per un'ampia gamma di attività dannose. 
+Le acquisizioni dei sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni. Quando un attore di minacce rileva una voce DNS in sospeso, crea il proprio sito all'indirizzo di destinazione. Il traffico destinato al dominio dell'organizzazione viene quindi indirizzato al sito dell'attore minaccia e può utilizzare tale traffico per un'ampia gamma di attività dannose.
 
 La protezione DNS sospesa è disponibile se i domini vengono gestiti con DNS di Azure o un registrar esterno e si applicano al servizio app in Windows e Linux.
 
@@ -100,4 +100,4 @@ Per i materiali correlati, vedere gli articoli seguenti:
 - Per un elenco degli avvisi di Azure Defender per il servizio app, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
 - Per altre informazioni sui piani di servizio app, vedere [Piani del servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 > [!div class="nextstepaction"]
-> [Abilitare Azure Defender](security-center-pricing.md)
+> [Abilitare Azure Defender](security-center-pricing.md#enable-azure-defender)

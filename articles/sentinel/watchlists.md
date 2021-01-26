@@ -10,14 +10,17 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 09/06/2020
-ms.openlocfilehash: fd3c8a08e5512d15be4dfb26ca3eff151d08386f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: e31128687cfcc1f4e32879328ad3227182efb9ce
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94651363"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797365"
 ---
 # <a name="use-azure-sentinel-watchlists"></a>Usare watchlists di Sentinel di Azure
+
+> [!IMPORTANT]
+> La funzionalità watchlists è attualmente in fase di **Anteprima**. Vedere le [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) per le note legali aggiuntive che si applicano alle funzionalità di Azure disponibili in versione beta, in anteprima o non ancora rilasciate a livello generale.
 
 Azure Sentinel watchlists consente la raccolta di dati da origini dati esterne per la correlazione con gli eventi nell'ambiente Sentinel di Azure. Una volta creato, è possibile usare watchlists nei PlayBook di ricerca, regole di rilevamento, Hunting delle minacce e risposta. Watchlists vengono archiviati nell'area di lavoro di Azure Sentinel come coppie nome-valore e vengono memorizzati nella cache per ottimizzare le prestazioni delle query e bassa latenza.
 
@@ -73,15 +76,47 @@ Gli scenari comuni per l'uso di watchlists includono:
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-fields.png" alt-text="query con campi di controllo" lightbox="./media/watchlists/sentinel-watchlist-queries-fields.png":::
     
+1. È possibile eseguire query sui dati di una tabella in base ai dati di un oggetto watching gestendo l'oggetto Watch List come tabella per i join e le ricerche.
+
+    ```kusto
+    Heartbeat
+    | lookup kind=leftouter _GetWatchlist('IPlist') 
+     on $left.ComputerIP == $right.IPAddress
+    ```
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="query sull'oggetto Watch List come Lookup":::
+
 ## <a name="use-watchlists-in-analytics-rules"></a>Usare watchlists nelle regole di analisi
 
 Per usare watchlists nelle regole di analisi, dal portale di Azure passare ad **Azure Sentinel**  >  **Configuration**  >  **Analytics** e creare una regola usando la `_GetWatchlist('<watchlist>')` funzione nella query.
 
-:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="usare watchlists nelle regole di analisi" lightbox="./media/watchlists/sentinel-watchlist-analytics-rule.png":::
+1. In questo esempio, creare un controllo denominato "ipwatchlist" con i valori seguenti:
+
+    :::image type="content" source="./media/watchlists/create-watchlist.png" alt-text="elenco di quattro elementi per l'elenco di controllo":::
+
+    :::image type="content" source="./media/watchlists/sentinel-watchlist-new-2.png" alt-text="creazione di un controllo con quattro elementi":::
+
+1. Successivamente, creare la regola di analisi.  In questo esempio vengono inclusi solo gli eventi degli indirizzi IP nell'oggetto Watch List:
+
+    ```kusto
+    //Watchlist as a variable
+    let watchlist = (_GetWatchlist('ipwatchlist') | project IPAddress);
+    Heartbeat
+    | where ComputerIP in (watchlist)
+    ```
+    ```kusto
+    //Watchlist inline with the query
+    Heartbeat
+    | where ComputerIP in ( 
+        (_GetWatchlist('ipwatchlist')
+        | project IPAddress)
+    )
+    ```
+
+:::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule-2.png" alt-text="usare watchlists nelle regole di analisi":::
 
 ## <a name="view-list-of-watchlists-aliases"></a>Visualizza l'elenco degli alias watchlists
 
-Per ottenere un elenco di alias di controllo, dalla portale di Azure, passare a **Azure Sentinel**  >  **General**  >  **log** generale ed eseguire la query seguente: `_GetWatchlistAlias` . È possibile visualizzare l'elenco di alias nella scheda **risultati** .
+Per ottenere un elenco di alias di controllo, dalla portale di Azure, passare a **Azure Sentinel**  >    >  **log** generale ed eseguire la query seguente: `_GetWatchlistAlias` . È possibile visualizzare l'elenco di alias nella scheda **risultati** .
 
 > [!div class="mx-imgBorder"]
 > ![elencare watchlists](./media/watchlists/sentinel-watchlist-alias.png)

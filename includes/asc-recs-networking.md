@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 01/12/2021
+ms.date: 01-26-2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: eb4cceeb5b151197d6f52b45a0ea2a1913cefe55
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: dc70457cbe507ccf1727ea8736e7235edfdb76ca
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133065"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797222"
 ---
 In questa categoria sono presenti **15** raccomandazioni.
 

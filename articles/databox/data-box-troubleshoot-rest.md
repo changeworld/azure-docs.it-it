@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 04/19/2019
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: b950f80ba8c2bdbaf7a515dc1ce127b934723177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b8d6de198746a79a50c4fbda805b364212e3c4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85558553"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796045"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Risolvere i problemi relativi all'archiviazione BLOB Azure Data Box
 
@@ -65,6 +65,7 @@ Questi errori non sono specifici di alcuna applicazione.
 |Messaggio di errore  |Azione consigliata |
 |---------|---------|
 |Timeout della connessione. |Accedere al dispositivo Data Box e verificare che sia sbloccato. Ogni volta che il dispositivo viene riavviato, rimane bloccato fino a quando l'utente non esegue l'accesso.|
+|L'autenticazione dell'API REST ha esito negativo con l'errore: il server non è riuscito ad autenticare la richiesta. Verificare che il valore dell'intestazione di autorizzazione sia formato correttamente, inclusa la firma. ErrorCode: AuthenticationFailed. |Uno dei motivi per cui questa situazione può verificarsi è quando l'ora del dispositivo non viene sincronizzata con quella di Azure. Se si verifica un sfasamento di tempo elevato, l'autenticazione dell'API REST si interrompe quando si tenta di copiare i dati nel Data Box tramite l'API REST. In questa situazione è possibile aprire la porta UDP 123 in uscita per consentire l'accesso a `time.windows.com` . Quando l'ora del dispositivo viene sincronizzata con quella di Azure, l'autenticazione avrà esito positivo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

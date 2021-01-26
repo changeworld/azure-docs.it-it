@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 7a665bf05167a6bdf20c7325c66a5d0e439aa7f1
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223687"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797306"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integrazione e distribuzione continue per l'area di lavoro di Azure sinapsi
 
@@ -134,3 +134,13 @@ Se si usa l'integrazione git con l'area di lavoro sinapsi e si ha una pipeline d
 -   **Preparare i pool prima della migrazione degli artefatti**. Se è presente un notebook o uno script SQL collegato ai pool nell'area di lavoro di sviluppo, è previsto lo stesso nome dei pool in ambienti diversi. 
 -   **Infrastruttura come codice (IaC)**. La gestione dell'infrastruttura (reti, macchine virtuali, bilanciamenti del carico e topologia di connessione) in un modello descrittivo usa lo stesso controllo delle versioni usato dal team di DevOps per il codice sorgente. 
 -   **Altre**. Vedere le [procedure consigliate per gli artefatti ADF](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd)
+
+## <a name="troubleshooting-artifacts-deployment"></a>Risoluzione dei problemi di distribuzione degli artefatti 
+
+### <a name="use-the-synapse-workspace-deployment-task"></a>Usare l'attività di distribuzione dell'area di lavoro sinapsi
+
+In sinapsi tutti i tipi di artefatti non sono risorse ARM, che sono differenti con ADF. Non è possibile usare l'attività di distribuzione del modello ARM per distribuire gli artefatti sinapsi
+ 
+### <a name="unexpected-token-error-in-release"></a>Errore di token imprevisto nella versione
+
+Quando il file di parametri contiene valori di parametro che non sono preceduti da un carattere di escape, la pipeline di versione non riuscirà ad analizzare il file con l'errore del token imprevisto. Si consiglia di eseguire l'override dei parametri o dell'insieme di credenziali delle credenziali per ottenere i parametri. È anche possibile fare doppio escape come soluzione alternativa.

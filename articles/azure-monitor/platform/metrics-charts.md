@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b4feb177abbdbfb9666be0ea0746c8316acdf5ae
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 2f8dc9f53c36f59a152fc34361b3726ea2cc001c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250758"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797052"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Funzionalità avanzate di Esplora metriche di Azure
 
@@ -129,16 +129,19 @@ Esplora metriche è costituito da cinque tipi di aggregazione statistici di base
 
    ![Screenshot che mostra le dimensioni (proprietà) che è possibile filtrare.](./media/metrics-charts/028.png)
 
-3. Consente di selezionare i valori delle dimensioni che si desidera includere durante il tracciato del grafico. L'esempio seguente Filtra le transazioni di archiviazione riuscite:
+3. Consente di selezionare l'operatore che si desidera applicare alla dimensione (proprietà). L'operatore predefinito è = (uguale a)
+
+   ![Screenshot che mostra l'operatore che è possibile usare con il filtro.](./media/metrics-charts/filter-operator.png)
+
+4. Consente di selezionare i valori delle dimensioni che si desidera applicare al filtro durante il tracciato del grafico. in questo esempio viene illustrato come filtrare le transazioni di archiviazione riuscite:
 
    ![Screenshot che mostra le transazioni di archiviazione filtrate riuscite.](./media/metrics-charts/029.png)
 
-4. Selezionare all'esterno del **selettore di filtro** per chiuderla. Il grafico mostra a questo punto il numero di transazioni di archiviazione con esito negativo:
+5. Dopo avere selezionato i valori di filtro, fare clic all'esterno del selettore di filtro per chiuderlo. Il grafico mostra a questo punto il numero di transazioni di archiviazione con esito negativo:
 
    ![Screenshot che mostra il numero di transazioni di archiviazione non riuscite.](./media/metrics-charts/030.png)
 
-È possibile ripetere questi passaggi per applicare più filtri agli stessi grafici.
-
+6. È possibile ripetere i passaggi 1-5 per applicare più filtri agli stessi grafici.
 
 
 ## <a name="metric-splitting"></a>Suddivisione delle metriche
@@ -158,9 +161,18 @@ Esplora metriche è costituito da cinque tipi di aggregazione statistici di base
 
    Il grafico mostra ora più righe, una per ogni segmento della dimensione:
 
-   ![Screenshot che mostra le linee per ogni segmento della dimensione.](./media/metrics-charts/032.png)
+   ![Screenshot che Mostra più righe, una per ogni segmento della dimensione.](./media/metrics-charts/segment-dimension.png)
+   
+3. Scegliere un limite per il numero di valori da visualizzare dopo la suddivisione in base alla dimensione selezionata. Il limite predefinito è 10, come illustrato nel grafico precedente. L'intervallo di limite è 1-50.
+   
+   ![Screenshot che mostra il limite di divisione, che limita il numero di valori dopo la suddivisione.](./media/metrics-charts/segment-dimension-limit.png)
+   
+4. Scegliere il tipo di ordinamento nei segmenti: crescente o decrescente. La selezione predefinita è decrescente.
+   
+   ![Screenshot che mostra il tipo di ordinamento sui valori divisi.](./media/metrics-charts/segment-dimension-sort.png)
 
-3. Selezionare all'esterno del **selettore di raggruppamento** per chiuderla.
+5. Fare clic al di fuori del **selettore di raggruppamento** per chiuderlo.
+   
 
    > [!NOTE]
    > Per nascondere i segmenti irrilevanti per lo scenario e semplificare la lettura dei grafici, utilizzare sia il filtro che la suddivisione sulla stessa dimensione.

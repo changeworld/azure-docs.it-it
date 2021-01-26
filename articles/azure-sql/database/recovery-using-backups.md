@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: a70571dcf380fc2186565a40778991ac70a218d6
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 0c3db3b3f22f9f2639012068924708537f9ada77
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97797214"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98795324"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Ripristino usando i backup automatici del database: database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -53,8 +53,8 @@ Per una singola sottoscrizione, esistono alcune limitazioni al numero di richies
 
 | **Opzione di distribuzione** | **Numero massimo di richieste simultanee elaborate** | **Numero massimo di richieste simultanee inviate** |
 | :--- | --: | --: |
-|**Database singolo (per sottoscrizione)**|10|60|
-|**Pool elastico (per pool)**|4|200|
+|**Database singolo (per sottoscrizione)**|30|100|
+|**Pool elastico (per pool)**|4|2000|
 
 
 Non esiste un metodo incorporato per ripristinare l'intero server. Per un esempio di come eseguire questa attività, vedere [database SQL di Azure: ripristino completo del server](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
@@ -74,7 +74,7 @@ In genere si ripristina un database a un punto precedente per scopi di ripristin
 
   Se si desidera che il database ripristinato sia una sostituzione per il database originale, è necessario specificare le dimensioni di calcolo e il livello di servizio del database originale. È quindi possibile rinominare il database originale e assegnare al database ripristinato il nome originale usando il comando [ALTER database](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL.
 
-- **Recupero dati**
+- **Ripristino dei dati**
 
   Se si prevede di recuperare dati dal database ripristinato in caso di errore di un utente o di un'applicazione, è necessario scrivere ed eseguire uno script di ripristino dei dati che estrae i dati dal database ripristinato e si applica al database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione di ripristino verrà annullata e non verrà addebitato alcun addebito per il database che non ha completato il ripristino.
   
@@ -168,7 +168,7 @@ Completare il processo di creazione di un nuovo database dal backup. Quando si c
 
 #### <a name="sql-managed-instance"></a>Istanza gestita di SQL
 
-Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. Seguire questa procedura:
+Per ripristinare il ripristino geografico di un database di istanza gestita dal portale di Azure a un'istanza gestita esistente in un'area di propria scelta, selezionare un'istanza gestita in cui si desidera ripristinare un database. A tale scopo, seguire questa procedura:
 
 1. Selezionare **nuovo database**.
 2. Digitare un nome di database desiderato.

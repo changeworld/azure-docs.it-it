@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 8bc303f619d145cc280e6caab65781bd42d1b314
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
-ms.translationtype: HT
+ms.openlocfilehash: db80ae66761e49ce90f25a22f0e74cf8a1300796
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489694"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797239"
 ---
 # <a name="choose-the-right-postgresql-server-option-in-azure"></a>Scegliere l'opzione del server PostgreSQL più adatta in Azure
 
@@ -21,7 +21,7 @@ Con Azure, i carichi di lavoro del server PostgreSQL possono essere eseguiti in 
 Quando si decide, prendere in considerazione le tre opzioni seguenti in PaaS o in alternativa in esecuzione in macchine virtuali di Azure (IaaS)
 - [Database di Azure per server PostgreSQL singolo](./overview-single-server.md)
 - [Un server flessibile di Database di Azure per PostgreSQL](./flexible-server/overview.md)
-- [Database di Azure per PostgreSQL Hyperscale (Citus)]()
+- [Database di Azure per PostgreSQL Hyperscale (Citus)](hyperscale/index.yml)
 
 L'opzione **PostgreSQL in macchine virtuali di Azure** rientra nella categoria di settore IaaS. Con questo servizio è possibile eseguire il server PostgreSQL all'interno di una macchina virtuale completamente gestita nella piattaforma cloud di Azure. Tutte le versioni e le edizioni recenti di PostgreSQL possono essere installate in una macchina virtuale IaaS. La differenza più significativa rispetto al database di Azure per PostgreSQL è che PostgreSQL in macchine virtuali di Azure offre il controllo sul motore di database. Tuttavia, questo controllo è responsabile della gestione delle macchine virtuali e di molte attività di amministrazione di database (DBA). Queste attività includono la manutenzione e l'applicazione di patch ai server di database, il recupero del database e la progettazione a disponibilità elevata.
 

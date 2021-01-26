@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2658240e670e617f7296881f733ff369b9bf8f87
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d4beef9383b8e51e1295639c18e745fd0fdf8588
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219029"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796943"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Avvio rapido: Creare un'area di lavoro di Azure Synapse con l'interfaccia della riga di comando di Azure
 
@@ -50,31 +50,12 @@ Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse c
     |SqlPassword| Scegliere una password sicura.|
     |||
 
-2. Creare un gruppo di risorse come contenitore per l'area di lavoro di Azure Synapse:
+1. Creare un gruppo di risorse come contenitore per l'area di lavoro di Azure Synapse:
     ```azurecli
     az group create --name $SynapseResourceGroup --location $Region
     ```
-3. Recuperare la chiave dell'account di archiviazione di ADLS Gen2:
-    ```azurecli
-    StorageAccountKey=$(az storage account keys list \
-      --account-name $StorageAccountName \
-      | jq -r '.[0] | .value')
-    ```
-4. Recuperare l'URL dell'endpoint di archiviazione di ADLS Gen2:
-    ```azurecli
-    StorageEndpointUrl=$(az storage account show \
-      --name $StorageAccountName \
-      --resource-group $StorageAccountResourceGroup \
-      | jq -r '.primaryEndpoints | .dfs')
-    ```
 
-5. (Facoltativo) È sempre possibile verificare quali sono l'endpoint e la chiave dell'account di archiviazione di ADLS Gen2:
-    ```azurecli
-    echo "Storage Account Key: $StorageAccountKey"
-    echo "Storage Endpoint URL: $StorageEndpointUrl"
-    ```
-
-6. Creare un'area di lavoro di Azure Synapse:
+1. Creare un'area di lavoro di Azure Synapse:
     ```azurecli
     az synapse workspace create \
       --name $SynapseWorkspaceName \
@@ -86,14 +67,14 @@ Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse c
       --location $Region
     ```
 
-7. Ottenere l'URL di sviluppo e Web per l'area di lavoro di Azure Synapse:
+1. Ottenere l'URL di sviluppo e Web per l'area di lavoro di Azure Synapse:
     ```azurecli
     WorkspaceWeb=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .web')
 
     WorkspaceDev=$(az synapse workspace show --name $SynapseWorkspaceName --resource-group $SynapseResourceGroup | jq -r '.connectivityEndpoints | .dev')
     ```
 
-8. Creare una regola del firewall per consentire l'accesso all'area di lavoro di Azure Synapse dal computer in uso:
+1. Creare una regola del firewall per consentire l'accesso all'area di lavoro di Azure Synapse dal computer in uso:
 
     ```azurecli
     ClientIP=$(curl -sb -H "Accept: application/json" "$WorkspaceDev" | jq -r '.message')
@@ -103,7 +84,7 @@ Questa guida di avvio rapido illustra come creare un'area di lavoro di Synapse c
     az synapse workspace firewall-rule create --end-ip-address $ClientIP --start-ip-address $ClientIP --name "Allow Client IP" --resource-group $SynapseResourceGroup --workspace-name $SynapseWorkspaceName
     ```
 
-9. Aprire l'indirizzo URL Web dell'area di lavoro di Azure Synapse archiviato nella variabile di ambiente `WorkspaceWeb` per accedere all'area di lavoro:
+1. Aprire l'indirizzo URL Web dell'area di lavoro di Azure Synapse archiviato nella variabile di ambiente `WorkspaceWeb` per accedere all'area di lavoro:
 
     ```azurecli
     echo "Open your Azure Synapse Workspace Web URL in the browser: $WorkspaceWeb"

@@ -10,12 +10,13 @@ ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514192"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98797626"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configurare la preferenza di routing di rete per Archiviazione di Azure (anteprima)
 
@@ -65,9 +66,36 @@ Le stringhe di connessione per gli endpoint specifici della route pubblicati pos
 
 La preferenza di routing per Archiviazione di Azure è disponibile nelle aree geografiche seguenti:
 
-- Francia meridionale
-- Stati Uniti centro-settentrionali
+- Stati Uniti centrali 
+- Stati Uniti centrali EUAP
+- Stati Uniti orientali 
+- Stati Uniti orientali 2
+- Stati Uniti orientali 2 
+- Stati Uniti orientali 2 EUAP
+- Stati Uniti centro-meridionali
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali 
+- Stati Uniti occidentali 2 
+- Francia centrale 
+- Francia meridionale 
+- Germania settentrionale 
+- Germania centro-occidentale 
+- Stati Uniti centro-settentrionali
+- Europa settentrionale 
+- Norvegia orientale 
+- Svizzera settentrionale
+- Svizzera occidentale
+- Regno Unito meridionale 
+- Regno Unito occidentale 
+- Europa occidentale 
+- Emirati Arabi Uniti centrali
+- Asia orientale 
+- Asia sud-orientale 
+- Giappone orientale 
+- Giappone occidentale 
+- India occidentale
+- Australia orientale 
+- Australia sud-orientale 
 
 I problemi noti seguenti influiscono sull'anteprima della preferenza di routing per Archiviazione di Azure:
 

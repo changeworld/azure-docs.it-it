@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d24ed014dd66235383b58cbcb7404aaf00f863e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: HT
+ms.openlocfilehash: 217872586d09531926b43a13d826efe559c70597
+ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308971"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98796765"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory (AD) con F5
 
@@ -314,7 +314,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ### <a name="create-f5-test-user"></a>Creare l'utente di test di F5
 
-In questa sezione viene creato un utente di nome B.Simon in F5. Collaborare con il  [team di supporto clienti di F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) per aggiungere gli utenti alla piattaforma F5. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente di nome B.Simon in F5. Collaborare con il [team di supporto clienti di F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) per aggiungere gli utenti alla piattaforma F5. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
@@ -335,3 +335,9 @@ Quando si fa clic sul riquadro di F5 nel pannello di accesso, si dovrebbe accede
 - [Configurare l'accesso Single Sign-On di F5 per l'applicazione Header Based](headerf5-tutorial.md)
 
 - [Configurare l'accesso Single Sign-On di F5 per l'applicazione Kerberos](kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM e integrazione Azure AD per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Esercitazione per l'integrazione di Azure Active Directory Single Sign-On con F5 BIG-IP per VPN senza password](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
