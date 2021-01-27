@@ -2,16 +2,32 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0c6bb228b8cd6be66c82aadbb1a132f8c717a412
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: d51f9b70a48bdd5adafeeeafc266b7142a7171a4
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679033"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98860133"
 ---
+## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
+
+[Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+
+Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Sicurezza di rete |NS-1 |Implementare la sicurezza per il traffico interno |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Sicurezza di rete |NS-2 |Connettere insieme reti private |[L'endpoint privato deve essere configurato per Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultPrivateEndpointEnabled_Audit.json) |
+|Sicurezza di rete |NS-3 |Stabilire l'accesso alla rete privata ai servizi di Azure |[L'endpoint privato deve essere configurato per Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F5f0bc445-3935-4915-9981-011aa2b46147) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultPrivateEndpointEnabled_Audit.json) |
+|Sicurezza di rete |NS-4 |Proteggere le applicazioni e i servizi da attacchi di rete esterni |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Registrazione e rilevamento delle minacce |LT-4 |Abilitare la registrazione per le risorse di Azure |[I log di diagnostica in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
+|Backup e ripristino |BR-4 |Attenuare il rischio di chiavi perse |[Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|Backup e ripristino |BR-4 |Attenuare il rischio di chiavi perse |[Negli insiemi di credenziali delle chiavi deve essere abilitata la funzionalità di eliminazione temporanea](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_SoftDeleteMustBeEnabled_Audit.json) |
+
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
 [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
@@ -34,6 +50,22 @@ Per altre informazioni su questo standard di conformità, vedere [CIS Microsoft 
 |---|---|---|---|---|
 |Registrazione e monitoraggio |5.1.7 |Assicurarsi che la registrazione per l'insieme di credenziali delle credenziali di Azure sia abilitata |[I log di diagnostica in Key Vault devono essere abilitati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcf820ca0-f99e-4f3e-84fb-66e913812d21) |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_AuditDiagnosticLog_Audit.json) |
 |Altre considerazioni sulla sicurezza |8.4 |Assicurarsi che l'insieme di credenziali delle chiavi sia recuperabile |[Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+
+## <a name="cmmc-level-3"></a>Livello CMMC 3
+
+Per verificare in che modo i criteri di Azure disponibili predefiniti per tutti i servizi di Azure siano mappati a questo standard di conformità, vedere conformità normativa per i criteri di Azure [-CMMC livello 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+Per ulteriori informazioni su questo standard di conformità, vedere [Cybersecurity maturità Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Controllo di accesso |AC. 1.001 |Limitare l'accesso al sistema informativo a utenti autorizzati, processi che agiscono per conto di utenti autorizzati e dispositivi (inclusi altri sistemi informatici). |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Controllo di accesso |AC. 1.002 |Limitare l'accesso al sistema informativo ai tipi di transazioni e funzioni che gli utenti autorizzati sono autorizzati a eseguire. |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Gestione della configurazione |CM. 2.064 |Definire e applicare le impostazioni di configurazione della sicurezza per i prodotti it utilizzati nei sistemi organizzativi. |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Risposta agli eventi imprevisti |IR. 2.093 |Rilevare e segnalare gli eventi. |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 3.183 |Negare il traffico delle comunicazioni di rete per impostazione predefinita e consentire il traffico delle comunicazioni di rete per eccezione (ad esempio, nega tutto, Consenti per eccezione). |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 3.187 |Definire e gestire le chiavi crittografiche per la crittografia usata nei sistemi organizzativi. |[Il firewall deve essere abilitato in Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |[1.0.2-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 3.187 |Definire e gestire le chiavi crittografiche per la crittografia usata nei sistemi organizzativi. |[Negli insiemi di credenziali delle chiavi deve essere abilitata la protezione dalla rimozione definitiva](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0b60c0b2-2dc2-4e1c-b5c9-abbed971de53) |[1.1.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_Recoverable_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 3.187 |Definire e gestire le chiavi crittografiche per la crittografia usata nei sistemi organizzativi. |[Negli insiemi di credenziali delle chiavi deve essere abilitata la funzionalità di eliminazione temporanea](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_SoftDeleteMustBeEnabled_Audit.json) |
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 

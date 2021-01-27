@@ -1,16 +1,16 @@
 ---
 title: Opzioni di rete di Funzioni di Azure
 description: Panoramica di tutte le opzioni di rete disponibili in Funzioni di Azure.
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
-ms.date: 10/27/2020
-ms.author: jehollan
-ms.openlocfilehash: f4d7611f285535680469f3a334ab889b0b644bfe
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 1/21/2021
+ms.author: cachai
+ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936865"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806988"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -85,12 +85,9 @@ Per garantire un livello di sicurezza più elevato, è possibile limitare vari s
 
 Per altre informazioni, vedere [Endpoint servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Limitare l'account di archiviazione a una rete virtuale (anteprima)
+## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Limitare l'account di archiviazione a una rete virtuale 
 
-Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità di anteprima attualmente funziona solo con i piani Premium di Windows nell'Europa occidentale.  Per configurare una funzione con un account di archiviazione limitato a una rete privata:
-
-> [!NOTE]
-> La limitazione dell'account di archiviazione attualmente funziona solo per le funzioni Premium che usano Windows nell'Europa occidentale
+Quando si crea un'app per le funzioni, è necessario creare o collegare un account di archiviazione di Azure di uso generico che supporta l'archiviazione BLOB, Coda e Tabella.  È possibile sostituire questo account di archiviazione con uno protetto con endpoint di servizio o privato.  Questa funzionalità attualmente funziona solo con i piani Premium di Windows.  Per configurare una funzione con un account di archiviazione limitato a una rete privata:
 
 1. Creare una funzione con un account di archiviazione in cui non sono abilitati gli endpoint di servizio.
 1. Configurare la funzione per la connessione alla rete virtuale.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 9fde0ecd8b6670e43aa3970b2df27a402b9c1a5c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747241"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807089"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -43,7 +43,8 @@ Microsoft Defender for endpoint è una soluzione di sicurezza completa di endpoi
 | Stato della versione:                  | Disponibile a livello generale                                                                                                                                                                                                                                                                                      |
 | Prezzi:                        | Richiede [Azure Defender per server](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Piattaforme supportate:            | Macchine virtuali di Azure che eseguono Windows<br>Computer Azure Arc che eseguono Windows|
-| Versioni supportate di Windows:  |  • Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC<br> • Nessun supporto per Windows Server 2019, Windows 10 1703 (e versioni successive) o Linux|
+| Versioni supportate di Windows:  |  • Il Centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC|
+| Sistemi operativi non supportati:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
 | Autorizzazioni e ruoli obbligatori: | Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione** o **collaboratore della sottoscrizione**|
 | Cloud:                         | ![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure globali                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
@@ -105,7 +106,7 @@ Dopo aver configurato il percorso, non è possibile modificarlo. Se si dispone d
 Per generare un avviso di prova di Microsoft Defender per l'endpoint:
 
 1. Creare una cartella ' C:\test-MDATP-test '.
-1. Usare Desktop remoto per accedere a una macchina virtuale Windows Server 2012 R2 o Windows Server 2016.
+1. Usare Desktop remoto per accedere al computer.
 1. Aprire una finestra della riga di comando.
 1. Al prompt copiare ed eseguire il comando seguente. La finestra del prompt dei comandi verrà chiusa automaticamente.
 

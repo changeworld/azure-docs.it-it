@@ -2,13 +2,13 @@
 title: Identità gestite per le risorse di Azure con il bus di servizio
 description: Questo articolo descrive come usare le identità gestite per accedere alle entità del bus di servizio di Azure (code, argomenti e sottoscrizioni).
 ms.topic: article
-ms.date: 10/21/2020
-ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 01/21/2021
+ms.openlocfilehash: 22be57a0108b6a8511a64165ad365675d006fb8f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425530"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808257"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure
 Le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) offrono una funzionalità per l'intera piattaforma Azure che consente di creare un'identità sicura associata alla distribuzione in cui viene eseguito il codice dell'applicazione. È quindi possibile associare l'identità ai ruoli di controllo di accesso che concedono autorizzazioni personalizzate per l'accesso a risorse di Azure specifiche necessarie per l'applicazione.
@@ -45,7 +45,7 @@ Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entit�
 
 Nell'elenco seguente vengono descritti i livelli in cui è possibile definire l'ambito di accesso alle risorse del bus di servizio, a partire dall'ambito più restrittivo:
 
-- **Coda**, **argomento**o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. Ecco un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) per assegnare un'identità a un ruolo di Azure del bus di servizio: 
+- **Coda**, **argomento** o **sottoscrizione**: l'assegnazione di ruolo si applica all'entità del bus di servizio specifica. Attualmente, il portale di Azure non supporta l'assegnazione di utenti/gruppi/identità gestite ai ruoli di Azure del bus di servizio a livello di sottoscrizione. Ecco un esempio di uso del comando dell'interfaccia della riga di comando di Azure: [AZ-Role-Assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) per assegnare un'identità a un ruolo di Azure del bus di servizio: 
 
     ```azurecli
     az role assignment create \
@@ -107,18 +107,20 @@ Per assegnare un ruolo a uno spazio dei nomi del bus di servizio, passare allo s
 1. Nella portale di Azure passare allo spazio dei nomi del bus di servizio e visualizzare la **Panoramica** per lo spazio dei nomi. 
 1. Selezionare **controllo di accesso (IAM)** nel menu a sinistra per visualizzare le impostazioni di controllo di accesso per lo spazio dei nomi del bus di servizio.
 1.  Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
-3.  Selezionare **Aggiungi** per aggiungere un nuovo ruolo.
-4.  Nella pagina **Aggiungi assegnazione ruolo** selezionare i ruoli del bus di servizio di Azure che si desidera assegnare. Quindi cercare per individuare l'identità del servizio registrata per l'assegnazione del ruolo.
-    
-    ![Pagina Aggiungi assegnazione ruolo](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
-5.  Selezionare **Salva**. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, l'immagine seguente mostra che l'identità del servizio ha il proprietario dei dati del bus di servizio di Azure.
-    
-    ![Identità assegnata a un ruolo](./media/service-bus-managed-service-identity/role-assigned.png)
+3.  Selezionare **Aggiungi** e quindi selezionare **Aggiungi assegnazione ruolo**.
+4.  Nella pagina **Aggiungi assegnazione ruolo** , attenersi alla seguente procedura:
+    1. Per **ruolo** selezionare il ruolo del bus di servizio che si vuole assegnare. In questo esempio il **proprietario dei dati del bus di servizio di Azure**.
+    1. Per il campo **assegna accesso a** selezionare **servizio app** in **identità gestita assegnata dal sistema**. 
+    1. Selezionare la **sottoscrizione** in cui è stata creata l'identità gestita per l'app Web.
+    1. Selezionare l' **identità gestita** per l'app Web creata. Il nome predefinito per l'identità corrisponde al nome dell'app Web. 
+    1. Selezionare quindi **Salva**.
+        
+        ![Pagina Aggiungi assegnazione ruolo](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 
-Una volta assegnato il ruolo, l'applicazione Web avrà accesso alle entità del bus di servizio nell'ambito definito. 
+    Una volta assegnato il ruolo, l'applicazione Web avrà accesso alle entità del bus di servizio nell'ambito definito. 
 
-
-
+    > [!NOTE]
+    > Per un elenco di servizi che supportano identità gestite, vedere [servizi che supportano identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="run-the-app"></a>Eseguire l'app
 Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  

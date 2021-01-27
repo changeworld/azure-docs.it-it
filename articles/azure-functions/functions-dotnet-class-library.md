@@ -4,12 +4,12 @@ description: Informazioni su come sviluppare Funzioni di Azure in C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 77ae736c787666df5e78358bc78e06eee9b7d4f9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936924"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806314"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -19,7 +19,7 @@ Questo articolo è un'introduzione allo sviluppo di Funzioni di Azure tramite C#
 
 Gli sviluppatori C# possono anche essere interessati a uno degli articoli seguenti:
 
-| Introduzione | Concetti| Apprendimento guidato/esempi |
+| Guida introduttiva | Concetti| Apprendimento guidato/esempi |
 | -- | -- | -- | 
 | <ul><li>[Con Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Uso di Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Uso degli strumenti da riga di comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li><li>[Sviluppo di Visual Studio](functions-develop-vs.md)</li><li>[Inserimento delle dipendenze](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Esempi per C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 

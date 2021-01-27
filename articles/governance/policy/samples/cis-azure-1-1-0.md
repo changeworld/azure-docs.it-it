@@ -1,15 +1,15 @@
 ---
 title: Dettagli della conformità con le normative per CIS Microsoft Azure Foundations Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0e1c63f92809b6afa1f6d2e61b8ae169f9eec07d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 85467c086225c4d9e7699debb9871dbd197ebfd2
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685647"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807063"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative CIS Microsoft Azure Foundations Benchmark
 
@@ -135,7 +135,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Le vulnerabilità devono essere risolte tramite una soluzione di valutazione della vulnerabilità](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F760a85ff-6162-42b3-8d70-698e268f648c) |Monitora le vulnerabilità rilevate dalla soluzione Valutazione della vulnerabilità e le macchine virtuali senza una soluzione Valutazione della vulnerabilità nel Centro sicurezza di Azure che invierà i consigli corrispondenti. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VMVulnerabilities_Audit.json) |
+|[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="ensure-asc-default-policy-setting-monitor-jit-network-access-is-not-disabled"></a>Assicurarsi che l'impostazione dei criteri predefinita del Centro sicurezza di Azure "Monitora accesso JIT alla rete" non sia disabilitata
 
@@ -176,14 +176,6 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Per le sottoscrizioni deve essere impostato un indirizzo di posta elettronica di contatto per i problemi relativi alla sicurezza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f4f78b8-e367-4b10-a341-d9a4ad5cf1c7) |Per garantire che le persone pertinenti all'interno dell'organizzazione ricevano una notifica in caso di potenziale violazione della sicurezza in una delle sottoscrizioni, impostare un contatto di sicurezza per la ricezione delle notifiche tramite posta elettronica dal Centro sicurezza. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_email.json) |
-
-### <a name="ensure-that-security-contact-phone-number-is-set"></a>Assicurarsi che il criterio "Numero di telefono" del contatto di sicurezza sia configurato
-
-**ID**: CIS Azure 2.17 **Proprietà**: Customer
-
-|Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
-|---|---|---|---|
-|[È consigliabile fornire il numero di telefono dei contatti di sicurezza per la sottoscrizione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb4d66858-c922-44e3-9566-5cdb7a7be744) |Immettere un numero di telefono per ricevere le notifiche quando il Centro sicurezza di Azure rileva risorse compromesse |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Security_contact_phone_number.json) |
 
 ### <a name="ensure-that-send-email-notification-for-high-severity-alerts-is-set-to-on"></a>Assicurarsi che il criterio "Invia una notifica tramite posta elettronica per avvisi con gravità elevata" sia impostato su "Sì"
 

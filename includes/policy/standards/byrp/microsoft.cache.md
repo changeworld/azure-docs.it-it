@@ -2,16 +2,27 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: a66976898dc30a02d51ef4a7d992a0603c6db43e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: c925eb4e9cbd9fa5df472844d7e3bcae278c2102
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684734"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98860033"
 ---
+## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
+
+[Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+
+Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure per tutti i servizi di Azure a questo standard di conformità, vedere [Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark](../../../../articles/governance/policy/samples/azure-security-benchmark.md).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Sicurezza di rete |NS-2 |Connettere insieme reti private |[La cache di Azure per Redis deve risiedere all'interno di una rete virtuale](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d092e0a-7acd-40d2-a975-dca21cae48c4) |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_CacheInVnet_Audit.json) |
+|Protezione dei dati |DP-4 |Crittografare le informazioni riservate in transito |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
 ## <a name="azure-security-benchmark-v1"></a>Azure Security Benchmark v1
 
 [Azure Security Benchmark](../../../../articles/security/benchmarks/overview.md) offre consigli sulla protezione delle soluzioni cloud in Azure. Per informazioni sul mapping completo di questo servizio ad Azure Security Benchmark, vedere i [file di mapping di Azure Security Benchmark](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
@@ -21,6 +32,17 @@ Per informazioni sul mapping delle definizioni predefinite di Criteri di Azure p
 |Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|
 |Protezione dei dati |4.4 |Crittografare tutte le informazioni riservate in transito |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+
+## <a name="cmmc-level-3"></a>Livello CMMC 3
+
+Per verificare in che modo i criteri di Azure disponibili predefiniti per tutti i servizi di Azure siano mappati a questo standard di conformità, vedere conformità normativa per i criteri di Azure [-CMMC livello 3](../../../../articles/governance/policy/samples/cmmc-l3.md).
+Per ulteriori informazioni su questo standard di conformità, vedere [Cybersecurity maturità Model Certification (CMMC)](https://www.acq.osd.mil/cmmc/docs/CMMC_Model_Main_20200203.pdf).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Controllo di accesso |AC. 1.002 |Limitare l'accesso al sistema informativo ai tipi di transazioni e funzioni che gli utenti autorizzati sono autorizzati a eseguire. |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 1.175 |Monitorare, controllare e proteggere le comunicazioni, ovvero le informazioni trasmesse o ricevute da sistemi aziendali, ai limiti esterni e ai principali limiti interni dei sistemi aziendali. |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
+|Protezione del sistema e delle comunicazioni |SC. 3.185 |Implementare meccanismi di crittografia per impedire la divulgazione non autorizzata di CUI durante la trasmissione, a meno che non sia altrimenti protetta da misure fisiche alternative. |[Devono essere abilitate solo le connessioni sicure alla cache di Azure per Redis](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |
 
 ## <a name="hipaa-hitrust-92"></a>HIPAA HITRUST 9.2
 

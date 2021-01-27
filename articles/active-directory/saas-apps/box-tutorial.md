@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/05/2021
+ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: 6c2f8a1e49f97b9f57547fea8b87ba31da310854
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98727925"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807909"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Box
 
@@ -91,6 +91,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     > [!NOTE]
     > Poiché il valore di URL accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto clienti di Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+
+1. L'applicazione Box prevede un formato specifico per le asserzioni SAML. è quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra un esempio relativo a questa operazione. Il valore predefinito dell' **identificatore utente univoco** è **User. userPrincipalName** ma box prevede che venga mappato all'indirizzo di posta elettronica dell'utente. A tale scopo è possibile usare l'attributo **user.mail** dall'elenco oppure usare il valore di attributo appropriato in base alla configurazione dell'organizzazione.
+
+    ![image](common/default-attributes.png)
+
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

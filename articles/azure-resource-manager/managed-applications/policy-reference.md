@@ -1,17 +1,17 @@
 ---
 title: Definizioni di criteri predefiniti per Applicazioni gestite di Azure Manager
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per Applicazioni gestite di Azure. Queste definizioni di criteri predefiniti forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: reference
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: subject-policy-reference
-ms.openlocfilehash: b68846d4ddea3c37268f6a38d5625e77bd065ec9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 13dba9c7842b075eb2fb4bc3d595e158223af7aa
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703828"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807925"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-managed-applications"></a>Definizioni predefinite di Criteri di Azure per Applicazioni gestite di Azure
 

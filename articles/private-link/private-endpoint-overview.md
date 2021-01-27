@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: ac4763a2d79059eb2608595b616c945af274627e
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 88d44f4f8cedbad604eb59cde91f4eed79918c0f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928512"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806657"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Che cos'è l'endpoint privato di Azure?
 
@@ -78,7 +78,7 @@ Una risorsa di collegamento privato è la destinazione di un endpoint privato sp
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/topics    | argomento |
 |**Griglia di eventi di Azure** | Microsoft.EventGrid/domains    | dominio |
 |**Servizio app di Azure** | Microsoft.Web/sites    | siti |
-|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | area di lavoro |
+|**Azure Machine Learning** | Microsoft.MachineLearningServices/workspaces    | amlworkspace |
 |**SignalR** | Microsoft.SignalRService/SignalR    | signalR |
 |**Monitoraggio di Azure** | Microsoft. Insights/privateLinkScopes    | azuremonitor |
 |**Servizi cognitivi** | (Microsoft. CognitiveServices/accounts    | account |

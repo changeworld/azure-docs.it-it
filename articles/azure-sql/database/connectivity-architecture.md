@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
-ms.date: 06/26/2020
-ms.openlocfilehash: 74dd3a6b19d241fdf05e6438226227147ba4afbd
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.date: 01/25/2021
+ms.openlocfilehash: da21fd2b6f8d427369cee89e0ad93d63e8608784
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165944"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808259"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -66,7 +66,7 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![Diagramma che illustra il modo in cui la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e tutti i pacchetti successivi vengono propagati tramite il gateway.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Aprire inoltre le porte TCP 1434 e 14000-14999 per abilitare [la connessione con DAC](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac)
 
 ## <a name="gateway-ip-addresses"></a>Indirizzi IP del gateway
 
@@ -83,7 +83,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Brasile meridionale         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canada centrale       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Canada orientale          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
-| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 |
+| Stati Uniti centrali           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
 | Cina orientale           | 139.219.130.35     |
 | Cina orientale 2         | 40.73.82.1         |
 | Cina settentrionale          | 139.219.15.17      |
@@ -120,7 +120,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Stati Uniti centro-occidentali      | 13.78.145.25, 13.78.248.43        |
 | Europa occidentale          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
 | Stati Uniti occidentali              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| West US 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
+| Stati Uniti occidentali 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
 ## <a name="next-steps"></a>Passaggi successivi

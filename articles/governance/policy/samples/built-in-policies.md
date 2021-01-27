@@ -1,15 +1,15 @@
 ---
 title: Elenco di definizioni di criteri predefiniti
 description: Elenco di definizioni di criteri predefiniti per Criteri di Azure. Le categorie includono Tag, Conformità alle normative, Key Vault, Kubernetes, Configurazione guest e altro ancora.
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3b29a4c86ee61247fa3caeb542e08a4ac24ff8c4
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9fcb66fbb7fdd94de0d265d19c547ca1567417e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685814"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807590"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Definizioni di criteri predefiniti di Criteri di Azure
 
@@ -116,6 +116,10 @@ Il nome di ogni criterio predefinito include un collegamento all'origine della d
 ## <a name="guest-configuration"></a>Configurazione guest
 
 [!INCLUDE [azure-policy-reference-policies-guest-configuration](../../../../includes/policy/reference/bycat/policies-guest-configuration.md)]
+
+## <a name="hdinsight"></a>HDInsight
+
+[!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
 ## <a name="internet-of-things"></a>Internet delle cose
 

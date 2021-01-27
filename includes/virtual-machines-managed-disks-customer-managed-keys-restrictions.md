@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b660d3a0d49de80ed85cfbdcdf8e28b9828cbf26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75acbb30c2bf811b7ae72d6939b9f164554fdd32
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545741"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98859703"
 ---
 - Sono supportate solo [le chiavi RSA software e HSM](../articles/key-vault/keys/about-keys.md) di dimensioni 2.048 bit, 3.072 bit e 4.096 bit, senza altre chiavi o dimensioni.
     - Le chiavi [HSM](../articles/key-vault/keys/hsm-protected-keys.md) richiedono il livello **Premium** di Azure Key Vault.
@@ -22,5 +22,5 @@ ms.locfileid: "91545741"
 - Tutte le risorse correlate alle chiavi gestite dal cliente (istanze di Azure Key Vault, set di crittografia dischi, macchine virtuali, dischi e snapshot) devono trovarsi nella stessa sottoscrizione e nella stessa area.
 - I dischi, gli snapshot e le immagini crittografati con chiavi gestite dal cliente non possono essere spostati in un altro gruppo di risorse e sottoscrizione.
 - I dischi gestiti attualmente o crittografati in precedenza usando crittografia dischi di Azure non possono essere crittografati con chiavi gestite dal cliente.
-- Può creare solo fino a 50 set di crittografia del disco per area per sottoscrizione.
+- Può creare solo fino a 1000 set di crittografia del disco per area per sottoscrizione.
 - Per informazioni sull'uso delle chiavi gestite dal cliente con le raccolte immagini condivise, vedere [Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini](../articles/virtual-machines/image-version-encryption.md).

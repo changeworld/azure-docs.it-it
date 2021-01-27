@@ -2,21 +2,22 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 21ec6247a44e8101da03c9be8a1bd8711113bb45
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: fd77bd985d118ddad500c99dc8edbd6b54fc643f
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98738734"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807260"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[SKU di dimensioni di macchine virtuali consentiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcccc23c7-8427-4f53-ad12-b6a63eb452b3) |Questo criterio consente di specificare un set di SKU di dimensioni di macchine virtuali che possono essere distribuiti dall'organizzazione. |Nega |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSkusAllowed_Deny.json) |
 |[Controlla macchine virtuali in cui non è configurato il ripristino di emergenza](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0015ea4d-51ff-4ce3-8d8c-f3f8f0179a56) |Controlla le macchine virtuali in cui non è configurato il ripristino di emergenza. Per altre informazioni sul ripristino di emergenza, vedere [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/RecoveryServices_DisasterRecovery_Audit.json) |
 |[Controlla macchine virtuali che non usano dischi gestiti](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F06a78e20-9358-41c9-923c-fb736d382a4d) |Questo criterio controlla le macchine virtuali che non usano dischi gestiti |controllo |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMRequireManagedDisk_Audit.json) |
+|[Distribuire: configurare il ripristino di emergenza nelle macchine virtuali abilitando la replica](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fac34a73f-9fa5-4067-9247-a3ecae514468) |Le macchine virtuali senza configurazioni di ripristino di emergenza sono vulnerabili a interruzioni e altre interruzioni. Se per la macchina virtuale non è già stato configurato il ripristino di emergenza, questa operazione avvia lo stesso abilitando la replica usando le configurazioni predefinite per semplificare la continuità aziendale. Per altre informazioni sul ripristino di emergenza, vedere [https://aka.ms/asr-doc](https://aka.ms/asr-doc). |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/AzureSiteRecovery-Replication-Policy.json) |
 |[Distribuisci estensione IaaSAntimalware Microsoft predefinita per Windows Server](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2835b622-407b-4114-9198-6f7064cbe0dc) |Questo criterio distribuisce un'estensione IaaSAntimalware Microsoft con una configurazione predefinita quando in una macchina virtuale non è configurata l'estensione antimalware. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMAntimalwareExtension_Deploy.json) |
 |[È consigliabile abilitare i log di diagnostica nei set di scalabilità di macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7c1b1214-f927-48bf-8882-84f0af6588b1) |È consigliabile abilitare i log per poter ricreare la traccia delle attività quando sono necessarie indagini in caso di evento imprevisto o compromissione. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ServiceFabric_and_VMSS_AuditVMSSDiagnostics.json) |
 |[È consigliabile configurare Microsoft Antimalware per Azure per aggiornare automaticamente le firme di protezione](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |Questo criterio controlla le macchine virtuali Windows non configurate con l'aggiornamento automatico delle firme di protezione di Microsoft Antimalware. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |

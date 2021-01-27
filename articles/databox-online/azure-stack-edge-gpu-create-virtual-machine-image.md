@@ -6,24 +6,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: fd55110bbfaed72051bfc388692421cd8209609d
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 0985779aeb14fd4f3d6a12cf152e4c63c909d613
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763799"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806672"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Creare immagini personalizzate di macchina virtuale per il dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Per distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro, è necessario poter creare immagini personalizzate utilizzabili per creare macchine virtuali. Questo articolo descrive i passaggi necessari per creare immagini personalizzate di macchine virtuali Linux o Windows utilizzabili per distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro.
+Per distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro, è necessario poter creare immagini personalizzate utilizzabili per creare macchine virtuali. Questo articolo descrive i passaggi necessari per creare immagini personalizzate di VM Linux o Windows che è possibile usare per distribuire le macchine virtuali nel dispositivo Azure Stack Edge Pro.
 
 ## <a name="vm-image-workflow"></a>Flusso di lavoro delle immagini di VM
 
-Il flusso di lavoro richiede la creazione di una macchina virtuale in Azure, la personalizzazione della VM, la generalizzazione e quindi il download del disco rigido virtuale corrispondente a tale VM. Questo disco rigido virtuale generalizzato viene caricato in Azure Stack Edge Pro, da questo disco viene creato un disco gestito da cui viene creata un'immagine che infine viene usata per creare le macchine virtuali.   
+Il flusso di lavoro richiede la creazione di una macchina virtuale in Azure, la personalizzazione della VM, la generalizzazione e quindi il download del disco rigido virtuale corrispondente a tale VM. Questo disco rigido virtuale generalizzato viene caricato in Azure Stack Edge Pro. Dal disco rigido virtuale viene creato un disco gestito. Un'immagine viene creata dal disco gestito. Infine, le VM vengono create da tale immagine.
 
 Per altre informazioni, vedere [Distribuire una macchina virtuale nel dispositivo Azure Stack Edge Pro con Azure PowerShell](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).
 
@@ -76,7 +76,7 @@ Usare questo disco rigido virtuale per creare e distribuire una macchina virtual
 |[Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.ubuntuserver) |Ubuntu Server è il prodotto Linux più diffuso al mondo per ambienti cloud.|Canonical|
 |[Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.debian) |Debian GNU/Linux è una delle distribuzioni Linux più popolari.     |credativ|
 
-Per un elenco completo di immagini di Azure Marketplace che potrebbero funzionare (attualmente non testate), vedere [Elementi di Azure Marketplace disponibili per l'hub di Azure Stack](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910).
+Per un elenco completo di immagini di Azure Marketplace che potrebbero funzionare (attualmente non testate), vedere [Elementi di Azure Marketplace disponibili per l'hub di Azure Stack](/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1910&preserve-view=true).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

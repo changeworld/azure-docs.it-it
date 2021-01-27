@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/26/2020
 ms.author: shhazam
-ms.openlocfilehash: ed6c88826b41df0bdfef8cbbcb2569b3cea8f868
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 82fcf7f129d5caba471d6d72da83a317b26c638c
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832387"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807897"
 ---
-# <a name="getting-started-with-defender-for-iot"></a>Introduzione a Defender for Internet
+# <a name="get-started-with-defender-for-iot"></a>Inizia a usare Defender per le cose
 
 Questo articolo fornisce una panoramica dei passaggi da eseguire per configurare Azure Defender per l'it. Il processo richiede:
 
@@ -127,7 +127,7 @@ Per ulteriori informazioni, vedere [Connect Sensors to the on-premises Managemen
 
 Inviare informazioni sugli avvisi ad Azure Sentinel configurando Sentinel di Azure. Vedere [connettere i dati da Defender per le cose a sentinella di Azure](how-to-configure-with-sentinel.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Benvenuti in Azure Defender](overview.md)
 

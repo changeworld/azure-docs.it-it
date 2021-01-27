@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/21/2021
+ms.date: 01/25/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 722c02dc47dfea1376f216e7f5335051aea85af6
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: bedb152a8fecfdb1ee699f431e4e43ef3ceed564
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98738755"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98807858"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -19,3 +19,4 @@ ms.locfileid: "98738755"
 |[La rete virtuale dell'area di lavoro gestita deve essere abilitata nelle aree di lavoro Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |L'abilitazione di una rete virtuale dell'area di lavoro gestita garantisce che l'area di lavoro sia isolata da altre aree di lavoro in rete. L'integrazione dei dati e le risorse di Spark distribuite in questa rete virtuale fornisce anche l'isolamento a livello di utente per le attività di Spark. |Audit, Deny, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Le connessioni endpoint privato devono essere abilitate nelle aree di lavoro Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72d11df1-dd8a-41f7-8925-b05b960ebafc) |Gli endpoint privati possono essere configurati per la connessione privata a un'area di lavoro di Azure Synapse. Viene usata per applicare un canale di comunicazione sicuro all'area di lavoro di Azure Synapse. |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceUsePrivateLinks_Audit.json) |
 |[Gli endpoint privati gestiti da Synapse devono connettersi solo alle risorse nei tenant di Azure Active Directory approvati](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Protegge l'area di lavoro Synapse consentendo solo connessioni alle risorse nei tenant di Azure Active Directory (Azure AD) approvati. I tenant di Azure AD approvati possono essere definiti durante l'assegnazione dei criteri. |Audit, Disabled, Deny |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
+|[La valutazione della vulnerabilità dovrebbe essere abilitata nelle aree di lavoro sinapsi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Individuare, rilevare e correggere le potenziali vulnerabilità configurando le analisi di valutazione della vulnerabilità SQL ricorrenti nelle aree di lavoro sinapsi. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |

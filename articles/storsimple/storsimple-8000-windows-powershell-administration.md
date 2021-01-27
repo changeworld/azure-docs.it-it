@@ -4,20 +4,20 @@ description: Informazioni su come utilizzare Windows PowerShell per StorSimple p
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 01/09/2018
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 65e9657c3948d8ce5883cd33ca8720f501352105
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e41d2e531a051738a31325b4ea33961bfb39e7f9
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995429"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808019"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
 ## <a name="overview"></a>Panoramica
 
-Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando che può essere utilizzata per gestire il dispositivo Microsoft Azure StorSimple. Come suggerisce il nome, è un'interfaccia della riga di comando basata su Windows PowerShell realizzata in uno spazio di esecuzione vincolato. Dal punto di vista dell'utente nella riga di comando, uno spazio di esecuzione vincolato viene considerato come una versione limitata di Windows PowerShell. Pur mantenendo alcune funzionalità di base di Windows PowerShell, questa interfaccia dispone di ulteriori cmdlet dedicati che sono pensati per la gestione del dispositivo Microsoft Azure StorSimple.
+Windows PowerShell per StorSimple fornisce un'interfaccia della riga di comando che può essere utilizzata per gestire il dispositivo Microsoft Azure StorSimple. Come suggerisce il nome, è un'interfaccia della riga di comando basata su Windows PowerShell realizzata in uno spazio di esecuzione vincolato. Dal punto di vista dell'utente nella riga di comando, uno spazio di esecuzione vincolato viene considerato come una versione limitata di Windows PowerShell. Pur mantenendo alcune delle funzionalità di base di Windows PowerShell, questa interfaccia ha altri cmdlet dedicati per la gestione del dispositivo Microsoft Azure StorSimple.
 
 In questo articolo vengono descritte le funzionalità di Windows PowerShell per StorSimple, tra cui come è possibile connettersi a questa interfaccia e sono contenuti i collegamenti alle procedure dettagliate o flussi di lavoro che possono essere eseguiti utilizzando questa interfaccia. I flussi di lavoro includono come registrare il dispositivo, configurare l'interfaccia di rete sul dispositivo, installare gli aggiornamenti che richiedono che il dispositivo sia in modalità di manutenzione, modificare lo stato del dispositivo e risolvere eventuali problemi che possono verificarsi.
 
@@ -28,8 +28,8 @@ Dopo aver letto l'articolo, l'utente sarà in grado di:
 * Ottenere la guida in Windows PowerShell per StorSimple
 
 > [!NOTE]
-> * I cmdlet di Windows PowerShell per StorSimple consentono di gestire il dispositivo StorSimple da una console seriale o in remoto tramite la comunicazione remota di Windows PowerShell. Per ulteriori informazioni su ciascuno dei singoli cmdlet che può essere utilizzato in questa interfaccia andare alla [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps).
-> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
+> * I cmdlet di Windows PowerShell per StorSimple consentono di gestire il dispositivo StorSimple da una console seriale o in remoto tramite la comunicazione remota di Windows PowerShell. Per ulteriori informazioni su ciascuno dei singoli cmdlet che può essere utilizzato in questa interfaccia andare alla [documentazione di riferimento dei cmdlet di Windows PowerShell per StorSimple](/powershell/module/hcs/?viewFallbackFrom=winserverr2-ps&preserve-view=true).
+> * I cmdlet StorSimple di Azure PowerShell sono una raccolta di diversi cmdlet che consentono di automatizzare le attività StorSimple a livello di servizio e di migrazione dalla riga di comando. Per ulteriori informazioni sui cmdlet di Azure PowerShell per StorSimple, andare alla [documentazione di riferimento dei cmdlet di Azure StorSimple](/powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0&preserve-view=true#azure).
 
 
 È possibile accedere a Windows PowerShell per StorSimple utilizzando uno dei metodi seguenti:
@@ -48,7 +48,7 @@ Assicurarsi di utilizzare le seguenti impostazioni PuTTY per connettersi all'int
 #### <a name="to-configure-putty"></a>Per configurare PuTTY:
 
 1. Nella finestra di dialogo **Configurazione PuTTY** selezionare **Tastiera** nel riquadro **Categoria**.
-2. Assicurarsi che siano selezionate le opzioni seguenti (queste sono le impostazioni predefinite quando si avvia una nuova sessione).
+2. Assicurarsi che siano selezionate le opzioni seguenti (le impostazioni predefinite quando si avvia una nuova sessione).
    
    | Elemento tastiera | Select |
    | --- | --- |
@@ -89,12 +89,15 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
 
 È possibile scegliere tra le seguenti impostazioni:
 
-1. **Connessione con accesso completo** Questa opzione consente di connettersi con le credenziali appropriate allo spazio di esecuzione **SSAdminConsole** sul controller locale. (Il controller locale è il controller a cui si accede attualmente tramite la console seriale del dispositivo StorSimple.) Questa opzione può essere utilizzata anche per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza limitazioni (una sessione di supporto) per risolvere eventuali problemi relativi al dispositivo. Dopo aver utilizzato l'opzione 1 per l'accesso, è possibile consentire al tecnico del supporto Microsoft di accedere allo stazio di esecuzione senza limitazioni eseguendo un cmdlet specifico. Per informazioni dettagliate, consultare [Avvio di una sessione di supporto](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+1. **Accedere con accesso completo.**
+   Questa opzione consente di connettersi (con le credenziali appropriate) a **SSAdminConsole** spazio sul controller locale. (Il controller locale è il controller a cui si accede attualmente tramite la console seriale del dispositivo StorSimple.) Questa opzione può essere utilizzata anche per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza limitazioni (una sessione di supporto) per risolvere eventuali problemi relativi al dispositivo. Dopo aver utilizzato l'opzione 1 per l'accesso, è possibile consentire al tecnico del supporto Microsoft di accedere allo stazio di esecuzione senza limitazioni eseguendo un cmdlet specifico. Per informazioni dettagliate, consultare [Avvio di una sessione di supporto](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
    
-2. **Connessione al controller peer con accesso completo**: questa opzione equivale all'opzione 1, ma è possibile connettersi con le credenziali appropriate allo spazio di esecuzione di **SSAdminConsole** sul controller peer. Poiché il dispositivo StorSimple è un dispositivo a elevata disponibilità con due controller in una configurazione attiva-passiva, peer fa riferimento all'altro controller del dispositivo a cui si accede tramite la console seriale).
+2. **Accedere al controller peer con accesso completo.**
+   Questa opzione equivale all'opzione 1, ad eccezione del fatto che è possibile connettersi (con le credenziali appropriate) a **SSAdminConsole** spazio sul controller peer. Poiché il dispositivo StorSimple è un dispositivo a elevata disponibilità con due controller in una configurazione attiva-passiva, peer fa riferimento all'altro controller del dispositivo a cui si accede tramite la console seriale).
    Simile all'opzione 1, questa opzione può inoltre essere utilizzata per consentire al supporto Microsoft di accedere allo spazio di esecuzione senza restrizioni su un controller peer.
 
-3. **Connetti con accesso limitato** Questa opzione viene utilizzata per accedere all'interfaccia Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2.  Alcune delle attività disponibili tramite l'opzione 1 che **non possono* essere eseguite in questo spazio di esecuzione sono:
+3. **Connettersi con accesso limitato.**
+   Questa opzione viene usata per accedere all'interfaccia di Windows PowerShell in modalità limitata. Non vengono richieste le credenziali di accesso. Questa opzione consente la connessione a uno spazio di esecuzione più limitato rispetto alle opzioni 1 e 2.  Di seguito sono riportate alcune delle attività disponibili tramite l'opzione 1 che *non possono* essere eseguite in questo spazio:
    
    * Ripristino alle impostazioni di fabbrica
    * Modifica della password
@@ -105,7 +108,8 @@ Nell'immagine seguente vengono illustrate le varie opzioni di spazio di esecuzio
      > [!NOTE]
      > Questa è l'opzione consigliata se si dimentica la password di amministratore del dispositivo e non è possibile connettersi tramite l'opzione 1 o 2.
 
-4. **Modifica lingua** Questa opzione consente di modificare la lingua di visualizzazione nell'interfaccia Windows PowerShell. Le lingue supportate sono inglese, giapponese, russo, francese, sudcoreano, spagnolo, italiano, tedesco, cinese e portoghese.
+4. **Cambia lingua.**
+   Questa opzione consente di modificare la lingua di visualizzazione nell'interfaccia di Windows PowerShell. Le lingue supportate sono inglese, giapponese, russo, francese, sudcoreano, spagnolo, italiano, tedesco, cinese e portoghese.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Connessione remota a StorSimple tramite Windows PowerShell per StorSimple
 
@@ -124,10 +128,10 @@ La lingua di visualizzazione è indipendente dalla lingua impostata tramite l'op
 
 ## <a name="connection-security-considerations"></a>Considerazioni sulla sicurezza di connessione
 
-Quando si decide come connettersi a Windows PowerShell per StorSimple, considerare quanto segue:
+Quando si decide come connettersi a Windows PowerShell per StorSimple, prendere in considerazione i fattori seguenti:
 
 * La connessione diretta alla console seriale del dispositivo è protetta ma la connessione alla console seriale sugli switch di rete non lo è. Prestare attenzione al rischio di sicurezza quando ci si connette alla console seriale del dispositivo sugli switch di rete.
-* La connessione tramite una sessione HTTP potrebbe offrire maggiore sicurezza rispetto alla connessione tramite la console seriale sulla rete. Sebbene non sia il metodo più sicuro, è accettabile su reti attendibili.
+* La connessione tramite una sessione HTTP potrebbe offrire maggiore sicurezza rispetto alla connessione tramite la console seriale sulla rete. Anche se una sessione HTTP non è il metodo di connessione più sicuro, è accettabile nelle reti attendibili.
 * La connessione tramite una sessione HTTPS è l'opzione consigliata e la più sicura.
 
 ## <a name="administer-your-storsimple-device-using-windows-powershell-for-storsimple"></a>Amministrazione del dispositivo StorSimple tramite Windows PowerShell per StorSimple
@@ -151,9 +155,9 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 
 In Windows PowerShell per StorSimple è disponibile la guida per i cmdlet. È inoltre disponibile una versione aggiornata in linea di questa guida, che è possibile utilizzare per aggiornare la guida del sistema.
 
-La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. La guida per Windows PowerShell è disponibile in linea: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
+Ottenere la Guida in questa interfaccia è simile alla guida di Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. La guida per Windows PowerShell è disponibile in linea: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
-Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfaccia di Windows PowerShell, tra cui come aggiornare la guida.
+<!--The following is a brief description of the types of Help for this Windows PowerShell interface, including how to update the Help. - OK to remove? Transition not needed.-->
 
 ### <a name="to-get-help-for-a-cmdlet"></a>Per ottenere la guida per un cmdlet
 
@@ -169,7 +173,7 @@ Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfa
 1. Avviare Windows PowerShell con l'opzione **Esegui come amministratore** .
 2. Al prompt dei comandi digitare: `Update-Help`
 3. Verranno installati i file della guida aggiornati.
-4. Una volta installati i file della guida, digitare: `Get-Help Get-Command`. Verrà visualizzato un elenco dei cmdlet per cui è disponibile la guida.
+4. Una volta installati i file della guida, digitare: `Get-Help Get-Command` per visualizzare un elenco di cmdlet per cui è disponibile la guida.
 
 > [!NOTE]
 > Per ottenere un elenco di tutti i cmdlet disponibili in uno spazio di esecuzione, accedere all'opzione di menu corrispondente ed eseguire il cmdlet `Get-Command`.

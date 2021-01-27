@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2021
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: 3ed290cc35195dfb02db9fbb72f092f6f4688291
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9f39988375f58f75dad2b623cd3d937022a072e7
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757306"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98806192"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -105,9 +105,8 @@ La protezione dalle minacce di Centro sicurezza include un’analisi unificata d
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integrazione con Microsoft Defender per endpoint
 
-Il Centro sicurezza include l'integrazione nativa e automatica con Microsoft Defender per endpoint. Quindi, senza alcuna configurazione, i computer Windows e Linux completamente integrati con le raccomandazioni e le valutazioni di Centro sicurezza.
+Azure Defender per server include l'integrazione nativa automatica con Microsoft Defender per endpoint. Scopri di più, [Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per l'endpoint](security-center-wdatp.md)
 
-Inoltre, Centro sicurezza consente di automatizzare le policy di controllo delle applicazioni in ambienti server. I controlli applicazioni adattivi di Centro sicurezza consentono di inserire le app end-to-end in elenchi di approvazione per i server Windows. Non è necessario creare le regole e verificare le violazioni, viene tutto effettuato automaticamente.
 
 ### <a name="protect-paas"></a>Protezione di PaaS
 

@@ -1,19 +1,19 @@
 ---
 title: Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
-description: Informazioni su come creare e gestire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python.
+description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo GPU Pro Azure Stack Edge usando l'interfaccia della riga di comando di Azure e Python.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 54a4a938be18d39993652cecb87b3604e268fcef
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: daf44afbb322cb30ab3a663dce4e935aefa7be13
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678954"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98808064"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Distribuire macchine virtuali in un dispositivo Azure Stack Edge Pro con GPU tramite l'interfaccia della riga di comando di Azure e Python
 
@@ -29,7 +29,7 @@ Il flusso di lavoro di distribuzione è illustrato nel diagramma seguente.
 
 ![Flusso di lavoro di distribuzione della VM](media/azure-stack-edge-gpu-deploy-virtual-machine-powershell/vm-workflow-r.svg)
 
-Il riepilogo generale del flusso di lavoro di distribuzione è il seguente:
+Il riepilogo di alto livello del flusso di lavoro di distribuzione è il seguente:
 
 1. Connettersi ad Azure Resource Manager
 2. Creare un gruppo di risorse
@@ -70,9 +70,9 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
 3. Sono stati creati e installati tutti i certificati nel dispositivo Azure Stack Edge Pro e nell'archivio attendibile del client. Seguire la procedura descritta in [Passaggio 2: Creare e installare i certificati](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
-4. È stato creato un certificato con estensione *cer* (formato PEM) e codifica Base64 per il dispositivo Azure Stack Edge Pro. Questo certificato è già stato caricato come catena di firma nel dispositivo ed è stato installato nell'archivio radice attendibile del client. Il certificato è necessario anche in formato *pem* per il funzionamento di Python in questo client.
+4. È stato creato un certificato con estensione *cer* (formato PEM) e codifica Base64 per il dispositivo Azure Stack Edge Pro. Il certificato è già caricato come catena di firma sul dispositivo e installato nell'archivio radice attendibile del client. Il certificato è necessario anche in formato *pem* per il funzionamento di Python in questo client.
 
-    Convertire il certificato in formato pem usando il comando `certutil`. È necessario eseguire questo comando nella directory che contiene il certificato.
+    Convertire il certificato in `pem` formato usando il `certutil` comando. È necessario eseguire questo comando nella directory che contiene il certificato.
 
     ```powershell
     certutil.exe <SourceCertificateName.cer> <DestinationCertificateName.pem>
@@ -86,9 +86,9 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     CertUtil: -encode command completed successfully.
     PS C:\Certificates>
     ```    
-    Questo certificato pem verrà anche aggiunto all'archivio di Python in seguito.
+    Questa operazione verrà aggiunta anche `pem` all'archivio Python in un secondo momento.
 
-5. L'indirizzo IP del dispositivo è stato assegnato nella pagina **Rete** dell'interfaccia utente Web locale del dispositivo. È necessario aggiungere questo indirizzo IP a:
+5. L'indirizzo IP del dispositivo è stato assegnato nella pagina **Rete** dell'interfaccia utente Web locale del dispositivo. Aggiungi questo IP a:
 
     - Il file host nel client OPPURE
     - La configurazione del server DNS
@@ -117,11 +117,11 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
 ### <a name="verify-profile-and-install-azure-cli"></a>Verificare il profilo e installare l'interfaccia della riga di comando di Azure
 
-<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908#azure-resource-manager-api-profiles).-->
+<!--1. Verify the API profile of the client and identify which version of the modules and libraries to include on your client. In this example, the client system will be running Azure Stack 1904 or later. For more information, see [Azure Resource Manager API profiles](/azure-stack/user/azure-stack-version-profiles?view=azs-1908&preserve-view=true#azure-resource-manager-api-profiles).-->
 
 1. Installare l'interfaccia della riga di comando di Azure nel client. In questo esempio è stata installata l'interfaccia della riga di comando di Azure 2.0.80. Per verificare la versione dell'interfaccia della riga di comando di Azure, eseguire il comando `az --version`.
 
-    Quello che segue è un output di esempio del comando precedente:
+    Di seguito è riportato un esempio di output del comando precedente:
 
     ```output
     PS C:\windows\system32> az --version
@@ -149,7 +149,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     Se non è disponibile, scaricare e [installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows). È possibile eseguire l'interfaccia della riga di comando di Azure usando il prompt dei comandi di Windows o Windows PowerShell.
 
-2. Prendere nota del percorso Python dell'interfaccia della riga di comando. È necessario per determinare la posizione dell'archivio certificati attendibile per l'interfaccia della riga di comando di Azure.
+2. Prendere nota del percorso Python dell'interfaccia della riga di comando. Per determinare il percorso dell'archivio certificati radice attendibili per l'interfaccia della riga di comando di Azure, è necessario il percorso di Python.
 
 3. Per eseguire lo script di esempio usato in questo articolo, sono necessarie le versioni seguenti della libreria Python:
 
@@ -266,7 +266,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     $ENV:ADAL_PYTHON_SSL_NO_VERIFY = 1
     ```
 
-2. Impostare le variabili di ambiente per lo script per l'endpoint di Azure Resource Manager, la posizione in cui vengono create le risorse e il percorso in cui si trova il disco rigido virtuale. La posizione delle risorse è fissa in tutti i dispositivi Azure Stack Edge Pro ed è impostata su `dbelocal`. È anche necessario specificare i prefissi degli indirizzi e l'indirizzo IP privato. Tutte le variabili di ambiente seguenti sono valori basati sui propri valori, ad eccezione di `AZURE_RESOURCE_LOCATION`, che deve essere hardcoded su `"dbelocal"`.
+2. Impostare le variabili di ambiente per lo script per l'endpoint di Azure Resource Manager, la posizione in cui vengono create le risorse e il percorso in cui si trova il disco rigido virtuale. La posizione delle risorse è fissa in tutti i dispositivi Azure Stack Edge Pro ed è impostata su `dbelocal`. È anche necessario specificare i prefissi degli indirizzi e l'indirizzo IP privato. Tutte le variabili di ambiente seguenti sono valori basati sui valori ad eccezione di `AZURE_RESOURCE_LOCATION` , che devono essere codificati in `"dbelocal"` .
 
     ```powershell
     $ENV:ARM_ENDPOINT = "https://management.team3device.teatraining1.com"
@@ -319,9 +319,9 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
     ```powershell
     PS C:\Certificates> az login -u EdgeARMuser
     ```
-   Dopo aver usato il comando di accesso, viene chiesta una password. Specificare la password di Azure Resource Manager.
+   Dopo aver utilizzato il comando login, viene richiesta una password. Specificare la password di Azure Resource Manager.
 
-   Ecco l'output di esempio di un accesso riuscito dopo aver fornito la password:  
+   Di seguito viene illustrato l'output di esempio per un accesso riuscito dopo aver fornito la password:  
    
    ```output
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2> az login -u EdgeARMuser
@@ -342,7 +342,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-   Prendere nota dei valori di `id` e `tenantId` in quanto corrispondono rispettivamente all'ID sottoscrizione di Azure Resource Manager e all'ID tenant di Azure Resource Manager e verranno usati nel passaggio successivo.
+   Prendere nota dei `id` valori e in `tenantId` quanto questi valori corrispondono rispettivamente all'id sottoscrizione Azure Resource Manager e Azure Resource Manager ID tenant e verranno usati nel passaggio successivo.
        
    Le variabili di ambiente seguenti devono essere impostate per funzionare da *entità servizio*:
 
