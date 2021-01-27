@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec589848625e1114dedd8c58b41f7ecbc991f311
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87501083"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881975"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Creare una macchina virtuale da una versione di immagine generalizzata usando l'interfaccia della riga di comando
 
-Creare una macchina virtuale da una [versione di immagine generalizzata](./linux/shared-image-galleries.md#generalized-and-specialized-images) archiviata in una raccolta di immagini condivise. Se si vuole creare una VM usando un'immagine specializzata, vedere [creare una VM da un'immagine specializzata](vm-specialized-image-version-powershell.md). 
+Creare una macchina virtuale da una [versione di immagine generalizzata](./shared-image-galleries.md#generalized-and-specialized-images) archiviata in una raccolta di immagini condivise. Se si vuole creare una VM usando un'immagine specializzata, vedere [creare una VM da un'immagine specializzata](vm-specialized-image-version-powershell.md). 
 
 
 ## <a name="get-the-image-id"></a>Ottenere l'ID immagine
@@ -31,7 +31,7 @@ gallery=myGallery
 az sig image-definition list --resource-group $resourceGroup --gallery-name $gallery --query "[].[name, id]" --output tsv
 ```
 
-## <a name="create-the-vm"></a>Creare la VM
+## <a name="create-the-vm"></a>Creare la macchina virtuale
 
 Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm#az-vm-create). Per usare la versione più recente dell'immagine, impostare sull' `--image` ID della definizione dell'immagine. 
 
@@ -59,4 +59,4 @@ az vm create\
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il [Generatore di immagini di Azure (anteprima)](./linux/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md). 
+Il [Generatore di immagini di Azure (anteprima)](./image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](./linux/image-builder-gallery-update-image-version.md).

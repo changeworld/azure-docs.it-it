@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.openlocfilehash: 7db546ec9038403bd9e34f637e9d9de368277d52
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
-ms.translationtype: HT
+ms.openlocfilehash: 0698295688a4587a704e8cdba0a4796e8d1e6fcd
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400303"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880000"
 ---
 # <a name="quickstart-create-an-azure-purview-account-using-azure-powershellazure-cli"></a>Avvio rapido: Creare un account Azure Purview mediante Azure PowerShell o l'interfaccia della riga di comando di Azure
 
@@ -27,9 +27,9 @@ In questo argomento di avvio rapido si creerà un account Azure Purview mediante
 
 * L'account utente usato per accedere ad Azure deve essere un membro del ruolo Collaboratore o Proprietario oppure un amministratore della sottoscrizione di Azure.
 
-* Un [tenant di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Un [tenant di Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* Per distribuire il modello, installare Azure PowerShell o l'interfaccia della riga di comando di Azure nel computer client: [Distribuzione dalla riga di comando](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-cli#command-line-deployment)
+* Per distribuire il modello, installare Azure PowerShell o l'interfaccia della riga di comando di Azure nel computer client: [Distribuzione dalla riga di comando](../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-cli#command-line-deployment)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

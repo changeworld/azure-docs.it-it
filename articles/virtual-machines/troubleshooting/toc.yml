@@ -39,8 +39,6 @@
       href: restart-resize-error-troubleshooting.md
     - name: 'Riavvio, arresto o arresto dei servizi'
       href: boot-error-troubleshoot-windows.md
-    - name: Problemi con un disco di sistema operativo pieno in una macchina virtuale Linux
-      href: os-disk-full-linux.md
 - name: Riavvio imprevisto
   items:
     - name: Riavvii imprevisti di VM con dischi rigidi virtuali collegati
@@ -153,7 +151,7 @@
         - name: Risolvere un errore generale
           href: troubleshoot-rdp-general-error.md
         - name: Risolvere gli errori di autenticazione
-          href: troubleshoot-authentication-error-rdp-vm.md
+          href: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
         - name: Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento
           href: event-id-troubleshoot-vm-rdp-connecton.md
         - name: Risolvere l'errore RDP nella macchina virtuale causato dall'IP statico

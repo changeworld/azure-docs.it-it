@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 6aeb4e29390b5b456d3aa820e4b3b8be762dbddd
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
-ms.translationtype: HT
+ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98115787"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880034"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Avvio rapido: Creare un account Azure Purview nel portale di Azure
 
@@ -25,7 +25,7 @@ In questo argomento di avvio rapido si crea un account Azure Purview.
 
 * Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* Un [tenant di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).
+* Un [tenant di Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 * L'account deve avere l'autorizzazione per creare risorse nella sottoscrizione
 
@@ -35,7 +35,7 @@ In questo argomento di avvio rapido si crea un account Azure Purview.
     > Non è necessario seguire questo passaggio se il servizio Criteri di Azure non è installato o se non è presente un criterio di Azure che impedisce la creazione dell'**account di archiviazione** e dello **spazio dei nomi EventHub**.
 
     1. Passare al portale di Azure e cercare **Criteri**.
-    1. Seguire la procedura in [Creare una definizione di criteri personalizzata](https://docs.microsoft.com/azure/governance/policy/tutorials/create-custom-policy-definition) o modificare i criteri esistenti aggiungendo due eccezioni con l'operatore `not` e il tag `resourceBypass`:
+    1. Seguire la procedura in [Creare una definizione di criteri personalizzata](../governance/policy/tutorials/create-custom-policy-definition.md) o modificare i criteri esistenti aggiungendo due eccezioni con l'operatore `not` e il tag `resourceBypass`:
 
         ```json
         {
@@ -83,7 +83,7 @@ In questo argomento di avvio rapido si crea un account Azure Purview.
 
         :::image type="content" source="./media/create-catalog-portal/policy-definition.png" alt-text="Screenshot che illustra come creare una definizione di criteri.":::
 
-    1. [Creare un'assegnazione di criteri](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) usando i criteri personalizzati creati.
+    1. [Creare un'assegnazione di criteri](../governance/policy/assign-policy-portal.md) usando i criteri personalizzati creati.
 
         [ ![Screenshot che illustra come creare un'assegnazione di criteri](./media/create-catalog-portal/policy-assignment.png)](./media/create-catalog-portal/policy-assignment.png#lightbox)
 
@@ -155,7 +155,7 @@ Se dopo avere fatto clic su Aggiungi vengono visualizzate due opzioni entrambe d
 
 1. Selezionare **Aggiungi un'assegnazione di ruolo**.
 
-1. Come tipo di ruolo selezionare **Curatore dei dati di Purview** o **Amministratore delle origini dati di Purview** in base all'entità di sicurezza per cui verrà usato (per altre informazioni, vedere [Autorizzazioni per il catalogo](catalog-permissions.md) e [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)).
+1. Come tipo di ruolo selezionare **Curatore dei dati di Purview** o **Amministratore delle origini dati di Purview** in base all'entità di sicurezza per cui verrà usato (per altre informazioni, vedere [Autorizzazioni per il catalogo](catalog-permissions.md) e [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)).
 
 1. In **Assegna accesso a** lasciare l'impostazione predefinita **Utente, gruppo o entità servizio**.
 

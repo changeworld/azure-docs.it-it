@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 11/24/2020
 ms.author: inhenkel
 ms.custom: subject-armqs
-ms.openlocfilehash: 6a23c3a20e79fe6fff7de8faccf4e4ef78f02585
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
-ms.translationtype: HT
+ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185038"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879647"
 ---
 # <a name="quickstart-media-services-account-arm-template"></a>Avvio rapido: Modello di Resource Manager per l'account di Servizi multimediali
 
@@ -41,7 +41,7 @@ Se si ha familiarità con i modelli di Azure Resource Manager, è possibile proc
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Se non è mai stato distribuito un modello di Resource Manager finora, è utile leggere informazioni sui [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/) e seguire l'[esercitazione](https://docs.microsoft.com/azure/azure-resource-manager/templates/template-tutorial-create-first-template?tabs=azure-powershell).
+Se non è mai stato distribuito un modello di Resource Manager finora, è utile leggere informazioni sui [modelli di Azure Resource Manager](../../azure-resource-manager/templates/index.yml) e seguire l'[esercitazione](../../azure-resource-manager/templates/template-tutorial-create-first-template.md?tabs=azure-powershell).
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
@@ -118,8 +118,8 @@ The syntax for the JSON code fence is:
 
 Nel modello sono definiti tre tipi di risorsa di Azure:
 
-- [Microsoft.Media/mediaservices](https://docs.microsoft.com/azure/templates/microsoft.media/mediaservices): per creare un account di Servizi multimediali
-- [Microsoft.Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): per creare un account di archiviazione
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): per creare un account di Servizi multimediali
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): per creare un account di archiviazione
 
 ## <a name="set-the-account"></a>Impostare l'account
 
@@ -277,4 +277,4 @@ az group delete --name {name of the resource group}
 Per altre informazioni sull'uso di un modello di Resource Manager seguendo la procedura di creazione di un modello con parametri, variabili e altro ancora, vedere
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Esercitazione: Creare e distribuire il primo modello di Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

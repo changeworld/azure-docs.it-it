@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione da estimatori a ScriptRunConfig
+title: Eseguire la migrazione da Estimators a ScriptRunConfig
 titleSuffix: Azure Machine Learning
 description: Guida alla migrazione per la migrazione da estimatori a ScriptRunConfig per la configurazione dei processi di training.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 64c03b1c9fc18a4e78af9914b893599683069ced
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: d603a12f851dac5b7cefc5bad728d42967bb27dc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97633014"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878596"
 ---
 # <a name="migrating-from-estimators-to-scriptrunconfig"></a>Migrazione da estimatori a ScriptRunConfig
 
@@ -30,7 +30,7 @@ Questo articolo illustra le considerazioni più comuni per la migrazione da esti
 > Per eseguire la migrazione a ScriptRunConfig da estimatori, assicurarsi di usare >= 1.15.0 di Python SDK.
 
 ## <a name="scriptrunconfig-documentation-and-samples"></a>Documentazione ed esempi di ScriptRunConfig
-Azure Machine Learning documentazione ed esempi sono stati aggiornati per l'uso di [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) per la configurazione e l'invio dei processi.
+Azure Machine Learning documentazione ed esempi sono stati aggiornati per l'uso di [ScriptRunConfig](/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?preserve-view=true&view=azure-ml-py) per la configurazione e l'invio dei processi.
 
 Per informazioni sull'uso di ScriptRunConfig, vedere la documentazione seguente:
 * [Configurare e inviare le esecuzioni di training](how-to-set-up-training-targets.md)
@@ -104,10 +104,10 @@ src.run_config.data_references = {data_ref.data_reference_name: data_ref.to_conf
 ```
 
 Per ulteriori informazioni sull'utilizzo dei dati per il training, vedere:
-* [Eseguire il training con i set di impostazioni in Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets)
+* [Eseguire il training con i set di impostazioni in Azure ML](./how-to-train-with-datasets.md)
 
 ## <a name="distributed-training"></a>Training distribuito
-Se è necessario configurare un processo distribuito per il training, è necessario specificare il `distributed_job_config` parametro nel costruttore ScriptRunConfig. Passare un [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true)o [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true) per i processi distribuiti dei rispettivi tipi.
+Se è necessario configurare un processo distribuito per il training, è necessario specificare il `distributed_job_config` parametro nel costruttore ScriptRunConfig. Passare un [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py)o [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py) per i processi distribuiti dei rispettivi tipi.
 
 Nell'esempio seguente viene configurato un processo di training di PyTorch per l'utilizzo della formazione distribuita con MPI/Horovod:
 ```python
