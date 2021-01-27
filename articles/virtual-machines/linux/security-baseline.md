@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f0ae4ac4cf50eb6e54d41ff25e1cc671e76819ee
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 62030d1c208fc778476f49e5b3165e46e6aa0d66
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200805"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878851"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -852,7 +852,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 * [Come configurare e gestire Criteri di Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-* [Informazioni su come scaricare il modello di macchina virtuale](../windows/download-template.md)
+* [Informazioni su come scaricare il modello di macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template)
 
 **Monitoraggio del Centro sicurezza di Azure**: non disponibile
 
@@ -896,7 +896,7 @@ Oltre a usare Rilevamento modifiche per il monitoraggio di applicazioni software
 
 Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati con la configurazione dello stato desiderato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza.
 
-* [Informazioni su come scaricare il modello di macchina virtuale](../windows/download-template.md)
+* [Informazioni su come scaricare il modello di macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informazioni sulla creazione di modelli ARM](../windows/ps-template.md)
 

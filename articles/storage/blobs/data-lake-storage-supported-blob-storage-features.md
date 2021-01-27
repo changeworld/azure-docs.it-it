@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 58a907a2ae17966f50a037f49a807ac0a3ad6867
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96545829"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879310"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Funzionalità di archiviazione BLOB disponibili in Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ La tabella seguente illustra in che modo ogni funzionalità di archiviazione BLO
 |Comandi PowerShell per l'archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Caricare, scaricare ed elencare BLOB con PowerShell](storage-quickstart-blobs-powershell.md)|
 |Comandi dell'interfaccia della riga di comando di Azure per Archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Creare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure](storage-quickstart-blobs-cli.md)|
 |Api di archiviazione BLOB|Disponibile a livello generale|Disponibile a livello generale|[Avvio rapido: Libreria client di Archiviazione BLOB di Azure v12 per .NET](storage-quickstart-blobs-dotnet.md)<br>[Avvio rapido: Gestire i BLOB con Java v12 SDK](storage-quickstart-blobs-java.md)<br>[Avvio rapido: Gestire i BLOB con Python v12 SDK](storage-quickstart-blobs-python.md)<br>[Avvio rapido: Gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md)|
-|Log di diagnostica|Disponibile a livello generale|Anteprima |[Registrazione di Analisi archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Log di diagnostica|Disponibile a livello generale|Anteprima |[Registrazione di Analisi di archiviazione di Azure](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Livello di accesso archivio|Disponibile a livello generale|Non supportate|[Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md)|
 |Criteri di gestione del ciclo di vita (suddivisione in livelli)|Disponibile a livello generale|Non ancora supportato|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
 |Criteri di gestione del ciclo di vita (eliminazione di BLOB)|Disponibile a livello generale|Disponibile a livello generale|[Gestire il ciclo di vita di Archiviazione BLOB di Azure](storage-lifecycle-management-concepts.md)|
@@ -45,7 +45,7 @@ La tabella seguente illustra in che modo ogni funzionalità di archiviazione BLO
 |Archiviazione non modificabile|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Anteprima<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Archiviare dati BLOB critici per l'azienda con archiviazione non modificabile](storage-blob-immutable-storage.md)|
 |Eliminazione temporanea del contenitore|Anteprima|Anteprima|[Eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md)|
 |Inventario di archiviazione di Azure|Anteprima|Anteprima|[Usare l'inventario di archiviazione di Azure per gestire i dati BLOB (anteprima)](blob-inventory.md)|
-|Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](storage-blob-soft-delete.md)|
+|Eliminazione temporanea BLOB|Non ancora supportato|Non ancora supportato|[Eliminazione temporanea per i BLOB](./soft-delete-blob-overview.md)|
 |Blobfuse|Disponibile a livello generale|Disponibile a livello generale|[Come montare l'archivio BLOB come file system con blobfuse](storage-how-to-mount-container-linux.md)|
 |Accesso pubblico Anonimo |Disponibile a livello generale|Disponibile a livello generale| Vedere [configurare l'accesso in lettura pubblico anonimo per contenitori e BLOB](anonymous-read-access-configure.md).|
 |Failover dell'account gestito dal cliente|Non ancora supportato|Non ancora supportato|[Ripristino di emergenza e failover dell'account](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

@@ -3,14 +3,14 @@ title: Eseguire azioni con backup Center
 description: Questo articolo illustra come eseguire azioni con backup Center
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06229eb0b8cb76482035d3dfe1949c3ab8354f17
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854427"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894576"
 ---
-# <a name="perform-actions-using-backup-center"></a>Eseguire azioni con backup Center
+# <a name="perform-actions-using-backup-center-preview"></a>Eseguire azioni usando il centro di backup (anteprima)
 
 Il centro di backup consente di eseguire azioni relative al backup delle chiavi da un'interfaccia centrale senza dover passare a un singolo insieme di credenziali. Di seguito sono riportate alcune azioni che è possibile eseguire da backup Center:
 
@@ -23,26 +23,28 @@ Il centro di backup consente di eseguire azioni relative al backup delle chiavi 
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-* Backup Center è attualmente supportato per il backup di macchine virtuali di Azure e per il backup del server database di Azure per PostgreSQL.
+* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure e backup del server di database di Azure per PostgreSQL.
 * Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
 ## <a name="configure-backup"></a>Configurare il backup
 
+Se si esegue il backup di macchine virtuali di Azure, SQL in macchine virtuali di Azure, SAP HANA in macchine virtuali di Azure o File di Azure, è necessario usare un insieme di credenziali di servizi di ripristino. Se si esegue il backup dei database di Azure per il server PostgreSQL, è necessario usare un insieme di credenziali per il backup. 
+
 A seconda del tipo di origine dati di cui si vuole eseguire il backup, seguire le istruzioni appropriate come descritto di seguito.
 
-### <a name="configure-backup-for-azure-virtual-machines"></a>Configurare il backup per le macchine virtuali di Azure
+### <a name="configure-backup-to-a-recovery-services-vault"></a>Configurare il backup in un insieme di credenziali di servizi di ripristino
 
 1. Passare al centro di backup e selezionare **+ backup** nella parte superiore della scheda **Panoramica** .
 
     ![Panoramica di Centro backup](./media/backup-center-actions/backup-center-overview-configure-backup.png)
 
-2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup (macchina virtuale di Azure in questo caso).
+2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup.
 
     ![Selezionare l'origine dati per configurare il backup della macchina virtuale](./media/backup-center-actions/backup-select-datasource-vm.png)
 
 3. Scegliere un insieme di credenziali dei servizi di ripristino e selezionare **continua**. In questo modo si arriva all'esperienza di configurazione del backup identica a quella raggiungibile da un insieme di credenziali di servizi di ripristino. [Altre informazioni su come configurare il backup per le macchine virtuali di Azure con un insieme](tutorial-backup-vm-at-scale.md)di credenziali di servizi di ripristino.
 
-### <a name="configure-backup-for-azure-database-for-postgresql-server"></a>Configurare il backup per il server di database di Azure per PostgreSQL
+### <a name="configure-backup-to-a-backup-vault"></a>Configurare il backup in un insieme di credenziali per il backup
 
 1. Passare al centro di backup e selezionare **+ backup** nella parte superiore della scheda **Panoramica** .
 2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup (in questo caso il database di Azure per il server PostgreSQL).
@@ -55,19 +57,19 @@ A seconda del tipo di origine dati di cui si vuole eseguire il backup, seguire l
 
 A seconda del tipo di origine dati che si desidera ripristinare, seguire le istruzioni appropriate come descritto di seguito.
 
-### <a name="if-youre-restoring-an-azure-virtual-machine"></a>Se si sta ripristinando una macchina virtuale di Azure
+### <a name="if-youre-restoring-from-a-recovery-services-vault"></a>Se si esegue il ripristino da un insieme di credenziali di servizi di ripristino
 
 1. Passare al centro di backup e selezionare **Ripristina** nella parte superiore della scheda **Overview (panoramica** ).
 
     ![Panoramica del centro di backup per il ripristino della macchina virtuale](./media/backup-center-actions/backup-center-overview-restore.png)
 
-2. Selezionare il tipo di origine dati che si vuole ripristinare (macchina virtuale di Azure in questo caso).
+2. Selezionare il tipo di origine dati che si desidera ripristinare.
 
     ![Selezionare l'origine dati per il ripristino della macchina virtuale](./media/backup-center-actions/restore-select-datasource-vm.png)
 
 3. Scegliere un'istanza di backup e selezionare **continua**. In questo modo si arriva all'esperienza di ripristino delle impostazioni che è identica a quella raggiungibile da un insieme di credenziali di servizi di ripristino. [Altre informazioni su come ripristinare una macchina virtuale di Azure con un insieme](backup-azure-arm-restore-vms.md#before-you-start)di credenziali di servizi di ripristino.
 
-### <a name="if-youre-restoring-an-azure-database-for-postgresql-server"></a>Se si sta ripristinando un database di Azure per il server PostgreSQL
+### <a name="if-youre-restoring-from-a-backup-vault"></a>Se si esegue il ripristino da un insieme di credenziali di backup
 
 1. Passare al centro di backup e selezionare **Ripristina** nella parte superiore della scheda **Overview (panoramica** ).
 2. Selezionare il tipo di origine dati che si vuole ripristinare (in questo caso il database di Azure per il server PostgreSQL).
@@ -89,19 +91,19 @@ A seconda del tipo di origine dati che si desidera ripristinare, seguire le istr
 
 A seconda del tipo di origine dati di cui si vuole eseguire il backup, seguire le istruzioni appropriate descritte di seguito.
 
-### <a name="if-youre-backing-up-an-azure-virtual-machine"></a>Se si esegue il backup di una macchina virtuale di Azure
+### <a name="if-youre-backing-up-to-a-recovery-services-vault"></a>Se si esegue il backup in un insieme di credenziali di servizi di ripristino
 
 1. Passare al centro di backup e selezionare **+ policy** nella parte superiore della scheda **Overview (panoramica** ).
 
     ![Panoramica del Centro backup per i criteri di backup](./media/backup-center-actions/backup-center-overview-policy.png)
 
-2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup (macchina virtuale di Azure in questo caso).
+2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup.
 
     ![Selezionare l'origine dati per i criteri per il backup delle VM](./media/backup-center-actions/policy-select-datasource-vm.png)
 
 3. Scegliere un insieme di credenziali dei servizi di ripristino e selezionare **continua**. In questo modo si accede all'esperienza di creazione dei criteri identica a quella raggiungibile da un insieme di credenziali di servizi di ripristino. [Altre informazioni su come creare un nuovo criterio di backup per una macchina virtuale di Azure con un insieme](backup-azure-arm-vms-prepare.md#create-a-custom-policy)di credenziali di servizi di ripristino.
 
-### <a name="if-youre-backing-up-an-azure-database-for-postgresql-server"></a>Se si esegue il backup di un database di Azure per il server PostgreSQL
+### <a name="if-youre-backing-up-to-a-backup-vault"></a>Se si esegue il backup in un insieme di credenziali per il backup
 
 1. Passare al centro di backup e selezionare **+ policy** nella parte superiore della scheda **Overview (panoramica** ).
 2. Selezionare il tipo di origine dati di cui si vuole eseguire il backup (in questo caso il database di Azure per il server PostgreSQL).

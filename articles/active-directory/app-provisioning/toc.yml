@@ -10,8 +10,10 @@
 - name: Esercitazioni
   expanded: true
   items:
-    - name: Creare un endpoint SCIM e configurare il provisioning
+    - name: Pianificare il provisioning per un endpoint SCIM
       href: use-scim-to-provision-users-and-groups.md
+    - name: Sviluppare un endpoint SCIM di esempio
+      href: use-scim-to-build-users-and-groups-endpoints.md
     - name: Personalizzare i mapping degli attributi
       href: customize-application-attributes.md
     - name: Esercitazioni sul provisioning specifiche delle app

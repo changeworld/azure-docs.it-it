@@ -1,25 +1,10 @@
 ---
-title: Caricare, codificare ed eseguire lo streaming con Servizi multimediali v3
-titleSuffix: Azure Media Services
-description: Esercitazione che illustra come caricare un file, codificare video e trasmettere contenuti con Servizi multimediali di Azure v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: eedbb63f4928c0397150b40a47fdc7c3e87d1991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256770"
+title: caricare, codificare e trasmettere in flusso con servizi multimediali V3: Descrizione di servizi multimediali di Azure: esercitazione che illustra come caricare un file, codificare video e trasmettere contenuto con servizi multimediali di Azure V3.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Servizi multimediali ms. workload: ms. Topic: esercitazione ms. Custom: MVC ms. Date: 08/31/2020 ms. Author: inhenkel
 ---
+
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

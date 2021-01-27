@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/12/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b487dcad83ccbc31adf2d7ec2dd77c490db2c68e
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9bc641d680d927c44814f6814ebf6a6dde958c9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935198"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901006"
 ---
 Funzioni di Azure consente di creare attività di replica solo di configurazione che si basano su un punto di ingresso predefinito. Gli [esempi di replica basati sulla configurazione per funzioni di Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config) illustrano come sfruttare gli [Helper predefiniti](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/src/Azure.Messaging.Replication) nel codice o evitare di gestire completamente il codice e usare semplicemente la configurazione.
 
@@ -218,13 +218,12 @@ La tabella seguente contiene i valori corretti per le combinazioni di origini e 
 
 ### <a name="retry-policy"></a>Criterio di ripetizione dei tentativi
 
-Per configurare i criteri di ripetizione dei tentativi, vedere la [documentazione di funzioni di Azure](/azure/azure-functions/functions-bindings-error-pages) . Le impostazioni dei criteri scelti in tutti i progetti in questo repository configurano una strategia backoff esponenziale con intervalli di tentativi da 5 secondi a 5 minuti con tentativi infiniti per evitare la perdita di dati.
+Per configurare i criteri di ripetizione dei tentativi, vedere la [documentazione di funzioni di Azure](../articles/azure-functions/functions-bindings-error-pages.md) . Le impostazioni dei criteri scelti in tutti i progetti in questo repository configurano una strategia backoff esponenziale con intervalli di tentativi da 5 secondi a 5 minuti con tentativi infiniti per evitare la perdita di dati.
 
-Per il bus di servizio, vedere la sezione ["uso del supporto per tentativi nella parte superiore della resilienza dei trigger"](/azure/azure-functions/functions-bindings-error-pages#using-retry-support-on-top-of-trigger-resilience) per comprendere l'interazione dei trigger e il numero massimo di recapiti definiti per la coda.
+Per il bus di servizio, vedere la sezione ["uso del supporto per tentativi nella parte superiore della resilienza dei trigger"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) per comprendere l'interazione dei trigger e il numero massimo di recapiti definiti per la coda.
 
 ### <a name="build-deploy-and-configure"></a>Compilazione, distribuzione e configurazione
 
 Mentre si sta concentrando sulla configurazione, le attività richiedono comunque la compilazione di un'applicazione distribuibile e la configurazione degli host di funzioni di Azure in modo che disponga di tutte le informazioni necessarie per la connessione agli endpoint specificati. 
 
 Questa operazione viene illustrata insieme agli script riutilizzabili negli [esempi di replica basati sulla configurazione per funzioni di Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
-

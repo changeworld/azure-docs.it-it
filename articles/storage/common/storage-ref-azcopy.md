@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d5a5214ae4d2d6c0a18b68863211aa1f6573c6
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87285187"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878987"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -28,7 +28,7 @@ Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [htt
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
@@ -42,7 +42,7 @@ Per segnalare problemi o per ulteriori informazioni sullo strumento, vedere [htt
 
 **--trusted-Microsoft-suffissi** (String) specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

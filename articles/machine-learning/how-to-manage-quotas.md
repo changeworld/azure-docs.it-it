@@ -11,12 +11,12 @@ ms.author: siarora
 ms.date: 12/1/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
-ms.openlocfilehash: 78cc0aa6beb9ab83fea2039b271b071de1662fc1
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: aa25a81068b25b7b8696a7472eb04542e8bb1a60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629181"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878953"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -82,7 +82,7 @@ Risorse disponibili:
 + I **cluster per area** hanno un limite predefinito di 200. Questi sono condivisi tra un cluster di training e un'istanza di calcolo. Un'istanza di calcolo è considerata un cluster a nodo singolo per finalità di quota.
 
 > [!TIP]
-> Per altre informazioni sulla famiglia di VM per cui richiedere un aumento della quota, vedere [dimensioni delle macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes). Per le famiglie di macchine virtuali GPU, ad esempio, inizia con "N" nel nome della famiglia, ad esempio Serie NCv3)
+> Per altre informazioni sulla famiglia di VM per cui richiedere un aumento della quota, vedere [dimensioni delle macchine virtuali in Azure](../virtual-machines/sizes.md). Per le famiglie di macchine virtuali GPU, ad esempio, inizia con "N" nel nome della famiglia, ad esempio Serie NCv3)
 
 La tabella seguente illustra i limiti aggiuntivi della piattaforma. Rivolgersi al team del prodotto AzureML tramite un ticket di supporto **tecnico** per richiedere un'eccezione.
 

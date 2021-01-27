@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 1/15/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 71de1d17731e086d012da5365fa6671bcb9e6e3b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 49184778c7d6592f074e04df535b9bc221f3162e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539254"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878800"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -206,8 +206,8 @@ Sul server che viene visualizzato come "Risulta offline" nel portale, esaminare 
     - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](./storage-sync-files-firewall-and-proxy.md#proxy) del proxy.
     - Usare il cmdlet Test-StorageSyncNetworkConnectivity per verificare la connettività di rete agli endpoint del servizio. Per altre informazioni, vedere [Testare la connettività di rete agli endpoint di servizio](./storage-sync-files-firewall-and-proxy.md#test-network-connectivity-to-service-endpoints).
     - Se l'ordine del pacchetto di crittografia TLS è configurato nel server, è possibile usare i cmdlet di criteri di gruppo o TLS per aggiungere pacchetti di crittografia:
-        - Per usare i criteri di gruppo, vedere [configurazione dell'ordine dei pacchetti di crittografia TLS con criteri di gruppo](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
-        - Per usare i cmdlet TLS, vedere [Configuring TLS cipher Suite order by using TLS PowerShell cmdlets](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
+        - Per usare i criteri di gruppo, vedere [configurazione dell'ordine dei pacchetti di crittografia TLS con criteri di gruppo](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-group-policy).
+        - Per usare i cmdlet TLS, vedere [Configuring TLS cipher Suite order by using TLS PowerShell cmdlets](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         Sincronizzazione file di Azure attualmente supporta i pacchetti di crittografia seguenti per il protocollo TLS 1,2:  
         - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384  
@@ -931,7 +931,7 @@ Questo errore si verifica se la directory utilizzata come percorso dell'endpoint
 Se la directory è stata eliminata, attenersi alla procedura seguente per rimuovere l'endpoint server esistente e creare un nuovo endpoint server usando un nuovo percorso:
 
 1. Rimuovere l'endpoint server nel gruppo di sincronizzazione attenendosi ai passaggi descritti in [rimuovere un endpoint server](./storage-sync-files-server-endpoint.md#remove-a-server-endpoint).
-2. Per creare un nuovo endpoint server nel gruppo di sincronizzazione, seguire i passaggi descritti in [aggiungere un endpoint server](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-endpoint#add-a-server-endpoint).
+2. Per creare un nuovo endpoint server nel gruppo di sincronizzazione, seguire i passaggi descritti in [aggiungere un endpoint server](./storage-sync-files-server-endpoint.md#add-a-server-endpoint).
 
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
 <a id="troubleshoot-storage-account"></a>**Verificare l'esistenza dell'account di archiviazione.**  

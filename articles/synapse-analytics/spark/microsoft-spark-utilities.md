@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: c681195a60329320b875cc06919e9440b65eb9e5
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d2e9e306e979f569819568650b25d49278997ede
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120241"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878528"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introduzione alle utilità di Microsoft Spark
 
@@ -33,13 +33,17 @@ Per assicurarsi che il Azure AD e l'identità del servizio gestito dell'area di 
 1. Aprire il [portale di Azure](https://portal.azure.com/) e l'account di archiviazione a cui si vuole accedere. È possibile passare al contenitore specifico a cui si vuole accedere.
 2. Selezionare il **controllo di accesso (IAM)** nel pannello di sinistra.
 3. Assegnare l' **account Azure ad** e l' **identità dell'area di lavoro** (uguale al nome dell'area di lavoro) al ruolo di **collaboratore dati BLOB di archiviazione** nell'account di archiviazione, se non è già assegnato. 
-4. Selezionare **Save** (Salva).
+4. Selezionare **Salva**.
 
 È possibile accedere ai dati in ADLS Gen2 con sinapsi Spark tramite l'URL seguente:
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure 
+<!-- ### Configure access to Azure Blob Storage  -->
+
+:::zone pivot = "programming-language-python"
+
+### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure  
 
 Le sinapsi sfruttano la **firma di accesso condiviso** per accedere all'archivio BLOB di Azure. Per evitare di esporre le chiavi SAS nel codice, è consigliabile creare un nuovo servizio collegato nell'area di lavoro sinapsi per l'account di archiviazione BLOB di Azure a cui si vuole accedere.
 
@@ -58,9 +62,6 @@ Per aggiungere un nuovo servizio collegato per un account di archiviazione BLOB 
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Di seguito è riportato un esempio di codice:
-
-
-:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -85,6 +86,26 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure  
+
+Le sinapsi sfruttano la **firma di accesso condiviso** per accedere all'archivio BLOB di Azure. Per evitare di esporre le chiavi SAS nel codice, è consigliabile creare un nuovo servizio collegato nell'area di lavoro sinapsi per l'account di archiviazione BLOB di Azure a cui si vuole accedere.
+
+Per aggiungere un nuovo servizio collegato per un account di archiviazione BLOB di Azure, seguire questa procedura:
+
+1. Aprire [Azure sinapsi Studio](https://web.azuresynapse.net/).
+2. Selezionare **Gestisci** dal pannello sinistro e selezionare **servizi collegati** sotto le **connessioni esterne**.
+3. Cercare nell' **Archivio BLOB di Azure** nel pannello **nuovo servizio collegato** a destra.
+4. Selezionare **Continua**.
+5. Selezionare l'account di archiviazione BLOB di Azure per accedere al nome del servizio collegato e configurarlo. Suggerire l'uso della **chiave dell'account** per il **metodo di autenticazione**.
+6. Selezionare **Test connessione** per verificare che le impostazioni siano corrette.
+7. Selezionare **Crea** prima e fare clic su **pubblica tutto** per salvare le modifiche. 
+
+È possibile accedere ai dati nell'archivio BLOB di Azure con sinapsi Spark tramite l'URL seguente:
+
+<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+
+Di seguito è riportato un esempio di codice:
+
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -101,13 +122,13 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
  
 ###  <a name="configure-access-to-azure-key-vault"></a>Configurare l'accesso a Azure Key Vault
 
@@ -621,11 +642,15 @@ Credentials.GetSecret("azure key vault name","secret name")
 
 ::: zone-end
 
+<!-- ### Put secret using workspace identity
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately. -->
+
+:::zone pivot = "programming-language-python"
+
 ### <a name="put-secret-using-workspace-identity"></a>Inserire il segreto usando l'identità dell'area di lavoro
 
 Inserisce Azure Key Vault segreto per un determinato nome di Azure Key Vault, nome del segreto e nome del servizio collegato utilizzando l'identità dell'area di lavoro. Assicurarsi di configurare l'accesso [Azure Key Vault](#configure-access-to-azure-key-vault) in modo appropriato.
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
@@ -634,26 +659,34 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="put-secret-using-workspace-identity"></a>Inserire il segreto usando l'identità dell'area di lavoro
+
+Inserisce Azure Key Vault segreto per un determinato nome di Azure Key Vault, nome del segreto e nome del servizio collegato utilizzando l'identità dell'area di lavoro. Assicurarsi di configurare l'accesso [Azure Key Vault](#configure-access-to-azure-key-vault) in modo appropriato.
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value","linked service name")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
+
+<!-- ### Put secret using user credentials
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials.  -->
+
+:::zone pivot = "programming-language-python"
 
 ### <a name="put-secret-using-user-credentials"></a>Inserire il segreto usando le credenziali utente
 
 Inserisce Azure Key Vault segreto per un nome di Azure Key Vault, il nome del segreto e il nome del servizio collegato specificati utilizzando le credenziali utente. 
-
-:::zone pivot = "programming-language-python"
 
 ```python
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
@@ -662,19 +695,23 @@ mssparkutils.credentials.putSecret('azure key vault name','secret name','secret 
 
 :::zone pivot = "programming-language-scala"
 
+### <a name="put-secret-using-user-credentials"></a>Inserire il segreto usando le credenziali utente
+
+Inserisce Azure Key Vault segreto per un nome di Azure Key Vault, il nome del segreto e il nome del servizio collegato specificati utilizzando le credenziali utente. 
+
 ```scala
 mssparkutils.credentials.putSecret("azure key vault name","secret name","secret value")
 ```
 
 ::: zone-end
 
-:::zone pivot = "programming-language-csharp"
+<!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
 
 ```
 
-::: zone-end
+::: zone-end -->
 
 
 ## <a name="environment-utilities"></a>Utilità per l'ambiente 

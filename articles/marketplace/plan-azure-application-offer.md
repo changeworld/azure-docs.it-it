@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2020
-ms.openlocfilehash: 45bc3aaf5217c626e2593b4eda861eaace2a8be2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: f98f128e56810e3dd710ce454c8dc34b333690d1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620410"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879293"
 ---
 # <a name="plan-an-azure-application-offer-for-the-commercial-marketplace"></a>Pianificare un'offerta applicazione Azure per il Marketplace commerciale
 
@@ -210,7 +210,7 @@ Questa configurazione è obbligatoria se si vuole usare [eventi di utilizzo in b
 È possibile scegliere di acconsentire ai canali di marketing e vendita supportati da Microsoft. Quando si crea l'offerta nel centro per i partner, si vedranno due schede verso la fine del processo:
 
 - **Rivendere tramite CSP**: usare questa opzione per consentire ai partner di Microsoft Cloud Solution Provider (CSP) di rivendere la soluzione come parte di un'offerta in bundle. Per ulteriori informazioni, vedere il [programma Cloud Solution Provider](./cloud-solution-providers.md) .
-- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md). Per informazioni dettagliate sui requisiti di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [Cloud Solution Provider](cloud-solution-providers.md).
+- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md). Per informazioni dettagliate sui requisiti di co-selling IP, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [Cloud Solution Provider](cloud-solution-providers.md).
 
 Per altre informazioni, vedere [aumentare le attività del cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 

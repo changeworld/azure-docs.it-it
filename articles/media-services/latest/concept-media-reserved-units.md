@@ -1,5 +1,5 @@
 ---
-title: Media reserved Unit-Azure | Microsoft Docs
+title: Media reserved Unit-Azure
 description: Media reserved Unit consentono di ridimensionare il processo multimediale e di determinare la velocità delle attività di elaborazione di contenuti multimediali.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: df691f5b9e74432f683e52fbb896dd4d44efe2aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0cfc47b546c31e6b93d224e64de20b79baacfd9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91622087"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98891297"
 ---
 # <a name="media-reserved-units"></a>Unità riservate multimediali
 
@@ -54,6 +54,6 @@ L'addebito è basato sul numero di minuti in cui viene effettuato il provisionin
 [Ridimensionare media reserved Unit con CLI](media-reserved-units-cli-how-to.md) 
  [Analizzare i video](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Quote e limiti](limits-quotas-constraints.md)

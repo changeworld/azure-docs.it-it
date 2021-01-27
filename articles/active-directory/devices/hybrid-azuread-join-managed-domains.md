@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 03/06/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 303f02e0c6b72b7061a996b3ce8e70799954b435
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861052"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893407"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -90,23 +90,21 @@ Per configurare l'aggiunta ad Azure AD ibrido con Azure AD Connect:
 
 1. Avviare Azure AD Connect e quindi selezionare **Configura**.
 
-   ![Schermata iniziale](./media/hybrid-azuread-join-managed-domains/welcome-azure-ad-connect.png)
-
 1. In **Attività aggiuntive** selezionare **Configura le opzioni del dispositivo** e quindi **Avanti**.
 
    ![Attività aggiuntive](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-additional-tasks.png)
 
 1. In **Panoramica** selezionare **Avanti**.
 
-   ![Panoramica](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-overview.png)
-
 1. In **Connessione ad Azure AD** immettere le credenziali di amministratore globale per il tenant di Azure AD.  
-
-   ![Connessione ad Azure AD](./media/hybrid-azuread-join-managed-domains/connect-to-azure-ad-username-password.png)
 
 1. In **Opzioni dispositivo** selezionare **Configura l'aggiunta ad Azure AD ibrido** e quindi **Avanti**.
 
    ![Opzioni del dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-options.png)
+
+1. In **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente Active Directory e quindi selezionare **Avanti**.
+
+   ![Sistema operativo del dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
 
 1. In **Configurazione del punto di connessione del servizio** per ogni foresta in cui si vuole che Azure AD Connect configuri il punto di connessione del servizio eseguire i passaggi seguenti e quindi selezionare **Avanti**.
 
@@ -116,17 +114,9 @@ Per configurare l'aggiunta ad Azure AD ibrido con Azure AD Connect:
 
    ![SCP](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-scp-configuration.png)
 
-1. In **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente Active Directory e quindi selezionare **Avanti**.
-
-   ![Sistema operativo del dispositivo](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-device-operating-systems.png)
-
 1. In **Pronto per la configurazione** selezionare **Configura**.
 
-   ![Pronto per la configurazione](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-ready-to-configure.png)
-
 1. In **La configurazione è stata completata** selezionare **Esci**.
-
-   ![Configurazione completata](./media/hybrid-azuread-join-managed-domains/azure-ad-connect-configuration-complete.png)
 
 ## <a name="enable-windows-down-level-devices"></a>Abilitare dispositivi Windows di livello inferiore
 

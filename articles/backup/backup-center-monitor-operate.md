@@ -3,20 +3,20 @@ title: Monitorare e gestire i backup con Centro backup
 description: Questo articolo illustra come monitorare e gestire i backup su larga scala con backup Center
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 29e09e502e83ea67af290f206ee0e68b847b2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90996674"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893779"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorare e gestire i backup con Centro backup
+# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Monitorare e usare i backup con backup Center (anteprima)
 
 Come amministratore di backup, è possibile usare il centro di backup come un unico riquadro di vetro per monitorare i processi e l'inventario dei backup su base giornaliera. È anche possibile usare il centro di backup per eseguire le normali operazioni, ad esempio la risposta alle richieste di backup su richiesta, il ripristino dei backup, la creazione di criteri di backup e così via.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-* Backup Center è attualmente supportato per il backup di macchine virtuali di Azure e per il backup del server database di Azure per PostgreSQL.
+* Il centro di backup è attualmente supportato per il backup di macchine virtuali di Azure, SQL nel backup di VM di Azure, SAP HANA nel backup di macchine virtuali di Azure, Backup File di Azure e backup del server di database di Azure per PostgreSQL.
 * Per un elenco dettagliato degli scenari supportati e non supportati, vedere la [matrice di supporto](backup-center-support-matrix.md) .
 
 ## <a name="backup-instances"></a>Istanze di backup

@@ -1,24 +1,11 @@
 ---
-title: Trasformazioni e processi in servizi multimediali
-titleSuffix: Azure Media Services
-description: Informazioni su come creare una trasformazione per descrivere le regole per l'elaborazione dei video in servizi multimediali di Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: inhenkel
-ms.openlocfilehash: 4cb4bcf5eb205d27cbca764d5ec16890a23be5c6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426775"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
+title: trasformazioni e processi in servizi multimediali: Descrizione di servizi multimediali di Azure: informazioni su come creare una trasformazione per descrivere le regole per l'elaborazione dei video in servizi multimediali di Azure.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 08/19/2019 ms. Author: inhenkel
 ---
+
 # <a name="transforms-and-jobs-in-media-services"></a>Trasformazioni e processi in servizi multimediali
 
 In questo argomento vengono fornite informazioni dettagliate sulle [trasformazioni](/rest/api/media/transforms) e sui [processi](/rest/api/media/jobs) e viene illustrata la relazione tra queste entità.

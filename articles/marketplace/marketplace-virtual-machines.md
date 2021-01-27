@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d9e26b6388223ae252a5e85e6e9fb9783a3b8429
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 9169d691b58ad4a59796123c64f856128a0f8c83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879327"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
 
@@ -30,10 +30,10 @@ Il processo di progettazione, compilazione e test delle offerte richiede tempo e
   - [Macchine virtuali di Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
 - Esempi
-  - [Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Linux](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell per macchine virtuali Linux](../virtual-machines/linux/powershell-samples.md)
-  - [Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Windows](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell per macchine virtuali Windows](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+  - [Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell per macchine virtuali Linux](https://github.com/Azure/azure-docs-powershell-samples/tree/master/virtual-machine)
+  - [Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Windows](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)
+  - [Azure PowerShell per macchine virtuali Windows](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick)
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
@@ -73,7 +73,7 @@ Le offerte della macchina virtuale richiedono almeno un piano. Un piano definisc
 Le macchine virtuali sono completamente abilitate per il commercio, usando modelli di licenza con pagamento in base al consumo o bring your own License (BYOL). Microsoft gestisce la transazione commerciale e addebita il costo al cliente per conto dell'utente. Si ottiene il vantaggio di usare la relazione di pagamento preferita tra il cliente e Microsoft, compresi eventuali contratti Enterprise. Per ulteriori informazioni, vedere la pagina relativa alle [funzionalità Transact del Marketplace commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
-> Il prepagamento di Azure (in precedenza denominato impegno monetario) associato a un Enterprise Agreement può essere usato per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza software.
+> Il prepagamento di Azure (in precedenza denominato impegno monetario) associato a un Contratto Enterprise può essere usato per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza software.
 
 ### <a name="licensing-options"></a>Opzioni di licenza
 

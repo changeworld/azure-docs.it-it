@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 2fd2efa9de3deff1fcf983ac0fa45e412357d312
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 512130928c8e18aad90bce351e3be85d6fbe03f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71057277"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878647"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Risolvere i problemi relativi a RDP
 
@@ -36,7 +36,7 @@ Questa sezione descrive i problemi seguenti, relativi alla creazione di una conn
 - [Risolvere un errore interno](Troubleshoot-rdp-internal-error.md)
 - [Risolvere i problemi dovuti all'interruzione frequente della connessione](troubleshoot-rdp-intermittent-connectivity.md)
 - [Risolvere un errore generale](troubleshoot-rdp-general-error.md)
-- [Risolvere gli errori di autenticazione](troubleshoot-authentication-error-rdp-vm.md)
+- [Risolvere gli errori di autenticazione](/troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm)
 - [Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento](event-id-troubleshoot-vm-rdp-connecton.md)
 - [Risolvere l'errore RDP nella macchina virtuale causato dall'IP statico](troubleshoot-rdp-static-ip.md)
 - [Risolvere l'errore RDP nella macchina virtuale causato dalla disabilitazione della scheda di interfaccia di rete](troubleshoot-rdp-nic-disabled.md)
@@ -46,4 +46,3 @@ Questa sezione descrive i problemi seguenti, relativi alla creazione di una conn
 - [Il firewall del sistema operativo guest blocca il traffico in ingresso](guest-os-firewall-blocking-inbound-traffic.md)
 - [Il firewall del sistema operativo guest non è configurato correttamente](guest-os-firewall-misconfigured.md) 
 - [Risolvere l'errore RDP provocato da netvsc.sys](troubleshoot-rdp-driver-netvsc.md)
-

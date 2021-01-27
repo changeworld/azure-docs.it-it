@@ -8,12 +8,12 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: a504969d23fce8000119aadf9e45d599da0894f0
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918180"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879276"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Come pianificare un'offerta di servizio gestito per Microsoft Commercial Marketplace
 
@@ -25,7 +25,7 @@ I servizi gestiti sono offerte di Azure Marketplace che consentono la gestione C
 
 Per pubblicare un servizio gestito, è necessario avere ottenuto una competenza Microsoft Gold o Silver nella piattaforma cloud. Questa competenza dimostra le proprie competenze ai clienti. Per altre informazioni, vedere [Microsoft Partner Network le competenze](https://partner.microsoft.com/membership/competencies).
 
-Le offerte devono soddisfare tutti i [criteri di certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies) applicabili da pubblicare in Azure Marketplace.
+Le offerte devono soddisfare tutti i [criteri di certificazione del Marketplace commerciale](/legal/marketplace/certification-policies) applicabili da pubblicare in Azure Marketplace.
 
 ## <a name="customer-leads"></a>Clienti potenziali
 

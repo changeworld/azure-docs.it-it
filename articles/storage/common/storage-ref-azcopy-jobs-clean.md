@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: f3e9d70ced0d2974a66717436c28c5b6914f6745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a2c717601747e15556608559450b35bb934410b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287144"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879106"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -26,11 +26,11 @@ azcopy jobs clean [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ```
   azcopy jobs clean --with-status=completed
@@ -50,6 +50,6 @@ azcopy jobs clean [flags]
 
 **--trusted-Microsoft-suffissi** stringa specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy jobs](storage-ref-azcopy-jobs.md)

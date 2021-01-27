@@ -1,28 +1,12 @@
 ---
-title: Eseguire lo streaming live con Servizi multimediali v3
-titleSuffix: Azure Media Services
-description: Informazioni su come eseguire lo streaming live con Servizi multimediali di Azure v3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 06/13/2019
-ms.author: inhenkel
-ms.openlocfilehash: b2e456474a9d052d9515c8169ce233e9577a5c53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89256566"
+title: flusso live con servizi multimediali V3: Descrizione di servizi multimediali di Azure: informazioni su come eseguire lo streaming live con servizi multimediali di Azure V3.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: esercitazione ms. Custom: "MVC, DevX-Track-CSharp" ms. Date: 06/13/2019 ms. Author: inhenkel
+
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali
+
+# <a name="tutorial-stream-live-with-media-services"></a>Esercitazione: flusso live con servizi multimediali
 
 > [!NOTE]
 > Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](/rest/api/media/liveevents), [Interfaccia della riga di comando](/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
@@ -34,7 +18,7 @@ L'esercitazione illustra come:
 > [!div class="checklist"]
 > * Scaricare l'app di esempio descritta nell'argomento.
 > * Esaminare il codice che esegue lo streaming live.
-> * Osservare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) all'indirizzo [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net).
+> * Guardare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) all'indirizzo [https://ampdemo.azureedge.net](https://ampdemo.azureedge.net) .
 > * Pulire le risorse.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -47,7 +31,7 @@ Per completare l'esercitazione sono necessari gli elementi seguenti:
 - [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).<br/>Assicurarsi di ricordare i valori usati per il nome del gruppo di risorse e il nome dell'account Servizi multimediali.
 - Seguire la procedura descritta in [Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure](./access-api-howto.md) e salvare le credenziali. Sarà necessario usarle per accedere all'API.
 - Una fotocamera o un dispositivo (ad esempio un portatile) usato per trasmettere un evento.
-- Un codificatore live locale in grado di convertire i segnali provenienti dalla fotocamera in flussi inviati al servizio di streaming live di Servizi multimediali. Vedere [Codificatori live locali consigliati](recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
+- Un codificatore Live locale che converte i segnali dalla fotocamera in flussi inviati al servizio di streaming live di servizi multimediali, vedere [codificatori Live locali consigliati](recommended-on-premises-live-encoders.md). Il flusso deve essere in formato **RTMP** oppure **Smooth Streaming**.
 
 > [!TIP]
 > Assicurarsi di leggere [Live streaming with Azure Media Services v3](live-streaming-overview.md) (Streaming live con Servizi multimediali di Azure v3) prima di procedere. 
@@ -91,7 +75,7 @@ Alcune caratteristiche che è possibile specificare durante la creazione dell'ev
 
 * Località di Servizi multimediali.
 * Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
-* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: indirizzo IPv4 con 4 numeri o intervallo di indirizzi CIDR.
+* Restrizioni IP per l'inserimento e l'anteprima. È possibile definire gli indirizzi IP autorizzati a inserire video in questo evento live. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').<br/>Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.<br/>Gli indirizzi IP devono essere in uno dei formati seguenti: Indirizzo IpV4 con quattro numeri o intervallo di indirizzi CIDR.
 * Quando si crea l'evento, è possibile impostarne l'avvio automatico. <br/>Quando l'avvio automatico è impostato su true, l'evento live verrà avviato dopo la creazione. Ciò significa che la fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
 * Per un URL di inserimento predittivo, impostare la modalità di "reindirizzamento a microsito". Per informazioni dettagliate, vedere [URL di inserimento di eventi live](live-events-outputs-concept.md#live-event-ingest-urls).
 
@@ -131,7 +115,7 @@ Gli output live iniziano al momento della creazione e terminano quando vengono e
 #### <a name="create-a-streaming-locator"></a>Creare un localizzatore di streaming
 
 > [!NOTE]
-> Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+> Quando viene creato l'account Servizi multimediali, all'account viene aggiunto un endpoint di streaming **predefinito** nello stato **Arrestato**. Per avviare lo streaming del contenuto e sfruttare i vantaggi della creazione [dinamica dei pacchetti](dynamic-packaging-overview.md) e della crittografia dinamica, l'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato in **esecuzione** .
 
 Quando l'asset output live è stato pubblicato usando un localizzatore di streaming, l'evento live (fino alla lunghezza dell'intervallo DVR) continuerà a essere visualizzabile fino alla scadenza o all'eliminazione del localizzatore di streaming, a seconda del valore raggiunto per primo.
 

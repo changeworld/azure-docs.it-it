@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6390aafca4937a480e4d92ff04003a294b9c0e20
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356175"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879157"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Per altre informazioni, vedere la sezione Esempi di questo articolo.
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
@@ -284,7 +284,7 @@ le stringhe **--include-after** includono solo i file modificati in o dopo la da
 
 **--include-pattern** String include solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando `;` .
 
-**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. AzCopy scaricherà le versioni specificate nella cartella di destinazione specificata. Per altre informazioni, vedere [scaricare le versioni precedenti di un BLOB](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
+**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. AzCopy scaricherà le versioni specificate nella cartella di destinazione specificata. Per altre informazioni, vedere [scaricare le versioni precedenti di un BLOB](./storage-use-azcopy-v10.md#transfer-data).
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita `INFO` ). 
 

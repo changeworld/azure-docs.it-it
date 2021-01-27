@@ -3,14 +3,14 @@ title: Gestire la struttura di backup con Centro backup
 description: Informazioni su come gestire l'ambiente Azure per assicurarsi che tutte le risorse siano conformi da una prospettiva di backup con il centro di backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 67b0591c7d7146d162687018854365d338105d76
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173795"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98893847"
 ---
-# <a name="govern-your-backup-estate-using-backup-center"></a>Gestire la struttura di backup con Centro backup
+# <a name="govern-your-backup-estate-using-backup-center-preview"></a>Governare il tuo patrimonio di backup usando il centro di backup (anteprima)
 
 Backup Center consente di gestire l'ambiente Azure per assicurarsi che tutte le risorse siano conformi dal punto di vista del backup. Di seguito sono riportate alcune delle funzionalità di governance di backup Center:
 
@@ -43,6 +43,11 @@ Facendo clic sulla voce di menu conformità backup è possibile visualizzare la 
 Selezionando la voce di menu origini dati da **proteggere** , è possibile visualizzare tutte le origini dati che non sono state configurate per il backup. È possibile filtrare l'elenco in base alla sottoscrizione DataSource, al gruppo di risorse, alla località, al tipo e ai tag. Una volta identificata un'origine dati di cui è necessario eseguire il backup, è possibile fare clic con il pulsante destro del mouse sull'elemento della griglia corrispondente e selezionare **backup** per configurare il backup per la risorsa.
 
 ![Menu origini dati da proteggere](./media/backup-center-govern-environment/protectable-datasources.png)
+
+> [!NOTE]
+> Se si seleziona **SQL nella macchina virtuale di Azure** come tipo di origine dati, la vista origine dati da **proteggere** Visualizza l'elenco di tutte le macchine virtuali della raccolta che non dispongono di alcun database SQL configurato per il backup.
+> Se si seleziona **archiviazione di Azure (file di Azure)** come tipo di origine dati, la vista origine dati da **proteggere** Visualizza l'elenco di tutti gli account di archiviazione (che supportano le condivisioni file) che non dispongono di alcuna condivisione file configurata per il backup.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

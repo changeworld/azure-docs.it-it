@@ -4,11 +4,11 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f14982dc3f130376b5de6bcdc28874f3410403aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: adf50bc66d5fbebcb53e57b1c8e23f98ebb75d17
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67179919"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900990"
 ---
-Questo argomento usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](../articles/azure-functions/functions-create-first-azure-function.md). Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.
+Questo argomento usa per iniziare le risorse create in [Creare la prima funzione nel portale di Azure](../articles/azure-functions/functions-get-started.md). Se queste procedure non sono state ancora completate, completarle ora per creare l'app per le funzioni.

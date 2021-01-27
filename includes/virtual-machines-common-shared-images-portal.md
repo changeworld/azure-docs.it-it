@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 1af80f208c72af9434d596f2c1219c08c0e3f719
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015996"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878825"
 ---
 ## <a name="create-an-image-gallery"></a>Creare un raccolta di immagini
 
@@ -35,7 +35,7 @@ L'esempio seguente crea una raccolta denominata *myGallery* nel gruppo di risors
 
 ## <a name="create-an-image-definition"></a>Creare una definizione dell'immagine 
 
-Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](../articles/virtual-machines/windows/shared-image-galleries.md#image-definitions).
+Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usate per gestire le informazioni sulle versioni di immagini create al loro interno. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](../articles/virtual-machines/shared-image-galleries.md#image-definitions).
 
 Creare la definizione dell'immagine della raccolta all'interno della raccolta. In questo esempio l'immagine della raccolta è denominata *myImageDefinition*.
 
@@ -44,7 +44,7 @@ Creare la definizione dell'immagine della raccolta all'interno della raccolta. I
 1. Per **nome definizione immagine** digitare *myImageDefinition*.
 1. Per **sistema operativo**, selezionare l'opzione corretta in base alla VM di origine.  
 1. Per la **generazione di macchine virtuali**, selezionare l'opzione in base alla VM di origine. Nella maggior parte dei casi, si tratta di *generazione 1*. Per altre informazioni, vedere [supporto per le macchine virtuali di seconda generazione](../articles/virtual-machines/generation-2.md).
-1. Per **lo stato del sistema operativo**, selezionare l'opzione in base alla VM di origine. Per ulteriori informazioni, vedere [generalizzato e specializzato](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
+1. Per **lo stato del sistema operativo**, selezionare l'opzione in base alla VM di origine. Per ulteriori informazioni, vedere [generalizzato e specializzato](../articles/virtual-machines/shared-image-galleries.md#generalized-and-specialized-images).
 1. Per **Publisher digitare Server** di *pubblicazione*. 
 1. Per l' **offerta**, digitare " *offerta*".
 1. Per **SKU**, digitare *mySKU*.

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: e364578cdec8696688cf19e14fd0529f1ca3fbb3
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 223fdc215bc391bea5cad5d4cb9999b9d14ba570
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842618"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878783"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Importazione e creazione di immagini Linux in Azure
 
@@ -29,7 +29,7 @@ Azure consente di inserire un disco rigido virtuale nella piattaforma per usarlo
 
 I dischi gestiti di Azure sono singoli dischi rigidi virtuali. È possibile creare un disco gestito da un disco rigido virtuale esistente oppure crearne uno vuoto da zero. È possibile creare VM da dischi gestiti collegando il disco alla VM, ma è possibile usare un disco rigido virtuale solo con una singola VM. Non è possibile modificare le proprietà del sistema operativo. Azure proverà semplicemente ad attivare la VM e a iniziare a usare il disco. 
 
-Le immagini di Azure possono essere costituite da più dischi del sistema operativo e dischi dati. Quando si usa un'immagine gestita per creare una macchina virtuale, la piattaforma ne crea una copia e la usa per creare la VM, quindi è possibile riutilizzare la stessa immagine gestita per più VM. Azure include anche funzionalità di gestione avanzate per le immagini, ad esempio la replica globale e il controllo delle versioni tramite [Raccolta immagini condivise](shared-image-galleries.md). 
+Le immagini di Azure possono essere costituite da più dischi del sistema operativo e dischi dati. Quando si usa un'immagine gestita per creare una macchina virtuale, la piattaforma ne crea una copia e la usa per creare la VM, quindi è possibile riutilizzare la stessa immagine gestita per più VM. Azure include anche funzionalità di gestione avanzate per le immagini, ad esempio la replica globale e il controllo delle versioni tramite [Raccolta immagini condivise](../shared-image-galleries.md). 
 
 
 
@@ -65,7 +65,7 @@ Gli agenti di provisioning non sono necessari per queste immagini, ma si può sc
 Quando si importa l'immagine Linux sono disponibili due opzioni:
 
 - Immagini gestite per la semplice creazione di in un ambiente di sviluppo e test.
-- [Raccolta immagini condivise](shared-image-galleries.md) per la creazione e la condivisione di immagini su larga scala.
+- [Raccolta immagini condivise](../shared-image-galleries.md) per la creazione e la condivisione di immagini su larga scala.
 
 
 ### <a name="managed-images"></a>Immagini gestite
@@ -76,7 +76,7 @@ Le immagini gestite possono essere usate per ambienti di sviluppo e test, in cui
 
 ### <a name="azure-shared-image-gallery-sig"></a>Raccolta immagini condivise di Azure
 
-Le [raccolte immagini condivise](shared-image-galleries.md) sono consigliate per la creazione, la gestione e la condivisione di immagini su larga scala. Consentono di creare una struttura e un'organizzazione intorno alle immagini.  
+Le [raccolte immagini condivise](../shared-image-galleries.md) sono consigliate per la creazione, la gestione e la condivisione di immagini su larga scala. Consentono di creare una struttura e un'organizzazione intorno alle immagini.  
 
 - Supporto sia di immagini generalizzate che specializzate.
 - Supporto di immagini delle generazioni 1 e 2.

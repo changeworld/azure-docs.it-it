@@ -11,23 +11,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/17/2020
 ms.author: axelg
-ms.openlocfilehash: 247324c30bbe0edaef78c0b0d5e6a6d593e8cac9
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b462d8e75fc291ac599ac99dbe4fb3a74fde2b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586398"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878698"
 ---
 # <a name="troubleshoot-the-azure-linux-agent"></a>Risolvere i problemi dell'agente Linux di Azure
 
-L' [agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) consente a una macchina virtuale (VM) di comunicare con il controller di infrastruttura (il server fisico sottostante in cui è ospitata la VM) nell'indirizzo IP 168.63.129.16.
+L' [agente Linux di Azure](../extensions/agent-linux.md) consente a una macchina virtuale (VM) di comunicare con il controller di infrastruttura (il server fisico sottostante in cui è ospitata la VM) nell'indirizzo IP 168.63.129.16.
 
 >[!NOTE]
 >Questo indirizzo IP è un indirizzo IP pubblico virtuale che facilita la comunicazione e non deve essere bloccato. Per ulteriori informazioni, vedere [che cos'è l'indirizzo IP 168.63.129.16?](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Verificare lo stato e la versione dell'agente per assicurarsi che sia ancora supportata. Vedere [supporto della versione minima per gli agenti di macchina virtuale in Azure](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/support-extensions-agent-version) per verificare il supporto della versione o vedere [domande frequenti su WALinuxAgent](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) per informazioni su come individuare lo stato e la versione.
+Verificare lo stato e la versione dell'agente per assicurarsi che sia ancora supportata. Vedere [supporto della versione minima per gli agenti di macchina virtuale in Azure](/troubleshoot/azure/virtual-machines/support-extensions-agent-version) per verificare il supporto della versione o vedere [domande frequenti su WALinuxAgent](https://github.com/Azure/WALinuxAgent/wiki/FAQ#what-does-goal-state-agent-mean-in-waagent---version-output) per informazioni su come individuare lo stato e la versione.
 
 ## <a name="troubleshoot-a-not-ready-status"></a>Risolvere i problemi relativi a uno stato non pronto
 
@@ -64,7 +64,7 @@ Verificare lo stato e la versione dell'agente per assicurarsi che sia ancora sup
    AutoUpdate.Enabled=y
    ```
 
-   Per altre informazioni su come aggiornare l'agente Linux di Azure, vedere [come aggiornare l'agente Linux di Azure in una macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent).
+   Per altre informazioni su come aggiornare l'agente Linux di Azure, vedere [come aggiornare l'agente Linux di Azure in una macchina virtuale](../extensions/update-linux-agent.md).
 
 1. Assicurarsi che la macchina virtuale sia in grado di connettersi al controller di infrastruttura. Usare uno strumento come curl per verificare se la macchina virtuale è in grado di connettersi a 168.63.129.16 sulle porte 80, 443 e 32526. Se la macchina virtuale non si connette come previsto, controllare se la comunicazione in uscita sulle porte 80, 443 e 32526 è aperta nel firewall locale della macchina virtuale. Se l'indirizzo IP è bloccato, l'agente VM potrebbe visualizzare un comportamento imprevisto.
 

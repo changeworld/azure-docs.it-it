@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: e188c74c6eba5e4182f7b72277db8dd8e08db8d4
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 714b7bccea9b1e0c18ad78a4d98ed3526a279f5f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913933"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879259"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Come pianificare un'offerta SaaS per il Marketplace commerciale
 
@@ -250,7 +250,7 @@ Nell'esempio seguente viene illustrata una suddivisione di esempio di costi e pa
 | Microsoft paga l'80% del costo della licenza<br>`*` Per le app SaaS qualificate, Microsoft paga il 90% del costo della licenza| $ 80,00 al mese<br>``*`` $ 90,00 al mese |
 |||
 
-**`*` Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa ridotta del servizio Marketplace. Una volta raggiunta l'idoneità, la tariffa di servizio ridotta viene assegnata a tutte le transazioni effettive il primo giorno del mese successivo e continuerà a essere applicata fino a quando lo stato di incentivate di co-selling IP di Azure non viene perso. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). La tariffa ridotta per il servizio Marketplace si applica anche alle macchine virtuali incentivate di Azure con co-selling IP di Azure, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
+**`*` Tariffa ridotta del servizio Marketplace** : per alcune offerte SaaS pubblicate sul Marketplace commerciale, Microsoft ridurrà la tariffa del servizio Marketplace dal 20% (come descritto nel contratto Microsoft Publisher) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta almeno cinque (5) giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa ridotta del servizio Marketplace. Una volta raggiunta l'idoneità, la tariffa di servizio ridotta viene assegnata a tutte le transazioni effettive il primo giorno del mese successivo e continuerà a essere applicata fino a quando lo stato di incentivate di co-selling IP di Azure non viene perso. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). La tariffa ridotta per il servizio Marketplace si applica anche alle macchine virtuali incentivate di Azure con co-selling IP di Azure, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
 
 ## <a name="additional-sales-opportunities"></a>Opportunità di vendita aggiuntive
 
@@ -258,7 +258,7 @@ Nell'esempio seguente viene illustrata una suddivisione di esempio di costi e pa
 
 - **Rivendere tramite CSP**: usare questa opzione per consentire ai partner di Microsoft Cloud Solution Provider (CSP) di rivendere la soluzione come parte di un'offerta in bundle. Per ulteriori informazioni su questo programma, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md).
 
-- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate sull'idoneità di co-selling, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md).
+- **Co-selling con Microsoft**: questa opzione consente ai team di vendita Microsoft di prendere in considerazione la soluzione di co-selling IP idonea per valutare le esigenze dei clienti. Per informazioni dettagliate sull'idoneità di co-selling, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Per informazioni dettagliate su come preparare l'offerta per la valutazione, vedere [opzione di co-selling nel centro per i partner](commercial-marketplace-co-sell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

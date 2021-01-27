@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: 6075027124352746a3adbb8f6937d3787eb22b9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: a1726b29c153bf680d29fe821ac34aa958064335
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602592"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879242"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Supporto per il programma Commercial Marketplace nel centro per i partner
 
 Microsoft fornisce il supporto per un'ampia gamma di prodotti e servizi. Trovare il team di supporto giusto è importante per garantire una risposta appropriata e tempestiva. Considerare gli scenari seguenti, che possono essere utili per indirizzare la propria richiesta al team appropriato:
 
 - Se si è un editore e si ha una domanda da parte di un cliente, chiedere al cliente di richiedere supporto tramite i collegamenti di supporto nella [portale di Azure](https://portal.azure.com/).
-- Se si è un editore e si è rilevato un problema di sicurezza con un'applicazione in esecuzione in Azure, vedere [come registrare un ticket di supporto per gli eventi di sicurezza](/azure/security/fundamentals/event-support-ticket). Gli editori sono tenuti a segnalare tempestivamente a Microsoft qualsiasi evento sospetto di violazione della sicurezza, inclusi incidenti di sicurezza e vulnerabilità relativamente al software Azure Marketplace e alle offerte di servizi.
+- Se si è un editore e si è rilevato un problema di sicurezza con un'applicazione in esecuzione in Azure, vedere [come registrare un ticket di supporto per gli eventi di sicurezza](../security/fundamentals/event-support-ticket.md). Gli editori sono tenuti a segnalare tempestivamente a Microsoft qualsiasi evento sospetto di violazione della sicurezza, inclusi incidenti di sicurezza e vulnerabilità relativamente al software Azure Marketplace e alle offerte di servizi.
 - Se si è un editore e si ha una domanda relativa all'app o al servizio, esaminare le opzioni di supporto seguenti.
 
 ## <a name="get-help-or-open-a-support-ticket"></a>Ottenere assistenza o aprire un ticket di supporto
