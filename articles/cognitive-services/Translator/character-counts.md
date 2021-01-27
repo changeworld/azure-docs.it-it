@@ -3,19 +3,19 @@ title: Conteggi caratteri-Translator
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra in che modo il traduttore di servizi cognitivi di Azure conta i caratteri per poter comprendere come inserisce il contenuto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.author: swmachan
-ms.openlocfilehash: 7fad90cf47591b5ffab4232c2be3180138738f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: lajanuar
+ms.openlocfilehash: 6e81736e3151c9e97a8926b1f67c0a7a0d4c2f3d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83992832"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895884"
 ---
 # <a name="how-the-translator-counts-characters"></a>Conteggio dei caratteri del traduttore
 

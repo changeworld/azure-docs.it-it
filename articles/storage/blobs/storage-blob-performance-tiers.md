@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 404999cfac5037702eb61fdf74b2c5245ce9eb30
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: cf0b5d29e0dc375a07fe024ef0763c8200275055
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95526120"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880709"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>Livelli di prestazioni per l'archiviazione BLOB in blocchi
 
@@ -65,7 +65,7 @@ Prestazioni standard supporta diversi [livelli di accesso](storage-blob-storage-
 
 Non è possibile convertire un account di archiviazione prestazioni standard esistente in un account di archiviazione BLOB in blocchi con prestazioni Premium. Per eseguire la migrazione a un account di archiviazione con prestazioni Premium, è necessario creare un account BlockBlobStorage ed eseguire la migrazione dei dati al nuovo account. Per altre informazioni, vedere [creare un account BlockBlobStorage](storage-blob-create-account-block-blob.md).
 
-Per copiare i BLOB tra gli account di archiviazione, è possibile usare la versione più recente dello strumento da riga di comando [AzCopy](../common/storage-use-azcopy-blobs.md) . Per lo spostamento e la trasformazione dei dati sono inoltre disponibili altri strumenti, ad esempio Azure Data Factory.
+Per copiare i BLOB tra gli account di archiviazione, è possibile usare la versione più recente dello strumento da riga di comando [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data) . Per lo spostamento e la trasformazione dei dati sono inoltre disponibili altri strumenti, ad esempio Azure Data Factory.
 
 ## <a name="blob-lifecycle-management"></a>Gestione del ciclo di vita di Archiviazione BLOB
 

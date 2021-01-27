@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 70d9a8069979a299ad3031de37c525438ab0159d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2593c656e17310c5afb4a897b94cc8c12a618f0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394602"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879495"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Scaricare gli script di configurazione del dispositivo VPN per le connessioni VPN S2S
 
@@ -34,7 +34,7 @@ Una connessione VPN locale è costituita da un gateway VPN di Azure, un disposit
 3. Creare e configurare una connessione VPN di Azure tra il gateway VPN di Azure e il gateway di rete locale
 4. Configurare il dispositivo VPN locale rappresentato dal gateway di rete locale per stabilire il tunnel VPN S2S effettivo con il gateway VPN di Azure
 
-È possibile completare i passaggi da 1 a 3 usando il [portale](vpn-gateway-howto-site-to-site-resource-manager-portal.md) di Azure, [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) o l'[interfaccia della riga di comando](vpn-gateway-howto-site-to-site-resource-manager-cli.md). L'ultimo passaggio prevede la configurazione dei dispositivi VPN locali esterni ad Azure. Questa funzionalità consente di scaricare uno script di configurazione per il dispositivo VPN con i valori corrispondenti dei prefissi degli indirizzi del gateway VPN di Azure, della rete virtuale e della rete locale, oltre che con le proprietà di connessione VPN e altri valori già inseriti. È possibile usare lo script come punto di partenza o applicarlo direttamente ai dispositivi VPN locali tramite la console di configurazione.
+È possibile completare i passaggi da 1 a 3 usando il [portale](./tutorial-site-to-site-portal.md) di Azure, [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md) o l'[interfaccia della riga di comando](vpn-gateway-howto-site-to-site-resource-manager-cli.md). L'ultimo passaggio prevede la configurazione dei dispositivi VPN locali esterni ad Azure. Questa funzionalità consente di scaricare uno script di configurazione per il dispositivo VPN con i valori corrispondenti dei prefissi degli indirizzi del gateway VPN di Azure, della rete virtuale e della rete locale, oltre che con le proprietà di connessione VPN e altri valori già inseriti. È possibile usare lo script come punto di partenza o applicarlo direttamente ai dispositivi VPN locali tramite la console di configurazione.
 
 > [!IMPORTANT]
 > * La sintassi dello script di configurazione varia in base al dispositivo VPN e dipende ampiamente dai modelli e dalle versioni del firmware. Prestare particolare attenzione alle informazioni sul modello e la versione del dispositivo rispetto ai modelli disponibili.
@@ -49,7 +49,7 @@ Una connessione VPN locale è costituita da un gateway VPN di Azure, un disposit
 
 Creare un gateway VPN di Azure, un gateway di rete locale e una risorsa di connessione per connetterli fra loro. Per la procedura dettagliata, vedere:
 
-* [Creare una connessione da sito a sito nel portale di Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Creare una connessione da sito a sito nel portale di Azure](./tutorial-site-to-site-portal.md)
 
 Dopo aver creato la risorsa di connessione, seguire le istruzioni riportate di seguito per scaricare gli script di configurazione del dispositivo VPN:
 
@@ -99,4 +99,4 @@ Dopo aver scaricato e convalidato lo script di configurazione, occorre applicarl
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Continuare a configurare la [connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Continuare a configurare la [connessione da sito a sito](./tutorial-site-to-site-portal.md).

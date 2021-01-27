@@ -7,18 +7,18 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: bb4987550e4962ba044e0a6aafbfd00145319e94
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: bc369b072f90e675cf882d52b2edae30530f1c18
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804953"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895969"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
 
 ## <a name="overview"></a>Panoramica
-Una volta configurata l'esportazione dei dati per l'area di lavoro Log Analytics, tutti i nuovi dati inviati alle tabelle selezionate nell'area di lavoro vengono automaticamente esportati nell'account di archiviazione o nell'hub eventi in tempo quasi reale.
+Una volta configurata l'esportazione dei dati per l'area di lavoro Log Analytics, tutti i nuovi dati inviati alle tabelle selezionate nell'area di lavoro vengono automaticamente esportati nell'account di archiviazione in BLOB di Accodamento orario o nell'hub eventi in tempo quasi reale.
 
 ![Panoramica sull'esportazione dei dati](media/logs-data-export/data-export-overview.png)
 
@@ -67,7 +67,7 @@ Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esport
 ## <a name="export-destinations"></a>Esporta destinazioni
 
 ### <a name="storage-account"></a>Account di archiviazione
-I dati vengono inviati agli account di archiviazione in tempo quasi reale mentre raggiunge monitoraggio di Azure. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent*.
+I dati vengono inviati agli account di archiviazione mentre raggiungono il monitoraggio di Azure e archiviati nei BLOB di Accodamento orario. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent*.
 
 Il percorso del BLOB dell'account di archiviazione è *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Poiché i BLOB di Accodamento sono limitati a 50.000 scritture nell'archivio, il numero di BLOB esportati può estendersi se il numero di Append è elevato. Il modello di denominazione per i BLOB in tal caso verrebbe PT1H_ #. JSON, dove # è il numero di BLOB incrementali.
 

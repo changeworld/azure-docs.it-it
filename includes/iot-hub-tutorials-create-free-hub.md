@@ -8,41 +8,64 @@ ms.topic: include
 ms.date: 04/19/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 367a0b1d17f8d5ebe4f46835ace963b00e75354e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 4e2abda6e0e3ef3d638952c05c31a50d91d24e88
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68229254"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98901005"
 ---
 Per creare un hub IoT usando il portale di Azure:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Selezionare **Crea una risorsa** > **Internet delle cose** > **Hub IoT**.
+1. Dalla Home page di Azure selezionare **Crea una risorsa** e quindi immettere *Hub* tutto in **Cerca nel Marketplace**.
 
-    ![Selezionare l'installazione dell'hub IoT](media/iot-hub-tutorials-create-free-hub/selectiothub.png)
+1. Nei risultati della ricerca selezionare **Hub IoT** e quindi fare clic su **Crea**.
 
-1. Per creare l'hub IoT di livello gratuito, usare i valori nella tabella seguente:
+1. Nella scheda **Informazioni di base** completare i campi come indicato di seguito:
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Subscription | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
-    | Resource group | Creare un nuovo gruppo di risorse Questa esercitazione usa il nome **tutorials-iot-hub-rg**. |
-    | Region | Questa esercitazione usa **Stati Uniti occidentali**. È possibile scegliere l'area più vicina. |
-    | Nome | Nello screenshot seguente viene usato il nome **tutorials-iot-hub**. È necessario scegliere un nome univoco quando si crea l'hub. |
+   - **Sottoscrizione** Selezionare la sottoscrizione da usare per l'hub.
 
-    ![Impostazioni dell'hub 1](media/iot-hub-tutorials-create-free-hub/hubdefinition-1.png)
+   - **Gruppo di risorse**: selezionare un gruppo di risorse o crearne uno nuovo. Per crearne uno nuovo, fare clic su **Crea nuovo** e specificare il nome da usare. Per usare un gruppo di risorse esistente, selezionarlo. Per altre informazioni, vedere l'articolo su come [gestire gruppi di risorse di Azure Resource Manager](../articles/azure-resource-manager/management/manage-resource-groups-portal.md). Questa esercitazione usa il nome **tutorials-iot-hub-rg**.
 
-    | Impostazione | valore |
-    | ------- | ----- |
-    | Piano tariffario e livello di scalabilità | F1 Gratuito. È consentito un solo hub di livello gratuito in una sottoscrizione. |
-    | Unità di hub IoT | 1 |
+   - **Area**: selezionare l'area in cui si vuole collocare l'hub. Selezionare la località più vicina. Alcune funzionalità, ad esempio i [flussi dei dispositivi dell'hub IoT](../articles/iot-hub/iot-hub-device-streams-overview.md), sono disponibili solo in aree specifiche. Per queste funzionalità limitate, è necessario selezionare una delle aree supportate. Questa esercitazione usa l'area **Stati Uniti occidentali** .
 
-    ![Impostazioni dell'hub 2](media/iot-hub-tutorials-create-free-hub/hubdefinition-2.png)
+   - **Nome hub IoT**: immettere un nome per l'hub. Il nome deve essere univoco a livello globale. Questa esercitazione usa le **esercitazioni-l'hub**. È necessario scegliere un nome univoco quando si crea l'hub.
 
-1. Fare clic su **Crea**. La creazione dell'hub può richiedere vari minuti.
+   [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-    ![Impostazioni dell'hub 3](media/iot-hub-tutorials-create-free-hub/hubdefinition-3.png)
+   ![Creare un hub nel portale di Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-basics.png)
+
+1. Selezionare **Avanti: Rete** per continuare a creare l'hub.
+
+   Scegliere gli endpoint che possono connettersi all'hub IoT. È possibile selezionare l'impostazione predefinita **Endpoint pubblico (tutte le reti)** oppure scegliere **Endpoint pubblico (intervalli IP selezionati)** o **Endpoint privato**. Accettare l'impostazione predefinita per questa esercitazione.
+
+   ![Scegliere gli endpoint che possono connettersi](media/iot-hub-tutorials-create-free-hub/hub-definition-networking.png)
+
+1. Selezionare **Avanti: Gestione** per continuare a creare l'hub.
+
+    ![Configurare le dimensioni e la scalabilità per un nuovo hub con il portale di Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-management.png)
+
+    In questa schermata è possibile accettare le impostazioni predefinite. Se si preferisce, è possibile modificare uno dei campi seguenti:
+
+    - **Piano tariffario e livello di scalabilità**: il piano e il livello selezionati. Scegliere il livello gratuito. Il livello gratuito è utilizzabile a scopo di test e valutazione. Consente la connessione di 500 dispositivi all'hub e un massimo di 8.000 messaggi al giorno. Per ogni sottoscrizione di Azure è possibile creare un solo hub IoT nel livello gratuito.
+
+    - **Unità di hub IoT**: Il numero di messaggi consentiti per unità al giorno dipende dal piano tariffario dell'hub. Se ad esempio si vuole che l'hub supporti 700.000 messaggi in ingresso, selezionare due unità del piano S1.
+    Per ogni sottoscrizione di Azure è possibile creare un solo hub IoT nel livello gratuito. Per informazioni dettagliate sulle altre opzioni relative al livello, vedere [Scegliere il livello più adatto di hub IoT](../articles/iot-hub/iot-hub-scaling.md).
+
+    - **Defender per IoT**: attivare questa opzione per aggiungere un livello aggiuntivo di protezione dalle minacce a IoT e ai dispositivi. Questa opzione non è disponibile per gli hub del livello gratuito. Per altre informazioni su questa funzionalità, vedere [Centro sicurezza di Azure per IoT](/azure/asc-for-iot/).
+
+    - **Impostazioni avanzate** > **Partizioni da dispositivo a cloud**: questa proprietà associa i messaggi da dispositivo a cloud al numero di lettori simultanei di tali messaggi. La maggior parte degli hub richiede solo quattro partizioni. Un hub di livello gratuito è limitato a due partizioni.
+
+1.  Selezionare **Avanti: Tag** per passare alla schermata successiva.
+
+    I tag sono coppie nome/valore. È possibile assegnare lo stesso tag a più risorse e gruppi di risorse per classificare le risorse e consolidare la fatturazione. Per altre informazioni, vedere [Usare tag per organizzare le risorse di Azure](../articles/azure-resource-manager/management/tag-resources.md).
+
+    ![Assegnare tag per l'hub con il portale di Azure](media/iot-hub-tutorials-create-free-hub/hub-definition-tags.png)
+
+1.  Selezionare **Avanti: Rivedi e crea** per rivedere le scelte effettuate. Viene visualizzata una schermata simile a questa, ma con i valori selezionati durante la creazione dell'hub.
+
+    ![Rivedere le informazioni per la creazione del nuovo hub](media/iot-hub-tutorials-create-free-hub/hub-definition-create.png)
 
 1. Prendere nota del nome dell'hub IoT scelto. Questo valore verrà usato più avanti nell'esercitazione.

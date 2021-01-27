@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Distribuire Azure Spring Cloud in una rete virtuale'
+title: Distribuire il cloud Spring di Azure in una rete virtuale
 description: Distribuire Azure Spring Cloud in una rete virtuale (VNet injection).
 author: MikeDodaro
 ms.author: brendm
@@ -7,14 +7,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9d72d60bd3a1ef23b8122b2bc5ba4f0c5c701254
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
-ms.translationtype: HT
+ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587724"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880601"
 ---
-# <a name="tutorial-deploy-azure-spring-cloud-in-a-virtual-network"></a>Esercitazione: Distribuire Azure Spring Cloud in una rete virtuale
+# <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Distribuire il cloud Spring di Azure in una rete virtuale
 
 **Questo articolo si applica a:** ✔️ Java ✔️ C#
 
@@ -25,6 +25,9 @@ La distribuzione rende possibili gli scenari seguenti:
 * Isolamento delle app di Azure Spring Cloud e del runtime del servizio da Internet nella rete aziendale.
 * Interazione di Azure Spring Cloud con i sistemi nei data center locali o con i servizi di Azure in altre reti virtuali.
 * Possibilità per i clienti di controllare le comunicazioni di rete in ingresso e in uscita per Azure Spring Cloud.
+
+> [!Note]
+> È possibile selezionare la rete virtuale di Azure solo quando si crea una nuova istanza del servizio cloud di Azure Spring. Non è possibile modificare l'uso di un'altra rete virtuale dopo la creazione di Azure Spring cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -59,7 +62,7 @@ Se è già disponibile una rete virtuale in cui ospitare un'istanza di Azure Spr
 
 1. Nella finestra di dialogo **Crea rete virtuale** immettere o selezionare le informazioni seguenti:
 
-    |Impostazione          |valore                                             |
+    |Impostazione          |Valore                                             |
     |-----------------|--------------------------------------------------|
     |Subscription     |Selezionare la propria sottoscrizione.                         |
     |Resource group   |Selezionare il gruppo di risorse o crearne uno nuovo.  |
@@ -77,6 +80,7 @@ Se è già disponibile una rete virtuale in cui ospitare un'istanza di Azure Spr
 1. Selezionare **Rivedi e crea**. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 ## <a name="grant-service-permission-to-the-virtual-network"></a>Concedere al servizio l'autorizzazione per la rete virtuale
+Azure Spring cloud richiede l'autorizzazione **owner** per la rete virtuale, in modo da concedere un'entità servizio dedicata e dinamica nella rete virtuale per un'ulteriore distribuzione e manutenzione.
 
 Selezionare la rete virtuale **azure-spring-cloud-vnet** creata in precedenza.
 
@@ -160,9 +164,9 @@ Queste risorse di rete sono connesse alla rete virtuale creata in precedenza.
    > [!Important]
    > I gruppi di risorse sono completamente gestiti dal servizio Azure Spring Cloud. *Non* eliminare o modificare manualmente le risorse al loro interno.
 
-## <a name="limitations"></a>Limitazioni
+## <a name="using-smaller-subnet-ranges"></a>Utilizzo di intervalli di subnet inferiori
 
-Un piccolo intervallo di subnet salva gli indirizzi IP, ma comporta limitazioni per il numero massimo di istanze di app che l'istanza di Azure Spring Cloud può contenere.
+Questa tabella mostra il numero massimo di istanze dell'app che Azure Spring cloud supporta l'uso di intervalli di subnet inferiori.
 
 | CIDR delle subnet di app | Indirizzi IP totali | Indirizzi IP disponibili | Numero massimo di istanze di app                                        |
 | --------------- | --------- | ------------- | ------------------------------------------------------------ |

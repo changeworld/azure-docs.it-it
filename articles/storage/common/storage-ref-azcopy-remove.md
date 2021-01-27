@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28a20a6afc78939491e56f46a32782b4c0844cc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078221"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879004"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -28,11 +28,11 @@ azcopy remove [resourceURL] [flags]
 ## <a name="related-conceptual-articles"></a>Articoli concettuali correlati
 
 - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-- [Trasferire i dati con AzCopy e l'archiviazione BLOB](storage-use-azcopy-blobs.md)
+- [Trasferire i dati con AzCopy e l'archiviazione BLOB](./storage-use-azcopy-v10.md#transfer-data)
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Rimuovere un singolo BLOB usando un token SAS:
 
@@ -99,7 +99,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
 
-**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: * `.jpg` ;* `.pdf` ;`exactName`
+**--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: *`.jpg` ;* `.pdf` ;`exactName`
 
 **--List-of-files** String definisce il percorso di un file che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi non devono essere codificati in URL. 
 
@@ -117,6 +117,6 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |--output-tipo stringa|Formato dell'output del comando. Le scelte includono: text, JSON. Il valore predefinito è "Text".|
 |--trusted-Microsoft-suffissi stringa   |Specifica i suffissi di dominio aggiuntivi in cui è possibile inviare i token di accesso Azure Active Directory.  Il valore predefinito è'*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net ". Tutti gli elencati qui vengono aggiunti al valore predefinito. Per la sicurezza, è consigliabile inserire qui solo Microsoft Azure domini. Separare più voci con un punto e virgola.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [azcopy](storage-ref-azcopy.md)

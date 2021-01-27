@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 67c20823d1f80360b2ab23dc3f208673d36a7374
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742217"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896478"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Problemi di distribuzione per servizi cloud di Azure (versione classica): domande frequenti
 
@@ -52,7 +52,7 @@ La distribuzione di un servizio cloud potrebbe non riuscire se le risorse che de
 
 È anche possibile tenere traccia dell'utilizzo e della quota correnti per la sottoscrizione nel portale: portale di Azure => subscriptions => \<appropriate subscription>   => "Usage + quota".
 
-Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [API di utilizzo delle risorse di Azure (anteprima)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Le informazioni relative all'utilizzo e al consumo di risorse possono anche essere recuperate tramite le API di fatturazione di Azure. Vedere [Panoramica dell'API utilizzo di Azure](../cost-management-billing/manage/consumption-api-overview.md).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Come è possibile modificare le dimensioni di una VM di un servizio cloud distribuito senza eseguire di nuovo la distribuzione?
 Non è possibile modificare le dimensioni di una VM di un servizio cloud distribuito senza eseguire di nuovo la distribuzione. Le dimensioni della VM sono integrate nel file CSDEF, che può essere aggiornato solo eseguendo di nuovo la distribuzione.

@@ -3,19 +3,19 @@ title: Translator BreakSentence (metodo)
 titleSuffix: Azure Cognitive Services
 description: Il metodo Translator BreakSentence identifica il posizionamento dei limiti di frase in una porzione di testo.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: 2da614fe829d0aa82bfa57337baf44491993c68f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369478"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895544"
 ---
 # <a name="translator-30-breaksentence"></a>Translator 3,0: BreakSentence
 
@@ -48,7 +48,7 @@ Le intestazioni della richiesta includono:
 | Content-Length    | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta.  | 
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.  | 
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con una proprietà stringa denominata `Text`. I delimitatori di frase vengono calcolati per il valore della proprietà `Text`. Di seguito è riportato un esempio di corpo della richiesta con una porzione di testo:
 
@@ -143,7 +143,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](./v3-0-reference.md#errors). 
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 L'esempio seguente mostra come ottenere i delimitatori di frase per una singola frase. La lingua della frase viene rilevata automaticamente dal servizio.
 

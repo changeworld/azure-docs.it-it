@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: 31e9ff3fd07a7d305c88d28629f3252db5d857c8
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
-ms.translationtype: HT
+ms.openlocfilehash: 2653161b5828d89858234a9ca98fe432e0eacb5c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695447"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879361"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Esercitazione: Prevedere la domanda con Machine Learning automatizzato
 
@@ -240,7 +240,7 @@ In questa esercitazione è stato usato il servizio Machine Learning automatizzat
 Per la procedura di creazione di uno schema supportato da Power BI che facilita l'utilizzo del servizio Web appena distribuito, vedere questo articolo:
 
 > [!div class="nextstepaction"]
-> [Utilizzare un servizio Web](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context)
+> [Utilizzare un servizio Web](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context)
 
 + [Funzionalità automatizzate di Machine Learning](concept-automated-ml.md).
 + Per altre informazioni sulle metriche e sui grafici di classificazione, vedere l'articolo [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).

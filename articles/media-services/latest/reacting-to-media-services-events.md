@@ -1,5 +1,5 @@
 ---
-title: Reazione a eventi di Servizi multimediali di Azure | Microsoft Docs
+title: Reazione a eventi di servizi multimediali di Azure
 description: Questo articolo descrive come usare griglia di eventi di Azure per sottoscrivere gli eventi di servizi multimediali.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4ef6a920e9334c6e98b18d1db1abf39136c6f4e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d4479914ffee6cf667a5f6db2fd665baf2b857c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289155"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895646"
 ---
 # <a name="handling-event-grid-events"></a>Gestione degli eventi di Griglia di eventi
 

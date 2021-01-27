@@ -3,19 +3,19 @@ title: Limiti delle richieste-Translator
 titleSuffix: Azure Cognitive Services
 description: Questo articolo elenca i limiti delle richieste per il traduttore. Sono previsti addebiti in base al numero di caratteri, non alla frequenza delle richieste, con un limite di 5000 caratteri per ogni richiesta. I limiti di caratteri sono basati sulla sottoscrizione, con il livello F0 limitato a due milioni di caratteri all'ora.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.author: swmachan
-ms.openlocfilehash: 8841c55d8f276f048db53a531bd2e9218e498b34
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 2bc2c1361c7d2f73ff8a67e906a6db725f669d52
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95016497"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895408"
 ---
 # <a name="request-limits-for-translator"></a>Limiti delle richieste per il traduttore
 

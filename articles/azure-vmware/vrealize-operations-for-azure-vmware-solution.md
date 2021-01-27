@@ -2,13 +2,13 @@
 title: Configurare operazioni vRealize per la soluzione VMware di Azure
 description: Informazioni su come configurare le operazioni vRealize per il cloud privato della soluzione VMware di Azure.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 25469089cf1fef076711bfaf1492fad43edbcf33
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 01/26/2021
+ms.openlocfilehash: c2470ecde0874b46da1236ca6e99e6b0b3eb990d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371784"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880692"
 ---
 # <a name="set-up-vrealize-operations-for-azure-vmware-solution"></a>Configurare operazioni vRealize per la soluzione VMware di Azure
 
@@ -23,12 +23,12 @@ Prima di [iniziare](#before-you-begin) e prima dei [prerequisiti](#prerequisites
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 * Per ulteriori informazioni sulla distribuzione delle operazioni di vRealize, vedere la [documentazione del prodotto vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) . 
-* Esaminare la [serie di esercitazioni](tutorial-network-checklist.md)di base sulla soluzione VMware Software-Defined datacenter (SDDC) di Azure.
+* Esaminare la [serie di esercitazioni](tutorial-network-checklist.md) di base sul data center software-defined della soluzione Azure VMware.
 * Facoltativamente, consultare la documentazione del prodotto [controller remoto operazioni vRealize](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-263F9219-E801-4383-8A59-E84F3D01ED6B.html) per l'opzione di distribuzione delle soluzioni vRealize in locale gestione di Azure VMware. 
 
 
-
 ## <a name="prerequisites"></a>Prerequisiti
+* [vRealize Operations Manager](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) installato.
 * Una VPN o una ExpressRoute di Azure configurata tra la soluzione SDDC locale e la soluzione VMware di Azure.
 * Un cloud privato della soluzione VMware di Azure è stato distribuito in Azure.
 
@@ -50,12 +50,13 @@ Per estendere le funzionalità delle operazioni di vRealize al cloud privato del
 
 Un'altra opzione consiste nel distribuire un'istanza di vRealize Operations Manager in un cluster vSphere nel cloud privato. 
 
-:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure" border="false":::
+>[!IMPORTANT]
+>Questa opzione non è attualmente supportata da VMware.
+
+:::image type="content" source="media/vrealize-operations-manager/vrealize-operations-deployment-option-2.png" alt-text="Operazioni vRealize in esecuzione in una soluzione VMware di Azure" border="false":::
 
 Una volta distribuita l'istanza, è possibile configurare le operazioni di vRealize per la raccolta di dati da vCenter, ESXi, NSX-T, rete VSAN e HCX. 
 
-> [!TIP]
-> Per istruzioni dettagliate sull'installazione di vRealize Operations Manager, vedere la [documentazione di VMware](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.vapp.doc/GUID-7FFC61A0-7562-465C-A0DC-46D092533984.html) .
 
 
 ## <a name="known-limitations"></a>Limitazioni note
@@ -68,11 +69,11 @@ Una volta distribuita l'istanza, è possibile configurare le operazioni di vReal
 
 Quando si connette la soluzione VMware di Azure vCenter a vRealize Operations Manager usando un account server vCenter cloud, verrà visualizzato un avviso:
 
-:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure":::
+:::image type="content" source="./media/vrealize-operations-manager/warning-adapter-instance-creation-succeeded.png" alt-text="Creazione dell'istanza dell'adapter di avviso completata":::
 
 L'avviso si verifica perché l'utente **cloudadmin \@ vSphere. local** nella soluzione VMware di Azure non dispone di privilegi sufficienti per eseguire tutte le azioni server vCenter necessarie per la registrazione. Tuttavia, i privilegi sono sufficienti per l'istanza dell'adapter per eseguire la raccolta dei dati, come illustrato di seguito:
 
-:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Operazioni vRealize locali che gestiscono la distribuzione della soluzione VMware di Azure":::
+:::image type="content" source="./media/vrealize-operations-manager/adapter-instance-to-perform-data-collection.png" alt-text="Istanza dell'adapter per eseguire la raccolta dei dati":::
 
 Per ulteriori informazioni, vedere [privilegi necessari per la configurazione di un'istanza di adapter vCenter](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/com.vmware.vcom.core.doc/GUID-3BFFC92A-9902-4CF2-945E-EA453733B426.html).
 

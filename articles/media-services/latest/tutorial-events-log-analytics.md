@@ -1,24 +1,8 @@
 ---
-title: Archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics
-titleSuffix: Azure Media Services
-description: Informazioni su come archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: tutorial
-ms.date: 08/24/2020
-ms.author: inhenkel
-ms.openlocfilehash: cc3060c9253b23b97089ea35625aceb26737baba
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016996"
+title: archiviare gli eventi di servizi multimediali di Azure in Azure Log Analytics: Descrizione di servizi multimediali di Azure: informazioni su come archiviare gli eventi di servizi multimediali di Azure in Azure Log Analytics.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: ms. Topic: esercitazione ms. Date: 08/24/2020 ms. Author: inhenkel
 ---
+
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Esercitazione: Archiviare eventi di Servizi multimediali di Azure in Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventi di Servizi multimediali di Azure

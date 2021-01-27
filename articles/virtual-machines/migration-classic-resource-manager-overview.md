@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 137670715af8b90d8a867459fa50249cd9be8e70
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 44b89aae2f446a13207c8e3b586892ad085bd790
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897117"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879411"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Migrazione supportata dalla piattaforma di risorse IaaS dal modello di distribuzione classica a Azure Resource Manager in Linux
 
@@ -24,7 +24,7 @@ ms.locfileid: "97897117"
 
 In questo articolo viene fornita una panoramica sullo strumento di migrazione supportato dalla piattaforma, su come eseguire la migrazione delle risorse dai modelli di distribuzione di Azure Service Manager (ASM) noti come Gestione risorse (ARM) e viene illustrato come connettere le risorse dei due modelli di distribuzione coesistenti nella sottoscrizione tramite gateway da sito a sito di rete virtuale. Altre informazioni sulle [funzionalità e sui vantaggi Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
-ASM supporta due diversi prodotti di calcolo, macchine virtuali di Azure (versione classica), noti anche come VM IaaS & [servizi cloud di Azure (versione classica)](https://docs.microsoft.com/azure/cloud-services/) , ovvero PaaS VM o ruoli Web/di lavoro. Questo documento illustra solo la migrazione di macchine virtuali di Azure (versione classica).
+ASM supporta due diversi prodotti di calcolo, macchine virtuali di Azure (versione classica), noti anche come VM IaaS & [servizi cloud di Azure (versione classica)](../cloud-services/index.yml) , ovvero PaaS VM o ruoli Web/di lavoro. Questo documento illustra solo la migrazione di macchine virtuali di Azure (versione classica).
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
 Resource Manager consente di distribuire applicazioni complesse mediante modelli, configura le macchine virtuali tramite le estensioni di macchina virtuale e incorpora la gestione degli accessi e l'uso dei tag. Azure Resource Manager include anche una distribuzione parallela e scalabile per le macchine virtuali nei set di disponibilità. Il nuovo modello di distribuzione offre inoltre la gestione del ciclo di vita delle risorse di calcolo, rete e archiviazione, in modo indipendente. Infine, ci si concentra anche sull'abilitazione della sicurezza predefinita tramite l'imposizione di macchine virtuali in una rete virtuale.
@@ -39,7 +39,7 @@ In Azure Resource Manager sono supportate quasi tutte le funzionalità del model
 * Account di archiviazione
 * Reti virtuali
 * Gateway VPN
-* [Express Route gateway](https://docs.microsoft.com/azure/expressroute/expressroute-howto-move-arm) _(solo nella stessa sottoscrizione della rete virtuale)_
+* [Express Route gateway](../expressroute/expressroute-howto-move-arm.md) _(solo nella stessa sottoscrizione della rete virtuale)_
 * Gruppi di sicurezza di rete
 * Tabelle di route
 * IP riservati

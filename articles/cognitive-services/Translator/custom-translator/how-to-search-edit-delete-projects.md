@@ -2,19 +2,19 @@
 title: Come cercare, modificare ed eliminare un progetto - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Custom Translator offre diversi modi per gestire i progetti in modo efficiente. È possibile creare più progetti, eseguire ricerche in base a criteri personalizzati e modificare i progetti. Custom Translator supporta anche l'eliminazione di un progetto.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 4c48a8a18a3ad0487b4c3840847c7f5edbb6d29f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 308ca25d35011c67ded7300177149cd590462952
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510360"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896444"
 ---
 # <a name="search-edit-and-delete-projects"></a>Cercare, modificare ed eliminare progetti
 

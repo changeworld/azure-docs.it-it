@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 16fff00f04c4cd57ad46759cceb50134e58d5e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 139366277feab0a04c47311b4f0210223b2bc8d9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933099"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892015"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con F5
 
@@ -493,3 +493,9 @@ Quando si fa clic sul riquadro di F5 nel pannello di accesso, si dovrebbe accede
 - [Configurare l'accesso Single Sign-On di F5 per l'applicazione Header Based](headerf5-tutorial.md)
 
 - [Configurare l'accesso Single Sign-On di F5 per l'applicazione Advanced Kerberos](advance-kerbf5-tutorial.md)
+
+- [F5 BIG-IP APM e integrazione Azure AD per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+
+- [Esercitazione per la distribuzione della VM F5 BIG-IP Virtual Edition in Azure IaaS per l'accesso ibrido sicuro](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+
+- [Esercitazione per l'integrazione di Azure Active Directory Single Sign-On con F5 BIG-IP per VPN senza password](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)

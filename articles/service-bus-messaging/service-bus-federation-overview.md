@@ -3,12 +3,12 @@ title: Replica di messaggi e Federazione tra più aree-bus di servizio di Azure 
 description: Questo articolo fornisce una panoramica della replica degli eventi e della Federazione tra aree con il bus di servizio di Azure.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d5153820feab8b7901356838ec435d992aa82116
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803273"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880828"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>Replica di messaggi e federazione tra aree
 
@@ -150,7 +150,7 @@ Funzioni di Azure può essere eseguito con un' [identità gestita di Azure](../a
 
 Funzioni di Azure consente inoltre di integrare direttamente le attività di replica con le reti virtuali di Azure e gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md) per tutti i servizi di messaggistica di Azure ed è prontamente integrato con [monitoraggio di Azure](../azure-monitor/overview.md).
 
-Soprattutto, funzioni di Azure dispone di trigger e associazioni di output precompilati e scalabili per [Hub eventi](../azure-functions/functions-bindings-service-bus.md)di Azure, [Hub Azure, Hub](../azure-functions/functions-bindings-event-iot.md), Azure [Service Bus](../azure-functions/functions-bindings-service-bus.md), [griglia di eventi](../azure-functions/functions-bindings-event-grid.md)di Azure e [archiviazione code di Azure](/azure/azure-functions/functions-bindings-storage-queue), estensioni personalizzate per [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La maggior parte dei trigger si adatta dinamicamente alle esigenze di velocità effettiva scalando il numero di istanze in esecuzione simultanea verso l'alto e verso il basso in base alle metriche documentate. 
+Soprattutto, funzioni di Azure dispone di trigger e associazioni di output precompilati e scalabili per [Hub eventi](../azure-functions/functions-bindings-service-bus.md)di Azure, [Hub Azure, Hub](../azure-functions/functions-bindings-event-iot.md), Azure [Service Bus](../azure-functions/functions-bindings-service-bus.md), [griglia di eventi](../azure-functions/functions-bindings-event-grid.md)di Azure e [archiviazione code di Azure](../azure-functions/functions-bindings-storage-queue.md), estensioni personalizzate per [RabbitMQ](https://github.com/azure/azure-functions-rabbitmq-extension)e [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension). La maggior parte dei trigger si adatta dinamicamente alle esigenze di velocità effettiva scalando il numero di istanze in esecuzione simultanea verso l'alto e verso il basso in base alle metriche documentate. 
 
 Con il piano a consumo di funzioni di Azure, i trigger predefiniti possono anche essere ridimensionati fino a zero, mentre nessun messaggio è disponibile per la replica, il che significa che non vengono addebitati costi per mantenere la configurazione pronta per la scalabilità del backup. Il svantaggio principale dell'utilizzo del piano a consumo è che la latenza per le attività di replica "riattivazione" da questo stato è significativamente superiore a quella dei piani di hosting in cui viene mantenuta l'infrastruttura.  
 
@@ -167,4 +167,4 @@ A questo punto, si potrebbe voler leggere come configurare un'applicazione Repli
 - [Routing degli eventi a hub eventi di Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub)
 - [Acquisire eventi da Hub eventi di Azure](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus)
 
-[1]: ./media/service-bus-auto-forwarding/IC628632.gif 
+[1]: ./media/service-bus-auto-forwarding/IC628632.gif

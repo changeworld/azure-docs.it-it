@@ -10,12 +10,12 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: be2921f88ad2ecf88c555daf8385f1bd6733e836
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 70f5e17c4cc42201e9aa3d36c9937f6ceb9527d0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94554016"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880204"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Trasformare i dati in Azure Machine Learning Designer
 
@@ -52,11 +52,7 @@ Seguire i passaggi seguenti per importare il set di dati campione.
 
 1. Trascinare e rilasciare il set di dati **Adult Census Income Binary classification** nel canvas.
 
-1. Selezionare il modulo del set di dati **Adult Census Income**.
-
-1. Nel riquadro dei dettagli che viene visualizzato a destra del canvas selezionare **Output**.
-
-1. Selezionare l'icona di visualizzazione ![icona di visualizzazione](media/how-to-designer-transform-data/visualize-icon.png).
+1. Fare clic con il pulsante destro del mouse sul modulo **Adult Census income** DataSet e selezionare **Visualizza**  >  **output set di dati**
 
 1. Usare la finestra di anteprima dei dati per esplorare il set di dati. Prendere nota speciale dei valori della colonna "native-country".
 
@@ -74,7 +70,7 @@ In questa sezione si usa il [modulo Split Data](algorithm-module-reference/split
 
 1. Nel riquadro dei dettagli del modulo a destra del canvas impostare **Splitting mode** su **Espressione regolare**.
 
-1. Immettere l' **Espressione regolare** : `\"native-country" United-States`.
+1. Immettere l'**Espressione regolare**: `\"native-country" United-States`.
 
     La modalità **Espressione regolare** esegue il test di una singola colonna per un valore. Per altre informazioni sul modulo Split Data, vedere la [pagina di riferimento del modulo algoritmo](algorithm-module-reference/split-data.md) correlata.
 
@@ -103,13 +99,13 @@ Ora che la pipeline è configurata per dividere i dati, è necessario specificar
 
 1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare le opzioni seguenti:
     
-    **Tipo di archivio dati** : Archiviazione BLOB di Azure
+    **Tipo di archivio dati**: Archiviazione BLOB di Azure
 
     **Datastore** (Archivio dati): Selezionare un archivio dati esistente o selezionare "Nuovo archivio dati" per crearne uno.
 
-    **Percorso** : `/data/us-income`
+    **Percorso**: `/data/us-income`
 
-    **Formato file** : csv
+    **Formato file**: csv
 
     > [!NOTE]
     > Questo articolo presuppone che l'utente abbia accesso a un archivio dati registrato alla corrente area di lavoro di Azure Machine Learning. Per istruzioni su come configurare un archivio dati, vedere [Connettersi ai servizi di archiviazione di Azure](how-to-connect-data-ui.md#create-datastores).
@@ -120,13 +116,13 @@ Ora che la pipeline è configurata per dividere i dati, è necessario specificar
 
 1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare le opzioni seguenti:
     
-    **Tipo di archivio dati** : Archiviazione BLOB di Azure
+    **Tipo di archivio dati**: Archiviazione BLOB di Azure
 
     **Datastore** (Archivio dati): Selezionare lo stesso archivio dati precedente
 
-    **Percorso** : `/data/non-us-income`
+    **Percorso**: `/data/non-us-income`
 
-    **Formato file** : csv
+    **Formato file**: csv
 
 1. Confermare che il modulo **Export Data** connesso alla porta a sinistra del modulo **Split Data** presenti il **percorso** `/data/us-income`.
 

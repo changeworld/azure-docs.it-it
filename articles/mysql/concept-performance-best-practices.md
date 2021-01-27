@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c29c043a3af46086751629b31ce68217e7226442
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 30176e2df850e6d2794ab9c1542bcb6a89d8f89f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354992"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880407"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Procedure consigliate per le prestazioni ottimali del database di Azure per MySQL-server singolo
 
@@ -46,9 +46,9 @@ La creazione di una nuova connessione è sempre un'attività costosa e dispendio
 
 Una procedura consigliata per le prestazioni di database di Azure per MySQL consiste nell'allocare una quantità di RAM sufficiente, in modo che i working set risiedano quasi completamente in memoria. 
 
-- Controllare se la percentuale di memoria usata per raggiungere i [limiti](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) usando le [metriche per il server MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring). 
+- Controllare se la percentuale di memoria usata per raggiungere i [limiti](./concepts-pricing-tiers.md) usando le [metriche per il server MySQL](./concepts-monitoring.md). 
 - Configurare gli avvisi per tali numeri per assicurarsi che, quando i server raggiungono i limiti, è possibile eseguire le azioni richieste per risolvere il problema. In base ai limiti definiti, verificare se è in aumento la scalabilità verticale dello SKU del database, a una dimensione di calcolo superiore o a un piano tariffario migliore che comporta un notevole aumento delle prestazioni. 
-- Scalabilità verticale fino a quando i numeri delle prestazioni non vengono più eliminati in modo significativo dopo un'operazione di ridimensionamento. Per informazioni sul monitoraggio delle metriche di un'istanza di database, vedere [metriche del database MySQL](https://docs.microsoft.com/azure/mysql/concepts-monitoring#metrics).
+- Scalabilità verticale fino a quando i numeri delle prestazioni non vengono più eliminati in modo significativo dopo un'operazione di ridimensionamento. Per informazioni sul monitoraggio delle metriche di un'istanza di database, vedere [metriche del database MySQL](./concepts-monitoring.md#metrics).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

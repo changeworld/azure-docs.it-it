@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 2c21f84b9a10db504afb8ead67ae479518a0afba
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603517"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879949"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Metriche di competenza di Azure in monitoraggio di Azure
 
@@ -79,11 +79,11 @@ Seguire i passaggi per creare un'impostazione di diagnostica per l'account Azure
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot che mostra la creazione del log di diagnostica." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
-2. Registrare gli eventi in un account di archiviazione. È consigliabile usare un account di archiviazione dedicato per archiviare i log di diagnostica. In questo articolo viene [creato un account di archiviazione](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+2. Registrare gli eventi in un account di archiviazione. È consigliabile usare un account di archiviazione dedicato per archiviare i log di diagnostica. In questo articolo viene [creato un account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal).
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Screenshot che illustra l'assegnazione dell'account di archiviazione per il log di diagnostica." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Attendere fino a 15 minuti per iniziare a ricevere i log nell'account di archiviazione appena creato. [Vedere conservazione dei dati e schema dei log delle risorse nell'account di archiviazione di Azure](../azure-monitor/platform/resource-logs-collect-storage.md). Una volta configurati i log di diagnostica, gli eventi vengono propagati all'account di archiviazione.
+Attendere fino a 15 minuti per iniziare a ricevere i log nell'account di archiviazione appena creato. [Vedere conservazione dei dati e schema dei log delle risorse nell'account di archiviazione di Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Una volta configurati i log di diagnostica, gli eventi vengono propagati all'account di archiviazione.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

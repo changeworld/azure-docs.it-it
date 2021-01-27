@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/9/2020
-ms.openlocfilehash: 01a1ded570d20d175b5e8eadb3e6cc8556155a85
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7adc7f568fb82692f2c96f610575076e397bd99c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554968"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896113"
 ---
 # <a name="register-and-scan-azure-data-explorer"></a>Registrare e analizzare Esplora dati di Azure
 
@@ -27,7 +27,7 @@ Azure Esplora dati supporta le analisi complete e incrementali per acquisire i m
 - Prima di registrare le origini dati, creare un account Azure. Per altre informazioni sulla creazione di un account di competenza, vedere [Guida introduttiva: creare un account Azure](create-catalog-portal.md).
 - È necessario essere un amministratore dell'origine dati di competenza di Azure
 
-## <a name="setting-up-authentication-for-a-scan"></a>Impostazione dell'autenticazione per un'analisi
+## <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
 È disponibile un solo modo per configurare l'autenticazione per Esplora dati di Azure:
 
@@ -38,26 +38,26 @@ Azure Esplora dati supporta le analisi complete e incrementali per acquisire i m
 Per utilizzare l'autenticazione basata su entità servizio per le analisi, è possibile utilizzarne una esistente o crearne una nuova. 
 
 > [!Note]
-> Se è necessario creare una nuova entità servizio, attenersi alla seguente procedura:
+> Se è necessario creare una nuova entità servizio, seguire questa procedura:
 > 1. Passare al [portale di Azure](https://portal.azure.com).
-> 1. Selezionare **Azure Active Directory** dal menu a sinistra.
+> 1. Selezionare **Azure Active Directory** nel menu a sinistra.
 > 1. Selezionare **Registrazioni per l'app**.
 > 1. Selezionare **+ Registrazione nuova applicazione**.
-> 1. Immettere un nome per l' **applicazione** (il nome dell'entità servizio).
-> 1. Selezionare **account solo in questa directory aziendale**.
-> 1. Per URI di reindirizzamento selezionare **Web** e immettere l'URL desiderato; non è necessario che sia reale o funzionante.
+> 1. Immettere un nome per l'**applicazione** (il nome dell'entità servizio).
+> 1. Selezionare **Account solo in questa directory dell'organizzazione**.
+> 1. Per l'URI di reindirizzamento selezionare **Web** e immettere un URL qualsiasi. Non deve necessariamente essere reale o funzionante.
 > 1. Selezionare **Registra**.
 
 È necessario ottenere l'ID applicazione e il segreto dell'entità servizio:
 
 1. Passare all'entità servizio nel [portale di Azure](https://portal.azure.com)
-1. Copiare i valori **ID dell'applicazione (client)** da **Panoramica** e **segreto client** da **certificati & segreti**.
+1. Copiare il valore di **ID applicazione (client)** da **Panoramica** e quello di **Segreto client** da **Certificati e segreti**.
 1. Passare a Key Vault
-1. Selezionare **le impostazioni > segreti**
-1. Selezionare **+ genera/importa** e immettere il **nome** della scelta e il **valore** come **segreto client** dall'entità servizio
+1. Selezionare **Impostazioni > Segreti**
+1. Selezionare **+ Genera/Importa** e immettere il **Nome** scelto e il **Valore** come **Segreto client** dell'entità servizio
 1. Selezionare **Crea** per completare
-1. Se l'insieme di credenziali delle chiavi non è ancora connesso alla propria competenza, sarà necessario [creare una nuova connessione](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account) dell'insieme di credenziali delle chiavi
-1. Infine, [creare una nuova credenziale](manage-credentials.md#create-a-new-credential) usando l'entità servizio per configurare l'analisi
+1. Se l'insieme di credenziali delle chiavi non è ancora connesso a Purview, sarà necessario [creare una nuova connessione dell'insieme di credenziali delle chiavi](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. Infine, [creare nuove credenziali](manage-credentials.md#create-a-new-credential) usando l'entità servizio per configurare l'analisi
 
 #### <a name="granting-the-service-principal-access-to-your-azure-data-explorer-instance"></a>Concessione dell'accesso dell'entità servizio all'istanza di Esplora dati di Azure
 
@@ -71,27 +71,27 @@ Per utilizzare l'autenticazione basata su entità servizio per le analisi, è po
 
 Per registrare un nuovo account Azure Esplora dati (kusto) nel Catalogo dati, seguire questa procedura:
 
-1. Passa all'account di competenza
-1. Selezionare le **origini** nel percorso di spostamento a sinistra
+1. Passare all'account Purview
+1. Selezionare **Origini** nel riquadro di spostamento sinistro
 1. Selezionare **Registra**
 1. In **registra origini** selezionare **Azure Esplora dati**
 1. Selezionare **Continua**
 
-:::image type="content" source="media/register-scan-azure-data-explorer/register-new-data-source.png" alt-text="Registra nuova origine dati" border="true":::
+:::image type="content" source="media/register-scan-azure-data-explorer/register-new-data-source.png" alt-text="Registrare una nuova origine dati" border="true":::
 
 Nella schermata **Register Sources (Azure Esplora dati (kusto))** eseguire le operazioni seguenti:
 
-1. Immettere un **nome** con cui l'origine dati verrà elencata nel catalogo.
-1. Scegliere il modo in cui si desidera puntare all'account di archiviazione desiderato:
+1. Immettere un **Nome** con il quale l'origine dati sarà elencata nel catalogo.
+1. Scegliere come puntare all'account di archiviazione desiderato:
    1. Selezionare una **sottoscrizione di Azure**, selezionare la sottoscrizione appropriata nella casella di riepilogo a discesa **sottoscrizione di Azure** e il cluster appropriato dalla casella di riepilogo a discesa **cluster** .
    1. In alternativa, è possibile selezionare **invio manualmente** e immettere un endpoint servizio (URL).
-1. **Completare** la registrazione dell'origine dati.
+1. Selezionare **Fine** per completare la registrazione dell'origine dati.
 
-:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="opzioni registra origini" border="true":::
+:::image type="content" source="media/register-scan-azure-data-explorer/register-sources.png" alt-text="Opzioni di registrazione delle origini" border="true":::
 
-[!INCLUDE [create and manage scans](includes/manage-scans.md)]
+[!INCLUDE [create and manage scans](includes/manage-scans-azure-data-explorer.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Esplorare il Catalogo dati di Azure per le competenze](how-to-browse-catalog.md)
-- [Cerca nel Data Catalog di competenza di Azure](how-to-search-catalog.md)
+- [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
+- [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)

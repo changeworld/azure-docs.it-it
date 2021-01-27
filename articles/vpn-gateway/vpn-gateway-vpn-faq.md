@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7e59c8ecc0d7af341ddc1ea79aa42460e00fa444
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 467c2b9fe8758db5c1da43a65c1bfde133df0823
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419776"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880102"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -38,7 +38,7 @@ No.
 
 Le seguenti connessioni cross-premise sono supportate:
 
-* Da sito a sito: connessione VPN tramite IPsec (IKE v1 e IKE v2). Per questo tipo di connessione è necessario un dispositivo VPN o RRAS. Per altre informazioni, vedere [Da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+* Da sito a sito: connessione VPN tramite IPsec (IKE v1 e IKE v2). Per questo tipo di connessione è necessario un dispositivo VPN o RRAS. Per altre informazioni, vedere [Da sito a sito](./tutorial-site-to-site-portal.md).
 * Da punto a sito: connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKE v2. Questa connessione non richiede un dispositivo VPN. Per altre informazioni, vedere [Da punto a sito](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Da rete virtuale a rete virtuale: questo tipo di connessione è analogo alla configurazione da sito a sito. La connessione tra reti virtuali è una connessione VPN tramite IPsec (IKE v1 e IKE v2). Non richiede un dispositivo VPN. Per altre informazioni, vedere [Da rete virtuale a rete virtuale](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multisito: si tratta di una variante di una configurazione da sito a sito che consente di connettere più siti locali a una rete virtuale. Per altre informazioni, vedere [Multisito](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
@@ -70,13 +70,13 @@ I gateway basati su route implementano VPN basate su route. Le VPN basate su rou
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>È possibile aggiornare il gateway VPN basato su criteri a basato su Route?
 
-No.Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
+No. Non è possibile modificare il tipo di tipo di gateway di rete virtuale di Azure da basato su criteri a basato su route o viceversa. È necessario eliminare e ricreare il gateway e il processo richiede circa 60 minuti. L'indirizzo IP del gateway non verrà mantenuto, come pure la chiave precondivisa.
 1. Eliminare qualsiasi connessione associata al gateway da eliminare.
 1. Eliminare il gateway:
    - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
    - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
    - [Azure PowerShell-classico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
+1. [Creare un nuovo gateway del tipo desiderato e completare la configurazione della VPN](./tutorial-site-to-site-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Il valore 'GatewaySubnet' è necessario?
 

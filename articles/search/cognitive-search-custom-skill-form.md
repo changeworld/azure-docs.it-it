@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: a3b073cdb90e0c427bfbca15c1440b9122672610
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96011966"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880136"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Esempio: creare un'abilità personalizzata di riconoscimento del modulo
 
@@ -30,7 +30,7 @@ In questo esempio di competenze di Azure ricerca cognitiva si apprenderà come c
 
 ## <a name="train-your-model"></a>Eseguire il training del modello
 
-È necessario eseguire il training di un modello di riconoscimento form con i moduli di input prima di usare questa competenza. Seguire la [Guida introduttiva di curl](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) per informazioni su come eseguire il training di un modello. È possibile usare i moduli di esempio disponibili in questa Guida introduttiva oppure è possibile usare i propri dati. Una volta eseguito il training del modello, copiarne il valore ID in una posizione sicura.
+È necessario eseguire il training di un modello di riconoscimento form con i moduli di input prima di usare questa competenza. Seguire la [Guida introduttiva di curl](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) per informazioni su come eseguire il training di un modello. È possibile usare i moduli di esempio disponibili in questa Guida introduttiva oppure è possibile usare i propri dati. Una volta eseguito il training del modello, copiarne il valore ID in una posizione sicura.
 
 ## <a name="set-up-the-custom-skill"></a>Configurare l'abilità personalizzata
 
@@ -59,7 +59,7 @@ Si effettuerà la richiesta seguente per chiamare la funzione.
 POST https://localhost:7071/api/analyze-form
 ```
 
-### <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Testo della richiesta
 
 Iniziare con il modello del corpo della richiesta riportato di seguito.
 

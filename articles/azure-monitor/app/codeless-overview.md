@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa5c2a0070ea0c3a0963f97fc1a04670eeaa4827
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: efa951ce5a15460e3eacfd4c7abecfac17106b4e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701892"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880509"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>Che cos'è la strumentazione automatica o la connessione non codificata-monitoraggio di Azure Application Insights?
 
@@ -23,17 +23,17 @@ Application Insights è integrato con vari provider di risorse e funziona in amb
 
 Con l'aggiunta di più integrazioni, la matrice di funzionalità di strumentazione automatica diventa complessa. La tabella seguente mostra lo stato attuale della faccenda per quanto riguarda il supporto per vari provider di risorse, linguaggi e ambienti.
 
-|Ambiente/provider di risorse          | .NET            | .NET Core       | Java            | Node.js         |
-|---------------------------------------|-----------------|-----------------|-----------------|-----------------|
-|Servizio app Azure per Windows           | GA, OnBD *       | GA, consenso esplicito      | Anteprima privata | Anteprima privata |
-|Servizio app di Azure in Linux             | N/D             | Non supportato   | Anteprima privata | Anteprima pubblica  |
-|Servizio app Azure su AKS               | N/D             | In progettazione       | In progettazione       | In progettazione       |
-|Funzioni di Azure-di base                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
-|Dipendenze di Windows di funzioni di Azure | Non supportato   | Non supportato   | Anteprima pubblica  | Non supportato   |
-|Servizio Azure Kubernetes               | N/D             | In progettazione       | Tramite agente   | In progettazione       |
-|Finestre VM di Azure                      | Anteprima pubblica  | Non supportato   | Non supportato   | Non supportato   |
-|Finestre VM locali                | GA, consenso esplicito      | Non supportato   | Tramite agente   | Non supportato   |
-|Agente autonomo-qualsiasi ENV.            | Non supportato   | Non supportato   | GA              | Non supportato   |
+|Ambiente/provider di risorse          | .NET            | .NET Core       | Java            | Node.js         | Python          |
+|---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
+|Servizio app Azure per Windows           | GA, OnBD *       | GA, consenso esplicito      | Anteprima privata | Anteprima privata | Non supportato   |
+|Servizio app di Azure in Linux             | N/D             | Non supportato   | Anteprima privata | Anteprima pubblica  | Non supportato   |
+|Servizio app Azure su AKS               | N/D             | In progettazione       | In progettazione       | In progettazione       | Non supportato   |
+|Funzioni di Azure-di base                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
+|Dipendenze di Windows di funzioni di Azure | Non supportato   | Non supportato   | Anteprima pubblica  | Non supportato   | Non supportato   |
+|Servizio Azure Kubernetes               | N/D             | In progettazione       | Tramite agente   | In progettazione       | Non supportato   |
+|Finestre VM di Azure                      | Anteprima pubblica  | Non supportato   | Non supportato   | Non supportato   | Non supportato   |
+|Finestre VM locali                | GA, consenso esplicito      | Non supportato   | Tramite agente   | Non supportato   | Non supportato   |
+|Agente autonomo-qualsiasi ENV.            | Non supportato   | Non supportato   | GA              | Non supportato   | Non supportato   |
 
 * OnBD è breve per l'attivazione per impostazione predefinita. il Application Insights verrà abilitato automaticamente dopo la distribuzione dell'app in ambienti supportati. 
 

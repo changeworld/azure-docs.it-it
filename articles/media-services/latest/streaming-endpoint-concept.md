@@ -1,24 +1,10 @@
 ---
-title: Endpoint di streaming (Origin)
-titleSuffix: Azure Media Services
-description: Informazioni sugli endpoint di streaming (Origin), un servizio di creazione dinamica dei pacchetti e di streaming che fornisce contenuti direttamente a un'app lettore client o a una rete per la distribuzione di contenuti (CDN).
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 02/13/2020
-ms.author: inhenkel
-ms.openlocfilehash: f7307b95912a982bb36efbf2ce18668bd88e1195
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882875"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
+title: endpoint di streaming (Origin): Descrizione di servizi multimediali di Azure: informazioni sugli endpoint di streaming (Origin), un servizio di creazione dinamica dei pacchetti e di streaming che fornisce contenuti direttamente a un'app lettore client o a una rete per la distribuzione di contenuti (CDN). Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 02/13/2020 ms. Author: inhenkel
 ---
+
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
 In Servizi multimediali di Microsoft Azure, un [endpoint di streaming](/rest/api/media/streamingendpoints) rappresenta un servizio di creazione e creazione di pacchetti dinamici (just-in-Time) in grado di fornire contenuti live e on demand direttamente a un'app per giocatori client usando uno dei protocolli di streaming media comuni (HLS o Dash). Inoltre, l' **endpoint di streaming** fornisce la crittografia dinamica (just-in-Time) a DRM leader del settore. 
@@ -67,7 +53,7 @@ Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
-Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
+Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|SUs aggiuntivo

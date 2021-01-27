@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 35cb7ba4523cfbc88daf958fd972b127519385ce
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 69f0da2f1528ad1f45762a8f754cc2020b4cb880
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792362"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98900994"
 ---
 Questo articolo elenca le versioni e le funzionalità di Azure Active Directory Connect agente di provisioning che sono state rilasciate. Il team di Azure AD aggiorna periodicamente l'agente di provisioning con nuove caratteristiche e funzionalità. L'agente di provisioning viene aggiornato automaticamente quando viene rilasciata una nuova versione. 
 
@@ -99,5 +99,3 @@ Microsoft fornisce supporto diretto per la versione più recente dell'agente e p
 * Rinnovato l'agente di provisioning e l'architettura del connettore per ottenere prestazioni, stabilità e affidabilità migliori 
 * Semplificazione della configurazione dell'agente di provisioning tramite l'installazione guidata guidata dall'interfaccia utente 
 * Aggiunta del supporto per aggiornamenti automatici degli agenti
-
-

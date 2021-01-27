@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2eb109078728b8a9070b3991733450c1da790d9e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019226"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879596"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -711,7 +711,7 @@ Le eccezioni generate quando la libreria client di archiviazione esegue una tran
 È inoltre opportuno considerare l'influenza della progettazione sul modo in cui l'applicazione gestisce le operazioni di concorrenza e aggiornamento.  
 
 ### <a name="managing-concurrency"></a>Gestione della concorrenza
-Per impostazione predefinita, il servizio tabelle implementa controlli di concorrenza ottimistica a livello di singole entità per le operazioni **Insert**, **Merge** e **Delete**, sebbene sia possibile per un client forzare il servizio tabelle in modo da ignorare questi controlli. Per ulteriori informazioni sul modo in cui il servizio tabelle gestisce la concorrenza, vedere  [gestione della concorrenza in archiviazione di Microsoft Azure](../../storage/common/storage-concurrency.md).  
+Per impostazione predefinita, il servizio tabelle implementa controlli di concorrenza ottimistica a livello di singole entità per le operazioni **Insert**, **Merge** e **Delete**, sebbene sia possibile per un client forzare il servizio tabelle in modo da ignorare questi controlli. Per ulteriori informazioni sul modo in cui il servizio tabelle gestisce la concorrenza, vedere  [gestione della concorrenza in archiviazione di Microsoft Azure](../blobs/concurrency-manage.md).  
 
 ### <a name="merge-or-replace"></a>Unione o sostituzione
 Il metodo **Replace** della classe **TableOperation** sostituisce sempre l'entità completa nel servizio tabelle. Se non si include una proprietà nella richiesta quando tale proprietà è presente nell'entità archiviata, la richiesta rimuove la proprietà dall'entità archiviata. A meno che non si voglia rimuovere una proprietà in modo esplicito da un'entità archiviata, è necessario includere ogni proprietà nella richiesta.  

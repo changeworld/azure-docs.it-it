@@ -12,18 +12,18 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 2d6282c527293abdb8b21e0591548cb51e1339a9
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 688bec24cbcd88130470634abff0688ead8005ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539674"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881687"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Eseguire il training dei modelli con set di impostazioni Azure Machine Learning 
 
 Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) per eseguire il training dei modelli di machine learning.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati. 
 
-Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning [funzionalità di training](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) come [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), iperguida e [pipeline di Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning [funzionalità di training](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) come [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py), iperguida e [pipeline di Azure Machine Learning](./how-to-create-machine-learning-pipelines.md).
 
 Se non si è pronti a rendere i dati disponibili per il training del modello, ma si vuole caricare i dati nel notebook per l'esplorazione dei dati, vedere come [esplorare i dati nel set](how-to-create-register-datasets.md#explore-data)di dati. 
 
@@ -263,7 +263,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * **Inizializzazione del set di dati non riuscita: si è verificato un timeout durante l'attesa del punto di montaggio**: 
-  * Se non sono presenti regole del [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) in uscita e si usano `azureml-sdk>=1.12.0` , aggiornare `azureml-dataset-runtime` e le relative dipendenze come più recenti per la versione secondaria specifica o se si usa in un'esecuzione, ricreare l'ambiente in modo che sia possibile applicare la patch più recente con la correzione. 
+  * Se non sono presenti regole del [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) in uscita e si usano `azureml-sdk>=1.12.0` , aggiornare `azureml-dataset-runtime` e le relative dipendenze come più recenti per la versione secondaria specifica o se si usa in un'esecuzione, ricreare l'ambiente in modo che sia possibile applicare la patch più recente con la correzione. 
   * Se si usa `azureml-sdk<1.12.0` , eseguire l'aggiornamento alla versione più recente.
   * Se sono presenti regole NSG in uscita, assicurarsi che sia presente una regola in uscita che consente tutto il traffico per il tag di servizio `AzureResourceMonitor` .
 
@@ -293,4 +293,4 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
 * Eseguire il [training dei modelli di classificazione delle immagini](https://aka.ms/filedataset-samplenotebook) con i set di dati.
 
-* Eseguire il [training con i set di impostazioni usando le pipeline](how-to-create-your-first-pipeline.md).
+* Eseguire il [training con i set di impostazioni usando le pipeline](./how-to-create-machine-learning-pipelines.md).

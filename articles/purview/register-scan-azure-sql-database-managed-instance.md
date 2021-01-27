@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 3513ba0cd1a894b55da604d54964affa79b6adf4
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2391a36c02e0bdfe0ea98be7f19fc64f1fbb676f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555968"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879933"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Registrare e analizzare un'istanza gestita di database SQL di Azure
 
@@ -34,13 +34,13 @@ Azure Purview non supporta l'analisi di [viste](/sql/relational-databases/views/
 
 - Creare un nuovo account Purview se non se ne ha già uno.
 
-- [Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure](/azure/azure-sql/managed-instance/public-endpoint-configure)
+- [Configurare l'endpoint pubblico nell'istanza gestita di SQL di Azure](../azure-sql/managed-instance/public-endpoint-configure.md)
     > [!Note]
     > L'organizzazione deve essere in grado di consentire un endpoint pubblico, perché **gli endpoint privati non sono ancora supportati** da Purview. Se si usa un endpoint privato, l'analisi non verrà eseguita.
 
 ### <a name="setting-up-authentication-for-a-scan"></a>Configurazione dell'autenticazione per un'analisi
 
-Configurare l'autenticazione per analizzare Istanza gestita di database SQL di Azure. Se è necessario creare una nuova autenticazione, bisogna [autorizzare l'accesso del database a Istanza gestita di database SQL](/azure/azure-sql/database/logins-create-manage). Attualmente Purview supporta tre metodi di autenticazione:
+Configurare l'autenticazione per analizzare Istanza gestita di database SQL di Azure. Se è necessario creare una nuova autenticazione, bisogna [autorizzare l'accesso del database a Istanza gestita di database SQL](../azure-sql/database/logins-create-manage.md). Attualmente Purview supporta tre metodi di autenticazione:
 
 - Autenticazione SQL
 - Entità servizio
@@ -85,8 +85,8 @@ Per consentire a Purview di usare l'entità servizio per analizzare Istanza gest
 ##### <a name="configure-azure-ad-authentication-in-the-database-account"></a>Configurare l'autenticazione di Azure AD nell'account del database
 
 L'entità servizio o l'identità gestita deve avere l'autorizzazione per ottenere metadati per il database, gli schemi e le tabelle. Deve inoltre essere in grado di eseguire query sulle tabelle per campionare la classificazione.
-- [Configurare e gestire l'autenticazione di Azure AD con Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Creare un utente di Azure AD in Istanza gestita di database SQL di Azure seguendo i prerequisiti e l'esercitazione [Creare utenti contenuti mappati a identità di Azure AD](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- [Configurare e gestire l'autenticazione di Azure AD con Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Creare un utente di Azure AD in Istanza gestita di database SQL di Azure seguendo i prerequisiti e l'esercitazione [Creare utenti contenuti mappati a identità di Azure AD](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assegnare l'autorizzazione `db_owner` (**scelta consigliata**) all'identità
 
 ##### <a name="add-service-principal-to-key-vault-and-purviews-credential"></a>Aggiungere l'entità servizio all'insieme di credenziali delle chiavi e alle credenziali di Purview

@@ -1,25 +1,11 @@
 ---
-title: Modello di Resource Manager per l'account di Servizi multimediali
-titleSuffix: Azure Media Services
-description: Questo articolo illustra come creare un account di Servizi multimediali usando un modello di Resource Manager.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: quickstart
-ms.date: 11/24/2020
-ms.author: inhenkel
-ms.custom: subject-armqs
-ms.openlocfilehash: 541a4c17a3212f711be7e2cf096ce3a2d632ee64
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879647"
+title: modello ARM dell'account di servizi multimediali: Descrizione di servizi multimediali di Azure: questo articolo illustra come usare un modello ARM per creare un account di servizi multimediali.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: ms. Topic: Guida introduttiva ms. Date: 11/24/2020 ms. Author: inhenkel ms. Custom: subject-armqs
+
 ---
+
 # <a name="quickstart-media-services-account-arm-template"></a>Avvio rapido: Modello di Resource Manager per l'account di Servizi multimediali
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

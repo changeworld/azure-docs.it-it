@@ -4,12 +4,12 @@ description: Mostra come applicare i tag per organizzare le risorse Azure per la
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3d1161eb99e1145c7a003326310db1922ec3d55c
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: fb93673b643fd13efe9ffea148c5fb1d072f9e05
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881749"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896224"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Usare i tag per organizzare le risorse di Azure e la gerarchia di gestione
 
@@ -697,7 +697,7 @@ I tag applicati al gruppo di risorse o alla sottoscrizione non vengono ereditati
 
 È possibile usare i tag per raggruppare i dati di fatturazione. Se, ad esempio, sono in esecuzione più macchine virtuali per organizzazioni diverse, usare i tag per raggrupparne l'uso in base al centro di costo. È anche possibile usare i tag per classificare i costi in base all'ambiente di runtime; ad esempio, l'uso di fatturazione per le macchine virtuali in esecuzione nell'ambiente di produzione.
 
-È possibile recuperare informazioni sui tag tramite le [API di utilizzo delle risorse di Azure e delle schede tariffarie](../../cost-management-billing/manage/usage-rate-card-overview.md) oppure il file con valori delimitati da virgole (CSV) di utilizzo. Il file di utilizzo viene scaricato dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
+È possibile recuperare informazioni sui tag scaricando il file di dati di utilizzo, un file con valori delimitati da virgole (CSV) disponibile dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
 
 Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Azure](/rest/api/billing/).
 

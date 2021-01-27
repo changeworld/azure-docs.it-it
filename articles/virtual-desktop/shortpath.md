@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: bfcd8b3c482b4d429a9e3a4d7bc75e27ada63a98
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98134399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876699"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Desktop virtuale Windows RDP ShortPath (anteprima)
 
@@ -58,7 +58,7 @@ Il diagramma seguente fornisce una panoramica di alto livello della connessione 
 Per supportare ShortPath RDP, il client desktop virtuale di Windows necessita di una linea di visibilità diretta per l'host sessione. È possibile ottenere una linea di visione diretta usando una delle tecnologie seguenti:
 
 * [Peering privato di ExpressRoute](../expressroute/expressroute-circuit-peerings.md)
-* [VPN da sito a sito (basata su IPsec)](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [VPN da sito a sito (basata su IPsec)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [VPN da punto a sito (basata su IPsec)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Assegnazione di un indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address.md)
 

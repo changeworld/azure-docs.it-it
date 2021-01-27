@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: eb31bb09c1e09e4799715fc5a1cbca4b216b28a2
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 469d7ba9e86751312ebf6a6c82b35f065ee6cb50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922958"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880373"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Connettere un gateway VPN (gateway di rete virtuale) alla rete WAN virtuale
 
@@ -41,7 +41,7 @@ Creare un gateway di rete virtuale del **gateway VPN** in modalità attivo-attiv
 
 Nella pagina **configurazione** del gateway di rete virtuale abilitare la modalità Active-Active.
 
-![attivo-attivo](./media/connect-virtual-network-gateway-vwan/active.png "attiva-attiva")
+![attiva-attiva](./media/connect-virtual-network-gateway-vwan/active.png "attiva-attiva")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Impostazione BGP
 
@@ -91,7 +91,7 @@ In questa sezione viene scaricato il file di configurazione VPN per ogni sito cr
 
 In questa sezione vengono creati due gateway di rete locale del gateway VPN di Azure. I file di configurazione del passaggio precedente contengono le impostazioni di configurazione del gateway. Usare queste impostazioni per creare e configurare i gateway di rete locale del gateway VPN di Azure.
 
-1. Creare il gateway di rete locale usando queste impostazioni. Per informazioni su come creare un gateway di rete locale del gateway VPN, vedere l'articolo gateway VPN [creare un gateway di rete locale](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway).
+1. Creare il gateway di rete locale usando queste impostazioni. Per informazioni su come creare un gateway di rete locale del gateway VPN, vedere l'articolo gateway VPN [creare un gateway di rete locale](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
    * **Indirizzo IP** : usare l'indirizzo IP Instance0 visualizzato per *gatewayconfiguration* dal file di configurazione.
    * **BGP** : se la connessione è su BGP, selezionare **Configura le impostazioni BGP** e immettere il numero ASN "65515". Immettere l'indirizzo IP del peer BGP. Usare ' Instance0 BgpPeeringAddresses ' per *gatewayconfiguration* dal file di configurazione.
@@ -105,7 +105,7 @@ In questa sezione vengono creati due gateway di rete locale del gateway VPN di A
 
 ## <a name="5-create-connections"></a><a name="createlocalgateways"></a>5. creare connessioni
 
-In questa sezione viene creata una connessione tra il gateway di rete locale gateway VPN e il gateway di rete virtuale. Per i passaggi relativi alla creazione di una connessione gateway VPN, vedere [configurare una connessione](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#CreateConnection).
+In questa sezione viene creata una connessione tra il gateway di rete locale gateway VPN e il gateway di rete virtuale. Per i passaggi relativi alla creazione di una connessione gateway VPN, vedere [configurare una connessione](../vpn-gateway/tutorial-site-to-site-portal.md#CreateConnection).
 
 1. Nel portale passare al gateway di rete virtuale e fare clic su **connessioni**. Nella parte superiore della pagina Connessioni fare clic su **+Aggiungi** per aprire la pagina **Aggiungi connessione**.
 2. Nella pagina **Aggiungi connessione** configurare i valori seguenti per la connessione:
@@ -119,7 +119,7 @@ In questa sezione viene creata una connessione tra il gateway di rete locale gat
 3. Fare clic su **OK** per creare la connessione.
 4. È possibile visualizzare la connessione nella pagina **Connessioni** relativa al gateway di rete virtuale.
 
-   ![Connessione](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
+   ![Connection](./media/connect-virtual-network-gateway-vwan/connect.png "connection")
 5. Ripetere i passaggi precedenti per creare una seconda connessione. Per la seconda connessione selezionare l'altro gateway di rete locale creato.
 6. Se le connessioni sono su BGP, dopo avere creato le connessioni, passare a una connessione e selezionare **configurazione**. Nella pagina **configurazione** per **BGP** Selezionare **abilitato**. Fare quindi clic su **Salva**. Ripetere la ricerca per la seconda connessione.
 

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 02ce065c9eecf4b4bf616e40913fc5abd319c5a8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4714d9e089094e8990ac71d94107a20e0b7be776
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92442304"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876310"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery-by-using-azure-cli"></a>Anteprima: creare un'immagine Linux e distribuirla in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure
 
-Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](../windows/shared-image-galleries.md), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
+Questo articolo illustra come usare Image Builder e l'interfaccia della riga di comando di Azure per creare una versione dell'immagine in una [Raccolta immagini condivise](../shared-image-galleries.md), quindi come distribuire l'immagine globalmente. Questa operazione può essere eseguita anche tramite [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 Per configurare l'immagine si userà un modello di esempio con estensione json. Il file con estensione json usato è il seguente: [helloImageTemplateforSIG.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 
@@ -298,4 +298,4 @@ az group delete -n $sigResourceGroup -y
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulle [raccolte di immagini condivise di Azure](shared-image-galleries.md).
+Altre informazioni sulle [raccolte di immagini condivise di Azure](../shared-image-galleries.md).

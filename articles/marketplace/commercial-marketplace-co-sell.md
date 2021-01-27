@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 12/08/2020
-ms.openlocfilehash: b5001898fa18834ce7c04403de70879084df85f1
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: ca090d9bd4f5968b0404cb73af9f8d21197e695d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904909"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880962"
 ---
 # <a name="co-sell-option-in-the-commercial-marketplace"></a>Opzione di co-selling nel marketplace commerciale
 
-Fornire informazioni sul **co-selling con** la scheda Microsoft è interamente facoltativo. È necessario per ottenere [lo stato di incentivate di co-selling pronto e IP co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status). Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione dell'idoneità per le esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [co-selling con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Fornire informazioni sul **co-selling con** la scheda Microsoft è interamente facoltativo. È necessario per ottenere [lo stato di incentivate di co-selling pronto e IP co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). Le informazioni fornite verranno utilizzate dai team di vendita Microsoft per ottenere ulteriori informazioni sull'offerta durante la valutazione dell'idoneità per le esigenze dei clienti. Non saranno direttamente disponibile ai clienti. Per ulteriori informazioni, vedere la pagina relativa alla [co-selling con Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 L'opzione di co-selling in Partner Center è disponibile per i tipi di offerta seguenti.
 

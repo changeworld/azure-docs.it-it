@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: f9e7547b8b9a8728c2c1ce7d1d01d06ad1d55dc1
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
-ms.translationtype: HT
+ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387242"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879462"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Eseguire la migrazione di VM VMware ad Azure (senza agente)
 
@@ -90,7 +90,7 @@ Per abilitare la replica, procedere come descritto di seguito:
     - Crittografia dati inattivi con chiave gestita dal cliente
 
    > [!NOTE]
-   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](https://go.microsoft.com/fwlink/?linkid=2151800) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
+   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
   
 10. In **Vantaggio Azure Hybrid**:
 

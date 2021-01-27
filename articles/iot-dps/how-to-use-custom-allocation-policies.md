@@ -3,17 +3,17 @@ title: Criteri di allocazione personalizzati con il servizio Device provisioning
 description: Come usare i criteri di allocazione personalizzati con il servizio Device provisioning in hub Azure
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2019
+ms.date: 01/26/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 26615b82bb9dcbc1247bec9b7a06b579dfa1eb2b
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 4931258af0dd50d091bec98824df5da0e91dbf53
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571641"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895773"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -66,7 +66,7 @@ In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisio
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Usare il Azure Cloud Shell per creare un servizio Device provisioning con il comando [AZ Internet create](/cli/azure/iot/dps#az-iot-dps-create) . Il servizio di provisioning verrà aggiunto a *Contoso-US-Resource-Group*.
+2. Usare il Azure Cloud Shell per creare un servizio Device provisioning (DPS) con il comando [AZ Internet create](/cli/azure/iot/dps#az-iot-dps-create) . Il servizio di provisioning verrà aggiunto a *Contoso-US-Resource-Group*.
 
     Nell'esempio seguente viene creato un servizio di provisioning denominato *Contoso-Provisioning-Service-1098* nella località *westus* . È necessario usare un nome di servizio univoco. Creare il proprio suffisso nel nome del servizio al posto di **1098**.
 
@@ -96,6 +96,25 @@ In questa sezione si usa il Azure Cloud Shell per creare un servizio di provisio
 
     Il completamento del comando può richiedere alcuni minuti.
 
+5. Gli hub Internet delle cose devono essere collegati alla risorsa DPS. 
+
+    Eseguire i due comandi seguenti per ottenere le stringhe di connessione per gli hub appena creati:
+
+    ```azurecli-interactive 
+    hubToastersConnectionString=$(az iot hub connection-string show --hub-name contoso-toasters-hub-1098 --key primary --query connectionString -o tsv)
+    hubHeatpumpsConnectionString=$(az iot hub connection-string show --hub-name contoso-heatpumps-hub-1098 --key primary --query connectionString -o tsv)
+    ```
+
+    Eseguire i comandi seguenti per collegare gli hub alla risorsa DPS:
+
+    ```azurecli-interactive 
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubToastersConnectionString --location westus
+    az iot dps linked-hub create --dps-name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --connection-string $hubHeatpumpsConnectionString --location westus
+    ```
+
+
+
+
 ## <a name="create-the-custom-allocation-function"></a>Creare la funzione di allocazione personalizzata
 
 In questa sezione viene creata una funzione di Azure che implementa il criterio di allocazione personalizzato. Questa funzione decide quale Hub di tutti i componenti di un dispositivo deve essere registrato a seconda che l'ID di registrazione contenga la stringa **-Contoso-tstrsd-007** o **-Contoso-hpsd-088**. Imposta anche lo stato iniziale del dispositivo gemello a seconda che il dispositivo sia un tostapane o una pompa termica.
@@ -114,6 +133,8 @@ In questa sezione viene creata una funzione di Azure che implementa il criterio 
 
     **Stack di runtime**: selezionare **.NET Core** nell'elenco a discesa.
 
+    **Versione**: selezionare **3,1** dall'elenco a discesa.
+
     **Area**: selezionare la stessa area del gruppo di risorse. Questo esempio usa **Stati Uniti occidentali**.
 
     > [!NOTE]
@@ -123,19 +144,15 @@ In questa sezione viene creata una funzione di Azure che implementa il criterio 
 
 4. Nella pagina **Riepilogo** selezionare **Crea** per creare l'app per le funzioni. Questa operazione può richiedere alcuni minuti. Al termine, selezionare **Vai alla risorsa**.
 
-5. Nel riquadro sinistro della pagina **Panoramica** dell'app per le funzioni selezionare **+** accanto a **funzioni** per aggiungere una nuova funzione.
+5. Nel riquadro sinistro della pagina **Panoramica** dell'app per le funzioni fare clic su **funzioni** e quindi su **+ Aggiungi** per aggiungere una nuova funzione.
 
-    ![Aggiungere una funzione al app per le funzioni](./media/how-to-use-custom-allocation-policies/create-function.png)
+6. Nella pagina **Aggiungi funzione** fare clic su **trigger http**, quindi fare clic sul pulsante **Aggiungi** .
 
-6. Nella pagina di **Introduzione a funzioni di Azure per .NET** : per il passaggio **scegliere un ambiente di distribuzione** selezionare il riquadro **nel portale** , quindi selezionare **continua**.
+7. Nella pagina successiva fare clic su **codice + test**. In questo modo è possibile modificare il codice per la funzione denominata **HttpTrigger1**. Il file di codice **Run. CSX** deve essere aperto per la modifica.
 
-    ![Selezionare l'ambiente di sviluppo del portale](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
+8. Fare riferimento ai pacchetti NuGet necessari. Per creare il dispositivo gemello iniziale, la funzione di allocazione personalizzata usa le classi definite in due pacchetti NuGet che devono essere caricati nell'ambiente host. Con funzioni di Azure, viene fatto riferimento ai pacchetti NuGet usando un file *Function. proj* . In questo passaggio viene salvato e caricato un file *Function. proj* per gli assembly necessari.  Per altre informazioni, vedere [uso di pacchetti NuGet con funzioni di Azure](../azure-functions/functions-reference-csharp.md#using-nuget-packages).
 
-7. Nella pagina successiva, per il passaggio **creare una funzione** , selezionare il riquadro **webhook + API** , quindi selezionare **Crea**. Viene creata una funzione denominata **HttpTrigger1** e il portale Visualizza il contenuto del file di codice **Run. CSX** .
-
-8. Fare riferimento ai pacchetti NuGet necessari. Per creare il dispositivo gemello iniziale, la funzione di allocazione personalizzata usa le classi definite in due pacchetti NuGet che devono essere caricati nell'ambiente host. Con funzioni di Azure, viene fatto riferimento ai pacchetti NuGet usando un file *Function. host* . In questo passaggio si salva e si carica un file *Function. host* .
-
-    1. Copiare le righe seguenti nell'editor preferito e salvare il file nel computer come *Function. host*.
+    1. Copiare le righe seguenti nell'editor preferito e salvare il file nel computer come *Function. proj*.
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -143,21 +160,15 @@ In questa sezione viene creata una funzione di Azure che implementa il criterio 
                 <TargetFramework>netstandard2.0</TargetFramework>  
             </PropertyGroup>  
             <ItemGroup>  
-                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.5.0" />  
-                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.16.0" />  
+                <PackageReference Include="Microsoft.Azure.Devices.Provisioning.Service" Version="1.16.3" />
+                <PackageReference Include="Microsoft.Azure.Devices.Shared" Version="1.27.0" />
             </ItemGroup>  
         </Project>
         ```
 
-    2. Nella funzione **HttpTrigger1** espandere la scheda **Visualizza file** sul lato destro della finestra.
+    2. Fare clic sul pulsante **carica** posizionato sopra l'editor di codice per caricare il file *Function. proj* . Dopo il caricamento, selezionare il file nell'editor di codice usando la casella di riepilogo a discesa per verificarne il contenuto.
 
-        ![Apri file di visualizzazione](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
-
-    3. Selezionare **carica**, passare al file **Function. proj** e selezionare Open ( **Apri** ) per caricare il file.
-
-        ![Seleziona file di caricamento](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
-
-9. Sostituire il codice per la funzione **HttpTrigger1** con il codice seguente e selezionare **Save (Salva**):
+9. Assicurarsi che *Run. CSX* per **HttpTrigger1** sia selezionato nell'editor di codice. Sostituire il codice per la funzione **HttpTrigger1** con il codice seguente e selezionare **Save (Salva**):
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -314,29 +325,15 @@ In questa sezione si creerà un nuovo gruppo di registrazioni che usa il criteri
 
     **Selezionare la modalità secondo cui assegnare i dispositivi agli hub**: selezionare **Personalizzata (usa funzione di Azure)**.
 
+    **Sottoscrizione**: selezionare la sottoscrizione in cui è stata creata la funzione di Azure.
+
+    **App per le funzioni**: selezionare l'app per le funzioni in base al nome. in questo esempio è stato usato **Contoso-Function-app-1098** .
+
+    **Funzione**: selezionare la funzione **HttpTrigger1** .
+
     ![Aggiungere il gruppo di registrazioni dell'allocazione personalizzata per l'attestazione con chiave simmetrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. In **Aggiungi un gruppo di registrazione** selezionare **collega un nuovo hub** Internet per collegare entrambi i nuovi hub di Internet delle cose.
-
-    Eseguire questo passaggio per entrambi gli hub di Internet delle cose.
-
-    **Sottoscrizione**: se si dispone di più sottoscrizioni, scegliere quella in cui sono stati creati gli hub IoT delle divisioni.
-
-    **Hub IoT**: selezionare uno degli hub delle divisioni creato.
-
-    **Criteri di accesso**: scegliere **iothubowner**.
-
-    ![Collegare gli hub IoT delle divisioni al servizio di provisioning](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
-
-5. Una volta collegati entrambi gli hub IoT delle divisioni, in **Aggiungi gruppo di registrazioni** è necessario selezionarli come gruppo dell'hub IoT per il gruppo di registrazioni, come mostrato di seguito:
-
-    ![Creare il gruppo dell'hub della divisione per la registrazione](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
-
-6. In **Aggiungi gruppo di registrazione** scorrere verso il basso fino alla sezione **selezionare la funzione di Azure** e selezionare l'app per le funzioni creata nella sezione precedente. Selezionare quindi la funzione creata e fare clic su Save (Salva) per salvare il gruppo di registrazione.
-
-    ![Selezionare la funzione e salvare il gruppo di registrazione](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
-
-7. Dopo aver salvato la registrazione, aprirla nuovamente e annotare la **Chiave primaria**. È necessario salvare la registrazione prima di poter generare le chiavi. Questa chiave verrà usata per generare chiavi univoche di dispositivo per simulare i dispositivi in un secondo momento.
+4. Dopo aver salvato la registrazione, aprirla nuovamente e annotare la **Chiave primaria**. È necessario salvare la registrazione prima di poter generare le chiavi. Questa chiave verrà usata per generare chiavi univoche di dispositivo per simulare i dispositivi in un secondo momento.
 
 ## <a name="derive-unique-device-keys"></a>Derivare le chiavi univoche di dispositivo
 
@@ -386,7 +383,7 @@ Se si usa una workstation basata su Windows, è possibile usare PowerShell per g
     $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
     $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $hmacsha256.key = [Convert]::FromBase64String($KEY)
     $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
     $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
     $derivedkey1 = [Convert]::ToBase64String($sig1)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 987281bd13b7ac053f07a4ef1fb7605c85686d56
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 4deda838d229081ccd23c123f75d0c0ada2383bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898624"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878664"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -362,7 +362,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Flussi in ingresso registrati da indirizzi IP Internet alle VM senza IP pubblici**: le macchine virtuali che non hanno un indirizzo IP pubblico assegnato tramite un indirizzo IP pubblico associato alla scheda di interfaccia di rete come IP pubblico a livello di istanza o che fanno parte di un pool back-end di bilanciamento del carico di base, usano [SNAT predefiniti](../load-balancer/load-balancer-outbound-connections.md) e hanno un indirizzo IP assegnato da Azure per semplificare la connettività in uscita. Di conseguenza, è possibile visualizzare le voci del log di flusso per i flussi da indirizzi IP Internet, se il flusso è destinato a una porta nell'intervallo di porte assegnate per SNAT. Sebbene Azure non consenta questi flussi alla macchina virtuale, il tentativo viene registrato e viene visualizzato nel log di flusso NSG di Network Watcher in base alla progettazione. È consigliabile che il traffico Internet in ingresso indesiderato venga bloccato in modo esplicito con NSG.
 
-**Problema con il gateway applicazione V2 subnet NSG**: la registrazione dei flussi sulla subnet del gateway applicazione V2 NSG non è attualmente [supportata](https://docs.microsoft.com/azure/application-gateway/application-gateway-faq#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Questo problema non influisce sul gateway applicazione V1.
+**Problema con il gateway applicazione V2 subnet NSG**: la registrazione dei flussi sulla subnet del gateway applicazione V2 NSG non è attualmente [supportata](../application-gateway/application-gateway-faq.yml#are-nsg-flow-logs-supported-on-nsgs-associated-to-application-gateway-v2-subnet) . Questo problema non influisce sul gateway applicazione V1.
 
 **Servizi non compatibili**: a causa delle limitazioni correnti della piattaforma, un piccolo set di servizi di Azure non è supportato dai log dei flussi di NSG. L'elenco corrente dei servizi incompatibili è
 - [Servizio Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/)

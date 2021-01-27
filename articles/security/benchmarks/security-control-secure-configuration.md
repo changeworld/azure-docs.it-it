@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 349456b0a4de65520dd633efe0573d24ea1c89c4
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409026"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880170"
 ---
 # <a name="security-control-secure-configuration"></a>Controllo di sicurezza: configurazione sicura
 
@@ -88,9 +88,9 @@ Si noti inoltre che le immagini di macchine virtuali di Azure Marketplace pubbli
 
 - [Creare una macchina virtuale di Windows nel portale di Azure](../../virtual-machines/windows/quick-create-portal.md)
 
-- [Informazioni su come scaricare il modello di macchina virtuale](../../virtual-machines/windows/download-template.md)
+- [Informazioni su come scaricare il modello di macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](../../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 ## <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -118,7 +118,7 @@ Se si usano immagini personalizzate, usare il controllo degli accessi in base al
 
 - [Come configurare RBAC di Azure](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Panoramica sulla raccolta di immagini condivise](../../virtual-machines/windows/shared-image-galleries.md)
+- [Panoramica di raccolta immagini condivise](../../virtual-machines/shared-image-galleries.md)
 
 ## <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7,7: distribuire gli strumenti di gestione della configurazione per le risorse di Azure
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 0232682661387e635e6ce8bfb5fc6e03301d130c
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 4b7f71b5405708cc1988fafa5ca9c4628fe0d80b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694808"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882400"
 ---
 # <a name="register-and-scan-azure-data-lake-storage-gen2"></a>Registra e analizza Azure Data Lake Storage Gen2
 
@@ -48,7 +48,7 @@ Quando si sceglie **identità gestita**, per configurare la connessione, è prim
 1. Impostare il **ruolo** su **lettore dati BLOB di archiviazione** e immettere il nome dell'account Azure per la competenza in **Seleziona** casella di input. Quindi selezionare **Salva** per fornire questa assegnazione di ruolo all'account Purview.
 
 > [!Note]
-> Per altri dettagli, vedere la procedura in [autorizzare l'accesso a BLOB e code usando Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> Per altri dettagli, vedere la procedura in [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../storage/common/storage-auth-aad.md)
 
 #### <a name="account-key"></a>Chiave account
 

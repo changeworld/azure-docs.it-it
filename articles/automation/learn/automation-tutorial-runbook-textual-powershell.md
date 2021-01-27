@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: a1b0dff9421f493958554c659043c49ff2874379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 896b4db433164471f41aa09791ede5d677028bfb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015001"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896614"
 ---
 # <a name="tutorial-create-a-powershell-runbook"></a>Esercitazione: Creare un runbook di PowerShell
 
@@ -131,7 +131,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività utile. Si vuole fare in modo che gestisca le risorse di Azure. A tale scopo, il runbook deve eseguire l'autenticazione usando l'account RunAs creato automaticamente durante la creazione dell'account di Automazione.
 
-Come illustrato nell'esempio seguente, la connessione RunAs viene stabilita con il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-3.5.0). Se si gestiscono risorse in più sottoscrizioni, è necessario usare il parametro `AzContext` con il cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext?view=azps-3.5.0).
+Come illustrato nell'esempio seguente, la connessione RunAs viene stabilita con il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Se si gestiscono risorse in più sottoscrizioni, è necessario usare il parametro `AzContext` con il cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext).
 
 > [!NOTE]
 > Per i runbook PowerShell, `Add-AzAccount` e `Add-AzureRMAccount` sono alias per `Connect-AzAccount`. È possibile usare questi cmdlet oppure è possibile [aggiornare i moduli](../automation-update-azure-modules.md) nell'account di Automazione alle versioni più recenti. Potrebbe essere necessario aggiornare i moduli, anche se è stato appena creato un nuovo account di Automazione.
@@ -198,7 +198,7 @@ Come illustrato nell'esempio seguente, la connessione RunAs viene stabilita con 
 
 Ora che il runbook esegue l'autenticazione per la sottoscrizione di Azure è possibile gestire le risorse. Verrà aggiunto un comando per avviare una macchina virtuale. È possibile selezionare una macchina virtuale qualsiasi nella sottoscrizione di Azure. Per ora il nome sarà hardcoded nel runbook.
 
-1. Per avviare la macchina virtuale, aggiungere il cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) allo script del runbook. Come illustrato di seguito, il cmdlet avvia una macchina virtuale con il nome `VMName` e con un gruppo di risorse denominato `ResourceGroupName`.
+1. Per avviare la macchina virtuale, aggiungere il cmdlet [Start-AzVM](/powershell/module/Az.Compute/Start-AzVM) allo script del runbook. Come illustrato di seguito, il cmdlet avvia una macchina virtuale con il nome `VMName` e con un gruppo di risorse denominato `ResourceGroupName`.
 
    ```powershell
    # Ensures you do not inherit an AzContext in your runbook
@@ -275,7 +275,7 @@ Il runbook avvia effettivamente la macchina virtuale hardcoded nel runbook. Il r
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per altre informazioni su PowerShell, incluse le informazioni di riferimento sul linguaggio e i moduli di apprendimento, vedere la [documentazione di PowerShell](/powershell/scripting/overview).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).
 * Per iniziare a usare runbook grafici, vedere [Creare un runbook grafico](automation-tutorial-runbook-graphical.md).
 * Per iniziare a usare runbook del flusso di lavoro PowerShell, vedere [Creare un runbook del flusso di lavoro PowerShell](automation-tutorial-runbook-textual.md).
 * Per altre informazioni sui tipi di runbook, i relativi vantaggi e le limitazioni, vedere [Tipi di runbook di Automazione di Azure](../automation-runbook-types.md).
