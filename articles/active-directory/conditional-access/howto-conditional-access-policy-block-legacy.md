@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2499a89907eb63f01adbc80a6d206911c09c1259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265953"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877289"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -32,11 +32,11 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 1. Assegnare un nome al criterio. Per le organizzazioni è consigliabile creare uno standard significativo per i nomi dei propri criteri.
 1. In **Assegnazioni** selezionare **Utenti e gruppi**
    1. In **Includi** selezionare **Tutti gli utenti**.
-   1. In **Escludi**selezionare **Utenti e gruppi** e scegliere tutti gli account che devono continuare a poter usare l'autenticazione legacy. Escludere almeno un account evitare di venire bloccati. Se non si esclude alcun account, non sarà possibile creare questo criterio.
+   1. In **Escludi** selezionare **Utenti e gruppi** e scegliere tutti gli account che devono continuare a poter usare l'autenticazione legacy. Escludere almeno un account evitare di venire bloccati. Se non si esclude alcun account, non sarà possibile creare questo criterio.
    1. Selezionare **Operazione completata**.
 1. In **App Cloud o azioni** selezionare **Tutte le app Cloud**.
    1. Selezionare **Operazione completata**.
-1. In **condizioni**  >  **app client**impostare **Configura** su **Sì**.
+1. In **condizioni**  >  **app client** impostare **Configura** su **Sì**.
    1. Controllare solo le caselle **client di Exchange ActiveSync** e **altri client**.
    1. Selezionare **Operazione completata**.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**.
@@ -52,4 +52,4 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+[Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

@@ -1,26 +1,9 @@
 ---
-title: Servizio di crittografia e di distribuzione delle licenze DRM di Servizi multimediali di Azure
-titleSuffix: Azure Media Services
-description: Informazioni su come usare il servizio di crittografia dinamica e di distribuzione delle licenze DRM per distribuire flussi crittografati con licenze di Microsoft PlayReady, Google Widevine o Apple FairPlay.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: seodec18
-ms.openlocfilehash: abaa82d6f5f33a3dc29db50ae6d029dacd3f7c13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289359"
+title: crittografia DRM e servizio di distribuzione delle licenze di servizi multimediali di Azure: Descrizione di servizi multimediali di Azure: informazioni su come usare la crittografia dinamica DRM e il servizio di distribuzione delle licenze per distribuire flussi crittografati con le licenze Microsoft PlayReady, Google Widevine o Apple FairPlay.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: esercitazione ms. Date: 08/31/2020 ms. Author: inhenkel ms. Custom: seodec18
+
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Esercitazione: Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM
 
@@ -98,7 +81,7 @@ Prima di creare un nuovo oggetto **Transform**, è necessario verificare se ne e
 
 Come indicato sopra, l'oggetto **Transform** è la serie di istruzioni, mentre l'oggetto [Job](transforms-jobs-concept.md) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. Il **processo** specifica informazioni come la posizione del video di input e quella dell'output.
 
-In questa esercitazione si crea l'input del processo in base a un file che viene inserito direttamente da un [URL di origine HTTPs](job-input-from-http-how-to.md).
+In questa esercitazione si crea l'input del processo in base a un file che viene inserito direttamente da un [URL di origine HTTPS](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#SubmitJob)]
 

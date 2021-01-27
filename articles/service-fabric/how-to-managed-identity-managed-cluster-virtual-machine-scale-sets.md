@@ -4,19 +4,19 @@ description: Questo articolo illustra come aggiungere un'identità gestita a un 
 ms.topic: how-to
 ms.date: 11/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 00e679b07a44b799b6ac6677201bb59eeddcd6cf
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 9edcf75451f43f2a00cd01d5ca7f385704b1ea7f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96841469"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878427"
 ---
 # <a name="add-a-managed-identity-to-a-service-fabric-managed-cluster-node-type-preview"></a>Aggiungere un'identità gestita a un tipo di nodo del cluster gestito Service Fabric (anteprima)
 
-Ogni tipo di nodo in un cluster gestito da Service Fabric è supportato da un set di scalabilità di macchine virtuali. Per consentire l'utilizzo di identità gestite con un tipo di nodo cluster gestito, `vmManagedIdentity` è stata aggiunta una proprietà alle definizioni dei tipi di nodo contenenti un elenco di identità che possono essere utilizzate `userAssignedIdentities` . Il mirroring delle funzionalità consente di usare le identità gestite nei cluster non gestiti, ad esempio usando un'identità gestita con l' [estensione del set di scalabilità di macchine virtuali Azure Key Vault](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
+Ogni tipo di nodo in un cluster gestito da Service Fabric è supportato da un set di scalabilità di macchine virtuali. Per consentire l'utilizzo di identità gestite con un tipo di nodo cluster gestito, `vmManagedIdentity` è stata aggiunta una proprietà alle definizioni dei tipi di nodo contenenti un elenco di identità che possono essere utilizzate `userAssignedIdentities` . Il mirroring delle funzionalità consente di usare le identità gestite nei cluster non gestiti, ad esempio usando un'identità gestita con l' [estensione del set di scalabilità di macchine virtuali Azure Key Vault](../virtual-machines/extensions/key-vault-windows.md).
 
 
-Per un esempio di distribuzione di un cluster gestito Service Fabric che usa l'identità gestita in un tipo di nodo, vedere [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Per un elenco delle aree supportate, vedere [domande frequenti sul cluster gestito](https://docs.microsoft.com/azure/service-fabric/faq-managed-cluster#what-regions-are-supported-in-the-preview).
+Per un esempio di distribuzione di un cluster gestito Service Fabric che usa l'identità gestita in un tipo di nodo, vedere [questo modello](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-1-NT-MI). Per un elenco delle aree supportate, vedere [domande frequenti sul cluster gestito](./faq-managed-cluster.md#what-regions-are-supported-in-the-preview).
 
 > [!NOTE]
 > Per questa funzionalità sono attualmente supportate solo le identità assegnate dall'utente.
@@ -26,7 +26,7 @@ Per un esempio di distribuzione di un cluster gestito Service Fabric che usa l'i
 Prima di iniziare:
 
 * Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Se si prevede di usare PowerShell, [installare](https://docs.microsoft.com/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure per eseguire i comandi di riferimento cli.
+* Se si prevede di usare PowerShell, [installare](/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure per eseguire i comandi di riferimento cli.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente 
 
@@ -131,4 +131,4 @@ L'impossibilità di aggiungere correttamente un'assegnazione di ruolo verrà sod
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Distribuire un'app in un cluster gestito di Service Fabric](https://docs.microsoft.com/azure/service-fabric/tutorial-managed-cluster-deploy-app) 
+> [Distribuire un'app in un cluster gestito di Service Fabric](./tutorial-managed-cluster-deploy-app.md)

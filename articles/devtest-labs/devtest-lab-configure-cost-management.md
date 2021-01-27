@@ -3,12 +3,12 @@ title: Visualizzare la tendenza dei costi mensili stimati per il lab in Azure De
 description: Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab (grafico della tendenza dei costi mensili stimati) in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 220cbd1bc793e4bcfdf03a184d7463114506e6e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a2a9bef9e54ef7deda123aad34cf0c576fd158f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283827"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892338"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Tenere traccia dei costi associati a un Lab in Azure DevTest Labs
 Questo articolo fornisce informazioni su come tenere traccia dei costi del Lab. Viene illustrato come visualizzare la tendenza del costo stimato per il mese di calendario corrente per il Lab. Questo articolo illustra anche come visualizzare i costi mensili per ogni risorsa nel Lab.
@@ -38,7 +38,7 @@ Per visualizzare il grafico della tendenza dei costi mensili stimati, seguire qu
 
      I costi seguenti *non* sono inclusi nel calcolo dei costi:
 
-   * Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le [API di fatturazione di Azure](../cost-management-billing/manage/usage-rate-card-overview.md) , che non supportano le sottoscrizioni CSP o Dreamspark.
+   * Le sottoscrizioni CSP e Dreamspark non sono attualmente supportate in quanto, per calcolare il costo del lab, Azure DevTest Labs usa le API di fatturazione di Azure , che non supportano le sottoscrizioni CSP o Dreamspark.
    * Le tariffe della propria offerta. Al momento non è possibile includere le tariffe (indicate nella sottoscrizione) negoziate con Microsoft o i partner Microsoft. Vengono usate solo tariffe a consumo.
    * Le imposte
    * Gli sconti

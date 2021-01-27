@@ -9,18 +9,18 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 841247c03d9f3b151a0c75430715c03b009d831a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e360ae3cf0c463add9e6445a96c118d9f40ce9cb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287067"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878037"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image-with-azure-cli"></a>Creare un set di scalabilità da un'immagine generalizzata con interfaccia della riga di comando di Azure
 
-Creare un set di scalabilità da una versione di immagine generalizzata archiviata in una [raccolta di immagini condivise](shared-image-galleries.md) usando l'interfaccia della riga di comando di Azure. Se si vuole creare un set di scalabilità usando una versione di immagine specializzata, vedere [creare istanze del set di scalabilità da un'immagine specializzata](instance-specialized-image-version-cli.md).
+Creare un set di scalabilità da una versione di immagine generalizzata archiviata in una [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md) usando l'interfaccia della riga di comando di Azure. Se si vuole creare un set di scalabilità usando una versione di immagine specializzata, vedere [creare istanze del set di scalabilità da un'immagine specializzata](instance-specialized-image-version-cli.md).
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.4.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa esercitazione è necessario eseguire la versione 2.4.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 Sostituire i nomi delle risorse di questo esempio secondo necessità. 
 
@@ -55,7 +55,7 @@ az vmss create \
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/linux/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
+Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
 
 È anche possibile creare una risorsa di raccolta di immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
 
@@ -63,4 +63,4 @@ Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/linux/image
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](../virtual-machines/troubleshooting-shared-images.md).
+Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](../virtual-machines/shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](../virtual-machines/troubleshooting-shared-images.md).

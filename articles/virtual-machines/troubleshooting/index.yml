@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
-  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
-  ms.translationtype: HT
+  ms.openlocfilehash: ad47bde23a7125bac60c9f61687e3ff4e94b7a01
+  ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+  ms.translationtype: MT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94506040"
+  ms.lasthandoff: 01/27/2021
+  ms.locfileid: "98877697"
 landingContent:
 - title: Risolvere gli errori di distribuzione
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     - text: Risolvere i problemi di connessione RDP a macchine virtuali di Azure in base all'ID evento
       url: ./event-id-troubleshoot-vm-rdp-connecton.md
     - text: Risolvere gli errori di autenticazione quando si usa RDP per connettersi a una macchina virtuale di Azure
-      url: ./troubleshoot-authentication-error-rdp-vm.md
+      url: /troubleshoot/azure/virtual-machines/cannot-connect-rdp-azure-vm
     - text: La scheda di rete della macchina virtuale guest è disabilitata
       url: ./troubleshoot-rdp-nic-disabled.md
 - title: Reimpostazione della password

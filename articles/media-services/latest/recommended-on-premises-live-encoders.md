@@ -1,5 +1,5 @@
 ---
-title: Codificatori di streaming live consigliati da Servizi multimediali - Azure | Microsoft Docs
+title: Codificatori di streaming live consigliati da servizi multimediali-Azure
 description: Informazioni sui codificatori locali di streaming live consigliati da Servizi multimediali
 services: media-services
 keywords: codifica; codificatori; media
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: media-services
-ms.openlocfilehash: 88de41ae62e3a81fdb51981afe42135649bf34b4
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 6d54a4167739775d3c09740f25a883314e048c65
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94734311"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895170"
 ---
 # <a name="verified-on-premises-live-streaming-encoders"></a>Codificatori di streaming live locali verificati
 
@@ -117,7 +117,7 @@ Per la riproduzione di contenuti, devono essere presenti flussi audio e video. L
 > [!IMPORTANT]
 > Controllare la condizione fisica del computer (CPU/memoria/ecc.) come il caricamento di frammenti nel cloud implica operazioni di CPU e i/o. Se si modificano le impostazioni del codificatore, è necessario reimpostare l'evento Channels/Live per rendere effettive le modifiche.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Streaming live con Servizi multimediali v3](live-streaming-overview.md)
 

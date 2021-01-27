@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cab7bc7f79cccb1704d7046f79a2000028ffb729
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 430ece58bd3dc1651ac391ba0e29515085ee507b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233254"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878190"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -80,7 +80,7 @@ Preparare Azure per la migrazione con lo strumento Azure Migrate: Migrazione del
 
 **Attività** | **Dettagli**
 --- | ---
-**Creare un progetto di Azure Migrate** | Per [creare un nuovo progetto](https://docs.microsoft.com/azure/migrate/create-manage-projects), l'account Azure deve avere autorizzazioni di Collaboratore o Proprietario.
+**Creare un progetto di Azure Migrate** | Per [creare un nuovo progetto](./create-manage-projects.md), l'account Azure deve avere autorizzazioni di Collaboratore o Proprietario.
 **Verificare le autorizzazioni per l'account Azure** | L'account Azure necessita delle autorizzazioni per creare una macchina virtuale ed eseguire la scrittura su un disco gestito di Azure.
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto
@@ -256,7 +256,7 @@ La prima fase del processo di migrazione è la configurazione dell'appliance di 
     - Doppia crittografia con chiavi gestite dalla piattaforma e chiavi gestite dal cliente
 
    > [!NOTE]
-   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](https://go.microsoft.com/fwlink/?linkid=2151800) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
+   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
   
 12. In **Vantaggio Azure Hybrid**:
 

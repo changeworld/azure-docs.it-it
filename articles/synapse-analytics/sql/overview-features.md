@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3e64b9366bb0b9f15902e571b5e5d6e7f6b3f15
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f6ba22813139f5a4ad6c01073fe7f7b4b7d5346e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723728"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878156"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Funzionalità Transact-SQL supportate in Azure Synapse SQL
 
@@ -55,7 +55,7 @@ I linguaggi di query usati in Synapse SQL possono supportare funzionalità diver
 | **Istruzione INSERT** | Sì | No |
 | **Istruzione UPDATE** | Sì | No |
 | **Istruzione DELETE** | Sì | No |
-| **Istruzione merge** | Sì ([Anteprima](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | No |
+| **Istruzione merge** | Sì ([Anteprima](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | No |
 | **[Transazioni](develop-transactions.md)** | Sì | Sì, applicabile agli oggetti metadati. |
 | **[Etichette](develop-label.md)** | Sì | No |
 | **Caricamento dati** | Sì. L'utilità preferita è l'istruzione [COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), ma il sistema supporta sia il caricamento BULK (BCP) sia [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) per il caricamento dei dati. | No |

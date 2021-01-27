@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4a790c51cd0caa2c81275e7eafdd663f2f2f0116
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: e4e80990b32175842556059d005563a220d14688
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740193"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878461"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-tlsssl-certificates-stored-in-key-vault"></a>Esercitazione: Proteggere un server Web su una macchina virtuale Linux in Azure con certificati TLS/SSL archiviati in Key Vault
 Per proteggere i server Web, è possibile usare un certificato Transport Layer Security (TLS), precedentemente noto come Secure Sockets Layer (SSL), per crittografare il traffico Web. Questi certificati TLS/SSL possono essere archiviati in Azure Key Vault e consentono distribuzioni sicure dei certificati nelle macchine virtuali Linux in Azure. In questa esercitazione si apprenderà come:
@@ -42,7 +42,7 @@ Invece di usare un'immagine di macchina virtuale personalizzata che include cert
 
 
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
-Per poter creare un insieme di credenziali delle chiavi e i certificati, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupSecureWeb* nella località *eastus* :
+Per poter creare un insieme di credenziali delle chiavi e i certificati, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupSecureWeb* nella località *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupSecureWeb --location eastus
@@ -157,4 +157,4 @@ In questa esercitazione si è protetto un server Web NGINX con un certificato TL
 Seguire questo collegamento per vedere esempi di script predefiniti delle macchine virtuali.
 
 > [!div class="nextstepaction"]
-> [Esempi di script delle macchine virtuali Linux](./cli-samples.md)
+> [Esempi di script delle macchine virtuali Linux](https://github.com/Azure-Samples/azure-cli-samples/tree/master/virtual-machine)

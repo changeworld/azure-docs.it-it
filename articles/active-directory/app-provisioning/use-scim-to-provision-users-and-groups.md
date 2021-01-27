@@ -12,18 +12,19 @@ ms.date: 01/12/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 63bd44140ea5c355c3bb1a891a21e6c2e73ab041
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98679501"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892567"
 ---
-# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Esercitazione: Creare un endpoint SCIM e configurare il provisioning degli utenti con Azure AD
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
 Gli sviluppatori di applicazioni possono usare l'API SCIM (System for Cross-domain Identity Management) di gestione degli utenti per abilitare il provisioning automatico di utenti e gruppi tra l'applicazione e Azure AD. Questo articolo illustra come creare un endpoint SCIM ed eseguire l'integrazione con il servizio di provisioning di Azure AD. La specifica SCIM offre uno schema utente comune per il provisioning. In combinazione con standard di federazione come OpenID Connect o SAML, SCIM offre agli amministratori una soluzione end-to-end basata su standard per la gestione degli accessi.
 
-SCIM è una definizione standardizzata di due endpoint: un endpoint /Users e un endpoint /Groups. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Tutti i client SCIM conformi, ad esempio, sono in grado di inviare un HTTP POST di un oggetto JSON all'endpoint /Users per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
+SCIM è una definizione standardizzata di due endpoint: un `/Users` endpoint e un `/Groups` endpoint. Usa verbi REST comuni per creare, aggiornare ed eliminare oggetti e uno schema predefinito per attributi comuni come nome del gruppo, nome utente, nome, cognome e indirizzo di posta elettronica. Le app che offrono un'API REST SCIM 2.0 possono ridurre o eliminare le difficoltà associate all'uso di un'API proprietaria di gestione degli utenti. Ad esempio, tutti i client SCIM conformi sanno come inserire un HTTP POST di un oggetto JSON nell' `/Users` endpoint per creare una nuova voce utente. Invece di richiedere un'API leggermente diversa per le stesse azioni di base, le app conformi allo standard SCIM possono sfruttare immediatamente i vantaggi del codice, dei client e degli strumenti preesistenti. 
 
 ![Provisioning da Azure AD a un'app con SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
@@ -748,7 +749,9 @@ Il servizio di provisioning di Azure AD attualmente opera sotto gli intervalli d
 
 Dopo aver progettato lo schema e aver compreso l'implementazione SCIM di Azure AD, si può iniziare a sviluppare l'endpoint SCIM. Anziché iniziare da zero e creare autonomamente l'intera implementazione, è possibile usare diverse librerie SCIM open source pubblicate dalla community SCIM.
 
-Una risorsa di questo tipo, che consente di accelerare le attività di sviluppo, è il [codice di riferimento](https://aka.ms/SCIMReferenceCode) .NET Core open source pubblicato dal team di provisioning di Azure AD. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](#user-operations).  
+Per istruzioni su come compilare un endpoint SCIM, inclusi esempi, vedere [sviluppare un endpoint scim di esempio](use-scim-to-build-users-and-groups-endpoints.md).
+
+L'esempio di codice di [riferimento](https://aka.ms/SCIMReferenceCode) .NET Core open source pubblicato dal team di Azure ad provisioning è una risorsa di questo tipo che consente di avviare lo sviluppo. Dopo aver creato l'endpoint SCIM, sarà opportuno testarlo. È possibile usare la raccolta di [test Postman](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) offerti come parte del codice di riferimento oppure eseguire le richieste e le risposte di esempio riportate [sopra](#user-operations).  
 
    > [!Note]
    > Il codice di riferimento è utile per iniziare a creare l'endpoint SCIM e viene fornito "COSÌ COM'È". Sono benvenuti i contributi della community per la compilazione e la gestione del codice.
@@ -1127,11 +1130,17 @@ Le applicazioni che supportano il profilo SCIM descritto in questo articolo poss
 
 1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com). Si noti che è possibile ottenere l'accesso a una versione di valutazione gratuita per Azure Active Directory con licenze P2 iscrivendosi al [programma per sviluppatori](https://developer.microsoft.com/office/dev-program).
 2. Selezionare **Applicazioni aziendali** nel riquadro sinistro. Verrà visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta.
-3. Selezionare **+ Nuova applicazione** > **Tutte** > **Applicazione non nella raccolta**.
-4. Immettere un nome per l'applicazione e selezionare **Aggiungi** per creare un oggetto app. La nuova app verrà aggiunta all'elenco delle applicazioni aziendali e verrà visualizzata la schermata di gestione dell'app.
+3. Selezionare **+ nuova applicazione**  >  **+ Crea la propria applicazione**.
+4. Immettere un nome per l'applicazione, scegliere l'opzione "*integra qualsiasi altra applicazione non trovata nella raccolta*" e selezionare **Aggiungi** per creare un oggetto app. La nuova app verrà aggiunta all'elenco delle applicazioni aziendali e verrà visualizzata la schermata di gestione dell'app.
 
-   ![Screenshot che mostra la raccolta di applicazioni di Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
-   *Raccolta di applicazioni di Azure AD*
+   ![Screenshot mostra la raccolta di applicazioni di Azure AD ](media/use-scim-to-provision-users-and-groups/scim-figure-2b-1.png)
+    *Azure ad raccolta di applicazioni*
+
+   > [!NOTE]
+   > Se si usa la vecchia esperienza della raccolta di app, seguire la guida della schermata riportata di seguito.
+   
+   ![Screenshot mostra la Azure AD esperienza della raccolta di app precedente ](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)
+    *Azure ad esperienza della raccolta di app precedente*
 
 5. Nella schermata di gestione dell'app selezionare **Provisioning** nel pannello sinistro.
 6. Nel menu **Modalità di provisioning** selezionare **Automatica**.
@@ -1235,6 +1244,7 @@ Per favorire la conoscenza e la richiesta dell'integrazione congiunta, è consig
 
 ## <a name="related-articles"></a>Articoli correlati
 
+* [Sviluppare un endpoint SCIM di esempio](use-scim-to-build-users-and-groups-endpoints.md)
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](user-provisioning.md)
 * [Personalizzare i mapping degli attributi per il provisioning degli utenti](customize-application-attributes.md)
 * [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)

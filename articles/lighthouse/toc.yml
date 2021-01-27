@@ -45,6 +45,14 @@
           href: security-baseline.md
 - name: Guide pratiche
   items:
+    - name: Azioni cliente
+      items:
+        - name: Visualizzare e gestire i provider di servizi
+          displayName: 'customer, update, visibility, control'
+          href: ./how-to/view-manage-service-providers.md
+        - name: Visualizzare l'attività dei provider di servizi
+          displayName: 'monitor, log, customer, visibility, transparency, control'
+          href: ./how-to/view-service-provider-activity.md
     - name: Eseguire l'onboarding dei clienti in Azure Lighthouse
       displayName: resource management
       href: ./how-to/onboard-customer.md
@@ -87,14 +95,6 @@
           href: ./how-to/deploy-policy-remediation.md
     - name: Integrazione di Azure Sentinel
       href: ./how-to/manage-sentinel-workspaces.md
-    - name: Azioni cliente
-      items:
-        - name: Visualizzare e gestire i provider di servizi
-          displayName: 'customer, update'
-          href: ./how-to/view-manage-service-providers.md
-        - name: Visualizzare l'attività dei provider di servizi
-          displayName: 'monitor, log'
-          href: ./how-to/view-service-provider-activity.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

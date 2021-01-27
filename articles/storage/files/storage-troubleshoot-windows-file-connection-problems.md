@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8e657386c417ce3407aea9b3765419e1d2b70bb9
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 242c0819e916f3ea7912d4d57b7d3e338152e4d9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962449"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878511"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
@@ -263,7 +263,7 @@ Si potrebbe verificare un rallentamento delle prestazioni quando si prova a tras
 -   Se si conosce la dimensione finale del file che si vuole estendere con operazioni di scrittura e il software non ha problemi di compatibilità se la parte finale del file non ancora scritta contiene zeri, impostare le dimensioni del file in fase preliminare anziché lasciare che ogni operazione di scrittura venga considerata un'estensione.
 -   Usare il metodo di copia corretto:
     -   Usare [AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
-    -   Usare [Robocopy](./storage-files-deployment-guide.md#robocopy) tra condivisioni file in un computer locale.
+    -   Usare [Robocopy](./storage-how-to-create-file-share.md) tra condivisioni file in un computer locale.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Considerazioni per Windows 8.1 o Windows Server 2012 R2
 
@@ -406,8 +406,8 @@ Il cmdlet esegue questi controlli in sequenza e fornisce indicazioni sugli error
 5. CheckSidHasAadUser: verificare che l'utente di Active Directory connesso venga sincronizzato con Azure AD. Se si vuole cercare se un utente di Active Directory specifico viene sincronizzato con Azure AD, è possibile specificare il nome utente e il dominio nei parametri di input. 
 6. CheckGetKerberosTicket: tentativo di ottenere un ticket Kerberos per connettersi all'account di archiviazione. Se non è disponibile un token Kerberos valido, eseguire il cmdlet klist Get CIFS/storage-account-name. file. Core. Windows. NET ed esaminare il codice di errore per la radice, causando l'errore di recupero del ticket.
 7. CheckStorageAccountDomainJoined: verificare se l'autenticazione di Active Directory è stata abilitata e le proprietà di Active Directory dell'account sono popolate. In caso contrario, fare riferimento all' [istruzione seguente](./storage-files-identity-ad-ds-enable.md) per abilitare l'autenticazione di servizi di dominio Active directory su file di Azure. 
-8. CheckUserRbacAssignment: verificare se l'utente di Active Directory ha l'assegnazione di ruolo RBAC appropriata per fornire l'autorizzazione a livello di condivisione per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions) per configurare l'autorizzazione a livello di condivisione. (Supportato in AzFilesHybrid v 0.2.3 + versione)
-9. CheckUserFileAccess: verificare se l'utente di Active Directory dispone dell'autorizzazione file/directory (ACL Windows) appropriata per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-configure-permissions) per configurare l'autorizzazione a livello di directory/file. (Supportato in AzFilesHybrid v 0.2.3 + versione)
+8. CheckUserRbacAssignment: verificare se l'utente di Active Directory ha l'assegnazione di ruolo RBAC appropriata per fornire l'autorizzazione a livello di condivisione per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](./storage-files-identity-ad-ds-assign-permissions.md) per configurare l'autorizzazione a livello di condivisione. (Supportato in AzFilesHybrid v 0.2.3 + versione)
+9. CheckUserFileAccess: verificare se l'utente di Active Directory dispone dell'autorizzazione file/directory (ACL Windows) appropriata per accedere File di Azure. In caso contrario, fare riferimento all'istruzione [qui](./storage-files-identity-ad-ds-configure-permissions.md) per configurare l'autorizzazione a livello di directory/file. (Supportato in AzFilesHybrid v 0.2.3 + versione)
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Impossibile configurare le autorizzazioni a livello di directory/file (ACL di Windows) con Esplora file di Windows
 

@@ -2,15 +2,15 @@
 title: Distribuire un modello - Portale di Azure
 description: Informazioni su come creare il primo modello di Azure Resource Manager con il portale di Azure e distribuirlo.
 author: mumian
-ms.date: 06/29/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bdbcecc247a4b5318ba44b92befa7e90ac47aa8c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 946156caa7252a89cab006d604eb6b441e09c643
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349623"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98892500"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>Avvio rapido: Creare e distribuire modelli di Resource Manager con il portale di Azure
 
@@ -33,9 +33,11 @@ Molti sviluppatori esperti di modelli usano questo approccio per generare modell
 
     ![Scegliere Crea una risorsa dal menu del portale di Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
 
-1. Selezionare **Archiviazione** > **Account di archiviazione**.
+1. Nella casella di ricerca digitare **account di archiviazione** e quindi premere **[Invio]**.
+1. Selezionare **Crea**.
 
     ![Creare un account di archiviazione di Azure](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+
 1. Immettere le seguenti informazioni:
 
     |Nome|valore|

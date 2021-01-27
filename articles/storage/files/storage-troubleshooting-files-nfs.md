@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: jeffpatt
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 2a37c86268d2424971058021044c60185a25348f
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ed86cc76984388618c177590b3f6358421f09f65
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97916457"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878494"
 ---
 # <a name="troubleshoot-azure-nfs-file-shares"></a>Risolvere i problemi delle condivisioni file NFS di Azure
 
@@ -25,7 +25,7 @@ Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file NF
 File di Azure non consente UID/GID alfanumerico. Quindi, idmapping deve essere disabilitato. 
 
 ### <a name="cause-2-idmapping-was-disabled-but-got-re-enabled-after-encountering-bad-filedir-name"></a>Motivo 2: idmapping è stato disabilitato, ma è stato riabilitato dopo aver rilevato un nome file/dir non valido
-Anche se idmapping è stato disabilitato correttamente, in alcuni casi le impostazioni per la disabilitazione di idmapping vengono ignorate. Ad esempio, quando il File di Azure rileva un nome di file non valido, viene restituito un errore. Quando viene visualizzato questo particolare codice di errore, il client Linux NFS v 4,1 decide di riabilitare idmapping e le richieste future vengono nuovamente inviate con UID/GID alfanumerico. Per un elenco di caratteri non supportati in File di Azure, vedere questo [articolo](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#:~:text=The%20Azure%20File%20service%20naming%20rules%20for%20directory,be%20no%20more%20than%20255%20characters%20in%20length). Il segno di due punti è uno dei caratteri non supportati. 
+Anche se idmapping è stato disabilitato correttamente, in alcuni casi le impostazioni per la disabilitazione di idmapping vengono ignorate. Ad esempio, quando il File di Azure rileva un nome di file non valido, viene restituito un errore. Quando viene visualizzato questo particolare codice di errore, il client Linux NFS v 4,1 decide di riabilitare idmapping e le richieste future vengono nuovamente inviate con UID/GID alfanumerico. Per un elenco di caratteri non supportati in File di Azure, vedere questo [articolo](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata). Il segno di due punti è uno dei caratteri non supportati. 
 
 ### <a name="workaround"></a>Soluzione alternativa
 Verificare che idmapping sia disabilitato e che non sia stata riabilitata, quindi eseguire le operazioni seguenti:
@@ -68,7 +68,7 @@ NFS è disponibile solo negli account di archiviazione con la seguente configura
 - Livello Premium
 - Tipo di account-filestorage
 - Ridondanza-con ridondanza locale
-- Aree: [elenco delle aree supportate](https://docs.microsoft.com/azure/storage/files/storage-files-how-to-create-nfs-shares?tabs=azure-portal#regional-availability)
+- Aree: [elenco delle aree supportate](./storage-files-how-to-create-nfs-shares.md?tabs=azure-portal#regional-availability)
 
 #### <a name="solution"></a>Soluzione
 

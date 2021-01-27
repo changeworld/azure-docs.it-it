@@ -1,24 +1,9 @@
 ---
-title: Flusso di contenuto con l'integrazione della rete CDN
-titleSuffix: Azure Media Services
-description: Informazioni sul flusso di contenuto con l'integrazione della rete CDN, nonché la prelettura e la Origin-Assist della rete CDN.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 6bdf6015ca5633c77280111a55055a7394cee5bd
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001372"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
+title: flusso di contenuto con l'integrazione della rete CDN: Descrizione di servizi multimediali di Azure: informazioni sul flusso di contenuto con l'integrazione della rete CDN, oltre alla prelettura e Origin-Assist la prelettura della rete CDN.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 08/31/2020 ms. Author: inhenkel
 ---
+
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
@@ -32,7 +17,7 @@ Il contenuto popolare verrà servito direttamente dalla cache della rete CDN, pu
 È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità propria. Si supponga, ad esempio, la prima volta che un determinato video viene guardato. Se il Visualizzatore Ignora solo pochi secondi qui e qui, solo i frammenti video associati a ciò che l'utente ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta osservando una velocità in bit e un altro utente sta osservando una velocità in bit diversa, ognuno di essi viene memorizzato nella cache separatamente nella rete CDN. Anche se due persone stanno osservando la stessa velocità in bit, potrebbero trasmettere flussi su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
 
 Ad eccezione dell'ambiente di test, è consigliabile abilitare la rete CDN per gli endpoint di streaming standard e Premium. Ogni tipo di endpoint di streaming ha un limite di velocità effettiva supportato diverso.
-È difficile eseguire un calcolo preciso per il numero massimo di flussi simultanei supportati da un endpoint di streaming, in quanto esistono diversi fattori da tenere in considerazione. Queste includono:
+È difficile eseguire un calcolo preciso per il numero massimo di flussi simultanei supportati da un endpoint di streaming, in quanto esistono diversi fattori da tenere in considerazione. Tra queste sono incluse:
 
 - Velocità in bit massime usate per lo streaming
 - Comportamento del pre-buffer e del cambio del lettore. I giocatori tentano di aumentare i segmenti da un'origine e usano la velocità di caricamento per calcolare il cambio a bitrate adattivo. Se un endpoint di streaming si avvicina alla saturazione, i tempi di risposta possono variare e i giocatori iniziano a passare a una qualità inferiore. Poiché questa operazione riduce il carico sui giocatori dell'endpoint di streaming, è possibile aumentare la qualità creando trigger di cambio indesiderati.

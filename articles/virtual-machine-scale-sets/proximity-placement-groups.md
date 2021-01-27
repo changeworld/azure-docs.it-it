@@ -9,16 +9,16 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3a7b50c82b3deffa7526bfcfe799972c3b02762
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87011057"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877867"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Anteprima: Creazione e uso di gruppi di posizionamento di prossimità con PowerShell
 
-Se le macchine virtuali sono molto vicine, è possibile mantenere molto bassa la latenza. Per farlo, distribuire il set di scalabilità in un [gruppo di posizionamento di prossimità](co-location.md#preview-proximity-placement-groups).
+Se le macchine virtuali sono molto vicine, è possibile mantenere molto bassa la latenza. Per farlo, distribuire il set di scalabilità in un [gruppo di posizionamento di prossimità](../virtual-machines/co-location.md#proximity-placement-groups).
 
 Un gruppo di posizionamento di prossimità è un raggruppamento logico usato per assicurarsi che le risorse di calcolo di Azure si trovino una vicino all'altra. I gruppo di posizionamento di prossimità sono utili per i carichi di lavoro che richiedono una latenza ridotta.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: bed5373cbb9967bd1d86bb80bb3a449430c3b6ae
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2a37e716b7804b11ab396909f746af84294bb4e3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044782"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895272"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -106,7 +106,7 @@ Indipendentemente dal numero di disegni di entità presenti nel livello esterno,
 * Gli esterni devono essere disegnati come poligono, polilinea (chiusa), cerchio o ellisse (chiusa).
 * Gli esterni possono sovrapporsi, ma vengono risolti in un'unica geometria.
 * La funzionalità del livello risultante deve essere almeno 4 metri quadrati.
-* La funzionalità del livello risultante non può essere maggiore di 400 metri quadrati.
+* La funzionalità del livello risultante non può essere maggiore di 400.000 metri quadrati.
 
 Se il livello contiene più polilinee sovrapposte, le polilinee vengono dissolte in una funzionalità a un solo livello. In alternativa, se il livello contiene più polilinee non sovrapposte, la funzionalità del livello risultante avrà una rappresentazione multipoligonale.
 
@@ -198,7 +198,7 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 ### `directoryInfo`
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 | `name`      | string | true   |  Nome dell'edificio. |
 | `streetAddress`|    string |    false    | Indirizzo dell'edificio. |
@@ -219,7 +219,7 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |`levelName`    |string    |true |    Nome descrittivo del livello. Ad esempio: piano 1, lobby, parcheggio blu o seminterrato.|
 |`ordinal` | integer |    true | Determina l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
@@ -229,7 +229,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### `georeference`
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |`lat`    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |`lon`    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
@@ -251,7 +251,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |`unitName`    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando `unitName` viene trovata una corrispondenza tra etichette nei `unitLabel` livelli. |
 |`categoryName`|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
@@ -271,7 +271,7 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |

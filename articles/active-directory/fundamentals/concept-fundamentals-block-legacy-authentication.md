@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 01/26/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 24640254f32270b8c96c790dca7db31e285cc27f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95973712"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895289"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloccare l'autenticazione legacy
  
@@ -37,6 +37,7 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è necessario a
 1. Filtrare in base all' **app Client** > controllare tutte le opzioni dei **client di autenticazione legacy** presentate.
 1. Filtrare per **Stato** > **Riuscito**. 
 1. Se necessario, espandere l'intervallo di date con il filtro **Data**.
+1. Se è stata attivata la [nuova anteprima dei report delle attività di accesso](../reports-monitoring/concept-all-sign-ins.md), ripetere i passaggi precedenti anche nella scheda **accessi utente (non interattivo)** .
 
 Il filtro mostrerà solo i tentativi di accesso riusciti eseguiti dai protocolli di autenticazione legacy selezionati. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Dopo aver selezionato una singola riga di dati, la colonna App client o il campo App client nella scheda Informazioni di base indicano quale protocollo di autenticazione legacy è stato usato. Questi log indicano quali utenti ancora dipendono dall'autenticazione legacy e quali applicazioni usano protocolli legacy per eseguire le richieste di autenticazione. Per gli utenti che non figurano nei log e per i quali si ha la conferma che non usano l'autenticazione legacy, implementare un criterio di accesso condizionale o abilitare il criterio di base: bloccare l'autenticazione legacy solo per questi utenti.
 

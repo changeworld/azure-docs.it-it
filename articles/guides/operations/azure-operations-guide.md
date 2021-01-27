@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
-ms.translationtype: HT
+ms.openlocfilehash: c0269464352fa333c6447834a56c25348ecb71a3
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327774"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895255"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -54,7 +54,7 @@ Azure usa un modello di cloud computing basato sulle categorie dei servizi forni
 
 Un fornitore di cloud IaaS (Infrastructure as a Service, infrastruttura distribuita come servizio) si occupa del funzionamento e della gestione di tutte le risorse fisiche di calcolo e di tutto il software necessari per consentire la virtualizzazione di computer. Un cliente di questo servizio distribuisce macchine virtuali all'interno di centri dati ospitati. Anche se le macchine virtuali si trovano in un centro dati situato altrove, il consumer IaaS ha il controllo della configurazione e della gestione del sistema operativo, lasciando l’infrastruttura sottostante al fornitore del cloud.
 
-Azure include diverse soluzioni IaaS, ad esempio macchine virtuali e set di scalabilità di macchine virtuali, nonché la relativa infrastruttura di rete. Le macchine virtuali sono una scelta frequente per la migrazione iniziale dei servizi in Azure, poiché consentono di applicare il modello di migrazione "lift-and-shift". È possibile configurare una VM in base all'infrastruttura di esecuzione dei servizi nel centro dati attuale e quindi eseguire la migrazione del software nella nuova VM. Può essere necessario eseguire aggiornamenti di configurazione, ad esempio inserendo gli URL di altri servizi o di altre risorse di archiviazione, ma in questo modo è possibile eseguire la migrazione di molte applicazioni.
+Azure include diverse soluzioni IaaS, ad esempio macchine virtuali e set di scalabilità di macchine virtuali, nonché la relativa infrastruttura di rete. Le macchine virtuali sono una scelta molto diffusa per la migrazione iniziale dei servizi in Azure, perché consente un modello di migrazione "Lift-and-Shift". È possibile configurare una VM in base all'infrastruttura di esecuzione dei servizi nel centro dati attuale e quindi eseguire la migrazione del software nella nuova VM. Può essere necessario eseguire aggiornamenti di configurazione, ad esempio inserendo gli URL di altri servizi o di altre risorse di archiviazione, ma in questo modo è possibile eseguire la migrazione di molte applicazioni.
 
 I set di scalabilità di macchine virtuali, definiti a un livello superiore rispetto a quello delle macchine virtuali di Azure, rappresentano un modo semplice per distribuire cluster di VM identiche. I set di scalabilità di macchine virtuali supportano anche il ridimensionamento automatico. È quindi possibile distribuire automaticamente nuove VM quando necessario. I set di scalabilità di macchine virtuali rappresentano pertanto la piattaforma ideale per l'hosting di cluster di elaborazione di microservizi di livello superiore, come Azure Service Fabric e il servizio Azure Container.
 
@@ -62,11 +62,11 @@ I set di scalabilità di macchine virtuali, definiti a un livello superiore risp
 
 L'architettura PaaS (Platform as a Service, piattaforma distribuita come servizio) consente di distribuire le applicazioni in un ambiente messo a disposizione dal fornitore del servizio cloud. La gestione dell'infrastruttura viene interamente svolta dal fornitore. È quindi possibile concentrarsi sullo sviluppo di applicazioni e sulla gestione dei dati.
 
-Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del servizio app di Azure e Servizi cloud di Azure (ruoli Web e di lavoro). In entrambi i casi gli sviluppatori hanno a disposizione diverse modalità di distribuzione delle applicazioni senza dover conoscere i dettagli alla base del funzionamento di tali modalità. Gli sviluppatori non devono creare le macchine virtuali (VM, Virtual Machine), accedere a ognuna di queste tramite Remote Desktop Protocol (RDP) o installare l'applicazione. Devono solo premere un pulsante (o qualcosa del genere) e gli strumenti forniti da Microsoft effettueranno il provisioning delle VM (Virtual Machine, macchina virtuale) e quindi distribuiranno e installeranno l'applicazione all'interno di queste.
+Azure offre diverse soluzioni PaaS, ad esempio la funzionalità App Web del servizio app di Azure e Servizi cloud di Azure (ruoli Web e di lavoro). In entrambi i casi gli sviluppatori hanno a disposizione diverse modalità di distribuzione delle applicazioni senza dover conoscere i dettagli alla base del funzionamento di tali modalità. Gli sviluppatori non devono creare macchine virtuali (VM), usare Remote Desktop Protocol (RDP) per accedere a ciascuna di esse oppure installare l'applicazione. Devono solo premere un pulsante (o qualcosa del genere) e gli strumenti forniti da Microsoft effettueranno il provisioning delle VM (Virtual Machine, macchina virtuale) e quindi distribuiranno e installeranno l'applicazione all'interno di queste.
 
 #### <a name="saas-software-as-a-service"></a>SaaS: Software come un servizio
 
-Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Un sistema di questo tipo si basa in genere su un'architettura multi-tenant, in base alla quale viene usata un'unica versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
+Un sistema SaaS (Software as a Service, software come un servizio) è costituito da software ospitato e gestito in modo centralizzato. Si basa in genere su un'architettura multi-tenant: viene usata una singola versione dell'applicazione per tutti i clienti. È possibile scalare orizzontalmente questa architettura in più istanze, per garantire prestazioni ottimali in tutte le posizioni. Il software SaaS, in genere, viene concesso in licenza tramite una sottoscrizione mensile o annuale. I fornitori di software SaaS sono responsabili di tutti i componenti dello stack di software, in questo modo si gestiscono solo i servizi forniti.
 
 Microsoft 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
 
@@ -138,7 +138,7 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 
 Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un data center specifico in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
-Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche.
+Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in diversi Data Center in tutto il mondo. L'area scelta può influire sulle prestazioni dell'applicazione. È ottimale scegliere un'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -174,7 +174,7 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della riga di comando di Azure tramite un'esperienza accessibile tramite browser denominata Azure Cloud Shell. Questa interfaccia interattiva fornisce uno strumento flessibile per gli amministratori di Linux e Windows per usare la propria interfaccia della riga di comando scelta: Bash o PowerShell. È possibile accedere ad Azure Cloud Shell tramite il portale, come un'interfaccia web autonoma su [shell.azure.com](https://shell.azure.com), o da altri punti di accesso. Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](../../cloud-shell/overview.md).
+Gli amministratori possono accedere a Azure PowerShell e all’interfaccia della riga di comando di Azure tramite un'esperienza accessibile tramite browser denominata Azure Cloud Shell. Questa interfaccia interattiva fornisce uno strumento flessibile per gli amministratori di Linux e Windows per usare la propria interfaccia della riga di comando scelta: Bash o PowerShell. Azure Cloud Shell possibile accedere tramite il portale, come interfaccia Web autonoma in [Shell.Azure.com](https://shell.azure.com)o da diversi altri punti di accesso. Per altre informazioni, vedere [Panoramica di Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
 
@@ -184,17 +184,17 @@ Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a u
 
 Per poter usare i servizi di Azure è necessaria una sottoscrizione. Sono disponibili diversi tipi di sottoscrizione.
 
-**Account gratuiti** : il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
+**Account gratuiti**: il collegamento per la registrazione di un account gratuito è nel [sito Web Azure](https://azure.microsoft.com/). Questo account offre un credito di 30 giorni per provare una qualsiasi combinazione di risorse in Azure. Se si supera il credito disponibile, l'account viene sospeso. Alla fine del periodo di prova, i servizi vengono ritirati e non funzionano più. È possibile eseguire l'aggiornamento a una sottoscrizione con pagamento in base al consumo.
 
-**Sottoscrizioni MSDN** : con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
+**Sottoscrizioni MSDN**: con una sottoscrizione MSDN si ottiene un credito Azure di un certo importo ogni mese. Ad esempio, con una sottoscrizione Microsoft Visual Studio Enterprise 2015 con MSDN si ottiene un credito Azure di \$ 150 al mese.
 
-Se si supera il credito disponibile, il servizio viene disabilitato fino all'inizio del mese successivo. È possibile disattivare il limite di spesa e aggiungere una carta di credito da usare per i costi aggiuntivi. Per alcuni di questi costi vengono applicati sconti agli account MSDN. Ad esempio, per le macchine virtuali che eseguono Windows Server si paga il prezzo della sottoscrizione per Linux e non sono previsti costi aggiuntivi per i server Microsoft, come Microsoft SQL Server. Per questo motivo gli account MSDN sono ideali per gli scenari di sviluppo e test.
+Se si supera la quantità di credito, il servizio viene disabilitato fino all'inizio del mese successivo. È possibile disattivare il limite di spesa e aggiungere una carta di credito da usare per i costi aggiuntivi. Per alcuni di questi costi vengono applicati sconti agli account MSDN. Ad esempio, per le macchine virtuali che eseguono Windows Server si paga il prezzo della sottoscrizione per Linux e non sono previsti costi aggiuntivi per i server Microsoft, come Microsoft SQL Server. Per questo motivo gli account MSDN sono ideali per gli scenari di sviluppo e test.
 
-**Account BizSpark** : il programma Microsoft BizSpark offre numerosi vantaggi per le startup, ad esempio la possibilità di accedere a tutto il software Microsoft per gli ambienti di sviluppo e test per un numero di account MSDN fino a cinque. Per ognuno di questi cinque account MSDN si ottiene un credito Azure di $ 150 e una riduzione della tariffa per diversi servizi di Azure, ad esempio le macchine virtuali.
+**Account BizSpark**: il programma Microsoft BizSpark offre numerosi vantaggi per le startup, ad esempio la possibilità di accedere a tutto il software Microsoft per gli ambienti di sviluppo e test per un numero di account MSDN fino a cinque. Per ognuno di questi cinque account MSDN si ottiene un credito Azure di $ 150 e una riduzione della tariffa per diversi servizi di Azure, ad esempio le macchine virtuali.
 
-**Pagamento in base al consumo** : con questa sottoscrizione si paga in base all'uso, associando una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
+**Pagamento in base al consumo**: con questa sottoscrizione si paga in base all'uso, associando una carta di credito o di debito all'account. Le organizzazioni possono anche richiedere la fattura.
 
-**Contratti Enterprise** : con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
+**Contratti Enterprise**: con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concedere l'accesso amministrativo a una sottoscrizione di Azure
 
@@ -214,9 +214,7 @@ Oltre a visualizzare la fatturazione nel portale, è possibile accedere alle inf
 
 - È possibile usare l'API di uso di Azure per recuperare i dati di utilizzo. È anche possibile ottimizzare le informazioni di fatturazione sull'utilizzo assegnando tag a risorse di Azure correlate. Ad esempio, si può contrassegnare ogni risorsa di un gruppo di risorse con il nome di un reparto o di un progetto e quindi registrare i costi specifici per quel tag.
 
-- L'API tariffario pubblicitario di Azure può essere usata per visualizzare l'elenco di tutte le risorse disponibili, insieme ai metadati e alle informazioni sui prezzi di ognuna di tali risorse.
-
-Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+- Per elencare tutte le risorse disponibili, oltre ai metadati, è possibile usare la [Panoramica dell'API](../../cost-management-billing/manage/consumption-api-overview.md) utilizzo di Azure. Per altre informazioni sui prezzi, vedere [Panoramica dei prezzi al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prevedere i costi con il calcolatore dei prezzi
 
@@ -242,11 +240,11 @@ Gestione risorse offre numerosi vantaggi:
 
 - È anche possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 
-- Visualizzando i costi di un gruppo di risorse che condividono lo stesso tag si possono ottenere informazioni dettagliate sulla fatturazione per l'organizzazione.
+- È possibile chiarire la fatturazione dell'organizzazione visualizzando i costi per un gruppo di risorse che condividono lo stesso tag.
 
 ### <a name="tips-for-creating-resource-groups"></a>Suggerimenti per la creazione di un gruppo di risorse
 
-Al momento di prendere decisioni relative ai gruppi di risorse, tenere presenti questi suggerimenti:
+Quando si stanno prendendo decisioni sui gruppi di risorse, prendere in considerazione i suggerimenti seguenti:
 
 - Tutte le risorse nello stesso gruppo di risorse devono avere lo stesso ciclo di vita.
 
@@ -266,25 +264,25 @@ I modelli di Resource Manager definiscono in modo dichiarativo le risorse e le c
 
 Un modello di Resource Manager è costituito da quattro sezioni:
 
-- **Parametri** : input nella distribuzione. I valori dei parametri possono essere specificati da un utente o un da processo automatizzato. Un parametro di esempio può essere costituito dal nome utente amministratore e dalla password per una macchina virtuale di Windows. Se specificati, i valori dei parametri vengono usati per tutta la distribuzione.
+- **Parametri**: input nella distribuzione. I valori dei parametri possono essere specificati da un utente o un da processo automatizzato. Un parametro di esempio può essere costituito dal nome utente amministratore e dalla password per una macchina virtuale di Windows. I valori dei parametri vengono usati durante la distribuzione quando vengono specificati.
 
-- **Variabili** : contengono valori usati nel corso dell'intera distribuzione. A differenza dei parametri, i valori delle variabili non vengono specificati in fase di distribuzione, ma sono hardcoded codice o generati in modo dinamico.
+- **Variabili**: contengono valori usati nel corso dell'intera distribuzione. A differenza dei parametri, i valori delle variabili non vengono specificati in fase di distribuzione, È invece hardcoded o generato dinamicamente.
 
-- **Risorse** : questa sezione del modello definisce le risorse da distribuire, ad esempio macchine virtuali, account di archiviazione e reti virtuali.
+- **Risorse**: questa sezione del modello definisce le risorse da distribuire, ad esempio macchine virtuali, account di archiviazione e reti virtuali.
 
-- **Output** : al termine di una distribuzione, Resource Manager può restituire dati, ad esempio stringhe di connessione generate dinamicamente.
+- **Output**: al termine di una distribuzione, Resource Manager può restituire dati, ad esempio stringhe di connessione generate dinamicamente.
 
 Per l'automazione della distribuzione sono disponibili i meccanismi seguenti:
 
-- **Funzioni** : nei modelli di Resource Manager è possibile usare diverse funzioni. Queste prevedono l'esecuzione di operazioni, ad esempio la conversione di una stringa in lettere minuscole, la distribuzione di più istanze di una risorsa definita e la restituzione dinamica del gruppo di risorse di destinazione. Le funzioni di Resource Manager facilitano la creazione di distribuzioni dinamiche.
+- **Funzioni**: nei modelli di Resource Manager è possibile usare diverse funzioni. Queste prevedono l'esecuzione di operazioni, ad esempio la conversione di una stringa in lettere minuscole, la distribuzione di più istanze di una risorsa definita e la restituzione dinamica del gruppo di risorse di destinazione. Le funzioni di Resource Manager facilitano la creazione di distribuzioni dinamiche.
 
-- **Dipendenze delle risorse** : quando si distribuiscono più risorse, alcune saranno dipendenti da altre. Per semplificare la distribuzione, è possibile usare una dichiarazione di dipendenza, in modo che le risorse dipendenti vengono distribuite prima delle altre.
+- **Dipendenze delle risorse**: quando si distribuiscono più risorse, alcune risorse avranno una dipendenza da altri. Per semplificare la distribuzione, è possibile usare una dichiarazione di dipendenza, in modo che le risorse dipendenti vengono distribuite prima delle altre.
 
-- **Collegamento di modelli** : dall'interno di un modello di Resource Manager è possibile collegarsi a un altro modello. Ciò consente la scomposizione della distribuzione in un set di modelli di destinazione con scopi specifici.
+- **Collegamento di modelli**: dall'interno di un modello di Resource Manager è possibile collegarsi a un altro modello. Ciò consente la scomposizione della distribuzione in un set di modelli di destinazione con scopi specifici.
 
 È possibile creare modelli di Resource Manager in qualsiasi editor di testo. Tuttavia, Azure SDK per Visual Studio include strumenti che facilitano questa operazione. Con Visual Studio è possibile aggiungere risorse al modello tramite una procedura guidata e quindi eseguire la distribuzione e il debug del modello direttamente da Visual Studio. Per altre informazioni, vedere [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 
-Infine, dal Portale di Azure è possibile convertire gruppi di risorse esistenti in un modello riutilizzabile. Ciò può essere utile se si vuole creare un modello distribuibile di un gruppo di risorse esistente o si vuole solo esaminare il codice JSON sottostante. Per esportare un gruppo di risorse, selezionare il pulsante **Script di automazione** dalle impostazioni del gruppo di risorse.
+Infine, dal Portale di Azure è possibile convertire gruppi di risorse esistenti in un modello riutilizzabile. Ciò può essere utile se si vuole creare un modello distribuibile di un gruppo di risorse esistente o si vuole solo esaminare il codice JSON sottostante. Per esportare un gruppo di risorse, selezionare il pulsante **script di automazione** nelle impostazioni del gruppo di risorse.
 
 ## <a name="security-of-azure-resources-azure-rbac"></a>Sicurezza delle risorse di Azure (controllo degli accessi in base al ruolo di Azure)
 
@@ -292,19 +290,19 @@ Infine, dal Portale di Azure è possibile convertire gruppi di risorse esistenti
 
 Per concedere l'accesso, si assegna un ruolo all'utente o al gruppo di utenti. Sono disponibili numerosi ruoli predefiniti. È anche possibile definire ruoli personalizzati.
 
-Ecco alcuni esempi di [ruoli incorporati in Azure](../../role-based-access-control/built-in-roles.md):
+Di seguito sono riportati alcuni esempi di [ruoli predefiniti in Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Proprietario** : un utente con questo ruolo può gestire qualsiasi aspetto, incluso l'accesso.
+- **Proprietario**: un utente con questo ruolo può gestire qualsiasi aspetto, incluso l'accesso.
 
-- **Lettore** : un utente con questo ruolo può accedere in lettura alle risorse di qualsiasi tipo, ad eccezione dei segreti, ma non può apportare modifiche.
+- **Reader**: un utente con questo ruolo può leggere le risorse di tutti i tipi (eccetto i segreti) ma non può apportare modifiche.
 
-- **Collaboratore Macchina virtuale** : un utente con questo ruolo può gestire le macchine virtuali ma non la rete virtuale alla quale sono connesse o l'account di archiviazione in cui risiede il file del disco rigido virtuale.
+- **Collaboratore macchina virtuale**: un utente con questo ruolo può gestire le macchine virtuali, ma non può gestire la rete virtuale a cui sono connesse o l'account di archiviazione in cui risiede il file VHD.
 
-- **Collaboratore Database SQL** : un utente con questo ruolo può gestire database SQL, ma non i criteri correlati alla sicurezza.
+- **Collaboratore Database SQL**: un utente con questo ruolo può gestire database SQL, ma non i criteri correlati alla sicurezza.
 
-- **Gestore Sicurezza SQL** : un utente con questo ruolo può gestire i criteri correlati alla sicurezza di server e database SQL.
+- **Gestore Sicurezza SQL**: un utente con questo ruolo può gestire i criteri correlati alla sicurezza di server e database SQL.
 
-- **Collaboratore Account di archiviazione** : un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
+- **Collaboratore Account di archiviazione**: un utente con questo ruolo può gestire gli account di archiviazione, ma non l'accesso a questi.
 
 Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -312,9 +310,9 @@ Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di 
 
 Macchine virtuali di Azure è uno dei servizi IaaS più importanti di Azure. Macchine virtuali di Azure supporta la distribuzione di macchine virtuali Windows o Linux in un centro dati di Microsoft Azure. Con Macchine virtuali di Azure l'utente ha il controllo completo della configurazione delle VM ed è responsabile dell'installazione, della configurazione e della manutenzione di tutto il software.
 
-Quando si distribuisce una VM di Azure, è possibile selezionare un'immagine da Azure Marketplace oppure fornire una propria immagine generalizzata. Questa immagine viene usata per applicare il sistema operativo e la configurazione iniziale. Durante la distribuzione, Resource Manager gestisce alcune impostazioni di configurazione, ad esempio l'assegnazione del nome computer, le credenziali amministrative e la configurazione di rete. È possibile usare le estensioni macchina virtuale di Azure per automatizzare ancora di più le operazioni di configurazione, ad esempio l'installazione di software, la configurazione dell'antivirus e il monitoraggio delle soluzioni.
+Quando si distribuisce una macchina virtuale di Azure, è possibile selezionare un'immagine da Azure Marketplace oppure è possibile specificare un'immagine generalizzata. Questa immagine viene usata per applicare il sistema operativo e la configurazione iniziale. Durante la distribuzione, Resource Manager gestisce alcune impostazioni di configurazione, ad esempio l'assegnazione del nome computer, le credenziali amministrative e la configurazione di rete. È possibile usare le estensioni macchina virtuale di Azure per automatizzare ancora di più le operazioni di configurazione, ad esempio l'installazione di software, la configurazione dell'antivirus e il monitoraggio delle soluzioni.
 
-È possibile creare macchine virtuali con un'ampia scelta di dimensioni. Le dimensioni della macchina virtuale determinano l'allocazione delle risorse, ad esempio la capacità di elaborazione e di archiviazione e la memoria. In alcuni casi, funzionalità specifiche quali le schede di interfaccia di rete abilitate per RDMA e i dischi SSD sono disponibili solo con determinate dimensioni di VM. Per l'elenco completo delle funzionalità e delle dimensioni delle VM, vedere "Dimensioni per le macchine virtuali in Azure" per [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
+È possibile creare macchine virtuali con un'ampia scelta di dimensioni. Le dimensioni della macchina virtuale determinano l'allocazione delle risorse, ad esempio la capacità di elaborazione e di archiviazione e la memoria. In alcuni casi, funzionalità specifiche quali le schede di interfaccia di rete abilitate per RDMA e i dischi SSD sono disponibili solo con determinate dimensioni di VM. Per un elenco completo delle dimensioni e delle funzionalità delle VM, vedere "dimensioni delle macchine virtuali in Azure" per [Windows](../../virtual-machines/sizes.md) e [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Casi d'uso
 
@@ -326,7 +324,7 @@ Poiché le macchine virtuali di Azure consentono il controllo completo della con
 
 #### <a name="portal"></a>Portale
 
-Per la distribuzione di una macchina virtuale tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile selezionare molte immagini di sistemi operativi diversi con configurazioni diverse. Tutti i requisiti di archiviazione e di rete vengono configurati durante la distribuzione. Per altre informazioni, vedere "Creare una macchina virtuale nel Portale di Azure" per [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
+Per la distribuzione di una macchina virtuale tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile selezionare molte immagini di sistemi operativi diversi con configurazioni diverse. Tutti i requisiti di archiviazione e di rete vengono configurati durante la distribuzione. Per ulteriori informazioni, vedere "creare una macchina virtuale nell'portale di Azure" per [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 Oltre alle macchine virtuali, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
@@ -338,7 +336,7 @@ Oltre a distribuire singole risorse di calcolo di Azure, è possibile usare il m
 
 #### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando (CLI)
 
-Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. Quando si usa il comando **vm quick-create** dell'interfaccia della riga di comando di Azure, vengono distribuite, oltre alla macchina virtuale stessa, tutte le risorse correlate, incluse le risorse di archiviazione e di rete. Per altre informazioni, vedere [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/quick-create-cli.md).
+Come il modulo PowerShell, l'interfaccia della riga di comando di Azure consente l'automazione della distribuzione e può essere usata all'interno di sistemi Windows, OS X e Linux. Quando si usa il comando di **creazione rapida della VM** dell'interfaccia della riga di comando di Azure, vengono distribuite tutte le risorse correlate della macchina virtuale (inclusa l'archiviazione e la rete) e la macchina virtuale stessa. Per altre informazioni, vedere [Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../../virtual-machines/linux/quick-create-cli.md).
 
 Analogamente, è possibile usare l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/templates/deploy-cli.md).
 
@@ -356,11 +354,11 @@ Archiviazione di Azure è un servizio gestito da Microsoft che offre risorse di 
 
 Gli account di archiviazione di Azure possono essere configurati con diversi livelli di ridondanza:
 
-- L' **archiviazione con ridondanza locale** garantisce la disponibilità elevata considerando riuscita un'operazione di scrittura solo se vengono eseguite in modo sincrono tre copie di tutti i dati. Queste copie vengono archiviate in un'unica struttura in un'unica area. Le repliche risiedono in domini di errore e domini di aggiornamento distinti. Ciò significa che i dati sono disponibili anche se un nodo di archiviazione contenente i dati si guasta o viene disconnesso per un aggiornamento.
+- L'**archiviazione con ridondanza locale** garantisce la disponibilità elevata considerando riuscita un'operazione di scrittura solo se vengono eseguite in modo sincrono tre copie di tutti i dati. Queste copie vengono archiviate in un'unica struttura in un'unica area. Le repliche risiedono in domini di errore e domini di aggiornamento distinti. Ciò significa che i dati sono disponibili anche se un nodo di archiviazione che contiene i dati ha esito negativo o viene portato offline per l'aggiornamento.
 
-- L' **archiviazione con ridondanza geografica** crea tre copie sincrone dei dati nell'area primaria per la disponibilità elevata e quindi esegue tre repliche asincrone in un'area abbinata da usare per un eventuale ripristino di emergenza.
+- L'**archiviazione con ridondanza geografica** crea tre copie sincrone dei dati nell'area primaria per la disponibilità elevata e quindi esegue tre repliche asincrone in un'area abbinata da usare per un eventuale ripristino di emergenza.
 
-- L' **archiviazione con ridondanza geografica e accesso in lettura** corrisponde all'archiviazione con ridondanza geografica, con in più la possibilità di leggere i dati nell'area secondaria. Questa possibilità rende questa opzione ideale per il ripristino di emergenza parziale. Nel caso di un problema con l'area primaria, è possibile modificare l'applicazione in modo che possa accedere in sola lettura all'area abbinata.
+- L'**archiviazione con ridondanza geografica e accesso in lettura** corrisponde all'archiviazione con ridondanza geografica, con in più la possibilità di leggere i dati nell'area secondaria. Questa possibilità rende questa opzione ideale per il ripristino di emergenza parziale. Se si verifica un problema con l'area primaria, è possibile modificare l'applicazione per avere accesso in sola lettura all'area abbinata.
 
 ### <a name="use-cases"></a>Casi d'uso
 
@@ -372,11 +370,11 @@ Il termine *BLOB* è l'acronimo di *Binary Large OBject* (oggetto binario di gra
 
 Archiviazione di Azure supporta tre tipi di BLOB:
 
-- **BLOB in blocchi** , usati per contenere file normali con dimensioni fino a 195 GB (4 MB × 50.000 blocchi). Il caso d'uso principale dei BLOB in blocchi è l'archiviazione di file che vengono letti dall'inizio alla fine, ad esempio i file multimediali o di immagine per i siti Web. Si chiamano BLOB in blocchi perché i file più grandi di 64 MB devono essere caricati come blocchi di piccole dimensioni. Questi blocchi vengono quindi consolidati (ne viene eseguito il commit) nell'oggetto BLOB finale.
+- **BLOB in blocchi**, usati per contenere file normali con dimensioni fino a 195 GB (4 MB × 50.000 blocchi). Il caso d'uso principale dei BLOB in blocchi è l'archiviazione di file che vengono letti dall'inizio alla fine, ad esempio i file multimediali o di immagine per i siti Web. Si chiamano BLOB in blocchi perché i file più grandi di 64 MB devono essere caricati come blocchi di piccole dimensioni. Questi blocchi vengono quindi consolidati (ne viene eseguito il commit) nell'oggetto BLOB finale.
 
-- **BLOB di pagine** , usati per contenere file ad accesso casuale con dimensioni fino a 1 TB. I BLOB di pagine vengono usati principalmente per l'archiviazione di backup dei dischi rigidi virtuali che fungono da dischi durevoli di Macchine virtuali di Azure, il servizio di calcolo IaaS di Azure. Si chiamano BLOB di pagine perché consentono l'accesso in lettura/scrittura casuale a pagine da 512 byte.
+- **BLOB di pagine**, usati per contenere file ad accesso casuale con dimensioni fino a 1 TB. I BLOB di pagine vengono usati principalmente per l'archiviazione di backup dei dischi rigidi virtuali che fungono da dischi durevoli di Macchine virtuali di Azure, il servizio di calcolo IaaS di Azure. Si chiamano BLOB di pagine perché consentono l'accesso in lettura/scrittura casuale a pagine da 512 byte.
 
-- **BLOB di accodamento** , costituiti da blocchi come i BLOB in blocchi, ma ottimizzati per le operazioni di accodamento. Questi vengono spesso usati per la registrazione di informazioni da una o più origini nello stesso BLOB. È ad esempio possibile scrivere nello stesso BLOB di accodamento tutte le informazioni di registrazione traccia per un'applicazione in esecuzione in più VM. Le dimensioni di un BLOB di accodamento singolo possono arrivare fino a un massimo di 195 GB.
+- **BLOB di accodamento**, costituiti da blocchi come i BLOB in blocchi, ma ottimizzati per le operazioni di accodamento. Questi vengono spesso usati per la registrazione di informazioni da una o più origini nello stesso BLOB. Ad esempio, è possibile scrivere tutta la registrazione della traccia nello stesso BLOB di Accodamento per un'applicazione in esecuzione in più macchine virtuali. Le dimensioni di un BLOB di accodamento singolo possono arrivare fino a un massimo di 195 GB.
 
 Per altre informazioni, vedere [Introduzione all'archiviazione BLOB di Azure con .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md) .
 
@@ -408,7 +406,7 @@ Per la distribuzione di un account di archiviazione sono disponibili diverse opz
 
 #### <a name="portal"></a>Portale
 
-Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file tramite il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
+Per la distribuzione di un account di archiviazione tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire un nuovo account di archiviazione in un gruppo di risorse nuovo o esistente. Dopo aver creato l'account di archiviazione, è possibile creare un contenitore BLOB o una condivisione file usando il portale. È possibile creare entità di archiviazione di tabelle e code a livello di codice. Per altre informazioni, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
 
 Oltre agli account di archiviazione, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello, compresi eventuali account di archiviazione. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
@@ -430,7 +428,7 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 #### <a name="virtual-machine-disks"></a>Dischi delle macchine virtuali
 
-Quando si distribuisce una macchina virtuale, è necessario creare anche un account di archiviazione per il disco del sistema operativo della macchina virtuale e per eventuali dischi dati aggiuntivi. È possibile selezionare un account di archiviazione esistente o crearne uno nuovo. Poiché la dimensione massima di un BLOB è di 1.024 GB, un disco di macchina virtuale singolo può avere una dimensione massima di 1.023 GB. Per configurare un disco dati di maggiori dimensioni, è possibile esporre più dischi dati alla macchina virtuale e riunirli in un pool sotto forma di disco logico singolo. Per altre informazioni, vedere gli articoli relativi alla gestione dei dischi di Azure per [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
+Quando si distribuisce una macchina virtuale, è necessario creare anche un account di archiviazione per conservare il disco del sistema operativo della macchina virtuale ed eventuali dischi dati aggiuntivi. È possibile selezionare un account di archiviazione esistente o crearne uno nuovo. Poiché la dimensione massima di un BLOB è di 1.024 GB, un disco di macchina virtuale singolo può avere una dimensione massima di 1.023 GB. Per configurare un disco dati di maggiori dimensioni, è possibile esporre più dischi dati alla macchina virtuale e riunirli in un pool sotto forma di disco logico singolo. Per altre informazioni, vedere la sezione relativa alla gestione dei dischi di Azure per [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) e [Linux](../../virtual-machines/linux/tutorial-manage-disks.md).
 
 #### <a name="storage-tools"></a>Strumenti di archiviazione
 
@@ -438,7 +436,7 @@ Quando si distribuisce una macchina virtuale, è necessario creare anche un acco
 
 #### <a name="storage-api"></a>API di archiviazione
 
-Le risorse di archiviazione sono accessibili da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS. In Archiviazione di Azure sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni. Tali librerie semplificano l'uso di Archiviazione di Azure gestendo dettagli come la chiamata sincrona e asincrona, l'invio di operazioni in batch, la gestione delle eccezioni e la ripetizione automatica dei tentativi. Per altre informazioni, vedere [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (Informazioni di riferimento per l'API REST del servizio Archiviazione di Azure).
+Le risorse di archiviazione sono accessibili da qualsiasi linguaggio in grado di eseguire richieste HTTP/HTTPS. In Archiviazione di Azure sono inoltre disponibili librerie di programmazione per diversi linguaggi comuni. Queste librerie semplificano l'uso dell'archiviazione di Azure gestendo dettagli come la chiamata sincrona e asincrona, l'invio in batch delle operazioni, la gestione delle eccezioni e i tentativi automatici. Per altre informazioni, vedere [Azure Storage service REST API reference](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (Informazioni di riferimento per l'API REST del servizio Archiviazione di Azure).
 
 #### <a name="storage-access-keys"></a>Chiavi di accesso alle risorse di archiviazione
 
@@ -446,7 +444,7 @@ Per ogni account di archiviazione esistono due chiavi di autenticazione: una chi
 
 #### <a name="shared-access-signatures"></a>Firme di accesso condiviso
 
-Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chi possiede il token può accedere alla risorsa a cui questo fa riferimento con le autorizzazioni specificate all'interno di esso per il periodo di validità del token stesso. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md).
+Se si deve concedere agli utenti un accesso controllato alle risorse di archiviazione, è possibile creare una firma di accesso condiviso. Una firma di accesso condiviso è un token che può essere accodato a un URL per consentire l'accesso delegato a una risorsa di archiviazione. Chiunque disponga del token può accedere alla risorsa a cui punta con le autorizzazioni specificate, per il periodo di tempo in cui è valido. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Rete virtuale di Azure
 
@@ -473,9 +471,9 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 - Modelli di Azure Resource Manager
 
-> **Uso consigliato** : ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
+> **Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
 >
-> **Come iniziare** : Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
+> **Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali
 

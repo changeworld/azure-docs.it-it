@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: contperf-fy21q1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: d30998e0d99ba7b1eeb55bdc47cd5cc54690156f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: f3c147b292ab21bd4e568f9e52acef07396acc28
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032916"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878223"
 ---
 # <a name="using-snat-for-outbound-connections"></a>Uso di SNAT per le connessioni in uscita
 
@@ -22,7 +22,7 @@ Gli indirizzi IP front-end di un servizio di bilanciamento del carico pubblico d
 SNAT Abilita il **mascheramento IP** dell'istanza back-end. Questo mascheramento impedisce alle origini esterne di avere un indirizzo diretto per le istanze back-end. La condivisione di un indirizzo IP tra le istanze di back-end riduce il costo degli indirizzi IP pubblici statici e supporta scenari come la semplificazione degli elenchi di indirizzi IP consentiti con traffico da indirizzi IP pubblici noti. 
 
 >[!Note]
-> Per le applicazioni con che richiedono un numero elevato di connessioni in uscita o clienti aziendali che richiedono un singolo set di indirizzi IP da usare da una determinata rete virtuale, la [rete virtuale NAT](../virtual-network/nat-overview.md) è la soluzione consigliata. L'allocazione dinamica consente una configurazione semplice e > l'utilizzo più efficiente delle porte SNAT da ogni indirizzo IP. Consente inoltre a tutte le risorse della rete virtuale di condividere un set di indirizzi IP senza che sia necessario condividere > un servizio di bilanciamento del carico.
+> Per le applicazioni che richiedono un numero elevato di connessioni in uscita o clienti aziendali che richiedono un singolo set di indirizzi IP da usare da una determinata rete virtuale, la soluzione consigliata è la [rete virtuale NAT](../virtual-network/nat-overview.md) . L'allocazione dinamica consente una configurazione semplice e > l'utilizzo più efficiente delle porte SNAT da ogni indirizzo IP. Consente inoltre a tutte le risorse della rete virtuale di condividere un set di indirizzi IP senza che sia necessario condividere > un servizio di bilanciamento del carico.
 
 >[!Important]
 > Anche senza la configurazione di SNAT in uscita, gli account di archiviazione di Azure all'interno della stessa area saranno ancora accessibili e le risorse back-end potranno comunque accedere ai servizi Microsoft, ad esempio gli aggiornamenti di Windows.
@@ -109,7 +109,7 @@ Quando viene configurato lo [scenario 2](#scenario2) seguente, l'host per ogni i
 
  | Associazioni | Metodo | Protocolli IP |
  | ------------ | ------ | ------------ |
- |Nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con indirizzo IP dinamico a livello di istanza| TCP </br> UDP | 
+ |nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con indirizzo IP dinamico a livello di istanza| TCP </br> UDP | 
 
  #### <a name="description"></a>Descrizione
 
