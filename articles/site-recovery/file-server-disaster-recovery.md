@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: sharrai
 ms.custom: mvc
-ms.openlocfilehash: 1c88a7e78d37556f0f1f89e16154dc1808f24323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cef163c1b53360222ca32a827552fa361e9dd40
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425518"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874248"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Proteggere un file server usando Azure Site Recovery 
 
@@ -77,7 +77,7 @@ Dato che la replica di Site Recovery è indipendente dall'applicazione, queste r
 
 
 
-**Connettività da sito a sito**: è necessario stabilire una connessione diretta tra il sito locale e la rete di Azure per consentire la comunicazione tra i server. Usare una connessione VPN da sito a sito sicura per una rete virtuale di Azure che viene usata come sito di ripristino di emergenza. Per altre informazioni, vedere [Creare una connessione da sito a sito nel portale di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Connettività da sito a sito**: è necessario stabilire una connessione diretta tra il sito locale e la rete di Azure per consentire la comunicazione tra i server. Usare una connessione VPN da sito a sito sicura per una rete virtuale di Azure che viene usata come sito di ripristino di emergenza. Per altre informazioni, vedere [Creare una connessione da sito a sito nel portale di Azure](../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Active Directory**: la replica DFS dipende da Active Directory. Ciò significa che la foresta Active Directory con i controller di dominio locali viene estesa al sito di ripristino di emergenza in Azure. Anche se non si usa la replica DFS, questi passaggi sono necessari se occorre concedere l'accesso agli utenti interessati o è richiesta la loro verifica per l'accesso. Per altre informazioni, vedere [Usare Azure Site Recovery per proteggere Active Directory e DNS](./site-recovery-active-directory.md).
 

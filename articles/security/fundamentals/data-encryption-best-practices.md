@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: 3808da24c1baf6dd6e3332d4bd26fd176b761c65
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 414445f90c3be4c55166f6a0ecead25074d6ed74
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196079"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874114"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Procedure consigliate per la crittografia e la sicurezza dei dati di Azure
 Questo articolo descrive le procedure consigliate per la sicurezza e la crittografia dei dati.
@@ -102,7 +102,7 @@ Per lo spostamento dei dati tra l'infrastruttura locale e Azure, è opportuno co
 Di seguito sono indicate le procedure consigliate specifiche per l'uso di Gateway VPN di Azure, HTTPS e SSL/TLS.
 
 **Procedura consigliata**: proteggere l'accesso da più workstation dislocate localmente in una rete virtuale di Azure.   
-**Dettagli**: usare una [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+**Dettagli**: usare una [VPN da sito a sito](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 **Procedura consigliata**: proteggere l'accesso da una singola workstation dislocata localmente a una rete virtuale di Azure.   
 **Dettagli**: usare una [VPN da punto a sito](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).

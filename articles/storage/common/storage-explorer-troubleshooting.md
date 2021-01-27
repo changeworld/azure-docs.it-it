@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: 4e87e99f16a89cab95f9bd07b75b80f1c13d47f1
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 9a20db58846ca48afb4fb256adae58e1fccdff3a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900655"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875737"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -70,13 +70,13 @@ Per altri tipi di risorse, non è attualmente disponibile una soluzione correlat
 ### <a name="recommended-azure-built-in-roles"></a>Ruoli predefiniti di Azure consigliati
 
 Sono disponibili diversi ruoli predefiniti di Azure che possono fornire le autorizzazioni necessarie per usare Storage Explorer. Alcuni di questi ruoli sono:
-- [Proprietario](/azure/role-based-access-control/built-in-roles#owner): consente di gestire tutto, incluso l'accesso alle risorse.
-- [Collaboratore](/azure/role-based-access-control/built-in-roles#contributor): consente di gestire tutto, escluso l'accesso alle risorse.
-- [Reader](/azure/role-based-access-control/built-in-roles#reader): leggere ed elencare le risorse.
-- [Collaboratore account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-contributor): gestione completa degli account di archiviazione.
-- [Proprietario dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
-- [Collaboratore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
-- [Lettore dati BLOB di archiviazione](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
+- [Proprietario](../../role-based-access-control/built-in-roles.md#owner): consente di gestire tutto, incluso l'accesso alle risorse.
+- [Collaboratore](../../role-based-access-control/built-in-roles.md#contributor): consente di gestire tutto, escluso l'accesso alle risorse.
+- [Reader](../../role-based-access-control/built-in-roles.md#reader): leggere ed elencare le risorse.
+- [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor): gestione completa degli account di archiviazione.
+- [Proprietario dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): accesso completo ai contenitori BLOB e ai dati di archiviazione di Azure.
+- [Collaboratore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): lettura, scrittura ed eliminazione di BLOB e contenitori di archiviazione di Azure.
+- [Lettore dati BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): lettura ed elenco di contenitori e BLOB di archiviazione di Azure.
 
 > [!NOTE]
 > I ruoli proprietario, collaboratore e collaboratore account di archiviazione concedono l'accesso alla chiave dell'account.

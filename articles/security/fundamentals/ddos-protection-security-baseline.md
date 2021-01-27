@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cbc22f9b55f8d20880b43516a2a5bc8f55d389f5
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814500"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873961"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Baseline della sicurezza di Azure per protezione DDoS di Azure standard
 
@@ -164,7 +164,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 **Linee guida**: usare una workstation protetta gestita da Azure con Azure ad multi-factor authentication (multi-factor authentication) abilitata per l'accesso e la configurazione delle richieste di Customer Lockbox di Azure.
 
-- [Distribuire una workstation protetta gestita da Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
+- [Distribuire una workstation protetta gestita da Azure](/security/compass/privileged-access-deployment)
 
 - [Pianificazione di una distribuzione di Azure AD Multi-Factor Authentication basata sul cloud](../../active-directory/authentication/howto-mfa-getstarted.md)
 

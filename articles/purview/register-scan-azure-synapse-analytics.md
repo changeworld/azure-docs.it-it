@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/22/2020
-ms.openlocfilehash: 3ba43b83166b5548dee4ea4e52c7411db48d23f5
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 62ca32ab4e348e1488fbb87672e582436b91d05d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567267"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875010"
 ---
 # <a name="register-and-scan-azure-synapse-analytics"></a>Registrare e analizzare analisi sinapsi di Azure
 
@@ -45,7 +45,7 @@ Esistono tre modi per configurare l'autenticazione per l'analisi delle sinapsi d
 
 ### <a name="managed-identity-recommended"></a>Identità gestita (scelta consigliata) 
    
-L'account di competenza ha una propria identità gestita, che è fondamentalmente il nome dell'ambito al momento della creazione. È necessario creare un utente Azure AD in Azure sinapsi Analytics (denominato in precedenza SQL DW) con il nome di identità gestita di tale ambito attenendosi ai prerequisiti e all'esercitazione su come [creare Azure ad utenti che usano Azure ad applicazioni](/azure/azure-sql/database/authentication-aad-service-principal-tutorial).
+L'account di competenza ha una propria identità gestita, che è fondamentalmente il nome dell'ambito al momento della creazione. È necessario creare un utente Azure AD in Azure sinapsi Analytics (denominato in precedenza SQL DW) con il nome di identità gestita di tale ambito attenendosi ai prerequisiti e all'esercitazione su come [creare Azure ad utenti che usano Azure ad applicazioni](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Esempio di sintassi SQL per creare l'utente e concedere l'autorizzazione:
 
@@ -87,7 +87,7 @@ Per utilizzare l'autenticazione basata su entità servizio per le analisi, è po
 
 #### <a name="granting-the-service-principal-access-to-your-azure-synapse-analytics-formerly-sql-dw"></a>Concessione dell'accesso dell'entità servizio ad Azure sinapsi Analytics (in precedenza SQL DW)
 
-Inoltre, è necessario creare un Azure AD utente in Azure sinapsi Analytics attenendosi ai prerequisiti e all'esercitazione su come [creare Azure ad utenti che usano Azure ad applicazioni](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Esempio di sintassi SQL per creare l'utente e concedere l'autorizzazione:
+Inoltre, è necessario creare un Azure AD utente in Azure sinapsi Analytics attenendosi ai prerequisiti e all'esercitazione su come [creare Azure ad utenti che usano Azure ad applicazioni](../azure-sql/database/authentication-aad-service-principal-tutorial.md). Esempio di sintassi SQL per creare l'utente e concedere l'autorizzazione:
 
 ```sql
 CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -140,4 +140,3 @@ Nella schermata **Register Sources (Azure sinapsi Analytics)** eseguire le opera
 
 - [Esplorare Azure Purview Data Catalog](how-to-browse-catalog.md)
 - [Eseguire ricerche in Azure Purview Data Catalog](how-to-search-catalog.md)
-

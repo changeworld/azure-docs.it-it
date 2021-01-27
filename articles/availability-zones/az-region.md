@@ -7,20 +7,18 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: c63ea4f9cdb961ca492d5dcf22a89627864236cd
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733201"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874609"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
-Zone di disponibilità è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Per l'elenco delle aree esistenti e future che supportano zone di disponibilità, vedere [aree e zone di disponibilità in Azure](az-overview.md).  
+Microsoft Azure infrastruttura globale è progettata e costruita a ogni livello per offrire ai clienti i massimi livelli di ridondanza e resilienza. L'infrastruttura di Azure è costituita da aree geografiche, aree e zone di disponibilità, che limitano il raggio di esplosione di un errore e quindi limitano il potenziale impatto sulle applicazioni e i dati dei clienti. Il costrutto di zone di disponibilità di Azure è stato sviluppato per offrire una soluzione software e di rete per la protezione da errori dei data center e per garantire una maggiore disponibilità elevata ai clienti.
 
-Questa sezione elenca i servizi di Azure che supportano zone di disponibilità. 
-
-I servizi disponibili in ogni area, insieme alla roadmap di disponibilità imminente, sono reperibili in [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
+Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center con alimentazione, raffreddamento e rete indipendenti. La separazione fisica di zone di disponibilità all'interno di un'area limita l'effetto sulle applicazioni e sui dati degli errori di zona, ad esempio l'alluvione su larga scala, le tempeste principali e i Superstorm e altri eventi che potrebbero compromettere l'accesso al sito, il passaggio sicuro, il tempo di attività delle utilità estese e la disponibilità delle risorse. Zone di disponibilità e i Data Center associati sono progettati in modo tale che, se una zona viene compromessa, i servizi, la capacità e la disponibilità sono supportati dagli altri zone di disponibilità nell'area.
 
 Tutti i servizi di gestione di Azure sono progettati per essere resilienti da errori a livello di area. Nello spettro degli errori, uno o più errori della zona di disponibilità all'interno di un'area hanno un raggio di errore inferiore rispetto a un errore dell'intera area. Azure può eseguire il ripristino da un errore a livello di zona dei servizi di gestione all'interno di un'area. Azure esegue una manutenzione critica di una zona alla volta all'interno di un'area, per evitare errori che influiscano sulle risorse dei clienti distribuite tra zone di disponibilità all'interno di un'area.
 
@@ -34,165 +32,143 @@ I servizi di Azure che supportano zone di disponibilità rientrano in tre catego
 
 - **Servizi con ridondanza della zona** : la piattaforma Azure replica la risorsa e i dati tra le zone.  Microsoft gestisce il recapito della disponibilità elevata, poiché Azure replica e distribuisce automaticamente le istanze all'interno dell'area.  ZRS, ad esempio, replica i dati in tre zone, in modo che un errore di zona non influisca sulla disponibilità elevata dei dati. 
 
-- **Servizi non** a livello di area: servizi che non hanno dipendenze da un'area di Azure specifica, rendendoli resilienti a interruzioni a livello di zona, oltre a interruzioni a livello di area.
+- **Servizi non** a livello di area: i servizi sono sempre disponibili da aree geografiche di Azure e sono resilienti a interruzioni a livello di zona, oltre a interruzioni a livello di area. 
 
 
 Per garantire la continuità aziendale completa in Azure, creare l'architettura delle applicazioni combinando le zone di disponibilità con coppie di aree di Azure. È possibile replicare in modo sincrono le applicazioni e i dati usando le zone di disponibilità all'interno di un'area di Azure per la disponibilità elevata ed eseguire repliche asincrone tra le aree di Azure per la protezione con ripristino di emergenza. Per altre informazioni, vedere [la pagina relativa alla creazione di soluzioni per la disponibilità elevata con zone di disponibilità](/azure/architecture/high-availability/building-solutions-for-high-availability). 
 
+## <a name="azure-services-supporting-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità
 
-### <a name="azure-services-supporting-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità
+ - Le macchine virtuali di generazione precedenti non sono elencate. Per altre informazioni, vedere [Generazioni precedenti delle dimensioni delle macchine virtuali](../virtual-machines/sizes-previous-gen.md).
+ - Come indicato nelle [aree e zone di disponibilità in Azure](az-overview.md), alcuni servizi non sono regionali. Questi servizi non hanno dipendenze da un'area di Azure specifica, perché sono resilienti a interruzioni a livello di zona, oltre a interruzioni a livello di area.  L'elenco dei servizi non a livello di area è reperibile nei [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
+
+
+## <a name="azure-regions-with-availability-zones"></a>Aree di Azure con zone di disponibilità
+
+
+| Americhe           | Europa         | Germania              | Africa              | Asia Pacifico   |
+|--------------------|----------------|----------------------|---------------------|----------------|
+|                    |                |                      |                     |                |
+| Canada centrale     | Francia centrale | Germania centro-occidentale | Sudafrica settentrionale * | Giappone orientale     |
+| Stati Uniti centrali         | Europa settentrionale   |                      |                     | Asia sud-orientale |
+| Stati Uniti orientali            | Regno Unito meridionale       |                      |                     | Australia orientale |
+| Stati Uniti orientali 2          | Europa occidentale    |                      |                     |                |
+| Stati Uniti centro-meridionali |                |                      |                     |                |
+| US Gov Virginia * |                |                      |                     |                |
+| Stati Uniti occidentali 2        |                |                      |                     |                |
+
+
+Per ulteriori informazioni sul supporto di zone di disponibilità e dei servizi disponibili in queste aree, contattare il rappresentante Microsoft Sales o Customer rappresentante. Per le aree future che supporteranno zone di disponibilità, vedere [geografie di Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+
+
+## <a name="azure-services-supporting-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità
 
 - Le macchine virtuali di generazione meno recenti non sono elencate di seguito. Per altre informazioni, vedere [generazioni precedenti di dimensioni di macchine virtuali](../virtual-machines/sizes-previous-gen.md).
 
 - Alcuni servizi non sono regionali, vedere [aree e zone di disponibilità in Azure](az-overview.md) per altre informazioni. Questi servizi non hanno una dipendenza da un'area di Azure specifica, rendendoli resilienti a interruzioni a livello di zona e interruzioni a livello di area.  L'elenco dei servizi non a livello di area è reperibile nei [prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
 
 
+### <a name="zone-resilient-services"></a>Servizi con resilienza della zona 
 
-## <a name="americas"></a>Americhe
+: globe_with_meridians: servizi non a livello di area: i servizi sono sempre disponibili da aree geografiche di Azure e sono resilienti a interruzioni a livello di zona, oltre a interruzioni a livello di area.
 
-| **Prodotti** | **Stati Uniti centrali** | **Stati Uniti orientali** | **Stati Uniti orientali 2** | **West US 2** | **Canada centrale** |
-|--|--|--|--|--|--|
-| **Compute** |  |  |  |  |  |
-| [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
-| **Contenitori** |  |  |  |
-| [Servizio Azure Kubernetes](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Registro Container](../container-registry/zone-redundancy.md) |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  | 
-| **Archiviazione** |  |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Funzionalità di rete** |  |  |  |  |  |
-| [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Indirizzo IP standard](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bilanciamento del carico](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete virtuale](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [NAT di rete virtuale](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete WAN virtuale](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Gateway VPN](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Database** |  |  |  |  |  |
-| [Cache Redis di Azure](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database di Azure per MySQL-server flessibile](../mysql/flexible-server/concepts-high-availability.md) | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| [Server flessibile di Database di Azure per PostgreSQL](../postgresql/flexible-server/overview.md) | :x: | :x: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | :x: | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | :x: |
-| [Database SQL di Azure (livelli Premium & business critical)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analisi** |  |  |  |  |  |
-| [Hub eventi](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integrazione** |  |  |  |  |  |
-| [Griglia di eventi](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bus di servizio](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Gestione e governance** |  |  |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| **Sicurezza** |  |  |  |  |  |
-| [Servizi di dominio Azure Active Directory](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+: large_blue_diamond: resilienza per le interruzioni a livello di zona 
 
-## <a name="europe"></a>Europa
+**Servizi di base**
 
-| **Prodotti** | **Francia centrale** | **Europa settentrionale** | **Regno Unito meridionale** | **Europa occidentale** |
-|--|--|--|--|--|
-| **Compute** |  |  |  |  |
-| [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Servizio Azure Kubernetes](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Archiviazione** |  |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Funzionalità di rete** |  |  |  |  |
-| [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Indirizzo IP standard](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bilanciamento del carico](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete virtuale](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [NAT di rete virtuale](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete WAN virtuale](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Gateway VPN](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Database** |  |  |  |  |
-| [Cache Redis di Azure](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database di Azure per MySQL-server flessibile](../mysql/flexible-server/concepts-high-availability.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Server flessibile di Database di Azure per PostgreSQL](../postgresql/flexible-server/overview.md) | :x: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | :x: | : heavy_check_mark: (anteprima) |
-| [Database SQL di Azure (livelli Premium & business critical)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analisi** |  |  |  |  |
-| [Hub eventi](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integrazione** |  |  |  |  |
-| [Griglia di eventi](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bus di servizio](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Gestione e governance** |  |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| **Sicurezza** |  |  |  |  |
-| [Servizi di dominio Azure Active Directory](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-
-## <a name="asia-pacific"></a>Asia Pacifico
+|     Prodotti                                                    | Resilienza             |
+|-----------------------------------------------------------------|:----------------------------:|
+|     Account di archiviazione                                           | : large_blue_diamond:  |
+|     Gateway applicazione (v2)                                  | : large_blue_diamond:  |
+|     Backup di Azure                                                | : large_blue_diamond:  |
+|     Azure Cosmos DB                                           | : large_blue_diamond:  |
+|     Azure Data Lake Storage generazione 2                             | : large_blue_diamond:  |
+|     Azure Express Route                                       | : large_blue_diamond:  |
+|     IP pubblico di Azure                                           | : large_blue_diamond:  |
+|     Database SQL di Azure (livello per utilizzo generico)                 | : large_blue_diamond:  |
+|     Database SQL di Azure (livello Premium & business critical)     | : large_blue_diamond:  |
+|     Archiviazione su disco                                                | : large_blue_diamond:  |
+|     Hub eventi                                                  | : large_blue_diamond:  |
+|     Key Vault                                                   | : large_blue_diamond:  |
+|     Load Balancer                                               | : large_blue_diamond:  |
+|     Bus di servizio                                                 | : large_blue_diamond:  |
+|     Service Fabric                                            | : large_blue_diamond:  |
+|     Archiviazione: livelli di archiviazione BLOB ad accesso frequente/sporadico                      | : large_blue_diamond:  |
+|     Archiviazione: Managed Disks                                    | : large_blue_diamond:  |
+|     Set di scalabilità di macchine virtuali                               | : large_blue_diamond:  |
+|     Macchine virtuali                                          | : large_blue_diamond:  |
+|     Macchine virtuali: Av2-Series                              | : large_blue_diamond:  |
+|     Macchine virtuali: Bs-Series                               | : large_blue_diamond:  |
+|     Macchine virtuali: DSv2-Series                             | : large_blue_diamond:  |
+|     Macchine virtuali: DSv3-Series                             | : large_blue_diamond:  |
+|     Macchine virtuali: Dv2-Series                              | : large_blue_diamond:  |
+|     Macchine virtuali: Dv3-Series                              | : large_blue_diamond:  |
+|     Macchine virtuali: ESv3-Series                             | : large_blue_diamond:  |
+|     Macchine virtuali: Ev3-Series                              | : large_blue_diamond:  |
+|     Rete virtuale                                           | : large_blue_diamond:  |
+|     Gateway VPN                                                 | : large_blue_diamond:  |
 
 
+**Servizi mainstream**
 
-| **Prodotti** | **Giappone orientale** | **Asia sud-orientale** | **Australia orientale** |
-|--|--|--|--|
-| **Compute** |  |  |  |
-| [Ambienti del servizio app (ILB)](../app-service/environment/zone-redundancy.md#how-to-deploy-an-app-service-environment-in-an-availability-zone) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Servizio Azure Kubernetes](../aks/availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Macchine virtuali](https://azure.microsoft.com/services/virtual-machines/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Archiviazione** |  |  |  |
-| [Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?tabs=azure-portal)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Archiviazione file Premium](../storage/files/storage-files-planning.md) |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Archiviazione BLOB](../storage/blobs/storage-blobs-introduction.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Managed Disks](https://azure.microsoft.com/en-gb/updates/azure-managed-snapshots-images-ga/) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Funzionalità di rete** |  |  |  |
-| [Gateway applicazione V2](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Firewall di Azure](../firewall/deploy-availability-zone-powershell.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Indirizzo IP standard](../virtual-network/public-ip-addresses.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bilanciamento del carico](../load-balancer/load-balancer-standard-availability-zones.md#concepts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete virtuale](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [NAT di rete virtuale](../virtual-network/nat-gateway-resource.md#availability-zones) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Rete WAN virtuale](../virtual-wan/virtual-wan-faq.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Gateway VPN](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Database** |  |  |  |
-| [Cache Redis di Azure](../azure-cache-for-redis/cache-overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Esplora dati di Azure](/azure/data-explorer/create-cluster-database-portal) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database di Azure per MySQL-server flessibile](../mysql/flexible-server/concepts-high-availability.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Server flessibile di Database di Azure per PostgreSQL](../postgresql/flexible-server/overview.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Database SQL di Azure (livello per utilizzo generico)](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) | : heavy_check_mark: (anteprima) |
-| [Database SQL di Azure (livelli Premium & business critical)](../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Analisi** |  |  |  |
-| [Hub eventi](../event-hubs/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Integrazione** |  |  |  |
-| [Griglia di eventi](../event-grid/index.yml) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Bus di servizio](../service-fabric/service-fabric-cross-availability-zones.md) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| **Gestione e governance** |  |  |  |
-| [Network Watcher](../network-watcher/frequently-asked-questions.md) | :heavy_check_mark: | :x: | :x: |
-| **Sicurezza** |  |  |  |
-| [Servizi di dominio Azure Active Directory](../active-directory-domain-services/overview.md) | :heavy_check_mark: | :heavy_check_mark: |  |
+| Prodotti                                        | Resilienza |
+|-------------------------------------------------|:------------:|
+| Ambienti del servizio app                        |      : large_blue_diamond:  |
+| Servizi di dominio Azure Active Directory          |      : large_blue_diamond:  |
+| Azure Bastion                                   |      : large_blue_diamond:  |
+| Cache Redis di Azure                           |      : large_blue_diamond:  |
+| Servizi cognitivi di Azure: Analisi del testo        |      : large_blue_diamond:  |
+| Esplora dati di Azure                             |      : large_blue_diamond:  |
+| Database di Azure per MySQL-server flessibile      |      : large_blue_diamond:  |
+| Database di Azure per PostgreSQL-server flessibile |      : large_blue_diamond:  |
+| Protezione DDoS di Azure                           |      : large_blue_diamond:  |
+| Firewall di Azure                                  |      : large_blue_diamond:  |
+| Gestione firewall di Azure                          |      : large_blue_diamond:  |
+| Servizio Azure Kubernetes                  |      : large_blue_diamond:  |
+| Collegamento privato di Azure                              |      : large_blue_diamond:  |
+| Azure Red Hat OpenShift                         |      : large_blue_diamond:  |
+| Azure Site Recovery                             |      : large_blue_diamond:  |
+| Registro contenitori                              |      : large_blue_diamond:  |
+| Griglia di eventi                                      |      : large_blue_diamond:  |
+| Network Watcher                                 |      : large_blue_diamond:  |
+| Power BI Embedded                               |      : large_blue_diamond:  |
+| Archiviazione BLOB Premium                            |      : large_blue_diamond:  |
+| Macchine virtuali: Ddsv4-Series                  |      : large_blue_diamond:  |
+| Macchine virtuali: Ddv4-Series                   |      : large_blue_diamond:  |
+| Macchine virtuali: Dsv4-Series                   |      : large_blue_diamond:  |
+| Macchine virtuali: Dv4-Series                    |      : large_blue_diamond:  |
+| Macchine virtuali: Edsv4-Series                  |      : large_blue_diamond:  |
+| Macchine virtuali: Edv4-Series                   |      : large_blue_diamond:  |
+| Macchine virtuali: Esv4-Series                   |      : large_blue_diamond:  |
+| Macchine virtuali: Ev4-Series                    |      : large_blue_diamond:  |
+| Macchine virtuali: Fsv2-Series                   |      : large_blue_diamond:  |
+| Macchine virtuali: serie M                      |      : large_blue_diamond:  |
+| Rete WAN virtuale                                     |      : large_blue_diamond:  |
 
 
-## <a name="upcoming-availability-zones"></a>zone di disponibilità imminente 
+**Non a livello di area**
 
-Azure offre supporto zone di disponibilità nelle aree seguenti:
-- US Gov Virginia
-- Sudafrica settentrionale
-- Stati Uniti centro-meridionali
-- Germania centro-occidentale
-
-L'elenco delle aree esistenti e future che supportano zone di disponibilità è disponibile [qui](https://azure.microsoft.com/global-infrastructure/geographies/).    
-
-Per ulteriori informazioni sul supporto zone di disponibilità in queste aree, contattare il rappresentante Microsoft Sales o Customer.
+|     Prodotti                                  |     Resilienza    |
+|-----------------------------------------------|:-------------------:|
+|     DNS di Azure                                 |     : globe_with_meridians:             |
+|     Azure Active Directory                  |     : globe_with_meridians:             |
+|     Azure Advisor                             |     : globe_with_meridians:             |
+|     Servizi Azure Bot                        |     : globe_with_meridians:             |
+|     Azure Defender per l'it                  |     : globe_with_meridians:             |
+|     Azure Information Protection            |     : globe_with_meridians:             |
+|     Faro di Azure                        |     : globe_with_meridians:             |
+|     Applicazioni gestite di Azure              |     : globe_with_meridians:             |
+|     Mappe di Azure                                |     : globe_with_meridians:             |
+|     Criteri di Azure                              |     : globe_with_meridians:             |
+|     Grafico delle risorse di Azure                    |     : globe_with_meridians:             |
+|     Azure Stack                               |     : globe_with_meridians:             |
+|     Azure Stack Edge                        |     : globe_with_meridians:             |
+|     Cloud Shell                               |     : globe_with_meridians:             |
+|     Customer Lockbox per Microsoft Azure    |     : globe_with_meridians:             |
+|     Servizio di peering Microsoft Azure         |     : globe_with_meridians:             |
+|     portale di Microsoft Azure                  |     : globe_with_meridians:             |
+|     Centro sicurezza                         |     : globe_with_meridians:             |
+|     Gestione traffico                         |     : globe_with_meridians:             |
 
 
 ## <a name="pricing-for-vms-in-availability-zones"></a>Prezzi per le macchine virtuali in zone di disponibilità

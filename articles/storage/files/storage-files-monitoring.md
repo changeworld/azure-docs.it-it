@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 2af4f5467cb0f604f16d1faf841618a14d292806
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: cc1e4bf44827f82b3ca592e41fc3e6640f36e1bb
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97585735"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875145"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -677,6 +677,6 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 - [Monitorare le risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migrazione delle metriche di archiviazione di Azure](../common/storage-metrics-migration.md)
 - [Pianificazione per la distribuzione di File di Azure](./storage-files-planning.md)
-- [Come distribuire File di Azure](./storage-files-deployment-guide.md)
+- [Come distribuire File di Azure](./storage-how-to-create-file-share.md)
 - [Risolvere i problemi di File di Azure in Windows](./storage-troubleshoot-windows-file-connection-problems.md)
 - [Risolvere i problemi di File di Azure in Linux](./storage-troubleshoot-linux-file-connection-problems.md)

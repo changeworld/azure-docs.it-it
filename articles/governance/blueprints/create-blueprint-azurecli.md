@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare un progetto con l'interfaccia della riga di comando di Azure"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'interfaccia della riga di comando di Azure.
-ms.date: 10/14/2020
+ms.date: 01/26/2021
 ms.topic: quickstart
-ms.openlocfilehash: 88ccd3fe6271a79d201007954e7997b68d2dc69b
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
-ms.translationtype: HT
+ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920560"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98875212"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'interfaccia della riga di comando di Azure
 
@@ -16,7 +16,8 @@ Informazioni su come creare e assegnare progetti consente di definire modelli co
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
+- Se non sono stati usati i progetti di Azure prima, registrare il provider di risorse tramite l'interfaccia della riga di comando di Azure con `az provider register --namespace Microsoft.Blueprint` .
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

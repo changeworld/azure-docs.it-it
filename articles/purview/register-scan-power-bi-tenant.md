@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 3370215e9a69e62596f214ba4330fc4914a2837f
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539691"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874907"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrare e analizzare un tenant di Power BI (anteprima)
 
@@ -26,7 +26,7 @@ Questo articolo illustra come usare il portale di Azure per la registrazione e l
 Per configurare l'autenticazione, creare un gruppo di sicurezza e aggiungervi l'identità gestita del catalogo.
 
 1. Nella [portale di Azure](https://portal.azure.com)cercare **Azure Active Directory**.
-1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo la procedura [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+1. Creare un nuovo gruppo di sicurezza nel Azure Active Directory, seguendo la procedura [creare un gruppo di base e aggiungere membri utilizzando Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     > [!Tip]
     > È possibile ignorare questo passaggio se si dispone già di un gruppo di sicurezza che si desidera utilizzare.

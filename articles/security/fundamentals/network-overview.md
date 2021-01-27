@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 8a82fd6e6dc1bea0804c429f3af46884f004de69
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489769"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874384"
 ---
 # <a name="azure-network-security-overview"></a>Panoramica della sicurezza di rete di Azure
 
@@ -178,7 +178,7 @@ A questo scopo è possibile usare una [VPN da sito a sito](https://www.techopedi
 
 Altre informazioni:
 
-* [Creare una Gestione risorse VNet con una connessione VPN da sito a sito usando il portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+* [Creare una Gestione risorse VNet con una connessione VPN da sito a sito usando il portale di Azure](../../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Informazioni sul gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-dedicated-wan-link"></a>Connessione della rete locale a una rete virtuale tramite un collegamento WAN dedicato

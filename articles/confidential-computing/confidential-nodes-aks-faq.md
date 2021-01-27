@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b4b6c04a1e35031387a006b6350ebf6cbe502fee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51e2095b0df8fdc965926c6c612c45f582c9b9d2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997901"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874485"
 ---
 # <a name="frequently-asked-questions-about-confidential-computing-nodes-on-azure-kubernetes-service-aks"></a>Domande frequenti sui nodi di elaborazione riservati in Azure Kubernetes Service (AKS)
 
@@ -24,6 +24,10 @@ Il contratto di servizio non viene fornito durante l'anteprima del prodotto, com
 ## <a name="what-is-attestation-and-how-can-we-do-attestation-of-apps-running-in-enclaves"></a>Che cos'è l'attestazione e in che modo è possibile eseguire l'attestazione di app in esecuzione in enclave? 
 
 L'attestazione è il processo di dimostrazione e convalida della creazione di un'istanza corretta di un componente software sulla piattaforma hardware specifica. Assicura inoltre che l'evidenza sia verificabile per garantire che sia in esecuzione in una piattaforma sicura e non sia stata manomessa. [Altre](attestation.md) informazioni sul modo in cui viene eseguita l'attestazione per le app enclave.
+
+## <a name="can-i-enable-accelerated-networking-with-azure-confidential-computing-aks-clusters"></a>È possibile abilitare la rete accelerata con i cluster AKS di Azure Confidential computing? 
+
+No. La rete accelerata non è supportata nei nodi di elaborazione riservati su AKS. Assicurarsi che la rete accelerata sia disabilitata nella distribuzione. 
 
 ## <a name="can-i-bring-my-existing-containerized-applications-and-run-it-on-aks-with-azure-confidential-computing"></a>È possibile portare le applicazioni esistenti in contenitori ed eseguirle su AKS con Azure Confidential computing? 
 

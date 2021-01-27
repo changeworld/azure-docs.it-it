@@ -2,13 +2,13 @@
 title: Variabili nei modelli
 description: Viene descritto come definire le variabili in un modello di Azure Resource Manager (modello ARM).
 ms.topic: conceptual
-ms.date: 11/24/2020
-ms.openlocfilehash: 7f782f9c7d3107472a74fcab73290c4cebf73693
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 01/26/2021
+ms.openlocfilehash: feecc4b5df77e6a3bf51294cb12aabf44899dde5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934663"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98874435"
 ---
 # <a name="variables-in-arm-template"></a>Variabili nel modello ARM
 
@@ -16,9 +16,11 @@ Questo articolo descrive come definire e usare le variabili nel modello di Azure
 
 Gestione risorse risolve le variabili prima di avviare le operazioni di distribuzione. Indipendentemente dalla posizione in cui viene usata la variabile nel modello, Resource Manager la sostituisce con il valore risolto.
 
-Il formato di ogni variabile deve corrispondere a uno dei [tipi di dati](template-syntax.md#data-types).
-
 ## <a name="define-variable"></a>Definisci variabile
+
+Quando si definisce una variabile, fornire un valore o un'espressione di modello che viene risolta in un [tipo di dati](template-syntax.md#data-types). È possibile usare il valore di un parametro o di un'altra variabile quando si costruisce la variabile.
+
+È possibile usare le [funzioni modello](template-functions.md) nella dichiarazione di variabile, ma non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) . Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
 
 L'esempio seguente illustra la definizione di una variabile: Crea un valore stringa per il nome di un account di archiviazione. USA diverse funzioni di modello per ottenere un valore di parametro e lo concatena a una stringa univoca.
 
@@ -27,8 +29,6 @@ L'esempio seguente illustra la definizione di una variabile: Crea un valore stri
   "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
 },
 ```
-
-Non è possibile usare la funzione [Reference](template-functions-resource.md#reference) o una delle funzioni [elenco](template-functions-resource.md#list) nella `variables` sezione. Queste funzioni ottengono lo stato di runtime di una risorsa e non possono essere eseguite prima della distribuzione quando le variabili vengono risolte.
 
 ## <a name="use-variable"></a>Usare la variabile
 
@@ -44,56 +44,20 @@ Nel modello si fa riferimento al valore per il parametro usando la funzione [var
 ]
 ```
 
+## <a name="example-template"></a>Modello di esempio
+
+Il modello seguente non distribuisce alcuna risorsa. Mostra solo alcuni modi per dichiarare le variabili.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variables.json":::
+
 ## <a name="configuration-variables"></a>Variabili di configurazione
 
-È possibile definire variabili che contengono valori correlati per la configurazione di un ambiente. La variabile viene definita come oggetto con i valori. Nell'esempio seguente viene illustrato un oggetto che contiene i valori per due ambienti, **test** e **Prod**.
+È possibile definire variabili che contengono valori correlati per la configurazione di un ambiente. La variabile viene definita come oggetto con i valori. Nell'esempio seguente viene illustrato un oggetto che contiene i valori per due ambienti, **test** e **Prod**. Si passa uno di questi valori durante la distribuzione.
 
-```json
-"variables": {
-  "environmentSettings": {
-    "test": {
-      "instanceSize": "Small",
-      "instanceCount": 1
-    },
-    "prod": {
-      "instanceSize": "Large",
-      "instanceCount": 4
-    }
-  }
-},
-```
-
-In `parameters` viene creato un valore che indica i valori di configurazione da utilizzare.
-
-```json
-"parameters": {
-  "environmentName": {
-    "type": "string",
-    "allowedValues": [
-      "test",
-      "prod"
-    ]
-  }
-},
-```
-
-Per recuperare le impostazioni per l'ambiente specificato, usare insieme la variabile e il parametro.
-
-```json
-"[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
-```
-
-## <a name="example-templates"></a>Modelli di esempio
-
-Negli esempi seguenti vengono illustrati gli scenari per l'utilizzo di variabili.
-
-|Modello  |Descrizione  |
-|---------|---------|
-| [definizioni delle variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Illustra i diversi tipi di variabili. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |
-| [variabile di configurazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Illustra l'uso di una variabile che definisce i valori di configurazione. Il modello non distribuisce alcuna risorsa. Crea e restituisce valori variabili. |
-| [regole di sicurezza della rete](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e [file dei parametri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Crea una matrice nel formato corretto per assegnare le regole di sicurezza a un gruppo di sicurezza della rete. |
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/variablesconfigurations.json":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per informazioni sulle proprietà disponibili per le variabili, vedere [comprendere la struttura e la sintassi dei modelli ARM](template-syntax.md).
 * Per consigli sulla creazione di variabili, vedere procedure consigliate [-variabili](template-best-practices.md#variables).
+* Per un modello di esempio che assegna regole di sicurezza a un gruppo di sicurezza di rete, vedere [regole di sicurezza di rete](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) e file di [parametri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json).
