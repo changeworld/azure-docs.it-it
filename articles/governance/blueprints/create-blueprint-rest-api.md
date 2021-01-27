@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare un progetto con l'API REST"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'API REST.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: aa25a65b20b295045b52a49c8c47fb8849c3cba3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: eaf6dbb2ff14106ba8d2798d86a8f093855de85e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056975"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915625"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -29,7 +29,7 @@ Per le specifiche di Azure Blueprints, vedere [API REST di Azure Blueprints](/re
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
-Se non si ha già uno strumento per effettuare chiamate API REST, provare a usare PowerShell per queste istruzioni. Di seguito è riportata un'intestazione di esempio per l'autenticazione con Azure. Generare un'intestazione di autenticazione, talvolta denominata **bearer token**e fornire l'URI dell'API REST cui connettersi con qualsiasi parametro o un **corpo della richiesta**:
+Se non si ha già uno strumento per effettuare chiamate API REST, provare a usare PowerShell per queste istruzioni. Di seguito è riportata un'intestazione di esempio per l'autenticazione con Azure. Generare un'intestazione di autenticazione, talvolta denominata **bearer token** e fornire l'URI dell'API REST cui connettersi con qualsiasi parametro o un **corpo della richiesta**:
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell

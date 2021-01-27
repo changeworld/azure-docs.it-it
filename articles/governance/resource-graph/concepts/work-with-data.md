@@ -1,15 +1,15 @@
 ---
 title: Usare set di dati di grandi dimensioni
 description: Informazioni su come ottenere i record, formattarli, restituirli in pagine e ignorarli in set di dati di grandi dimensioni durante l'uso di Azure Resource Graph.
-ms.date: 09/30/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59f69738bf9fe25cb739539b7a1f93e4499d781a
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826026"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917691"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilizzo di set di dati della risorsa di Azure di grandi dimensioni
 
@@ -65,7 +65,7 @@ Nell'[API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources
 ## <a name="paging-results"></a>Risultati di paging
 
 Se è necessario suddividere un set di risultati in set di record più piccoli ai fini dell'elaborazione o per evitare di superare il valore massimo consentito di _1000_ record restituiti, usare la paginazione. L' [API REST](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
- **QueryResponse** fornisce valori per indicare che un set di risultati è stato suddiviso: **resultTruncated** e **$skipToken**. **resultTruncated** è un valore booleano che informa il consumer se sono presenti record aggiuntivi non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
+ **QueryResponse** fornisce valori per indicare che un set di risultati è stato suddiviso: **resultTruncated** e **$skipToken**. **resultTruncated** è un valore booleano che informa l'utente se sono presenti più record non restituiti nella risposta. Questa condizione può essere identificata anche quando il valore della proprietà **count** è inferiore a quello della proprietà **totalRecords**. **totalRecords** definisce il numero di record che soddisfano la query.
 
  **resultTruncated** è **true** quando il paging è disabilitato o non è possibile perché nessuna `id` colonna o quando sono disponibili meno risorse rispetto a una query richiesta. Quando **resultTruncated** è **true**, la proprietà **$skipToken** non è impostata.
 
@@ -94,7 +94,7 @@ Per impostazione predefinita, i risultati dell'interfaccia della riga di comando
 
 Il formato predefinito, _Table_, restituisce i risultati in un formato JSON ideato per evidenziare la struttura delle colonne e i valori di riga delle proprietà restituite dalla query. Questo formato è molto simile ai dati definiti in una tabella o un foglio di calcolo strutturato con le colonne identificate per prime e quindi ogni riga che rappresenta i dati allineati a queste colonne.
 
-Di seguito è riportato un esempio del risultato di una query con la formattazione _Table_:
+Ecco un esempio di risultato di una query con la formattazione della _tabella_ :
 
 ```json
 {
@@ -136,7 +136,7 @@ Di seguito è riportato un esempio del risultato di una query con la formattazio
 
 Anche il formato _ObjectArray_ restituisce i risultati in un formato JSON. Questa progettazione si allinea tuttavia alla relazione della coppia chiave/valore comune in JSON, in cui la colonna e i dati della riga vengono associati in gruppi di matrici.
 
-Di seguito è riportato un esempio del risultato di una query con la formattazione _ObjectArray_:
+Ecco un esempio di risultato di una query con la formattazione _ObjectArray_ :
 
 ```json
 {

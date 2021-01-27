@@ -3,12 +3,12 @@ title: Esecuzione rapida dell'attività con modello
 description: Accodare un'attività ACR eseguita per compilare un'immagine usando un modello di Azure Resource Manager
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82927769"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916066"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Eseguire attività ACR usando modelli di Gestione risorse
 
@@ -58,7 +58,7 @@ az deployment group create \
     registryName=mycontainerregistry \
     repository=helloworld-node \
     taskRunName=testrun \
-    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git
+    sourceLocation=https://github.com/Azure-Samples/acr-build-helloworld-node.git#main
  ```
 
 Il comando precedente passa i parametri nella riga di comando. Se lo si desidera, passarli in un [file di parametri](../azure-resource-manager/templates/parameter-files.md).
@@ -112,7 +112,7 @@ L'output Mostra il log di esecuzione dell'attività.
 È anche possibile visualizzare il log di esecuzione dell'attività nella portale di Azure. 
 
 1. Passare al registro contenitori
-2. In **Servizi**selezionare **Tasks**  >  **esecuzioni**attività.
+2. In **Servizi** selezionare   >  **esecuzioni** attività.
 3. Selezionare l'ID esecuzione, in questo caso *CA1*. 
 
 Il portale Mostra il log di esecuzione dell'attività.
@@ -187,7 +187,7 @@ Per questo esempio, specificare i valori per i parametri di modello seguenti:
 |userAssignedIdentity |ID risorsa dell'identità assegnata dall'utente abilitata nell'attività|
 |customRegistryIdentity | ID client dell'identità assegnata dall'utente abilitato nell'attività, usato per l'autenticazione con il registro di sistema personalizzato |
 |customRegistry |Nome del server di accesso del registro di sistema personalizzato a cui si accede nell'attività, ad esempio *mybaseregistry.azurecr.io*|
-|sourceLocation     |Contesto remoto per l'attività di compilazione, ad esempio * https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-node.* |
+|sourceLocation     |Contesto remoto per l'attività di compilazione, ad esempio *https://github.com/ \<your-GitHub-ID\> /ACR-Build-HelloWorld-node.* |
 |dockerFilePath | Percorso di Dockerfile nel contesto remoto, utilizzato per compilare l'immagine. |
 
 ### <a name="deploy-the-template"></a>Distribuire il modello
@@ -204,7 +204,7 @@ az deployment group create \
     taskRunName=basetask \
     userAssignedIdentity=$resourceID \
     customRegistryIdentity=$clientID \
-    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git \
+    sourceLocation=https://github.com/<your-GitHub-ID>/acr-build-helloworld-node.git#main \
     dockerFilePath=Dockerfile-test \
     customRegistry=mybaseregistry.azurecr.io
 ```

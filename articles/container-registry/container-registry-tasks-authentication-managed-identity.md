@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: danlep
-ms.openlocfilehash: f3294698f6973437a23fab798e8daf5642cc9b49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f2749a18a5ac6aed0822553d59beaacc9060228
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77111775"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915948"
 ---
 # <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Usare un'identità gestita da Azure nelle attività ACR 
 
@@ -58,7 +58,7 @@ Per abilitare un'identità assegnata dal sistema, passare senza `--assign-identi
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false \
     --assign-identity
@@ -70,7 +70,7 @@ Per abilitare un'identità assegnata dall'utente, passare `--assign-identity` co
 az acr task create \
     --image hello-world:{{.Run.ID}} \
     --name hello-world --registry MyRegistry \
-    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git \
+    --context https://github.com/Azure-Samples/acr-build-helloworld-node.git#main \
     --file Dockerfile \
     --commit-trigger-enabled false
     --assign-identity <resourceID>
@@ -84,7 +84,7 @@ az acr task create \
 
 ### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. concedere le autorizzazioni di identità per accedere ad altre risorse di Azure
 
-A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Tra gli esempi sono inclusi:
+A seconda dei requisiti dell'attività, concedere le autorizzazioni di identità per accedere ad altre risorse di Azure. Alcuni esempi:
 
 * Assegnare all'identità gestita un ruolo con pull, push e pull o altre autorizzazioni per un registro contenitori di destinazione in Azure. Per un elenco completo dei ruoli del registro di sistema, vedere [autorizzazioni e ruoli di container Registry di Azure](container-registry-roles.md). 
 * Assegnare un ruolo all'identità gestita per leggere i segreti in un insieme di credenziali delle chiavi di Azure.
@@ -115,7 +115,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-Per aggiungere le credenziali per un'identità assegnata dall'utente per l'autenticazione con il *targetregistry*del registro di sistema, passare `use-identity` con un valore dell' *ID client* dell'identità. Ad esempio:
+Per aggiungere le credenziali per un'identità assegnata dall'utente per l'autenticazione con il *targetregistry* del registro di sistema, passare `use-identity` con un valore dell' *ID client* dell'identità. Ad esempio:
 
 ```azurecli
 az acr task credential add \

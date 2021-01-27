@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: daberry
-ms.openlocfilehash: 07564955e9cfa6931e461df00ef50a237a66b9b3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a0943c9f87960f9fcec074941b6e8ead81d92af
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500683"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917910"
 ---
 # <a name="ev3-and-esv3-series"></a>Serie Ev3 e Esv3
 
@@ -32,6 +32,7 @@ La funzionalità della VM serie EV3 Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/MBps di scrittura | Larghezza di banda della rete/scheda NIC max |
@@ -62,6 +63,7 @@ La funzionalità della VM serie Esv3 Intel® Hyper-Threading Technology.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva di inserimento nella cache e archiviazione temporanea: IOPS/MBps<sup>3</sup> | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps |  Velocità effettiva del disco non memorizzato nella cache: IOPS/MBps<sup>3</sup>| NIC massimo/larghezza di banda di rete prevista (Mbps) |

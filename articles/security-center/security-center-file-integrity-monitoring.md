@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ab173f47ed09dbe77c12cad844d8a1f3654f4a9b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734760"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918607"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel centro sicurezza di Azure
 Informazioni su come configurare il monitoraggio dell'integrità dei file nel centro sicurezza di Azure usando questa procedura dettagliata.
@@ -28,7 +28,7 @@ Informazioni su come configurare il monitoraggio dell'integrità dei file nel ce
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Richiede [Azure Defender per i server](defender-for-servers-introduction.md).<br>Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).|
 |Autorizzazioni e ruoli obbligatori:|Il **proprietario dell'area di lavoro** può abilitare/disabilitare FIM (per altre informazioni, vedere [ruoli di Azure per log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>Il **lettore** può visualizzare i risultati.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) nazionale/sovrano (US gov, Cina gov, altri gov)<br>Supportato solo nelle aree in cui è disponibile la soluzione di rilevamento modifiche di automazione di Azure.<br>Vedere [aree supportate per l'area di lavoro log Analytics collegata](../automation/how-to/region-mappings.md).<br>[Altre informazioni sul rilevamento delle modifiche](../automation/change-tracking/overview.md).|
@@ -120,7 +120,7 @@ FIM è disponibile solo dalle pagine del Centro sicurezza nel portale di Azure. 
 
     - Accedere e visualizzare lo stato e le impostazioni di ogni area di lavoro
 
-    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md).
+    - ![Icona del piano ][4] di aggiornamento aggiornare l'area di lavoro per usare Azure Defender. Questa icona indica che l'area di lavoro o la sottoscrizione non è protetta da Azure Defender. Per usare le funzionalità FIM, la sottoscrizione deve essere protetta da Azure Defender. [Altre informazioni](security-center-pricing.md)
 
     - ![Icona Abilita][3] Abilitare FIM in tutti i computer nell'area di lavoro e configurare le opzioni FIM. Questa icona indica che FIM non è abilitato per l'area di lavoro.
 

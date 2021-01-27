@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Esempio di progetto in un nuovo ambiente'
 description: In questa esercitazione si usa un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: aea3760128221d42e092e4ca45200874d54da54a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048733"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915558"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
@@ -136,7 +136,7 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
 1. Selezionare la pagina **Controllo di accesso (IAM)** a sinistra e quindi la scheda **Assegnazioni di ruoli**.
 
-   Qui è possibile vedere che all'account sono stati assegnati i ruoli _Proprietario_ e _Lettore_, entrambi nell'ambito di _Questa risorsa_. Anche l'assegnazione del progetto ha il ruolo_Proprietario_ come il primo gruppo di risorse.
+   Qui è possibile vedere che all'account sono stati assegnati i ruoli _Proprietario_ e _Lettore_, entrambi nell'ambito di _Questa risorsa_. Anche l'assegnazione del progetto ha il ruolo _Proprietario_ come il primo gruppo di risorse.
 
 1. Selezionare la scheda **Assegnazioni di rifiuto**.
 
@@ -144,7 +144,7 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
 1. Selezionare l'assegnazione di rifiuto, quindi selezionare la pagina **Autorizzazioni negate** a sinistra.
 
-   L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
+   L'assegnazione Deny impedisce tutte le operazioni con la configurazione dell' **\* azione *_ e _*** , ma consente l'accesso in lettura escludendo **\* /Read** tramite **notacts**.
 
 1. Nella struttura di navigazione del portale di Azure selezionare **PreProductionRG - Controllo di accesso (IAM)** . Selezionare la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome _PreProductionRG_ per confermare l'eliminazione e selezionare **Elimina** in fondo al riquadro.
 

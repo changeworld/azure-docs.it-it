@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 473353c3f61d1096beb11c521c08ac723d54b780
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071604"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916134"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -50,7 +50,7 @@ Definendo elenchi di applicazioni sicure e generando avvisi quando viene eseguit
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
 |Computer supportati:|![Sì ](./media/icons/yes-icon.png) macchine virtuali di Azure e non Azure che eseguono Windows e Linux<br>![Sì ](./media/icons/yes-icon.png) computer [Azure Arc](../azure-arc/index.yml)|
 |Autorizzazioni e ruoli obbligatori:|I ruoli Reader **e Reader di** **sicurezza** possono visualizzare i gruppi e gli elenchi di applicazioni sicure.<br>I ruoli di amministratore di **collaboratore** e **sicurezza** possono sia modificare i gruppi che gli elenchi di applicazioni sicure.|

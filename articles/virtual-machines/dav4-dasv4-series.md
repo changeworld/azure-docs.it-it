@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 2876339d1c11802bf47e5f1bd660fe5d07568410
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 06440c49971c1347e2bad11fcc186220b21e0145
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065372"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917464"
 ---
 # <a name="dav4-and-dasv4-series"></a>Serie Dav4 e Dasv4
 
@@ -26,6 +26,7 @@ Le serie Dav4 e Dasv4 sono nuove dimensioni che usano il processore AMD 2.35 GHz
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 Le dimensioni della serie Dav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz. Le dimensioni della serie Dav4 offrono una combinazione di vCPU, memoria e archiviazione temporanea per la maggior parte dei carichi di lavoro di produzione. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare l'unità SSD Premium, usare le dimensioni Dasv4. I prezzi e i contatori di fatturazione per le dimensioni Dasv4 sono uguali a quelli della serie Dav4.
@@ -49,6 +50,7 @@ Le dimensioni della serie Dav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 Le dimensioni della serie Dasv4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Dasv4 offrono una combinazione di vCPU, memoria e archiviazione temporanea per la maggior parte dei carichi di lavoro di produzione.

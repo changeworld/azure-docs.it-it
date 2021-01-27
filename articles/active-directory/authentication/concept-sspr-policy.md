@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 980e830716b66b63c8f2dc6e641a88af26d44871
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 80be5ca22f3dfb673f09327108e66fccc9de6ddd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027065"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918044"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -75,6 +75,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Supporto partner - Livello 1
   * Supporto partner - Livello 2
   * Amministratori di Exchange
+  * Amministratore della cassetta postale
   * Amministratore di Skype for Business
   * Amministratore utenti
   * Writer di directory
@@ -85,10 +86,12 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore della sicurezza
   * Amministratore dei ruoli con privilegi
   * Amministratore di Intune
+  * Amministratore locale dispositivo Azure AD aggiunto
   * Amministratore del servizio proxy di applicazione
   * Amministratore di Dynamics 365
   * Amministratore del servizio Power BI
   * Amministratore dell'autenticazione
+  * Amministratore password
   * Amministratore di autenticazione con privilegi
 
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o

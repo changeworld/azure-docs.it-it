@@ -3,12 +3,12 @@ title: Panoramica di backup su disco di Azure
 description: Informazioni sulla soluzione di backup su disco di Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: d73c431fdc2b2906dc1d3d9485bded9449b2f2ba
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 4db2a5f3f02322f18fcf9203c3560905cde86996
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733031"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915509"
 ---
 # <a name="overview-of-azure-disk-backup-in-preview"></a>Panoramica di backup su disco di Azure (in anteprima)
 
@@ -53,7 +53,7 @@ Prendere in considerazione il backup del disco di Azure negli scenari in cui:
 
 ## <a name="how-the-backup-and-restore-process-works"></a>Funzionamento del processo di backup e ripristino
 
-- Il primo passaggio della configurazione del backup per le condivisioni file di Azure consiste nel creare un insieme di credenziali di [backup](backup-vault-overview.md). L'insieme di credenziali offre una visualizzazione consolidata dei backup configurati in carichi di lavoro diversi.
+- Il primo passaggio per la configurazione del backup per Azure Managed disks consiste nel creare un insieme di credenziali di [backup](backup-vault-overview.md). L'insieme di credenziali offre una visualizzazione consolidata dei backup configurati in carichi di lavoro diversi.
 
 - Creare quindi un criterio di backup che consenta di configurare la frequenza di backup e la durata di conservazione.
 

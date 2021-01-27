@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 823992ba6d3b175c8d20a001f8298a5c4af9a1ae
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832710"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916786"
 ---
 # <a name="continuously-export-security-center-data"></a>Esportazione continua dei dati del Centro sicurezza
 
@@ -25,6 +25,8 @@ L' **esportazione continua** consente di personalizzare completamente gli *eleme
 - Tutti i risultati della gravità media o superiore delle analisi di valutazione della vulnerabilità dei server SQL vengono inviati a un'area di lavoro di Log Analytics specifica
 - Le raccomandazioni specifiche vengono recapitate a un hub eventi o Log Analytics area di lavoro ogni volta che vengono generate 
 - Il Punteggio sicuro per una sottoscrizione viene inviato a un'area di lavoro di Log Analytics ogni volta che il punteggio per un controllo viene modificato di 0,01 o più 
+
+Anche se la funzionalità è chiamata *continua*, è anche possibile esportare snapshot settimanali del Punteggio sicuro o dei dati di conformità alle normative.
 
 Questo articolo descrive come configurare l'esportazione continua in Log Analytics aree di lavoro o hub eventi di Azure.
 
@@ -39,7 +41,7 @@ Questo articolo descrive come configurare l'esportazione continua in Log Analyti
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Livello gratuito|
 |Autorizzazioni e ruoli obbligatori:|<ul><li>**Amministratore della sicurezza** o **proprietario** del gruppo di risorse</li><li>Autorizzazioni di scrittura per la risorsa di destinazione</li><li>Se si usano i criteri di Azure ' DeployIfNotExist ' descritti di seguito, sono necessarie anche le autorizzazioni per l'assegnazione di criteri</li></ul>|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov, altri governi<br>![Sì](./media/icons/yes-icon.png) Gov Cina (per hub eventi)|
@@ -78,6 +80,10 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
     Qui vengono visualizzate le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
 
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
+1. Selezionare la frequenza di esportazione appropriata:
+    - **Streaming** : le valutazioni verranno inviate in tempo reale quando lo stato di integrità di una risorsa viene aggiornato (se non si verifica alcun aggiornamento, non verrà inviato alcun dato).
+    - **Snapshot** : uno snapshot dello stato corrente di tutte le valutazioni della conformità alle normative verrà inviato ogni settimana (si tratta di una funzionalità di anteprima per gli snapshot settimanali dei punteggi sicuri e dei dati di conformità alle normative).
+
 1. Facoltativamente, se la selezione include uno di questi consigli, è possibile includere i risultati della valutazione della vulnerabilità insieme a essi:
     - È necessario correggere i risultati della valutazione della vulnerabilità nei database SQL
     - I risultati della valutazione della vulnerabilità nei computer SQL Server devono essere corretti (anteprima)

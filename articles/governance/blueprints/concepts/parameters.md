@@ -1,14 +1,14 @@
 ---
 title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici e protetti.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dbf7ec02e89eac791ec3e17202a5ab13a04b81d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651946"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918535"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -28,7 +28,7 @@ I parametri possono essere creati nel progetto stesso tramite l'API REST. Questi
 
 ### <a name="using-securestring-and-secureobject-parameters"></a>Uso dei parametri secureString e secureObject
 
-Sebbene un _elemento_ modello ARM supporti i parametri dei tipi **secureString** e **secureObject** , i progettisti di Azure richiedono che ognuno di essi sia connesso a un Azure Key Vault. Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. I progettisti di Azure supportano questa misura di sicurezza, individuando l'inclusione di un parametro sicuro in un _elemento_del modello ARM. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
+Sebbene un _elemento_ modello ARM supporti i parametri dei tipi **secureString** e **secureObject** , i progettisti di Azure richiedono che ognuno di essi sia connesso a un Azure Key Vault. Questa misura di sicurezza impedisce la rischiosa prassi di archiviare i segreti insieme al progetto e incoraggia l'impiego di modelli sicuri. I progettisti di Azure supportano questa misura di sicurezza, individuando l'inclusione di un parametro sicuro in un _elemento_ del modello ARM. Il servizio richiede quindi, durante l'assegnazione, le seguenti proprietà di Key Vault per ogni parametro sicuro rilevato:
 
 - ID risorsa dell'insieme di credenziali delle chiavi
 - Nome del segreto dell'insieme di credenziali delle chiavi
@@ -65,7 +65,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Nella pagina **modifica elemento** vengono visualizzate le opzioni relative ai valori appropriate per l'elemento selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot della definizione di un progetto e della &quot;X di parametri Y popolati&quot; evidenziati." border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot dei parametri statici in un elemento del progetto." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Impostazione dei parametri statici dall'API REST
 
@@ -176,7 +176,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Nella pagina **assegna progetto** individuare la sezione **parametri artefatto** . Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot della definizione di un progetto e della &quot;X di parametri Y popolati&quot; evidenziati." border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot dell'impostazione di parametri dinamici durante l'assegnazione del progetto." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 

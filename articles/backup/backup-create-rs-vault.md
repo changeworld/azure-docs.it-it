@@ -4,12 +4,12 @@ description: Questo articolo illustra come creare e configurare insiemi di crede
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3ba9f47da4a4c9719c313ba196ca121f8cde54ad
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 51d095ab68bc9277cb610bd226039ffbde8d7ddf
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387735"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915727"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -46,9 +46,9 @@ L'opzione di ripristino **Cross Region Restore (CRR)** consente di ripristinare 
 
 Supporta le origini dati seguenti:
 
-- Macchine virtuali di Azure
-- Database SQL ospitati in macchine virtuali di Azure
-- SAP HANA database ospitati in macchine virtuali di Azure
+- VM di Azure (disponibilità generale)
+- Database SQL ospitati in macchine virtuali di Azure (anteprima)
+- SAP HANA database ospitati in macchine virtuali di Azure (anteprima)
 
 L'uso del ripristino tra aree consente di:
 
@@ -65,11 +65,12 @@ Poiché questo processo è a livello di archiviazione, esistono [implicazioni](h
 >Prima di iniziare:
 >
 >- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
->- La funzionalità di ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche di Azure.
+>- La funzionalità di ripristino tra aree (CRR) per le macchine virtuali di Azure è ora disponibile a livello generale in tutte le aree pubbliche di Azure.
+>- Il ripristino tra aree per database SQL e SAP HANA è in anteprima in tutte le aree pubbliche di Azure.
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
 >- Attualmente CRR per le macchine virtuali di Azure è supportato solo per le macchine virtuali di Azure Resource Manager di Azure. Le macchine virtuali di Azure classiche non saranno supportate.  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
->- Il ripristino tra aree attualmente non può essere ripristinato in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
+>- Il ripristino tra aree **attualmente non può essere ripristinato** in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
 

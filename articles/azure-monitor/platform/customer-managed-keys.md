@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: b6836eee7e0e6ccbfa2628e0e371152f31ddf9d2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757543"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917833"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chiave gestita dal cliente di Monitoraggio di Azure 
 
@@ -30,9 +30,6 @@ La chiave gestita dal cliente viene distribuita su [cluster dedicati](../log-que
 I dati inseriti negli ultimi 14 giorni vengono anche mantenuti nella cache ad accesso frequente (con supporto SSD) per un efficace funzionamento del motore di query. Questi dati rimangono crittografati con le chiavi di Microsoft indipendentemente dalla configurazione della chiave gestita dal cliente, ma il controllo sui dati SSD rispetta la [revoca](#key-revocation)delle chiavi. Si sta lavorando per crittografare i dati SSD con la chiave gestita dal cliente nella prima metà del 2021.
 
 Log Analytics cluster dedicati usano un [modello di determinazione dei prezzi](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) per la prenotazione della capacità a partire da 1000 GB/giorno.
-
-> [!IMPORTANT]
-> A causa di vincoli temporanei di capacità, è necessario pre-eseguire la registrazione prima di creare un cluster. Usare i contatti in Microsoft o aprire la richiesta di supporto per registrare gli ID delle sottoscrizioni.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Funzionamento della chiave gestita dal cliente in monitoraggio di Azure
 
@@ -68,7 +65,6 @@ Sono applicabili le regole seguenti:
 
 ### <a name="customer-managed-key-provisioning-steps"></a>Procedura di provisioning delle chiavi Customer-Managed
 
-1. Registrazione della sottoscrizione per consentire la creazione del cluster
 1. Creazione di Azure Key Vault e archiviazione della chiave
 1. Creazione del cluster
 1. Concessione delle autorizzazioni a Key Vault
@@ -107,10 +103,6 @@ Authorization: Bearer <token>
 ```
 
 ---
-
-### <a name="allowing-subscription"></a>Concessione della sottoscrizione
-
-Usare i contatti in Microsoft o aprire la richiesta di supporto in Log Analytics per fornire gli ID delle sottoscrizioni.
 
 ## <a name="storing-encryption-key-kek"></a>Archiviazione della chiave di crittografia (KEK)
 

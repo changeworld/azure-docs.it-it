@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bff15cbc8827f4a0eb09a243e01b2cdb95ba5f2f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681354"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917094"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>Che cos'è Azure Synapse Analytics?
 
@@ -26,8 +26,7 @@ L'analisi aziendale deve operare su larga scala con qualsiasi tipo di dati, che 
 
 ### <a name="industry-leading-sql"></a>SQL leader di settore
 
-* **Synapse SQL** è un sistema di query distribuito che consente alle aziende di implementare scenari di data warehousing e virtualizzazione dei dati usando esperienze T-SQL standard e ben note. Espande inoltre le funzionalità di SQL per rispondere ai requisiti di streaming e Machine Learning.
-
+* **Sinapsi SQL** è un sistema di query distribuite per t-SQL che consente scenari di data warehousing e virtualizzazione dei dati ed estende t-SQL per risolvere scenari di streaming e machine learning.
 * Synapse SQL offre modelli di risorse **serverless** e **dedicati**, rendendo disponibili opzioni a consumo e su fatturazione in base a specifiche esigenze. Per prestazioni e costi prevedibili, creare pool SQL dedicati per riservare la potenza di elaborazione per i dati archiviati in tabelle SQL. Per i carichi di lavoro non pianificati o con picchi, usare l'endpoint SQL serverless sempre disponibile.
 * Usare le funzionalità predefinite di **streaming** per trasferire dati da origini cloud in tabelle SQL
 * Integrare l'intelligenza artificiale con SQL usando modelli di **Machine Learning** per assegnare punteggi ai dati tramite la [funzione T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)

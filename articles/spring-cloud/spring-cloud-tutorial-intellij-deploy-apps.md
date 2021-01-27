@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
-ms.translationtype: HT
+ms.openlocfilehash: a808e37c0f0aae2816eb536dc43485c125354b81
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426730"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916202"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Usare IntelliJ per distribuire applicazioni Azure Spring Cloud
 
@@ -23,8 +23,6 @@ Il plug-in IntelliJ per Azure Spring Cloud supporta la distribuzione di applicaz
 Prima di eseguire questo esempio, è possibile provare la [guida di avvio rapido di base](spring-cloud-quickstart.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
-* [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 * [IntelliJ IDEA, Community/Ultimate Edition, versione 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installare il plug-in
@@ -89,7 +87,7 @@ Per eseguire la distribuzione in Azure, è necessario accedere con l'account Azu
 
 ## <a name="show-streaming-logs"></a>Visualizzare i log in streaming
 Per ottenere i log:
-1. Selezionare **Azure Explorer** , quindi **Spring Cloud**.
+1. Selezionare **Azure Explorer**, quindi **Spring Cloud**.
 1. Fare clic con il pulsante destro del mouse sull'app in esecuzione.
 1. Selezionare **Streaming Logs** (Log in streaming) dall'elenco a discesa.
 

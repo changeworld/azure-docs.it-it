@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul ciclo di vita di un progetto
 description: Informazioni sul ciclo di vita della definizione di un progetto e informazioni dettagliate su ogni fase, tra cui l'aggiornamento e la rimozione di assegnazioni di progetti.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721a198b5732af01c6712e86bc0c8e8ef543b404
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049707"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918518"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
@@ -46,7 +46,7 @@ Modificare un progetto nel [portale di Azure](../create-blueprint-portal.md#edit
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Pubblicazione di una nuova versione del progetto
 
-Ogni versione modificata di un progetto deve essere **Pubblicata** prima di poter essere assegnata. Quando le **Modifiche non pubblicate** sono state apportate a un progetto ma non **Pubblicate**, il pulsante**Pubblica progetto** è disponibile nella pagina di modifica del progetto. Se il pulsante non è visibile, il progetto è già stato **Pubblicato** e non presenta **Modifiche non pubblicate**.
+Ogni versione modificata di un progetto deve essere **Pubblicata** prima di poter essere assegnata. Quando le **Modifiche non pubblicate** sono state apportate a un progetto ma non **Pubblicate**, il pulsante **Pubblica progetto** è disponibile nella pagina di modifica del progetto. Se il pulsante non è visibile, il progetto è già stato **Pubblicato** e non presenta **Modifiche non pubblicate**.
 
 > [!NOTE]
 > Un progetto singolo può avere diverse versioni **Pubblicate** assegnate alle sottoscrizioni.

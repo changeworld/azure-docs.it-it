@@ -4,14 +4,13 @@ description: Questo articolo descrive come usare Gestione aggiornamenti per gest
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.custom: mvc
-ms.openlocfilehash: 24dcb501872aabf9fac3da0cccc2a1af9c9b06ff
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.date: 01/27/2021
+ms.openlocfilehash: c86c9049bc0afc81f5dfd8553d2aa98cfd4b1a46
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222836"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915983"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gestire gli aggiornamenti e le patch per le macchine virtuali
 
@@ -35,11 +34,13 @@ Gestione aggiornamenti usa una configurazione dell'ambito all'interno dell'area 
 
 Prima di distribuire gli aggiornamenti software nei computer, rivedere i risultati della valutazione della conformità degli aggiornamenti per i computer abilitati. Per ogni aggiornamento software, il relativo stato di conformità viene registrato e, al termine della valutazione, viene raccolto e trasmesso in blocco ai log di monitoraggio di Azure.
 
-In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita. Oltre all'analisi pianificata, l'analisi per la conformità degli aggiornamenti viene avviata entro 15 minuti dall'Log Analytics agente per Windows da riavviare, prima dell'installazione dell'aggiornamento e dopo l'installazione dell'aggiornamento. È inoltre importante consultare le indicazioni su come [configurare il client di Windows Update](configure-wuagent.md) con gestione aggiornamenti per evitare problemi che ne impediscono la gestione corretta.
+In un computer Windows, l'analisi di conformità viene eseguita ogni 12 ore per impostazione predefinita e viene avviata entro 15 minuti dall'Log Analytics agente per Windows viene riavviato. I dati di valutazione vengono quindi trasmessi all'area di lavoro e aggiornati la tabella degli **aggiornamenti** . Prima e dopo l'installazione dell'aggiornamento, viene eseguita un'analisi della conformità degli aggiornamenti per identificare gli aggiornamenti mancanti, ma i risultati non vengono utilizzati per aggiornare i dati di valutazione nella tabella.
+
+È importante esaminare le raccomandazioni su come [configurare il client di Windows Update](configure-wuagent.md) con gestione aggiornamenti per evitare eventuali problemi che ne impediscono la gestione corretta.
 
 Per un computer Linux, l'analisi della conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente di Log Analytics per Linux viene riavviato, un'analisi di conformità viene avviata entro 15 minuti.
 
-I risultati di conformità vengono presentati in Gestione aggiornamenti per ogni computer valutato. Per una nuova macchina virtuale abilitata per la gestione, possono essere necessari fino a 30 minuti prima che il dashboard visualizzi dati aggiornati.
+I risultati di conformità vengono presentati in Gestione aggiornamenti per ogni computer valutato. Possono essere necessari fino a 30 minuti affinché il dashboard visualizzi dati aggiornati da un nuovo computer abilitato per la gestione.
 
 Vedere [monitorare gli aggiornamenti software](view-update-assessments.md) per informazioni su come visualizzare i risultati di conformità.
 

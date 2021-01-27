@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Gestire le query nel portale di Azure'
 description: In questa esercitazione viene creata una nuova query di Resource Graph, che viene condivisa con altre persone nel portale di Azure.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: 7240a843cfa041137b28284e396c8a4b62a81926
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057927"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916680"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Esercitazione: Creare e condividere una query di Azure Resource Graph nel portale di Azure
 
@@ -88,7 +88,7 @@ A differenza di una query privata, una query condivisa è una risorsa di Resourc
 
 1. Selezionare **Salva** nella parte inferiore del riquadro **Salva query**. Il titolo della scheda cambia da **Query 1** a **Numero di macchine virtuali per tipo di sistema operativo**. La prima volta che si usa il gruppo di risorse **resource-graph-queries**, il salvataggio richiede più tempo del previsto in quanto il gruppo di risorse deve essere creato.
    
-   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvataggio della nuova query con il pulsante Salva" border="false":::
+   :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="Salvataggio della nuova query come query condivisa" border="false":::
 
    > [!NOTE] 
    > È possibile deselezionare la casella di controllo **Pubblica nel gruppo di risorse 'resource-graph-queries'** se si vuole specificare il nome di un gruppo di risorse esistente in cui salvare la query condivisa. L'uso del gruppo di risorse denominato predefinito per le query rende più semplice l'individuazione delle query condivise e più evidente lo scopo del gruppo di risorse. Tuttavia, è possibile scegliere di selezionare un gruppo di risorse esistente per motivi di sicurezza in base alle autorizzazioni esistenti.
@@ -97,7 +97,7 @@ A differenza di una query privata, una query condivisa è una risorsa di Resourc
 
 1. Selezionare **Apri una query**. Verificare che il tipo sia impostato su **Query condivisa** e che la combinazione di **Sottoscrizione** e **Gruppo di risorse** corrisponda al percorso in cui è stata salvata la query. La voce **Numero di macchine virtuali per tipo di sistema operativo** salvata viene ora visualizzata nell'elenco **Nome query**. Selezionare il collegamento del titolo della query salvata per caricarlo in una nuova scheda con il nome della query. Dal momento che la query è condivisa, viene visualizzata un'icona nella scheda accanto al titolo, che la indica come condivisa.
 
-   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Salvataggio della nuova query con il pulsante Salva" border="false":::
+   :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="Visualizzazione della query condivisa con icona" border="false":::
 
    > [!NOTE] 
    > Quando una query salvata è aperta nella scheda con lo stesso nome, il pulsante **Salva** la aggiorna con le modifiche apportate. Per creare una nuova query salvata, selezionare **Salva con nome** e procedere come se si stesse salvando una nuova query.

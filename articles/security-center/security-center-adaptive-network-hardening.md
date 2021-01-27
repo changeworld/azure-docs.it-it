@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341754"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916185"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza.
@@ -26,8 +26,8 @@ Informazioni su come configurare la protezione avanzata della rete adattiva nel 
 ## <a name="availability"></a>Disponibilità
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
-|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
+|Stato della versione:|Disponibilità generale (GA)|
+|Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|Autorizzazioni di scrittura per i gruppi di sicurezza di rete del computer|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
@@ -60,7 +60,7 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
       * **I dati disponibili non sono sufficienti**: per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
       * La **macchina virtuale non è protetta da Azure Defender**: solo le macchine virtuali protette con [Azure Defender per i server](defender-for-servers-introduction.md) sono idonee per questa funzionalità.
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Accesso agli strumenti di protezione avanzata della rete adattiva":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/recommendation-details-page.png" alt-text="Pagina dei dettagli della raccomandazione le raccomandazioni per la protezione avanzata della rete adattiva devono essere applicate alle macchine virtuali con connessione Internet":::
 
 1. Dalla scheda **risorse non integre** selezionare una macchina virtuale per visualizzare gli avvisi e le regole di protezione avanzata consigliate da applicare.
 
@@ -78,12 +78,12 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
     > [!TIP]
     > Se gli intervalli di indirizzi IP di origine consentiti vengono visualizzati come ' none ', significa che la regola consigliata è una regola di *negazione* . in caso contrario, si tratta di una regola di *autorizzazione* .
 
-    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Accesso agli strumenti di protezione avanzata della rete adattiva":::
+    :::image type="content" source="./media/security-center-adaptive-network-hardening/hardening-alerts.png" alt-text="Gestione delle regole di protezione avanzata della rete adattiva":::
 
       > [!NOTE]
       > Le regole imposte vengono aggiunte a NSG (s) che proteggono la macchina virtuale. Una macchina virtuale può essere protetta da un NSG associato alla scheda di interfaccia di rete o alla subnet in cui risiede la macchina virtuale o a entrambe.
 
-### <a name="modify-a-rule"></a>Modificare una regola <a name ="modify-rule"> </a>
+### <a name="modify-a-rule"></a>Modificare una regola <a name ="modify-rule"></a>
 
 Potrebbe essere necessario modificare i parametri di una regola consigliata. Ad esempio, potrebbe essere necessario modificare gli intervalli IP consigliati.
 
@@ -116,7 +116,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 
     ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
-### <a name="add-a-new-rule"></a>Aggiungi una nuova regola <a name ="add-rule"> </a>
+### <a name="add-a-new-rule"></a>Aggiungi una nuova regola <a name ="add-rule"></a>
 
 È possibile aggiungere una regola "Consenti" non consigliata dal centro sicurezza.
 
@@ -139,7 +139,7 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
     ![Applica regola](./media/security-center-adaptive-network-hardening/enforce-hard-rule.png)
 
 
-### <a name="delete-a-rule"></a>Eliminare una regola <a name ="delete-rule"> </a>
+### <a name="delete-a-rule"></a>Eliminare una regola <a name ="delete-rule"></a>
 
 Quando necessario, è possibile eliminare una regola consigliata per la sessione corrente. Ad esempio, è possibile determinare che l'applicazione di una regola consigliata potrebbe bloccare il traffico legittimo.
 

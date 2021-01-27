@@ -1,14 +1,14 @@
 ---
 title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione di definizioni di criteri, ai vari SDK e al componente aggiuntivo per Kubernetes.
-ms.date: 12/01/2020
+ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6f31f6e6f8d24f83f44dc14112f1bdc90c8af859
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897072"
+ms.locfileid: "98917744"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Risolvere gli errori con l'uso di criteri di Azure
 
@@ -36,13 +36,14 @@ Un alias errato o inesistente viene utilizzato in una definizione di criteri.
 
 #### <a name="resolution"></a>Soluzione
 
-Prima di tutto, verificare che la proprietà Gestione risorse disponga di un alias. Per cercare gli alias disponibili, passare all'estensione di [criteri di Azure per Visual Studio Code](../how-to/extension-for-vscode.md) o SDK. Se l'alias di una proprietà Gestione risorse non esiste, creare un ticket di supporto.
+Prima di tutto, verificare che la proprietà Gestione risorse disponga di un alias. Per cercare gli alias disponibili, passare all'estensione di [criteri di Azure per Visual Studio Code](../how-to/extension-for-vscode.md) o SDK.
+Se l'alias di una proprietà Gestione risorse non esiste, creare un ticket di supporto.
 
 ### <a name="scenario-evaluation-details-arent-up-to-date"></a>Scenario: i dettagli della valutazione non sono aggiornati
 
 #### <a name="issue"></a>Problema
 
-Una risorsa è nello stato *non avviato* o i dettagli di conformità non sono aggiornati.
+Una risorsa è nello stato _non avviato_ o i dettagli di conformità non sono aggiornati.
 
 #### <a name="cause"></a>Causa
 
@@ -90,7 +91,8 @@ Una risorsa su cui si prevede che i criteri di Azure agisca non viene eseguita e
 
 #### <a name="cause"></a>Causa
 
-L'assegnazione dei criteri è stata configurata per un'impostazione [**EnforcementMode**](../concepts/assignment-structure.md#enforcement-mode) _disabilitata_. Mentre **enforcementMode** è disabilitato, l'effetto del criterio non viene applicato e non è presente alcuna voce nel log attività.
+L'assegnazione dei criteri è stata configurata per un'impostazione [**EnforcementMode**](../concepts/assignment-structure.md#enforcement-mode) _disabilitata_.
+Mentre **enforcementMode** è disabilitato, l'effetto del criterio non viene applicato e non è presente alcuna voce nel log attività.
 
 #### <a name="resolution"></a>Soluzione
 
@@ -186,7 +188,7 @@ Le definizioni dei criteri usate in precedenza nelle definizioni DeployIfNotExis
 
 #### <a name="resolution"></a>Soluzione
 
-Le definizioni che in precedenza hanno causato il problema vengono visualizzate come *[deprecate]* e vengono sostituite dalle definizioni dei criteri che gestiscono i prerequisiti senza rimuovere le identità gestite assegnate dall'utente. È necessario eseguire un passaggio manuale. Eliminare le assegnazioni di criteri esistenti contrassegnate come *[deprecate]* e sostituirle con le definizioni dei criteri e le definizioni dei criteri dei prerequisiti aggiornati con lo stesso nome dell'originale.
+Le definizioni che in precedenza hanno causato il problema vengono visualizzate come _\[ deprecate \]_ e vengono sostituite dalle definizioni dei criteri che gestiscono i prerequisiti senza rimuovere le identità gestite assegnate dall'utente. È necessario eseguire un passaggio manuale. Eliminare le assegnazioni di criteri esistenti contrassegnate come _\[ deprecate \]_ e sostituirle con l'iniziativa dei criteri e le definizioni dei criteri dei prerequisiti aggiornati con lo stesso nome dell'originale.
 
 Per una descrizione dettagliata, vedere il post di Blog [relativo alla modifica importante rilasciata per i criteri di controllo della configurazione Guest](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316).
 
@@ -226,11 +228,11 @@ Il componente aggiuntivo non è in grado di raggiungere l'endpoint del servizio 
 Questo errore si verifica quando si installa _Add-Pod-Identity_ nel cluster e i pod del _sistema Kube_ non sono esclusi in _AAD-Pod-Identity_.
 
 I pod dell'identità gestita del nodo del componente _AAD-Pod-Identity_ consentono di modificare i iptables dei nodi per intercettare le chiamate all'endpoint dei metadati dell'istanza di Azure. Questa configurazione significa che tutte le richieste effettuate all'endpoint dei metadati vengono intercettate da NMI, anche se il Pod non usa _AAD-Pod-Identity_.
-Il CustomResourceDefinition *AzurePodIdentityException* (CRD) può essere configurato per informare _AAD-Pod-Identity_ che qualsiasi richiesta a un endpoint di metadati originato da un pod corrispondente alle etichette definite nel CRD deve essere inoltrata senza elaborazione in NMI.
+Il CustomResourceDefinition _AzurePodIdentityException_ (CRD) può essere configurato per informare _AAD-Pod-Identity_ che qualsiasi richiesta a un endpoint di metadati originato da un pod corrispondente alle etichette definite nel CRD deve essere inoltrata senza elaborazione in NMI.
 
 #### <a name="resolution"></a>Soluzione
 
-Escludere i pod di sistema che hanno l' `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ in _AAD-Pod-Identity_ configurando la *AzurePodIdentityException* CRD.
+Escludere i pod di sistema che hanno l' `kubernetes.azure.com/managedby: aks` etichetta nello spazio dei nomi _Kube-System_ in _AAD-Pod-Identity_ configurando la _AzurePodIdentityException_ CRD.
 
 Per altre informazioni, vedere [disabilitare l'identità pod Azure Active Directory (Azure ad) per un pod/applicazione specifico](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
 
@@ -264,11 +266,11 @@ spec:
 Il componente aggiuntivo può raggiungere l'endpoint del servizio criteri di Azure, ma nei log del componente aggiuntivo viene visualizzato uno degli errori seguenti:
 
 - `The resource provider 'Microsoft.PolicyInsights' is not registered in subscription '{subId}'. See
-https://aka.ms/policy-register-subscription for how to register subscriptions.`
+  https://aka.ms/policy-register-subscription for how to register subscriptions.`
 
 - `policyinsightsdataplane.BaseClient#CheckDataPolicyCompliance: Failure responding to request:
-StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
-Code="InternalServerError" Message="Encountered an internal server error.`
+  StatusCode=500 -- Original Error: autorest/azure: Service returned an error. Status=500
+  Code="InternalServerError" Message="Encountered an internal server error.`
 
 #### <a name="cause"></a>Causa
 

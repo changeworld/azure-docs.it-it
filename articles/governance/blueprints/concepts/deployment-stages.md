@@ -1,14 +1,14 @@
 ---
 title: Fasi della distribuzione di un progetto
-description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti durante la creazione di un'assegnazione di progetto.
-ms.date: 08/27/2020
+description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti che vengono eseguiti dai servizi Cianografici di Azure durante la creazione di un'assegnazione di progetto.
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e686dec1c9d79e42dafee17d8a937284aac4fdd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049775"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918552"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 

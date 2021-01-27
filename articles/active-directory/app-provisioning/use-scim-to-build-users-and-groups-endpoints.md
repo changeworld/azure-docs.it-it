@@ -1,27 +1,22 @@
 ---
-title: Compilare un endpoint SCIM per il provisioning degli utenti nelle app da Azure AD
-description: System for Cross-domain Identity Management (SCIM) standardizza il provisioning utenti automatico. Questo articolo illustra come sviluppare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e iniziare ad automatizzare il provisioning di utenti e gruppi nelle applicazioni cloud.
+title: Compilare un endpoint SCIM per il provisioning degli utenti nelle app da Azure Active Directory
+description: System for Cross-domain Identity Management (SCIM) standardizza il provisioning utenti automatico. Informazioni su come sviluppare un endpoint SCIM, integrare l'API SCIM con Azure Active Directory e avviare l'automazione del provisioning di utenti e gruppi nelle applicazioni cloud con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: msmimart
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2020
-ms.author: mimart
+ms.date: 01/27/2021
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ae36af981b113d44ac1b8fd45a1d084760b0294
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 34fa76197c4e08cffd1d8c66d6877b3e427e9fd6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900163"
+ms.locfileid: "98918145"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Esercitazione: sviluppare un endpoint SCIM di esempio
 
@@ -30,68 +25,8 @@ Nessuno vuole creare un nuovo endpoint da zero, quindi è stato creato un codice
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Scaricare il codice di riferimento
 > * Distribuire l'endpoint SCIM in Azure
 > * Testare l'endpoint SCIM
-
-Le funzionalità dell'endpoint, incluse sono:
-
-|Endpoint|Descrizione|
-|---|---|
-|`/User`|Eseguire operazioni CRUD su una risorsa utente: **creare**, **aggiornare**, **eliminare**, **ottenere**, **elencare**, **filtrare**|
-|`/Group`|Eseguire operazioni CRUD su una risorsa di gruppo: **creare**, **aggiornare**, **eliminare**, **ottenere**, **elencare**, **filtrare**|
-|`/Schemas`|Recuperare uno o più schemi supportati.<br/><br/>Il set di attributi di una risorsa supportata da ogni provider di servizi può variare, ad esempio il provider di servizi A supporta "Name", "title" e "email" mentre il provider di Servizi B supporta "Name", "title" e "phoneNumbers" per gli utenti.|
-|`/ResourceTypes`|Recuperare i tipi di risorse supportati.<br/><br/>Il numero e i tipi di risorse supportati da ogni provider di servizi possono variare, ad esempio il provider di servizi A supporta gli utenti mentre il provider di Servizi B supporta utenti e gruppi.|
-|`/ServiceProviderConfig`|Recuperare la configurazione SCIM del provider di servizi<br/><br/>Le funzionalità di SCIM supportate da ogni provider di servizi possono variare, ad esempio il provider di servizi A supporta le operazioni patch mentre il provider di Servizi B supporta le operazioni patch e l'individuazione dello schema.|
-
-## <a name="download-the-reference-code"></a>Scaricare il codice di riferimento
-
-Il [codice di riferimento](https://github.com/AzureAD/SCIMReferenceCode) da scaricare include i progetti seguenti:
-
-- **Microsoft.SystemForCrossDomainIdentityManagement**, l'API Web .NET Core MVC per compilare ed eseguire il provisioning di un'API scim
-- **Microsoft. SCIM. WebHostSample**, un esempio funzionante di endpoint scim
-
-I progetti contengono le cartelle e i file seguenti:
-
-|File/cartella|Descrizione|
-|-|-|
-|Cartella **schemi**| Modelli per le risorse **utente** e **gruppo** insieme ad alcune classi astratte come schematizzato per le funzionalità condivise.<br/><br/> Una cartella **Attributes** che contiene le definizioni di classe per attributi complessi di **utenti** e **gruppi** , ad esempio indirizzi.|
-|Cartella del **servizio** | Contiene la logica per le azioni relative al modo in cui le risorse vengono sottoposte a query e aggiornate.<br/><br/> Il codice di riferimento dispone di servizi per la restituzione di utenti e gruppi.<br/><br/>La cartella **Controllers** contiene i vari endpoint SCIM. I controller delle risorse includono verbi HTTP per eseguire operazioni CRUD sulla risorsa (**Get**, **post**, **put**, **patch**, **Delete**). I controller si basano sui servizi per eseguire le azioni.|
-|Cartella **protocollo**|Contiene la logica per le azioni relative al modo in cui le risorse vengono restituite in base alla RFC SCIM, ad esempio:<br/><ul><li>Restituzione di più risorse come elenco.</li><li>Restituzione solo di risorse specifiche in base a un filtro.</li><li>Trasformare una query in un elenco di elenchi collegati di filtri singoli.</li><li>Trasformazione di una richiesta PATCH in un'operazione con attributi relativi al percorso del valore.</li><li>Definizione del tipo di operazione che può essere usata per applicare le modifiche agli oggetti risorsa.</li></ul>|
-|`Microsoft.SystemForCrossDomainIdentityManagement`| Codice sorgente di esempio.|
-|`Microsoft.SCIM.WebHostSample`| Implementazione di esempio della libreria SCIM.|
-|*. gitignore*|Definire gli elementi da ignorare in fase di commit.|
-|*CHANGELOG.md*|Elenco delle modifiche apportate all'esempio.|
-|*CONTRIBUTING.md*|Linee guida per contribuire all'esempio.|
-|*README.md*|Il file **Leggimi** .|
-|*LICENZA*|Licenza per l'esempio.|
-
-> [!NOTE]
-> Questo codice è utile per iniziare a compilare un endpoint SCIM e viene fornito **così com'è**. I riferimenti inclusi non hanno alcuna garanzia di manutenzione o supporto attivo.
->
-> Questo progetto ha adottato il [Codice di comportamento di Microsoft per l'open source](https://opensource.microsoft.com/codeofconduct/). Dato che i [contributi](https://github.com/AzureAD/SCIMReferenceCode/wiki/Contributing-Overview) della community sono benvenuti per facilitare la creazione e la gestione del repository e come altri contributi open source, si accetterà un contratto di licenza con collaboratore (CLA). Il presente contratto dichiara di avere e concedere i diritti per l'uso del contributo. per informazioni dettagliate, vedere [Microsoft Open Source](https://cla.opensource.microsoft.com).
->
-> Per altre informazioni, vedere le [Domande frequenti sul codice di comportamento](https://opensource.microsoft.com/codeofconduct/faq/) o scrivere a [opencode@microsoft.com](mailto:opencode@microsoft.com) per domande aggiuntive o commenti.
-
-###  <a name="use-multiple-environments"></a>Usare più ambienti
-
-Il codice SCIM incluso usa un ambiente ASP.NET Core per controllare l'autorizzazione da usare in fase di sviluppo e dopo la distribuzione, vedere [usare più ambienti in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments?view=aspnetcore-3.1).
-
-```csharp
-private readonly IWebHostEnvironment _env;
-...
-
-public void ConfigureServices(IServiceCollection services)
-{
-    if (_env.IsDevelopment())
-    {
-        ...
-    }
-    else
-    {
-        ...
-    }
-```
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Distribuire l'endpoint SCIM in Azure
 
@@ -132,7 +67,7 @@ Questo è tutto. L'endpoint SCIM è ora pubblicato e consente di usare l'URL del
 
 ## <a name="test-your-scim-endpoint"></a>Testare l'endpoint SCIM
 
-Per le richieste a un endpoint SCIM è richiesta l'autorizzazione e lo standard SCIM lascia più opzioni per l'autenticazione e l'autorizzazione, ad esempio cookie, autenticazione di base, autenticazione client TLS o uno dei metodi elencati nella [specifica RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
+Le richieste a un endpoint SCIM richiedono l'autorizzazione e lo standard SCIM lascia più opzioni per l'autenticazione e l'autorizzazione, ad esempio cookie, autenticazione di base, autenticazione client TLS o uno dei metodi elencati nella [specifica RFC 7644](https://tools.ietf.org/html/rfc7644#section-2).
 
 Assicurarsi di evitare metodi non sicuri, ad esempio nome utente e password, a favore di un metodo più sicuro come OAuth. Azure AD supporta token di collegamento di lunga durata (per le applicazioni di raccolta e non di raccolta) e la concessione di autorizzazione OAuth (per le applicazioni pubblicate nella raccolta di app).
 
@@ -164,7 +99,7 @@ Il codice di convalida del token predefinito è configurato per l'uso di un toke
 
 ### <a name="use-postman-to-test-endpoints"></a>Usare il post per testare gli endpoint
 
-Dopo aver distribuito l'endpoint SCIM, è possibile eseguire il test per assicurarsi che sia conforme a SCIM RFC. Questo esempio fornisce un set di test nel **post** per convalidare le operazioni CRUD su utenti e gruppi, i filtri, gli aggiornamenti per l'appartenenza al gruppo e la disabilitazione degli utenti.
+Dopo aver distribuito l'endpoint SCIM, è possibile verificare che sia conforme allo standard RFC di SCIM. Questo esempio fornisce un set di test nel **post** per convalidare le operazioni CRUD su utenti e gruppi, i filtri, gli aggiornamenti per l'appartenenza al gruppo e la disabilitazione degli utenti.
 
 Gli endpoint si trovano nella `{host}/scim/` Directory e possono interagire con le richieste HTTP standard. Per modificare la `/scim/` Route, vedere *ControllerConstant.cs* in **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
 
@@ -206,7 +141,7 @@ Questo è tutto. È ora possibile eseguire la raccolta dei **post** per testare 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per sviluppare un endpoint utente e gruppo conforme a SCIM con interoperabilità per un client, vedere [implementazione del client scim](http://www.simplecloud.info/#Implementations2).
+Per sviluppare un endpoint utente e gruppo conforme a SCIM con l'interoperabilità per un client, vedere [implementazione del client scim](http://www.simplecloud.info/#Implementations2).
 
 > [!div class="nextstepaction"]
 > [Esercitazione: sviluppare e pianificare il provisioning per un endpoint scim](use-scim-to-provision-users-and-groups.md) 

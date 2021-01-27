@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 01/27/2021
 ms.author: memildin
-ms.openlocfilehash: ee9a20d3e5bb6974676d6d7a8285a56247756f64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784949"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916465"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -46,6 +46,7 @@ Gli aggiornamenti in gennaio includono:
 - [Aggiunte 35 raccomandazioni di anteprima per aumentare la copertura di Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
 - [Esportazione in CSV dell'elenco filtrato di raccomandazioni](#csv-export-of-filtered-list-of-recommendations)
 - [Le risorse "non applicabili" sono ora segnalate come "conformi" nelle valutazioni dei criteri di Azure](#not-applicable-resources-now-reported-as-compliant-in-azure-policy-assessments)
+- [Esporta snapshot settimanali del Punteggio sicuro e dei dati di conformità alle normative con esportazione continua (anteprima)](#export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview)
 
 
 ### <a name="azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center"></a>Il benchmark di sicurezza di Azure è ora l'iniziativa di criteri predefinita per il Centro sicurezza di Azure
@@ -224,6 +225,18 @@ In precedenza, le risorse valutate per una raccomandazione e rilevate come **non
 L'unico effetto si vedrà in Criteri di Azure, dove il numero di risorse conformi aumenterà. Non ci sarà alcun impatto sul punteggio di sicurezza nel Centro sicurezza di Azure.
 
 
+### <a name="export-weekly-snapshots-of-secure-score-and-regulatory-compliance-data-with-continuous-export-preview"></a>Esporta snapshot settimanali del Punteggio sicuro e dei dati di conformità alle normative con esportazione continua (anteprima)
+
+È stata aggiunta una nuova funzionalità di anteprima per gli strumenti di [esportazione continua](continuous-export.md) per l'esportazione di snapshot settimanali del Punteggio sicuro e dei dati di conformità alle normative.
+
+Quando si definisce un'esportazione continua, impostare la frequenza di esportazione:
+
+:::image type="content" source="media/release-notes/export-frequency.png" alt-text="Scelta della frequenza dell'esportazione continua":::
+
+- **Streaming** : le valutazioni verranno inviate in tempo reale quando lo stato di integrità di una risorsa viene aggiornato (se non si verifica alcun aggiornamento, non verrà inviato alcun dato).
+- **Snapshot** : uno snapshot dello stato corrente di tutte le valutazioni della conformità alle normative verrà inviato ogni settimana (si tratta di una funzionalità di anteprima per gli snapshot settimanali dei punteggi sicuri e dei dati di conformità alle normative).
+
+Scopri di più sulle funzionalità complete di questa funzionalità in [esportazione continua dei dati del Centro sicurezza](continuous-export.md)
 
 ## <a name="december-2020"></a>Dicembre 2020
 

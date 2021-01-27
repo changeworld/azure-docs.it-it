@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 500fa45db7e0e6bffb587d9d352ee1ab49f14703
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b30e08a2739000d2a7ec14a95742f2654e1d2ea1
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712273"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916235"
 ---
 # <a name="harden-your-docker-hosts"></a>Proteggere in modo avanzato gli host Docker
 
@@ -29,8 +29,8 @@ Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'un
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
-|Prezzi:|È necessario [Azure Defender per server](defender-for-servers-introduction.md)|
+|Stato della versione:|Disponibilità generale (GA)|
+|Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|**Reader** nell'area di lavoro a cui si connette l'host|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
@@ -50,11 +50,11 @@ Quando vengono rilevate vulnerabilità, vengono raggruppate all'interno di un'un
     > [!TIP]
     > Se è stata avviata la pagina inventario asset ed è stata raggiunta questa raccomandazione da qui, seleziona il pulsante di **azione** nella pagina di raccomandazione.
     >
-    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Raccomandazione per correggere le vulnerabilità nelle configurazioni di sicurezza del contenitore ":::
+    > :::image type="content" source="./media/monitor-container-security/host-security-take-action-button.png" alt-text="Pulsante azione per avviare Log Analytics":::
 
     Log Analytics si apre con un'operazione personalizzata pronta per l'esecuzione. La query personalizzata predefinita include un elenco di tutte le regole non riuscite valutate, insieme alle linee guida che consentono di risolvere i problemi.
 
-    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Raccomandazione per correggere le vulnerabilità nelle configurazioni di sicurezza del contenitore ":::
+    :::image type="content" source="./media/monitor-container-security/docker-host-vulnerabilities-in-query.png" alt-text="Log Analytics pagina con la query che Mostra tutti i controlli CIS non riusciti":::
 
 1. Se necessario, modificare i parametri della query.
 

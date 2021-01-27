@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/10/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84a3ef7b41b17e85c594213246211d45911ac56a
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: a39230cc65db6ef12b6fa4364454aeb434efddf6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953050"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918213"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Esercitazione: Registrare un'applicazione Web in Azure Active Directory B2C
 
@@ -98,6 +98,14 @@ Per un'applicazione Web è necessario creare un segreto dell'applicazione, che v
 1. Selezionare **Salva** per visualizzare la chiave. Annotare il valore di **Chiave dell'app**. Questo valore viene usato come segreto dell'applicazione nel codice dell'applicazione.
 
 * * *
+
+## <a name="enable-id-token-implicit-grant"></a>Abilita concessione implicita token ID
+
+La caratteristica che definisce la concessione implicita è che i token, ad esempio token di accesso e ID, vengono restituiti direttamente da Azure AD B2C all'applicazione. Per le app Web, ad esempio ASP.NET Core app Web e [https://jwt.ms](https://jwt.ms) , che richiedono un token ID direttamente dall'endpoint di autorizzazione, abilitare il flusso di concessione implicita nella registrazione dell'app.
+
+1. Nel menu a sinistra, in **Gestisci**, selezionare **Autenticazione**.
+1. In concessione implicita selezionare le caselle di controllo **token di accesso** e **token ID** .
+1. Selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

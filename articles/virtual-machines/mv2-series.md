@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c279916eb25c5ffe0b0b655818dd1a07849e582
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975757"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917463"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -26,6 +26,7 @@ Funzionalità della macchina virtuale della serie Mv2 Intel® Hyper-Threading Te
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Acceleratore di scrittura](./how-to-enable-write-accelerator.md): supportato<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 |Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache: IOPS/MBps (dimensione della cache espressa in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps) |

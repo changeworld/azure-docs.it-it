@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Proteggere le nuove risorse con blocchi'
 description: Questa esercitazione illustra come usare i blocchi delle risorse in Azure Blueprints in modalità Sola lettura e Non eliminare per proteggere le risorse appena distribuite.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
-ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: c671d641982ba833b54586c1b33979a97747396b
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048571"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915408"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Esercitazione: Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
@@ -187,7 +187,7 @@ L'assegnazione crea il gruppo di risorse _TestingBPLocks_ e l'account di archivi
 
 1. Selezionare l'assegnazione di rifiuto e quindi selezionare la pagina **Autorizzazioni negate** a sinistra.
 
-   L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
+   L'assegnazione Deny impedisce tutte le operazioni con la configurazione dell' **\* azione *_ e _*** , ma consente l'accesso in lettura escludendo **\* /Read** tramite **notacts**.
 
 1. Nella struttura di navigazione del portale di Azure selezionare **TestingBPLocks - Controllo di accesso (IAM)** . Selezionare la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome **TestingBPLocks** per confermare l'eliminazione e quindi selezionare **Elimina** in fondo al riquadro.
 

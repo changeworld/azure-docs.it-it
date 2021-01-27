@@ -4,12 +4,12 @@ description: Informazioni su come configurare le funzionalità di rete avanzate 
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0a6ea45156477c0d0e95b9d345cffe1a75c773b6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000573"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917808"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -96,6 +96,8 @@ Quando si crea un cluster servizio Azure Kubernetes, per la rete Azure CNI i par
 **Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. Per altre informazioni su limiti e quote per una rete virtuale di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
 **Subnet**: subnet nella rete virtuale in cui si vuole distribuire il cluster. Per creare una nuova subnet nella rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una subnet*. Per la connettività ibrida, l'intervallo di indirizzi non deve sovrapporsi ad altre reti virtuali dell'ambiente in uso.
+
+**Plug**-in di rete di Azure: quando si usa il plug-in di rete di Azure, non è possibile accedere al servizio LoadBalancer interno con "ExternalTrafficPolicy = local" da VM con un indirizzo IP in clusterCIDR che non appartiene al cluster AKS.
 
 **Intervallo di indirizzi del servizio Kubernetes**: questo è il set di indirizzi IP virtuali che Kubernetes assegna ai [Servizi][services] interni nel cluster. È possibile usare qualsiasi intervallo di indirizzi privati che soddisfi i requisiti seguenti:
 

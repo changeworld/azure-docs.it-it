@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 200e1fd7bfffef403fa459d3de13dc31145b8a33
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796623"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916714"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
@@ -25,7 +25,7 @@ App Azure servizio è una piattaforma completamente gestita per la creazione e l
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|[Azure Defender per il servizio app](azure-defender.md) è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)<br>Nella pagina prezzi e impostazioni è elencato il numero di istanze per la **quantità di risorse**. Tale numero è il numero totale di istanze di calcolo, in tutti i piani di servizio app in questa sottoscrizione, in esecuzione al momento dell'apertura della pagina piano tariffario.<br>Per convalidare il conteggio, aprire i **piani di servizio app** nel portale di Azure e verificare il numero di istanze di calcolo usate da ogni piano.|
 |Piani di servizio app supportati:|![Sì](./media/icons/yes-icon.png) Basic, Standard, Premium, Isolato o Linux<br>![No](./media/icons/no-icon.png) Gratuito, Condiviso o Consumo<br>[Altre informazioni sui piani di servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|

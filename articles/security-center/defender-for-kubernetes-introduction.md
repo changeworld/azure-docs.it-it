@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 76b83a608c7178b42b762d5fd5bb94d14a6ee41b
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: a19e90a15991cdc03999bf43d5bece63325aab05
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797770"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98916575"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduzione ad Azure Defender per Kubernetes
 
@@ -28,7 +28,7 @@ Per abilitare il rilevamento delle minacce a livello di host per i nodi del serv
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|**Azure Defender per Kubernetes** è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
 |Autorizzazioni e ruoli obbligatori:|Il ruolo **Amministratore della sicurezza** può ignorare gli avvisi.<br>Il **ruolo con autorizzazioni di lettura per la sicurezza** può visualizzare i risultati.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|

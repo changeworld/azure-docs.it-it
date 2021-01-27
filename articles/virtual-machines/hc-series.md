@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: 254e8591892fe08e8f05c49ed47a4cb00da16e78
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 86fd90a5979a876313694583709a64e74c116154
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930187"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917034"
 ---
 # <a name="hc-series"></a>Serie HC
 
@@ -27,6 +27,7 @@ VM serie HC funzionalità 100 GB/sec Mellanox EDR InfiniBand. Queste VM sono con
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Processore | Memoria (GiB) | Larghezza di banda di memoria (GB/sec) | Frequenza CPU di base (GHz) | Frequenza di tutti i core (GHz, picco) | Frequenza a core singolo (GHz, picco) | Prestazioni RDMA (GB/sec) | Supporto MPI | Spazio di archiviazione temp (GiB) | Numero massimo di dischi dati | Numero massimo di schede Ethernet |

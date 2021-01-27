@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 675751433657a7d630d0c42482716702f520ff82
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 42e8a1f4ff06f6ca6af4afd428008ca174823c5f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881385"
+ms.locfileid: "98916422"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduzione ad Azure Defender per Archiviazione
 
@@ -25,7 +25,7 @@ Gli avvisi di sicurezza vengono attivati quando si verifica un'anomalia nell'att
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|**Azure Defender per Archiviazione** è soggetto alle tariffe visualizzate nella [pagina dei prezzi](security-center-pricing.md)|
 |Tipi di archiviazione protetti:|[Archiviazione BLOB](https://azure.microsoft.com/services/storage/blobs/)<br>[File di Azure](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Governo cinese, altri governi|
