@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0e98078fe2799d1c524190c8ced36588f35498b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186436"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897242"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione a State Configuration di Automazione di Azure
 
@@ -237,4 +237,4 @@ Se non si vuole più che un nodo venga gestito da State Configuration, è possib
 - Per abilitare la funzionalità per le macchine virtuali nell'ambiente, vedere [Abilitare State Configuration di Automazione di Azure](automation-dsc-onboarding.md).
 - Per informazioni su PowerShell DSC, vedere [Panoramica di Windows PowerShell DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview).
 - Per informazioni sui prezzi, vedere [Prezzi di State Configuration di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).

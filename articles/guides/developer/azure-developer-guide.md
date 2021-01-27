@@ -1,25 +1,17 @@
 ---
 title: Guida introduttiva per gli sviluppatori in Azure | Microsoft Docs
 description: Questo articolo fornisce informazioni essenziali per gli sviluppatori che desiderano iniziare a usare la piattaforma Microsoft Azure per le proprie esigenze di sviluppo.
-services: ''
-cloud: ''
-documentationcenter: ''
 author: ggailey777
-manager: erikre
-ms.assetid: ''
 ms.service: azure
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: a193ccd060c75cf4031449ddf3318af6e4691436
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 1c28ed90c041a65b2ff8dd08a3aac799795171eb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786470"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897460"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -27,7 +19,7 @@ ms.locfileid: "98786470"
 
 Azure è una piattaforma cloud completa che può ospitare le applicazioni esistenti e semplificare lo sviluppo di nuove applicazioni. Azure può persino migliorare le applicazioni locali. Azure integra i servizi cloud necessari per sviluppare, testare, distribuire e gestire le applicazioni, sfruttando al contempo le efficienze dei cloud computing.
 
-L'hosting delle applicazioni in Azure consente di iniziare da un'infrastruttura di dimensioni ridotte, ridimensionando l'applicazione con facilità man mano che la richiesta da parte dei clienti aumenta. Azure garantisce anche l'affidabilità necessaria per le applicazioni a disponibilità elevata, offrendo funzionalità di failover persino tra aree diverse. Il [Portale di Azure](https://portal.azure.com) consente di gestire facilmente tutti i servizi di Azure. È anche possibile gestire i servizi a livello di codice usando API e modelli specifici del servizio.
+L'hosting delle applicazioni in Azure consente di iniziare da un'infrastruttura di dimensioni ridotte, ridimensionando l'applicazione con facilità man mano che la richiesta da parte dei clienti aumenta. Azure offre anche l'affidabilità necessaria per le applicazioni a disponibilità elevata, anche incluso il failover tra aree diverse. Il [Portale di Azure](https://portal.azure.com) consente di gestire facilmente tutti i servizi di Azure. È anche possibile gestire i servizi a livello di codice usando API e modelli specifici del servizio.
 
 questa guida è un'introduzione alla piattaforma di Azure per gli sviluppatori di applicazioni e offre le linee guida e le indicazioni necessarie per iniziare a creare nuove applicazioni o eseguire la migrazione delle applicazioni esistenti in Azure.
 
@@ -49,7 +41,6 @@ Azure offre servizi a supporto dello sviluppo di applicazioni e per la soddisfaz
 
 ![Opzioni di hosting di applicazioni offerte da Azure](./media/azure-developer-guide/azure-developer-hosting-options.png)
 
-
 #### <a name="azure-app-service"></a>Servizio app di Azure
 
 Se si vuole usare il percorso più rapido per la pubblicazione di progetti basati sul Web, prendere in considerazione il servizio app di Azure. Il servizio App rende più semplice estendere le app Web per il supporto di client per dispositivi mobili e pubblicare API REST facilmente utilizzabili. Questa piattaforma consente l'autenticazione tramite provider basati su social network, il ridimensionamento automatico in base al traffico, l'esecuzione di test nell'ambiente di produzione e la distribuzione continua e basata sul contenitore.
@@ -70,9 +61,9 @@ Il servizio app, progettato su misura per DevOps, Supporta diversi strumenti per
 
 #### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
-Ai provider IaaS Azure permette di eseguire la distribuzione o la migrazione dell'applicazione in macchine virtuali Windows o Linux. Insieme a Rete virtuale di Azure, Macchine virtuali di Azure supporta la distribuzione di VM (Virtual Machine, macchina virtuale) di Windows o Linux in Azure. Con le VM è possibile avere il controllo totale sulla configurazione delle macchine stesse. Quando si usano VM, l'utente è responsabile di tutte le operazioni di installazione, configurazione e manutenzione del software server, nonché dell'applicazione di patch del sistema operativo.
+Ai provider IaaS Azure permette di eseguire la distribuzione o la migrazione dell'applicazione in macchine virtuali Windows o Linux. Insieme a Rete virtuale di Azure, Macchine virtuali di Azure supporta la distribuzione di VM (Virtual Machine, macchina virtuale) di Windows o Linux in Azure. Con le VM è possibile avere il controllo totale sulla configurazione delle macchine stesse. Quando si usano le macchine virtuali, l'utente è responsabile di tutte le patch per l'installazione, la configurazione, la manutenzione e il sistema operativo del software server.
 
-Dato il livello di controllo disponibile per le VM, in Azure è possibile eseguire un'ampia gamma di carichi di lavoro server non adatti a un modello PaaS, ad esempio server di database, Windows Server Active Directory e Microsoft SharePoint. Per altre informazioni, vedere la documentazione relativa alle macchine virtuali [Linux](../../virtual-machines/linux/index.yml) o [Windows](../../virtual-machines/windows/index.yml).
+A causa del livello di controllo disponibile con le macchine virtuali, è possibile eseguire un'ampia gamma di carichi di lavoro del server in Azure che non rientrano in un modello PaaS. ad esempio server di database, Windows Server Active Directory e Microsoft SharePoint. Per altre informazioni, vedere la documentazione relativa alle macchine virtuali [Linux](../../virtual-machines/linux/index.yml) o [Windows](../../virtual-machines/windows/index.yml).
 
 > **Uso consigliato**: usare macchine virtuali se si vuole il controllo completo sull'infrastruttura dell'applicazione o se è necessario eseguire la migrazione in Azure di carichi di lavoro delle applicazioni locali senza dover apportare modifiche.
 >
@@ -102,7 +93,7 @@ Le app, eseguite in un pool condiviso di computer, possono essere inizialmente d
 
 Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET Core e mette a disposizione SDK per la compilazione di servizi su Linux in .NET Core e Java. Per altre informazioni su Service Fabric, vedere la [documentazione di Service Fabric](../../service-fabric/index.yml).
 
-> **Uso consigliato:** Service Fabric è una scelta valida quando si deve creare una nuova applicazione o riscrivere un'applicazione esistente per l'architettura dei microservizi. È consigliabile usare Service Fabric se è necessario un controllo più approfondito sull'infrastruttura sottostante o l'accesso diretto a questa.
+> **Quando usare:** Service Fabric è una scelta ottimale quando si crea un'applicazione o si riscrive un'applicazione esistente per usare un'architettura di microservizi. È consigliabile usare Service Fabric se è necessario un controllo più approfondito sull'infrastruttura sottostante o l'accesso diretto a questa.
 >
 > **Come iniziare:** [creare la prima applicazione Azure Service Fabric](../../service-fabric/service-fabric-tutorial-create-dotnet-app.md).
 
@@ -110,11 +101,11 @@ Service Fabric supporta API Web con Open Web Interface for .NET (OWIN) e ASP.NET
 
 Azure Spring cloud è una piattaforma di microservizi senza server che consente di creare, distribuire, ridimensionare e monitorare le applicazioni nel cloud. USA Spring cloud per offrire modelli di microservizi moderni alle app Spring boot, eliminando il codice standard per creare rapidamente app java affidabili.
 
-- Sfruttare le versioni gestite del server di configurazione e di individuazione dei servizi cloud di Spring, garantendo in tal modo che i componenti critici siano in esecuzione in condizioni ottimali.
-- Concentrati sulla creazione della logica di business e ci occuperemo del runtime del servizio con patch di sicurezza, standard di conformità e disponibilità elevata.
-- Gestisci il ciclo di vita dell'applicazione (ad esempio, Distribuisci, avvia, Interrompi, ridimensiona) oltre al servizio Azure Kubernetes.
-- Associa facilmente le connessioni tra le tue app e i tuoi servizi di Azure, come database di Azure per MySQL e cache di Azure per Redis.
-- Monitorare e risolvere i problemi relativi a microservizi e applicazioni usando strumenti di monitoraggio unificato di livello aziendale che offrono informazioni approfondite sulle dipendenze dell'applicazione e sulla telemetria operativa.
+* Sfruttare le versioni gestite del server di configurazione e di individuazione dei servizi cloud di Spring, garantendo in tal modo che i componenti critici siano in esecuzione in condizioni ottimali.
+* Concentrati sulla creazione della logica di business e ci occuperemo del runtime del servizio con patch di sicurezza, standard di conformità e disponibilità elevata.
+* Gestisci il ciclo di vita dell'applicazione (ad esempio, Distribuisci, avvia, Interrompi, ridimensiona) oltre al servizio Azure Kubernetes.
+* Associa facilmente le connessioni tra le tue app e i tuoi servizi di Azure, come database di Azure per MySQL e cache di Azure per Redis.
+* Monitorare e risolvere i problemi relativi a microservizi e applicazioni usando strumenti di monitoraggio unificato di livello aziendale che offrono informazioni approfondite sulle dipendenze dell'applicazione e sulla telemetria operativa.
 
 > **Quando usare:** Poiché un servizio completamente gestito di Azure Spring cloud è una scelta ottimale per ridurre al minimo i costi operativi che eseguono microservizi basati sul cloud Spring boot/Spring in Azure. 
 >
@@ -129,19 +120,19 @@ Oltre all'hosting di applicazioni, Azure offre offerte di servizi che possono mi
 
 La maggior parte delle applicazioni deve archiviare i dati, quindi, tuttavia, si decide di ospitare l'applicazione in Azure, si prenda in considerazione uno o più dei servizi di archiviazione e dati seguenti.
 
-- **Azure Cosmos DB**: un servizio di database multimodello distribuito A livello globale. Questo database consente di ridimensionare in modo elastico la velocità effettiva e l'archiviazione in un numero qualsiasi di aree geografiche con un contratto di contratto completo.
+* **Azure Cosmos DB**: un servizio di database multimodello distribuito A livello globale. Questo database consente di ridimensionare in modo elastico la velocità effettiva e l'archiviazione in un numero qualsiasi di aree geografiche con un contratto di contratto completo.
 
   > **Uso consigliato**: quando l'applicazione necessita di database di grafici, tabelle o documenti, inclusi i database di MongoDB, con più modelli di coerenza ben definiti.
   >
-  > **Come iniziare**: [creare un'app Web di Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Se si è uno sviluppatore di MongoDB, vedere come [creare un'app Web di MongoDB con Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
+  > **Come iniziare**: [creare un'app Web di Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Se si è uno sviluppatore MongoDB, vedere [creare un'app Web MongoDB con Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
-- **Archiviazione di Azure**: offre risorse di archiviazione durevoli e a disponibilità elevata per BLOB, code, file e altri tipi di dati non relazionali. Queste risorse rappresentano la base dell'archiviazione per le VM.
+* **Archiviazione di Azure**: offre risorse di archiviazione durevoli e a disponibilità elevata per BLOB, code, file e altri tipi di dati non relazionali. Queste risorse rappresentano la base dell'archiviazione per le VM.
 
   > **Uso consigliato**: quando l'app esegue l'archiviazione di dati non relazionali, ad esempio di coppie chiave-valore (tabelle), BLOB, condivisioni file o messaggi (code).
   >
   > **Introduzione**: scegliere uno dei seguenti tipi di archiviazione: [BLOB](../../storage/blobs/storage-quickstart-blobs-dotnet.md), [tabelle](../../cosmos-db/tutorial-develop-table-dotnet.md), [Code](../../storage/queues/storage-dotnet-how-to-use-queues.md)o [file](../../storage/files/storage-dotnet-how-to-use-files.md).
 
-- **Database SQL di Azure**: versione basata su Azure del motore di Microsoft SQL Server per l'archiviazione di dati tabulari relazionali nel cloud. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati.
+* **Database SQL di Azure**: versione basata su Azure del motore di Microsoft SQL Server per l'archiviazione di dati tabulari relazionali nel cloud. Il database SQL offre prestazioni prevedibili, scalabilità senza tempi di inattività, continuità aziendale e protezione dei dati.
 
   > **Uso consigliato**: quando per l'applicazione è necessaria l'archiviazione dei dati con integrità referenziale, nonché il supporto delle transazioni e delle query T-SQL.
   >
@@ -157,17 +148,17 @@ I contenitori Docker, un tipo di virtualizzazione del sistema operativo, consent
 In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicazioni.
 
 
-- **Azure Kubernetes Service**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione di applicazioni in contenitori. Per altre informazioni sul servizio Azure Kubernetes, vedere [Introduzione al servizio Kubernetes di Azure](../../aks/intro-kubernetes.md).
+* **Azure Kubernetes Service**: consente di creare, configurare e gestire un cluster di macchine virtuali preconfigurate per l'esecuzione di applicazioni in contenitori. Per altre informazioni sul servizio Azure Kubernetes, vedere [Introduzione al servizio Kubernetes di Azure](../../aks/intro-kubernetes.md).
 
-  > **Uso consigliato**: quando è necessario creare ambienti scalabili e pronti per la produzione che offrano strumenti di pianificazione e gestione aggiuntivi o quando si vuole distribuire un cluster Docker Swarm.
+  > **Quando usare**: quando è necessario creare ambienti scalabili e pronti per la produzione che forniscono strumenti di pianificazione e gestione aggiuntivi o quando si distribuisce un cluster Docker Swarm.
   >
   > Come **iniziare**: [distribuire un cluster del servizio Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
-- **Docker Machine**: consente di installare e gestire Docker Engine in host virtuali tramite comandi di Docker Machine.
+* **Docker Machine**: consente di installare e gestire Docker Engine in host virtuali tramite comandi di Docker Machine.
 
   >**Uso consigliato**: quando è necessario creare rapidamente il prototipo di un'app tramite la creazione di un unico host Docker.
 
-- **Immagine Docker personalizzata per il servizio app**: consente di distribuire un'app Web in Linux usando contenitori Docker di un registro contenitori o il contenitore di un cliente.
+* **Immagine Docker personalizzata per il servizio app**: consente di usare i contenitori Docker da un registro contenitori o un contenitore clienti quando si distribuisce un'app Web in Linux.
 
   > **Uso consigliato**: quando si distribuisce un'app Web in un'immagine Docker in Linux.
   >
@@ -177,13 +168,13 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
 È fondamentale non solo sapere chi sta usando le applicazioni, ma anche impedire l'accesso non autorizzato alle risorse. In Azure sono disponibili diversi modi per autenticare i client delle app.
 
-- **Azure Active Directory (Azure AD)**: il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
+* **Azure Active Directory (Azure AD)**: il servizio Microsoft multi-tenant e basato sul cloud per la gestione delle identità e dell'accesso. Tramite l'integrazione con Azure AD è possibile aggiungere la funzionalità Single-Sign-On (SSO) alle applicazioni. È possibile accedere alle proprietà delle directory usando direttamente l'API di Azure AD Graph o l'API di Microsoft Graph. È possibile eseguire l'integrazione con il supporto di Azure AD per il framework di autorizzazione OAuth 2.0 e OpenID Connect usando endpoint HTTP/REST nativi e le librerie di autenticazione di Azure AD multipiattaforma.
 
   > **Uso consigliato**: quando si vuole offrire un'esperienza SSO, usare dati basati su Graph o autenticare utenti in base al dominio.
   >
   > **Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v2-overview.md).
 
-- **Autenticazione del servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
+* **Autenticazione del servizio app**: quando si sceglie il servizio app per ospitare l'app, si ottiene anche il supporto per l'autenticazione predefinita per Azure ad, insieme ai provider di identità di social networking, tra cui Facebook, Google, Microsoft e Twitter.
 
   > **Uso consigliato**: quando si vuole abilitare l'autenticazione in un'app del servizio App tramite Azure AD, provider di identità basati su social network o entrambi.
   >
@@ -195,13 +186,13 @@ Per altre informazioni sulle procedure consigliate per la sicurezza in Azure, ve
 
 Con l'applicazione in esecuzione in Azure, è necessario monitorare le prestazioni, controllare la presenza di problemi e vedere in che modo i clienti usano l'app. Azure offre diverse opzioni di monitoraggio.
 
--   **Application Insights**: un servizio di analisi estendibile ospitato in Azure che si integra con Visual Studio per monitorare le applicazioni Web Live. Fornisce i dati necessari per migliorare continuamente le prestazioni e l'usabilità delle app. Questo miglioramento si verifica se le applicazioni sono ospitate in Azure o meno.
+* **Application Insights**: un servizio di analisi estendibile ospitato in Azure che si integra con Visual Studio per monitorare le applicazioni Web Live. Fornisce i dati necessari per migliorare continuamente le prestazioni e l'usabilità delle app. Questo miglioramento si verifica se le applicazioni sono ospitate in Azure o meno.
 
-    >**Come iniziare**: seguire l'[esercitazione di Application Insights](../../azure-monitor/app/app-insights-overview.md).
+  > **Come iniziare**: seguire l'[esercitazione di Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
--   **Monitoraggio di Azure**: un servizio che consente di visualizzare, eseguire query, indirizzare, archiviare e agire sulle metriche e i log generati con l'infrastruttura e le risorse di Azure. Monitor è un'unica origine per il monitoraggio delle risorse di Azure e fornisce le visualizzazioni dei dati visualizzate nel portale di Azure.
+* **Monitoraggio di Azure**: un servizio che consente di visualizzare, eseguire query, indirizzare, archiviare e agire sulle metriche e i log generati con l'infrastruttura e le risorse di Azure. Monitor è un'unica origine per il monitoraggio delle risorse di Azure e fornisce le visualizzazioni dei dati visualizzate nel portale di Azure.
 
-    >**Come iniziare**: [Introduzione al monitoraggio di Azure](../../azure-monitor/overview.md).
+  > **Come iniziare**: [Introduzione al monitoraggio di Azure](../../azure-monitor/overview.md).
 
 ### <a name="devops-integration"></a>Integrazione di strumenti DevOps
 
@@ -219,18 +210,17 @@ Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con 
 >
 > **Prova adesso:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
-
 ## <a name="azure-regions"></a>Aree di Azure
 
 Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, un'applicazione o una macchina virtuale in Azure, viene richiesto di selezionare un'area. Questa area rappresenta un data center specifico in cui viene eseguita l'applicazione o in cui sono archiviati i dati. Tali aree corrispondono a località specifiche, pubblicate nella pagina [Aree di Azure](https://azure.microsoft.com/regions/).
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Scegliere l'area più adatta per l'applicazione e i dati
 
-Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. È preferibile, ad esempio, scegliere l'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. Potrebbe anche essere opportuno selezionare la propria area per soddisfare i requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche. È sempre da considerare procedura consigliata l'archiviazione dei dati delle applicazioni nello stesso centro dati che ospita la relativa applicazione o nel centro dati più vicino possibile.
+Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. Ad esempio, è preferibile scegliere un'area più vicina alla maggior parte dei clienti per ridurre la latenza nelle richieste di rete. Potrebbe anche essere opportuno selezionare la propria area per soddisfare i requisiti legali per la distribuzione dell'app in determinati paesi/aree geografiche. È sempre da considerare procedura consigliata l'archiviazione dei dati delle applicazioni nello stesso centro dati che ospita la relativa applicazione o nel centro dati più vicino possibile.
 
 ### <a name="multi-region-apps"></a>App con più aree
 
-Nonostante sia improbabile, è possibile che un intero centro dati venga disconnesso a causa di un evento, ad esempio una calamità naturale o un guasto su Internet. La procedura consigliata prevede che le applicazioni aziendali di importanza critica vengano ospitate in più centri dati per garantirne la massima disponibilità. L'uso di più aree può anche ridurre la latenza per gli utenti globali e offrire altre opportunità per una maggiore flessibilità durante l'aggiornamento delle applicazioni.
+Sebbene improbabile, non è possibile che un intero Data Center passi offline a causa di un evento, ad esempio una calamità naturale o un errore in Internet. È consigliabile ospitare applicazioni aziendali essenziali in più di un Data Center per garantire la massima disponibilità. L'uso di più aree può anche ridurre la latenza per gli utenti globali e offrire altre opportunità per una maggiore flessibilità durante l'aggiornamento delle applicazioni.
 
 Alcuni servizi, ad esempio Macchina virtuale e Servizi app, usano [Gestione traffico di Azure](../../traffic-manager/traffic-manager-overview.md) per abilitare il supporto di più aree con failover tra le aree per garantire il funzionamento delle applicazioni aziendali a disponibilità elevata. Per un esempio, vedere [Azure reference architecture: Run a web application in multiple regions](/azure/architecture/reference-architectures/app-service-web-app/multi-region) (Architettura di riferimento per Azure: Eseguire un'applicazione Web in più aree geografiche).
 
@@ -244,9 +234,9 @@ Azure offre un'ampia gamma di esperienze per la creazione e la gestione delle ri
 
 Azure offre due modi per gestire le applicazioni e i servizi dalla riga di comando. È possibile usare strumenti quali bash, terminale, il prompt dei comandi o lo strumento da riga di comando scelto. In genere, è possibile eseguire le stesse attività dalla riga di comando come nell'portale di Azure, ad esempio la creazione e la configurazione di macchine virtuali, reti virtuali, app Web e altri servizi.
 
--   [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli): consente di connettersi a una sottoscrizione di Azure e di programmare varie attività per le risorse di Azure dalla riga di comando.
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli): consente di connettersi a una sottoscrizione di Azure e di programmare varie attività per le risorse di Azure dalla riga di comando.
 
--   [Azure PowerShell](/powershell/azure/): mette a disposizione un set di moduli con cmdlet che consentono di gestire le risorse di Azure tramite Windows PowerShell.
+* [Azure PowerShell](/powershell/azure/): mette a disposizione un set di moduli con cmdlet che consentono di gestire le risorse di Azure tramite Windows PowerShell.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -264,13 +254,13 @@ Azure si basa su un set di API REST che supportano l'interfaccia utente del Port
 
 Oltre alle API REST, molti servizi di Azure consentono di gestire a livello di codice le risorse dalle applicazioni usando Azure SDK specifici della piattaforma, inclusi gli SDK per le piattaforme di sviluppo seguenti:
 
--   [.NET](/dotnet/api/)
--   [Node.js](/azure/developer/javascript/)
--   [Java](/java/azure)
--   [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
--   [Python](/azure/python/)
--   [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
--   [Go](/azure/go)
+* [.NET](/dotnet/api/)
+* [Node.js](/azure/developer/javascript/)
+* [Java](/java/azure)
+* [PHP](https://github.com/Azure/azure-sdk-for-php/blob/master/README.md)
+* [Python](/azure/python/)
+* [Ruby](https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md)
+* [Go](/azure/go)
 
 Per servizi quali [App per dispositivi mobili](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library) e [Servizi multimediali di Azure](../../media-services/previous/media-services-dotnet-how-to-use.md) sono disponibili SDK lato client per l'accesso ai servizi dal Web e da app client per dispositivi mobili.
 
@@ -312,7 +302,7 @@ Azure Resource Explorer è un ottimo strumento per la visualizzazione delle riso
 
 Quando si consente l'accesso alle risorse di Azure, è sempre consigliabile fornire agli utenti il privilegio minimo necessario per eseguire un'attività specifica.
 
-- **Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**: in Azure è possibile concedere l'accesso agli account utente (entità) in un ambito specifico: sottoscrizione, gruppo di risorse o singole risorse. Il controllo degli accessi in base al ruolo di Azure consente di distribuire risorse in un gruppo di risorse e concedere autorizzazioni a un utente o a un gruppo Consente inoltre di limitare l'accesso solo alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
+* **Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**: in Azure è possibile concedere l'accesso agli account utente (entità) in un ambito specifico: sottoscrizione, gruppo di risorse o singole risorse. Il controllo degli accessi in base al ruolo di Azure consente di distribuire risorse in un gruppo di risorse e concedere autorizzazioni a un utente o a un gruppo Consente inoltre di limitare l'accesso solo alle risorse che appartengono al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md).
 
   > **Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
   >
@@ -320,7 +310,7 @@ Quando si consente l'accesso alle risorse di Azure, è sempre consigliabile forn
 
 - **Oggetti entità servizio**: oltre a fornire l'accesso a entità utente e gruppi, è possibile concedere lo stesso accesso a un'entità servizio.
 
-  > **Uso consigliato**: quando si gestiscono le risorse di Azure o si concede l'accesso per le applicazioni a livello di codice. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
+  > **Quando usare**: quando si gestiscono le risorse di Azure a livello di codice o si concede l'accesso per le applicazioni. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Tag
 
@@ -342,10 +332,10 @@ Durante lo spostamento da elaborazione locale a servizi ospitati nel cloud, la s
 
 Azure offre un set di API REST di fatturazione che consentono l'accesso alle informazioni sull'utilizzo delle risorse e ai metadati per le sottoscrizioni di Azure. Queste API di fatturazione offrono la possibilità di stimare e gestire in modo più preciso i costi di Azure. È possibile tenere traccia e analizzare la spesa per incrementi orari e creare avvisi di spesa. È anche possibile stimare la fatturazione futura in base alle tendenze di utilizzo correnti.
 
->**Come iniziare**: per altre informazioni sull'uso delle API di fatturazione, vedere [Panoramica delle API di utilizzo della fatturazione e delle API RateCard di Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>Come **iniziare**: per altre informazioni sull'uso del API di fatturazione, vedere [Panoramica dell'API di consumo di Azure](../../cost-management-billing/manage/consumption-api-overview.md)
 
 #### <a name="predict-future-costs"></a>Stimare i costi futuri
 
 Sebbene sia difficile stimare i costi in anticipo, Azure offre strumenti che possono risultare utili. Dispone di un [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) che consente di stimare il costo delle risorse distribuite. È anche possibile usare le risorse di fatturazione nel portale e le API REST di fatturazione per stimare i costi futuri, in base al consumo corrente.
 
->**Come iniziare**: vedere [Panoramica delle API di utilizzo della fatturazione e delle API RateCard di Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
+>**Introduzione**: vedere [Panoramica dell'API di consumo di Azure](../../cost-management-billing/manage/consumption-api-overview.md).

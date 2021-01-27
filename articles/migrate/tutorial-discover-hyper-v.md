@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb10001436d3184b89aa064ec82fcd1f56bea931
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566918"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897511"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -83,7 +83,7 @@ Se è appena stato creato un account Azure gratuito, si è proprietari della pro
 
 **Step** | **Script** | **Manuale**
 --- | --- | ---
-Verificare i requisiti dell'host | Verifica che l'host esegua una versione supportata di Hyper-V e il ruolo Hyper-V.<br/><br/>Abilita il servizio Gestione remota Windows e apre le porte 5985 (HTTP) e 5986 (HTTPS) nell'host (necessario per la raccolta dei metadati). | L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi per recuperare i metadati delle macchine virtuali e i dati sulle prestazioni usando una sessione CIM (Common Information Model).
+Verificare i requisiti dell'host | Verifica che l'host esegua una versione supportata di Hyper-V e il ruolo Hyper-V.<br/><br/>Abilita il servizio Gestione remota Windows e apre le porte 5985 (HTTP) e 5986 (HTTPS) nell'host (necessario per la raccolta dei metadati). | L'host deve eseguire Windows Server 2019, Windows Server 2016 o Windows Server 2012 R2.<br/><br/> Verificare che le connessioni in ingresso siano consentite sulla porta WinRM 5985 (HTTP), in modo che l'appliance possa connettersi per recuperare i metadati delle macchine virtuali e i dati sulle prestazioni usando una sessione CIM (Common Information Model).<br/><br/> Lo script non è attualmente supportato in host con impostazioni locali diverse dall'inglese.  
 Verificare la versione di PowerShell | Verifica che lo script sia in esecuzione in una versione di PowerShell supportata. | Verificare di eseguire PowerShell versione 4.0 o successiva nell'host Hyper-V.
 Creare un account | Verifica che siano disponibili le autorizzazioni corrette nell'host Hyper-V.<br/><br/> Consente di creare un account utente locale con le autorizzazioni corrette. | Opzione 1: Preparare un account con accesso come amministratore al computer host Hyper-V.<br/><br/> Opzione 2: Preparare un account amministratore locale o un account amministratore di dominio e aggiungere l'account a questi gruppi: Remote Management Users, Hyper-V Administrators e Performance Monitor Users.
 Abilitare la comunicazione remota di PowerShell | Abilita la comunicazione remota di PowerShell nell'host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM. | Per configurare, in ogni host aprire una console di PowerShell come amministratore ed eseguire il comando seguente: ``` powershell Enable-PSRemoting -force ```
@@ -127,7 +127,7 @@ Configurare un nuovo progetto di Azure Migrate.
 
    ![Caselle per il nome del progetto e l'area](./media/tutorial-discover-hyper-v/new-project.png)
 
-7. Selezionare **Create** (Crea).
+7. Selezionare **Crea**.
 8. Attendere alcuni minuti per la distribuzione del progetto Azure Migrate. Lo strumento **Azure migrate: server Assessment** viene aggiunto per impostazione predefinita al nuovo progetto.
 
 ![Pagina che mostra lo strumento Valutazione server aggiunto per impostazione predefinita](./media/tutorial-discover-hyper-v/added-tool.png)

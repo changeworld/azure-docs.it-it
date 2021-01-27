@@ -8,12 +8,12 @@ ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: cfeb124aeb614906cef1dc710eb8485e63806539
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 28b7419dfc889d1149765b884f1a5990a1e28f03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880576"
+ms.locfileid: "98898105"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 
@@ -186,7 +186,7 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
 **Windows Server 2016 e Windows Server 2019**   
-La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando Deduplicazione dati in un volume in cui è abilitata la funzionalità cloud a livelli, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione. 
+La deduplicazione dei dati è supportata indipendentemente dal fatto che la suddivisione in livelli cloud sia abilitata o disabilitata in uno o più endpoint server del volume per Windows Server 2016 e Windows Server 2019. Abilitando Deduplicazione dati in un volume in cui è abilitata la funzionalità cloud a livelli, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione. 
 
 Quando si abilita Deduplicazione dati in un volume in cui è abilitato il cloud a livelli, i file ottimizzati dalla deduplicazione nel percorso dell'endpoint server verranno suddivisi in livelli come se si trattasse di un normale file, in base alle impostazioni dei criteri del cloud a livelli. Una volta suddivisi in livelli i file ottimizzati dalla deduplicazione, il processo di Garbage Collection di Deduplicazione dati viene eseguito automaticamente, per recuperare spazio su disco rimuovendo i blocchi non necessari che non sono più referenziati da altri file sul volume.
 

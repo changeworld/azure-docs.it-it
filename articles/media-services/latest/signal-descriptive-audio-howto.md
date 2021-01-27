@@ -1,5 +1,5 @@
 ---
-title: Segnalare tracce audio descrittive con servizi multimediali di Azure V3 | Microsoft Docs
+title: Segnala tracce audio descrittive con servizi multimediali di Azure V3
 description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video, aggiungere tracce audio descrittive e trasmettere i contenuti con servizi multimediali V3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0bd2002e8f6f233361dd85cc08cfbd97ca23ed60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 155e79f8d42988d8498c52c0f930bc03bc599cf0
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291263"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898221"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
 
@@ -36,7 +36,7 @@ Questo articolo illustra come codificare un video, caricare un file MP4 solo aud
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creare un asset di input e caricare un file locale nell'asset 
 
-La funzione **CreateInputAsset** crea un nuovo [asset](/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo **Asset** viene usato come input per il processo di codifica. In servizi multimediali V3, l'input per un **processo** può essere un **Asset**oppure può essere contenuto reso disponibile per l'account di servizi multimediali tramite URL HTTPS. 
+La funzione **CreateInputAsset** crea un nuovo [asset](/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo **Asset** viene usato come input per il processo di codifica. In servizi multimediali V3, l'input per un **processo** può essere un **Asset** oppure può essere contenuto reso disponibile per l'account di servizi multimediali tramite URL HTTPS. 
 
 Per informazioni su come eseguire la codifica da un URL HTTPS, vedere [questo articolo](job-input-from-http-how-to.md) .  
 

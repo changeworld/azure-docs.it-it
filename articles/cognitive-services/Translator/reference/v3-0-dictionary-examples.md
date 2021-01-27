@@ -3,19 +3,19 @@ title: Metodo degli esempi di Translator Dictionary
 titleSuffix: Azure Cognitive Services
 description: Il metodo di esempio Translator Dictionary fornisce esempi che illustrano il modo in cui i termini nel dizionario vengono usati nel contesto.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: swmachan
-ms.openlocfilehash: 1fe5a5669173733e3d0cf1b56b9997d15a3ff138
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021304"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895510"
 ---
 # <a name="translator-30-dictionary-examples"></a>Translator 3,0: esempi di dizionario
 
@@ -37,7 +37,7 @@ I parametri della richiesta inviati a una stringa di query sono:
 | --------- | ----------- |
 | api-version <img width=200/> | **Parametro obbligatorio**.<br/>Versione dell'API richiesta dal client. Il valore deve essere `3.0`. |
 | da | **Parametro obbligatorio**.<br/>Specifica la lingua del testo di input. La lingua di origine deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`. |
-| to | **Parametro obbligatorio**.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.  | 
+| in | **Parametro obbligatorio**.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle [lingue supportate](./v3-0-languages.md) incluse nell'ambito `dictionary`.  | 
 
 Le intestazioni della richiesta includono:
 
@@ -48,7 +48,7 @@ Le intestazioni della richiesta includono:
 | Content-Length   | **Intestazione della richiesta obbligatoria**.<br/>Lunghezza del corpo della richiesta. |
 | X-ClientTraceId   | **Facoltativo**.<br/>GUID generato dal client che identifica in modo univoco la richiesta. È possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`. |
 
-## <a name="request-body"></a>Corpo della richiesta
+## <a name="request-body"></a>Testo della richiesta
 
 Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con le proprietà seguenti:
 

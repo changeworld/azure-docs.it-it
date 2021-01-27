@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: bc229974cf14ba364e5e7111dc1d2704e03c3635
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746799"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878936"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -380,6 +380,12 @@ Usare una singola risorsa per tutti i componenti o i ruoli in un singolo sistema
 * Se non c'è uno script lato client, è possibile [impostare cookie per il server](https://apmtips.com/posts/2016-07-09-tracking-users-in-api-apps/).
 * Se un utente reale usa il sito in browser diversi o esegue una navigazione privata o in incognito oppure usa computer diversi, viene inclusi più di una volta nei conteggi.
 * Per identificare un utente connesso a più computer e browser, aggiungere una chiamata a [setAuthenticatedUserContext()](app/api-custom-events-metrics.md#authenticated-users).
+
+### <a name="how-does-application-insights-generate-device-information-browser-os-language-model"></a>In che modo Application Insights genera informazioni sul dispositivo (browser, sistema operativo, linguaggio, modello)?
+
+Il browser passa la stringa dell'agente utente nell'intestazione HTTP della richiesta e il servizio di inserimento Application Insights usa il [parser UA](https://github.com/ua-parser/uap-core) per generare i campi visualizzati nelle tabelle e nelle esperienze di dati. Di conseguenza, Application Insights gli utenti non sono in grado di modificare questi campi.
+
+Occasionalmente, questi dati potrebbero essere mancanti o non accurati se l'utente o l'organizzazione non è in grado di inviare l'agente utente nelle impostazioni del browser. Inoltre, le [Regex del parser UA](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) potrebbero non includere tutte le informazioni sul dispositivo o Application Insights potrebbero non aver adottato gli aggiornamenti più recenti.
 
 ### <a name="have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> In Application Insights sono state abilitate tutte le funzionalità?
 | Elementi che dovrebbero essere visualizzati | Come ottenerli | Perché si vuole ottenerli |

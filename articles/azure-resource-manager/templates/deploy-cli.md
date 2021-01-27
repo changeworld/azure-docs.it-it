@@ -2,13 +2,13 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 01/15/2021
-ms.openlocfilehash: d79a5c93bf79c5851beabbba2eb3a663c6ab5999
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 01/26/2021
+ms.openlocfilehash: f01409db36ca29deb2f6938ce3118cdcb20cd1a1
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251081"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881300"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -103,6 +103,18 @@ az deployment group create \
 ```
 
 L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Tuttavia, se si desidera gestire l'accesso al modello, è consigliabile utilizzare le [specifiche del modello](#deploy-template-spec).
+
+Per distribuire i modelli collegati in remoto con il percorso relativo archiviato in un account di archiviazione, usare `query-string` per specificare il token SAS:
+
+```azurepowershell
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+Per ulteriori informazioni, vedere [utilizzare il percorso relativo per i modelli collegati](./linked-templates.md#linked-template).
 
 ## <a name="deployment-name"></a>Nome distribuzione
 

@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 8fd23e52f045ba007d4b3b48b5e2e4269df53975
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b47498127996698d53946eb2aaf54368132ae7f9
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336106"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98877986"
 ---
 # <a name="create-a-scale-set-from-a-specialized-image-using-powershell"></a>Creare un set di scalabilità da un'immagine specializzata usando PowerShell 
 
-Creare una macchina virtuale da una versione di immagine specializzata archiviata in una [raccolta di immagini condivise](shared-image-galleries.md) usando Azure PowerShell. Se si vuole creare un set di scalabilità usando una versione di immagine generalizzata, vedere [creare istanze del set di scalabilità da una versione di immagine generalizzata](instance-generalized-image-version-powershell.md).
+Creare una macchina virtuale da una versione di immagine specializzata archiviata in una [raccolta di immagini condivise](../virtual-machines/shared-image-galleries.md) usando Azure PowerShell. Se si vuole creare un set di scalabilità usando una versione di immagine generalizzata, vedere [creare istanze del set di scalabilità da una versione di immagine generalizzata](instance-generalized-image-version-powershell.md).
 
 Quando si dispone di un'immagine specializzata nella raccolta, è possibile creare un set di scalabilità di macchine virtuali usando il cmdlet [New-AzVmss](/powershell/module/az.compute/new-azvmss) . 
 
@@ -26,7 +26,7 @@ In questo esempio viene usato l'ID di definizione dell'immagine per assicurarsi 
 
 Tenere presente che l'uso di una versione di immagine specifica indica che l'automazione potrebbe non riuscire se la versione di immagine specifica non è disponibile perché è stata eliminata o rimossa dall'area. È consigliabile usare l'ID di definizione dell'immagine per creare la nuova macchina virtuale, a meno che non sia necessaria una versione di immagine specifica.
 
-Gli esempi seguenti creano un set di scalabilità denominato set di scalabilità, nel gruppo di risorse *myVMSSRG* *, nella*posizione *SouthCentralUS* . Il set di scalabilità verrà creato dall'immagine *myImageDefinition* , nella raccolta immagini di *Gallery* del gruppo di risorse *myGalleryRG* . Quando richiesto, impostare le proprie credenziali amministrative per le istanze di VM nel set di scalabilità.
+Gli esempi seguenti creano un set di scalabilità denominato set di scalabilità, nel gruppo di risorse *myVMSSRG* *, nella* posizione *SouthCentralUS* . Il set di scalabilità verrà creato dall'immagine *myImageDefinition* , nella raccolta immagini di *Gallery* del gruppo di risorse *myGalleryRG* . Quando richiesto, impostare le proprie credenziali amministrative per le istanze di VM nel set di scalabilità.
 
 
 
@@ -134,7 +134,7 @@ New-AzVmss `
 La creazione e la configurazione di tutte le macchine virtuali e risorse del set di scalabilità richiedono alcuni minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/linux/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
+Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/image-builder-overview.md) consente di automatizzare la creazione della versione di immagine. è anche possibile usarla per aggiornare e [creare una nuova versione dell'immagine da una versione di immagine esistente](../virtual-machines/linux/image-builder-gallery-update-image-version.md).  
 
 È anche possibile creare una risorsa di raccolta di immagini condivise usando i modelli. Sono disponibili diversi modelli di avvio rapido di Azure: 
 
@@ -142,5 +142,4 @@ Il [Generatore di immagini di Azure (anteprima)](../virtual-machines/linux/image
 - [Creare una definizione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creare una versione dell'immagine in una raccolta di immagini condivise](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](../virtual-machines/troubleshooting-shared-images.md).
-
+Per altre informazioni sulle raccolte di immagini condivise, vedere [Panoramica](../virtual-machines/shared-image-galleries.md). Se si verificano problemi, vedere [Risoluzione dei problemi delle raccolte di immagini condivise](../virtual-machines/troubleshooting-shared-images.md).

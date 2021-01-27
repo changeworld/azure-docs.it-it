@@ -2,18 +2,15 @@
 title: Risolvere i problemi relativi alle risorse condivise di Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi alle risorse condivise di Automazione di Azure.
 services: automation
-author: mgoedtel
-ms.author: magoedte
+ms.subservice: ''
 ms.date: 03/12/2019
-ms.topic: conceptual
-ms.service: automation
-manager: carmonm
-ms.openlocfilehash: c6bdc09d37cf29458346eaea360b4cd9e0d1226f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896292"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Risolvere i problemi relativi alle risorse condivise
 
@@ -33,7 +30,7 @@ Poiché l'importazione dei moduli di PowerShell è un processo complesso e in pi
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere questo problema è necessario rimuovere il modulo bloccato tramite il cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0). È quindi possibile ritentare l'importazione del modulo.
+Per risolvere questo problema è necessario rimuovere il modulo bloccato tramite il cmdlet [Remove-AzAutomationModule](/powershell/module/Az.Automation/Remove-AzAutomationModule). È quindi possibile ritentare l'importazione del modulo.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -70,7 +67,7 @@ Di seguito sono elencati alcuni motivi comuni che possono causare un'importazion
 * La struttura non corrisponde a quella necessaria per Automazione.
 * Il modulo dipende da un altro modulo che non è stato distribuito nel proprio account di automazione.
 * Le dipendenze del modulo non si trovano nella cartella.
-* Il cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
+* Il cmdlet [New-AzAutomationModule](/powershell/module/Az.Automation/New-AzAutomationModule) viene usato per caricare il modulo e non è stato specificato il percorso di archiviazione completo oppure il modulo non è stato caricato con un URL accessibile pubblicamente.
 
 #### <a name="resolution"></a>Risoluzione
 

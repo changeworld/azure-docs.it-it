@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: mimckitt
-ms.openlocfilehash: 444c6a9c131916a2a07f41fd5c1ff38fc1e7bfb2
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 8268e305946a19f4f74ff790e680d6bd3faa2b29
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210325"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881436"
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Come distribuire Windows 10 in Azure con Multitenant Hosting Rights 
 Per i clienti con Windows 10 Enterprise E3/E5 per utente o Windows Virtual Desktop Access per utente (licenze di sottoscrizione utente o licenze di sottoscrizione utente per i componenti aggiuntivi) Multitenant Hosting Rights per Windows 10 consente di trasferire le licenze di Windows 10 nel cloud ed eseguire macchine virtuali di Windows 10 in Azure senza sostenere i costi di un'altra licenza. Per altre informazioni vedere la pagina relativa all'[hosting multi-tenant per Windows 10](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -39,7 +39,7 @@ rs5-pro                     Windows-10 MicrosoftWindowsDesktop eastus
 rs5-pron                    Windows-10 MicrosoftWindowsDesktop eastus  
 ```
 
-Per altre informazioni sulle immagini disponibili [, vedere trovare e usare immagini di VM di Azure Marketplace con Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage)
+Per altre informazioni sulle immagini disponibili [, vedere trovare e usare immagini di VM di Azure Marketplace con Azure PowerShell](./cli-ps-findimage.md)
 
 ## <a name="qualify-for-multi-tenant-hosting-rights"></a>Qualifica per i diritti di hosting multi-tenant 
 Per qualificarsi per i diritti di hosting multi-tenant e per eseguire immagini Windows 10 negli utenti di Azure, è necessario disporre di una delle seguenti sottoscrizioni: 

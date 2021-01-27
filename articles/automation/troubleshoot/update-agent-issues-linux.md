@@ -2,19 +2,15 @@
 title: Risolvere i problemi relativi all'agente di Linux in Automazione di Azure
 description: Questo articolo descrive come risolvere i problemi relativi all'agente di Windows Linux in Gestione aggiornamenti.
 services: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/25/2021
-ms.topic: conceptual
-ms.service: automation
+ms.topic: troubleshooting
 ms.subservice: update-management
-manager: carmonm
-ms.openlocfilehash: a7ac5e8324d9979b17ee93d16b3e007fe7916a8a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762630"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896258"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Risolvere i problemi relativi all'agente di aggiornamento Linux
 

@@ -1,26 +1,9 @@
 ---
-title: Trascrizione in tempo reale
-titleSuffix: Azure Media Services
-description: Informazioni sulla trascrizione Live di servizi multimediali di Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: c3465e294af104c4d9c3b34960f5e95cf41e7cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291416"
+title: trascrizione Live: Servizi multimediali di Azure Descrizione: informazioni sulla trascrizione Live di servizi multimediali di Azure.  
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: ne ms. Topic: How-to MS. Date: 08/31/2020 ms. Author: inhenkel
+
 ---
+
 # <a name="live-transcription-preview"></a>Trascrizione in tempo reale (anteprima)
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

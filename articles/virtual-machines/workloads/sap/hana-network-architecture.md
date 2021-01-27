@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1403c514f5a278fd406769f1d5271cc95a5c1df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5ed932488551918bb0bfeb7dc9ffcb2f59b6d152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878902"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -76,7 +76,7 @@ Le differenze rispetto alle distribuzioni SAP in Azure sono le seguenti:
 
 Con la revisione 3 degli indicatori di istanze large di HANA, la latenza di rete riscontrata tra le macchine virtuali e le unità di istanze large di HANA può essere superiore rispetto a una tipica latenza di round trip della rete da macchina virtuale a macchina virtuale. A seconda dell'area di Azure, i valori misurati possono superare la latenza di andata e ritorno di 0,7 millisecondi classificata come inferiore alla media in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota SAP 1100926 - Domande frequenti sulle prestazioni di rete). A seconda dell'area di Azure e dello strumento usato per misurare la latenza di andata e ritorno di rete tra una macchina virtuale di Azure e l'unità di istanze Large di HANA, la latenza misurata può arrivare fino a 2 millisecondi. Nonostante ciò, i clienti distribuiscono applicazioni SAP di produzione basate su SAP HANA in istanze Large di SAP HANA con ottimi risultati. È importante testare accuratamente i processi aziendali nelle istanze Large di HANA in Azure. Una nuova funzionalità, denominata percorso rapido ExpressRoute, è in grado di ridurre la latenza di rete tra le istanze large di HANA e le macchine virtuali a livello di applicazione in Azure in modo sostanziale (vedere di seguito). 
 
-Con la revisione 4 degli indicatori di istanze large di HANA, la latenza di rete tra le macchine virtuali di Azure distribuite in prossimità del timbro di istanze large di HANA è stata rilevata per soddisfare la media o meglio della classificazione media, come documentato nella [Nota SAP #1100926-domande frequenti: prestazioni di rete](https://launchpad.support.sap.com/#/notes/1100926/E) se è configurato il percorso rapido di Azure ExpressRoute (vedere di seguito). Per distribuire le macchine virtuali di Azure in prossimità di unità di istanze large di HANA 4, è necessario sfruttare i [gruppi di posizionamento di prossimità di Azure](../../linux/co-location.md). Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+Con la revisione 4 degli indicatori di istanze large di HANA, la latenza di rete tra le macchine virtuali di Azure distribuite in prossimità del timbro di istanze large di HANA è stata rilevata per soddisfare la media o meglio della classificazione media, come documentato nella [Nota SAP #1100926-domande frequenti: prestazioni di rete](https://launchpad.support.sap.com/#/notes/1100926/E) se è configurato il percorso rapido di Azure ExpressRoute (vedere di seguito). Per distribuire le macchine virtuali di Azure in prossimità di unità di istanze large di HANA 4, è necessario sfruttare i [gruppi di posizionamento di prossimità di Azure](../../co-location.md). Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
 
 Per garantire una latenza di rete deterministica tra le VM e le istanze large di HANA, la scelta dello SKU del gateway ExpressRoute è essenziale. A differenza dei modelli di traffico tra l'ambiente locale e le VM, il modello di traffico tra le VM e le istanze Large di HANA può sviluppare burst di piccole dimensioni ma frequenti di richieste e volumi di dati da trasmettere. Per gestire in modo efficiente tali burst, è consigliabile usare lo SKU del gateway UltraPerformance. Per la classe di tipo II di SKU di istanze large di HANA, è obbligatorio usare lo SKU del gateway UltraPerformance come gateway ExpressRoute.
 

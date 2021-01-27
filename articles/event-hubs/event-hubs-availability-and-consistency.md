@@ -4,48 +4,36 @@ description: Come fornire la quantità massima di disponibilità e coerenza con 
 ms.topic: article
 ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 884fe878b9524dcf8d97d1123dce35e02af34a24
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2fdb62e953230a38a26d22e136789fea52c8ee8c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790750"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882196"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilità e coerenza nell'Hub eventi
-
-## <a name="overview"></a>Panoramica
-Hub eventi di Azure usa un [modello di partizionamento](event-hubs-scalability.md#partitions) per migliorare la disponibilità e la parallelizzazione all'interno di un singolo hub eventi. Se ad esempio un hub eventi include quattro partizioni e una di queste partizioni viene spostata da un server a un altro in un'operazione di bilanciamento del carico, è comunque possibile inviare e ricevere dalle altre tre partizioni. Più partizioni consentono anche di avere più lettori simultaneamente che elaborano i dati, migliorando la velocità effettiva di aggregazione. Comprendere le implicazioni del partizionamento e dell'ordinamento in un sistema distribuito è un aspetto critico della progettazione di una soluzione.
-
-Per spiegare il compromesso tra ordinamento e disponibilità, vedere il [teorema CAP](https://en.wikipedia.org/wiki/CAP_theorem), noto anche come teorema di Brewer. Il teorema discute la scelta tra coerenza, disponibilità e tolleranza di partizione. Afferma che per i sistemi partizionati dalla rete è sempre presente un compromesso tra disponibilità e coerenza.
-
-Il teorema di Brewer definisce coerenza e disponibilità come segue:
-* Tolleranza di partizione: la capacità di un sistema di elaborazione dei dati di continuare l'elaborazione dei dati anche se si verifica un errore della partizione.
-* Disponibilità: un nodo non di errore restituisce una risposta accettabile in un periodo ragionevole di tempo, senza errori o timeout.
-* Coerenza: una lettura garantisce la restituzione della scrittura più recente per un determinato client.
-
-> [!NOTE]
-> Il termine **Partition** viene usato in contesti diversi in hub eventi e teorema Cap. 
-> - **Hub eventi** organizza gli eventi in una o più partizioni. Le partizioni sono indipendenti e contengono la propria sequenza di dati, spesso crescono a frequenze diverse. Per altre informazioni, vedere [Partizioni](event-hubs-features.md#partitions).
-> - Nel **teorema Cap** una partizione è un break di comunicazione tra i nodi in un sistema distribuito.
-
-## <a name="partition-tolerance"></a>Tolleranza di partizione
-L'Hub eventi si basa su un modello di dati partizionato. È possibile configurare il numero di partizioni nell'hub eventi durante l'installazione, ma non è possibile modificare questo valore in un secondo momento. Poiché è obbligatorio usare le partizioni con l'Hub eventi, è necessario prendere una decisione relativa a disponibilità e coerenza dell'applicazione.
+Questo articolo fornisce informazioni su disponibilità e coerenza supportate da Hub eventi di Azure. 
 
 ## <a name="availability"></a>Disponibilità
-Il modo più semplice per iniziare a usare l'Hub eventi è il comportamento predefinito. 
+Hub eventi di Azure distribuisce il rischio di errori irreversibili dei singoli computer o anche di completare i rack tra i cluster che si estendono su più domini di errore all'interno di un Data Center. Implementa meccanismi di rilevamento e failover trasparenti, in modo che il servizio continuerà a funzionare entro i livelli di servizio assicurati e in genere senza interruzioni evidenti quando si verificano tali errori. Se è stato creato uno spazio dei nomi di hub eventi con l'opzione Enabled per le [zone di disponibilità](../availability-zones/az-overview.md), il rischio di interruzione viene ulteriormente distribuito in tre strutture fisicamente separate e il servizio dispone di un numero sufficiente di riserve di capacità per far fronte immediatamente alla perdita irreversibile completa dell'intera struttura. Per altre informazioni, vedere [Hub eventi di Azure-ripristino di emergenza geografico](event-hubs-geo-dr.md).
 
-#### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 o versione successiva)](#tab/latest)
-Se si crea un nuovo oggetto **[EventHubProducerClient](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient)** e si usa il metodo **[SendAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.sendasync)** , gli eventi vengono distribuiti automaticamente tra le partizioni nell'hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
-
-#### <a name="microsoftazureeventhubs-410-or-earlier"></a>[Microsoft. Azure. EventHubs (4.1.0 o versioni precedenti)](#tab/old)
-Se si crea un nuovo oggetto **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** e si usa il metodo **[Send](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)**, gli eventi vengono distribuiti automaticamente tra le partizioni nell'hub eventi. Questo comportamento consente la maggiore quantità di tempo di attività.
-
----
-
-Per i casi di uso che richiedono il massimo del tempo di attività, è preferibile usare questo modello.
+Quando un'applicazione client invia eventi a un hub eventi, gli eventi vengono distribuiti automaticamente tra le partizioni nell'hub eventi. Se per qualche motivo non è disponibile una partizione, gli eventi vengono distribuiti tra le partizioni rimanenti. Questo comportamento consente la maggiore quantità di tempo di attività. Per i casi d'uso che richiedono il tempo massimo, questo modello è preferibile anziché inviare eventi a una partizione specifica. Per altre informazioni, vedere [Partizioni](event-hubs-scalability.md#partitions).
 
 ## <a name="consistency"></a>Consistenza
-In alcuni scenari, l'ordinamento degli eventi può essere importante. È ad esempio, potrebbe essere necessario che il sistema back-end elabori un comando di aggiornamento prima di un comando di eliminazione. In questo caso, è possibile impostare la chiave di partizione su un evento oppure usare un `PartitionSender` oggetto (se si usa la libreria Microsoft. Azure. Messaging precedente) per inviare solo gli eventi a una determinata partizione. In tal modo, quando questi eventi vengono letti dalla partizione, vengono letti nell'ordine. 
+In alcuni scenari, l'ordinamento degli eventi può essere importante. È ad esempio, potrebbe essere necessario che il sistema back-end elabori un comando di aggiornamento prima di un comando di eliminazione. In questo scenario, un'applicazione client invia eventi a una partizione specifica in modo che l'ordinamento venga mantenuto. Quando un'applicazione consumer utilizza questi eventi dalla partizione, questi vengono letti nell'ordine. 
+
+Con questa configurazione, tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Come punto di confronto, se non si ha un'affinità a una singola partizione, il servizio Hub eventi invia l'evento alla partizione successiva disponibile.
+
+Una possibile soluzione per garantire l'ordinamento ottimizzando allo stesso tempo i tempi di attività sarebbe l'aggregazione di eventi come parte dell'applicazione di elaborazione di eventi. Il modo più semplice per eseguire questa operazione è contrassegnare l'evento con una proprietà del numero di sequenza personalizzato.
+
+In questo scenario, il client producer invia eventi a una delle partizioni disponibili nell'hub eventi e imposta il numero di sequenza corrispondente dall'applicazione. Questa soluzione richiede che l'applicazione di elaborazione mantenga lo stato, ma propone ai mittenti un endpoint che ha maggiori probabilità di essere disponibile.
+
+## <a name="appendix"></a>Appendice
+
+### <a name="net-examples"></a>Esempi .NET
+
+#### <a name="send-events-to-a-specific-partition"></a>Inviare eventi a una partizione specifica
+Impostare la chiave di partizione su un evento oppure usare un `PartitionSender` oggetto (se si usa la libreria Microsoft. Azure. Messaging precedente) per inviare solo gli eventi a una determinata partizione. In tal modo, quando questi eventi vengono letti dalla partizione, vengono letti nell'ordine. 
 
 Se si usa la libreria **Azure. Messaging. EventHubs** più recente, vedere [migrazione del codice da PartitionSender a EventHubProducerClient per la pubblicazione di eventi in una partizione](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md#migrating-code-from-partitionsender-to-eventhubproducerclient-for-publishing-events-to-a-partition).
 
@@ -92,9 +80,8 @@ finally
 
 ---
 
-Con questa configurazione, tenere presente che se la partizione specifica alla quale si esegue l'invio non è disponibile, si riceverà una risposta di errore. Per fare un confronto, se non è presente un'affinità a una singola partizione, il servizio dell'Hub eventi invia l'evento alla partizione successiva disponibile.
-
-Una possibile soluzione per garantire l'ordinamento ottimizzando allo stesso tempo i tempi di attività sarebbe l'aggregazione di eventi come parte dell'applicazione di elaborazione di eventi. Il modo più semplice per eseguire questa operazione è contrassegnare l'evento con una proprietà con numero di sequenza personalizzato. Il codice seguente visualizza un esempio:
+### <a name="set-a-sequence-number"></a>Imposta un numero di sequenza
+Nell'esempio seguente viene timbrato l'evento con una proprietà con numero di sequenza personalizzato. 
 
 #### <a name="azuremessagingeventhubs-500-or-later"></a>[Azure. Messaging. EventHubs (5.0.0 o versione successiva)](#tab/latest)
 

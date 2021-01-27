@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 4539936007de0b45ab33dbd391baacc8f7d2ce2a
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
+ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796058"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879748"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -199,7 +199,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| valore
+    Campo| Valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
@@ -216,7 +216,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
     Una volta avviata la distribuzione, viene visualizzata la scheda **Riepilogo modello**. Vedere lo stato di avanzamento della distribuzione nella sezione **Stato distribuzione**. 
 
-A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](https://docs.microsoft.com/power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context).
+A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

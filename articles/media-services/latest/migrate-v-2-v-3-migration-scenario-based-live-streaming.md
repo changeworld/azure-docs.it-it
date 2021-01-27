@@ -1,5 +1,5 @@
 ---
-title: Linee guida basate sullo scenario di migrazione da servizi multimediali da V2 a V3 per lo streaming live | Microsoft Docs
+title: Linee guida basate sullo scenario di migrazione da servizi multimediali da V2 a V3 per lo streaming live
 description: Questo articolo offre indicazioni basate sullo scenario di streaming live che ti aiuteranno a eseguire la migrazione minima da servizi multimediali di Azure V2 a V3.
 services: media-services
 author: IngridAtMicrosoft
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 89fcf85b20d11664d5d1caa3fbe142fa5bbdbebc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b1c8906463002e144ee520855121ce18693e03
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690349"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898274"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario live streaming
 

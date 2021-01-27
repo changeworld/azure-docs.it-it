@@ -1,5 +1,5 @@
 ---
-title: Guida alla migrazione basata su scenari di codifica | Microsoft Docs
+title: Guida alla migrazione basata su scenari di codifica
 description: Questo articolo fornisce indicazioni sulla codifica basate sugli scenari che aiuteranno a eseguire la migrazione da servizi multimediali di Azure V2 a V3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d122bdeb98de624d9053852b9bee4595b0ef8c8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f8d25a14593c3c4a26ecafa33f7cc9fe6c4d580a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98690595"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898359"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Guida alla migrazione basata su scenari di codifica
 
@@ -60,7 +60,7 @@ Fare clic sull'immagine seguente per visualizzare una versione più grande.
 
 [![Flusso di lavoro di codifica per V3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
-1. Configurare
+1. Configurazione
     1. Creare un asset o usare un asset esistente. Se si usa un nuovo asset, caricare il contenuto nell'asset. Se si usa un asset esistente, è necessario codificare i file già esistenti nell'asset. Non è necessario *caricare altro contenuto nell'asset.*
     1. Creare un asset di output.  L'asset di output è la posizione in cui verranno archiviati i file codificati e i metadati di input e output.
     1. Ottenere i valori per la trasformazione:

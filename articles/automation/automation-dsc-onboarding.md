@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: ae268534a18a921cca012881fa172261c7ba1063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0dc68bd7dacf0cd7f4be9732d45831e2dbb712c
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186402"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897004"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Abilitare State Configuration di Automazione di Azure
 
@@ -73,7 +73,7 @@ Per trovare la chiave di registrazione e l'URL di registrazione da usare come pa
    Set-DscLocalConfigurationManager -Path C:\Users\joe\Desktop\DscMetaConfigs -ComputerName MyServer1, MyServer2
    ```
 
-1. Se non è possibile applicare le metaconfigurazioni di PowerShell DSC in remoto, copiare la cartella delle **metaconfigurazioni** nei computer da abilitare. Aggiungere quindi il codice per chiamare [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) localmente nei computer.
+1. Se non è possibile applicare le metaconfigurazioni di PowerShell DSC in remoto, copiare la cartella delle **metaconfigurazioni** nei computer da abilitare. Aggiungere quindi il codice per chiamare [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) localmente nei computer.
 1. Tramite il portale di Azure o i cmdlet verificare che i computer vengano visualizzati come nodi di State Configuration nell'account di Automazione di Azure.
 
 ## <a name="enable-physicalvirtual-linux-machines"></a>Abilitare computer fisici e macchine virtuali Linux
@@ -123,7 +123,7 @@ Per abilitare qualsiasi computer per State Configuration è possibile generare u
 > [!NOTE]
 > Le metaconfigurazioni DSC contengono i segreti necessari per abilitare un computer in un account di Automazione per la gestione. Assicurarsi di proteggere adeguatamente le metaconfigurazioni DSC create oppure eliminarle dopo l'uso.
 
-Il supporto del proxy per le metaconfigurazioni è controllato da [Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), che è il motore DSC di Windows PowerShell. Viene eseguito in tutti i nodi di destinazione e ha la responsabilità di chiamare le risorse di configurazione incluse in uno script di metaconfigurazione DSC. È possibile integrare il supporto del proxy in una metaconfigurazione includendo le definizioni delle proprietà `ProxyURL` e `ProxyCredential` in base alle esigenze nei blocchi `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` e `ReportServerWeb`. Un esempio di impostazione dell'URL è `ProxyURL = "http://172.16.3.6:3128";`. La proprietà `ProxyCredential` è impostata su un oggetto `PSCredential`, come descritto in [Gestire le credenziali in Automazione di Azure](shared-resources/credentials.md). 
+Il supporto del proxy per le metaconfigurazioni è controllato da [Configuration Manager locale](/powershell/scripting/dsc/managing-nodes/metaconfig), che è il motore DSC di Windows PowerShell. Viene eseguito in tutti i nodi di destinazione e ha la responsabilità di chiamare le risorse di configurazione incluse in uno script di metaconfigurazione DSC. È possibile integrare il supporto del proxy in una metaconfigurazione includendo le definizioni delle proprietà `ProxyURL` e `ProxyCredential` in base alle esigenze nei blocchi `ConfigurationRepositoryWeb`, `ResourceRepositoryWeb` e `ReportServerWeb`. Un esempio di impostazione dell'URL è `ProxyURL = "http://172.16.3.6:3128";`. La proprietà `ProxyCredential` è impostata su un oggetto `PSCredential`, come descritto in [Gestire le credenziali in Automazione di Azure](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Generare metaconfigurazioni DSC usando una configurazione DSC
 
@@ -260,7 +260,7 @@ Il supporto del proxy per le metaconfigurazioni è controllato da [Configuration
 Se i valori predefiniti di Configuration Manager locale di PowerShell DSC corrispondono al caso d'uso e si vuole consentire ai computer di eseguire il pull e di inviare report a State Configuration di Automazione di Azure, è possibile generare le metaconfigurazioni DSC necessarie con maggiore semplicità usando i cmdlet di Automazione di Azure.
 
 1. Aprire la console di PowerShell o VSCode come amministratore in un computer dell'ambiente locale.
-2. Connettersi ad Azure Resource Manager con [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0).
+2. Connettersi ad Azure Resource Manager con [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount).
 3. Dall'account di Automazione in cui si configureranno i nodi, scaricare le metaconfigurazioni di PowerShell DSC per i computer da abilitare:
 
    ```powershell
@@ -325,7 +325,7 @@ Per visualizzare lo stato dell'estensione DSC (Desired State Configuration) dell
 
 - Per iniziare, vedere [Introduzione a State Configuration di Automazione di Azure](automation-dsc-getting-started.md).
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilare configurazioni DSC in State Configuration di Automazione di Azure](automation-dsc-compile.md).
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).
 - Per informazioni sui prezzi, vedere [Prezzi di State Configuration di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/).
 - Per un esempio dell'uso di State Configuration di Automazione di Azure in una pipeline di distribuzione continua, vedere [Configurare la distribuzione continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Per informazioni sulla risoluzione dei problemi, vedere [Risolvere i problemi di State Configuration di Automazione di Azure](./troubleshoot/desired-state-configuration.md).

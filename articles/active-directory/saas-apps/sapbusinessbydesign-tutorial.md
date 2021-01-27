@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/18/2019
+ms.date: 01/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 6d04601cb11e57f50c82680077793aef1b816bfa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
-ms.translationtype: HT
+ms.openlocfilehash: e8f1bff50c5f163894392a9e5d08cc8451d835fa
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895140"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Business ByDesign
 
-Questa esercitazione descrive come integrare SAP Business ByDesign con Azure Active Directory (Azure AD).
-L'integrazione di SAP Business ByDesign con Azure AD offre i vantaggi seguenti:
+In questa esercitazione si apprenderà come integrare SAP Business ByDesign con Azure Active Directory (Azure AD). Quando si integra SAP Business ByDesign con Azure AD, è possibile:
 
-* È possibile controllare in Azure AD chi può accedere a SAP Business ByDesign.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a SAP Business ByDesign con gli account Azure AD personali.
-* È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
+* Controllare in Azure AD chi può accedere a SAP Business ByDesign.
+* Abilitare gli utenti per l'accesso automatico a SAP Business ByDesign con i relativi account Azure AD.
+* Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="prerequisites"></a>Prerequisites
+Per iniziare, sono necessari gli elementi seguenti:
 
-Per configurare l'integrazione di Azure AD con SAP Business ByDesign, sono necessari gli elementi seguenti:
-
-* Una sottoscrizione di Azure AD. Se non si dispone di un ambiente di Azure AD, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di SAP Business ByDesign abilitata per l'accesso Single Sign-On
+* Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
+* Sottoscrizione di SAP Business ByDesign Single Sign-On (SSO) abilitata.
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
@@ -43,63 +39,41 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * SAP Business ByDesign supporta l'accesso SSO avviato da **SP**
 
-## <a name="adding-sap-business-bydesign-from-the-gallery"></a>Aggiunta di SAP Business ByDesign dalla raccolta
+## <a name="add-sap-business-bydesign-from-the-gallery"></a>Aggiungere SAP Business ByDesign dalla raccolta
 
 Per configurare l'integrazione di SAP Business ByDesign in Azure AD, è necessario aggiungere SAP Business ByDesign dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere SAP Business ByDesign dalla raccolta, seguire questa procedura:**
+1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **SAP Business ByDesign** nella casella di ricerca.
+1. Selezionare **SAP Business ByDesign** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 
-    ![Pulsante Azure Active Directory](common/select-azuread.png)
+Configurare e testare Azure AD SSO con SAP Business ByDesign usando un utente di test di nome **B. Simon**. Per il funzionamento dell'accesso SSO, è necessario stabilire una relazione di collegamento tra un utente Azure AD e l'utente correlato in SAP Business ByDesign.
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+Per configurare e testare Azure AD SSO con SAP Business ByDesign, seguire questa procedura:
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+    1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare SAP Business BYDESIGN SSO](#configure-sap-business-bydesign-sso)** : per configurare le impostazioni del singolo Sign-On sul lato applicazione.
+    1. **[Creare un utente di test di SAP Business ByDesign](#create-sap-business-bydesign-test-user)** : per avere una controparte di Britta Simon in SAP Business ByDesign collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
-3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
-    ![Pulsante Nuova applicazione](common/add-new-app.png)
+Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-4. Nella casella di ricerca digitare **SAP Business ByDesign** , selezionare **SAP Business ByDesign** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella pagina di integrazione dell'applicazione **SAP Business ByDesign** del portale di Azure individuare la sezione **Gestisci** e selezionare **Single Sign-on**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
-    ![SAP Business ByDesign nell'elenco risultati](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con SAP Business ByDesign con un utente test di nome **Britta Simon**.
-Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in SAP Business ByDesign.
-
-Per configurare e testare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, è necessario completare i blocchi predefiniti seguenti:
-
-1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On di SAP Business ByDesign](#configure-sap-business-bydesign-single-sign-on)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di SAP Business ByDesign](#create-sap-business-bydesign-test-user)** : per avere una controparte di Britta Simon in SAP Business ByDesign collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
-
-In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure.
-
-Per configurare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, seguire questa procedura:
-
-1. Nella pagina di integrazione dell'applicazione [SAP Business ByDesign](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
-
-    ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
-
-2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML/WS-Fed** per abilitare il Single Sign-On.
-
-    ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
-
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
-
-    ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
-
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Business ByDesign](common/sp-identifier.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<servername>.sapbydesign.com`
 
@@ -110,23 +84,24 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, 
 
 5. L'applicazione SAP Business ByDesign prevede che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![Screenshot che mostra la finestra di dialogo "Attributi utente" con il pulsante "Modifica" selezionato.](common/edit-attribute.png)
+    ![immagine1](common/edit-attribute.png)
 
 6. Fare clic sull'icona **Modifica** per modificare il **valore dell'identificatore Nome**.
 
-    ![Screenshot che mostra la pagina "Attributi utente e attestazioni" con l'icona "Modifica" selezionata.](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
+    ![Immagine2](media/sapbusinessbydesign-tutorial/mail-prefix1.png)
 
-7. Nella sezione **Gestisci attestazioni utente** seguire questa procedura: ![immagine](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
+7. Nella sezione **Gestisci attestazioni utente** seguire questa procedura:
+
+    ![immagine3](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
 
     a. Selezionare **Trasformazione** come **Origine**.
 
-    b. Nell'elenco a discesa **Trasformazione** , selezionare **ExtractMailPrefix()** .
+    b. Nell'elenco a discesa **Trasformazione**, selezionare **ExtractMailPrefix()** .
 
-    c. Nell'elenco a discesa **Parametro 1** selezionare l'attributo utente da usare per l'implementazione. Ad esempio, se si vuole usare il valore EmployeeID come identificatore utente univoco e il valore dell'attributo è stato archiviato in ExtensionAttribute2, selezionare user.extensionattribute2.
+    > [!NOTE]
+    > Per impostazione predefinita, ByD usa il formato NameID non **specificato** per il mapping utente. ByD esegue il mapping dell'NameID di asserzioni SAML nell'alias utente ByD. Inoltre, ByD supporta il formato ID nome **EmailAddress**. In questo caso ByD esegue il mapping di NameID dell'asserzione SAM nell'indirizzo di posta elettronica dell'utente ByD dei dati di contatto del dipendente ByD. Per informazioni dettagliate, è possibile fare riferimento a [questo Blog SAP](https://blogs.sap.com/2017/05/24/single-sign-on-sso-with-sap-business-bydesign/).
 
-    d. Fare clic su **Salva**.
-
-8. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+8. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -134,13 +109,32 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, 
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    a. URL di accesso
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-    b. Identificatore di Azure AD
+In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-    c. URL di chiusura sessione
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Selezionare **Nuovo utente** in alto nella schermata.
+1. In **Proprietà utente** seguire questa procedura:
+   1. Nel campo **Nome** immettere `B.Simon`.  
+   1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+   1. Fare clic su **Crea**.
 
-### <a name="configure-sap-business-bydesign-single-sign-on"></a>Configurare il single Sign-On per SAP Business ByDesign
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+
+In questa sezione si consentirà a B. Simon di usare Azure Single Sign-On concedendo l'accesso a SAP Business ByDesign.
+
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nell'elenco delle applicazioni, selezionare **SAP Business ByDesign**.
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+
+## <a name="configure-sap-business-bydesign-sso"></a>Configurare SAP Business ByDesign SSO
 
 1. Accedere al portale di SAP Business ByDesign con diritti di amministratore.
 
@@ -148,23 +142,23 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, 
 
 3. Fare clic su **New Identity Provider** (Nuovo provider di identità) e selezionare il file XML metadati scaricato dal portale di Azure. Quando si importano i metadati, il sistema carica automaticamente il certificato di firma e il certificato di crittografia necessari.
 
-    ![Screenshot che mostra la pagina "Configure Single Sign-On" con la scheda "Identity Provider" selezionata e l'azione "New Identity Provider" selezionata.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
+    ![Configurare l'accesso Single Sign-On - 1](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_54.png)
 
-4. Per includere l' **URL del servizio consumer di asserzione** nella richiesta SAML, selezionare **Include Assertion Consumer Service URL** (Includi URL del servizio Consumer di asserzione).
+4. Per includere l'**URL del servizio consumer di asserzione** nella richiesta SAML, selezionare **Include Assertion Consumer Service URL** (Includi URL del servizio Consumer di asserzione).
 
-5. Fare clic su **Activate Single Sign-On** (Attiva Single Sign-On).
+5. Fare clic su **Activate Single Sign-On**(Attiva Single Sign-On).
 
 6. Salvare le modifiche.
 
 7. Fare clic sulla scheda **My System** (Sistema locale).
 
-    ![Screenshot che mostra la pagina "Configure Single Sign-On" con la scheda "My System" selezionata.](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
+    ![Configurare l'accesso Single Sign-On - 2](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_52.png)
 
 8. Nella casella di testo **Azure AD Sign-On URL** (URL di accesso SSO) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    ![Configure Single Sign-On](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
+    ![Configurare l'accesso Single Sign-On - 3](./media/sapbusinessbydesign-tutorial/tutorial_sapbusinessbydesign_53.png)
 
-9. Specificare se il dipendente può scegliere manualmente tra l'accesso con ID utente e password o SSO selezionando **Manual Identity Provider Selection** (Selezione manuale provider di identità).
+9. Specificare se il dipendente può scegliere manualmente tra l'accesso con ID utente e password o SSO selezionando **Manual Identity Provider Selection**(Selezione manuale provider di identità).
 
 10. Nella sezione **SSO URL** (URL SSO), specificare l'URL che deve essere usato dai dipendenti per l'accesso al sistema.
     Nell'elenco a discesa URL Sent to Employee (URL inviato al dipendente) è possibile scegliere tra le opzioni seguenti:
@@ -183,56 +177,6 @@ Per configurare l'accesso Single Sign-On di Azure AD con SAP Business ByDesign, 
 
 11. Salvare le modifiche.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
-
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
-
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
-
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
-
-2. Selezionare **Nuovo utente** in alto nella schermata.
-
-    ![Pulsante Nuovo utente](common/new-user.png)
-
-3. In Proprietà utente seguire questa procedura.
-
-    ![Finestra di dialogo Utente](common/user-properties.png)
-
-    a. Nel campo **Nome** immettere **BrittaSimon**.
-  
-    b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`. Ad esempio, usare BrittaSimon@contoso.com
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
-
-    d. Fare clic su **Crea**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
-
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a SAP Business ByDesign.
-
-1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **SAP Business ByDesign**.
-
-    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
-
-2. Nell'elenco delle applicazioni, selezionare **SAP Business ByDesign**.
-
-    ![Collegamento di SAP Business ByDesign nell'elenco delle applicazioni](common/all-applications.png)
-
-3. Scegliere **Utenti e gruppi** dal menu a sinistra.
-
-    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
-
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
-
-    ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
-
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
-
-6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
-
 ### <a name="create-sap-business-bydesign-test-user"></a>Creare un utente di test di SAP Business ByDesign
 
 In questa sezione viene creato un utente di nome Britta Simon in SAP Business ByDesign. Collaborare con il [team di supporto clienti di SAP Business ByDesign](https://www.sap.com/products/cloud-analytics.support.html) per aggiungere gli utenti nella piattaforma SAP Business ByDesign. 
@@ -240,16 +184,16 @@ In questa sezione viene creato un utente di nome Britta Simon in SAP Business By
 > [!NOTE]
 > Assicurarsi che il valore di NameID corrisponda al campo username nella piattaforma SAP Business ByDesign.
 
-### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
+## <a name="test-sso"></a>Testare l'accesso SSO 
 
-In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
+In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD con le opzioni seguenti. 
 
-Quando si fa clic sul riquadro di SAP Business ByDesign nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SAP Business ByDesign per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
+1. Fare clic su **Test this application** (Testa questa applicazione) nel portale di Azure. Verrà eseguito il reindirizzamento all'URL di accesso di SAP Business ByDesign, in cui è possibile avviare il flusso di accesso. 
 
-## <a name="additional-resources"></a>Risorse aggiuntive
+2. Passare direttamente all'URL di accesso di SAP Business ByDesign e avviare il flusso di accesso da qui.
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+3. È possibile usare App personali Microsoft. Quando si fa clic sul riquadro SAP Business ByDesign in app personali, questo verrà reindirizzato all'URL di accesso a SAP Business ByDesign. Per altre informazioni su App personali, vedere l'[introduzione ad App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
+* Dopo la configurazione di SAP Business ByDesign è possibile applicare i controlli della sessione, che proteggono exfiltration e infiltrano i dati sensibili dell'organizzazione in tempo reale. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

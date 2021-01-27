@@ -2,13 +2,13 @@
 title: Account Batch e account di Archiviazione di Azure
 description: Informazioni sugli accunt Azure Batch e su come vengono usati dal punto di vista dello sviluppo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: 20a2a28d0eaa2c7997ea93e66d07ecb99bf297a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/26/2021
+ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83790908"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896749"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>Account Batch e account di Archiviazione di Azure
 
@@ -20,9 +20,10 @@ Tutte le operazioni di elaborazione e le risorse sono associata a un account Bat
 
 È possibile eseguire più carichi di lavoro Batch in un singolo account Batch. È anche possibile distribuire i carichi di lavoro tra gli account Batch nella stessa sottoscrizione, ma in aree di Azure diverse.
 
+È possibile creare un account Batch usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associare un account di archiviazione di Azure per l'archiviazione di applicazioni e dati di input e output correlati al processo.
+
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-È possibile creare un account Batch usando il [portale di Azure](batch-account-create-portal.md) o a livello di codice, ad esempio con la [libreria di gestione .NET per Batch](batch-management-dotnet.md). Quando si crea l'account, è possibile associare un account di archiviazione di Azure per l'archiviazione di applicazioni e dati di input e output correlati al processo.
 
 ## <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
 
@@ -41,4 +42,5 @@ Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'a
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Informazioni su [nodi e pool](nodes-and-pools.md).
-- Informazioni su come creare un account Batch usando il [portale di Azure](batch-account-create-portal.md).
+- Informazioni su come creare e gestire account batch usando il [portale di Azure](batch-account-create-portal.md) o [batch Management .NET](batch-management-dotnet.md).
+- Informazioni su come usare gli [endpoint privati](private-connectivity.md) con account Azure batch.

@@ -3,19 +3,19 @@ title: Distribuzioni del linguaggio non supportate-convertitore personalizzato
 titleSuffix: Azure Cognitive Services
 description: Questo articolo illustra come distribuire coppie di lingue non supportate nel traduttore personalizzato di servizi cognitivi di Azure.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
-ms.author: swmachan
-ms.openlocfilehash: 7498169c2c61b8337a90fbda082729f200f04635
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.author: lajanuar
+ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369036"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898071"
 ---
 # <a name="unsupported-language-deployments"></a>Distribuzioni in lingue non supportate
 
@@ -32,7 +32,7 @@ Affinché i modelli siano candidati per la distribuzione, è necessario che sodd
 * Il modello deve trovarsi nello stato distribuito quando viene eseguita la migrazione.  
 * La coppia di lingue del modello deve essere una coppia di lingue non supportata nel convertitore personalizzato.  Le coppie di lingue in cui una lingua è supportata da o verso l'inglese, ma la coppia non include l'inglese, sono candidati per le distribuzioni di linguaggio non supportate.  Ad esempio, un modello di hub per una coppia di lingua francese-tedesca viene considerato una coppia di lingue non supportata anche se la coppia di lingue è supportata da Francese a inglese e da inglese a tedesco.
 
-## <a name="process"></a>Process
+## <a name="process"></a>Processo
 Dopo aver eseguito la migrazione dei modelli dall'hub candidati per la distribuzione, è possibile trovarli nella pagina **Impostazioni** per l'area di lavoro e scorrere fino alla fine della pagina in cui verrà visualizzata una sezione **Training Hub di conversione non supportata** .  Questa sezione viene visualizzata solo se sono presenti progetti che soddisfano i prerequisiti menzionati in precedenza.
 
 ![Screenshot che evidenzia la sezione training dell'hub di conversione non supportata.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)

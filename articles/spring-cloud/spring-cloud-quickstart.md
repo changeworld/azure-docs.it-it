@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a1732f42ea95c16cdec7a1d7569c954667e52cb4
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
-ms.translationtype: HT
+ms.openlocfilehash: 416f997475e35f8e784679ca0826f7af38d756c7
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96750901"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880305"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud
 
@@ -351,9 +351,6 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4
 ```
 
   ![Pagina di Initializr](media/spring-cloud-quickstart-java/initializr-page.png)
-
-> [!NOTE]
-> Il team Microsoft ha identificato un problema con Spring Boot 2.4 nell'autenticazione TLS tra le app ed Eureka e sta collaborando con la community di Spring per risolverlo. Vedere le [domande frequenti](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-faq?pivots=programming-language-java#development) per la soluzione alternativa.
 
 1. Dopo aver impostato tutte le dipendenze, fare clic su **Generate** (Genera). Scaricare e decomprimere il pacchetto, quindi creare un controller Web per una semplice applicazione Web aggiungendo `src/main/java/com/example/hellospring/HelloController.java` come indicato di seguito:
 

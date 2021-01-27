@@ -101,13 +101,11 @@
   items:
     - name: Gestire gli account Batch
       items:
-        - name: Gestire l'account
-          href: batch-manage-account-basics.md
-        - name: Gestire gli account Batch con il portale
+        - name: Gestire gli account batch nella portale di Azure
           href: batch-account-create-portal.md
         - name: Gestire gli account Batch con la gestione .NET per Batch
           href: batch-management-dotnet.md
-        - name: Analisi dei costi e budget
+        - name: Ottenere l'analisi dei costi e impostare i budget
           href: budget.md
         - name: Usare endpoint privati con account Batch
           href: private-connectivity.md

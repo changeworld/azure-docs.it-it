@@ -1,5 +1,5 @@
 ---
-title: Codici di errore dell'evento live di servizi multimediali di Azure | Microsoft Docs
+title: Codici di errore dell'evento live di servizi multimediali di Azure
 description: Questo articolo elenca i codici di errore dell'evento Live.
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 13277c3d46d5b68aa5705699f45a2bf9e97a78d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 310e70bc8c7ddbf3bcd37d4f0276fe04c2979e73
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291535"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897850"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
 
@@ -56,7 +56,7 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../even
 |Codici di errore sconosciuti|Questi codici di errore possono variare da errori di memoria a voci duplicate nella mappa di hash.|
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Codici di errore dell'endpoint di streaming (Origin)](streaming-endpoint-error-codes.md)
 

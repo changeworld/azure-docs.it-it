@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b44ea6f55717712cfba4045205e02bd9f2b851df
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202658"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98878122"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Baseline della sicurezza di Azure per il firewall applicazione Web di Azure
 
@@ -406,7 +406,7 @@ Seguire le raccomandazioni del Centro sicurezza per la crittografia dei dati ina
 
 La WAF di Azure, in modalità di prevenzione, blocca le intrusioni e gli attacchi rilevati dalle regole. L'autore dell'attacco riceve un'eccezione di "accesso non autorizzato 403" e la connessione viene chiusa. La modalità di prevenzione registra tali attacchi nei log di WAF.
 
-- [Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure](../application-gateway/application-gateway-integration-security-center.md#overview)
+- [Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure](../security-center/security-center-partner-integration.md)
 
 - [Modalità WAF sul gateway applicazione](ag/ag-overview.md#waf-modes)
 

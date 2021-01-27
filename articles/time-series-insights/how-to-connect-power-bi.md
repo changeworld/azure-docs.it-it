@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 07e79dbde142400677901ee02903144f9a42cd6b
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740765"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879562"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizzare i dati da Azure Time Series Insights in Power BI
 
@@ -112,10 +112,10 @@ Ora che i dati sono stati importati in Power BI, è possibile creare un report c
 Una volta creato il report, è possibile pubblicarlo per Power BI Reporting Services e condividerlo con altri utenti dell'organizzazione.
 
 ## <a name="advanced-editing"></a>Modifica avanzata
-Se è già stato caricato un set di dati in Power BI ma si vuole modificare la query, ad esempio i parametri di data/ora o ID ambiente, è possibile eseguire questa operazione tramite la funzionalità di Editor avanzato di Power BI. Per ulteriori informazioni su come apportare modifiche utilizzando l' **Editor Power query**, vedere la [documentazione di Power bi](https://docs.microsoft.com/power-bi/desktop-query-overview) . 
+Se è già stato caricato un set di dati in Power BI ma si vuole modificare la query, ad esempio i parametri di data/ora o ID ambiente, è possibile eseguire questa operazione tramite la funzionalità di Editor avanzato di Power BI. Per ulteriori informazioni su come apportare modifiche utilizzando l' **Editor Power query**, vedere la [documentazione di Power bi](/power-bi/desktop-query-overview) . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri di più su [Power bi desktop](https://docs.microsoft.com/power-bi/desktop-query-overview).
+* Scopri di più su [Power bi desktop](/power-bi/desktop-query-overview).
 
 * Informazioni sull' [esecuzione di query sui dati](concepts-query-overview.md) in Azure Time Series Insights Gen2.

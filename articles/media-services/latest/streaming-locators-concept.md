@@ -1,5 +1,5 @@
 ---
-title: Localizzatori di streaming in Servizi multimediali di Azure | Microsoft Docs
+title: Localizzatori di streaming in servizi multimediali di Azure
 description: Questo articolo illustra le caratteristiche dei localizzatori di streaming e descrive come vengono usati da Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68df5256949db44b2b347002570c64d1aa0d55ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b711b9a6923a1923562a282dcaffe7cecb0c58b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898139"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
 
@@ -25,7 +25,7 @@ Per rendere i video nell'asset di output disponibili per la riproduzione da part
 
 Il processo di creazione di un **localizzatore di streaming** è detto pubblicazione. Per impostazione predefinita, il **localizzatore di streaming** è valido immediatamente dopo aver effettuato le chiamate all'API e dura fino a quando non viene eliminato, a meno che non si configuri l'ora di inizio e di fine facoltativa. 
 
-Quando si crea un **localizzatore di streaming**, è necessario specificare un nome di **Asset** e un nome di **criterio di flusso** . Per altre informazioni, vedere gli argomenti seguenti:
+Quando si crea un **localizzatore di streaming**, è necessario specificare un nome di **Asset** e un nome di **criterio di flusso** . Per altre informazioni, vedere i seguenti argomenti:
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)
@@ -99,7 +99,7 @@ Per ottenere i localizzatori di streaming in base al nome dell'asset associato, 
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)

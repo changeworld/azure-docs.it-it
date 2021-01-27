@@ -4,12 +4,12 @@ description: Come scegliere tra le dimensioni delle macchine virtuali disponibil
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb54a4db62f56f442f7cec81e6768241a05ffee
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 59218361c5fff51b33131fdd2455c599dd12b06a
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95895231"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897494"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Scegliere le dimensioni e l'immagine di una macchina virtuale per i nodi di calcolo in un pool di Azure Batch
 
@@ -31,44 +31,42 @@ I pool di batch nella configurazione della macchina virtuale supportano quasi tu
 | Basic A | Tutte le dimensioni *tranne* Basic_A0 (a0) |
 | Una | Tutte le dimensioni *tranne* Standard_A0 |
 | Av2 | Tutte le dimensioni |
-| b | Non supportate |
-| DC | Non supportate |
+| b | Non supportato |
+| DC | Non supportato |
 | Dv2, DSv2 | Tutte le dimensioni |
 | Dv3, Dsv3 | Tutte le dimensioni |
-| Dav4<sup>1</sup> | Tutte le dimensioni |
-| Dasv4<sup>1</sup> | Tutte le dimensioni |
+| Dav4 | Tutte le dimensioni |
+| Dasv4 | Tutte le dimensioni |
 | Ddv4, Ddsv4 |  Tutte le dimensioni |
-| DV4, Dsv4 | Non supportate |
+| DV4, Dsv4 | Non supportato |
 | Ev3, Esv3 | Tutte le dimensioni, ad eccezione di E64is_v3 |
-| Eav4<sup>1</sup> | Tutte le dimensioni |
-| Easv4<sup>1</sup> | Tutte le dimensioni |
+| Eav4 | Tutte le dimensioni |
+| Easv4 | Tutte le dimensioni |
 | Edv4, Edsv4 |  Tutte le dimensioni |
-| Ev4, Esv4 | Non supportate |
+| Ev4, Esv4 | Non supportato |
 | F, Fs | Tutte le dimensioni |
 | Fsv2 | Tutte le dimensioni |
 | G, Gs | Tutte le dimensioni |
 | H | Tutte le dimensioni |
-| HB<sup>1</sup> | Tutte le dimensioni |
-| HBv2<sup>1</sup> | Tutte le dimensioni |
-| HC<sup>1</sup> | Tutte le dimensioni |
+| HB | Tutte le dimensioni |
+| HBv2 | Tutte le dimensioni |
+| HC | Tutte le dimensioni |
 | Ls | Tutte le dimensioni |
-| Lsv2<sup>1</sup> | Tutte le dimensioni |
-| M<sup>1</sup> | Tutte le dimensioni |
-| Mv2<sup>1, 2</sup> | Tutte le dimensioni |
+| Lsv2 | Tutte le dimensioni |
+| M | Tutte le dimensioni |
+| Mv2<sup>1</sup> | Tutte le dimensioni |
 | NC | Tutte le dimensioni |
-| NCv2<sup>1</sup> | Tutte le dimensioni |
-| NCv3<sup>1</sup> | Tutte le dimensioni |
+| NCv2 | Tutte le dimensioni |
+| NCv3 | Tutte le dimensioni |
 | NCasT4_v3 | Nessuna - non ancora disponibile |
-| ND<sup>1</sup> | Tutte le dimensioni |
-| NDv2<sup>1</sup> | Nessuna - non ancora disponibile |
+| ND | Tutte le dimensioni |
+| NDv2 | Nessuna - non ancora disponibile |
 | NV | Tutte le dimensioni |
-| NVv3<sup>1</sup> | Tutte le dimensioni |
-| NVv4<sup>1</sup> | Tutte le dimensioni |
-| SAP HANA | Non supportate |
+| NVv3 | Tutte le dimensioni |
+| NVv4 | Tutte le dimensioni |
+| SAP HANA | Non supportato |
 
-<sup>1</sup> queste serie di VM possono essere allocate nei pool di batch nella configurazione della macchina virtuale, ma è necessario creare un nuovo account batch e richiedere un [aumento della quota](batch-quota-limit.md#increase-a-quota)specifico. Questa limitazione verrà rimossa quando la quota di vCPU per ogni serie di macchine virtuali sarà completamente supportata per gli account Batch.
-
-<sup>2</sup> queste serie di macchine virtuali possono essere usate solo con le immagini di macchina virtuale di seconda generazione.
+<sup>1</sup> queste serie di macchine virtuali possono essere usate solo con le immagini di macchina virtuale di seconda generazione.
 
 ### <a name="using-generation-2-vm-images"></a>Uso delle immagini di VM di seconda generazione
 

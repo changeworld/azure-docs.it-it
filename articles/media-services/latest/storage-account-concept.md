@@ -1,24 +1,9 @@
 ---
-title: Account di archiviazione di Azure
-titleSuffix: Azure Media Services
-description: Informazioni su come creare un account di archiviazione di Azure da usare con servizi multimediali di Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: conceptual
-ms.date: 01/05/2021
-ms.author: inhenkel
-ms.openlocfilehash: 55a49d48af95c103d2a28d5106af5f3166605514
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882247"
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campi obbligatori. Scopri di più su aka.ms/skyeye/meta.
+title: account di archiviazione di Azure: Descrizione di servizi multimediali di Azure: informazioni su come creare un account di archiviazione di Azure da usare con servizi multimediali di Azure.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:'' ms. Service: Media-Services ms. workload: ms. Topic: Conceptual ms. Date: 01/05/2021 ms. Author: inhenkel
 ---
+
 # <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

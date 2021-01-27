@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 5cbfd90ca65a1fb75c9cbe5602ac2a69741e378f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96017237"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879174"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usare il firewall di Azure per controllare il traffico destinato a un endpoint privato
 
@@ -92,7 +92,7 @@ Esistono alcune limitazioni all'implementazione: una migrazione a un'architettur
 Questa architettura può essere implementata se è stata configurata la connettività con la rete locale usando: 
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
-* [VPN da sito a sito](..\vpn-gateway\vpn-gateway-howto-site-to-site-resource-manager-portal.md) 
+* [VPN da sito a sito](../vpn-gateway/tutorial-site-to-site-portal.md) 
 
 Se i requisiti di sicurezza richiedono il routing del traffico client ai servizi esposti tramite endpoint privati tramite un'appliance di sicurezza, distribuire questo scenario.
 
@@ -273,7 +273,7 @@ In questa sezione viene creato un database SQL privato.
     | Subscription | Selezionare la propria sottoscrizione. |
     | Resource group | Selezionare **myResourceGroup**. Questo gruppo di risorse è stato creato nella sezione precedente.|
     | **Dettagli database** |  |
-    | Nome del database  | Immettere **mydatabase**.  |
+    | Nome database  | Immettere **mydatabase**.  |
     | Server | Selezionare **Crea nuovo** e immettere le informazioni riportate di seguito.    |
     | Nome server | Immettere **MYDBSERVER**. Se viene accettato questo nome, immettere un nome univoco.   |
     | Accesso amministratore server | Immettere un nome a scelta. |
@@ -371,8 +371,8 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
     | **Configurare le impostazioni del traffico con inoltri** | |
-    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Abilitato**. |
-    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Abilitato**. |
+    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
+    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
     | **Configurare le impostazioni di transito del gateway** | |
     | Consenti transito gateway | Lasciare la casella deselezionata |
     |||
@@ -397,8 +397,8 @@ In questa sezione verranno connesse le reti virtuali **myVMVNet** e **myPEVNet**
     | Consenti accesso alla rete virtuale da myAzFwVNet a rete virtuale remota | Lasciare il valore predefinito, **Abilitata**.    |
     | Consenti accesso alla rete virtuale da una rete virtuale remota a myAzFwVNet    | Lasciare il valore predefinito, **Abilitata**.    |
     | **Configurare le impostazioni del traffico con inoltri** | |
-    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Abilitato**. |
-    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Abilitato**. |
+    | Consenti il traffico inviato dalla rete virtuale remota a myAzFwVNet    | Selezionare **Enabled**. |
+    | Consenti il traffico trasmesso da myAzFwVNet alla rete virtuale remota | Selezionare **Enabled**. |
     | **Configurare le impostazioni di transito del gateway** | |
     | Consenti transito gateway | Lasciare la casella deselezionata |
 
@@ -604,7 +604,7 @@ In questa sezione si connetterà privatamente al database SQL usando l'endpoint 
 
 6. Nell'output della query di log verificare che **MYDBSERVER.database.Windows.NET** sia elencato in **FQDN** e che **SQLPrivateEndpoint** sia elencato in **RuleCollection**.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine dell'uso delle risorse, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 

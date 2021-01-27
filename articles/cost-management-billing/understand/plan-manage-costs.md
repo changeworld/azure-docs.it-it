@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c640478170049bd06e11f7f89b1e213b7b305642
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 210f7daa9305f2fb343dfae050354264e2fd823e
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032814"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898563"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Pianificare la gestione dei costi di Azure
 
@@ -125,7 +125,7 @@ Vedere [Ottimizzare i costi grazie agli elementi consigliati](../costs/tutorial-
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrazione con le API di fatturazione e utilizzo
 
-Usare le API di [fatturazione](/rest/api/billing/) e [utilizzo](/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../manage/usage-rate-card-overview.md).
+Usare le API di [fatturazione](/rest/api/billing/) e [utilizzo](/rest/api/consumption/) di Azure per ottenere i dati relativi alla fatturazione e ai costi a livello di codice. Usare insieme l'API RateCard e l'API Usage per ottenere l'utilizzo addebitato. Per altre informazioni, vedere [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../manage/consumption-api-overview.md#usage-details-api).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Risorse aggiuntive e casi speciali
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines-windows
 ms.subservice: disks
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: cae75c88b4803912565e010f744a7757a3b98f04
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201553"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898512"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
@@ -60,4 +60,6 @@ Il disco rimane nello spazio di archiviazione ma non è più collegato a una mac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si desidera riutilizzare il disco dati, è sufficiente [collegarlo a un'altra VM](attach-managed-disk-portal.md)
+Se si intende usare nuovamente il disco dati, è sufficiente [collegarlo a un'altra macchina virtuale](attach-managed-disk-portal.md).
+
+Se si vuole eliminare il disco, in modo che non si verifichino più i costi di archiviazione, vedere [trovare ed eliminare dischi gestiti e non gestiti di Azure non collegati-portale di Azure](../disks-find-unattached-portal.md).

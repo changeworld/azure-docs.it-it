@@ -1,5 +1,5 @@
 ---
-title: StorSimple 1200 migrazione a Sincronizzazione file di Azure
+title: Migrazione di StorSimple 1200 a Sincronizzazione file di Azure
 description: Informazioni su come eseguire la migrazione di un'appliance virtuale StorSimple serie 1200 a Sincronizzazione file di Azure.
 author: fauhse
 ms.service: storage
@@ -7,14 +7,14 @@ ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 78c7953ef6432d37542a7a8b06f226a07f2b701f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 8562d63bf227fff665c70674c7fe66922bce9992
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630482"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882281"
 ---
-# <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple 1200 migrazione a Sincronizzazione file di Azure
+# <a name="storsimple-1200-migration-to-azure-file-sync"></a>Migrazione di StorSimple 1200 a Sincronizzazione file di Azure
 
 StorSimple serie 1200 è un'appliance virtuale eseguita in un data center locale. È possibile eseguire la migrazione dei dati da questo Appliance a un ambiente Sincronizzazione file di Azure. Sincronizzazione file di Azure è il servizio di Azure a lungo termine predefinito e strategico a cui è possibile eseguire la migrazione delle appliance StorSimple.
 
@@ -155,7 +155,7 @@ Sfondo:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le " *eliminazioni* ", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Si tratta di un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate attivamente.
+      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le "*eliminazioni*", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Si tratta di un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate attivamente.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -210,7 +210,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati da StorSimple a Windows Server e dopo aver completato la migrazione, è possibile tornare a * **tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume nel cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
+> Dopo aver spostato tutti i dati da StorSimple a Windows Server e dopo aver completato la migrazione, è possibile tornare a ***tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume nel cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente.
 
@@ -234,5 +234,5 @@ Contenuto della migrazione:
 Contenuto Sincronizzazione file di Azure:
 
 * [Panoramica di AFS](./storage-sync-files-planning.md)
-* [Guida alla distribuzione di AFS](storage-files-deployment-guide.md)
+* [Guida alla distribuzione di AFS](./storage-how-to-create-file-share.md)
 * [Risoluzione dei problemi di AFS](storage-sync-files-troubleshoot.md)

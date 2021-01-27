@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bb0b9b4645be7e548fe116d9e9a2c92fae7dc96
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 57999ce53e536d422e6502a77aaccdc66b4c5077
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120955"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898495"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Creare, sviluppare e gestire notebook di sinapsi studio in Azure sinapsi Analytics
 
@@ -35,11 +35,11 @@ Il team sinapsi ha portato il nuovo componente notebooks in sinapsi Studio per o
 
 |Funzionalità|Notebook classico|Anteprima notebook|
 |--|--|--|
-|% esecuzione| Non supportate | &#9745;|
-|% cronologia| Non supportate |&#9745;
-|% carico| Non supportate |&#9745;|
-|%% HTML| Non supportate |&#9745;|
-|Trascinare e rilasciare per spostare una cella| Non supportate |&#9745;|
+|% esecuzione| Non supportato | &#9745;|
+|% cronologia| Non supportato |&#9745;
+|% carico| Non supportato |&#9745;|
+|%% HTML| Non supportato |&#9745;|
+|Trascinare e rilasciare per spostare una cella| Non supportato |&#9745;|
 |Output di visualizzazione permanente ()|&#9745;| Non disponibile |
 |Annulla tutto| &#9745;| Non disponibile|
 |Esegui tutte le celle sopra|&#9745;| Non disponibile |
@@ -303,6 +303,8 @@ Non supportata.
 # <a name="preview-notebook"></a>[Anteprima notebook](#tab/preview)
 
 È possibile usare ```%run <notebook path>``` il comando Magic per fare riferimento a un altro notebook nel contesto del notebook corrente. Tutte le variabili definite nel notebook di riferimento sono disponibili nel notebook corrente. ```%run``` il comando Magic supporta le chiamate annidate ma non supporta le chiamate ricorsive. Se la profondità dell'istruzione è maggiore di cinque, verrà generata un'eccezione. ```%run``` il comando attualmente supporta solo per passare un percorso del notebook come parametro. 
+
+Esempio: ``` %run /path/notebookA ```.
 
 ---
 

@@ -4,12 +4,12 @@ description: Come distribuire e configurare una rete del Consorzio di infrastrut
 ms.date: 01/08/2021
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 1ab5b9fadfbb0f1c9c1cdf25ee319c7775a593ed
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: c0e7f3e7ab83f64cebd990de57d48c97891edb7f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060317"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897259"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 
@@ -317,7 +317,7 @@ CC_VERSION=<chaincodeVersion>
 # Language in which chaincode is written. Supported languages are 'node', 'golang', and 'java'  
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
-# CC_PATH contains the path where your chaincode is placed.
+# CC_PATH contains the path where your chaincode is placed. This is the absolute path to the chaincode project root directory.
 # If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode will be instantiated/invoked/queried  
@@ -334,7 +334,7 @@ Eseguire il comando seguente per installare chaincode nell'organizzazione peer.
 ```
 Il comando installerà chaincode su tutti i nodi peer del set di organizzazioni peer nella `ORGNAME` variabile di ambiente. Se due o più organizzazioni peer si trovano nel canale e si vuole installare chaincode su tutti, eseguire questo comando separatamente per ogni organizzazione peer.  
 
-Seguire questa procedura:  
+A tale scopo, seguire questa procedura:  
 
 1.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg1` ed eseguire il `./azhlf chaincode install` comando.  
 2.  Impostare `ORGNAME` e `USER_IDENTITY` in base a `peerOrg2` ed eseguire il `./azhlf chaincode install` comando.  
@@ -359,7 +359,7 @@ Ad esempio:
 ```
 
 La `<collectionConfigJSONFilePath>` parte è il percorso del file JSON che contiene le raccolte definite per la creazione di un'istanza di dati privati chaincode. È possibile trovare il file JSON di configurazione di una raccolta di esempio relativo alla directory *azhlfTool* nel percorso seguente: `./samples/chaincode/src/private_marbles/collections_config.json` .
-Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. Ad esempio: `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
+Passare `<transientArgs>` come JSON valido in formato stringa. Escape per i caratteri speciali. ad esempio `'{\\\"asset\":{\\\"name\\\":\\\"asset1\\\",\\\"price\\\":99}}'`
 
 > [!NOTE]
 > Eseguire il comando una sola volta da una qualsiasi organizzazione peer nel canale. Dopo che la transazione è stata inviata correttamente all'ordinatore, l'ordinatore distribuisce questa transazione a tutte le organizzazioni peer nel canale. Viene quindi creata un'istanza di Chaincode in tutti i nodi peer di tutte le organizzazioni peer nel canale.  
@@ -391,7 +391,7 @@ Se si usa *azhlfTool* per installare chaincode, passare tutti i nomi dei nodi pe
 
 Passare il nome della funzione di query e l'elenco di argomenti separati da spazi  `<queryFunction>`   rispettivamente in e  `<queryFuncArgs>`   . Riprendendo chaincode_example02. go chaincode come riferimento, per eseguire una query sul valore di "a" nello stato del mondo, impostare  `<queryFunction>`   su  `query` e  `<queryArgs>` su `"a"` .  
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="find-deployed-version"></a>Trova versione distribuita
 

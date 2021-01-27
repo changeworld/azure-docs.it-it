@@ -2,19 +2,15 @@
 title: Risolvere problemi relativi a State Configuration in Automazione di Azure
 description: Questo articolo mostra come risolvere i problemi relativi a State Configuration in Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/16/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8043369ebfef23ed84ccff8e7428fbd2048e10b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: troubleshooting
+ms.openlocfilehash: e6caf3fed708e89b55a88719ca5358f6174c2ac8
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187218"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896529"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Risolvere problemi relativi a State Configuration in Automazione di Azure
 
@@ -42,7 +38,7 @@ Il modulo [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) può 
 
 È possibile installare il modulo `xDscDiagnostics` nel computer locale seguendo le istruzioni riportate nell'articolo [Installare la versione stabile del modulo](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-Per installare il modulo `xDscDiagnostics` nel computer Azure, usare il comando [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). È anche possibile usare l'opzione **Esegui comando** nel portale di Azure seguendo la procedura descritta in [Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando](../../virtual-machines/windows/run-command.md).
+Per installare il modulo `xDscDiagnostics` nel computer Azure, usare il comando [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). È anche possibile usare l'opzione **Esegui comando** nel portale di Azure seguendo la procedura descritta in [Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando](../../virtual-machines/windows/run-command.md).
 
 Per informazioni sull'uso di **xDscDiagnostics**, vedere [Uso di xDscDiagnostics per analizzare i registri DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Vedere anche [Cmdlet di xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -66,13 +62,13 @@ Si tratta di un problema temporaneo per cui è prevista a breve una soluzione.
 
 ### <a name="resolution"></a>Risoluzione
 
-Per eliminare la configurazione, usare il cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0) .
+Per eliminare la configurazione, usare il cmdlet [Remove-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration) .
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenario: Non è stato possibile registrare l'agente DSC
 
 ### <a name="issue"></a>Problema
 
-Quando il cmdlet [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager?view=powershell-5.1) o un altro cmdlet DSC viene visualizzato l'errore:
+Quando il cmdlet [Set-DscLocalConfigurationManager](/powershell/module/psdesiredstateconfiguration/set-dsclocalconfigurationmanager) o un altro cmdlet DSC viene visualizzato l'errore:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -111,7 +107,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Questo problema è causato da un certificato non valido o scaduto. Vedere [Ripetere la registrazione di un nodo](../automation-dsc-onboarding.md#re-register-a-node).
 
-Questo problema può essere causato anche da una configurazione del proxy che non consente l'accesso ad * **.azure-automation.net**. Per altre informazioni, vedere [Configurazione di reti private](../automation-dsc-overview.md#network-planning). 
+Questo problema potrebbe essere causato anche da una configurazione proxy che non consente l'accesso a **_. Azure-Automation.NET_*. Per altre informazioni, vedere [Configurazione di reti private](../automation-dsc-overview.md#network-planning). 
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -177,7 +173,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 * È possibile assegnare a un nodo una configurazione di nodo usando il portale di Azure o un cmdlet di PowerShell.
 
   * Nel portale di Azure, passare a **Home** > **Account di automazione** > (account di automazione pertinente) > **State Configuration (DSC)** . Selezionare un nodo, quindi selezionare **Assegna configurazione nodo**.
-  * Usare il cmdlet [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0).
+  * Usare il cmdlet [Set-AzAutomationDscNode](/powershell/module/Az.Automation/Set-AzAutomationDscNode).
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenario: non sono state generate configurazioni di nodo (file con estensione mof) durante la compilazione di una configurazione
 
@@ -259,7 +255,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 
 ### <a name="issue"></a>Problema
 
-Quando si registra un nodo tramite [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode?view=azps-3.7.0) o [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0), viene visualizzato l'errore seguente:
+Quando si registra un nodo tramite [Register-AzAutomationDSCNode](/powershell/module/az.automation/register-azautomationdscnode) o [Register-AzureRMAutomationDSCNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode), viene visualizzato l'errore seguente:
 
 ```error
 One or more errors occurred.
@@ -338,7 +334,7 @@ Questo errore può essere causato da una configurazione DSC la cui compilazione 
 
 ### <a name="resolution"></a>Risoluzione
 
-È possibile eseguire l'analisi delle configurazioni DSC più velocemente includendo in modo esplicito il parametro `ModuleName` per qualsiasi chiamata [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1).
+È possibile eseguire l'analisi delle configurazioni DSC più velocemente includendo in modo esplicito il parametro `ModuleName` per qualsiasi chiamata [Import-DSCResource](/powershell/scripting/dsc/configurations/import-dscresource).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

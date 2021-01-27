@@ -1,16 +1,16 @@
 ---
-author: hophanms
-ms.author: hophan
+author: amberz
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 1/20/2021
-ms.openlocfilehash: ac83f455d2af82c3f6970077fccb17f07e53cccc
+ms.author: amberz
+ms.openlocfilehash: bf872feae9c3a7ca94e5252872adee2b653f5524
 ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98901017"
+ms.locfileid: "98896126"
 ---
 ## <a name="creating-and-running-a-scan"></a>Creazione ed esecuzione di un'analisi
 
@@ -27,19 +27,19 @@ Per creare ed eseguire una nuova analisi, procedere come segue:
 
 1. Selezionare le credenziali per connettersi all'origine dati. 
 
-   :::image type="content" source="media/manage-scans/set-up-scan.png" alt-text="Configurare l'analisi":::
+   :::image type="content" source="media/manage-scans/set-up-scan-data-explorer.png" alt-text="Configurare l'analisi":::
 
 1. È possibile definire l'ambito dell'analisi includendo solo specifiche parti dell'origine dati, ad esempio cartelle, raccolte o schemi, selezionando gli elementi appropriati nell'elenco.
 
-   :::image type="content" source="media/manage-scans/scope-your-scan.png" alt-text="Definire l'ambito dell'analisi":::
+   :::image type="content" source="media/manage-scans/scope-your-scan-data-explorer.png" alt-text="Definire l'ambito dell'analisi":::
 
 1. Quindi selezionare un set di regole per l'analisi. È possibile scegliere tra l'impostazione predefinita di sistema e le regole personalizzate esistenti oppure crearne una nuova inline.
 
-   :::image type="content" source="media/manage-scans/scan-rule-set.png" alt-text="Set di regole per l'analisi":::
+   :::image type="content" source="media/manage-scans/scan-rule-set-data-explorer.png" alt-text="Set di regole per l'analisi":::
 
 1. Scegliere il trigger dell'analisi. È possibile configurare una pianificazione oppure eseguire l'analisi una sola volta.
 
-   :::image type="content" source="media/manage-scans/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/manage-scans/trigger-scan-data-explorer.png" alt-text="trigger":::
 
 1. Esaminare l'analisi, quindi selezionare **Salva ed esegui**.
 

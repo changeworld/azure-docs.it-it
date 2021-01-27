@@ -1,5 +1,5 @@
 ---
-title: Codificare la trasformazione personalizzata usando servizi multimediali V3 REST-Azure | Microsoft Docs
+title: Codificare la trasformazione personalizzata usando servizi multimediali V3 REST-Azure
 description: Questo argomento illustra come usare servizi multimediali di Azure V3 per codificare una trasformazione personalizzata con REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2656bf93cb9c29ded4b9dde49f0caba91c1654b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a2cfc0db2f95b21c872dd2ed0cf4fbf675a8d6f
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295632"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897612"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata-REST
 
@@ -147,7 +147,7 @@ PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:r
 
 Selezionare la scheda **Body (corpo** ) e sostituire il corpo con il codice JSON definito in [precedenza](#define-a-custom-preset). Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione.
 
-Selezionare **Send** (Invia). 
+Selezionare **Invia**. 
 
 Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione. Per un esempio completo in cui viene illustrato come inviare un processo in una trasformazione, vedere [esercitazione: eseguire il flusso di file video-Rest](stream-files-tutorial-with-rest.md).
 

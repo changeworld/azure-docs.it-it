@@ -1,25 +1,9 @@
 ---
-title: Concetti relativi ad eventi live e output Live in servizi multimediali di Azure V3
-titleSuffix: Azure Media Services
-description: Questo argomento fornisce una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: ne
-ms.topic: conceptual
-ms.date: 10/23/2020
-ms.author: inhenkel
-ms.openlocfilehash: a74dcb3cae74605e747a63f8fbb102404d8cc80e
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
-ms.translationtype: MT
-ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94741825"
+title: concetti relativi ad eventi live e output Live in servizi multimediali di Azure V3: Descrizione di servizi multimediali di Azure: questo argomento offre una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: ne ms. Topic: Conceptual ms. Date: 10/23/2020 ms. Author: inhenkel
+
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 
@@ -150,12 +134,12 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
     |---|---|---|
     |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--Vanity-URL](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[Live. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.md?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[Live. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
+* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *Nome flusso*: indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito

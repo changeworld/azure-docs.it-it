@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40269f6b1553d73af43b4cf86127eaa97524dd57
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740908"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879478"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -429,7 +429,7 @@ Gli utenti con questo ruolo possono gestire gli avvisi e hanno accesso globale d
 In ingresso | Operazione consentita
 --- | ---
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Visualizzare, analizzare e rispondere agli avvisi per minacce alla sicurezza
-Centro di Identity Protection | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, eseguire tutte le operazioni di Identity Protection Center, tranne la reimpostazione delle password
+Azure AD Identity Protection | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Inoltre, la possibilità di eseguire tutte le operazioni di Identity Protection Center ad eccezione della reimpostazione delle password e della configurazione dei messaggi di posta elettronica di avviso.
 [Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Visualizzare, analizzare e rispondere agli avvisi per la sicurezza
 Windows Defender ATP ed EDR | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Visualizzare, analizzare e rispondere agli avvisi per la sicurezza

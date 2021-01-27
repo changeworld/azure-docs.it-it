@@ -1,29 +1,11 @@
 ---
-title: Panoramica di Servizi multimediali di Azure v3
-titleSuffix: Azure Media Services
-description: Panoramica di alto livello di Servizi multimediali di Azure v3 con collegamenti a guide introduttive, esercitazioni ed esempi di codice.
-services: media-services
-documentationcenter: na
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-tags: ''
-keywords: servizi multimediali di Azure, streaming, trasmissione, live, offline
-ms.service: media-services
-ms.devlang: multiple
-ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.custom: mvc
-ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308956"
+title: Panoramica di servizi multimediali di Azure V3: Descrizione di servizi multimediali di Azure: Panoramica generale di servizi multimediali di Azure V3 con collegamenti a guide introduttive, esercitazioni ed esempi di codice.
+Servizi: Media-Services documentationcenter: na Author: IngridAtMicrosoft Manager: FEMila Editor:'' Tags:'' keywords: Servizi multimediali di Azure, Stream, broadcast, Live, offline
+
+ms. Service: Media-Services ms. DevLang: più ms. Topic: Panoramica ms.tgt_pltfrm: più ms. workload: media ms. Date: 08/31/2020 ms. Author: inhenkel ms. Custom: MVC
+#<a name="customer-intent-as-a-developer-or-a-content-provider-i-want-to-encode-stream-on-demand-or-live-analyze-my-media-content-so-that-my-customers-can-view-the-content-on-a-wide-variety-of-browsers-and-devices-gain-valuable-insights-from-recorded-content"></a>Finalità del cliente: uno sviluppatore o un provider di contenuti, desidero codificare, trasmettere (su richiesta o Live), analizzare i contenuti multimediali in modo che i clienti possano: visualizzare il contenuto di una vasta gamma di browser e dispositivi, ottenere informazioni preziose dai contenuti registrati.
 ---
+
 # <a name="azure-media-services-v3-overview"></a>Panoramica di Servizi multimediali di Azure v3
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

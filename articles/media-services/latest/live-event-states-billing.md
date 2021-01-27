@@ -1,5 +1,5 @@
 ---
-title: Stati degli eventi live e fatturazione in servizi multimediali di Azure | Microsoft Docs
+title: Stati degli eventi live e fatturazione in servizi multimediali di Azure
 description: Questo argomento offre una panoramica della fatturazione e degli Stati degli eventi live di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2d3d3f5c56bd42aeb148c19fefebc0e7d364cd1c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9fa12e1ee3778d0865c75662064bd4067e56d89
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782366"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897816"
 ---
 # <a name="live-event-states-and-billing"></a>Stati degli eventi live e fatturazione
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-In servizi multimediali di Azure un evento live inizia la fatturazione non appena il suo stato passa a **in esecuzione o in** **standby** . Ti verrà addebitato anche se non è presente alcun video che scorre il servizio. Per arrestare l'evento live dalla fatturazione, è necessario arrestare l'evento Live. La trascrizione in tempo reale viene fatturata allo stesso modo dell'evento Live.
+In servizi multimediali di Azure un evento live inizia la fatturazione non appena il suo stato passa a **in esecuzione o in** **standby**. Ti verrà addebitato anche se non è presente alcun video che scorre il servizio. Per arrestare l'evento live dalla fatturazione, è necessario arrestare l'evento Live. La trascrizione in tempo reale viene fatturata allo stesso modo dell'evento Live.
 
 Quando **LiveEventEncodingType** nell' [evento Live](/rest/api/media/liveevents) è impostato su standard o Premium1080p, servizi multimediali arresta automaticamente qualsiasi evento live che rimane nello stato di **esecuzione** 12 ore dopo la perdita del feed di input e non è in esecuzione alcun output in **tempo** reale. Tuttavia, verrà comunque addebitato il tempo in cui l'evento Live si trova nello stato in **esecuzione** .
 

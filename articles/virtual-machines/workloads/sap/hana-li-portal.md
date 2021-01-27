@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/31/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5adb8edbeafa4d77e24bf865338e111c455cb80
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: b03f3f93e8f829c6ab7dec965850117895a8b52d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827513"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882485"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>Controllo di istanze Large di HANA in Azure tramite il portale di Azure
 
@@ -94,7 +94,7 @@ I dati aggiuntivi sul lato inferiore destro sono la revisione del timbro di ista
 - Revisione 4
 
 Revisione 4 è l'architettura più recente rilasciata in istanze large di HANA con miglioramenti significativi nella latenza di rete tra le macchine virtuali di Azure e le unità di istanze large di HANA distribuite in timbri o righe di Revisione
-Un'altra informazione molto importante si trova nell'angolo inferiore destro della panoramica con il nome del gruppo di posizionamento di prossimità di Azure creato automaticamente per ogni unità di istanze large di HANA distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello applicazione SAP, è necessario fare riferimento a questo gruppo di posizionamento di prossimità. Usando il [gruppo di posizionamento di prossimità di Azure](../../linux/co-location.md) associato all'unità di istanze large di Hana, è necessario assicurarsi che le VM di Azure vengano distribuite in prossimità dell'unità di istanze large di Hana. Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+Un'altra informazione molto importante si trova nell'angolo inferiore destro della panoramica con il nome del gruppo di posizionamento di prossimità di Azure creato automaticamente per ogni unità di istanze large di HANA distribuita. Quando si distribuiscono le macchine virtuali di Azure che ospitano il livello applicazione SAP, è necessario fare riferimento a questo gruppo di posizionamento di prossimità. Usando il [gruppo di posizionamento di prossimità di Azure](../../co-location.md) associato all'unità di istanze large di Hana, è necessario assicurarsi che le VM di Azure vengano distribuite in prossimità dell'unità di istanze large di Hana. Il modo in cui è possibile usare i gruppi di posizionamento di prossimità per individuare il livello dell'applicazione SAP nello stesso data center di Azure in cui sono ospitate le unità di istanze large per la revisione 4 ospitate in [Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
 
 Un campo aggiuntivo nella colonna a destra dell'intestazione informa lo stato di alimentazione dell'unità di istanze large di HANA.
 

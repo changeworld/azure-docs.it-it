@@ -4,19 +4,19 @@ description: Informazioni su come trovare dischi gestiti e non gestiti di Azure 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 01/26/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d31ce4b6086c44de913afd1083bae25fa3d44cd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542739"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898156"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Trovare ed eliminare dischi gestiti e non gestiti di Azure che non sono collegati tramite il portale di Azure
 
-Quando si elimina una macchina virtuale (VM) in Azure, per impostazione predefinita, nessun disco collegato alla macchina virtuale viene eliminato. In questo modo si previene la perdita di dati a causa dell'eliminazione accidentale delle macchine virtuali. Dopo l'eliminazione di una macchina virtuale, si continuerà a pagare per i dischi scollegati. Questo articolo illustra come trovare ed eliminare i dischi non collegati usando il portale di Azure e ridurre i costi non necessari.
+Quando si elimina una macchina virtuale (VM) in Azure, per impostazione predefinita, nessun disco collegato alla macchina virtuale viene eliminato. In questo modo si previene la perdita di dati a causa dell'eliminazione accidentale delle macchine virtuali. Dopo l'eliminazione di una macchina virtuale, si continuerà a pagare per i dischi scollegati. Questo articolo illustra come trovare ed eliminare i dischi non collegati usando il portale di Azure e ridurre i costi non necessari. Le eliminazioni sono permanenti e non sarà possibile ripristinare i dati dopo l'eliminazione di un disco.
 
 ## <a name="managed-disks-find-and-delete-unattached-disks"></a>Dischi gestiti: Trovare ed eliminare i dischi scollegati
 
@@ -45,17 +45,17 @@ Il processo illustrato di seguito spiega come usare il portale di Azure per elim
 
     Verrà visualizzato un elenco di tutti i dischi non gestiti. I dischi con il simbolo " **-** " nella colonna **Collegato a** sono dischi non collegati.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-attached-to.png" alt-text="Screenshot del pannello dei dischi non gestiti. In questo pannello i dischi con il simbolo - nella colonna Scollegato sono dischi non collegati.":::
 
 1. Selezionare il disco non collegato che si vuole eliminare. Si aprirà il pannello del disco.
 
 1. Nel pannello del disco è possibile confermare che il disco non è collegato, poiché sarà ancora visualizzato il simbolo **-** in **Scollegato**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
+    :::image type="content" source="media/disks-find-unattached-portal/unmanaged-disk-unattached-select-blade.png" alt-text="Screenshot di un pannello dei dischi non gestiti. Il valore in Scollegato sarà - se è il disco non è collegato. Se i dati dei dischi non sono più necessari, è possibile eliminarli.":::
 
 1. Selezionare **Elimina**.
 
-    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot del pannello dei singoli dischi gestiti. Questo pannello visualizzerà lo stato Scollegato se il disco non è collegato. È possibile eliminare il disco se non è più necessario conservare i dati":::
+    :::image type="content" source="media/disks-find-unattached-portal/delete-unmanaged-disk-unattached.png" alt-text="Screenshot di un pannello dei dischi non gestiti, con evidenziazione dell'opzione di eliminazione.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
