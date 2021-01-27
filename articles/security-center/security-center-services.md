@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/24/2020
+ms.date: 01/26/2021
 ms.author: memildin
-ms.openlocfilehash: f3d1918eafe8d61d9c5a7db3f29b83b5412914c0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
-ms.translationtype: HT
+ms.openlocfilehash: 04dfd731f1dcf0e9e7c045e0f7ef335c8db5b359
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179560"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805634"
 ---
 # <a name="feature-coverage-for-machines"></a>Copertura delle funzionalità per le macchine virtuali
 
@@ -131,8 +131,9 @@ Per informazioni sui casi in cui vengono generate raccomandazioni per ognuna di 
 |[Azure Defender per Key Vault](defender-for-key-vault-introduction.md)|-|-|
 |[Azure Defender per Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender per DNS](defender-for-dns-introduction.md)|-|-|
-|[Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
 |[Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
+|[Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔ (2)|
+|[Protezione del carico di lavoro Kubernetes](kubernetes-workload-protections.md)|-|-|
 |||
 
 (1) È necessario _ *Azure Defender per server**

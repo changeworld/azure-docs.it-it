@@ -601,24 +601,24 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
+    - name: Individuare le macchine virtuali
+      displayName: 'pre-empt, preempt, spot'
+      items:
+        - name: Panoramica
+          href: spot-vms.md
+        - name: CLI
+          href: ./linux/spot-cli.md
+        - name: Portale
+          href: spot-portal.md
+        - name: PowerShell
+          href: ./windows/spot-powershell.md
+        - name: Modello ARM
+          displayName: template ARM
+          href: ./linux/spot-template.md
+        - name: Codici di errore
+          href: error-codes-spot.md
     - name: Opzioni di acquisto
       items:
-        - name: VM Spot
-          displayName: 'pre-empt, preempt, spot'
-          items:
-            - name: Panoramica
-              href: spot-vms.md
-            - name: CLI
-              href: ./linux/spot-cli.md
-            - name: Portale
-              href: spot-portal.md
-            - name: PowerShell
-              href: ./windows/spot-powershell.md
-            - name: Modello ARM
-              displayName: template ARM
-              href: ./linux/spot-template.md
-            - name: Codici di errore
-              href: error-codes-spot.md
         - name: Vantaggio Azure Hybrid
           items:
             - name: Linux
@@ -1479,7 +1479,7 @@
       href: security-recommendations.md
     - name: Accesso just-in-time
       href: ../security-center/security-center-just-in-time.md
-    - name: Policy
+    - name: Criteri
       items:
         - name: Panoramica
           href: security-policy.md
@@ -1747,7 +1747,7 @@
         - name: Prezzi
           href: ../backup/azure-backup-pricing.md
         - name: Domande frequenti
-          href: ../backup/backup-azure-vm-backup-faq.md
+          href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Ripristino di emergenza
       items:
         - name: Panoramica

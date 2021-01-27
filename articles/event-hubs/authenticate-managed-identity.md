@@ -2,14 +2,14 @@
 title: Autenticazione di un'identità gestita con Azure Active Directory
 description: Questo articolo fornisce informazioni sull'autenticazione di un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 01/25/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2070cfd94b39a08afb86ffd3579f1116faac72d5
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993534"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805268"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
 Hub eventi di Azure supporta l'autenticazione Azure Active Directory (Azure AD) con [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso alle risorse di hub eventi usando Azure AD credenziali di applicazioni in esecuzione in macchine virtuali (VM) di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.
@@ -41,11 +41,12 @@ Una volta creata l'applicazione, attenersi alla procedura seguente:
 1. Selezionare lo **stato** **su on**. 
 1. Selezionare **Salva** per salvare l'impostazione. 
 
-    ![Identità gestita per un'app Web](./media/authenticate-managed-identity/identity-web-app.png)
+    :::image type="content" source="./media/authenticate-managed-identity/identity-web-app.png" alt-text="Identità gestita per un'app Web":::
+4. Selezionare **Sì** nel messaggio informativo. 
 
-Una volta abilitata questa impostazione, viene creata una nuova identità del servizio nel Azure Active Directory (Azure AD) e configurata nell'host del servizio app.
+    Una volta abilitata questa impostazione, viene creata una nuova identità del servizio nel Azure Active Directory (Azure AD) e configurata nell'host del servizio app.
 
-A questo punto, assegnare l'identità del servizio a un ruolo nell'ambito necessario nelle risorse di hub eventi.
+    A questo punto, assegnare l'identità del servizio a un ruolo nell'ambito necessario nelle risorse di hub eventi.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Per assegnare i ruoli di Azure usando il portale di Azure
 Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel portale di Azure. Visualizzare le impostazioni di controllo di accesso (IAM) per la risorsa e seguire queste istruzioni per gestire le assegnazioni di ruolo:
@@ -56,15 +57,20 @@ Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel po
 1. Nella portale di Azure passare allo spazio dei nomi di hub eventi e visualizzare la **Panoramica** per lo spazio dei nomi. 
 1. Selezionare **controllo di accesso (IAM)** nel menu a sinistra per visualizzare le impostazioni di controllo di accesso per l'hub eventi.
 1.  Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
-3.  Selezionare **Aggiungi** per aggiungere un nuovo ruolo.
-4.  Nella pagina **Aggiungi assegnazione ruolo** selezionare i ruoli di hub eventi che si desidera assegnare. Quindi cercare per individuare l'identità del servizio registrata per l'assegnazione del ruolo.
+3.  Selezionare **Aggiungi** e quindi selezionare **Aggiungi assegnazione ruolo** _.
+4.  Nella pagina _ *Aggiungi assegnazione ruolo**, attenersi alla seguente procedura:
+    1. Per **ruolo** selezionare il ruolo di hub eventi che si vuole assegnare. In questo esempio è il **proprietario dei dati di hub eventi di Azure**.
+    1. Per il campo **assegna accesso a** selezionare **servizio app** in **identità gestita assegnata dal sistema**. 
+    1. Selezionare la **sottoscrizione** in cui è stata creata l'identità gestita per l'app Web.
+    1. Selezionare l' **identità gestita** per l'app Web creata. Il nome predefinito per l'identità corrisponde al nome dell'app Web. 
+    1. Selezionare quindi **Salva**. 
     
-    ![Pagina Aggiungi assegnazione ruolo](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Selezionare **Salva**. L'identità cui è assegnato il ruolo viene visualizzata nell'elenco in corrispondenza del ruolo. Ad esempio, l'immagine seguente mostra che l'identità del servizio ha il proprietario dei dati di hub eventi.
-    
-    ![Identità assegnata a un ruolo](./media/authenticate-managed-identity/role-assigned.png)
+        ![Pagina Aggiungi assegnazione ruolo](./media/authenticate-managed-identity/add-role-assignment-page.png)
 
-Dopo aver assegnato il ruolo, l'applicazione Web avrà accesso alle risorse di hub eventi nell'ambito definito. 
+    Dopo aver assegnato il ruolo, l'applicazione Web avrà accesso alle risorse di hub eventi nell'ambito definito. 
+
+    > [!NOTE]
+    > Per un elenco di servizi che supportano identità gestite, vedere [servizi che supportano identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 ### <a name="test-the-web-application"></a>Testare l'applicazione Web
 1. Creare uno spazio dei nomi di Hub eventi e un hub eventi. 

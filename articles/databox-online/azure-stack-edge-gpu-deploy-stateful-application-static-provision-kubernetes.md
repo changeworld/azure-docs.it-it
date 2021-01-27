@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: c2a14c12baac29d73754bb17e3ca386cc48e1ba0
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5704f88d8099966eedcb7143085130ad1376d742
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96449227"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804895"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con un PersistentVolume sul dispositivo Azure Stack Edge Pro
 
@@ -26,7 +26,7 @@ Azure Stack Edge Pro supporta anche l'esecuzione di contenitori di Azure SQL Edg
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter distribuire l'applicazione con stato, verificare di aver completato i prerequisiti seguenti nel dispositivo e il client che si userà per accedere al dispositivo:
+Prima di poter distribuire l'applicazione con stato, completare i prerequisiti seguenti nel dispositivo e il client che si userà per accedere al dispositivo:
 
 ### <a name="for-device"></a>Per il dispositivo
 
@@ -37,7 +37,7 @@ Prima di poter distribuire l'applicazione con stato, verificare di aver completa
 ### <a name="for-client-accessing-the-device"></a>Per l'accesso client al dispositivo
 
 - Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge Pro.
-    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
     
     - È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Questo articolo descrive la procedura quando si usa un client Windows. 
     
@@ -50,7 +50,7 @@ Prima di poter distribuire l'applicazione con stato, verificare di aver completa
     - Verificare che la versione del `kubectl` client non sia più di una versione della versione master di Kubernetes in esecuzione nel dispositivo Azure stack Edge Pro. 
         - Usare `kubectl version` per verificare la versione di kubectl in esecuzione sul client. Prendere nota della versione completa.
         - Nell'interfaccia utente locale del dispositivo Azure Stack Edge Pro passare a **Panoramica** e prendere nota del numero di software Kubernetes. 
-        - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes <!-- insert link-->. 
+        - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes.<!-- insert link--> 
 
 
 È possibile distribuire un'applicazione con stato sul dispositivo Azure Stack Edge Pro. 
@@ -90,7 +90,7 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
    kubectl get pods -n <your-namespace>
    ```
     
-   Ecco un esempio di sintassi del comando:
+   Di seguito è riportato un esempio di sintassi del comando:
     
    ```powershell
     C:\Users\user>kubectl get pods -n "userns1"
@@ -327,7 +327,7 @@ kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespac
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-Di seguito è riportato un esempio di output di quando si elimina la distribuzione e il servizio.
+Di seguito è riportato l'output di esempio di quando si elimina la distribuzione e il servizio.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -335,15 +335,15 @@ deployment.apps "mysql" deleted
 service "mysql" deleted
 C:\Users\user>
 ```
-Di seguito è riportato un esempio di output di quando si elimina il PVC.
+Di seguito è riportato l'output di esempio di quando si elimina il PVC.
 
 ```powershell
 C:\Users\user>kubectl delete pvc mysql-pv-claim -n userns1
 persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
-```                                                                                         
+```
 
-Il PV non è più associato al PVC perché il PVC è stato eliminato. Quando è stato effettuato il provisioning del PV al momento della creazione della condivisione, sarà necessario eliminare la condivisione. Seguire questa procedura:
+Il PV non è più associato al PVC perché il PVC è stato eliminato. Quando è stato effettuato il provisioning del PV al momento della creazione della condivisione, sarà necessario eliminare la condivisione. A tale scopo, seguire questa procedura:
 
 1. Smontare la condivisione. In portale di Azure passare alla risorsa di **Azure stack Edge > condivisioni** e selezionare e fare clic sulla condivisione che si vuole smontare. Selezionare **smontare** e confermare l'operazione. Attendere la disinstallazione della condivisione. Lo smontaggio rilascia la condivisione (e, di conseguenza, il PersistentVolume associato) dal cluster Kubernetes. 
 

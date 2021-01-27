@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 90443a898ffdebf33a0c967719ba25a2ccc6f9a7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792100"
+ms.locfileid: "98806004"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnostica di Load Balancer Standard con metriche, avvisi e integrità delle risorse
 
@@ -26,7 +26,6 @@ Azure Load Balancer Standard espone le funzionalità di diagnostica seguenti:
 * **Metriche e avvisi multidimensionali**: fornisce funzionalità di diagnostica multidimensionali tramite [monitoraggio di Azure](../azure-monitor/overview.md) per le configurazioni di Load Balancer standard. È possibile monitorare, gestire e risolvere i problemi relativi alle risorse di Load Balancer standard.
 
 * **Integrità risorse**: lo stato Integrità risorse della Load Balancer è disponibile nella pagina integrità risorse in monitoraggio. Questo controllo automatico informa l'utente della disponibilità corrente della risorsa Load Balancer.
-
 Questo articolo offre una breve panoramica di queste funzionalità e illustra come usarle per Load Balancer Standard. 
 
 ## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Metriche multidimensionali
@@ -73,7 +72,7 @@ Per visualizzare le metriche delle risorse di Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperare le metriche multidimensionali a livello di codice tramite le API
 
-Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione solo tramite l'opzione "tutte le metriche". 
+Per informazioni sull'API per il recupero dei valori e delle definizioni delle metriche multidimensionali, vedere la [Procedura dettagliata di API REST di Azure Monitoring](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Queste metriche possono essere scritte in un account di archiviazione aggiungendo un' [impostazione di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) per la categoria ' tutte le metriche '. 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurare gli avvisi per le metriche multidimensionali ###
 
@@ -85,9 +84,6 @@ Per configurare gli avvisi:
     1.  Configurare la condizione di avviso
     1.  Opzionale Aggiungi gruppo di azione per il ripristino automatico
     1.  Assegnare la gravità, il nome e la descrizione dell'avviso che consente la reazione intuitiva
-
-  >[!NOTE]
-  >La finestra di configurazione della condizione di avviso Visualizza la serie temporale per la cronologia del segnale. È disponibile un'opzione per filtrare le serie temporali in base alle dimensioni, ad esempio l'IP back-end. In questo modo verrà filtrato il grafico della serie temporale, ma **non** l'avviso stesso. Non è possibile configurare avvisi per indirizzi IP back-end specifici.
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Scenari di diagnostica comuni e visualizzazioni consigliate
 
@@ -147,7 +143,7 @@ Un volume di connessioni non riuscite maggiore di zero indica l'esaurimento dell
 
 Per ottenere statistiche sulle connessioni SNAT:
 1. Selezionare il tipo di metrica **connessioni SNAT** e **Sum** come aggregazione. 
-2. Procedere al raggruppamento per **Stato connessione** per il conteggio delle connessioni SNAT riuscite e non riuscite che sono rappresentate da righe differenti. 
+2. Raggruppa per **stato di connessione** per i conteggi delle connessioni SNAT riuscite e non riuscite che devono essere rappresentati da righe diverse. 
 
 ![Connessione SNAT](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
@@ -186,7 +182,7 @@ Per visualizzare l'utilizzo e l'allocazione della porta SNAT:
   <summary>Espandere</summary>
 La metrica relativa a un pacchetto SYN descrive il volume di pacchetti SYN TCP arrivati o inviati (per i [flussi in uscita](./load-balancer-outbound-connections.md)) che sono associati a uno specifico front-end. Questa metrica può essere usata per comprendere i tentativi di connessione TCP al servizio.
 
-Usare **Totale** come aggregazione per la maggior parte degli scenari.
+Utilizzare **Sum** come aggregazione per la maggior parte degli scenari.
 
 ![Connessione SYN](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
 
@@ -199,10 +195,10 @@ Usare **Totale** come aggregazione per la maggior parte degli scenari.
   <summary>Espandere</summary>
 La metrica relativa ai contatori di byte e pacchetti descrive il volume di byte e pacchetti che vengono inviati o ricevuti dal servizio per ogni front-end.
 
-Usare **Totale** come aggregazione per la maggior parte degli scenari.
+Utilizzare **Sum** come aggregazione per la maggior parte degli scenari.
 
 Per ottenere statistiche relative al conteggio di byte o pacchetti:
-1. Selezionare il tipo di metrica **Conteggio byte** e/o **Conteggio pacchetti** con **Media** come aggregazione. 
+1. Selezionare il tipo di metrica **conteggio byte** e/o **conteggio pacchetti** , con **Sum** come aggregazione. 
 2. Eseguire una delle operazioni seguenti:
    * Applicare un filtro su una specifica porta IP front-end, porta front-end, porta IP back-end o porta back-end.
    * È possibile ottenere statistiche generali per la risorsa di Load Balancer senza applicare filtri.
@@ -239,8 +235,8 @@ Lo stato di integrità per le risorse di Load Balancer Standard viene esposto tr
 | Stato di integrità delle risorse | Descrizione |
 | --- | --- |
 | Disponibile | Il servizio di bilanciamento del carico standard è integro e disponibile. |
-| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Seguire la guida alla risoluzione dei problemi di RHC](./troubleshoot-rhc.md) per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
-| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la guida alla risoluzione dei problemi di RHC](./troubleshoot-rhc.md) per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
+| Degraded | Il servizio di bilanciamento del carico standard dispone di eventi avviati dalla piattaforma o dagli utenti che influiscano sulle prestazioni. La metrica di disponibilità del percorso dati ha restituito un valore di integrità inferiore al 90% ma maggiore del 25% per almeno due minuti. Si verificheranno un notevole effetto sulle prestazioni. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che potrebbero compromettere la disponibilità.
+| Non disponibile | La risorsa di Load Balancer standard non è integra. La metrica di disponibilità del percorso di DataPath ha segnalato meno il 25% di integrità per almeno due minuti. Si verificherà un impatto significativo sulle prestazioni o la mancanza di disponibilità per la connettività in ingresso. Potrebbero verificarsi eventi di utenti o piattaforme che provocano l'indisponibilità. [Seguire la guida alla risoluzione dei problemi di RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) per determinare se sono presenti eventi avviati dall'utente che incidono sulla disponibilità. |
 | Sconosciuto | Lo stato di integrità delle risorse per la risorsa Load Balancer standard non è stato ancora aggiornato o non ha ricevuto informazioni sulla disponibilità del percorso dati per gli ultimi 10 minuti. Questo stato deve essere temporaneo e rifletterà lo stato corretto non appena vengono ricevuti i dati. |
 
 Per visualizzare l'integrità delle risorse della configurazione pubblica di Load Balancer Standard:
@@ -267,6 +263,7 @@ La descrizione dello stato di integrità delle risorse generiche è disponibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+- Informazioni sull'uso di [Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) per visualizzare le metriche preconfigurate per la Load Balancer
 - Altre informazioni su [Load Balancer Standard](./load-balancer-overview.md).
 - Altre informazioni sulla [connettività in uscita di Load Balancer](./load-balancer-outbound-connections.md).
 - Informazioni su [Monitoraggio di Azure](../azure-monitor/overview.md).

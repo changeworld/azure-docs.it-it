@@ -1,25 +1,25 @@
 ---
-title: Distribuire l'app Guestbook PHP in Arc abilitato Kubernetes nel dispositivo GPU Pro Azure Stack Edge | Microsoft Docs
-description: Viene descritto come distribuire un'applicazione senza stato del Guestbook PHP con Redis usando GitOps in un cluster Kubernetes abilitato per l'arco del dispositivo Azure Stack Edge Pro.
+title: Distribuire l' `PHP Guestbook` app in Arc abilitato Kubernetes nel dispositivo GPU Pro Azure stack Edge | Microsoft Docs
+description: Viene descritto come distribuire un' `Guestbook` applicazione php senza stato con Redis usando GitOps in un cluster Kubernetes con Arc abilitato del dispositivo Azure stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 4e974d93b5b7550081abcd7e251c7eda265a2397
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ba72617444a2c7ec30e4d1d25afe1edcda16ff35
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882960"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804888"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Distribuire un' `Guestbook` applicazione php senza stato con Redis on Arc abilitata per il cluster Kubernetes sulla GPU Pro Azure stack Edge
 
 Questo articolo illustra come creare e distribuire una semplice applicazione Web multilivello con Kubernetes e Azure Arc. Questo esempio è costituito dai componenti seguenti:
 
-- Un Master Redis a istanza singola per archiviare le voci del Guestbook
+- Un Master Redis a istanza singola per archiviare le `guestbook` voci
 - Più istanze di redis replicate per gestire le letture
 - Più istanze front-end Web
 
@@ -49,18 +49,18 @@ Prima di poter distribuire l'applicazione senza stato, verificare di aver comple
 
 1. Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge Pro.
   
-    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+    - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view = true).
     
     - È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Questo articolo descrive la procedura quando si usa un client Windows. 
     
 1. È stata completata la procedura descritta in [accedere al cluster Kubernetes nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Precisamente:
     
-    - Installato `kubectl` nel client  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
+    - Installato `kubectl` nel client. <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
     - Verificare che la versione del `kubectl` client non sia più di una versione della versione master di Kubernetes in esecuzione nel dispositivo Azure stack Edge Pro. 
       - Usare `kubectl version` per verificare la versione di kubectl in esecuzione sul client. Prendere nota della versione completa.
       - Nell'interfaccia utente locale del dispositivo Azure Stack Edge Pro passare a **Panoramica** e prendere nota del numero di software Kubernetes. 
-      - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes <!--insert link-->.
+      - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes. <!--insert link-->
 
 1. Si dispone [di una configurazione GitOps che è possibile usare per eseguire una distribuzione di Azure Arc](https://github.com/kagoyal/dbehaikudemo). In questo esempio si useranno i file seguenti `yaml` per eseguire la distribuzione nel dispositivo Azure stack Edge Pro.
 
@@ -86,7 +86,7 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 
     ![Screenshot mostra il cluster Kubernetes abilitato per Azure Arc con Aggiungi configurazione selezionata.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. In **Aggiungi configurazione** immettere i valori appropriati per i campi e selezionare **applica**.
+1. In **Aggiungi configurazione** immettere i valori appropriati per i campi e quindi selezionare **applica**.
 
     |Parametro  |Descrizione |
     |---------|---------|
@@ -94,10 +94,10 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
     |Nome dell'istanza dell'operatore     |Nome dell'istanza dell'operatore per identificare una configurazione specifica. Il nome è una stringa costituita da un massimo di 253 caratteri che devono essere di solo minuscolo, alfanumerico, trattino e punto.         |
     |Spazio dei nomi operator     | Impostare su **demotestguestbook** in modo che corrisponda allo spazio dei nomi specificato nella distribuzione `yaml` . <br> Il campo definisce lo spazio dei nomi in cui è installato l'operatore. Il nome è una stringa costituita da un massimo di 253 caratteri che devono essere di solo minuscolo, alfanumerico, trattino e punto.         |
     |URL del repository     |<br>Percorso del repository git in `http://github.com/username/repo` o nel `git://github.com/username/repo` formato in cui si trova la configurazione di GitOps.         |
-    |Ambito operatore     | Selezionare **spazio dei nomi**. <br>Definisce l'ambito in cui è installato l'operatore. Selezionare come spazio dei nomi. L'operatore verrà installato nello spazio dei nomi specificato nei file YAML della distribuzione.       |
-    |Tipo di operatore     | Lasciare il valore predefinito. <br>Specifica il tipo di operatore, per impostazione predefinita, impostato come Flux.        |
-    |Operatore params     | Lasciarlo vuoto. <br>Questo campo contiene i parametri da passare all'operatore Flux.        |
-    |Helm     | Impostare questa impostazione su **disabilitato**. <br>Abilitare questa opzione se si eseguiranno distribuzioni basate su grafico.        |
+    |Ambito operatore     | Selezionare **spazio dei nomi**. <br>Questo parametro definisce l'ambito in cui è installato l'operatore. Selezionare spazio dei nomi per installare l'operatore nello spazio dei nomi specificato nei file YAML della distribuzione.       |
+    |Tipo di operatore     | Lasciare il valore predefinito. <br>Questo parametro specifica il tipo di operatore, per impostazione predefinita, impostato come Flux.        |
+    |Operatore params     | Lasciarlo vuoto. <br>Questo parametro contiene i parametri da passare all'operatore Flux.        |
+    |Helm     | Impostare questo parametro su **disabled**. <br>Abilitare questa opzione se si eseguono distribuzioni basate su grafico.        |
 
 
     ![Aggiungere la configurazione](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)
@@ -136,7 +136,7 @@ La distribuzione tramite la configurazione GitOps crea uno `demotestguestbook` s
     [10.128.44.240]: PS>
     ```  
 
-1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il Guestbook, sarà necessario trovare l'indirizzo IP del servizio. Eseguire il comando seguente.
+1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il, è necessario trovare l'indirizzo IP del servizio `guestbook` . Eseguire il comando seguente.
 
     `kubectl get service -n <your-namespace>`
     
@@ -149,13 +149,13 @@ La distribuzione tramite la configurazione GitOps crea uno `demotestguestbook` s
     redis-slave    ClusterIP      10.104.215.146   <none>          6379/TCP       85m
     [10.128.44.240]: PS>
     ```
-1. Il servizio front-end di `type:LoadBalancer` ha un indirizzo IP esterno. Questo IP è compreso nell'intervallo di indirizzi IP specificato per i servizi esterni quando si configurano le impostazioni di rete di calcolo nel dispositivo. Usare questo indirizzo IP per visualizzare il Guestbook all'URL: `https://<external-IP-address>` .
+1. Il servizio front-end di `type:LoadBalancer` ha un indirizzo IP esterno. Questo IP è compreso nell'intervallo di indirizzi IP specificato per i servizi esterni quando si configurano le impostazioni di rete di calcolo nel dispositivo. Usare questo indirizzo IP per visualizzare l' `guestbook` URL: `https://<external-IP-address>` .
 
     ![Visualizza guestbook](media/azure-stack-edge-gpu-connect-powershell-interface/view-guestbook-1.png)
 
 ## <a name="delete-deployment"></a>Elimina distribuzione
 
-Per eliminare la distribuzione, è possibile eliminare la configurazione dalla portale di Azure. Questa operazione eliminerà gli oggetti creati, inclusi i servizi e le distribuzioni.
+Per eliminare la distribuzione, è possibile eliminare la configurazione dalla portale di Azure. L'eliminazione della configurazione eliminerà gli oggetti creati, inclusi i servizi e le distribuzioni.
 
 1. Nel portale di Azure passare alla risorsa Azure Arc > configurazioni. 
 1. Individuare la configurazione che si desidera eliminare. Selezionare il... per richiamare il menu di scelta rapida e selezionare **Elimina**.

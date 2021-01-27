@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/05/2021
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: d601c6191da9d555e54c1d58c122420510d288fc
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 8b233211f47250d4742d35cd0782cdd241839496
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955553"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804866"
 ---
 # <a name="deploy-custom-script-extension-on-vms-running-on-your-azure-stack-edge-pro-device"></a>Distribuire un'estensione di script personalizzata in macchine virtuali in esecuzione nel dispositivo Azure Stack Edge Pro
 
@@ -62,13 +62,13 @@ If your script is on a local server, then you may still need additional firewall
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. [Scaricare i modelli di macchina virtuale e i file di parametri](https://aka.ms/ase-vm-templates) nel computer client. Decomprimerlo in una directory che verrà usata come directory di lavoro.
+1. [Scaricare i modelli di macchina virtuale e i file di parametri](https://aka.ms/ase-vm-templates) nel computer client. Decomprimere il download in una directory che verrà usata come directory di lavoro.
 
-1. È necessario che una macchina virtuale sia stata creata e distribuita nel dispositivo. Per creare macchine virtuali, seguire tutti i passaggi della [distribuzione di una macchina virtuale in Azure stack Edge Pro usando i modelli](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
+1. È necessario che una macchina virtuale sia stata creata e distribuita nel dispositivo. Per creare macchine virtuali, seguire tutti i passaggi in [distribuire una macchina virtuale in Azure stack Edge Pro usando i modelli](azure-stack-edge-gpu-deploy-virtual-machine-templates.md).
 
-    Se è necessario scaricare uno script esternamente, ad esempio da GitHub o archiviazione di Azure, durante la configurazione della rete di calcolo, abilitare la porta connessa a Internet per il calcolo. In questo modo è possibile scaricare lo script.
+    Se è necessario scaricare uno script, ad esempio da GitHub o da archiviazione di Azure esternamente, durante la configurazione della rete di calcolo, abilitare la porta connessa a Internet per il calcolo. In questo modo è possibile scaricare lo script.
 
-    Di seguito è riportato un esempio in cui la porta 2 è stata connessa a Internet ed è stata usata per abilitare la rete di calcolo. Se è stato rilevato che Kubernetes non è necessario nel passaggio precedente, è possibile ignorare l'IP del nodo Kubernetes e l'assegnazione IP del servizio esterno.    
+    Nell'esempio seguente la porta 2 è stata connessa a Internet ed è stata usata per abilitare la rete di calcolo. Se nel passaggio precedente è stato rilevato che Kubernetes non è necessario, è possibile ignorare l'IP del nodo Kubernetes e l'assegnazione IP del servizio esterno.
 
     ![Abilitare le impostazioni di calcolo sulla porta connessa a Internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
 
@@ -115,7 +115,7 @@ Il file `addCSExtWindowsVM.parameters.json` accetta i parametri seguenti:
 ```
 Specificare il nome della macchina virtuale, il nome dell'estensione e il comando che si vuole eseguire.
 
-Ecco un file di parametri di esempio usato in questo articolo. 
+Ecco il file di parametri di esempio usato in questo articolo.
 
 ```powershell
 {
@@ -158,7 +158,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > La distribuzione dell'estensione è un processo con esecuzione prolungata e richiede circa 10 minuti per il completamento.
 
-Di seguito è riportato un output di esempio:
+Di seguito è riportato un esempio di output:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensiontoVM.json"
@@ -196,7 +196,7 @@ Per controllare lo stato di distribuzione delle estensioni per una determinata m
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
-Di seguito è riportato un output di esempio:
+Di seguito è riportato un esempio di output:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -293,7 +293,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > La distribuzione dell'estensione è un processo con esecuzione prolungata e richiede circa 10 minuti per il completamento.
 
-Di seguito è riportato un output di esempio:
+Di seguito è riportato un esempio di output:
 
 ```powershell
 PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\ExtensionTemplates\addCSExtensionToVM.json"
@@ -342,7 +342,7 @@ Distribuzione modelli è un processo con esecuzione prolungata. Per controllare 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
-Di seguito è riportato un output di esempio: 
+Di seguito è riportato un esempio di output: 
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM5 -Name CustomScriptExtension
@@ -381,7 +381,7 @@ Per rimuovere l'estensione dello script personalizzato, usare il comando seguent
 
 `Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
 
-Di seguito è riportato un output di esempio:
+Di seguito è riportato un esempio di output:
 
 ```powershell
 PS C:\WINDOWS\system32> Remove-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM6 -Name LinuxCustomScriptExtension
@@ -396,4 +396,4 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 69d5a0a69bcd820fd59da0a18b3838b65a6a0460
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763431"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805210"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge Pro tramite modelli
 
@@ -71,7 +71,7 @@ Configurare questi prerequisiti nel client che verranno usati per accedere al di
 
 ## <a name="vm-prerequisites"></a>Prerequisiti della macchina virtuale
 
-Configurare questi prerequisiti per creare risorse che saranno necessarie per la creazione di macchine virtuali. 
+Configurare questi prerequisiti per creare le risorse necessarie per la creazione della macchina virtuale. 
 
     
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -101,7 +101,7 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione usando il gruppo di risorse creato nel passaggio precedente. Si tratta di un **account di archiviazione locale** che verrà usato per caricare l'immagine del disco virtuale per la VM.
+Creare un nuovo account di archiviazione usando il gruppo di risorse creato nel passaggio precedente. Questo account è un **account di archiviazione locale** che verrà usato per caricare l'immagine del disco virtuale per la VM.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
@@ -209,7 +209,7 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Carica file VHD 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. Copiare e salvare l' **URI** come verrà usato nei passaggi successivi.
+12. Copiare e salvare l' **URI**, che sarà usato nei passaggi successivi.
 
     ![Copia URI](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
@@ -237,7 +237,7 @@ Il file `CreateImage.parameters.json` accetta i parametri seguenti:
     }
 ```
 
-Modificare il file `CreateImage.parameters.json` in modo da includere quanto segue per il dispositivo Azure stack Edge Pro:
+Modificare il file `CreateImage.parameters.json` in modo da includere i valori seguenti per il dispositivo Azure stack Edge Pro:
 
 1. Specificare il tipo di sistema operativo corrispondente al disco rigido virtuale che si desidera caricare. Il tipo di sistema operativo può essere Windows o Linux.
 
@@ -250,16 +250,17 @@ Modificare il file `CreateImage.parameters.json` in modo da includere quanto seg
 
 2. Modificare l'URI dell'immagine nell'URI dell'immagine caricata nel passaggio precedente:
 
-    ```json
-    "imageUri": {
-        "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
-        },
-    ```
-    Se si usa *http* con Storage Explorer, modificare questo valore in un URI *http* .
+   ```json
+   "imageUri": {
+       "value": "https://myasegpusavm.blob.myasegpu1.wdshcsso.com/windows/WindowsServer2016Datacenter.vhd"
+       },
+   ```
+
+   Se si usa *http* con Storage Explorer, modificare l'URI in un URI *http* .
 
 3. Consente di specificare un nome univoco per l'immagine. Questa immagine viene usata per creare una VM nei passaggi successivi. 
 
-    Di seguito è riportato un esempio JSON usato in questo articolo.
+   Di seguito è riportato un esempio JSON usato in questo articolo.
 
     ```json
     {
@@ -278,6 +279,7 @@ Modificare il file `CreateImage.parameters.json` in modo da includere quanto seg
       }
     }
     ```
+
 5. Salvare il file dei parametri.
 
 
@@ -588,4 +590,4 @@ Seguire questa procedura per connettersi a una VM Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0)
+[Cmdlet di Azure Resource Manager](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

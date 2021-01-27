@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8abbe575e855347714c19c40155d890af484d5d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822322"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805944"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Route in App Web statiche di Azure (anteprima)
 
@@ -210,7 +210,7 @@ Se si specifica un valore per un'intestazione, viene aggiunta o modificata l'int
 }
 ```
 
-Nell'esempio precedente viene aggiunta una nuova `content-security-policy` intestazione, `cache-control` modifica il valore predefinito del server e l' `x-dns-prefectch-control` intestazione viene rimossa.
+Nell'esempio precedente viene aggiunta una nuova `content-security-policy` intestazione, `cache-control` modifica il valore predefinito del server e l' `x-dns-prefetch-control` intestazione viene rimossa.
 
 Le considerazioni seguenti sono importanti quando si utilizzano le intestazioni:
 
@@ -290,9 +290,9 @@ Gli esempi seguenti descrivono cosa accade quando una richiesta corrisponde a un
 | Richieste a... | Risultato... |
 |--|--|--|
 | _/profile_ | Agli utenti autenticati viene restituito il file _/profile/index.html_. Gli utenti non autenticati vengono reindirizzati a _/login_. |
-| _/admin/reports_ | Agli utenti autenticati nel ruolo _administrators_ viene restituito il file _/admin/reports/index.html_. Agli utenti autenticati che non fanno parte del ruolo _Administrators_ viene servito un errore 401<sup>2</sup>. Gli utenti non autenticati vengono reindirizzati a _/login_. |
+| _/admin/reports_ | Agli utenti autenticati nel ruolo _administrators_ viene restituito il file _/admin/reports/index.html_. Agli utenti autenticati che non fanno parte del ruolo _Administrators_ viene servito un errore 401 <sup>2</sup>. Gli utenti non autenticati vengono reindirizzati a _/login_. |
 | _/api/admin_ | Le richieste provenienti da utenti autenticati nel ruolo _administrators_ vengono inviate all'API. Agli utenti autenticati non appartenenti al ruolo _administrators_ e agli utenti non autenticati viene restituito un errore di tipo 401. |
-| _/customers/contoso_ | Gli utenti autenticati che appartengono ai ruoli di Contoso _Administrators_ o _Customers \_ _ sono serviti _/Customers/contoso/index.html_ file<sup>2</sup>. Agli utenti autenticati non appartenenti al ruolo _administrators_ o _customers\_contoso_ viene restituito un errore di tipo 401. Gli utenti non autenticati vengono reindirizzati a _/login_. |
+| _/customers/contoso_ | Gli utenti autenticati che appartengono ai ruoli di Contoso _Administrators_ o _Customers \__ sono serviti _/Customers/contoso/index.html_ file <sup>2</sup>. Agli utenti autenticati non appartenenti al ruolo _administrators_ o _customers\_contoso_ viene restituito un errore di tipo 401. Gli utenti non autenticati vengono reindirizzati a _/login_. |
 | _/login_ | Agli utenti non autenticati viene richiesto di eseguire l'autenticazione con GitHub. |
 | _/.auth/login/twitter_ | L'autorizzazione con Twitter è disabilitata. Il server risponde con un errore di tipo 404. |
 | _/logout_ | Gli utenti vengono disconnessi da qualsiasi provider di autenticazione. |

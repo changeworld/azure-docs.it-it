@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 6356089daed02270a14903639afee8001153b195
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b199fdbac4aca7637e07a18383cc7e254f702019
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447379"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98804851"
 ---
 # <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Distribuire un'applicazione Kubernetes senza stato tramite kubectl sul dispositivo GPU Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Prima di poter creare un cluster Kubernetes e usare lo `kubectl` strumento da ri
 
 - Si dispone di credenziali di accesso a un dispositivo Azure Stack Edge Pro a 1 nodo.
 
-- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge Pro. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge Pro. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7&preserve-view=true).
 
 - Il calcolo è abilitato nel dispositivo Azure Stack Edge Pro. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia utente locale del dispositivo. Selezionare quindi un'interfaccia di rete che si vuole abilitare per il calcolo. Selezionare **Abilita**. L'abilitazione dei risultati di calcolo nella creazione di un commutire virtuale sul dispositivo in tale interfaccia di rete. Per altre informazioni, vedere [abilitare la rete di calcolo nel Azure stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
@@ -55,7 +55,7 @@ Per verificare la versione di `kubectl` :
    kubectl version
    ```
     
-   Di seguito è riportato un esempio dell'output:
+   Di seguito è riportato un esempio di output:
     
    ```powershell
    PS C:\WINDOWS\system32> C:\windows\system32\kubectl.exe version
@@ -63,7 +63,7 @@ Per verificare la versione di `kubectl` :
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   In questo caso la versione client di kubectl è v 1.15.2 ed è compatibile per continuare.
+   In questo caso, la versione client di kubectl è v 1.15.2 ed è compatibile per continuare.
 
 2. Ottenere un elenco dei pod in esecuzione nel cluster Kubernetes. Un pod è un contenitore dell'applicazione o un processo in esecuzione nel cluster Kubernetes.
 
@@ -71,7 +71,7 @@ Per verificare la versione di `kubectl` :
    kubectl get pods -n <namespace-string>
    ```
     
-   Ecco un esempio di sintassi del comando:
+   Di seguito è riportato un esempio di utilizzo del comando:
     
    ```powershell
    PS C:\WINDOWS\system32> kubectl get pods -n "test1"
@@ -103,7 +103,7 @@ Per verificare la versione di `kubectl` :
 
 ### <a name="create-a-stateless-application-using-a-deployment"></a>Creare un'applicazione senza stato usando una distribuzione
 
-Ora che è stata verificata la correttezza della versione della riga di comando kubectl e i file di configurazione necessari, è possibile creare una distribuzione di applicazione senza stato.
+Ora che è stata verificata la correttezza della versione della riga di comando di kubectl e sono disponibili i file di configurazione necessari, è possibile creare una distribuzione di applicazione senza stato.
 
 Un pod è l'unità di esecuzione di base di un'applicazione Kubernetes, l'unità più piccola e più semplice nel modello a oggetti Kubernetes creato o distribuito. Un pod incapsula anche le risorse di archiviazione, un IP di rete univoco e le opzioni che determinano la modalità di esecuzione dei contenitori.
 
@@ -123,7 +123,7 @@ Per creare una distribuzione di nginx, seguire questa procedura:
 
    In questo esempio il percorso del file YAML dell'applicazione è un'origine esterna.
 
-   Di seguito è riportato un esempio di utilizzo del comando e dell'output:
+   Di seguito è riportato un esempio di utilizzo del comando e del relativo output:
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -131,7 +131,7 @@ Per creare una distribuzione di nginx, seguire questa procedura:
    deployment.apps/nginx-deployment created
    ```
 
-   In alternativa, è possibile salvare il Markdown seguente nel computer locale e sostituire il percorso e il nome file nel parametro *-f* . Ad esempio, "C:\Kubernetes\deployment.yaml". Di seguito è illustrata la configurazione per la distribuzione dell'applicazione:
+   In alternativa, è possibile salvare il Markdown seguente nel computer locale e sostituire il percorso e il nome file nel parametro *-f* . Ad esempio, "C:\Kubernetes\deployment.yaml". La configurazione per la distribuzione dell'applicazione è:
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -163,7 +163,7 @@ Per creare una distribuzione di nginx, seguire questa procedura:
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   Di seguito è riportato un esempio di utilizzo del comando e dell'output:
+   Di seguito è riportato un esempio di utilizzo del comando, con output:
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -203,13 +203,13 @@ Per creare una distribuzione di nginx, seguire questa procedura:
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   Se si osserva attentamente l'impostazione *repliche* , viene visualizzato quanto segue:
+   Per l'impostazione *repliche* , viene visualizzato quanto segue:
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   L'impostazione *repliche* indica che la specifica di distribuzione richiede due pod, che i pod in cui sono stati creati e aggiornati e che sono pronti per l'uso.
+   L'impostazione *repliche* indica che la specifica di distribuzione richiede due pod e che tali pod sono stati creati e aggiornati e sono pronti per l'uso.
 
    > [!NOTE]
    > Un set di repliche sostituisce i pod eliminati o terminati per qualsiasi motivo, ad esempio in caso di errore del nodo del dispositivo o di un aggiornamento di un dispositivo di disturbo. Per questo motivo, è consigliabile usare un set di repliche anche se l'applicazione richiede un singolo POD.
@@ -220,7 +220,7 @@ Per creare una distribuzione di nginx, seguire questa procedura:
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   Di seguito è riportato un esempio di utilizzo del comando e dell'output:
+   Di seguito è riportato un esempio di utilizzo del comando, con output:
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -238,7 +238,7 @@ Per creare una distribuzione di nginx, seguire questa procedura:
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-   Di seguito è riportato un esempio di utilizzo del comando e dell'output:
+  Di seguito è riportato un esempio di utilizzo del comando, con output:
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -295,14 +295,14 @@ Per creare una distribuzione di nginx, seguire questa procedura:
 
 ### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>Ridimensionare la distribuzione dell'applicazione aumentando il numero di repliche
 
-Ogni pod ha lo scopo di eseguire una singola istanza di una determinata applicazione. Se si vuole ridimensionare orizzontalmente l'applicazione per eseguire più istanze, è possibile aumentare il numero di Pod, uno per ogni istanza. In Kubernetes questa operazione viene definita replica.
+Ogni pod ha lo scopo di eseguire una singola istanza di una determinata applicazione. Se si vuole ridimensionare orizzontalmente l'applicazione per eseguire più istanze, è possibile aumentare il numero di pod a uno per ogni istanza. In Kubernetes questa operazione viene definita replica.
 È possibile aumentare il numero di Pod nella distribuzione dell'applicazione applicando un nuovo file YAML. Il file YAML modifica l'impostazione repliche in 4, che aumenta il numero di Pod nella distribuzione a quattro Pod. Per aumentare il numero di pod da 2 a 4:
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-In alternativa, è possibile salvare i seguenti Markdown nel computer locale e sostituire il percorso e il nome file per il parametro *-f* per `kubectl apply` . Ad esempio, "C:\Kubernetes\deployment-scale.yaml". Di seguito è illustrata la configurazione per la scala di distribuzione dell'applicazione:
+In alternativa, è possibile salvare i seguenti Markdown nel computer locale e sostituire il percorso e il nome file per il parametro *-f* per `kubectl apply` . Ad esempio, "C:\Kubernetes\deployment-scale.yaml". La configurazione per la scala di distribuzione dell'applicazione sarà:
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -354,7 +354,7 @@ Per eliminare la distribuzione, inclusi tutti i pod, è necessario eseguire `kub
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-Di seguito è riportato un esempio di utilizzo del comando e output:
+Di seguito è riportato un esempio di utilizzo del comando, con output:
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"

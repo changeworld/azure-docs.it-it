@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/19/2021
 ms.author: alkohli
-ms.openlocfilehash: d0b7f871b2ea62c810a6d20f6e20a5e8d3f6306e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791914"
+ms.locfileid: "98805191"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Note sulla versione di Azure Stack Edge 2101
 
@@ -46,10 +46,10 @@ La tabella seguente fornisce un riepilogo dei problemi noti della versione 2101.
 |**2.**|Dashboard di Kubernetes | L'endpoint *https* per il dashboard di Kubernetes con certificato SSL non è supportato. | |
 |**3.**|Kubernetes |Il registro contenitori perimetrale non funziona quando il proxy Web è abilitato.|La funzionalità sarà disponibile in una versione futura. |
 |**4.**|Kubernetes |Il registro contenitori perimetrale non funziona con i moduli IoT Edge.| |
-|**5.**|Kubernetes |Kubernetes non supporta ":" nei nomi delle variabili di ambiente usati dalle applicazioni .NET. Questa funzionalità è necessaria anche per il funzionamento di griglia di eventi IoT Edge modulo sul dispositivo Azure Stack Edge e su altre applicazioni. Per ulteriori informazioni, vedere la [documentazione di ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Sostituire ":" con il doppio carattere di sottolineatura. Per ulteriori informazioni, vedere la pagina relativa al [problema Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**6.** |Azure Arc + cluster Kubernetes |Per impostazione predefinita, quando la risorsa `yamls` viene eliminata dal repository git, le risorse corrispondenti non vengono eliminate dal cluster Kubernetes.  |È necessario impostare `--sync-garbage-collection` in Arc OperatorParams per consentire l'eliminazione delle risorse quando vengono eliminate dal repository git. Per altre informazioni, vedere [eliminare una configurazione](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
-|**7.**|NFS |Le applicazioni che usano NFS Share Mounts sul dispositivo per scrivere i dati devono usare la scrittura esclusiva. L'uso della scrittura esclusiva garantisce che le Scritture vengano scritte nel disco.| |
-|**8.**|Configurazione di calcolo |La configurazione di calcolo ha esito negativo nelle configurazioni di rete in cui i gateway o i commutatori o i router rispondono alle richieste ARP (Address Resolution Protocol) per i sistemi che non esistono nella rete.| |
+|**5.**|Kubernetes |Kubernetes non supporta ":" nei nomi delle variabili di ambiente usati dalle applicazioni .NET. Questa operazione è necessaria anche per il funzionamento di griglia di eventi IoT Edge modulo sul dispositivo Azure Stack Edge e su altre applicazioni. Per ulteriori informazioni, vedere la [documentazione di ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Sostituire ":" con il doppio carattere di sottolineatura. Per ulteriori informazioni, vedere la pagina relativa al [problema Kubernetes](https://github.com/kubernetes/kubernetes/issues/53201)|
+|**6.** |Azure Arc + cluster Kubernetes |Per impostazione predefinita, quando la risorsa `yamls` viene eliminata dal repository git, le risorse corrispondenti non vengono eliminate dal cluster Kubernetes.  |È necessario impostare `--sync-garbage-collection`  in Arc OperatorParams per consentire l'eliminazione delle risorse quando viene eliminato dal repository git. Per altre informazioni, vedere [eliminare una configurazione](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**7.**|NFS |Le applicazioni che usano NFS Share Mounts sul dispositivo per scrivere i dati devono usare la scrittura esclusiva. In questo modo si garantisce che le Scritture vengano scritte nel disco.| |
+|**8.**|Configurazione di calcolo |La configurazione di calcolo non riesce nelle configurazioni di rete in cui i gateway o i commutatori o i router rispondono alle richieste ARP (Address Resolution Protocol) per i sistemi che non esistono nella rete.| |
 |**9.**|COMPUTE e Kubernetes |Se Kubernetes è impostato per primo sul dispositivo, attesta tutte le GPU disponibili. Di conseguenza, non è possibile creare macchine virtuali Azure Resource Manager usando GPU dopo la configurazione di Kubernetes. |Se il dispositivo ha 2 GPU, è possibile creare 1 VM che usa la GPU e quindi configurare Kubernetes. In questo caso, Kubernetes utilizzerà la GPU rimanente disponibile 1. |
 
 

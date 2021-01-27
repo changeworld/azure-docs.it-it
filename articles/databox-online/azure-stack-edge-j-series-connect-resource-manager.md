@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 6bf0da8716233178889d47ec3d57e9b29bc2658f
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
+ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763218"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98805788"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Connettersi a Azure Resource Manager nel dispositivo Azure Stack Edge Pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager offre un livello di gestione coerente per chiamare l'API 
 
 La tabella seguente riepiloga i diversi endpoint esposti nel dispositivo, i protocolli supportati e le porte per accedere a tali endpoint. Nell'articolo sono disponibili riferimenti a questi endpoint.
 
-| # | Endpoint | Protocolli supportati | Porta utilizzata | Utilizzo |
+| # | Endpoint | Protocolli supportati | Porta utilizzata | Usato per |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | https | 443 | Per connettersi a Azure Resource Manager per l'automazione |
 | 2. | Servizio token di sicurezza | https | 443 | Per eseguire l'autenticazione tramite token di accesso e di aggiornamento |
@@ -99,7 +99,7 @@ Solo per l'uso di test e sviluppo, è possibile usare Windows PowerShell per cre
 
 3. Per tutti questi certificati, verificare che il nome del soggetto e il nome alternativo del soggetto siano conformi alle linee guida seguenti:
 
-    |Type |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
+    |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
@@ -138,9 +138,9 @@ Il client Windows deve soddisfare i prerequisiti seguenti:
 
     Confrontare la versione **principale** e verificare che sia 5,0 o successiva.
 
-    Se è presente una versione obsoleta, vedere [Aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+    Se è presente una versione obsoleta, vedere [Aggiornamento di Windows PowerShell esistente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell).
 
-    Se non si \' dispone di PowerShell 5,0, seguire [l'installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6).
+    Se non si \' dispone di PowerShell 5,0, seguire [l'installazione di Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true).
 
     Di seguito è riportato un output di esempio.
 
@@ -156,7 +156,7 @@ Il client Windows deve soddisfare i prerequisiti seguenti:
     
 2. È possibile accedere al PowerShell Gallery.
 
-    Eseguire PowerShell come amministratore. Verificare che il PSGallery sia registrato come repository.
+    Eseguire PowerShell come amministratore. Verificare se `PSGallery` è registrato come repository.
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -175,7 +175,7 @@ Il client Windows deve soddisfare i prerequisiti seguenti:
     PSGallery                 Trusted              https://www.powershellgallery.com/api/v2
     ```
     
-Se il repository non è attendibile o sono necessarie altre informazioni, vedere [convalidare l'accessibilità PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908#2-validate-the-powershell-gallery-accessibility).
+Se il repository non è attendibile o sono necessarie altre informazioni, vedere [convalidare l'accessibilità PowerShell Gallery](/azure-stack/operator/azure-stack-powershell-install?view=azs-1908&preserve-view=true&preserve-view=true#2-validate-the-powershell-gallery-accessibility).
 
 ## <a name="step-4-set-up-azure-powershell-on-the-client"></a>Passaggio 4: configurare Azure PowerShell nel client 
 
@@ -327,7 +327,7 @@ Impostare l'ambiente di Azure Resource Manager e verificare che il dispositivo a
     Set-AzureRMEnvironment -Name <Environment Name>
     ```
     
-    Per ulteriori informazioni, vedere [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0).
+    Per ulteriori informazioni, vedere [set-AzureRMEnvironment](/powershell/module/azurerm.profile/set-azurermenvironment?view=azurermps-6.13.0&preserve-view=true).
 
     - Definire l'ambiente inline per ogni cmdlet eseguito. Ciò garantisce che tutte le chiamate API stiano attraversando l'ambiente corretto. Per impostazione predefinita, le chiamate passano attraverso il pubblico di Azure, ma si vuole che questi passino attraverso l'ambiente impostato per il dispositivo Azure Stack Edge Pro.
 

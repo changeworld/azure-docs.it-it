@@ -134,7 +134,7 @@
               items:
                 - name: Panoramica
                   href: explore-data.md
-                - name: Esplorare l'archivio BLOB di Azure
+                - name: Esplora archiviazione BLOB di Azure
                   href: explore-data-blob.md
                 - name: Esplorare SQL in una macchina virtuale
                   href: explore-data-sql-server.md
