@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972eaf3aa20324bc68ce24d2b7c0db041bb8baa4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653656"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918637"
 ---
 # <a name="m-series"></a>Serie M
 
@@ -27,6 +27,7 @@ La funzionalità della VM della serie M è Intel &reg; Hyper-Threading Technolog
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Acceleratore di scrittura](./how-to-enable-write-accelerator.md): supportato<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
@@ -46,7 +47,7 @@ La funzionalità della VM della serie M è Intel &reg; Hyper-Threading Technolog
 | Standard_M128 <sup>1</sup>     | 128 | 2048   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 | Standard_M128m <sup>1</sup>    | 128 | 3892   | 14336 | 64 | 250000/1600 (2456)  | 80000/2000 | 8|32000 |
 
-<sup>1</sup> più di 64 vCPU richiedono uno di questi sistemi operativi guest supportati: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 o Oracle Linux 7,3 con LIS 4.2.1.
+<sup>1</sup> più di 64 vCPU richiedono una di queste versioni Guest supportate: Windows Server 2016, Ubuntu 16,04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux, CentOS 7,3 o Oracle Linux 7,3 con LIS 4.2.1.
 
 <sup>2</sup> L'istanza è isolata e prevede hardware dedicato per un singolo cliente.
 

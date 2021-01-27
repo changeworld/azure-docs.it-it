@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: b3728a2b67529bab0900d42b3e39140d9329bc83
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: b0ebb75530858a589c3166e21261e2f737fff50d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223636"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919970"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Creare una macchina virtuale Windows con rete accelerata usando Azure PowerShell
 
@@ -61,11 +61,9 @@ Le distribuzioni seguenti sono supportate direttamente dalla raccolta di Azure:
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
 
-La funzionalità rete accelerata è supportata per la maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con due o più CPU virtuali (vCPU).  Queste serie supportate sono: dv2/DSv2 e F/FS.
+La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU. Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. 
 
-Nelle istanze che supportano l'Hyper-Threading, la rete accelerata è supportata nelle istanze di VM con quattro o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, da/Dasv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Per altre informazioni sulle istanze di VM, vedere [dimensioni per le macchine virtuali Windows in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Il supporto per la rete accelerata è disponibile nella documentazione relativa alle dimensioni delle singole [macchine virtuali](../virtual-machines/sizes.md) . 
 
 ### <a name="custom-images"></a>Immagini personalizzate
 
@@ -252,13 +250,13 @@ Dopo aver creato la VM in Azure, connettersi alla macchina virtuale e verificare
 
 5. Aprire il file con estensione RDP, quindi accedere alla macchina virtuale con le credenziali immesse nella sezione [creare una macchina virtuale e collegare l'interfaccia di rete](#create-a-vm-and-attach-the-network-interface) . Se non si è mai stabilita una connessione a una VM Windows in Azure, vedere [Connettersi alla macchina virtuale](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
-6. Quando viene visualizzata la sessione Desktop remoto per la macchina virtuale, fare clic con il pulsante destro del mouse sul pulsante Start di Windows e scegliere **Device Manager**.
+6. Quando viene visualizzata la sessione Desktop remoto per la macchina virtuale, fare clic con il pulsante destro del mouse sul pulsante Start di Windows e scegliere **Gestione dispositivi**.
 
-7. Nella finestra **Device Manager** espandere il nodo **schede di rete** .
+7. Nella finestra **Gestione dispositivi** espandere il nodo **schede di rete** .
 
 8. Verificare che venga visualizzata la **scheda Ethernet della funzione virtuale Mellanox ConnectX-3** , come illustrato nell'immagine seguente:
 
-    ![Mellanox ConnectX-3 scheda Ethernet della funzione virtuale, nuova scheda di rete per rete accelerata, Device Manager](./media/create-vm-accelerated-networking/device-manager.png)
+    ![Mellanox ConnectX-3 scheda Ethernet della funzione virtuale, nuova scheda di rete per rete accelerata, Gestione dispositivi](./media/create-vm-accelerated-networking/device-manager.png)
 
 La rete accelerata è ora abilitata per la macchina virtuale.
 

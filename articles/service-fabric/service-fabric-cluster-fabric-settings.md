@@ -3,12 +3,12 @@ title: Modificare le impostazioni di un cluster di Azure Service Fabric
 description: Questo articolo descrive le impostazioni dell'infrastruttura e i criteri di aggiornamento dell'infrastruttura che è possibile personalizzare.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c055ad1dad8b9574c8d811284a34619ee3648a10
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095271"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919783"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -521,7 +521,7 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 |AutoDetectAvailableResources|bool, valore predefinito: TRUE|Statico|Questa configurazione attiverà il rilevamento automatico delle risorse disponibili nel nodo (CPU e memoria). Quando questa configurazione è impostata su true, verranno lette le capacità reali che verranno corrette se l'utente ha specificato capacità del nodo non corrette o non le ha definite affatto. Se questo parametro di configurazione viene impostato su false, si terrà traccia di un avviso relativo alla specifica di capacità del nodo non corrette da parte dell'utente, ma tali capacità non verranno corrette. Questo significa che verranno presupposte capacità illimitate se l'utente vuole specificare capacità maggiori di quelle effettivamente disponibili oppure se le capacità non vengono definite. |
 |BalancingDelayAfterNewNode | Tempo in secondi, valore predefinito: 120 |Dinamico|Specificare l'intervallo di tempo in secondi. Non avviare attività di bilanciamento in questo periodo dopo aver aggiunto un nuovo nodo. |
 |BalancingDelayAfterNodeDown | Tempo in secondi, valore predefinito: 120 |Dinamico|Specificare l'intervallo di tempo in secondi. Non avviare attività di bilanciamento in questo periodo se un nodo va offline. |
-|BlockNodeInUpgradeConstraintPriority | Int, valore predefinito: 0 |Dinamico|Determina la priorità del vincolo di capacità: 0: difficile; 1: Soft; negativo: ignora  |
+|BlockNodeInUpgradeConstraintPriority | Int, valore predefinito:-1 |Dynamic|Determina la priorità del vincolo di capacità: 0: difficile; 1: Soft; negativo: ignora  |
 |CapacityConstraintPriority | Int, valore predefinito: 0 | Dinamico|Determina la priorità del vincolo di capacità: 0: alta; 1: bassa; numero negativo: ignorare. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, valore predefinito: 20 | Dinamico|Definisce il numero di volte consecutive in cui i movimenti inviati da ResourceBalancer devono essere eliminati prima di eseguire la diagnostica e creare avvisi di integrità. Negativo: non vengono emessi avvisi in questa condizione. |
 |ConstraintFixPartialDelayAfterNewNode | Tempo in secondi, valore predefinito: 120 |Dinamico| Specificare l'intervallo di tempo in secondi. Non risolvere violazioni di vincoli FaultDomain e UpgradeDomain in questo periodo dopo aver aggiunto un nuovo nodo. |

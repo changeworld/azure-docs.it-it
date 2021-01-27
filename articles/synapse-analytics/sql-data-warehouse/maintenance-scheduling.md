@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1565d4f7792dca5242965d11c58faa90e2222d3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210984"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920376"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Usare le pianificazioni della manutenzione per gestire gli aggiornamenti e la manutenzione dei servizi
 
@@ -38,7 +38,7 @@ L'integrazione con le notifiche sull'integrità dei servizi e il monitoraggio pe
 Una notifica di anticipo di 24 ore precede tutti gli eventi di manutenzione che non sono relativi al DWC400c e ai livelli inferiori.
 
 > [!NOTE]
-> Nel caso in cui sia necessario distribuire un aggiornamento critico del tempo, i tempi di notifica avanzati possono essere notevolmente ridotti.
+> Nel caso in cui sia necessario distribuire un aggiornamento critico del tempo, i tempi di notifica avanzati possono essere notevolmente ridotti. Questo problema può verificarsi al di fuori di una finestra di manutenzione identificata a causa della natura critica dell'aggiornamento.
 
 Se è stata ricevuta una notifica di avanzamento, la manutenzione avrà luogo, ma non sarà possibile eseguire la manutenzione durante il periodo di tempo della notifica, si riceverà una notifica di annullamento. La manutenzione verrà quindi ripresa durante il successivo periodo di manutenzione pianificato.
 

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 1ca2ded69b0279a60d8ed83cf310a58dadf1a337
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751989"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920444"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminare gli avvisi di Azure Defender
 
@@ -23,7 +23,7 @@ Questa pagina illustra come è possibile usare le regole di eliminazione degli a
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:| Disponibile a livello generale |
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Livello gratuito<br>(La maggior parte degli avvisi di sicurezza è disponibile solo con Azure Defender)|
 |Autorizzazioni e ruoli obbligatori:|Il **proprietario** e l' **amministratore della sicurezza** possono creare o eliminare regole.<br>**amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|

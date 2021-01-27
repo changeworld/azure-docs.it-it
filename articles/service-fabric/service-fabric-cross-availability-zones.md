@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876211"
+ms.locfileid: "98918924"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -393,6 +393,7 @@ Per supportare più zone di disponibilità, è necessario abilitare il nodeType 
         "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
     ],
     "properties": {
+        "reliabilityLevel": "Platinum",
         "SFZonalUpgradeMode": "Hierarchical",
         "VMSSZonalUpgradeMode": "Parallel",
         "nodeTypes": [

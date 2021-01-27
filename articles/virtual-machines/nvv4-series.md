@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.author: vikancha
-ms.openlocfilehash: 67780c725466707f347e9009a77099786cc64939
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: bff754211cb1a8bf9336a9ada4db2c8189d13a21
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133294"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919681"
 ---
 # <a name="nvv4-series"></a>Serie NVv4 
 
@@ -27,7 +27,7 @@ Le macchine virtuali della serie NVv4 sono basate su GPU [AMD Radeon Instinct MI
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
-Rete accelerata: supportata<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Numero massimo di dischi dati | Schede di interfaccia di rete max/Larghezza di banda di rete prevista (Mbps) |

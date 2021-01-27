@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: e7e65d5d2941765df98b3bf3b7fb8ff2e89b7e9f
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-ms.translationtype: HT
+ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411202"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919068"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Esercitazione: Creare una connessione VNP utente usando la rete WAN virtuale di Azure
 
@@ -24,6 +24,7 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare una rete WAN virtuale
 > * Creare una configurazione da punto a sito
 > * Creare un hub virtuale
+> * Scegliere i pool di indirizzi client
 > * Specificare i server DNS
 > * Generare il pacchetto di configurazione del profilo del client VPN
 > * Configurare client VPN
@@ -49,6 +50,11 @@ Una configurazione da punto a sito definisce i parametri per la connessione di c
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
+
+## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Scegliere i pool di indirizzi del client P2S
+
+[!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
+
 ## <a name="specify-dns-server"></a><a name="dns"></a>Specificare il server DNS
 
 È possibile eseguire questa configurazione durante il processo di creazione dell'hub oppure modificarla in un secondo momento. Per modificarla, individuare l'hub virtuale. In **VPN utente (da punto a sito)** selezionare **Configura** e immettere gli indirizzi IP dei server DNS nelle caselle di testo **Server DNS personalizzati**. È possibile specificare fino a 5 server DNS.
@@ -73,6 +79,8 @@ Una volta completata la configurazione del client, è possibile connettersi.
 1. Passare alla rete WAN virtuale.
 1. Nella pagina **Panoramica** ogni punto sulla mappa rappresenta un hub.
 1. Nella sezione **Hub e connessioni** è possibile visualizzare lo stato dell'hub, il sito, l'area, lo stato della connessione VPN e i byte in entrata e in uscita.
+
+
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Pulire le risorse
 

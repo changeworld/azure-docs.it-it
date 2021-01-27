@@ -1,15 +1,15 @@
 ---
 title: Tasti di scelta rapida nella portale di Azure per Azure Resource Graph Explorer
 description: Azure Resource Graph Explorer nella portale di Azure supporta i tasti di scelta rapida per eseguire le azioni e spostarsi.
-ms.date: 10/21/2020
+ms.date: 01/27/2021
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 70777db630a654dc61aad697561583a02c0ccc25
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340122"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919092"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Tasti di scelta rapida per Azure Resource Graph Explorer
 
@@ -17,7 +17,7 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 
 ## <a name="keyboard-shortcuts-for-editing-queries"></a>Tasti di scelta rapida per la modifica delle query
 
-| Action | Collegamento di Windows | Collegamento Mac |
+| Azione | Collegamento di Windows | Collegamento Mac |
 |---|---|---|
 |Inserimento/Rimozione di commenti |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Riduci rientro |<kbd>CTRL</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
@@ -37,7 +37,7 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 
 ## <a name="keyboard-shortcuts-for-the-query-editor"></a>Tasti di scelta rapida per l'editor di query
 
-| Action | Collegamento di Windows | Collegamento Mac |
+| Azione | Collegamento di Windows | Collegamento Mac |
 |---|---|---|
 |Esegui query attualmente selezionata |<kbd>Sposta</kbd> + <kbd>Immettere</kbd> | <kbd>Sposta</kbd> + <kbd>Immettere</kbd> |
 |Annulla query in esecuzione |<kbd>ESC</kbd> | <kbd>ESC</kbd> |
@@ -52,7 +52,7 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 
 ## <a name="keyboard-shortcuts-for-the-results-pane"></a>Tasti di scelta rapida per il riquadro risultati
 
-| Action | Collegamento di Windows | Collegamento Mac |
+| Azione | Collegamento di Windows | Collegamento Mac |
 |---|---|---|
 |Passa alla scheda ' inizia '  |<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>Opzione</kbd> + <kbd>S</kbd> |
 |Passa alla scheda ' risultati '  |<kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>R</kbd> | <kbd>Cmd</kbd> + <kbd>Opzione</kbd> + <kbd>R</kbd> |

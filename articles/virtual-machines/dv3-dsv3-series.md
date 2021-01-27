@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 3d0735b99de3e0c68b48747d69e4720a9cbb3416
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d38b395ec4e4a3e9f3550e6a891ad4785dae8597
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500700"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919749"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 e Dsv3
 
@@ -34,6 +34,7 @@ Le macchine virtuali serie dv3 includono la tecnologia Intel® Hyper-Threading.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima di archiviazione temporanea: IOPS/MBps di lettura/Mbps di scrittura | NIC Max/larghezza di banda di rete |
@@ -58,6 +59,7 @@ Le macchine virtuali serie Dsv3 includono la tecnologia Intel® Hyper-Threading.
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima nella cache e archiviazione temporanea: IOPS/MBps<sup>1</sup> | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Velocità effettiva massima del disco non memorizzato nella cache: IOPS/MBps<sup>1</sup> | NIC massimo/larghezza di banda di rete prevista (Mbps) |

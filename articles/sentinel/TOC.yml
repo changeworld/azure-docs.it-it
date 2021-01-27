@@ -225,7 +225,7 @@
           href: livestream.md
     - name: Rimuovere Azure Sentinel
       href: offboard.md
-- name: Informazioni di riferimento (novità)
+- name: Riferimento
   items:
     - name: Ruoli del controllo degli accessi in base al ruolo di Azure
       items:
@@ -241,10 +241,20 @@
           href: hunting-with-rest-api.md
         - name: Gestire watchlists con REST-API
           href: watchlist-with-rest-api.md
+    - name: Riferimento ai dati di monitoraggio di Azure
+      href: /azure/azure-monitor/reference/
     - name: Connettore per app per la logica di Azure Sentinel
       href: /connectors/azuresentinel/
     - name: Schema di normalizzazione della rete
       href: normalization-schema.md
+    - name: Riferimento allo schema dell'origine dati
+      href: data-source-schema-reference.md
+    - name: Linguaggio di query Kusto
+      items:
+        - name: Panoramica delle query kusto
+          href: /azure/data-explorer/kusto/query/
+        - name: Riferimento rapido per il linguaggio di query di Kusto
+          href: /azure/data-explorer/kql-quick-reference
     - name: Arricchimenti tramite UEBA
       href: ueba-enrichments.md
 - name: Risorse

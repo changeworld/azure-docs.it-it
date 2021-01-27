@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 1cbd4c92ec4c124cfd384f45a4cd6f47fdc60be6
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 3821ef790728117df52bf534d75729347a0d8c9f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180167"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919902"
 ---
 # <a name="dcsv2-series"></a>Serie DCsv2
 
@@ -26,6 +26,7 @@ I casi d'uso di esempio includono: condivisione tra più parti di dati riservati
 [Live Migration](maintenance-and-updates.md): non supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): non supportato<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 
 *Tranne che per Standard_DC8_v2
 

@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Prima query con l'API REST"
 description: Questo argomento di avvio rapido illustra la procedura per chiamare l'endpoint Resource Graph per l'API REST ed eseguire la prima query.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
-ms.translationtype: HT
+ms.openlocfilehash: 670ceba95d937be278c44c34704cb844eead480d
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566079"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920072"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Avvio rapido: Eseguire la prima query di Resource Graph con l'API REST
 

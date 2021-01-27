@@ -1,15 +1,15 @@
 ---
 title: 'Avvio rapido: Eseguire la prima query Python'
 description: In questa guida introduttiva vengono descritti i passaggi per abilitare la libreria Resource Graph per Python ed eseguire la prima query.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 01e0fd5bfbc5f353474c8305eefc044390c3586a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.custom: devx-track-python
+ms.openlocfilehash: 6fc7b8f6a6fa7cde8d10dec6a4b2b834d41325e6
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94845111"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920123"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-python"></a>Avvio rapido: Eseguire la prima query di Resource Graph usando Python
 

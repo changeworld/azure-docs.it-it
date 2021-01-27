@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 12/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: d5820af1efd91efd79fb2a860d6aad8d2eeed80d
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97740879"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920427"
 ---
-# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Esplorare e gestire le risorse con inventario asset
+# <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Esplorare e gestire le risorse con l'inventario degli asset
 
 La pagina di inventario delle risorse del Centro sicurezza di Azure offre una pagina singola per visualizzare il comportamento di sicurezza delle risorse connesse al Centro sicurezza. 
 
@@ -40,7 +40,7 @@ Le possibilità di gestione delle risorse per questo strumento sono sostanziali 
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Livello gratuito|
 |Autorizzazioni e ruoli obbligatori:|tutti gli utenti|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|

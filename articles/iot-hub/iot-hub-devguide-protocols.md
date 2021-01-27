@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2578b47d27ef062d83ba8621a49e9a8f439897c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016002"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919026"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Informazioni di riferimento: scegliere un protocollo di comunicazione
 
@@ -42,7 +42,7 @@ Nella tabella seguente vengono fornite le indicazioni generali per la scelta del
 
 Nella scelta del protocollo per le comunicazioni sul lato dispositivo occorre prendere in considerazione quanto segue:
 
-* **Modello da cloud a dispositivo**. HTTPS non offre un modo efficiente per implementare il push del server. Di conseguenza, quando si usa HTTPS i dispositivi eseguono il polling dell'hub IoT per i messaggi da cloud a dispositivo. Questo approccio è inefficiente sia per il dispositivo che per l'hub IoT. In base alle attuali linee guida di HTTPS, ogni dispositivo dovrebbe eseguire il polling almeno ogni 25 minuti. MQTT e AMQP supportano il push del server quando si ricevono messaggi da cloud a dispositivo, consentendo il push immediato dei messaggi dall'hub IoT al dispositivo. Se la latenza di recapito rappresenta un problema, è consigliabile usare il protocollo MQTT o AMQP. Per i dispositivi che si connettono raramente, è possibile usare anche il protocollo HTTPS.
+* **Modello da cloud a dispositivo**. HTTPS non offre un modo efficiente per implementare il push del server. Di conseguenza, quando si usa HTTPS i dispositivi eseguono il polling dell'hub IoT per i messaggi da cloud a dispositivo. Questo approccio è inefficiente sia per il dispositivo che per l'hub IoT. In base alle attuali linee guida di HTTPS, ogni dispositivo dovrebbe eseguire il polling almeno ogni 25 minuti. La generazione di altre ricezioni HTTPS comporta la limitazione delle richieste da parte dell'hub IoT. MQTT e AMQP supportano il push del server quando si ricevono messaggi da cloud a dispositivo, consentendo il push immediato dei messaggi dall'hub IoT al dispositivo. Se la latenza di recapito rappresenta un problema, è consigliabile usare il protocollo MQTT o AMQP. Per i dispositivi che si connettono raramente, è possibile usare anche il protocollo HTTPS.
 
 * **Gateway sul campo**. MQTT e HTTPS supportano solo una singola identità del dispositivo (ID dispositivo e credenziali) per ogni connessione TLS. Per questo motivo, questi protocolli non sono supportati per gli [scenari del gateway sul campo](iot-hub-devguide-endpoints.md#field-gateways) che richiedono il multiplexing dei messaggi usando più identità del dispositivo in un singolo o in un pool di connessioni upstream all'hub Internet. Questi gateway possono usare un protocollo che supporta più identità del dispositivo per connessione, ad esempio AMQP, per il traffico upstream.
 

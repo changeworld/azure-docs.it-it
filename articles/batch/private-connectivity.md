@@ -4,12 +4,12 @@ description: Informazioni su come connettersi privatamente a un account Azure Ba
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 38d92d787a8d01dd3f87e1cdcacd336982c8c910
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: d2e9d36e9e964f2e9f9a5a986fbf55d19b3069d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579556"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920004"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Usare endpoint privati con account Azure Batch
 
@@ -20,7 +20,7 @@ Con il [collegamento privato di Azure](../private-link/private-link-overview.md)
 Il collegamento privato consente agli utenti di accedere a un account Azure Batch dall'interno della rete virtuale o da qualsiasi rete virtuale con peering. Le risorse mappate al collegamento privato sono accessibili anche in locale tramite peering privato tramite VPN o [Azure ExpressRoute](../expressroute/expressroute-introduction.md). È possibile connettersi a un account Azure Batch configurato con un collegamento privato utilizzando il [metodo di approvazione automatico o manuale](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow).
 
 > [!IMPORTANT]
-> Il supporto per la connettività privata in Azure Batch è attualmente disponibile per tutte le aree pubbliche eccetto Germania centrale e Germania nord-orientale.
+> Il supporto per la connettività privata in Azure Batch è attualmente disponibile per tutte le aree, ad eccezione di Germania centrale, Germania nord-orientale, Cina orientale, Cina orientale 2, Cina settentrionale e Cina settentrionale 2.
 
 Questo articolo descrive i passaggi per creare un account batch privato e accedervi usando un endpoint privato.
 
@@ -37,12 +37,12 @@ Usare la procedura seguente per creare un account batch privato usando il portal
 6. Nel riquadro **delle risorse** impostare il **tipo di risorsa** su **Microsoft.Batch/batchAccounts**. Selezionare l'account batch privato a cui si vuole accedere, quindi selezionare **Avanti: configurazione**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Creare un endpoint privato-riquadro delle risorse":::
 7. Nel riquadro **configurazione** immettere o selezionare queste informazioni:
-   - **Rete virtuale** : selezionare la rete virtuale.
-   - **Subnet** : selezionare la subnet.
-   - Eseguire l' **integrazione con la zona DNS privata** : selezionare **Sì**. Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali.
-   - **Zona DNS privato** : selezionare \<region\> privatelink. batch.azure.com. La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.
-8. Selezionare **Verifica + crea** , quindi attendere che Azure convalidi la configurazione.
-9. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
+   - **Rete virtuale**: selezionare la rete virtuale.
+   - **Subnet**: selezionare la subnet.
+   - Eseguire l' **integrazione con la zona DNS privata**: selezionare **Sì**. Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali.
+   - **Zona DNS privato**: selezionare \<region\> privatelink. batch.azure.com. La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.
+8. Selezionare **Verifica + crea**, quindi attendere che Azure convalidi la configurazione.
+9. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
 
 Dopo il provisioning dell'endpoint privato, è possibile accedere all'account batch dalle macchine virtuali nella stessa rete virtuale usando l'endpoint privato.
 

@@ -1,18 +1,18 @@
 ---
 title: Panoramica dell'esempio di progetto Azure Security Benchmark
 description: Panoramica dell'esempio di progetto Azure Security Benchmark. Questo esempio di progetto consente ai clienti di valutare specifici controlli.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: 38a50970999965b6a86b8ce8882006c169f2dc5a
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057587"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919240"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Esempio di progetto Azure Security Benchmark
 
-L'esempio di progetto Azure Security Benchmark fornisce misure di tutela per la governance tramite [Criteri di Azure](../../policy/overview.md) che consentono di valutare specifici controlli di [Azure Security Benchmark](../../../security/benchmarks/overview.md). Il progetto aiuta i clienti a distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che deve implementare i controlli di Azure Security Benchmark.
+L'esempio Azure Security benchmark Blueprint fornisce Guard di governance tramite [criteri di Azure](../../policy/overview.md) che consentono di valutare i controlli specifici di benchmark di [sicurezza di Azure V1](../../../security/benchmarks/overview.md) . Il progetto aiuta i clienti a distribuire un set di base di criteri per qualsiasi architettura distribuita in Azure che deve implementare i controlli di Azure Security Benchmark.
 
 ## <a name="control-mapping"></a>Mapping dei controlli
 
@@ -37,7 +37,7 @@ Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nel
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
-1. Trovare l'esempio di progetto **Azure Security Benchmark** in _Altri esempi_ e fare clic sul nome per selezionarlo.
+1. Trovare l'esempio **Azure Security benchmark V1** Blueprint in _altri esempi_ e selezionare il nome per selezionare questo esempio.
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 

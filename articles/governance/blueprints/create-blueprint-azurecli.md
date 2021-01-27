@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Creare un progetto con l'interfaccia della riga di comando di Azure"
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'interfaccia della riga di comando di Azure.
-ms.date: 01/26/2021
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: a0e44925bdec78b8b02a50c8b3f91db0bb764976
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/27/2021
-ms.locfileid: "98875212"
+ms.locfileid: "98920241"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'interfaccia della riga di comando di Azure
 
@@ -167,6 +167,9 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
         --parameters artifacts\policyTags.json
      ```
 
+     > [!NOTE]
+     > Quando si usa `az blueprint` su un Mac, sostituire `\` con `/` per i valori dei parametri che includono il percorso. In questo caso, il valore per i **parametri** diventa `artifacts/policyTags.json` .
+
 1. Aggiungere un'altra assegnazione di criteri per il tag di archiviazione (riutilizzando il parametro _storageAccountType_) nella sottoscrizione. Questo elemento di assegnazione di criteri aggiuntivo indica che un parametro definito nel progetto può essere usato da più di un elemento. Nell'esempio **storageAccountType** viene usato per impostare un tag nel gruppo di risorse. Questo valore fornisce informazioni sull'account di archiviazione che verrà creato nel passaggio successivo. Questo esempio usa il criterio predefinito _Applica tag e relativo valore predefinito ai gruppi di risorse_ con GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - File JSON - artifacts\policyStorageTags.json
@@ -193,6 +196,9 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
         --description 'Apply storage tag and the parameter also used by the template to resource groups' \
         --parameters artifacts\policyStorageTags.json
      ```
+
+     > [!NOTE]
+     > Quando si usa `az blueprint` su un Mac, sostituire `\` con `/` per i valori dei parametri che includono il percorso. In questo caso, il valore per i **parametri** diventa `artifacts/policyStorageTags.json` .
 
 1. Aggiungere un modello nel gruppo di risorse. Il parametro **template** per un modello di Resource Manager include i normali componenti JSON del modello. Il modello riusa inoltre i parametri di progetto **storageAccountType**, **tagName** e **tagValue** passando ciascun parametro al modello. I parametri del progetto sono disponibili nel modello usando il parametro **parameters** e all'interno del file JSON del modello in cui viene usata questa coppia chiave-valore per inserire il valore. I nomi dei parametri del progetto e del modello possono essere gli stessi.
 
@@ -276,6 +282,9 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
         --parameters artifacts\templateStorageParams.json \
         --resource-group-art 'storageRG'
      ```
+
+     > [!NOTE]
+     > Quando si usa `az blueprint` su un Mac, sostituire `\` con `/` per i valori dei parametri che includono il percorso. In questo caso, il valore per il **modello** diventa `artifacts/templateStorage.json` e i **parametri** diventano `artifacts/templateStorageParams.json` .
 
 1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse. Analogamente all'immissione dell'assegnazione di ruolo precedente, l'esempio seguente usa l'identificatore della definizione per il ruolo **Proprietario** e fornisce un parametro diverso del progetto. Questo esempio usa il ruolo predefinito _Proprietario_ con GUID `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 

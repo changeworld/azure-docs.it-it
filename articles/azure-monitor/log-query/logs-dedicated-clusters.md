@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: a5cbbed3881433121f5ab811082969bc3c6c4f7f
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98609945"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920224"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -25,9 +25,6 @@ Le funzionalità che richiedono cluster dedicati sono:
 - Più **[aree di lavoro](../log-query/cross-workspace-query.md)** : se un cliente usa più di un'area di lavoro per la produzione, potrebbe avere senso usare un cluster dedicato. Le query tra aree di lavoro verranno eseguite più velocemente se tutte le aree di lavoro si trovano nello stesso cluster. Potrebbe anche essere più conveniente usare un cluster dedicato, poiché i livelli di prenotazione di capacità assegnati prendono in considerazione tutti gli inserimenti del cluster e si applicano a tutte le aree di lavoro, anche se alcune di esse sono di piccole dimensioni e non sono idonee per lo sconto sulla prenotazione della capacità.
 
 I cluster dedicati richiedono ai clienti di eseguire il commit usando una capacità di almeno 1 TB di inserimento dati al giorno. La migrazione a un cluster dedicato è semplice. Non si verificano perdite di dati o interruzioni del servizio. 
-
-> [!IMPORTANT]
-> I cluster dedicati sono approvati e supportati completamente per le distribuzioni di produzione. Tuttavia, a causa dei vincoli temporanei di capacità, per usare la funzionalità è necessario eseguire la registrazione preliminare. Usare i contatti in Microsoft per fornire gli ID delle sottoscrizioni.
 
 ## <a name="management"></a>Gestione 
 
@@ -89,7 +86,7 @@ Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiu
 
 L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
 
-### <a name="create"></a>Create 
+### <a name="create"></a>Crea 
 
 **PowerShell**
 

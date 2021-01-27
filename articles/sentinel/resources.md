@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2019
+ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2465cf74dbf4fbf074aed8f8e4097a236e628425
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660645"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920021"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
@@ -28,7 +28,7 @@ ms.locfileid: "94660645"
 
 Questo articolo elenca le risorse che consentono di ottenere altre informazioni sull'uso di Azure Sentinel.
 
-Connettori per app per la logica di Azure: <https://docs.microsoft.com/connectors/>
+- **Connettori per app** per la logica di Azure: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Controllo e creazione di report
@@ -86,10 +86,25 @@ Le operazioni supportate seguenti possono essere controllate.
 
 ## <a name="blogs-and-forums"></a>Blog e forum
 
-Inserire le domande nello [spazio TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) per Azure Sentinel.
+Ci piace sentire dagli utenti.
 
-Visualizza i post di Blog di Azure Sentinel da [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) e [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+- **Inserire le domande** nello [spazio TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) per Azure Sentinel. 
+
+- **Inviare suggerimenti per i miglioramenti** tramite il programma [vocale dell'utente](https://feedback.azure.com/forums/920458-azure-sentinel) .
+
+- **Visualizzare e commentare** i post di Blog di Azure Sentinel:
+
+    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
+    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
+
+Per altre informazioni sulla sicurezza e sulla conformità di Azure, vedere il [Blog sulla sicurezza e conformità di Microsoft Azure](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato ottenuto un elenco di risorse utili quando si lavora con Sentinel di Azure. Per informazioni aggiuntive sulla sicurezza e la conformità di Azure, vedere il [Blog sulla Microsoft Azure sicurezza e conformità](/archive/blogs/azuresecurity/).
+
+> [!div class="nextstepaction"]
+> [Ottieni la certificazione](/learn/paths/security-ops-sentinel/)
+
+> [!div class="nextstepaction"]
+> [Leggere le storie del caso d'uso dei clienti](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
+

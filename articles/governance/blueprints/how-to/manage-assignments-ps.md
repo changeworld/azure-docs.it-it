@@ -1,14 +1,14 @@
 ---
 title: Come gestire le assegnazioni con PowerShell
 description: Informazioni su come gestire le assegnazioni di progetto con il modulo di PowerShell ufficiale di Azure Blueprints, AZ. Blueprint.
-ms.date: 08/27/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bcb3731bd1270497945fa86406d08b2f9750c85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d60fb887e07b4697b8e86a4e2fd74a735ac0bb58
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051407"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919377"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Come gestire le assegnazioni con PowerShell
 
@@ -164,11 +164,11 @@ Se l'assegnazione del progetto non esiste ancora, è possibile crearla con il `N
   - Se non viene fornito un parametro del gruppo di risorse e non è presente alcun valore **DefaultValue**, il parametro del gruppo di risorse non è facoltativo
 - **AssignmentFile** (facoltativo)
   - Percorso di una rappresentazione di un file JSON di un'assegnazione di progetto
-  - Questo parametro fa parte di un set di parametri PowerShell che include solo **nome**, **progetto**e **SubscriptionId**, oltre ai parametri comuni.
+  - Questo parametro fa parte di un set di parametri PowerShell che include solo **nome**, **progetto** e **SubscriptionId**, oltre ai parametri comuni.
 
 ### <a name="example-1-provide-parameters"></a>Esempio 1: specificare i parametri
 
-Nell'esempio seguente viene creata una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint` , viene impostato il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', vengono bloccate le risorse con _AllResourcesReadOnly_e vengono impostate le tabelle hash per il **parametro** e per **ResourceGroupParameter** in una sottoscrizione specifica rappresentata come `{subId}` :
+Nell'esempio seguente viene creata una nuova assegnazione della versione ' 1,1' della definizione di progetto ' My-Blueprint ' recuperata con `Get-AzBlueprint` , viene impostato il percorso dell'oggetto di assegnazione e dell'identità gestita su' westus2', vengono bloccate le risorse con _AllResourcesReadOnly_ e vengono impostate le tabelle hash per il **parametro** e per **ResourceGroupParameter** in una sottoscrizione specifica rappresentata come `{subId}` :
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -250,7 +250,7 @@ Per un esempio del file di definizione dell'assegnazione JSON per un'identità g
 
 ## <a name="update-blueprint-assignments"></a>Aggiornare le assegnazioni di progetto
 
-A volte è necessario aggiornare un'assegnazione di progetto già creata. Tramite il `Set-AzBlueprintAssignment` cmdlet viene gestita questa azione. Il cmdlet accetta la maggior parte degli stessi parametri del `New-AzBlueprintAssignment` cmdlet, consentendo l'aggiornamento di qualsiasi elemento impostato sull'assegnazione. Le eccezioni sono il _nome_, il _progetto_e _SubscriptionId_. Vengono aggiornati solo i valori specificati.
+A volte è necessario aggiornare un'assegnazione di progetto già creata. Tramite il `Set-AzBlueprintAssignment` cmdlet viene gestita questa azione. Il cmdlet accetta la maggior parte degli stessi parametri del `New-AzBlueprintAssignment` cmdlet, consentendo l'aggiornamento di qualsiasi elemento impostato sull'assegnazione. Le eccezioni sono il _nome_, il _progetto_ e _SubscriptionId_. Vengono aggiornati solo i valori specificati.
 
 Per comprendere cosa accade quando si aggiorna un'assegnazione di progetto, vedere [regole per l'aggiornamento delle assegnazioni](./update-existing-assignments.md#rules-for-updating-assignments).
 

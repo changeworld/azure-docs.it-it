@@ -3,13 +3,13 @@ title: Abilitare la crittografia basata su host in Azure Kubernetes Service (AKS
 description: Informazioni su come configurare una crittografia basata su host in un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
-ms.openlocfilehash: 531d1dc4169b5f4adecfb29c3e116049cb99c3c9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/27/2021
+ms.openlocfilehash: 1d071305b457cddde56a11982e08c9331e1d5463
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787825"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919649"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Crittografia basata su host in Azure Kubernetes Service (AKS) (anteprima)
 
@@ -25,7 +25,7 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.55 o versione successiva
+- Assicurarsi che sia `aks-preview` installata l'estensione CLI v 0.4.73 o versione successiva
 - Assicurarsi che sia stato `EnableEncryptionAtHostPreview` abilitato il flag funzionalità `Microsoft.ContainerService` .
 
 Per poter usare la crittografia nell'host per le VM o i set di scalabilità di macchine virtuali, è necessario abilitare la funzionalità nella sottoscrizione. Inviare un messaggio di posta elettronica a encryptionAtHost@microsoft.com con gli ID sottoscrizione per abilitare la funzionalità per le sottoscrizioni.
@@ -35,18 +35,18 @@ Per poter usare la crittografia nell'host per le VM o i set di scalabilità di m
 > [!IMPORTANT]
 > encryptionAtHost@microsoftPer ottenere la funzionalità abilitata per le risorse di calcolo, è necessario inviare tramite posta elettronica. com gli ID sottoscrizione. Non è possibile abilitarlo per queste risorse. È possibile abilitarlo autonomamente nel servizio contenitore.
 
-Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare `EnableEncryptionAtHostPreview` i `EncryptionAtHost` flag della funzionalità e nella sottoscrizione.
+Per creare un cluster AKS che usa la crittografia basata su host, è necessario abilitare il `EncryptionAtHost` flag funzionalità per la sottoscrizione.
 
 Registrare il `EncryptionAtHost` flag feature usando il comando [AZ feature Register][az-feature-register] , come illustrato nell'esempio seguente:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHost"
 ```
 
 Sono necessari alcuni minuti per visualizzare lo stato *Registered*. È possibile controllare lo stato di registrazione usando il comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHost')].{Name:name,State:properties.state}"
 ```
 
 Quando si è pronti, aggiornare la registrazione `Microsoft.ContainerService` dei `Microsoft.Compute` provider di risorse e usando il comando [AZ provider Register][az-provider-register] :
@@ -80,7 +80,7 @@ az extension update --name aks-preview
 Configurare i nodi dell'agente cluster per utilizzare la crittografia basata su host quando viene creato il cluster. Usare il `--aks-custom-headers` flag per impostare l' `EnableEncryptionAtHost` intestazione.
 
 ```azurecli-interactive
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Se si desidera creare cluster senza crittografia basata su host, è possibile omettere il `--aks-custom-headers` parametro personalizzato.
@@ -90,7 +90,7 @@ Se si desidera creare cluster senza crittografia basata su host, è possibile om
 È possibile abilitare la crittografia basata su host nei cluster esistenti aggiungendo un nuovo pool di nodi al cluster. Configurare un nuovo pool di nodi per usare la crittografia basata su host usando il `--aks-custom-headers` flag.
 
 ```azurecli
-az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers EnableEncryptionAtHost=true
+az aks nodepool add --name hostencrypt --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS2_v2 -l westus2 --aks-custom-headers --enable-encryption-at-host
 ```
 
 Se si desidera creare nuovi pool di nodi senza la funzionalità di crittografia basata su host, è possibile omettere il `--aks-custom-headers` parametro personalizzato.

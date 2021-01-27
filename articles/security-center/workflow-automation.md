@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 674ba1cf03f48eb1c746b115d981740b5b938aab
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900840"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919528"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizzare le risposte ai trigger del Centro sicurezza
 
@@ -26,9 +26,9 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Disponibile a livello generale|
+|Stato della versione:|Disponibilità generale (GA)|
 |Prezzi:|Livello gratuito|
-|Autorizzazioni e ruoli obbligatori:|**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](../role-based-access-control/built-in-roles.md#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica *run* . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](../role-based-access-control/built-in-roles.md#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
+|Autorizzazioni e ruoli obbligatori:|**Ruolo** o **proprietario** amministratore della sicurezza nel gruppo di risorse<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione<br><br>Per usare i flussi di lavoro di app per la logica di Azure, è necessario disporre anche dei seguenti ruoli/autorizzazioni per le app per la logica:<br> - Le autorizzazioni dell'operatore per l'app per la [logica](../role-based-access-control/built-in-roles.md#logic-app-operator) sono obbligatorie o l'accesso in lettura/attivazione dell'app per la logica  . questo ruolo non può creare o modificare app per la logica.<br> - Per la creazione e la modifica delle app per la logica sono necessarie le autorizzazioni di [collaboratore](../role-based-access-control/built-in-roles.md#logic-app-contributor)<br>Se si vogliono usare i connettori delle app per la logica, potrebbero essere necessarie credenziali aggiuntive per accedere ai rispettivi servizi (ad esempio, le istanze di Outlook/teams/Slack)|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
 |||
 
@@ -36,24 +36,24 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Creare un'app per la logica e definire quando deve essere eseguita automaticamente 
 
-1. Dall'intestazione laterale del Centro sicurezza selezionare **automazione del flusso di lavoro** .
+1. Dall'intestazione laterale del Centro sicurezza selezionare **automazione del flusso di lavoro**.
 
     :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="Elenco di automazione del flusso di lavoro":::
 
     Da questa pagina è possibile creare nuove regole di automazione, nonché abilitare, disabilitare o eliminare quelle esistenti.
 
-1. Per definire un nuovo flusso di lavoro, fare clic su **Aggiungi automazione del flusso di lavoro** . 
+1. Per definire un nuovo flusso di lavoro, fare clic su **Aggiungi automazione del flusso di lavoro**. 
 
     Viene visualizzato un riquadro con le opzioni per la nuova automazione. Qui è possibile immettere:
     1. Un nome e una descrizione per l'automazione.
     1. Trigger che avvierà questo flusso di lavoro automatico. Ad esempio, potrebbe essere necessario che l'app per la logica venga eseguita quando viene generato un avviso di sicurezza che contiene "SQL".
 
         > [!NOTE]
-        > Se il trigger è una raccomandazione con "raccomandazioni secondarie", ad esempio i **Risultati della valutazione della vulnerabilità nei database SQL devono essere corretti** , l'app per la logica non verrà attivata per ogni nuova ricerca di sicurezza. viene modificato solo quando lo stato della raccomandazione padre viene modificato.
+        > Se il trigger è una raccomandazione con "raccomandazioni secondarie", ad esempio i **Risultati della valutazione della vulnerabilità nei database SQL devono essere corretti**, l'app per la logica non verrà attivata per ogni nuova ricerca di sicurezza. viene modificato solo quando lo stato della raccomandazione padre viene modificato.
 
     1. App per la logica che verrà eseguita quando vengono soddisfatte le condizioni del trigger. 
 
-        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Elenco di automazione del flusso di lavoro":::
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Riquadro Aggiungi automazione flussi di lavoro":::
 
 1. Nella sezione azioni fare clic su **Crea nuovo** per avviare il processo di creazione dell'app per la logica.
 
@@ -61,7 +61,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 
     [![Creazione di una nuova app per la logica](media/workflow-automation/logic-apps-create-new.png)](media/workflow-automation/logic-apps-create-new.png#lightbox)
 
-1. Immettere un nome, un gruppo di risorse e un percorso e fare clic su **Crea** .
+1. Immettere un nome, un gruppo di risorse e un percorso e fare clic su **Crea**.
 
 1. Nella nuova app per la logica è possibile scegliere tra i modelli predefiniti predefiniti della categoria sicurezza. In alternativa, è possibile definire un flusso personalizzato di eventi che si verificano quando viene attivato questo processo.
 
@@ -116,11 +116,11 @@ Per implementare questi criteri:
     > [!TIP]
     > È anche possibile trovarli cercando criteri di Azure:
     > 1. Aprire Criteri di Azure.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Elenco di automazione del flusso di lavoro":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accesso a criteri di Azure":::
     > 2. Dal menu criteri di Azure selezionare **definizioni** e cercarle in base al nome. 
 
-1. Nella pagina Criteri di Azure pertinente selezionare **assegna** .
-    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Elenco di automazione del flusso di lavoro":::
+1. Nella pagina Criteri di Azure pertinente selezionare **assegna**.
+    :::image type="content" source="./media/workflow-automation/export-policy-assign.png" alt-text="Assegnazione dei criteri di Azure":::
 
 1. Aprire ogni scheda e impostare i parametri nel modo desiderato:
     1. Nella scheda **nozioni di base** impostare l'ambito per il criterio. Per utilizzare la gestione centralizzata, assegnare il criterio al gruppo di gestione contenente le sottoscrizioni che utilizzeranno la configurazione di automazione del flusso di lavoro. 
@@ -129,11 +129,11 @@ Per implementare questi criteri:
         > Ogni parametro presenta una descrizione comando che illustra le opzioni disponibili.
         >
         > La scheda parametri di criteri di Azure (1) consente di accedere a opzioni di configurazione simili come pagina di automazione del flusso di lavoro del Centro sicurezza (2).
-        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Elenco di automazione del flusso di lavoro" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
+        > :::image type="content" source="./media/workflow-automation/azure-policy-next-to-workflow-automation.png" alt-text="Confronto dei parametri in automazione del flusso di lavoro con criteri di Azure" lightbox="./media/workflow-automation/azure-policy-next-to-workflow-automation.png":::
 
     1. Facoltativamente, per applicare questa assegnazione alle sottoscrizioni esistenti, aprire la scheda **monitoraggio e aggiornamento** e selezionare l'opzione per creare un'attività di correzione.
 
-1. Esaminare la pagina Riepilogo e selezionare **Crea** .
+1. Esaminare la pagina Riepilogo e selezionare **Crea**.
 
 
 ## <a name="data-types-schemas"></a>Schemi dei tipi di dati
@@ -155,7 +155,7 @@ Altre informazioni sulla [continuità aziendale e il ripristino di emergenza per
 
 In questo articolo si è appreso come creare app per la logica, automatizzare l'esecuzione nel centro sicurezza ed eseguirle manualmente. 
 
-Per materiale correlato, vedere: 
+Per informazioni correlate, vedere: 
 
 - [Il modulo Microsoft Learn su come usare l'automazione dei flussi di lavoro per automatizzare una risposta di sicurezza](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 01/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3e64b0af455ab1f84653093b26654530ee3dfab
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 95fe70c774b933113c94125d227976e32a9e353f
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232778"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919630"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -26,7 +26,7 @@ Azure AD criteri per le condizioni per l'utilizzo forniscono un metodo semplice 
 
 ## <a name="overview-videos"></a>Panoramica video
 
-Il video seguente offre una rapida panoramica delle condizioni per l'utilizzo dei criteri.
+Il video seguente offre una rapida panoramica dei criteri di ToU.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
@@ -183,7 +183,7 @@ Per iniziare a usare i log di controllo di Azure AD, seguire questa procedura:
 
 ## <a name="what-terms-of-use-looks-like-for-users"></a>Quali sono le condizioni per l'utilizzo per gli utenti
 
-Dopo la creazione e l'applicazione di criteri di condizioni per l'utilizzo, gli utenti, che rientrano nell'ambito, visualizzeranno la schermata seguente durante l'accesso.
+Dopo la creazione e l'applicazione di criteri ToU, gli utenti, che rientrano nell'ambito, visualizzeranno la schermata seguente durante l'accesso.
 
 ![Condizioni d'uso di esempio visualizzate quando un utente accede](./media/terms-of-use/user-tou.png)
 
@@ -191,7 +191,7 @@ Gli utenti possono visualizzare le condizioni per l'utilizzo dei criteri e, se n
 
 ![Visualizzazione delle condizioni per l'utilizzo con i pulsanti zoom](./media/terms-of-use/zoom-buttons.png)
 
-La schermata seguente mostra il modo in cui i criteri di utilizzo vengono esaminati nei dispositivi mobili.
+La schermata seguente illustra il modo in cui un criterio ToU Cerca i dispositivi mobili.
 
 ![Condizioni d'uso di esempio visualizzate quando un utente accede a un dispositivo mobile](./media/terms-of-use/mobile-tou.png)
 
@@ -226,7 +226,7 @@ Gli utenti possono esaminare e vedere le condizioni per l'utilizzo dei criteri a
     - Anteprima È possibile **aggiornare un documento sulle condizioni per l'utilizzo esistente**
     - È possibile aggiungere una lingua a una ToU esistente
 
-   Se sono presenti altre impostazioni che si desidera modificare, ad esempio il documento PDF, richiedere agli utenti di fornire il consenso su ogni dispositivo, scadenza dei consensi, durata prima della riaccettazione o criteri di accesso condizionale, è necessario creare un nuovo criterio di condizioni per l'utilizzo.
+   Se sono presenti altre impostazioni che si desidera modificare, ad esempio il documento PDF, richiedere agli utenti di fornire il consenso su ogni dispositivo, scadenza dei consensi, durata prima della riaccettazione o criteri di accesso condizionale, è necessario creare un nuovo criterio ToU.
 
     ![Modificare la visualizzazione di opzioni di lingua diverse ](./media/terms-of-use/edit-terms-use.png)
 
@@ -249,7 +249,7 @@ Gli utenti possono esaminare e vedere le condizioni per l'utilizzo dei criteri a
 7.  Dopo aver caricato il nuovo PDF e aver deciso di riaccettarlo, fare clic su Aggiungi nella parte inferiore del riquadro.
 8.  Verrà ora visualizzata la versione più recente sotto la colonna documento.
 
-## <a name="view-previous-versions-of-a-terms-of-use"></a>Visualizzare le versioni precedenti di condizioni per l'utilizzo
+## <a name="view-previous-versions-of-a-tou"></a>Visualizzare le versioni precedenti di una ToU
 
 1.  Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo https://aka.ms/catou.
 2.  Selezionare i criteri per le condizioni per l'utilizzo per i quali si desidera visualizzare la cronologia delle versioni.
@@ -269,9 +269,9 @@ Gli utenti possono esaminare e vedere le condizioni per l'utilizzo dei criteri a
 5.  In alternativa, è possibile selezionare una versione specifica dall'elenco a discesa **versione**  per vedere chi ha accettato la versione specifica.
 
 
-## <a name="add-a-terms-of-use-language"></a>Aggiungere una lingua per le condizioni per l'utilizzo
+## <a name="add-a-tou-language"></a>Aggiungi un linguaggio ToU
 
-Nella procedura riportata di seguito viene descritto come aggiungere un linguaggio di condizioni per l'utilizzo.
+Nella procedura riportata di seguito viene descritto come aggiungere un linguaggio ToU.
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [https://aka.ms/catou](https://aka.ms/catou).
 1. Selezionare le condizioni per l'utilizzo che si desidera modificare.
@@ -282,7 +282,7 @@ Nella procedura riportata di seguito viene descritto come aggiungere un linguagg
     ![Condizioni per l'utilizzo selezionata e visualizzata la scheda lingue nel riquadro dei dettagli](./media/terms-of-use/select-language.png)
 
 1. Fare clic su **Aggiungi lingua**.
-1. Fare clic su **Salva**
+1. Fare clic su **Save** (Salva).
 
 1. Fare clic su **Aggiungi** per aggiungere la lingua.
 
@@ -344,9 +344,13 @@ Se un utente sta usando un browser che non è supportato, si dovrà usare un bro
 
    Non è più possibile visualizzare i criteri delle condizioni per l'utilizzo.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Utenti eliminati e condizioni per l'utilizzo attive
+## <a name="user-acceptance-record-deletion"></a>Eliminazione del record di accettazione utente
 
-Per impostazione predefinita, un utente eliminato rimane comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario. Dopo 30 giorni l'utente verrà eliminato definitivamente. Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](../fundamentals/active-directory-users-restore.md) prima della scadenza di tale periodo. Una volta che un utente è stato eliminato definitivamente, i dati successivi relativi a tale utente verranno rimossi dal criterio attivo per le condizioni di utilizzo. Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
+I record di accettazione utente vengono eliminati:
+
+- Quando l'amministratore Elimina in modo esplicito le condizioni. In tal caso, vengono eliminati anche tutti i record di accettazione associati a determinate condizioni.
+- Quando il tenant perde la licenza Azure Active Directory Premium.
+- Quando il tenant viene eliminato.
 
 ## <a name="policy-changes"></a>Modifiche dei criteri
 

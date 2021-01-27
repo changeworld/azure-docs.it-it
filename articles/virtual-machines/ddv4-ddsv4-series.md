@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 6367a3c3e6a946068498c92456ba42cd3c7c4bdd
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 34aea2849289b8e33b4ec3d785363dc62cc70391
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042627"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919876"
 ---
 # <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 e Ddsv4
 
@@ -34,6 +34,7 @@ Le nuove dimensioni delle macchine virtuali Ddv4 prevedono una risorsa di archiv
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br> 
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | <sup>**</sup> Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
@@ -63,6 +64,7 @@ Le nuove dimensioni delle macchine virtuali Ddsv4 prevedono una risorsa di archi
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
+[Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
 <br> 
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | <sup>**</sup> Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |

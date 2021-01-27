@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 5b91d6e58f4ae93bbf020f202991f878e7773114
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222956"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98919953"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creare una macchina virtuale Linux con rete accelerata usando l'interfaccia della riga di comando di Azure
 
@@ -56,11 +56,9 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
-La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
+La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU. Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. 
 
-Nelle istanze che supportano l'hyperthreading, la Rete accelerata è supportata nelle istanze di macchine virtuali con 4 o più vCPU. Le serie supportate sono: D/Dsv3, D/Dsv4, GG/Ddv4, da/Dasv4, E/Esv3, E/Esv4, ed/Edsv4, EA/Easv4, Fsv2, Lsv2, MS/MMS e MS/Mmsv2.
-
-Per altre informazioni sulle istanze di VM, vedere [Dimensioni per le macchine virtuali Linux](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Il supporto per la rete accelerata è disponibile nella documentazione relativa alle dimensioni delle singole [macchine virtuali](../virtual-machines/sizes.md) . 
 
 ### <a name="custom-images"></a>Immagini personalizzate
 Se si usa un'immagine personalizzata e l'immagine supporta la rete accelerata, assicurarsi di avere i driver necessari per lavorare con le schede NIC Mellanox ConnectX-3 e ConnectX-4 LX in Azure.

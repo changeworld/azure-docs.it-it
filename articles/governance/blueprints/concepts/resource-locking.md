@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
-ms.date: 10/05/2020
+ms.date: 01/27/2021
 ms.topic: conceptual
-ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2004ad294ae0eec1b4f2fc6f49308efd32d652e
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996101"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920191"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -24,7 +24,7 @@ Le modalità di blocco, tuttavia, non possono essere modificate all'esterno dei 
 
 Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati: **non bloccato**, di **sola lettura**, **non è possibile modificare/eliminare** o **eliminare**. Ciascun tipo di artefatto può essere in stato **Non bloccato**. La tabella seguente può essere usata per determinare lo stato di una risorsa:
 
-|Mode|Tipo di risorsa artefatto|State|Descrizione|
+|Modalità|Tipo di risorsa artefatto|State|Descrizione|
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette dai progetti di Azure. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
@@ -107,7 +107,7 @@ Un'azione di negazione delle [assegnazioni](../../../role-based-access-control/d
 
 Le [proprietà di assegnazione Deny](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) di ogni modalità sono le seguenti:
 
-|Mode |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
+|Modalità |Autorizzazioni. azioni |Permissions. notacts |Entità [i]. Tipo |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |Sola lettura |**\** _ |_ *\* /Read **<br />** Microsoft. Authorization/Locks/Delete **<br />** Microsoft. Network/virtualNetwork/Subnets/join/Action** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |
 |Non eliminare |**\*/Delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft. Network/virtualNetwork/Subnets/join/Action** |SystemDefined (Everyone) |assegnazione di progetto e definito dall'utente in **excludedPrincipals** |Gruppo di risorse- _true_; Risorsa- _false_ |

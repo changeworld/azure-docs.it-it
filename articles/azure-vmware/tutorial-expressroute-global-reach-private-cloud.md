@@ -2,13 +2,13 @@
 title: Esercitazione - Associare gli ambienti locali a un cloud privato
 description: Informazioni su come creare il peering di Copertura globale ExpressRoute a un cloud privato in una soluzione Azure VMware.
 ms.topic: tutorial
-ms.date: 1/5/2021
-ms.openlocfilehash: 613aece6ed548f70840349e017de4416883d6cf3
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
-ms.translationtype: HT
+ms.date: 01/27/2021
+ms.openlocfilehash: e7b1e349f67fe63f63183c0ff6d1522498c65f8c
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913159"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98918722"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Esercitazione: Associare gli ambienti locali a un cloud privato
 
@@ -33,7 +33,7 @@ Prima di abilitare la connettività tra due circuiti ExpressRoute usando Copertu
 - Connettività stabilita verso e da un cloud privato della soluzione Azure VMware con peering del circuito ExpressRoute con un gateway ExpressRoute in una rete virtuale di Azure, ovvero _circuito 2_ delle procedure di peering.  
 - Un circuito ExpressRoute separato e funzionante usato per connettere gli ambienti locali ad Azure, ovvero il _circuito 1_ dal punto di vista delle procedure di peering.
 - Un [blocco di indirizzi di rete](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) non sovrapposti /29 per il peering Copertura globale ExpressRoute.
-- Assicurarsi che tutti i router che includono il servizio del provider ExpressRoute supportino il numero sistema autonomo (ASN) a 4 byte. La soluzione Azure VMware usa numeri ASN pubblici a 4 byte per annunciare le route.
+- Assicurarsi che tutti i gateway, incluso il servizio del provider ExpressRoute, supportino il numero di sistema autonomo (ASN) a 4 byte. La soluzione VMware di Azure usa ASN pubblici a 4 byte per le route pubblicitarie.
 
 > [!TIP]
 > Nel contesto di questi prerequisiti, il circuito ExpressRoute locale è _circuito 1_ e il circuito ExpressRoute del cloud privato si trova in una sottoscrizione diversa ed è contrassegnato come _circuito 2_. 

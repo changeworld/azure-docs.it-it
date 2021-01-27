@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come configurare un'attività del Reg
 ms.topic: tutorial
 ms.date: 11/20/2020
 ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 50eb89ccfafa27a7dcb0e97f21d14feec0ef9525
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
-ms.translationtype: HT
+ms.openlocfilehash: ce06e792fd5a4582e77d18313052ea91a38121a8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030443"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920208"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Esercitazione: Automatizzare le compilazioni di immagini dei contenitori quando viene aggiornata un'immagine di base in un altro registro contenitori privato 
 
@@ -91,7 +91,7 @@ az acr task create \
     --registry $ACR_NAME \
     --name baseexample2 \
     --image helloworld:{{.Run.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT \
     --arg REGISTRY_NAME=$BASE_ACR.azurecr.io \

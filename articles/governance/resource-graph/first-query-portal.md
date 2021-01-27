@@ -1,14 +1,14 @@
 ---
 title: 'Avvio rapido: Prima query nel portale'
 description: Questa guida di avvio rapido illustra la procedura per eseguire la prima query dal portale di Azure usando Azure Resource Graph Explorer.
-ms.date: 10/14/2020
+ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: b5f5203b3842ebc3edbd97bca1ca3c101f47e397
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
-ms.translationtype: HT
+ms.openlocfilehash: cb62a1ae3a29a7aae793fcee6fd896fe0260dc10
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057383"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98920099"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Avvio rapido: Eseguire la prima query di Resource Graph con Azure Resource Graph Explorer
 
@@ -94,7 +94,7 @@ Per trovare esempi di query di Resource Graph e informazioni su come usare Resou
 
 - [Resource Graph Explorer - Dashboard di esempio n. 2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Immagine di esempio per il dashboard di esempio n. 1" lightbox="./media/arge-sample2-large.png":::
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Immagine di esempio per il dashboard di esempio n. 2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > I conteggi e i grafici negli screenshot di dashboard di esempio precedenti variano a seconda dell'ambiente di Azure.
