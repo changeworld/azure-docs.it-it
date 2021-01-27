@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 01/12/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: a6ee4c08a7ecf9bcfcbc9cf6f630efe126248e9f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185707"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871554"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -118,7 +118,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `output_data` . `input_data`È un'istanza di [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e `output_data` è un'istanza di [OutputFileDatasetConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true). Per `OutputFileDatasetConfig` il comportamento predefinito, è necessario copiare l'output nell' `workspaceblobstore` archivio dati sotto il percorso `/dataset/{run-id}/{output-name}` , dove `run-id` è l'ID dell'esecuzione ed `output-name` è un valore generato automaticamente se non specificato dallo sviluppatore.
+Il frammento inizia con gli oggetti Azure Machine Learning comuni, un oggetto, un oggetto `Workspace` `Datastore` , un [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py)e un oggetto `Experiment` . Quindi, il codice crea gli oggetti da conservare `input_data` e `output_data` . `input_data`È un'istanza di [filedataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `output_data` è un'istanza di [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Per `OutputFileDatasetConfig` il comportamento predefinito, è necessario copiare l'output nell' `workspaceblobstore` archivio dati sotto il percorso `/dataset/{run-id}/{output-name}` , dove `run-id` è l'ID dell'esecuzione ed `output-name` è un valore generato automaticamente se non specificato dallo sviluppatore.
 
 La matrice `steps` include un singolo elemento, un oggetto che utilizzerà `PythonScriptStep` gli oggetti dati e viene eseguito su `compute_target` . Quindi, il codice crea un'istanza dell' `Pipeline` oggetto stesso, passando l'area di lavoro e la matrice Steps. La chiamata a `experiment.submit(pipeline)` Avvia l'esecuzione della pipeline di Azure ml. La chiamata a `wait_for_completion()` viene bloccata fino al termine della pipeline. 
 
@@ -149,7 +149,7 @@ I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine 
 
 Azure Machine Learning pipeline sono una potente funzionalità che inizia a produrre valore nelle prime fasi di sviluppo. Il valore aumenta man mano che il team e il progetto crescono. Questo articolo ha illustrato come vengono specificate le pipeline con il Azure Machine Learning Python SDK e orchestrato in Azure. È stato illustrato un codice sorgente semplice ed è stato introdotto un numero ridotto di `PipelineStep` classi disponibili. È necessario avere un'idea di quando usare le pipeline Azure Machine Learning e il modo in cui vengono eseguite da Azure. 
 
-+ Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md).
++ Informazioni su come [creare la prima pipeline](./how-to-create-machine-learning-pipelines.md).
 
 + Informazioni su come [eseguire stime batch su dati di grandi dimensioni](tutorial-pipeline-batch-scoring-classification.md ).
 

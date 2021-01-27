@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca2a844364d11dbb5ac2a244945e07d8ca725c1c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 944e687c27d46a9cf3250cb21024b4e5a52dc62c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728441"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98871520"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -137,7 +137,7 @@ Si consiglia di configurare e convalidare una soluzione HADR completa e la proge
         - Testare e valutare la latenza di rete tra le macchine virtuali del livello applicazione SAP e le VM DBMS in base alle note di supporto SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Valutare i risultati in base alle indicazioni sulla latenza di rete nella [Nota del supporto SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latenza di rete deve essere nell'intervallo moderato o valido. Le eccezioni si applicano al traffico tra le macchine virtuali e le unità di istanze large di HANA, come descritto in [questo articolo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
         - Assicurarsi che le distribuzioni di ILB siano configurate per l'uso di Direct Server Return. Questa impostazione consente di ridurre la latenza quando Azure gli ILB viene usato per le configurazioni a disponibilità elevata nel livello DBMS.
         - Se si usa Azure Load Balancer insieme ai sistemi operativi guest Linux, verificare che il parametro di rete Linux **net.IPv4.tcp_timestamps** sia impostato su **0**. Questa raccomandazione è in conflitto con le raccomandazioni nelle versioni precedenti di [SAP nota #2382421](https://launchpad.support.sap.com/#/notes/2382421). La nota SAP è ora aggiornata per indicare che questo parametro deve essere impostato su **0** per funzionare con i bilanciamenti del carico di Azure.
-        - Per ottenere una latenza di rete ottimale, provare a usare i [gruppi di posizionamento prossimità di Azure](../../linux/co-location.md) Per altre informazioni, vedere [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+        - Per ottenere una latenza di rete ottimale, provare a usare i [gruppi di posizionamento prossimità di Azure](../../co-location.md) Per altre informazioni, vedere [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
    4. Distribuzioni a disponibilità elevata e di ripristino di emergenza.
         - Se si distribuisce il livello applicazione SAP senza definire una zona di disponibilità di Azure specifica, assicurarsi che tutte le macchine virtuali che eseguono istanze di finestra di dialogo SAP o istanze middleware di un singolo sistema SAP vengano distribuite in un [set di disponibilità](../../manage-availability.md).
         - Se non è necessaria la disponibilità elevata per i servizi SAP Central e DBMS, è possibile distribuire queste macchine virtuali nello stesso set di disponibilità del livello applicazione SAP.
@@ -209,7 +209,7 @@ Durante questa fase, in genere si distribuiscono sistemi di sviluppo, sistemi di
 8.  Visitare [il sito Web SAP per i](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) nuovi SKU con certificazione Hana in Azure. Confrontare i prezzi dei nuovi SKU con quelli pianificati per l'uso. Apportare infine le modifiche necessarie per usare quelle con il miglior rapporto prezzo/prestazioni.
 9.  Adattare gli script di distribuzione per usare nuovi tipi di VM e incorporare le nuove funzionalità di Azure che si vuole usare.
 10. Dopo la distribuzione dell'infrastruttura, testare e valutare la latenza di rete tra le macchine virtuali del livello applicazione SAP e le macchine virtuali DBMS, in base alle note di supporto SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Valutare i risultati in base alle indicazioni sulla latenza di rete nella [Nota del supporto SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latenza di rete deve essere nell'intervallo moderato o valido. Le eccezioni si applicano al traffico tra le macchine virtuali e le unità di istanze large di HANA, come descritto in [questo articolo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance). Assicurarsi che nessuna delle restrizioni indicate in [considerazioni relative alla distribuzione DBMS di macchine virtuali di Azure per carichi di lavoro SAP](./dbms_guide_general.md#azure-network-considerations) e alle [configurazioni e alle operazioni dell'infrastruttura SAP Hana in Azure](./hana-vm-operations.md) si applichi alla propria distribuzione.
-11. Assicurarsi che le macchine virtuali vengano distribuite al [gruppo di posizionamento di prossimità di Azure](../../linux/co-location.md)corretto, come descritto in [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+11. Assicurarsi che le macchine virtuali vengano distribuite al [gruppo di posizionamento di prossimità di Azure](../../co-location.md)corretto, come descritto in [gruppi di posizionamento di prossimità di Azure per la latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
 11. Eseguire tutti gli altri controlli elencati per la fase di prova prima di applicare il carico di lavoro.
 12. Con l'applicazione del carico di lavoro, registrare il consumo di risorse dei sistemi in Azure. Confrontare questo consumo con i record della piattaforma precedente. Modificare il dimensionamento delle VM per le distribuzioni future se si riscontrano notevoli differenze. Tenere presente che, quando si riducono le dimensioni, lo spazio di archiviazione e le larghezze di banda di rete delle macchine virtuali.
     - [Dimensioni per le macchine virtuali Windows in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -251,7 +251,7 @@ In questa fase, raccogliere le informazioni acquisite e apprese durante le distr
     - Nessuna [appliance virtuale di rete di Azure](https://azure.microsoft.com/solutions/network-appliances/) si trova nel percorso di comunicazione tra l'applicazione SAP e il livello DBMS dei sistemi SAP basati su SAP NetWeaver, hybris o S/4HANA.
     - Il gruppo di sicurezza delle applicazioni e le regole del gruppo di sicurezza di rete consentono la comunicazione come desiderato e pianificato e bloccano la comunicazione laddove necessario
     - Le impostazioni di timeout sono impostate correttamente, come descritto in precedenza.
-    - Le VM vengono distribuite nel [gruppo di posizionamento di prossimità di Azure](../../linux/co-location.md)corretto, come descritto in [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
+    - Le VM vengono distribuite nel [gruppo di posizionamento di prossimità di Azure](../../co-location.md)corretto, come descritto in [gruppi di posizionamento di prossimità di Azure per una latenza di rete ottimale con le applicazioni SAP](sap-proximity-placement-scenarios.md).
     - La latenza di rete tra VM a livello di applicazione SAP e VM DBMS viene testata e convalidata come descritto nelle note di supporto SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) e [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Valutare i risultati in base alle indicazioni sulla latenza di rete nella [Nota del supporto SAP #1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latenza di rete deve essere nell'intervallo moderato o valido. Le eccezioni si applicano al traffico tra le macchine virtuali e le unità di istanze large di HANA, come descritto in [questo articolo](./hana-network-architecture.md#networking-architecture-for-hana-large-instance).
     - La crittografia è stata implementata laddove necessario e con il metodo di crittografia appropriato.
     - Le interfacce e altre applicazioni possono connettere la nuova infrastruttura distribuita.

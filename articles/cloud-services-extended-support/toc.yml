@@ -16,8 +16,10 @@
       href: deploy-powershell.md
     - name: Distribuire un servizio cloud-modello
       href: deploy-template.md
+    - name: Distribuire un servizio cloud-SDK
+      href: deploy-sdk.md
     - name: Distribuire un servizio cloud-Visual Studio
-      href: deploy-visual-studio.md
+      href: 'https://docs.microsoft.com/visualstudio/azure/cloud-services-extended-support?context=/azure/cloud-services-extended-support/context/context'
   expanded: true
 - name: Concetti
   items:
@@ -26,11 +28,11 @@
     - name: Dimensioni delle macchine virtuali disponibili
       href: available-sizes.md
     - name: Patch per il sistema operativo guest
-      href: ../cloud-services/cloud-services-guestos-msrc-releases.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+      href: ../cloud-services/cloud-services-guestos-msrc-releases.md?context=/azure/cloud-services-extended-support/context/context
     - name: Ritiro del sistema operativo guest
-      href: ../cloud-services/cloud-services-guestos-retirement-policy.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+      href: ../cloud-services/cloud-services-guestos-retirement-policy.md?context=/azure/cloud-services-extended-support/context/context
     - name: Novità sulle versioni del sistema operativo guest
-      href: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+      href: ../cloud-services/cloud-services-guestos-update-matrix.md?context=/azure/cloud-services-extended-support/context/context
     - name: XML Schema
       items:
         - name: XML Schema csdef
@@ -65,13 +67,15 @@
       href: certificates-and-key-vault.md
 - name: Esempi
   items:
+    - name: Modelli di esempio
+      href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
     - name: creare un nuovo servizio cloud
       href: sample-create-cloud-service.md
     - name: Ottenere i dettagli del servizio cloud
       href: sample-get-cloud-service.md
     - name: Reimpostare un servizio cloud
       href: sample-reset-cloud-service.md
-- name: Informazioni di riferimento
+- name: Riferimento
   items:
     - name: File di distribuzione di esempio
       href: 'https://github.com/Azure-Samples/cloud-services-extended-support'
@@ -83,6 +87,8 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.compute/cloudservices'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/compute/cloudservices'
+    - name: .NET
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet-preview'
     - name: SDK
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
 - name: Risorse
