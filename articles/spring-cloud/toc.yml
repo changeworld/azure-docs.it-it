@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Avvii rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Avviare la prima app
@@ -33,8 +33,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Usare l'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
-    - name: Distribuire Azure Spring Cloud nella rete virtuale
-      href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
     - name: Usare l'identità gestita per richiamare Funzioni di Azure da un'app di Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concetti
@@ -101,6 +99,18 @@
           href: spring-cloud-howto-application-insights.md
         - name: Metriche dell'interruttore in Resilience4J
           href: spring-cloud-howto-circuit-breaker-metrics.md
+    - name: Rete
+      items:
+        - name: Distribuire il cloud Spring di Azure in una rete virtuale
+          href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+        - name: Accedere all'applicazione in una rete privata
+          href: spring-cloud-access-app-virtual-network.md
+        - name: Esporre le applicazioni a Internet
+          href: spring-cloud-expose-apps-gateway-azure-firewall.md
+        - name: Responsabilità dei clienti che eseguono Azure Spring cloud in VNET
+          href: spring-cloud-vnet-customer-responsibilities.md
+        - name: Risoluzione dei problemi relativi al cloud Spring di Azure nelle reti virtuali
+          href: spring-cloud-troubleshooting-vnet.md
     - name: Sicurezza
       items:
         - name: Abilitare l'identità gestita assegnata dal sistema
@@ -140,7 +150,7 @@
         - name: Spring Boot
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
-          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
+          href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
 - name: Distribuzione di DevOps
   items:
     - name: CI/CD con DevOps di Azure

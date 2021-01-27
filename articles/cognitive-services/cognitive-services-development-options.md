@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a952bfa45515b9d35549d03d18fd94103679344d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349470"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873570"
 ---
 # <a name="cognitive-services-development-options"></a>Opzioni di sviluppo per Servizi cognitivi
 
@@ -122,10 +122,10 @@ Con l'avanzamento del processo di creazione di un'applicazione o di un flusso di
 
 Gli strumenti usati per il training e la configurazione dei modelli sono diversi da quelli che verranno usati per chiamare i servizi cognitivi. In molti casi, i servizi cognitivi che supportano la personalizzazione forniscono i portali e gli strumenti dell'interfaccia utente progettati per eseguire il training, la valutazione e la distribuzione di modelli. Verranno ora esaminate brevemente alcune opzioni:<br><br>
 
-| Concetto fondamentale | Service | Interfaccia utente di personalizzazione | Avvio rapido |
+| Concetto fondamentale | Servizio | Interfaccia utente di personalizzazione | Avvio rapido |
 |--------|---------|------------------|------------|
 | Visione | Visione personalizzata | https://www.customvision.ai/ | [Guida introduttiva](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Visione | Riconoscimento modulo | Strumento di etichettatura campioni | [Guida introduttiva](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Visione | Riconoscimento modulo | [Strumento di etichettatura campioni](https://fott-preview.azurewebsites.net/) | [Guida introduttiva](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
 | Decisione | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Guida introduttiva](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decisione | Advisor metriche | https://metricsadvisor.azurewebsites.net/  | [Guida introduttiva](./metrics-advisor/quickstarts/web-portal.md) |
 | Decisione | Personalizza esperienze | L'interfaccia utente è disponibile nella portale di Azure nella risorsa di personalizzazione. | [Guida introduttiva](./personalizer/quickstart-personalizer-sdk.md) |

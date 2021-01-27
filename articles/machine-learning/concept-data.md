@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 8b73676adbb9aa12e6f3b42dd26bed94b22780a8
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539884"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872010"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -101,8 +101,8 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
      + [esperimenti di Machine Learning automatici](how-to-use-automated-ml-for-ml-models.md)
      + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data)
      + [Notebook](how-to-train-with-datasets.md)
-     + [Pipeline di Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](./tutorial-pipeline-batch-scoring-classification.md) nelle [pipeline di Machine Learning](how-to-create-your-first-pipeline.md).
+     + [Pipeline di Azure Machine Learning](./how-to-create-machine-learning-pipelines.md)
++ Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](./tutorial-pipeline-batch-scoring-classification.md) nelle [pipeline di Machine Learning](./how-to-create-machine-learning-pipelines.md).
 + Configurare un monitoraggio del set di [dati](#drift) per il rilevamento della deriva.
 
 <a name="label"></a>

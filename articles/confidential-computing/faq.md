@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 38bf12b46002e767bba50cf833637e2c8ace078f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564107"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872333"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Domande frequenti su Confidential computing di Azure
 
@@ -37,13 +37,21 @@ No. Le macchine virtuali possono essere distribuite solo in computer operativi d
 **Le macchine virtuali DCsv2 sono disabilitate nel portale e non è possibile selezionarne una**
 
 Nella finestra informativa accanto alla macchina virtuale sono disponibili diverse azioni da eseguire:
-   -    **UnsupportedGeneration** : Modificare la generazione dell'immagine della macchina virtuale in "Gen2".
-   -    **NotAvailableForSubscription** : L'area non è ancora disponibile per la sottoscrizione. Selezionare un'area disponibile.
-   -    **InsufficientQuota** : [Creare una richiesta di supporto per aumentare la quota](../azure-portal/supportability/per-vm-quota-requests.md). Le sottoscrizioni della versione di prova gratuita non prevedono alcuna quota per le macchine virtuali di confidential computing. 
+   -    **UnsupportedGeneration**: Modificare la generazione dell'immagine della macchina virtuale in "Gen2".
+   -    **NotAvailableForSubscription**: L'area non è ancora disponibile per la sottoscrizione. Selezionare un'area disponibile.
+   -    **InsufficientQuota**: [Creare una richiesta di supporto per aumentare la quota](../azure-portal/supportability/per-vm-quota-requests.md). Le sottoscrizioni della versione di prova gratuita non prevedono alcuna quota per le macchine virtuali di confidential computing. 
 
 **Le macchine virtuali DCsv2 non vengono visualizzate quando si tenta di cercarle nel selettore delle dimensioni del portale**
 
 Assicurarsi di aver selezionato un'[area disponibile](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines). Assicurarsi di selezionare anche "Cancella tutti i filtri" nel selettore delle dimensioni. 
+
+**È possibile abilitare la rete accelerata con Azure Confidential computing?**
+
+ No. La rete accelerata non è supportata nelle macchine virtuali DC-Series o DCsv2-Series. Non è possibile abilitare la rete accelerata per la distribuzione di macchine virtuali di elaborazione riservata o per la distribuzione di cluster di servizi Kubernetes di Azure in esecuzione in un computer riservato.
+
+**È possibile usare l'host dedicato di Azure con questi computer?**
+
+Sì. Host dedicato di Azure supporta macchine virtuali serie DCsv2. Host dedicato di Azure fornisce un server fisico a tenant singolo per l'esecuzione delle macchine virtuali. Gli utenti in genere usano host dedicato di Azure per soddisfare i requisiti di conformità per la sicurezza fisica, l'integrità dei dati e il monitoraggio. 
 
 **Si verifica un errore di distribuzione del modello di Azure Resource Manager: "Non è stato possibile completare l'operazione perché comporta il superamento della quota standard approvata di core della famiglia DcsV2"**
 

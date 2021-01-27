@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 817f9a88bd3536e9c0ec8a1057098e6b4a96716e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: a3ed7979584787627c97cfec3bb2e19c147f7152
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98676358"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872664"
 ---
 # <a name="discover-connect-and-explore-data-in-synapse-using-azure-purview"></a>Individuare, connettere ed esplorare i dati in sinapsi usando Azure 
 
@@ -32,6 +32,8 @@ Per usare la competenza Azure in sinapsi è necessario avere accesso a tale acco
 ### <a name="data-discovery-search-datasets"></a>Individuazione dati: Cerca set di dati 
 
 Per individuare i dati registrati e analizzati da Azure, è possibile usare la barra di ricerca in alto al centro dell'area di lavoro sinapsi. Assicurarsi di selezionare competenza Azure per cercare tutti i dati dell'organizzazione. 
+
+[![Cercare asset di Azure per competenza](./media/purview-access.png)](./media/purview-access.png#lightbox)
 
 ## <a name="azure-purview-actions"></a>Azioni di competenza di Azure 
 

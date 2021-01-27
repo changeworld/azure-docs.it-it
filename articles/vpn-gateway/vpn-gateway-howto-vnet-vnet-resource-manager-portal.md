@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: fe0280e302882fd5e50830950b531ea9ca169618
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 465d877da48e0d7027dbba6615302af32c6bb154
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660543"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98872401"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurare una connessione gateway VPN da rete virtuale a rete virtuale con il portale di Azure
 
@@ -23,7 +23,7 @@ Questo articolo illustra come connettere reti virtuali usando il tipo di conness
 I passaggi illustrati in questo articolo si applicano al modello di distribuzione Azure Resource Manager e usano il portale di Azure. È possibile creare questa configurazione con un diverso modello o strumento di distribuzione usando le opzioni descritte negli articoli seguenti:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -44,7 +44,7 @@ Quando si crea una connessione da rete virtuale a rete virtuale, lo spazio indir
 
 ### <a name="site-to-site-ipsec"></a>Da sito a sito (IPsec)
 
-Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettere le reti virtuali usando invece una [connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Con la procedura di connessione IPsec da sito a sito, i gateway di rete locali vengono creati e configurati manualmente. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Tale procedura consente di specificare spazi indirizzi aggiuntivi per il routing del traffico con il gateway di rete locale. In caso di modifica dello spazio indirizzi per una rete virtuale, è necessario aggiornare manualmente il gateway di rete locale corrispondente.
+Se si usa una configurazione di rete complessa, potrebbe essere preferibile connettere le reti virtuali usando invece una [connessione da sito a sito](./tutorial-site-to-site-portal.md). Con la procedura di connessione IPsec da sito a sito, i gateway di rete locali vengono creati e configurati manualmente. Il gateway di rete locale per ogni rete virtuale considera l'altra rete virtuale come sito locale. Tale procedura consente di specificare spazi indirizzi aggiuntivi per il routing del traffico con il gateway di rete locale. In caso di modifica dello spazio indirizzi per una rete virtuale, è necessario aggiornare manualmente il gateway di rete locale corrispondente.
 
 ### <a name="vnet-peering"></a>Peering reti virtuali
 
@@ -76,7 +76,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
 * **Impostazioni della rete virtuale**
   * **Nome**: VNet1
   * **Spazio degli indirizzi**: 10.1.0.0/16
-  * **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
+  * **Sottoscrizione**: selezionare la sottoscrizione da usare.
   * **Gruppo di risorse**: TestRG1
   * **Località**: Stati Uniti orientali
   * **Subnet**
@@ -95,7 +95,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
   * **Indirizzo IP pubblico**: Crea nuovo
   * **Nome dell'indirizzo IP pubblico**: VNet1GWpip
 
-* **Connessione**
+* **Connection**
   * **Nome**: VNet1toVNet4
   * **Chiave condivisa**: è possibile creare manualmente la chiave condivisa. Quando si crea la connessione tra le reti virtuali, i valori devono corrispondere. Per questo esercizio, usare abc123.
 
@@ -104,7 +104,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
 * **Impostazioni della rete virtuale**
   * **Nome**: VNet4
   * **Spazio di indirizzi**: 10.41.0.0/16
-  * **Sottoscrizione**: selezionare la sottoscrizione che si vuole usare.
+  * **Sottoscrizione**: selezionare la sottoscrizione da usare.
   * **Gruppo di risorse**: TestRG4
   * **Località**: Stati Uniti occidentali
   * **Subnet**
@@ -123,7 +123,7 @@ Questo articolo illustra come connettere reti virtuali con il tipo di connession
   * **Indirizzo IP pubblico**: Crea nuovo
   * **Nome dell'indirizzo IP pubblico**: VNet4GWpip
 
-* **Connessione**
+* **Connection**
   * **Nome**: VNet4toVNet1
   * **Chiave condivisa**: è possibile creare manualmente la chiave condivisa. Quando si crea la connessione tra le reti virtuali, i valori devono corrispondere. Per questo esercizio, usare abc123.
 
@@ -200,7 +200,7 @@ Successivamente, creare una connessione da VNet4 a VNet1. Nel portale individuar
 
 ## <a name="add-additional-connections"></a>Aggiungere altre connessioni
 
-Per aggiungere altre connessioni, passare al gateway di rete virtuale da cui si vuole creare la connessione e quindi selezionare **Connessioni**. È possibile creare un'altra connessione da rete virtuale a rete virtuale o creare una connessione IPsec da sito a sito in un percorso locale. Assicurarsi di impostare **Tipo di connessione** in modo che corrisponda al tipo di connessione che si vuole creare. Prima di creare connessioni aggiuntive, verificare che lo spazio indirizzi della rete virtuale non si sovrapponga agli spazi indirizzi a cui ci si vuole connettere. Per la procedura per a una connessione da sito a sito, vedere [Creare una connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Per aggiungere altre connessioni, passare al gateway di rete virtuale da cui si vuole creare la connessione e quindi selezionare **Connessioni**. È possibile creare un'altra connessione da rete virtuale a rete virtuale o creare una connessione IPsec da sito a sito in un percorso locale. Assicurarsi di impostare **Tipo di connessione** in modo che corrisponda al tipo di connessione che si vuole creare. Prima di creare connessioni aggiuntive, verificare che lo spazio indirizzi della rete virtuale non si sovrapponga agli spazi indirizzi a cui ci si vuole connettere. Per la procedura per a una connessione da sito a sito, vedere [Creare una connessione da sito a sito](./tutorial-site-to-site-portal.md).
 
 ## <a name="vnet-to-vnet-faq"></a>Domande frequenti relative alla connessione di reti virtuali
 

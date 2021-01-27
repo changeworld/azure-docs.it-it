@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a0f17df13b5b101aebf585b7f1f3fb2a5b48006
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 992115a65ec015ca04990135975e0d4020764184
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746054"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98873774"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso di Azure per ospitare ed eseguire scenari di carico di lavoro SAP
 
@@ -48,7 +48,7 @@ In caso di domande specifiche, in questa sezione della pagina iniziale verrà fa
 - Sono supportati i frame a disponibilità elevata di terze parti, oltre a Windows e pacemaker supportati? Controllare la parte inferiore della [Nota di supporto SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)
 - Quale archiviazione di Azure è migliore per lo scenario? Leggere [i tipi di archiviazione di Azure per carichi di lavoro SAP](./planning-guide-storage.md)
 - Il kernel Red Hat in Oracle Enterprise Linux è supportato da SAP? Leggi la [Nota di supporto](https://launchpad.support.sap.com/#/notes/1565179) sap SAP #1565179
-- Perché le famiglie di macchine virtuali di Azure [da V4](https://docs.microsoft.com/azure/virtual-machines/dav4-dasv4-series)(s) / [](https://docs.microsoft.com/azure/virtual-machines/eav4-easv4-series) non sono certificate per SAP Hana? Le famiglie di macchine virtuali das/EAS di Azure sono basate su hardware AMD basato su processore. SAP HANA non supporta i processori AMD, non anche negli scenari virtualizzati
+- Perché le famiglie di macchine virtuali di Azure [da V4](../../dav4-dasv4-series.md)(s) / [](../../eav4-easv4-series.md) non sono certificate per SAP Hana? Le famiglie di macchine virtuali das/EAS di Azure sono basate su hardware AMD basato su processore. SAP HANA non supporta i processori AMD, non anche negli scenari virtualizzati
 - Perché ricevo ancora il messaggio: "i flag CPU per l'istruzione RDTSCP (o i flag CPU per constant_tsc o nonstop_tsc non sono impostati o current_clocksource e available_clocksource non sono configurati correttamente" con SAP HANA, nonostante il fatto che eseguo i kernel Linux più recenti. Per la risposta, controllare la [Nota di supporto SAP #2791572](https://launchpad.support.sap.com/#/notes/2791572)
 - Dove è possibile trovare le architetture per la distribuzione di SAP fiori in Azure? Consultare il Blog [SAP in Azure: installazione del gateway applicazione Web Application Firewall (WAF) V2 per le app SAP fiori con connessione Internet](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/) 
 
@@ -84,14 +84,14 @@ In questa sezione vengono illustrati i documenti sull'integrazione di Microsoft 
 
 ## <a name="change-log"></a>Registro delle modifiche
 
-- 01/23/2021: introduce la funzionalità del partizionamento del volume di dati HANA come funzionalità per eseguire lo striping delle operazioni di I/O sui file di dati HANA in diversi dischi di Azure o condivisioni NFS senza usare un volume Disk Manager negli articoli [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) e i [volumi NFS v 4.1 Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
-- 01/18/2021: è stato aggiunto il supporto per NFS per Oracle in macchine virtuali di Azure per il [carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle) e per la regolazione dei numeri decimali nella tabella in Document [NFS v 4.1 volumes in Azure NetApp files per SAP Hana](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
+- 01/23/2021: introduce la funzionalità del partizionamento del volume di dati HANA come funzionalità per eseguire lo striping delle operazioni di I/O sui file di dati HANA in diversi dischi di Azure o condivisioni NFS senza usare un volume Disk Manager negli articoli [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) e i [volumi NFS v 4.1 Azure NetApp files per SAP Hana](./hana-vm-operations-netapp.md)
+- 01/18/2021: è stato aggiunto il supporto per NFS per Oracle in macchine virtuali di Azure per il [carico di lavoro SAP](./dbms_guide_oracle.md) e per la regolazione dei numeri decimali nella tabella in Document [NFS v 4.1 volumes in Azure NetApp files per SAP Hana](./hana-vm-operations-netapp.md)
 - 01/11/2021: modifiche minime in [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL per le applicazioni SAP](./high-availability-guide-rhel.md), [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL con e](./high-availability-guide-rhel-netapp-files.md) e [disponibilità elevata per SAP NW in macchine virtuali di Azure in RHEL guida](./high-availability-guide-rhel-multi-sid.md) a più SID per modificare i comandi da usare sia per RHEL8 che per RHEL7 e ENSA1 e ENSA2
 - 01/05/2021: modifiche apportate all' [SAP Hana con scalabilità orizzontale con il nodo standby in macchine virtuali di Azure con e in SLES](./sap-hana-scale-out-standby-netapp-files-suse.md) e [SAP Hana con scalabilità orizzontale con nodo standby in macchine virtuali di Azure con e in RHEL](./sap-hana-scale-out-standby-netapp-files-rhel.md), modificando la configurazione consigliata per consentire all'agente host SAP di gestire l'intervallo di porte locali  
-- 01/04/2021: aggiungere nuove aree di Azure supportate da HLI in informazioni [sulle SAP Hana in Azure (istanze large)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- 12/29/2020: aggiungere consigli sull'architettura per aree di Azure specifiche nelle [configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones)
+- 01/04/2021: aggiungere nuove aree di Azure supportate da HLI in informazioni [sulle SAP Hana in Azure (istanze large)](./hana-overview-architecture.md)
+- 12/29/2020: aggiungere consigli sull'architettura per aree di Azure specifiche nelle [configurazioni del carico di lavoro SAP con zone di disponibilità di Azure](./sap-ha-availability-zones.md)
 - 12/21/2020: aggiungere nuove certificazioni a SKU di istanze large di HANA in [SKU disponibili per HLI](./hana-available-skus.md)
-- 12/12/2020: aggiunto il puntatore alla nota SAP per chiarire i dettagli sul supporto di Oracle Enterprise Linux da SAP in merito al [software SAP supportato per le distribuzioni di Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#oracle-dbms-support)
+- 12/12/2020: aggiunto il puntatore alla nota SAP per chiarire i dettagli sul supporto di Oracle Enterprise Linux da SAP in merito al [software SAP supportato per le distribuzioni di Azure](./sap-supported-product-on-azure.md#oracle-dbms-support)
 - 11/26/2020: adattare [SAP Hana le configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) e [i tipi di archiviazione di Azure per il carico di lavoro SAP](./planning-guide-storage.md) per modificare i [contratti](https://azure.microsoft.com/support/legal/sla/virtual-machines) di
 - 11/05/2020: modifica del collegamento alla nuova nota SAP relativa ai tipi di file system supportati da HANA in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md) 
 - 10/26/2020: modifica di alcune tabelle per la configurazione di archiviazione Premium di Azure per chiarire il provisioning e la velocità effettiva in [SAP Hana configurazioni di archiviazione delle macchine virtuali di Azure](./hana-vm-operations-storage.md)
