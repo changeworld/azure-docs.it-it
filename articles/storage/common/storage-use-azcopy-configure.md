@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 23c62562299768afb5f5d87bbcf4f7b19b3235ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 1a319c728b918dbad7dd5f240bc7a0bfeb0c4c09
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97897859"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881045"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurare, ottimizzare e risolvere i problemi di AzCopy
 
@@ -22,7 +22,7 @@ AzCopy è un'utilità della riga di comando che è possibile usare per copiare i
 > [!NOTE]
 > Se si sta cercando contenuto per iniziare a usare AzCopy, vedere gli articoli seguenti:
 > - [Introduzione ad AzCopy](storage-use-azcopy-v10.md)
-> - [Trasferire dati con AzCopy e l'archivio BLOB](storage-use-azcopy-blobs.md)
+> - [Trasferire dati con AzCopy e l'archivio BLOB](./storage-use-azcopy-v10.md#transfer-data)
 > - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 > - [Trasferire dati con AzCopy e bucket Amazon S3](storage-use-azcopy-s3.md)
 
@@ -220,5 +220,3 @@ I livelli di log disponibili sono:,,, `NONE` `DEBUG` `INFO` `WARNING` , `ERROR` 
 Se si desidera rimuovere tutti i piani e i file di log dal computer locale per risparmiare spazio su disco, utilizzare il `azcopy jobs clean` comando.
 
 Per rimuovere il piano e i file di log associati a un solo processo, utilizzare `azcopy jobs rm <job-id>` . Sostituire il `<job-id>` segnaposto in questo esempio con l'ID processo del processo.
-
-

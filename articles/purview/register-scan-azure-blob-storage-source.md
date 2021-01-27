@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 9fc5c115486c7cbf84fc0bd98ff7996c674f2e24
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: b27b46c68d018d2ddf79d284b20cc05b51640891
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97694812"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880642"
 ---
 # <a name="register-and-scan-azure-blob-storage"></a>Registrare e analizzare Archiviazione BLOB di Azure
 
@@ -45,7 +45,7 @@ Quando si sceglie **identità gestita**, per configurare la connessione, è prim
 1. Impostare il **ruolo** su **lettore dati BLOB di archiviazione** e immettere il nome dell'account Azure per la competenza in **Seleziona** casella di input. Quindi selezionare **Salva** per fornire questa assegnazione di ruolo all'account Purview.
 
 > [!Note]
-> Per altri dettagli, vedere la procedura in [autorizzare l'accesso a BLOB e code usando Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+> Per altri dettagli, vedere la procedura in [autorizzare l'accesso a BLOB e code usando Azure Active Directory](../storage/common/storage-auth-aad.md)
 
 ### <a name="account-key"></a>Chiave account
 

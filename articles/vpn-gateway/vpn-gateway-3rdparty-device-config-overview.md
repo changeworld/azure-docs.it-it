@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 01ceb067f589ef04b04ff0bf05e2971ee30f407c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400161"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880153"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
 L'articolo offre una panoramica della configurazione di dispositivi VPN locali per la connessione ai gateway VPN di Azure. Viene usata una configurazione di rete virtuale e di gateway VPN di Azure di esempio per mostrare come connettersi a diverse configurazioni di dispositivi VPN locali usando gli stessi parametri.
@@ -27,7 +27,7 @@ La prima configurazione dell'esempio consiste in un singolo tunnel per VPN S2S t
 
 ![Diagramma di un singolo tunnel per VPN S2S](./media/vpn-gateway-3rdparty-device-config-overview/singletunnel.png)
 
-Per istruzioni dettagliate su come configurare un singolo tunnel per VPN, vedere [Creare una connessione da sito a sito](vpn-gateway-howto-site-to-site-resource-manager-portal.md). Le sezioni seguenti specificano i parametri di connessione per la configurazione di esempio e includono uno script di PowerShell per iniziare.
+Per istruzioni dettagliate su come configurare un singolo tunnel per VPN, vedere [Creare una connessione da sito a sito](./tutorial-site-to-site-portal.md). Le sezioni seguenti specificano i parametri di connessione per la configurazione di esempio e includono uno script di PowerShell per iniziare.
 
 ### <a name="connection-parameters"></a>Parametri di connessione
 Questa sezione elenca i parametri per gli esempi descritti nelle sezioni precedenti.
@@ -150,4 +150,3 @@ Quando si crea la connessione VPN S2S, è facoltativamente possibile usare il pr
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate su come configurare i gateway VPN di tipo attivo/attivo, vedere [Configurazione di gateway VPN di tipo attivo/attivo per connessioni cross-premise e da rete virtuale a rete virtuale](vpn-gateway-activeactive-rm-powershell.md).
-

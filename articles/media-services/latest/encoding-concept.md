@@ -1,6 +1,5 @@
 ---
 title: Codifica di video e audio con servizi multimediali
-titleSuffix: Azure Media Services
 description: Questo articolo spiega come codificare video e audio con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 8533c99011232385e31f4e698743bbb1c6c00bc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159336d3e8949739cb00dbe66ed82fa90256dcfd
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300205"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897901"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codifica di video e audio con servizi multimediali
 
@@ -57,7 +56,7 @@ A partire da gennaio 2019, quando si esegue la codifica con il codificatore stan
 
 Quando si inviano processi per elaborare i video, è necessario indicare a servizi multimediali dove trovare il video di input. Una delle opzioni consiste nel specificare un URL HTTPS come input del processo. Attualmente, servizi multimediali V3 non supporta la codifica di trasferimento Chunked sugli URL HTTPS.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 * [Codificare da un URL HTTPS con .NET](stream-files-dotnet-quickstart.md)
 * [Codificare da un URL HTTPS con REST](stream-files-tutorial-with-rest.md)
@@ -68,7 +67,7 @@ Quando si inviano processi per elaborare i video, è necessario indicare a servi
 
 È possibile archiviare il video di input come asset di Servizi multimediali, nel qual caso si crea un asset di input basato su un file archiviato in locale o nel servizio di Archiviazione BLOB di Azure.
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 [Codificare un file locale usando i set di impostazioni predefiniti](job-input-from-local-file-how-to.md)
 
@@ -81,7 +80,7 @@ Quando si codifica un video, è possibile specificare di tagliare o ritagliare a
 > [!TIP]
 > Se si vuole eseguire lo streaming di un sublip del video senza ricodificare il video, è consigliabile usare i [manifesti di pre-filtro con Dynamic Packager](filters-dynamic-manifest-overview.md).
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Ecco alcuni esempi:
 
@@ -130,7 +129,7 @@ Quando si creano set di impostazioni personalizzati, si applicano le considerazi
 
 Servizi multimediali supporta in modo completo la personalizzazione di tutti i valori nei set di impostazioni per soddisfare le esigenze e i requisiti di codifica specifici. Per esempi che illustrano come personalizzare i set di impostazioni del codificatore, vedere l'elenco seguente:
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 - [Personalizzare i set di impostazioni con .NET](customize-encoder-presets-how-to.md)
 - [Personalizzare le impostazioni predefinite con l'interfaccia della riga di comando](custom-preset-cli-howto.md)

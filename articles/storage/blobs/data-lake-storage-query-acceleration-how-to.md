@@ -9,12 +9,12 @@ ms.date: 01/06/2021
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: cc63a9787a3611f28e6466564735d029bf65b757
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0340ab0a13d7c639d5e5bba49b3cdd445bad5a83
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968399"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879882"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtrare i dati tramite Azure Data Lake Storage accelerazione query
 
@@ -51,7 +51,7 @@ L'accelerazione delle query consente alle applicazioni e ai Framework di analisi
 
   [Python](https://www.python.org/downloads/) 3,8 o versione successiva.
 
-  ### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+  ### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
   Non sono previsti prerequisiti aggiuntivi per l'uso di Node.js SDK.
 
@@ -221,7 +221,7 @@ Installare la libreria client di Azure Data Lake Storage per Python usando [PIP]
 pip install azure-storage-blob==12.4.0
 ```
 
-#### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+#### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Installare Data Lake libreria client per JavaScript aprendo una finestra del terminale e digitando il comando seguente.
 
@@ -286,7 +286,7 @@ import sys, csv
 from azure.storage.blob import BlobServiceClient, ContainerClient, BlobClient, DelimitedTextDialect, BlobQueryError
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Includere il `storage-blob` modulo inserendo questa istruzione all'inizio del file di codice. 
 
@@ -435,9 +435,9 @@ def dump_query_csv(blob: BlobClient, query: str, headers: bool):
         print("*".join(row))
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-Questo esempio Invia la query all'API di accelerazione della query e quindi trasmette i risultati. L' `blob` oggetto passato nella `queryHemingway` funzione helper è di tipo [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient). Per ulteriori informazioni su come ottenere un oggetto [BlockBlobClient](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient) , vedere [Guida introduttiva: gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
+Questo esempio Invia la query all'API di accelerazione della query e quindi trasmette i risultati. L' `blob` oggetto passato nella `queryHemingway` funzione helper è di tipo [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient). Per ulteriori informazioni su come ottenere un oggetto [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , vedere [Guida introduttiva: gestire i BLOB con JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ```javascript
 async function queryHemingway(blob)
@@ -526,7 +526,7 @@ def query_bibnum(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 async function queryBibNum(blob)
@@ -597,7 +597,7 @@ def query_dvds(blob: BlobClient):
     dump_query_csv(blob, query, True)
 ```
 
-### <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+### <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 ```javascript
 async function queryDvds(blob)

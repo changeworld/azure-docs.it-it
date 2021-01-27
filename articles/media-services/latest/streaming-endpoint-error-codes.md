@@ -1,5 +1,5 @@
 ---
-title: Errori di creazione e creazione di pacchetti di servizi multimediali di Azure | Microsoft Docs
+title: Errori di creazione e creazione di pacchetti di servizi multimediali di Azure
 description: Questo argomento descrive gli errori che possono essere ricevuti dal servizio Azure Media Services streaming endpoint (Orgin).
 author: IngridAtMicrosoft
 manager: femila
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 05/07/2019
 ms.author: inhenkel
-ms.openlocfilehash: 8442c52052a2016da002d392c6fe0834b3813229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 994e5ae0647f350e0a64f35318bd5803f4ed79b2
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295326"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98894984"
 ---
 # <a name="streaming-endpoint-origin-errors"></a>Errori dell'endpoint di streaming (Origine)
 

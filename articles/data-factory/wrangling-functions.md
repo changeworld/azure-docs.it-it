@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: a88f9fab2b10271aa7856a6d0b5ee114f46cfb49
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98634139"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896664"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>Funzioni di trasformazione in Power Query per data wrangling
 
@@ -24,7 +24,7 @@ La creazione di dati in Azure Data Factory consente di eseguire la preparazione 
 
 Attualmente non tutte le funzioni Power Query M sono supportate per data wrangling nonostante siano disponibili durante la creazione. Durante la creazione di mash-up, viene visualizzato il messaggio di errore seguente se una funzione non è supportata:
 
-`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
+`UserQuery : Expression.Error: The transformation logic is not supported as it requires dynamic access to rows of data, which cannot be scaled out.`
 
 Di seguito è riportato un elenco delle funzioni di Power Query M supportate.
 
@@ -89,14 +89,14 @@ Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo con
 
 | Funzione | Stato |
 | -- | -- |
-| Table.PromoteHeaders | Non supportato. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
+| Table.PromoteHeaders | Non supportata. Lo stesso risultato può essere ottenuto impostando la "prima riga come intestazione" nel set di dati. |
 | Table.CombineColumns | Si tratta di uno scenario comune che non è supportato direttamente, ma è possibile ottenerlo aggiungendo una nuova colonna che concatena due colonne specificate.  Ad esempio, Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
 | Table.TransformColumnTypes | Questa operazione è supportata nella maggior parte dei casi. Gli scenari seguenti non sono supportati: trasformazione di una stringa in un tipo di valuta, trasformazione di una stringa in un tipo time, trasformazione di una stringa in un tipo di percentuale. |
 | Table.NestedJoin | La semplice operazione di join comporterà un errore di convalida. Per il corretto funzionamento, le colonne devono essere espanse. |
 | Table.Distinct | La rimozione di righe duplicate non è supportata. |
 | Table.RemoveLastN | La rimozione delle righe in basso non è supportata. |
 | Table.RowCount | Non supportato, ma è possibile ottenerlo aggiungendo una colonna personalizzata contenente il valore 1, quindi aggregando tale colonna con List. Sum. Table. Group è supportato. | 
-| Gestione degli errori a livello di riga | La gestione degli errori a livello di riga non è attualmente supportata. Per filtrare, ad esempio, i valori non numerici di una colonna, un approccio consiste nel trasformare la colonna di testo in un numero. Ogni cella che non riesce a trasformare sarà in uno stato di errore e dovrà essere filtrata. Questo scenario non è possibile nel flusso di dati. |
+| Gestione degli errori a livello di riga | La gestione degli errori a livello di riga non è attualmente supportata. Per filtrare, ad esempio, i valori non numerici di una colonna, un approccio consiste nel trasformare la colonna di testo in un numero. Ogni cella che non riesce a trasformare sarà in uno stato di errore e dovrà essere filtrata. Questo scenario non è possibile in scale-out M. |
 | Table.Transpose | Non supportato |
 | Table.Pivot | Non supportate |
 

@@ -1,6 +1,5 @@
 ---
 title: Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
-titleSuffix: Azure Media Services
 description: Questo articolo descrive come usare gli output in tempo reale e di spostamento per registrare i flussi live e creare la riproduzione su richiesta.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 11485ebac449cbde0a4f31e2a099a153476577b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289512"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897867"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
 

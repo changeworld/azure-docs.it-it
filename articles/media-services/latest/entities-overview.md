@@ -1,6 +1,5 @@
 ---
 title: Applicazione di filtri, ordinamento e paginazione delle entità di Servizi multimediali
-titleSuffix: Azure Media Services
 description: Informazioni sull'applicazione di filtri, ordinamento e paginazione delle entità di Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +12,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9a8cff3685cdaad011332adf58dc76f74976cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 50f562927fcbcf66ca7006ac2d100520311ac917
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300188"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897884"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e paginazione delle entità di Servizi multimediali
 

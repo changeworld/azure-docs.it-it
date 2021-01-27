@@ -7,15 +7,14 @@ ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: d1acbe82a086574a102e7897bbd3b99683c1185e
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94594980"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897375"
 ---
 # <a name="tagging-a-vm-using-a-template"></a>Assegnazione di tag a una macchina virtuale tramite un modello
-
 
 Questo articolo descrive come assegnare un tag a una macchina virtuale in Azure usando un modello di Gestione risorse. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Azure supporta attualmente fino a 50 tag per risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente.
 
@@ -25,7 +24,7 @@ Fare clic sul pulsante **Distribuisci in Azure** dal [collegamento modello](http
 
 ![Distribuzione semplice di tag](./media/tag/deploy-to-azure-tags.png)
 
-Questo modello include i tag seguenti: *Reparto* , *Applicazione* e *Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
+Questo modello include i tag seguenti: *Reparto*, *Applicazione* e *Creato da*. È possibile aggiungere o modificare questi tag direttamente nel modello se si desiderano diversi nomi di tag.
 
 ![Tag di Azure in un modello](./media/tag/azure-tags-in-a-template.png)
 
@@ -46,8 +45,7 @@ Successivamente, nella sezione **Modifica parametri** , è possibile compilare i
 
 Fare clic su **Crea** per distribuire il modello con i valori dei tag.
 
-
-**Passaggi successivi**
+### <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sull'uso dei tag nelle risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md) e [Uso dei tag per organizzare le risorse di Azure](../azure-resource-manager/management/tag-resources.md).
-- Per informazioni sull'utilità dei tag nella gestione dell'uso delle risorse di Azure, vedere [Comprendere la fattura per Microsoft Azure](../cost-management-billing/understand/review-individual-bill.md) e [Ottenere informazioni dettagliate sul consumo di risorse di Microsoft Azure](../cost-management-billing/manage/usage-rate-card-overview.md).
+- Per informazioni sul modo in cui i tag consentono di gestire l'uso delle risorse di Azure, vedere [informazioni sulla fattura di Azure](../cost-management-billing/understand/review-individual-bill.md).

@@ -1,5 +1,5 @@
 ---
-title: Eseguire lo streaming di file video con Servizi multimediali di Azure - .NET | Microsoft Docs
+title: Trasmettere file video con servizi multimediali di Azure-.NET
 description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure con .NET, codificare un file ed eseguirne lo streaming in Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 530089b9c6b9544201b0f07368cac3d1a695a4f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: dc6b240a2d97e0b4aa313f858b3965f241dd0b08
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268690"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898190"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - .NET
 

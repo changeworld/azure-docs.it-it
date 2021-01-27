@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: b73fa80085cc0491c8b4d0856d0baacfef1b51c0
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 4a080505f780e724bfd2ab997f5c823e467c4bec
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96301543"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896970"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Eseguire runbook in un ruolo di lavoro ibrido per runbook
 
@@ -22,7 +22,7 @@ Quando si crea un runbook da eseguire in un ruolo di lavoro ibrido per runbook, 
 
 Automazione di Azure gestisce i processi nei ruoli di lavoro ibridi per Runbook in modo diverso rispetto ai processi eseguiti in sandbox di Azure. Se si ha un runbook a esecuzione prolungata, assicurarsi che sia resiliente a un eventuale riavvio. Per informazioni dettagliate sul comportamento dei processi, vedere [Processi di ruoli di lavoro ibridi per runbook](automation-hybrid-runbook-worker.md#hybrid-runbook-worker-jobs).
 
-I processi per i ruoli di lavoro ibridi per Runbook vengono eseguiti con l'account di **sistema** locale in Windows o con l'account **nxautomation** in Linux. Per Linux, verificare che l'account **nxautomation** disponga dell'accesso al percorso in cui sono archiviati i moduli Runbook. Quando si usa il cmdlet [Install-Module](/powershell/module/powershellget/install-module), assicurarsi di specificare AllUsers per il parametro `Scope`, per garantire che l'account **nxautomation** disponga dell'accesso. Per altre informazioni su PowerShell in Linux, vedere [Problemi noti di PowerShell in piattaforme non Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70?view=powershell-7.1).
+I processi per i ruoli di lavoro ibridi per Runbook vengono eseguiti con l'account di **sistema** locale in Windows o con l'account **nxautomation** in Linux. Per Linux, verificare che l'account **nxautomation** disponga dell'accesso al percorso in cui sono archiviati i moduli Runbook. Quando si usa il cmdlet [Install-Module](/powershell/module/powershellget/install-module), assicurarsi di specificare AllUsers per il parametro `Scope`, per garantire che l'account **nxautomation** disponga dell'accesso. Per altre informazioni su PowerShell in Linux, vedere [Problemi noti di PowerShell in piattaforme non Windows](/powershell/scripting/whats-new/what-s-new-in-powershell-70).
 
 ## <a name="configure-runbook-permissions"></a>Configurare le autorizzazioni di Runbook
 
@@ -327,4 +327,4 @@ Per semplificare la risoluzione dei problemi relativi a manuali operativi in ese
 
 * Se i runbook non vengono completati correttamente, vedere la guida per la risoluzione dei problemi relativi agli [errori di esecuzione dei runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 * Per altre informazioni su PowerShell, inclusi i riferimenti al linguaggio e i moduli di formazione, vedere la [documentazione di PowerShell](/powershell/scripting/overview).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation#automation).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).

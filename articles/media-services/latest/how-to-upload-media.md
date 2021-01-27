@@ -1,24 +1,10 @@
 ---
-title: Caricare file multimediali
-titleSuffix: Azure Media Services
-description: Informazioni su come caricare supporti per lo streaming o la codifica.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: ''
-ms.topic: how-to
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 3040369e655ab91f56f271313dc4d2613f02be06
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015850"
+title: caricare supporti: Descrizione di servizi multimediali di Azure: informazioni su come caricare i file multimediali per lo streaming o la codifica.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: ms. Topic: How-to MS. Date: 08/31/2020 ms. Author: inhenkel
 ---
+
 # <a name="upload-media-for-streaming-or-encoding"></a>Caricare supporti per lo streaming o la codifica
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 12/2/2020
-ms.openlocfilehash: 3693ff8ea213d0823237956c532e65d5094bf1ce
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 7969f5ffd3064a5af97a101185b6229c81c7613d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746319"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880288"
 ---
 # <a name="co-sell-partner-engagement"></a>Programma di co-selling per i partner
 
@@ -49,14 +49,14 @@ Questa tabella elenca i passaggi e i requisiti per l'offerta del Marketplace co-
 ||Dynamics|<ul><li>Si dispone di una registrazione attiva nel livello Premium di connessione ISV.</li></ul>|Business Applications co-selling incentivate|
 |||
 
-Per ulteriori informazioni sui requisiti per le offerte di co-selling della soluzione, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Per ulteriori informazioni sui requisiti per le offerte di co-selling della soluzione, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Come inviare i materiali di co-selling nel centro per i partner
 
 Avviare il percorso di co-selling direttamente nel centro per i partner seguendo questa procedura. Per altri dettagli, vedere [opzione di co-selling nel Marketplace commerciale](commercial-marketplace-co-sell.md).
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  **Overview**, quindi selezionare l'offerta che si vuole co-vendere.
+1. Nel riquadro sinistro selezionare Panoramica sul **Marketplace commerciale**  >  , quindi selezionare l'offerta che si vuole co-vendere.
 
     > [!NOTE]
     > È possibile partecipare al programma di co-selling con una nuova offerta non ancora pubblicata o con un'offerta già pubblicata.

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: f52c0296023098c755feb1bf0baba980f2988bd7
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: a489902372b0b88a0ffec07fa685ee745ec59c50
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567717"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880458"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Panoramica della valutazione del server (migrazione alla soluzione VMware di Azure)
 
@@ -207,7 +207,7 @@ Una volta determinato il valore di utilizzo effettivo, le dimensioni di archivia
 
 Se si usa *come dimensionamento locale*, server Assessment non considera la cronologia delle prestazioni delle VM e dei dischi. Al contrario, alloca i nodi AVS in base alla dimensione allocata in locale. Il tipo di archiviazione predefinito è rete VSAN in AVS.
 
-[Altre](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware-azure-vmware-solution#review-an-assessment) informazioni su come esaminare una valutazione della soluzione VMware di Azure.
+[Altre](./tutorial-assess-vmware-azure-vmware-solution.md#review-an-assessment) informazioni su come esaminare una valutazione della soluzione VMware di Azure.
 
 ## <a name="confidence-ratings"></a>Classificazioni di confidenza
 

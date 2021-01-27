@@ -10,12 +10,12 @@ ms.date: 01/15/2021
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: e463328df195b5a91db8ce272d138f980d000e79
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c3c126a96c0eb2214f63a56120d0966b9a97efed
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232064"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895391"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Impostare i parametri dei servizi collegati in Azure Data Factory
 
@@ -27,6 +27,9 @@ ms.locfileid: "98232064"
 
 > [!TIP]
 > È consigliabile di non impostare i parametri per le password o i segreti. Archiviare invece tutte le stringhe di connessione in Azure Key Vault e impostare i parametri per *Nome segreto*.
+
+> [!Note]
+> È presente un bug aperto per usare "-" nei nomi dei parametri, si consiglia di usare i nomi senza "-" fino a quando il bug non viene risolto.
 
 Per un'introduzione di sette minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
 
@@ -42,7 +45,7 @@ Quando si crea il servizio collegato nell'interfaccia utente, Data Factory forni
 - Azure Cosmos DB (API SQL)
 - Database di Azure per MySQL
 - Azure Databricks
-- Azure Key Vault
+- Insieme di credenziali chiave di Azure
 - Database SQL di Azure
 - Istanza gestita di SQL di Azure
 - Azure Synapse Analytics 

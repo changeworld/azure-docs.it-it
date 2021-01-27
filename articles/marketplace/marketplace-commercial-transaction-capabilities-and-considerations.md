@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 5a2a7abf0227812826428557b86c4468f7693c82
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600384"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880743"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -90,11 +90,11 @@ Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pub
 
 Viene addebitata una tariffa per il servizio di archiviazione standard del 20% quando i clienti acquistano l'offerta di transazione dal Marketplace commerciale. Per informazioni dettagliate su questa tariffa, vedere la sezione 5C del [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560).
 
-Per alcune offerte transazionali pubblicate sul Marketplace commerciale, il licenziatario potrà usufruire della tariffa per il servizio di archiviazione ridotta del 10%. Affinché un'offerta venga qualificata, deve essere stata designata da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa ridotta del servizio Marketplace. Una volta soddisfatta l'idoneità, la tariffa del servizio ridotta viene assegnata a tutte le transazioni effettive il primo giorno del mese successivo fino a quando lo stato incentivate della co-Selle IP di Azure non viene perso. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status).
+Per alcune offerte transazionali pubblicate sul Marketplace commerciale, il licenziatario potrà usufruire della tariffa per il servizio di archiviazione ridotta del 10%. Affinché un'offerta venga qualificata, deve essere stata designata da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa ridotta del servizio Marketplace. Una volta soddisfatta l'idoneità, la tariffa del servizio ridotta viene assegnata a tutte le transazioni effettive il primo giorno del mese successivo fino a quando lo stato incentivate della co-Selle IP di Azure non viene perso. Per informazioni dettagliate sull'idoneità di co-selling IP, vedere [requisiti per lo stato di co-selling](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status).
 
 La tariffa ridotta del servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra soluzione IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale. Le offerte SaaS a pagamento associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint) e pubblicate per Microsoft AppSource ricevono anche questo sconto.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 **Basato sull'utilizzo** 
 
@@ -160,7 +160,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 
 **Carte di credito e fattura mensile**: i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Crediti gratuiti e prepagamento di Azure** : alcuni clienti scelgono di pagare in anticipo Azure con prepagamento di Azure (in precedenza denominato impegno monetario) nell'Enterprise Agreement o hanno fornito crediti gratuiti per l'uso con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
+**Crediti gratuiti e prepagamento di Azure** : alcuni clienti scelgono di pagare in anticipo Azure con prepagamento di Azure (in precedenza denominato impegno monetario) nell'contratto Enterprise o hanno fornito crediti gratuiti per l'uso con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 
 **Fatturazione e raccolte** : la fatturazione delle licenze software dell'editore viene presentata usando il metodo di fatturazione selezionato dal cliente e segue la sequenza temporale per la fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
 

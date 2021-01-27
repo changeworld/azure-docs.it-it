@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: c0cb4527349b09ed8e794cc55dee6f9e54f8a7d4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937366"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880760"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Raccolta dei file di log della pipeline di Machine Learning in Application Insights per gli avvisi e il debug
 
@@ -26,7 +26,7 @@ La presenza dei log in una sola posizione fornirà una cronologia delle eccezion
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Seguire i passaggi per creare un'area di lavoro [Azure Machine Learning](./how-to-manage-workspace.md) e [creare la prima pipeline](./how-to-create-your-first-pipeline.md)
+* Seguire i passaggi per creare un'area di lavoro [Azure Machine Learning](./how-to-manage-workspace.md) e [creare la prima pipeline](./how-to-create-machine-learning-pipelines.md)
 * [Configurare il proprio ambiente di sviluppo](./how-to-configure-environment.md) per installare l'SDK di Azure Machine Learning.
 * Installare il pacchetto dell'utilità di [esportazione di monitoraggio di Azure OpenCensus](https://pypi.org/project/opencensus-ext-azure/) localmente:
   ```python
@@ -34,7 +34,7 @@ La presenza dei log in una sola posizione fornirà una cronologia delle eccezion
   ```
 * Creare un' [istanza di Application Insights](../azure-monitor/app/opencensus-python.md) (questo documento contiene anche informazioni su come ottenere la stringa di connessione per la risorsa)
 
-## <a name="getting-started"></a>Attività iniziali
+## <a name="getting-started"></a>Introduzione
 
 Questa sezione è un'introduzione specifica dell'uso di OpenCensus da una pipeline Azure Machine Learning. Per un'esercitazione dettagliata, vedere [OpenCensus Azure monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 

@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543045"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879916"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 Domande? Per ulteriori informazioni, vedere le domande frequenti seguenti.
@@ -158,12 +158,12 @@ Esempi di regole di eliminazione valide:
 
 Le risorse seguenti consentono di gestire in modo sicuro i segreti e accedere a informazioni sensibili dalle applicazioni:
 
- - [Insieme di credenziali chiave Azure](../../key-vault/index.yml)
+ - [Azure Key Vault](../../key-vault/index.yml)
  - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Azure AD identità del servizio gestita (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Identità gestite nel servizio app Azure e funzioni di Azure](../../app-service/overview-managed-identity.md)
- - [Libreria AppAuthentication](../../key-vault/general/service-to-service-authentication.md)
+ - [Libreria AppAuthentication](/dotnet/api/overview/azure/service-to-service-authentication)
 
 
 Per altre informazioni, vedere il post di Blog sulla [gestione dei segreti in modo sicuro nel cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).

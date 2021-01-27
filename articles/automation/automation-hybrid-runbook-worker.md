@@ -3,14 +3,14 @@ title: Panoramica dei ruoli di lavoro ibridi per runbook di Automazione di Azure
 description: Questo articolo fornisce una panoramica dei ruoli di lavoro ibridi per runbook, che è possibile usare per eseguire runbook su computer nel data center locale o nel provider di servizi cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/11/2021
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: a23d30047a13b1d176b086a9923e140e7f8d3e45
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98072140"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896953"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -20,7 +20,7 @@ I runbook in Automazione di Azure potrebbero non avere accesso alle risorse in a
 
 Esistono due tipi di Runbook Worker: sistema e utente. La tabella seguente descrive la differenza tra di essi.
 
-|Type | Descrizione |
+|Tipo | Descrizione |
 |-----|-------------|
 |**Sistema** |Supporta un set di manuali operativi nascoste usato dalla funzionalità Gestione aggiornamenti progettate per installare gli aggiornamenti specificati dall'utente nei computer Windows e Linux.<br> Questo tipo di ruolo di lavoro ibrido per Runbook non è un membro di un gruppo di ruolo di lavoro ibrido per Runbook e pertanto non esegue manuali operativi che hanno come destinazione un gruppo di lavoro Runbook. |
 |**Utente** |Supporta i manuali operativi definiti dall'utente destinati all'esecuzione diretta nel computer Windows e Linux che sono membri di uno o più gruppi di lavoro Runbook. |
@@ -54,16 +54,7 @@ Il metodo di installazione consigliato per un computer Windows consiste nell'usa
 
 ## <a name="network-planning"></a><a name="network-planning"></a>Pianificazione della rete
 
-Per la connessione e la registrazione in automazione di Azure da parte di un ruolo di lavoro ibrido per Runbook di sistema e utente, deve avere accesso al numero di porta e agli URL descritti in questa sezione. Il ruolo di lavoro deve anche avere accesso [alle porte e agli URL necessari perché l'agente di Analisi dei log](../azure-monitor/platform/agent-windows.md) possa connettersi all'area di lavoro di Analisi dei log di Monitoraggio di Azure.
-
-La porta e gli URL seguenti sono necessari al ruolo di lavoro ibrido per runbook:
-
-* Porta: è necessaria solo la porta TCP 443 per l'accesso a Internet in uscita
-* URL globale: `*.azure-automation.net`
-* URL globale di US Gov Virginia: `*.azure-automation.us`
-* Servizio Agent: `https://<workspaceId>.agentsvc.azure-automation.net`
-
-Se di dispone di un account di Automazione di Azure definito per un'area specifica, è possibile limitare la comunicazione del ruolo di lavoro ibrido per runbook a tale data center regionale. Esaminare i [record DNS usati da automazione di Azure](how-to/automation-region-dns-records.md) per i record DNS necessari.
+Controllare la [configurazione di rete di automazione di Azure](automation-network-configuration.md#network-planning-for-hybrid-runbook-worker) per informazioni dettagliate su porte, URL e altri dettagli di rete necessari per il ruolo di lavoro ibrido per Runbook.
 
 ### <a name="proxy-server-use"></a>Uso del server proxy
 
@@ -94,7 +85,7 @@ Il ruolo di lavoro ibrido per Runbook di automazione di Azure può essere usato 
 * [Host dedicati di Azure](../azure-government/documentation-government-impact-level-5.md#azure-dedicated-host), che fornisce server fisici in grado di ospitare una o più macchine virtuali, dedicate a una sottoscrizione di Azure.
 
 >[!NOTE]
->L'isolamento di calcolo tramite il ruolo di lavoro ibrido per Runbook è disponibile per i cloud commerciali di Azure e per enti pubblici statunitensi. 
+>L'isolamento di calcolo tramite il ruolo di lavoro ibrido per Runbook è disponibile per i cloud commerciali di Azure e per enti pubblici statunitensi.
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Indirizzi di Gestione aggiornamenti per i ruoli di lavoro ibridi per runbook
 

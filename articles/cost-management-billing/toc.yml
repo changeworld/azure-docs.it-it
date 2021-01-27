@@ -393,7 +393,7 @@
     - name: Scenari di automazione della fatturazione
       href: manage/cost-management-automation-scenarios.md
     - name: Panoramica dell'API di fatturazione di Azure
-      href: manage/usage-rate-card-overview.md
+      href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST di fatturazione di Azure
       href: /rest/api/billing
     - name: Panoramica dell'API per l'utilizzo di Azure

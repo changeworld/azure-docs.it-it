@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 2e46da1657a7473d3ff8cdf4ac43e5341b143455
-ms.sourcegitcommit: ab829133ee7f024f9364cd731e9b14edbe96b496
-ms.translationtype: HT
+ms.openlocfilehash: 46098b2b7ebbf219a3c17b4fa40e1fd52344f683
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97796109"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879798"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
 
@@ -103,7 +103,7 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 
 È possibile visualizzare i dati per comprendere il set di dati che verrà usato.
 
-1. Fare clic con il pulsante destro del mouse su **Automobile price data (Raw)** e scegliere **Visualize** (Visualizza).
+1. Fare clic con il pulsante destro del mouse sul **prezzo dell'automobile (RAW)** e selezionare **Visualizza**  >  **output set** di dati.
 
 1. Selezionare le diverse colonne nella finestra dei dati per visualizzare le informazioni relative a ciascuna.
 
@@ -284,7 +284,7 @@ Ora che la pipeline è completamente configurata, è possibile inviare un'esecuz
 
 Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzione della pipeline. Prima di tutto, esaminare le previsioni generate dal modello di regressione.
 
-1. Fare clic con il pulsante destro del mouse sul modulo **Score Model** (Punteggio modello) e scegliere **Visualizza** per visualizzarne l'output.
+1. Fare clic con il pulsante destro del mouse sul modulo **Score Model** e selezionare **Visualizza**  >  **set di dati con punteggio** per visualizzarne l'output.
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
@@ -294,7 +294,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
 Usare **Evaluate Model** (Valutazione modello) per verificare le prestazioni del modello sottoposto a training nel set di dati di test.
 
-1. Fare clic con il pulsante destro del mouse sul modulo **Evaluate Model** (Valutazione modello) e selezionare **Visualize** (Visualizza) per visualizzarne l'output.
+1. Fare clic con il pulsante destro del mouse sul modulo **Evaluate Model** e selezionare **Visualizza**  >  **Risultati valutazione** per visualizzarne l'output.
 
 Per il modello vengono visualizzate le seguenti statistiche:
 

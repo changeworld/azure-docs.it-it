@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Viene descritto come usare i modelli collegati in un modello di Azure Resource Manager (modello ARM) per creare una soluzione di modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 01/25/2021
-ms.openlocfilehash: 7d4df67b7f69b3e58799f45ad72bd9ed68540dc2
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 01/26/2021
+ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790936"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880433"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -495,6 +495,91 @@ Per passare i valori dei parametri inline, utilizzare la `parameters` Proprietà
 ```
 
 Non è possibile usare i parametri inline e un collegamento a un file di parametri. La distribuzione ha esito negativo con un errore quando vengono specificati sia `parametersLink` che `parameters`.
+
+### <a name="use-relative-path-for-linked-templates"></a>Usa percorso relativo per i modelli collegati
+
+La `relativePath` proprietà di `Microsoft.Resources/deployments` rende più semplice la creazione di modelli collegati. Questa proprietà può essere usata per distribuire un modello collegato remoto in un percorso relativo all'elemento padre. Questa funzionalità richiede che tutti i file modello siano gestiti in modo temporaneo e disponibili in un URI remoto, ad esempio GitHub o l'account di archiviazione di Azure. Quando il modello principale viene chiamato usando un URI da Azure PowerShell o dall'interfaccia della riga di comando di Azure, l'URI di distribuzione figlio è una combinazione del padre e del relativePath.
+
+> [!NOTE]
+> Quando si crea un templateSpec, tutti i modelli a cui fa riferimento la `relativePath` proprietà vengono inclusi nella risorsa templateSpec da Azure PowerShell o dall'interfaccia della riga di comando di Azure. Non richiede la gestione temporanea dei file. Per altre informazioni, vedere [creare una specifica del modello con i modelli collegati](./template-specs.md#create-a-template-spec-with-linked-templates).
+
+Si supponga che una struttura di cartelle come la seguente:
+
+![percorso relativo del modello collegato di Resource Manager](./media/linked-templates/resource-manager-linked-templates-relative-path.png)
+
+Il modello seguente mostra come *mainTemplate.json* distribuisce *nestedChild.js* in illustrato nell'immagine precedente.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "functions": [],
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2020-10-01",
+      "name": "childLinked",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "relativePath": "children/nestedChild.json"
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
+
+Nella distribuzione seguente, l'URI del modello collegato nel modello precedente è **https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/children/nestedChild.json** .
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/linked-template-relpath/mainTemplate.json"
+```
+
+---
+
+Per distribuire i modelli collegati con il percorso relativo archiviato in un account di archiviazione di Azure, usare il `QueryString` / `query-string` parametro per specificare il token di firma di accesso condiviso da usare con il parametro TemplateUri. Questo parametro è supportato solo dall'interfaccia della riga di comando di Azure 2,18 o versione successiva e Azure PowerShell versione 5,4 o successiva.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzResourceGroupDeployment `
+  -Name linkedTemplateWithRelativePath `
+  -ResourceGroupName "myResourceGroup" `
+  -TemplateUri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" `
+  -QueryString $sasToken
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli
+az deployment group create \
+  --name linkedTemplateWithRelativePath \
+  --resource-group myResourceGroup \
+  --template-uri "https://stage20210126.blob.core.windows.net/template-staging/mainTemplate.json" \
+  --query-string $sasToken
+```
+
+---
+
+Assicurarsi che non esistano "?" iniziali in QueryString. La distribuzione ne aggiunge una quando si assembla l'URI per le distribuzioni.
 
 ## <a name="template-specs"></a>Specifiche dei modelli
 

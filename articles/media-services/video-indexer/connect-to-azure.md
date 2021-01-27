@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/21/2020
+ms.date: 01/14/2021
 ms.author: juliako
-ms.openlocfilehash: 82dc9aa9615ef86c878fb75df6650dcc1f904a8f
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 8e110ba9818b48d66c5f17bb524bada567d808ab
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702636"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897157"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
+# <a name="create-a-video-indexer-account"></a>Creazione di un account Video Indexer
 
 Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuiti) o un'opzione a pagamento (senza limiti di quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2.400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, è possibile creare un account di Video Indexer connesso alla sottoscrizione di Azure. Si pagano i minuti indicizzati. Per altre informazioni, vedere [Prezzi di Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).
 
@@ -25,7 +25,9 @@ Questo articolo illustra come creare un account di Video Indexer connesso a una 
 
 Se si passa da una *versione di valutazione* a un account a *pagamento* video indexer, è possibile scegliere di copiare tutti i video e la personalizzazione del modello nel nuovo account, come illustrato nella sezione [importare il contenuto dall'account di valutazione](#import-your-content-from-the-trial-account) .
 
-## <a name="prerequisites"></a>Prerequisiti
+Questo articolo illustra anche il [collegamento di un account video Indexer ad Azure per enti pubblici](#video-indexer-in-azure-government).
+
+## <a name="prerequisites-for-connecting-to-azure"></a>Prerequisiti per la connessione ad Azure
 
 * Una sottoscrizione di Azure.
 
@@ -37,7 +39,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     Questo utente deve essere Azure AD utente con un account aziendale o dell'Istituto di istruzione. Non usare un account personale, ad esempio outlook.com, live.com o hotmail.com.
 
-    ![tutti gli utenti AAD](./media/create-account/all-aad-users.png)
+    ![tutti gli utenti Azure AD](./media/create-account/all-aad-users.png)
 
 ### <a name="additional-prerequisites-for-automatic-flow"></a>Prerequisiti aggiuntivi per il flusso automatico
 
@@ -59,7 +61,7 @@ Se si passa da una *versione di valutazione* a un account a *pagamento* video in
 
     ![EventGrid](./media/create-account/event-grid.png)
 
-## <a name="create-a-new-account"></a>Creare un nuovo account
+## <a name="create-a-new-account-on-azure"></a>Creare un nuovo account in Azure 
 
 > [!NOTE]
 > Se la sottoscrizione di Azure usa l'autenticazione a più fattori basata su certificati, è fondamentale eseguire i passaggi seguenti in un dispositivo in cui sono installati i certificati necessari.
@@ -155,7 +157,7 @@ Nella finestra di dialogo specificare le informazioni seguenti:
 |ID applicazione|ID dell'applicazione di Azure AD con le autorizzazioni per l'account di Servizi multimediali specificato creato nella sezione precedente.|
 |Chiave applicazione|Chiave dell'applicazione Azure AD creata nella sezione precedente. |
 
-## <a name="import-your-content-from-the-trial-account"></a>Importa il contenuto dall'account di *valutazione*
+### <a name="import-your-content-from-the-trial-account"></a>Importa il contenuto dall'account di *valutazione*
 
 Quando si crea un nuovo account, è possibile importare il contenuto dall'account di *valutazione* al nuovo account. Se si seleziona l'opzione *Importa* nella finestra di dialogo **Crea un nuovo account in una sottoscrizione di Azure** , tutte le personalizzazioni di supporti e modelli di contenuto verranno copiate dall'account di *valutazione* al nuovo account.
 
@@ -163,16 +165,10 @@ La possibilità di importare il contenuto è valida per gli approcci automatici 
 
 > [!NOTE]
 > Il contenuto può essere importato una sola volta da ogni account.
+>
+> L'account di *valutazione* non è availagle nel cloud di Azure per enti pubblici.
 
-## <a name="delete-the-account"></a>Eliminare l'account
-
-Se successivamente si vuole eliminare l'account, è possibile eliminare l'account dal sito Web Video Indexer. Per eliminare l'account, è necessario essere il proprietario.
-
-Selezionare l'account-> **Impostazioni**  ->  **Elimina questo account**. 
-
-L'account verrà eliminato definitivamente tra 90 giorni.
-
-## <a name="considerations"></a>Considerazioni
+## <a name="azure-media-services-considerations"></a>Considerazioni su servizi multimediali di Azure
 
 Tenere presenti le seguenti considerazioni relative a Servizi multimediali di Azure:
 
@@ -201,9 +197,52 @@ Per automatizzare la creazione dell'account è necessario procedere in due passa
     Vedere un esempio del [modello di creazione dell'account di servizi multimediali](https://github.com/Azure-Samples/media-services-v3-arm-templates).
 1. Chiamare [Create-account con l'applicazione Servizi multimediali e Azure ad](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
+## <a name="video-indexer-in-azure-government"></a>Video Indexer in Azure per enti pubblici
+
+### <a name="prerequisites-for-connecting-to-azure-government"></a>Prerequisiti per la connessione ad Azure per enti pubblici
+
+-   Una sottoscrizione di Azure in [Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/).
+- Un account Azure AD in Azure per enti pubblici.
+- Tutti i prerequisiti per le autorizzazioni e le risorse descritte in precedenza in [prerequisiti per la connessione ad Azure](#prerequisites-for-connecting-to-azure).
+
+### <a name="create-new-account-via-the-azure-government-portal"></a>Creare un nuovo account tramite il portale di Azure per enti pubblici
+
+> [!NOTE]
+> Il cloud di Azure per enti pubblici non include un'esperienza di *valutazione* di video Indexer.
+
+Per creare un account a pagamento tramite il portale di Video Indexer:
+
+1. Passare a https://videoindexer.ai.azure.us 
+1. Accedere con l'account Azure AD di Azure per enti pubblici.
+1.  Se non si dispone di account Video Indexer in Azure per enti pubblici di cui si è proprietari o collaboratori, si otterrà un'esperienza vuota dalla quale è possibile iniziare a creare l'account. 
+
+    Il resto del flusso è come descritto in precedenza. solo le aree da selezionare saranno aree governative in cui è disponibile l'indicizzatore video 
+
+    Se si è già un collaboratore o un amministratore di uno o più account Video Indexer in Azure per enti pubblici, si verrà portati a tale account e da qui è possibile avviare una procedura per la creazione di un altro account, se necessario, come descritto in precedenza.
+    
+### <a name="create-new-account-via-the-api-on-azure-government"></a>Creare un nuovo account tramite l'API in Azure per enti pubblici
+
+Per creare un account a pagamento in Azure per enti pubblici, seguire le istruzioni riportate in [creare un account a pagamento](https://api-portal.videoindexer.ai.azure.us/docs/services/Operations/operations/Create-Paid-Account). Questo endpoint API include solo le aree del cloud per enti pubblici.
+
+### <a name="limitations-of-video-indexer-on-azure-government"></a>Limitazioni dei Video Indexer in Azure per enti pubblici
+
+*   Nessuna moderazione manuale del contenuto disponibile nel cloud per enti pubblici. 
+
+    Nel cloud pubblico quando il contenuto viene ritenuto offensivo in base a una moderazione del contenuto, il cliente può chiedere a un utente di esaminare il contenuto e potenzialmente annullare tale decisione.  
+*   Nessun account di valutazione. 
+* Descrizione Bing: in gov cloud non viene presentata una descrizione delle celebrità e delle entità denominate identificate. Si tratta solo di una funzionalità dell'interfaccia utente. 
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Al termine di questa esercitazione, eliminare le risorse che non si prevede di usare.
+
+### <a name="delete-a-video-indexer-account"></a>Eliminare un account di Video Indexer
+
+Se si desidera eliminare un account di Video Indexer, è possibile eliminare l'account dal sito Web di Video Indexer. Per eliminare l'account, è necessario essere il proprietario.
+
+Selezionare l'account-> **Impostazioni**  ->  **Elimina questo account**. 
+
+L'account verrà eliminato definitivamente tra 90 giorni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,5 @@
 ---
 title: Filtrare i manifesti usando Dynamic Packager
-titleSuffix: Azure Media Services
 description: Informazioni su come creare filtri usando Dynamic Packager per filtrare e trasmettere in modo selettivo i manifesti.
 services: media-services
 documentationcenter: ''
@@ -14,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: acb30c1659c4c29e0af83da5594bdd9a7e3465d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ffdb41752630e0e5e22303ff58ecd798595a890
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299032"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98897663"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrare i manifesti usando Dynamic Packager
 
@@ -139,9 +138,9 @@ Per combinare i filtri, impostare i nomi dei filtri sull'URL del manifesto o del
 
 Per altre informazioni, vedere [questo post di blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-## <a name="considerations-and-limitations"></a>Considerazioni e limiti
+## <a name="considerations-and-limitations"></a>Considerazioni e limitazioni
 
-- I valori per **forceEndTimestamp**, **presentationWindowDuration**e **liveBackoffDuration** non devono essere impostati per un filtro VOD. Sono usati solo per gli scenari di filtro Live.
+- I valori per **forceEndTimestamp**, **presentationWindowDuration** e **liveBackoffDuration** non devono essere impostati per un filtro VOD. Sono usati solo per gli scenari di filtro Live.
 - Un manifesto dinamico opera nei limiti del GOP (fotogrammi chiave), quindi l'operazione di taglio ha una precisione GOP.
 - È possibile usare lo stesso nome di filtro per gli account e i filtri di asset. I filtri asset hanno precedenza più elevata e sostituiranno i filtri account.
 - Se si aggiorna un filtro, l'endpoint di streaming può richiedere fino a 2 minuti per aggiornare le regole. Se sono stati usati filtri per gestire il contenuto (e il contenuto è stato memorizzato nella cache in proxy e cache della rete CDN), l'aggiornamento di questi filtri può comportare errori del lettore. Si consiglia di cancellare la cache dopo aver aggiornato il filtro. Se questa opzione non è possibile, provare a usare un filtro diverso.

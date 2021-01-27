@@ -8,12 +8,12 @@ ms.date: 12/11/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 382adb36712fbf4bee83044c8b2d096223eb6269
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 20da05399eed4cb9c5a4b69a82b0b1e799997751
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630038"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880119"
 ---
 # <a name="download-blobs-from-azure-blob-storage-by-using-azcopy-v10"></a>Scaricare i BLOB dall'archiviazione BLOB di Azure usando AzCopy V10
 
@@ -21,7 +21,7 @@ ms.locfileid: "97630038"
 
 Per visualizzare esempi per altri tipi di attività, ad esempio il caricamento di file, la sincronizzazione con archiviazione BLOB o la copia di BLOB tra account, vedere i collegamenti presentati nella sezione [passaggi successivi](#next-steps) di questo articolo.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 Vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-v10.md) per scaricare AzCopy e informazioni sui modi in cui è possibile fornire le credenziali di autorizzazione al servizio di archiviazione.
 
@@ -143,7 +143,7 @@ Usare quindi il comando [azcopy Copy](storage-ref-azcopy-copy.md) con l' `--list
 
 #### <a name="download-a-blob-snapshot"></a>Scaricare uno snapshot del BLOB
 
-È possibile scaricare uno [snapshot BLOB](/azure/storage/blobs/snapshots-overview) facendo riferimento al valore **DateTime** di uno snapshot BLOB. 
+È possibile scaricare uno [snapshot BLOB](../blobs/snapshots-overview.md) facendo riferimento al valore **DateTime** di uno snapshot BLOB. 
 
 |    |     |
 |--------|-----------|

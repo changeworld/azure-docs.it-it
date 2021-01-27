@@ -1,25 +1,9 @@
 ---
-title: Crittografare video con AES-128
-titleSuffix: Azure Media Services
-description: Informazioni su come crittografare i video con la crittografia AES a 128 bit e come usare il servizio di distribuzione delle chiavi in Servizi multimediali di Azure.
-services: media-services
-documentationcenter: ''
-author: IngridAtMicrosoft
-manager: femila
-editor: ''
-ms.service: media-services
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 08/31/2020
-ms.author: inhenkel
-ms.openlocfilehash: 5347479d32dc9f4909483dc63891e8057fd7ff86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289334"
+title: crittografare video con AES-128: Descrizione di servizi multimediali di Azure: informazioni su come crittografare i video con la crittografia AES a 128 bit e come usare il servizio di distribuzione delle chiavi in servizi multimediali di Azure.
+Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
+
+ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: esercitazione ms. Date: 08/31/2020 ms. Author: inhenkel
+
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Esercitazione: Crittografare video con AES-128 e usare il servizio di distribuzione delle chiavi
 

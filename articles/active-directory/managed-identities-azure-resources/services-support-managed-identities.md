@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7ebe56b95b0c4b938c31c0ece04d27fd1b234b05
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 1861a4e75f34cfd7fe386c094cce3a638b3e1a1e
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729913"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98880794"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -159,8 +159,6 @@ Vedere l'elenco seguente per configurare l'identità gestita per Azure Data Fact
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
-
-
 ### <a name="azure-event-grid"></a>Griglia di eventi di Azure
 
 Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
@@ -168,13 +166,12 @@ Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azu
 | Assegnata dal sistema | Anteprima | Anteprima | Non disponibile | Anteprima |
 | Assegnata dall'utente | Non disponibile | Non disponibile  | Non disponibile  | Non disponibile |
 
+### <a name="azure-firewall-policy"></a>Criteri del firewall di Azure
 
-
-
-
-
-
-
+Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
+| --- | :-: | :-: | :-: | :-: |
+| Assegnata dal sistema | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dall'utente | Anteprima | Non disponibile  | Non disponibile  | Non disponibile |
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 

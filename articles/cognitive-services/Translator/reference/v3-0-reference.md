@@ -3,23 +3,23 @@ title: Guida di riferimento a Translator V 3.0
 titleSuffix: Azure Cognitive Services
 description: Documentazione di riferimento per Translator V 3.0. La versione 3 di Translator fornisce un'API Web moderna basata su JSON.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
-ms.author: swmachan
-ms.openlocfilehash: f8175cbd469c8a3933526d01f433e1def714783b
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.author: lajanuar
+ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024501"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895459"
 ---
 # <a name="translator-v30"></a>Traduttore v 3.0
 
-## <a name="whats-new"></a>Novità
+## <a name="whats-new"></a>Quali sono le novità?
 
 La versione 3 di Translator fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
 
@@ -39,9 +39,9 @@ Microsoft Translator è accessibile da più posizioni di data center. Attualment
 
 Le richieste a Microsoft Translator sono nella maggior parte dei casi gestiti dal Data Center più vicino alla posizione in cui ha avuto origine la richiesta. In caso di errore di un Data Center, la richiesta può essere instradata al di fuori della geografia di Azure.
 
-Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint di area desiderato:
+Per forzare la gestione della richiesta da parte di una specifica area geografica di Azure, impostare l'endpoint globale nella richiesta dell'API sull'endpoint geografico desiderato:
 
-|Descrizione|Geografia di Azure|URL di base|
+|Descrizione|Geografia di Azure|URL di base (endpoint geografico)|
 |:--|:--|:--|
 |Azure|Globale (non a livello di area)|   api.cognitive.microsofttranslator.com|
 |Azure|Stati Uniti|   api-nam.cognitive.microsofttranslator.com|

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: da136c1f3ce36bf85592c3c73c9e8f92c41c7442
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: ea274914ac70540d5763884bbd01e41e349a530d
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357909"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879831"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambiare il modello di licenza per una macchina virtuale SQL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Sono disponibili tre modelli di licenza per una macchina virtuale di Azure che o
 
 Vantaggio Azure Hybrid consente l'uso di licenze di SQL Server con Software Assurance ("licenza qualificata") in macchine virtuali di Azure. Con Vantaggio Azure Hybrid, i clienti non ricevono addebiti per l'uso di una licenza di SQL Server in una macchina virtuale. Ma devono comunque assumersi il costo della risorsa di calcolo cloud sottostante (ovvero la tariffa di base), dell'archiviazione e dei backup. Devono inoltre pagare per le operazioni di I/O associate all'uso dei servizi (come applicabile).
 
-Secondo le condizioni per l'utilizzo di prodotti Microsoft: "Quando configurano i carichi di lavoro in Azure, i clienti sono tenuti a indicare che usano Database SQL di Azure (Istanza gestita, pool elastico e database singolo), Azure Data Factory, SQL Server Integration Services o macchine virtuali di SQL Server in base alle condizioni di Vantaggio Azure Hybrid per SQL Server".
+Secondo le condizioni del [prodotto](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzureServices/EAEAS)Microsoft: "i clienti devono indicare che usano il database SQL di Azure (Istanza gestita, Pool elastico e database singolo), Azure Data Factory, SQL Server Integration Services o SQL Server macchine virtuali in Vantaggio Azure Hybrid per SQL Server quando si configurano i carichi di lavoro in Azure."
 
 Per indicare l'uso di Vantaggio Azure Hybrid per SQL Server in una macchina virtuale di Azure e rispettare la conformità, sono disponibili tre opzioni:
 

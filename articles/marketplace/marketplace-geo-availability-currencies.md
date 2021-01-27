@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 12/07/2020
-ms.openlocfilehash: 118fe70abf52a6c96f4f2dc47e3ad23a388f3598
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: c71c13701d064110be0ef976920c0cc01f2fa308
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96853748"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98879765"
 ---
 # <a name="geographic-availability-and-currency-support-for-the-commercial-marketplace"></a>Disponibilità geografica e supporto della valuta per il Marketplace commerciale
 
@@ -195,13 +195,13 @@ I prezzi individuali (che, a seconda del modo in cui sono stati impostati, potre
 Per informazioni dettagliate su come immettere i prezzi per i tipi di offerta specifici, vedere questi articoli:
 
 - [Creare un'offerta di applicazione Azure](create-new-azure-apps-offer.md)
-- [Creare un'offerta di contenitore di Azure](partner-center-portal/create-azure-container-offer.md)
+- [Creare un'offerta di contenitore di Azure](./create-azure-container-offer.md)
 - [Creare un'offerta per macchine virtuali di Azure](azure-vm-create.md)
 - [Creare un'offerta di un servizio di consulenza](./create-consulting-service-offer.md)
 - [Creare un'offerta Dynamics 365 for Customer Engagement & PowerApps](partner-center-portal/create-new-customer-engagement-offer.md)
 - [Creare un'offerta Dynamics 365 for Operations](partner-center-portal/create-new-operations-offer.md)
 - [Creare un'offerta Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md)
 - [Creare un'offerta di moduli IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
-- [Creare un'offerta di servizi gestiti](partner-center-portal/create-new-managed-service-offer.md)
+- [Creare un'offerta di servizi gestiti](./plan-managed-service-offer.md)
 - [Creare un'app di Power BI](partner-center-portal/create-power-bi-app-offer.md)
 - [Creare un'offerta SaaS](./create-new-saas-offer.md)

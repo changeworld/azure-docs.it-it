@@ -3,19 +3,19 @@ title: Che cosa sono i progetti e le aree di lavoro? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: In questo articolo vengono illustrate le differenze tra un'area di lavoro e un progetto, nonché le categorie e le etichette di progetto per il servizio di conversione personalizzato.
 services: cognitive-services
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 0abda0307e3cdbd0e73e131bee072172375198eb
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368968"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98898054"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Che cos'è un'area di lavoro di Custom Translator?
 
@@ -31,7 +31,7 @@ Un progetto è un wrapper per modelli, documenti e test. Ogni progetto include a
 
 La categoria identifica il dominio, ovvero l'area di stile e terminologia da usare, per il progetto. È necessario scegliere la categoria più rilevante per i documenti. In alcuni casi, la scelta della categoria influisce direttamente sul comportamento di Custom Translator.
 
-Sono disponibili due set di modelli di base: Generale e Tecnologia. Se è selezionata la categoria **Tecnologia** , saranno usati i modelli di base Tecnologia. Per qualsiasi altra categoria selezionata vengono usati i modelli di base Generale. Il modello di base Tecnologia è adatto per il dominio della tecnologia e meno adatto se le frasi utilizzate per la traduzione non rientrano nel dominio della tecnologia. Si consiglia ai clienti di selezionare la categoria Tecnologia solo se le frasi rientrano esclusivamente nel dominio della tecnologia.
+Sono disponibili due set di modelli di base: Generale e Tecnologia. Se è selezionata la categoria **Tecnologia**, saranno usati i modelli di base Tecnologia. Per qualsiasi altra categoria selezionata vengono usati i modelli di base Generale. Il modello di base Tecnologia è adatto per il dominio della tecnologia e meno adatto se le frasi utilizzate per la traduzione non rientrano nel dominio della tecnologia. Si consiglia ai clienti di selezionare la categoria Tecnologia solo se le frasi rientrano esclusivamente nel dominio della tecnologia.
 
 Nella stessa area di lavoro, è possibile creare progetti per la stessa coppia di lingue in categorie diverse. Custom Translator impedisce la creazione di un progetto duplicato con la stessa coppia di lingue e categoria. L'applicazione di un'etichetta al progetto consente di evitare questa limitazione. Non usare le etichette a meno che non si stiano creando sistemi di traduzione per più client, in quanto l'aggiunta di un'etichetta univoca al progetto ha conseguenze sull'ID di categoria del progetto.
 

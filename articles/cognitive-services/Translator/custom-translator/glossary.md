@@ -2,25 +2,25 @@
 title: Glossario - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Il glossario per i traduttori personalizzati ti aiuterà a comprendere i termini usati negli articoli mentre Scopri come usare il servizio.
-author: swmachan
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 08/17/2020
-ms.author: swmachan
+ms.author: lajanuar
 ms.topic: reference
-ms.openlocfilehash: 67af6ab9ae5c60ee8291f38ea58b3b3d9744dbc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4043eb83e931184371bdf4e0bcdcf4c874262d99
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88506652"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98895816"
 ---
 # <a name="custom-translator-glossary"></a>Glossario di Custom Translator
 
 Il glossario di [Custom Translator](https://portal.customtranslator.azure.ai) contiene termini che si possono incontrare durante l'uso di Custom Translator.
 
-| **Termine o locuzione**       | **Definizione**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Termine o locuzione**       | **Definition**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Lingua di origine          | La lingua di origine è la lingua iniziale che si vuole tradurre in un'altra lingua (la "destinazione").                                                                                                                                                                                                                                                                                                                                                         |
 | Lingua di destinazione          | La lingua di destinazione è quella che si vuole che restituisca il sistema di traduzione automatica dopo che ha ricevuto la lingua di origine.                                                                                                                                                                                                                                                                                                                                               |

@@ -3,14 +3,14 @@ title: Panoramica di Automazione di Azure - Rilevamento modifiche e inventario
 description: Questo articolo descrive la funzionalità di Rilevamento modifiche e inventario, che consente di identificare le modifiche al software e al servizio Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/10/2020
+ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445422"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896630"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -32,7 +32,7 @@ Rilevamento modifiche e l'inventario usano il [monitoraggio dell'integrità dei 
 - Servizi Microsoft
 - Daemon Linux
 
-L'abilitazione di tutte le funzionalità incluse in Rilevamento modifiche e nell'inventario può causare addebiti aggiuntivi. Prima di procedere, esaminare i prezzi di [automazione](https://azure.microsoft.com/pricing/details/automation/) e i [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). 
+L'abilitazione di tutte le funzionalità incluse in Rilevamento modifiche e nell'inventario può causare addebiti aggiuntivi. Prima di procedere, esaminare i prezzi di [automazione](https://azure.microsoft.com/pricing/details/automation/) e i [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 
 Rilevamento modifiche e l'inventario inviano i dati ai log di monitoraggio di Azure e i dati raccolti vengono archiviati in un'area di lavoro di Log Analytics. La funzionalità di monitoraggio dell'integrità dei file (FIM) è disponibile solo quando **Azure Defender per i server** è abilitato. Per altre informazioni, vedere [prezzi](../../security-center/security-center-pricing.md) del Centro sicurezza di Azure. FIM carica i dati nella stessa area di lavoro Log Analytics come quello creato per archiviare i dati da Rilevamento modifiche e da inventario. Si consiglia di monitorare l'area di lavoro di Log Analytics collegata per tenere traccia dell'utilizzo esatto. Per altre informazioni sull'analisi dell'utilizzo dei dati dei log di monitoraggio di Azure, vedere [gestire l'utilizzo e i costi](../../azure-monitor/platform/manage-cost-storage.md).
 
@@ -74,16 +74,7 @@ L'eseguibile di python2 deve avere un alias per *Python*.
 
 ## <a name="network-requirements"></a>Requisiti di rete
 
-Gli indirizzi seguenti sono necessari in modo specifico per Rilevamento modifiche e l'inventario. La comunicazione verso questi indirizzi avviene sulla porta 443.
-
-|Azure Public  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com    | *.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
-|*.azure-automation.net | *.azure-automation.us|
-
-Quando si creano regole di sicurezza del gruppo di rete o si configura il firewall di Azure per consentire il traffico verso il servizio di automazione e l'area di lavoro Log Analytics, usare il [tag di servizio](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Ciò semplifica la gestione continuativa delle regole di sicurezza di rete. Per connettersi al servizio di automazione dalle macchine virtuali di Azure in modo sicuro e privato, vedere [usare il collegamento privato di Azure](../how-to/private-link-security.md). Per ottenere il tag di servizio e le informazioni sull'intervallo correnti da includere come parte delle configurazioni del firewall locali, vedere [file JSON scaricabili](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Controllare la [configurazione di rete di automazione di Azure](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory) per informazioni dettagliate sulle porte, gli URL e altri dettagli di rete necessari per rilevamento modifiche e l'inventario.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
@@ -129,7 +120,7 @@ Rilevamento modifiche e Inventory consente il monitoraggio delle modifiche alle 
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc. È simile alla sezione [driver] nel file **system.ini**.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora i driver a 32 bit associati con wavemapper, wave1 e wave2, msacm.imaadpcm, .msadpcm, .msgsm610 e vidc per le applicazioni a 32 bit in esecuzione in computer a 64 bit. È simile alla sezione [driver] nel file **system.ini**.
 > |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora l'elenco delle DLL di sistema note o comunemente usate. Il monitoraggio impedisce agli utenti di sfruttare le autorizzazioni vulnerabili per le directory applicative eliminando le versioni Trojan Horse delle DLL di sistema.
-> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **winlogon.exe** , il modello di supporto per l'accesso interattivo per Windows.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora l'elenco dei pacchetti che possono ricevere notifiche degli eventi da **winlogon.exe**, il modello di supporto per l'accesso interattivo per Windows.
 
 ## <a name="recursion-support"></a>Supporto della ricorsione
 

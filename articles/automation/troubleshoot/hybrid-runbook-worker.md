@@ -2,19 +2,15 @@
 title: Risoluzione dei problemi relativi al ruolo di lavoro ibrido per runbook di Automazione di Azure
 description: Questo articolo spiega come risolvere i problemi che si verificano con i ruoli di lavoro ibrido per runbook di Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: ''
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/25/2019
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.topic: troubleshooting
+ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428396"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98896495"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -46,7 +42,7 @@ Le possibili cause sono le seguenti:
 
 #### <a name="resolution"></a>Risoluzione
 
-Verificare che il computer abbia accesso in uscita a ** \* . Azure-Automation.NET** sulla porta 443.
+Verificare che il computer abbia accesso in uscita a **\* . Azure-Automation.NET** sulla porta 443.
 
 I computer che eseguono il ruolo di lavoro ibrido per runbook devono soddisfare i requisiti hardware minimi per consentire al ruolo di lavoro di ospitare questa funzionalità. I runbook e il processo in background in uso potrebbero causare un sovraccarico al sistema e provocare ritardi o timeout nei processi di runbook.
 
@@ -58,7 +54,7 @@ Verificare se nel registro eventi **Microsoft-SMA** è presente un evento corris
 
 #### <a name="issue"></a>Problema
 
-Il ruolo di lavoro ibrido per runbook riceve l'evento 15011 a indicare che il risultato di una query non è valido. L'errore seguente viene visualizzato quando il ruolo di lavoro tenta di aprire una connessione con il [server SignalR](/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Il ruolo di lavoro ibrido per runbook riceve l'evento 15011 a indicare che il risultato di una query non è valido. L'errore seguente viene visualizzato quando il ruolo di lavoro tenta di aprire una connessione con il [server SignalR](/aspnet/core/signalr/introduction).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -226,7 +222,7 @@ Nel registro eventi **Application and Services Logs\Operations Manager** viene v
 
 #### <a name="cause"></a>Causa
 
-Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a ** \* . Azure-Automation.NET** sulla porta 443.
+Questo problema può essere causato dal firewall proxy o di rete che blocca la comunicazione con Microsoft Azure. Verificare che il computer abbia accesso in uscita a **\* . Azure-Automation.NET** sulla porta 443.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -238,7 +234,7 @@ I ruoli di lavoro ibridi inviano [output e messaggi del runbook](../automation-r
 
 #### <a name="issue"></a>Problema
 
-Uno script in esecuzione in un ruolo di lavoro ibrido per Runbook Windows non può connettersi come previsto per Microsoft 365 su un agente di orchestrazione sandbox. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) per la connessione. 
+Uno script in esecuzione in un ruolo di lavoro ibrido per Runbook Windows non può connettersi come previsto per Microsoft 365 su un agente di orchestrazione sandbox. Lo script usa [Connect-MsolService](/powershell/module/msonline/connect-msolservice) per la connessione. 
 
 Se si modifica **Orchestrator.Sandbox.exe.config** per configurare il proxy e l'elenco di esclusione, la sandbox continua a non connettersi correttamente. Un file **Powershell_ise.exe.config** con le stesse impostazioni del proxy e dell'elenco di esclusione. I registri di Service Management Automation (SMA) e PowerShell non forniscono alcuna informazione relativa al proxy.
 
@@ -250,7 +246,7 @@ La connessione ad Active Directory Federation Services (AD FS) nel server non pu
 
 È possibile risolvere il problema della sandbox di Orchestrator eseguendo la migrazione dello script per usare i moduli di Azure Active Directory invece del modulo MSOnline per i cmdlet di PowerShell. Per altre informazioni, vedere [Migrazione da Orchestrator ad Automazione di Azure (Beta)](../automation-orchestrator-migration.md).
 
-Se si vuole continuare a usare i cmdlet del modulo MSOnline, modificare lo script in modo da usare [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Specificare i valori per i parametri `ComputerName` e `Credential`. 
+Se si vuole continuare a usare i cmdlet del modulo MSOnline, modificare lo script in modo da usare [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specificare i valori per i parametri `ComputerName` e `Credential`. 
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential
@@ -339,7 +335,7 @@ Per risolvere il problema:
 
 1. Rimuovere l'agente `sudo sh onboard_agent.sh --purge` .
 
-1. Eseguire i comandi seguenti:
+1. Eseguire questi comandi:
 
    ```
    sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
