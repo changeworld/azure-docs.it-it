@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/19/2021
-ms.openlocfilehash: 31398a49de871ad44499a796adfef1be618ccab9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: ae07f51a91745acdaf2601d3a50bf282129dac71
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98685175"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881806"
 ---
 # <a name="azure-time-series-insights-gen2-event-sources"></a>Origini eventi Azure Time Series Insights Gen2
 
@@ -59,7 +59,7 @@ Oltre alle procedure consigliate descritte in precedenza, è consigliabile imple
 
 - Aumentare il periodo di conservazione dei dati dell'hub eventi o dell'hub eventi fino a un massimo di 7 giorni.
 
-- Creare avvisi di ambiente nell'portale di Azure. Gli avvisi basati sulle [metriche](https://docs.microsoft.com/azure/time-series-insights/how-to-monitor-tsi-reference#metrics) della piattaforma consentono di convalidare il comportamento della pipeline end-to-end. Le istruzioni per la creazione e la gestione degli avvisi sono disponibili [qui](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency#monitor-latency-and-throttling-with-alerts). Condizioni di avviso consigliate:
+- Creare avvisi di ambiente nell'portale di Azure. Gli avvisi basati sulle [metriche](./how-to-monitor-tsi-reference.md#metrics) della piattaforma consentono di convalidare il comportamento della pipeline end-to-end. Le istruzioni per la creazione e la gestione degli avvisi sono disponibili [qui](./time-series-insights-environment-mitigate-latency.md#monitor-latency-and-throttling-with-alerts). Condizioni di avviso consigliate:
 
   - IngressReceivedMessagesTimeLag è maggiore di 5 minuti
   - IngressReceivedBytes è 0

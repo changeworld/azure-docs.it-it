@@ -4,12 +4,12 @@ description: Informazioni su come proteggere il cluster usando un intervallo di 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9828682fa71d023356b174d528c2137ed29f368d
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ca6e1c06b3ad90ef12c9bf375bae50d46c5f7c37
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682503"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890638"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Proteggere l'accesso al server API usando gli intervalli di indirizzi IP autorizzati in Azure Kubernetes Service (AKS)
 
@@ -130,11 +130,28 @@ az aks update \
     --api-server-authorized-ip-ranges ""
 ```
 
+## <a name="find-existing-authorized-ip-ranges"></a>Trova intervalli IP autorizzati esistenti
+
+Per trovare gli intervalli IP autorizzati, usare [AZ AKS Show][az-aks-show] e specificare il nome del cluster e il gruppo di risorse. Ad esempio:
+
+```azurecli-interactive
+az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query apiServerAccessProfile.authorizedIpRanges'
+```
+
+## <a name="update-disable-and-find-authorized-ip-ranges-using-azure-portal"></a>Aggiornare, disabilitare e trovare gli intervalli IP autorizzati utilizzando portale di Azure
+
+Le operazioni sopra descritte per l'aggiunta, l'aggiornamento, la ricerca e la disabilitazione degli intervalli di indirizzi IP autorizzati possono essere eseguite anche nell'portale di Azure. Per accedere a, passare a **rete** in **Impostazioni** nel pannello menu della risorsa cluster.
+
+:::image type="content" source="media/api-server-authorized-ip-ranges/ip-ranges-specified.PNG" alt-text="In un browser Mostra le impostazioni di rete della risorsa cluster portale di Azure pagina. Le opzioni ' Imposta intervallo IP specificato ' è intervalli IP specificati ' sono evidenziate.":::
+
 ## <a name="how-to-find-my-ip-to-include-in---api-server-authorized-ip-ranges"></a>Come trovare l'indirizzo IP da includere in `--api-server-authorized-ip-ranges` ?
 
 È necessario aggiungere i computer di sviluppo, gli strumenti o gli indirizzi IP di automazione all'elenco di cluster AKS degli intervalli IP approvati per accedere al server API da questa posizione. 
 
-Un'altra opzione consiste nel configurare un JumpBox con gli strumenti necessari all'interno di una subnet separata nella rete virtuale di Firewall. Si presuppone che l'ambiente disponga di un firewall con la rispettiva rete e che siano stati aggiunti gli IP del firewall agli intervalli autorizzati. Analogamente, se è stato forzato il tunneling dalla subnet AKS alla subnet del firewall, è anche possibile che il JumpBox nella subnet del cluster sia troppo preciso.
+Un'altra opzione consiste nel configurare un JumpBox con gli strumenti necessari all'interno di una subnet separata nella rete virtuale di Firewall. Si presuppone che l'ambiente disponga di un firewall con la rispettiva rete e che siano stati aggiunti gli IP del firewall agli intervalli autorizzati. Analogamente, se è stato forzato il tunneling dalla subnet AKS alla subnet del firewall, è possibile che anche il JumpBox nella subnet del cluster sia troppo preciso.
 
 Aggiungere un altro indirizzo IP agli intervalli approvati con il comando seguente.
 
@@ -170,6 +187,7 @@ Per altre informazioni, vedere [concetti relativi alla sicurezza per le applicaz
 <!-- LINKS - internal -->
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-show]: /cli/azure/aks#az_aks_show
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md

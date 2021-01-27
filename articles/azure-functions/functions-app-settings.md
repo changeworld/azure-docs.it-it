@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 80b2daebbd64f08dd4f5d728b2a9a4ee04b8952f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728993"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881924"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -46,7 +46,7 @@ Per altre informazioni, vedere [stringhe di connessione](../azure-monitor/app/sd
 
 Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano un collegamento per inviare chiamate API da proxy direttamente alle funzioni nella stessa app per le funzioni. Questo tasto di scelta rapida viene utilizzato anziché creare una nuova richiesta HTTP. Questa impostazione consente di disabilitare il comportamento del collegamento.
 
-|Chiave|valore|Descrizione|
+|Chiave|Valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale non verranno inviate direttamente alla funzione. Al contrario, le richieste vengono indirizzate di nuovo al front-end HTTP per l'app per le funzioni.|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Le chiamate con un URL back-end che punta a una funzione nell'app per le funzioni locale vengono indirizzate direttamente alla funzione. Si tratta del valore predefinito. |
@@ -55,7 +55,7 @@ Per impostazione predefinita, i [proxy di funzioni](functions-proxies.md) usano 
 
 Questa impostazione determina se i caratteri `%2F` vengono decodificati come barre nei parametri di route quando vengono inseriti nell'URL back-end. 
 
-|Chiave|valore|Descrizione|
+|Chiave|Valore|Descrizione|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|I parametri di route con barre codificate vengono decodificati. |
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Tutti i parametri di route vengono passati insieme a Unchanged, che è il comportamento predefinito. |
@@ -239,7 +239,7 @@ Utilizzato solo quando si esegue la distribuzione in un piano a consumo o Premiu
 
 ## <a name="website_contentovervnet"></a>SITO Web \_ CONTENTOVERVNET
 
-Solo per i piani Premium. Il valore `1` consente la scalabilità dell'app per le funzioni quando l'account di archiviazione è limitato a una rete virtuale. È consigliabile abilitare questa impostazione quando si limita l'account di archiviazione a una rete virtuale. Per altre informazioni, vedere [limitare l'account di archiviazione a una rete virtuale](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+Solo per i piani Premium. Il valore `1` consente la scalabilità dell'app per le funzioni quando l'account di archiviazione è limitato a una rete virtuale. È consigliabile abilitare questa impostazione quando si limita l'account di archiviazione a una rete virtuale. Per altre informazioni, vedere [limitare l'account di archiviazione a una rete virtuale](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).
 
 |Chiave|Valore di esempio|
 |---|------------|

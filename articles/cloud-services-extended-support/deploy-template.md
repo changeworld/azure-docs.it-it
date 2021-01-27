@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio cloud di Azure (supporto esteso)-modelli
-description: Creare un servizio cloud di Azure (supporto esteso) usando i modelli ARM
+title: Distribuire un servizio cloud di Azure (supporto esteso)-modelli
+description: Distribuire un servizio cloud di Azure (supporto esteso) usando i modelli ARM
 ms.topic: tutorial
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,14 +8,14 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3b28bc96703fa48e598bfb6f9622237e769119f2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757154"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881823"
 ---
-# <a name="create-a-cloud-service-extended-support-using-arm-templates"></a>Creare un servizio cloud (supporto esteso) usando i modelli ARM
+# <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Distribuire un servizio cloud (supporto esteso) usando i modelli ARM
 
 Questa esercitazione illustra come creare una distribuzione del servizio cloud (supporto esteso) usando i [modelli ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
 
@@ -39,7 +39,7 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
     - Il Key Vault associato per deve essere abilitato le autorizzazioni appropriate in modo che la risorsa servizi cloud (supporto esteso) possa recuperare il certificato da Key Vault. Per ulteriori informazioni, vedere [certificati e Key Vault](certificates-and-key-vault.md)
     - È necessario fare riferimento a Key Vault nella sezione OsProfile del modello ARM illustrato nei passaggi seguenti.
 
-## <a name="create-a-cloud-service-extended-support"></a>Creazione di un servizio cloud (supporto esteso) 
+## <a name="deploy-a-cloud-service-extended-support"></a>Distribuire un servizio cloud (supporto esteso) 
 1. Creare una rete virtuale. Il nome della rete virtuale deve corrispondere ai riferimenti nel file di configurazione del servizio (con estensione cscfg). Se si usa una rete virtuale esistente, omettere questa sezione dal modello ARM.
 
     ```json
@@ -454,3 +454,4 @@ Questa esercitazione illustra come creare una distribuzione del servizio cloud (
 ## <a name="next-steps"></a>Passaggi successivi 
 - Esaminare le [domande frequenti](faq.md) per i servizi cloud (supporto esteso).
 - Distribuire un servizio cloud (supporto esteso) usando il [portale di Azure](deploy-portal.md), [PowerShell](deploy-powershell.md), il [modello](deploy-template.md) o [Visual Studio](deploy-visual-studio.md).
+- Visitare il [repository di esempi di servizi cloud (supporto esteso)](https://github.com/Azure-Samples/cloud-services-extended-support)

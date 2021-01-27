@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 4b8141d99d654705450a14767b04ae6265766af9
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807089"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876394"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteggi gli endpoint con la soluzione EDR integrata del Centro sicurezza: Microsoft Defender per endpoint
 
@@ -62,7 +62,7 @@ Microsoft Defender per endpoint offre:
 
 Integrando Defender for endpoint con il Centro sicurezza, sarà possibile usufruire delle funzionalità aggiuntive seguenti:
 
-- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza. Ad eccezione di quelli che eseguono Windows Server 2019, che devono essere caricati tramite script locali, oggetto Criteri di gruppo (GPO) o [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/mem/configmgr/) (in precedenza SCCM).
+- **Onboarding automatico**. Il Centro sicurezza abilita automaticamente Microsoft Defender per l'endpoint Sensor per tutti i server Windows monitorati dal centro sicurezza. Ad eccezione di quelli che eseguono Windows Server 2019, che devono essere caricati tramite script locali, oggetto Criteri di gruppo (GPO) o [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (in precedenza SCCM).
 
 - **Riquadro singolo di vetro**. Nella console del Centro sicurezza viene visualizzato Microsoft Defender per gli avvisi degli endpoint. Per approfondire l'analisi, utilizzare Microsoft Defender per le pagine del portale dell'endpoint in cui verranno visualizzate informazioni aggiuntive, ad esempio l'albero del processo di avviso e il grafico dell'evento imprevisto. È anche possibile visualizzare una sequenza temporale dettagliata che mostra ogni comportamento per un determinato periodo, fino a un massimo di sei mesi.
 

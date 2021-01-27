@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 26ef07269c9451c2e9d05d42e2247fbfcdae4844
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201961"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882383"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
 
@@ -35,8 +35,8 @@ Queste indicazioni sono specifiche per l'Archiviazione Premium, perché i carich
 >
 > Se si sta cercando di eseguire il benchmarking del disco, vedere gli articoli relativi al benchmarking di un disco:
 >
-> * Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](linux/disks-benchmarks.md)
-> * Per Windows: [benchmarking di un disco](windows/disks-benchmarks.md).
+> * Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](./disks-benchmarks.md)
+> * Per Windows: [benchmarking di un disco](./disks-benchmarks.md).
 >
 > Se la macchina virtuale supporta la rete accelerata, è necessario assicurarsi che sia abilitata. Se non è abilitata, è possibile abilitarla nelle macchine virtuali già distribuite sia in [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) che in [Linux](../virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
@@ -380,8 +380,8 @@ L'Archiviazione Premium di Azure effettua il provisioning di un numero specifica
 
 Se si sta cercando di eseguire il benchmarking del disco, vedere gli articoli relativi al benchmarking di un disco:
 
-* Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](linux/disks-benchmarks.md)
-* Per Windows: [benchmarking di un disco](windows/disks-benchmarks.md).
+* Per Linux: [benchmark dell'applicazione in archiviazione su disco di Azure](./disks-benchmarks.md)
+* Per Windows: [benchmarking di un disco](./disks-benchmarks.md).
 
 Altre informazioni sui tipi di disco disponibili:
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 380aa826030df14b4b88b86ac2962c988796c0f9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 025a94cf7d163d41486ef218e70d9eb48e93d31c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202641"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881317"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -879,9 +879,9 @@ Si noti che le immagini di macchine virtuali di Azure Marketplace pubblicate da 
 
 - [Creare una macchina virtuale Windows nella portale di Azure ](../virtual-machines/windows/quick-create-portal.md)
 
-- [Informazioni su come scaricare il modello di macchina virtuale](../virtual-machines/windows/download-template.md)
+- [Informazioni su come scaricare il modello di macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template)
 
-- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
+- [Script di esempio per caricare un disco rigido virtuale in Azure e creare una nuova macchina virtuale](/previous-versions/azure/virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script)
 
 **Monitoraggio del Centro sicurezza di Azure**: non applicabile
 
@@ -911,7 +911,7 @@ Azure Machine Learning supporta completamente i repository Git per tenere tracci
 
 - [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
-- [Panoramica di raccolta immagini condivise](../virtual-machines/windows/shared-image-galleries.md)
+- [Panoramica di raccolta immagini condivise](../virtual-machines/shared-image-galleries.md)
 
 - [Usa RBAC di Azure per l'autorizzazione Kubernetes](../aks/manage-azure-rbac.md)
 

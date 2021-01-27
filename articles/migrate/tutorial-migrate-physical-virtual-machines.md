@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: c0f4f1d7f0213ad24d25d8d34235475bbdb0316a
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
-ms.translationtype: HT
+ms.openlocfilehash: 3e098e64eacf8b126d6a6d72b1f242443e88d55c
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567108"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881096"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Eseguire la migrazione di computer come server fisici in Azure
 
@@ -55,7 +55,7 @@ Preparare Azure per la migrazione con Migrazione server.
 
 **Attività** | **Dettagli**
 --- | ---
-**Creare un progetto di Azure Migrate** | Per [creare un nuovo progetto](https://docs.microsoft.com/azure/migrate/create-manage-projects), l'account Azure deve avere autorizzazioni di Collaboratore o Proprietario.
+**Creare un progetto di Azure Migrate** | Per [creare un nuovo progetto](./create-manage-projects.md), l'account Azure deve avere autorizzazioni di Collaboratore o Proprietario.
 **Verificare le autorizzazioni per l'account Azure** | L'account Azure necessita delle autorizzazioni per creare una macchina virtuale ed eseguire la scrittura su un disco gestito di Azure.
 
 
@@ -239,7 +239,7 @@ Selezionare ora le VM per la migrazione.
     - Doppia crittografia con chiavi gestite dalla piattaforma e chiavi gestite dal cliente
 
    > [!NOTE]
-   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](https://go.microsoft.com/fwlink/?linkid=2151800) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
+   > Per replicare le macchine virtuali con la chiave gestita dal cliente, è necessario [creare un set di crittografia dischi](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) nel gruppo di risorse di destinazione. Un oggetto set di crittografia dischi consente eseguire il mapping di Managed Disks a un Key Vault che contiene la chiave gestita dal cliente da usare per la crittografia del servizio di archiviazione.
   
 13. In **Vantaggio Azure Hybrid**:
 

@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 12/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 9038d6bc9cd061200ef4553242889776f30d2dc1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: a006dfd4f78f90ed323e5780b173cffb6daeac4a
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964559"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881738"
 ---
 # <a name="trigger-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Attivare pipeline di Machine Learning con Azure Machine Learning SDK per Python
 
@@ -27,7 +27,7 @@ In questo articolo si apprenderà come pianificare una pipeline per l'esecuzione
 
 * Ambiente Python in cui è installato Azure Machine Learning SDK per Python. Per altre informazioni, vedere [creare e gestire ambienti riutilizzabili per il training e la distribuzione con Azure Machine Learning.](how-to-use-environments.md)
 
-* Un'area di lavoro Machine Learning con una pipeline pubblicata. È possibile usare quello creato in [creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* Un'area di lavoro Machine Learning con una pipeline pubblicata. È possibile usare quello creato in [creare ed eseguire pipeline di Machine Learning con Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="initialize-the-workspace--get-data"></a>Inizializzare l'area di lavoro & recuperare i dati
 
@@ -142,7 +142,7 @@ Se quindi si esegue `Schedule.list(ws)` nuovamente, si otterrà un elenco vuoto.
 
 È possibile creare regole o comportamenti di trigger più complessi usando un'app per la [logica di Azure](../logic-apps/logic-apps-overview.md).
 
-Per usare un'app per la logica di Azure per attivare una pipeline di Machine Learning, è necessario l'endpoint REST per una pipeline di Machine Learning pubblicata. [Creare e pubblicare la pipeline](how-to-create-your-first-pipeline.md). Individuare quindi l'endpoint REST del `PublishedPipeline` usando l'ID pipeline:
+Per usare un'app per la logica di Azure per attivare una pipeline di Machine Learning, è necessario l'endpoint REST per una pipeline di Machine Learning pubblicata. [Creare e pubblicare la pipeline](./how-to-create-machine-learning-pipelines.md). Individuare quindi l'endpoint REST del `PublishedPipeline` usando l'ID pipeline:
 
 ```python
 # You can find the pipeline ID in Azure Machine Learning studio

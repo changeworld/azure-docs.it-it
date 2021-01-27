@@ -3,12 +3,12 @@ title: Panoramica della messaggistica del bus di servizio di Azure | Microsoft D
 description: Questo articolo fornisce una panoramica generale del bus di servizio di Azure, un broker di messaggi completamente gestito per l'integrazione aziendale.
 ms.topic: overview
 ms.date: 11/20/2020
-ms.openlocfilehash: d9103557eb7b32f376ba6590bbca5f557bf32764
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 7453e8dd300ad754fb58489f059670af209314ab
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632868"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881602"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 Il bus di servizio di Microsoft Azure è un broker di messaggi aziendale completamente gestito, con code di messaggi e argomenti di pubblicazione-sottoscrizione. Il bus di servizio viene usato per disaccoppiare le applicazioni dai servizi, offrendo i vantaggi seguenti:
@@ -32,7 +32,7 @@ Alcuni scenari di messaggistica comuni sono:
     2. Pubblicare i risultati dell'elaborazione in una o più code diverse.
     3. Spostare il messaggio di input dalla coda originale. 
     
-    I risultati diventano visibili ai consumer downstream solo quando l'operazione riesce, ad esempio quando il messaggio di input viene gestito correttamente, consentendo la semantica dell'elaborazione di tipo "once-only". Questo modello di transazioni rappresenta una solida base per il modello di [transazioni di compensazione](https://docs.microsoft.com/azure/architecture/patterns/compensating-transaction) nel contesto più ampio della soluzione. 
+    I risultati diventano visibili ai consumer downstream solo quando l'operazione riesce, ad esempio quando il messaggio di input viene gestito correttamente, consentendo la semantica dell'elaborazione di tipo "once-only". Questo modello di transazioni rappresenta una solida base per il modello di [transazioni di compensazione](/azure/architecture/patterns/compensating-transaction) nel contesto più ampio della soluzione. 
 * *Sessioni di messaggistica*. Implementano un coordinamento su larga scala di flussi di lavoro e trasferimenti multiplex che richiedono un ordinamento rigoroso dei messaggi o il differimento degli stessi.
 
 Se si ha familiarità con altri broker di messaggi, come Apache ActiveMQ, i concetti del bus di servizio sono simili a quelli già noti. Poiché un bus di servizio è un'offerta PaaS (platform-as-a-service), la principale differenza è che non bisogna preoccuparsi delle azioni seguenti. Azure le gestisce automaticamente. 

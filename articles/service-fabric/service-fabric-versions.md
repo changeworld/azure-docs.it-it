@@ -3,12 +3,12 @@ title: Aggiornare la versione del cluster di Azure Service Fabric
 description: Informazioni sulle versioni del cluster in Azure Service Fabric, incluso un collegamento alle versioni più recenti dal Blog del team di Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: c9a29a97238164b9f6daf9dda66a1f314a7673ce
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cd9c4be285c68e5482f7276429dd5514c72ae135
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804247"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881551"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Aggiornare la versione del cluster di Azure Service Fabric
 
@@ -55,7 +55,7 @@ Eseguire l'aggiornamento a una versione di Service Fabric supportata per evitare
 
 ### <a name="upgrade-alert-for-versions-later-than-63"></a>Avviso di aggiornamento per le versioni successive alla 6,3
 
-Per migliorare la sicurezza e la disponibilità, l'infrastruttura di Azure ha apportato una modifica che potrebbe influire sui clienti Service Fabric. Questa modifica influirà su tutti i cluster Service Fabric che usano la [modalità di rete aperta per i contenitori](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) ed eseguono le versioni da 6,3 a 7,0 o versioni supportate non compatibili successive a 7,0. È disponibile un aggiornamento del runtime di Service Fabric per tutte le versioni di Service Fabric supportate in tutte le aree.
+Per migliorare la sicurezza e la disponibilità, l'infrastruttura di Azure ha apportato una modifica che potrebbe influire sui clienti Service Fabric. Questa modifica influirà su tutti i cluster Service Fabric che usano la [modalità di rete aperta per i contenitori](./service-fabric-networking-modes.md#set-up-open-networking-mode) ed eseguono le versioni da 6,3 a 7,0 o versioni supportate non compatibili successive a 7,0. È disponibile un aggiornamento del runtime di Service Fabric per tutte le versioni di Service Fabric supportate in tutte le aree.
 
 #### <a name="if-you-dont-upgrade-to-a-supported-version"></a>Se non si esegue l'aggiornamento a una versione supportata
 

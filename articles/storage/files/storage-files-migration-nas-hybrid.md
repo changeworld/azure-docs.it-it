@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 0d8d19256dfca21cc805c2689557099a6785f76b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 2d531edeeae9e0dd7e392cae66d9e4d41c68dfa2
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629207"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882264"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Network Attached Storage (NAS) a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
@@ -151,7 +151,7 @@ Sfondo:
       /MIR
    :::column-end:::
    :::column span="1":::
-      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le " *eliminazioni* ", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Il flag */Mir* è un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate in modo attivo.
+      Consente a di eseguire questo comando RoboCopy più volte, in sequenza nella stessa destinazione/destinazione. Identifica gli elementi che sono stati copiati in precedenza e li omette. Verranno elaborate solo le modifiche, le aggiunte e le "*eliminazioni*", che si sono verificate dall'ultima esecuzione. Se il comando non è stato eseguito in precedenza, non viene omesso nulla. Il flag */Mir* è un'ottima opzione per le posizioni di origine che vengono ancora utilizzate e modificate in modo attivo.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -208,7 +208,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati dal NAS al server Windows e aver completato la migrazione: tornare a * **tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
+> Dopo aver spostato tutti i dati dal NAS al server Windows e aver completato la migrazione: tornare a ***tutti** i gruppi di sincronizzazione nella portale di Azure e modificare il valore percentuale spazio disponibile del volume del cloud in modo che sia più adatto per l'utilizzo della cache, ad indicare il 20%. 
 
 I criteri di spazio libero del volume di suddivisione in livelli nel cloud agiscono a livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere il 99% di spazio libero su disco, rendendo la cache locale non funziona come previsto. A meno che non si tratti dell'obiettivo di avere solo lo spazio dei nomi per un volume che contiene solo i dati di archiviazione a cui si accede raramente e si riserva il resto dello spazio di archiviazione per un altro scenario.
 
@@ -227,5 +227,5 @@ Per la risoluzione dei problemi Sincronizzazione file di Azure, vedere il colleg
 Sono disponibili altre informazioni sulle condivisioni file di Azure e Sincronizzazione file di Azure. Gli articoli seguenti consentono di comprendere le opzioni avanzate, le procedure consigliate e contengono anche la guida alla risoluzione dei problemi. Questi articoli sono collegati alla [documentazione di condivisione file di Azure](storage-files-introduction.md) nel modo appropriato.
 
 * [Panoramica di AFS](./storage-sync-files-planning.md)
-* [Guida alla distribuzione di AFS](storage-files-deployment-guide.md)
+* [Guida alla distribuzione di AFS](./storage-how-to-create-file-share.md)
 * [Risoluzione dei problemi di AFS](storage-sync-files-troubleshoot.md)

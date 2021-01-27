@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 55c7522ad1dc6c7f91fae608a777dab3cd67d2ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e09607dde118ce25e5d2e5311e7614f2f18a590
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890731"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Configurare i computer allo stato desiderato
 
@@ -42,7 +42,7 @@ Per altre informazioni su come i team possono interagire per gestire i server in
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere alla sottoscrizione di Azure con il cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) e seguire le istruzioni visualizzate.
+Accedere alla sottoscrizione di Azure con il cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) e seguire le istruzioni visualizzate.
 
 ```powershell
 Connect-AzAccount
@@ -68,7 +68,7 @@ configuration TestConfig {
 > [!NOTE]
 > Negli scenari più avanzati in cui è necessario importare più moduli che forniscono risorse DSC, assicurarsi che ogni modulo abbia una riga `Import-DscResource` univoca nella configurazione.
 
-Chiamare il cmdlet [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration?view=azps-3.7.0) per caricare la configurazione nell'account di Automazione.
+Chiamare il cmdlet [Import-AzAutomationDscConfiguration](/powershell/module/Az.Automation/Import-AzAutomationDscConfiguration) per caricare la configurazione nell'account di Automazione.
 
 ```powershell
  Import-AzAutomationDscConfiguration -SourcePath 'C:\DscConfigs\TestConfig.ps1' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -Published
@@ -78,7 +78,7 @@ Chiamare il cmdlet [Import-AzAutomationDscConfiguration](/powershell/module/Az.A
 
 Una configurazione DSC deve essere compilata in una configurazione nodo affinché possa essere assegnata a un nodo. Vedere [Configurazioni DSC](/powershell/scripting/dsc/configurations/configurations).
 
-Chiamare il cmdlet [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob?view=azps-3.7.0) per compilare la configurazione di `TestConfig` in una configurazione nodo denominata `TestConfig.WebServer` nell'account di Automazione.
+Chiamare il cmdlet [Start-AzAutomationDscCompilationJob](/powershell/module/Az.Automation/Start-AzAutomationDscCompilationJob) per compilare la configurazione di `TestConfig` in una configurazione nodo denominata `TestConfig.WebServer` nell'account di Automazione.
 
 ```powershell
 Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount'
@@ -88,7 +88,7 @@ Start-AzAutomationDscCompilationJob -ConfigurationName 'TestConfig' -ResourceGro
 
 È possibile usare Configurazione stato di Automazione di Azure per gestire macchine virtuali di Azure (sia classiche sia Resource Manager), macchine virtuali locali, computer Linux, macchine virtuali AWS e computer fisici locali. Questo argomento descrive soltanto come registrare VM di Azure Resource Manager. Per informazioni sulla registrazione di altri tipi di computer, vedere [Onboarding di computer per la gestione tramite Configurazione stato di Automazione di Azure](automation-dsc-onboarding.md).
 
-Chiamare il cmdlet [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode?view=azps-3.7.0) per registrare la VM con State Configuration di Automazione di Azure come nodo gestito. 
+Chiamare il cmdlet [Register-AzAutomationDscNode](/powershell/module/Az.Automation/Register-AzAutomationDscNode) per registrare la VM con State Configuration di Automazione di Azure come nodo gestito. 
 
 ```powershell
 Register-AzAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm'
@@ -125,7 +125,7 @@ In questo modo si assegna la configurazione nodo denominata `TestConfig.WebServe
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>Controllare lo stato di conformità di un nodo gestito
 
-È possibile ottenere report sullo stato di conformità di un nodo gestito usando il cmdlet [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport?view=azps-3.7.0).
+È possibile ottenere report sullo stato di conformità di un nodo gestito usando il cmdlet [Get-AzAutomationDscNodeReport](/powershell/module/Az.Automation/Get-AzAutomationDscNodeReport).
 
 ```powershell
 # Get the ID of the DSC node
@@ -146,7 +146,7 @@ Se si sceglie di rimuovere il nodo dal servizio, è possibile farlo usando il po
 > [!NOTE]
 > Se si annulla la registrazione di un nodo dal servizio, vengono definite solo le impostazioni di Configuration Manager locale e quindi il nodo non si connette più al servizio.
 > Questa operazione non influisce sulla configurazione attualmente applicata al nodo.
-> Per rimuovere la configurazione corrente, usare [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) o eliminare il file di configurazione locale (questa è l'unica opzione per i nodi Linux).
+> Per rimuovere la configurazione corrente, usare [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) o eliminare il file di configurazione locale (questa è l'unica opzione per i nodi Linux).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -157,7 +157,7 @@ Nella visualizzazione del nodo visualizzata fare clic su **Annulla registrazione
 
 ### <a name="powershell"></a>PowerShell
 
-Per annullare la registrazione di un nodo dal servizio State Configuration di Automazione di Azure tramite PowerShell, seguire la documentazione del cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
+Per annullare la registrazione di un nodo dal servizio State Configuration di Automazione di Azure tramite PowerShell, seguire la documentazione del cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -166,4 +166,4 @@ Per annullare la registrazione di un nodo dal servizio State Configuration di Au
 - Per informazioni sulla compilazione di configurazioni DSC da assegnare ai nodi di destinazione, vedere [Compilare configurazioni DSC in State Configuration di Automazione di Azure](automation-dsc-compile.md).
 - Per un esempio dell'uso di State Configuration di Automazione di Azure in una pipeline di distribuzione continua, vedere [Configurare la distribuzione continua con Chocolatey](automation-dsc-cd-chocolatey.md).
 - Per informazioni sui prezzi, vedere [Prezzi di State Configuration di Automazione di Azure](https://azure.microsoft.com/pricing/details/automation/).
-- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation).

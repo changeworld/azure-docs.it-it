@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 82161a8f66dd717a9dc448a743b818a9ab9938db
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 3db31431c24edd3377f6299046cc31067310b2ef
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250979"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876211"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Distribuire un cluster di Azure Service Fabric tra zone di disponibilità
 Zone di disponibilità in Azure è un'offerta a disponibilità elevata che protegge le applicazioni e i dati dagli errori dei data center. Una zona di disponibilità è una posizione fisica univoca dotata di alimentazione, raffreddamento e rete indipendenti in un'area di Azure.
@@ -345,7 +345,7 @@ Per abilitare le zone in un set di scalabilità di macchine virtuali, è necessa
 
 * Il primo valore è la proprietà **Zones** , che specifica il zone di disponibilità presente nel set di scalabilità di macchine virtuali.
 * Il secondo valore è la proprietà "singlePlacementGroup", che deve essere impostata su true. **Il set di scalabilità in 3 AZ può essere ridimensionato fino a 300 VM anche con "singlePlacementGroup = true".**
-* Il terzo valore è "zoneBalance", che garantisce un rigido bilanciamento della zona se impostato su true. È consigliabile impostare questo valore su true per evitare la distribuzione sbilanciata delle macchine virtuali tra le zone. Vedere informazioni su [zoneBalancing](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
+* Il terzo valore è "zoneBalance", che garantisce un rigido bilanciamento della zona se impostato su true. È consigliabile impostare questo valore su true per evitare la distribuzione sbilanciata delle macchine virtuali tra le zone. Vedere informazioni su [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * Non è necessario configurare gli override di FaultDomain e UpgradeDomain.
 
 ```json
@@ -416,9 +416,9 @@ Per supportare più zone di disponibilità, è necessario abilitare il nodeType 
 
 ### <a name="migration-to-the-node-type-with-multiple-availability-zones"></a>Migrazione al tipo di nodo con più zone di disponibilità
 Per tutti gli scenari di migrazione, è necessario aggiungere un nuovo nodeType che avrà più zone di disponibilità supportate. Non è possibile eseguire la migrazione di un nodeType esistente per supportare più zone.
-[Questo articolo illustra](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-primary-node-type ) i passaggi dettagliati per aggiungere un nuovo NodeType e aggiungere anche le altre risorse necessarie per il nuovo NodeType, ad esempio le risorse IP e lb. Lo stesso articolo descrive anche ora di ritirare il nodeType esistente dopo che il nodeType con più zone di disponibilità viene aggiunto al cluster.
+[Questo articolo illustra](./service-fabric-scale-up-primary-node-type.md) i passaggi dettagliati per aggiungere un nuovo NodeType e aggiungere anche le altre risorse necessarie per il nuovo NodeType, ad esempio le risorse IP e lb. Lo stesso articolo descrive anche ora di ritirare il nodeType esistente dopo che il nodeType con più zone di disponibilità viene aggiunto al cluster.
 
-* Migrazione da un nodeType che usa le risorse LB e IP di base: questa operazione è già descritta [qui](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) per la soluzione con un tipo di nodo per AZ. 
+* Migrazione da un nodeType che usa le risorse LB e IP di base: questa operazione è già descritta [qui](#migrate-to-using-availability-zones-from-a-cluster-using-a-basic-sku-load-balancer-and-a-basic-sku-ip) per la soluzione con un tipo di nodo per AZ. 
     Per il nuovo tipo di nodo, l'unica differenza è costituita dal fatto che esiste un solo set di scalabilità di macchine virtuali e 1 NodeType per tutte le AZ, anziché 1 ogni per AZ.
 * Migrazione da un oggetto nodeType che usa le risorse LB e IP dello SKU standard con NSG: seguire la stessa procedura descritta in precedenza, con l'eccezione che non è necessario aggiungere nuove risorse LB, IP e NSG e le stesse risorse possono essere riutilizzate nel nuovo nodeType.
 

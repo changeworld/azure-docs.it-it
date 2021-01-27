@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: b23b5d516479cb28948a601c6bd71309500e73f1
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
-ms.translationtype: HT
+ms.openlocfilehash: 56644ab6cacfd811a23fb89b9bf6a10c87542db3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825794"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98876784"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Avvio rapido: Configurare il server di configurazione di Azure Spring Cloud
 
@@ -84,7 +84,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 ::: zone-end
 
 > [!TIP]
-> Se si usa un repository privato per il server di configurazione, vedere l'[esercitazione sulla configurazione dell'autenticazione](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server).
+> Se si usa un repository privato per il server di configurazione, vedere l'[esercitazione sulla configurazione dell'autenticazione](./spring-cloud-tutorial-config-server.md).
 
 ## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Risoluzione dei problemi del componente Config Server di Azure Spring Cloud
 

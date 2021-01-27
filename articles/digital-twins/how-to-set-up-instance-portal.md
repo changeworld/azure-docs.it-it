@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: aa6429e27faf92f047c580986d5b434c9a418730
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044374"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882450"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -71,13 +71,13 @@ A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso. Success
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'portale di Azure. Selezionare *controllo di accesso (IAM)* dal menu dell'istanza. Selezionare il pulsante  *Aggiungi* in *Aggiungi un'assegnazione di ruolo*.
+Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'portale di Azure. Selezionare *controllo di accesso (IAM)* dal menu dell'istanza. Selezionare il pulsante  **+ Aggiungi** per aggiungere una nuova assegnazione di ruolo.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione per aggiungere un'assegnazione di ruolo dalla pagina &quot;controllo di accesso (IAM)&quot;":::
 
 Nella pagina *Aggiungi assegnazione ruolo* , inserire i valori (che devono essere completati da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
 * **Ruolo**: selezionare il *proprietario dei dati di Azure Digital gemelli* dal menu a discesa
-* **Assegnare l'accesso a**: selezionare *Azure ad utente, gruppo o entità servizio* dal menu a discesa
+* **Assegnare l'accesso a**: usare *utente, gruppo o entità servizio*
 * **Select**: consente di cercare il nome o l'indirizzo di posta elettronica dell'utente da assegnare. Quando si seleziona il risultato, l'utente viene visualizzato nella sezione *membri selezionati* .
 
 :::row:::

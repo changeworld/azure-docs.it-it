@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: f9f95a5e85ec4eebf82cca707476750595331d73
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.date: 01/25/2021
+ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522669"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881232"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -46,9 +46,9 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantaggi
-- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
+- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui [Esplora metriche](platform/metrics-charts.md), [log Analytics](log-query/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
 - Supporto sia per le metriche sia per i log.
-- Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](platform/metrics-charts.md), [query di Log](log-query/log-query-overview.md), [mappe](app/app-map.md) e disponibilità in Application Insights.
+- Combina i dati di più origini, incluso l'output da [Esplora metriche](platform/metrics-charts.md), [query di log](log-query/log-query-overview.md)e [mappe](app/app-map.md) e disponibilità in [Application Insights](app/app-insights-overview.md).
 - Opzione per dashboard personali o condivisi, Integrazione con il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md).
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti I log si aggiornano ogni ora, con un'opzione di aggiornamento manuale su richiesta facendo clic sull'icona "Aggiorna" in una determinata visualizzazione o aggiornando il dashboard completo.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
@@ -57,7 +57,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 
 
 ### <a name="limitations"></a>Limitazioni
-- Controllo limitato delle visualizzazioni dei log senza supporto per le tabelle di dati. Il numero totale delle serie di dati è limitato a 10 con altre serie di dati raggruppate in un _altro_ contenitore.
+- Controllo limitato delle visualizzazioni dei log senza supporto per le tabelle di dati. Il numero totale di serie di dati è limitato a 50 con altre serie di dati raggruppati in un _altro_ bucket.
 - Nessun supporto dei parametri personalizzati per i grafici dei log.
 - I grafici dei log sono limitati agli ultimi 30 giorni.
 - I grafici dei log possono essere aggiunti solo ai dashboard condivisi.
@@ -140,8 +140,9 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-platform.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
-- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
+- Informazioni sulle [Esplora metriche](platform/metrics-getting-started.md)
 - Informazioni sulle [cartelle di lavoro](./platform/workbooks-overview.md).
 - Informazioni sull'[importazione dei dati di log in Power BI](./platform/powerbi.md).
 - Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](./platform/grafana-plugin.md).
+- Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
 

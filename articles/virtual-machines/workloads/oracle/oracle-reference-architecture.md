@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: bbaf34c977546891c6ac05fbd4b5feb15f333e04
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 27a1c57c234d3450cee606c4ffb7484f7b63e732
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737813"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98882298"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Architetture di riferimento per Oracle Database Enterprise Edition in Azure
 
@@ -216,7 +216,7 @@ L'applicazione di patch al sistema operativo della macchina virtuale può essere
 - Usare le zone di disponibilità per ottenere la disponibilità elevata in-Region.
 - Si consiglia di usare dischi Ultra (se disponibili) o dischi Premium per il database Oracle.
 - Si consiglia di configurare un database Oracle di standby in un'altra area di Azure usando Oracle Data Guard.
-- Per ridurre la latenza tra l'applicazione e il livello del database, provare a usare i [gruppi di posizionamento prossimità](../../../virtual-machines/linux/co-location.md#proximity-placement-groups) .
+- Per ridurre la latenza tra l'applicazione e il livello del database, provare a usare i [gruppi di posizionamento prossimità](../../co-location.md#proximity-placement-groups) .
 - Configurare [Oracle Enterprise Manager](https://docs.oracle.com/en/enterprise-manager/) per la gestione, il monitoraggio e la registrazione.
 - Prendere in considerazione l'uso di Oracle Automatic Storage Management (ASM) per la gestione semplificata dell'archiviazione per il database.
 - Usare [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) per gestire l'applicazione di patch e gli aggiornamenti al database senza tempi di inattività.

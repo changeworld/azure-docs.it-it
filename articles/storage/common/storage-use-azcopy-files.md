@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 12/08/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 050e6b5007b9fbaedc412d8062430f1c2c1691fd
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 7bca683ea075710aa6fc677fcf457ceb2e0e5098
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96923940"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881012"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Trasferire dati con AzCopy e l'archivio file 
 
@@ -34,7 +34,7 @@ Prima di iniziare, vedere l'articolo [Introduzione a AzCopy](storage-use-azcopy-
 
 Per informazioni dettagliate sulla documentazione di riferimento, vedere [azcopy make](storage-ref-azcopy-make.md).
 
-## <a name="upload-files"></a>Caricare i file
+## <a name="upload-files"></a>Caricare file
 
 È possibile usare il comando [copy di azcopy](storage-ref-azcopy-copy.md) per caricare file e directory dal computer locale.
 
@@ -49,7 +49,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di caricamento usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -153,7 +153,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di download usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -236,7 +236,7 @@ Per informazioni di riferimento dettagliate, vedere la documentazione di riferim
 
 #### <a name="download-from-a-share-snapshot"></a>Scaricare da uno snapshot di condivisione
 
-È possibile scaricare una versione specifica di un file o di una directory facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](/azure/storage/files/storage-snapshots-files). 
+È possibile scaricare una versione specifica di un file o di una directory facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](../files/storage-snapshots-files.md). 
 
 |    |     |
 |--------|-----------|
@@ -251,7 +251,7 @@ Per informazioni di riferimento dettagliate, vedere la documentazione di riferim
 
 AzCopy usa le [API](/rest/api/storageservices/put-page-from-url) [da server a server](/rest/api/storageservices/put-block-from-url) , quindi i dati vengono copiati direttamente tra i server di archiviazione. Queste operazioni di copia non utilizzano la larghezza di banda di rete del computer. È possibile aumentare la velocità effettiva di queste operazioni impostando il valore della `AZCOPY_CONCURRENCY_VALUE` variabile di ambiente. Per altre informazioni, vedere [ottimizzare la velocità effettiva](storage-use-azcopy-configure.md#optimize-throughput).
 
-È anche possibile copiare versioni specifiche di un file facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](/azure/storage/files/storage-snapshots-files). 
+È anche possibile copiare versioni specifiche di un file facendo riferimento al valore **DateTime** di uno snapshot di condivisione. Per altre informazioni sugli snapshot di condivisione, vedere [Panoramica degli snapshot di condivisione per file di Azure](../files/storage-snapshots-files.md). 
 
 Questa sezione contiene gli esempi seguenti:
 
@@ -264,7 +264,7 @@ Questa sezione contiene gli esempi seguenti:
 > [!TIP]
 > È possibile modificare l'operazione di copia usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|
@@ -320,7 +320,7 @@ Se si imposta il `--delete-destination` flag su `true` , AzCopy Elimina i file s
 > [!TIP]
 > È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.
 >
-> |Scenario|Flag|
+> |Scenario|Contrassegno|
 > |---|---|
 > |Copiare gli elenchi di controllo di accesso (ACL) insieme ai file.|**--Preserve-SMB-autorizzazioni** = \[ true \| false\]|
 > |Copiare le informazioni sulle proprietà SMB insieme ai file.|**--Preserve-SMB-info** = \[ true \| false\]|

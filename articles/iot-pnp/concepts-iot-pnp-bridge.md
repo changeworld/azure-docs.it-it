@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 05b9df2c5083d24ae6a78212bdd29cd1c740e1d1
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: a45efd90043ecb4d457db7ed39651f1a9b5bbd4d
+ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746493"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98890608"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Bridge Plug and Play IoT
 
@@ -150,5 +150,5 @@ Ora che si dispone di una panoramica dell'architettura di Internet delle cose Pl
 
 - [Come connettere un esempio Plug and Play Bridge in esecuzione in Linux o Windows all'hub Internet](./howto-use-iot-pnp-bridge.md)
 - [Compila e Distribuisci Plug and Play Bridge](howto-build-deploy-extend-pnp-bridge.md)
-- [Estendi Plug and Play Bridge](howto-build-deploy-extend-pnp-bridge.md)
+- [Estendi Plug and Play Bridge](howto-author-pnp-bridge-adapter.md)
 - [Plug and Play Bridge su GitHub](https://github.com/Azure/iot-plug-and-play-bridge)

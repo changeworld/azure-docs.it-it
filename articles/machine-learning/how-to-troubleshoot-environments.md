@@ -10,12 +10,12 @@ ms.author: sagopal
 ms.date: 12/3/2020
 ms.topic: troubleshooting
 ms.custom: devx-track-python
-ms.openlocfilehash: 71061c056b499f79727f70fb855db7a81a65f3bd
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 7ddd5dec87a122a0b36fee17b5434c8a49dcf434
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572171"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881636"
 ---
 # <a name="troubleshoot-environment-image-builds"></a>Risolvere i problemi relativi alle build dell'immagine ambiente
 
@@ -153,12 +153,12 @@ Per risolvere i possibili errori sul lato servizio, vedere gli scenari seguenti.
 
 Possibili problemi:
 - Il nome del percorso del registro contenitori potrebbe non essere risolto correttamente. Verificare che i nomi delle immagini usino barre doppie e che la direzione delle barre in Linux rispetto agli host Windows sia corretta.
-- Se un registro contenitori dietro una rete virtuale usa un endpoint privato in [un'area non supportata](https://docs.microsoft.com/azure/private-link/private-link-overview#availability), configurare il registro contenitori usando l'endpoint del servizio (accesso pubblico) dal portale e riprovare.
-- Dopo aver inserito il registro contenitori dietro una rete virtuale, eseguire il [modello di Azure Resource Manager](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) in modo che l'area di lavoro possa comunicare con l'istanza del registro contenitori.
+- Se un registro contenitori dietro una rete virtuale usa un endpoint privato in [un'area non supportata](/azure/private-link/private-link-overview#availability), configurare il registro contenitori usando l'endpoint del servizio (accesso pubblico) dal portale e riprovare.
+- Dopo aver inserito il registro contenitori dietro una rete virtuale, eseguire il [modello di Azure Resource Manager](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry) in modo che l'area di lavoro possa comunicare con l'istanza del registro contenitori.
 
 ### <a name="you-get-a-401-error-from-a-workspace-container-registry"></a>Si riceve un errore 401 da un registro contenitori dell'area di lavoro
 
-Risincronizzare le chiavi di archiviazione utilizzando [WS.sync_keys ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
+Risincronizzare le chiavi di archiviazione utilizzando [WS.sync_keys ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#sync-keys--).
 
 ### <a name="the-environment-keeps-throwing-a-waiting-for-other-conda-operations-to-finish-error"></a>L'ambiente continua a generare un "in attesa del completamento di altre operazioni conda..." errore
 
@@ -166,7 +166,7 @@ Quando la compilazione di un'immagine è in corso, conda è bloccata dal client 
 
 ### <a name="your-custom-docker-image-isnt-in-the-registry"></a>L'immagine Docker personalizzata non è presente nel registro di sistema
 
-Controllare se viene usato il [tag corretto](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#create-an-environment) e questo `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` Disabilita conda e utilizza i pacchetti installati dell'utente.
+Controllare se viene usato il [tag corretto](/azure/machine-learning/how-to-use-environments#create-an-environment) e questo `user_managed_dependencies = True` . `Environment.python.user_managed_dependencies = True` Disabilita conda e utilizza i pacchetti installati dell'utente.
 
 ### <a name="you-get-one-of-the-following-common-virtual-network-issues"></a>Si ottiene uno dei seguenti problemi comuni della rete virtuale
 
@@ -184,9 +184,9 @@ Controllare se viene usato il [tag corretto](https://docs.microsoft.com/azure/ma
 
 ### <a name="you-cant-run-experiments-when-storage-has-network-security-enabled"></a>Non è possibile eseguire esperimenti quando per l'archiviazione è abilitata la sicurezza di rete
 
-Se si usano immagini Docker predefinite e si abilitano le dipendenze gestite dall'utente, usare i tag del [servizio](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry e AzureFrontDoor. FirstParty per consentire l'container Registry Azure e le relative dipendenze.
+Se si usano immagini Docker predefinite e si abilitano le dipendenze gestite dall'utente, usare i tag del [servizio](/azure/machine-learning/how-to-enable-virtual-network) MicrosoftContainerRegistry e AzureFrontDoor. FirstParty per consentire l'container Registry Azure e le relative dipendenze.
 
- Per ulteriori informazioni, vedere [Abilitazione di reti virtuali](https://docs.microsoft.com/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
+ Per ulteriori informazioni, vedere [Abilitazione di reti virtuali](/azure/machine-learning/how-to-enable-virtual-network#azure-container-registry).
 
 ### <a name="you-need-to-create-an-icm"></a>È necessario creare un ICM
 

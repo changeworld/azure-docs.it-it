@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: a2c10e7915b0d293d3193c710885ded26a791f2c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 40b44fd277eac14a5bf2c15f58fccfd9d5b156c4
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98745135"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881486"
 ---
 # <a name="reset-an-azure-cloud-service-extended-support"></a>Reimpostare un servizio cloud di Azure (supporto esteso) 
 Questi esempi illustrano vari modi per reimpostare una distribuzione di servizio cloud di Azure (supporto esteso) esistente.
@@ -42,4 +42,5 @@ Reset-AzCloudService -ResourceGroupName "ContosOrg" -CloudServiceName "ContosoCS
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sui servizi cloud di Azure (supporto esteso), vedere [Panoramica di servizi cloud di Azure (supporto esteso)](overview.md).
+- Per ulteriori informazioni sui servizi cloud di Azure (supporto esteso), vedere [Panoramica di servizi cloud di Azure (supporto esteso)](overview.md).
+- Visitare il [repository di esempi di servizi cloud (supporto esteso)](https://github.com/Azure-Samples/cloud-services-extended-support)

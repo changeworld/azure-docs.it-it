@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/02/2020
 ms.author: brendm
 ms.custom: devx-track-java, contperf-fy21q2
-ms.openlocfilehash: fc3f78131518b4d8740c25ab37c48d4444deef10
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: b7f5d4206140bf2101c10b1cd4ac46d80bdd3342
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563144"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881704"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Cos'è Azure Spring Cloud?
 
@@ -27,7 +27,7 @@ La distribuzione di applicazioni in Azure Spring cloud offre numerosi vantaggi. 
 * Velocizzare le attività di sviluppo e distribuzione senza dipendenze di containerizzazione.
 * Monitorare i carichi di lavoro di produzione in modo efficiente e senza fatica.
 
-Azure Spring Cloud supporta sia app [Spring Boot](https://spring.io/projects/spring-boot) per Java che [Steeltoe](https://steeltoe.io/) per ASP.NET Core. Il supporto di Steeltoe è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale. I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione. Per altre informazioni, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Azure Spring Cloud supporta sia app [Spring Boot](https://spring.io/projects/spring-boot) per Java che [Steeltoe](https://steeltoe.io/) per ASP.NET Core. Il supporto di Steeltoe è attualmente disponibile come anteprima pubblica. Le offerte di anteprima pubblica consentono di sperimentare le nuove funzionalità prima del rilascio della versione ufficiale. I servizi e le funzionalità di anteprima pubblica non sono destinati all'uso in produzione. Per altre informazioni, vedere le [domande frequenti](https://azure.microsoft.com/support/faq/) o inviare una [richiesta di supporto](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="service-overview"></a>Panoramica del servizio
 
@@ -64,7 +64,7 @@ Questa documentazione include sezioni che illustrano come iniziare a sfruttare a
     * [Integrazione con altri servizi di Azure](spring-cloud-tutorial-bind-cosmos.md): anziché configurare manualmente le applicazioni Spring Boot, è possibile associare automaticamente determinati servizi di Azure alle applicazioni, ad esempio associare l'applicazione a un database di Azure Cosmos DB.
     * [Automazione](spring-cloud-howto-cicd.md): gli strumenti di integrazione continua e recapito continuo consentono di distribuire rapidamente aggiornamenti alle applicazioni esistenti con il minimo sforzo e rischio. Azure DevOps facilita l'organizzazione e il controllo di queste attività chiave. 
     * [Risolvere i problemi](spring-cloud-howto-self-diagnose-solve.md): gli strumenti di diagnostica di Azure Spring Cloud offrono un'esperienza interattiva per la risoluzione dei problemi delle app. Non è richiesta alcuna configurazione. Quando vengono individuati problemi, la diagnostica di Azure Spring Cloud li identifica e rimanda ad informazioni che consentono di risolverli.
-    * [Migrazione](https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): come eseguire la migrazione di un'applicazione Spring Cloud esistente o di un'applicazione Spring Boot da eseguire in Azure Spring Cloud.
+    * [Migrazione](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud): come eseguire la migrazione di un'applicazione Spring Cloud esistente o di un'applicazione Spring Boot da eseguire in Azure Spring Cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

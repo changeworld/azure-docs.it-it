@@ -6,16 +6,16 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a864ce42888aace385cf60a4122f204c8f76831d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: e0d1789d61bbe57c735f4dd2a70a1c2a8f183d90
+ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240427"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98881062"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Collegamento privato per il database di Azure per il server PostgreSQL-Single
 
-Collegamento privato consente di creare endpoint privati per database di Azure per PostgreSQL-server singolo e di conseguenza fornisce servizi di Azure all'interno della rete virtuale privata (VNet). L'endpoint privato espone un indirizzo IP privato che è possibile usare per connettersi al server di database proprio come qualsiasi altra risorsa in VNet.
+Collegamento privato consente di creare endpoint privati per database di Azure per PostgreSQL-server singolo per portarli all'interno della rete virtuale (VNet). L'endpoint privato espone un indirizzo IP privato all'interno di una subnet che è possibile usare per connettersi al server di database proprio come qualsiasi altra risorsa in VNet.
 
 Per un elenco dei servizi PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione](../private-link/index.yml)del collegamento privato. Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
 
@@ -113,7 +113,7 @@ Quando si usa il collegamento privato in combinazione con le regole del firewall
 
 ## <a name="deny-public-access-for-azure-database-for-postgresql-single-server"></a>Negare l'accesso pubblico per il server singolo del database di Azure per PostgreSQL
 
-Se si vuole fare affidamento solo su endpoint privati per accedere al proprio server di database di Azure per PostgreSQL, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici ( [regole del firewall](concepts-firewall-rules.md) ed [endpoint di servizio VNet](concepts-data-access-and-security-vnet.md)) impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
+Se si vuole fare affidamento solo su endpoint privati per accedere al proprio server di database di Azure per PostgreSQL, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici ([regole del firewall](concepts-firewall-rules.md) ed [endpoint di servizio VNet](concepts-data-access-and-security-vnet.md)) impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
 
 Quando questa impostazione è impostata su *Sì* , al database di Azure per PostgreSQL sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *Nessun* client può connettersi al database di Azure per PostgreSQL in base all'impostazione del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, i clienti non possono aggiungere e/o aggiornare le regole ' firewall rules ' è VNet service endpoint rules ' esistenti.
 
