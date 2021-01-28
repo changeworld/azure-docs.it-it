@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 62726b9da5166d365c6e386363d0a65007259f10
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 555a6410418232ff164a441dbc90eb10236b9f36
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956550"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948097"
 ---
-[Documentazione di riferimento](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
+[Documentazione di riferimento](/java/api/com.microsoft.azure.management.cognitiveservices) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
 ## <a name="java-prerequisites"></a>Prerequisiti di Java
 
@@ -124,7 +124,7 @@ Il metodo seguente elimina la risorsa specificata dal gruppo di risorse specific
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Documentazione di riferimento Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices?view=azure-java-stable)
+* [Documentazione di riferimento Azure Management SDK](/java/api/com.microsoft.azure.management.cognitiveservices)
 * [Informazioni su Servizi cognitivi di Azure](../../what-are-cognitive-services.md)
 * [Autenticare le richieste a Servizi cognitivi di Azure](../../authentication.md)
 * [Creare una nuova risorsa con il portale di Azure](../../cognitive-services-apis-create-account.md)

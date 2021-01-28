@@ -10,17 +10,17 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 01ac7c01d449cfe794fcdb6c26a8162d3cffd695
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 3923f3d0a65412c23d5fc32d7a4cea8648686df4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98698074"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948635"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
 
-[Documentazione di riferimento ](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[Documentazione di riferimento ](/java/api/overview/azure/ai-formrecognizer-readme) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -209,7 +209,7 @@ Per riconoscere il contenuto di un file all'interno di un URL specifico, usare i
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
 > [!TIP]
-> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeContent**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
+> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), ad esempio **beginRecognizeContent**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti **FormPage**: uno per ogni pagina nel documento inviato. Il codice seguente esegue l'iterazione di questi oggetti e stampa le coppie chiave-valore estratte con i dati della tabella.
 
@@ -242,7 +242,7 @@ Per riconoscere le ricevute a partire da un URL, usare il metodo **beginRecogniz
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
+> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), ad esempio **beginRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti **RecognizedReceipt**, uno per ogni pagina del documento inviato. Il blocco di codice successivo esegue l'iterazione delle ricevute e nel stampa i dettagli nella console.
 
@@ -285,7 +285,7 @@ Per riconoscere i biglietti da visita da un URL, usare il metodo `beginRecognize
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le immagini di biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
+> È anche possibile riconoscere le immagini di biglietti da visita locali. Vedere i metodi di [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), ad esempio **beginRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni biglietto da visita presente nel documento. Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -309,7 +309,7 @@ Per riconoscere i biglietti da visita da un URL, usare il metodo `beginRecognize
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le fatture locali. Vedere i metodi di [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
+> È anche possibile riconoscere le fatture locali. Vedere i metodi di [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), ad esempio **beginRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni fattura presente nel documento. Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -406,7 +406,7 @@ Si userà il metodo **beginRecognizeCustomFormsFromUrl**.
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
 > [!TIP]
-> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeCustomForms**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
+> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient), ad esempio **beginRecognizeCustomForms**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni pagina del documento inviato. Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
 

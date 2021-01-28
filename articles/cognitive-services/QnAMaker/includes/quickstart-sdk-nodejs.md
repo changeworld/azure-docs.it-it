@@ -4,12 +4,12 @@ description: Questo argomento di avvio rapido illustra come usare la libreria cl
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: fba4354fb1aae19833790e166474008dc994cd79
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: e76acd0f7b776ccad69b0616846988c5ba816a2d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792366"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947715"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -24,7 +24,7 @@ Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni
 * Ottenere una risposta da una knowledge base
 * Eliminare una knowledge base
 
-[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Esempi Node.js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
+[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-qnamaker/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Esempi Node.js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/version-2)
 
@@ -38,7 +38,7 @@ Usare la libreria client di QnA Maker per Node.js per eseguire queste operazioni
 * Ottenere una risposta da una knowledge base
 * Eliminare una knowledge base
 
-[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Esempi Node.js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
+[Documentazione di riferimento](/javascript/api/@azure/cognitiveservices-qnamaker/) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Esempi Node.js](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)
 
 ---
 
@@ -149,34 +149,34 @@ Creare una variabile per la chiave di Azure della risorsa e il nome della risors
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
-[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) usa due modelli a oggetti diversi:
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/) usa due modelli a oggetti diversi:
 * **[QnAMakerClient](#qnamakerclient-object-model)** è l'oggetto per creare, gestire, pubblicare e scaricare la knowledge base.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** è l'oggetto per eseguire una query sulla knowledge base con l'API GenerateAnswer e inviare nuove domande suggerite usando l'API Train (come parte dell'[apprendimento attivo](../concepts/active-learning-suggestions.md)).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/version-2)
 
-[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/?view=azure-node-latest) usa il modello a oggetti seguente:
+[QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/) usa il modello a oggetti seguente:
 * **[QnAMakerClient](#qnamakerclient-object-model)** è l'oggetto per creare, gestire, pubblicare, scaricare ed eseguire query sulla knowledge base.
 
 ---
 
 ### <a name="qnamakerclient-object-model"></a>Modello a oggetti QnAMakerClient
 
-Il client di creazione di QnA Maker è un oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest) che esegue l'autenticazione con Azure usando le proprie credenziali, che contengono la chiave.
+Il client di creazione di QnA Maker è un oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) che esegue l'autenticazione con Azure usando le proprie credenziali, che contengono la chiave.
 
-Dopo aver creato il client, usare [knowledgebase](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#knowledgebase) per creare, gestire e pubblicare la knowledge base.
+Dopo aver creato il client, usare [knowledgebase](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient#knowledgebase) per creare, gestire e pubblicare la knowledge base.
 
-Gestire la knowledge base inviando un oggetto JSON. Per le operazioni immediate, un metodo restituisce in genere un oggetto JSON che indica lo stato. Per le operazioni a esecuzione prolungata, la risposta è l'ID operazione. Chiamare il metodo [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest#getdetails-string--msrest-requestoptionsbase-) con l'ID operazione per determinare lo [stato della richiesta](/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest).
+Gestire la knowledge base inviando un oggetto JSON. Per le operazioni immediate, un metodo restituisce in genere un oggetto JSON che indica lo stato. Per le operazioni a esecuzione prolungata, la risposta è l'ID operazione. Chiamare il metodo [client.operations.getDetails](/javascript/api/@azure/cognitiveservices-qnamaker/operations#getdetails-string--msrest-requestoptionsbase-) con l'ID operazione per determinare lo [stato della richiesta](/javascript/api/@azure/cognitiveservices-qnamaker/operation).
 
 ### <a name="qnamakerruntimeclient-object-model"></a>Modello a oggetti QnAMakerRuntimeClient
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
-Il client di previsione di QnA Maker è un oggetto QnAMakerRuntimeClient che esegue l'autenticazione con Azure tramite Microsoft.Rest.ServiceClientCredentials, che contiene la chiave di runtime di previsione, restituita dalla chiamata del client di creazione[client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest#getkeys-msrest-requestoptionsbase-) dopo la pubblicazione della knowledge base.
+Il client di previsione di QnA Maker è un oggetto QnAMakerRuntimeClient che esegue l'autenticazione con Azure tramite Microsoft.Rest.ServiceClientCredentials, che contiene la chiave di runtime di previsione, restituita dalla chiamata del client di creazione[client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys#getkeys-msrest-requestoptionsbase-) dopo la pubblicazione della knowledge base.
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker - gestito (versione in anteprima)](#tab/version-2)
 
-Con una risorsa gestita di QnA Maker non è necessario usare l'oggetto QnAMakerRuntimeClient. Chiamare invece direttamente [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_) sull'oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest).
+Con una risorsa gestita di QnA Maker non è necessario usare l'oggetto QnAMakerRuntimeClient. Chiamare invece direttamente [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_) sull'oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient).
 
 ---
 
@@ -212,7 +212,7 @@ Questi frammenti di codice mostrano come eseguire le operazioni seguenti con la 
 
 ## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Autenticare il client per la creazione della knowledge base
 
-Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto ServiceClientCredentials con la chiave e usarlo con l'endpoint per creare un oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest).
+Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto ServiceClientCredentials con la chiave e usarlo con l'endpoint per creare un oggetto [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient).
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -226,11 +226,11 @@ Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto Ser
 
 ## <a name="create-a-knowledge-base"></a>Creare una knowledge base
 
-In una knowledge base vengono archiviate le coppie di domande e risposte per l'oggetto [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto?view=azure-node-latest) da tre origini:
+In una knowledge base vengono archiviate le coppie di domande e risposte per l'oggetto [CreateKbDTO](/javascript/api/@azure/cognitiveservices-qnamaker/createkbdto) da tre origini:
 
-* Per **contenuto editoriale**, usare l'oggetto [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto?view=azure-node-latest).
+* Per **contenuto editoriale**, usare l'oggetto [QnADTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadto).
     * Per usare i metadati e le richieste di completamento, usare il contesto editoriale, perché questi dati vengono aggiunti a livello di singola coppia di domande e risposte.
-* Per i **file**, usare l' oggetto [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto?view=azure-node-latest). FileDTO include il nome file e l'URL pubblico per raggiungere il file.
+* Per i **file**, usare l' oggetto [FileDTO](/javascript/api/@azure/cognitiveservices-qnamaker/filedto). FileDTO include il nome file e l'URL pubblico per raggiungere il file.
 * Per **URL**, usare un elenco di stringhe per rappresentare gli URL disponibili pubblicamente.
 
 Il passaggio di creazione include anche le proprietà della knowledge base:
@@ -238,7 +238,7 @@ Il passaggio di creazione include anche le proprietà della knowledge base:
 * `enableHierarchicalExtraction`: crea automaticamente relazioni di richieste tra coppie di domande e risposte estratte
 * `language`: quando si crea la prima knowledge base di una risorsa, imposta la lingua da usare nell'indice di Ricerca di Azure.
 
-Chiamare il metodo [create](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) con le informazioni della knowledge base. Le informazioni della knowledge base sono essenzialmente un oggetto JSON.
+Chiamare il metodo [create](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#create-createkbdto--servicecallback-operation--) con le informazioni della knowledge base. Le informazioni della knowledge base sono essenzialmente un oggetto JSON.
 
 Quando il metodo create viene completato, passare l'ID operazione restituito al metodo [wait_for_operation](#get-status-of-an-operation) per eseguire il polling dello stato. Il metodo wait_for_operation viene completato al termine dell'operazione. Analizzare il valore dell'intestazione `resourceLocation` dell'operazione restituita per ottenere il nuovo ID della knowledge base.
 
@@ -256,7 +256,7 @@ Per creare correttamente una knowledge base, assicurarsi di includere la funzion
 
 ## <a name="update-a-knowledge-base"></a>Aggiornare una knowledge base
 
-È possibile aggiornare una knowledge base passando l'ID knowledge base e un oggetto [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest) contenente gli oggetti DTO [add](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#update) e l'[delete](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto?view=azure-node-latest#deleteproperty) al metodo [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#update-string--updatekboperationdto--msrest-requestoptionsbase-). Anche gli oggetti DTO sono essenzialmente oggetti JSON. Usare il metodo [wait_for_operation](#get-status-of-an-operation) per determinare se l'aggiornamento è riuscito.
+È possibile aggiornare una knowledge base passando l'ID knowledge base e un oggetto [UpdateKbOperationDTO](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto) contenente gli oggetti DTO [add](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#add), [update](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#update) e l'[delete](/javascript/api/@azure/cognitiveservices-qnamaker/updatekboperationdto#deleteproperty) al metodo [update](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#update-string--updatekboperationdto--msrest-requestoptionsbase-). Anche gli oggetti DTO sono essenzialmente oggetti JSON. Usare il metodo [wait_for_operation](#get-status-of-an-operation) per determinare se l'aggiornamento è riuscito.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -272,7 +272,7 @@ Per aggiornare correttamente una knowledge base, assicurarsi di includere la fun
 
 ## <a name="download-a-knowledge-base"></a>Scaricare una knowledge base
 
-Usare il metodo [download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#download-string--models-environmenttype--msrest-requestoptionsbase-) per scaricare il database come elenco di [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto?view=azure-node-latest). Questa operazione _non_ equivale all'esportazione dalla pagina **Settings** (Impostazioni) del portale di QnA Maker perché il risultato di questo metodo non è un file TSV.
+Usare il metodo [download](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#download-string--models-environmenttype--msrest-requestoptionsbase-) per scaricare il database come elenco di [QnADocumentsDTO](/javascript/api/@azure/cognitiveservices-qnamaker/qnadocumentsdto). Questa operazione _non_ equivale all'esportazione dalla pagina **Settings** (Impostazioni) del portale di QnA Maker perché il risultato di questo metodo non è un file TSV.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -286,7 +286,7 @@ Usare il metodo [download](/javascript/api/@azure/cognitiveservices-qnamaker/kno
 
 ## <a name="publish-a-knowledge-base"></a>Pubblicare una knowledge base
 
-Pubblicare la knowledge base tramite il metodo [publish](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint. Controllare il codice di risposta HTTP per verificare che la pubblicazione sia riuscita.
+Pubblicare la knowledge base tramite il metodo [publish](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#publish-string--msrest-requestoptionsbase-). In questo modo, il modello corrente salvato e sottoposto a training a cui fa riferimento l'ID knowledge base viene pubblicato in un endpoint. Controllare il codice di risposta HTTP per verificare che la pubblicazione sia riuscita.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -306,7 +306,7 @@ Pubblicare la knowledge base tramite il metodo [publish](/javascript/api/@azure/
 
 Dopo la pubblicazione di una knowledge base, è necessaria la chiave di runtime di query per eseguire una query sul runtime. Non è la stessa chiave usata per creare l'oggetto client originale.
 
-Usare il metodo [EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys?view=azure-node-latest) per ottenere la classe [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto?view=azure-node-latest).
+Usare il metodo [EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys) per ottenere la classe [EndpointKeysDTO](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeysdto).
 
 Usare una delle proprietà chiave restituite nell'oggetto per eseguire una query sulla knowledge base.
 
@@ -340,7 +340,7 @@ Si tratta di un semplice esempio di esecuzione di query sulla knowledge base. Pe
 
 ## <a name="delete-a-knowledge-base"></a>Eliminare una knowledge base
 
-Eliminare la knowledge base tramite il metodo [delete](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) con un parametro dell'ID knowledge base.
+Eliminare la knowledge base tramite il metodo [delete](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#deletemethod-string--msrest-requestoptionsbase-) con un parametro dell'ID knowledge base.
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker - disponibilità generale (versione stabile)](#tab/version-1)
 
@@ -354,7 +354,7 @@ Eliminare la knowledge base tramite il metodo [delete](/javascript/api/@azure/co
 
 ## <a name="get-status-of-an-operation"></a>Ottenere lo stato di un'operazione
 
-Alcuni metodi, ad esempio per la creazione e l'aggiornamento, possono richiedere una quantità di tempo tale che invece di attendere il completamento del processo viene restituita un'[operazione](/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest). Usare il relativo [ID operazione](/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) per eseguire il polling (con logica di ripetizione dei tentativi) e determinare lo stato del metodo originale.
+Alcuni metodi, ad esempio per la creazione e l'aggiornamento, possono richiedere una quantità di tempo tale che invece di attendere il completamento del processo viene restituita un'[operazione](/javascript/api/@azure/cognitiveservices-qnamaker/operations). Usare il relativo [ID operazione](/javascript/api/@azure/cognitiveservices-qnamaker/operation#operationid) per eseguire il polling (con logica di ripetizione dei tentativi) e determinare lo stato del metodo originale.
 
 La chiamata _delayTimer_ nel blocco di codice seguente viene usata per simulare la logica di ripetizione dei tentativi. Sostituirla con la propria logica di ripetizione dei tentativi.
 

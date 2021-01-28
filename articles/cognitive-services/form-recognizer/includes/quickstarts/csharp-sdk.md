@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 9befe33f70341f218c3339a13dcc1d31dc452d34
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: 93282e79321f8999ddf8c737ebcb5ea76fbf6e02
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132323"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947630"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -198,7 +198,7 @@ Per riconoscere il contenuto di un file all'interno di un URL specifico, usare i
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
 
 > [!TIP]
-> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeContent**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeContent**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 La parte rimanente di questa attività stampa le informazioni sul contenuto nella console.
 
@@ -248,7 +248,7 @@ Per riconoscere le ricevute a partire da un URL, usare il metodo `StartRecognize
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeReceipts**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedReceipt`, uno per ogni pagina del documento inviato. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -315,7 +315,7 @@ Per riconoscere i biglietti da visita da un URL, usare il metodo `StartRecognize
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeBusinessCards**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni biglietto presente nel documento. Il codice seguente elabora il biglietto da visita in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -339,7 +339,7 @@ Per riconoscere le fatture da un URL, usare il metodo `StartRecognizeInvoicesFro
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_call)]
 
 > [!TIP]
-> È anche possibile riconoscere le immagini di fatture locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile riconoscere le immagini di fatture locali. Vedere i metodi di [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeInvoices**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedForm`, uno per ogni fattura presente nel documento inviato. Il codice seguente elabora la fattura in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -493,7 +493,7 @@ Verrà usato il metodo `StartRecognizeCustomFormsFromUri`.
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
 > [!TIP]
-> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeCustomForms**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient), ad esempio **StartRecognizeCustomForms**. In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedForm`: uno per ogni pagina nel documento inviato. Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
 

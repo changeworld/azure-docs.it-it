@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/04/2021
 ms.author: trbye
-ms.openlocfilehash: c770ca3d619ea443fd5a320f91f3bfae56732bac
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 4ec9c847158c9b8a1160cb6f4510912ed83a9fae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792368"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947642"
 ---
 Innanzitutto, caricare il file del modello di parole chiave utilizzando la `FromFile()` funzione statica, che restituisce `KeywordRecognitionModel` . Usare il percorso del `.table` file scaricato da speech studio. Inoltre, è possibile creare un `AudioConfig` usando il microfono predefinito, quindi creare un'istanza di un nuovo `KeywordRecognizer` usando la configurazione audio.
 
@@ -37,4 +37,4 @@ Altre classi nell'SDK vocale supportano il riconoscimento continuo (per riconosc
 
 Per la sintesi vocale, seguire lo stesso schema di progettazione illustrato nella [Guida introduttiva](../../../get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=script%2cbrowser%2cwindowsinstall#continuous-recognition) per configurare il riconoscimento continuo. Quindi, sostituire la chiamata a `recognizer.StartContinuousRecognitionAsync()` con `recognizer.StartKeywordRecognitionAsync(KeywordRecognitionModel)` e passare l' `KeywordRecognitionModel` oggetto. Per arrestare il riconoscimento continuo con l'individuazione di parole chiave, usare `recognizer.StopKeywordRecognitionAsync()` anziché `recognizer.StopContinuousRecognitionAsync()` .
 
-Il riconoscimento preventivo usa un modello identico con le [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync?view=azure-dotnet#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync) funzioni e.
+Il riconoscimento preventivo usa un modello identico con le [`StartKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.startkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StartKeywordRecognitionAsync_Microsoft_CognitiveServices_Speech_KeywordRecognitionModel_) [`StopKeywordRecognitionAsync`](/dotnet/api/microsoft.cognitiveservices.speech.intent.intentrecognizer.stopkeywordrecognitionasync#Microsoft_CognitiveServices_Speech_Intent_IntentRecognizer_StopKeywordRecognitionAsync) funzioni e.

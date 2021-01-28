@@ -1,24 +1,21 @@
 ---
 title: Crittografia di Azure HDInsight in transito
 description: Informazioni sulle funzionalità di sicurezza per fornire la crittografia in transito per il cluster HDInsight di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 88a7a0240a4711bebad0ea9007caf6590436e371
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: fb3761ce7839cb4450997da094646b6604aeb895
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049780"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946856"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Crittografia IPSec in transito per Azure HDInsight
 
 Questo articolo illustra l'implementazione della crittografia in transito per la comunicazione tra i nodi del cluster HDInsight di Azure.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 Azure HDInsight offre un'ampia gamma di funzionalità di sicurezza per la protezione dei dati aziendali. Queste soluzioni sono raggruppate in base ai pilastri di sicurezza perimetrale, autenticazione, autorizzazione, controllo, crittografia e conformità. La crittografia può essere applicata ai dati inattivi e in transito.
 

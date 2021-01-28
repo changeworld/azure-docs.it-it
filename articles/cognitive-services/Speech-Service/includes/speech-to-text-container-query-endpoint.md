@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd1552dda28291112a2412bdf956bc49a0b541d7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 167e33ff4a3af463e2537e2714e9e9bf5e125b61
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95996437"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947555"
 ---
 Il contenitore fornisce le API dell'endpoint di query basate su WebSocket, a cui si accede tramite l' [SDK di riconoscimento vocale](../index.yml). Per impostazione predefinita, l'SDK vocale usa i servizi di riconoscimento vocale online. Per usare il contenitore, è necessario modificare il metodo di inizializzazione.
 
@@ -29,7 +29,7 @@ Passare dall'uso di questa chiamata di inizializzazione del cloud di Azure:
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-Per usare questa chiamata con l' [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?preserve-view=true&view=azure-dotnet)del contenitore:
+Per usare questa chiamata con l' [host](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost)del contenitore:
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -45,7 +45,7 @@ speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
 ```
 
-Per usare questa chiamata con l' [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?preserve-view=true&view=azure-python)contenitore:
+Per usare questa chiamata con l' [endpoint](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)contenitore:
 
 ```python
 speech_config = speechsdk.SpeechConfig(

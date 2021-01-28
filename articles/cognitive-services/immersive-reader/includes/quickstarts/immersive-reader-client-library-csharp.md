@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: cef5aaae58797e38745b3f5164c171581a005562
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: 080b9dac8dad099f2901f2b820da58501310471b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371919"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948107"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è stato progettato per l'inclusività e implementa tecniche comprovate per migliorare la comprensione della lettura per nuovi lettori, studenti di lingue e persone con differenze di apprendimento, come la dislessia. È possibile usare lo strumento di lettura immersiva nelle applicazioni per isolare il testo stimolare l'attenzione, visualizzare immagini per le parole di uso comune, evidenziare parti del discorso, leggere il testo selezionato ad alta voce, tradurre parole e frasi in tempo reale e altro ancora.
 
@@ -42,7 +42,7 @@ Creare un nuovo progetto in Visual Studio usando il modello di applicazione Web 
 
 ### <a name="configure-authentication-values"></a>Configurare i valori di autenticazione
 
-Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente**. Verrà visualizzato un file denominato _secrets.json_. Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](/aspnet/core/security/app-secrets?preserve-view=true&tabs=windows&view=aspnetcore-3.1) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
+Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e scegliere **Gestisci segreti utente**. Verrà visualizzato un file denominato _secrets.json_. Il file non viene archiviato nel controllo del codice sorgente. Fare clic [qui](/aspnet/core/security/app-secrets?tabs=windows) per altre informazioni. Sostituire il contenuto del file _secrets.json_ con il seguente, specificando i valori forniti durante la creazione della risorsa dello strumento di lettura immersiva.
 
 ```json
 {
@@ -55,7 +55,7 @@ Fare clic con il pulsante destro del mouse sul progetto in _Esplora soluzioni_ e
 
 ### <a name="install-active-directory-nuget-package"></a>Installare il pacchetto NuGet di Active Directory
 
-Il codice seguente usa oggetti dal pacchetto NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory** , quindi sarà necessario aggiungere un riferimento al pacchetto nel progetto.
+Il codice seguente usa oggetti dal pacchetto NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**, quindi sarà necessario aggiungere un riferimento al pacchetto nel progetto.
 
 Aprire la console di gestione pacchetti NuGet in **Strumenti -> Gestione pacchetti NuGet -> Console di Gestione pacchetti** e digitare il comando seguente:
 
@@ -71,7 +71,7 @@ Aprire _Controllers\HomeController.cs_ e aggiungere il codice seguente dopo le i
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 ```
 
-A questo punto, il controller verrà configurato per ottenere i valori Azure AD da _secrets.json_. Nella parte superiore della classe _HomeController_ , dopo ```public class HomeController : Controller {```, aggiungere il codice seguente.
+A questo punto, il controller verrà configurato per ottenere i valori Azure AD da _secrets.json_. Nella parte superiore della classe _HomeController_, dopo ```public class HomeController : Controller {```, aggiungere il codice seguente.
 
 ```csharp
 private readonly string TenantId;     // Azure subscription TenantId
@@ -214,13 +214,13 @@ Nell'app Web verranno ora aggiunti alcuni contenuti di esempio. Aprire _Views\Ho
 </div>
 ```
 
-Si noti che tutto il testo ha un attributo **lang** , che ne descrive le lingue. Questo attributo consente allo strumento di lettura immersiva di fornire funzionalità di lingua e grammatica pertinenti.
+Si noti che tutto il testo ha un attributo **lang**, che ne descrive le lingue. Questo attributo consente allo strumento di lettura immersiva di fornire funzionalità di lingua e grammatica pertinenti.
 
 ## <a name="add-javascript-to-handle-launching-immersive-reader"></a>Aggiungere codice JavaScript per gestire l'avvio dello strumento di lettura immersiva
 
 La libreria dello strumento di lettura immersiva fornisce funzionalità come l'avvio dello strumento e la visualizzazione dei relativi pulsanti. Fare clic [qui](../../reference.md) per altre informazioni.
 
-Aggiungere il codice seguente alla fine di _Views\Home\Index.cshtml_ :
+Aggiungere il codice seguente alla fine di _Views\Home\Index.cshtml_:
 
 ```html
 @section Scripts

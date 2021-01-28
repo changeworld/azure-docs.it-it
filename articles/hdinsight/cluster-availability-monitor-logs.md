@@ -1,18 +1,15 @@
 ---
 title: Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
 description: Informazioni su come usare i log di monitoraggio di Azure per monitorare l'integrità e la disponibilità del cluster.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: f86b2166ea9bd2a547a29a777d6b709877036161
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542540"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946959"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Come monitorare la disponibilità dei cluster con i log di monitoraggio di Azure in HDInsight
 
@@ -26,7 +23,7 @@ Come prerequisito, è necessario disporre di un'area di lavoro Log Analytics per
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Abilitare l'integrazione dei log di monitoraggio di Azure HDInsight
 
-Dalla pagina delle risorse cluster HDInsight nel portale selezionare monitoraggio di **Azure** . Selezionare quindi **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
+Dalla pagina delle risorse cluster HDInsight nel portale selezionare monitoraggio di **Azure**. Selezionare quindi **Abilita** e selezionare l'area di lavoro log Analytics dall'elenco a discesa.
 
 ![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
 
@@ -34,7 +31,7 @@ Per impostazione predefinita, l'agente OMS viene installato in tutti i nodi del 
 
 ## <a name="query-metrics-and-logs-tables"></a>Tabelle di metriche e log di query
 
-Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazione potrebbe richiedere alcuni minuti), passare alla risorsa dell' **area di lavoro log Analytics** e selezionare **log** .
+Una volta abilitata l'integrazione dei log di monitoraggio di Azure (l'operazione potrebbe richiedere alcuni minuti), passare alla risorsa dell' **area di lavoro log Analytics** e selezionare **log**.
 
 ![Log dell'area di lavoro Log Analytics](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
 
@@ -70,11 +67,11 @@ Se tutti i nodi sono disponibili, per il momento questa query restituirà zero r
 ![Nuova regola di avviso per l'area di lavoro Log Analytics](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
 
 Sono disponibili tre componenti per un avviso: la *risorsa* per la quale creare la regola (in questo caso l'area di lavoro log Analytics), la *condizione* per attivare l'avviso e i *gruppi di azioni* che determinano cosa accadrà quando viene attivato l'avviso.
-Fare clic sul **titolo della condizione** , come illustrato di seguito, per completare la configurazione della logica del segnale.
+Fare clic sul **titolo della condizione**, come illustrato di seguito, per completare la configurazione della logica del segnale.
 
 ![Condizione di creazione della regola di avviso del portale](media/cluster-availability-monitor-logs/portal-condition-title.png)
 
-Verrà visualizzata la **configurazione della logica del segnale** .
+Verrà visualizzata la **configurazione della logica del segnale**.
 
 Impostare la sezione **logica avvisi** come segue:
 
@@ -94,16 +91,16 @@ Se non si dispone già di un gruppo di azioni esistente, fare clic su **Crea nuo
 
 ![Regola di avviso crea un nuovo gruppo di azioni](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
 
-Verrà aperto **Aggiungi gruppo di azione** . Scegliere un **nome del gruppo di azioni** , un **nome breve** , una **sottoscrizione** e un **gruppo di risorse.** Nella sezione **azioni** scegliere un nome di **azione** e selezionare **posta elettronica/SMS/push/Voice** come **tipo di azione.**
+Verrà aperto **Aggiungi gruppo di azione**. Scegliere un **nome del gruppo di azioni**, un **nome breve**, una **sottoscrizione** e un **gruppo di risorse.** Nella sezione **azioni** scegliere un nome di **azione** e selezionare **posta elettronica/SMS/push/Voice** come **tipo di azione.**
 
 > [!NOTE]
 > Esistono diverse altre azioni che possono essere attivate da un avviso oltre a un messaggio di posta elettronica/SMS/push/Voice, ad esempio una funzione di Azure, LogicApp, webhook, ITSM e Runbook di automazione. [Ulteriori informazioni.](../azure-monitor/platform/action-groups.md#action-specific-information)
 
-Verrà aperta la **posta elettronica/SMS/push/Voice** . Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in  **posta elettronica/SMS/push/voce** , quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
+Verrà aperta la **posta elettronica/SMS/push/Voice**. Scegliere un **nome** per il destinatario, **selezionare** la casella **posta elettronica** e digitare un indirizzo di posta elettronica a cui si vuole inviare l'avviso. Selezionare **OK** in  **posta elettronica/SMS/push/voce**, quindi in **Aggiungi gruppo di azioni** per completare la configurazione del gruppo di azioni.
 
 ![Regola di avviso crea il gruppo di azioni Aggiungi](media/cluster-availability-monitor-logs/portal-add-action-group.png)
 
-Dopo la chiusura di questi pannelli, il gruppo di azioni verrà visualizzato nella sezione **gruppi di azioni** . Infine, completare la sezione **Dettagli avviso** digitando un nome e una **Descrizione** della **regola di avviso** e scegliendo una **gravità** . Fare clic su **Crea regola di avviso** per terminare.
+Dopo la chiusura di questi pannelli, il gruppo di azioni verrà visualizzato nella sezione **gruppi di azioni** . Infine, completare la sezione **Dettagli avviso** digitando un nome e una **Descrizione** della **regola di avviso** e scegliendo una **gravità**. Fare clic su **Crea regola di avviso** per terminare.
 
 ![Il portale crea una regola di avviso completa](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
 
@@ -114,7 +111,7 @@ Quando viene soddisfatta la condizione per questo avviso, l'avviso viene attivat
 
 ![Esempio di messaggio di posta elettronica di avviso monitoraggio di Azure](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
 
-È anche possibile visualizzare tutti gli avvisi generati, raggruppati in base alla gravità, passando ad **avvisi** nell' **area di lavoro log Analytics** .
+È anche possibile visualizzare tutti gli avvisi generati, raggruppati in base alla gravità, passando ad **avvisi** nell' **area di lavoro log Analytics**.
 
 ![Avvisi dell'area di lavoro Log Analytics](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
 

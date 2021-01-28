@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/26/2020
 ms.custom: devx-track-java, devx-track-csharp
 ms.author: aahi
-ms.openlocfilehash: afac19a6debb3804c99492338428669928f1118b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
-ms.translationtype: HT
+ms.openlocfilehash: d1c9589265726bae01b86c152853c40f79825ceb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371757"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948473"
 ---
 Usare questo argomento di avvio rapido per iniziare a ottenere informazioni dettagliate sulle immagini dal servizio Ricerca visiva Bing con la libreria client Java. Anche se Ricerca visiva Bing ha un'API REST compatibile con la maggior parte dei linguaggi di programmazione, la libreria client offre un modo semplice per integrare il servizio nelle applicazioni. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVisualSearch).
 
@@ -23,7 +23,7 @@ Usare la libreria client di Ricerca visiva Bing per Java per:
 * Caricare un'immagine per inviare una richiesta di ricerca visiva.
 * Ottenere il token delle informazioni cognitive dettagliate e i tag di ricerca visiva dell'immagine.
 
-[Documentazione di riferimento](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artefatto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Documentazione di riferimento](/java/api/overview/azure/cognitiveservices/client/bingvisualsearch) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) | [Artefatto (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,13 +43,13 @@ In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passa
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `gradle init` dalla directory di lavoro. Questo comando creerà i file di compilazione essenziali per Gradle, tra cui *build.gradle.kts* , che viene usato in fase di esecuzione per creare e configurare l'applicazione.
+Eseguire il comando `gradle init` dalla directory di lavoro. Questo comando creerà i file di compilazione essenziali per Gradle, tra cui *build.gradle.kts*, che viene usato in fase di esecuzione per creare e configurare l'applicazione.
 
 ```console
 gradle init --type basic
 ```
 
-Quando viene chiesto di scegliere un linguaggio **DSL** , selezionare **Kotlin**.
+Quando viene chiesto di scegliere un linguaggio **DSL**, selezionare **Kotlin**.
 
 Individuare il file *build.gradle.kts* e aprirlo con un IDE o un editor di testo a scelta. quindi copiare questa configurazione della build:
 
@@ -127,7 +127,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 > Questo argomento di avvio rapido presuppone che sia stata [creata una variabile di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave di Ricerca visiva Bing, denominata `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
 
-Nel metodo Main assicurarsi di usare la chiave di sottoscrizione per creare un'istanza di un oggetto [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi?view=azure-java-stable).
+Nel metodo Main assicurarsi di usare la chiave di sottoscrizione per creare un'istanza di un oggetto [BingVisualSearchAPI](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingvisualsearchapi).
 
 ```csharp
 BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
@@ -135,13 +135,13 @@ BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKe
 
 ## <a name="send-a-visual-search-request"></a>Inviare una richiesta di ricerca visiva
 
-In un nuovo metodo inviare la matrice di byte immagine (creata nel metodo `main()`) usando il metodo [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) del client. 
+In un nuovo metodo inviare la matrice di byte immagine (creata nel metodo `main()`) usando il metodo [bingImages().visualSearch()](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.bingimages.visualsearch#com_microsoft_azure_cognitiveservices_search_visualsearch_BingImages_visualSearch__) del client. 
 
 [!code-java[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## <a name="print-the-image-insight-token-and-visual-search-tags"></a>Stampare il token delle informazioni cognitive dettagliate e i tag di ricerca visiva dell'immagine
 
-Controllare se l'oggetto [ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge?view=azure-java-stable) è Null. Se non lo è, stampare il token delle informazioni cognitive dettagliate dell'immagine, il numero di tag, il numero di azioni e il primo tipo di azione.
+Controllare se l'oggetto [ImageKnowledge](/java/api/com.microsoft.azure.cognitiveservices.search.visualsearch.models.imageknowledge) è Null. Se non lo è, stampare il token delle informazioni cognitive dettagliate dell'immagine, il numero di tag, il numero di azioni e il primo tipo di azione.
 
 [!code-java[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 

@@ -6,12 +6,12 @@ ms.service: azure-quantum
 ms.topic: include
 ms.date: 01/08/2021
 ms.author: dasto
-ms.openlocfilehash: c312ee63f9f00e4eef726924fc01f2862ba2884f
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2106a48a583f120f8b4dde4eb32a30f1a1b1d85b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920470"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947782"
 ---
 ### <a name="provider-limits--quota"></a>Limiti del provider & quota
 
@@ -32,11 +32,11 @@ Se si usa lo SKU Learn & develop, non è **possibile** richiedere un aumento dei
 
 #### <a name="performance-at-scale-sku"></a>Prestazioni a livello di SKU
 
-| Risorsa | Limite |
-| --- | --- |
-| Processi simultanei basati su CPU | fino a 100 processi simultanei |
-| Processi simultanei basati su FPGA | fino a 10 processi simultanei |
-| Ore del Risolutore | 50.000 ore al mese  |
+| Risorsa | Limite predefinito | Limite massimo |
+| --- | --- | --- |
+| Processi simultanei basati su CPU | fino a 100 processi simultanei | uguale al limite predefinito |
+| Processi simultanei basati su FPGA | fino a 10 processi simultanei | uguale al limite predefinito |
+| Ore del Risolutore | 1.000 ore al mese  | fino a 50.000 ore al mese |
 
 Se è necessario richiedere un aumento del limite, contattare il supporto tecnico di Azure. 
 
