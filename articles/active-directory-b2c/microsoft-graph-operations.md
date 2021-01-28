@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a7e9e523d3aae7cf1444c048c023ca1d85fde41f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938490"
+ms.locfileid: "98952232"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
 
@@ -45,9 +45,13 @@ Numero di telefono che può essere utilizzato da un utente per l'accesso tramite
 - [Aggiornamento](/graph/api/phoneauthenticationmethod-update)
 - [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
+Si noti che l'operazione [List](/graph/api/authentication-list-phonemethods) restituisce solo i numeri di telefono abilitati. Il seguente numero di telefono deve essere abilitato per l'uso con le operazioni List. 
+
+![Abilita l'accesso tramite telefono](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
 ## <a name="self-service-password-reset-email-address-beta"></a>Indirizzo di posta elettronica per la reimpostazione della password self-service (beta)
 
-Un indirizzo di posta elettronica che può essere usato da un utente per la reimpostazione della password per l' [account di accesso del nome utente](identity-provider-local.md#username-sign-in). Per altre informazioni, vedere [Azure ad API dei metodi di autenticazione](/graph/api/resources/emailauthenticationmethod).
+Un indirizzo di posta elettronica che può essere usato da un [account di accesso del nome utente](identity-provider-local.md#username-sign-in) per reimpostare la password. Per altre informazioni, vedere [Azure ad API dei metodi di autenticazione](/graph/api/resources/emailauthenticationmethod).
 
 - [Aggiungere](/graph/api/emailauthenticationmethod-post)
 - [Elenco](/graph/api/emailauthenticationmethod-list)

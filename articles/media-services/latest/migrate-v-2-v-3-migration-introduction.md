@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione dall'introduzione a servizi multimediali di Azure da V2 a V3
+title: Introduzione alla migrazione da Media Services V2 a V3
 description: Questo articolo è un'introduzione alla migrazione da Media Services V2 a V3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: d96644b4df5475192c3b7d90bd055e63bf869faa
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 3514a7c809e939ea2c45afa5ab60539232b8781f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898342"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953292"
 ---
 # <a name="migrate-from-media-services-v2-to-v3-introduction"></a>Introduzione alla migrazione da Media Services V2 a V3
 

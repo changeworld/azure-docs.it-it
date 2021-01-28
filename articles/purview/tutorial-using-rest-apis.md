@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/03/2020
-ms.openlocfilehash: fcc3e487d949a9450f792a6cc230b64e7dbe950a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bfb808c634ba946e1a4825d7828db6df8963352c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202947"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951244"
 ---
 # <a name="tutorial-use-the-rest-apis"></a>Esercitazione: Usare le API REST
 
@@ -92,7 +92,7 @@ Per configurare Azure Purview in modo che consideri attendibili la nuova entità
 
 1. Per **Assegna accesso a**, lasciare l'impostazione predefinita **Utente, gruppo o entità servizio**
 
-1. Per **Seleziona**, immettere il nome dell'utente, del gruppo di Azure Active Directory o dell'entità servizio da assegnare e quindi fare clic sul nome corrispondente nel riquadro dei risultati.
+1. Per **Select** immettere il nome dell'entità servizio creata da previosly che si vuole assegnare e quindi fare clic sul relativo nome nel riquadro dei risultati.
 
 1. Fare clic su **Salva**
 

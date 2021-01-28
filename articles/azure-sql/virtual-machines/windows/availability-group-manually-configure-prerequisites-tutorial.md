@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 33233e8a6aa54e65094e0cc6130e804241d7201c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 869c4ac5cde7d1e50be0f2f738d8a0ce6de5e625
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044289"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951717"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Esercitazione: prerequisiti per la creazione di gruppi di disponibilità in SQL Server in macchine virtuali di Azure
 
@@ -57,7 +57,7 @@ L'esercitazione presuppone una conoscenza di base dei gruppi di disponibilità A
    ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroupsymbol.png)
 
 4. Selezionare **gruppo di risorse**.
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 6. In **Nome gruppo di risorse** digitare un nome per il gruppo di risorse. ad esempio digitare **sql-ha-rg**.
 7. Se si hanno più sottoscrizioni di Azure, verificare che la sottoscrizione sia la sottoscrizione di Azure in cui si vuole creare il gruppo di disponibilità.
 8. Selezionare una località. La località corrisponde all'area di Azure in cui si vuole creare il gruppo di disponibilità. Questo articolo illustra la creazione di tutte le risorse in un'unica località di Azure.
@@ -91,9 +91,9 @@ Per creare la rete virtuale nel portale di Azure:
    | **Campo** | valore |
    | --- | --- |
    | **Nome** |autoHAVNET |
-   | **Spazio degli indirizzi** |10.33.0.0/24 |
+   | **Spazio degli indirizzi** |10.0.0.0/24 |
    | **Nome della subnet** |Amministrativi |
-   | **Intervallo di indirizzi subnet** |10.33.0.0/29 |
+   | **Intervallo di indirizzi subnet** |10.0.0.0/29 |
    | **Sottoscrizione** |Specificare la sottoscrizione da usare. Se è disponibile una sola sottoscrizione, il valore di **Sottoscrizione** non è impostato. |
    | **Gruppo di risorse** |Scegliere **Utilizza esistente** e selezionare il nome del gruppo di risorse. |
    | **Posizione** |Specificare la località di Azure. |
@@ -102,7 +102,7 @@ Per creare la rete virtuale nel portale di Azure:
 
    L'esempio usa il nome di subnet **Admin**. Questa subnet verrà usata per i controller di dominio.
 
-5. Selezionare **Create** (Crea).
+5. Selezionare **Crea**.
 
    ![Configurare la rete virtuale](./media/availability-group-manually-configure-prerequisites-tutorial-/06-configurevirtualnetwork.png)
 

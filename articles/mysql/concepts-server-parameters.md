@@ -1,17 +1,17 @@
 ---
 title: Parametri del server-database di Azure per MySQL
 description: Questo argomento fornisce le linee guida per la configurazione dei parametri del server in database di Azure per MySQL.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/25/2020
-ms.openlocfilehash: 0fddc1e8f80e257548d0dda91758273eb8c8ac78
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.date: 1/26/2021
+ms.openlocfilehash: 9485d346384344bd7c35d0577245419ca1f56574
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534909"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98951311"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parametri del server nel database di Azure per MySQL
 
@@ -261,6 +261,18 @@ Per altre informazioni su questo parametro, esaminare la [documentazione di MySQ
 |Con ottimizzazione per la memoria|8|16777216|1024|536870912|
 |Con ottimizzazione per la memoria|16|16777216|1024|1073741824|
 |Con ottimizzazione per la memoria|32|16777216|1024|1073741824|
+
+### <a name="innodb-buffer-pool-warmup"></a>Riscaldamento del pool di buffer InnoDB
+Dopo aver riavviato il database di Azure per il server MySQL, le pagine di dati che risiedono su disco vengono caricate quando vengono eseguite query sulle tabelle. Questo comporta un aumento della latenza e delle prestazioni più lente per la prima esecuzione delle query. Questa operazione potrebbe non essere accettabile per i carichi di lavoro sensibili alla latenza. Utilizzando il riscaldamento del pool di buffer InnoDB, il periodo di riscaldamento viene ridotto ricaricando le pagine del disco presenti nel pool di buffer prima del riavvio anziché attendere DML o selezionare le operazioni per accedere alle righe corrispondenti.
+
+È possibile ridurre il periodo di riscaldamento dopo il riavvio del database di Azure per il server MySQL, che rappresenta un vantaggio in termini di prestazioni configurando i [parametri del server del pool di buffer InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB salva una percentuale delle pagine utilizzate più di recente per ogni pool di buffer all'arresto del server e ripristina queste pagine all'avvio del server.
+
+È inoltre importante notare che il miglioramento delle prestazioni è a scapito del tempo di avvio più lungo per il server. Quando questo parametro è abilitato, l'avvio del server e l'ora di riavvio dovrebbero aumentare a seconda del IOPS sottoposto a provisioning nel server. Si consiglia di testare e monitorare il tempo di riavvio per garantire che le prestazioni di avvio/riavvio siano accettabili poiché il server non è disponibile durante tale periodo di tempo. Non è consigliabile usare questo parametro quando il provisioning di IOPS è inferiore a 1000 IOPS (o, in altre parole, quando il provisioning dell'archiviazione è inferiore a 335GB.
+
+Per salvare lo stato del pool di buffer al parametro Server Shutdown set server `innodb_buffer_pool_dump_at_shutdown` in `ON` . In modo analogo, impostare il parametro Server `innodb_buffer_pool_load_at_startup` su `ON` per ripristinare lo stato del pool di buffer all'avvio del server. È possibile controllare l'effetto di avvio o riavvio diminuendo e ottimizzando il valore del parametro Server `innodb_buffer_pool_dump_pct` , per impostazione predefinita, questo parametro è impostato su `25` .
+
+> [!Note]
+> I parametri di riscaldamento del pool di buffer InnoDB sono supportati solo nei server di archiviazione per utilizzo generico con archiviazione fino a 16 TB. Per altre informazioni sulle [Opzioni di archiviazione per database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), vedere qui.
 
 ### <a name="time_zone"></a>time_zone
 

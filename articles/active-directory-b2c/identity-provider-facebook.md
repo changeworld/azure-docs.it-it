@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 64a4404fa881181f92d442a73e5da4c16ae87ae3
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: e0e71bc0e3a81b5ab2f455224ed2ed4281532d55
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598882"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98952675"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Facebook tramite Azure Active Directory B2C
 
@@ -84,6 +84,21 @@ Per abilitare l'accesso per gli utenti con un account Facebook in Azure Active D
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
+
+È necessario archiviare il segreto dell'app registrato in precedenza nel tenant del Azure AD B2C.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. Selezionare il filtro **Directory e sottoscrizione** nel menu in alto e selezionare la directory che contiene il tenant.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità**.
+5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
+6. Per **Opzioni** scegliere `Manual`.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `FacebookSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+8. In **segreto** immettere il segreto dell'app registrato in precedenza.
+9. In **Uso chiave** selezionare `Signature`.
+10. Fare clic su **Crea**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configurare un account Facebook come provider di identità
 
