@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: d19190723ebc415e9cf3053b929788dff68aeb0e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: fe54c4495e589459fe734f315138cafa8d7cd033
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734540"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934735"
 ---
 # <a name="spatial-analysis-operations"></a>Operazioni di analisi spaziale
 
@@ -61,7 +61,7 @@ Questi sono i parametri richiesti da ognuna di queste operazioni di analisi spaz
 |---------|---------|
 | ID operazione | Identificatore dell'operazione della tabella precedente.|
 | Enabled | Booleano: true o false|
-| VIDEO_URL| URL RTSP per il dispositivo della fotocamera (esempio: `rtsp://username:password@url` ). L'analisi spaziale supporta il flusso con codifica H. 264 tramite RTSP, http o MP4. Video_URL può essere fornito come valore stringa Base64 offuscato usando la crittografia AES e se l'URL del video viene offuscato `KEY_ENV` e `IV_ENV` deve essere fornito come variabile di ambiente. L'utilità di esempio per generare chiavi e crittografia è disponibile [qui](/dotnet/api/system.security.cryptography.aesmanaged?preserve-view=true&view=net-5.0). |
+| VIDEO_URL| URL RTSP per il dispositivo della fotocamera (esempio: `rtsp://username:password@url` ). L'analisi spaziale supporta il flusso con codifica H. 264 tramite RTSP, http o MP4. Video_URL può essere fornito come valore stringa Base64 offuscato usando la crittografia AES e se l'URL del video viene offuscato `KEY_ENV` e `IV_ENV` deve essere fornito come variabile di ambiente. L'utilità di esempio per generare chiavi e crittografia è disponibile [qui](/dotnet/api/system.security.cryptography.aesmanaged). |
 | VIDEO_SOURCE_ID | Nome descrittivo per il dispositivo della fotocamera o il flusso video. Questa operazione verrà restituita con l'output JSON dell'evento.|
 | VIDEO_IS_LIVE| True per i dispositivi della fotocamera; false per i video registrati.|
 | VIDEO_DECODE_GPU_INDEX| GPU da cui decodificare il fotogramma video. Per impostazione predefinita, è 0. Deve corrispondere `gpu_index` a in altre configurazioni del nodo, ad esempio `VICA_NODE_CONFIG` `DETECTOR_NODE_CONFIG` .|
@@ -87,7 +87,7 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 }
 ```
 
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `gpu_index` | string| Indice GPU in cui verrà eseguita l'operazione.|
 | `do_calibration` | string | Indica che la taratura è attivata. `do_calibration` deve essere true per il corretto funzionamento di **cognitiveservices. Vision. spatialanalysis-persondistance** . per impostazione predefinita, do_calibration è impostato su true. |
@@ -122,7 +122,7 @@ Questo è un esempio dei parametri di DETECTOR_NODE_CONFIG per tutte le operazio
 }
 ```
 
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -167,7 +167,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `lines` | list| Elenco di righe.|
 | `name` | string| Nome descrittivo per questa riga.|
@@ -213,7 +213,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -247,7 +247,7 @@ Questo è un esempio di input JSON per il parametro SPACEANALYTICS_CONFIG che co
 }
 ```
 
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `zones` | list| Elenco di zone. |
 | `name` | string| Nome descrittivo per questa zona.|
@@ -362,7 +362,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 }
 ```
 
-| Nome campo evento | Type| Descrizione|
+| Nome campo evento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -372,7 +372,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Type| Descrizione|
+| Nome campo rilevamento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -383,7 +383,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
 | `face_noMask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
 
-| Nome campo SourceInfo | Type| Descrizione|
+| Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -396,7 +396,7 @@ Esempio di JSON per l'output di un evento da questa operazione.
 | `focalLength` | float | Lunghezza focale della fotocamera in pixel. Questa operazione viene dedotta dalla calibrazione automatica. |
 | `tiltUpAngle` | float | Angolo di inclinazione della fotocamera verticale. Questa operazione viene dedotta dalla calibrazione automatica.|
 
-| Nome campo SourceInfo | Type| Descrizione|
+| Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -461,7 +461,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
     "schemaVersion": "1.0"
 }
 ```
-| Nome campo evento | Type| Descrizione|
+| Nome campo evento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -471,7 +471,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `status` | string| Direzione delle incrociate di riga, ovverò CrossLeft ' o ' CrossRight '|
 | `zone` | string | Il campo "nome" della riga che è stata superata|
 
-| Nome campo rilevamento | Type| Descrizione|
+| Nome campo rilevamento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -482,7 +482,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `face_Mask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata sta indossando una maschera faccia. |
 | `face_noMask` | float | Il valore di confidenza dell'attributo con intervallo (0-1) indica che la persona rilevata **non** sta indossando una maschera viso |
 
-| Nome campo SourceInfo | Type| Descrizione|
+| Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -606,7 +606,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
 }
 ```
 
-| Nome campo evento | Type| Descrizione|
+| Nome campo evento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento. Il valore può essere _personZoneDwellTimeEvent_ o _personZoneEnterExitEvent_|
@@ -618,7 +618,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione con il 
 | `durationMs` | float | Il numero di millisecondi che rappresenta il tempo impiegato dall'utente nella zona. Questo campo viene fornito quando il tipo di evento è _personZoneDwellTimeEvent_|
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona attraversata|
 
-| Nome campo rilevamento | Type| Descrizione|
+| Nome campo rilevamento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -721,7 +721,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 }
 ```
 
-| Nome campo evento | Type| Descrizione|
+| Nome campo evento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID evento|
 | `type` | string| Tipo di evento|
@@ -736,7 +736,7 @@ Codice JSON di esempio per i rilevamenti restituiti da questa operazione.
 | `zone` | string | Il campo "Name" del poligono che rappresenta la zona monitorata per l'allontanamento tra le persone|
 | `trigger` | string| Il tipo di trigger è' Event ' o ' Interval ' a seconda del valore di `trigger` in SPACEANALYTICS_CONFIG|
 
-| Nome campo rilevamento | Type| Descrizione|
+| Nome campo rilevamento | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| ID rilevamento|
 | `type` | string| Tipo di rilevamento|
@@ -753,7 +753,7 @@ Durante `centerGroundPoint` il calcolo `x` è la distanza tra la camera e la per
 In this example, l'evento `centerGroundPoint` è `{x: 4, y: 5}`. Ciò significa che c'è una persona di 4 metri dalla fotocamera e 5 piedi a destra, guardando la stanza dall'alto verso il basso.
 
 
-| Nome campo SourceInfo | Type| Descrizione|
+| Nome campo SourceInfo | Tipo| Descrizione|
 |---------|---------|---------|
 | `id` | string| Camera ID|
 | `timestamp` | Data| Data UTC di creazione del payload JSON|
@@ -964,7 +964,7 @@ Per ottenere le migliori prestazioni e l'utilizzo delle GPU, è possibile distri
       }
   }
   ```
-| Nome | Type| Descrizione|
+| Nome | Tipo| Descrizione|
 |---------|---------|---------|
 | `batch_size` | INT | Indica il numero di fotocamere che verranno utilizzate nell'operazione. |
 

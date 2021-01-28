@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 563ccdb0633f94acccf3ade9faf1c40c28f108ac
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462935"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934403"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard di utilizzo nell'analisi per il marketplace commerciale
 
@@ -135,7 +135,7 @@ _**Tabella 1: dizionario dei termini dati**_
 | Nome offerta | Nome offerta | Nome dell'offerta del Marketplace commerciale. |
 | DeploymentMethod | Deprecato | Deprecato (stessa definizione del tipo di offerta)
  |
-| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome può essere diverso da quello della città nella sottoscrizione di Azure di un cliente. |
+| Customer Company Name | Customer Company Name | Nome dell'azienda fornito dal cliente. Il nome potrebbe essere diverso dal nome nella sottoscrizione di Azure di un cliente. |
 | Data utilizzo | Data utilizzo | Data di generazione dell'evento Usage per gli asset basati sull'utilizzo. |
 | IsMultisolution | È multisoluzione | Indica se l'offerta è un tipo di offerta multisoluzione. |
 | Nuovo cliente | Deprecato | Deprecato |

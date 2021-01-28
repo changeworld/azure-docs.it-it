@@ -3,14 +3,14 @@ title: Gestire i moduli in Automazione di Azure
 description: Questo articolo descrive come usare i moduli di PowerShell per abilitare i cmdlet nei runbook e le risorse DSC nelle configurazioni DSC.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/22/2020
+ms.date: 01/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: d62ed96f86078839e66a4cf2ce71f304de2abf4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458150"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936633"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gestire i moduli in Automazione di Azure
 
@@ -25,10 +25,18 @@ Automazione di Azure usa alcuni moduli di PowerShell per abilitare i cmdlet nei 
 
 Quando si crea un account di Automazione, Automazione di Azure importa alcuni moduli per impostazione predefinita. Vedere [Moduli predefiniti](#default-modules).
 
+## <a name="sandboxes"></a>Sandbox
+
 Quando Automazione esegue runbook e processi di compilazione DSC, carica i moduli in sandbox in cui è possibile eseguire i runbook e la compilazione di configurazioni DSC. Automazione inserisce automaticamente anche eventuali risorse DSC nei moduli nel server di pull DSC. I computer possono effettuare il pull delle risorse quando applicano le configurazioni DSC.
 
 >[!NOTE]
 >Assicurarsi di importare solo i moduli necessari per i runbook e le configurazioni DSC. Si sconsiglia di importare il modulo Az radice perché include molti altri moduli che potrebbero non essere necessari e che possono causare problemi di prestazioni. Importare invece singoli moduli, ad esempio Az.Compute.
+
+Cloud sandbox supporta un massimo di 48 chiamate di sistema e limita tutte le altre chiamate per motivi di sicurezza. Altre funzionalità, ad esempio la gestione delle credenziali e alcune reti, non sono supportate in sandbox cloud.
+
+A causa del numero di moduli e cmdlet inclusi, è difficile stabilire in anticipo quale dei cmdlet effettuerà chiamate non supportate. In genere, sono stati riscontrati problemi con i cmdlet che richiedono l'accesso con privilegi elevati, richiedono una credenziale come parametro o i cmdlet correlati alla rete. Tutti i cmdlet che eseguono operazioni di rete di stack completi non sono supportati in sandbox, incluso [Connect-AipService](/powershell/module/aipservice/connect-aipservice) dal modulo AipService di PowerShell e [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) dal modulo DNSClient.
+
+Si tratta di limitazioni note con la sandbox. La soluzione alternativa consigliata consiste nel distribuire un ruolo di [lavoro ibrido per Runbook](../automation-hybrid-runbook-worker.md) o usare [funzioni di Azure](../../azure-functions/functions-overview.md).
 
 ## <a name="default-modules"></a>Moduli predefiniti
 

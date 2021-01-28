@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 25685d7e933c9d171e1547be2f5899c08443321a
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 92bf066c9769cc4b2525923b9e18ed3c0e9c577a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246571"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937143"
 ---
 # <a name="identify-required-appliances"></a>Identificare le appliance necessarie
 
@@ -104,7 +104,7 @@ Questa sezione descrive le specifiche hardware per le appliance seguenti:
 | Controller di rete | A bordo: 2 x 1-GB Broadcom BCM5720<br>LOM a bordo: iDRAC porta scheda 1-GB Broadcom BCM5720<br><br>Esterno: 1 x Intel Ethernet I350 QP 1-GB Server Adapter, low profile |
 | Gestione | HPE iLO Advanced |
 | Accesso al dispositivo | Due USB posteriori 3,0<br>Un front-end USB 2,0<br>Un USB interno 3,0 |
-| Elettricità | 2 x HPE 500 W Flex slot platino collegamento a caldo alogeno basso alimentatore |
+| Potenza | 2 x HPE 500 W Flex slot platino collegamento a caldo alogeno basso alimentatore |
 | Supporto rack | HPE 1U Gen10 SFF Easy Install Rail Kit |
 
 ### <a name="appliance-bom"></a>BOM dispositivo
@@ -140,7 +140,7 @@ Questa sezione descrive le specifiche hardware per le appliance seguenti:
 | Controller di rete | A bordo: 2 x 1 GB <br>Scheda a bordo: iLO porta 1 GB <br>Esterno: 1 x HPE Ethernet 1-GB 4-porta 366FLR adapter |
 | Gestione | HPE iLO Advanced |
 | Accesso al dispositivo | Front: 1 x USB 3,0, 1 x porta servizio iLO USB <br>Rear: 2 x USB 3,0 <br>Interno: 1 x USB 3,0 |
-| Elettricità | Alimentatori con doppio collegamento a caldo 500 W |
+| Potenza | Alimentatori con doppio collegamento a caldo 500 W |
 | Supporto rack | HPE 1U Short attrite Rail Kit |
 
 ### <a name="appliance-bom"></a>BOM dispositivo
@@ -175,7 +175,7 @@ Questa sezione descrive le specifiche hardware per le appliance seguenti:
 | Controller di rete | A bordo: 2 x 1 GB <br>Scheda a bordo: iLO porta 1 GB <br>Esterno: 1 x HPE Ethernet 1-GB 4-porta 366FLR adapter |
 | Gestione | HPE iLO Advanced |
 | Accesso al dispositivo | Front: 1 x USB 3,0, 1 x porta servizio iLO USB <br>Rear: 2 x USB 3,0 <br>Interno: 1 x USB 3,0 |
-| Elettricità | Alimentatore hot plug 290 W |
+| Potenza | Alimentatore hot plug 290 W |
 | Supporto rack | HPE 1U Short attrite Rail Kit |
 
 ### <a name="appliance-bom"></a>BOM dispositivo
@@ -225,7 +225,7 @@ Questa sezione illustra le appliance aggiuntive certificate da Microsoft, ma non
 | Immagine | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Tipo di distribuzione Enterprise."::: |
 | Modello | Dell PowerEdge R340 supplementare XL |
 | Monitoraggio di porte | Fino a nove RJ45 o sei OPT |
-| Larghezza di banda massima [1](#anchortext2)| 1G MB/sec |
+| Larghezza di banda massima [1](#anchortext2)| 1 GB/sec |
 | Numero massimo di dispositivi protetti | 10,000 |
 
 <a id="anchortext2">Uno</a> La capacità della larghezza di banda può variare a seconda della distribuzione di protocolli.
@@ -248,7 +248,7 @@ Dopo aver acquistato il dispositivo, passare a **Defender per** i  >  **sensori 
 | Controller di rete | A bordo: 2 x 1-GB Broadcom BCM5720<br>LOM a bordo: iDRAC porta scheda 1-GB Broadcom BCM5720 <br><br>Esterno: 1 x Intel Ethernet I350 QP 1-GB Server Adapter, low profile |
 | Gestione | iDRAC Nine Enterprise |
 | Accesso al dispositivo | Due USB posteriori 3,0 <br> Un front-end USB 3,0 |
-| Elettricità | Alimentatori con doppio collegamento a caldo 350 W |
+| Potenza | Alimentatori con doppio collegamento a caldo 350 W |
 | Supporto rack | ReadyRails II guide scorrevoli per le operazioni di montaggio senza strumenti in rack di 4 post con buchi rotondi o senza thread o montaggio con strumenti in quattro post con threading a thread, con supporto per la gestione dei cavi senza strumenti facoltativi. |
 
 ## <a name="dell-r340-bom"></a>BOM R340 supplementare dell

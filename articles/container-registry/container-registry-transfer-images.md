@@ -4,12 +4,12 @@ description: Trasferire raccolte di immagini o altri artefatti da un registro co
 ms.topic: article
 ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: ab6657ecd335a6de8c6c93e3c2ff392ac54c487c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932601"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935340"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Trasferire gli artefatti in un altro registro
 
@@ -277,7 +277,7 @@ Immettere i valori dei parametri seguenti nel file `azuredeploy.parameters.json`
 |pipelineRunName     |  Nome scelto per l'esecuzione       |
 |pipelineResourceId     |  ID risorsa della pipeline di esportazione.<br/>Esempio: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ContainerRegistry/registries/<sourceRegistryName>/exportPipelines/myExportPipeline`|
 |targetName     |  Nome scelto per il BLOB di artefatti esportato nell'account di archiviazione di origine, ad esempio *BLOB*
-|artifacts | Matrice di elementi di origine da trasferire, come tag o digest del manifesto<br/>Esempio: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
+|Artefatti | Matrice di elementi di origine da trasferire, come tag o digest del manifesto<br/>Esempio: `[samples/hello-world:v1", "samples/nginx:v1" , "myrepository@sha256:0a2e01852872..."]` |
 
 Se si ridistribuisce una risorsa PipelineRun con proprietà identiche, è necessario usare anche la proprietà [Proprietà forceupdatetag](#redeploy-pipelinerun-resource) .
 
@@ -312,7 +312,7 @@ az storage blob list \
 
 ## <a name="transfer-blob-optional"></a>Transfer BLOB (facoltativo) 
 
-Usare lo strumento AzCopy o altri metodi per [trasferire i dati BLOB](../storage/common/storage-use-azcopy-blobs.md#copy-blobs-between-storage-accounts) dall'account di archiviazione di origine all'account di archiviazione di destinazione.
+Usare lo strumento AzCopy o altri metodi per [trasferire i dati BLOB](../storage/common/storage-use-azcopy-v10.md#transfer-data) dall'account di archiviazione di origine all'account di archiviazione di destinazione.
 
 Ad esempio, il [`azcopy copy`](../storage/common/storage-ref-azcopy-copy.md) comando seguente copia il BLOB dal contenitore di *trasferimento* dell'account di origine al contenitore di *trasferimento* nell'account di destinazione. Se il BLOB esiste nell'account di destinazione, viene sovrascritto. L'autenticazione usa i token SAS con le autorizzazioni appropriate per i contenitori di origine e di destinazione. I passaggi per la creazione di token non vengono visualizzati.
 

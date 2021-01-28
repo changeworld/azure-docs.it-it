@@ -1,5 +1,5 @@
 ---
-title: Eseguire il push dei dati di derivazione Data Factory in Azure
+title: Eseguire il push dei dati di derivazione di Data Factory in Azure Purview
 description: Informazioni su come effettuare il push dei dati di derivazione di Data Factory in Azure
 services: data-factory
 ms.author: lle
@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 6b50c9440a958bc1398e79ddf3c5a0984816ec45
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96603278"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935468"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Eseguire il push dei dati di derivazione Data Factory in Azure (anteprima)
 
@@ -29,7 +29,7 @@ In questa esercitazione si userà l'interfaccia utente Data Factory per creare u
 ## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 * **Azure Data Factory**. Se non si dispone di un Azure Data Factory, vedere [creare una Azure Data Factory](./quickstart-create-data-factory-portal.md).
-* **Account Azure**. L'account di competenza acquisisce tutti i dati di derivazione generati da data factory. Se non si dispone di un account Azure, vedere [creare un ambito di competenza Azure](https://docs.microsoft.com/azure/purview/create-catalog-portal).
+* **Account Azure**. L'account di competenza acquisisce tutti i dati di derivazione generati da data factory. Se non si dispone di un account Azure, vedere [creare un ambito di competenza Azure](../purview/create-catalog-portal.md).
 
 
 ## <a name="run-data-factory-activities-and-push-lineage-data-to-azure-purview"></a>Eseguire attività Data Factory e inviare dati di derivazione ad Azure.
@@ -76,6 +76,6 @@ Tornare all'account di competenza. Nella home page selezionare **Sfoglia asset**
 > Per la derivazione dell'attività Esegui pacchetto SSIS, è supportata solo l'origine e la destinazione. La derivazione per la trasformazione non è ancora supportata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida dell'utente di derivazione del catalogo](https://docs.microsoft.com/azure/purview/catalog-lineage-user-guide)
+[Guida dell'utente di derivazione del catalogo](../purview/catalog-lineage-user-guide.md)
 
 [Connetti Data Factory ad Azure competenza](connect-data-factory-to-azure-purview.md)

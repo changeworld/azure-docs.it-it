@@ -3,16 +3,13 @@ title: CPU agganciata nel cluster Apache HBase-Azure HDInsight
 description: Risolvere i problemi di CPU in un server di area nel cluster Apache HBase in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: bed73c3ccc7f514ffc9ff8f97534ae4b249834ce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7d0cf139f06bb296b486d2932d95b53fc1167a5d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017016"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937022"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Scenario: CPU ancorata sul server di area nel cluster Apache HBase in Azure HDInsight
 
@@ -26,7 +23,7 @@ Il processo del server di area di Apache HBase inizia a occuparsi di quasi il 20
 
 Se si esegue il cluster HBase v 3.4, è possibile che sia stato raggiunto un bug potenziale causato dall'aggiornamento di JDK alla versione 1.7.0 _151. Il sintomo visualizzato è che il processo del server di area inizia a occuparsi di quasi il 200% della CPU (per verificare l'esecuzione del `top` comando; se è presente un processo che occupa quasi il 200% della CPU, ottenere il PID e confermare che si tratta di un processo del server di area eseguendo `ps -aux | grep` ).
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 1. Installare JDK 1,8 in tutti i nodi del cluster come indicato di seguito:
 

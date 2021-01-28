@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/02/2020
 ms.author: mnayak
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c3ce69dc9364d71a501f122a7150ad4a59869422
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: 82057fa689692643e3cf9733dd70795e1030fa06
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96534013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934247"
 ---
 # <a name="configure-routing-preference-for-a-public-ip-address-using-azure-cli"></a>Configurare la preferenza di routing per un indirizzo IP pubblico con l'interfaccia della riga di comando di Azure
 
@@ -52,7 +52,7 @@ Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az
 ```
 ## <a name="create-a-public-ip-address"></a>Creare un indirizzo IP pubblico
 
-Creare un indirizzo IP pubblico con preferenza di routing di tipo **Internet** usando il comando [AZ Network Public-IP create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create), con il formato riportato di seguito.
+Creare un indirizzo IP pubblico con preferenza di routing di tipo **Internet** usando il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create), con il formato riportato di seguito.
 
 Il comando seguente crea un nuovo indirizzo IP pubblico con preferenza di routing **Internet** nell'area di Azure **Stati Uniti orientali**.
 

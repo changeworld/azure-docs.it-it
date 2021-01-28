@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 36b7c5caf54001abba1f17500c680f96934657eb
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d52430c87d99f8837c78fcff89d8b214e45350ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934940"
 ---
 # <a name="manage-public-ip-addresses"></a>Gestire gli indirizzi IP pubblici
 
@@ -70,7 +70,7 @@ Per altri dettagli sugli attributi specifici di un indirizzo IP pubblico durante
    |Nome (visibile solo se si seleziona la versione IP di **entrambi**)|Sì, se si seleziona la versione IP di **entrambi**|Il nome deve essere diverso da quello immesso come primo **nome** in questo elenco. Se si sceglie di creare sia un indirizzo IPv4 che un indirizzo IPv6, il portale crea due risorse indirizzo IP pubblico separate, a ognuna delle quali è assegnata una versione dell'indirizzo IP.|
    |Assegnazione di indirizzi IP (visibile solo se si seleziona la versione IP di **entrambi**)|Sì, se si seleziona la versione IP di **entrambi**|Stesse restrizioni dell'assegnazione di indirizzi IP precedente|
    |Subscription|Sì|Deve esistere nella stessa [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) della risorsa a cui si associeranno gli IP pubblici.|
-   |Gruppo di risorse|Sì|Può esistere nello stesso gruppo di risorse o in un altro [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa alla quale si associeranno gli indirizzi IP pubblici.|
+   |Resource group|Sì|Può esistere nello stesso gruppo di risorse o in un altro [gruppo di risorse](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) della risorsa alla quale si associeranno gli indirizzi IP pubblici.|
    |Posizione|Sì|Deve esistere nella stessa [posizione](https://azure.microsoft.com/regions), nota anche come area, come risorsa a cui associare gli IP pubblici.|
    |Zona di disponibilità| No | Questa impostazione viene visualizzata solo se si seleziona una località supportata. Per un elenco di località supportate, vedere [Panoramica di Zone di disponibilità](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se è stato selezionato lo SKU **Basic**, viene selezionata automaticamente l'opzione *Nessuna*. Se si preferisce garantire una zona specifica, è possibile selezionarne una. Entrambe le opzioni non prevedono la ridondanza della zona. Se è stato selezionato lo SKU **Standard**: viene selezionata automaticamente l'opzione con ridondanza della zona e il percorso dei dati è resiliente agli errori a livello di zona. Se si preferisce garantire una zona specifica, non resiliente agli errori a livello di zona, è possibile selezionarne una.
 
@@ -83,7 +83,7 @@ Per altri dettagli sugli attributi specifici di un indirizzo IP pubblico durante
    
 |Operazione|Portale di Azure|Azure PowerShell|Interfaccia della riga di comando di Azure|
 |---|---|---|---|
-|Visualizza | Nella sezione **Panoramica** di un indirizzo IP pubblico |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni| [AZ Network Public-IP Show](/cli/azure/network/public-ip#az-network-public-ip-show) per visualizzare le impostazioni|
+|Visualizzazione | Nella sezione **Panoramica** di un indirizzo IP pubblico |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni| [AZ Network Public-IP Show](/cli/azure/network/public-ip#az-network-public-ip-show) per visualizzare le impostazioni|
 |Elenco | Nella categoria **indirizzi IP pubblici** |[Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) per recuperare uno o più oggetti indirizzo IP pubblico e visualizzarne le impostazioni|[AZ Network Public-IP list](/cli/azure/network/public-ip#az-network-public-ip-list) per elencare gli indirizzi IP pubblici|
 |Modifica | Per un indirizzo IP che è stato annullato, selezionare **configurazione** per modificare il timeout di inattività, l'etichetta del nome DNS o l'assegnazione di modifica dell'indirizzo IP di base da statico a dinamico.  |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) per aggiornare le impostazioni |[AZ Network Public-IP Update](/cli/azure/network/public-ip#az-network-public-ip-update) per aggiornare |
 
@@ -92,14 +92,14 @@ Per altri dettagli sugli attributi specifici di un indirizzo IP pubblico durante
 |Risorsa|Portale di Azure|Azure PowerShell|Interfaccia della riga di comando di Azure|
 |---|---|---|---|
 |[Macchina virtuale](./remove-public-ip-address-vm.md)|Selezionare **dissocia** per annullare l'associazione dell'indirizzo IP dalla configurazione NIC, quindi selezionare **Elimina**.|[Impostare-AzPublicIpAddress per annullare](/powershell/module/az.network/set-azpublicipaddress) l'associazione dell'indirizzo IP dalla configurazione NIC; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare|[AZ Network Public-IP Update--Remove per annullare](/cli/azure/network/public-ip#az-network-public-ip-update) l'associazione dell'indirizzo IP dalla configurazione NIC; [AZ Network Public-IP Delete](/cli/azure/network/public-ip#az-network-public-ip-delete) da eliminare |
-|Front-End Load Balancer | Passare a un indirizzo IP pubblico non usato e selezionare **associa** e scegliere il Load Balancer con la configurazione IP front-end pertinente per sostituirlo (l'IP precedente può essere eliminato con lo stesso metodo usato per la macchina virtuale)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) per associare la nuova configurazione IP front-end a public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) per rimuovere la configurazione IP front-end se ne sono presenti più di una |[AZ Network lb frontend-IP Update](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_update) per associare la nuova configurazione IP front-end a public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [AZ Network lb frontend-IP Delete](/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az_network_lb_frontend_ip_delete) per rimuovere la configurazione IP front-end se ne sono presenti più di una|
+|Front-End Load Balancer | Passare a un indirizzo IP pubblico non usato e selezionare **associa** e scegliere il Load Balancer con la configurazione IP front-end pertinente per sostituirlo (l'IP precedente può essere eliminato con lo stesso metodo usato per la macchina virtuale)  | [Set-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/set-azloadbalancerfrontendipconfig) per associare la nuova configurazione IP front-end a public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [Remove-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/remove-azloadbalancerfrontendipconfig) per rimuovere la configurazione IP front-end se ne sono presenti più di una |[AZ Network lb frontend-IP Update](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_update) per associare la nuova configurazione IP front-end a public Load Balancer; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) da eliminare; può anche usare [AZ Network lb frontend-IP Delete](/cli/azure/network/lb/frontend-ip#az_network_lb_frontend_ip_delete) per rimuovere la configurazione IP front-end se ne sono presenti più di una|
 |Firewall|N/D| [Deallocate ()](../firewall/firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) per deallocare il firewall e rimuovere tutte le configurazioni IP | [AZ network firewall IP-config Delete](/cli/azure/ext/azure-firewall/network/firewall/ip-config#ext_azure_firewall_az_network_firewall_ip_config_delete) per rimuovere IP (ma deve usare PowerShell per deallocare per primo)|
 
 ## <a name="virtual-machine-scale-sets"></a>Set di scalabilità di macchine virtuali
 
 Quando si usa un set di scalabilità di macchine virtuali con indirizzi IP pubblici, non sono presenti oggetti IP pubblici distinti associati alle singole istanze di macchine virtuali. È tuttavia possibile utilizzare un oggetto prefisso IP pubblico [per generare gli IP dell'istanza](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
 
-Per elencare gli indirizzi IP pubblici in un set di scalabilità di macchine virtuali, è possibile usare PowerShell ([Get-AzPublicIpAddress-VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) o l'interfaccia della riga di comando ([AZ vmss list-instance-public-IPS](/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instance_public_ips)).
+Per elencare gli indirizzi IP pubblici in un set di scalabilità di macchine virtuali, è possibile usare PowerShell ([Get-AzPublicIpAddress-VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) o l'interfaccia della riga di comando ([AZ vmss list-instance-public-IPS](/cli/azure/vmss#az_vmss_list_instance_public_ips)).
 
 Per altre informazioni, vedere [Rete per i set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
 

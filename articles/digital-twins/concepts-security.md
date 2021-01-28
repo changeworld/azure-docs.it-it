@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d62e7566038af6647cab2992b02184a4ea5ba30b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344148"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934530"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
@@ -89,15 +89,48 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 
 Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere un errore dalla lettura della richiesta di servizio `403 (Forbidden)` . Per ulteriori informazioni e procedure per la risoluzione dei problemi, vedere [*risoluzione dei problemi: richiesta di Azure Digital Twins non riuscita con stato: 403 (accesso negato)*](troubleshoot-error-403.md).
 
+## <a name="managed-identity-for-accessing-other-resources-preview"></a>Identità gestita per l'accesso ad altre risorse (anteprima)
+
+La configurazione di un' **identità gestita** di [Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md) per un'istanza di Azure Digital gemelli può consentire all'istanza di accedere facilmente ad altre risorse protette da Azure AD, ad esempio [Azure Key Vault](../key-vault/general/overview.md). L'identità viene gestita dalla piattaforma Azure e non richiede il provisioning o la rotazione dei segreti. Per altre informazioni sulle identità gestite in Azure AD, vedere  [*identità gestite per le risorse di Azure*](../active-directory/managed-identities-azure-resources/overview.md). 
+
+Azure supporta due tipi di identità gestite: assegnato dal sistema e assegnato dall'utente. Attualmente, i dispositivi gemelli digitali di Azure supportano solo le **identità assegnate dal sistema**. 
+
+Per eseguire l'autenticazione in un [endpoint personalizzato](concepts-route-events.md#create-an-endpoint), è possibile usare un'identità gestita assegnata dal sistema per l'istanza digitale di Azure. I dispositivi gemelli digitali di Azure supportano l'autenticazione basata sulle identità assegnata dal sistema agli endpoint per le destinazioni dell' [Hub eventi](../event-hubs/event-hubs-about.md) e del [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)   e a un endpoint del [contenitore di archiviazione di Azure](../storage/blobs/storage-blobs-introduction.md)   per [gli eventi non recapitabili](concepts-route-events.md#dead-letter-events). [Griglia](../event-grid/overview.md)   di eventi gli endpoint non sono attualmente supportati per le identità gestite.
+
+Per istruzioni su come abilitare un'identità gestita dal sistema per i dispositivi gemelli digitali di Azure e usarla per indirizzare gli eventi, vedere [*procedura: abilitare un'identità gestita per il routing degli eventi (anteprima)*](how-to-enable-managed-identities.md).
+
+## <a name="private-network-access-with-azure-private-link-preview"></a>Accesso alla rete privata con collegamento privato di Azure (anteprima)
+
+Il [collegamento privato di Azure](../private-link/private-link-overview.md) è un servizio che consente di accedere alle risorse di Azure (ad esempio [Hub eventi di Azure](../event-hubs/event-hubs-about.md), archiviazione di [Azure](../storage/common/storage-introduction.md)e [Azure Cosmos DB](../cosmos-db/introduction.md)) e ai servizi clienti e partner ospitati da Azure tramite un endpoint privato nella [rete virtuale di Azure (VNet)](../virtual-network/virtual-networks-overview.md). 
+
+Analogamente, è possibile usare endpoint privati per l'istanza di Azure Digital Twin per consentire ai client che si trovano nella rete virtuale di accedere in modo sicuro all'istanza tramite un collegamento privato. 
+
+L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della VNet di Azure. Il traffico di rete tra un client nella rete privata e l'istanza di Azure Digital Twins attraversa la VNet e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione alla rete Internet pubblica. Ecco una rappresentazione visiva del sistema:
+
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Un diagramma che mostra una rete per una società PowerGrid che è un VNET protetto senza accesso al cloud Internet/pubblico, che si connette tramite un collegamento privato a un'istanza di dispositivi gemelli digitali di Azure denominata CityOfTwins.":::
+
+La configurazione di un endpoint privato per l'istanza di Azure Digital Twins consente di proteggere l'istanza di Azure Digital Twins ed eliminare l'esposizione pubblica, nonché di evitare i dati exfiltration dalla VNet.
+
+Per istruzioni su come configurare il collegamento privato per i dispositivi gemelli digitali di Azure, vedere [*procedura: abilitare l'accesso privato con collegamento privato (anteprima)*](how-to-enable-private-link.md).
+
+### <a name="design-considerations"></a>Considerazioni sulla progettazione 
+
+Quando si lavora con un collegamento privato per i dispositivi gemelli digitali di Azure, di seguito sono riportati alcuni fattori che è opportuno considerare:
+* **Prezzi**: per informazioni dettagliate sui prezzi, vedere  [prezzi dei collegamenti privati di Azure](https://azure.microsoft.com/pricing/details/private-link). 
+* **Disponibilità a livello** di area: per i dispositivi gemelli digitali di Azure, questa funzionalità è disponibile in tutte le aree di Azure in cui è disponibile Azure Digital gemelli. 
+* **Numero massimo di endpoint privati per istanza di Azure Digital Twins**: 10
+
+Per informazioni sui limiti del collegamento privato, vedere la [documentazione del collegamento privato di Azure: limitazioni](../private-link/private-link-service-overview.md#limitations).
+
 ## <a name="service-tags"></a>Tag di servizio
 
 Un **tag di servizio** rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per ulteriori informazioni sui tag di servizio, vedere la pagina relativa ai  [*tag della rete virtuale*](../virtual-network/service-tags-overview.md). 
 
-È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules)   di rete o nel [firewall di Azure](../firewall/service-tags.md), usando i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (in questo caso, **AzureDigitalTwins**) nel *source*   campo di origine o *destinazione* appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules)   di rete o nel [firewall di Azure](../firewall/service-tags.md), usando i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (in questo caso, **AzureDigitalTwins**) nel **   campo di origine o *destinazione* appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
 
 Di seguito sono riportati i dettagli del tag del servizio **AzureDigitalTwins** .
 
-| Tag | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
+| Tag | Scopo | È possibile usarlo in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
 | --- | --- | --- | --- | --- |
 | AzureDigitalTwins | Gemelli digitali di Azure<br>Nota: questo tag o gli indirizzi IP trattati da questo tag possono essere usati per limitare l'accesso agli endpoint configurati per le [route degli eventi](concepts-route-events.md). | In ingresso | No | Sì |
 
@@ -117,13 +150,13 @@ Ecco i passaggi per accedere agli endpoint della [route degli eventi](concepts-r
 
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 
-I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso. Questa crittografia viene eseguita usando una chiave di crittografia gestita da Microsoft.
+I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso. Questa crittografia viene eseguita utilizzando una chiave di crittografia gestita da Microsoft.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
 
 I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
 
-Per risolvere questo errore, esegui una delle operazioni seguenti:
+Per correggere l'errore, è possibile eseguire una delle operazioni seguenti:
 * Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 
 * In alternativa, creare un proxy CORS ed eseguire la richiesta dell'API REST di Azure Digital gemelli. 
 

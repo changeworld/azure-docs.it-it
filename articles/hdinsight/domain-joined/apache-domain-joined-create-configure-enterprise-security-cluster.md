@@ -3,17 +3,14 @@ title: Creare, configurare cluster Enterprise Security Package-Azure
 description: Informazioni su come creare e configurare cluster Enterprise Security Package in Azure HDInsight
 services: hdinsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.openlocfilehash: 07bd92e17b827dfeede5958587cecbdc97694329
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003923"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934048"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Creare e configurare cluster di Enterprise Security Package in Azure HDInsight
 
@@ -82,7 +79,7 @@ In questa sezione verranno creati gli utenti che avranno accesso al cluster HDIn
 
         ![Creare un nuovo utente Active Directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-user.png)
 
-    1. Nella pagina **nuovo oggetto-utente** immettere nome `HDIUser` e nome **First name** di **accesso utente**. Gli altri campi vengono popolati automaticamente. Fare quindi clic su **Avanti**.
+    1. Nella pagina **nuovo oggetto-utente** immettere nome `HDIUser` e nome  di **accesso utente**. Gli altri campi vengono popolati automaticamente. Selezionare quindi **Avanti**.
 
         ![Creare il primo oggetto utente amministratore](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
@@ -190,11 +187,11 @@ Creare un Active Directory amministratore tenant.
 
 1. Selezionare **Usa impostazioni rapide**.
 
-1. Nella pagina **Connetti a Azure ad** immettere il nome utente e la password dell'amministratore globale per Azure ad. Usare il nome utente `fabrikamazureadmin@hdifabrikam.com` creato al momento della configurazione del tenant di Active Directory. Fare quindi clic su **Avanti**.
+1. Nella pagina **Connetti a Azure ad** immettere il nome utente e la password dell'amministratore globale per Azure ad. Usare il nome utente `fabrikamazureadmin@hdifabrikam.com` creato al momento della configurazione del tenant di Active Directory. Selezionare quindi **Avanti**.
 
     ![Pagina "Connetti ad Azure A D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. Nella pagina **Connetti a Active Directory Domain Services** immettere il nome utente e la password per un account amministratore dell'organizzazione. Usare il nome utente `HDIFabrikam\HDIFabrikamAdmin` e la password creati in precedenza. Fare quindi clic su **Avanti**.
+1. Nella pagina **Connetti a Active Directory Domain Services** immettere il nome utente e la password per un account amministratore dell'organizzazione. Usare il nome utente `HDIFabrikam\HDIFabrikamAdmin` e la password creati in precedenza. Selezionare quindi **Avanti**.
 
    ![Pagina "Connetti a una D D".](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. Nella pagina **configurazione dell'accesso Azure ad** fare clic su **Avanti**.
@@ -209,14 +206,14 @@ Creare un Active Directory amministratore tenant.
 
 1. Al termine della sincronizzazione, verificare che gli utenti creati nella directory IaaS siano sincronizzati con Azure AD.
    1. Accedere al portale di Azure.
-   1. Selezionare **Azure Active Directory**  >  **HDIFabrikam**  >  **utenti** HDIFabrikam.
+   1. Selezionare **Azure Active Directory**  >    >  **utenti** HDIFabrikam.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 
 Creare un'identità gestita assegnata dall'utente che è possibile usare per configurare Azure AD Domain Services (Azure AD DS). Per altre informazioni, vedere [creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente usando il portale di Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Accedere al portale di Azure.
-1. Selezionare **Crea una risorsa** e digitare `managed identity` . Selezionare **creazione identità gestita assegnata dall'utente**  >  **Create**.
+1. Selezionare **Crea una risorsa** e digitare `managed identity` . Selezionare **creazione identità gestita assegnata dall'utente**  >  .
 1. Per il **nome della risorsa**, immettere `HDIFabrikamManagedIdentity` .
 1. Selezionare la propria sottoscrizione.
 1. In **gruppo di risorse** selezionare **Crea nuovo** e immettere `HDIFabrikam-CentralUS` .
@@ -281,7 +278,7 @@ Usare la procedura seguente per configurare la rete virtuale Azure AD DS (**HDIF
 
 1. Individuare gli indirizzi IP dei server DNS personalizzati.
     1. Selezionare la `HDIFabrikam.com` risorsa Azure AD DS.
-    1. In **Gestisci** selezionare **Proprietà**.
+    1. In **Gestione** selezionare **Proprietà**.
     1. Trovare gli indirizzi IP in **indirizzo IP nella rete virtuale**.
 
     ![Individuare indirizzi IP DNS personalizzati per Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
@@ -289,7 +286,7 @@ Usare la procedura seguente per configurare la rete virtuale Azure AD DS (**HDIF
 1. Configurare **HDIFabrikam-AADDSVNET** per l'uso di indirizzi IP personalizzati 10.0.0.4 e 10.0.0.5.
 
     1. In **Impostazioni** selezionare **server DNS**.
-    1. Selezionare **personalizzata**.
+    1. selezionare **Personalizzato**.
     1. Nella casella di testo immettere il primo indirizzo IP (*10.0.0.4*).
     1. Selezionare **Salva**.
     1. Ripetere i passaggi per aggiungere l'altro indirizzo IP (*10.0.0.5*).
@@ -333,7 +330,7 @@ Verificare che il certificato sia installato nell'archivio **personale** del com
     ![Pagina esportazione chiave privata dell'esportazione guidata certificati](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. Nella pagina **formato file di esportazione** lasciare le impostazioni predefinite e quindi fare clic su **Avanti**.
-1. Nella pagina **password** Digitare una password per la chiave privata. Per **crittografia** selezionare **TripleDES-SHA1**. Fare quindi clic su **Avanti**.
+1. Nella pagina **password** Digitare una password per la chiave privata. Per **crittografia** selezionare **TripleDES-SHA1**. Selezionare quindi **Avanti**.
 1. Nella pagina **file da esportare** Digitare il percorso e il nome del file di certificato esportato, quindi fare clic su **Avanti**. Il nome del file deve avere un'estensione pfx. Questo file viene configurato nel portale di Azure per stabilire una connessione sicura.
 1. Abilitare LDAPs per un dominio gestito Azure AD DS.
     1. Dal portale di Azure selezionare il dominio `HDIFabrikam.com` .

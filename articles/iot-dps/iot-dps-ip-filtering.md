@@ -7,12 +7,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: 6ff5731e7d346c954253ec4186357595461b7678
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: e1b175a176255da465433b2db45cb3cb67d360d1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400256"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934500"
 ---
 # <a name="use-azure-iot-dps-ip-connection-filters"></a>Usare i filtri di connessioni IP del servizio Device Provisioning in hub IoT di Azure
 
@@ -258,5 +258,5 @@ Per salvare il nuovo ordine delle regole del filtro IP, fare clic su **Salva**.
 Per esplorare ulteriormente la gestione del servizio Device Provisioning, vedere:
 
 * [Informazioni sugli indirizzi IP del servizio Device Provisioning](iot-dps-understand-ip-address.md)
-* [Configurare il servizio Device Provisioning con l'interfaccia della riga di comando di Azure](how-to-manage-dps-with-cli.md)
+* [Configurare DPS usando l'interfaccia della riga di comando di Azure](quick-setup-auto-provision-cli.md)
 * [Controllare l'accesso al servizio Device Provisioning](how-to-control-access.md)
