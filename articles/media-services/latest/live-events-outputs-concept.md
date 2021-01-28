@@ -1,9 +1,24 @@
 ---
-title: concetti relativi ad eventi live e output Live in servizi multimediali di Azure V3: Descrizione di servizi multimediali di Azure: questo argomento offre una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
-Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
-
-ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: ne ms. Topic: Conceptual ms. Date: 10/23/2020 ms. Author: inhenkel
-
+title: Concetti relativi ad eventi live e output Live
+description: Questo argomento fornisce una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: ne
+ms.topic: conceptual
+ms.date: 10/23/2020
+ms.author: inhenkel
+ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955954"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output live in Servizi multimediali
 

@@ -3,12 +3,12 @@ title: Creare una nuova risorsa di Application Insights basata sull'area di lavo
 description: Informazioni sui passaggi necessari per abilitare le nuove risorse di Application Insights basate sull'area di lavoro in Monitoraggio di Azure.
 ms.topic: conceptual
 ms.date: 10/06/2020
-ms.openlocfilehash: 9d1ef158b8096c12c36673b62f87e1d02be69175
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f1cc7db7eea4485ad40062a0e11a76dc14234b41
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936463"
+ms.locfileid: "98956047"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 
@@ -33,6 +33,7 @@ Application Insights basata sull'area di lavoro consente di sfruttare le funzion
 
 Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa Application Insights:
 
+[!div class="mx-imgBorder"]
 ![Risorsa di Application Insights basata sull'area di lavoro](./media/create-workspace-resource/create-workspace-based.png)
 
 Se non si dispone di un'area di lavoro Log Analytics esistente, [consultare la documentazione relativa alla creazione dell'area di lavoro Log Analytics](../learn/quick-create-workspace.md).

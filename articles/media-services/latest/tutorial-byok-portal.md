@@ -1,17 +1,17 @@
 ---
-title: Usare chiavi gestite dal cliente o BYOK nel portale di Azure
+title: Usare chiavi gestite dal cliente o il portale di BYOK
 description: In questa esercitazione viene illustrato come usare il portale di Azure per abilitare le chiavi gestite dal cliente o BYOK (Bring Your Own Key) con un account di archiviazione di Servizi multimediali di Azure.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 10/18/2020
-ms.openlocfilehash: 61df4b3424a4d73eca7a946c6bd8e5160fd6c529
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e34649162c7a30d4ab43aa068d2c864b5c2d90e0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935377"
+ms.locfileid: "98955701"
 ---
 # <a name="tutorial-use-the-azure-portal-to-use-customer-managed-keys-or-byok-with-media-services"></a>Esercitazione: Usare chiavi gestite dal cliente o BYOK nel portale di Azure con Servizi multimediali
 

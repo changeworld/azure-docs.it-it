@@ -6,19 +6,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 01/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a866c21e067293481a52dd563873892de8b5444c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440485"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955276"
 ---
 # <a name="scenario-any-to-any"></a>Scenario: any-to-any
 
-Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In uno scenario any-to-any qualsiasi spoke può raggiungere un altro spoke. Quando esistono più hub, il routing da Hub a hub (noto anche come Interhub) è abilitato per impostazione predefinita nella rete WAN virtuale standard. Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md).
+Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari disponibili. In uno scenario any-to-any qualsiasi spoke può raggiungere un altro spoke. Quando esistono più hub, il routing da Hub a hub (noto anche come Interhub) è abilitato per impostazione predefinita nella rete WAN virtuale standard. È possibile creare questa configurazione usando vari metodi diversi, ad esempio il portale di Azure o un modello di [avvio rapido di Azure](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways/). Per altre informazioni sul routing degli hub virtuali, vedere [informazioni sul routing di hub virtuali](about-virtual-hub-routing.md). 
 
 ## <a name="design"></a><a name="design"></a>Progettazione
 
@@ -50,7 +50,7 @@ Nella **Figura 1**, tutti i reti virtuali e i rami (VPN, EXPRESSROUTE, P2S) poss
 * Una connessione di rete virtuale connette una rete virtuale a un hub virtuale. Il router dell'hub virtuale fornisce la funzionalità di transito tra reti virtuali.
 * Una connessione ExpressRoute connette un circuito ExpressRoute a un gateway ExpressRoute.
 
-Queste connessioni (per impostazione predefinita al momento della creazione) sono associate alla tabella di route predefinita, a meno che non si imposti la configurazione di routing della connessione a **Nessuna**o a una tabella di route personalizzata. Queste connessioni propagano anche le route, per impostazione predefinita alla tabella di route predefinita. Questo è ciò che consente uno scenario any-to-any in cui qualsiasi spoke (VNet, VPN, ER, P2S) può raggiungere l'uno con l'altro.
+Queste connessioni (per impostazione predefinita al momento della creazione) sono associate alla tabella di route predefinita, a meno che non si imposti la configurazione di routing della connessione a **Nessuna** o a una tabella di route personalizzata. Queste connessioni propagano anche le route, per impostazione predefinita alla tabella di route predefinita. Questo è ciò che consente uno scenario any-to-any in cui qualsiasi spoke (VNet, VPN, ER, P2S) può raggiungere l'uno con l'altro.
 
 **Figura 1**
 
@@ -58,7 +58,7 @@ Queste connessioni (per impostazione predefinita al momento della creazione) son
 
 ## <a name="workflow"></a><a name="workflow"></a>Flusso di lavoro
 
-Questo scenario è abilitato per impostazione predefinita per la rete WAN virtuale standard. Se l'impostazione per Branch-to-Branch è disabilitata nella configurazione WAN, ciò non consentirà la connettività tra spoke del ramo. VPN/ExpressRoute/VPN utente sono considerati spoke del ramo nella rete WAN virtuale
+Questo scenario è abilitato per impostazione predefinita per la rete WAN virtuale standard. Se le impostazioni per ramo a ramo sono disabilitate in configurazione WAN, questo non consentirà la connettività tra spoke del ramo. VPN/ExpressRoute/VPN utente sono considerati spoke del ramo nella rete WAN virtuale
 
 ## <a name="next-steps"></a>Passaggi successivi
 

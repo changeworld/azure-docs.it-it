@@ -1,18 +1,19 @@
 ---
 title: Servizi di Azure che supportano le zone di disponibilità
 description: Per creare applicazioni resilienti e a disponibilità elevata in Azure, le zone di disponibilità offrono posizioni fisicamente separate che è possibile usare per eseguire le risorse.
-author: cynthn
+author: prsandhu
 ms.service: azure
-ms.topic: article
-ms.date: 12/17/2020
-ms.author: cynthn
+ms.topic: conceptual
+ms.date: 01/26/2021
+ms.author: prsandhu
+ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 2a2e4ac57eec866d9857f564d6c76ad4a775d223
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: e8e62d92afb70ec9d4df40f677de05583ef472b0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874609"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955784"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Servizi di Azure che supportano le zone di disponibilità
 
@@ -58,7 +59,7 @@ Per garantire la continuità aziendale completa in Azure, creare l'architettura 
 | Stati Uniti occidentali 2        |                |                      |                     |                |
 
 
-Per ulteriori informazioni sul supporto di zone di disponibilità e dei servizi disponibili in queste aree, contattare il rappresentante Microsoft Sales o Customer rappresentante. Per le aree future che supporteranno zone di disponibilità, vedere [geografie di Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
+\* Per ulteriori informazioni sul supporto di zone di disponibilità e dei servizi disponibili in queste aree, contattare il rappresentante Microsoft Sales o Customer rappresentante. Per le aree future che supporteranno zone di disponibilità, vedere [geografie di Azure](https://azure.microsoft.com/en-us/global-infrastructure/geographies/).
 
 
 ## <a name="azure-services-supporting-availability-zones"></a>Servizi di Azure che supportano zone di disponibilità

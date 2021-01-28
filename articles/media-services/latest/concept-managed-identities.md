@@ -1,5 +1,5 @@
 ---
-title: Identità gestite e archiviazione attendibile con servizi multimediali
+title: Identità gestite e archiviazione attendibile
 description: Servizi multimediali può essere usato con le identità gestite per abilitare l'archiviazione attendibile.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.author: inhenkel
-ms.openlocfilehash: d0811e8f9183ee334d413bcad69f2c7b32023be3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 291508a6beaa687b3a10f55df4591ce601ab51a0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499357"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956175"
 ---
 # <a name="managed-identities-and-trusted-storage-with-media-services"></a>Identità gestite e archiviazione attendibile con servizi multimediali
 
@@ -52,7 +52,7 @@ Per altre informazioni sulle chiavi gestite dal cliente e Key Vault, vedere [Bri
 
 In queste esercitazioni sono inclusi entrambi gli scenari descritti in precedenza.
 
-- [Usare la portale di Azure per usare chiavi gestite dal cliente o BYOK con servizi multimediali](tutorial-byok-portal.md)
+- [Usare chiavi gestite dal cliente o BYOK nel portale di Azure con Servizi multimediali](tutorial-byok-portal.md)
 - [Usare chiavi gestite dal cliente o BYOK con l'API REST di servizi multimediali](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

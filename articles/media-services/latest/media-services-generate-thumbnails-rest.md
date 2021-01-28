@@ -1,5 +1,5 @@
 ---
-title: Ottenere una chiave di firma da un criterio usando servizi multimediali di Azure V3 .NET
+title: Generare anteprime usando Media Encoder Standard REST
 description: Questo articolo illustra come usare REST per codificare un asset e generare anteprime allo stesso tempo usando Media Encoder Standard.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 75b8fd53836cce02816413afaeb656c3ac3f8796
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: f4456a65f422c23da73f36dd74680fbb598db186
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935399"
+ms.locfileid: "98955835"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Come generare anteprime usando il codificatore standard con REST
 

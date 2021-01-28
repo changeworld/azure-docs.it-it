@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
-ms.translationtype: HT
+ms.openlocfilehash: ef4381f305292b366348aa3729209dc3f5e8c87b
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358593"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954090"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Esercitazione: Configurare il provisioning utenti da Workday ad Azure AD
 Questa esercitazione illustra la procedura da eseguire per effettuare il provisioning dei dati dei lavoratori da Workday in Azure Active Directory. 
@@ -208,11 +208,11 @@ Dopo aver completato le configurazioni dell'app di provisioning Workday, è poss
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Altre informazioni sugli scenari di integrazione Azure AD e giorni lavorativi e le chiamate ai servizi Web](../app-provisioning/workday-integration-reference.md)
 * [Altre informazioni sugli attributi di Workday supportati per il provisioning in ingresso](../app-provisioning/workday-attribute-reference.md)
 * [Informazioni su come configurare il writeback di Workday](workday-writeback-tutorial.md)
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 * [Informazioni su come configurare l'accesso Single Sign-On tra Workday e Azure Active Directory](workday-tutorial.md)
-* [Informazioni sull'integrazione di altre applicazioni SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni su come esportare e importare le configurazioni del provisioning](../app-provisioning/export-import-provisioning-configuration.md)
 
 

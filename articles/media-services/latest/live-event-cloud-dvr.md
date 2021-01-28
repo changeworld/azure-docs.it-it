@@ -1,5 +1,5 @@
 ---
-title: Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
+title: Usare il Time-Shifting per creare la riproduzione video su richiesta
 description: Questo articolo descrive come usare gli output in tempo reale e di spostamento per registrare i flussi live e creare la riproduzione su richiesta.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: f5b475f15a5dc751de154965e3d1e78a85fbd4c9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a2bb876c164f0df56a8b7f3c4a3666ff306e9416
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897867"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955937"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Usare gli output in tempo reale e di spostamento per creare la riproduzione video su richiesta
 

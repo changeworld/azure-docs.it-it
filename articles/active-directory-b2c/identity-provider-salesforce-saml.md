@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e718f4a70b4d8311c57eb3e83ac7088c129b6207
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9dce61817bdd6b42223028a624cd6e237be28bfe
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97663624"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98953819"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurare l'accesso con un provider SAML di Salesforce usando il protocollo SAML in Azure Active Directory B2C
 
@@ -37,11 +37,11 @@ Questo articolo illustra come consentire l'accesso agli utenti di un'organizzazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](custom-policy-get-started.md).
+[!INCLUDE [active-directory-b2c-customization-prerequisites-custom-policy](../../includes/active-directory-b2c-customization-prerequisites-custom-policy.md)]
 - Se non è già stato fatto, iscriversi per ottenere un [account Developer Edition gratuito](https://developer.salesforce.com/signup). Questo articolo usa [Salesforce Lightning Experience](https://developer.salesforce.com/page/Lightning_Experience_FAQ).
 - [Configurazione di un dominio personale](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0) per la propria organizzazione Salesforce.
 
-### <a name="set-up-salesforce-as-an-identity-provider"></a>Configurare Salesforce come provider di identità
+## <a name="set-up-salesforce-as-an-identity-provider"></a>Configurare Salesforce come provider di identità
 
 1. [Eseguire l'accesso a Salesforce](https://login.salesforce.com/).
 2. Nel menu a sinistra espandere **Identity** (Identità) in **Settings** (Impostazioni) e quindi selezionare **Identity Provider** (Provider di identità).
@@ -77,23 +77,9 @@ Questo articolo illustra come consentire l'accesso agli utenti di un'organizzazi
 1. Nella pagina **Manage** (Gestisci) dell'app connessa fare clic su **Manage Profiles** (Gestisci profili).
 2. Selezionare i profili (o gruppi di utenti) di cui si intende eseguire la federazione con Azure AD B2C. Come amministratore di sistema, è necessario selezionare la casella per **System Administrator** (Amministratore di sistema) in modo che sia possibile eseguire la federazione con l'account di Salesforce.
 
-## <a name="generate-a-signing-certificate"></a>Generare un certificato di firma
+## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Le richieste inviate a Salesforce devono essere firmate da Azure AD B2C. Per generare un certificato di firma, aprire Azure PowerShell ed eseguire i comandi seguenti.
-
-> [!NOTE]
-> Assicurarsi di aggiornare il nome del tenant e la password nelle prime due righe.
-
-```powershell
-$tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
-$pwdText = "<YOUR PASSWORD HERE>"
-
-$Cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName "SamlIdp.$tenantName" -Subject "B2C SAML Signing Cert" -HashAlgorithm SHA256 -KeySpec Signature -KeyLength 2048
-
-$pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
-
-Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
-```
+[!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 
 ## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
@@ -122,10 +108,10 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
 
     ```xml
     <ClaimsProvider>
-      <Domain>salesforce</Domain>
+      <Domain>salesforce.com</Domain>
       <DisplayName>Salesforce</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="salesforce">
+        <TechnicalProfile Id="Salesforce-SAML2">
           <DisplayName>Salesforce</DisplayName>
           <Description>Login with your Salesforce account</Description>
           <Protocol Name="SAML2"/>
@@ -144,7 +130,7 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="salesforce.com" />
           </OutputClaims>
           <OutputClaimsTransformations>
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName"/>
@@ -179,59 +165,27 @@ Per consentire agli utenti di accedere con un account Salesforce, è necessario 
     ```
 1. Salvare il file.
 
-### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
+[!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
 
-A questo punto, i criteri sono stati configurati in modo che Azure AD B2C possa comunicare con l'account Salesforce. Provare a caricare il file di estensione dei criteri per verificare che non siano presenti problemi.
-
-1. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
-2. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
-3. Fare clic su **Carica**.
-
-## <a name="register-the-claims-provider"></a>Registrare il provider di attestazioni
-
-A questo punto, il provider di identità è stato configurato, ma non è disponibile nelle schermate di iscrizione o accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità Salesforce.
-
-1. Aprire il file *TrustFrameworkBase.xml* dallo starter pack.
-2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
-3. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
-4. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
-5. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInSalesforce`.
-
-### <a name="display-the-button"></a>Visualizzare il pulsante
-
-L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione o accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per un account LinkedIn, quando un utente apre la pagina viene visualizzato un nuovo pulsante.
-
-1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente appena creato.
-2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `SalesforceExchange`:
-
-    ```xml
+```xml
+<OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
+  <ClaimsProviderSelections>
+    ...
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
-    ```
+  </ClaimsProviderSelections>
+  ...
+</OrchestrationStep>
 
-### <a name="link-the-button-to-an-action"></a>Collegare il pulsante a un'azione
+<OrchestrationStep Order="2" Type="ClaimsExchange">
+  ...
+  <ClaimsExchanges>
+    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="Salesforce-SAML2" />
+  </ClaimsExchanges>
+</OrchestrationStep>
+```
 
-Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. In questo caso, l'azione consiste nel far comunicare Azure AD B2C con un account Salesforce per ricevere un token.
+[!INCLUDE [active-directory-b2c-configure-relying-party-policy](../../includes/active-directory-b2c-configure-relying-party-policy-user-journey.md)]
 
-1. Trovare l'elemento **OrchestrationStep** che include `Order="2"` nel percorso utente.
-2. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per **ID** lo stesso valore che è stato usato per **TargetClaimsExchangeId**:
-
-    ```xml
-    <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
-    ```
-
-    Aggiornare il valore di **TechnicalProfileReferenceId** con l'**ID** del profilo tecnico creato in precedenza. Ad esempio, `salesforce` o `LinkedIn-OAUTH`.
-
-3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
-
-## <a name="update-and-test-the-relying-party-file"></a>Aggiornare e testare il file di relying party
-
-Aggiornare il file di relying party che avvia il percorso utente appena creato:
-
-1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInSalesforce.xml*.
-2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInSalesforce`.
-3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_salesforce`
-4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignInSalesforce).
-5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.
-6. Verificare che nel campo **Selezionare l'applicazione** sia selezionata l'applicazione Azure AD B2C creata e quindi testarla facendo clic su **Esegui adesso**.
+[!INCLUDE [active-directory-b2c-test-relying-party-policy](../../includes/active-directory-b2c-test-relying-party-policy-user-journey.md)]
 
 ::: zone-end

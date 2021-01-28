@@ -1,5 +1,5 @@
 ---
-title: Codificare la trasformazione personalizzata usando l'interfaccia della riga di comando di Azure V3
+title: Codificare un'interfaccia della riga di comando di trasformazione personalizzata
 description: Questo argomento illustra come usare servizi multimediali di Azure V3 per codificare una trasformazione personalizzata usando l'interfaccia della riga di comando di Azure.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9758ed7403e11ca30732377a65bbde1944368cb2
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 91ee605035dbc81c2302aa0350763e68dc73ecb3
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897191"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956107"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
 

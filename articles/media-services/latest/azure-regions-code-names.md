@@ -1,5 +1,5 @@
 ---
-title: Cloud e aree in cui è disponibile servizi multimediali di Azure V3
+title: Cloud e aree per servizi multimediali di Azure V3
 description: Questo articolo illustra gli URL usati per gli endpoint e il codice per le aree.
 services: media-services
 author: IngridAtMicrosoft
@@ -8,14 +8,14 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 74f30ebb766ea34603c0a30455837c47222967c0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319646"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954328"
 ---
-# <a name="regional-code-names-and-endpoints"></a>Endpoint e nomi di codice regionali
+# <a name="regional-code-names-and-endpoints"></a>Nomi dei codici di area ed endpoint
 
 ### <a name="region-code-name"></a>Nome del codice dell'area
 
@@ -81,10 +81,10 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Endpoint e nomi di codice regionali](azure-regions-code-names.md)
+* [Nomi dei codici di area ed endpoint](azure-regions-code-names.md)
 * [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Località di Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 304f62def117d1b1a803b2f604151c5e52dbe7be
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
-ms.translationtype: HT
+ms.openlocfilehash: 48c6e1141a00635dd1fd82ef9053b2e77168e5e8
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97531980"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956307"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Esaminare e modificare i file di esempio
 
@@ -48,6 +48,13 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
     In caso contrario, accanto al riquadro **HUB IOT DI AZURE** nell'angolo in basso a sinistra selezionare l'icona **Altre azioni** e quindi selezionare **Set IoT Hub Connection String** (Imposta la stringa di connessione dell'hub IoT). È possibile copiare la stringa dal file *appsettings.json*. In alternativa, per assicurarsi di aver configurato l'hub IoT appropriato in Visual Studio Code, usare il comando [Selezionare un hub IoT](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).
     
     ![Impostare la stringa di connessione dell'hub IoT](../../../media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Fare clic con il pulsante destro del mouse sul file *src/edge/config/ deployment.yolov3.amd64.json* e scegliere **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
 
     ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](../../../media/quickstarts/create-deployment-single-device.png)
@@ -58,7 +65,7 @@ Come parte dei prerequisiti, il codice di esempio è stato scaricato in una cart
     * Il modulo `rtspsim`, che simula un server RTSP e funge da origine di un feed video live.
 
         > [!NOTE]
-        > Se si usa un dispositivo perimetrale personalizzato invece del dispositivo sottoposto a provisioning dallo script di configurazione, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per eseguire il pull e archiviare il file del video di esempio usato per questo avvio rapido:  
+        > I passaggi precedenti presuppongono che si stia usando la macchina virtuale creata dallo script di installazione. Se invece si usa il proprio dispositivo perimetrale, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per estrarre e archiviare il file video di esempio usato per questa Guida introduttiva:  
         
         ```
         mkdir /home/lvaadmin/samples

@@ -6,26 +6,26 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d4d0c591640a3528b7aeec5254f2a634ee008aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743676"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955455"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gestire le risorse di calcolo sulla GPU Pro Azure Stack Edge
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questo articolo descrive come gestire le risorse di calcolo nel Azure Stack Edge Pro. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e la configurazione di calcolo, e l'interfaccia utente Web locale per gestire le impostazioni di calcolo.
+Questo articolo descrive come gestire le risorse di calcolo tramite IoT Edge servizio nel dispositivo GPU Pro Azure Stack Edge. È possibile gestire il calcolo tramite il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per gestire moduli, trigger e configurazione IoT Edge e l'interfaccia utente Web locale per gestire le impostazioni di rete di calcolo.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 > * Gestire i trigger
-> * Configurazione della gestione del calcolo
+> * Gestire la configurazione di IoT Edge
 
 
 ## <a name="manage-triggers"></a>Gestire i trigger
@@ -40,7 +40,7 @@ Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud
 
 Eseguire i passaggi seguenti nel portale di Azure per creare un trigger.
 
-1. Nel portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **bordo calcolo > trigger**. Sulla barra dei comandi selezionare **+ Aggiungi Trigger**.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge**. Passare a **trigger** e selezionare **+ Aggiungi trigger** sulla barra dei comandi.
 
     ![Selezionare Aggiungi trigger](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
 
@@ -82,32 +82,32 @@ Eseguire i passaggi seguenti nel portale di Azure per eliminare un trigger.
 
 Viene inoltre aggiornato l'elenco dei trigger per riflettere l'eliminazione.
 
-## <a name="manage-compute-configuration"></a>Configurazione della gestione del calcolo
+## <a name="manage-iot-edge-configuration"></a>Gestire la configurazione di IoT Edge
 
 Usare il portale di Azure per visualizzare la configurazione di calcolo, rimuovere una configurazione di calcolo esistente o aggiornare la configurazione di calcolo per sincronizzare le chiavi di accesso per il dispositivo e il dispositivo IoT Edge per l'Azure Stack Edge Pro.
 
-### <a name="view-compute-configuration"></a>Visualizzazione del calcolo Edge
+### <a name="view-iot-edge-configuration"></a>Visualizza configurazione IoT Edge
 
-Eseguire i passaggi seguenti nel portale di Azure per visualizzare la configurazione di calcolo per il dispositivo.
+Per visualizzare la configurazione IoT Edge per il dispositivo, seguire questa procedura nel portale di Azure.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Modules**. Selezionare **Visualizza calcolo** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge**. Dopo l'abilitazione del servizio IoT Edge sul dispositivo, nella pagina panoramica viene indicato che il servizio IoT Edge è in esecuzione correttamente.
 
     ![Selezionare Visualizza calcolo](media/azure-stack-edge-j-series-manage-compute/view-compute-1.png)
 
-2. Prendere nota della configurazione di calcolo del dispositivo. Dopo aver configurato il calcolo, verrà creata una risorsa dell'hub IoT. In tale risorsa dell'hub IoT, sono configurati un dispositivo IoT e un dispositivo IoT Edge. Solo i moduli di Linux sono supportati per l'esecuzione nel dispositivo IoT Edge.
+2. Passare a **Proprietà** per visualizzare la configurazione del IOT Edge nel dispositivo. Dopo aver configurato il calcolo, verrà creata una risorsa dell'hub IoT. In tale risorsa dell'hub IoT, sono configurati un dispositivo IoT e un dispositivo IoT Edge. Solo i moduli di Linux sono supportati per l'esecuzione nel dispositivo IoT Edge.
 
     ![Visualizza configurazione](media/azure-stack-edge-j-series-manage-compute/view-compute-2.png)
 
 
-### <a name="remove-compute-configuration"></a>Rimozione della configurazione del calcolo
+### <a name="remove-iot-edge-service"></a>Rimuovi servizio IoT Edge
 
-Eseguire i passaggi seguenti nel portale di Azure per rimuovere la configurazione di calcolo Edge esistente per il dispositivo.
+Per rimuovere la configurazione IoT Edge esistente per il dispositivo, seguire questa procedura nel portale di Azure.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Get Started**. Selezionare **Rimuovi calcolo** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge**. Passare a **Panoramica** e selezionare **Rimuovi** sulla barra dei comandi.
 
     ![Selezionare Rimuovi calcolo](media/azure-stack-edge-j-series-manage-compute/remove-compute-1.png)
 
-2. Se si rimuove la configurazione di calcolo, occorre riconfigurare il dispositivo nel caso in cui è necessario utilizzare nuovamente la funzione calcolo. Alla richiesta di conferma selezionare **Sì**.
+2. Se si rimuove il servizio IoT Edge, l'azione è irreversibile e non può essere annullata. Verranno eliminati anche i moduli e i trigger creati. Sarà necessario riconfigurare il dispositivo nel caso in cui sia necessario usare nuovamente IoT Edge. Quando viene richiesta la conferma, fare clic su **OK**.
 
     ![Selezionare Rimuovi calcolo 2](media/azure-stack-edge-j-series-manage-compute/remove-compute-2.png)
 
@@ -121,7 +121,7 @@ Se il dispositivo Internet delle cose e IoT Edge chiavi del dispositivo sono sta
 
 Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di accesso per il proprio dispositivo.
 
-1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **Edge compute > Get Started**. Selezionare **Aggiorna configurazione** sulla barra dei comandi.
+1. Nella portale di Azure passare alla risorsa di Azure Stack Edge, quindi passare a **IOT Edge calcolo**. Passare a **Panoramica** e selezionare **Aggiorna configurazione** sulla barra dei comandi.
 
     ![Selezionare Aggiorna configurazione](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-1.png)
 

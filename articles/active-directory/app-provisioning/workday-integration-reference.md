@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 01/18/2021
 ms.author: chmutali
-ms.openlocfilehash: 251e1d4249373ec52afb3d7edaa2325c992b66f1
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
+ms.openlocfilehash: 38a93d5db6f8331da6e7afdef3e91b2764537459
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98570160"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954022"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-workday"></a>Integrazione di Azure Active Directory provisioning con la giornata lavorativa
 
@@ -43,7 +43,7 @@ Per proteggere ulteriormente la connettività tra Azure AD servizio di provision
 1. Copiare tutti gli intervalli di indirizzi IP elencati nell'elemento *addressPrefixes* e usare l'intervallo per compilare l'elenco di indirizzi IP.
 1. Accedere al portale di amministrazione della giornata lavorativa. 
 1. Accedere all'attività **Mantieni intervalli IP** per creare un nuovo intervallo di indirizzi IP per i Data Center di Azure. Specificare gli intervalli IP (usando la notazione CIDR) come elenco delimitato da virgole.  
-1. Accedere all'attività **Gestisci criteri di autenticazione** per creare nuovi criteri di autenticazione. Nei criteri di autenticazione usare l'elenco elementi consentiti di **autenticazione** per specificare l'intervallo di indirizzi IP Azure ad e il gruppo di sicurezza a cui sarà consentito l'accesso da questo intervallo IP. Salvare le modifiche. 
+1. Accedere all'attività **Gestisci criteri di autenticazione** per creare nuovi criteri di autenticazione. Nel criterio di autenticazione usare l'elenco Consenti autenticazione per specificare l'intervallo di indirizzi IP Azure AD e il gruppo di sicurezza a cui sarà consentito l'accesso da questo intervallo IP. Salvare le modifiche. 
 1. Accedere all'attività **attiva tutte le modifiche ai criteri di autenticazione in sospeso** per confermare le modifiche.
 
 ### <a name="limiting-access-to-worker-data-in-workday-using-constrained-security-groups"></a>Limitazione dell'accesso ai dati del ruolo di lavoro durante la giornata lavorativa con gruppi di sicurezza vincolati
@@ -348,7 +348,7 @@ Se una delle query sopra riportate restituisce una data di assunzione successiva
 </Get_Workers_Request>
 ```
 
-### <a name="retrieving-worker-data-attributes"></a>Recupero degli attributi dei dati di lavoro
+## <a name="retrieving-worker-data-attributes"></a>Recupero degli attributi dei dati di lavoro
 
 L'API *Get_Workers* può restituire set di dati diversi associati a un thread di lavoro. A seconda delle [espressioni API XPath](workday-attribute-reference.md) configurate nello schema di provisioning, Azure ad servizio di provisioning determina i set di dati da recuperare dalla giornata lavorativa. Di conseguenza, i flag di *Response_Group* vengono impostati nella richiesta di *Get_Workers* . 
 
@@ -402,6 +402,9 @@ La tabella seguente fornisce indicazioni sulla configurazione di mapping da usar
 | 44 | Dati di valutazione del talento               | No                  | WD: dati di lavoro \_ /WD: \_ dati di valutazione del talento \_                                   |
 | 45 | Dati dell'account utente                    | No                  | WD: Worker \_ Data/WD: \_ dati dell'account utente \_                                        |
 | 46 | Dati del documento di lavoro                 | No                  | WD: dati del ruolo di lavoro \_ /WD: dati del documento di lavoro \_ \_                                     |
+
+>[!NOTE]
+>Ogni entità della giornata lavorativa elencata nella tabella è protetta da un **criterio di sicurezza del dominio** nella giornata lavorativa. Se non è possibile recuperare alcun attributo associato all'entità dopo aver impostato l'XPATH destro, rivolgersi all'amministratore della giornata lavorativa per assicurarsi che i criteri di sicurezza del dominio appropriati siano configurati per l'utente del sistema di integrazione associato all'app di provisioning. Per recuperare i dati sulle *competenze*, ad esempio, è necessario *avere* accesso ai dati di lavoro del dominio della giornata lavorativa *: Competenze ed esperienza*. 
 
 Di seguito sono riportati alcuni esempi su come è possibile estendere l'integrazione della giornata lavorativa per soddisfare requisiti specifici. 
 

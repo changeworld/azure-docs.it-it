@@ -1,5 +1,5 @@
 ---
-title: Ottenere una chiave di firma da un criterio usando servizi multimediali di Azure V3 .NET
+title: Ottenere una chiave di firma da un criterio .NET
 description: In questo argomento viene illustrato come ottenere una chiave di firma dai criteri esistenti usando .NET SDK di Servizi multimediali v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 7107a2acdc0ca430797245125ca903f7414908da
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1436561f7c82446038c231fadec3bd62c94d4ff9
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427067"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955106"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Ottenere una chiave di firma dai criteri esistenti
 
@@ -27,7 +27,7 @@ Uno dei principi chiave nella progettazione della versione 3 delle API è render
 
 L'esempio di questo articolo mostra come usare .NET per ottenere una chiave di firma dai criteri esistenti. 
  
-## <a name="download"></a>Download 
+## <a name="download"></a>Scarica 
 
 Clonare nel computer un repository GitHub contenente l'esempio .NET completo usando il comando seguente:  
 

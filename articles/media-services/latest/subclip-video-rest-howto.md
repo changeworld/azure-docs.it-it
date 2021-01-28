@@ -1,5 +1,5 @@
 ---
-title: Sottoclip di un video durante la codifica con REST di servizi multimediali di Azure
+title: Sottoclip di un video durante la codifica con REST di servizi multimediali
 description: Questo argomento descrive come eseguire il clip di un video quando si esegue la codifica con servizi multimediali di Azure con REST
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
-ms.openlocfilehash: 524da91d55bad29a5f7c6dcec0eecc245b9954fd
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 6c287e168289082b2bd717a2706dd011c7115691
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511910"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955667"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Sottoclip di un video durante la codifica con servizi multimediali-REST
 

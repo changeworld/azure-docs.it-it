@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 24d1992db5f1826045fdb47397e44dc2e2fbdaf9
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 94506c4107a157c2b3265a28ffdf5d1eedddd256
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962162"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954767"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -59,7 +59,7 @@ Se lo script è in un server locale, può essere necessario aprire porte aggiunt
 * Non è consigliabile eseguire uno script che provocherà l'arresto o l'aggiornamento dell'agente di macchine virtuali. Questo potrebbe lasciare l'estensione in uno stato di transizione e causare un timeout.
 * Se si dispone di uno script che determinerà un riavvio, installare le applicazioni ed eseguire gli script e così via. È necessario pianificare il riavvio usando un processo cron o usando strumenti come DSC o chef, estensioni Puppet.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare un'[immagine abilitata per cloud-init](../linux/using-cloud-init.md) e un modulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). In alternativa, è possibile usare lo script per creare un'unità di servizio systemd.
-* È possibile applicare una sola versione di un'estensione alla macchina virtuale. Per eseguire un secondo script personalizzato, è necessario rimuovere l'estensione dello script personalizzata e riapplicarla con lo script aggiornato. 
+* È possibile applicare una sola versione di un'estensione alla macchina virtuale. Per eseguire un secondo script personalizzato, è possibile aggiornare l'estensione esistente con la nuova configurazione. In alternativa, è possibile rimuovere l'estensione dello script personalizzata e riapplicarla con lo script aggiornato.
 * Se si vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un processo Cron. 
 * Durante l'esecuzione dello script, l'unica indicazione presente nell'interfaccia della riga di comando o nel portale di Azure sarà lo stato dell'estensione "Transizione in corso". Se si vogliono aggiornamenti più frequenti sullo stato di uno script in esecuzione, è necessario creare una soluzione personalizzata.
 * L'estensione dello script personalizzata non supporta i server proxy in modo nativo, tuttavia è possibile usare uno strumento di trasferimento di file che supporta i server proxy all'interno dello script, ad esempio *curl*. 

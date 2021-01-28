@@ -14,19 +14,37 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75650d7ff0ac647aeb6dace76c270680b1b89347
+ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76758946"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98954961"
 ---
-Rendere l'applicazione eccezionale:
+## <a name="enable-logging"></a>Abilitazione della registrazione
 
-- Abilitare la [registrazione](../articles/active-directory/develop/msal-logging.md).
-- Abilitare la telemetria.
-- Abilitare i [proxy e personalizzare i client HTTP](../articles/active-directory/develop/msal-net-provide-httpclient.md).
+Per semplificare il debug e gli scenari di risoluzione degli errori di autenticazione, Microsoft Authentication Library fornisce il supporto predefinito per la registrazione. La registrazione è illustrata negli articoli seguenti:
 
-Testare l'integrazione:
+:::row:::
+    :::column:::
+        - [Registrazione in MSAL.NET](../articles/active-directory/develop/msal-logging-dotnet.md)
+        - [Registrazione in MSAL per Android](../articles/active-directory/develop/msal-logging-android.md)
+        - [Registrazione in MSAL.js](../articles/active-directory/develop/msal-logging-js.md)
+    :::column-end:::
+    :::column:::
+        - [Registrazione in MSAL per iOS/macOS](../articles/active-directory/develop/msal-logging-ios.md)
+        - [Registrazione in MSAL per Java](../articles/active-directory/develop/msal-logging-java.md)
+        - [Registrazione in MSAL per Python](../articles/active-directory/develop/msal-logging-python.md)
+    :::column-end:::
+:::row-end:::
 
-- Usare l' [elenco di controllo dell'integrazione per la piattaforma di identità Microsoft](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+Ecco alcuni suggerimenti per la raccolta dei dati:
+
+- Gli utenti potrebbero chiedere assistenza in caso di problemi. Una procedura consigliata consiste nell'acquisire e archiviare temporaneamente i log. Specificare un percorso in cui gli utenti possono caricare i log. MSAL fornisce estensioni di registrazione per l'acquisizione di informazioni dettagliate sull'autenticazione.
+
+- Se la telemetria è disponibile, abilitarla tramite MSAL per raccogliere i dati sul modo in cui gli utenti possono accedere all'app.
+
+
+## <a name="validate-your-integration"></a>Convalidare l'integrazione
+
+Testare l'integrazione seguendo l'[elenco di controllo per l'integrazione di Microsoft Identity Platform](../articles/active-directory/develop/identity-platform-integration-checklist.md).

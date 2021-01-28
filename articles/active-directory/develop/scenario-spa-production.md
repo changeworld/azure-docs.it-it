@@ -12,37 +12,34 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 0c1e9e6da02478f5e4703676b74fc8247a4f619b
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9656da8be086724482f129efab323e02b73e117e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753527"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954962"
 ---
 # <a name="single-page-application-move-to-production"></a>Applicazione a pagina singola: sposta in produzione
 
-Ora che si è appreso come acquisire un token per chiamare le API Web, vedere come passare alla produzione.
+Ora che si è appreso come acquisire un token per chiamare le API Web, di seguito sono riportati alcuni aspetti da considerare quando si trasferisce l'applicazione in produzione.
 
-## <a name="improve-your-app"></a>Migliorare l'app
-
-[Abilitare la registrazione](msal-logging.md) per preparare la produzione dell'app.
-
-## <a name="test-your-integration"></a>Testare l'integrazione
-
-Testare l'integrazione seguendo l'[elenco di controllo per l'integrazione di Microsoft Identity Platform](identity-platform-integration-checklist.md).
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="deploy-your-app"></a>Distribuire l'app
 
 Vedere un [esempio di distribuzione](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnet-webapi-multitenant/tree/master/Chapter3) per apprendere come distribuire i progetti di API Web e di Spa con archiviazione di Azure e i servizi di app Azure, rispettivamente. 
 
+## <a name="code-samples"></a>Esempi di codice
+
+Questi esempi di codice illustrano diverse operazioni chiave per un'app a singola pagina.
+- [Spa con un back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi): come ottenere i token per la propria API Web back-end (ASP.NET Core) usando **MSAL.js**.
+
+- [Node.js API Web (Azure ad](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2): come convalidare i token di accesso per l'API Web back-end (Node.js) usando **Passport-Azure-ad**.
+
+- [Spa con Azure ad B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp): come usare **MSAL.js** per l'accesso degli utenti in un'app registrata con **Azure Active Directory B2C** (Azure ad B2C).
+
+- [ API Web diNode.js (Azure ad B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi): come usare **Passport-Azure-ad** per convalidare i token di accesso per le app registrate con **Azure Active Directory B2C** (Azure ad B2C).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Approfondimento dell'esempio di avvio rapido, che illustra il codice per l'accesso degli utenti e ottenere un token di accesso per chiamare l' **API Microsoft Graph** usando **MSAL.js**: [JavaScript Spa tutorial](./tutorial-v2-javascript-spa.md).
-
-- Esempio che illustra come ottenere i token per la propria API Web back-end (ASP.NET Core) usando **MSAL.js**: [Spa con un back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi).
-
-- Esempio che illustra come convalidare i token di accesso per l'API Web back-end (Node.js) usando **Passport-Azure-ad**: [Node.js API Web (Azure ad](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2).
-
-- Esempio che illustra come usare **MSAL.js** per l'accesso degli utenti in un'app registrata con **Azure Active Directory B2C** (Azure ad B2C): [Spa con Azure ad B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
-
-- Esempio che illustra come usare **Passport-Azure-ad** per convalidare i token di accesso per le app registrate con **Azure Active Directory B2C** (Azure ad B2C): [Node.js API Web (Azure ad B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
+- [Esercitazione su JavaScript Spa](./tutorial-v2-javascript-spa.md): approfondimento su come eseguire l'accesso agli utenti e ottenere un token di accesso per chiamare l' **API Microsoft Graph** usando **MSAL.js**.

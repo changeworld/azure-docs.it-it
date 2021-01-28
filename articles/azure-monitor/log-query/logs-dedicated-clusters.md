@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: adcc894db630bba11e84e2f277705d2f31caf7dc
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920224"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954750"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Il monitoraggio di Azure registra i cluster dedicati
 
@@ -81,10 +81,12 @@ Creare innanzitutto risorse cluster per iniziare a creare un cluster dedicato.
 
 Dopo aver creato la risorsa *cluster* , è possibile modificare proprietà aggiuntive, ad esempio *SKU*, * keyVaultProperties o *billingType*. Per altri dettagli, vedere di seguito.
 
+È possibile avere fino a 2 cluster attivi per ogni sottoscrizione per area. Se il cluster viene eliminato, è ancora riservato per 14 giorni. È possibile avere fino a 4 cluster riservati per ogni sottoscrizione per area (attiva o eliminata di recente).
+
 > [!WARNING]
 > La creazione del cluster attiva l'allocazione delle risorse e il provisioning. Il completamento di questa operazione può richiedere fino a un'ora. È consigliabile eseguirlo in modo asincrono.
 
-L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `(Microsoft.OperationalInsights/clusters/write)` .
+L'account utente che crea i cluster deve avere l'autorizzazione standard per la creazione di risorse `Microsoft.Resources/deployments/*` di Azure: e l'autorizzazione di scrittura del cluster `Microsoft.OperationalInsights/clusters/write` tramite l'assegnazione di ruolo per questa azione specifica o `Microsoft.OperationalInsights/*` o `*/write` .
 
 ### <a name="create"></a>Crea 
 
@@ -503,7 +505,9 @@ Usare la chiamata REST seguente per eliminare un cluster:
 
 ## <a name="limits-and-constraints"></a>Limiti e i vincoli
 
-- Il numero massimo di cluster per area e sottoscrizione è 2
+- Il numero massimo di cluster attivi per area e sottoscrizione è 2
+
+- Il numero massimo di cluster riservati (attivi o eliminati di recente) per area e sottoscrizione è 4 
 
 - Il numero massimo di aree di lavoro collegate al cluster è 1000
 

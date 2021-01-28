@@ -1,5 +1,5 @@
 ---
-title: Un sistema di protezione del contenuto con DRM multiplo-servizi multimediali di Azure V3
+title: Un sistema di protezione del contenuto con DRM multiplo
 description: Questo articolo fornisce una descrizione dettagliata di come progettare un sistema di protezione del contenuto con DRM multiplo con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0104dd2761f74fbd84486aebbf8c3c4e128eb08
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89298199"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954902"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso
 

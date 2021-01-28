@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione di video basata su eventi nel cloud e ripro
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per eseguire una registrazione di video basata su eventi nel cloud e riprodurla dal cloud.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: cfb4648d991565470133d603194c07b797f89311
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: fb8d8c8499029777ae5765f53ff51db92b3bd587
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060436"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954464"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione di video basata su eventi nel cloud e riproduzione dal cloud
 
@@ -170,6 +170,12 @@ Questo passaggio crea il manifesto della distribuzione di IoT Edge in src/edge/c
 > :::image type="content" source="./media/quickstarts/create-deployment-single-device.png" alt-text="Create Deployment for Single Device":::
 
 Se si tratta della prima esercitazione con Analisi video live in IoT Edge, Visual Studio Code richiederà di immettere la stringa di connessione dell'hub IoT. È possibile copiarla dal file appsettings.json.
+
+> [!NOTE]
+> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 A questo punto, Visual Studio Code chiede di selezionare un dispositivo hub IoT. Selezionare il dispositivo IoT Edge, che sarà lva-sample-device.
 

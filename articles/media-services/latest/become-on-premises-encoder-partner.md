@@ -1,5 +1,5 @@
 ---
-title: Diventare un partner del codificatore locale-servizi multimediali di Azure
+title: Diventare un partner del codificatore locale
 description: Questo articolo illustra come verificare i codificatori di streaming live locali.
 services: media-services
 author: johndeu
@@ -8,12 +8,12 @@ ms.author: johndeu
 ms.date: 08/31/2020
 ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: 1383b6afac9ad2332169328ef71981e23e86bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e07831ce4a016d49e0343da66efc0345effafd94
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297451"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954362"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Come verificare il codificatore Live streaming locale
 
@@ -69,7 +69,7 @@ Seguire gli stessi passaggi di [Verifica dell'evento live pass-through](#pass-th
 
 Infine, inviare un messaggio di posta elettronica con le impostazioni registrate e i parametri di archiviazione live a Servizi multimediali di Azure all'indirizzo amshelp@microsoft.com per notificare il superamento di tutti i controlli di autoverifica. Includere anche le proprie informazioni di contatto per successive comunicazioni. È possibile contattare il team di Servizi multimediali di Azure per qualsiasi domanda su questo processo.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Codificatori locali testati](recommended-on-premises-live-encoders.md)
 

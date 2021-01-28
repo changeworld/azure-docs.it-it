@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: dbd7937667a3c4d5af9f13e15cdd4ff2081241f0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723881"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954184"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Come connettersi Azure Data Factory e Azure
 
@@ -69,12 +69,22 @@ Attenersi alla procedura seguente per connettere un account di Data Factory esis
 >[!Note]
 >È ora supportata l'aggiunta di un massimo di 10 Data Factory contemporaneamente. Se si desidera aggiungere più di 10 Data Factory in una sola volta, inviare un ticket di supporto.
 
+### <a name="how-does-the-authentication-work"></a>Funzionamento dell'autenticazione
+
+Quando un utente di competenza registra un Data Factory a cui ha accesso, nel back-end si verifica quanto segue:
+
+1. Il **Data Factory MSI** viene aggiunto al ruolo di competenza controllo degli accessi in base al ruolo: **Data Curator di competenza**
+
+    :::image type="content" source="./media/how-to-link-azure-data-factory/adf-msi.png" alt-text="Screenshot che mostra Azure Data Factory MSI." lightbox="./media/how-to-link-azure-data-factory/adf-msi.png":::
+     
+2. È necessario eseguire di nuovo la pipeline Data Factory in modo che i metadati di derivazione possano essere inseriti nuovamente in ambito.
+3. Post-esecuzione i metadati del Data Factory vengono inseriti in ambito.
 
 ### <a name="remove-data-factory-connections"></a>Rimuovi connessioni data factory
 Per rimuovere una connessione data factory, procedere come segue:
 
 1. Nella pagina **connessione Data Factory** selezionare il pulsante **Rimuovi** accanto a una o più connessioni Data Factory.
-1. Selezionare **conferma** nella finestra popup per eliminare le connessioni Data Factory selezionate.
+2. Selezionare **conferma** nella finestra popup per eliminare le connessioni Data Factory selezionate.
 
     :::image type="content" source="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png" alt-text="Screenshot che illustra come selezionare le data factory per la rimozione della connessione." lightbox="./media/how-to-link-azure-data-factory/remove-data-factory-connection.png":::
 

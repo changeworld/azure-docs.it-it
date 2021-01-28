@@ -1,5 +1,5 @@
 ---
-title: Disponibilità elevata con servizi multimediali e video on demand (VOD)
+title: Disponibilità elevata con video di servizi multimediali su richiesta
 description: Questo articolo è una panoramica dei servizi di Azure che è possibile usare per facilitare la disponibilità elevata per l'applicazione VOD.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 15a23ab5b05ad1093069b4297ad1d292beeb3a42
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be3fd9b3d910e64245a1b52056499bbfba2e6379
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494954"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955852"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
 
@@ -49,7 +49,7 @@ I servizi usati in questa architettura di esempio includono:
 |![Si tratta dell'icona di sportello anteriore di Azure.](media/media-services-high-availability-encoding/azure-front-door.svg)| Frontdoor di Azure | **Descrizione:**<br>Il front-end di Azure viene usato per definire, gestire e monitorare il routing globale del traffico Web ottimizzando per ottenere prestazioni ottimali e un rapido failover globale per la disponibilità elevata.<br><br>**Uso VOD:**<br>Lo sportello anteriore di Azure può essere usato per instradare il traffico agli endpoint di streaming. [Altre informazioni su Azure front door](../../frontdoor/front-door-overview.md).  |
 |![Si tratta dell'icona di griglia di eventi di Azure.](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Griglia di eventi di Azure | **Descrizione:**<br>Creato per le architetture basate su eventi, griglia di eventi include il supporto predefinito per gli eventi provenienti dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Dispone inoltre del supporto per gli eventi di argomento personalizzati. I filtri possono essere usati per indirizzare eventi specifici a endpoint diversi, il multicast a più endpoint e per assicurarsi che gli eventi vengano recapitati in modo affidabile. Ottimizza la disponibilità con la distribuzione nativa tra più domini di errore in ogni area e tra le zone di disponibilità.<br><br>**Uso VOD:**<br>Griglia di eventi consente di tenere traccia di tutti gli eventi dell'applicazione e di archiviarli per salvare in modo permanente lo stato del processo. [Scopri di più su griglia di eventi di Azure](../../event-grid/overview.md). |
 |![Si tratta dell'icona Application Insights.](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **Descrizione:** <br>Application Insights, una funzionalità di Monitoraggio di Azure, è un servizio di gestione delle prestazioni applicative (APM, Application Performance Management) estendibile per sviluppatori e professionisti DevOps. Viene usato per monitorare le applicazioni attive. Rileva le anomalie delle prestazioni e include gli strumenti di analisi per diagnosticare i problemi e per capire cosa fanno gli utenti con un'app. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.<br><br>**Uso VOD:**<br>Tutti i log possono essere inviati a Application Insights. Sarebbe possibile vedere quale istanza ha elaborato ogni processo cercando i messaggi di processo creati correttamente. Potrebbe contenere tutti i metadati del processo inviati, incluse le informazioni sull'identificatore univoco e sul nome dell'istanza. [Altre informazioni su Application Insights](../../azure-monitor/app/app-insights-overview.md). |
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per iniziare a usare servizi multimediali e disponibilità elevata.
 

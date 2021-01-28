@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 328fe97c4e03f039a1224d13ce6712ccff06b3b7
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: f130b93b8d799c371a640f2b29c22c0d77834cba
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629777"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954396"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -35,7 +35,7 @@ mcr.microsoft.com/media/live-video-analytics:2.0.1
 > Nelle guide introduttive ed esercitazioni i manifesti della distribuzione usano un tag 2 (Live-Video-Analytics: 2). Quindi, la semplice ridistribuzione di tali manifesti dovrebbe aggiornare il modulo sui dispositivi perimetrali >.
 ### <a name="bug-fixes"></a>Correzioni di bug 
 
-* I campi `ActivationSignalOffset` `MinimumActivationTime` e `MaximumActivationTime` nei processori di controllo del segnale sono stati impostati erroneamente come proprietà obbligatorie. Sono ora proprietà **facoltative** .
+* I campi `ActivationSignalOffset` , `MinimumActivationTime` e `MaximumActivationTime` nei processori di controllo del segnale sono stati impostati erroneamente come proprietà obbligatorie. Sono ora proprietà **facoltative** .
 * Correzione di un bug di utilizzo che provoca l'arresto anomalo dell'analisi video in tempo reale su IoT Edge modulo quando viene distribuito in determinate aree.
 
 <hr width=100%>
@@ -48,7 +48,7 @@ Questa versione è la versione di aggiornamento dell'anteprima pubblica di anali
 ```
 ### <a name="module-updates"></a>Aggiornamenti del modulo
 * Aggiunta del supporto per l'utilizzo di più processori di estensione HTTP e processore di estensione gRPC per ogni topologia Graph.
-* Aggiunta del supporto per la gestione dello spazio su disco per i nodi sink.
+* Aggiunta del supporto per la [gestione dello spazio su disco per i nodi sink](upgrading-lva-module.md#disk-space-management-with-sink-nodes).
 * `MediaGraphGrpcExtension` il nodo supporta ora la proprietà [extensionConfiguration](grpc-extension-protocol.md) per l'uso di più modelli di intelligenza artificiale all'interno di un singolo server gRPC.
 * Aggiunta del supporto per la raccolta di metriche del modulo di analisi video in tempo reale nel [formato Prometeo](https://prometheus.io/docs/practices/naming/). Scopri di più su come [raccogliere metriche e visualizzare i dati in monitoraggio di Azure.](monitoring-logging.md#azure-monitor-collection-via-telegraf) 
 * È stata aggiunta la possibilità di filtrare la selezione dell'output. È possibile passare solo **audio** **o video** o **audio e video** con l'aiuto di `outputSelectors` a qualsiasi nodo grafico. 
@@ -56,7 +56,7 @@ Questa versione è la versione di aggiornamento dell'anteprima pubblica di anali
     * La gestione della frequenza dei fotogrammi è ora disponibile all'interno dei nodi del processore dell'estensione Graph.
 
 ### <a name="visual-studio-code-extension"></a>Estensione Visual Studio Code
-* Sono state rilasciate [analisi video in tempo reale su IOT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) un'estensione Visual Studio Code per semplificare la gestione dei grafici multimediali di LVA. Questa estensione funziona con il **modulo LVA 2,0** e consente di modificare e gestire grafici multimediali con un'interfaccia grafica molto semplice e facile da usare.
+* Sono state rilasciate [analisi video in tempo reale su IOT Edge](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.live-video-analytics-edge) un'estensione Visual Studio Code per semplificare la gestione dei grafici multimediali di LVA. Questa estensione funziona con il **modulo LVA 2,0** e offre la modifica e la gestione dei grafici multimediali con un'interfaccia grafica intuitiva e facile da usare.
 ## <a name="september-22-2020"></a>22 settembre 2020
 
 Questo tag di versione è relativo all'aggiornamento di settembre 2020 del modulo:
@@ -93,15 +93,15 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 
 ### <a name="module-updates"></a>Aggiornamenti del modulo
 
-* È ora possibile ottenere prestazioni elevate per il trasferimento di contenuti dati tra analisi video in tempo reale in IoT Edge e l'estensione personalizzata usando gRPC Framework. Per [iniziare](analyze-live-video-use-your-grpc-model-quickstart.md) , vedere.
+* È ora possibile ottenere prestazioni elevate per il trasferimento di contenuti dati tra analisi video in tempo reale in IoT Edge e l'estensione personalizzata usando gRPC Framework. Per iniziare, vedere [la Guida introduttiva](analyze-live-video-use-your-grpc-model-quickstart.md) .
 * Distribuzione a livello di area più ampia di analisi video in tempo reale e solo il servizio cloud è stato aggiornato.  
-* Il video live Analytics è ora disponibile in 25 aree aggiuntive in tutto il mondo. Di seguito è riportato l' [elenco](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) di tutte le aree disponibili.  
+* Il video live Analytics è ora disponibile in più di 25 aree in tutto il mondo. Di seguito è riportato l' [elenco](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) di tutte le aree disponibili.  
 * La [configurazione](https://aka.ms/lva-edge/setup-resources-for-samples) per avvio rapido è stata aggiornata anche con il supporto di nuove aree.
     * Nessuna chiamata all'azione per chiunque abbia già configurato le risorse
 
 ### <a name="bug-fixes"></a>Correzioni di bug 
 
-* Rimuovere l'uso di un'estensione di Azure deprecata nello script di configurazione
+* Rimuovere l'uso di un'estensione di Azure deprecata nello script di installazione
 
 <hr width=100%>
 
@@ -118,7 +118,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.2
 
 ### <a name="module-updates"></a>Aggiornamenti del modulo
 
-* È ora possibile creare topologie Graph con un nodo di sink di asset, oltre a un nodo di sink di file a valle di un nodo del processore del Gate del segnale. Per [un](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) esempio, vedere.
+* È ora possibile creare topologie Graph che includono un nodo di sink di asset e un nodo di sink di file a valle di un nodo del processore del Gate del segnale. Per un esempio, vedere [la topologia](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/evr-motion-assets-files) .
 
 ### <a name="bug-fixes"></a>Correzioni di bug
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 915146cd17b90272daea4ce57f5243baf1d49cb3
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: 8ecd1a99d41dc1391e6dba129d50eb53a67843d1
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578791"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955354"
 ---
 # <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Impostare la password di Azure Resource Manager nel dispositivo GPU Pro Azure Stack Edge
 
@@ -21,53 +21,55 @@ ms.locfileid: "94578791"
 
 Questo articolo descrive come impostare la password del Azure Resource Manager. È necessario impostare questa password quando ci si connette alle API locali del dispositivo tramite il Azure Resource Manager.
 
-La procedura per impostare la password può variare a seconda che si usi il portale di Azure o i cmdlet di PowerShell. Ognuna di queste procedure è descritta nelle sezioni riportate di seguito.
+<!--The procedure to set the password can be different depending upon whether you use the Azure portal or the PowerShell cmdlets. Each of these procedures is described in the following sections.-->
 
 
 ## <a name="reset-password-via-the-azure-portal"></a>Reimposta la password tramite il portale di Azure
 
-1. Nella portale di Azure passare alla risorsa Azure Stack Edge creata per gestire il dispositivo. Passare a **Calcolo Edge > Inizia subito**.
-
-2. Nella barra dei comandi del riquadro di destra, selezionare **Reimposta password ARM Edge**. 
+1. Nella portale di Azure passare alla risorsa Azure Stack Edge creata per gestire il dispositivo. Passare a **servizi perimetrali > gateway di archiviazione cloud**.
 
     ![Reimposta password utente EdgeARM 1](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-1.png)
 
-3. Nel pannello **Reimposta password utente EdgeArm** specificare una password per connettersi alle API locali del dispositivo tramite il Azure Resource Manager. Confermare la password e selezionare **Reimposta**.
+2. Nella barra dei comandi del riquadro di destra, selezionare **Reimposta password ARM Edge**. 
 
     ![Reimposta password utente EdgeARM 2](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-2.png)
 
+3. Nel pannello **Reimposta password utente EdgeArm** specificare una password per connettersi alle API locali del dispositivo tramite il Azure Resource Manager. Confermare la password e selezionare **Reimposta**.
+
+    ![Reimposta password utente EdgeARM 3](media/azure-stack-edge-j-series-set-azure-resource-manager-password/set-edgearm-password-3.png)
 
 
-## <a name="reset-password-via-powershell"></a>Reimposta la password tramite PowerShell
 
-1. Nel portale di Azure passare alla risorsa Azure Stack Edge creata per gestire il dispositivo. Prendere nota dei seguenti parametri nella pagina **Panoramica** .
+<!--## Reset password via PowerShell
 
-    - Nome della risorsa Azure Stack Edge
-    - ID sottoscrizione
+1. In the Azure Portal, go to the Azure Stack Edge resource you created to manage your device. Make a note of the following parameters in the **Overview** page.
 
-2. Passare a **impostazioni > proprietà**. Prendere nota dei seguenti parametri nella pagina delle **Proprietà** .
+    - Azure Stack Edge resource name
+    - Subscription ID
+
+2. Go to **Settings > Properties**. Make a note of the following parameters in the **Properties** page.
 
     - Resource group
-    - Chiave di crittografia CIK: selezionare Visualizza e quindi copiare la **chiave di crittografia**.
+    - CIK encryption key: Select view and then copy the **Encryption Key**.
 
-    ![Ottenere la chiave di crittografia CIK](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
+    ![Get CIK encryption key](media/azure-stack-edge-j-series-set-azure-resource-manager-password/get-cik-portal.png)
  
-3. Identificare una password da usare per connettersi a Azure Resource Manager.
+3. Identify a password that you will use to connect to Azure Resource Manager.
 
-4. Avviare cloud Shell. Selezionare l'icona nell'angolo in alto a destra:
+4. Start the cloud shell. Select on the icon in the top right corner:
 
-    ![Avviare cloud Shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/start-cloud-shell.png) 
+    ![Start cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/start-cloud-shell.png) 
 
-    Una volta avviato cloud Shell, potrebbe essere necessario passare a PowerShell.
+    Once the cloud shell has started, you may need to switch to PowerShell.
 
-    ![Cloud Shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/cloud-shell.png)   
+    ![Cloud shell](media/azure-stack-edge-j-series-set-azure-resource-manager-password/cloud-shell.png)   
 
 
-5. Impostare il contesto. Digitare:
+5. Set context. Type:
 
     `Set-AzContext -SubscriptionId <Subscription ID>`
 
-    Di seguito è riportato un output di esempio:
+    Here is a sample output:
 
     
     ```azurepowershell
@@ -80,11 +82,11 @@ La procedura per impostare la password può variare a seconda che si usi il port
         PS Azure:/
     ```
     
-5.  Se sono presenti moduli PS precedenti, è necessario installarli.
+5.  If you have any old PS modules, you need to install those.
 
     `Remove-Module  Az.DataBoxEdge -force`
 
-    Di seguito è riportato un esempio di output. In questo esempio non erano presenti moduli obsoleti da installare.
+    Here is a sample output. In this example, there were no old modules to be installed.
 
     
     ```azurepowershell
@@ -99,7 +101,7 @@ La procedura per impostare la password può variare a seconda che si usi il port
         PS Azure:\
     ```
 
-6. Il set successivo di comandi consente di scaricare ed eseguire uno script per installare i moduli di PowerShell.
+6. Next set of commands will download and run a script to install PowerShell modules.
     
     ```azurepowershell
         cd ~/clouddrive
@@ -108,7 +110,7 @@ La procedura per impostare la password può variare a seconda che si usi il port
         Import-Module ~/clouddrive/Az.DataBoxEdge/Az.DataBoxEdge.psd1 -Force
     ```
 
-7. Nel set di comandi successivo è necessario fornire il nome della risorsa, il nome del gruppo di risorse, la chiave di crittografia e la password identificata nel passaggio precedente.
+7. In the next set of commands, you'll need to provide the resource name, resource group name, encryption key, and the password you identified in the previous step.
 
     ```azurepowershell
     $devicename = "<Azure Stack Edge resource name>"
@@ -116,18 +118,18 @@ La procedura per impostare la password può variare a seconda che si usi il port
     $cik = "<Encryption key>"
     $password = "<Password>"
     ```
-    La password e i parametri della chiave di crittografia devono essere passati come stringhe protette. Usare i cmdlet seguenti per convertire la password e la chiave di crittografia in stringhe sicure.
+    The password and encryption key parameters must be passed as secure strings. Use the following cmdlets to convert the password and encryption key to secure strings.
 
     ```azurepowershell
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Usare le stringhe sicure generate sopra come parametri nel cmdlet Set-AzDataBoxEdgeUser per reimpostare la password. Usare lo stesso gruppo di risorse usato durante la creazione della risorsa Pro/Data Box Gateway di Azure Stack Edge.
+    Use the above generated secure strings as parameters in the Set-AzDataBoxEdgeUser cmdlet to reset the password. Use the same resource group that you used when creating the Azure Stack Edge Pro/Data Box Gateway resource.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key
     ```
-    Ecco l'output di esempio.
+    Here is the sample output.
     
     ```azurepowershell
     PS /home/aseuser/clouddrive> $devicename = "myaseresource"
@@ -144,7 +146,7 @@ La procedura per impostare la password può variare a seconda che si usi il port
     
         PS /home/aseuser/clouddrive>
     ```
-Usare la nuova password per connettersi a Azure Resource Manager.
+Use the new password to connect to Azure Resource Manager.-->
 
 ## <a name="next-steps"></a>Passaggi successivi
 

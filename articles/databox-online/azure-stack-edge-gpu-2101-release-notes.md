@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 8158868a39bf8a1fe03a620f37e4dcb1c9adc14e
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 6fff5b9d41c960ebe37098695c694725de0226e0
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805191"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954615"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Note sulla versione di Azure Stack Edge 2101
 
@@ -77,8 +77,7 @@ Nella tabella seguente viene fornito un riepilogo dei problemi noti rilevati dal
 |**16.**|Certificati |In alcuni casi, lo stato del certificato nell'interfaccia utente locale può richiedere alcuni secondi per l'aggiornamento. |Potrebbero essere interessati gli scenari seguenti nell'interfaccia utente locale.<ul><li>Colonna **stato** nella pagina **certificati** .</li><li>Riquadro **sicurezza** nella pagina attività **iniziali** .</li><li>Riquadro **configurazione** nella pagina **Panoramica** .</li></ul>  |
 |**17.**|IoT Edge |I moduli distribuiti tramite IoT Edge non possono utilizzare la rete host. | |
 |**18.**|Calcolo + Kubernetes |Compute/Kubernetes non supporta il proxy Web NTLM. ||
-|**19.**|Calcolo + proxy Web + aggiornamento |Se il calcolo è configurato con il proxy Web, il calcolo dell'aggiornamento potrebbe non riuscire. |Si consiglia di disabilitare il calcolo prima dell'aggiornamento. |
-|**20.**|Kubernetes + aggiornamento |Le versioni precedenti del software, ad esempio le versioni 2008, presentano un problema race condition aggiornamento che causa l'esito negativo dell'aggiornamento con ClusterConnectionException. |L'uso delle compilazioni più recenti dovrebbe contribuire a evitare questo problema. Se si verifica questo problema, la soluzione alternativa consiste nel ritentare l'aggiornamento e dovrebbe funzionare.|
+|**19.**|Kubernetes + aggiornamento |Le versioni precedenti del software, ad esempio le versioni 2008, presentano un problema race condition aggiornamento che causa l'esito negativo dell'aggiornamento con ClusterConnectionException. |L'uso delle compilazioni più recenti dovrebbe contribuire a evitare questo problema. Se si verifica questo problema, la soluzione alternativa consiste nel ritentare l'aggiornamento e dovrebbe funzionare.|
 
 
 <!--|**18.**|Azure Private Edge Zone (Preview) |There is a known issue with Virtual Network Function VM if the VM was created on Azure Stack Edge device running earlier preview builds such as 2006/2007b and then the device was updated to 2009 GA release. The issue is that the VNF information can't be retrieved or any new VNFs can't be created unless the VNF VMs are deleted before the device is updated.  |Before you update Azure Stack Edge device to 2009 release, use the PowerShell command `get-mecvnf` followed by `remove-mecvnf <VNF guid>` to remove all Virtual Network Function VMs one at a time. After the upgrade, you will need to redeploy the same VNFs.|-->

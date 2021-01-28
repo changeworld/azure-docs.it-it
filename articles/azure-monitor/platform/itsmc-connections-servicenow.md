@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 7d1b4b3542f6914d413a5e29e57baa15e7a53346
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3cc38fad6f26bf6f382b4a275638c450c8333a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012785"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955733"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Connettere ServiceNow con IT Service Management Connector
 
@@ -122,7 +122,7 @@ Utilizzare la procedura seguente per creare una connessione ServiceNow.
    | --- | --- |
    | **Connection Name** (Nome connessione)   | Immettere un nome per l'istanza di ServiceNow che si vuole connettere con connettore. Questo nome verrà usato più avanti in Log Analytics quando si configurano gli elementi di lavoro ITSM e si visualizzano analisi dettagliate. |
    | **Tipo di partner**   | Selezionare **ServiceNow**. |
-   | **URL server**   | Immettere l'URL dell'istanza di ServiceNow che si desidera connettere a connettore. L'URL deve puntare a una versione SaaS supportata con il suffisso *. servicenow.com*.|
+   | **URL server**   | Immettere l'URL dell'istanza di ServiceNow che si desidera connettere a connettore. L'URL deve puntare a una versione SaaS supportata con il suffisso *. servicenow.com* , ad esempio https://XXXXX.service-now.com/) .|
    | **Nome utente**   | Immettere il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a connettore.|
    | **Password**   | Immettere la password associata al nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione. Non vengono archiviati in nessun punto del servizio connettore.  |
    | **ID client**   | Immettere l'ID client che si vuole usare per l'autenticazione OAuth2, che è stata generata in precedenza. Per ulteriori informazioni sulla generazione di un ID client e di un segreto, vedere la pagina relativa alla [configurazione di OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |

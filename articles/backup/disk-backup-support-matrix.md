@@ -4,12 +4,12 @@ description: Fornisce un riepilogo delle impostazioni di supporto e delle limita
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 5281a5f0b833759c2594b6748cf06f2e12c03822
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 08d2ac8451e88dd8d40ed5faee0368ff7739cd16
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757475"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954699"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matrice di supporto di backup su disco di Azure (in anteprima)
 
@@ -65,6 +65,8 @@ Quando diventano disponibili, verranno annunciate altre aree.
 - I dischi gestiti consentono di modificare il livello di prestazioni in fase di distribuzione o successivamente senza modificare le dimensioni del disco. La soluzione di backup su disco di Azure supporta le modifiche al livello di prestazioni del disco di origine di cui è in corso il backup. Durante il ripristino, il livello di prestazioni del disco ripristinato sarà uguale a quello del disco di origine al momento del backup. Seguire la documentazione [qui](../virtual-machines/disks-performance-tiers-portal.md) per modificare il livello di prestazioni del disco dopo l'operazione di ripristino.
 
 - Il supporto dei [collegamenti privati](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) per Managed disks consente di limitare l'esportazione e l'importazione di dischi gestiti in modo che si verifichino solo all'interno della rete virtuale di Azure. Il backup su disco di Azure supporta il backup di dischi con endpoint privati abilitati. Questa operazione non include i dati o gli snapshot di backup accessibili tramite l'endpoint privato.
+
+- Durante l'anteprima, non è possibile disabilitare il backup, quindi l'opzione **Interrompi backup e Mantieni i dati di backup** non è supportata. È possibile eliminare un'istanza di backup che non solo arresterà il backup ma eliminerà anche tutti i dati di backup.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 262177d8cde3a5eee2721f2af8a0511c205da9b9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890530"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954294"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introduzione alle utilità di Microsoft Spark
 
@@ -39,10 +39,6 @@ Per assicurarsi che il Azure AD e l'identità del servizio gestito dell'area di 
 
 <code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
 
-<!-- ### Configure access to Azure Blob Storage  -->
-
-:::zone pivot = "programming-language-python"
-
 ### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure  
 
 Le sinapsi sfruttano la **firma di accesso condiviso** per accedere all'archivio BLOB di Azure. Per evitare di esporre le chiavi SAS nel codice, è consigliabile creare un nuovo servizio collegato nell'area di lavoro sinapsi per l'account di archiviazione BLOB di Azure a cui si vuole accedere.
@@ -62,6 +58,8 @@ Per aggiungere un nuovo servizio collegato per un account di archiviazione BLOB 
 <code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
 
 Di seguito è riportato un esempio di codice:
+
+:::zone pivot = "programming-language-python"
 
 ```python
 from pyspark.sql import SparkSession
@@ -86,26 +84,6 @@ print('Remote blob path: ' + wasb_path)
 
 :::zone pivot = "programming-language-scala"
 
-### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure  
-
-Le sinapsi sfruttano la **firma di accesso condiviso** per accedere all'archivio BLOB di Azure. Per evitare di esporre le chiavi SAS nel codice, è consigliabile creare un nuovo servizio collegato nell'area di lavoro sinapsi per l'account di archiviazione BLOB di Azure a cui si vuole accedere.
-
-Per aggiungere un nuovo servizio collegato per un account di archiviazione BLOB di Azure, seguire questa procedura:
-
-1. Aprire [Azure sinapsi Studio](https://web.azuresynapse.net/).
-2. Selezionare **Gestisci** dal pannello sinistro e selezionare **servizi collegati** sotto le **connessioni esterne**.
-3. Cercare nell' **Archivio BLOB di Azure** nel pannello **nuovo servizio collegato** a destra.
-4. Selezionare **Continua**.
-5. Selezionare l'account di archiviazione BLOB di Azure per accedere al nome del servizio collegato e configurarlo. Suggerire l'uso della **chiave dell'account** per il **metodo di autenticazione**.
-6. Selezionare **Test connessione** per verificare che le impostazioni siano corrette.
-7. Selezionare **Crea** prima e fare clic su **pubblica tutto** per salvare le modifiche. 
-
-È possibile accedere ai dati nell'archivio BLOB di Azure con sinapsi Spark tramite l'URL seguente:
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-Di seguito è riportato un esempio di codice:
-
 ```scala
 val blob_account_name = "" // replace with your blob name
 val blob_container_name = "" //replace with your container name
@@ -123,27 +101,6 @@ spark.conf.set(f"fs.azure.sas.$blob_container_name.$blob_account_name.blob.core.
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
-
-
-### <a name="configure-access-to-azure-blob-storage"></a>Configurare l'accesso all'archiviazione BLOB di Azure  
-
-Le sinapsi sfruttano la **firma di accesso condiviso** per accedere all'archivio BLOB di Azure. Per evitare di esporre le chiavi SAS nel codice, è consigliabile creare un nuovo servizio collegato nell'area di lavoro sinapsi per l'account di archiviazione BLOB di Azure a cui si vuole accedere.
-
-Per aggiungere un nuovo servizio collegato per un account di archiviazione BLOB di Azure, seguire questa procedura:
-
-1. Aprire [Azure sinapsi Studio](https://web.azuresynapse.net/).
-2. Selezionare **Gestisci** dal pannello sinistro e selezionare **servizi collegati** sotto le **connessioni esterne**.
-3. Cercare nell' **Archivio BLOB di Azure** nel pannello **nuovo servizio collegato** a destra.
-4. Selezionare **Continua**.
-5. Selezionare l'account di archiviazione BLOB di Azure per accedere al nome del servizio collegato e configurarlo. Suggerire l'uso della **chiave dell'account** per il **metodo di autenticazione**.
-6. Selezionare **Test connessione** per verificare che le impostazioni siano corrette.
-7. Selezionare **Crea** prima e fare clic su **pubblica tutto** per salvare le modifiche. 
-
-È possibile accedere ai dati nell'archivio BLOB di Azure con sinapsi Spark tramite l'URL seguente:
-
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
-
-Di seguito è riportato un esempio di codice:
 
 ```csharp
 var blob_account_name = "";  // replace with your blob name

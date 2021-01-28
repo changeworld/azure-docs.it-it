@@ -4,15 +4,15 @@ description: Informazioni su come usare l'inserimento di dipendenze per la regis
 author: ggailey777
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 08/15/2020
+ms.date: 01/27/2021
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: 70ec9248db002823e969fa5f4fba8bf1074a9af7
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.openlocfilehash: 66e2cd22f4bcb95be65d6d04345dcac622436a04
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706933"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955089"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Usare l'inserimento di dipendenze in Funzioni di Azure .NET
 
@@ -256,6 +256,24 @@ public class HttpTrigger
 ```
 
 Per informazioni dettagliate sull'uso delle opzioni, fare riferimento al [modello di opzioni in ASP.NET Core](/aspnet/core/fundamentals/configuration/options).
+
+## <a name="using-aspnet-core-user-secrets"></a>Uso dei segreti ASP.NET Core utente
+
+Quando si sviluppa localmente, ASP.NET Core fornisce uno [strumento di gestione dei segreti](/aspnet/core/security/app-secrets#secret-manager) che consente di archiviare informazioni segrete al di fuori della radice del progetto. Rende meno probabile che i segreti vengano accidentalmente sottoposte a commit nel controllo del codice sorgente. Azure Functions Core Tools (versione 3.0.3233 o successiva) legge automaticamente i segreti creati da ASP.NET Core Secret Manager.
+
+Per configurare un progetto di funzioni di Azure per .NET per l'uso dei segreti utente, eseguire il comando seguente nella radice del progetto.
+
+```bash
+dotnet user-secrets init
+```
+
+Usare quindi il `dotnet user-secrets set` comando per creare o aggiornare i segreti.
+
+```bash
+dotnet user-secrets set MySecret "my secret value"
+```
+
+Per accedere ai valori dei segreti utente nel codice dell'app per le funzioni, usare `IConfiguration` o `IOptions` .
 
 ## <a name="customizing-configuration-sources"></a>Personalizzazione delle origini di configurazione
 

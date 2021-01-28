@@ -113,6 +113,8 @@
           href: reference-data-guidelines.md
     - name: Formato di visualizzazione
       href: reference-markdown-format.md
+    - name: Collegamenti privati
+      href: reference-private-endpoint.md
     - name: Formato dei test in batch
       href: reference-tsv-format-batch-testing.md
     - name: Crittografia

@@ -1,5 +1,5 @@
 ---
-title: Monitorare gli eventi di servizi multimediali di Azure con griglia di eventi con il portale
+title: Monitorare gli eventi di servizi multimediali con il portale di griglia di eventi
 description: Questo articolo illustra come eseguire la sottoscrizione a Griglia di eventi per monitorare gli eventi di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1a74ee1668594d2e28bed0ad36793bf47653fe
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294374"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955259"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Creare e monitorare eventi di Servizi multimediali con Griglia di eventi e il portale di Azure
 

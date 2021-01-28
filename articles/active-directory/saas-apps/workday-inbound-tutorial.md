@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 01/19/2021
 ms.author: chmutali
-ms.openlocfilehash: 8e83841031593d0d1af4499f3ef9a15400ce7794
-ms.sourcegitcommit: 9d9221ba4bfdf8d8294cf56e12344ed05be82843
-ms.translationtype: HT
+ms.openlocfilehash: a34881901fd8642fff9ac37512cd2ef260ad9d1c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98569559"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954218"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -157,7 +157,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 1. Cercare e selezionare il gruppo di sicurezza creato nel passaggio precedente. 
    >[!div class="mx-imgBorder"]
-   >![Seleziona gruppo di sicurezza](./media/workday-inbound-tutorial/select-security-group-msft-wdad.png)
+   >![Seleziona gruppo di sicurezza](./media/workday-inbound-tutorial/select-security-group-workday.png)
 
 1. Fare clic sui puntini di sospensione (...) accanto al nome del gruppo e scegliere **Security Group > Maintain Domain Permissions for Security Group** (Gruppo di sicurezza > Mantieni le autorizzazioni di dominio per il gruppo di sicurezza) dal menu
    >[!div class="mx-imgBorder"]
@@ -228,7 +228,7 @@ In questo passaggio si concedono al gruppo di sicurezza le autorizzazioni dei cr
 
 ## <a name="provisioning-agent-installation-prerequisites"></a>Prerequisiti per l'installazione dell'agente di provisioning
 
-Prima di procedere con la sezione successiva, esaminare i [prerequisiti per l'installazione dell'agente di provisioning](../cloud-provisioning/how-to-prerequisites.md). 
+Prima di procedere con la sezione successiva, esaminare i [prerequisiti per l'installazione dell'agente di provisioning](../cloud-sync/how-to-prerequisites.md). 
 
 ## <a name="configuring-user-provisioning-from-workday-to-active-directory"></a>Configurazione del provisioning utenti da Workday in Active Directory
 
@@ -267,7 +267,7 @@ Questa sezione fornisce i passaggi per configurare il provisioning degli account
 
 Per effettuare il provisioning in Active Directory locale, è necessario installare l'agente di provisioning in un server aggiunto al dominio e con accesso di rete ai domini di Active Directory richiesti.
 
-Trasferire il programma di installazione dell'agente scaricato nell'host del server e seguire i passaggi indicati [nella sezione **Installare l'agente**](../cloud-provisioning/how-to-install.md) per completare la configurazione dell'agente.
+Trasferire il programma di installazione dell'agente scaricato nell'host del server e seguire i passaggi indicati [nella sezione **Installare l'agente**](../cloud-sync/how-to-install.md) per completare la configurazione dell'agente.
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Nell'app di provisioning, configurare la connettività in Workday e Active Directory
 In questo passaggio viene stabilita la connettività con Workday e Active Directory nel portale di Azure. 
@@ -336,7 +336,7 @@ In questa sezione verrà configurato il flusso dei dati utente da Workday in Act
       * Operator: IS NOT NULL (NON È NULL)
 
    > [!TIP]
-   > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i filtri di ambito in **Source Object Scope** (Ambito dell'oggetto di origine) per testare il mapping con alcuni utenti test da Workday. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
+   > Quando si configura l'app di provisioning per la prima volta, è necessario testare e verificare i mapping degli attributi e le espressioni per assicurarsi che restituisca il risultato desiderato. Microsoft consiglia di usare i [filtri di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md) nell'ambito dell'oggetto di **origine** e [il provisioning su richiesta](../app-provisioning/provision-on-demand.md) per testare i mapping con pochi utenti di test dalla giornata lavorativa. Dopo avere verificato che i mapping funzionino è possibile rimuovere il filtro o espanderlo gradualmente in modo da includere altri utenti.
 
    > [!CAUTION] 
    > Il comportamento predefinito del motore di provisioning è disabilitare/eliminare gli utenti che non rientrano nell'ambito. Questa operazione è sconsigliabile per l'integrazione da Workday ad Active Directory. Per eseguire l'override di questo comportamento predefinito, fare riferimento all'articolo [Ignorare l'eliminazione di account utente che non rientrano nell'ambito](../app-provisioning/skip-out-of-scope-deletions.md)
@@ -1065,7 +1065,8 @@ Per quanto riguarda la conservazione dei dati, il servizio di provisioning di Az
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Altre informazioni sugli scenari di integrazione Azure AD e giorni lavorativi e le chiamate ai servizi Web](../app-provisioning/workday-integration-reference.md)
 * [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 * [Informazioni su come configurare l'accesso Single Sign-On tra Workday e Azure Active Directory](workday-tutorial.md)
-* [Informazioni sull'integrazione di altre applicazioni SaaS con Azure Active Directory](tutorial-list.md)
+* [Informazioni su come configurare il writeback di Workday](workday-writeback-tutorial.md)
 * [Informazioni su come usare le API Microsoft Graph per gestire le configurazioni di provisioning](/graph/api/resources/synchronization-overview)

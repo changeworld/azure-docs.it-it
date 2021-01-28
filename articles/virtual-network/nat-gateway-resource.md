@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: d4ef8e6207d53a192b19f8343a60093e82368fa6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c1f52fda2edfa0a03caa72fcd7fa8dc02d0a607
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223381"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954665"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
@@ -339,6 +339,7 @@ Una porta SNAT è disponibile per il riutilizzo nello stesso indirizzo IP di des
 - NAT è compatibile con risorse di indirizzi IP pubblici, prefissi di indirizzi IP pubblici e servizi di bilanciamento del carico di SKU standard.   Le risorse di base, ad esempio il servizio di bilanciamento del carico di base, nonché qualsiasi prodotto derivato non sono compatibili con NAT.  Le risorse di base devono essere inserite in una subnet non configurata con NAT.
 - La famiglia di indirizzi IPv4 è supportata.  NAT non interagisce con la famiglia di indirizzi IPv6.  Non è possibile distribuire NAT in una subnet con prefisso IPv6.
 - NAT non può estendersi in più reti virtuali.
+- La frammentazione IP non è supportata.
 
 ## <a name="suggestions"></a>Suggerimenti
 

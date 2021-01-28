@@ -11,12 +11,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: 17b2d717ac6f244cb3ddddfdbc2f29581aa1f59f
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d8b1c2a5384e479e39d169d368554f16c300a33e
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95527310"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954547"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Distribuire un modello per Azure Machine Learning istanze di calcolo
 
@@ -38,11 +38,12 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 
 Un notebook di esempio che illustra le distribuzioni locali è incluso nell'istanza di calcolo. Usare la procedura seguente per caricare il notebook e distribuire il modello come servizio Web nella macchina virtuale:
 
-1. Da [Azure Machine Learning Studio](https://ml.azure.com)selezionare le istanze di calcolo Azure Machine Learning.
+1. Da [Azure Machine Learning Studio](https://ml.azure.com)selezionare "Notebooks" e quindi selezionare How-to-use-azureml/Deployment/Deploy-to-local/Register-Model-deploy-local. ipynb in "notebook di esempio". Clonare il notebook nella cartella dell'utente.
 
-1. Aprire la `samples-*` sottodirectory e quindi aprire `how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb` . Una volta aperto, Esegui il notebook.
+1. Trovare il notebook clonato nel passaggio 1, scegliere o creare un'istanza di calcolo per l'esecuzione del notebook.
 
     ![Screenshot del servizio locale in esecuzione nel notebook](./media/how-to-deploy-local-container-notebook-vm/deploy-local-service.png)
+
 
 1. Il notebook Visualizza l'URL e la porta su cui è in esecuzione il servizio. Ad esempio: `https://localhost:6789`. È anche possibile eseguire la cella che contiene `print('Local service port: {}'.format(local_service.port))` per visualizzare la porta.
 

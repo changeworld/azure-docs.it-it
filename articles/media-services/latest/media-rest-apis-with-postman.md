@@ -1,5 +1,5 @@
 ---
-title: Configurare il post per le chiamate all'API REST di servizi multimediali di Azure V3
+title: Configurare il post per l'API REST di servizi multimediali di Azure V3
 description: In questo articolo viene illustrato come configurare Postman in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa10cb207011051c30866a3a3ed693e7113b5882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a521ddeee6d93ce809e5e6e85eefa1f01a3f12
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297710"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953972"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V3
 
@@ -34,7 +34,7 @@ Prima di iniziare lo sviluppo, vedere [sviluppo con le API di servizi multimedia
 - Ottenere le informazioni necessarie per [accedere alle API](./access-api-howto.md)
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative possibili: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
 
 > [!IMPORTANT]
 > Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).
@@ -51,7 +51,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 ### <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Aprire l'app **postazione** .
+1. Aprire l'app **Postman**.
 2. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
     ![Gestire l'ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +80,7 @@ Clonare un repository di GitHub che contiene i file di raccolta e ambiente Postm
 
 Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft Azure v3 è necessario ottenere e impostare token di Azure AD per l'autenticazione dell'entità servizio.
 
-1. Nella finestra di sinistra dell'app post, selezionare "passaggio 1: ottenere il token di autenticazione AAD".
+1. Nella finestra sinistra dell'app Postman selezionare "Step 1: Get AAD Auth token" (Passaggio 1: Ottenere un token di autenticazione AAD).
 2. Selezionare quindi "Get Azure AD Token for Service Principal Authentication" (Ottieni token Azure AD per autenticazione basata su entità servizio).
 3. Fare clic su **Invia**.
 
@@ -99,7 +99,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 * Se l'applicazione ha esito negativo con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso da quello previsto per l'account di servizi multimediali. 
 * Se viene ricevuto un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di servizi multimediali. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST basate su Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)

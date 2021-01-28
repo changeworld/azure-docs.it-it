@@ -1,17 +1,17 @@
 ---
 title: Autenticare l'output di BLOB con l'identità gestita analisi di flusso di Azure
 description: Questo articolo descrive come usare le identità gestite per autenticare il processo di analisi di flusso di Azure nell'output di archiviazione BLOB di Azure.
-author: cedarbaum
-ms.author: sacedarb
+author: kim-ale
+ms.author: kimal
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.openlocfilehash: 2e55b1f18648ce6970b81b943cd8a6a0fc3e7e81
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 369348133f7395f5db5b5923bd438cec8e4ad733
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705133"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954379"
 ---
 # <a name="use-managed-identity-preview-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage"></a>Usare l'identità gestita (anteprima) per autenticare il processo di analisi di flusso di Azure nell'archivio BLOB di Azure
 

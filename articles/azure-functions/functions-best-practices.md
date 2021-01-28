@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f05afb3c23fc720bb0100a751a6943d7bb03453f
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84697691"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954784"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Ottimizzare le prestazioni e l'affidabilità delle funzioni di Azure
 
@@ -112,7 +112,7 @@ Per le funzioni C#, è possibile modificare il tipo in una matrice fortemente ti
 
 Il file `host.json` nell'app per le funzioni consente di configurare i comportamenti del trigger e del runtime dell'host.  Oltre ai comportamenti di invio in batch, è possibile gestire anche la concorrenza in una serie di trigger. La modifica dei valori di queste opzioni consente spesso di applicare a ogni istanza la scalabilità appropriata per soddisfare le esigenze delle funzioni richiamate.
 
-Le impostazioni nel host.jssu file si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Se, ad esempio, si dispone di un'app per le funzioni con due funzioni HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le due funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
+Le impostazioni nel host.jssu file si applicano a tutte le funzioni all'interno dell'app, all'interno di una *singola istanza* della funzione. Se, ad esempio, si dispone di un'app per le funzioni con due funzioni HTTP e [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) richieste impostate su 25, una richiesta a uno dei trigger http viene conteggiata per le 25 richieste simultanee condivise.  Quando l'app per le funzioni viene ridimensionata a 10 istanze, le dieci funzioni consentono di eseguire in modo efficace 250 richieste simultanee (10 istanze * 25 richieste simultanee per istanza). 
 
 Altre opzioni di configurazione host sono disponibili nell' [ articolohost.jsdi configurazione](functions-host-json.md).
 

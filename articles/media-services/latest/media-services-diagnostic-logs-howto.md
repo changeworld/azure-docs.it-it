@@ -1,5 +1,5 @@
 ---
-title: Monitorare i log di diagnostica di servizi multimediali tramite monitoraggio di Azure
+title: Monitorare i log di diagnostica tramite monitoraggio di Azure
 description: Questo articolo illustra come indirizzare e visualizzare i log di diagnostica tramite monitoraggio di Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c666228a8a82083c319aa6c2d7fd161f7e623f4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1d9252a5fdf7b1c68c1bb64bd22ede8640184a0c
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897969"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953955"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
 

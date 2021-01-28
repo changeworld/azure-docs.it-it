@@ -1,11 +1,25 @@
 ---
-title: metriche di servizi multimediali e log di diagnostica con monitoraggio di Azure: Descrizione di servizi multimediali di Azure: informazioni su come monitorare le metriche e i log di diagnostica di servizi multimediali di Azure tramite monitoraggio di Azure.
-Servizi: Media-Services documentationcenter:'' Author: IngridAtMicrosoft Manager: FEMila Editor:''
-
-ms. Service: Media-Services ms. workload: media ms.tgt_pltfrm: na ms. DevLang: na ms. Topic: Conceptual ms. Date: 11/02/2020 ms. Author: inhenkel
-
+title: Metriche e log di diagnostica con monitoraggio di Azure
+description: Informazioni su come monitorare le metriche e i log di diagnostica di servizi multimediali di Azure tramite monitoraggio di Azure.
+services: media-services
+documentationcenter: ''
+author: IngridAtMicrosoft
+manager: femila
+editor: ''
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 11/02/2020
+ms.author: inhenkel
+ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954987"
 ---
-
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica con monitoraggio di Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e46a56742ab8b98c53c1cd05e840e8ad4b8a73da
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 53052097fa6616f889b710c58488a9f7a616168d
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88682229"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956299"
 ---
 Nel passaggio di [generazione e distribuzione del manifesto della distribuzione di IoT Edge](../../../detect-motion-emit-events-quickstart.md#generate-and-deploy-the-deployment-manifest) in Visual Studio Code espandere il nodo **lva-sample-device** in **HUB IOT DI AZURE** (sezione in basso a sinistra). Si noterà che sono distribuiti i moduli seguenti:
 
@@ -14,7 +14,7 @@ Nel passaggio di [generazione e distribuzione del manifesto della distribuzione 
   ![Moduli](../../../media/quickstarts/lva-sample-device-node.png)
 
 > [!NOTE]
-> Se si usa un dispositivo perimetrale personalizzato invece del dispositivo sottoposto a provisioning dallo script di configurazione, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per eseguire il pull e archiviare il file del video di esempio usato per questo avvio rapido:  
+> I passaggi precedenti presuppongono che si stia usando la macchina virtuale creata dallo script di installazione. Se invece si usa il proprio dispositivo perimetrale, passare al dispositivo perimetrale ed eseguire i comandi seguenti con **diritti di amministratore** per estrarre e archiviare il file video di esempio usato per questa Guida introduttiva:  
 
 ```
 mkdir /home/lvaadmin/samples

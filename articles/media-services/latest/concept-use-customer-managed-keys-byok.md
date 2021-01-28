@@ -1,17 +1,17 @@
 ---
-title: Bring your own key (chiavi gestite dal cliente) con servizi multimediali
+title: Bring your own key (chiavi gestite dal cliente)
 description: Con servizi multimediali è possibile usare una chiave gestita dal cliente (ovvero Bring your own key).
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: a56922c972efeb21c188413522bd05f83b74ca12
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: c11bb0e369075c3024824d65290e8aecfa68e6f4
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94681823"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956141"
 ---
 # <a name="bring-your-own-key-customer-managed-keys-with-media-services"></a>Bring your own key (chiavi gestite dal cliente) con servizi multimediali
 
@@ -39,7 +39,7 @@ La chiave può essere una chiave di 2048, 3072 o una chiave RSA 4096, mentre le 
 
 ## <a name="tutorials"></a>Esercitazioni
 
-- [Usare la portale di Azure per usare chiavi gestite dal cliente o BYOK con servizi multimediali](tutorial-byok-portal.md)
+- [Usare chiavi gestite dal cliente o BYOK nel portale di Azure con Servizi multimediali](tutorial-byok-portal.md)
 - [Usare chiavi gestite dal cliente o BYOK con l'API REST di servizi multimediali](tutorial-byok-postman.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 055448eacf1cc12c6d021c6571a0478cb35442ba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 32027695f914257ef245d920f00fc1d1976fa791
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89566908"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956301"
 ---
 Il manifesto della distribuzione definisce i moduli che vengono distribuiti in un dispositivo perimetrale e le impostazioni di configurazione dei moduli. 
 
@@ -14,6 +14,13 @@ Seguire questa procedura per generare il manifesto dal file modello e quindi dis
 1. Accanto al riquadro **HUB IOT DI AZURE** selezionare l'icona **Altre azioni** per impostare la stringa di connessione dell'hub IoT. È possibile copiare la stringa dal file *src/cloud-to-device-console-app/appsettings.json*. 
 
     ![Impostare la stringa di connessione IoT](../../../media/quickstarts/set-iotconnection-string.png)
+
+> [!NOTE]
+> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
+
 1. Fare clic con il pulsante destro del mouse su **src/edge/deployment.template.json** e scegliere **Generate IoT Edge Deployment Manifest** (Genera manifesto della distribuzione di IoT Edge).
 
     ![Generate IoT Edge Deployment Manifest (Genera manifesto della distribuzione di IoT Edge)](../../../media/quickstarts/generate-iot-edge-deployment-manifest.png)

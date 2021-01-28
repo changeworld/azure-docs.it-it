@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: c3e6408a6a3473380edbe2966eba41970bd73562
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: be6d47d8f40746bfb2154ddb62cf2e9ce93e74aa
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762757"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955684"
 ---
 # <a name="errors-in-the-connector-status-section"></a>Errori nella sezione stato connettore
 
@@ -66,6 +66,10 @@ In questa sezione è possibile trovare gli errori comuni presentati nella sezion
 
 * **Errore**: "si è verificato un problema. Non è stato possibile ottenere i dettagli della connessione. " Questo errore viene visualizzato quando il cliente definisce il gruppo di azioni ITSM.
 
-    **Motivo**: il connettore ITSM appena creato ha ancora completato la sincronizzazione iniziale.
+    **Motivo**: tale errore viene visualizzato quando:
+    * Il connettore ITSM appena creato ha ancora completato la sincronizzazione iniziale.
+    * Il connettore non è stato definito correttamente
 
-    **Risoluzione**: quando viene creato un nuovo connettore ITSM, il connettore ITSM avvia la sincronizzazione delle informazioni dal sistema ITSM, ad esempio i modelli di elemento di lavoro e gli elementi di lavoro. Sincronizzare il connettore ITSM per generare un nuovo token di aggiornamento, come illustrato [qui](./itsmc-resync-servicenow.md).
+    **Risoluzione**: 
+    * Quando viene creato un nuovo connettore ITSM, il connettore ITSM avvia la sincronizzazione delle informazioni dal sistema ITSM, ad esempio i modelli di elemento di lavoro e gli elementi di lavoro. Sincronizzare il connettore ITSM per generare un nuovo token di aggiornamento, come illustrato [qui](./itsmc-resync-servicenow.md).
+    * Esaminare i dettagli della connessione nel connettore ITSM come illustrato [qui](./itsmc-connections-servicenow.md#create-a-connection) e verificare che ITSM Connector possa essere [sincronizzato](./itsmc-resync-servicenow.md)correttamente.

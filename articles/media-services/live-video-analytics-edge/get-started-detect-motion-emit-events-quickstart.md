@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 2ae8292375c0b85cc4c771c1fe7d853c5fcd3afd
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631937"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98955767"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -59,7 +59,21 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Dopo il completamento dello script, verranno visualizzate tutte le risorse necessarie nella sottoscrizione. Nell'output dello script una tabella di risorse include il nome dell'hub IoT. Cercare il tipo di risorsa **`Microsoft.Devices/IotHubs`** e prendere nota del nome. Servirà nel passaggio successivo.  
+    Dopo il completamento dello script, verranno visualizzate tutte le risorse necessarie nella sottoscrizione. Il totale di 12 risorse verrà configurato dallo script:
+    1. **Endpoint di streaming** : consente di riprodurre l'asset AMS registrato.
+    1. **Macchina virtuale** : si tratta di una macchina virtuale che fungerà da dispositivo perimetrale.
+    1. **Disco** : si tratta di un disco di archiviazione collegato alla macchina virtuale per archiviare i supporti e gli artefatti.
+    1. **Gruppo di sicurezza di rete** : viene usato per filtrare il traffico di rete da e verso le risorse di Azure in una rete virtuale di Azure.
+    1. **Interfaccia di rete** : consente a una macchina virtuale di Azure di comunicare con Internet, Azure e altre risorse.
+    1. **Connessione Bastion** : consente di connettersi alla macchina virtuale usando il browser e la portale di Azure.
+    1. **Indirizzo IP pubblico** : consente alle risorse di Azure di comunicare con Internet e con servizi di Azure pubblici
+    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Hub** di Internet delle cose: funge da Hub messaggi centrale per la comunicazione bidirezionale tra l'applicazione internet, IOT Edge moduli e i dispositivi gestiti.
+    1. **Account del servizio multimediale** : consente di gestire e trasmettere in streaming contenuti multimediali in Azure.
+    1. **Account** di archiviazione: è necessario avere un account di archiviazione primario ed è possibile avere un numero qualsiasi di account di archiviazione secondari associati all'account di servizi multimediali. Per altre informazioni, vedere [Account di archiviazione di Azure con account di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Registro contenitori** : consente di archiviare e gestire le immagini del contenitore Docker privato e gli artefatti correlati.
+
+Nell'output dello script una tabella di risorse include il nome dell'hub IoT. Cercare il tipo di risorsa **`Microsoft.Devices/IotHubs`** e prendere nota del nome. Servirà nel passaggio successivo.  
 
 > [!NOTE]
 > Lo script genera anche alcuni file di configurazione nella directory **_~/clouddrive/lva-sample/_* _. Questi file saranno necessari più avanti in questo argomento.
@@ -101,6 +115,12 @@ Seguire queste istruzioni per connettersi all'hub IoT usando l'estensione Azure 
 1. Nell'angolo in basso a sinistra della scheda **Explorer** selezionare **Hub IoT di Azure**.
 1. Selezionare l'icona **Altre opzioni** icona per visualizzare il menu di scelta rapida. Quindi scegliere **Set IoT Hub Connection String** (Imposta la stringa di connessione dell'hub IoT).
 1. Quando viene visualizzata una casella di input, immettere la stringa di connessione dell'hub IoT. In Cloud Shell è possibile ottenere la stringa di connessione da *~/clouddrive/lva-sample/appsettings.json*.
+
+> [!NOTE]
+> Potrebbe essere richiesto di fornire informazioni di endpoint predefinite per l'hub Internet delle cose. Per ottenere tali informazioni, in portale di Azure passare all'hub Internet e cercare l'opzione **endpoint predefiniti** nel riquadro di spostamento a sinistra. Fare clic qui e cercare l' **endpoint compatibile con l'hub eventi** nella sezione **endpoint compatibile con hub eventi** . Copiare e usare il testo nella casella. L'endpoint sarà simile al seguente:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Se la connessione riesce, viene visualizzato l'elenco di dispositivi Edge. Si dovrebbe vedere almeno un dispositivo denominato **lva-sample-device**. È ora possibile gestire i dispositivi IoT Edge e interagire con l'hub IoT di Azure tramite il menu di scelta rapida. Per visualizzare i moduli distribuiti nel dispositivo Edge, espandere il nodo **Moduli** sotto **lva-sample-device**.
 

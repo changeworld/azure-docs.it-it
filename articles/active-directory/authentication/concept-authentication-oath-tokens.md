@@ -10,12 +10,12 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d04075b415bace4104a58e8221d764355d3318d0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 9276fca62e96395150c9545b8f4dcb5c8c0afb87
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96744279"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954243"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Metodi di autenticazione nei token di Azure Active Directory
 
@@ -37,25 +37,25 @@ I token hardware OATH TOTP sono in genere dotati di una chiave privata o di un s
 
 I token hardware OATH TOTP programmabili di cui è possibile generare un nuovo seme possono anche essere configurati con Azure AD nel flusso di configurazione del token software.
 
-I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Pannello di caricamento dei token OATH nei token OATH di MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV) includendo l'UPN, il numero di serie, la chiave privata, l'intervallo di tempo, il produttore e il modello come illustrato nell'esempio seguente:
+Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV), tra cui l'UPN, il numero di serie, la chiave privata, l'intervallo di tempo, il produttore e il modello, come illustrato nell'esempio seguente:
 
 ```csv
 upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
-```
+```  
 
 > [!NOTE]
 > Assicurarsi di includere la riga di intestazione nel file CSV.
 
 Dopo aver formattato correttamente il file CSV, un amministratore può accedere al portale di Azure e passare ad **Azure Active Directory > Sicurezza > MFA > Token OATH** e caricare il file CSV risultante.
 
-A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minuti per l'elaborazione. Per ottenere lo stato corrente, selezionare il pulsante **Aggiorna**. Se sono presenti errori nel file, è possibile scaricare un file CSV che elenca gli eventuali errori da risolvere. I nomi dei campi nel file CSV scaricato sono diversi da quelli della versione caricata.
+A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minuti per l'elaborazione. Per ottenere lo stato corrente, selezionare il pulsante **Aggiorna**. Se sono presenti errori nel file, è possibile scaricare un file CSV che elenca gli eventuali errori da risolvere. I nomi dei campi nel file CSV scaricato sono diversi da quelli della versione caricata.  
 
-Dopo aver risolto eventuali errori, l'amministratore può quindi attivare ogni chiave selezionando **Attiva** per il token da attivare e immettendo l'OTP visualizzato nel token.
+Dopo aver risolto eventuali errori, l'amministratore può quindi attivare ogni chiave selezionando **Attiva** per il token da attivare e immettendo l'OTP visualizzato nel token. È possibile attivare un massimo di 200 di token di GIURAmento ogni 5 minuti. 
 
 Gli utenti possono avere una combinazione composta da fino a cinque token hardware OATH o applicazioni di autenticazione, quali l'app Microsoft Authenticator, configurate per l'uso in qualsiasi momento.
 

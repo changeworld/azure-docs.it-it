@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 64064a584681d84eb6ba023c4777c0fdc4e6ec3d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 566563dde26d2dd36f4358bc8c6dcdcfb5ba8465
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791931"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98954869"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Esercitazione: Effettuare il provisioning di più dispositivi X.509 usando i gruppi di registrazioni
 
@@ -352,6 +352,9 @@ Per aggiornare il codice stub del modulo di protezione hardware personalizzato p
 Nei dispositivi non Windows è possibile passare la catena di certificati dal codice come archivio certificati.
 
 Nei dispositivi basati su Windows è necessario aggiungere i certificati di firma (radice e intermedio) a un [archivio certificati](/windows/win32/secauthn/certificate-stores) Windows. In caso contrario, i certificati di firma non verranno trasportati al servizio Device Provisioning tramite un canale protetto con TLS (Transport Layer Security).
+
+> [!TIP]
+> È anche possibile usare OpenSSL anziché il canale sicuro (Schannel) con C SDK. Per altre informazioni sull'uso di OpenSSL, vedere [uso di OpenSSL nell'SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#using-openssl-in-the-sdk).
 
 Per aggiungere i certificati di firma all'archivio certificati nei dispositivi basati su Windows:
 

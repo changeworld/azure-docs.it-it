@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 2d1bd7d2a4f066311ea01046a8d71e6ecb52c3f5
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919808"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98953938"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Avvio rapido: Introduzione ad Azure Stack Edge Pro con GPU 
 
@@ -28,7 +28,7 @@ Per completare tutta la procedura sono necessarie circa 1,5 ore. Per istruzioni 
 Prima di eseguire la distribuzione, verificare che siano soddisfatti i prerequisiti seguenti:
 
 1. Il dispositivo Azure Stack Edge Pro GPU è stato consegnato, [disimballato](azure-stack-edge-gpu-deploy-install.md#unpack-the-device) e [montato su rack](azure-stack-edge-gpu-deploy-install.md#rack-the-device). 
-1. Configurare la rete in modo che il dispositivo possa raggiungere le [porte e i modelli URL elencati ](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
+1. Configurare la rete in modo che il dispositivo possa raggiungere le [porte e i modelli URL elencati](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements). 
 1. Si ha accesso alla sottoscrizione di Azure come proprietario o collaboratore.
 1. Nel portale di Azure passare a **Home > Sottoscrizioni > Sottoscrizione personale > Provider di risorse**. Cercare `Microsoft.DataBoxEdge` e registrare il provider di risorse. Ripetere i passaggi per registrare `Microsoft.Devices` se si creerà una risorsa hub IoT per la distribuzione dei carichi di lavoro di calcolo.
 1. Assicurarsi di avere almeno 2 indirizzi IP statici contigui disponibili per i nodi Kubernetes e almeno 1 indirizzo IP statico per il servizio IoT Edge. Per ogni modulo o servizio esterno da distribuire è necessario un IP aggiuntivo.

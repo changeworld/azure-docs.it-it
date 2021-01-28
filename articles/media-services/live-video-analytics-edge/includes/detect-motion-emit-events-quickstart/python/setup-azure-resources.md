@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 40d2f957ce115b43a1dcc138b86e05ec9cc47384
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: c5c1fd202b52c8708ab067ca802481f4d4bb4e27
+ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060610"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98956300"
 ---
 Per questa esercitazione sono necessarie le risorse di Azure seguenti:
 
@@ -26,7 +26,19 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-    Dopo il completamento dello script, verranno visualizzate tutte le risorse necessarie nella sottoscrizione.
+    Dopo il completamento dello script, verranno visualizzate tutte le risorse necessarie nella sottoscrizione. Il totale di 12 risorse verrà configurato dallo script:
+    1. **Endpoint di streaming** : consente di riprodurre l'asset AMS registrato.
+    1. **Macchina virtuale** : si tratta di una macchina virtuale che fungerà da dispositivo perimetrale.
+    1. **Disco** : si tratta di un disco di archiviazione collegato alla macchina virtuale per archiviare i supporti e gli artefatti.
+    1. **Gruppo di sicurezza di rete** : viene usato per filtrare il traffico di rete da e verso le risorse di Azure in una rete virtuale di Azure.
+    1. **Interfaccia di rete** : consente a una macchina virtuale di Azure di comunicare con Internet, Azure e altre risorse.
+    1. **Connessione Bastion** : consente di connettersi alla macchina virtuale usando il browser e la portale di Azure.
+    1. **Indirizzo IP pubblico** : consente alle risorse di Azure di comunicare con Internet e con servizi di Azure pubblici
+    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Hub** di Internet delle cose: funge da Hub messaggi centrale per la comunicazione bidirezionale tra l'applicazione internet, IOT Edge moduli e i dispositivi gestiti.
+    1. **Account del servizio multimediale** : consente di gestire e trasmettere in streaming contenuti multimediali in Azure.
+    1. **Account** di archiviazione: è necessario avere un account di archiviazione primario ed è possibile avere un numero qualsiasi di account di archiviazione secondari associati all'account di servizi multimediali. Per altre informazioni, vedere [Account di archiviazione di Azure con account di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Registro contenitori** : consente di archiviare e gestire le immagini del contenitore Docker privato e gli artefatti correlati.
 1. Al termine dello script, selezionare le parentesi graffe per esporre la struttura della cartella. Vengono visualizzati alcuni file nella directory *~/clouddrive/lva-sample*. I file rilevanti per questo avvio rapido sono:
 
      * * **~/clouddrive/lva-sample/edge-deployment/.env** _ - Questo file contiene le proprietà usate da Visual Studio Code per distribuire moduli a un dispositivo perimetrale.
