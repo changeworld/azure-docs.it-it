@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41aec98c2a8776ae128389679ad0acb324596ec4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546829"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947039"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilare le app di Servizio app di Azure attive con Application Insights
 
@@ -50,7 +50,7 @@ Ecco le impostazioni necessarie per abilitare Profiler:
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 
-È possibile impostare questi valori usando [modelli di Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), l'interfaccia della riga di comando di  [Azure](/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+È possibile impostare questi valori usando [modelli di Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), l'interfaccia della riga di comando di  [Azure](/cli/azure/webapp/config/appsettings).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Abilitazione manuale di Profiler per altri cloud
 

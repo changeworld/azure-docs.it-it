@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: d38e631a5a12381b407dca4dd9e2f2ae63365453
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 61b396cbcc8c91c75c961f702de7ed6a33e676e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882450"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947027"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurare un'istanza e l'autenticazione di Azure Digital Twins (portale)
 
@@ -40,7 +40,7 @@ Cercare i dispositivi *gemelli digitali di Azure* nella casella di ricerca e sce
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selezione di ' Crea ' dalla pagina del servizio Azure Digital Twins":::
 
-Nella pagina *Crea risorsa* seguente inserire i valori indicati di seguito:
+Nella pagina **Crea risorsa** seguente inserire i valori indicati di seguito:
 * **Sottoscrizione**: la sottoscrizione di Azure in uso
   - **Gruppo di risorse**: gruppo di risorse in cui distribuire l'istanza. Se non è già presente un gruppo di risorse esistente, è possibile crearne uno selezionando il collegamento *Crea nuovo* e immettendo un nome per un nuovo gruppo di risorse
 * **Location**: area abilitata per i dispositivi gemelli di Azure per la distribuzione. Per altri dettagli sul supporto regionale, visita i [*prodotti Azure disponibili in base all'area (gemelli digitali di Azure)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -48,11 +48,21 @@ Nella pagina *Crea risorsa* seguente inserire i valori indicati di seguito:
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Inserire i valori descritti per creare una risorsa di dispositivi gemelli digitali di Azure":::
 
-Al termine, selezionare _Verifica + crea_. Verrà visualizzata una pagina di riepilogo in cui è possibile esaminare i dettagli dell'istanza immessi e quindi fare clic su _Crea_. 
+Al termine, è possibile selezionare **Verifica + crea** se non si vogliono configurare altre impostazioni per l'istanza. Verrà visualizzata una pagina di riepilogo in cui è possibile esaminare i dettagli dell'istanza immessi e terminati con **create**. 
+
+Se si desidera configurare altri dettagli per l'istanza, nella sezione successiva vengono descritte le schede di configurazione rimanenti.
+
+### <a name="additional-setup-options"></a>Opzioni di installazione aggiuntive
+
+Ecco le opzioni aggiuntive che è possibile configurare durante l'installazione, usando le altre schede del processo di **creazione delle risorse** .
+
+* **Rete**: in questa scheda è possibile abilitare endpoint privati con il [collegamento privato di Azure](../private-link/private-link-overview.md) per eliminare l'esposizione della rete pubblica all'istanza. Per istruzioni, vedere [*procedura: abilitare l'accesso privato con collegamento privato*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
+* **Avanzate**: in questa scheda è possibile abilitare un' [identità gestita dal sistema](../active-directory/managed-identities-azure-resources/overview.md) per l'istanza che può essere utilizzata per l'invio di eventi agli [endpoint](concepts-route-events.md). Per istruzioni, vedere [*procedura: abilitare le identità gestite per il routing degli eventi*](how-to-enable-managed-identities.md).
+* **Tags**: in questa scheda è possibile aggiungere tag all'istanza per facilitarne l'organizzazione tra le risorse di Azure. Per altre informazioni sui tag delle risorse di Azure, vedere [*risorse dei tag, gruppi di risorse e sottoscrizioni per l'organizzazione logica*](../azure-resource-manager/management/tag-resources.md).
 
 ### <a name="verify-success-and-collect-important-values"></a>Verificare l'esito positivo e raccogliere i valori importanti
 
-Dopo aver premuto *Crea*, è possibile visualizzare lo stato della distribuzione dell'istanza nelle notifiche di Azure lungo la barra delle icone del portale. La notifica indicherà quando la distribuzione ha avuto esito positivo e sarà possibile selezionare il pulsante _Vai alla risorsa_ per visualizzare l'istanza creata.
+Dopo aver terminato l'installazione dell'istanza selezionando **Crea**, è possibile visualizzare lo stato della distribuzione dell'istanza nelle notifiche di Azure lungo la barra delle icone del portale. La notifica indicherà quando la distribuzione ha avuto esito positivo e sarà possibile selezionare il pulsante _Vai alla risorsa_ per visualizzare l'istanza creata.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Visualizzazione delle notifiche di Azure che mostrano una distribuzione riuscita ed evidenziano il pulsante &quot;Vai alla risorsa&quot;":::
 

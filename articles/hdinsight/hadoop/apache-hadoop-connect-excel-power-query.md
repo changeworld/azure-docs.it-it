@@ -1,19 +1,16 @@
 ---
 title: Connettere Excel ad Apache Hadoop mediante Power Query - Azure HDInsight
 description: Informazioni su come sfruttare i componenti di business intelligence e usare Power Query per Excel per accedere ai dati archiviati in Hadoop in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcca511bcb61ceab8395ee56b377efa99f095586
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397114"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946703"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Connettere Excel ad Apache Hadoop mediante Power Query
 
@@ -53,13 +50,13 @@ Il componente aggiuntivo Power Query per Excel consente di importare facilmente 
 
        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/powerquery-selecthdisource.png)
 
-       **Nota:** Se non viene visualizzato il menu **Power query** , passare a **file**  >  **Opzioni**  >  **componenti**aggiuntivi e selezionare componenti aggiuntivi **com** dalla casella di riepilogo a discesa nella parte **Manage** inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
+       **Nota:** Se non viene visualizzato il menu **Power query** , passare a **file**  >  **Opzioni**  >  **componenti** aggiuntivi e selezionare componenti aggiuntivi **com** dalla casella di riepilogo a discesa nella parte  inferiore della pagina. Fare clic sul pulsante **Vai** e verificare che la casella per il componente aggiuntivo Power Query per Excel sia selezionata.
 
        **Nota:** Power Query consente inoltre di importare dati da HDFS selezionando **da altre origini**.
 
-1. Nella finestra di dialogo **Azure HDInsight (HDFS)** , nella casella di testo **nome account o URL** , immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster. Quindi scegliere **OK**. Questo può essere l'account di archiviazione predefinito o un account di archiviazione collegato.  Il formato è `https://StorageAccountName.blob.core.windows.net/`.
+1. Nella finestra di dialogo **Azure HDInsight (HDFS)** , nella casella di testo **nome account o URL** , immettere il nome dell'account di archiviazione BLOB di Azure associato al cluster. Selezionare **OK**. Questo può essere l'account di archiviazione predefinito o un account di archiviazione collegato.  Il formato è `https://StorageAccountName.blob.core.windows.net/`.
 
-1. Per **chiave account**immettere la chiave per l'account di archiviazione BLOB e quindi selezionare **Connetti**. È necessario immettere le informazioni sull'account solo la prima volta che si accede a questo archivio.
+1. Per **chiave account** immettere la chiave per l'account di archiviazione BLOB e quindi selezionare **Connetti**. È necessario immettere le informazioni sull'account solo la prima volta che si accede a questo archivio.
 
 1. Nel riquadro **strumento di navigazione** a sinistra dell'editor di query fare doppio clic sul nome del contenitore di archiviazione BLOB associato al cluster. Per impostazione predefinita, il nome del contenitore è uguale al nome del cluster.
 

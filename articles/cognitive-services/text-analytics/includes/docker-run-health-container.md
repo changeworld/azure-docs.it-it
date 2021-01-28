@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/12/2020
 ms.author: aahi
-ms.openlocfilehash: 82c33c038a1f8eaba540c9906efcffa0a9214762
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: af8fec56c32b52e2af584e59f08db6cc7129c9c5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98689585"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948288"
 ---
 ## <a name="install-the-container"></a>Installare il contenitore
 
@@ -112,7 +112,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 È anche possibile usare un'istanza di contenitore di Azure (ACI) per semplificare la distribuzione. ACI è una risorsa che consente di eseguire i contenitori Docker su richiesta in un ambiente Azure gestito senza server. 
 
-Vedere [come usare istanze di contenitore di Azure](../how-tos/text-analytics-how-to-use-container-instances.md) per i passaggi per la distribuzione di una risorsa ACI usando il portale di Azure. È anche possibile usare lo script di PowerShell seguente usando l'interfaccia della riga di comando di Azure, che creerà un ACI nella sottoscrizione usando l'immagine del contenitore.  Attendere il completamento dello script (circa 25-30 minuti) prima di inviare la prima richiesta.  A causa del limite per il numero massimo di CPU per ogni risorsa ACI, non selezionare questa opzione se si prevede di inviare più di 5 documenti di grandi dimensioni (circa 5000 caratteri ciascuno) per ogni richiesta.
+Vedere [come usare istanze di contenitore di Azure](../../containers/azure-container-instance-recipe.md) per i passaggi per la distribuzione di una risorsa ACI usando il portale di Azure. È anche possibile usare lo script di PowerShell seguente usando l'interfaccia della riga di comando di Azure, che creerà un ACI nella sottoscrizione usando l'immagine del contenitore.  Attendere il completamento dello script (circa 25-30 minuti) prima di inviare la prima richiesta.  A causa del limite per il numero massimo di CPU per ogni risorsa ACI, non selezionare questa opzione se si prevede di inviare più di 5 documenti di grandi dimensioni (circa 5000 caratteri ciascuno) per ogni richiesta.
 Per informazioni sulla disponibilità, vedere l'articolo del [supporto tecnico regionale di ACI](../../../container-instances/container-instances-region-availability.md) . 
 
 > [!NOTE] 
@@ -213,4 +213,3 @@ docker-compose up
 ```
 
 Per ulteriori informazioni, vedere la documentazione di NGINX sulla [terminazione di nginx SSL](https://docs.nginx.com/nginx/admin-guide/security-controls/terminating-ssl-http/).
-

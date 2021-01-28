@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 042a3edf8efe080064a3c41fd55975a40bf47e5e
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
-ms.translationtype: HT
+ms.openlocfilehash: 414c2b936d98d1269221bf1353dbc364c9b5723e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94386474"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948239"
 ---
 La libreria client di Ricerca Web Bing facilita l'integrazione di Ricerca Web Bing nell'applicazione Java. In questa guida introduttiva si apprenderà come inviare una richiesta, ricevere una risposta JSON e filtrare e analizzare i risultati.
 
@@ -295,4 +295,4 @@ Dopo aver terminato di usare questo progetto, rimuovere la chiave di sottoscrizi
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Informazioni di riferimento su Azure Java SDK](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-java-stable)
+* [Informazioni di riferimento su Azure Java SDK](/java/api/overview/azure/cognitiveservices/client/bingwebsearchapi)

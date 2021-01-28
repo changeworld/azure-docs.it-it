@@ -8,18 +8,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 5bfe28a8111128ba7d8072c27d8647e6137620cd
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
-ms.translationtype: HT
+ms.openlocfilehash: f3599a804549a19c3a633cfacf1a97b5ee232a32
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97844743"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947649"
 ---
 Introduzione alla libreria client di Suggerimenti automatici Bing per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base.
 
 Usare la libreria client di Suggerimenti automatici Bing per .NET per ottenere suggerimenti per la ricerca in base a stringhe di query parziali.
 
-[Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Codice di esempio](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
+[Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingAutoSuggest) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.AutoSuggest/) | [Codice di esempio](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/BingAutoSuggest/Program.cs)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -151,7 +151,7 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 > Questo argomento di avvio rapido presuppone che sia stata [creata una variabile di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave di Suggerimenti automatici Bing denominata `AUTOSUGGEST_SUBSCRIPTION_KEY` e una per l'endpoint denominato `AUTOSUGGEST_ENDPOINT`.
 
 
-In un nuovo metodo asincrono creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials?view=azure-dotnet) con la chiave e usarlo con l'endpoint per creare un oggetto [AutosuggestClient](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient?view=azure-dotnet).
+In un nuovo metodo asincrono creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.apikeyserviceclientcredentials) con la chiave e usarlo con l'endpoint per creare un oggetto [AutosuggestClient](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclient).
 
 ```csharp
 async static Task RunQuickstart()
@@ -167,7 +167,7 @@ async static Task RunQuickstart()
 
 ### <a name="send-an-autosuggest-request"></a>Inviare una richiesta di suggerimenti automatici
 
-Nello stesso metodo usare il metodo [AutoSuggestMethodAsync](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) del client per inviare una query a Bing. Scorrere quindi la risposta di [Suggerimenti](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions?view=azure-dotnet) e stampare il primo suggerimento.
+Nello stesso metodo usare il metodo [AutoSuggestMethodAsync](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.autosuggestclientextensions.autosuggestmethodasync#Microsoft_Azure_CognitiveServices_Search_AutoSuggest_AutoSuggestClientExtensions_AutoSuggestMethodAsync_Microsoft_Azure_CognitiveServices_Search_AutoSuggest_IAutoSuggestClient_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_String_System_Collections_Generic_IList_System_String__System_Threading_CancellationToken_) del client per inviare una query a Bing. Scorrere quindi la risposta di [Suggerimenti](/dotnet/api/microsoft.azure.cognitiveservices.search.autosuggest.models.suggestions) e stampare il primo suggerimento.
 
 ```csharp
 var result = await client.AutoSuggestMethodAsync("xb");
@@ -216,4 +216,4 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 ## <a name="see-also"></a>Vedere anche
 
 - [Informazioni su Suggerimenti automatici Bing](../../get-suggested-search-terms.md)
-- [Informazioni di riferimento su Suggerimenti automatici per .NET](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme?view=azure-dotnet)
+- [Informazioni di riferimento su Suggerimenti automatici per .NET](/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme)

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: ae2cd72bfde3eb7fdc6b135cbb22d04535a2f251
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
-ms.translationtype: HT
+ms.openlocfilehash: ba61601ba345d554d4898292cb082f71b829b342
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97731908"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947945"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
 
@@ -68,19 +68,19 @@ Per altre informazioni su `require`, vedere <a href="https://nodejs.org/en/knowl
 
 ## <a name="create-a-speech-configuration"></a>Creare una configurazione di Voce
 
-Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione.
+Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione.
 
 > [!NOTE]
 > Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
 
-Esistono diversi modi per inizializzare [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest):
+Esistono diversi modi per inizializzare [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
 
 * Con una sottoscrizione: passare una chiave e l'area associata.
 * Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
 * Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
 * Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
 
-In questo esempio viene creato un oggetto [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest) usando una chiave e un'area di sottoscrizione. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free). Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
+In questo esempio viene creato un oggetto [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) usando una chiave e un'area di sottoscrizione. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free). Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
 
 ```javascript
 function synthesizeSpeech() {
@@ -92,7 +92,7 @@ synthesizeSpeech();
 
 ## <a name="synthesize-speech-to-a-file"></a>Sintetizzare la voce in un file
 
-Successivamente, creare un oggetto [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?preserve-view=true&view=azure-node-latest), che esegue le conversioni di sintesi vocale e invia l'output ad altoparlanti, file o altri flussi. [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?preserve-view=true&view=azure-node-latest) accetta come parametri l'oggetto [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?preserve-view=true&view=azure-node-latest) creato nel passaggio precedente e un oggetto [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?preserve-view=true&view=azure-node-latest) che specifica come devono essere gestiti i risultati dell'output.
+Successivamente, creare un oggetto [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer), che esegue le conversioni di sintesi vocale e invia l'output ad altoparlanti, file o altri flussi. [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) accetta come parametri l'oggetto [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) creato nel passaggio precedente e un oggetto [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) che specifica come devono essere gestiti i risultati dell'output.
 
 Per iniziare, creare un oggetto `AudioConfig` per scrivere automaticamente l'output in un file `.wav`, usando la funzione statica `fromAudioFileOutput()`.
 
@@ -166,7 +166,7 @@ Per molti scenari di sviluppo di applicazioni vocali, i dati audio risultanti po
 > [!NOTE]
 > Se si passa `undefined` per `AudioConfig`, invece di ometterlo come nel precedente esempio di output nell'altoparlante, l'audio non verrà riprodotto per impostazione predefinita nel dispositivo di output attivo corrente.
 
-Questa volta il risultato viene salvato in una variabile [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?preserve-view=true&view=azure-node-latest). La proprietà `SpeechSynthesisResult.audioData` restituisce un oggetto `ArrayBuffer` dei dati di output. È possibile usare tale `ArrayBuffer` manualmente.
+Questa volta il risultato viene salvato in una variabile [`SpeechSynthesisResult`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult). La proprietà `SpeechSynthesisResult.audioData` restituisce un oggetto `ArrayBuffer` dei dati di output. È possibile usare tale `ArrayBuffer` manualmente.
 
 ```javascript
 function synthesizeSpeech() {
@@ -199,7 +199,7 @@ La sezione seguente illustra come personalizzare gli attributi dell'output audio
 * Frequenza di campionamento
 * Profondità di bit
 
-Per cambiare il formato audio, usare la proprietà `speechSynthesisOutputFormat` nell'oggetto `SpeechConfig`. Questa proprietà prevede un oggetto `enum` di tipo [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest), che viene usato per selezionare il formato di output. Per un [elenco di formati audio](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?preserve-view=true&view=azure-node-latest) disponibili, vedere la documentazione di riferimento.
+Per cambiare il formato audio, usare la proprietà `speechSynthesisOutputFormat` nell'oggetto `SpeechConfig`. Questa proprietà prevede un oggetto `enum` di tipo [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), che viene usato per selezionare il formato di output. Per un [elenco di formati audio](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat) disponibili, vedere la documentazione di riferimento.
 
 Sono disponibili varie opzioni per tipi di file diversi a seconda dei requisiti. Si noti che, per definizione, i formati non elaborati come `Raw24Khz16BitMonoPcm` non includono intestazioni audio. Usare formati non elaborati solo quando si è certi che l'implementazione downstream possa decodificare un flusso di bit non elaborato o se si prevede di creare manualmente le intestazioni in base alla profondità di bit, alla frequenza di campionamento, al numero di canali e così via.
 

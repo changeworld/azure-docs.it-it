@@ -3,18 +3,18 @@ title: Introduzione a Gestione costi di Azure per i partner
 description: Questo articolo illustra in che modo i partner usano le funzionalità di Gestione costi di Azure e autorizzano l'accesso alla gestione dei costi da parte dei clienti.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 8a04cb2c590bc4f0104a93ac7c7c2cf7b71a4662
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602177"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946987"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introduzione a Gestione costi di Azure per i partner
 
@@ -22,7 +22,7 @@ Gestione costi di Azure è disponibile in modo nativo per i partner diretti che 
 
 Per i partner diretti e i provider indiretti, l'amministratore globale e gli agenti di amministrazione possono accedere a Gestione costi nel tenant del partner e gestire i costi ai prezzi fatturati.
 
-I rivenditori e i clienti possono accedere a Gestione costi nel tenant del cliente e visualizzare i costi per le sottoscrizioni, dove i costi sono calcolati e visualizzati con le tariffe al dettaglio. Devono però avere accesso con Controllo degli accessi in base al ruolo di Azure alla sottoscrizione nel tenant del cliente per visualizzare i costi. I criteri di visibilità dei costi devono essere abilitati dal provider per il tenant del cliente.
+I rivenditori e i clienti possono accedere alla gestione dei costi nel tenant del cliente e visualizzare i costi di consumo per le sottoscrizioni, in cui i costi vengono calcolati e visualizzati alle tariffe al dettaglio. Devono però avere accesso con Controllo degli accessi in base al ruolo di Azure alla sottoscrizione nel tenant del cliente per visualizzare i costi. I criteri di visibilità dei costi devono essere abilitati dal provider per il tenant del cliente.
 
 I clienti possono usare le funzionalità di Gestione costi quando sono abilitate dal partner CSP.
 
@@ -56,6 +56,8 @@ Gestione costi di Azure richiede l'accesso in lettura all'account di fatturazion
 Per altre informazioni sull'abilitazione e l'assegnazione dell'accesso a Gestione costi di Azure per un account di fatturazione, vedere [Assegnare autorizzazioni e ruoli utente](/partner-center/permissions-overview). I ruoli **amministratore globale** e **agente amministratore** possono gestire i costi per un account di fatturazione.
 
 Per accedere a Gestione costi di Azure nell'ambito della sottoscrizione, qualsiasi utente con accesso di Controllo degli accessi in base al ruolo di Azure a una sottoscrizione può visualizzare i costi in base alle tariffe al dettaglio (pagamento in base al consumo). È tuttavia necessario abilitare i [criteri di visibilità dei costi per il tenant del cliente](#enable-the-policy-to-view-azure-usage-charges). Per visualizzare un elenco completo dei tipi di account supportati, vedere [Informazioni sui dati di Gestione costi](understand-cost-mgt-data.md).
+
+Quando si trasferiscono contratti di fatturazione esistenti a un nuovo partner, le funzionalità di gestione dei costi sono disponibili solo per la relazione di fatturazione corrente con il partner. I costi cronologici prima del trasferimento al nuovo partner non passano al nuovo account di fatturazione. Tuttavia, la cronologia dei costi rimane con l'account di fatturazione associato originale.
 
 ## <a name="how-cost-management-uses-scopes"></a>Modalità di utilizzo degli ambiti in Gestione costi
 

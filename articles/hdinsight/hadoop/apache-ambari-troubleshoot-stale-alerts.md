@@ -1,18 +1,15 @@
 ---
 title: Avvisi di Apache Ambari non aggiornati in Azure HDInsight
 description: Discussione e analisi delle possibili cause e delle soluzioni per gli avvisi non aggiornati di Apache Ambari in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 9564e149055dcabf205694b3cf6c3ddc03163037
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: e31e5d5a5b27f4dcb267905eae6329666fc3292c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533836"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946710"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scenario: avvisi non aggiornati di Apache Ambari in Azure HDInsight
 
@@ -46,17 +43,17 @@ Provare a usare i metodi seguenti per risolvere i problemi relativi agli avvisi 
 
 1. Nell'interfaccia utente di Apache Ambariri selezionare la scheda **avvisi** .
 1. Selezionare il nome della definizione di avviso desiderata.
-1. Nella definizione selezionare **modifica** .
-1. Aumentare il valore di **intervallo di controllo** e quindi selezionare **Salva** .
+1. Nella definizione selezionare **modifica**.
+1. Aumentare il valore di **intervallo di controllo** e quindi selezionare **Salva**.
 
 ### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Aumentare l'intervallo di tempo di avviso per gli avvisi del server Ambari
 
 1. Nell'interfaccia utente di Apache Ambariri selezionare la scheda **avvisi** .
-1. Dall'elenco a discesa **gruppi** selezionare **AMBARI default** .
+1. Dall'elenco a discesa **gruppi** selezionare **AMBARI default**.
 1. Selezionare l'avviso **avvisi server Ambari** .
-1. Nella definizione selezionare **modifica** .
+1. Nella definizione selezionare **modifica**.
 1. Aumentare il valore dell' **intervallo di controllo** .
-1. Aumentare il valore del **moltiplicatore intervallo** , quindi selezionare **Salva** .
+1. Aumentare il valore del **moltiplicatore intervallo** , quindi selezionare **Salva**.
 
 ### <a name="disable-and-reenable-the-alert"></a>Disabilitare e riabilitare l'avviso
 
@@ -65,10 +62,10 @@ Per eliminare un avviso non aggiornato, disabilitare e quindi riabilitarlo:
 1. Nell'interfaccia utente di Apache Ambariri selezionare la scheda **avvisi** .
 1. Selezionare il nome della definizione di avviso desiderata.
 1. Nella definizione selezionare **abilitato** nella parte più a destra dell'interfaccia utente.
-1. Nella finestra popup di **conferma** selezionare **Conferma disabilitazione** .
+1. Nella finestra popup di **conferma** selezionare **Conferma disabilitazione**.
 1. Attendere alcuni secondi per la cancellazione di tutte le "istanze" dell'avviso visualizzate nella pagina.
 1. Dalla definizione selezionare **disabilitato** nella parte più a destra dell'interfaccia utente.
-1. Nella finestra popup di **conferma** selezionare **conferma Abilita** .
+1. Nella finestra popup di **conferma** selezionare **conferma Abilita**.
 
 ### <a name="increase-the-alert-grace-period"></a>Aumentare il periodo di tolleranza dell'avviso
 
@@ -84,6 +81,6 @@ Se il problema non è stato specificato o non si riesce a risolverlo, visitare u
 
 * Connettersi con [@AzureSupport](https://twitter.com/azuresupport) su Twitter. Si tratta dell'account Microsoft Azure ufficiale per migliorare l'esperienza dei clienti. Connette la community di Azure alle risorse appropriate: risposte, supporto ed esperti.
 
-* Se è necessaria ulteriore assistenza, inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Per ottenere il supporto, selezionare **? (?** ) dal menu del portale o aprire il riquadro **Guida e supporto** . Per altre informazioni, vedere [come creare una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* Se è necessaria ulteriore assistenza, inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Per ottenere il supporto, selezionare **? (?**) dal menu del portale o aprire il riquadro **Guida e supporto** . Per altre informazioni, vedere [come creare una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
 
   Il supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure. Il supporto tecnico è disponibile tramite i [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

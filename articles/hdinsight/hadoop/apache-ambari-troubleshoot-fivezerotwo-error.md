@@ -3,16 +3,13 @@ title: Errore 502 dell'interfaccia utente di Apache Ambari in Azure HDInsight
 description: Errore di Apache Ambari UI 502 quando si tenta di accedere al cluster Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: a512afa719c29976a9126afb67de4a0e6c80763d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 750232b19bd5ef0674a9df79fdf3972a679eda7d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998295"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946780"
 ---
 # <a name="scenario-apache-ambari-ui-502-error-in-azure-hdinsight"></a>Scenario: errore di Apache Ambari UI 502 in Azure HDInsight
 
@@ -26,7 +23,7 @@ Quando si prova ad accedere all'interfaccia utente di Apache Ambari per il clust
 
 In generale, il codice di stato HTTP 502 indica che il server Ambari non è in esecuzione correttamente nel nodo head attivo. Esistono alcune possibili cause principali.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Nella maggior parte dei casi, per attenuare il problema, è possibile riavviare il nodo head attivo. In alternativa, scegliere una dimensione di macchina virtuale più grande per la nodo head.
 

@@ -1,18 +1,15 @@
 ---
 title: 'Esercitazione: Configurare le notifiche tramite posta elettronica di Apache Ambari in Azure HDInsight'
 description: Questo articolo descrive come usare SendGrid con Apache Ambari per le notifiche tramite posta elettronica.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.openlocfilehash: 63d0f87925f14fddf3dbd722fa72326ee8b04f31
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542557"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946978"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Esercitazione: Configurare le notifiche tramite posta elettronica di Apache Ambari in Azure HDInsight
 
@@ -38,11 +35,11 @@ In questa esercitazione verranno illustrate le procedure per:
 
     ![Panoramica di SendGrid nel portale di Azure](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. Dal menu a sinistra passare al nome dell'account e quindi a **Dettagli account** .
+1. Dal menu a sinistra passare al nome dell'account e quindi a **Dettagli account**.
 
     ![Menu di spostamento del dashboard SendGrid](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. Dalla pagina **Dettagli account** registrare il **Nome utente** .
+1. Dalla pagina **Dettagli account** registrare il **Nome utente**.
 
     ![Dettagli account SendGrid](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,7 +47,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts` dove `CLUSTERNAME` è il nome del cluster.
 
-1. Dall'elenco a discesa **Azioni** selezionare **Gestisci notifiche** .
+1. Dall'elenco a discesa **Azioni** selezionare **Gestisci notifiche**.
 
 1. Nella finestra **Manage Alert Notifications** (Gestisci notifiche di avviso) selezionare l'icona **+** .
 
@@ -64,7 +61,7 @@ In questa esercitazione verranno illustrate le procedure per:
     |Gruppi|Configurare in base alle esigenze.|
     |Gravità|Configurare in base alle esigenze.|
     |Descrizione|Facoltativa.|
-    |Metodo|Lasciare **POSTA ELETTRONICA** .|
+    |Metodo|Lasciare **POSTA ELETTRONICA**.|
     |Destinatario|Specificare gli indirizzi di posta elettronica per ricevere le notifiche, separati da una virgola.|
     |Server SMTP|`smtp.sendgrid.net`|
     |Porta SMTP|25 o 587 (per le connessioni non crittografate/TLS).|
@@ -77,9 +74,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
     ![Screenshot che mostra la finestra di dialogo Create Alert Notification (Crea notifica di avviso).](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Selezionare **Salva** . Si verrà reindirizzati alla finestra **Manage Alert Notifications** (Gestisci notifiche di avviso).
+    Selezionare **Salva**. Si verrà reindirizzati alla finestra **Manage Alert Notifications** (Gestisci notifiche di avviso).
 
-1. Nella finestra **Manage Alert Notifications** (Gestisci notifiche di avviso) selezionare **Chiudi** .
+1. Nella finestra **Manage Alert Notifications** (Gestisci notifiche di avviso) selezionare **Chiudi**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

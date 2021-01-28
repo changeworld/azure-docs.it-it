@@ -4,12 +4,12 @@ ms.author: pafarley
 ms.service: cognitive-services
 ms.date: 12/09/2020
 ms.topic: include
-ms.openlocfilehash: 8890a0132e5f510a0af2862c483206fd025a68d8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
-ms.translationtype: HT
+ms.openlocfilehash: cea3db080865727ab9b425f14a172041a54a5414
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256307"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98948228"
 ---
 Introduzione all'API REST Visione personalizzata. Seguire questa procedura per chiamare l'API e creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
@@ -224,5 +224,5 @@ A questo punto, sono stati eseguiti tutti i passaggi del processo di classificaz
 > [Testare un modello e ripeterne il training](../../test-your-model.md)
 
 * Informazioni su Visione personalizzata
-* [Documentazione di riferimento delle API (training)](/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)
+* [Documentazione di riferimento delle API (training)](/dotnet/api/overview/azure/cognitiveservices/client/customvision)
 * [Documentazione di riferimento delle API (previsione)](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae)
