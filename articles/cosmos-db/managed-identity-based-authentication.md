@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfef6ce0fb38f074f854d5ceb77677843e44b91b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4d9845fad8c9013bd20499c45a8d1714e30e9dbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96345730"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927407"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +31,7 @@ In questo passaggio si assegnerà un'identità gestita assegnata dal sistema all
 
 1. Nel [portale di Azure](https://portal.azure.com/)aprire il riquadro **funzione di Azure** e passare all'app per le funzioni. 
 
-1. Aprire la scheda identità **funzionalità piattaforma**  >  **Identity** : 
+1. Aprire la scheda identità **funzionalità piattaforma**  >   : 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
@@ -130,7 +130,7 @@ namespace Monitor
 }
 ```
 
-Si userà la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) per ottenere il token di identità gestito assegnato dal sistema. Per informazioni su altri modi per ottenere il token e trovare altre informazioni sulla `Microsoft.Azure.Service.AppAuthentication` libreria, vedere l'articolo relativo all' [autenticazione da servizio a servizio](../key-vault/general/service-to-service-authentication.md) .
+Si userà la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) per ottenere il token di identità gestito assegnato dal sistema. Per informazioni su altri modi per ottenere il token e trovare altre informazioni sulla `Microsoft.Azure.Service.AppAuthentication` libreria, vedere l'articolo relativo all' [autenticazione da servizio a servizio](/dotnet/api/overview/azure/service-to-service-authentication) .
 
 
 ```csharp

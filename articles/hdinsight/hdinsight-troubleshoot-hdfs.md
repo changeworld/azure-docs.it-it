@@ -1,19 +1,16 @@
 ---
 title: Risolvere i problemi di HDFS in Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di HDFS e Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: add8bc14c1810d4b0d5894a840f2b815230f31cc
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0be7805493e5acc41254c57ca912b5a2ecf02dae
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289000"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931459"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS di Apache Hadoop usando Azure HDInsight
 
@@ -25,7 +22,7 @@ Informazioni sui problemi e le risoluzioni principali quando si lavora con Hadoo
 
 Accedere al sistema HDFS locale dalla riga di comando e dal codice dell'applicazione anziché usare l'archiviazione BLOB di Azure o Azure Data Lake Storage dall'interno del cluster HDInsight.
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Al prompt dei comandi usare `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` in modo letterale, come nel comando seguente:
 
@@ -116,7 +113,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 1. Nel browser passare all'interfaccia utente Web di Ambari per il cluster, L'URL è `https://CLUSTERNAME.azurehdinsight.net` , dove `CLUSTERNAME` è il nome del cluster. Quando richiesto, immettere il nome dell'amministratore e la password per il cluster.
 2. Sul lato sinistro dello schermo selezionale **HDFS** e quindi fare clic sulla scheda **Configs** (Configurazioni).
-3. Nel campo **Filter** (Filtro) immettere `fs.azure.write.request.size`.
+3. Nel campo **Filter..** . (filtro) immettere `fs.azure.write.request.size` .
 4. Modificare il valore da 262144 (256 KB) al nuovo valore. Ad esempio, 4194304 (4 MB).
 
     ![Immagine della modifica del valore tramite l'interfaccia utente Web di Ambari](./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png)

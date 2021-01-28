@@ -1,19 +1,16 @@
 ---
 title: Esempio di Machine Learning con MLlib Spark in HDInsight di Azure
 description: Informazioni su come usare MLlib Spark per creare un'app di Machine Learning che analizza un set di dati usando una classificazione tramite la regressione logistica.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: a6407f7c3b1e8570cdc6b36dceec79fba58689c7
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: d2054058bb00b0801aa1c3694c73b6a2edb46c80
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822183"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930038"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -57,7 +54,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
     from pyspark.sql.types import *
     ```
 
-    A causa del kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e hive vengono creati automaticamente quando si esegue la prima cella di codice.
+    Dato che è stato usato il kernel PySpark, non è necessario creare contesti in modo esplicito. I contesti Spark e hive vengono creati automaticamente quando si esegue la prima cella di codice.
 
 ## <a name="construct-the-input-dataframe"></a>Creare il frame di dati di input
 

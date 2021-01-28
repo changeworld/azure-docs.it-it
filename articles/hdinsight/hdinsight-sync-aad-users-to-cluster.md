@@ -1,19 +1,17 @@
 ---
 title: Sincronizzare gli utenti Azure Active Directory con il cluster HDInsight
 description: Sincronizzare gli utenti autenticati da Azure Active Directory a un cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: 19466174faeef20b8ac29882b047d74ad2adc5ff
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a3307c5d677028c17717c0d591790f0373f131d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535179"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931629"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Sincronizzare gli utenti di Azure Active Directory con un cluster HDInsight
 
@@ -29,7 +27,7 @@ Per visualizzare gli host, aprire l'interfaccia utente Web di Ambari. Ogni nodo 
 
 1. Dal [portale di Azure](https://portal.azure.com)passare alla directory Azure ad associata al cluster ESP.
 
-2. Selezionare **Tutti gli utenti** nel menu a sinistra e quindi selezionare **Nuovo utente** .
+2. Selezionare **Tutti gli utenti** nel menu a sinistra e quindi selezionare **Nuovo utente**.
 
     ![portale di Azure utenti e gruppi tutti](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
@@ -37,7 +35,7 @@ Per visualizzare gli host, aprire l'interfaccia utente Web di Ambari. Ogni nodo 
 
     ![portale di Azure selezionare i gruppi nel riquadro utente](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
-4. Selezionare **Crea** .
+4. Selezionare **Crea**.
 
 ## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Usare l'API REST di Apache Ambari per sincronizzare gli utenti
 
@@ -120,7 +118,7 @@ Il metodo seguente usa POST con l'API REST di Ambari. Per altre informazioni, ve
     }
     ```
 
-1. Questo risultato indica che lo stato è **completo** , che è stato creato un nuovo utente e che all'utente è stata assegnata un'appartenenza. In questo esempio, l'utente viene assegnato al gruppo LDAP sincronizzato "HiveUsers", dato che è stato aggiunto allo stesso gruppo in Azure AD.
+1. Questo risultato indica che lo stato è **completo**, che è stato creato un nuovo utente e che all'utente è stata assegnata un'appartenenza. In questo esempio, l'utente viene assegnato al gruppo LDAP sincronizzato "HiveUsers", dato che è stato aggiunto allo stesso gruppo in Azure AD.
 
     > [!NOTE]  
     > Il metodo precedente Sincronizza solo i gruppi di Azure AD specificati nella proprietà **gruppo utenti di accesso** delle impostazioni del dominio durante la creazione del cluster. Per altre informazioni, vedere la procedura per [creare un cluster HDInsight](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).

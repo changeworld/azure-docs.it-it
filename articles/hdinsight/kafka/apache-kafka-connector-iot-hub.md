@@ -1,19 +1,16 @@
 ---
 title: Usare Apache Kafka in HDInsight con l'hub IoT
 description: Informazioni su come usare Apache Kafka in HDInsight con l'hub IoT. Il progetto Kafka Connect Azure IoT Hub specifica un connettore di origine e un connettore sink per Kafka. Il connettore di origine può leggere i dati dall'hub IoT mentre il connettore sink scrive nell'hub IoT.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: 0722119b35ecebf3ed1e7a377707de02a6c127bf
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 7980003dd63e5e51d87f85542029a1f25e7223df
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932877"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -29,7 +26,7 @@ Nel diagramma seguente viene illustrato il flusso di dati tra l'hub IoT e Kafka 
 
 Per ulteriori informazioni sull'API Connect, vedere [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un cluster Apache Kafka in HDInsight. Per altre informazioni, vedere il documento [Creare un cluster Kafka in HDInsight](apache-kafka-get-started.md).
 
@@ -118,7 +115,7 @@ Dalla connessione SSH al nodo perimetrale, usare la procedura seguente per confi
 
 1. Apportare le modifiche seguenti:
 
-    |Valore corrente |Nuovo valore | Aggiungere commenti |
+    |Valore corrente |Nuovo valore | Commento |
     |---|---|---|
     |`bootstrap.servers=localhost:9092`|Sostituire il `localhost:9092` valore con gli host broker del passaggio precedente|Configura la configurazione autonoma per il nodo perimetrale per trovare i broker Kafka.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|La modifica consente di eseguire test usando il producer di console incluso in Kafka. Potrebbero essere necessari diversi convertitori per altri producer e consumer. Per informazioni sull'utilizzo di altri valori di convertitore, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|

@@ -3,17 +3,14 @@ title: Risolvere i problemi di Hive tramite Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di Apache Hive e Azure HDInsight.
 keywords: Azure HDInsight, Hive, domande frequenti, guida alla risoluzione dei problemi, domande comuni
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a76974b8daddf225b0d9b8b581475d657322847e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288969"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931440"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache Hive tramite Azure HDInsight
 
@@ -21,7 +18,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Come si esporta un metastore Hive e lo si importa in un altro cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Connettersi al cluster HDInsight con un client Secure Shell (SSH). Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-end).
 
@@ -47,7 +44,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Come si individuano i log Hive in un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Connettersi al cluster HDInsight usando SSH. Per altre informazioni, vedere **Informazioni aggiuntive**.
 
@@ -75,7 +72,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Come si avvia la shell di Hive con configurazioni specifiche in un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Specificare una coppia chiave-valore di configurazione all'avvio della shell di Hive. Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-end).
 
@@ -101,7 +98,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 
 ## <a name="how-do-i-analyze-apache-tez-dag-data-on-a-cluster-critical-path"></a><a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Come si analizzano i dati di un grafo aciclico diretto di Apache Tez in un percorso critico del cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Per analizzare i dati di un grafo aciclico diretto di Apache Tez in un grafo critico del cluster, connettersi al cluster HDInsight usando SSH. Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-end).
 
@@ -120,17 +117,17 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
    È necessario fornire un programma di esempio come primo argomento.
 
    I nomi di programma validi includono:
-    - **ContainerReuseAnalyzer** : stampare i dettagli di riutilizzo dei contenitori in un grafo aciclico diretto
-    - **CriticalPath** : trovare il percorso critico di un grafo aciclico diretto
-    - **LocalityAnalyzer** : stampare i dettagli della località in un grafo aciclico diretto
-    - **ShuffleTimeAnalyzer** : analizzare i dettagli degli orari di riproduzione casuale in un grafo aciclico diretto
-    - **SkewAnalyzer** : analizzare i dettagli dell'asimmetria in un grafo aciclico diretto
-    - **SlowNodeAnalyzer** : stampare i dettagli del nodo in un grafo aciclico diretto
-    - **SlowTaskIdentifier** : stampare i dettagli sulle attività lente in un grafo aciclico diretto
-    - **SlowestVertexAnalyzer** : stampare i dettagli relativi ai vertici più lenti in un grafo aciclico diretto
-    - **SpillAnalyzer** : stampare i dettagli relativi all'espansione in un grafo aciclico diretto
-    - **TaskConcurrencyAnalyzer** : stampare i dettagli relativi alla concorrenza delle attività in un grafo aciclico diretto
-    - **VertexLevelCriticalPathAnalyzer** : trovare il percorso critico a livello di vertice in un grafo aciclico diretto
+    - **ContainerReuseAnalyzer**: stampare i dettagli di riutilizzo dei contenitori in un grafo aciclico diretto
+    - **CriticalPath**: trovare il percorso critico di un grafo aciclico diretto
+    - **LocalityAnalyzer**: stampare i dettagli della località in un grafo aciclico diretto
+    - **ShuffleTimeAnalyzer**: analizzare i dettagli degli orari di riproduzione casuale in un grafo aciclico diretto
+    - **SkewAnalyzer**: analizzare i dettagli dell'asimmetria in un grafo aciclico diretto
+    - **SlowNodeAnalyzer**: stampare i dettagli del nodo in un grafo aciclico diretto
+    - **SlowTaskIdentifier**: stampare i dettagli sulle attività lente in un grafo aciclico diretto
+    - **SlowestVertexAnalyzer**: stampare i dettagli relativi ai vertici più lenti in un grafo aciclico diretto
+    - **SpillAnalyzer**: stampare i dettagli relativi all'espansione in un grafo aciclico diretto
+    - **TaskConcurrencyAnalyzer**: stampare i dettagli relativi alla concorrenza delle attività in un grafo aciclico diretto
+    - **VertexLevelCriticalPathAnalyzer**: trovare il percorso critico a livello di vertice in un grafo aciclico diretto
 
 ### <a name="additional-reading"></a>Altre letture
 
@@ -138,7 +135,7 @@ Il codice nella procedura di risoluzione presuppone che i percorsi di dati nel n
 
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Come si scaricano i dati di un grafo aciclico diretto di Tez da un cluster?
 
-#### <a name="resolution-steps"></a>Procedura per la risoluzione
+#### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 Esistono due modi per raccogliere i dati di un grafo aciclico diretto di Tez:
 

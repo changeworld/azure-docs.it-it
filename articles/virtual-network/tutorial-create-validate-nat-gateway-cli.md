@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2020
 ms.author: allensu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e99ee28460c1639a7f0b9dd989bbe5a287a9158c
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
-ms.translationtype: HT
+ms.openlocfilehash: 457749b353b9b7fabfb137ebe907463bb17158ba
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221821"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98926927"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Esercitazione: Creare un gateway NAT e testare il servizio NAT tramite l'interfaccia della riga di comando di Azure
 
@@ -61,7 +61,7 @@ Per accedere alla rete Internet pubblica, sono necessari uno o più indirizzi IP
 
 ### <a name="create-a-public-ip-prefix"></a>Creare un prefisso indirizzo IP pubblico
 
-Con il gateway NAT è possibile usare una o più risorse indirizzo IP pubblico, prefissi IP pubblici o entrambi. Per la dimostrazione, verrà aggiunta una risorsa prefisso indirizzo IP pubblico a questo scenario.   Usare il comando [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) per creare una risorsa prefisso indirizzo IP pubblico denominata **myPublicIPprefixsource** in **myResourceGroupNAT**.
+Con il gateway NAT è possibile usare una o più risorse indirizzo IP pubblico, prefissi IP pubblici o entrambi. Per la dimostrazione, verrà aggiunta una risorsa prefisso indirizzo IP pubblico a questo scenario.   Usare il comando [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) per creare una risorsa prefisso indirizzo IP pubblico denominata **myPublicIPprefixsource** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -77,7 +77,7 @@ Questa sezione descrive in modo dettagliato come creare e configurare i componen
   - Un pool di indirizzi IP pubblici e un prefisso indirizzo IP pubblico da usare per i flussi in uscita convertiti dalla risorsa gateway NAT.
   - Modificare il timeout di inattività dal valore predefinito di 4 minuti a 10 minuti.
 
-Creare un gateway NAT di Azure globale denominato [myNATgateway](/cli/azure/network/nat?view=azure-cli-latest) con **az network nat gateway create**. Il comando usa l'indirizzo IP pubblico **myPublicIP** e il prefisso indirizzo IP pubblico **myPublicIPprefix**. Il comando imposta anche il timeout di inattività su 10 minuti.
+Creare un gateway NAT di Azure globale denominato [myNATgateway](/cli/azure/network/nat) con **az network nat gateway create**. Il comando usa l'indirizzo IP pubblico **myPublicIP** e il prefisso indirizzo IP pubblico **myPublicIPprefix**. Il comando imposta anche il timeout di inattività su 10 minuti.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -144,7 +144,7 @@ Verrà creato un indirizzo IP pubblico da usare per accedere alla macchina virtu
 
 ### <a name="create-an-nsg-for-source-vm"></a>Creare un gruppo di sicurezza di rete per la macchina virtuale di origine
 
-Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefinita', verrà creato un gruppo di sicurezza di rete per consentire l'accesso in ingresso per SSH.  Il servizio NAT di Azure è in grado di riconoscere la direzione del flusso. Questo gruppo di sicurezza di rete non verrà usato per il traffico in uscita se il gateway NAT è configurato nella stessa subnet. Usare il comando [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) per creare una risorsa gruppo di sicurezza di rete denominata **myNSGsource** in **myResourceGroupNAT**.
+Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefinita', verrà creato un gruppo di sicurezza di rete per consentire l'accesso in ingresso per SSH.  Il servizio NAT di Azure è in grado di riconoscere la direzione del flusso. Questo gruppo di sicurezza di rete non verrà usato per il traffico in uscita se il gateway NAT è configurato nella stessa subnet. Usare il comando [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) per creare una risorsa gruppo di sicurezza di rete denominata **myNSGsource** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -155,7 +155,7 @@ Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefi
 
 ### <a name="expose-ssh-endpoint-on-source-vm"></a>Esporre l'endpoint SSH nella macchina virtuale di origine
 
-Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso SSH alla macchina virtuale di origine. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **ssh**. Questa regola verrà creata nel gruppo di sicurezza di rete denominato **myNSGsource** nel gruppo di risorse **myResourceGroupNAT**.
+Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso SSH alla macchina virtuale di origine. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **ssh**. Questa regola verrà creata nel gruppo di sicurezza di rete denominato **myNSGsource** nel gruppo di risorse **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -237,7 +237,7 @@ Verrà creato un indirizzo IP pubblico da usare per accedere alla macchina virtu
 
 ### <a name="create-an-nsg-for-destination-vm"></a>Creare un gruppo di sicurezza di rete per la macchina virtuale di destinazione
 
-Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefinita', sarà necessario creare un gruppo di sicurezza di rete per consentire l'accesso in ingresso per SSH. Il servizio NAT di Azure è in grado di riconoscere la direzione del flusso. Questo gruppo di sicurezza di rete non verrà usato per il traffico in uscita se il gateway NAT è configurato nella stessa subnet. Usare il comando [az network nsg create](/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) per creare una risorsa gruppo di sicurezza di rete denominata **myNSGdestination** in **myResourceGroupNAT**.
+Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefinita', sarà necessario creare un gruppo di sicurezza di rete per consentire l'accesso in ingresso per SSH. Il servizio NAT di Azure è in grado di riconoscere la direzione del flusso. Questo gruppo di sicurezza di rete non verrà usato per il traffico in uscita se il gateway NAT è configurato nella stessa subnet. Usare il comando [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) per creare una risorsa gruppo di sicurezza di rete denominata **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg create \
@@ -248,7 +248,7 @@ Poiché gli indirizzi IP pubblici Standard sono 'sicuri per impostazione predefi
 
 ### <a name="expose-ssh-endpoint-on-destination-vm"></a>Esporre l'endpoint SSH nella macchina virtuale di destinazione
 
-Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso SSH alla macchina virtuale di destinazione. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **ssh**. Questa regola verrà creata nel gruppo di sicurezza di rete denominato **myNSGdestination** nel gruppo di risorse **myResourceGroupNAT**.
+Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso SSH alla macchina virtuale di destinazione. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **ssh**. Questa regola verrà creata nel gruppo di sicurezza di rete denominato **myNSGdestination** nel gruppo di risorse **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \
@@ -266,7 +266,7 @@ Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso SSH alla 
 
 ### <a name="expose-http-endpoint-on-destination-vm"></a>Esporre l'endpoint HTTP nella macchina virtuale di destinazione
 
-Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso HTTP alla macchina virtuale di destinazione. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **http** nel gruppo di sicurezza **myNSGdestination** in **myResourceGroupNAT**.
+Nel gruppo di sicurezza di rete verrà creata una regola per l'accesso HTTP alla macchina virtuale di destinazione. Usare il comando [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) per creare una regola del gruppo di sicurezza di rete denominata **http** nel gruppo di sicurezza **myNSGdestination** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
     az network nsg rule create \

@@ -1,19 +1,16 @@
 ---
 title: Risolvere i problemi del cluster Apache Spark in Azure HDInsight
 description: Informazioni sui problemi relativi ai cluster Apache Spark in HDInsight di Azure e come risolverli.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.author: hrasheed
-ms.openlocfilehash: 65163225853037ac4cb97a02c0bdaf554b509fb1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: c92b55d3ac7f4476b7b74d25b40150a74c6ea1cf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822200"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930151"
 ---
 # <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>Problemi noti del cluster Apache Spark in HDInsight
 
@@ -119,7 +116,7 @@ Quando il cluster Spark esaurisce le risorse, si verifica il timeout dei kernel 
 
 2. Riavviare il notebook che si stava cercando di avviare. Ora dovrebbero essere disponibili risorse sufficienti per creare una sessione.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 

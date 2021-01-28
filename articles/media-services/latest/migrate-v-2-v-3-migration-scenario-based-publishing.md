@@ -1,5 +1,5 @@
 ---
-title: Guida alla migrazione basata sullo scenario per la creazione di pacchetti e la distribuzione
+title: Linee guida per la migrazione di pacchetti e recapito
 description: Questo articolo fornisce indicazioni basate sullo scenario per la creazione di pacchetti e la distribuzione che consentono di eseguire la migrazione da servizi multimediali di Azure V2 a V3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 78f3e6ee53d5158096882f5554054c3ff06a32b4
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 90dfc2fd6f6258ec5bfdea38423489c72ee06e03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895238"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928186"
 ---
 # <a name="packaging-and-delivery-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario per la creazione di pacchetti e la distribuzione
 

@@ -2,26 +2,20 @@
 title: Configurare la propria chiave per la crittografia dei dati del bus di servizio di Azure inattivi
 description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per la crittografia di REST di dati del bus di servizio di Azure.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 3e8f3a599ee5fe40c85a93dd58d36e6cd611c9ea
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.date: 01/26/2021
+ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631767"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928093"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
-Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati con le chiavi gestite da Microsoft. 
+Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium USA archiviazione di Azure per archiviare i dati. Tutti i dati archiviati con archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft. Se si usa una chiave personalizzata (detta anche Bring Your Own Key (BYOK) o una chiave gestita dal cliente), i dati vengono comunque crittografati con la chiave gestita da Microsoft, ma in aggiunta la chiave gestita da Microsoft verrà crittografata con la chiave gestita dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia delle chiavi gestite da Microsoft. L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
 
-## <a name="overview"></a>Panoramica
-Il bus di servizio di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key-BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia del bus di servizio di Azure.
-
-L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
-
-> [!NOTE]
-> Ci sono alcune avvertenze per la chiave gestita dal cliente per la crittografia lato servizio. 
->   * Questa funzionalità è supportata dal livello [Premium del bus di servizio di Azure](service-bus-premium-messaging.md) . Non può essere abilitata per gli spazi dei nomi del bus di servizio di livello standard.
->   * La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene code o argomenti, l'operazione di crittografia avrà esito negativo.
+Ci sono alcune avvertenze per la chiave gestita dal cliente per la crittografia lato servizio. 
+- Questa funzionalità è supportata dal livello [Premium del bus di servizio di Azure](service-bus-premium-messaging.md) . Non può essere abilitata per gli spazi dei nomi del bus di servizio di livello standard.
+- La crittografia può essere abilitata solo per gli spazi dei nomi nuovi o vuoti. Se lo spazio dei nomi contiene code o argomenti, l'operazione di crittografia avrà esito negativo.
 
 È possibile usare Azure Key Vault per gestire le chiavi e controllare l'utilizzo della chiave. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 
@@ -70,13 +64,13 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
         > [!NOTE]
         > Per la ridondanza, è possibile aggiungere fino a tre chiavi. Se una delle chiavi è scaduta o non è accessibile, verranno usate le altre chiavi per la crittografia.
         
-    1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia dei dati inattivi nello spazio dei nomi con una chiave gestita dal cliente. 
+    1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia della chiave gestita da Microsoft con la chiave (chiave gestita dal cliente). 
 
 
     > [!IMPORTANT]
-    > Se si sta cercando di usare la chiave gestita dal cliente insieme al ripristino di emergenza geografico, vedere le 
+    > Se si sta cercando di usare la chiave gestita dal cliente insieme al ripristino di emergenza geografico, consultare questa sezione. 
     >
-    > Per abilitare la crittografia dei file inattivi con la chiave gestita dal cliente, viene configurato un [criterio di accesso](../key-vault/general/secure-your-key-vault.md) per l'identità gestita del bus di servizio nell'insieme di credenziali delle chiavi di Azure specificato. Ciò garantisce l'accesso controllato all'insieme di credenziali delle credenziali di Azure dallo spazio dei nomi del bus di servizio di Azure.
+    > Per abilitare la crittografia della chiave gestita da Microsoft con una chiave gestita dal cliente, viene configurato un [criterio di accesso](../key-vault/general/secure-your-key-vault.md) per l'identità gestita del bus di servizio nell'insieme di credenziali delle chiavi di Azure specificato. Ciò garantisce l'accesso controllato all'insieme di credenziali delle credenziali di Azure dallo spazio dei nomi del bus di servizio di Azure.
     >
     > A causa di questa operazione:
     > 

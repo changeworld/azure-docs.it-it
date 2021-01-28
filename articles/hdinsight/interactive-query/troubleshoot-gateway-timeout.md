@@ -1,18 +1,15 @@
 ---
 title: Eccezione durante l'esecuzione di query dalla vista hive di Apache Ambari in Azure HDInsight
 description: Procedura di risoluzione dei problemi durante l'esecuzione di query Apache Hive tramite la vista hive di Apache Ambari in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 12/23/2019
-ms.openlocfilehash: aeedda5c26a2e9dc0fa2b228285cfda45d880d29
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 40ef380cd2bd4743b92daf44a0a5b70ade1cbb35
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547385"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933014"
 ---
 # <a name="exception-when-running-queries-from-apache-ambari-hive-view-in-azure-hdinsight"></a>Eccezione durante l'esecuzione di query dalla vista hive di Apache Ambari in Azure HDInsight
 
@@ -54,13 +51,13 @@ Di seguito sono riportate alcune indicazioni generali per migliorare la situazio
 
 * Se si usa un Metastore hive esterno, controllare le metriche del database e verificare che il database non sia sovraccarico. Valutare la possibilità di ridimensionare il livello di database del Metastore.
 
-* Assicurarsi che le operazioni parallele siano attivate, in modo da consentire l'esecuzione in parallelo dei thread del gestore HTTP. Per verificare il valore, avviare [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e passare a **hive**  >  **configs**  >  **Advanced**  >  **Custom hive-site** . Il valore di `hive.server2.parallel.ops.in.session` deve essere `true` .
+* Assicurarsi che le operazioni parallele siano attivate, in modo da consentire l'esecuzione in parallelo dei thread del gestore HTTP. Per verificare il valore, avviare [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) e passare a **hive**  >  **configs**  >  **Advanced**  >  **Custom hive-site**. Il valore di `hive.server2.parallel.ops.in.session` deve essere `true` .
 
 * Verificare che lo SKU della macchina virtuale del cluster non sia troppo piccolo per il carico. Si consiglia di suddividere il lavoro tra più cluster. Per ulteriori informazioni, vedere [scegliere un tipo di cluster](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
 * Se Ranger è installato nel cluster, verificare se sono presenti troppi criteri Ranger che devono essere valutati per ogni query. Cercare i criteri duplicati o non necessari.
 
-* Verificare il valore delle **dimensioni heap HiveServer2** da Ambari. Passare a configurazione di **hive**  >  **Configs**  >  **Impostazioni**  >  **ottimizzazione** . Verificare che il valore sia maggiore di 10 GB. Modificare in base alle esigenze per ottimizzare le prestazioni.
+* Verificare il valore delle **dimensioni heap HiveServer2** da Ambari. Passare a configurazione di **hive**  >    >  **Impostazioni**  >  **ottimizzazione**. Verificare che il valore sia maggiore di 10 GB. Modificare in base alle esigenze per ottimizzare le prestazioni.
 
 * Assicurarsi che la query hive sia ben ottimizzata. Per altre informazioni, vedere [optimize Apache hive queries in Azure HDInsight](../hdinsight-hadoop-optimize-hive-query.md).
 
@@ -72,4 +69,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

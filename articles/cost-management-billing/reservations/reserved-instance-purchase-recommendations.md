@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
-ms.translationtype: HT
+ms.date: 01/27/2021
+ms.openlocfilehash: 4f6187ccb143f065fed236495128add7a2ab1ee4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398427"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928536"
 ---
 # <a name="reservation-recommendations"></a>Consigli sulle prenotazioni
 
@@ -25,11 +25,11 @@ Nei passaggi seguenti viene definita la modalità di calcolo delle raccomandazio
 2. In base ai dati di utilizzo, il motore simula i costi con e senza prenotazioni.
 3. Vengono simulati i costi per le diverse quantità e viene consigliata la quantità che consente di ottenere il massimo risparmio.
 4. Se le risorse vengono arrestate regolarmente, con la simulazione non verrà individuato alcun risparmio e non verrà fornita alcuna raccomandazione di acquisto.
-5. Il calcolo delle raccomandazioni include gli eventuali sconti speciali che possono essere applicati alle tariffe di utilizzo su richiesta.
+5. I calcoli delle raccomandazioni includono eventuali sconti speciali che potrebbero essere presenti sulle tariffe di utilizzo su richiesta.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Raccomandazioni nel portale di Azure
 
-Le raccomandazioni per l'acquisto di prenotazioni sono illustrate anche nell'esperienza di acquisto del portale di Azure. Le raccomandazioni sono contrassegnate con la dicitura **Quantità raccomandata**. All'acquisto, la quantità raccomandata da Azure garantirà il massimo risparmio possibile. Benché sia possibile acquistare una quantità qualsiasi, se si acquista una quantità diversa il risparmio non sarà ottimale.
+Le raccomandazioni per l'acquisto di prenotazioni sono illustrate anche nell'esperienza di acquisto del portale di Azure. Le raccomandazioni sono contrassegnate con la dicitura **Quantità raccomandata**. All'acquisto, la quantità raccomandata da Azure garantirà il massimo risparmio possibile. Sebbene sia possibile acquistare qualsiasi quantità desiderata, se si acquista una quantità diversa, i risparmi non saranno ottimali.
 
 Di seguito sono riportati alcuni esempi che spiegano il motivo.
 
@@ -37,13 +37,13 @@ Nell'immagine di esempio seguente relativa alla raccomandazione selezionata, Azu
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" alt-text="Esempio di raccomandazione per l'acquisto di prenotazioni" lightbox="./media/reserved-instance-purchase-recommendations/recommended-quantity.png" :::
 
-Per visualizzare altre informazioni sulla raccomandazione, è possibile selezionare il collegamento **Visualizza i dettagli**. L'immagine seguente mostra i dettagli relativi alla raccomandazione. La quantità raccomandata viene calcolata per il massimo utilizzo possibile, in base all'utilizzo cronologico. Se l'utilizzo non è uniforme, è possibile che la raccomandazione non indichi un utilizzo al 100%. Nell'esempio si noti che l'utilizzo presenta una fluttuazione nel tempo. Sono visualizzati il costo della prenotazione, il possibile risparmio e la percentuale di utilizzo.
+Ulteriori informazioni sulla raccomandazione vengono visualizzate quando si seleziona **Visualizza dettagli**. L'immagine seguente mostra i dettagli relativi alla raccomandazione. La quantità consigliata viene calcolata per l'utilizzo più elevato possibile ed è basata sull'utilizzo cronologico. Se l'utilizzo non è uniforme, è possibile che la raccomandazione non indichi un utilizzo al 100%. Nell'esempio si noti che l'utilizzo fluttua nel tempo. Sono visualizzati il costo della prenotazione, il possibile risparmio e la percentuale di utilizzo.
 
-:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Esempio che mostra i dettagli di una raccomandazione per l'acquisto di prenotazioni" :::
+:::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details.png" alt-text="Esempio che mostra i dettagli per una raccomandazione di acquisto della prenotazione " :::
 
-Se la quantità delle prenotazioni viene aumentata o diminuita rispetto al livello indicato nella raccomandazione, il grafico e i valori stimati cambiano. Aumentando la quantità delle prenotazioni il risparmio risulterà ridotto perché si otterrà un utilizzo ridotto delle prenotazioni. In altre parole, si pagherà per le prenotazioni che non sono completamente utilizzate.
+Il grafico e i valori stimati cambiano quando si aumenta la quantità consigliata. Aumentando la quantità di prenotazione, i risparmi verranno ridotti perché si finirà con una riduzione dell'utilizzo della prenotazione. In altre parole, si pagherà per le prenotazioni che non sono completamente utilizzate.
 
-Se si diminuisce la quantità delle prenotazioni, anche il risparmio verrà ridotto. Anche se l'utilizzo aumenta, probabilmente si presenteranno periodi in cui le prenotazioni non riusciranno a coprire completamente l'utilizzo. L'utilizzo oltre la quantità delle prenotazioni sarà soddisfatto da risorse più costose con pagamento in base al consumo. Nell'immagine di esempio seguente viene illustrato questo aspetto. La quantità della prenotazione è stata ridotta manualmente a 4. L'utilizzo della prenotazione è aumentato, ma il risparmio complessivo risulta ridotto perché sono presenti costi con pagamento in base al consumo.
+Se si riduce la quantità di prenotazione, anche il risparmio verrà ridotto. Anche se l'utilizzo aumenta, probabilmente si presenteranno periodi in cui le prenotazioni non riusciranno a coprire completamente l'utilizzo. L'utilizzo oltre la quantità delle prenotazioni sarà soddisfatto da risorse più costose con pagamento in base al consumo. Nell'immagine di esempio seguente viene illustrato questo aspetto. La quantità della prenotazione è stata ridotta manualmente a 4. L'utilizzo della prenotazione è aumentato, ma i risparmi complessivi sono ridotti perché sono presenti costi con pagamento in base al consumo.
 
 :::image type="content" source="./media/reserved-instance-purchase-recommendations/recommended-quantity-details-changed.png" alt-text="Esempio che mostra i dettagli modificati di una raccomandazione per l'acquisto di prenotazioni" :::
 
@@ -53,11 +53,12 @@ Per ottimizzare i risparmi con le prenotazioni, provare ad acquistare prenotazio
 
 Le raccomandazioni per l'acquisto di prenotazioni sono disponibili in Azure Advisor. Tenere presente quanto segue:
 
-- In Advisor sono disponibili solo le raccomandazioni relative a una singola sottoscrizione. Per visualizzare le raccomandazioni per l'intero ambito di fatturazione (account di fatturazione o profilo di fatturazione) passare al portale di Azure > Prenotazioni > aggiungere e selezionare il tipo per cui visualizzare le raccomandazioni.
-- Le raccomandazioni disponibili in Advisor considerano la tendenza di utilizzo di 30 giorni.
-- La quantità delle raccomandazioni e il risparmio si riferiscono a una prenotazione di 3 anni, se disponibile. Se per il servizio non viene venduta la prenotazione di 3 anni, la raccomandazione viene calcolata in base al prezzo di prenotazione di 1 anno.
-- Il calcolo delle raccomandazioni include gli eventuali sconti speciali che possono essere applicati alle tariffe di utilizzo su richiesta.
-- Se si acquista una prenotazione con ambito condiviso, la rimozione delle raccomandazioni di acquisto delle prenotazioni di Advisor può richiedere fino a 5 giorni.
+- In Advisor sono disponibili solo le raccomandazioni relative a una singola sottoscrizione. Se si desidera visualizzare le raccomandazioni per l'intero ambito di fatturazione (account di fatturazione o profilo di fatturazione), effettuare le seguenti operazioni:
+  -  Nella portale di Azure passare a **prenotazioni**  >  **Aggiungi** e quindi selezionare il tipo per il quale si desidera visualizzare le raccomandazioni.
+- Le indicazioni disponibili in Advisor prendono in considerazione la tendenza di utilizzo precedente di 30 giorni.
+- La quantità e il risparmio di raccomandazioni sono relativi a una prenotazione di tre anni, se disponibile. Se per il servizio non viene venduta una prenotazione di tre anni, la raccomandazione viene calcolata utilizzando il prezzo di prenotazione di un anno.
+- I calcoli delle raccomandazioni includono eventuali sconti speciali che potrebbero essere presenti sulle tariffe di utilizzo su richiesta.
+- Se si acquista una prenotazione con ambito condiviso, le raccomandazioni di acquisto della prenotazione di Advisor possono richiedere fino a cinque giorni per scomparire.
 
 ## <a name="other-expected-api-behavior"></a>Altro comportamento previsto dell'API
 

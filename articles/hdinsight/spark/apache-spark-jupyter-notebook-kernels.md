@@ -1,19 +1,16 @@
 ---
 title: Kernel per Jupyter Notebook nei cluster Spark in Azure HDInsight
 description: Informazioni sui kernel PySpark, PySpark3 e Spark per Jupyter Notebook disponibili con i cluster Spark in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: b1139ce2358d5e5b3b52376892524e7ee0dd5611
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: a16ec623d7475a80e546df43495db1a357a5fa66
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822234"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930393"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Kernel per Jupyter Notebook nei cluster di Apache Spark in Azure HDInsight
 
@@ -25,7 +22,7 @@ I cluster HDInsight Spark forniscono i kernel che è possibile usare con il Jupy
 
 In questo articolo viene illustrato come usare questi kernel e i vantaggi che ne derivano.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 

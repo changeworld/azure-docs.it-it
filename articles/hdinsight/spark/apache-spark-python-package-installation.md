@@ -1,19 +1,16 @@
 ---
 title: Azione script per pacchetti Python con Jupyter in Azure HDInsight
 description: Istruzioni dettagliate su come usare l'azione script per configurare i notebook di Jupyter disponibili con i cluster HDInsight Spark per l'uso di pacchetti Python esterni.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 21423f7200d25c9a5b3b63d2371e56977cd9d227
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821376"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929821"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
 

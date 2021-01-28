@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6201a4e0551f0f75dde65b2bc4b8b560a0f5ea20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d424a22a26119dcb3ef6a0e5c4f3dc0c13b1aa4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87007997"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927583"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Panoramica dell’estensione Diagnostica di Azure
 L’estensione Diagnostica di Azure è un [agente Monitoraggio di Azure](agents-overview.md) che raccoglie i dati di monitoraggio dal sistema operativo guest delle risorse di elaborazione di Azure, comprese le macchine virtuali. Questo articolo offre una panoramica dell'estensione Diagnostica di Azure, comprese le funzionalità specifiche supportate e le opzioni di installazione e configurazione. 
@@ -50,7 +50,7 @@ Le tabelle seguenti elencano i dati che possono essere raccolti dall'estensione 
 | Contatori delle prestazioni | Valori numerici che misurano le prestazioni di diversi aspetti del sistema operativo e dei carichi di lavoro. |
 | Log IIS             | Informazioni sull'utilizzo per siti Web IIS in esecuzione nel sistema operativo guest. |
 | Log applicazioni     | Messaggi di traccia scritti dall'applicazione usata. |
-| Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) di .NET |
+| Log EventSource .NET |Eventi di scrittura di codice con la classe [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) di .NET |
 | [Log ETW basati su manifesto](/windows/desktop/etw/about-event-tracing) |Traccia di eventi per eventi Windows generati da qualsiasi processo. |
 | Dump di arresto anomalo (log)   | Informazioni sullo stato del processo in caso di arresto anomalo di un'applicazione. |
 | Log basati su file    | Log creati dall'applicazione o dal servizio. |

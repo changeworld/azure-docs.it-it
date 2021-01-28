@@ -1,19 +1,16 @@
 ---
 title: Eseguire processi Apache Sqoop usando .NET e HDInsight - Azure
 description: Informazioni su come usare HDInsight .NET SDK per eseguire l'importazione e l'esportazione di Apache Sqoop tra un cluster Apache Hadoop e un database SQL di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, hdiseo17may2017, devx-track-csharp
 ms.date: 01/14/2020
-ms.openlocfilehash: bc4b3019cb8308ea19d86eea7bf886063ea28563
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a06326f5b4cf34a06475c10e368c6dcbb49ca9e4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008285"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928348"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight
 
@@ -33,7 +30,7 @@ Informazioni su come usare Azure HDInsight .NET SDK per eseguire processi Apache
 
 HDInsight .NET SDK fornisce librerie client .NET che semplificano l'uso dei cluster HDInsight da .NET. In questa sezione viene creata un'applicazione console C# per esportare la nella `hivesampletable` tabella del database SQL di Azure creata dai prerequisiti.
 
-## <a name="set-up"></a>Configurare
+## <a name="set-up"></a>Configurazione
 
 1. Avviare Visual Studio e creare un'applicazione console C#.
 

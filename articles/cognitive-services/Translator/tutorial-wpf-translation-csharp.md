@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ebcbadbc8b502121b25393c7761794bcd3f07e8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897106"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927476"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
-In questa esercitazione verrà creata un'app [WPF (Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf?view=vs-2019) che usa Servizi cognitivi di Azure per la traduzione testuale, il rilevamento della lingua e il controllo ortografico con una chiave di sottoscrizione singola. In particolare, l'app chiamerà le API di Translator e [Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In questa esercitazione verrà creata un'app [WPF (Windows Presentation Foundation)](/visualstudio/designers/getting-started-with-wpf) che usa Servizi cognitivi di Azure per la traduzione testuale, il rilevamento della lingua e il controllo ortografico con una chiave di sottoscrizione singola. In particolare, l'app chiamerà le API di Translator e [Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Cos'è WPF? È un framework interfaccia utente che crea app client desktop. La piattaforma di sviluppo WPF supporta un ampio set di funzionalità di sviluppo di app, tra cui un modello di app, risorse, controlli, grafica, layout, associazione dati, documenti e sicurezza. Si tratta di un sottoinsieme di .NET Framework, quindi se sono già state create app con .NET Framework usando ASP.NET o Windows Forms, l'esperienza di programmazione dovrebbe risultare familiare. WPF usa il linguaggio XAML (Extensible app Markup Language) per fornire un modello dichiarativo per la programmazione di app, che verrà esaminato nelle prossime sezioni.
 
@@ -90,7 +90,7 @@ Aggiungere gli assembly al progetto per serializzare e deserializzare oggetti, n
 1. Dopo aver aggiunto questi riferimenti al progetto, è possibile fare clic su **OK** per chiudere **Gestione riferimenti**.
 
 > [!NOTE]
-> Per altre informazioni sui riferimenti ad assembly, vedere [Procedura: Aggiungere o rimuovere riferimenti tramite Gestione riferimenti](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019).
+> Per altre informazioni sui riferimenti ad assembly, vedere [Procedura: Aggiungere o rimuovere riferimenti tramite Gestione riferimenti](/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager).
 
 ### <a name="install-newtonsoftjson"></a>Installare Newtonsoft.Json
 

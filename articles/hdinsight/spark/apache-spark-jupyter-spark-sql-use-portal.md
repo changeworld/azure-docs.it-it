@@ -1,19 +1,16 @@
 ---
 title: 'Guida introduttiva: Creare un cluster Spark in HDInsight usando il portale di Azure'
 description: Questa guida di avvio rapido illustra come usare il portale di Azure per creare un cluster Apache Spark in HDInsight di Azure ed eseguire una query Spark SQL.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2020
-ms.openlocfilehash: 6554d112e494a129fa2cc811c2acf1959ff79f8b
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
-ms.translationtype: HT
+ms.openlocfilehash: 18225703b2a390f64b4bebd58b0167dd77c454d0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822268"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98930369"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Guida introduttiva: Creare cluster Apache Spark in Azure HDInsight usando il portale di Azure
 
