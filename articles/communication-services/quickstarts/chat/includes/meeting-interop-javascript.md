@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 12/08/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 0c41771af81989ff965098a762338216db54fd27
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
-ms.translationtype: HT
+ms.openlocfilehash: 780ef2bbb7851d8bef5fc52a51421a7938043ecb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97578044"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932301"
 ---
 ## <a name="join-the-meeting-chat"></a>Partecipare alla chat della riunione 
 
@@ -21,7 +21,7 @@ Quando è abilitata l'interoperabilità di Teams, un utente di Servizi di comuni
 Creare prima di tutto un'istanza di `ChatThreadClient` per il thread di chat della riunione. Analizzare il collegamento alla riunione oppure usare le API Graph con l'ID riunione per ottenere l'ID del thread. 
 
 - Un collegamento a una riunione di Teams ha un aspetto simile al seguente: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. L'ID del thread si trova nella posizione in cui si trova `meeting_chat_thread_id` in questo collegamento. 
-- Se si dispone dell'ID della riunione, è possibile usare l'[API Graph](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) per ottenere l'ID del thread. La risposta [GET API](https://docs.microsoft.com/graph/api/onlinemeeting-get?view=graph-rest-beta&tabs=http%22%20%5C) includerà un oggetto `chatInfo` che contiene il `threadID`. 
+- Se si dispone dell'ID della riunione, è possibile usare l'[API Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta) per ottenere l'ID del thread. La risposta [GET API](/graph/api/onlinemeeting-get?tabs=http%22+%5c&view=graph-rest-beta) includerà un oggetto `chatInfo` che contiene il `threadID`. 
 
 Una volta ottenuto l'ID del thread della chat, è possibile ottenere il client di thread delle chat usando la libreria client di chat JavaScript: 
 
@@ -44,4 +44,3 @@ Per altre informazioni sui tipi di messaggio, vedere [questo articolo](../../../
 
 **Nota**: attualmente sono supportati solo l'invio e la ricezione di messaggi per gli scenari di interoperabilità con Teams. Altre funzionalità, come gli indicatori di digitazione e la possibilità per gli utenti di Servizi di comunicazione di aggiungere o rimuovere altri utenti dalla riunione di Teams, non sono ancora supportate.  
 
- 

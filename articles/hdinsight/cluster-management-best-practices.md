@@ -1,19 +1,16 @@
 ---
 title: Procedure consigliate per la gestione dei cluster-Azure HDInsight
 description: Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3a96a7116c83bf9ea2c3798c335c6cefcbdbc36d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 27f390c3634887dd616c62dbbd4ad85209efde46
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659489"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933704"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedure consigliate per la gestione dei cluster HDInsight
 
@@ -47,7 +44,7 @@ Informazioni sulle procedure consigliate per la gestione dei cluster HDInsight.
 
 ## <a name="what-are-some-errors-i-might-face-when-creating-clusters"></a>Quali sono alcuni errori che possono verificarsi durante la creazione di cluster?
 
-| Errore | Altre informazioni |
+| Errore | Ulteriori informazioni |
 |---|---|
 | Nessuna quota | Sono disponibili quote per il numero di core che è possibile creare nella sottoscrizione in ogni area. Per altre informazioni, vedere [pianificazione della capacità: quote](./hdinsight-capacity-planning.md). |
 | Non sono disponibili altri indirizzi IP | Ogni VNet ha un numero limitato di indirizzi IP. Quando si crea un cluster HDInsight, ogni nodo, inclusi i nodi Zookeeper e gateway, USA alcuni di questi indirizzi IP assegnati. Quando tutti gli indirizzi IP sono in uso, si verificherà questo errore.  |

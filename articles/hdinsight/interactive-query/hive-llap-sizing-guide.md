@@ -7,12 +7,12 @@ author: aniket-ms
 ms.author: aadnaik
 ms.reviewer: HDI HiveLLAP Team
 ms.date: 05/05/2020
-ms.openlocfilehash: 626b061cc237f7238d47863a3e1ed88961d2f742
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7df75077785c66215008e045ef0b1e451ba29f57
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680538"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931097"
 ---
 # <a name="azure-hdinsight-interactive-query-cluster-hive-llap-sizing-guide"></a>Guida al dimensionamento di cluster Interactive Query in HDInsight (Hive LLAP)
 
@@ -216,7 +216,7 @@ Ad esempio: capacità totale del cluster = 100 GB di memoria, divisa tra LLAP, g
  - Capacità coda di gestione del carico di lavoro = 20 GB
  - Capacità coda predefinita = 10 GB
 
-Con 20 GB nella capacità della coda di gestione del carico di lavoro, un piano di risorse può specificare `QUERY_PARALLELISM` il valore cinque, il che significa che la gestione del carico di lavoro può avviare cinque Tez AMs con dimensioni del contenitore di 4 GB ciascuna. Se `QUERY_PARALLELISM` è maggiore della capacità, è possibile che venga visualizzato uno stato di TeZ AMs bloccato `ACCEPTED` . Hiveserver2 Interactive non può inviare frammenti di query al Tez AMs che non sono in `RUNNING` stato.
+Con 20 GB nella capacità della coda di gestione del carico di lavoro, un piano di risorse può specificare `QUERY_PARALLELISM` il valore cinque, il che significa che la gestione del carico di lavoro può avviare cinque Tez AMs con dimensioni del contenitore di 4 GB ciascuna. Se `QUERY_PARALLELISM` il valore di è maggiore della capacità, è possibile che alcuni Tez AMs interrompano la risposta nello `ACCEPTED` stato. Hiveserver2 Interactive non può inviare frammenti di query al Tez AMs che non sono in `RUNNING` stato.
 
 
 #### <a name="next-steps"></a>**Passaggi successivi**

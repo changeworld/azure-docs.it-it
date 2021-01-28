@@ -3,16 +3,13 @@ title: Messaggio di errore non visualizzato nella visualizzazione Apache Hive-Az
 description: La query ha esito negativo in Apache Hive visualizzazione senza dettagli sul cluster HDInsight di Azure.
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 7aadef0d4c70f748b4f7a7c7f9fc16c38216fa7a
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: c60e06e8f37e7aed0d0a0df661690a2b1f32dbd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288948"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931002"
 ---
 # <a name="scenario-query-error-message-not-displayed-in-apache-hive-view-in-azure-hdinsight"></a>Scenario: il messaggio di errore della query non viene visualizzato nella visualizzazione Apache Hive in Azure HDInsight
 

@@ -1,18 +1,16 @@
 ---
 title: Tag di servizio del gruppo di sicurezza di rete (NSG) per Azure HDInsight
 description: Usare i tag del servizio HDInsight per consentire il traffico in ingresso verso il cluster dai nodi Health and Management Services, senza aggiungere indirizzi IP al gruppi.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: d17d067b88add3006bc5c7fb10caa6b80a80a827
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022752"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931771"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
 
@@ -64,7 +62,7 @@ Se il cluster si trova in un'area elencata in questa tabella, è sufficiente agg
 | Cina | Cina orientale 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Cina settentrionale 2 | HDInsight. ChinaNorth2 |
 | Stati Uniti | Stati Uniti centro-settentrionali | HDInsight. NorthCentralUS |
-| &nbsp; | West US 2 | HDInsight. WestUS2 |
+| &nbsp; | Stati Uniti occidentali 2 | HDInsight. WestUS2 |
 | &nbsp; | Stati Uniti centro-occidentali | HDInsight. WestCentralUS |
 | Canada | Canada orientale | HDInsight. CanadaEast |
 | Brasile | Brasile meridionale | HDInsight. BrazilSouth |

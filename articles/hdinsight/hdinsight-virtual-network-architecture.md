@@ -1,18 +1,15 @@
 ---
 title: Architettura della rete virtuale di HDInsight
 description: Informazioni sulle risorse disponibili quando si crea un cluster HDInsight in una rete virtuale di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5b8bdf5577642290cee7250e0f21f8a69dfd248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81390215"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931159"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura della rete virtuale di HDInsight
 
@@ -22,7 +19,7 @@ Questo articolo illustra le risorse presenti quando si distribuisce un cluster H
 
 I cluster Azure HDInsight hanno tipi diversi di macchine virtuali o nodi. Ogni tipo di nodo svolge un ruolo nel funzionamento del sistema. La tabella seguente riepiloga questi tipi di nodo e i relativi ruoli nel cluster.
 
-| Type | Descrizione |
+| Tipo | Descrizione |
 | --- | --- |
 | Nodo head |  Per tutti i tipi di cluster ad eccezione di Apache Storm, i nodi head ospitano i processi che gestiscono l'esecuzione dell'applicazione distribuita. Il nodo Head è anche il nodo in cui è possibile accedere tramite SSH ed eseguire le applicazioni che vengono quindi coordinate per l'esecuzione tra le risorse del cluster. Il numero di nodi head è fisso a due per tutti i tipi di cluster. |
 | Nodo ZooKeeper | Zookeeper coordina le attività tra i nodi che eseguono l'elaborazione dei dati. Il nodo head viene anche designato come leader e tiene traccia del nodo head che esegue un servizio master specifico. Il numero di nodi ZooKeeper è fisso a tre. |

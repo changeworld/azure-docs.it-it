@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/07/2021
-ms.openlocfilehash: ee6105376f5e8dc884f13e04db51126c039328e9
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 203782ef2d95cd2b47082f630fa12531a110d49e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968892"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933919"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Risolvere i problemi delle prestazioni dell'attività di copia
 
@@ -194,7 +194,7 @@ Il tempo di esecuzione dell'attività varia quando il set di dati è basato su I
 
     - Il livello del database SQL di Azure non è sufficientemente elevato.
 
-    - L'utilizzo di DTU del database SQL di Azure è prossimo al 100%. È possibile [monitorare le prestazioni](https://docs.microsoft.com/azure/azure-sql/database/monitor-tune-overview) e prendere in considerazione l'aggiornamento del livello del database SQL di Azure.
+    - L'utilizzo di DTU del database SQL di Azure è prossimo al 100%. È possibile [monitorare le prestazioni](../azure-sql/database/monitor-tune-overview.md) e prendere in considerazione l'aggiornamento del livello del database SQL di Azure.
 
     - Gli indici non sono impostati correttamente. Rimuovere tutti gli indici prima del caricamento dei dati e ricrearli al termine del caricamento.
 
@@ -202,7 +202,6 @@ Il tempo di esecuzione dell'attività varia quando il set di dati è basato su I
 
     - Anziché inserire in blocco, viene usato stored procedure, che dovrebbe avere prestazioni peggiori. 
 
-- **Soluzione**: fare riferimento a [risolvere i problemi relativi alle prestazioni dell'attività di copia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting).
 
 ### <a name="timeout-or-slow-performance-when-parsing-large-excel-file"></a>Timeout o rallentamento delle prestazioni durante l'analisi di file di Excel di grandi dimensioni
 

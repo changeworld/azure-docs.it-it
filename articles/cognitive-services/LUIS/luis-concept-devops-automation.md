@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 1ce78e02c652777b524964559b579530f3e022fa
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 215399e4b131162097e54c15b84cb6fa7dac72e3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97561308"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932546"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flussi di lavoro di integrazione continua e recapito continuo per DevOps LUIS
 
@@ -41,7 +41,7 @@ Usare gli strumenti seguenti per la creazione di flussi di lavoro di automazione
 
 * [Bot Framework Tools Luis CLI](https://github.com/microsoft/botbuilder-tools/tree/master/packages/LUIS) per lavorare con le app e le versioni di Luis, eseguirne il training, testarli e pubblicarli nel servizio Luis.
 
-* [Interfaccia](/cli/azure/?view=azure-cli-latest) della riga di comando di Azure per eseguire query sulle sottoscrizioni di Azure, recuperare le chiavi di creazione e di stima di Luis e creare un' [entità servizio](/cli/azure/ad/sp?view=azure-cli-latest) di Azure usata per l'autenticazione di automazione.
+* [Interfaccia](/cli/azure/) della riga di comando di Azure per eseguire query sulle sottoscrizioni di Azure, recuperare le chiavi di creazione e di stima di Luis e creare un' [entità servizio](/cli/azure/ad/sp) di Azure usata per l'autenticazione di automazione.
 
 * [NLU. Strumento DevOps](https://github.com/microsoft/NLU.DevOps) per [il test di un'app Luis](luis-concept-devops-testing.md) e per analizzare i risultati dei test.
 

@@ -1,19 +1,16 @@
 ---
 title: "Limitare l'accesso usando le firme di accesso condiviso: Azure HDInsight"
 description: Informazioni su come usare le firme di accesso condiviso per limitare l'accesso HDInsight ai dati archiviati nell'archivio BLOB di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: 141db7feee987b7fffc578e19c60bd94ad56d239
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 647ac363dd81604f0a5a1d750d98a3349beb19c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511638"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931727"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Usare le firme di accesso condiviso di archiviazione BLOB di Azure per limitare l'accesso ai dati in HDInsight
 
@@ -86,7 +83,7 @@ Salvare il token SAS prodotto alla fine di ogni metodo. Il token sarà simile al
 ?sv=2018-03-28&sr=c&si=myPolicyPS&sig=NAxefF%2BrR2ubjZtyUtuAvLQgt%2FJIN5aHJMj6OsDwyy4%3D
 ```
 
-### <a name="using-powershell"></a>Mediante PowerShell
+### <a name="using-powershell"></a>Utilizzo di PowerShell
 
 Sostituire `RESOURCEGROUP` , `STORAGEACCOUNT` e `STORAGECONTAINER` con i valori appropriati per il contenitore di archiviazione esistente. Passare alla directory `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` o rivedere il `-File` parametro in modo che contenga il percorso assoluto per `Set-AzStorageblobcontent` . Immettere il seguente comando di PowerShell:
 

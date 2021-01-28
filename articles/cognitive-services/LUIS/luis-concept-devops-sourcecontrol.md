@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 0466105ab99d191b5dd9beab1d5d5b61f4b3225e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 68d88ef667da9f22d3e3a17f10036693fcca0c3f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790885"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932528"
 ---
 # <a name="devops-practices-for-luis"></a>Procedure della metodologia DevOps per LUIS
 
@@ -18,7 +18,7 @@ I tecnici software che stanno sviluppando un'app Language Understanding (LUIS) p
 
 ## <a name="source-control-and-branch-strategies-for-luis"></a>Strategie di controllo del codice sorgente e gestione rami per LUIS
 
-Uno dei fattori chiave che dipende dal successo di DevOps è il controllo del [codice sorgente](/azure/devops/user-guide/source-control?view=azure-devops). Un sistema di controllo del codice sorgente consente agli sviluppatori di collaborare al codice e di tenere traccia delle modifiche. L'uso dei rami consente agli sviluppatori di passare da una versione all'altra della codebase e di lavorare in modo indipendente da altri membri del team. Quando gli sviluppatori generano una [richiesta pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) per proporre gli aggiornamenti da un ramo a un altro o quando le modifiche vengono unite, possono essere il trigger per le [compilazioni automatiche](luis-concept-devops-automation.md) per compilare e testare continuamente il codice.
+Uno dei fattori chiave che dipende dal successo di DevOps è il controllo del [codice sorgente](/azure/devops/user-guide/source-control). Un sistema di controllo del codice sorgente consente agli sviluppatori di collaborare al codice e di tenere traccia delle modifiche. L'uso dei rami consente agli sviluppatori di passare da una versione all'altra della codebase e di lavorare in modo indipendente da altri membri del team. Quando gli sviluppatori generano una [richiesta pull](https://help.github.com/github/collaborating-with-issues-and-pull-requests/about-pull-requests) (PR) per proporre gli aggiornamenti da un ramo a un altro o quando le modifiche vengono unite, possono essere il trigger per le [compilazioni automatiche](luis-concept-devops-automation.md) per compilare e testare continuamente il codice.
 
 Usando i concetti e le linee guida descritte in questo documento, è possibile sviluppare un'app LUIS durante il rilevamento delle modifiche in un sistema di controllo del codice sorgente e seguire le procedure consigliate per la progettazione del software:
 
@@ -42,7 +42,7 @@ Usando i concetti e le linee guida descritte in questo documento, è possibile s
 
 ## <a name="source-control"></a>Controllo del codice sorgente
 
-Per mantenere la [definizione dello schema dell'app](./app-schema-definition.md) di un'app Luis in un sistema di gestione del codice sorgente, usare la rappresentazione [LUDown Format ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  dell'app. `.lu` è preferibile formattare `.json` il formato perché è leggibile, che rende più semplice apportare ed esaminare le modifiche nelle richieste pull.
+Per mantenere la [definizione dello schema dell'app](./app-schema-definition.md) di un'app Luis in un sistema di gestione del codice sorgente, usare la rappresentazione [LUDown Format ( `.lu` )](/azure/bot-service/file-format/bot-builder-lu-file-format)  dell'app. `.lu` è preferibile formattare `.json` il formato perché è leggibile, che rende più semplice apportare ed esaminare le modifiche nelle richieste pull.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Salvare un'app LUIS usando il formato LUDown
 
@@ -81,7 +81,7 @@ Non includere chiavi di sottoscrizione o valori riservati simili nei file che si
 - Chiavi di stima e creazione di LUIS
 - Endpoint per la creazione e la stima di LUIS
 - Chiavi della sottoscrizione di Azure
-- Token di accesso, ad esempio il token per un' [entità servizio](/cli/azure/ad/sp?view=azure-cli-latest) di Azure usata per l'autenticazione di automazione
+- Token di accesso, ad esempio il token per un' [entità servizio](/cli/azure/ad/sp) di Azure usata per l'autenticazione di automazione
 
 #### <a name="strategies-for-securely-managing-secrets"></a>Strategie per la gestione sicura dei segreti
 
@@ -183,7 +183,7 @@ Un'app LUIS in formato LUDown è leggibile, che supporta la comunicazione delle 
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-Un'applicazione è costituita da più componenti che possono includere elementi come un bot in esecuzione nel [servizio Azure bot](/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0), [QnA Maker](https://www.qnamaker.ai/), [servizio di riconoscimento vocale di Azure](../speech-service/overview.md)e altro ancora. Per raggiungere l'obiettivo delle applicazioni a regime di controllo libero, usare il [controllo della versione](/azure/devops/learn/git/what-is-version-control) in modo che ogni componente di un'applicazione venga sottoporre a controllo delle versioni in modo indipendente, consentendo agli sviluppatori di rilevare modifiche o aggiornamenti di rilievo semplicemente esaminando il numero di versione. È più facile eseguire la versione dell'app LUIS indipendentemente da altri componenti se la si mantiene nel proprio repository.
+Un'applicazione è costituita da più componenti che possono includere elementi come un bot in esecuzione nel [servizio Azure bot](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [servizio di riconoscimento vocale di Azure](../speech-service/overview.md)e altro ancora. Per raggiungere l'obiettivo delle applicazioni a regime di controllo libero, usare il [controllo della versione](/azure/devops/learn/git/what-is-version-control) in modo che ogni componente di un'applicazione venga sottoporre a controllo delle versioni in modo indipendente, consentendo agli sviluppatori di rilevare modifiche o aggiornamenti di rilievo semplicemente esaminando il numero di versione. È più facile eseguire la versione dell'app LUIS indipendentemente da altri componenti se la si mantiene nel proprio repository.
 
 Per l'app LUIS per il ramo principale deve essere applicato uno schema di controllo delle versioni. Quando si uniscono gli aggiornamenti al `.lu` per un'app Luis in Main, si importerà quindi l'origine aggiornata in una nuova versione nell'app Luis per il ramo Main.
 

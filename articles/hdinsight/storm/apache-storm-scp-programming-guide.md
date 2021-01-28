@@ -1,19 +1,16 @@
 ---
 title: Guida alla programmazione SCP.NET per Storm in Azure HDInsight
 description: Modalità d'uso di SCP.NET per creare topologie Storm basate su .NET da usare con Storm in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd52157e2f0e20e9282d944b07f656c08d9e57da
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000142"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932644"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guida alla programmazione SCP per Apache Storm in Azure HDInsight
 
@@ -95,7 +92,7 @@ public interface ISCPSpout : ISCPPlugin
 
 Quando viene chiamato **NextTuple** , il codice C# può generare una o più Tuple. Se non c'è nulla da emettere, questo metodo deve restituire senza emettere alcun elemento.
 
-I metodi **NextTuple**, **ACK**e **Fail** vengono chiamati in un ciclo limitato in un singolo thread di un processo C#. Quando non sono presenti tuple da emettere, **NextTuple** sospensione per un breve periodo di tempo, ad esempio 10 millisecondi. Questa sospensione consente di evitare la perdita della disponibilità della CPU.
+I metodi **NextTuple**, **ACK** e **Fail** vengono chiamati in un ciclo limitato in un singolo thread di un processo C#. Quando non sono presenti tuple da emettere, **NextTuple** sospensione per un breve periodo di tempo, ad esempio 10 millisecondi. Questa sospensione consente di evitare la perdita della disponibilità della CPU.
 
 I metodi **ACK** e **Fail** vengono chiamati solo quando un file di specifica Abilita il meccanismo di riconoscimento. Il parametro *seqId* identifica la tupla riconosciuta o non riuscita. Se il riconoscimento è abilitato in una topologia non transazionale, è necessario usare la funzione **Emit** seguente in un oggetto beccuccio:
 
@@ -133,7 +130,7 @@ public interface ISCPTxSpout : ISCPPlugin
 }
 ```
 
-Così come le controparti non transazionali, **NextTx**, **ACK**e **Fail** vengono tutti chiamati in un ciclo limitato in un singolo thread di un processo C#. Quando non sono presenti tuple da emettere, **NextTx** sospensione per un breve periodo di tempo, ad esempio 10 millisecondi. Questa sospensione consente di evitare la perdita della disponibilità della CPU.
+Così come le controparti non transazionali, **NextTx**, **ACK** e **Fail** vengono tutti chiamati in un ciclo limitato in un singolo thread di un processo C#. Quando non sono presenti tuple da emettere, **NextTx** sospensione per un breve periodo di tempo, ad esempio 10 millisecondi. Questa sospensione consente di evitare la perdita della disponibilità della CPU.
 
 Quando **NextTx** viene chiamato per avviare una nuova transazione, il parametro di output *seqId* identifica la transazione. La transazione viene utilizzata anche in **ACK** e **non riesce**. Il metodo **NextTx** può emettere dati sul lato Java. I dati vengono archiviati in ZooKeeper a supporto della riproduzione. Poiché ZooKeeper ha una capacità limitata, il codice deve emettere solo metadati e non dati in blocco in un beccuccio transazionale.
 
@@ -161,11 +158,11 @@ SCP.NET crea un nuovo oggetto **ISCPBatchBolt** per elaborare ciascun oggetto **
 
 ## <a name="object-model"></a>Modello a oggetti
 
-In SCP.NET è disponibile un semplice set di oggetti chiave che gli sviluppatori possono usare per la programmazione. Gli oggetti sono **context**, **StateStore**e **SCPRuntime**. Sono illustrati in questa sezione.
+In SCP.NET è disponibile un semplice set di oggetti chiave che gli sviluppatori possono usare per la programmazione. Gli oggetti sono **context**, **StateStore** e **SCPRuntime**. Sono illustrati in questa sezione.
 
 ### <a name="context"></a>Context
 
-L'oggetto **context** fornisce un ambiente in esecuzione a un'applicazione. Ogni istanza di **ISCPPlugin** di **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**o **ISCPBatchBolt** dispone di un'istanza del **contesto** corrispondente. La funzionalità fornita dal **contesto** è divisa in queste due parti:
+L'oggetto **context** fornisce un ambiente in esecuzione a un'applicazione. Ogni istanza di **ISCPPlugin** di **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** o **ISCPBatchBolt** dispone di un'istanza del **contesto** corrispondente. La funzionalità fornita dal **contesto** è divisa in queste due parti:
 
 * Parte statica, disponibile nell'intero processo C#
 * La parte dinamica, disponibile solo per l'istanza di **contesto** specifica
@@ -373,7 +370,7 @@ Il metodo **Initialize** Inizializza l'ambiente di runtime SCP. In questo metodo
 
 Il metodo **LaunchPlugin** avvia il ciclo di elaborazione dei messaggi. In questo ciclo, il plug-in C# riceve messaggi dal lato Java. Questi messaggi includono Tuple e segnali di controllo. Il plug-in elabora quindi i messaggi, probabilmente chiamando il metodo di interfaccia fornito dal codice.
 
-Il parametro di input per **LaunchPlugin** è un delegato. Il metodo può restituire un oggetto che implementa l'interfaccia **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout**o **ISCPBatchBolt** .
+Il parametro di input per **LaunchPlugin** è un delegato. Il metodo può restituire un oggetto che implementa l'interfaccia **ISCPSpout**, **ISCPBolt**, **ISCPTxSpout** o **ISCPBatchBolt** .
 
 ```csharp
 public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary<string, Object> parms);
@@ -728,7 +725,7 @@ public void Fail(long seqId, Dictionary<string, Object> parms)
 
 ### <a name="helloworldtx"></a>HelloWorldTx
 
-Nell'esempio HelloWorldTx seguente viene illustrato come implementare la topologia transazionale. Nell'esempio è presente un beccuccio denominato **Generator**, un Bolt batch denominato **partial-count**e un Bolt di commit denominato **count-Sum**. L'esempio include anche tre file di testo esistenti: DataSource0.txt, DataSource1.txt e DataSource2.txt.
+Nell'esempio HelloWorldTx seguente viene illustrato come implementare la topologia transazionale. Nell'esempio è presente un beccuccio denominato **Generator**, un Bolt batch denominato **partial-count** e un Bolt di commit denominato **count-Sum**. L'esempio include anche tre file di testo esistenti: DataSource0.txt, DataSource1.txt e DataSource2.txt.
 
 In ogni transazione, il beccuccio del **Generatore** seleziona in modo casuale due file dai tre file esistenti e genera i due nomi di file al Bolt del **conteggio parziale** . Bolt **conteggio parziale** :
 

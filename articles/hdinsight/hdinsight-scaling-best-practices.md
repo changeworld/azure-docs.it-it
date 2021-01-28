@@ -1,19 +1,17 @@
 ---
 title: Ridimensionare i cluster - Azure HDInsight
 description: Ridimensionare un cluster Apache Hadoop in modo elastico in base al carico di lavoro in Azure HDInsight
-author: hrasheed-msft
 ms.author: ashish
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3524b5d2274c52aa94fa1c3420fb0d3245d9b730
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022769"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932069"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Ridimensionare i cluster HDInsight di Azure
 
@@ -36,7 +34,7 @@ Microsoft fornisce le utilità seguenti per la scalabilità dei cluster:
 |[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Interfaccia della riga di comando di Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Interfaccia della riga di comando classica di Azure](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Portale di Azure](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
+|[Azure portal](https://portal.azure.com)|Aprire il riquadro del cluster HDInsight, selezionare **dimensioni del cluster** nel menu a sinistra, quindi nel riquadro Dimensioni del cluster digitare il numero di nodi del ruolo di lavoro e selezionare Salva.|  
 
 ![Opzione del cluster portale di Azure scale](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 

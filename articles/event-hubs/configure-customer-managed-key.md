@@ -3,20 +3,15 @@ title: Configurare la propria chiave per la crittografia dei dati inattivi di hu
 description: Questo articolo fornisce informazioni su come configurare la propria chiave per la crittografia dei dati REST di hub eventi di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 095def84c5ab5e4dac7802027468b67eefb3161f
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 00e33bc3464aed1829968b7957e48455eaa04447
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625382"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98933782"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure usando il portale di Azure
-Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Hub eventi si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati usando le chiavi gestite da Microsoft. 
-
-## <a name="overview"></a>Panoramica
-Hub eventi di Azure ora supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente (Bring Your Own Key – BYOK). Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
-
-L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
+Hub eventi di Azure fornisce la crittografia dei dati inattivi con crittografia del servizio di archiviazione di Azure (SSE di Azure). Il servizio Hub eventi Usa archiviazione di Azure per archiviare i dati. Tutti i dati archiviati con archiviazione di Azure vengono crittografati usando chiavi gestite da Microsoft. Se si usa una chiave personalizzata (detta anche Bring Your Own Key (BYOK) o una chiave gestita dal cliente), i dati vengono comunque crittografati con la chiave gestita da Microsoft, ma in aggiunta la chiave gestita da Microsoft verrà crittografata con la chiave gestita dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia delle chiavi gestite da Microsoft. L'abilitazione della funzionalità BYOK è un processo di configurazione una volta nello spazio dei nomi.
 
 > [!NOTE]
 > La funzionalità BYOK è supportata dai cluster a [tenant singolo dedicati di hub eventi](event-hubs-dedicated-overview.md) . Non può essere abilitata per gli spazi dei nomi standard di hub eventi.
@@ -62,7 +57,7 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
     1. È ora possibile selezionare questa chiave da associare allo spazio dei nomi di hub eventi per la crittografia dall'elenco a discesa. 
 
         ![Selezionare la chiave da Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-    1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia dei dati inattivi nello spazio dei nomi con una chiave gestita dal cliente. 
+    1. Inserire i dettagli per la chiave e fare clic su **Seleziona**. In questo modo verrà abilitata la crittografia della chiave gestita da Microsoft con la chiave (chiave gestita dal cliente). 
 
 
 ## <a name="rotate-your-encryption-keys"></a>Ruotare le chiavi di crittografia
@@ -74,7 +69,7 @@ La revoca dell'accesso alle chiavi di crittografia non eliminerà i dati da Hub 
 Una volta revocata la chiave di crittografia, il servizio Hub eventi nello spazio dei nomi crittografato diventerà inutilizzabile. Se l'accesso alla chiave è abilitato o il tasto CANC viene ripristinato, il servizio Hub eventi selezionerà la chiave in modo che sia possibile accedere ai dati dallo spazio dei nomi di hub eventi crittografati.
 
 ## <a name="set-up-diagnostic-logs"></a>Configurare i log di diagnostica 
-L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni quando uno spazio dei nomi è crittografato con chiavi gestite dal cliente. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
+L'impostazione di log di diagnostica per gli spazi dei nomi abilitati per BYOK fornisce le informazioni necessarie sulle operazioni. Questi log possono essere abilitati e successivamente trasmessi a un hub eventi o analizzati tramite log Analytics o trasmessi all'archiviazione per eseguire analisi personalizzate. Per altre informazioni sui log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Abilitare i log utente
 Seguire questa procedura per abilitare i log per le chiavi gestite dal cliente.

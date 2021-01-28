@@ -1,19 +1,16 @@
 ---
 title: 'Esercitazione: Creare una pipeline ETL end-to-end per derivare le informazioni dettagliate di vendita in Azure HDInsight'
 description: Informazioni su come creare pipeline di estrazione, trasformazione e caricamento con Azure HDInsight per derivare informazioni dai dati di vendita tramite cluster Spark su richiesta e Power BI.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
-ms.translationtype: HT
+ms.openlocfilehash: 7d026d93ebe6f6a0bd9afbd277294d58d7a2a69b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746481"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932049"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Esercitazione: Creare una pipeline di dati end-to-end per derivare le informazioni dettagliate di vendita in Azure HDInsight
 
@@ -214,7 +211,7 @@ Per attivare la pipeline, è possibile:
 
     Oppure
 
-* Aprire la data factory e fare clic su **Crea e monitora** . Attivare la pipeline `IngestAndTransform` dal portale. Per informazioni su come attivare le pipeline tramite il portale, vedere [Creare cluster Apache Hadoop su richiesta in HDInsight con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Aprire la data factory e fare clic su **Crea e monitora**. Attivare la pipeline `IngestAndTransform` dal portale. Per informazioni su come attivare le pipeline tramite il portale, vedere [Creare cluster Apache Hadoop su richiesta in HDInsight con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Per verificare che la pipeline sia stata eseguita, seguire una di queste procedure:
 
@@ -252,19 +249,19 @@ Per informazioni su come trasformare i dati in altri modi con HDInsight, vedere 
 
 1. Aprire Power BI Desktop.
 
-1. Dal menu passare a **Recupera dati** > **Altro** > **Azure** > **HDInsight Interactive Query** .
+1. Dal menu passare a **Recupera dati** > **Altro** > **Azure** > **HDInsight Interactive Query**.
 
-1. Selezionare **Connetti** .
+1. Selezionare **Connetti**.
 
-1. Nella finestra di dialogo **HDInsight Interactive Query** :
+1. Nella finestra di dialogo **HDInsight Interactive Query**:
     1. Nella casella di testo **Server** immettere il nome del cluster LLAP in formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
     1. Nella casella di testo **database** immettere `default`.
-    1. Selezionare **OK** .
+    1. Selezionare **OK**.
 
-1. Nella finestra di dialogo **AzureHive** :
+1. Nella finestra di dialogo **AzureHive**:
     1. Nella casella di testo **Nome utente** immettere `admin`.
     1. Nella casella di testo **Password** immettere `Thisisapassword1`.
-    1. Selezionare **Connetti** .
+    1. Selezionare **Connetti**.
 
 1. In **Strumento di navigazione** selezionare `sales` e/o `sales_raw` per visualizzare un'anteprima dei dati. Una volta caricati i dati, è possibile sperimentare con il dashboard che si vuole creare. Per iniziare a usare i dashboard di Power BI, vedere questi collegamenti:
 

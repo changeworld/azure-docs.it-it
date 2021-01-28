@@ -2,19 +2,16 @@
 title: Come selezionare le dimensioni di macchina virtuale corrette per il cluster HDInsight di Azure
 description: Informazioni su come selezionare le dimensioni appropriate per la macchina virtuale per il cluster HDInsight.
 keywords: dimensioni macchine virtuali, dimensioni cluster, configurazione cluster
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 51043f0a1009994528783a1b56ec5ccec68e99b3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535315"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931790"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Selezione delle dimensioni di macchina virtuale corrette per il cluster HDInsight di Azure
 
@@ -38,11 +35,11 @@ Il tipo e le dimensioni della macchina virtuale variano in base alla potenza di 
 
 Le famiglie di macchine virtuali in Azure sono ottimizzate per adattarsi a diversi casi d'uso. Nella tabella seguente è possibile trovare alcuni dei casi d'uso più comuni e le famiglie di VM corrispondenti.
 
-| Type                     | Dimensioni           |    Descrizione       |
+| Tipo                     | Dimensioni           |    Descrizione       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [A livello di voce](../virtual-machines/sizes-general.md)          | A, AV2  | Sono disponibili configurazioni di memoria e prestazioni della CPU più adatte per carichi di lavoro a livello di voce quali sviluppo e test. Sono convenienti e offrono un'opzione a basso costo per iniziare a usare Azure. |
 | [Utilizzo generico](../virtual-machines/sizes-general.md)          | D, DSv2, dv2  | Rapporto equilibrato tra CPU e memoria. Soluzione ideale per test e sviluppo, database medio-piccoli e server Web con traffico da medio a ridotto. |
-| [Ottimizzate per il calcolo](../virtual-machines/sizes-compute.md)        | F           | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
+| [Con ottimizzazione per il calcolo](../virtual-machines/sizes-compute.md)        | F           | Rapporto elevato tra CPU e memoria. Soluzione idonea per server Web con livelli medi di traffico, dispositivi di rete, processi batch e server applicazioni.        |
 | [Ottimizzate per la memoria](../virtual-machines/sizes-memory.md)         | Esv3, EV3  | Rapporto elevato tra memoria e CPU. Soluzione ideale per server di database relazionali, cache medio-grandi e analisi in memoria.                 |
 
 - Per informazioni sui prezzi delle istanze di VM disponibili nelle aree HDInsight supportate, vedere [prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).

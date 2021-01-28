@@ -1,19 +1,16 @@
 ---
 title: Note sulla versione archiviata di Azure HDInsight
 description: Note sulla versione archiviate per Azure HDInsight. Ottenere suggerimenti e dettagli sullo sviluppo per Hadoop, Spark, R Server, Hive e altro.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/07/2020
-ms.openlocfilehash: d5103cbbeb5a8ab12f9ce497ee4ed227ca180728
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8e6f27c378a6cea8fffbdcda58c4fc3bb865e51e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932168"
 ---
 # <a name="archived-release-notes"></a>Note sulla versione archiviate
 

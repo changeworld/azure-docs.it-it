@@ -1,18 +1,15 @@
 ---
 title: Risolvere i problemi di YARN in Azure HDInsight
 description: Risposte alle domande frequenti sull'utilizzo di Apache Hadoop YARN e Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5b8ccbfd3e39415416cfc8fabcf9614f5934042
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96022667"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98931403"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Risolvere i problemi di YARN di Apache Hadoop usando Azure HDInsight
 
@@ -20,7 +17,7 @@ Informazioni sui problemi principali che possono verificarsi quando si usano i p
 
 ## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Come si crea una nuova coda YARN in un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 Seguire questa procedura in Ambari per creare una nuova coda YARN e bilanciare l'allocazione delle capacità tra tutte le code.
 
@@ -64,7 +61,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Come si scaricano i log di YARN da un cluster?
 
-### <a name="resolution-steps"></a>Procedura per la risoluzione
+### <a name="resolution-steps"></a>Passaggi per la risoluzione del problema
 
 1. Connettersi al cluster HDInsight con un client Secure Shell (SSH). Per altre informazioni, vedere [Informazioni aggiuntive](#additional-reading-2).
 
@@ -129,7 +126,7 @@ Queste modifiche saranno immediatamente visibili nell'interfaccia utente dell'ut
 
     Verrà creato un file di log denominato containerlogs.txt.
 
-### <a name="additional-reading"></a><a name="additional-reading-2"></a>Letture aggiuntive
+### <a name="additional-reading"></a><a name="additional-reading-2"></a>Altre letture
 
 - [Connettersi a HDInsight (Apache Hadoop) con SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Concetti e applicazioni di Apache Hadoop YARN](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)

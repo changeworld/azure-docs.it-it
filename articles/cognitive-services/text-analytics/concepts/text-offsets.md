@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363783"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98932362"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Offset di testo nell'output API Analisi del testo
 
@@ -34,9 +34,9 @@ Ogni volta che viene restituita la risposta dell'API, ad esempio il [riconoscime
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Estrazione di sottostringhe da testo con offset
 
-Gli offset possono causare problemi quando si usano metodi di sottostringa basate su caratteri, ad esempio il metodo [substring ()](/dotnet/api/system.string.substring?view=netframework-4.8) .NET. Un problema è che un offset può causare la fine di un metodo di sottostringa al centro di una codifica grafema multicarattere anziché alla fine.
+Gli offset possono causare problemi quando si usano metodi di sottostringa basate su caratteri, ad esempio il metodo [substring ()](/dotnet/api/system.string.substring) .NET. Un problema è che un offset può causare la fine di un metodo di sottostringa al centro di una codifica grafema multicarattere anziché alla fine.
 
-In .NET è consigliabile utilizzare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , che consente di utilizzare una stringa come una serie di elementi testuali, anziché singoli oggetti character. È anche possibile cercare librerie Splitter grafema nell'ambiente software preferito. 
+In .NET è consigliabile utilizzare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo) , che consente di utilizzare una stringa come una serie di elementi testuali, anziché singoli oggetti character. È anche possibile cercare librerie Splitter grafema nell'ambiente software preferito. 
 
 Il API Analisi del testo restituisce anche questi elementi testuali per praticità.
 
