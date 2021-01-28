@@ -452,6 +452,8 @@
           href: user-migration.md
 - name: Informazioni di riferimento
   items:
+    - name: Limiti e restrizioni del servizio
+      href: service-limits.md
     - name: Registrazioni per l'app
       href: app-registrations-training-guide.md
     - name: Modello di fatturazione

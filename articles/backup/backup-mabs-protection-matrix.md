@@ -3,12 +3,12 @@ title: Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 description: Questo articolo offre una matrice di supporto che elenca tutti i carichi di lavoro, i tipi di dati e le installazioni che vengono protetti dal server di Backup di Azure.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d37d51ee781dfbc5bcd56fa3158a622202a979c6
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 2c7caad1d377070d4d4ac8436c1d8c08e786dc44
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754182"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986837"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matrice di protezione MAB (server di Backup di Azure) v3 UR1
 
@@ -65,11 +65,17 @@ Le sezioni seguenti illustrano in dettaglio la matrice di supporto per la protez
 
 Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 

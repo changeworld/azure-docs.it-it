@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2170440b7b47861b75801b8dbd334686b4cabc8b
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997240"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985615"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -59,6 +59,7 @@ L'agente di Servizi di ripristino di Microsoft Azure deve poter accedere a quest
 - *.windowsazure.com
 - *. MicrosoftOnline.com
 - *. Windows.net
+- `www.msftconnecttest.com`
 
 E a questi indirizzi IP:
 
@@ -82,11 +83,16 @@ Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usan
 
 Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 
@@ -186,7 +192,7 @@ Di seguito sono riportate le durate minime di conservazione che è possibile imp
 
 ## <a name="supported-file-types-for-backup"></a>Tipi di file supportati per il backup
 
-**Tipo** | **Supporto tecnico**
+**Tipo** | **Supporto**
 --- | ---
 Crittografati<sup>*</sup>| Supportata.
 Compresso | Supportata.
@@ -206,12 +212,12 @@ Cartelle con Replica DFS abilitata | Non supportata.
 
 **Unità/volume** | **Supporto** | **Dettagli**
 --- | --- | ---
-Volumi di sola lettura| Non supportate | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
-Volumi offline| Non supportate |VSS funziona solo se il volume è online.
-Condivisione di rete| Non supportate |Il volume deve essere locale nel server.
-Volumi bloccati da BitLocker| Non supportate |Il volume deve essere sbloccato prima dell'avvio del backup.
-Identificazione del file System| Non supportate |È supportato solo NTFS.
-Supporti rimovibili| Non supportate |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
+Volumi di sola lettura| Non supportato | Il servizio Copia Shadow del volume (VSS) funziona solo se il volume è scrivibile.
+Volumi offline| Non supportato |VSS funziona solo se il volume è online.
+Condivisione di rete| Non supportato |Il volume deve essere locale nel server.
+Volumi bloccati da BitLocker| Non supportato |Il volume deve essere sbloccato prima dell'avvio del backup.
+Identificazione del file System| Non supportato |È supportato solo NTFS.
+Supporti rimovibili| Non supportato |Lo stato di tutte le origini degli elementi di backup deve essere *fisso* .
 Unità deduplicate | Supportato | Il servizio Backup di Azure converte i dati deduplicati in dati normali. Consente di ottimizzare, crittografare, archiviare e inviare i dati all'insieme di credenziali.
 
 ## <a name="support-for-initial-offline-backup"></a>Supporto per il backup offline iniziale

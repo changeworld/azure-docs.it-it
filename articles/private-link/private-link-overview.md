@@ -5,15 +5,15 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 09/03/2020
+ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 974631f9cba66404a3881caed1382be7ff3c00d1
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881334"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986480"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -54,6 +54,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |  Database di Azure per PostgreSQL - Server singolo         | Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina     | Supportato per i piani tariffari per utilizzo generico e con ottimizzazione per la memoria | GA <br/> [Informazioni su come creare un endpoint privato per Database di Azure per PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Database di Azure per MySQL         | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina      |  | GA <br/> [Informazioni su come creare un endpoint privato per Database di Azure per MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Database di Azure per MariaDB         | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici<br/>Tutte le aree della Cina     |  | GA <br/> [Informazioni su come creare un endpoint privato per Database di Azure per MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
+|  Gemelli digitali di Azure         | Tutte le aree pubbliche supportate dai dispositivi gemelli digitali di Azure     |  | Anteprima <br/> [Informazioni su come creare un endpoint privato per i dispositivi gemelli digitali di Azure.](../digital-twins/how-to-enable-private-link.md)      |
 |  Insieme di credenziali chiave di Azure         | Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici      |  | GA   <br/> [Informazioni su come creare un endpoint privato per Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Servizio Azure Kubernetes - API Kubernetes | Tutte le aree pubbliche      |  | GA   <br/> [Informazioni su come creare un endpoint privato per il servizio Azure Kubernetes.](../aks/private-clusters.md)   |
 |Ricerca di Azure | Tutte le aree pubbliche <br/> Tutte le aree per enti pubblici | Supportato con il servizio in modalità privata | GA   <br/> [Informazioni su come creare un endpoint privato per Ricerca di Azure.](../search/service-create-private-endpoint.md)    |

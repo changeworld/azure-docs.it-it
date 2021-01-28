@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
-ms.sourcegitcommit: ac7029597b54419ca13238f36f48c053a4492cb6
+ms.openlocfilehash: 76482266f0bbb1f80c1699c736048c705b90b4dc
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2020
-ms.locfileid: "92792991"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986921"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -35,7 +35,7 @@ In questo articolo si apprenderà come:
 
 - Assicurarsi che i servizi e le funzionalità usati dall'account siano supportati nell'area di destinazione.
 
-- Per le funzionalità di anteprima, assicurarsi che la sottoscrizione sia consentita per l'area di destinazione.
+- Per le funzionalità di anteprima, assicurarsi che la sottoscrizione sia allowlisted per l'area di destinazione.
 
 <a id="prepare"></a>
 
@@ -137,7 +137,7 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus**.
+    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -186,7 +186,7 @@ Distribuire un modello per creare un nuovo account di archiviazione nell'area di
 
 2. Immettere o selezionare i valori delle proprietà:
 
-- **Sottoscrizione**: selezionare una sottoscrizione di Azure.
+- **Sottoscrizione** Selezionare una sottoscrizione di Azure.
 
 - **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
@@ -225,7 +225,7 @@ La tabella seguente elenca le funzionalità insieme alle indicazioni per aggiung
 | **Siti Web statici** | [Hosting di un sito Web statico in Archiviazione di Azure](../blobs/storage-blob-static-website-how-to.md) |
 | **Sottoscrizioni di eventi** | [Reazione agli eventi di archiviazione BLOB](../blobs/storage-blob-event-overview.md) |
 | **Avvisi** | [Creare, visualizzare e gestire gli avvisi del log attività usando Monitoraggio di Azure](../../azure-monitor/platform/alerts-activity-log.md) |
-| **Rete per la distribuzione di contenuti (rete CDN)** | [Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Rete CDN (Content Delivery Network, rete per la distribuzione di contenuti)** | [Usare Rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > Se si configura una rete CDN per l'account di archiviazione di origine, è sufficiente modificare l'origine della rete CDN esistente con l'endpoint del servizio BLOB primario (o l'endpoint del sito Web statico primario) del nuovo account. 

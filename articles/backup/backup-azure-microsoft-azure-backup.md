@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 1be2af43f4d923a27fd96c5c0888a234725775a3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d476c228a619f03f798c1a2cd6854a8d603c3637
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056702"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987023"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -96,7 +96,7 @@ Per modificare le impostazioni di replica di archiviazione:
 ### <a name="downloading-the-software-package"></a>Download del pacchetto software
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio 3. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto, ma si trovano nella portale di Azure, scegliere **Sfoglia**dal menu principale.
+2. Se è già aperto un insieme di credenziali dei servizi di ripristino, continuare con il passaggio 3. Se non si dispone di un insieme di credenziali di servizi di ripristino aperto, ma si trovano nella portale di Azure, scegliere **Sfoglia** dal menu principale.
 
    * Nell'elenco di risorse digitare **servizi di ripristino**.
    * Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
@@ -120,7 +120,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
     ![Backup-obiettivi-predefinito-aperto](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. Nel riquadro **obiettivo del backup** scegliere **locale**dal menu **dove è in esecuzione il carico di lavoro** .
+5. Nel riquadro **obiettivo del backup** scegliere **locale** dal menu **dove è in esecuzione il carico di lavoro** .
 
     ![locale e carichi di lavoro come obiettivi](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
@@ -303,13 +303,18 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
-Se si dispone di un firewall o di un proxy che impedisce l'accesso ad Azure, è necessario consentire gli indirizzi di dominio seguenti nel profilo firewall/proxy:
+Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano gli URL e gli indirizzi IP seguenti:
 
-* `http://www.msftncsi.com/ncsi.txt`
-* \*.Microsoft.com
-* \*.WindowsAzure.com
-* \*.microsoftonline.com
-* \*.windows.net
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Se si usa il peering Microsoft ExpressRoute, selezionare i servizi/le aree seguenti:
 

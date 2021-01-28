@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d432f29e91097491fc4719ec59a11cb96948f431
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609055"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985887"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creare un gruppo di server PostgreSQL Hyperscale abilitato per Azure Arc
 
@@ -24,7 +24,7 @@ Questo documento descrive i passaggi per creare un gruppo di server con iperscal
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 Se si ha già familiarità con gli argomenti riportati di seguito, è possibile ignorare questo paragrafo.
 È possibile leggere alcuni argomenti importanti prima di procedere con la creazione:
 - [Panoramica dei servizi dati abilitati per Azure Arc](overview.md)
@@ -78,9 +78,16 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 #azdata arc postgres server create -n postgres01 --workers 2
 ```
 
+> [!IMPORTANT]
+> - La classe di archiviazione usata per i backup (_--Storage-Class-backups-SCB_) viene impostata per impostazione predefinita sulla classe di archiviazione dati del controller dati, se non è specificata.
+> - Per ripristinare un gruppo di server in un gruppo di server separato, ad esempio ripristino temporizzato, è necessario configurare il gruppo di server per l'uso di PVC con la modalità di accesso ReadWriteMany. Questa operazione è necessaria per la creazione del gruppo di server. Non può essere modificato dopo la creazione. Per ulteriori informazioni, vedere:
+>    - [Questa sezione su backup e ripristino](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Questa sezione illustra le limitazioni dell'iperscalabilità di PostgreSQL abilitata per Azure Arc](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+
+
 > [!NOTE]
 > - **Sono disponibili altri parametri della riga di comando.  Vedere l'elenco completo delle opzioni eseguendo `azdata arc postgres server create --help` .**
-> - La classe di archiviazione usata per i backup (_--Storage-Class-backups-SCB_) viene impostata per impostazione predefinita sulla classe di archiviazione dati del controller dati, se non è specificata.
+
 > - L'unità accettata dai parametri--Volume-Size-* è una quantità di risorse Kubernetes (un numero intero seguito da uno di questi è sufficiente (T, G, M, K, m) o dai rispettivi equivalenti di Power-of-Two (ti, Gi, mi, ki)).
 > - I nomi devono avere una lunghezza inferiore a 12 caratteri e devono essere conformi alle convenzioni di denominazione DNS.
 > - Verrà richiesto di immettere la password per l'utente amministratore standard _Postgres_ .  È possibile ignorare il prompt interattivo impostando la `AZDATA_PASSWORD` variabile di ambiente della sessione prima di eseguire il comando create.

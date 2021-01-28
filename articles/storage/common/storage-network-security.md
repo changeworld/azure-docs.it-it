@@ -5,20 +5,20 @@ services: storage
 author: santoshc
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.author: tamram
+ms.date: 01/27/2021
+ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 9032576f3705c360ebf53d8fdb4d6c15f77f450e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5a1ad898b745bbb49421c1bc0b5a9b2e5c8ec0f6
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703505"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985998"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
-Archiviazione di Azure offre un modello di sicurezza su più livelli, che consente di proteggere e controllare il livello di accesso agli account di archiviazione richiesto dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti usati. Quando le regole di rete sono configurate, solo le applicazioni che richiedono dati sul set di reti specificato possono accedere a un account di archiviazione. È possibile limitare l'accesso all'account di archiviazione alle richieste provenienti da indirizzi IP o intervalli IP specifici o da un determinato elenco di subnet in una rete virtuale di Azure.
+Archiviazione di Azure offre un modello di sicurezza su più livelli, Questo modello consente di proteggere e controllare il livello di accesso agli account di archiviazione richiesti dalle applicazioni e dagli ambienti aziendali, in base al tipo e al subset di reti o risorse usate. Quando vengono configurate le regole di rete, solo le applicazioni che richiedono dati tramite il set di reti specificato o tramite il set specificato di risorse di Azure possono accedere a un account di archiviazione. È possibile limitare l'accesso all'account di archiviazione alle richieste provenienti da indirizzi IP, intervalli IP, subnet in una rete virtuale di Azure (VNet) o istanze di risorse di alcuni servizi di Azure specificati.
 
 Gli account di archiviazione hanno un endpoint pubblico accessibile tramite Internet. È anche possibile creare [endpoint privati per l'account di archiviazione](storage-private-endpoints.md), assegnando così un indirizzo IP privato della rete virtuale all'account di archiviazione e proteggendo tutto il traffico tra la rete virtuale e l'account di archiviazione tramite un collegamento privato. Il firewall di archiviazione di Azure fornisce il controllo di accesso per l'endpoint pubblico dell'account di archiviazione. Si può usare il firewall anche per bloccare tutti gli accessi tramite l'endpoint pubblico quando si usano endpoint privati. La configurazione del firewall di archiviazione consente inoltre di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione.
 
@@ -27,7 +27,7 @@ Per accedere a un account di archiviazione quando le regole di rete sono applica
 > [!IMPORTANT]
 > L'attivazione delle regole firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste non provengano da un servizio in esecuzione all'interno di una rete virtuale di Azure o da indirizzi IP pubblici consentiti. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via.
 >
-> È possibile concedere l'accesso ai servizi di Azure eseguiti all'interno di una rete virtuale consentendo il traffico dalla subnet che ospita l'istanza del servizio. È anche possibile abilitare un numero limitato di scenari tramite il meccanismo di [eccezioni](#exceptions) descritto di seguito. Per accedere ai dati dall'account di archiviazione tramite il portale di Azure, è necessario usare un computer all'interno del limite attendibile (IP o rete virtuale) configurato.
+> È possibile concedere l'accesso ai servizi di Azure eseguiti all'interno di una rete virtuale consentendo il traffico dalla subnet che ospita l'istanza del servizio. È anche possibile abilitare un numero limitato di scenari tramite il meccanismo di eccezioni descritto di seguito. Per accedere ai dati dall'account di archiviazione tramite il portale di Azure, è necessario usare un computer all'interno del limite attendibile (IP o rete virtuale) configurato.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Le regole di rete non influiscono sul traffico del disco della macchina virtuale
 
 Gli account di archiviazione classici non supportano i firewall e le reti virtuali.
 
-È possibile usare dischi non gestiti in account di archiviazione a cui sono applicate regole di rete per eseguire operazioni di backup e ripristino di macchine virtuali mediante la creazione di un'eccezione. Questo processo è documentato nella sezione [Eccezioni](#exceptions) di questo articolo. Le eccezioni firewall non sono applicabili ai dischi gestiti perché sono già gestiti da Azure.
+È possibile usare dischi non gestiti negli account di archiviazione con regole di rete applicate per eseguire il backup e il ripristino di VM creando un'eccezione. Questo processo è documentato nella sezione [Manage Exceptions](#manage-exceptions) di questo articolo. Le eccezioni firewall non sono applicabili ai dischi gestiti perché sono già gestiti da Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Modificare la regola predefinita di accesso alla rete
 
@@ -60,59 +60,62 @@ Per impostazione predefinita, gli account di archiviazione accettano connessioni
 
 Le regole predefinite di accesso alla rete per gli account di archiviazione possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando v2.
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu impostazioni denominato **rete**.
+2. Selezionare dal menu impostazioni denominato **rete**.
 
-1. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate**. Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti**.
+3. Per negare l'accesso per impostazione predefinita, scegliere di consentire l'accesso da **Reti selezionate**. Per consentire il traffico da tutte le reti, scegliere di consentire l'accesso da **Tutte le reti**.
 
-1. Fare clic su **Salva** per applicare le modifiche.
+4. Selezionare **Salva** per applicare le modifiche.
 
-#### <a name="powershell"></a>PowerShell
+<a id="powershell"></a>
+
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installare [Azure PowerShell](/powershell/azure/install-Az-ps) e [accedere](/powershell/azure/authenticate-azureps).
 
-1. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
+2. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
-1. Impostare la regola predefinita per negare l'accesso alla rete per impostazione predefinita.
+3. Impostare la regola predefinita per negare l'accesso alla rete per impostazione predefinita.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
-1. Impostare la regola predefinita per consentire l'accesso alla rete per impostazione predefinita.
+4. Impostare la regola predefinita per consentire l'accesso alla rete per impostazione predefinita.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
-#### <a name="cliv2"></a>Interfaccia della riga di comando v2
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
-1. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
+2. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
     ```
 
-1. Impostare la regola predefinita per negare l'accesso alla rete per impostazione predefinita.
+3. Impostare la regola predefinita per negare l'accesso alla rete per impostazione predefinita.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Deny
     ```
 
-1. Impostare la regola predefinita per consentire l'accesso alla rete per impostazione predefinita.
+4. Impostare la regola predefinita per consentire l'accesso alla rete per impostazione predefinita.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+---
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concedere l'accesso da una rete virtuale
 
@@ -144,42 +147,42 @@ Gli account di archiviazione e le reti virtuali alle quali è stato concesso l'a
 
 Le regole di rete virtuale per gli account di archiviazione possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando v2.
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu impostazioni denominato **rete**.
+2. Selezionare dal menu impostazioni denominato **rete**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+3. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **Reti virtuali** fare clic su **Aggiungi rete virtuale esistente**, selezionare **Reti virtuali** e **Subnet**, quindi fare clic su **Aggiungi**. Per creare una nuova rete virtuale e concedere l'accesso, fare clic su **Aggiungi nuova rete virtuale**. Specificare le informazioni necessarie per creare la nuova rete virtuale e quindi fare clic su **Crea**.
+4. Per concedere l'accesso a una rete virtuale con una nuova regola di rete, in **reti virtuali** selezionare **Aggiungi rete virtuale esistente**, selezionare opzioni **reti virtuali** e **subnet** , quindi selezionare **Aggiungi**. Per creare una nuova rete virtuale e concedergli l'accesso, selezionare **Aggiungi nuova rete virtuale**. Fornire le informazioni necessarie per creare la nuova rete virtuale e quindi selezionare **Crea**.
 
     > [!NOTE]
     > Se un endpoint di servizio per Archiviazione di Azure non è stato configurato in precedenza per la rete virtuale e le subnet selezionate, è possibile configurarlo in questa operazione.
     >
     > Attualmente solo le reti virtuali che appartengono allo stesso tenant di Azure Active Directory sono disponibili per la selezione durante la creazione delle regole. Per concedere l'accesso a una subnet in una rete virtuale che appartiene a un altro tenant, usare PowerShell, l'interfaccia della riga di comando o le API REST.
 
-1. Per rimuovere una regola di rete virtuale o subnet, fare clic su **…** per aprire il menu di scelta rapida per la rete virtuale o la subnet, quindi fare clic su **Rimuovi**.
+5. Per rimuovere una regola della rete virtuale o della subnet, selezionare **...** per aprire il menu di scelta rapida per la rete virtuale o la subnet e selezionare **Rimuovi**.
 
-1. Fare clic su **Salva** per applicare le modifiche.
+6. Selezionare **Save (Salva** ) per applicare le modifiche.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installare [Azure PowerShell](/powershell/azure/install-Az-ps) e [accedere](/powershell/azure/authenticate-azureps).
 
-1. Visualizzare l'elenco delle regole di rete virtuale.
+2. Visualizzare l'elenco delle regole di rete virtuale.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
-1. Abilitare l'endpoint di servizio di Archiviazione di Azure in una rete virtuale e una subnet esistenti.
+3. Abilitare l'endpoint di servizio di Archiviazione di Azure in una rete virtuale e una subnet esistenti.
 
     ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
-1. Aggiungere una regola di rete per una rete virtuale e una subnet.
+4. Aggiungere una regola di rete per una rete virtuale e una subnet.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -189,7 +192,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     > [!TIP]
     > Per aggiungere una regola di rete per una subnet in una rete virtuale che appartiene a un altro tenant di Azure AD, usare un parametro **VirtualNetworkResourceId** completo nel formato "/subscriptions/ID-sottoscrizione/resourceGroups/Nome-gruppo-risorse/providers/Microsoft.Network/virtualNetworks/nome-rete-virtuale/subnets/nome-subnet".
 
-1. Rimuovere una regola di rete per una rete virtuale e una subnet.
+5. Rimuovere una regola di rete per una rete virtuale e una subnet.
 
     ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
@@ -199,23 +202,23 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
-#### <a name="cliv2"></a>Interfaccia della riga di comando v2
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
-1. Visualizzare l'elenco delle regole di rete virtuale.
+2. Visualizzare l'elenco delle regole di rete virtuale.
 
     ```azurecli
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
     ```
 
-1. Abilitare l'endpoint di servizio di Archiviazione di Azure in una rete virtuale e una subnet esistenti.
+3. Abilitare l'endpoint di servizio di Archiviazione di Azure in una rete virtuale e una subnet esistenti.
 
     ```azurecli
     az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
     ```
 
-1. Aggiungere una regola di rete per una rete virtuale e una subnet.
+4. Aggiungere una regola di rete per una rete virtuale e una subnet.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -227,7 +230,7 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
     >
     > È possibile usare il parametro **subscription** per recuperare l'ID subnet di una rete virtuale che appartiene a un altro tenant di Azure AD.
 
-1. Rimuovere una regola di rete per una rete virtuale e una subnet.
+5. Rimuovere una regola di rete per una rete virtuale e una subnet.
 
     ```azurecli
     subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
@@ -236,6 +239,8 @@ Le regole di rete virtuale per gli account di archiviazione possono essere gesti
 
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+
+---
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
@@ -268,49 +273,49 @@ Se si usa [ExpressRoute](../../expressroute/expressroute-introduction.md) dall'a
 
 Le regole di rete IP per gli account di archiviazione possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando v2.
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu impostazioni denominato **rete**.
+2. Selezionare dal menu impostazioni denominato **rete**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+3. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi**.
+4. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in **Firewall** > **Intervallo di indirizzi**.
 
-1. Per rimuovere una regola di rete IP, fare clic sull'icona del cestino accanto all'intervallo di indirizzi.
+5. Per rimuovere una regola di rete IP, selezionare l'icona del cestino accanto all'intervallo di indirizzi.
 
-1. Fare clic su **Salva** per applicare le modifiche.
+6. Selezionare **Salva** per applicare le modifiche.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installare [Azure PowerShell](/powershell/azure/install-Az-ps) e [accedere](/powershell/azure/authenticate-azureps).
 
-1. Elencare le regole di rete IP.
+2. Elencare le regole di rete IP.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
-1. Aggiungere una regola di rete per un singolo indirizzo IP.
+3. Aggiungere una regola di rete per un singolo indirizzo IP.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Aggiungere una regola di rete per un intervallo di indirizzi IP.
+4. Aggiungere una regola di rete per un intervallo di indirizzi IP.
 
     ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
-1. Rimuovere una regola di rete per un singolo indirizzo IP.
+5. Rimuovere una regola di rete per un singolo indirizzo IP.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
-1. Rimuovere una regola di rete per un intervallo di indirizzi IP.
+6. Rimuovere una regola di rete per un intervallo di indirizzi IP.
 
     ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
@@ -319,7 +324,7 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
-#### <a name="cliv2"></a>Interfaccia della riga di comando v2
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
@@ -329,25 +334,25 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
     az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
     ```
 
-1. Aggiungere una regola di rete per un singolo indirizzo IP.
+2. Aggiungere una regola di rete per un singolo indirizzo IP.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Aggiungere una regola di rete per un intervallo di indirizzi IP.
+3. Aggiungere una regola di rete per un intervallo di indirizzi IP.
 
     ```azurecli
     az storage account network-rule add --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
     ```
 
-1. Rimuovere una regola di rete per un singolo indirizzo IP.
+4. Rimuovere una regola di rete per un singolo indirizzo IP.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.19"
     ```
 
-1. Rimuovere una regola di rete per un intervallo di indirizzi IP.
+5. Rimuovere una regola di rete per un intervallo di indirizzi IP.
 
     ```azurecli
     az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --ip-address "16.17.18.0/24"
@@ -356,19 +361,199 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
 
-## <a name="exceptions"></a>Eccezioni
+---
 
-Le regole di rete consentono di creare un ambiente sicuro per le connessioni tra le applicazioni e i dati per la maggior parte degli scenari. Tuttavia, alcune applicazioni dipendono da servizi di Azure che non possono essere isolati in modo esclusivo tramite le regole di rete virtuale o degli indirizzi IP. Questi servizi devono però avere accesso all'account di archiviazione per consentire il funzionamento completo dell'applicazione. In tali situazioni, è possibile utilizzare il **_Consenti servizi Microsoft attendibili..._* _ impostazione per consentire a tali servizi di accedere a dati, log o analisi.
+<a id="grant-access-specific-instances"></a>
 
-### <a name="trusted-microsoft-services"></a>Servizi Microsoft attendibili
+## <a name="grant-access-from-azure-resource-instances-preview"></a>Concedi l'accesso da istanze di risorse di Azure (anteprima)
 
-Alcuni servizi Microsoft operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di questi servizi Microsoft attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili useranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. Sono disponibili due modalità di accesso attendibile per i servizi Microsoft.
+In alcuni casi, un'applicazione potrebbe dipendere da risorse di Azure che non possono essere isolate tramite una rete virtuale o una regola di indirizzi IP. Tuttavia, si vuole proteggere e limitare l'accesso all'account di archiviazione solo alle risorse di Azure dell'applicazione. È possibile configurare gli account di archiviazione per consentire l'accesso a istanze di risorse specifiche di alcuni servizi di Azure creando una regola dell'istanza di risorsa. 
 
-- Le risorse di alcuni servizi, _ * quando registrate nella sottoscrizione * *, possono accedere all'account **di archiviazione nella stessa sottoscrizione** per operazioni di selezione, ad esempio la scrittura di log o il backup.
-- Alle risorse di alcuni servizi è possibile concedere l'accesso esplicito all'account di archiviazione **assegnando un ruolo di Azure** all'identità gestita assegnata dal sistema.
+I tipi di operazioni che un'istanza di risorsa può eseguire sui dati dell'account di archiviazione sono determinati dalle [assegnazioni di ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) dell'istanza di risorsa. Le istanze di risorse devono provenire dallo stesso tenant dell'account di archiviazione, ma possono appartenere a qualsiasi sottoscrizione nel tenant.
 
+L'elenco dei servizi di Azure supportati viene visualizzato nella sezione [accesso attendibile in base all'identità gestita assegnata dal sistema](#trusted-access-system-assigned-managed-identity) di questo articolo.
 
-Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, alle risorse dei servizi seguenti registrati nella stessa sottoscrizione dell'account di archiviazione viene concesso l'accesso per un set limitato di operazioni, come descritto di seguito:
+> [!NOTE]
+> Questa funzionalità è disponibile in anteprima pubblica ed è disponibile in tutte le aree del cloud pubblico. 
+
+### <a name="portal"></a>[Portale](#tab/azure-portal)
+
+È possibile aggiungere o rimuovere le regole di rete delle risorse nel portale di Azure.
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) per iniziare.
+
+2. Individuare l'account di archiviazione e visualizzare la sezione della panoramica dell'account.
+
+3. Selezionare **rete** per visualizzare la pagina di configurazione per la rete.
+
+4. Nell'elenco a discesa **tipo di risorsa** scegliere il tipo di risorsa dell'istanza di risorsa. 
+
+5. Nell'elenco a discesa **nome istanza** selezionare l'istanza della risorsa. È anche possibile scegliere di includere tutte le istanze di risorse nel tenant attivo, nella sottoscrizione o nel gruppo di risorse.
+
+6. Selezionare **Salva** per applicare le modifiche. L'istanza della risorsa viene visualizzata nella sezione **istanze risorse** della pagina impostazioni di rete. 
+
+Per rimuovere l'istanza di risorsa, selezionare l'icona di eliminazione ( :::image type="icon" source="media/storage-network-security/delete-icon.png"::: ) accanto all'istanza di risorsa.
+
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+È possibile usare i comandi di PowerShell per aggiungere o rimuovere le regole di rete delle risorse.
+
+> [!IMPORTANT]
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+
+#### <a name="install-the-preview-module"></a>Installare il modulo di anteprima
+
+Installare la versione più recente del modulo PowershellGet. Chiudere e riaprire la console di PowerShell.
+
+```powershell
+install-Module PowerShellGet –Repository PSGallery –Force  
+```
+
+Installare il modulo **AZ. storage** Preview.
+
+```powershell
+Install-Module Az.Storage -Repository PsGallery -RequiredVersion 3.0.1-preview -AllowClobber -AllowPrerelease -Force 
+```
+
+Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+
+#### <a name="grant-access"></a>Concedere l'accesso
+
+Aggiungere una regola di rete per concedere l'accesso da un'istanza di risorsa.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Add-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId
+
+```
+
+Specificare più istanze di risorse contemporaneamente modificando il set di regole di rete.
+
+```powershell
+$resourceId1 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$resourceId2 = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/mySQLServer"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule (@{ResourceId=$resourceId1;TenantId=$tenantId},@{ResourceId=$resourceId2;TenantId=$tenantId}) 
+```
+
+#### <a name="remove-access"></a>Rimuovere l'accesso
+
+Rimuovere una regola di rete che concede l'accesso da un'istanza di risorsa.
+
+```powershell
+$resourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory"
+$tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Remove-AzStorageAccountNetworkRule -ResourceGroupName $resourceGroupName -Name $accountName -TenantId $tenantId -ResourceId $resourceId  
+```
+
+Rimuovere tutte le regole di rete che concedono l'accesso dalle istanze di risorse.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName -ResourceAccessRule @()  
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Visualizzare un elenco di istanze di risorse consentite
+
+Consente di visualizzare un elenco completo delle istanze di risorse a cui è stato concesso l'accesso all'account di archiviazione.
+
+```powershell
+$resourceGroupName = "myResourceGroup"
+$accountName = "mystorageaccount"
+
+$rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
+$rule.ResourceAccessRules 
+```
+
+### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+È possibile usare i comandi dell'interfaccia della riga di comando di Azure per aggiungere o rimuovere regole di rete delle risorse
+
+#### <a name="install-the-preview-extension"></a>Installare l'estensione di anteprima
+
+1. Aprire [Azure Cloud Shell](../../cloud-shell/overview.md)o aprire un'applicazione console comando come Windows PowerShell, se è stata [installata](/cli/azure/install-azure-cli) l'interfaccia della riga di comando di Azure in locale.
+
+2. Quindi, verificare che la versione dell'interfaccia della riga di comando di Azure installata sia `2.13.0` o superiore usando il comando seguente.
+
+   ```azurecli
+   az --version
+   ```
+
+   Se la versione dell'interfaccia della riga di comando di Azure fosse inferiore a `2.13.0`, installare una versione successiva. Vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+
+3. Per installare l'estensione di anteprima, digitare il comando seguente.
+
+   ```azurecli
+   az extension add -n storage-preview
+   ```
+
+#### <a name="grant-access"></a>Concedere l'accesso
+
+Aggiungere una regola di rete per concedere l'accesso da un'istanza di risorsa.
+
+```azurecli
+az storage account network-rule add \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="remove-access"></a>Rimuovere l'accesso
+
+Rimuovere una regola di rete che concede l'accesso da un'istanza di risorsa.
+
+```azurecli
+az storage account network-rule remove \
+    --resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Synapse/workspaces/testworkspace \
+    --tenant-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+#### <a name="view-a-list-of-allowed-resource-instances"></a>Visualizzare un elenco di istanze di risorse consentite
+
+Consente di visualizzare un elenco completo delle istanze di risorse a cui è stato concesso l'accesso all'account di archiviazione.
+
+```azurecli
+az storage account network-rule list \
+    -g myResourceGroup \
+    --account-name mystorageaccount
+```
+
+---
+
+<a id="exceptions"></a>
+<a id="trusted-microsoft-services"></a>
+
+## <a name="grant-access-to-azure-services"></a>Concedi l'accesso ai servizi di Azure 
+
+Alcuni servizi di Azure operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di tali servizi di Azure attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili utilizzeranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. 
+
+È possibile concedere l'accesso ai servizi di Azure attendibili creando un'eccezione della regola di rete. Per istruzioni dettagliate, vedere la sezione [gestire le eccezioni](#manage-exceptions) di questo articolo. 
+
+Quando si concede l'accesso ai servizi di Azure attendibili, vengono concessi i tipi di accesso seguenti:
+
+- Accesso attendibile per le operazioni di selezione alle risorse registrate nella sottoscrizione.
+- Accesso attendibile alle risorse in base all'identità gestita assegnata dal sistema.
+
+<a id="trusted-access-resources-in-subscription"></a>
+
+### <a name="trusted-access-for-resources-registered-in-your-subscription"></a>Accesso attendibile per le risorse registrate nella sottoscrizione
+
+Le risorse di alcuni servizi, **se registrate nella sottoscrizione**, possono accedere all'account di archiviazione **nella stessa sottoscrizione** per determinate operazioni, come la scrittura di log o il backup.  La tabella seguente descrive ogni servizio e le operazioni consentite. 
 
 | Service                  | Nome provider di risorse     | Operazioni consentite                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -384,7 +569,15 @@ Quando si abilita l'impostazione **Consenti servizi Microsoft attendibili**, all
 | Rete di Azure         | Microsoft.Network          | Archiviare e analizzare i log del traffico di rete, inclusi i servizi Network Watcher e Analisi del traffico. [Altre informazioni](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Abilitare la replica per il ripristino di emergenza di macchine virtuali IaaS di Azure quando si usa un account di archiviazione di origine, di destinazione o della cache abilitato per il firewall.  [Altre informazioni](../../site-recovery/azure-to-azure-tutorial-enable-replication.md) |
 
-L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a una particolare istanza dei servizi seguenti di accedere all'account di archiviazione, se si assegna in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per l'istanza della risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita.
+<a id="trusted-access-system-assigned-managed-identity"></a>
+
+### <a name="trusted-access-based-on-system-assigned-managed-identity"></a>Accesso attendibile basato sull'identità gestita assegnata dal sistema
+
+La tabella seguente elenca i servizi che possono avere accesso ai dati dell'account di archiviazione se alle istanze delle risorse di tali servizi viene assegnata l'autorizzazione appropriata. Per concedere l'autorizzazione, è necessario assegnare in modo esplicito [un ruolo di Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) all' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/overview.md) per ogni istanza di risorsa. In questo caso l'ambito di accesso dell'istanza corrisponde al ruolo di Azure assegnato all'identità gestita. 
+
+> [!TIP]
+> Il modo consigliato per concedere l'accesso a risorse specifiche consiste nell'usare le regole dell'istanza di risorsa. Per concedere l'accesso a istanze di risorse specifiche, vedere la sezione [concedere l'accesso da istanze di risorse di Azure (anteprima)](#grant-access-specific-instances) di questo articolo.
+
 
 | Service                        | Nome provider di risorse                 | Scopo            |
 | :----------------------------- | :------------------------------------- | :----------------- |
@@ -402,44 +595,45 @@ L'impostazione **Consenti servizi Microsoft attendibili...** consente anche a un
 | Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
 | Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
 
+## <a name="grant-access-to-storage-analytics"></a>Concedi l'accesso a analisi archiviazione
 
-### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
+In alcuni casi l'accesso per la lettura di log delle risorse e metriche viene richiesto dall'esterno dei limiti di rete. Quando si configura l'accesso ai servizi attendibili per l'account di archiviazione, è possibile consentire l'accesso in lettura per i file di log, le tabelle di metriche o entrambi creando un'eccezione della regola di rete. Per istruzioni dettagliate, vedere la sezione **gestire le eccezioni** riportata di seguito. Per altre informazioni sull'uso di analisi archiviazione, vedere [usare analisi archiviazione di Azure per raccogliere i dati dei log e delle metriche](./storage-analytics.md). 
 
-In alcuni casi l'accesso per la lettura di log delle risorse e metriche viene richiesto dall'esterno dei limiti di rete. Quando si configura l'accesso di servizi attendibili all'account di archiviazione, è possibile consentire l'accesso in lettura ai file di log, alle tabelle di metriche o a entrambi. [Altre informazioni sull'uso dell'analisi archiviazione.](./storage-analytics.md)
+<a id="manage-exceptions"></a>
 
-### <a name="managing-exceptions"></a>Gestione delle eccezioni
+## <a name="manage-exceptions"></a>Gestire eccezioni
 
 Le eccezioni alle regole di rete possono essere gestite tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure v2.
 
-#### <a name="azure-portal"></a>Portale di Azure
+#### <a name="portal"></a>[Portale](#tab/azure-portal)
 
 1. Passare all'account di archiviazione che si vuole proteggere.
 
-1. Fare clic sul menu impostazioni denominato **rete**.
+2. Selezionare dal menu impostazioni denominato **rete**.
 
-1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
+3. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. In **Eccezioni** selezionare le eccezioni da autorizzare.
+4. In **Eccezioni** selezionare le eccezioni da autorizzare.
 
-1. Fare clic su **Salva** per applicare le modifiche.
+5. Selezionare **Salva** per applicare le modifiche.
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Installare [Azure PowerShell](/powershell/azure/install-Az-ps) e [accedere](/powershell/azure/authenticate-azureps).
 
-1. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
+2. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
-1. Configurare le eccezioni alle regole di rete dell'account di archiviazione.
+3. Configurare le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
-1. Rimuovere le eccezioni alle regole di rete dell'account di archiviazione.
+4. Rimuovere le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
@@ -448,23 +642,23 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
 
-#### <a name="cliv2"></a>Interfaccia della riga di comando v2
+#### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) e [accedere](/cli/azure/authenticate-azure-cli).
 
-1. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
+2. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```azurecli
     az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass
     ```
 
-1. Configurare le eccezioni alle regole di rete dell'account di archiviazione.
+3. Configurare le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass Logging Metrics AzureServices
     ```
 
-1. Rimuovere le eccezioni alle regole di rete dell'account di archiviazione.
+4. Rimuovere le eccezioni alle regole di rete dell'account di archiviazione.
 
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --bypass None
@@ -472,6 +666,8 @@ Le eccezioni alle regole di rete possono essere gestite tramite il portale di Az
 
 > [!IMPORTANT]
 > Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario la rimozione delle eccezioni non ha alcun effetto.
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

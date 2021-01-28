@@ -7,12 +7,12 @@ ms.topic: article
 author: trkeya
 ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 60eeceac916a7f8c64214b7a74a8cf60fd1ec8ac
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489387"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986125"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurare una sottoscrizione di Azure Marketplace per le unità di test ospitate
 
@@ -43,7 +43,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
     5. In tipi di account supportati selezionare **account in qualsiasi directory dell'organizzazione e account Microsoft personali**.
     6. Selezionare **Crea** e attendere che venga creata l'app.
     7. Una volta creata l'app, annotare l' **ID applicazione** visualizzato nella schermata panoramica. Questo valore sarà necessario in un secondo momento durante la configurazione del test drive.
-    8. Per aggiungere un URI di reindirizzamento nativeClient, selezionare il pannello **autenticazione** . In **configurazione piattaforma** selezionare **Aggiungi piattaforma**  >  applicazione desktop per **dispositivi mobili**  >  **Desktop** . Scegliere l'URI di Reindirizzamento **nativeClient** e selezionare **Configura**.
+    8. Per aggiungere un URI di reindirizzamento nativeClient, selezionare il pannello **autenticazione** . In **configurazione piattaforma** selezionare **Aggiungi piattaforma**  >  applicazione desktop per **dispositivi mobili**  >   . Scegliere l'URI di Reindirizzamento **nativeClient** e selezionare **Configura**.
 
         :::image type="content" source="./media/test-drive/configure-desktop-devices.png" alt-text="Aggiunta di un URI di reindirizzamento nativeClient.":::
 
@@ -65,12 +65,12 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
     15. Per generare un segreto per il App Azure AD:
         1. In **Gestisci applicazione** selezionare **certificato e segreti**.
         2. In segreti client selezionare **nuovo segreto client**.
-        3. Immettere una descrizione, ad esempio *test drive* , e selezionare una durata appropriata. Il test drive si interrompe dopo la scadenza della chiave. a questo punto sarà necessario generare e fornire a AppSource una nuova chiave.
+        3. Immettere una descrizione, ad esempio *test drive*, e selezionare una durata appropriata. Il test drive si interrompe dopo la scadenza della chiave. a questo punto sarà necessario generare e fornire a AppSource una nuova chiave.
         4. Selezionare **Aggiungi** per generare il segreto dell'app di Azure. Copiare questo valore poiché verrà nascosto non appena si lave questo pannello. Questo valore sarà necessario in un secondo momento durante la configurazione del test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Aggiunta di un segreto client.":::
 
-5. In alcuni casi è necessario più tempo del previsto per sincronizzare un utente da Azure AD a un'istanza di CRM. Per facilitare questa operazione, è stato aggiunto un processo per forzare l'utente della sincronizzazione, ma è necessario che l'applicazione Azure AD sia inserita nell'elenco elementi consentiti dal centro per i partner. Per eseguire questa operazione, vedere [sincronizzazione utente per l'istanza di engagement del cliente](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
+5. In alcuni casi è necessario più tempo del previsto per sincronizzare un utente da Azure AD a un'istanza di CRM. Per facilitare questa operazione, è stato aggiunto un processo per forzare l'utente della sincronizzazione, ma è necessario che l'applicazione Azure AD sia allowlisted dal centro per i partner. Per eseguire questa operazione, vedere [sincronizzazione utente per l'istanza di engagement del cliente](https://github.com/microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/CDS_Utility_to_ForceUserSync_in_CRM_Instance.md).
 6. Aggiungere il ruolo entità servizio all'applicazione per consentire all'app Azure AD di rimuovere gli utenti dal tenant di Azure.
     1. Aprire un prompt dei comandi di PowerShell di livello amministrativo.
     2. Install-Module MSOnline (eseguire questo comando se MSOnline non è installato).
@@ -83,7 +83,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
 
 7. Aggiungere l'app di Azure creata in precedenza come utente dell'applicazione all'istanza di test drive CRM.
     1. Aggiungere un nuovo utente in **Azure Active Directory**. Per creare l'utente sono necessari solo i valori **Name** e **username** (appartenenti allo stesso tenant), lasciando gli altri campi come predefiniti. Copiare il valore del nome utente.
-    2. Accedere all' **istanza di CRM** e selezionare **impostazione**  >  **Security**  >  **utenti** sicurezza.
+    2. Accedere all' **istanza di CRM** e selezionare **impostazione**  >    >  **utenti** sicurezza.
     3. Modificare la visualizzazione in **utenti applicazione**.
 
         :::image type="content" source="./media/test-drive/application-users.png" alt-text="Impostazione delle informazioni sull'account per un utente.":::
@@ -135,7 +135,7 @@ Questo articolo illustra come configurare una sottoscrizione di Azure Marketplac
     14. Per generare un segreto per il App Azure AD:
         1. In **Gestisci applicazione** selezionare **certificato e segreti**.
         2. In segreti client selezionare **nuovo segreto client**.
-        3. Immettere una descrizione, ad esempio *test drive* , e selezionare una durata appropriata. Il test drive si interrompe dopo la scadenza della chiave. a questo punto sarà necessario generare e fornire a AppSource una nuova chiave.
+        3. Immettere una descrizione, ad esempio *test drive*, e selezionare una durata appropriata. Il test drive si interrompe dopo la scadenza della chiave. a questo punto sarà necessario generare e fornire a AppSource una nuova chiave.
         4. Selezionare **Aggiungi** per generare il segreto dell'app di Azure. Copiare questo valore poiché verrà nascosto non appena si lave questo pannello. Questo valore sarà necessario in un secondo momento durante la configurazione del test drive.
 
             :::image type="content" source="./media/test-drive/add-client-secret.png" alt-text="Aggiunta di un segreto client.":::

@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ae8292375c0b85cc4c771c1fe7d853c5fcd3afd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fde82dde7df3fa9756c145940178f35ed255ce37
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955767"
+ms.locfileid: "98986548"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -31,7 +31,7 @@ Dopo aver completato i passaggi di configurazione, sarà possibile eseguire un f
   > È necessaria una sottoscrizione di Azure con le autorizzazioni per la creazione di entità servizio. il **ruolo di proprietario** lo fornisce. Se non si hanno le autorizzazioni appropriate, contattare l'amministratore dell'account per concedere le autorizzazioni appropriate.  
 
 * [Visual Studio Code](https://code.visualstudio.com/) nel computer di sviluppo. Assicurarsi che sia presente l'[estensione Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Verificare che la rete a cui è connesso il computer di sviluppo consenta il protocollo AMQP (Advanced Message Queueing Protocol) sulla porta 5671. Questa configurazione consente la comunicazione tra Azure IoT Tools e l'hub IoT di Azure.
+* Verificare che la rete a cui è connesso il computer di sviluppo consenta il protocollo AMQP (Advanced Message Queueing Protocol) sulla porta 5671 per il traffico in uscita. Questa configurazione consente la comunicazione tra Azure IoT Tools e l'hub IoT di Azure.
 
 > [!TIP]
 > È possibile che venga chiesto di installare Docker durante l'installazione dell'estensione Azure IoT Tools. Ignorare tranquillamente questa richiesta.
@@ -67,7 +67,7 @@ Per questo argomento di avvio rapido è consigliabile usare lo [script di config
     1. **Interfaccia di rete** : consente a una macchina virtuale di Azure di comunicare con Internet, Azure e altre risorse.
     1. **Connessione Bastion** : consente di connettersi alla macchina virtuale usando il browser e la portale di Azure.
     1. **Indirizzo IP pubblico** : consente alle risorse di Azure di comunicare con Internet e con servizi di Azure pubblici
-    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Rete virtuale** : consente a molti tipi di risorse di Azure, ad esempio la macchina virtuale, di comunicare in modo sicuro tra loro, con Internet e con le reti locali. Altre informazioni sulle [reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
     1. **Hub** di Internet delle cose: funge da Hub messaggi centrale per la comunicazione bidirezionale tra l'applicazione internet, IOT Edge moduli e i dispositivi gestiti.
     1. **Account del servizio multimediale** : consente di gestire e trasmettere in streaming contenuti multimediali in Azure.
     1. **Account** di archiviazione: è necessario avere un account di archiviazione primario ed è possibile avere un numero qualsiasi di account di archiviazione secondari associati all'account di servizi multimediali. Per altre informazioni, vedere [Account di archiviazione di Azure con account di Servizi multimediali di Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
@@ -165,7 +165,7 @@ Per enumerare tutte le [topologie del grafo](media-graph-concept.md#media-graph-
 
 ### <a name="invoke-graphtopologyset"></a>Richiamare GraphTopologySet
 
-Usando i passaggi per richiamare `GraphTopologyList`, è possibile richiamare `GraphTopologySet` per impostare una [topologia del grafo](media-graph-concept.md#media-graph-topologies-and-instances). Usare il codice JSON seguente come payload.
+Come in precedenza, è ora possibile richiamare `GraphTopologySet` per impostare una [topologia Graph](media-graph-concept.md#media-graph-topologies-and-instances). Usare il codice JSON seguente come payload.
 
 ```
 {

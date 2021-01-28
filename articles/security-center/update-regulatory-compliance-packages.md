@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 6fb2e5c0193bc4e66f8fb4215732a69c43731146
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5f70f74accba5df439351547fda7497656e2c06e
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756628"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986684"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 
@@ -73,9 +73,11 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
 
     - **NIST SP 800-53 R4**
     - **NIST SP 800 171 R2**
-    - **SWIFT CSP CSCF-v2020**
+    - **SWIFT CSP CSCF v2020**
     - **UKO e UK NHS**
-    - **Canada PBMM**
+    - **Canada Federal PBMM**
+    - **HIPAA HITRUST**
+    - **Azure CIS 1.1.0**
     
     ![Aggiunta di standard normativi al dashboard di conformità alle normative del Centro sicurezza di Azure](./media/update-regulatory-compliance-packages/dynamic-regulatory-compliance-additional-standards.png)
 
@@ -88,8 +90,7 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
     > [!NOTE]
     > La visualizzazione di uno standard appena aggiunto nel dashboard di conformità potrebbe richiedere alcune ore.
 
-    [![Dashboard di conformità alle normative che mostra il vecchio e il nuovo standard Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
-
+    :::image type="content" source="./media/security-center-compliance-dashboard/compliance-dashboard.png" alt-text="Dashboard Conformità con le normative" lightbox="./media/security-center-compliance-dashboard/compliance-dashboard.png":::
 
 ## <a name="removing-a-standard-from-your-dashboard"></a>Rimozione di uno standard dal dashboard
 

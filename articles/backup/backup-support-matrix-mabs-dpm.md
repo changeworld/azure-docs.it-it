@@ -3,12 +3,12 @@ title: Matrice di supporto di MAB & System Center DPM
 description: Questo articolo riepiloga il supporto di backup di Azure quando si usa Backup di Microsoft Azure Server (MAB) o System Center DPM per eseguire il backup delle risorse locali e delle macchine virtuali di Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: aaa68dba0bbd1f3f5ffb5480a2bdb0a48ae85656
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276971"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986057"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matrice di supporto per il backup con Backup di Microsoft Azure server o System Center DPM
 
@@ -111,13 +111,18 @@ Se si distribuisce il server di Backup di Microsoft Azure in una macchina virtua
 
 ### <a name="url-access"></a>accesso con URL
 
-Il server DPM o il server di Backup di Microsoft Azure deve poter accedere agli URL seguenti:
+Il server DPM/server MAB necessita dell'accesso a questi URL e indirizzi IP:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `*.Microsoft.com`
-- `*.WindowsAzure.com`
-- `*.microsoftonline.com`
-- `*.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18:
 
 ### <a name="azure-expressroute-support"></a>Supporto di Azure ExpressRoute
 
@@ -125,11 +130,16 @@ Il server DPM o il server di Backup di Microsoft Azure deve poter accedere agli 
 
 Con peering pubblico: garantire l'accesso ai seguenti domini/indirizzi:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- `microsoft.com`
-- `.WindowsAzure.com`
-- `.microsoftonline.com`
-- `.windows.net`
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Con il peering Microsoft selezionare i servizi/le aree e i valori della community pertinenti seguenti:
 
@@ -146,7 +156,7 @@ Per ulteriori informazioni, vedere i [requisiti di routing di ExpressRoute](../e
 
 Per il corretto funzionamento dei backup, è necessaria la connettività al servizio Backup di Azure e la sottoscrizione di Azure deve essere attiva. La tabella seguente illustra il comportamento che si riscontra quando queste due condizioni non si verificano.
 
-**Server di Backup di Microsoft Azure ad Azure** | **Sottoscrizione** | **Backup/Ripristino**
+**Server di Backup di Microsoft Azure ad Azure** | **Sottoscrizione** | **Backup/ripristino**
 --- | --- | ---
 Connesso | Attivo | Eseguire il backup nel disco di DPM/MAB.<br/><br/> Esegui il backup in Azure.<br/><br/> Ripristinare dal disco.<br/><br/> Ripristinare da Azure.
 Connesso | Scaduta/sottoposta a deprovisioning | Nessun backup su disco o in Azure.<br/><br/> Se la sottoscrizione è scaduta, è possibile eseguire il ripristino dal disco o da Azure.<br/><br/> Se la sottoscrizione viene ritirata, non è possibile eseguire il ripristino dal disco o da Azure. I punti di ripristino di Azure vengono eliminati.

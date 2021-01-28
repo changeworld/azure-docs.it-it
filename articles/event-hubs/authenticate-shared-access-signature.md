@@ -4,12 +4,12 @@ description: Questo articolo illustra come autenticare l'accesso alle risorse di
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 26c921213168e1028f311eabaa417efdb76f5c97
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ff141fc1bb681e2356a4471dfdc808d622fd76b5
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510091"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986496"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse di hub eventi usando firme di accesso condiviso (SAS)
 Firma di accesso condiviso (SAS) offre un controllo granulare sul tipo di accesso concesso ai client che dispongono della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una firma di accesso condiviso: 
@@ -203,7 +203,7 @@ Ad esempio, per definire le regole di autorizzazione limitate alla sola trasmiss
 
 
 > [!NOTE]
-> Sebbene non sia consigliato, è possibile dotare i dispositivi di token che concedono l'accesso a un hub eventi o a uno spazio dei nomi. Tutti i dispositivi che contengono questo token possono inviare messaggi direttamente a tale hub eventi. Non è possibile disattivare l'invio a tale Hub eventi per il dispositivo.
+> Sebbene non sia consigliato, è possibile dotare i dispositivi di token che concedono l'accesso a un hub eventi o a uno spazio dei nomi. Tutti i dispositivi che contengono questo token possono inviare messaggi direttamente a tale hub eventi. Inoltre, il dispositivo non può essere Blocklisting dall'invio a tale hub eventi.
 > 
 > È sempre consigliabile assegnare ambiti specifici e granulari.
 

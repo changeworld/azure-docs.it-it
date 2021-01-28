@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: b8c9af31243d8bb58a58fbc687cad68130f64f7e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 59768e4fc04613a5ecac6a76059382499b7aaa86
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880743"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986463"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -84,7 +84,7 @@ Per gli scenari di pubblicazione di transazioni, è possibile rendere disponibil
 
 Oltre a usare tipi di offerte e modelli di fatturazione per monetizzare un'offerta, è possibile gestire una versione privata dell'offerta, completa di prezzi negoziati specifici della trattativa e di configurazioni personalizzate. Le offerte private sono supportate da tutte e tre le opzioni di pubblicazione delle transazioni.
 
-Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. È possibile usare offerte private per discount o aggiungere un Premium a un'offerta. È possibile rendere disponibili offerte private a uno o più clienti elencando la sottoscrizione di Azure a livello di offerta.
+Questa opzione consente un prezzo superiore o inferiore rispetto all'offerta pubblicamente disponibile. È possibile usare offerte private per discount o aggiungere un Premium a un'offerta. È possibile rendere disponibili offerte private a uno o più clienti allowlisting la sottoscrizione di Azure a livello di offerta.
 
 ### <a name="commercial-marketplace-service-fees"></a>Tariffe del servizio Marketplace commerciale
 

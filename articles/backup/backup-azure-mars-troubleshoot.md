@@ -3,12 +3,12 @@ title: Risolvere i problemi dell'agente di backup di Azure
 description: Questo articolo illustra come risolvere i problemi di installazione e registrazione dell'agente di backup di Azure.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c08a146d91a128dc48fa4c379055b8c0efc1df0c
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993840"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986650"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Risolvere i problemi relativi all'agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -42,7 +42,7 @@ Prima di iniziare la risoluzione dei problemi relativi all'agente di servizi di 
 | Causa | Azioni consigliate |
 | ---     | ---    |
 | **Le credenziali dell'insieme di credenziali non sono valide** <br/> <br/> È possibile che i file di credenziali dell'insieme di credenziali siano danneggiati, che siano scaduti o che abbiano un'estensione di file diversa da *. vaultCredentials*. (Ad esempio, potrebbero essere state scaricate più di 48 ore prima dell'ora di registrazione).| [Scaricare le nuove credenziali](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) dall'insieme di credenziali dei servizi di ripristino nel portale di Azure. Eseguire quindi la procedura seguente, in base alle esigenze: <ul><li> Se è già stato installato e registrato MARS, aprire la console MMC di Backup di Microsoft Azure Agent. Selezionare quindi **Registra server** nel riquadro **azioni** per completare la registrazione con le nuove credenziali. <br/> <li> Se la nuova installazione non riesce, provare a reinstallare con le nuove credenziali.</ul> **Nota**: se sono stati scaricati più file di credenziali dell'insieme di credenziali, solo il file più recente è valido per le ore 48 successive. Si consiglia di scaricare un nuovo file dell'insieme di credenziali.
-| **Il server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Seguire questa procedura:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.<br></br> Se la connessione avviene tramite Azure ExpressRoute, verificare che le impostazioni siano configurate come descritto nel [supporto di Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **Il server proxy/firewall sta bloccando la registrazione** <br/>oppure <br/>**Nessuna connettività Internet** <br/><br/> Se il computer o il server proxy ha una connettività Internet limitata e non si garantisce l'accesso per gli URL necessari, la registrazione avrà esito negativo.| Seguire questa procedura:<br/> <ul><li> Collaborare con il team IT per verificare che il sistema abbia la connettività Internet.<li> Se non si dispone di un server proxy, assicurarsi che l'opzione proxy non sia selezionata quando si registra l'agente. [Controllare le impostazioni del proxy](#verifying-proxy-settings-for-windows).<li> Se si dispone di un server proxy/firewall, collaborare con il team di rete per assicurarsi che gli URL e gli indirizzi IP abbiano accesso:<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>**Indirizzi IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/></ul></ul>Ripetere la registrazione dopo aver completato i passaggi precedenti per la risoluzione dei problemi.<br></br> Se la connessione avviene tramite Azure ExpressRoute, verificare che le impostazioni siano configurate come descritto nel [supporto di Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Il software antivirus sta bloccando la registrazione** | Se nel server è installato un software antivirus, aggiungere le regole di esclusione necessarie all'analisi antivirus per i file e le cartelle seguenti: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Cartella Scratch. Il percorso predefinito è c:\Programmi\Microsoft Azure Recovery Services Agent\Scratch. <li> La cartella bin in C:\Programmi\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Suggerimenti aggiuntivi
@@ -173,7 +173,7 @@ L'operazione corrente non è riuscita a causa di un errore di servizio interno "
 
 ## <a name="job-could-not-be-started-as-another-job-was-in-progress"></a>Non è stato possibile avviare il processo perché è in corso un altro processo
 
-Se si nota un messaggio di avviso nella cronologia dei processi della **console Mars**  >  **Job history**, ovvero "Impossibile avviare il processo perché è in corso un altro processo", il problema potrebbe essere dovuto a un'istanza duplicata del processo attivato dal utilità di pianificazione.
+Se si nota un messaggio di avviso nella cronologia dei processi della **console Mars**  >  , ovvero "Impossibile avviare il processo perché è in corso un altro processo", il problema potrebbe essere dovuto a un'istanza duplicata del processo attivato dal utilità di pianificazione.
 
 ![Non è stato possibile avviare il processo perché è in corso un altro processo](./media/backup-azure-mars-troubleshoot/job-could-not-be-started.png)
 
@@ -198,9 +198,9 @@ Backup di Azure potrebbe non montare il volume di ripristino in modo corretto, a
 
 2. Controllare se è presente la versione più recente dell'agente di backup. Per controllare la versione, nel riquadro **azioni** della console Mars selezionare **about Servizi di ripristino di Microsoft Azure Agent**. Verificare che il numero di **versione** sia uguale a o superiore alla versione citata in [questo articolo](https://go.microsoft.com/fwlink/?linkid=229525). Selezionare questo collegamento per [scaricare la versione più recente](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Passare a **Device Manager**  >  **controller di archiviazione** e individuare **iniziatore iSCSI Microsoft**. Se viene individuato, andare direttamente al passaggio 7.
+3. Passare a **Gestione dispositivi**  >  **controller di archiviazione** e individuare **iniziatore iSCSI Microsoft**. Se viene individuato, andare direttamente al passaggio 7.
 
-4. Se non è possibile individuare il servizio iniziatore iSCSI Microsoft, provare a trovare una voce in **Device Manager**  >  **controller di archiviazione** denominato **dispositivo sconosciuto** con ID hardware **ROOT\ISCSIPRT**.
+4. Se non è possibile individuare il servizio iniziatore iSCSI Microsoft, provare a trovare una voce in **Gestione dispositivi**  >  **controller di archiviazione** denominato **dispositivo sconosciuto** con ID hardware **ROOT\ISCSIPRT**.
 
 5. Fare clic con il pulsante destro del mouse su **dispositivo sconosciuto** e selezionare **Aggiorna software driver**.
 

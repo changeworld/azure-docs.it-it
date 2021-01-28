@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9e3fe0f8c14fdcfa9b3e97a02331d777abca2600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e884ceab652136c505ce7032f0e78588fb20be89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954260"
+ms.locfileid: "98986955"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controllare l'accesso agli account di archiviazione per il pool SQL serverless in Azure Synapse Analytics
 
@@ -102,9 +102,10 @@ Per accedere all'account di archiviazione protetto da firewall tramite l'identit
 Seguire questa procedura per configurare il firewall dell'account di archiviazione e aggiungere un'eccezione per l'area di lavoro di Synapse.
 
 1. Aprire o [installare PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Installare il modulo Az. Storage aggiornato: 
+2. Installare il modulo AZ. Storage 3.0.1 e AZ. sinapsi 0.7.0: 
     ```powershell
     Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
     > Assicurarsi di usare la **versione 3.0.1**. È possibile verificare la versione di Az.Storage eseguendo questo comando:  
@@ -121,16 +122,23 @@ Seguire questa procedura per configurare il firewall dell'account di archiviazio
     - Nome del gruppo di risorse: è possibile trovarlo nel portale di Azure nella panoramica dell'area di lavoro di Synapse.
     - Nome dell'account: nome dell'account di archiviazione protetto dalle regole del firewall.
     - ID tenant: è possibile trovarlo nel portale di Azure in Azure Active Directory nelle informazioni sul tenant.
-    - ID risorsa: è possibile trovarlo nel portale di Azure nella panoramica dell'area di lavoro di Synapse.
+    - Nome area di lavoro: nome dell'area di lavoro sinapsi.
 
     ```powershell
         $resourceGroupName = "<resource group name>"
         $accountName = "<storage account name>"
         $tenantId = "<tenant id>"
-        $resourceId = "<Synapse workspace resource id>"
+        $workspaceName = "<synapse workspace name>"
+        
+        $workspace = Get-AzSynapseWorkspace -Name $workspaceName
+        $resourceId = $workspace.Id
+        $index = $resourceId.IndexOf("/resourceGroups/", 0)
+        # Replace G with g - /resourceGroups/ to /resourcegroups/
+        $resourceId = $resourceId.Substring(0,$index) + "/resourcegroups/" + $resourceId.Substring($index + "/resourceGroups/".Length)
+        $resourceId
     ```
     > [!IMPORTANT]
-    > Assicurarsi che l'ID risorsa corrisponda a questo modello.
+    > Verificare che l'ID risorsa corrisponda a questo modello nella stampa della variabile resourceId.
     >
     > È importante scrivere **resourcegroups** in lettere minuscole.
     > Esempio di un ID risorsa: 
@@ -145,7 +153,14 @@ Seguire questa procedura per configurare il firewall dell'account di archiviazio
 6. Verificare che la regola sia stata applicata nell'account di archiviazione: 
     ```powershell
         $rule = Get-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroupName -Name $accountName
-        $rule.ResourceAccessRules
+        $rule.ResourceAccessRules | ForEach-Object { 
+        if ($_.ResourceId -cmatch "\/subscriptions\/(\w\-*)+\/resourcegroups\/(.)+") { 
+            Write-Host "Storage account network rule is successfully configured." -ForegroundColor Green
+            $rule.ResourceAccessRules
+        } else {
+            Write-Host "Storage account network rule is not configured correctly. Remove this rule and follow the steps in detail." -ForegroundColor Red
+            $rule.ResourceAccessRules
+        }
     ```
 
 #### <a name="managed-identity"></a>Identità gestita

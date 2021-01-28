@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: bd9199bc73e56ec36343b30d9b24f0b48799835e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 06614fc33910eda44bf6bf8369c4ad4b3c0b25fe
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96445180"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986023"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -73,7 +73,7 @@ Il modello di esempio include due parametri **obbligatori** :
 > [!TIP]
 > Sebbene il modello associato a questo documento crei un nuovo Registro Container di Azure, è possibile creare una nuova area di lavoro anche senza creare il registro contenitori. Ne verrà creato uno quando si eseguirà un'operazione che lo richiederà, ad esempio quando si addestrerà o si distribuirà un modello.
 >
-> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo. Tuttavia, nel registro contenitori usato deve essere abilitato l' __account amministratore__ . Per informazioni sull'abilitazione dell'account amministratore, vedere [account amministratore](../container-registry/container-registry-authentication.md#admin-account).
+> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo. Quando si esegue questa operazione, è necessario [usare un'identità gestita](how-to-use-managed-identities.md) (anteprima) o [abilitare l'account amministratore](../container-registry/container-registry-authentication.md#admin-account) per il registro contenitori.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12dfd15c2bd43816dd361fdf45995bcbcd6fba56
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970244"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98987006"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -112,7 +112,7 @@ La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino
 Per modificare le impostazioni di replica di archiviazione:
 
 1. Selezionare l'insieme di credenziali per aprire il dashboard dell'insieme di credenziali e il menu Impostazioni. Se il menu **Impostazioni** non viene aperto, selezionare **tutte le impostazioni** nel dashboard dell'insieme di credenziali.
-2. Nel menu **Impostazioni** selezionare configurazione backup **infrastruttura**  >  **Backup Configuration** di backup per aprire il menu **configurazione backup** . Nel menu **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
+2. Nel menu **Impostazioni** selezionare configurazione backup **infrastruttura**  >   di backup per aprire il menu **configurazione backup** . Nel menu **Configurazione di backup** scegliere l'opzione di replica di archiviazione per l'insieme di credenziali.
 
     ![Elenco degli insiemi di credenziali per il backup](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -171,7 +171,7 @@ Dopo aver scaricato tutti i file nella macchina virtuale di Azure Stack, passare
 
 ![Scarica programma di installazione di MAB](./media/backup-mabs-install-azure-stack/download-mabs-installer.png)
 
-1. Per avviare l'installazione, selezionare **MicrosoftAzureBackupserverInstaller.exe**dall'elenco dei file scaricati.
+1. Per avviare l'installazione, selezionare **MicrosoftAzureBackupserverInstaller.exe** dall'elenco dei file scaricati.
 
     > [!WARNING]
     > Per estrarre i file di installazione sono necessari almeno 4 GB di spazio libero.
@@ -239,7 +239,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     Se si verifica un errore con l'indicazione di riavviare il computer, eseguire questa operazione. Dopo aver riavviato il computer, riavviare il programma di installazione e, quando si arriva alla schermata **Impostazioni SQL** , selezionare di **nuovo verifica**.
 
-5. Nelle **impostazioni di installazione**specificare un percorso per l'installazione dei file di backup di Microsoft Azure server e selezionare **Avanti**.
+5. Nelle **impostazioni di installazione** specificare un percorso per l'installazione dei file di backup di Microsoft Azure server e selezionare **Avanti**.
 
     ![Specificare il percorso per l'installazione dei file](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
@@ -335,13 +335,19 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
-Se un firewall o un proxy impedisce l'accesso ad Azure, aggiungere all'elenco elementi consentiti nel profilo del firewall/proxy gli indirizzi di dominio seguenti:
+Se il computer ha accesso a Internet limitato, verificare che le impostazioni del firewall nel computer o nel proxy consentano gli URL e gli indirizzi IP seguenti:
 
-- `http://www.msftncsi.com/ncsi.txt`
-- \*.Microsoft.com
-- \*.WindowsAzure.com
-- \*.microsoftonline.com
-- \*.windows.net
+* URL
+  * `www.msftncsi.com`
+  * `*.Microsoft.com`
+  * `*.WindowsAzure.com`
+  * `*.microsoftonline.com`
+  * `*.windows.net`
+  * `www.msftconnecttest.com`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
+
 
 Dopo il ripristino della connettività ad Azure nel server di Backup di Azure, le operazioni che possono essere eseguite sono determinate dallo stato della sottoscrizione di Azure. Quando il server è **connesso**, usare la tabella in [Connettività di rete](backup-mabs-install-azure-stack.md#network-connectivity) per visualizzare le operazioni disponibili.
 

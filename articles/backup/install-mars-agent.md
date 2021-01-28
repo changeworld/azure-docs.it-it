@@ -3,12 +3,12 @@ title: Installare l'agente di Servizi di ripristino di Microsoft Azure (MARS)
 description: Informazioni su come installare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup di computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975297"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986871"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Installare l'agente MARS di backup di Azure
 
@@ -88,6 +88,9 @@ Per usare il peering pubblico, assicurarsi innanzitutto di accedere ai domini e 
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
 * `.windows.net`
+* Indirizzi IP
+  * 20.190.128.0/18
+  * 40.126.0.0/18
 
 Per usare il peering Microsoft, selezionare i servizi, le aree e i valori della community pertinenti seguenti:
 
@@ -121,7 +124,7 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 
     ![Configurare file e cartelle](./media/backup-try-azure-backup-in-10-mins/set-file-folder.png)
 
-1. Per **preparare l'infrastruttura**, in **Install Recovery Services Agent**scaricare l'agente Mars.
+1. Per **preparare l'infrastruttura**, in **Install Recovery Services Agent** scaricare l'agente Mars.
 
     ![Preparare l'infrastruttura](./media/backup-try-azure-backup-in-10-mins/choose-agent-for-server-client.png)
 
@@ -136,13 +139,13 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 ## <a name="install-and-register-the-agent"></a>Installare e registrare l'agente
 
 1. Eseguire il file di *MARSagentinstaller.exe* nei computer di cui si desidera eseguire il backup.
-1. Nell'installazione guidata dell'agente MARS selezionare **impostazioni di installazione**. Scegliere la posizione in cui installare l'agente e scegliere un percorso per la cache. Fare quindi clic su **Avanti**.
+1. Nell'installazione guidata dell'agente MARS selezionare **impostazioni di installazione**. Scegliere la posizione in cui installare l'agente e scegliere un percorso per la cache. Selezionare quindi **Avanti**.
    * Backup di Azure usa la cache per archiviare gli snapshot dei dati prima di inviarli ad Azure.
    * Il percorso della cache deve avere uno spazio disponibile pari almeno al 5% delle dimensioni dei dati di cui eseguire il backup.
 
     ![Scegliere le impostazioni di installazione nell'installazione guidata dell'agente MARS](./media/backup-configure-vault/mars1.png)
 
-1. Per la **configurazione del proxy**, specificare il modo in cui l'agente in esecuzione nel computer Windows si connetterà a Internet. Fare quindi clic su **Avanti**.
+1. Per la **configurazione del proxy**, specificare il modo in cui l'agente in esecuzione nel computer Windows si connetterà a Internet. Selezionare quindi **Avanti**.
 
    * Se si usa un proxy personalizzato, specificare le credenziali e le impostazioni proxy necessarie.
    * Tenere presente che l'agente deve accedere a [URL specifici](#before-you-start).
@@ -151,7 +154,7 @@ Se l'agente è già stato installato in qualsiasi computer, verificare che sia i
 
 1. Per l' **installazione**, esaminare i prerequisiti e selezionare **Installa**.
 1. Dopo l'installazione dell'agente, selezionare **procedi alla registrazione**.
-1. In registra l'insieme di credenziali della **procedura guidata server**  >  **Vault Identification**individuare e selezionare il file delle credenziali scaricato. Fare quindi clic su **Avanti**.
+1. In registra l'insieme di credenziali della **procedura guidata server**  >  individuare e selezionare il file delle credenziali scaricato. Selezionare quindi **Avanti**.
 
     ![Aggiungere le credenziali dell'insieme di credenziali tramite la registrazione guidata server](./media/backup-configure-vault/register1.png)
 

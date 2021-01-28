@@ -3,12 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 823b23d99959df5f2eed20cf4136254e1702fe89
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002861"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985632"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -34,7 +34,7 @@ Di seguito sono elencati i vantaggi aziendali derivanti dal backup dei server DP
 - Per DPM locale, Backup di Azure offre un'alternativa alla distribuzione a lungo termine su nastro.
 - Per DPM in esecuzione in una macchina virtuale di Azure, Backup di Azure consente l'offload dell'archiviazione dal disco di Azure. L'archiviazione dei dati meno recenti nell'insieme di credenziali di backup consente di aumentare le prestazioni dell'azienda archiviando i nuovi dati su disco.
 
-## <a name="prerequisites-and-limitations"></a>Prerequisiti e limiti
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
 
 **Impostazione** | **Requisito**
 --- | ---
@@ -48,7 +48,7 @@ Tipi di file supportati | Questi tipi di file possono essere sottoposti a backup
 Tipi di file non supportati | <li>Server in file System con distinzione tra maiuscole e minuscole<li> collegamenti reali (ignorati)<li> reparse point (ignorati)<li> crittografati e compressi (ignorati)<li> crittografati e sparse (ignorati)<li> Flusso compresso<li> flusso di analisi
 Archiviazione locale | Ogni computer di cui si desidera eseguire il backup deve disporre di spazio di archiviazione locale, ovvero almeno il 5% delle dimensioni dei dati di cui viene eseguito il backup. Se, ad esempio, si esegue il backup di 100 GB di dati, è necessario un minimo di 5 GB di spazio disponibile nello spazio di lavoro.
 Archiviazione dell'insieme di credenziali | Non esiste alcun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di backup di Azure, ma le dimensioni di un'origine dati (ad esempio una macchina virtuale o un database) non devono superare 54.400 GB.
-Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/>- `http://www.msftncsi.com/ncsi.txt` <br/><br/>- `microsoft.com` <br/><br/>-`.WindowsAzure.com`<br/><br/>-`.microsoftonline.com`<br/><br/>-`.windows.net`<br/><br/> **Con il peering Microsoft** selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
+Azure ExpressRoute | È possibile eseguire il backup dei dati tramite Azure ExpressRoute con il peering pubblico (disponibile per i circuiti precedenti) e il peering Microsoft. Il backup sul peering privato non è supportato.<br/><br/> **Con peering pubblico**: garantire l'accesso ai seguenti domini/indirizzi:<br/><br/> URL:<br> `www.msftncsi.com` <br> . Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>`www.msftconnecttest.com`<br><br>Indirizzi IP<br>  20.190.128.0/18 <br>  40.126.0.0/18<br> <br/>**Con il peering Microsoft** selezionare i servizi/le aree e i valori della community pertinenti seguenti:<br/><br/>-Azure Active Directory (12076:5060)<br/><br/>-Microsoft Azure area (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>-Archiviazione di Azure (in base alla posizione dell'insieme di credenziali di servizi di ripristino)<br/><br/>Per ulteriori informazioni, vedere [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).<br/><br/>**Nota**: il peering pubblico è deprecato per i nuovi circuiti.
 Agente di Backup di Azure | Se DPM è in esecuzione in System Center 2012 SP1, installare il rollup 2 o successivo per DPM SP1. È necessario per l'installazione dell'agente.<br/><br/> Questo articolo descrive come distribuire la versione più recente dell'agente di Backup di Azure, noto anche come agente del servizio di ripristino di Microsoft Azure. Se è stata distribuita una versione precedente, eseguire l'aggiornamento alla versione più recente per garantire che il backup funzioni come previsto.
 
 Prima di iniziare è necessario disporre di un account di Azure su cui è abilitata la funzionalità Backup di Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Informazioni sui [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).

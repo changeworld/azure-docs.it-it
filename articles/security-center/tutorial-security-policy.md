@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: memildin
-ms.openlocfilehash: 7ea871428fffe685cc9d43dd698bfefb8d8a511a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 19128f0372f9a5bda0d16155167a507eccaf436a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756672"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986606"
 ---
 # <a name="manage-security-policies"></a>Gestire i criteri di sicurezza
 
@@ -54,7 +54,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 1. Verrà visualizzata la pagina Criteri di sicurezza per la sottoscrizione o il gruppo di gestione. Mostra i criteri disponibili e assegnati.
 
-   ![pagina dei criteri](./media/tutorial-security-policy/security-policy-page.png)
+    :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Pagina dei criteri di sicurezza del Centro sicurezza" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
     > Se è presente un'etichetta "MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
@@ -102,7 +102,7 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 
 1. Nella sezione **policy & Compliance** del Centro sicurezza selezionare criteri di **sicurezza**.
 
-   ![gestione dei criteri](./media/tutorial-security-policy/policy-management.png)
+    :::image type="content" source="./media/tutorial-security-policy/policy-management.png" alt-text="Avvio del processo di gestione dei criteri nel centro sicurezza di Azure":::
 
 2. Selezionare la sottoscrizione o il gruppo di gestione per il quale si desidera disabilitare la raccomandazione.
 
@@ -111,7 +111,7 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 
 1. Selezionare **Visualizza criteri validi**.
 
-   ![Visualizza criteri](./media/tutorial-security-policy/view-effective-policy.png)
+    :::image type="content" source="./media/tutorial-security-policy/view-effective-policy.png" alt-text="Come aprire i criteri validi assegnati alla sottoscrizione":::
 
 1. Selezionare i criteri assegnati.
 
@@ -126,10 +126,8 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
    > [!NOTE]
    > Per rendere effettive le modifiche ai criteri di disabilitazione possono essere necessarie fino a 12 ore.
 
-
-
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo ha illustrato i criteri di sicurezza. Per informazioni correlate, vedere gli articoli seguenti:
+In questa pagina sono stati illustrati i criteri di sicurezza. Per informazioni correlate, vedere le pagine seguenti:
 
 - [Informazioni su come impostare i criteri tramite PowerShell](../governance/policy/assign-policy-powershell.md) - 
 - [Informazioni su come modificare i criteri di sicurezza in criteri di Azure](../governance/policy/tutorials/create-and-manage.md) - 

@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: f3357fcc070ca4ca2212cf0424e4baf8208a3ca1
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 17ac10fd4e48043b79db5448fad2f29c5eb3f2a3
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754131"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986820"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -45,7 +45,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 
 **Requisito** | **VMware** 
 --- | ---
-**Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.<br/>- **Agente DRA**: organizza la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.<br/>- **Gateway**: invia i dati replicati ad Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
 **Distribuzione supportata** | Distribuire come macchina virtuale di VMware usando il modello OVA.<br/><br/> Distribuire come macchina virtuale VMware o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
@@ -65,7 +65,7 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 
 **Requisito** | **Hyper-V** 
 --- | ---
-**Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/>- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 **Distribuzione supportata** | Distribuire come macchina virtuale Hyper-V usando un modello di disco rigido virtuale.<br/><br/> Distribuire come macchina virtuale Hyper-V o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
@@ -82,7 +82,7 @@ _ *Requisiti di Hyper-V** | Se si distribuisce l'appliance con il modello di dis
 
 **Requisito** | **Computer fisico** 
 --- | ---
-**Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
+**Autorizzazioni** | Per accedere all'app Web Appliance in locale o in remoto, è necessario disporre di un account utente locale o di dominio con privilegi amministrativi nel server appliance.
 **Componenti dell'appliance** | L'appliance include i componenti seguenti: <br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 **Distribuzione supportata** | Distribuire come computer fisico dedicato o macchina virtuale con uno script di installazione di PowerShell. Lo script può essere scaricato dal portale.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
@@ -220,7 +220,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 
 **Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
-Nome applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
+Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
 Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
@@ -249,17 +249,17 @@ Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \
 
 Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-Dati  | classe WMI  | Proprietà della classe WMI
+Data  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
 Nome  | Win32_operatingsystem  | Didascalia
 Versione  | Win32_operatingsystem  | Versione
-Architecture  | Win32_operatingsystem  | OSArchitecture
+Architettura  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. In base al sistema operativo della macchina virtuale, vengono eseguiti uno o più comandi. Questi dati vengono inviati ad Azure.
 
-Dati  | Comando
+Data  | Comando
 --- | --- 
 Nome | rpm, dpkg-query, snap
 Versione | rpm, dpkg-query, snap
@@ -272,7 +272,7 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 **Dati**  | **Comando** 
 --- | --- | ---
 Nome <br/> version | Raccolto da uno o più dei seguenti file:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
-Architecture | uname
+Architettura | uname
 
 
 ### <a name="app-dependencies-metadata"></a>Metadati delle dipendenze dell'app

@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2529c6c3b0f9d188e1ce8062c05f62f3e980ef50
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 19330af5e4c0e4962993d0ed89ec9bcd4a50514a
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805212"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98986414"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Configurare i criteri di durata del token (anteprima)
 È possibile specificare la durata di un token di accesso, SAML o ID emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Per altre informazioni, vedere [durate dei token configurabili](active-directory-configurable-token-lifetimes.md).
@@ -38,7 +38,7 @@ Per iniziare, seguire questa procedura:
 1. Per visualizzare tutti i criteri creati nell'organizzazione, eseguire il cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) .  I risultati con valori di proprietà definiti che differiscono dalle impostazioni predefinite elencate in precedenza rientrano nell'ambito del ritiro.
 
     ```powershell
-    Get-AzureADPolicy -All
+    Get-AzureADPolicy -All $true
     ```
 
 1. Per visualizzare le app e le entità servizio collegate a criteri specifici identificati, eseguire il cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) seguente sostituendo **1a37dad8-5da7-4CC8-87C7-efbc0326cf20** con uno qualsiasi degli ID criterio. È quindi possibile decidere se configurare la frequenza di accesso con accesso condizionale o rimanere con i valori predefiniti Azure AD.

@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf1057276a543c18b746bb60b7e7a54bf28dec6f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 44e14bed3158fac1f8bed15f913dc8b7eddbbb96
+ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98892567"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98985955"
 ---
 # <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>Esercitazione: sviluppare e pianificare il provisioning per un endpoint SCIM
 
@@ -1198,7 +1198,7 @@ La specifica SCIM non definisce uno schema specifico di SCIM per l'autenticazion
 |--|--|--|--|
 |Nome utente e password (non consigliato o supportato da Azure AD)|Facile da implementare|Non sicuro. [La pa$$word è irrilevante](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984).|Supportato caso per caso per le app della raccolta. Non supportato per le app non nella raccolta.|
 |Token di connessione di lunga durata|I token di lunga durata non richiedono che sia presente un utente. Possono essere usati facilmente dagli amministratori durante la configurazione del provisioning.|I token di lunga durata possono essere difficili da condividere con un amministratore senza usare metodi non sicuri come la posta elettronica. |Supportato sia per le app della raccolta che per quelle non nella raccolta. |
-|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|È supportato per le app della raccolta ma non per quelle non della raccolta. Tuttavia, è possibile fornire un token di accesso nell'interfaccia utente come token segreto a scopo di test a breve termine. Il supporto per la concessione del codice OAuth per app non della raccolta è nel backlog.|
+|Concessione del codice di autorizzazione OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata.  Durante l'autorizzazione iniziale deve essere presente un utente reale e questo offre un livello di affidabilità aggiuntivo. |Deve essere presente un utente. Se l'utente lascia l'organizzazione, il token non è valido ed è necessario completare nuovamente l'autorizzazione.|È supportato per le app della raccolta ma non per quelle non della raccolta. Tuttavia, è possibile fornire un token di accesso nell'interfaccia utente come token segreto a scopo di test a breve termine. Il supporto per la concessione di codice OAuth per la raccolta non è nel backlog, oltre al supporto per gli URL di autenticazione/token configurabili nell'app della raccolta.|
 |Concessione di credenziali client OAuth|I token di accesso hanno una durata molto più breve rispetto alle password e un meccanismo di aggiornamento automatico che non è disponibile per i token di connessione di lunga durata. Sia la concessione del codice di autorizzazione che la concessione delle credenziali client creano lo stesso tipo di token di accesso, quindi il passaggio tra questi metodi è trasparente per l'API.  Il provisioning può essere completamente automatizzato e i nuovi token possono essere richiesti automaticamente senza interazione dell'utente. ||Non supportato sia per le app della raccolta che per quelle non nella raccolta. Il supporto è incluso nel backlog di Microsoft.|
 
 > [!NOTE]
