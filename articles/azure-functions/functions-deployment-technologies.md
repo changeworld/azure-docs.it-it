@@ -4,12 +4,12 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 51a76adcf25d5d1bc4025eab12073df0886fde3d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681831"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943640"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -106,7 +106,7 @@ In funzioni di Azure sono disponibili i metodi di distribuzione seguenti.
 
 È possibile usare un URL di pacchetto esterno per fare riferimento a un file di pacchetto remoto (con estensione zip) che contiene l'app per le funzioni. Il file viene scaricato dall'URL fornito e l'app viene eseguita in modalità [esecuzione da pacchetto](run-functions-from-deployment-package.md) .
 
->__Come usarlo:__ Aggiungere `WEBSITE_RUN_FROM_PACKAGE` le impostazioni dell'applicazione. Il valore di questa impostazione deve essere un URL, ovvero il percorso del file di pacchetto specifico che si desidera eseguire. È possibile aggiungere le impostazioni [nel portale](functions-how-to-use-azure-function-app-settings.md#settings) o tramite [l'interfaccia della riga di comando di Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+>__Come usarlo:__ Aggiungere [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) le impostazioni dell'applicazione. Il valore di questa impostazione deve essere un URL, ovvero il percorso del file di pacchetto specifico che si desidera eseguire. È possibile aggiungere le impostazioni [nel portale](functions-how-to-use-azure-function-app-settings.md#settings) o tramite [l'interfaccia della riga di comando di Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Se si usa l'archiviazione BLOB di Azure, usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) per concedere alle funzioni l'accesso al pacchetto. Ogni volta che l'applicazione viene riavviata, recupera una copia del contenuto. Il riferimento deve essere valido per la durata dell'applicazione.
 
@@ -118,7 +118,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 
 >__Come usarlo:__ Eseguire la distribuzione usando lo strumento client preferito: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)o dalla riga di comando usando il [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). Per impostazione predefinita, questi strumenti usano la distribuzione zip ed [eseguono il pacchetto da](run-functions-from-deployment-package.md). Gli strumenti di base e l'estensione Visual Studio Code consentono entrambe le [compilazioni Remote](#remote-build) durante la distribuzione in Linux. Per distribuire manualmente un file con estensione zip nell'app per le funzioni, seguire le istruzioni in [distribuire da un file zip o un URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
->Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il `WEBSITE_RUN_FROM_PACKAGE` valore dell'impostazione dell'applicazione su `1` . Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure.
+>Quando si esegue la distribuzione tramite zip deploy, è possibile impostare l'applicazione per l' [esecuzione dal pacchetto](run-functions-from-deployment-package.md). Per eseguire dal pacchetto, impostare il `WEBSITE_RUN_FROM_PACKAGE` valore [] (Functions-app-Settings. MD # website_run_from_package impostazione applicazione su `1` . Si consiglia la distribuzione di zip. Produce tempi di caricamento più rapidi per le applicazioni ed è il valore predefinito per VS Code, Visual Studio e l'interfaccia della riga di comando di Azure.
 
 >__Quando utilizzarlo:__ Zip Deploy è la tecnologia di distribuzione consigliata per funzioni di Azure.
 
@@ -181,7 +181,7 @@ Usare la sincronizzazione cloud per sincronizzare il contenuto da Dropbox e OneD
 
 Nell'editor basato su portale è possibile modificare direttamente i file presenti nell'app per le funzioni (essenzialmente distribuendo ogni volta che si salvano le modifiche).
 
->__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](./functions-get-started.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione (ad esempio `WEBSITE_RUN_FROM_PACKAGE` ).
+>__Come usarlo:__ Per poter modificare le funzioni nella portale di Azure, è necessario aver [creato le funzioni nel portale](./functions-get-started.md). Per mantenere un'unica origine di verità, l'utilizzo di qualsiasi altro metodo di distribuzione rende la funzione di sola lettura e impedisce la modifica continua del portale. Per tornare a uno stato in cui è possibile modificare i file nella portale di Azure, è possibile riattivare manualmente la modalità di modifica `Read/Write` e rimuovere le impostazioni dell'applicazione relative alla distribuzione, ad esempio [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) .
 
 >__Quando utilizzarlo:__ Il portale è un modo efficace per iniziare a usare funzioni di Azure. Per un lavoro di sviluppo più intenso, è consigliabile usare uno degli strumenti client seguenti:
 >

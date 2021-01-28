@@ -1,18 +1,15 @@
 ---
 title: Come usare la replica Apache Hive nei cluster HDInsight di Azure
 description: Informazioni su come usare la replica hive nei cluster HDInsight per replicare il metastore Hive e la Azure Data Lake Storage generazione 2 Data Lake.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: af74392b3368a25e5d238f774292c80de5f91c65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857742"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941336"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Come usare la replica Apache Hive nei cluster HDInsight di Azure
 
@@ -140,7 +137,7 @@ La replica incrementale segue lo stesso processo e richiede l'ultimo ID evento r
 
 La replica viene in genere configurata in modo unidirezionale tra il database primario e quello secondario, in cui il primario è in grado di soddisfare le richieste di lettura e scrittura. Il cluster secondario soddisfa solo le richieste di lettura. Le Scritture sono consentite nel database secondario se si verifica un'emergenza, ma la replica inversa deve essere configurata di nuovo nel database primario.
 
-:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Diagramma della replica hive":::
+:::image type="content" source="media/apache-hive-replication/replication-pattern.png" alt-text="Modello di replica hive":::
 
 Sono disponibili diversi modelli per la replica hive, tra cui Primary-Secondary, Hub, spoke e Relay.
 

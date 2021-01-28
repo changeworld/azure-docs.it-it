@@ -1,19 +1,17 @@
 ---
 title: 'Vantaggi: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Motivazione e vantaggi per eseguire la migrazione di cluster Hadoop locali ad Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 975d72df32027888e217d5da9171dba0ba61f257
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331652"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943244"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Motivazione e vantaggi
 
@@ -61,7 +59,7 @@ Azure HDInsight è una distribuzione cloud dei componenti di Hadoop. Azure HDIns
     - Archiviazione BLOB di Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - database SQL di Azure
+    - Database SQL di Azure
     - Azure Analysis Services
 
 - **Riparazione automatica di processi e i componenti** - HDInsight controlla costantemente i componenti open source e dell'infrastruttura mediante la propria infrastruttura di monitoraggio. Ripristina automaticamente anche errori critici, ad esempio l'assenza di disponibilità di nodi e componenti open source. Vengono attivati avvisi in Ambari in caso di errore in qualsiasi componente OSS.

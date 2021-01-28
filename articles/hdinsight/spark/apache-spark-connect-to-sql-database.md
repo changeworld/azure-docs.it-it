@@ -1,25 +1,22 @@
 ---
 title: Usare Apache Spark per leggere e scrivere dati nel database SQL di Azure
 description: Informazioni su come configurare una connessione tra il cluster HDInsight Spark e il database SQL di Azure. Per leggere dati, scrivere dati e trasmettere dati in un database SQL
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 97c326bd1d2f61ba3fb9d6e381f5a8711bd0ca1d
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 4d42cedbc5dc20c929703be106e732b4806f3902
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940603"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Usare il cluster HDInsight Spark per leggere e scrivere dati nel database SQL di Azure
 
 Informazioni su come connettere un cluster Apache Spark in Azure HDInsight con il database SQL di Azure. Quindi leggere, scrivere e trasmettere i dati nel database SQL. Le istruzioni in questo articolo usano un Jupyter Notebook per eseguire i frammenti di codice scala. Tuttavia, è possibile creare un'applicazione autonoma in scala o Python ed eseguire le stesse attività.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 * Cluster Azure HDInsight Spark.  Seguire le istruzioni riportate in [Creare un cluster Apache Spark in HDInsight](apache-spark-jupyter-spark-sql.md).
 

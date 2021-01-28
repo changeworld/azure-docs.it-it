@@ -2,13 +2,13 @@
 title: Funzioni di modello-distribuzione
 description: Descrive le funzioni da usare in un modello di Azure Resource Manager (modello ARM) per recuperare le informazioni sulla distribuzione.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: e63caef669a2c28d29cd0bbd649b0997cea14ee1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 01/27/2021
+ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920509"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943469"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funzioni di distribuzione per i modelli ARM
 
@@ -33,6 +33,7 @@ Restituisce informazioni sull'operazione di distribuzione corrente.
 
 Questa funzione restituisce l'oggetto che viene passato durante la distribuzione. Le proprietà nell'oggetto restituito variano a seconda che si tratti di:
 
+* distribuzione di un modello o di una specifica di modello.
 * distribuzione di un modello che è un file locale o distribuzione di un modello che è un file remoto a cui si accede tramite un URI.
 * distribuzione in un gruppo di risorse o distribuzione in uno degli altri ambiti ([sottoscrizione di Azure](deploy-to-subscription.md), [gruppo di gestione](deploy-to-management-group.md)o [tenant](deploy-to-tenant.md)).
 
@@ -83,6 +84,31 @@ Quando si distribuisce un modello remoto in un gruppo di risorse, la funzione re
 }
 ```
 
+Quando si distribuisce una specifica del modello in un gruppo di risorse, la funzione restituisce il formato seguente:
+
+```json
+{
+  "name": "",
+  "properties": {
+    "templateLink": {
+      "id": ""
+    },
+    "template": {
+      "$schema": "",
+      "contentVersion": "",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {}
+    },
+    "templateHash": "",
+    "parameters": {},
+    "mode": "",
+    "provisioningState": ""
+  }
+}
+```
+
 Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o un tenant di Azure, l'oggetto restituito include una `location` Proprietà. La proprietà location è inclusa quando si distribuisce un modello locale o un modello esterno. Il formato è:
 
 ```json
@@ -104,7 +130,7 @@ Quando si esegue la distribuzione in una sottoscrizione, un gruppo di gestione o
 }
 ```
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 È possibile usare deployment() per il collegamento a un altro modello in base all'URI del modello padre.
 
@@ -295,7 +321,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | parameterName |Sì |string |Nome del parametro da restituire. |
 
@@ -303,7 +329,7 @@ Restituisce un valore di parametro. Il nome del parametro specificato deve esser
 
 Il valore del parametro specificato.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per impostare i valori delle risorse, si usano in genere i parametri. Nell'esempio seguente il nome del sito Web viene impostato sul valore del parametro passato durante la distribuzione.
 
@@ -428,11 +454,11 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| stringOutput | Stringa | option 1 |
+| stringOutput | string | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Oggetto | {"one": "a", "two": "b"} |
 | arrayOutput | Array | [1, 2, 3] |
-| crossOutput | Stringa | option 1 |
+| crossOutput | string | option 1 |
 
 Per altre informazioni sull'uso dei parametri, vedere [parametri nei modelli ARM](template-parameters.md).
 
@@ -444,7 +470,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 ### <a name="parameters"></a>Parametri
 
-| Parametro | Obbligatorio | Type | Descrizione |
+| Parametro | Obbligatoria | Tipo | Descrizione |
 |:--- |:--- |:--- |:--- |
 | variableName |Sì |string |Nome della variabile da restituire. |
 
@@ -452,7 +478,7 @@ Restituisce il valore della variabile. Il nome della variabile specificato deve 
 
 Il valore della variabile specificata.
 
-### <a name="remarks"></a>Osservazioni
+### <a name="remarks"></a>Commenti
 
 Per semplificare il modello creando valori complessi una sola volta, si usano in genere le variabili. Nell'esempio seguente viene creato un nome univoco per un account di archiviazione.
 
@@ -566,9 +592,9 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 
 | Nome | Type | valore |
 | ---- | ---- | ----- |
-| exampleOutput1 | Stringa | myVariable |
+| exampleOutput1 | string | myVariable |
 | exampleOutput2 | Array | [1, 2, 3, 4] |
-| exampleOutput3 | Stringa | myVariable |
+| exampleOutput3 | string | myVariable |
 | exampleOutput4 |  Oggetto | {"property1": "value1", "property2": "value2"} |
 
 Per altre informazioni sull'uso delle variabili, vedere [variabili nel modello ARM](template-variables.md).

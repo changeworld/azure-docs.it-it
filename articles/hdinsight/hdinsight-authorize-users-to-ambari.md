@@ -1,19 +1,16 @@
 ---
 title: Autorizzare gli utenti per le viste di Ambari - Azure HDInsight
 description: Come gestire le autorizzazioni utente e di gruppo per Ambari per cluster HDInsight con ESP abilitato.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0b6d4dacf43d80f371a2a4d286af1972198c3be3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547929"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942710"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
@@ -28,7 +25,7 @@ Se non è già stato fatto, seguire [queste istruzioni](./domain-joined/apache-d
 
 ## <a name="access-the-ambari-management-page"></a>Accedere alla pagina di gestione di Ambari
 
-Per accedere alla **pagina di gestione di Ambari** , nell' [interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md) passare a `https://CLUSTERNAME.azurehdinsight.net`. Immettere il nome utente e la password di amministratore del cluster definiti durante la creazione del cluster. Nel dahsboard di Ambari selezionare **Manage Ambari** (Gestisci Ambari) nel menu **admin** (amministratore):
+Per accedere alla **pagina di gestione di Ambari**, nell'[interfaccia utente Web di Apache Ambari](hdinsight-hadoop-manage-ambari.md) passare a `https://CLUSTERNAME.azurehdinsight.net`. Immettere il nome utente e la password di amministratore del cluster definiti durante la creazione del cluster. Nel dahsboard di Ambari selezionare **Manage Ambari** (Gestisci Ambari) nel menu **admin** (amministratore):
 
 ![Gestione del dashboard di Apache Ambari](./media/hdinsight-authorize-users-to-ambari/manage-apache-ambari.png)
 
@@ -36,13 +33,13 @@ Per accedere alla **pagina di gestione di Ambari** , nell' [interfaccia utente W
 
 ### <a name="add-users-through-the-portal"></a>Aggiungere utenti tramite il portale
 
-1. Nella pagina di gestione selezionare **utenti** .
+1. Nella pagina di gestione selezionare **utenti**.
 
     ![Utenti della pagina di gestione di Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Selezionare **+ Crea utente locale** .
+1. Selezionare **+ Crea utente locale**.
 
-1. Specificare **nome utente** e **password** . Selezionare **Salva** .
+1. Specificare **nome utente** e **password**. Selezionare **Salva**.
 
 ### <a name="add-users-through-powershell"></a>Aggiungere utenti tramite PowerShell
 
@@ -167,13 +164,13 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Concedere le autorizzazioni per le viste Apache Hive
 
-Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apache.org/) e [Apache TEZ](https://tez.apache.org/), tra gli altri. Per concedere l'accesso a una o più istanze di viste Hive, andare alla **pagina di gestione di Ambari** .
+Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apache.org/) e [Apache TEZ](https://tez.apache.org/), tra gli altri. Per concedere l'accesso a una o più istanze di viste Hive, andare alla **pagina di gestione di Ambari**.
 
 1. Nella pagina di gestione selezionare il collegamento **Views** (Viste) nell'intestazione del menu **Views** (Viste) a sinistra.
 
     ![Collegamenti alla visualizzazione viste di Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
-2. Nella pagina Views (Viste) espandere la riga **HIVE** . È disponibile una vista Hive predefinita creata quando il servizio Hive viene aggiunto al cluster. È anche possibile creare più istanze di viste Hive in base alle esigenze. Selezionare una vista Hive:
+2. Nella pagina Views (Viste) espandere la riga **HIVE**. È disponibile una vista Hive predefinita creata quando il servizio Hive viene aggiunto al cluster. È anche possibile creare più istanze di viste Hive in base alle esigenze. Selezionare una vista Hive:
 
     ![Viste HDInsight-visualizzazione Apache Hive](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
@@ -191,14 +188,14 @@ Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apa
 
    * Selezionare il nome utente o terminarne la digitazione. Per aggiungere il nome utente come un nuovo utente, selezionare il pulsante **New** (Nuovo).
 
-   * Per salvare le modifiche, selezionare la **casella di controllo blu** .
+   * Per salvare le modifiche, selezionare la **casella di controllo blu**.
 
      ![Autorizzazioni utente per la concessione di Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Per aggiungere un gruppo, selezionare il pulsante **Add Group** (Aggiungi gruppo).
 
    * Iniziare a digitare il nome del gruppo. Il processo di selezione di un nome di gruppo esistente o di aggiunta di un nuovo gruppo è analogo a quello per l'aggiunta di utenti.
-   * Per salvare le modifiche, selezionare la **casella di controllo blu** .
+   * Per salvare le modifiche, selezionare la **casella di controllo blu**.
 
      ![Autorizzazioni di concessione di Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 

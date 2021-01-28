@@ -1,23 +1,20 @@
 ---
 title: Usare le funzionalità estese nel server di cronologia Apache Spark per eseguire il debug di app-Azure HDInsight
 description: Usare le funzionalità estese nel server di cronologia di Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark-Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: d8dd9aaeaadf13fa48577cf2853e7bcf58badb41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d53d9e9ee2a7fa6588ea0993b3bebdb2a287351
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079293"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941054"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare le funzionalità estese del server di cronologia Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark
 
-Questo articolo illustra come usare le funzionalità estese del server di cronologia di Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark completate o in esecuzione. L'estensione include una scheda **dati** , una scheda **grafico** e una scheda **diagnosi** . Nella scheda **dati** è possibile controllare i dati di input e di output del processo Spark. Nella scheda **grafico** è possibile controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **diagnosi** è possibile fare riferimento alle caratteristiche di **asimmetria dei dati**, **sfasamento dell'ora**e **analisi dell'utilizzo dell'executor** .
+Questo articolo illustra come usare le funzionalità estese del server di cronologia di Apache Spark per eseguire il debug e la diagnosi delle applicazioni Spark completate o in esecuzione. L'estensione include una scheda **dati** , una scheda **grafico** e una scheda **diagnosi** . Nella scheda **dati** è possibile controllare i dati di input e di output del processo Spark. Nella scheda **grafico** è possibile controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **diagnosi** è possibile fare riferimento alle caratteristiche di **asimmetria dei dati**, **sfasamento dell'ora** e **analisi dell'utilizzo dell'executor** .
 
 ## <a name="get-access-to-the-spark-history-server"></a>Ottenere l'accesso al server della cronologia Spark
 
@@ -26,7 +23,7 @@ Il server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark
 ### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Aprire l'interfaccia utente Web del server cronologia Spark dalla portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters).
-2. Da **Dashboard cluster**selezionare  **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
+2. Da **Dashboard cluster** selezionare  **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark.
 
     ![Avviare il server cronologia Spark dal portale di Azure.](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Server cronologia Spark")
 
@@ -42,7 +39,7 @@ L'interfaccia utente Web del server cronologia Spark può essere simile all'imma
 
 Selezionare l'ID del processo e quindi scegliere **dati** dal menu strumento per visualizzare la vista dati.
 
-+ Esaminare gli **input**, gli **output**e **le operazioni su tabella** selezionando le singole schede.
++ Esaminare gli **input**, gli **output** e **le operazioni su tabella** selezionando le singole schede.
 
     ![Schede dati nella pagina dati per l'applicazione Spark.](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
@@ -102,8 +99,8 @@ Selezionare l'ID del processo e quindi scegliere **dati** dal menu strumento per
     |Green|il processo è stato completato correttamente.|
     |Orange|L'attività non è riuscita, ma ciò non influisce sul risultato finale del processo. Queste attività hanno istanze duplicate o tentativi che possono avere esito positivo in un secondo momento.|
     |Blu|l'attività è in esecuzione.|
-    |bianco|l'attività è in attesa di esecuzione o la fase è stata ignorata.|
-    |Rosso|l'attività non è riuscita.|
+    |White|l'attività è in attesa di esecuzione o la fase è stata ignorata.|
+    |Red|l'attività non è riuscita.|
 
      ![Esecuzione di un'attività nella pagina del grafico del processo & applicazione Spark.](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
@@ -151,9 +148,9 @@ Selezionare l'ID del processo e quindi scegliere **dati** dal menu strumento per
 
 ## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Usare la scheda diagnosi nel server cronologia Spark
 
-Selezionare l'ID del processo, quindi selezionare **diagnosi** dal menu strumento per visualizzare la visualizzazione diagnosi processo. La scheda **diagnosi** include l'analisi dell'utilizzo di **dati**, **sfasamento dell'ora**e dell' **Executor**.
+Selezionare l'ID del processo, quindi selezionare **diagnosi** dal menu strumento per visualizzare la visualizzazione diagnosi processo. La scheda **diagnosi** include l'analisi dell'utilizzo di **dati**, **sfasamento dell'ora** e dell' **Executor**.
 
-+ Esaminare l' **asimmetria dei dati**, lo **sfasamento dell'ora**e l'analisi dell'utilizzo dell' **Executor** selezionando le schede rispettivamente.
++ Esaminare l' **asimmetria dei dati**, lo **sfasamento dell'ora** e l'analisi dell'utilizzo dell' **Executor** selezionando le schede rispettivamente.
 
     ![Scheda asimmetria dati nella scheda diagnosi.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
@@ -193,7 +190,7 @@ Quando si seleziona **sfasamento dell'ora**, il risultato filtrato viene visuali
 
 Il **grafico sull'utilizzo dell'executor** Visualizza lo stato effettivo di allocazione e esecuzione del processo.  
 
-Quando si seleziona l' **analisi dell'utilizzo dell'executor**, vengono elaborate quattro curve diverse sull'utilizzo dell'Executor: **esecutori allocati**, esecutori **in esecuzione**, esecutori **inattivi**e **istanze di Executor max**. Ogni evento dell' **Executor aggiunto** o **rimosso dall'executor** aumenterà o ridurrà gli esecutori allocati. Per altri confronti, è possibile controllare la **sequenza temporale degli eventi** nella scheda **processi** .
+Quando si seleziona l' **analisi dell'utilizzo dell'executor**, vengono elaborate quattro curve diverse sull'utilizzo dell'Executor: **esecutori allocati**, esecutori **in esecuzione**, esecutori **inattivi** e **istanze di Executor max**. Ogni evento dell' **Executor aggiunto** o **rimosso dall'executor** aumenterà o ridurrà gli esecutori allocati. Per altri confronti, è possibile controllare la **sequenza temporale degli eventi** nella scheda **processi** .
 
 ![Scheda Analisi utilizzo Executor nella scheda diagnosi.](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
@@ -211,7 +208,7 @@ Per ripristinare la versione community, seguire questa procedura.
 1. Passare a **Spark2**  >  **configs**.
 1. Selezionare **Custom spark2-defaults**.
 1. Selezionare **Aggiungi proprietà...**.
-1. Aggiungere **Spark. UI. Enhancement. Enabled = false**e quindi salvarlo.
+1. Aggiungere **Spark. UI. Enhancement. Enabled = false** e quindi salvarlo.
 1. La proprietà viene impostata su **false**.
 1. Selezionare **Save (Salva** ) per salvare la configurazione.
 

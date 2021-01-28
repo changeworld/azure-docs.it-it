@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ff777f079116942eba32e49f359c7f7e0b99f65d
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 690dcca23aedb129090b3bf4f0da8874705b5fcc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555781"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941469"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -960,7 +960,7 @@ Si noti che questo vale solo se il Integration Runtime è in esecuzione in una m
 
 Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati con la configurazione dello stato desiderato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza.
 
-* [Informazioni su come scaricare il modello di macchina virtuale](../virtual-machines/windows/download-template.md)
+* [Informazioni su come scaricare il modello di macchina virtuale](/previous-versions/azure/virtual-machines/windows/download-template)
 
 * [Informazioni sulla creazione di modelli di Azure Resource Manager](../virtual-machines/windows/ps-template.md)
 

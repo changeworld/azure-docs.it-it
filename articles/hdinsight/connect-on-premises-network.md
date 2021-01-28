@@ -1,19 +1,16 @@
 ---
 title: Connettere Azure HDInsight alla rete locale
 description: Informazioni su come creare un cluster HDInsight in una rete virtuale di Azure e quindi connetterlo alla rete locale. Informazioni su come configurare la risoluzione dei nomi tra HDInsight e la rete locale usando un server DNS personalizzato.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 2a7b686bb0aae0b35b25cdd724925bab3c0a2e10
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786521"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943408"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -73,7 +70,7 @@ Questa procedura usa il [portale di Azure](https://portal.azure.com) per creare 
 
 1. Nella scheda __Informazioni di base__ immettere le informazioni seguenti:  
   
-    | Campo | valore |
+    | Campo | Valore |
     | --- | --- |
     |Subscription |Selezionare la sottoscrizione appropriata.|
     |Resource group |Selezionare il gruppo di risorse che contiene la rete virtuale creata in precedenza.|

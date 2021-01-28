@@ -3,23 +3,22 @@ title: Hive Warehouse Connector - Apache Zeppelin con Livy - Azure HDInsight
 description: Informazioni su come integrare Hive Warehouse Connector con Apache Zeppelin in Azure HDInsight.
 author: nis-goel
 ms.author: nisgoel
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4859ff098bf3fdffbecc70608cb147d17d9d7f59
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426948"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941168"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrare Apache Zeppelin con Hive Warehouse Connector in Azure HDInsight
 
 I cluster HDInsight Spark includono i notebook Apache Zeppelin con diversi interpreti. Questo articolo illustra solo l'interprete Livy per accedere alle tabelle di Hive da Spark usando Hive Warehouse Connector.
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *whitelist*, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 ## <a name="prerequisite"></a>Prerequisito
 

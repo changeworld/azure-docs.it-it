@@ -1,19 +1,16 @@
 ---
 title: 'Azure Toolkit for Eclipse: creare app scala per HDInsight Spark'
 description: Usare gli strumenti di HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark direttamente dall'IDE di Eclipse.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
-ms.openlocfilehash: 33cbb9b5ac754969a6a9038db227123bae3a0ea7
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: f3acfe6f8e0a72b402d7a3401675c8aa3c94fc98
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822404"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940594"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Apache Spark per un cluster HDInsight
 
@@ -111,7 +108,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 1. Dall'area di lavoro IDE di Eclipse selezionare **file**  >  **nuovo**  >  **progetto.**
 
-1. Nella creazione guidata **nuovo progetto** selezionare **progetto HDInsight**  >  **Spark in HDInsight (scala)**. Fare quindi clic su **Avanti**.
+1. Nella creazione guidata **nuovo progetto** selezionare **progetto HDInsight**  >  **Spark in HDInsight (scala)**. Selezionare quindi **Avanti**.
 
    ![Selezione del progetto Spark on HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +125,7 @@ Quando si apre Eclipse, Strumenti di HDInsight rileva automaticamente se è inst
 
 1. Da **Esplora pacchetti** espandere il progetto creato in precedenza. Fare clic con il pulsante destro del mouse su **src**, scegliere **nuovo**  >  **altro...**.
 
-1. Nella finestra di dialogo **Seleziona una procedura** guidata selezionare oggetto scala **creazioni guidate scala**  >  . Fare quindi clic su **Avanti**.
+1. Nella finestra di dialogo **Seleziona una procedura** guidata selezionare oggetto scala **creazioni guidate scala**  >  . Selezionare quindi **Avanti**.
 
    ![Selezionare una procedura guidata creare un oggetto scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -248,7 +245,7 @@ Per correggere l'errore, è necessario [Winutils.exe](https://github.com/stevelo
 
 1. Avviare Eclipse e creare un progetto. Nella finestra di dialogo **New Project** (Nuovo progetto) selezionare le opzioni seguenti e quindi fare clic su **Next** (Avanti).
 
-1. Nella creazione guidata **nuovo progetto** selezionare **HDInsight Project**  >  **Spark in HDInsight local Run Sample (scala)**. Fare quindi clic su **Avanti**.
+1. Nella creazione guidata **nuovo progetto** selezionare **HDInsight Project**  >  **Spark in HDInsight local Run Sample (scala)**. Selezionare quindi **Avanti**.
 
    ![Nuovo progetto seleziona una finestra di dialogo della procedura guidata](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -327,7 +324,7 @@ Esistono due modalità per inviare i processi. Se vengono fornite le credenziali
 
 ![errore di Eclipse Get quando cluster occupato Yarn](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "errore di Eclipse Get quando cluster occupato Yarn")
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica: Apache Spark in Azure HDInsight](apache-spark-overview.md)
 

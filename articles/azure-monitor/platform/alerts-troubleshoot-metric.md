@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 11dc71578b3d94ce41fe040557184ff32bcf3240
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f7425e1cf34348b7742b739ef5440a5cb0355077
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661798"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942095"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di Monitoraggio di Azure 
 
@@ -107,7 +107,7 @@ Quando si elimina una risorsa di Azure, le regole di avviso delle metriche assoc
 
 ## <a name="make-metric-alerts-occur-every-time-my-condition-is-met"></a>Crea avvisi di metrica ogni volta che viene soddisfatta la condizione
 
-Gli avvisi delle metriche sono con stato per impostazione predefinita e pertanto non vengono generati avvisi aggiuntivi se è già presente un avviso attivato in una determinata serie temporale. Se si vuole creare una regola di avviso metrica specifica senza stato e ricevere un avviso per ogni valutazione in cui viene soddisfatta la condizione di avviso, creare la regola di avviso a livello di codice (ad esempio, tramite [Gestione risorse](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/?view=azps-3.6.1), [Rest](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)) e impostare la proprietà *automitigate* su "false".
+Gli avvisi delle metriche sono con stato per impostazione predefinita e pertanto non vengono generati avvisi aggiuntivi se è già presente un avviso attivato in una determinata serie temporale. Se si vuole creare una regola di avviso metrica specifica senza stato e ricevere un avviso per ogni valutazione in cui viene soddisfatta la condizione di avviso, creare la regola di avviso a livello di codice (ad esempio, tramite [Gestione risorse](./alerts-metric-create-templates.md), [PowerShell](/powershell/module/az.monitor/), [Rest](/rest/api/monitor/metricalerts/createorupdate), [CLI](/cli/azure/monitor/metrics/alert)) e impostare la proprietà *automitigate* su "false".
 
 > [!NOTE] 
 > La creazione di una regola di avviso della metrica senza stato impedisce la risoluzione degli avvisi attivati, quindi anche dopo che la condizione non è più soddisfatta, gli avvisi attivati rimarranno in uno stato attivato fino al periodo di conservazione di 30 giorni.
@@ -175,9 +175,9 @@ Per verificare l'utilizzo corrente delle regole di avviso delle metriche, attene
 
 ### <a name="from-api"></a>Nell'API
 
-- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2?view=azps-3.7.0)
+- PowerShell - [Get-AzMetricAlertRuleV2](/powershell/module/az.monitor/get-azmetricalertrulev2)
 - REST API - [Elenco per sottoscrizione](/rest/api/monitor/metricalerts/listbysubscription)
-- Interfaccia della riga di comando di Azure - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-list)
+- Interfaccia della riga di comando di Azure - [az monitor metrics alert list](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-list)
 
 ## <a name="managing-alert-rules-using-resource-manager-templates-rest-api-powershell-or-azure-cli"></a>Gestione delle regole di avviso tramite modelli di Gestione risorse, API REST, PowerShell o l'interfaccia della riga di comando di Azure
 
@@ -196,14 +196,14 @@ Esaminare la [Guida dell'API REST](/rest/api/monitor/metricalerts/) per verifica
 
 Assicurarsi di usare i cmdlet di PowerShell corretti per gli avvisi delle metriche:
 
-- I cmdlet di PowerShell per gli avvisi delle metriche sono disponibili nel [modulo Az.Monitor](/powershell/module/az.monitor/?view=azps-3.6.1)
-- Assicurarsi di usare i cmdlet che terminano con ' v2' per gli avvisi della metrica nuovi (non classici), ad esempio [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2?view=azps-3.6.1)
+- I cmdlet di PowerShell per gli avvisi delle metriche sono disponibili nel [modulo Az.Monitor](/powershell/module/az.monitor/)
+- Assicurarsi di usare i cmdlet che terminano con ' v2' per gli avvisi della metrica nuovi (non classici), ad esempio [Add-AzMetricAlertRuleV2](/powershell/module/az.monitor/add-azmetricalertrulev2)
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Assicurarsi di usare i comandi dell'interfaccia della riga di comando corretti per gli avvisi delle metriche:
 
-- I comandi dell'interfaccia della riga di comando per gli avvisi delle metriche iniziano con `az monitor metrics alert`. Rivedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/monitor/metrics/alert?view=azure-cli-latest) per apprenderne la sintassi.
+- I comandi dell'interfaccia della riga di comando per gli avvisi delle metriche iniziano con `az monitor metrics alert`. Rivedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure](/cli/azure/monitor/metrics/alert) per apprenderne la sintassi.
 - È possibile visualizzare un [esempio che illustra come usare l'interfaccia della riga di comando per gli avvisi delle metriche](./alerts-metric.md#with-azure-cli)
 - Per generare un avviso su una metrica personalizzata, assicurarsi di anteporre al nome della metrica lo spazio dei nomi pertinente: NAMESPACE.METRIC
 

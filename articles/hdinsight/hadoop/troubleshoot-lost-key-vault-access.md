@@ -1,18 +1,15 @@
 ---
 title: I cluster HDInsight di Azure con crittografia del disco perdono l'accesso Key Vault
 description: Procedure per la risoluzione dei problemi e possibili soluzioni per i problemi di accesso Key Vault quando si interagisce con i cluster HDInsight di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/30/2020
-ms.openlocfilehash: bc8162f3a7ca8744a94aba039996275b5f13c727
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: ce2929ca84746de1ab8b51882f3004c3699f17ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533411"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943119"
 ---
 # <a name="scenario-azure-hdinsight-clusters-with-disk-encryption-lose-key-vault-access"></a>Scenario: i cluster HDInsight di Azure con crittografia del disco perdono l'accesso Key Vault
 
@@ -26,7 +23,7 @@ Viene visualizzato l'avviso Integrità risorse Center (RHC), `The HDInsight clus
 
 L'avviso garantisce che KV sia accessibile dai nodi del cluster, garantendo in tal modo la connessione di rete, l'integrità KV e i criteri di accesso per l'identità gestita assegnata dall'utente. Questo avviso è solo un avviso di imminente arresto di Service Broker nei successivi riavvii del nodo, il cluster continua a funzionare fino al riavvio dei nodi.
 
-Passare all'interfaccia utente di Apache Ambari per trovare altre informazioni sull'avviso dalla **crittografia del disco Key Vault stato** . Questo avviso include informazioni dettagliate sul motivo dell'errore di verifica.
+Passare all'interfaccia utente di Apache Ambari per trovare altre informazioni sull'avviso dalla **crittografia del disco Key Vault stato**. Questo avviso include informazioni dettagliate sul motivo dell'errore di verifica.
 
 ## <a name="resolution"></a>Soluzione
 
@@ -88,4 +85,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

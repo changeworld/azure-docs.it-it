@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e5e344aa84bfc6912266720083f0cd15f575883c
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
-ms.translationtype: HT
+ms.openlocfilehash: 76e7b061670f603007cefd6d7aed503e0e0d3d6b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95740251"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941782"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 - [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/)
 - Carico di lavoro Xamarin per Visual Studio. Vedere [Installazione di Xamarin](/xamarin/cross-platform/get-started/installation/windows).
 - Un emulatore di iOS o Android per Visual Studio
-- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (facoltativo)
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli-windows) (facoltativo)
 
 ## <a name="get-the-source-code"></a>Ottenere il codice sorgente
 

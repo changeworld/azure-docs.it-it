@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b231b5af208a51cbe8f4370c2dc532be1ba3af9
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 9ee7116efe931d101a1505bc2d9d866d8ea5b92a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024926"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943444"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Esercitazione: abilitare il bot tramite l'SDK vocale
 
@@ -174,7 +174,7 @@ L' [emulatore di bot Framework](https://github.com/microsoft/botframework-emulat
    ```
    e premere "Connetti".
 4. Il bot dovrebbe ricevere il benvenuto "Hello and Welcome!". il messaggio "Hello World!". Digitare un messaggio di testo e confermare di ricevere una risposta dal bot.
-5. Questo è il modo in cui un scambio di comunicazione con un'istanza di Echo bot potrebbe essere simile [ ![al seguente: screenshot che mostra l'emulatore di bot Framework.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Emulatore di bot Framework")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
+5. Questo è il modo in cui un scambio di comunicazione con un'istanza di Echo bot potrebbe essere simile [ ![al seguente: screenshot che mostra l'emulatore di bot Framework.](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework Emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Distribuire il bot a un servizio app Azure
 
@@ -234,7 +234,7 @@ Il passaggio successivo consiste nel distribuire Echo bot in Azure. Ci sono alcu
 
 ## <a name="create-a-channel-registration"></a>Creare una registrazione del canale
 
-Ora che è stato creato un servizio di app Azure per ospitare il bot, il passaggio successivo consiste nel creare una **registrazione dei canali bot**. La creazione di una registrazione del canale è un prerequisito per la registrazione del bot con i canali di bot Framework, incluso il canale vocale diretto. Per altre informazioni sul modo in cui i bot usano i canali, vedere [connettere un bot ai canali](/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
+Ora che è stato creato un servizio di app Azure per ospitare il bot, il passaggio successivo consiste nel creare una **registrazione dei canali bot**. La creazione di una registrazione del canale è un prerequisito per la registrazione del bot con i canali di bot Framework, incluso il canale vocale diretto. Per altre informazioni sul modo in cui i bot usano i canali, vedere [connettere un bot ai canali](/azure/bot-service/bot-service-manage-channels).
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creare una registrazione per i canali di Azure bot <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. Verrà richiesto di fornire alcune informazioni:
@@ -244,7 +244,7 @@ Ora che è stato creato un servizio di app Azure per ospitare il bot, il passagg
    * Per **località** selezionare **Stati Uniti occidentali**.
      * Per piano **tariffario** selezionare **F0**.
      * Per **endpoint di messaggistica**, immettere l'URL dell'app Web con il `/api/messages` percorso accodato alla fine. Ad esempio: se il nome dell'app globalmente univoco è **EchoBot20190805125647**, l'endpoint di messaggistica sarà: `https://EchoBot20190805125647.azurewebsites.net/api/messages/` .
-     * Per **Application Insights**, è possibile impostare questa opzione su **off**. Per altre informazioni, vedere [bot Analytics](/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
+     * Per **Application Insights**, è possibile impostare questa opzione su **off**. Per altre informazioni, vedere [bot Analytics](/azure/bot-service/bot-service-manage-analytics).
      * Ignora **creazione automatica ID app e password**.
 5. Nella parte inferiore del pannello **registrazione dei canali bot** fare clic su **Crea**.
 
@@ -298,7 +298,7 @@ A questo punto è giunto il momento di registrare il bot con il canale di sintes
    * Fare clic su **Salva**.
 
 > [!TIP]
-> Per altre informazioni, vedere [connettere un bot alla linea vocale diretta](/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Questa pagina include informazioni aggiuntive e problemi noti.
+> Per altre informazioni, vedere [connettere un bot alla linea vocale diretta](/azure/bot-service/bot-service-channel-connect-directlinespeech). Questa pagina include informazioni aggiuntive e problemi noti.
 
 ## <a name="run-the-windows-voice-assistant-client"></a>Eseguire il client di Windows Voice Assistant
 
@@ -412,7 +412,7 @@ Attenersi alla procedura seguente per creare un modello di parola chiave, config
 
 Nel codice sorgente del client Windows Voice Assistant, esaminare i file seguenti per esaminare il codice usato per abilitare il rilevamento delle parole chiave:
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) include una chiamata al metodo dell'SDK vocale [`KeywordRecognitionModel.fromFile()`](/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?preserve-view=true&view=azure-node-latest#fromfile-string-) , che viene usato per creare un'istanza del modello da un file locale su disco.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) include una chiamata al metodo dell'SDK vocale [`KeywordRecognitionModel.fromFile()`](/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel#fromfile-string-) , che viene usato per creare un'istanza del modello da un file locale su disco.
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) include una chiamata al metodo dell'SDK di sintesi vocale [`DialogServiceConnector.StartKeywordRecognitionAsync()`](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) , che attiva il rilevamento di parole chiave continue.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>Opzionale Modificare la lingua e la voce bot
@@ -480,5 +480,5 @@ Se non si intende continuare a usare echo-bot distribuito in questa esercitazion
   * [Prezzi del servizio bot](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Servizio di riconoscimento vocale](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Compilazione e distribuzione di un bot abilitato per la voce:
-  * Creare un bot per [bot Framework](https://dev.botframework.com/). Esegui la registrazione con il [canale vocale Direct Line](/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) e [Personalizza il bot per la voce](/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Creare un bot per [bot Framework](https://dev.botframework.com/). Esegui la registrazione con il [canale vocale Direct Line](/azure/bot-service/bot-service-channel-connect-directlinespeech) e [Personalizza il bot per la voce](/azure/bot-service/directline-speech-bot)
   * Esplora le [soluzioni bot Framework](https://microsoft.github.io/botframework-solutions/index)esistenti: crea un [assistente virtuale](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) ed [estendilo per](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/) la comunicazione diretta

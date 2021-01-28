@@ -1,19 +1,16 @@
 ---
 title: 'Avvio rapido: Apache Kafka con Azure Resource Manager - HDInsight'
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite un modello di Azure Resource Manager. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 12988feeb26bc5821e8f08db3e688a2e1c429e19
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.openlocfilehash: 1bd4a3bfc2ba208371ed71720cc8c89a796ad9a2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532629"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940805"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>Avvio rapido: Creare un cluster Apache Kafka in Azure HDInsight usando un modello di Resource Manager
 
@@ -23,7 +20,7 @@ Questa guida di avvio rapido illustra come usare un modello di Azure Resource Ma
 
 Possono accedere all'API Kafka solo risorse interne alla stessa rete virtuale. In questa guida di avvio rapido si accede al cluster direttamente usando SSH. Per connettere altri servizi, reti o macchine virtuali a Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete. Per altre informazioni, vedere il documento [Connettersi ad Apache Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
 
@@ -53,25 +50,25 @@ Nel modello sono definite due risorse di Azure:
     |Proprietà |Descrizione |
     |---|---|
     |Subscription|Nell'elenco a discesa selezionare la sottoscrizione di Azure che viene usata per il cluster.|
-    |Resource group|Nell'elenco a discesa selezionare il gruppo di risorse esistente oppure selezionare **Crea nuovo** .|
+    |Resource group|Nell'elenco a discesa selezionare il gruppo di risorse esistente oppure selezionare **Crea nuovo**.|
     |Location|Come valore verrà inserita automaticamente la località usata per il gruppo di risorse.|
     |Cluster Name|Immettere un nome univoco globale. Per questo modello usare solo lettere minuscole e numeri.|
-    |Nome utente dell'account di accesso del cluster|Specificare il nome utente. Il valore predefinito è **admin** .|
+    |Nome utente dell'account di accesso del cluster|Specificare il nome utente. Il valore predefinito è **admin**.|
     |Password di accesso al cluster|Specificare una password. La password deve avere una lunghezza minima di 10 caratteri e contenere almeno una cifra, una lettera maiuscola, una lettera minuscola e un carattere non alfanumerico, ad eccezione di ' " `. |
-    |Nome utente SSH|Specificare il nome utente. Il valore predefinito è **sshuser** .|
+    |Nome utente SSH|Specificare il nome utente. Il valore predefinito è **sshuser**.|
     |Password SSH|Specificare la password.|
 
     ![Uno screenshot delle proprietà del modello](./media/apache-kafka-quickstart-resource-manager-template/resource-manager-template-kafka.png)
 
-1. Leggere quanto riportato in **CONDIZIONI** . Selezionare quindi **Accetto le condizioni riportate sopra** e infine **Acquista** . Si riceverà una notifica che informa che la distribuzione è in corso. La creazione di un cluster richiede circa 20 minuti.
+1. Leggere quanto riportato in **CONDIZIONI**. Selezionare quindi **Accetto le condizioni riportate sopra** e infine **Acquista**. Si riceverà una notifica che informa che la distribuzione è in corso. La creazione di un cluster richiede circa 20 minuti.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
-Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa** . Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'account di archiviazione predefinito associato. Ogni cluster ha una dipendenza da un account di [Archiviazione BLOB di Azure](../hdinsight-hadoop-use-blob-storage.md), [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) o [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
+Al termine della creazione del cluster, si riceverà una notifica con il messaggio **La distribuzione è riuscita** e un collegamento **Vai alla risorsa**. Nella pagina del gruppo di risorse saranno presenti il nuovo cluster HDInsight e l'account di archiviazione predefinito associato. Ogni cluster ha una dipendenza da un account di [Archiviazione BLOB di Azure](../hdinsight-hadoop-use-blob-storage.md), [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md) o [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md). Viene indicato come account di archiviazione predefinito. Il cluster HDInsight e il relativo account di archiviazione predefinito devono avere un percorso condiviso nella stessa area di Azure. L'eliminazione dei cluster non comporta l'eliminazione dell'account di archiviazione.
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker* . Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
 
 In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari nel cluster.
 
@@ -133,7 +130,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Ambari ne
 
 ## <a name="manage-apache-kafka-topics"></a>Gestire gli argomenti di Apache Kafka
 
-Kafka archivia i flussi di dati in *argomenti* . Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
+Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
 
 * **Per creare un argomento** usare il comando seguente nella connessione SSH:
 
@@ -141,7 +138,7 @@ Kafka archivia i flussi di dati in *argomenti* . Per gestire gli argomenti è po
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test** .
+    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test**.
 
     * I dati archiviati in questo argomento vengono divisi in otto partizioni.
 
@@ -190,7 +187,7 @@ Per altre informazioni sui comandi disponibili con l'utilità `kafka-topics.sh`,
 
 ## <a name="produce-and-consume-records"></a>Produrre e utilizzare record
 
-Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer* . I producer e i consumer comunicano con il servizio *broker Kafka* . Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
+Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer*. I producer e i consumer comunicano con il servizio *broker Kafka*. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
 
 Seguire questa procedura per archiviare i record nell'argomento test creato in precedenza e quindi leggerli usando un consumer:
 
@@ -222,11 +219,11 @@ Seguire questa procedura per archiviare i record nell'argomento test creato in p
 
 Al termine dell'argomento di avvio rapido, può essere opportuno eliminare il cluster. Con HDInsight, i dati vengono archiviati in Archiviazione di Azure ed è possibile eliminare tranquillamente un cluster quando non è in uso. Vengono addebitati i costi anche per i cluster HDInsight che non sono in uso. Poiché i costi per il cluster sono decisamente superiori a quelli per l'archiviazione, eliminare i cluster quando non vengono usati è una scelta economicamente conveniente.
 
-Nel portale di Azure passare al cluster e selezionare **Elimina** .
+Nel portale di Azure passare al cluster e selezionare **Elimina**.
 
 ![Modello di Resource Manager per HBase](./media/apache-kafka-quickstart-resource-manager-template/azure-portal-delete-kafka.png)
 
-È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse** . Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight che l'account di archiviazione predefinito.
+È anche possibile selezionare il nome del gruppo di risorse per aprire la pagina del gruppo di risorse e quindi selezionare **Elimina gruppo di risorse**. Eliminando il gruppo di risorse, si elimina sia il cluster HDInsight che l'account di archiviazione predefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

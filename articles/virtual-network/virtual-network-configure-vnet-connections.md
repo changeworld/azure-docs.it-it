@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: d9a87eca6a6c66d116817ced0f534a75033d48b9
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9975e40f7d4f3b69c9281efd0288389740bf92ec
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221477"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943646"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configurare e convalidare la rete virtuale o le connessioni VPN
 
@@ -64,7 +64,7 @@ Per controllare la configurazione del peering, usare il metodo seguente:
 
 ![Selezioni per il controllo della configurazione del peering di rete virtuale](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
  
-Per Azure PowerShell, eseguire il comando [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering?view=azurermps-4.1.0) per ottenere il peering di rete virtuale. Ecco un esempio:
+Per Azure PowerShell, eseguire il comando [Get-AzureRmVirtualNetworkPeering](/powershell/module/azurerm.network/get-azurermvirtualnetworkpeering) per ottenere il peering di rete virtuale. Ecco un esempio:
 
 ```
 PS C:\Users\User1> Get-AzureRmVirtualNetworkPeering -VirtualNetworkName Vnet10-01 -ResourceGroupName dev-vnets
@@ -248,13 +248,13 @@ BGP può anche abilitare il routing di transito tra più reti propagando le rout
 
 Per configurare una connessione VPN che usa BGP, vedere [come configurare BGP nei gateway VPN di Azure tramite PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md).
 
-Abilitare BGP nel gateway di rete virtuale creando un numero di sistema autonomo (come). I gateway di base non supportano BGP. Per controllare lo SKU del gateway, passare alla sezione **Panoramica** del pannello **gateway VPN** nel portale di Azure. Se lo SKU è di **base**, è necessario modificare lo SKU (vedere [ridimensionamento del gateway](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)) in **VpnGw1**. 
+Abilitare BGP nel gateway di rete virtuale creando un numero di sistema autonomo (come). I gateway di base non supportano BGP. Per controllare lo SKU del gateway, passare alla sezione **Panoramica** del pannello **gateway VPN** nel portale di Azure. Se lo SKU è di **base**, è necessario modificare lo SKU (vedere [ridimensionamento del gateway](/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?viewFallbackFrom=azurermps-4.0.0)) in **VpnGw1**. 
 
-Il controllo dello SKU provocherà da 20 a 30 minuti di inattività. Non appena il gateway ha lo SKU corretto, è possibile aggiungere il numero AS usando il cmdlet di PowerShell [set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) . Dopo aver configurato il numero AS, un IP peer BGP per il gateway verrà fornito automaticamente.
+Il controllo dello SKU provocherà da 20 a 30 minuti di inattività. Non appena il gateway ha lo SKU corretto, è possibile aggiungere il numero AS usando il cmdlet di PowerShell [set-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway) . Dopo aver configurato il numero AS, un IP peer BGP per il gateway verrà fornito automaticamente.
 
-È necessario specificare manualmente `LocalNetworkGateway` con un numero As e un indirizzo peer BGP. È possibile impostare i `ASN` `-BgpPeeringAddress` valori e usando il [nuovo AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) o [set-AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) PowerShell cmdlet. Alcuni numeri AS sono riservati ad Azure e non è possibile usarli come descritto in [informazioni su BGP con il gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
+È necessario specificare manualmente `LocalNetworkGateway` con un numero As e un indirizzo peer BGP. È possibile impostare i `ASN` `-BgpPeeringAddress` valori e usando il [nuovo AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/new-azurermlocalnetworkgateway) o [set-AzureRmLocalNetworkGateway](/powershell/module/azurerm.network/set-azurermlocalnetworkgateway) PowerShell cmdlet. Alcuni numeri AS sono riservati ad Azure e non è possibile usarli come descritto in [informazioni su BGP con il gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
 
-Per l'oggetto Connection deve essere abilitato BGP. È possibile impostare il `-EnableBGP` valore su `$True` tramite [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) o [set-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
+Per l'oggetto Connection deve essere abilitato BGP. È possibile impostare il `-EnableBGP` valore su `$True` tramite [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection) o [set-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection).
 
 ### <a name="validate-the-bgp-configuration"></a>Convalidare la configurazione BGP
 

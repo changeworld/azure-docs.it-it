@@ -1,19 +1,16 @@
 ---
 title: Apache Hive & Data Lake Tools per Visual Studio-Azure HDInsight
 description: Informazioni su come usare gli strumenti Data Lake per Visual Studio per eseguire query Apache Hive con Apache Hadoop in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: c8645ae9cb901b9fc95f00665d73e223a24fda63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e54991f6afd2ace19bf7b70e57bda6f551f7780
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076454"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943174"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Eseguire query Apache Hive usando gli strumenti Data Lake per Visual Studio
 
@@ -40,7 +37,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
 1. Avviare **Visual Studio** e selezionare **continua senza codice**.
 
-2. In **Esplora server**fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
+2. In **Esplora server** fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
 3. Espandere **HDInsight**, fare clic con il pulsante destro del mouse sul cluster in cui si vuole eseguire la query e quindi scegliere **Scrivi una query hive**.
 
@@ -50,7 +47,7 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
     SELECT * FROM hivesampletable;
     ```
 
-5. Scegliere **Execute**(Esegui). Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
+5. Selezionare **Esegui**. Per impostazione predefinita, la modalità di esecuzione è **interattiva**.
 
     ![Eseguire query hive interattive, Visual Studio](./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png)
 
@@ -60,9 +57,9 @@ Le query ad hoc possono essere eseguite in modalità **batch** o **interattiva**
 
     L'editor Hive supporta IntelliSense. Strumenti Data Lake per Visual Studio supporta il caricamento di metadati remoti quando si modifica lo script Hive. Se, ad esempio, si digita `SELECT * FROM` , IntelliSense elenca tutti i nomi di tabella suggeriti. Quando si specifica un nome di tabella, IntelliSense elenca i nomi delle colonne. Gli strumenti supportano la maggior parte delle funzioni definite dall'utente predefinite, delle sottoquery e delle istruzioni DML Hive. IntelliSense suggerisce solo i metadati del cluster selezionato nella barra degli strumenti HDInsight.
 
-7. Nella barra degli strumenti query (l'area sotto la scheda query e sopra il testo della query) selezionare **Invia**oppure selezionare la freccia a discesa accanto a **Invia** e scegliere **Avanzate** dall'elenco a discesa. Se si seleziona la seconda opzione,
+7. Nella barra degli strumenti query (l'area sotto la scheda query e sopra il testo della query) selezionare **Invia** oppure selezionare la freccia a discesa accanto a **Invia** e scegliere **Avanzate** dall'elenco a discesa. Se si seleziona la seconda opzione,
 
-8. Se è stata selezionata l'opzione di invio avanzato, configurare **nome processo**, **argomenti**, **configurazioni aggiuntive**e **directory stato** nella finestra di dialogo **Invia script** . Selezionare **Invia**.
+8. Se è stata selezionata l'opzione di invio avanzato, configurare **nome processo**, **argomenti**, **configurazioni aggiuntive** e **directory stato** nella finestra di dialogo **Invia script** . Selezionare **Invia**.
 
     ![Finestra di dialogo Invia script, query hive Hadoop di HDInsight](./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png)
 

@@ -1,18 +1,15 @@
 ---
 title: Usare Grafana in Azure HDInsight
 description: Informazioni su come accedere al dashboard di Grafana con cluster di Apache Hadoop in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: 7750544367044cab2a0243577c200025bb9ff693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2a09b6c3196302dcb74fd363481706021a4d4d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083033"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940875"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accedere a Grafana in Azure HDInsight
 
@@ -24,7 +21,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Creare un cluster Apache Hadoop
 
-Vedere [Creare i cluster di Apache Hadoop nel portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Per **tipo di cluster**selezionare **Spark**, **Kafka**, **HBase**o **Interactive query**.
+Vedere [Creare i cluster di Apache Hadoop nel portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Per **tipo di cluster** selezionare **Spark**, **Kafka**, **HBase** o **Interactive query**.
 
 ## <a name="access-the-grafana-dashboard"></a>Accedere al dashboard di Grafana
 

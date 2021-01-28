@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 5008da99b63cabba41dade9a745fbd5853345737
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 637e66956eadf57199d2e5191368d6355e2cd118
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734967"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941900"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -217,13 +217,13 @@ Questo tipo di limitazione dell'accesso si applica solo ai dati nella risorsa Ap
 
 È possibile automatizzare il processo descritto in precedenza usando modelli di Azure Resource Manager, REST e interfacce della riga di comando.
 
-Per creare e gestire ambiti di collegamento privati, usare l' [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o l'interfaccia della riga di comando di [Azure (AZ monitor private-link-scope)](/cli/azure/monitor/private-link-scope?view=azure-cli-latest).
+Per creare e gestire ambiti di collegamento privati, usare l' [API REST](/rest/api/monitor/private%20link%20scopes%20(preview)) o l'interfaccia della riga di comando di [Azure (AZ monitor private-link-scope)](/cli/azure/monitor/private-link-scope).
 
-Per gestire l'accesso alla rete, usare i flag `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` in [Aree di lavoro Log Analytics](/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest) o [Componenti Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest).
+Per gestire l'accesso alla rete, usare i flag `[--ingestion-access {Disabled, Enabled}]` e `[--query-access {Disabled, Enabled}]` in [Aree di lavoro Log Analytics](/cli/azure/monitor/log-analytics/workspace) o [Componenti Application Insights](/cli/azure/ext/application-insights/monitor/app-insights/component).
 
 ## <a name="collect-custom-logs-over-private-link"></a>Raccogli log personalizzati sul collegamento privato
 
-Gli account di archiviazione vengono usati nel processo di inserimento dei log personalizzati. Per impostazione predefinita, vengono usati gli account di archiviazione gestiti dal servizio. Tuttavia, per inserire i log personalizzati nei collegamenti privati, è necessario usare gli account di archiviazione personali e associarli alle aree di lavoro Log Analytics. Per ulteriori informazioni su come configurare tali account, utilizzare la [riga di comando](/cli/azure/monitor/log-analytics/workspace/linked-storage?view=azure-cli-latest).
+Gli account di archiviazione vengono usati nel processo di inserimento dei log personalizzati. Per impostazione predefinita, vengono usati gli account di archiviazione gestiti dal servizio. Tuttavia, per inserire i log personalizzati nei collegamenti privati, è necessario usare gli account di archiviazione personali e associarli alle aree di lavoro Log Analytics. Per ulteriori informazioni su come configurare tali account, utilizzare la [riga di comando](/cli/azure/monitor/log-analytics/workspace/linked-storage).
 
 Per altre informazioni sull'uso di account di archiviazione personali, vedere [Account di archiviazione di proprietà del cliente per l'inserimento dei log](private-storage.md)
 
@@ -252,7 +252,7 @@ Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Applica
 
 ### <a name="programmatic-access"></a>Accesso a livello di codice
 
-Per usare l’API REST, la [CLI](/cli/azure/monitor?view=azure-cli-latest) o PowerShell con Monitoraggio di Azure nelle reti private,  aggiungere le [tag del servizio](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** e **AzureResourceManager** al firewall.
+Per usare l’API REST, la [CLI](/cli/azure/monitor) o PowerShell con Monitoraggio di Azure nelle reti private,  aggiungere le [tag del servizio](../../virtual-network/service-tags-overview.md) **AzureActiveDirectory** e **AzureResourceManager** al firewall.
 
 L'aggiunta di questi tag consente di eseguire azioni come l'esecuzione di query sui dati di log, la creazione e la gestione di aree di lavoro Log Analytics e di componenti di intelligenza artificiale.
 

@@ -1,19 +1,16 @@
 ---
 title: Apache Sqoop con Apache Hadoop - Azure HDInsight
 description: Informazioni su come usare Apache Sqoop per importare ed esportare tra Apache Hadoop in HDInsight e nel database SQL di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: 6cd522192c498d628490430c46c18c8ae08ad2e2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d0d38dee15817e56c2784981365ea331b6a8459
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547011"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943141"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-azure-sql-database"></a>Usare Apache Sqoop per importare ed esportare dati tra Apache Hadoop in HDInsight e nel database SQL di Azure
 
@@ -29,7 +26,7 @@ Informazioni su come usare Apache Sqoop per importare ed esportare tra un cluste
 
 * Familiarità con Sqoop. Per altre informazioni, vedere il [Manuale dell'utente di Sqoop](https://sqoop.apache.org/docs/1.4.7/SqoopUserGuide.html).
 
-## <a name="set-up"></a>Configurare
+## <a name="set-up"></a>Configurazione
 
 1. Usare il [comando ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) per connettersi al cluster. Modificare il comando seguente sostituendo CLUSTERNAME con il nome del cluster in uso e quindi immettere il comando:
 

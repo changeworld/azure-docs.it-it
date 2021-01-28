@@ -1,19 +1,16 @@
 ---
 title: Usare Apache Hive con PowerShell in HDInsight - Azure
 description: Usare PowerShell per eseguire query Apache Hive in Apache Hadoop in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 013eb8215064173e002aea23043bc2e9ba92b525
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 43cac81717027b39210d6cd9cb9ad0baa596f50d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545243"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943185"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Eseguire query Apache Hive usando PowerShell
 
@@ -38,7 +35,7 @@ Durante l'esecuzione di query Hive in un cluster HDInsight remoto, vengono usati
 
 * `Connect-AzAccount`: esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.
 * `New-AzHDInsightHiveJobDefinition`: crea una *definizione del processo* usando le istruzioni HiveQL specificate.
-* `Start-AzHDInsightJob`: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo* .
+* `Start-AzHDInsightJob`: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
 * `Wait-AzHDInsightJob`: usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
 * `Get-AzHDInsightJobOutput`: usato per recuperare l'output del processo.
 * `Invoke-AzHDInsightHiveJob`: usato per eseguire le istruzioni HiveQL. Questo cmdlet blocca il completamento della query, quindi restituisce i risultati.
@@ -84,7 +81,7 @@ La seguente procedura illustra come usare questi cmdlet per eseguire un processo
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > Per ulteriori informazioni sulle **stringhe here** , vedere [qui-stringhe](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
+   > Per ulteriori informazioni sulle **stringhe here**, vedere [qui-stringhe](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 

@@ -6,15 +6,15 @@ ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 01/27/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: f5555662c6cb5f44be3959ec3d22d1cf1953674d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 7aa57fa20c3a043cdb210ccd8a5ddbf61323716d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030094"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943686"
 ---
 # <a name="azure-enterprise-transfers"></a>Trasferimenti di Azure Enterprise
 
@@ -55,22 +55,22 @@ Il trasferimento di una registrazione si prende in considerazione quando:
 - Una registrazione è nello stato di scadenza/estensione e viene negoziato un nuovo contratto.
 - Si hanno più registrazioni e si vogliono combinare tutti gli account e la fatturazione in una singola registrazione.
 
-Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. Per trasferire una registrazione aziendale in una nuova, è necessaria una richiesta di supporto.
+Questa sezione è unicamente a scopo informativo perché l'azione non può essere eseguita da un amministratore dell'organizzazione. È necessaria una richiesta di supporto per trasferire una registrazione Enterprise a una nuova, a meno che la registrazione non sia idonea per il [trasferimento automatico](#auto-enrollment-transfer).
 
 Quando si richiede il trasferimento di un'intera registrazione EA in un'altra registrazione, si verificano le azioni seguenti:
 
 - Tutti i servizi di Azure, le sottoscrizioni, gli account, i reparti e l'intera struttura di registrazione, inclusi tutti gli amministratori del reparto EA, vengono trasferiti in una nuova registrazione di destinazione.
 - Lo stato della registrazione viene impostato su _Trasferito_. La registrazione trasferita è disponibile solo per la creazione di report cronologici sull'utilizzo.
-- Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato Trasferito impedisce ulteriori utilizzi per la registrazione.
+- Non è possibile aggiungere ruoli o sottoscrizioni a una registrazione trasferita. Lo stato trasferito impedisce un maggiore utilizzo per la registrazione.
 - Qualsiasi saldo del pagamento anticipato di Azure rimanente nel contratto va perso, inclusi i periodi futuri.
--    Se la registrazione da cui si esegue il trasferimento prevede acquisti di istanze riservate, la tariffa di acquisto di istanze riservate verrà mantenuta nella registrazione di origine, tuttavia tutti i vantaggi relativi alle istanze riservate verranno trasferiti per essere usati nella nuova registrazione.
--    La tariffa di costo di acquisto una tantum del Marketplace ed eventuali tariffe fisse mensili già addebitate nella registrazione precedente non verranno trasferite nella nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
+-    Se la registrazione da cui si sta effettuando il trasferimento prevede l'acquisto di RI, la tariffa di acquisto del RI rimarrà nella registrazione di origine, tuttavia tutti i vantaggi di RI verranno trasferiti tra loro per l'uso nella nuova registrazione.
+-    Il prezzo di acquisto monouso del Marketplace ed eventuali tariffe fisse mensili già addebitate alla registrazione precedente non vengono trasferiti alla nuova registrazione. Verranno trasferiti gli addebiti per il Marketplace basati sul consumo.
 
 ### <a name="effective-transfer-date"></a>Data di validità del trasferimento
 
 La data di validità del trasferimento può essere una data corrispondente o successiva alla data di inizio della registrazione di destinazione.
 
-L'utilizzo della registrazione di origine viene addebitato in base al pagamento anticipato o come eccedenza. L'utilizzo che ha luogo dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato di conseguenza.
+L'utilizzo della registrazione di origine viene addebitato in base al pagamento anticipato o come eccedenza. L'utilizzo che si verifica dopo la data di trasferimento effettiva viene trasferito alla nuova registrazione e addebitato.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -78,13 +78,24 @@ Quando si richiede il trasferimento di una registrazione, fornire le informazion
 
 - Per la registrazione di origine, numero di registrazione.
 - Per la registrazione di destinazione, numero della registrazione in cui eseguire il trasferimento.
-- Come data di validità del trasferimento della registrazione, una data corrispondente o successiva alla data di inizio della registrazione di destinazione. La data scelta non può incidere sull'utilizzo relativo a una fattura per l'eccedenza già emessa.
+- Come data di validità del trasferimento della registrazione, una data corrispondente o successiva alla data di inizio della registrazione di destinazione. La data scelta non può influire sull'utilizzo di alcuna fattura in eccedenza già eseguita.
 
 Altri punti da tenere presenti prima del trasferimento di una registrazione:
 
 - È necessaria l'approvazione degli amministratori EA sia della registrazione di destinazione che di quella di origine.
 - Se il trasferimento di una registrazione non soddisfa le proprie esigenze, prendere in considerazione un trasferimento di account.
 - Lo stato della registrazione di origine verrà aggiornato a Trasferito e sarà disponibile solo per la creazione di report cronologici sull'utilizzo.
+
+### <a name="auto-enrollment-transfer"></a>Trasferimento di registrazione automatica
+
+Si potrebbe notare che una registrazione ha lo stato **trasferito** , anche se non è stato inviato un ticket di supporto per richiedere un trasferimento di registrazione. Lo stato **trasferito** risulta dal processo di trasferimento di registrazione automatica. Affinché il processo di trasferimento automatico venga eseguito durante la frase di rinnovo, è necessario includere alcuni elementi nel nuovo contratto:
+
+- Numero di registrazione precedente (deve esistere nel portale EA)
+- La data di scadenza del numero di registrazione precedente è un giorno prima della data di inizio effettiva del nuovo contratto
+- Il nuovo contratto ha un ordine prepagato di Azure fatturato con una data corrente o è obsoleto
+- La nuova registrazione viene creata nel portale EA
+
+Se non sono presenti dati di utilizzo mancanti nel portale EA tra la registrazione precedente e la nuova registrazione, non è necessario creare un ticket di supporto per il trasferimento.
 
 ### <a name="azure-prepayment"></a>Pagamento anticipato di Azure
 

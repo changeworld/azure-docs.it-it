@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d0bbde0ee4fd0eaf7387abaf6d548dc563e5b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34ece92e4603c0c74190003745d55be0aea5cdb0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515445"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98941754"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure usando PowerShell
 Questo articolo fornisce due esempi di codice che illustrano come creare e configurare un'area di lavoro Log Analytics in Monitoraggio di Azure.  
@@ -193,7 +193,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Il formato per il parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Proprietà** è la configurazione necessaria per il parametro **CustomLogRawJson**.
+> Il formato per il parametro **CustomLogRawJson** che definisce la configurazione per un log personalizzato può essere complesso. Usare [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) per recuperare la configurazione per un log personalizzato esistente. La proprietà **Proprietà** è la configurazione necessaria per il parametro **CustomLogRawJson**.
 
 Nell'esempio precedente regexDelimiter è stato definito come "\\n" per la nuova riga. Il delimitatore di log può anche essere un timestamp.  Questi sono i formati supportati:
 

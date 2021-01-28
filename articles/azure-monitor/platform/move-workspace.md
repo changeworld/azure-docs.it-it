@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 8d7fde6661a4a133f689016559f010767c662417
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 4915fd69940450f22548ae326879b5729b687248
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94699747"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942077"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Spostare un'area di lavoro Log Analytics in una sottoscrizione o in un gruppo di risorse diverso
 
@@ -66,7 +66,7 @@ Usare la procedura seguente per rimuovere le soluzioni usando il portale di Azur
 
 ### <a name="delete-using-powershell"></a>Eliminare con PowerShell
 
-Per rimuovere le soluzioni usando PowerShell, usare il cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) , come illustrato nell'esempio seguente:
+Per rimuovere le soluzioni usando PowerShell, usare il cmdlet [Remove-AzResource](/powershell/module/az.resources/remove-azresource) , come illustrato nell'esempio seguente:
 
 ``` PowerShell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>

@@ -1,26 +1,23 @@
 ---
 title: 'Eseguire il mirroring degli argomenti di Apache Kafka: Azure HDInsight'
 description: Informazioni su come usare la funzionalità di mirroring di Apache Kafka per gestire una replica di un cluster Kafka in HDInsight eseguendo il mirroring degli argomenti in un cluster secondario.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428241"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940841"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Usare MirrorMaker per replicare gli argomenti di Apache Kafka con Kafka in HDInsight
 
 Informazioni su come usare la funzionalità di mirroring di Apache Kafka per replicare gli argomenti in un cluster secondario. Il mirroring può essere eseguito come processo continuo o usato in modo intermittente come metodo di migrazione dei dati da un cluster all'altro.
 
 > [!NOTE]
-> Questo articolo contiene riferimenti al termine *whitelist*, un termine che Microsoft non usa più. Quando il termine viene rimosso dal software, questo verrà rimosso da questo articolo.
+> Questo articolo contiene riferimenti al termine *whitelist*, che Microsoft non usa più. Quando il termine verrà rimosso dal software, verrà rimosso anche dall'articolo.
 
 In questo esempio il mirroring viene usato per replicare argomenti tra due cluster HDInsight. Entrambi i cluster si trovano in reti virtuali diverse in data center diversi.
 
@@ -116,7 +113,7 @@ Configurare la pubblicità IP per consentire a un client di connettersi tramite 
     
 1. Rimanere nella scheda **configs (configurazioni** ) in **Services**  >  **Kafka**. Nella sezione **Kafka broker** impostare la proprietà **Listeners** su `PLAINTEXT://0.0.0.0:9092` .
 1. Selezionare **Salva**.
-1. Selezionare **Riavvia**e **confermare riavvia tutto**.
+1. Selezionare **Riavvia** e **confermare riavvia tutto**.
 
 ### <a name="record-broker-ip-addresses-and-zookeeper-addresses-for-primary-cluster"></a>Registrare gli indirizzi IP e gli indirizzi Zookeeper del broker per il cluster primario.
 
