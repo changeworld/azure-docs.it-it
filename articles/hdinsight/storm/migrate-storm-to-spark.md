@@ -1,18 +1,15 @@
 ---
 title: Eseguire la migrazione di Azure HDInsight 3,6 Apache Storm a HDInsight 4,0 Apache Spark
 description: Le differenze e il flusso di migrazione per la migrazione di carichi di lavoro Apache Storm a Spark streaming o Spark Structured streaming.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/16/2019
-ms.openlocfilehash: e1262a4699bc42cb5b9a4398be2254854c5d5ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa57c01558cfdcf069b17fad9e86f7640553dcfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081197"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944782"
 ---
 # <a name="migrate-azure-hdinsight-36-apache-storm-to-hdinsight-40-apache-spark"></a>Eseguire la migrazione di Azure HDInsight 3,6 Apache Storm a HDInsight 4,0 Apache Spark
 
@@ -40,7 +37,7 @@ Apache Storm può offrire diversi livelli di elaborazione garantita dei messaggi
 |**Garanzia di elaborazione degli eventi**|Almeno una volta <br> Esattamente una volta (Trident) |[Esattamente una volta](https://spark.apache.org/docs/latest/streaming-programming-guide.html)|[Esattamente una volta](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
 |**Modello di elaborazione**|Tempo reale <br> Micro batch (Trident) |Batch micro |Batch micro |
 |**Supporto dell'ora dell'evento**|[Sì](https://storm.apache.org/releases/2.0.0/Windowing.html)|No|[Sì](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)|
-|**Lingue**|Java e così via.|Scala, Java, Python|Python, R, scala, Java, SQL|
+|**Linguaggi**|Java e così via.|Scala, Java, Python|Python, R, scala, Java, SQL|
 
 ### <a name="spark-streaming-vs-spark-structured-streaming"></a>Streaming strutturato Spark streaming vs Spark
 
@@ -104,7 +101,7 @@ Spark Structured streaming rappresenta un flusso di dati sotto forma di tabella 
 
 In Structured Streaming i dati arrivano nel sistema e vengono immediatamente inseriti in una tabella di input. Si scriveranno query (usando le API DataFrame e Dataset) che eseguono operazioni su questa tabella di input.
 
-L'output della query produce una *tabella dei risultati*che contiene i risultati della query. È possibile creare dati dalla tabella dei risultati per un archivio dati esterno, ad esempio un database relazionale.
+L'output della query produce una *tabella dei risultati* che contiene i risultati della query. È possibile creare dati dalla tabella dei risultati per un archivio dati esterno, ad esempio un database relazionale.
 
 Il periodo in cui i dati vengono elaborati dalla tabella di input viene controllato dall'intervallo di trigger. Per impostazione predefinita, l'intervallo di trigger è zero e di conseguenza Structured Streaming tenta di elaborare i dati non appena arrivano. In pratica, questo significa che non appena Structured Streaming ha completato l'elaborazione dell'esecuzione della query precedente, avvia un'altra elaborazione, eseguita su eventuali nuovi dati ricevuti. È possibile configurare il trigger per l'esecuzione in base a un intervallo specifico, in modo che i dati di streaming vengano elaborati in batch basati sul tempo.
 

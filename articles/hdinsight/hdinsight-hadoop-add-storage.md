@@ -1,19 +1,16 @@
 ---
 title: Aggiungere altri account di archiviazione di Azure a HDInsight
 description: Informazioni su come aggiungere altri account di archiviazione di Azure a un cluster HDInsight esistente.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 11852046442901c70112b5e80fef371671546412
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541996"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945942"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -49,7 +46,7 @@ Durante l'elaborazione, lo script esegue le azioni seguenti:
 
 Usare l' [azione script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) per applicare le modifiche con le considerazioni seguenti:
 
-|Proprietà | valore |
+|Proprietà | Valore |
 |---|---|
 |URI script Bash|`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`|
 |Tipo/i di nodo|Head|
@@ -97,7 +94,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
-1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site** .
+1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site**.
 
 1. Osservare le chiavi che iniziano con `fs.azure.account.key` . Il nome dell'account sarà parte della chiave, come illustrato in questa immagine di esempio:
 
@@ -107,7 +104,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. In un Web browser passare a `https://CLUSTERNAME.azurehdinsight.net` dove `CLUSTERNAME` è il nome del cluster.
 
-1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site** .
+1. Passare a **HDFS**  >  **configs**  >  **Advanced**  >  **Custom Core-site**.
 
 1. Rimuovere le chiavi seguenti:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +116,7 @@ Dopo aver rimosso queste chiavi e salvato la configurazione, è necessario riavv
 
 ### <a name="storage-firewall"></a>Firewall di archiviazione
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate** , assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione`.`
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili...** in modo che HDInsight possa accedere all'account di archiviazione`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Non è possibile accedere alla risorsa di archiviazione dopo la modifica della chiave
 

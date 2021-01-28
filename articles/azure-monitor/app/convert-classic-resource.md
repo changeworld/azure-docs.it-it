@@ -3,12 +3,12 @@ title: Eseguire la migrazione di un monitoraggio di Azure Application Insights r
 description: Informazioni sui passaggi necessari per aggiornare il monitoraggio di Azure Application Insights risorsa classica al nuovo modello basato sull'area di lavoro.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 709cff1326bb6393a14c594ea434a6c16fb80860
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536524"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945102"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Eseguire la migrazione a risorse Application Insights basate sull'area di lavoro
 
@@ -51,7 +51,7 @@ Se non è necessario eseguire la migrazione di una risorsa esistente e si vuole 
 - L'esportazione continua non è supportata per le risorse basate sull'area di lavoro e deve essere disabilitata.
 Al termine della migrazione, è possibile usare [le impostazioni di diagnostica](../platform/diagnostic-settings.md) per configurare l'archiviazione dei dati in un account di archiviazione o in streaming nell'hub eventi di Azure.  
 
-- Controllare le impostazioni di conservazione correnti in utilizzo **generale**  >  e conservazione dei dati **sui costi stimati**  >  **Data Retention** per l'area di lavoro log Analytics. Questa impostazione influirà sul tempo durante il quale i nuovi dati inseriti vengono archiviati dopo la migrazione della risorsa Application Insights. Se attualmente si archiviano i dati Application Insights per un periodo di tempo superiore a quello predefinito di 90 giorni e si desidera mantenere questo periodo di conservazione più ampio, potrebbe essere necessario modificare le impostazioni di conservazione dell'area di lavoro.
+- Controllare le impostazioni di conservazione correnti in utilizzo **generale**  >  e conservazione dei dati **sui costi stimati**  >   per l'area di lavoro log Analytics. Questa impostazione influirà sul tempo durante il quale i nuovi dati inseriti vengono archiviati dopo la migrazione della risorsa Application Insights. Se attualmente si archiviano i dati Application Insights per un periodo di tempo superiore a quello predefinito di 90 giorni e si desidera mantenere questo periodo di conservazione più ampio, potrebbe essere necessario modificare le impostazioni di conservazione dell'area di lavoro.
 
 ## <a name="migrate-your-resource"></a>Eseguire la migrazione della risorsa
 
@@ -114,7 +114,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Per informazioni dettagliate su questo comando, vedere la [documentazione dell'interfaccia della riga di comando di Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-update).
+Per informazioni dettagliate su questo comando, vedere la [documentazione dell'interfaccia della riga di comando di Azure](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -209,7 +209,7 @@ Dall'interno del riquadro Application Insights risorsa selezionare **Proprietà*
 
 **Messaggio di errore:** *l'area di lavoro selezionata è configurata con modalità di accesso basata sull'area di lavoro. Alcune funzionalità APM potrebbero essere interessate. Selezionare un'altra area di lavoro o consentire l'accesso basato sulle risorse nelle impostazioni dell'area di lavoro. È possibile eseguire l'override di questo errore usando l'interfaccia* della riga di comando. 
 
-Per il corretto funzionamento della risorsa Application Insights basata sull'area di lavoro, è necessario modificare la modalità di controllo di accesso dell'area di lavoro Log Analytics di destinazione nell'impostazione delle autorizzazioni per la **risorsa o l'area di lavoro** . Questa impostazione si trova nell'interfaccia utente dell'area di **Properties** lavoro log Analytics in  >  **modalità controllo di accesso** proprietà. Per istruzioni dettagliate, vedere la [log Analytics configurare le linee guida per la modalità controllo di accesso](../platform/manage-access.md#configure-access-control-mode). Se la modalità di controllo di accesso è impostata sull'impostazione esclusiva **Richiedi autorizzazioni** per l'area di lavoro, la migrazione tramite l'esperienza di migrazione del portale rimarrà bloccata.
+Per il corretto funzionamento della risorsa Application Insights basata sull'area di lavoro, è necessario modificare la modalità di controllo di accesso dell'area di lavoro Log Analytics di destinazione nell'impostazione delle autorizzazioni per la **risorsa o l'area di lavoro** . Questa impostazione si trova nell'interfaccia utente dell'area di lavoro log Analytics in  >  **modalità controllo di accesso** proprietà. Per istruzioni dettagliate, vedere la [log Analytics configurare le linee guida per la modalità controllo di accesso](../platform/manage-access.md#configure-access-control-mode). Se la modalità di controllo di accesso è impostata sull'impostazione esclusiva **Richiedi autorizzazioni** per l'area di lavoro, la migrazione tramite l'esperienza di migrazione del portale rimarrà bloccata.
 
 Se non è possibile modificare la modalità di controllo di accesso per motivi di sicurezza per l'area di lavoro di destinazione corrente, è consigliabile creare una nuova area di lavoro Log Analytics da usare per la migrazione. 
 
@@ -237,7 +237,7 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 Non è necessario apportare modifiche prima di eseguire la migrazione, ma questo messaggio consente di avvisare che le impostazioni di conservazione dei Application Insights correnti non sono impostate sul periodo di conservazione predefinito di 90 giorni. Questo messaggio di avviso indica che è possibile modificare le impostazioni di conservazione per l'area di lavoro di Log Analytics prima di eseguire la migrazione e iniziare a inserire nuovi dati. 
 
-È possibile controllare le impostazioni di conservazione correnti per log Analytics in utilizzo **generale**  >  e la conservazione dei dati **sui costi stimati**  >  **Data Retention** dall'interfaccia utente di log Analytics. Questa impostazione influirà sul tempo durante il quale i nuovi dati inseriti vengono archiviati dopo la migrazione della risorsa Application Insights.
+È possibile controllare le impostazioni di conservazione correnti per log Analytics in utilizzo **generale**  >  e la conservazione dei dati **sui costi stimati**  >   dall'interfaccia utente di log Analytics. Questa impostazione influirà sul tempo durante il quale i nuovi dati inseriti vengono archiviati dopo la migrazione della risorsa Application Insights.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

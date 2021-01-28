@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 9df5d702019063ffba6d79cc63370cd25a7242fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60a721af9acf980e88ad60504e75d2488c8a4d81
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358782"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944485"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparare le app per la logica e manuali operativi per la migrazione delle regole di avviso classiche
 
@@ -30,7 +30,7 @@ La tabella seguente è un riferimento alle interfacce programmatiche per gli avv
 | Tipo di script di distribuzione | Avvisi classici | Nuovi avvisi delle metriche |
 | ---------------------- | -------------- | ----------------- |
 |API REST     | [Microsoft. Insights/alertrules](/rest/api/monitor/alertrules)         | [Microsoft. Insights/metricalerts](/rest/api/monitor/metricalerts)       |
-|Interfaccia della riga di comando di Azure     | [az monitor alert](/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor Metrics-avviso](/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Interfaccia della riga di comando di Azure     | [az monitor alert](/cli/azure/monitor/alert)        | [AZ monitor Metrics-avviso](/cli/azure/monitor/metrics/alert)        |
 |PowerShell      | [Riferimento](/powershell/module/az.monitor/add-azmetricalertrule)       |  [Riferimento](/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modello di Azure Resource Manager | [Per gli avvisi classici](./alerts-enable-template.md)|[Per i nuovi avvisi delle metriche](./alerts-metric-create-templates.md)|
 
@@ -70,7 +70,7 @@ I payload sono simili, come si può vedere. La sezione seguente offre:
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Modificare un'app per la logica per ricevere una notifica di avviso per la metrica
 
-Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. Seguire questa procedura:
+Se si usano app per la logica con avvisi classici, è necessario modificare il codice dell'app per la logica per analizzare il nuovo payload degli avvisi delle metriche. A tale scopo, seguire questa procedura:
 
 1. Creare una nuova app per la logica.
 

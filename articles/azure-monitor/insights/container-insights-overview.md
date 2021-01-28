@@ -3,12 +3,12 @@ title: Panoramica di Monitoraggio di Azure per contenitori | Microsoft Docs
 description: Questo articolo descrive Monitoraggio di Azure per contenitori, che consente di monitorare la soluzione relativa alle informazioni dettagliate sui contenitori del servizio Azure Kubernetes, e il valore che offre attraverso il monitoraggio dell'integrità dei cluster del servizio Azure Kubernetes e di Istanze di Container in Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 215427adc38ebd554ca7ac650ec65a05f5a781e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21a0e506082b58473870baed014ede16665e837
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317158"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943802"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
 
@@ -17,7 +17,7 @@ Monitoraggio di Azure per contenitori è una funzionalità progettata per monito
 - Cluster Managed Kubernetes ospitati in [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Cluster Kubernetes autogestiti ospitati in Azure con il [motore AKS](https://github.com/Azure/aks-engine)
 - [Istanze di Azure Container](../../container-instances/container-instances-overview.md)
-- Cluster Kubernetes autogestiti ospitati in [Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) o in locale
+- Cluster Kubernetes autogestiti ospitati in [Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) o in locale
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc abilitato Kubernetes](../../azure-arc/kubernetes/overview.md) (anteprima)
 
@@ -31,7 +31,7 @@ Monitoraggio di Azure per contenitori assicura la visibilità sulle prestazioni 
 
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>Che cosa fornisce Monitoraggio di Azure per contenitori?
 
-Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio completa con diverse funzionalità di monitoraggio di Azure. Queste funzionalità consentono di comprendere le prestazioni e l'integrità del cluster Kubernetes che esegue il sistema operativo Linux e Windows Server 2019 e i carichi di lavoro dei contenitori. Con monitoraggio di Azure per i contenitori è possibile:
+Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio completa con diverse funzionalità di monitoraggio di Azure. Queste funzionalità consentono di comprendere le prestazioni e l'integrità del cluster Kubernetes che esegue il sistema operativo Linux e Windows Server 2019 e i carichi di lavoro dei contenitori. Con Monitoraggio di Azure per i contenitori è possibile:
 
 * Identificare i contenitori servizio Azure Kubernetes in esecuzione nel nodo e il relativo uso medio del processore e della memoria, in modo da individuare facilmente i colli di bottiglia delle risorse.
 * Identificare l'utilizzo di processori e memoria dei gruppi di contenitori e dei relativi contenitori ospitati in Istanze di Azure Container.
@@ -40,7 +40,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 * Comprendere il comportamento del cluster con carichi medi e più pesanti. Queste informazioni sono utili per identificare i requisiti di capacità e determinare il carico massimo che può sostenere il cluster.
 * Configurare gli avvisi per notificare in modo proattivo l'utente o registrarlo quando l'utilizzo della CPU e della memoria nei nodi o nei contenitori supera le soglie o quando si verifica un cambiamento dello stato di integrità nel cluster nell'infrastruttura o nel rollup dello stato dei nodi.
 * Eseguire l'integrazione con [Prometeo](https://prometheus.io/docs/introduction/overview/) per visualizzare le metriche dell'applicazione e del carico di lavoro che raccoglie da nodi e Kubernetes usando le [query](container-insights-log-search.md) per creare avvisi personalizzati, dashboard ed eseguire analisi dettagliate.
-* Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/Azure/aks-engine) locale e nel [motore AKS in Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
+* Monitorare i carichi di lavoro dei contenitori [distribuiti nel motore AKS](https://github.com/Azure/aks-engine) locale e nel [motore AKS in Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 * Monitorare i carichi di lavoro dei contenitori [distribuiti in Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]

@@ -2,19 +2,16 @@
 title: Informazioni su come usare un Apache Hadoop sandbox, Emulator-Azure HDInsight
 description: "Per iniziare ad apprendere l'uso dell'ecosistema Apache Hadoop, è possibile impostare un ambiente sandbox Hadoop di Hortonworks in una macchina virtuale Azure. "
 keywords: emulatore hadoop, sandbox hadoop
-ms.reviewer: jasonh
-author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eb286adfd7267a78fcf80bcf5ad34f8f1cc9f493
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547963"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946608"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introduzione a un Apache Hadoop sandbox, un emulatore in una macchina virtuale
 
@@ -34,13 +31,13 @@ Informazioni su come installare l'ambiente sandbox Apache Hadoop da Hortonworks 
 
 Per istruzioni sulla configurazione della sandbox, vedere la [Guida alla distribuzione e all'installazione di sandbox](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nelle **versioni precedenti** .
+Per scaricare una versione precedente di HDP sandbox, vedere i collegamenti nelle **versioni precedenti**.
 
 ## <a name="start-the-virtual-machine"></a>Avviare la macchina virtuale
 
 1. Aprire Oracle VM VirtualBox.
 1. Scegliere **Import Appliance** dal menu **File** e quindi specificare l'immagine di Hortonworks Sandbox.
-1. Selezionare Hortonworks Sandbox, fare clic su **Start** e quindi su **Normal Start** . Al termine del processo di avvio della macchina virtuale, vengono visualizzate le istruzioni di accesso.
+1. Selezionare Hortonworks Sandbox, fare clic su **Start** e quindi su **Normal Start**. Al termine del processo di avvio della macchina virtuale, vengono visualizzate le istruzioni di accesso.
 
     ![avvio normale di VirtualBox Manager](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 

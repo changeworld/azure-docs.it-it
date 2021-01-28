@@ -1,19 +1,16 @@
 ---
 title: Usare SSH con Hadoop - Azure HDInsight
 description: È possibile accedere a HDInsight tramite Secure Shell (SSH). Questo documento fornisce informazioni sulla connessione a HDInsight usando i comandi SSH dei client Windows, Linux, UNIX o macOS.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: dbbb205aea48dedbe13696d0a43e632faf2ae339
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a649c448e4d51929421a8dadbcd1948d7e130df1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546144"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945667"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Connettersi a HDInsight (Apache Hadoop) con SSH
 
@@ -59,9 +56,9 @@ Le chiavi SSH usano la [crittografia a chiave pubblica](https://en.wikipedia.org
 
 Se l'account SSH è protetto con una chiave, al momento della connessione il client deve fornire la chiave privata corrispondente:
 
-* La maggior parte dei client può essere configurata per l'uso di una __chiave predefinita__ . Negli ambienti Linux e Unix, ad esempio, il client `ssh` cerca una chiave privata in `~/.ssh/id_rsa`.
+* La maggior parte dei client può essere configurata per l'uso di una __chiave predefinita__. Negli ambienti Linux e Unix, ad esempio, il client `ssh` cerca una chiave privata in `~/.ssh/id_rsa`.
 
-* È possibile specificare il __percorso di una chiave privata__ . Con il client `ssh`, per specificare il percorso della chiave privata viene usato il parametro `-i`. Ad esempio: `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* È possibile specificare il __percorso di una chiave privata__. Con il client `ssh`, per specificare il percorso della chiave privata viene usato il parametro `-i`. Ad esempio: `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
 * Se si hanno __più chiavi private__ per server diversi, considerare la possibilità di usare un'utilità come [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent). L'utilità `ssh-agent` consente di selezionare automaticamente la chiave da usare quando si stabilisce una sessione SSH.
 
@@ -89,7 +86,7 @@ Verranno richieste informazioni durante il processo di creazione della chiave. a
 
 | Metodo di creazione | Come usare la chiave pubblica |
 | ------- | ------- |
-| Portale di Azure | Deselezionare __Usa password di accesso del cluster per SSH__ , quindi selezionare __chiave pubblica__ come tipo di autenticazione SSH. Selezionare infine il file di chiave pubblica oppure incollare il contenuto di testo del file nel campo __Chiave pubblica SSH__ .</br>![Finestra di dialogo per la chiave pubblica SSH nella creazione di cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Portale di Azure | Deselezionare __Usa password di accesso del cluster per SSH__, quindi selezionare __chiave pubblica__ come tipo di autenticazione SSH. Selezionare infine il file di chiave pubblica oppure incollare il contenuto di testo del file nel campo __Chiave pubblica SSH__.</br>![Finestra di dialogo per la chiave pubblica SSH nella creazione di cluster HDInsight](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | Usare il `-SshPublicKey` parametro del cmdlet [New-AzHdinsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) e passare il contenuto della chiave pubblica sotto forma di stringa.|
 | Interfaccia della riga di comando di Azure | Usare il `--sshPublicKey` parametro del [`az hdinsight create`](/cli/azure/hdinsight#az-hdinsight-create) comando e passare il contenuto della chiave pubblica sotto forma di stringa. |
 | Modello di Resource Manager | Per un esempio dell'uso di SSH con un modello, vedere l'articolo su come [distribuire HDInsight in Linux con una chiave SSH](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). L'elemento `publicKeys` del file [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) viene usato per passare le chiavi ad Azure durante la creazione del cluster. |
@@ -119,7 +116,7 @@ Per informazioni sulla modifica della password dell'account utente SSH, vedere l
 
 ## <a name="authentication-domain-joined-hdinsight"></a>HDInsight aggiunto al dominio di autenticazione
 
-Se si usa un __cluster HDInsight aggiunto al dominio__ , è necessario usare il `kinit` comando dopo la connessione con l'utente locale SSH. Questo comando richiede di specificare un utente di dominio e una password e autentica la sessione con il dominio di Azure Active Directory associato al cluster.
+Se si usa un __cluster HDInsight aggiunto al dominio__, è necessario usare il `kinit` comando dopo la connessione con l'utente locale SSH. Questo comando richiede di specificare un utente di dominio e una password e autentica la sessione con il dominio di Azure Active Directory associato al cluster.
 
 È anche possibile abilitare l'autenticazione Kerberos in ogni nodo aggiunto a un dominio (ad esempio, nodo Head, nodo perimetrale) a SSH usando l'account di dominio. A tale scopo, modificare il file di configurazione sshd:
 
@@ -141,7 +138,7 @@ Per altre informazioni, vedere [Configurare i cluster HDInsight aggiunti al domi
 
 È possibile accedere ai nodi head e al nodo perimetrale (se ne esiste uno) tramite Internet sulle porte 22 e 23.
 
-* Quando ci si connette ai __nodi head__ , usare la porta __22__ per la connessione al nodo head primario e la porta __23__ per la connessione al nodo head secondario. Il nome di dominio completo da usare è `clustername-ssh.azurehdinsight.net`, dove `clustername` è il nome del cluster.
+* Quando ci si connette ai __nodi head__, usare la porta __22__ per la connessione al nodo head primario e la porta __23__ per la connessione al nodo head secondario. Il nome di dominio completo da usare è `clustername-ssh.azurehdinsight.net`, dove `clustername` è il nome del cluster.
 
     ```bash
     # Connect to primary head node
@@ -152,7 +149,7 @@ Per altre informazioni, vedere [Configurare i cluster HDInsight aggiunti al domi
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-* Quando ci si connette al __nodo perimetrale__ , usare la porta 22. Il nome di dominio completo è `edgenodename.clustername-ssh.azurehdinsight.net`, dove `edgenodename` è un nome specificato durante la creazione del nodo perimetrale. `clustername` è il nome del cluster.
+* Quando ci si connette al __nodo perimetrale__, usare la porta 22. Il nome di dominio completo è `edgenodename.clustername-ssh.azurehdinsight.net`, dove `edgenodename` è un nome specificato durante la creazione del nodo perimetrale. `clustername` è il nome del cluster.
 
     ```bash
     # Connect to edge node
@@ -182,9 +179,9 @@ I nodi del ruolo di lavoro e i nodi Zookeeper non sono direttamente accessibili 
 
     Per recuperare un elenco dei nomi di nodo, vedere il documento [Gestire i cluster HDInsight con l'API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#get-the-fqdn-of-cluster-nodes).
 
-Se l'account SSH viene protetto usando una __password__ , immetterla quando ci si connette.
+Se l'account SSH viene protetto usando una __password__, immetterla quando ci si connette.
 
-Se l'account SSH viene protetto usando __chiavi SSH__ , verificare che l'inoltro SSH sia abilitato nel client.
+Se l'account SSH viene protetto usando __chiavi SSH__, verificare che l'inoltro SSH sia abilitato nel client.
 
 > [!NOTE]  
 > Un altro modo per accedere direttamente a tutti i nodi del cluster è installare HDInsight in una rete virtuale di Azure. È quindi possibile aggiungere il computer remoto alla stessa rete virtuale e accedere direttamente a tutti i nodi del cluster.

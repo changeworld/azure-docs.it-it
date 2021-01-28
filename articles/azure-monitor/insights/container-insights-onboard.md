@@ -3,12 +3,12 @@ title: Abilitare monitoraggio di Azure per i contenitori | Microsoft Docs
 description: Questo articolo descrive come abilitare e configurare monitoraggio di Azure per i contenitori in modo che sia possibile comprendere il modo in cui il contenitore sta eseguendo e quali sono stati identificati i problemi relativi alle prestazioni.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 69022643e3346444eee95f4487eeed292c4ef139
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994071"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943814"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Abilitare monitoraggio di Azure per i contenitori
 
@@ -21,7 +21,7 @@ Questo articolo fornisce una panoramica delle opzioni disponibili per la configu
 
 È anche possibile monitorare le prestazioni dei carichi di lavoro distribuiti nei cluster Kubernetes autogestiti ospitati in:
 - Azure, usando il [motore AKS](https://github.com/Azure/aks-engine)
-- [Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o in locale usando il motore AKS.
+- [Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) o in locale usando il motore AKS.
 
 È possibile abilitare monitoraggio di Azure per i contenitori per una nuova distribuzione o per una o più distribuzioni esistenti di Kubernetes usando uno dei metodi supportati seguenti:
 
@@ -51,7 +51,7 @@ Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
 - L'utente è membro del gruppo *log Analytics Contributor* per abilitare il monitoraggio dei contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro Log Analytics, vedere [Gestire le aree di lavoro](../platform/manage-access.md).
 
-- Si è un membro del gruppo [ *owner* ](../../role-based-access-control/built-in-roles.md#owner) sulla risorsa cluster AKS.
+- Si è un membro del gruppo [ *owner*](../../role-based-access-control/built-in-roles.md#owner) sulla risorsa cluster AKS.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -63,7 +63,7 @@ Prima di iniziare, verificare che siano soddisfatti i requisiti seguenti:
 
 Monitoraggio di Azure per i contenitori supporta ufficialmente le configurazioni seguenti:
 
-- Ambienti: Azure Red Hat OpenShift, Kubernetes locale e il motore AKS in Azure e Azure Stack. Per ulteriori informazioni, vedere [il motore AKS in Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Ambienti: Azure Red Hat OpenShift, Kubernetes locale e il motore AKS in Azure e Azure Stack. Per ulteriori informazioni, vedere [il motore AKS in Azure stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - Le versioni di Kubernetes e i criteri di supporto sono identici [a quelli supportati in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md). 
 
 ## <a name="network-firewall-requirements"></a>Requisiti del firewall di rete
@@ -117,7 +117,7 @@ Per abilitare monitoraggio di Azure per i contenitori, usare uno dei metodi desc
 | Nuovo cluster Kubernetes | [Creare un cluster AKS usando l'interfaccia della riga di comando di Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| È possibile abilitare il monitoraggio per un nuovo cluster AKS creato con l'interfaccia della riga di comando di Azure. |
 | | [Creare un cluster AKS usando la bonifica](container-insights-enable-new-cluster.md#enable-using-terraform)| È possibile abilitare il monitoraggio per un nuovo cluster AKS creato tramite lo strumento open source bonifica. |
 | | [Creare un cluster OpenShift usando un modello di Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | È possibile abilitare il monitoraggio per un nuovo cluster OpenShift creato usando un modello di Azure Resource Manager preconfigurato. |
-| | [Creare un cluster OpenShift usando l'interfaccia della riga di comando di Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | È possibile abilitare il monitoraggio quando si distribuisce un nuovo cluster OpenShift usando l'interfaccia della riga di comando di Azure. |
+| | [Creare un cluster OpenShift usando l'interfaccia della riga di comando di Azure](/cli/azure/openshift#az-openshift-create) | È possibile abilitare il monitoraggio quando si distribuisce un nuovo cluster OpenShift usando l'interfaccia della riga di comando di Azure. |
 | Cluster Kubernetes esistente | [Abilitare il monitoraggio di un cluster AKS usando l'interfaccia della riga di comando di Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | È possibile abilitare il monitoraggio per un cluster AKS già distribuito usando l'interfaccia della riga di comando di Azure. |
 | |[Abilitare per il cluster AKS usando la bonifica](container-insights-enable-existing-clusters.md#enable-using-terraform) | È possibile abilitare il monitoraggio per un cluster AKS già distribuito usando lo strumento open source bonifica. |
 | | [Abilitare per il cluster AKS da monitoraggio di Azure](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| È possibile abilitare il monitoraggio per uno o più cluster AKS già distribuiti dalla pagina multicluster in monitoraggio di Azure. |

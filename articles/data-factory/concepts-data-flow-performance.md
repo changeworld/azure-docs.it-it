@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 12/18/2020
-ms.openlocfilehash: d23b2f65f25b704beaee12c53e47706653dcc208
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858587"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944984"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -161,7 +161,7 @@ Il database SQL di Azure dispone di un'opzione di partizionamento univoca denomi
 
 #### <a name="isolation-level"></a>Livello di isolamento
 
-Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha un effetto sulle prestazioni. La scelta di ' Read uncommitted ' fornirà le prestazioni più veloci e impedirà i blocchi del database. Per altre informazioni sui livelli di isolamento SQL, vedere [informazioni sui livelli di isolamento](https://docs.microsoft.com/sql/connect/jdbc/understanding-isolation-levels).
+Il livello di isolamento della lettura in un sistema di origine SQL di Azure ha un effetto sulle prestazioni. La scelta di ' Read uncommitted ' fornirà le prestazioni più veloci e impedirà i blocchi del database. Per altre informazioni sui livelli di isolamento SQL, vedere [informazioni sui livelli di isolamento](/sql/connect/jdbc/understanding-isolation-levels).
 
 #### <a name="read-using-query"></a>Leggi con query
 
@@ -208,7 +208,7 @@ Queste operazioni possono essere eseguite in modo nativo usando gli script pre e
 ![Disabilita indici](media/data-flow/disable-indexes-sql.png "Disabilita indici")
 
 > [!WARNING]
-> Quando si disabilitano gli indici, il flusso di dati acquisisce effettivamente il controllo di un database e non è probabile che le query abbiano esito positivo in questo momento. Di conseguenza, molti processi ETL vengono attivati a metà della notte per evitare questo conflitto. Per ulteriori informazioni, vedere la pagina relativa ai [vincoli di disabilitazione degli indici](https://docs.microsoft.com/sql/relational-databases/indexes/disable-indexes-and-constraints)
+> Quando si disabilitano gli indici, il flusso di dati acquisisce effettivamente il controllo di un database e non è probabile che le query abbiano esito positivo in questo momento. Di conseguenza, molti processi ETL vengono attivati a metà della notte per evitare questo conflitto. Per ulteriori informazioni, vedere la pagina relativa ai [vincoli di disabilitazione degli indici](/sql/relational-databases/indexes/disable-indexes-and-constraints)
 
 #### <a name="scaling-up-your-database"></a>Scalabilità verticale del database
 
@@ -216,7 +216,7 @@ Pianificare un ridimensionamento di Azure SLQ DB e DW di origine e sink prima de
 
 ### <a name="azure-synapse-analytics-sinks"></a>Sink di analisi della sinapsi di Azure
 
-Quando si scrive in Azure sinapsi Analytics, assicurarsi che **Abilita staging** sia impostato su true. In questo modo, ADF è in grado di scrivere utilizzando il [comando SQL Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql) , che carica i dati in blocco. È necessario fare riferimento a un Azure Data Lake Storage account di archiviazione BLOB di Azure o Gen2 per la gestione temporanea dei dati quando si usa la gestione temporanea.
+Quando si scrive in Azure sinapsi Analytics, assicurarsi che **Abilita staging** sia impostato su true. In questo modo, ADF è in grado di scrivere utilizzando il [comando SQL Copy](/sql/t-sql/statements/copy-into-transact-sql) , che carica i dati in blocco. È necessario fare riferimento a un Azure Data Lake Storage account di archiviazione BLOB di Azure o Gen2 per la gestione temporanea dei dati quando si usa la gestione temporanea.
 
 Oltre alla gestione temporanea, le stesse procedure consigliate si applicano ad Azure sinapsi Analytics come database SQL di Azure.
 

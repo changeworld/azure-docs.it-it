@@ -1,19 +1,16 @@
 ---
 title: Comprendere e risolvere gli errori di WebHCat in HDInsight - Azure
 description: Informazioni sugli errori comuni restituiti da WebHCat in HDInsight e su come risolverli.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 951dba6e64561301dc7dbb6ebd6fd6b641c90a47
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: ce7a21a2b5401c68c6b58bc934fb20b0225ba8ad
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285678"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945463"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat in HDInsight
 
@@ -39,7 +36,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 
 ## <a name="too-many-requests"></a>Numero eccessivo di richieste
 
-**Codice di stato HTTP** : 429
+**Codice di stato HTTP**: 429
 
 | Causa | Risoluzione |
 | --- | --- |
@@ -47,7 +44,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 
 ## <a name="server-unavailable"></a>Server non disponibile
 
-**Codice di stato HTTP** : 503
+**Codice di stato HTTP**: 503
 
 | Causa | Risoluzione |
 | --- | --- |
@@ -55,7 +52,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 
 ## <a name="bad-request-content-could-not-find-job"></a>Contenuto della richiesta non valida: Il processo non è stato trovato
 
-**Codice di stato HTTP** : 400
+**Codice di stato HTTP**: 400
 
 | Causa | Risoluzione |
 | --- | --- |
@@ -65,7 +62,7 @@ Il superamento dei valori predefiniti seguenti può determinare una riduzione de
 
 ## <a name="bad-gateway"></a>Gateway non valido
 
-**Codice di stato HTTP** : 502
+**Codice di stato HTTP**: 502
 
 | Causa | Risoluzione |
 | --- | --- |

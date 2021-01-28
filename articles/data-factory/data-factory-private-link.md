@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 5d13a6a77ede6277eebc7fdab7cd42165cb602fa
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96746354"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944574"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
@@ -67,7 +67,7 @@ L'abilitazione del servizio di collegamento privato per ognuno dei canali di com
 > Quando si crea un servizio collegato, assicurarsi che le credenziali siano archiviate in Azure Key Vault. In caso contrario, le credenziali non funzioneranno quando si Abilita il collegamento privato in Azure Data Factory.
 
 ## <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
-Quando si crea un endpoint privato, il record di risorse DNS CNAME per il Data Factory viene aggiornato a un alias in un sottodominio con il prefisso ' privatelink '. Per impostazione predefinita, si crea anche una [zona DNS privata](https://docs.microsoft.com/azure/dns/private-dns-overview), che corrisponde al sottodominio "privatelink", con i record di risorse DNS a per gli endpoint privati.
+Quando si crea un endpoint privato, il record di risorse DNS CNAME per il Data Factory viene aggiornato a un alias in un sottodominio con il prefisso ' privatelink '. Per impostazione predefinita, si crea anche una [zona DNS privata](../dns/private-dns-overview.md), che corrisponde al sottodominio "privatelink", con i record di risorse DNS a per gli endpoint privati.
 
 Quando si risolve l'URL dell'endpoint data factory dall'esterno del VNet con l'endpoint privato, questo viene risolto nell'endpoint pubblico del servizio di data factory. Quando viene risolto da VNet che ospita l'endpoint privato, l'URL dell'endpoint di archiviazione viene risolto nell'indirizzo IP dell'endpoint privato.
 
@@ -77,20 +77,20 @@ Per l'esempio illustrato in precedenza, i record di risorse DNS per il Data Fact
 | ---------- | -------- | --------------- |
 | Datafactorya. {Region}. DataFactory. Azure. NET | CNAME   | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET |
 | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET | CNAME   | < endpoint pubblico del servizio data factory > |
-| < endpoint pubblico del servizio data factory >  | Una | Indirizzo IP pubblico del servizio < data factory > |
+| < endpoint pubblico del servizio data factory >  | A | Indirizzo IP pubblico del servizio < data factory > |
 
 I record di risorse DNS per datafactorya, quando risolti in VNet che ospita l'endpoint privato, saranno:
 
 | Nome | Type | valore |
 | ---------- | -------- | --------------- |
 | Datafactorya. {Region}. DataFactory. Azure. NET | CNAME   | Datafactorya. {Region}. privatelink. DataFactory. Azure. NET |
-| Datafactorya. {Region}. privatelink. DataFactory. Azure. NET   | Una | < indirizzo IP dell'endpoint privato > |
+| Datafactorya. {Region}. privatelink. DataFactory. Azure. NET   | A | < indirizzo IP dell'endpoint privato > |
 
 Se si usa un server DNS personalizzato nella rete, i client devono essere in grado di risolvere il nome di dominio completo per il Data Factory endpoint nell'indirizzo IP dell'endpoint privato. È necessario configurare il server DNS per delegare il sottodominio di collegamento privato alla zona DNS privata per la VNet o configurare i record A per ' datafactorya. {Region}. privatelink. DataFactory. Azure. NET ' con l'indirizzo IP dell'endpoint privato.
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
-- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [Configurazione DNS per endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [Configurazione DNS per endpoint privati](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurare il collegamento privato per Azure Data Factory

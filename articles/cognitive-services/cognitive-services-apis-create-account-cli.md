@@ -10,33 +10,33 @@ keywords: servizi cognitivi, intelligenza cognitiva, soluzioni cognitive, serviz
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: e276d96e8a81b435ec4d0c270cf818555d512ae0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: c52d935738916ebc546315d9913d7a48c77cbf9a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368900"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945011"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Guida introduttiva: creare una risorsa di servizi cognitivi usando l'interfaccia della Command-Line di Azure
 
-Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure tramite l' [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure tramite l' [interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 I Servizi cognitivi di Azure sono servizi basati sul cloud con API REST ed SDK delle librerie client che consentono agli sviluppatori di integrare l'intelligenza cognitiva nelle applicazioni senza la necessità di competenze o conoscenze dirette di intelligenza artificiale e data science. I Servizi cognitivi di Azure consentono agli sviluppatori di aggiungere facilmente funzionalità cognitive alle applicazioni con soluzioni cognitive in grado di vedere, ascoltare, parlare, comprendere e persino di iniziare a ragionare.
 
 I servizi cognitivi sono rappresentati da [risorse](../azure-resource-manager/management/manage-resources-portal.md) di Azure create nella sottoscrizione di Azure. Dopo aver creato la risorsa, usare le chiavi e l'endpoint generati per autenticare le applicazioni.
 
-In questa Guida introduttiva si apprenderà come iscriversi ai servizi cognitivi di Azure e creare un account con una sottoscrizione a servizio singolo o multiservizio usando l' [interfaccia della riga di comando (CLI) di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Questi servizi sono rappresentati da [risorse](../azure-resource-manager/management/manage-resources-portal.md)di Azure, che consentono di connettersi a una o più API servizi cognitivi di Azure.
+In questa Guida introduttiva si apprenderà come iscriversi ai servizi cognitivi di Azure e creare un account con una sottoscrizione a servizio singolo o multiservizio usando l' [interfaccia della riga di comando (CLI) di Azure](/cli/azure/install-azure-cli). Questi servizi sono rappresentati da [risorse](../azure-resource-manager/management/manage-resources-portal.md)di Azure, che consentono di connettersi a una o più API servizi cognitivi di Azure.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure valida- [crearne una](https://azure.microsoft.com/free/cognitive-services) gratuita.
-* [Interfaccia della riga di comando di Azure (CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interfaccia della riga di comando di Azure (CLI)](/cli/azure/install-azure-cli)
 
 ## <a name="install-the-azure-cli-and-sign-in"></a>Installare l'interfaccia della riga di comando di Azure e accedere
 
-Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Per accedere all'installazione locale dell'interfaccia della riga di comando, eseguire il comando [AZ login](/cli/azure/reference-index#az-login) :
+Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Per accedere all'installazione locale dell'interfaccia della riga di comando, eseguire il comando [AZ login](/cli/azure/reference-index#az-login) :
 
 ```azurecli-interactive
 az login
@@ -134,7 +134,7 @@ Quando si crea una nuova risorsa, è necessario conoscerne il tipo di servizio c
 | Content Moderator | `ContentModerator` |
 | Personalizza esperienze      | `Personalizer`     |
 
-È possibile trovare un elenco di "tipi" di servizi cognitivi disponibili con il comando [AZ cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) :
+È possibile trovare un elenco di "tipi" di servizi cognitivi disponibili con il comando [AZ cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-kinds) :
 
 ```azurecli-interactive
 az cognitiveservices account list-kinds
@@ -142,7 +142,7 @@ az cognitiveservices account list-kinds
 
 ### <a name="add-a-new-resource-to-your-resource-group"></a>Aggiungere una nuova risorsa al gruppo di risorse
 
-Per creare e sottoscrivere una nuova risorsa di servizi cognitivi, usare il comando [AZ cognitiveservices account create](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Questo comando aggiunge una nuova risorsa fatturabile al gruppo di risorse creato in precedenza. Quando si crea la nuova risorsa, è necessario conoscerne il "tipo" di servizio che si vuole usare, oltre al piano tariffario (o SKU) e a una località di Azure:
+Per creare e sottoscrivere una nuova risorsa di servizi cognitivi, usare il comando [AZ cognitiveservices account create](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-create) . Questo comando aggiunge una nuova risorsa fatturabile al gruppo di risorse creato in precedenza. Quando si crea la nuova risorsa, è necessario conoscerne il "tipo" di servizio che si vuole usare, oltre al piano tariffario (o SKU) e a una località di Azure:
 
 È possibile creare una risorsa F0 (gratuita) per il rilevatore di anomalie, denominato `anomaly-detector-resource` con il comando seguente.
 
@@ -160,13 +160,13 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>Ottenere le chiavi per la risorsa
 
-Per accedere all'installazione locale dell'interfaccia Command-Line (CLI), usare il comando [AZ login](/cli/azure/reference-index?view=azure-cli-latest#az-login) .
+Per accedere all'installazione locale dell'interfaccia Command-Line (CLI), usare il comando [AZ login](/cli/azure/reference-index#az-login) .
 
 ```azurecli-interactive
 az login
 ```
 
-Usare il comando [AZ cognitiveservices account keys List](/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) per ottenere le chiavi per la risorsa del servizio cognitivo.
+Usare il comando [AZ cognitiveservices account keys List](/cli/azure/cognitiveservices/account/keys#az-cognitiveservices-account-keys-list) per ottenere le chiavi per la risorsa del servizio cognitivo.
 
 ```azurecli-interactive
     az cognitiveservices account keys list \
@@ -185,7 +185,7 @@ I piani tariffari (e l'importo fatturato) si basano sul numero di transazioni in
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Ottenere l'utilizzo della quota corrente per la risorsa
 
-Usare il comando [AZ cognitiveservices account list-Usage](/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) per ottenere l'utilizzo della risorsa del servizio cognitivo.
+Usare il comando [AZ cognitiveservices account list-Usage](/cli/azure/cognitiveservices/account#az-cognitiveservices-account-list-usage) per ottenere l'utilizzo della risorsa del servizio cognitivo.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -204,7 +204,7 @@ Per rimuovere il gruppo di risorse e le risorse associate, usare il comando AZ G
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
 * [Che cos'è la ricerca cognitiva di Azure?](./what-are-cognitive-services.md)

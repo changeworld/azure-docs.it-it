@@ -1,19 +1,16 @@
 ---
 title: Usare .NET con Hadoop MapReduce in HDInsight basato su Linux - Azure
 description: Informazioni su come usare le applicazioni .NET per lo streaming di MapReduce in HDInsight basato su Linux.
-author: hrasheed-msft
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: a6e9bea5d600771a7754142a4df4c0af503ccf5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ceb5d323ecfed54b4e01d13d66c640769a224ee
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075485"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945590"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Eseguire la migrazione di soluzioni .NET per HDInsight basato su Windows a HDInsight basato su Linux
 
@@ -34,13 +31,13 @@ Per altre informazioni sulla compatibilità tra Mono e .NET, vedere il documento
 
 1. Installare [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Durante l'istallazione, selezionare la versione di Visual Studio da usare.
 
-2. Da Visual Studio 2015 selezionare __analizza__  >  __Portability Analyzer Settings__e assicurarsi che __4,5__ sia selezionato nella sezione __mono__ .
+2. Da Visual Studio 2015 selezionare __analizza__  >  __Portability Analyzer Settings__ e assicurarsi che __4,5__ sia selezionato nella sezione __mono__ .
 
     ![4.5 selezionato nella sezione Mono per le impostazioni di analisi](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Selezionare __OK__ per salvare la configurazione.
 
-3. Selezionare __analizza__la  >  __portabilità dell'assembly__Analyze. Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
+3. Selezionare __analizza__ la  >  __portabilità dell'assembly__ Analyze. Selezionare l'assembly che contiene la soluzione e quindi selezionare __Apri__ per iniziare l'analisi.
 
 4. Una volta completata l'analisi, selezionare __analizza__  >  __Visualizza report di analisi__. In __Portability Analysis Results__ (Risultati analisi di portabilità) selezionare __Open report__ (Apri rapporto) per aprire un rapporto.
 

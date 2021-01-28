@@ -1,19 +1,16 @@
 ---
 title: Gestire i cluster HDInsight con l'interfaccia utente Web Ambari
 description: Informazioni su come usare l'interfaccia utente di Apache Ambari per monitorare e gestire i cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 01/12/2021
-ms.openlocfilehash: 8195cffed077a77c0ad66fda1126e2f3ea53d5f0
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 087f284bed7ab0c9eb551c1629ab4f9196c80d76
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179147"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945696"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -162,7 +159,7 @@ La pagina **Hosts** elenca tutti gli host del cluster. Per gestire gli host, seg
     |Attiva modalità manutenzione|Disattiva gli avvisi per l'host. Questa modalità deve essere abilitata se si stanno eseguendo azioni che generano avvisi. come l'arresto e l'avvio di un servizio.|
     |Disattivare la modalità di manutenzione|Restituisce l'host agli avvisi normali.|
     |Interrompere|Arresta dataNode o NodeManagers nell'host.|
-    |Inizio|Avvia dataNode o NodeManagers nell'host.|
+    |Avvio|Avvia dataNode o NodeManagers nell'host.|
     |Riavvia|Arresta e avvia dataNode o NodeManagers nell'host.|
     |Rimozione delle autorizzazioni|Rimuove un host dal cluster. **Non usare questa azione nei cluster HDInsight.**|
     |Ripristinare|Aggiunge un host precedentemente rimosso al cluster. **Non usare questa azione nei cluster HDInsight.**|

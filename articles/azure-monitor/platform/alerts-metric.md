@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 01/11/2021
 ms.subservice: alerts
-ms.openlocfilehash: 0518d3a2e1b67b33b9cb6bceb9754df302710f70
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6919040308dcd3a80c3c0b05ec729744099b6d8f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071035"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944504"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -91,7 +91,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 ## <a name="with-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
-Nelle sezioni precedenti è stato descritto come creare, visualizzare e gestire le regole di avviso delle metriche utilizzando portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure. Per questo articolo verrà usato Cloud Shell.
+Nelle sezioni precedenti è stato descritto come creare, visualizzare e gestire le regole di avviso delle metriche utilizzando portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) multipiattaforma. [Azure Cloud Shell](../../cloud-shell/overview.md) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure. Per questo articolo verrà usato Cloud Shell.
 
 1. Passare a portale di Azure, fare clic su **cloud Shell**.
 

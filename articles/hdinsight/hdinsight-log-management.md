@@ -1,19 +1,16 @@
 ---
 title: Gestire i log per un cluster HDInsight - Azure HDInsight
 description: Determinare i tipi, le dimensioni e i criteri di conservazione per i file di log attività di HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0a6e837284917129bb56c6230e68927b79e95dac
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546025"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945267"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -158,7 +155,7 @@ Ora si hanno informazioni sufficienti per creare una strategia di gestione per i
 
 Dopo avere determinato quali file di log possono essere eliminati, è possibile modificare i parametri di registrazione in molti servizi Hadoop per eliminare automaticamente i file di log dopo un periodo di tempo specificato.
 
-Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per Azure Resource Manager i log attività, è possibile esplorare questo approccio usando il portale di Azure.  Configurare l'archiviazione dei log Gestione risorse selezionando il collegamento **log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività** .  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi.
+Per determinati file di log, è possibile usare un approccio di archiviazione di prezzo inferiore. Per Azure Resource Manager i log attività, è possibile esplorare questo approccio usando il portale di Azure.  Configurare l'archiviazione dei log Gestione risorse selezionando il collegamento **log attività** nel portale di Azure per l'istanza di HDInsight.  Nella parte superiore della pagina di ricerca Log attività scegliere la voce di menu **Esporta** per aprire il riquadro **Esporta log attività**.  Specificare la sottoscrizione, l'area, se eseguire l'esportazione in un account di archiviazione e per quanti giorni conservare i log. In questo stesso riquadro è anche possibile indicare se eseguire l'esportazione in un hub eventi.
 
 ![Anteprima del log attività esportazione portale di Azure](./media/hdinsight-log-management/hdi-export-log-files.png)
 

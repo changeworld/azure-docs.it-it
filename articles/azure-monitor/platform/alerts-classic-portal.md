@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.openlocfilehash: 613620ddf4889efb7cf3df95150be97f79724a98
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4b0d3acda56c3f45128d1cc7cefcc4eb938281a0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013106"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943787"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -56,7 +56,7 @@ Dopo aver creato un avviso, è possibile selezionarlo ed eseguire una delle atti
 
 ## <a name="with-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
-Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure.
+Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) multipiattaforma. [Azure Cloud Shell](../../cloud-shell/overview.md) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Ottenere tutte le regole di avviso classico per le metriche in un gruppo di risorse
 

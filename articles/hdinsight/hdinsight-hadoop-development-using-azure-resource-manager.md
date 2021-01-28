@@ -1,26 +1,23 @@
 ---
 title: Eseguire la migrazione agli strumenti di Azure Resource Manager per HDInsight
 description: Come eseguire la migrazione a strumenti di sviluppo di Azure Resource Manager per i cluster HDInsight
-ms.reviewer: jasonh
-author: hrasheed-msft
-ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.topic: how-to
 ms.date: 02/21/2018
-ms.openlocfilehash: 57dec799cbda03e20717a402a88f1d818d9acd92
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 2ff62f4feba44a1c706ab85db1be3f7f654e6135
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629477"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945773"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight
 
 In HDInsight stanno per essere deprecati gli strumenti basati su Azure Service Management (ASM) per HDInsight. Se si usa Azure PowerShell, l'interfaccia della riga di comando classica di Azure o HDInsight .NET SDK per usare i cluster HDInsight, per il futuro è consigliabile usare le versioni di PowerShell, dell'interfaccia della riga di comando e di .NET SDK basate su Azure Resource Manager. Questo articolo contiene informazioni utili su come eseguire la migrazione al nuovo approccio basato su Gestione risorse. Se applicabili, il documento evidenzia le differenze tra gli approcci basati su ASM e Gestione risorse per HDInsight.
 
 > [!IMPORTANT]  
-> Il supporto per ASM basato su PowerShell, l'interfaccia della riga di comando e .NET SDK verrà sospeso il **1° gennaio 2017** .
+> Il supporto per ASM basato su PowerShell, l'interfaccia della riga di comando e .NET SDK verrà sospeso il **1° gennaio 2017**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -56,7 +53,7 @@ Se si usano i comandi `azure hdinsight job` per inviare processi al cluster HDIn
 
 Per informazioni su altri modi per eseguire MapReduce, Apache Hive e Apache Pig con Apache Hadoop in modo interattivo, vedere [Usare MapReduce con Hadoop in HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usare Apache Hive con Apache Hadoop in HDInsight](hadoop/hdinsight-use-hive.md) e [Usare Apache Pig con Apache Hadoop in HDInsight](./index.yml).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 **Creazione di un cluster**
 
 * Comando precedente (ASM): `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
@@ -83,7 +80,7 @@ Per informazioni su altri modi per eseguire MapReduce, Apache Hive e Apache Pig 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>Migrazione di Azure PowerShell ad Azure Resource Manager
 Le informazioni generali su Azure PowerShell in modalità Azure Resource Manager sono disponibili in [Uso di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
-I cmdlet di Azure Resource Manager per Azure PowerShell possono essere installati insieme ai cmdlet di ASM. È possibile distinguere i cmdlet delle due modalità in base ai nomi.  La modalità Gestione risorse ha *AzHDInsight* nei nomi dei cmdlet che si confrontano con *AzureHDInsight* nella modalità di gestione dei servizi di Azure precedente.  Ad esempio, *New-AzHDInsightCluster* e *New-AzureHDInsightCluster* . I parametri e le opzioni possono avere nomi nuovi e sono disponibili molti nuovi parametri quando si usa Gestione risorse.  Ad esempio, alcuni cmdlet richiedono una nuova opzione denominata *- ResourceGroupName* .
+I cmdlet di Azure Resource Manager per Azure PowerShell possono essere installati insieme ai cmdlet di ASM. È possibile distinguere i cmdlet delle due modalità in base ai nomi.  La modalità Gestione risorse ha *AzHDInsight* nei nomi dei cmdlet che si confrontano con *AzureHDInsight* nella modalità di gestione dei servizi di Azure precedente.  Ad esempio, *New-AzHDInsightCluster* e *New-AzureHDInsightCluster*. I parametri e le opzioni possono avere nomi nuovi e sono disponibili molti nuovi parametri quando si usa Gestione risorse.  Ad esempio, alcuni cmdlet richiedono una nuova opzione denominata *- ResourceGroupName*.
 
 Prima di poter usare i cmdlet di HDInsight, è necessario connettersi con il proprio account Azure e creare un nuovo gruppo di risorse:
 
@@ -134,19 +131,19 @@ Ecco i nuovi cmdlet disponibili solo in modalità Gestione risorse.
 
 **Cmdlet correlati all'azione script:**
 
-* **Get-AzHDInsightPersistedScriptAction** : ottiene le azioni script permanente per un cluster e le elenca in ordine cronologico oppure ottiene i dettagli per un'azione script permanente specificata. 
-* **Get-AzHDInsightScriptActionHistory** : ottiene la cronologia delle azioni script per un cluster e le elenca in ordine cronologico inverso o ottiene i dettagli di un'azione script eseguita in precedenza. 
-* **Remove-AzHDInsightPersistedScriptAction** : rimuove un'azione script permanente da un cluster HDInsight.
-* **Set-AzHDInsightPersistedScriptAction** : imposta un'azione script eseguita in precedenza come un'azione script permanente.
-* **Submit-AzHDInsightScriptAction** : Invia una nuova azione script a un cluster Azure HDInsight. 
+* **Get-AzHDInsightPersistedScriptAction**: ottiene le azioni script permanente per un cluster e le elenca in ordine cronologico oppure ottiene i dettagli per un'azione script permanente specificata. 
+* **Get-AzHDInsightScriptActionHistory**: ottiene la cronologia delle azioni script per un cluster e le elenca in ordine cronologico inverso o ottiene i dettagli di un'azione script eseguita in precedenza. 
+* **Remove-AzHDInsightPersistedScriptAction**: rimuove un'azione script permanente da un cluster HDInsight.
+* **Set-AzHDInsightPersistedScriptAction**: imposta un'azione script eseguita in precedenza come un'azione script permanente.
+* **Submit-AzHDInsightScriptAction**: Invia una nuova azione script a un cluster Azure HDInsight. 
 
 Per altre informazioni sull'utilizzo, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Cmdlet correlati all'identità del cluster:**
 
-* **Add-AzHDInsightClusterIdentity** : aggiunge un'identità del cluster a un oggetto di configurazione del cluster in modo che il cluster HDInsight possa accedere a Azure Data Lake storage. Vedere [Creare un cluster HDInsight con Data Lake Storage tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Add-AzHDInsightClusterIdentity**: aggiunge un'identità del cluster a un oggetto di configurazione del cluster in modo che il cluster HDInsight possa accedere a Azure Data Lake storage. Vedere [Creare un cluster HDInsight con Data Lake Storage tramite Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 **Creare cluster**
 
 Comando precedente (ASM): 
@@ -253,7 +250,7 @@ Questa sezione include puntatori ad altre informazioni relative all'esecuzione d
 | Trovare l'account di archiviazione predefinito per i cluster HDInsight con .NET SDK |Vedere la sezione su come trovare l'account di archiviazione predefinito in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#find-the-default-storage-account) |
 | Eliminare cluster HDInsight con .NET SDK |Vedere la sezione su come eliminare cluster in [Gestire cluster Hadoop in HDInsight tramite .NET SDK](hdinsight-administer-use-dotnet-sdk.md#delete-clusters) |
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 Di seguito sono riportati alcuni esempi sulla modalità di esecuzione di un'operazione con l'SDK basato su ASM e il frammento di codice equivalente per l'SDK basato su Gestione risorse.
 
 **Creazione di un client CRUD del cluster**

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: allensu
-ms.openlocfilehash: 76f92b5da2331748fbbbfc68f1e456fd50dd71ee
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6ea16da3844b8098d87d65e1016f92c69ae34067
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223024"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945154"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associare un indirizzo IP pubblico a una macchina virtuale
 
@@ -65,7 +65,7 @@ In questo articolo si apprenderà come associare un indirizzo IP pubblico a una 
 Installare l'[interfaccia della riga di comando di Azure ](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) o usare Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Selezionare il pulsante **Prova** nei comandi dell'interfaccia della riga di comando che seguono. Selezionando **Prova** viene richiamata un'istanza di Cloud Shell, a cui è possibile accedere con l'account Azure.
 
 1. Se si usa l'interfaccia della riga di comando in locale in Bash, accedere ad Azure con `az login`.
-2. Un indirizzo IP pubblico è associato a una configurazione IP di un'interfaccia di rete collegata a una macchina virtuale. Usare il comando [AZ Network NIC-IP-config update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) per associare un indirizzo IP pubblico a una configurazione IP. L'esempio seguente associa un indirizzo IP pubblico esistente denominato *myVMPublicIP* alla configurazione IP denominata *ipconfigmyVM* di un'interfaccia di rete esistente denominata *myVMVMNic* esistente in un gruppo di risorse denominato *myResourceGroup*.
+2. Un indirizzo IP pubblico è associato a una configurazione IP di un'interfaccia di rete collegata a una macchina virtuale. Usare il comando [AZ Network NIC-IP-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) per associare un indirizzo IP pubblico a una configurazione IP. L'esempio seguente associa un indirizzo IP pubblico esistente denominato *myVMPublicIP* alla configurazione IP denominata *ipconfigmyVM* di un'interfaccia di rete esistente denominata *myVMVMNic* esistente in un gruppo di risorse denominato *myResourceGroup*.
   
    ```azurecli-interactive
    az network nic ip-config update \
@@ -75,7 +75,7 @@ Installare l'[interfaccia della riga di comando di Azure ](/cli/azure/install-az
      --public-ip-address myVMPublicIP
    ```
 
-   - Se non si dispone di un indirizzo IP pubblico esistente, usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) per crearne uno. Ad esempio, il comando seguente crea un indirizzo IP pubblico denominato *myVMPublicIP* in un gruppo di risorse denominato *myResourceGroup*.
+   - Se non si dispone di un indirizzo IP pubblico esistente, usare il comando [AZ Network Public-IP create](/cli/azure/network/public-ip#az-network-public-ip-create) per crearne uno. Ad esempio, il comando seguente crea un indirizzo IP pubblico denominato *myVMPublicIP* in un gruppo di risorse denominato *myResourceGroup*.
   
      ```azurecli-interactive
      az network public-ip create --name myVMPublicIP --resource-group myResourceGroup
@@ -84,7 +84,7 @@ Installare l'[interfaccia della riga di comando di Azure ](/cli/azure/install-az
      > [!NOTE]
      > Il comando precedente crea un indirizzo IP pubblico con i valori predefiniti per diverse impostazioni che è possibile personalizzare. Per altre informazioni su tutte le impostazioni degli indirizzi IP pubblici, vedere [creare un indirizzo IP pubblico](virtual-network-public-ip-address.md#create-a-public-ip-address). L'indirizzo viene assegnato da un pool di indirizzi IP pubblici usato per ogni area di Azure. Per visualizzare un elenco di pool di indirizzi usati in ogni area, vedere [Microsoft Azure intervalli IP del Data Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
-   - Se non si conosce il nome di un'interfaccia di rete collegata alla macchina virtuale, usare il comando [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) per visualizzarle. Ad esempio, il comando seguente elenca i nomi delle interfacce di rete collegate a una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*:
+   - Se non si conosce il nome di un'interfaccia di rete collegata alla macchina virtuale, usare il comando [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) per visualizzarle. Ad esempio, il comando seguente elenca i nomi delle interfacce di rete collegate a una macchina virtuale denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*:
 
      ```azurecli-interactive
      az vm nic list --vm-name myVM --resource-group myResourceGroup
@@ -98,13 +98,13 @@ Installare l'[interfaccia della riga di comando di Azure ](/cli/azure/install-az
 
      Nell'esempio precedente *myVMVMNic* è il nome dell'interfaccia di rete.
 
-   - Se non si conosce il nome di una configurazione IP per un'interfaccia di rete, usare il comando [az network nic ip-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) per recuperarle. Ad esempio, il comando seguente elenca i nomi delle configurazioni IP per un'interfaccia di rete denominata *myVMVMNic* in un gruppo di risorse denominato *myResourceGroup*:
+   - Se non si conosce il nome di una configurazione IP per un'interfaccia di rete, usare il comando [az network nic ip-config list](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-list) per recuperarle. Ad esempio, il comando seguente elenca i nomi delle configurazioni IP per un'interfaccia di rete denominata *myVMVMNic* in un gruppo di risorse denominato *myResourceGroup*:
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
 
-3. Visualizzare l'indirizzo IP pubblico assegnato alla configurazione IP con il comando [AZ VM list-IP-addresses](/cli/azure/vm?view=azure-cli-latest#az-vm-list-ip-addresses) . L'esempio seguente Mostra gli indirizzi IP assegnati a una macchina virtuale esistente denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*.
+3. Visualizzare l'indirizzo IP pubblico assegnato alla configurazione IP con il comando [AZ VM list-IP-addresses](/cli/azure/vm#az-vm-list-ip-addresses) . L'esempio seguente Mostra gli indirizzi IP assegnati a una macchina virtuale esistente denominata *myVM* in un gruppo di risorse denominato *myResourceGroup*.
 
    ```azurecli-interactive
    az vm list-ip-addresses --name myVM --resource-group myResourceGroup --out table

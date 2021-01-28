@@ -1,19 +1,16 @@
 ---
 title: Opzioni del contesto di calcolo per ML Services in HDInsight - Azure
 description: Informazioni sulle diverse opzioni del contesto di calcolo disponibili per gli utenti con ML Services in HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 71ce0d87faa33bd7d533242edfcf3b131c8f7e47
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536335"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943961"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opzioni del contesto di calcolo per ML Services in HDInsight
 
@@ -29,12 +26,12 @@ Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al
 
 In generale, uno script R eseguito nel cluster ML Services nel nodo perimetrale viene eseguito all'interno dell'interprete R in tale nodo. L'eccezione è costituita dai passaggi che chiamano una funzione RevoScaleR. Le chiamate RevoScaleR vengono eseguite in un ambiente di calcolo determinato dall'impostazione del contesto di calcolo di RevoScaleR.  Quando si esegue lo script R da un nodo perimetrale, i valori possibili del contesto di calcolo sono:
 
-- sequenziale locale ( *local* )
-- parallelo locale ( *localpar* )
+- sequenziale locale (*local*)
+- parallelo locale (*localpar*)
 - MapReduce
 - Spark
 
-Le opzioni *local* e *localpar* differiscono solo per la modalità di esecuzione delle chiamate **rxExec** . Entrambe eseguono chiamate ad altre funzioni di ricezione in modo parallelo tra le memorie centrali disponibili, se non diversamente specificato, mediante l'uso dell'opzione RevoScaleR **numCoresToUse** , ad esempio `rxOptions(numCoresToUse=6)`. Le opzioni di esecuzione parallela offrono prestazioni ottimali.
+Le opzioni *local* e *localpar* differiscono solo per la modalità di esecuzione delle chiamate **rxExec**. Entrambe eseguono chiamate ad altre funzioni di ricezione in modo parallelo tra le memorie centrali disponibili, se non diversamente specificato, mediante l'uso dell'opzione RevoScaleR **numCoresToUse**, ad esempio `rxOptions(numCoresToUse=6)`. Le opzioni di esecuzione parallela offrono prestazioni ottimali.
 
 Nella tabella seguente vengono riepilogate le varie opzioni di contesto di calcolo per impostare l'esecuzione delle chiamate:
 
@@ -59,8 +56,8 @@ Dati questi principi, la sezione seguente illustra alcune regole generali per la
 
 ### <a name="local"></a>Locale
 
-- Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar* .
-- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar* .
+- Se la quantità di dati da analizzare è limitata e non richiede un'analisi ripetuta, trasmettere il flusso direttamente alla routine di analisi usando *local* o *localpar*.
+- Se la quantità di dati da analizzare è limitata o media e richiede analisi ripetute, copiare i dati nel file system locale, importarli in XDF e analizzarli con *local* o *localpar*.
 
 ### <a name="apache-spark"></a>Apache Spark
 

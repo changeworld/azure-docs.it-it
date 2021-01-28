@@ -2,18 +2,15 @@
 title: Soluzioni di archiviazione di Azure per i servizi ML in HDInsight-Azure
 description: Informazioni sulle diverse opzioni di archiviazione disponibili per gli utenti con ML Services in HDInsight
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/02/2020
-ms.openlocfilehash: 1b684fde9123d3c12d5d69c1daec1c53c6519c44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc48025de164ff68fb539a293e06bae09171742
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855294"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943914"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Soluzioni di archiviazione di Azure per i servizi ML in Azure HDInsight
 
@@ -120,7 +117,7 @@ Usare quindi la risorsa di archiviazione nello script R come un account di archi
 
 1. Quando si crea il cluster HDInsight, selezionare **cluster Azure ad Identity** dalla scheda **origine dati** .
 
-2. Nella finestra di dialogo **identità Azure AD cluster** selezionare **Crea nuovo**in **selezionare un'entità servizio ad**.
+2. Nella finestra di dialogo **identità Azure AD cluster** selezionare **Crea nuovo** in **selezionare un'entità servizio ad**.
 
 Dopo aver assegnato un nome all'entità servizio, creare una password per tale entità e fare clic su **Gestisci l'accesso ad Archivio Azure Data Lake** per associare l'entità servizio a Data Lake Storage.
 

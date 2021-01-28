@@ -1,19 +1,16 @@
 ---
 title: Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 description: Configurare i cluster Hadoop, Kafka, Spark, HBase, R Server o Storm per HDInsight da un browser, dall'interfaccia della riga di comando classica di Azure, da Azure PowerShell, REST o SDK.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 6ce5de354583da04905f9f889cfabe36e6da6667
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546127"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945544"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurare i cluster di HDInsight con Apache Hadoop, Apache Spark, Apache Kafka e altro ancora
 
@@ -43,7 +40,7 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 
 Questo articolo illustra la configurazione nel [portale di Azure](https://portal.azure.com), in cui è possibile creare un cluster HDInsight.
 
-## <a name="basics"></a>Nozioni di base
+## <a name="basics"></a>Operazioni di base
 
 ![HDInsight creare opzioni personalizzate Quick](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -92,7 +89,7 @@ Scegliere la versione di HDInsight per questo cluster. Per altre informazioni, v
 
 Con i cluster HDInsight è possibile configurare due account utente durante la creazione del cluster:
 
-* Nome utente di accesso del cluster: il nome utente predefinito è *admin* . Usa la configurazione di base nel portale di Azure. A volte viene chiamato "utente cluster" o "utente HTTP".
+* Nome utente di accesso del cluster: il nome utente predefinito è *admin*. Usa la configurazione di base nel portale di Azure. A volte viene chiamato "utente cluster" o "utente HTTP".
 * Nome utente Secure Shell (SSH): usato per connettersi al cluster tramite SSH. Per altre informazioni, vedere [Usare SSH con HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Il nome utente HTTP presenta le restrizioni seguenti:
@@ -120,7 +117,7 @@ I cluster HDInsight possono usare le seguenti opzioni di archiviazione:
 * Azure Data Lake Storage Gen1
 * Archiviazione di Azure per utilizzo generico V2
 * Archiviazione di Azure per utilizzo generico V1
-* BLOB in blocchi di archiviazione **di Azure (supportato solo come archiviazione secondaria** )
+* BLOB in blocchi di archiviazione **di Azure (supportato solo come archiviazione secondaria**)
 
 Per altre informazioni sulle opzioni di archiviazione con HDInsight, vedere [confrontare le opzioni di archiviazione per l'uso con i cluster HDInsight di Azure](hdinsight-hadoop-compare-storage-options.md).
 
@@ -153,7 +150,7 @@ Per conservare le tabelle Hive dopo aver eliminato il cluster HDInsight, usare u
 HDInsight An Metastore creato per una versione del cluster HDInsight non può essere condiviso tra diverse versioni del cluster HDInsight. Per un elenco di versioni di HDInsight, vedere [Versioni supportate di HDInsight](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
-> Il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)** . Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
+> Il Metastore predefinito fornisce un database SQL di Azure con un **limite di DTU di livello Basic 5 (non aggiornabile)**. Adatto a scopo di test di base. Per carichi di lavoro di grandi dimensioni o di produzione, è consigliabile eseguire la migrazione a un Metastore esterno.
 
 #### <a name="sql-database-for-oozie"></a>Database SQL per OOZIE
 
@@ -172,7 +169,7 @@ Ambari viene usato per monitorare i cluster HDInsight, apportare modifiche alla 
 
 ### <a name="enterprise-security-package"></a>Pacchetto di sicurezza aziendale
 
-Per i tipi di cluster Hadoop, Spark, HBase, Kafka e Interactive Query, è possibile scegliere di abilitare **Enterprise Security Package** . Questo pacchetto consente di eseguire una configurazione cluster più sicura usando Apache Ranger e integrando Azure Active Directory. Per altre informazioni, vedere [Panoramica della sicurezza aziendale in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+Per i tipi di cluster Hadoop, Spark, HBase, Kafka e Interactive Query, è possibile scegliere di abilitare **Enterprise Security Package**. Questo pacchetto consente di eseguire una configurazione cluster più sicura usando Apache Ranger e integrando Azure Active Directory. Per altre informazioni, vedere [Panoramica della sicurezza aziendale in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 Il Pacchetto di sicurezza aziendale consente di integrare HDInsight con Active Directory e Apache Ranger. È possibile creare più utenti usando il Pacchetto di sicurezza aziendale.
 
@@ -212,7 +209,7 @@ Viene addebitato l'utilizzo del nodo fino a quando esiste il cluster. La fattura
 
 Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica per i nodi e dimensioni predefinite delle macchine virtuali. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.
 
-| Type | Nodi | Diagramma |
+| Tipo | Nodi | Diagramma |
 | --- | --- | --- |
 | Hadoop |Nodo Head (2), nodo Worker (1 +) |![Nodi del cluster HDInsight Hadoop](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | hbase |Server head (2), server di area (1+), nodo master/ZooKeeper (3) |![Installazione del tipo di cluster HDInsight HBase](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
@@ -261,7 +258,7 @@ La maggior parte delle applicazioni HDInsight viene installata in un nodo perime
 
 ### <a name="script-actions"></a>Azioni script
 
-L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un' **azione script** , ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
+L'uso di script durante la creazione consente di installare componenti aggiuntivi o personalizzare la configurazione di un cluster. Gli script vengono chiamati tramite un' **azione script**, ovvero un'opzione di configurazione che può essere usata da portale di Azure, dai cmdlet di Windows PowerShell per HDInsight o da .NET SDK per HDInsight. Per altre informazioni, vedere [Personalizzare cluster HDInsight mediante le azioni script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Nel cluster è possibile eseguire alcuni componenti Java nativi, come Apache Mahout e Cascading, sotto forma di file JAR (Java Archive). Questi file JAR possono essere distribuiti in Archiviazione di Azure e inviati ai cluster HDInsight usando i meccanismi di invio dei processi Hadoop. Per altre informazioni, vedere [Inviare processi Apache Hadoop a livello di codice](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

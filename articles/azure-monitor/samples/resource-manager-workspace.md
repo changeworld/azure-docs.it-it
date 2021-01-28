@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 3cc79edf50c4f056f413292d2d43aa8cf8e65136
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
-ms.translationtype: HT
+ms.openlocfilehash: c755ee0ee91156da9910a9d43c891c87f86cd430
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683472"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945035"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le aree di lavoro Log Analytics in Monitoraggio di Azure
 Questo articolo include esempi di [modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per creare e configurare aree di lavoro Log Analytics in Monitoraggio di Azure. Ogni esempio include un file modello e un file di parametri con valori di esempio da fornire al modello.
@@ -610,7 +610,7 @@ L'esempio seguente aggiunge una raccolta di [log personalizzati](../platform/dat
 
 ### <a name="notes"></a>Note
 
-- La configurazione di delimitatori ed estrazioni può essere complessa. Per semplificarla, è possibile definire un log personalizzato usando il portale di Azure e recuperare la relativa configurazione usando [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.8.0) con **-Kind** impostato su **CustomLog**.
+- La configurazione di delimitatori ed estrazioni può essere complessa. Per semplificarla, è possibile definire un log personalizzato usando il portale di Azure e recuperare la relativa configurazione usando [Get-AzOperationalInsightsDataSource](/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource) con **-Kind** impostato su **CustomLog**.
 
   
 ### <a name="template-file"></a>File modello

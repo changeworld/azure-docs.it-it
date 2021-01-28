@@ -1,19 +1,16 @@
 ---
 title: Rendere operativo ML Services in HDInsight - Azure
 description: Informazioni su come rendere operativo il modello di dati per eseguire stime con i servizi ML in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c90642e58c026c78ce854e7fe74dd36963d48b67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92536267"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944016"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -21,7 +18,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster** .
+* Un cluster ML Services in HDInsight. Vedere [Creare cluster di Apache Hadoop usando il portale di Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selezionare **ML Services** per **Tipo di cluster**.
 
 * Un client Secure Shell (SSH): il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -54,11 +51,11 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization** .
+1. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
     ![Selezione dell'utilità di amministrazione di R server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A** .
+1. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
     ![Utilità di amministrazione di R server rendere operativo](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -74,7 +71,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
     ![Diagnostica utilità di amministrazione server R](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. Dal menu test di diagnostica selezionare **un** . Quando richiesto, immettere la password specificata per l'utente amministratore locale.
+    b. Dal menu test di diagnostica selezionare **un**. Quando richiesto, immettere la password specificata per l'utente amministratore locale.
 
     ![Test dell'utilità di amministrazione di R server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +83,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Ritardi considerevoli quando si utilizza il servizio Web in Apache Spark
 
-Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Apache Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato " *rserve2* " quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Come soluzione alternativa a questo problema:
+Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio Web creato con le funzioni mrsdeploy in un contesto di calcolo di Apache Spark, potrebbe essere necessario aggiungere alcune cartelle mancanti. L'applicazione Spark appartiene a un utente chiamato "*rserve2*" quando viene richiamata da un servizio Web usando le funzioni mrsdeploy. Come soluzione alternativa a questo problema:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -155,17 +152,17 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Selezionare i nodi di lavoro (da cui rimuovere le autorizzazioni).
 
-1. Fare clic su **azioni** gli host  >  **selezionati**  >  **Hosts**  >  **attivano la modalità di manutenzione** . Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
+1. Fare clic su **azioni** gli host  >  **selezionati**  >    >  **attivano la modalità di manutenzione**. Ad esempio nell'immagine seguente i nodi selezionati per la rimozione delle autorizzazioni sono wn3 e wn4.  
 
    ![Attivazione della modalità manutenzione di Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su Rimuovi **autorizzazioni** .
-* Selezionare le **azioni**  >  **selezionate ospita**  >  **NodeManagers** > fare clic su Rimuovi **autorizzazioni** .
-* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su **Arresta** .
-* Selezionare **Actions**  >  **Selected hosts**  >  **NodeManagers** > fare clic su **Stop** .
-* Selezionare **azioni** host  >  **selezionati** host  >  **Hosts** > fare clic su **Interrompi tutti i componenti** .
+* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su Rimuovi **autorizzazioni**.
+* Selezionare le **azioni**  >  **selezionate ospita**  >  **NodeManagers** > fare clic su Rimuovi **autorizzazioni**.
+* Selezionare **azioni**  >  **selezionate host**  >  **datanodes** > fare clic su **Arresta**.
+* Selezionare **Actions**  >  **Selected hosts**  >  **NodeManagers** > fare clic su **Stop**.
+* Selezionare **azioni** host  >  **selezionati** host  >   > fare clic su **Interrompi tutti i componenti**.
 * Deselezionare i nodi del ruolo di lavoro e selezionare i nodi head.
-* Selezionare **Actions**  >  **Selected hosts** > " **hosts**  >  **Restart all components** .
+* Selezionare **Actions**  >  **Selected hosts** > "**hosts**  >  **Restart all components**.
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Passaggio 2: Configurare i nodi di calcolo in ogni nodo di lavoro per il quale è stata rimossa l'autorizzazione
 
@@ -177,7 +174,7 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization** .
+1. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization**.
 
 1. Immettere **C** per selezionare l'opzione `C. Compute node`. Il nodo di calcolo viene configurato sul nodo del ruolo di lavoro.
 

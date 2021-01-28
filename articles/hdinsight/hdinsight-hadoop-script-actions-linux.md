@@ -1,18 +1,15 @@
 ---
 title: Sviluppare azioni script per personalizzare i cluster HDInsight di Azure
 description: Informazioni su come usare gli script bash per personalizzare i cluster HDInsight. Le azioni script consentono di eseguire gli script durante o dopo la creazione del cluster per modificare le impostazioni di configurazione del cluster o installare software aggiuntivo.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: b6705728fddc9a5a3c9cb8eb2f1811412fb3a290
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629443"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945475"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -290,7 +287,7 @@ Gli script usati per la personalizzazione di un cluster devono essere archiviati
 
 * __Account di archiviazione aggiuntivo__ associato al cluster.
 
-* __URI leggibile pubblicamente__ , ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
+* __URI leggibile pubblicamente__, ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
 
 * __Account Azure Data Lake Storage__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Storage con HDInsight, vedere [Guida introduttiva: configurare cluster in HDInsight](./hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -332,13 +329,13 @@ Microsoft fornisce script di esempio per installare i componenti in un cluster H
 
 Di seguito sono riportati gli errori che possono verificarsi durante l'uso di script sviluppati:
 
-**Errore** : `$'\r': command not found` . A volte seguito da `syntax error: unexpected end of file`.
+**Errore**: `$'\r': command not found` . A volte seguito da `syntax error: unexpected end of file`.
 
-*Causa* : questo errore si verifica quando le righe di uno script terminano con CRLF. I sistemi Unix prevedono unicamente LF come terminazione di riga.
+*Causa*: questo errore si verifica quando le righe di uno script terminano con CRLF. I sistemi Unix prevedono unicamente LF come terminazione di riga.
 
 Questo problema si verifica più spesso quando lo script viene creato in un ambiente Windows, perché CRLF è una terminazione di riga comune per molti editor di testo in Windows.
 
-*Soluzione* : se si tratta di un'opzione nell'editor di testo, selezionare il formato UNIX o LF per la terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
+*Soluzione*: se si tratta di un'opzione nell'editor di testo, selezionare il formato UNIX o LF per la terminazione di riga. È anche possibile usare i comandi seguenti in un sistema Unix per cambiare CRLF in LF:
 
 > [!NOTE]  
 > I comandi seguenti sono all'incirca equivalenti nel senso che cambiano le terminazioni di riga CRLF in LF. Selezionarne uno in base alle utilità disponibili nel proprio sistema.
@@ -350,11 +347,11 @@ Questo problema si verifica più spesso quando lo script viene creato in un ambi
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | Modifica direttamente il file |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE contiene una versione solo con le terminazioni LF. |
 
-**Errore** : `line 1: #!/usr/bin/env: No such file or directory` .
+**Errore**: `line 1: #!/usr/bin/env: No such file or directory` .
 
-*Causa* : questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
+*Causa*: questo errore si verifica quando lo script è stato salvato in formato UTF-8 con un byte order mark (BOM).
 
-*Risoluzione* : salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un file senza il carattere BOM:
+*Risoluzione*: salvare il file in formato ASCII o UTF-8 senza un carattere BOM. È anche possibile usare il comando seguente in un sistema Linux o Unix per creare un file senza il carattere BOM:
 
 ```bash
 awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE

@@ -1,19 +1,16 @@
 ---
 title: Suggerimenti per l'uso di Hadoop su HDInsight basato su Linux - Azure
 description: Ottenere suggerimenti di implementazione per l’uso di cluster HDInsight (Hadoop) basati su Linux in un ambiente Linux familiare, in esecuzione nel cloud di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546110"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945655"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -24,13 +21,13 @@ I cluster Azure HDInsight mettono a disposizione Apache Hadoop in un ambiente Li
 In molti passaggi di questo documento vengono usate le utilità seguenti che devono essere installate nel sistema.
 
 * [cURL](https://curl.haxx.se/): consente di comunicare con servizi basati su Web.
-* **jq** , un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **jq**, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli): consente di gestire in remoto i servizi di Azure.
-* **Un client SSH** . Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Utenti
 
-A meno che non sia [aggiunto al dominio](./domain-joined/hdinsight-security-overview.md), HDInsight deve essere considerato un sistema a **utente singolo** . Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
+A meno che non sia [aggiunto al dominio](./domain-joined/hdinsight-security-overview.md), HDInsight deve essere considerato un sistema a **utente singolo**. Con il cluster viene creato un singolo account utente SSH, con autorizzazioni a livello di amministratore. Possono essere creati altri account SSH, che avranno sempre l'accesso di amministratore al cluster.
 
 HDInsight aggiunto al dominio offre il supporto per più utenti e impostazioni di autorizzazioni e ruoli più granulari. Per altre informazioni, vedere [Manage Domain-joined HDInsight clusters](./domain-joined/apache-domain-joined-manage.md) (Gestire cluster HDInsight aggiunti al dominio).
 
@@ -92,8 +89,8 @@ Per altre informazioni, vedere il documento [Porte usate dai servizi Apache Hado
 
 I file relativi ad Hadoop si trovano nei nodi del cluster in `/usr/hdp`. La directory contiene le sottodirectory seguenti:
 
-* **2.6.5.3009-43** : il nome della directory è la versione della piattaforma Hadoop usata da HDInsight. Il numero nel cluster può essere diverso da quello elencato di seguito.
-* **current** : questa directory contiene collegamenti alle sottodirectory nella directory **2.6.5.3009-43** . Questa directory esiste in modo da non dover ricordare il numero di versione.
+* **2.6.5.3009-43**: il nome della directory è la versione della piattaforma Hadoop usata da HDInsight. Il numero nel cluster può essere diverso da quello elencato di seguito.
+* **current**: questa directory contiene collegamenti alle sottodirectory nella directory **2.6.5.3009-43**. Questa directory esiste in modo da non dover ricordare il numero di versione.
 
 I dati di esempio e i file con estensione jar sono disponibili nel file system Hadoop Distributed File System (HDFS) in `/example` e `/HdiSamples`.
 
@@ -183,13 +180,13 @@ Per individuare le informazioni di archiviazione usando il portale di Azure, seg
 
 1. Nel [portale di Azure](https://portal.azure.com/)selezionare il cluster HDInsight.
 
-2. Nella sezione **Proprietà** selezionare **Account di archiviazione** . Vengono visualizzate le informazioni di archiviazione del cluster.
+2. Nella sezione **Proprietà** selezionare **Account di archiviazione**. Vengono visualizzate le informazioni di archiviazione del cluster.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Come accedere ai file dall'esterno di HDInsight
 
 Esistono vari modi per accedere ai dati dall'esterno del cluster HDInsight. Di seguito sono indicati alcuni collegamenti a utilità e SDK da usare per lavorare con i dati:
 
-Se si usa l' __archiviazione BLOB di Azure__ , vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
+Se si usa l' __archiviazione BLOB di Azure__, vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
 
 * [Interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): uno script Python per l'uso con i BLOB in Archiviazione di Azure.
@@ -203,7 +200,7 @@ Se si usa l' __archiviazione BLOB di Azure__ , vedere i collegamenti seguenti pe
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [API REST di archiviazione](/rest/api/storageservices/Blob-Service-REST-API)
 
-Se si usa __Azure Data Lake storage Gen1__ , vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
+Se si usa __Azure Data Lake storage Gen1__, vedere i collegamenti seguenti per i modi in cui è possibile accedere ai dati:
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

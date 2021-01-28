@@ -1,19 +1,16 @@
 ---
 title: Usare C# con MapReduce in Hadoop in HDInsight - Azure
 description: Informazioni su come usare C# per creare soluzioni di MapReduce con Apache Hadoop in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 4153b612b4b15883f28517d806acf6b340a94e49
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543050"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946625"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Usare C# con lo streaming di MapReduce su Apache Hadoop in HDInsight
 
@@ -31,9 +28,9 @@ Per altre informazioni sulla compatibilità Mono con le versioni di .NET Framewo
 
 Il processo di base usato per il flusso in questo documento è il seguente:
 
-1. Hadoop passa i dati al mapper ( *mapper.exe* in questo esempio) su stdin.
+1. Hadoop passa i dati al mapper (*mapper.exe* in questo esempio) su stdin.
 2. Il mapper elabora i dati ed emette una coppia chiave/valore delimitata da tabulazione su STDOUT.
-3. L'output viene letto da Hadoop e quindi passato al Reducer ( *reducer.exe* in questo esempio) su stdin.
+3. L'output viene letto da Hadoop e quindi passato al Reducer (*reducer.exe* in questo esempio) su stdin.
 4. Il riduttore legge le coppie chiave/valore delimitate da tabulazioni, elabora i dati e quindi genera il risultato come coppie chiave/valore delimitate da tabulazione su STDOUT.
 5. L'output viene letto da Hadoop e scritto nella directory di output.
 
@@ -55,7 +52,7 @@ Per altre informazioni sullo streaming, vedere [Hadoop Streaming](https://hadoop
 
 ## <a name="create-the-mapper"></a>Creare il mapper
 
-In Visual Studio creare una nuova applicazione console .NET Framework denominata *Mapper* . Usare il codice seguente per l'applicazione:
+In Visual Studio creare una nuova applicazione console .NET Framework denominata *Mapper*. Usare il codice seguente per l'applicazione:
 
 ```csharp
 using System;
@@ -92,7 +89,7 @@ Dopo aver creato l'applicazione, compilarla per produrre il file */bin/Debug/map
 
 ## <a name="create-the-reducer"></a>Creare il reducer
 
-In Visual Studio creare una nuova applicazione console .NET Framework denominata *Reducer* . Usare il codice seguente per l'applicazione:
+In Visual Studio creare una nuova applicazione console .NET Framework denominata *Reducer*. Usare il codice seguente per l'applicazione:
 
 ```csharp
 using System;
@@ -147,29 +144,29 @@ Dopo aver creato l'applicazione, compilarla per produrre il file */bin/Debug/red
 
 Successivamente, è necessario caricare le applicazioni *Mapper* e *Reducer* nell'archivio HDInsight.
 
-1. In Visual Studio selezionare **Visualizza**  >  **Esplora server** .
+1. In Visual Studio selezionare **Visualizza**  >  **Esplora server**.
 
-1. Fare clic con il pulsante destro del mouse su **Azure** , scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
+1. Fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
-1. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo **(Account di archiviazione predefinito)** .
+1. Espandere il cluster HDInsight in cui si desidera distribuire l'applicazione. Viene elencata una voce con il testo **(Account di archiviazione predefinito)**.
 
    ![Account di archiviazione, cluster HDInsight, Esplora server, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
-   * Se è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando un **account di archiviazione di Azure** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nella risorsa di archiviazione predefinita per il cluster, espandere la voce e quindi fare doppio clic sul **contenitore predefinito** .
+   * Se è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando un **account di archiviazione di Azure** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nella risorsa di archiviazione predefinita per il cluster, espandere la voce e quindi fare doppio clic sul **contenitore predefinito**.
 
-   * Se non è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando **Azure Data Lake storage** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce **(Account di archiviazione predefinito)** .
+   * Se non è possibile espandere la voce **(account di archiviazione predefinito)** , si sta usando **Azure Data Lake storage** come risorsa di archiviazione predefinita per il cluster. Per visualizzare i file nel percorso di archiviazione predefinito per il cluster, fare doppio clic sulla voce **(Account di archiviazione predefinito)**.
 
 1. Per caricare i file con estensione .exe, usare uno dei metodi seguenti:
 
-    * Se si usa un **account di archiviazione di Azure** , selezionare l'icona **Carica BLOB** .
+    * Se si usa un **account di archiviazione di Azure**, selezionare l'icona **Carica BLOB** .
 
         ![Icona di caricamento HDInsight per Mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        Nella finestra di dialogo **Carica nuovo file** , in **nome file** , selezionare **Sfoglia** . Nella finestra di dialogo **Carica BLOB** passare alla cartella *bin\Debug* per il progetto *Mapper* , quindi scegliere il file *mapper.exe* . Infine, selezionare **Apri** e quindi **OK** per completare il caricamento.
+        Nella finestra di dialogo **Carica nuovo file** , in **nome file**, selezionare **Sfoglia**. Nella finestra di dialogo **Carica BLOB** passare alla cartella *bin\Debug* per il progetto *Mapper* , quindi scegliere il file *mapper.exe* . Infine, selezionare **Apri** e quindi **OK** per completare il caricamento.
 
-    * Per **Azure Data Lake storage** , fare clic con il pulsante destro del mouse su un'area vuota nell'elenco dei file e quindi scegliere **carica** . Infine, selezionare il file *mapper.exe* e quindi selezionare **Apri** .
+    * Per **Azure Data Lake storage**, fare clic con il pulsante destro del mouse su un'area vuota nell'elenco dei file e quindi scegliere **carica**. Infine, selezionare il file *mapper.exe* e quindi selezionare **Apri**.
 
-    Una volta terminato il caricamento *mapper.exe* , ripetere il processo di caricamento per il file *reducer.exe* .
+    Una volta terminato il caricamento *mapper.exe*, ripetere il processo di caricamento per il file *reducer.exe*.
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Eseguire un processo: uso di una sessione SSH
 
@@ -183,7 +180,7 @@ La procedura seguente descrive come eseguire un processo MapReduce usando una se
 
 1. Usare uno dei comandi seguenti per avviare il processo MapReduce:
 
-   * Se la risorsa di archiviazione predefinita è **archiviazione di Azure** :
+   * Se la risorsa di archiviazione predefinita è **archiviazione di Azure**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -194,7 +191,7 @@ La procedura seguente descrive come eseguire un processo MapReduce usando una se
             -output /example/wordcountout
         ```
 
-    * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen1** :
+    * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen1**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -205,7 +202,7 @@ La procedura seguente descrive come eseguire un processo MapReduce usando una se
             -output /example/wordcountout
         ```
 
-   * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen2** :
+   * Se la risorsa di archiviazione predefinita è **Data Lake storage Gen2**:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -253,7 +250,7 @@ Usare il seguente script di PowerShell per eseguire un processo MapReduce e scar
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output viene scaricato in un file denominato *output.txt* . Il testo seguente è un esempio dei dati nel file `output.txt`:
+Questo script richiede l'account di accesso del cluster e la password, insieme al nome del cluster HDInsight. Al termine del processo, l'output viene scaricato in un file denominato *output.txt*. Il testo seguente è un esempio dei dati nel file `output.txt`:
 
 ```output
 you     1128

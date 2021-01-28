@@ -1,19 +1,16 @@
 ---
 title: C#, Apache Hive & Apache Pig in Apache Hadoop-Azure HDInsight
 description: Informazioni su come usare le funzioni definite dall'utente C# con lo streaming Apache Hive e Apache Pig in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/06/2019
-ms.openlocfilehash: e99d68d31f1da4dcb3ef1086a2bbd90f0ab30410
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 97b23a2b9e3b95a5ea0efcd27d0ec185b1c456f1
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023126"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946540"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Usare le funzioni definite dall'utente C# con Apache Hive e Apache Pig in Apache Hadoop in HDInsight
 
@@ -56,9 +53,9 @@ Per creare un progetto C# per una funzione definita dall'utente Apache Hive:
 
 2. Selezionare **Crea un nuovo progetto**.
 
-3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Fare quindi clic su **Avanti**.
+3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Selezionare quindi **Avanti**.
 
-4. Nella finestra **Configura nuovo progetto** , immettere il nome di un **progetto** *HiveCSharp* e individuare o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
+4. Nella finestra **Configura nuovo progetto** , immettere il nome di un **progetto** *HiveCSharp* e individuare o creare un **percorso** in cui salvare il nuovo progetto. Quindi selezionare **Crea**
 
 5. Nell'IDE di Visual Studio sostituire il contenuto di *Program.cs* con il codice seguente:
 
@@ -123,9 +120,9 @@ Per creare un progetto C# per una funzione definita dall'utente Apache Hive:
 
 2. Nella finestra **iniziale** selezionare **Crea un nuovo progetto**.
 
-3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Fare quindi clic su **Avanti**.
+3. Nella finestra **Crea un nuovo progetto** scegliere il modello **applicazione console (.NET Framework)** (versione C#). Selezionare quindi **Avanti**.
 
-4. Nella finestra **Configura nuovo progetto** immettere il nome di un **progetto** *PigUDF* e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
+4. Nella finestra **Configura nuovo progetto** immettere il nome di un **progetto** *PigUDF* e passare a o creare un **percorso** in cui salvare il nuovo progetto. Quindi selezionare **Crea**
 
 5. Nell'IDE di Visual Studio sostituire il contenuto di *Program.cs* con il codice seguente:
 

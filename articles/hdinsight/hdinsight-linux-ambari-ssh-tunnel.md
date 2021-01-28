@@ -1,19 +1,16 @@
 ---
 title: Usare il tunneling SSH per accedere ad Azure HDInsight
 description: Informazioni su come utilizzare un tunnel SSH per esplorare in modo sicuro le risorse web ospitate sui nodi HDInsight basati su Linux.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 09fef350a0ff8cc8c2481acd7b8f74cee15d1b9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bbc770fa6ae5ac69b2aa939f9d2c70bb01f5403
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075553"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945292"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>Usare il tunneling SSH per accedere all'interfaccia utente Web di Apache Ambari, JobHistory, NameNode, Apache oozie e altre interfacce utente
 
@@ -62,7 +59,7 @@ Utilizzare il comando seguente per creare un SSH tunnel utilizzando il comando `
 ssh -C2qTnNf -D 9876 sshuser@CLUSTERNAME-ssh.azurehdinsight.net
 ```
 
-Questo comando crea una connessione che instrada il traffico alla porta locale 9876 al cluster su SSH. Le opzioni disponibili sono:
+Questo comando crea una connessione che instrada il traffico alla porta locale 9876 al cluster su SSH. Le opzioni sono:
 
 |Opzione |Descrizione |
 |---|---|

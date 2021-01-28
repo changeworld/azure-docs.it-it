@@ -3,16 +3,15 @@ title: Configurazioni granulari di accesso in base al ruolo di Azure HDInsight c
 description: Informazioni sulle modifiche necessarie nell'ambito della migrazione a un accesso granulare basato sui ruoli per le configurazioni del cluster HDInsight.
 author: tylerfox
 ms.author: tyfox
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533309"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944095"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Eseguire la migrazione all'accesso granulare in base al ruolo per le configurazioni dei cluster
 
@@ -28,7 +27,7 @@ Viene inoltre introdotto un nuovo ruolo [operatore cluster HDInsight](../role-ba
 
 | Ruolo                                  | In precedenza                                                                                        | In futuro       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Reader                                | -Accesso in lettura, inclusi i segreti.                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
+| Lettore                                | -Accesso in lettura, inclusi i segreti.                                                                   | -Accesso in lettura, **esclusi** i segreti |           |   |   |
 | Operatore di cluster HDInsight<br>(Nuovo ruolo) | N/D                                                                                              | -Accesso in lettura/scrittura, inclusi i segreti         |   |   |
 | Autore di contributi                           | -Accesso in lettura/scrittura, inclusi i segreti.<br>-Creare e gestire tutti i tipi di risorse di Azure.<br>-Eseguire azioni script.     | Nessuna modifica |
 | Proprietario                                 | -Accesso in lettura/scrittura, inclusi i segreti.<br>-Accesso completo a tutte le risorse<br>-Delegare l'accesso ad altri utenti.<br>-Eseguire azioni script. | Nessuna modifica |
@@ -80,7 +79,7 @@ Sono state aggiunte le API sostitutive seguenti:</span>
 
 Se si usa la versione 1.1.1 o successiva, eseguire l'aggiornamento alla [versione più recente degli strumenti di Azure HDInsight per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) per evitare interruzioni.
 
-### <a name="azure-toolkit-for-intellij"></a>Toolkit di Azure per IntelliJ
+### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
 
 Se si usa la versione 3.20.0 o successiva, eseguire l'aggiornamento alla [versione più recente del plug](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) -in Azure Toolkit for IntelliJ per evitare interruzioni.
 
@@ -88,7 +87,7 @@ Se si usa la versione 3.20.0 o successiva, eseguire l'aggiornamento alla [versio
 
 Eseguire l'aggiornamento alla versione 2.3.9000.1 o successiva di [Azure Data Lake e gli strumenti di analisi di flusso per Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) per evitare interruzioni.  Per informazioni sull'aggiornamento, vedere la documentazione, [aggiornare Data Lake Tools per Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio).
 
-### <a name="azure-toolkit-for-eclipse"></a>Toolkit di Azure per Eclipse
+### <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 
 Se si usa la versione 3.15.0 o successiva, eseguire l'aggiornamento alla [versione più recente del Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) per evitare interruzioni.
 

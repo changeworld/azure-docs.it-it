@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 19c27dc80f9af013c458663c9c7afb0033683acd
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97348068"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945064"
 ---
 # <a name="create-luis-resources"></a>Creare risorse LUIS
 
@@ -117,7 +117,7 @@ Il proprietario e tutti i collaboratori possono accedere per creare l'app.
 |Modificare il modello|
 |Pubblica|
 |Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
-|Eseguire il training|
+|Treno|
 
 <a name="prediction-endpoint-runtime-key"></a>
 
@@ -173,7 +173,7 @@ Un'app pubblica viene pubblicata in tutte le aree geografiche. Un utente con una
 
 ### <a name="create-resources-in-the-azure-cli"></a>Creare risorse nell'interfaccia della riga di comando di Azure
 
-Usare l' [interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure per creare ogni risorsa singolarmente.
+Usare l' [interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure per creare ogni risorsa singolarmente.
 
 Risorsa `kind` :
 

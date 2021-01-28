@@ -3,12 +3,12 @@ title: Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i
 description: Questo articolo descrive come configurare il monitoraggio per un cluster Kubernetes con monitoraggio di Azure ospitato in Azure Red Hat OpenShift versione 4 o successiva.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e9f31d1b71122c53a67dc40af31d33255e2e98d8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994550"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944522"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configurare Azure Red Hat OpenShift V4. x con monitoraggio di Azure per i contenitori
 
@@ -20,7 +20,7 @@ Monitoraggio di Azure per i contenitori offre un'esperienza di monitoraggio comp
 
 È possibile abilitare monitoraggio di Azure per i contenitori per una o più distribuzioni esistenti di Azure Red Hat OpenShift V4. x usando i metodi supportati descritti in questo articolo.
 
-Per un cluster esistente, eseguire questo [script bash nell'interfaccia della riga di comando di Azure](/cli/azure/openshift?view=azure-cli-latest#az-openshift-create&preserve-view=true).
+Per un cluster esistente, eseguire questo [script bash nell'interfaccia della riga di comando di Azure](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Funzionalità supportate e non supportate
 
@@ -111,7 +111,7 @@ Se non si dispone di un'area di lavoro da specificare, è possibile passare alla
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID**campo.
+1. Nell'output trovare il nome dell'area di lavoro, quindi copiare l'ID risorsa completo dell'area di lavoro Log Analytics sotto l' **ID** campo.
 
 1. Per abilitare il monitoraggio, eseguire il comando seguente. Sostituire i valori per i `azureAroV4ClusterResourceId` `logAnalyticsWorkspaceResourceId` parametri, e `kubeContext` .
 
@@ -133,7 +133,7 @@ In questa sezione viene abilitato il monitoraggio per il cluster Azure Red Hat O
 
 In questo esempio non è necessario creare in anticipo o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster, se non ne esiste già una.
 
-L'area di lavoro predefinita creata ha il formato *DefaultWorkspace- \<GUID> - \<Region> *.  
+L'area di lavoro predefinita creata ha il formato *DefaultWorkspace- \<GUID> - \<Region>*.  
 
 Sostituire i valori per i `azureAroV4ClusterResourceId` `kubeContext` parametri e.
 

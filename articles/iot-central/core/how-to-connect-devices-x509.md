@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: d36cf2344891bb70ab5499e77699b111429a936b
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96121833"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944625"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Come connettere i dispositivi con certificati X. 509 usando Node.js SDK per dispositivi per IoT Central applicazione
 
@@ -63,7 +63,7 @@ In questa sezione si userà un certificato X. 509 per connettere un dispositivo 
 
 Questi comandi producono tre file ognuno per la radice e il certificato del dispositivo
 
-filename | sommario
+nomefile | sommario
 -------- | --------
 \<name\>_cert. pem | Parte pubblica del certificato X509
 \<name\>_key. pem | Chiave privata per il certificato X509
@@ -199,7 +199,7 @@ Il dispositivo è ora sottoposta a provisioning con certificato X. 509.
 
 1. Copiare i file _mytestselfcertprimary_key. pem_ e _mytestselfcertprimary_cert. pem_ nella cartella Azure-Internet-NET- _SDK-node/Device/Samples/pnp_ che contiene l'applicazione **simple_thermostat.js** . Questa applicazione è stata usata quando è stata completata l' [esercitazione connettere un dispositivo (JavaScript)](./tutorial-connect-device.md).
 
-1. Modificare le variabili di ambiente usate in come segue:
+1. Modificare le variabili di ambiente usate nell'esempio precedente nel modo seguente:
 
     ```cmd/sh
     set IOTHUB_DEVICE_DPS_DEVICE_ID=mytestselfcertprimary

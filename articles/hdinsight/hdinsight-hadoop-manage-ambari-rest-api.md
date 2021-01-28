@@ -1,19 +1,16 @@
 ---
 title: Monitorare e gestire Hadoop con l'API REST Ambari - Azure HDInsight
 description: Informazioni sull'uso di Ambari per monitorare e gestire i cluster Hadoop in Azure HDInsight. In questo documento si apprenderà come usare l'API REST Ambari inclusa nei cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546076"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945574"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gestire i cluster HDInsight mediante l'API REST Apache Ambari
 
@@ -41,11 +38,11 @@ Apache Ambari semplifica la gestione e il monitoraggio dei cluster Hadoop fornen
 
 ## <a name="authentication"></a>Authentication
 
-La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin** ) e la password forniti durante la creazione del cluster.
+La connessione ad Ambari su HDInsight richiede HTTPS. Usare il nome dell'account amministratore (il valore predefinito è **admin**) e la password forniti durante la creazione del cluster.
 
 Per i cluster Enterprise Security Package, anziché `admin` usare un nome utente completo, ad esempio `username@domain.onmicrosoft.com` .
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="setup-preserve-credentials"></a>Impostazione (Mantieni credenziali)
 
@@ -335,7 +332,7 @@ Questo esempio restituisce un documento JSON che contiene la configurazione corr
 
    * Crea un documento radice per la nuova configurazione.
 
-   * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config** .
+   * Ottiene i contenuti della matrice `.items[]` e li aggiunge sotto l'elemento **desired_config**.
 
    * Elimina gli elementi `href`, `version` e `Config` perché non sono necessari per l'invio di una nuova configurazione.
 

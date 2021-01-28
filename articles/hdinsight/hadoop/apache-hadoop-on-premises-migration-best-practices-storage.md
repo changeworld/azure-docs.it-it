@@ -1,19 +1,17 @@
 ---
 title: 'Archiviazione: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate di archiviazione per la migrazione dei cluster Hadoop locali in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 0594774533f306421f6f3d1260d074bd92b9c919
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544869"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944855"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Eseguire la migrazione di cluster di Apache Hadoop locali ad Azure HDInsight
 
@@ -98,15 +96,15 @@ Una funzionalità fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [s
 
 In passato, le analisi basate sul cloud imponevano il raggiungimento di un compromesso tra prestazioni, gestione e sicurezza. Le funzionalità principale di Azure Data Lake Storage (ADLS) Gen2 sono le seguenti:
 
-- **Accesso compatibile con Hadoop** : Azure Data Lake storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un [Hadoop Distributed file System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
+- **Accesso compatibile con Hadoop**: Azure Data Lake storage Gen2 consente di gestire i dati e di accedervi esattamente come si farebbe con un [Hadoop Distributed file System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Il nuovo [driver ABFS](../../storage/blobs/data-lake-storage-abfs-driver.md) è disponibile all'interno di tutti gli ambienti Apache Hadoop inclusi in [Azure HDInsight](../index.yml). Tale driver consente di accedere ai dati archiviati in Data Lake Storage Gen2.
 
-- **Un superset di autorizzazioni POSIX** : il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
+- **Un superset di autorizzazioni POSIX**: il modello di protezione per Data Lake Gen2 supporta completamente l'elenco di controllo di accesso e le autorizzazioni POSIX oltre ad una granularità aggiuntiva specifica di Data Lake Storage Gen2. È possibile configurare le impostazioni tramite gli strumenti di amministrazione o i framework come Hive e Spark.
 
-- **Economicamente conveniente** : Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Con la transizione dei dati attraverso il ciclo di vita completo, le tariffe di fatturazione cambiano per ridurre i costi tramite funzionalità predefinite, ad esempio il [ciclo di vita dell'archiviazione BLOB di Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
+- **Economicamente conveniente**: Data Lake Storage Gen2 offre capacità di archiviazione e transazioni a basso costo. Con la transizione dei dati attraverso il ciclo di vita completo, le tariffe di fatturazione cambiano per ridurre i costi tramite funzionalità predefinite, ad esempio il [ciclo di vita dell'archiviazione BLOB di Azure](../../storage/blobs/storage-lifecycle-management-concepts.md).
 
-- **Funziona con strumenti di archiviazione BLOB, framework e app** : Data Lake Storage Gen2 continua a funzionare con l'ampia gamma di strumenti, framework e app attualmente esistenti per l'archiviazione BLOB di Azure.
+- **Funziona con strumenti di archiviazione BLOB, framework e app**: Data Lake Storage Gen2 continua a funzionare con l'ampia gamma di strumenti, framework e app attualmente esistenti per l'archiviazione BLOB di Azure.
 
-- **Driver ottimizzato** : il driver del file System BLOB di Azure (ABFS) è [ottimizzato in modo specifico](../../storage/blobs/data-lake-storage-abfs-driver.md) per Big Data Analytics. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
+- **Driver ottimizzato**: il driver del file System BLOB di Azure (ABFS) è [ottimizzato in modo specifico](../../storage/blobs/data-lake-storage-abfs-driver.md) per Big Data Analytics. Le API REST corrispondenti vengono rilevate tramite l'endpoint dfs, ovvero dfs.core.windows.net.
 
 Per accedere ai dati memorizzati in ADLS Gen2, è possibile usare i formati seguenti.
 - `abfs:///`: Consente di accedere all'istanza predefinita di Data Lake Storage per il cluster.
@@ -171,9 +169,9 @@ Per impostazione predefinito, HDInsight ha accesso completo ai dati negli accoun
 
 5. Per limitare l'accesso a un contenitore con firma di accesso condiviso, aggiungere una voce personalizzata alla configurazione core-site per il cluster nella proprietà Ambari HDFS Configs Advanced Custom core-site Add.
 
-6. Usare i valori seguenti per i campi **Key** e **Value** :
+6. Usare i valori seguenti per i campi **Key** e **Value**:
 
-    **Chiave** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valore** : chiave SAS restituita dall'applicazione Python del passaggio 4 precedente.
+    **Chiave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **valore**: chiave SAS restituita dall'applicazione Python del passaggio 4 precedente.
 
 7. Fare clic sul pulsate **Add** per salvare la chiave e il valore, quindi fare clic sul pulsante **Save** per salvare le modifiche alla configurazione. Quando richiesto, aggiungere una descrizione della modifica, ad esempio "aggiunta di accesso alle risorse di archiviazione per le firme di accesso condiviso", e quindi fare clic su **Save** (Salva).
 

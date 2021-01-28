@@ -2,25 +2,22 @@
 title: Usare Apache Pig
 titleSuffix: Azure HDInsight
 description: Informazioni su come usare Pig con Apache Hadoop in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 7b74a41f7d6b636dddce0388d5ee0e0a12658d52
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538732"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944621"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Usare Apache Pig con Apache Hadoop in HDInsight
 
 Informazioni su come usare [Apache Pig](https://pig.apache.org/) con HDInsight.
 
-Apache Pig è una piattaforma che consente la creazione di programmi per Apache Hadoop usando un linguaggio procedurale denominato *Pig Latin* . Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight. Usare la tabella seguente per individuare i vari modi in cui Pig può essere usato con HDInsight:
+Apache Pig è una piattaforma che consente la creazione di programmi per Apache Hadoop usando un linguaggio procedurale denominato *Pig Latin*. Pig è un'alternativa a Java per la creazione di soluzioni *MapReduce* ed è incluso in Azure HDInsight. Usare la tabella seguente per individuare i vari modi in cui Pig può essere usato con HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Perché usare Apache Pig
 
@@ -30,11 +27,11 @@ Pig consente di definire l'elaborazione come una serie di trasformazioni a cui v
 
 Il linguaggio Pig Latin consente di descrivere il flusso dati dall'input non elaborato fino all'output desiderato, attraverso una o più trasformazioni. I programmi in Pig Latin seguono questo modello generale:
 
-* **Load** : legge i dati da modificare dal file System.
+* **Load**: legge i dati da modificare dal file System.
 
-* **Transform** : modificare i dati.
+* **Transform**: modificare i dati.
 
-* **Dump o Store** : consente di visualizzare i dati sullo schermo o di archiviarli per l'elaborazione.
+* **Dump o Store**: consente di visualizzare i dati sullo schermo o di archiviarli per l'elaborazione.
 
 ### <a name="user-defined-functions"></a>Funzioni definite dall'utente
 

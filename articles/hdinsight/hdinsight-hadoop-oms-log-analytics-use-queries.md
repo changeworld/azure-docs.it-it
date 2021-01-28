@@ -1,19 +1,16 @@
 ---
 title: Eseguire query nei log di monitoraggio di Azure per monitorare i cluster HDInsight di Azure
 description: Informazioni su come eseguire query nei log di monitoraggio di Azure per monitorare i processi in esecuzione in un cluster HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: c2ddcd8ea3524b4afdfa7f70d21f0cba96975f72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085362"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945620"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Eseguire query nei log di Monitoraggio di Azure per monitorare i cluster HDInsight
 
@@ -44,7 +41,7 @@ Informazioni su come cercare metriche specifiche per il cluster HDInsight.
 
 1. Nel menu a sinistra selezionare la scheda **filtro** .
 
-1. In **tipo**selezionare **heartbeat**. Selezionare quindi **applica & Esegui**.
+1. In **tipo** selezionare **heartbeat**. Selezionare quindi **applica & Esegui**.
 
     ![metriche specifiche per la ricerca in log Analytics](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-metrics.png "Cercare metriche specifiche")
 
@@ -127,7 +124,7 @@ Il primo passaggio per creare un avviso consiste nel creare una query in base a 
 
 Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure](../azure-monitor/platform/alerts-metric.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Introduzione alle query su log in Monitoraggio di Azure](../azure-monitor/log-query/get-started-queries.md)
 * [Creare visualizzazioni personalizzate usando Progettazione viste in monitoraggio di Azure](../azure-monitor/platform/view-designer.md)

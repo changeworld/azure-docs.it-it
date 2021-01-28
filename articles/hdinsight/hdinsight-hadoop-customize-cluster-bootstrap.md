@@ -1,19 +1,16 @@
 ---
 title: Personalizzare le configurazioni del cluster HDInsight di Azure usando bootstrap
 description: Informazioni su come personalizzare la configurazione del cluster HDInsight a livello di codice usando i modelli .NET, PowerShell e Gestione risorse.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 306ebcf7db3c11f783af8cf4c1779bd3d1a013a4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547487"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945743"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizzare cluster HDInsight tramite Bootstrap
 
@@ -86,9 +83,9 @@ Uno script di PowerShell completo funzionante è disponibile nell'[appendice](#a
 **Per verificare la modifica:**
 
 1. Passare a `https://CLUSTERNAME.azurehdinsight.net/` dove `CLUSTERNAME` è il nome del cluster.
-1. Dal menu a sinistra passare a **hive**  >  **configs**  >  **Advanced** .
-1. Espandere **Advanced hive-site** .
-1. Individuare **hive. Metastore. client. Socket. timeout** e verificare che il valore sia **90** .
+1. Dal menu a sinistra passare a **hive**  >  **configs**  >  **Advanced**.
+1. Espandere **Advanced hive-site**.
+1. Individuare **hive. Metastore. client. Socket. timeout** e verificare che il valore sia **90**.
 
 Ecco altri esempi relativi alla personalizzazione di altri file di configurazione:
 

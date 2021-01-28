@@ -1,19 +1,16 @@
 ---
 title: Azure HDInsight per Visual Studio Code
 description: Informazioni su come usare Spark & hive Tools (Azure HDInsight) per Visual Studio Code. Usare gli strumenti per creare e inviare query e script.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 30c13adfebb911e443fb042821e09628da3b9405
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610982"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946135"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usare gli strumenti di Spark & hive per Visual Studio Code
 
@@ -352,7 +349,7 @@ Inviare un file e notare che la `.vscode` cartella viene aggiunta automaticament
   
   **Testo della richiesta**
 
-  | name | description | type |
+  | name | description | tipo |
   | --- | --- | --- |
   | file | File contenente l'applicazione da eseguire | Percorso (obbligatorio) |
   | proxyUser | Utente da rappresentare quando si esegue il processo | string |
@@ -373,7 +370,7 @@ Inviare un file e notare che la `.vscode` cartella viene aggiunta automaticament
 
   **Corpo della risposta** Oggetto batch creato.
 
-  | name | description | type |
+  | name | description | tipo |
   | --- | ---| --- |
   | ID | ID sessione | Int |
   | appId | ID applicazione della sessione | string |

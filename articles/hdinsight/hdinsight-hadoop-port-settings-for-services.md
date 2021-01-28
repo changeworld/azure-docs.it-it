@@ -1,19 +1,16 @@
 ---
 title: Porte usate dai servizi Hadoop su HDInsight - Azure
 description: Questo articolo fornisce un elenco di porte usate dai servizi Apache Hadoop in esecuzione in Azure HDInsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: d0d990bc273c33e94b82b597753b29361b1665e1
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: b5dadb886078f701bb01447efd606c862ee73073
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97821860"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945530"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Porte usate dai servizi Apache Hadoop su HDInsight
 
@@ -90,7 +87,7 @@ Esempi:
 | Interfaccia utente Web NameNode |Nodi head |30070 |HTTPS |Interfaccia utente Web per visualizzare lo stato |
 | Servizio metadati NameNode |Nodi head |8020 |IPC |Metadati del file system |
 | DataNode |Tutti i nodi di lavoro |30075 |HTTPS |Interfaccia utente Web per visualizzare lo stato, i log e così via. |
-| DataNode |Tutti i nodi di lavoro |30010 |&nbsp; |Trasferimento di dati |
+| DataNode |Tutti i nodi di lavoro |30010 |&nbsp; |Trasferimento dati |
 | DataNode |Tutti i nodi di lavoro |30020 |IPC |Operazioni sui metadati |
 | NameNode secondario |Nodi head |50090 |HTTP |Checkpoint per i metadati NameNode |
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4ea5c8552d35db67a1d2caf20c0143c74cdd642e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cf5882913426062e281194b61a8c760141512a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86505483"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944151"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Come aggiornare le regole di avviso o le regole di azione quando la risorsa di destinazione si sposta in un'altra area di Azure
 
@@ -76,7 +76,7 @@ Se **solo alcune** risorse nell'ambito sono state spostate, è necessario rimuov
 ### <a name="change-scope-of-a-rule-from-the-azure-portal"></a>Modificare l'ambito di una regola dalla portale di Azure
 
 1. Aprire la regola identificata nel passaggio precedente facendo clic su di essa.
-2. In **risorsa**fare clic su **modifica** e modificare l'ambito, se necessario.
+2. In **risorsa** fare clic su **modifica** e modificare l'ambito, se necessario.
 3. Modificare le altre proprietà della regola in base alle esigenze.
 4. Fare clic su **Salva**.
 
@@ -88,7 +88,7 @@ Se **solo alcune** risorse nell'ambito sono state spostate, è necessario rimuov
    1. Passare alla sezione gruppi di risorse nel portale e aprire il gruppo di risorse che contiene la regola.
    2. Nella sezione Panoramica selezionare la casella di controllo **Mostra tipo nascosto** e filtrare in base al tipo pertinente della regola.
    3. Selezionare la regola pertinente per visualizzare i relativi dettagli.
-   4. In **Impostazioni**selezionare **Esporta modello**.
+   4. In **Impostazioni** selezionare **Esporta modello**.
 2. Modificare il modello. Se necessario, suddividere in due regole (rilevanti per alcuni casi di avvisi delle metriche, come indicato in precedenza).
 3. Ridistribuire il modello.
 
@@ -106,7 +106,7 @@ Se **solo alcune** risorse nell'ambito sono state spostate, è necessario rimuov
 
 ### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Modificare l'ambito di una regola usando l'interfaccia della riga di comando di Azure
 
-1.  Ottenere la regola esistente ([avvisi metrica](/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [avvisi del log attività](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
+1.  Ottenere la regola esistente ([avvisi metrica](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-show), [avvisi del log attività](/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.  Aggiornare direttamente l'ambito della regola ([avvisi metrica](/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [avvisi del log attività](/cli/azure/monitor/activity-log/alert/scope))
 3.  Se necessario, suddividere in due regole (rilevanti per alcuni casi di avvisi delle metriche, come indicato in precedenza).
 

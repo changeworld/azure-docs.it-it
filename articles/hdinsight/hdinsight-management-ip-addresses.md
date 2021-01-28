@@ -1,19 +1,16 @@
 ---
 title: Indirizzi IP di gestione di Azure HDInsight
 description: Informazioni sugli indirizzi IP da cui è necessario consentire il traffico in ingresso, in modo da configurare correttamente i gruppi di sicurezza di rete e le route definite dall'utente per la rete virtuale con Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 9fa38e045bbe29e5d45587adf0d277c1414fee4c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 89d749a04c22967198be217350ff38751336fe67
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96549039"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944104"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
@@ -40,7 +37,7 @@ Se si usa il servizio DNS fornito da Azure, consentire l'accesso a __168.63.129.
 
 Consentire il traffico dagli indirizzi IP seguenti per i servizi di gestione e integrità di Azure HDInsight, che si applicano a tutte le aree di Azure:
 
-| Indirizzo IP di origine | Destinazione  | Direzione |
+| Indirizzo IP di origine | Destination  | Direzione |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | In ingresso |
 | 23.99.5.239 | \*: 443 | In ingresso |
@@ -85,7 +82,7 @@ Consentire il traffico dagli indirizzi IP elencati per i servizi di gestione e i
 | &nbsp; | Stati Uniti centro-settentrionali | 157.56.8.38</br>157.55.213.99 | \*: 443 | In ingresso |
 | &nbsp; | Stati Uniti centro-occidentali | 52.161.23.15</br>52.161.10.167 | \*: 443 | In ingresso |
 | &nbsp; | Stati Uniti occidentali | 13.64.254.98</br>23.101.196.19 | \*: 443 | In ingresso |
-| &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | In ingresso |
+| &nbsp; | Stati Uniti occidentali 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | In ingresso |
 | &nbsp; | Emirati Arabi Uniti settentrionali | 65.52.252.96</br>65.52.252.97 | \*: 443 | In ingresso |
 | &nbsp; | Emirati Arabi Uniti centrali | 20.37.76.96</br>20.37.76.99 | \*: 443 | In ingresso |
 

@@ -9,12 +9,12 @@ ms.date: 01/07/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: 68547b8fb673cd54b7c21963ede122553bbbc390
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4b586b95232af2a154993523402f81ee88a22cda
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97967124"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946151"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Risolvere i problemi dei connettori di Azure Data Factory
 
@@ -121,7 +121,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Causa**: errore dell'operazione CosmosDbSqlApi.
 
-- **Raccomandazione**:  Controllare i dettagli dell'errore. Vedere il [documento della Guida di CosmosDb](https://docs.microsoft.com/azure/cosmos-db/troubleshoot-dot-net-sdk). Se serve assistenza, contattare il team di CosmosDb.
+- **Raccomandazione**:  Controllare i dettagli dell'errore. Vedere il [documento della Guida di CosmosDb](../cosmos-db/troubleshoot-dot-net-sdk.md). Se serve assistenza, contattare il team di CosmosDb.
 
 
 ## <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
@@ -198,7 +198,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
     - Controllare se è presente un'impostazione di rete speciale, ad esempio ExpressRoute, e assicurarsi che la rete disponga di una larghezza di banda sufficiente. Si consiglia di ridurre l'impostazione dei processi simultanei del runtime di integrazione self-hosted quando la larghezza di banda complessiva è bassa, tramite la quale è possibile evitare la competizione di risorse di rete tra più processi simultanei.
 
-    - Utilizzare dimensioni del blocco inferiori per la copia non binaria per attenuare tale errore di timeout se le dimensioni del file sono moderate o piccole. Fare riferimento al [blocco Put dell'archiviazione BLOB](https://docs.microsoft.com/rest/api/storageservices/put-block).
+    - Utilizzare dimensioni del blocco inferiori per la copia non binaria per attenuare tale errore di timeout se le dimensioni del file sono moderate o piccole. Fare riferimento al [blocco Put dell'archiviazione BLOB](/rest/api/storageservices/put-block).
 
        Per specificare le dimensioni del blocco personalizzato, è possibile modificare la proprietà nell'editor JSON:
         ```
@@ -486,7 +486,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione dei problemi re
 
 - **Soluzione**: provare a seguire questa procedura per risolvere il problema:
 
-    1. Applicare la [tolleranza di errore](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance)di SQL sink, in particolare "redirectIncompatibleRowSettings" per risolvere le righe che presentano il problema.
+    1. Applicare la [tolleranza di errore](./copy-activity-fault-tolerance.md)di SQL sink, in particolare "redirectIncompatibleRowSettings" per risolvere le righe che presentano il problema.
 
         > [!NOTE]
         > Si noti che la tolleranza di errore potrebbe introdurre un tempo di esecuzione aggiuntivo, il che potrebbe comportare costi più elevati.

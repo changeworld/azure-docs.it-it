@@ -1,19 +1,16 @@
 ---
 title: 'Esercitazione: Usare i runbook di Automazione di Azure per creare cluster - Azure HDInsight'
 description: Informazioni su come creare ed eliminare i cluster Azure HDInsight con script in esecuzione nel cloud usando i runbook di Automazione di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 05c0aaf6cc33442fa4f36eb38eb0d6d593fc6c1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75553121"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944034"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Esercitazione: Creare cluster Azure HDInsight con Automazione di Azure
 
@@ -152,7 +149,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ### <a name="create-a-cluster"></a>Creare un cluster
 
-1. Per visualizzare l'elenco dei runbook per l'account di Automazione, selezionare**Runbook** in **Automazione processi**.
+1. Per visualizzare l'elenco dei runbook per l'account di Automazione, selezionare **Runbook** in **Automazione processi**.
 1. Selezionare `hdinsight-cluster-create` o il nome usato durante la creazione del runbook di creazione del cluster.
 1. Selezionare **Avvia** per eseguire immediatamente il runbook. È anche possibile pianificare i runbook per l'esecuzione periodica. Vedere [Pianificazione di un runbook in Automazione di Azure](../automation/shared-resources/schedules.md)
 1. Immettere i parametri richiesti per lo script e selezionare **OK**. Verrà creato un nuovo cluster HDInsight con il nome specificato nel parametro **CLUSTERNAME**.
