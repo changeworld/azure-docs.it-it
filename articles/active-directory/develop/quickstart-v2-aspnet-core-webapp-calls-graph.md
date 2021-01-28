@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754486"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938237"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Avvio rapido: App Web ASP.NET Core che concede l'accesso agli utenti e chiama Microsoft Graph per conto degli utenti
 
@@ -55,7 +55,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. Immettere un **URI** di Reindirizzamento `https://localhost:44321/signin-oidc` .
 > 1. Selezionare **Registra**.
 > 1. In **Gestisci** selezionare **Autenticazione**.
-> 1. Immettere un **URL di disconnessione** di `https://localhost:44321/signout-oidc` .
+> 1. Immettere un **URL di disconnessione front-Channel** di `https://localhost:44321/signout-oidc` .
 > 1. Selezionare **Salva**.
 > 1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.
 > 1. In **Descrizione** immettere una descrizione, ad esempio `clientsecret1`.
@@ -64,7 +64,7 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice di questa guida di avvio rapido è necessario aggiungere gli URL di risposta come `https://localhost:44321/signin-oidc` e l'URL di disconnessione come `https://localhost:44321/signout-oidc`.
+> Il codice di esempio di questa Guida introduttiva richiede un **URI di reindirizzamento** e un `https://localhost:44321/signin-oidc` URL di **disconnessione front-Channel** di `https://localhost:44321/signout-oidc` nella registrazione dell'app.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >

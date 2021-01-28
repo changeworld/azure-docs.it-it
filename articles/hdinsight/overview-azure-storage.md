@@ -1,19 +1,16 @@
 ---
 title: Panoramica di archiviazione di Azure in HDInsight
 description: Panoramica di archiviazione di Azure in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f171ab9619f2bcb8ecf15c4bfb3b17146ab5a0ff
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92539463"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938948"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Panoramica di archiviazione di Azure in HDInsight
 
@@ -21,7 +18,7 @@ Archiviazione di Azure è una soluzione di archiviazione affidabile di utilizzo 
 
 Si consiglia di usare contenitori di archiviazione separati per l'archiviazione del cluster predefinita e i dati aziendali. La separazione consiste nell'isolare i log HDInsight e i file temporanei dai propri dati aziendali. È inoltre consigliabile eliminare il contenitore BLOB predefinito, che contiene i registri applicazioni e di sistema, dopo ogni uso per ridurre i costi di archiviazione. Assicurarsi di recuperare i log prima di eliminare il contenitore.
 
-Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate** , assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili.** L'eccezione è che HDInsight può accedere all'account di archiviazione.
+Se si sceglie di proteggere l'account di archiviazione con le restrizioni relative a **firewall e reti virtuali** nelle **reti selezionate**, assicurarsi di abilitare l'eccezione **Consenti servizi Microsoft attendibili.** L'eccezione è che HDInsight può accedere all'account di archiviazione.
 
 ## <a name="hdinsight-storage-architecture"></a>Architettura di archiviazione di HDInsight
 

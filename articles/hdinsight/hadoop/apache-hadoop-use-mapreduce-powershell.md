@@ -1,19 +1,16 @@
 ---
 title: Usare MapReduce e PowerShell con Apache Hadoop - Azure HDInsight
 description: Informazioni su come usare PowerShell per eseguire in modalità remota processi MapReduce con Apache Hadoop in HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 16c6c5e317591b70c3a1300453093fc715e213fb
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545209"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939681"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Esecuzione di processi MapReduce con Apache Hadoop in HDInsight mediante PowerShell
 
@@ -37,13 +34,13 @@ Durante l'esecuzione di processi MapReduce in un cluster HDInsight remoto, vengo
 |---|---|
 |Connect-AzAccount|esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.|
 |New-AzHDInsightMapReduceJobDefinition|crea una nuova *definizione di processo* usando le informazioni MapReduce specificate.|
-|Start-AzHDInsightJob|invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo* .|
+|Start-AzHDInsightJob|invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.|
 |Wait-AzHDInsightJob|usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.|
 |Get-AzHDInsightJobOutput|usato per recuperare l'output del processo.|
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight.
 
-1. Usando un editor, salvare il codice seguente come **mapreducejob.ps1** .
+1. Usando un editor, salvare il codice seguente come **mapreducejob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 

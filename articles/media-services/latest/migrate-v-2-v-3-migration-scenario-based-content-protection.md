@@ -1,5 +1,5 @@
 ---
-title: Guida alla migrazione basata sullo scenario di protezione del contenuto
+title: Guida alla migrazione della protezione del contenuto
 description: Questo articolo fornisce indicazioni basate su scenari di protezione del contenuto che consentono di eseguire la migrazione minima da servizi multimediali di Azure V2 a V3.
 services: media-services
 author: IngridAtMicrosoft
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: d1e8c8d1f7f710acff75fa1d78aab68df03c954d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9c0040c0ad34b019eaa90bbd1571377ad3539578
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898291"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940112"
 ---
 # <a name="content-protection-scenario-based-migration-guidance"></a>Guida alla migrazione basata sullo scenario di protezione del contenuto
 

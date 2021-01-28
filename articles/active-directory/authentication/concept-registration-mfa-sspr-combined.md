@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 01/27/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9442489efd2a84ac8a31dfb2efb5718e1fd4f594
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 112ad0714c84cd3be08788b3277f52372f6d0373
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621794"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938471"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
 Prima della registrazione combinata, gli utenti registravano metodi di autenticazione per Azure AD Multi-Factor Authentication e la reimpostazione della password self-service (SSPR) separatamente. Gli utenti erano confusi che venivano usati metodi simili per Multi-Factor Authentication e SSPR, ma dovevano registrarsi per entrambe le funzionalità. Ora, con la registrazione combinata, gli utenti possono registrarsi una sola volta e sfruttare i vantaggi di Multi-Factor Authentication e SSPR.
 
 > [!NOTE]
-> A partire dal 15 agosto 2020, tutti i nuovi tenant di Azure AD verranno automaticamente abilitati per la registrazione combinata. A partire dal 14 dicembre 2020, tutti i tenant di Azure AD con un utente verranno abilitati automaticamente per la registrazione combinata.
+> A partire dal 15 agosto 2020, tutti i nuovi tenant di Azure AD verranno automaticamente abilitati per la registrazione combinata. 
 
 Questo articolo illustra la registrazione di sicurezza combinata. Per iniziare a usare la registrazione di sicurezza combinata, vedere l'articolo seguente:
 

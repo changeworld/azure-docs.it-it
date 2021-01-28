@@ -1,19 +1,17 @@
 ---
 title: 'Sicurezza: eseguire la migrazione di Apache Hadoop locali ad Azure HDInsight'
 description: Informazioni sulle procedure consigliate per DevOps e sicurezza relative alla migrazione di cluster Hadoop locali in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fa6a4a8686fe5a33a6f240a8e972a687e872732a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545260"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939737"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali in Azure HDInsight - Procedure consigliate per DevOps e sicurezza
 
@@ -93,7 +91,7 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 Per altre informazioni, vedere l'articolo:
 
-[Panoramica di monitoraggio di Azure](../../azure-monitor/overview.md)
+[Panoramica di Monitoraggio di Azure](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>Aggiornare i cluster
 
@@ -116,9 +114,9 @@ Per ulteriori informazioni, vedere l'articolo relativo all'applicazione [di patc
 
 ## <a name="post-migration"></a>Dopo la migrazione
 
-1. **Monitorare e aggiornare le applicazioni** : apportare in modo iterativo le modifiche necessarie a processi, elaborazioni e script.
-2. **Eseguire test** : eseguire in modo iterativo test sul funzionamento e sulle prestazioni.
-3. **Ottimizzare** : risolvere tutti i problemi di prestazioni in base ai risultati dei test precedenti e quindi eseguire di nuovo i test per verificare se le prestazioni sono migliorate.
+1. **Monitorare e aggiornare le applicazioni**: apportare in modo iterativo le modifiche necessarie a processi, elaborazioni e script.
+2. **Eseguire test**: eseguire in modo iterativo test sul funzionamento e sulle prestazioni.
+3. **Ottimizzare**: risolvere tutti i problemi di prestazioni in base ai risultati dei test precedenti e quindi eseguire di nuovo i test per verificare se le prestazioni sono migliorate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

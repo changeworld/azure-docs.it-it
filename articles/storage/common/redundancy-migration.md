@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 01/27/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 228595bf633ef0545a13abe19308e49da82cf75a
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 38978982baea41d23958a857b19a1edf2e454f37
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844013"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938718"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -39,16 +39,17 @@ Nella tabella seguente viene fornita una panoramica su come passare da un tipo d
 
 | Commutazione | ... a con ridondanza locale | ... al GRS/RA-GRS | ... a ZRS | ... a GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1</sup> | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
+| <b>... da con ridondanza locale</b> | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1, 2</sup> | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a GRS/RA-GRS e quindi Richiedi una migrazione in tempo reale<sup>1</sup> |
 | <b>... da GRS/RA-GRS</b> | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Passa prima a con ridondanza locale e quindi Richiedi una migrazione in tempo reale | Eseguire una migrazione manuale <br /><br /> OR <br /><br /> Richiedi una migrazione in tempo reale |
-| <b>... da ZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1, 2</sup> |
+| <b>... da ZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | N/D | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica<sup>1, 3</sup> |
 | <b>... da GZRS/RA-GZRS</b> | Eseguire una migrazione manuale | Eseguire una migrazione manuale | Usare portale di Azure, PowerShell o l'interfaccia della riga di comando per modificare l'impostazione di replica | N/D |
 
 <sup>1</sup> comporta un addebito di uscita una sola volta.<br />
-<sup>2</sup> la conversione da ZRS a GZRS/ra-GZRS o viceversa non è supportata nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti orientali, Europa occidentale.
+<sup>2</sup> la migrazione da con ridondanza locale a GRS non è supportata se l'account di archiviazione contiene BLOB nel livello archivio.<br />
+<sup>3</sup> la conversione da ZRS a GZRS/ra-GZRS o viceversa non è supportata nelle aree seguenti: Stati Uniti orientali 2, Stati Uniti orientali, Europa occidentale.
 
 > [!CAUTION]
-> Se è stato eseguito un [failover dell'account](storage-disaster-recovery-guidance.md) per l'account GZRS (RA-) GRS o (RA-), l'account viene ridondante localmente nella nuova area primaria dopo il failover. La migrazione in tempo reale a ZRS o GZRS per un account con ridondanza locale risultante da un failover non è supportata. Questo vale anche nel caso di operazioni di failback dette. Ad esempio, se si esegue un failover dell'account da RA-GZRS a con ridondanza locale nell'area secondaria e quindi lo si configura nuovamente in RA-GRS e si esegue un altro failover dell'account nell'area primaria originale, non è possibile contattare il supporto per la migrazione in tempo reale originale a RA-GZRS nell'area primaria. Sarà invece necessario eseguire una migrazione manuale a ZRS o GZRS.
+> Se è stato eseguito un [failover dell'account](storage-disaster-recovery-guidance.md) per l'account GZRS (RA-) GRS o (RA-), l'account viene ridondante localmente (con ridondanza locale) nella nuova area primaria dopo il failover. La migrazione in tempo reale a ZRS o GZRS per un account con ridondanza locale risultante da un failover non è supportata. Questo vale anche nel caso di operazioni di failback dette. Ad esempio, se si esegue un failover dell'account da RA-GZRS a con ridondanza locale nell'area secondaria e quindi lo si configura nuovamente in RA-GRS e si esegue un altro failover dell'account nell'area primaria originale, non è possibile contattare il supporto per la migrazione in tempo reale originale a RA-GZRS nell'area primaria. Sarà invece necessario eseguire una migrazione manuale a ZRS o GZRS.
 
 ## <a name="change-the-replication-setting"></a>Modificare l'impostazione di replica
 

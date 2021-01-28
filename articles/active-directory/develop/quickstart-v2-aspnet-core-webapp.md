@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05e14b5bdc2f603ffe802b12ed33b7b57be25b69
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754507"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938203"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -56,13 +56,13 @@ Per un'illustrazione, vedere [Funzionamento dell'esempio](#how-the-sample-works)
 > 1. Selezionare **Registra**.
 > 1. In **Gestisci** selezionare **Autenticazione**.
 > 1. In **URI di reindirizzamento** selezionare **Aggiungi URI**, quindi immettere `https://localhost:44321/signin-oidc` .
-> 1. Immettere un **URL di disconnessione** di `https://localhost:44321/signout-oidc` .
+> 1. Immettere un **URL di disconnessione front-Channel** di `https://localhost:44321/signout-oidc` .
 > 1. In **Concessione implicita** selezionare **Token ID**.
 > 1. Selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice per questa guida introduttiva, è necessario aggiungere `https://localhost:44321/` e `https://localhost:44321/signin-oidc` come URL di risposta e `https://localhost:44321/signout-oidc` come URL di disconnessione e richiedere il rilascio di token ID da parte dell'endpoint di autorizzazione.
+> Il codice di esempio di questa Guida introduttiva richiede un **URI di reindirizzamento** di `https://localhost:44321/` e `https://localhost:44321/signin-oidc` e un **URL di disconnessione front-Channel** di `https://localhost:44321/signout-oidc` . I token ID richiesta verranno emessi dall'endpoint di autorizzazione.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >

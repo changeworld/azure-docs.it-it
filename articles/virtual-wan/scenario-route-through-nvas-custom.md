@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 122e76e4bde96823ff18207bc24df4a8e91afb1c
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e51d7d00120f6facb0fb53a8e379d157ae79ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517969"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938578"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Scenario: instradare il traffico attraverso appliance virtuali usando le impostazioni personalizzate
 
@@ -58,12 +58,15 @@ Sono disponibili tre modelli di connettività distinti che si traduce in tre tab
   * Tabella di route associata: **predefinita**
   * Propagazione alle tabelle di route: **RT_SHARED** e **default**
 
+> [!NOTE] 
+> Verificare che il reti virtuali spoke non venga propagato all'etichetta predefinita. In questo modo, il traffico proveniente dai rami ai reti virtuali spoke verrà inviato al appliance virtuali.
+
 Queste route statiche assicurano che il traffico da e verso la rete virtuale e il ramo attraversino l'appliance virtuale di rete nel servizio VNet (VNet 4):
 
 | Descrizione | Tabella di route | Route statica              |
 | ----------- | ----------- | ------------------------- |
 | Rami    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| Spoke di NVA  | Valore predefinito     | 10.1.0.0/16-> vnet4conn  |
+| Spoke di NVA  | Predefinito     | 10.1.0.0/16-> vnet4conn  |
 
 A questo punto è possibile usare la rete WAN virtuale per selezionare la connessione corretta a cui inviare i pacchetti. È anche necessario usare la rete WAN virtuale per selezionare l'azione corretta da eseguire quando si ricevono questi pacchetti. Usare le tabelle di route di connessione per questo, come indicato di seguito:
 
@@ -74,7 +77,7 @@ A questo punto è possibile usare la rete WAN virtuale per selezionare la connes
 
 Per ulteriori informazioni, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 Di seguito è riportato un diagramma dell'architettura descritta in precedenza in questo articolo.
 
@@ -120,7 +123,7 @@ Per configurare il routing tramite appliance virtuale di sistema, ecco i passagg
 
    * **Propagazione da:** Assicurarsi che sia selezionata l'opzione per Branch (VPN/ER/P2S), assicurandosi che le connessioni locali propaghino le route alla tabella di route predefinita.
 
-:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagramma dell'architettura di rete." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
+:::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Diagramma del flusso di lavoro." lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

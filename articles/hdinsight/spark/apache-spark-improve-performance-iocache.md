@@ -1,18 +1,15 @@
 ---
 title: Prestazioni Apache Spark-cache i/o di Azure HDInsight (anteprima)
 description: Informazioni su Azure HDInsight IO Cache e su come usare questa funzionalità per migliorare le prestazioni di Apache Spark.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/23/2019
-ms.openlocfilehash: 3e724e6336163a092c9b4385324b1aa037295bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f0756e59f81ad2c5d155581feed8c4fef09808
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86081758"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98940124"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Migliorare le prestazioni dei carichi di lavoro Apache Spark usando la cache IO di Azure HDInsight
 
@@ -30,7 +27,7 @@ L'uso di IO Cache assicura un aumento delle prestazioni dei processi che leggono
 
 Per assistere ad aumenti delle prestazioni con l'uso di IO Cache, non occorre apportare modifiche ai processi Spark. Quando IO Cache è disabilitato, il codice Spark seguente leggerà i dati in remoto da Archiviazione BLOB di Azure: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. Quando IO Cache è attivato, la stessa riga di codice determina l'esecuzione di un'operazione di lettura memorizzata nella cache tramite IO Cache. Alle letture successive, i dati vengono letti in locale dall'unità SSD. I nodi del ruolo di lavoro nel cluster HDInsight sono dotati di unità SSD dedicate e collegate in locale. HDInsight IO Cache usa queste unità SSD locali per la memorizzazione nella cache, in modo da offrire un livello di latenza minimo e larghezza di banda massima.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 Nell'anteprima Azure HDInsight IO Cache è disattivato per impostazione predefinita. IO Cache è disponibile nei cluster Spark di Azure HDInsight 3.6 e versioni successive che eseguono Apache Spark 2.3.  Per attivare la cache di IO in HDInsight 4,0, seguire questa procedura:
 

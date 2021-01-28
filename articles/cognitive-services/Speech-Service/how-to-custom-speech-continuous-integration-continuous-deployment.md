@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: d37fca06a3d2eafa0af9e31c3a30ac66be5404f0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f7f11ef097d3abee2b4c18c32a1cb215d9fe8ce8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98020605"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98939898"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD per Riconoscimento vocale personalizzato
 
@@ -73,7 +73,7 @@ La maggior parte dei team richiede un processo di revisione e approvazione manua
 
 Usare gli strumenti seguenti per i flussi di lavoro di automazione CI/CD per Riconoscimento vocale personalizzato:
 
-- [Interfaccia](/cli/azure/?view=azure-cli-latest) della riga di comando di Azure per creare un'autenticazione dell'entità servizio di Azure, eseguire query sulle sottoscrizioni di Azure e archiviare i risultati dei test nel BLOB
+- [Interfaccia](/cli/azure/) della riga di comando di Azure per creare un'autenticazione dell'entità servizio di Azure, eseguire query sulle sottoscrizioni di Azure e archiviare i risultati dei test nel BLOB
 - [Interfaccia](spx-overview.md) della riga di comando di Azure per interagire con il servizio riconoscimento vocale dalla riga di comando o da un flusso di lavoro automatizzato.
 
 ## <a name="devops-solution-for-custom-speech-using-github-actions"></a>Soluzione DevOps per Riconoscimento vocale personalizzato usando le azioni di GitHub
