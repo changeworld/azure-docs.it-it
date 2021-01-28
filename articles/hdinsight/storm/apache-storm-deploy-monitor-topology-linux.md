@@ -1,19 +1,16 @@
 ---
 title: Distribuire e gestire le topologie Apache Storm su Azure HDInsight
 description: Informazioni su come distribuire, monitorare e gestire Apache Storm topologie con Storm dashboard in HDInsight basato su Linux. Utilizzare gli strumenti Hadoop per Visual Studio
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 417819cad3bc2ee258381426dfcee7c800b69d42
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995591"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929167"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Distribuire e gestire le topologie Apache Storm su Azure HDInsight
 
@@ -44,7 +41,7 @@ In questo documento sono illustrati i concetti di gestione e monitoraggio delle 
 
 1. Nella finestra **Crea un nuovo progetto** selezionare la casella di ricerca e immettere `Storm` . Quindi scegliere **Storm Sample** dall'elenco dei risultati e fare clic su **Next (avanti**).
 
-1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto** e passare a o creare un **percorso** in cui salvare il nuovo progetto. Selezionare quindi **Crea**.
+1. Nella finestra **Configura nuovo progetto** immettere un **nome di progetto** e passare a o creare un **percorso** in cui salvare il nuovo progetto. Quindi selezionare **Crea**
 
     ![Configurare la finestra del nuovo progetto, Visual Studio](./media/apache-storm-deploy-monitor-topology-linux/apache-storm-sample1.png)
 

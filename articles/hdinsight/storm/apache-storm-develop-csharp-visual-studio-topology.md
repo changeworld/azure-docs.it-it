@@ -2,19 +2,16 @@
 title: Topologie Apache Storm con Visual Studio e Visual C# - Azure HDInsight
 description: Informazioni su come creare topologie Storm in C#. Creare una topologia di conteggio parole in Visual Studio usando gli strumenti di Hadoop per Visual Studio.
 ROBOTS: NOINDEX
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000193"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929159"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -59,30 +56,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -221,7 +218,7 @@ A questo punto, creare due Bolt Storm in questo esempio:
 
 1. Eliminare dal progetto il file *Bolt.cs* esistente.
 
-2. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi in `WordCount` . Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter.cs*.
+2. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Aggiungi**  >  **nuovo elemento**. Selezionare **Storm Bolt** dall'elenco e immettere *Splitter.cs* come nome. Nel codice del nuovo file modificare il nome dello spazio dei nomi in `WordCount` . Ripetere quindi questo processo per creare un secondo Bolt denominato *Counter.cs*.
 
    * *Splitter.cs*: implementa un Bolt che divide le frasi in singole parole e genera un nuovo flusso di parole.
 
@@ -410,7 +407,7 @@ A questo punto si è pronti per inviare la topologia al cluster HDInsight.
 
 1. Fare clic con il pulsante destro del mouse su **Azure**, scegliere **Connetti a Microsoft Azure sottoscrizione...** e completare il processo di accesso.
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto e scegliere **Invia a Storm in HDInsight**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Invia a Storm in HDInsight**.
 
 1. Nella finestra di dialogo **Invia topologia** , nell'elenco a discesa **cluster Storm** , scegliere il cluster Storm in HDInsight e quindi selezionare **Invia**. È possibile verificare se l'invio è riuscito visualizzando il riquadro di **output** .
 
@@ -419,7 +416,7 @@ A questo punto si è pronti per inviare la topologia al cluster HDInsight.
     ![Finestra visualizzazione topologia Storm, cluster HDInsight, Visual Studio](./media/apache-storm-develop-csharp-visual-studio-topology/storm-topology-view.png)
 
     > [!NOTE]  
-    > È inoltre possibile visualizzare le **topologie Storm ** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e scegliere **Visualizza topologie Storm**.
+    > È inoltre possibile visualizzare le **topologie Storm** da **Esplora Server**. Espandere **Azure**  >  **HDInsight**, fare clic con il pulsante destro del mouse su un cluster Storm in HDInsight e scegliere **Visualizza topologie Storm**.
 
     Per visualizzare informazioni sui componenti della topologia, selezionare un componente nel diagramma.
 
@@ -575,9 +572,9 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
    > [!NOTE]
    > Ricordarsi di reimpostare **Tipo di output** su **Libreria di classi** prima di distribuire la topologia a un cluster.
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **classe**e immettere *LocalTest.cs* come nome della classe. Infine, selezionare **Aggiungi**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e quindi selezionare **Aggiungi** > **Nuovo elemento**. Selezionare **classe** e immettere *LocalTest.cs* come nome della classe. Infine, selezionare **Aggiungi**.
 
-1. Aprire *LocalTest.cs*e aggiungere l'istruzione seguente `using` nella parte superiore:
+1. Aprire *LocalTest.cs* e aggiungere l'istruzione seguente `using` nella parte superiore:
 
     ```csharp
     using Microsoft.SCP;
@@ -664,7 +661,7 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 
     Leggere con attenzione i commenti del codice. Questo codice usa `LocalContext` per eseguire i componenti nell'ambiente di sviluppo. Il flusso di dati viene reso permanente tra i componenti in file di testo nell'unità locale.
 
-1. Aprire *Program.cs*e aggiungere il codice seguente al `Main` Metodo:
+1. Aprire *Program.cs* e aggiungere il codice seguente al `Main` Metodo:
 
     ```csharp
     Console.WriteLine("Starting tests");
@@ -687,10 +684,10 @@ Sebbene sia facile distribuire una topologia in un cluster, in alcuni casi potre
 
 1. Salvare le modifiche e quindi premere **F5** oppure scegliere **debug**  >  **Avvia debug** per avviare il progetto. Viene visualizzata una finestra della console, con lo stato del log aggiornato in base all'avanzamento dei test. Quando `Tests finished` viene visualizzato, selezionare un tasto qualsiasi per chiudere la finestra.
 
-1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio: *C: \\ utenti repository di \\ \<your_user_name> \\ origine \\ \\ WordCount \\ WordCount*. Quindi, in questa directory aprire *bin*, quindi selezionare *debug*. Verranno visualizzati i file di testo prodotti durante l'esecuzione dei test: *sentences.txt*, *counter.txt*e *splitter.txt*. Aprire ogni file di testo e verificare i dati.
+1. Usare **Esplora risorse** per individuare la directory contenente il progetto. Ad esempio: *C: \\ utenti repository di \\ \<your_user_name> \\ origine \\ \\ WordCount \\ WordCount*. Quindi, in questa directory aprire *bin*, quindi selezionare *debug*. Verranno visualizzati i file di testo prodotti durante l'esecuzione dei test: *sentences.txt*, *counter.txt* e *splitter.txt*. Aprire ogni file di testo e verificare i dati.
 
    > [!NOTE]  
-   > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, `[[97,103,111]]` nel file **splitter.txt** rappresenta la parola. *ago*
+   > In questi file i dati stringa vengono resi permanenti come matrice di valori decimali. Ad esempio, `[[97,103,111]]` nel file **splitter.txt** rappresenta la parola. 
 
 > [!NOTE]  
 > Assicurarsi di impostare di nuovo il **tipo di progetto** su libreria di **classi** nelle proprietà del progetto prima della distribuzione in un cluster Storm in HDInsight.

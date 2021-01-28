@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8566d82ef0d91caff47ff17a9cb12fcdc8241884
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207394"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928021"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Ripristino del backup in Azure Service Fabric
 
@@ -28,11 +28,16 @@ Ad esempio, è possibile configurare un servizio in modo che esegua il backup de
 - Per attivare un ripristino, il _servizio di analisi degli errori_ deve essere abilitato per il cluster.
 - Il _servizio di ripristino backup_ ha creato il backup.
 - Il ripristino può essere attivato solo in una partizione.
-- Installare il modulo Microsoft. ServiceFabric. PowerShell. http [in anteprima] per eseguire chiamate di configurazione.
+- Installare il modulo Microsoft. ServiceFabric. PowerShell. http (anteprima) per effettuare chiamate di configurazione.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se la versione di PowerShellGet è inferiore a 1.6.0, è necessario eseguire l'aggiornamento per aggiungere il supporto per il flag *-flag allowprerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Verificare che il cluster sia connesso usando il `Connect-SFCluster` comando prima di eseguire qualsiasi richiesta di configurazione usando il modulo Microsoft. ServiceFabric. PowerShell. http.
 
@@ -48,7 +53,7 @@ Ad esempio, è possibile configurare un servizio in modo che esegua il backup de
 Il ripristino può essere attivato per gli scenari seguenti:
 
 - Ripristino dati in caso di _ripristino di emergenza_.
-- Ripristino dei dati per il _danneggiamento o la perdita_di dati.
+- Ripristino dati in caso di _danneggiamento o perdita dei dati_.
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Ripristino dati in caso di ripristino di emergenza
 
@@ -205,7 +210,7 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
     ![Attiva ripristino partizione FileShare][3]
 
-### <a name="data-restore-for-_data-corruption__data-loss_"></a>Ripristino dei dati _data corruption_per la / _perdita_ di dati danneggiati
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Ripristino dei dati per la / _perdita_ di dati danneggiati
 
 In caso di _perdita dei dati_ o _danneggiamento dei dati_, per le partizioni sottoposte a backup del servizio Reliable con stato e Reliable Actors il ripristino può essere eseguito in uno qualsiasi dei backup scelti.
 
@@ -213,7 +218,7 @@ L'esempio seguente è la continuazione dell'esempio menzionato in [Abilita i bac
 
 Selezionare un backup dall'output di [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In questo scenario il backup viene generato dallo stesso cluster usato in precedenza.
 
-Per attivare il ripristino, scegliere un backup dall'elenco. Per il danneggiamento dei dati di _perdita dei dati_correnti / _data corruption_, selezionare il backup seguente:
+Per attivare il ripristino, scegliere un backup dall'elenco. Per il danneggiamento dei dati di _perdita dei dati_ correnti / , selezionare il backup seguente:
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -297,7 +302,7 @@ La richiesta di ripristino procede nell'ordine seguente:
     RestoredLsn   : 3552
     ```
     
-3. **Esito positivo**, **negativo**o **timeout**: un ripristino richiesto può essere completato in uno degli Stati seguenti. Il significato e la risposta di ogni stato sono riportati di seguito:
+3. **Esito positivo**, **negativo** o **timeout**: un ripristino richiesto può essere completato in uno degli Stati seguenti. Il significato e la risposta di ogni stato sono riportati di seguito:
     - **Success**: uno stato di ripristino con _esito positivo_ indica uno stato di partizione recuperato. La partizione indica gli stati _RestoredEpoch_ e _RestoredLSN_, oltre all'ora in formato UTC.
 
         ```

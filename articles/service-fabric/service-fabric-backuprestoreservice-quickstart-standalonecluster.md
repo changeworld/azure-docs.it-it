@@ -3,12 +3,12 @@ title: Backup/ripristino periodici in Azure autonomo Service Fabric
 description: Utilizzare la funzionalità di backup e ripristino periodico di un Service Fabric autonomo per abilitare il backup periodico dei dati dell'applicazione.
 ms.topic: conceptual
 ms.date: 5/24/2019
-ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4abf1cd4561a40aaafa5c01865eb12882884422
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538586"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927947"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e ripristino periodici in un Service Fabric autonomo
 > [!div class="op_single_selector"]
@@ -47,11 +47,16 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 * Certificato X.509 per la crittografia dei dati, necessario per connettersi alla risorsa di archiviazione e archiviare i backup. Fare riferimento all’[articolo](service-fabric-windows-cluster-x509-security.md) per sapere come acquisire o come creare un certificato X.509 autofirmato.
 
 * Applicazione Reliable di Service Fabric con informazioni sullo stato, creata utilizzando Service Fabric SDK versione 3.0 o versione successiva. Per le applicazioni destinate a .NET Core 2,0, l'applicazione deve essere compilata usando Service Fabric SDK versione 3,1 o successiva.
-* Installare il modulo Microsoft. ServiceFabric. PowerShell. http [in anteprima] per eseguire chiamate di configurazione.
+* Installare il modulo Microsoft. ServiceFabric. PowerShell. http (anteprima) per effettuare chiamate di configurazione.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.PowerShell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se la versione di PowerShellGet è inferiore a 1.6.0, è necessario eseguire l'aggiornamento per aggiungere il supporto per il flag *-flag allowprerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 * Verificare che il cluster sia connesso usando il `Connect-SFCluster` comando prima di eseguire qualsiasi richiesta di configurazione usando il modulo Microsoft. ServiceFabric. PowerShell. http.
 

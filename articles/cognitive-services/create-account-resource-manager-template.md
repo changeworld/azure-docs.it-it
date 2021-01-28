@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 4afaad77fdff7a1ba80a385e9f2c3d8ddef8ab96
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842108"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928645"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Avvio rapido: Creare una risorsa di Servizi cognitivi con un modello di Resource Manager
 
@@ -75,7 +75,7 @@ Nel modello è definita una risorsa di Azure:
 > [!NOTE]
 > `az deployment group` create richiede l'interfaccia della riga di comando di Azure 2.6 o versione successiva. Per visualizzare la versione, digitare `az --version`. Per altre informazioni, vedere la [documentazione](/cli/azure/deployment/group).
 
-Eseguire lo script seguente usando l'interfaccia della riga di comando di Azure [nel computer locale](/cli/azure/install-azure-cli?view=azure-cli-latest) o in un browser con il pulsante **Prova**. Immettere un nome e una località, ad esempio `centralus`, per un nuovo gruppo di risorse in cui verrà distribuita una risorsa di Servizi cognitivi usando il modello di Resource Manager. Prendere nota del nome che si usa. Sarà necessario in seguito per convalidare la distribuzione.
+Eseguire lo script seguente usando l'interfaccia della riga di comando di Azure [nel computer locale](/cli/azure/install-azure-cli) o in un browser con il pulsante **Prova**. Immettere un nome e una località, ad esempio `centralus`, per un nuovo gruppo di risorse in cui verrà distribuita una risorsa di Servizi cognitivi usando il modello di Resource Manager. Prendere nota del nome che si usa. Sarà necessario in seguito per convalidare la distribuzione.
 
 
 ```azurecli-interactive

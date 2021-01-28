@@ -2,18 +2,15 @@
 title: Crittografia doppia per dati inattivi
 titleSuffix: Azure HDInsight
 description: Questo articolo descrive i due livelli di crittografia disponibili per i dati inattivi nei cluster HDInsight di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 4e895cdba1bfc16eac0450bd05271f0e41985b7b
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359760"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98927322"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Crittografia doppia di Azure HDInsight per dati inattivi
 
@@ -104,7 +101,7 @@ In HDInsight è supportato solo Azure Key Vault. Se si ha un proprio insieme di 
     |Proprietà |Descrizione|
     |---|---|
     |Autorizzazioni chiave|Selezionare **Get**, **Unwrap Key** e **Wrap Key**.|
-    |Autorizzazioni segrete|Selezionare **Get**, **set** ed **Delete**.|
+    |Autorizzazioni segreto|Selezionare **Get**, **set** ed **Delete**.|
     |Selezionare un'entità|Selezionare l'identità gestita assegnata dall'utente creata in precedenza.|
 
     ![Impostare Selezionare un'entità per il criterio di accesso di Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)

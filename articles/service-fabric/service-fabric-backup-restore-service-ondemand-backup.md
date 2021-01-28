@@ -5,27 +5,32 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 04d8bb4a9f8157a229751d073e8d351f5448fa68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7986c8cd8d0714215c7b4dc57170be346e627ed
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247898"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928039"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Backup su richiesta in Azure Service Fabric
 
 È possibile eseguire il backup dei dati dei servizi Reliable con stato e Reliable Actors per far fronte a situazioni di emergenza o di perdita di dati.
 
-Service Fabric offre funzionalità per il [backup periodico dei dati](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e il backup dei dati in base alle necessità. Il backup su richiesta è utile perché protegge dal _data loss_ / _danneggiamento dei dati_ di perdita dei dati a causa di modifiche pianificate nel servizio sottostante o nel relativo ambiente.
+Service Fabric offre funzionalità per il [backup periodico dei dati](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e il backup dei dati in base alle necessità. Il backup su richiesta è utile perché protegge dal  / _danneggiamento dei dati_ di perdita dei dati a causa di modifiche pianificate nel servizio sottostante o nel relativo ambiente.
 
 Le funzionalità di backup su richiesta sono utili per acquisire lo stato dei servizi prima di attivare manualmente un'operazione relativa a un servizio o a un ambiente di servizio. Se ad esempio si modificano i file binari di un servizio durante l'aggiornamento o il downgrade, il backup su richiesta può contribuire a proteggere i dati dal danneggiamento a causa di bug nel codice dell'applicazione.
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Installare il modulo Microsoft. ServiceFabric. PowerShell. http [in anteprima] per eseguire chiamate di configurazione.
+- Installare il modulo Microsoft. ServiceFabric. PowerShell. http (anteprima) per effettuare chiamate di configurazione.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
+
+> [!NOTE]
+> Se la versione di PowerShellGet è inferiore a 1.6.0, è necessario eseguire l'aggiornamento per aggiungere il supporto per il flag *-flag allowprerelease* :
+>
+> `Install-Module -Name PowerShellGet -Force`
 
 - Verificare che il cluster sia connesso usando il `Connect-SFCluster` comando prima di eseguire qualsiasi richiesta di configurazione usando il modulo Microsoft. ServiceFabric. PowerShell. http.
 
@@ -149,7 +154,7 @@ Gli stati delle richieste di backup su richiesta sono i seguenti:
   LsnOfLastBackupRecord   : 0
   FailureError            :
   ```
-- **Esito positivo**, **negativo**o **timeout**: un backup su richiesta richiesto può essere completato in uno degli Stati seguenti:
+- **Esito positivo**, **negativo** o **timeout**: un backup su richiesta richiesto può essere completato in uno degli Stati seguenti:
   - **Operazione riuscita**: uno stato di backup _riuscito_ indica che è stato eseguito il backup dello stato della partizione. La risposta specifica _BackupEpoch_ e _BackupLSN_ per la partizione, oltre all'orario in formato UTC.
     ```
     BackupState             : Success

@@ -1,19 +1,16 @@
 ---
 title: Esempio Java di topologia Apache Storm - Azure HDInsight
 description: Informazioni su come creare topologie apache Storm in Java mediante la creazione di una topologia di conteggio parole di esempio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 620a4e1627b25af22db68173f35924376e26f5f8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545498"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98929132"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Creare una topologia Apache Storm in Java
 
@@ -43,7 +40,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-Immettere il comando seguente per creare un progetto Maven denominato **WordCount** :
+Immettere il comando seguente per creare un progetto Maven denominato **WordCount**:
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -199,9 +196,9 @@ Questa sezione viene usata per aggiungere plug-in, risorse e altre opzioni di co
 
     Un altro plug-in utile è [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , usato per modificare le opzioni di compilazione. Modificare la versione di Java utilizzata da Maven per l'origine e la destinazione dell'applicazione.
 
-  * Per HDInsight __3.4 o versioni precedenti__ , impostare la versione di origine e di destinazione di Java su __1.7__ .
+  * Per HDInsight __3.4 o versioni precedenti__, impostare la versione di origine e di destinazione di Java su __1.7__.
 
-  * Per HDInsight __3.5__ , impostare la versione di origine e di destinazione di Java su __1.8__ .
+  * Per HDInsight __3.5__, impostare la versione di origine e di destinazione di Java su __1.8__.
 
   Aggiungere il testo seguente nella sezione `<plugins>` del file `pom.xml` per includere il plug-in Apache Maven Compiler. Questo esempio specifica la versione 1.8, quindi la versione di HDInsight di destinazione è 3.5.
 
@@ -237,11 +234,11 @@ In questo esempio viene aggiunta la directory delle risorse nella radice del pro
 
 Una topologia Apache Storm basata su Java è costituita da tre componenti che è necessario creare o a cui è necessario fare riferimento come dipendenza.
 
-* **Spout** : legge i dati da origini esterne e genera flussi di dati nella topologia.
+* **Spout**: legge i dati da origini esterne e genera flussi di dati nella topologia.
 
-* **Bolts** : elabora i flussi emessi da beccucci o altri Bolt e genera uno o più flussi.
+* **Bolts**: elabora i flussi emessi da beccucci o altri Bolt e genera uno o più flussi.
 
-* **Topologia** : definisce il modo in cui vengono disposti gli spout e i bolt e fornisce il punto di ingresso per la topologia.
+* **Topologia**: definisce il modo in cui vengono disposti gli spout e i bolt e fornisce il punto di ingresso per la topologia.
 
 ### <a name="create-the-spout"></a>Creare lo spout
 
@@ -327,9 +324,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 I bolt gestiscono l'elaborazione dei dati. I bolt eseguono qualsiasi tipo di attività, ad esempio calcolo, persistenza o comunicazione con componenti esterni. Questa topologia usa due bolt:
 
-* **SplitSentence** : divide le frasi generate da **RandomSentenceSpout** in singole parole.
+* **SplitSentence**: divide le frasi generate da **RandomSentenceSpout** in singole parole.
 
-* **WordCount** : conta le occorrenze di ciascuna parola.
+* **WordCount**: conta le occorrenze di ciascuna parola.
 
 #### <a name="splitsentence"></a>SplitSentence
 
