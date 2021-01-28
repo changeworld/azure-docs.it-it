@@ -2,19 +2,17 @@
 title: Eseguire il debug del processo Spark con IntelliJ Azure Toolkit (anteprima)-HDInsight
 description: Indicazioni sull'uso degli strumenti HDInsight in Azure Toolkit for IntelliJ per eseguire il debug delle applicazioni
 keywords: eseguire debug remoto di intellij, debug remoto di intellij, ssh, intellij, hdinsight, debug di intellij, debug
-author: hrasheed-msft
-ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: c8ce1a66d6dbf215c3d49740f2aec47ab01f7591
-ms.sourcegitcommit: 28c93f364c51774e8fbde9afb5aa62f1299e649e
+ms.openlocfilehash: 5abbb26e7582d8ddabb73f3a178cf6d87e24db21
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97822319"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942540"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)
 

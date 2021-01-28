@@ -3,16 +3,13 @@ title: Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
 description: Varie eccezioni OutOfMemoryError per il cluster Apache Spark in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: 156d3ce4b7f8b6eaa297f2cddd0d5a93f382f78e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a15d79f2ae9c3d20a73ec557c57a5c189b18111b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547283"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946340"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Eccezioni OutOfMemoryError per Apache Spark in Azure HDInsight
 
@@ -60,7 +57,7 @@ La causa più probabile per questa eccezione è costituita dall'allocazione di m
 
 1. Determinare le dimensioni massime dei dati che possono essere gestiti dall'applicazione Spark. Eseguire una stima delle dimensioni in base al valore massimo della dimensione dei dati di input, i dati intermedi prodotti dalla trasformazione dei dati di input e dei dati di output prodotte ulteriormente la trasformazione dei dati intermedi. Se la stima iniziale non è sufficiente, aumentare leggermente le dimensioni e scorrere fino a quando non si verificano errori di memoria.
 
-1. Assicurarsi che il cluster HDInsight da utilizzare disponga di sufficienti risorse in termini di memoria e core per supportare l'applicazione Spark. Questo può essere determinato visualizzando la sezione metrica cluster dell'interfaccia utente di YARN del cluster per i valori di **memoria usata** e **memoria totale** e **Vcore usati** rispetto al **totale Vcore** .
+1. Assicurarsi che il cluster HDInsight da utilizzare disponga di sufficienti risorse in termini di memoria e core per supportare l'applicazione Spark. Questo può essere determinato visualizzando la sezione metrica cluster dell'interfaccia utente di YARN del cluster per i valori di **memoria usata** e **memoria totale** e **Vcore usati** rispetto al **totale Vcore**.
 
     ![visualizzazione memoria core yarn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
@@ -255,4 +252,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).

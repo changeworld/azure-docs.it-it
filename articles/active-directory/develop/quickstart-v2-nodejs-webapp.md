@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: ab3677ede2805fc8ecb076e8a40da605c038b54b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178280"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937932"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Avvio rapido: Aggiungere l'accesso con OpenID Connect a un'app Web Node.js
 
@@ -37,14 +37,14 @@ In questa guida di avvio rapido si scarica e si esegue un esempio di codice che 
 1. Immettere un **Nome** per l'applicazione, ad esempio `MyWebApp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
 1. Nella sezione **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)** .
 
-    Se sono presenti più URI di reindirizzamento, è necessario aggiungerli in un secondo momento dalla scheda **Autenticazione** dopo la creazione dell'app.
+    Se sono presenti più URI di reindirizzamento, aggiungerli dalla scheda **autenticazione** in un secondo momento dopo che l'app è stata creata correttamente.
 
 1. Selezionare **Registra** per creare l'app.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Questo valore sarà necessario per configurare l'applicazione più avanti in questo progetto.
 1. In **Gestisci** selezionare **Autenticazione**.
 1. Selezionare **Aggiungi una piattaforma** > **Web**. 
 1. Nella sezione **URI di reindirizzamento** immettere `http://localhost:3000/auth/openid/return`.
-1. Immettere `https://localhost:3000` per **URI di disconnessione**.
+1. Immettere un **URL di disconnessione front-Channel** `https://localhost:3000` .
 1. Nella sezione Concessione implicita selezionare **Token ID** perché con questo esempio è necessario che il [flusso di concessione implicito](./v2-oauth2-implicit-grant-flow.md) sia abilitato per consentire all'utente di accedere.
 1. Selezionare **Configura**.
 1. In **Gestisci** selezionare **Certificati e segreti** > **Nuovo segreto client**.

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b4f9dcf6fd43749cdf71098b3cd0da8a42020f6d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5c23259a9cb1f3c409ad437a1e91151b5f401129
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98221766"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946293"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint servizio di rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -326,7 +326,7 @@ L'accesso viene rifiutato e viene visualizzato un errore `mount error(13): Permi
 
 Uscire dalla sessione SSH alla macchina virtuale *myVmPublic*.
 
-Dal computer provare a visualizzare le condivisioni nell'account di archiviazione con [az storage share list](/cli/azure/storage/share?view=azure-cli-latest). Sostituire `<account-name>` e `<account-key>` con il nome e la chiave dell'account di archiviazione usati in [Creare un account di archiviazione](#create-a-storage-account):
+Dal computer provare a visualizzare le condivisioni nell'account di archiviazione con [az storage share list](/cli/azure/storage/share). Sostituire `<account-name>` e `<account-key>` con il nome e la chiave dell'account di archiviazione usati in [Creare un account di archiviazione](#create-a-storage-account):
 
 ```azurecli-interactive
 az storage share list \

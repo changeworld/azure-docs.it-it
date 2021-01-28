@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 01/27/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 96772020e70aeb32fa1a8ae18bf3818396887877
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 50042b749c917752d08198c31ada3c73a5ef540b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805244"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938490"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gestire Azure AD B2C con Microsoft Graph
 
@@ -35,18 +35,29 @@ Per usare MS API Graph e interagire con le risorse nel tenant di Azure AD B2C, �
 - [Aggiornare un utente](/graph/api/user-update)
 - [Eliminare un utente](/graph/api/user-delete)
 
-## <a name="user-phone-number-management"></a>Gestione dei numeri di telefono dell'utente
+## <a name="user-phone-number-management-beta"></a>Gestione dei numeri di telefono dell'utente (beta)
+
+Numero di telefono che può essere utilizzato da un utente per l'accesso tramite [SMS o chiamate vocali](identity-provider-local.md#phone-sign-in-preview)o [l'autenticazione a più fattori](multi-factor-authentication.md). Per altre informazioni, vedere [Azure ad API dei metodi di autenticazione](/graph/api/resources/phoneauthenticationmethod).
 
 - [Aggiungere](/graph/api/authentication-post-phonemethods)
-- [Ottieni](/graph/api/b2cauthenticationmethodspolicy-get)
-- [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
+- [Elenco](/graph/api/authentication-list-phonemethods)
+- [Ottieni](/graph/api/phoneauthenticationmethod-get)
+- [Aggiornamento](/graph/api/phoneauthenticationmethod-update)
 - [Elimina](/graph/api/phoneauthenticationmethod-delete)
 
-Per ulteriori informazioni sulla gestione del numero di telefono dell'accesso dell'utente, vedere [metodi di autenticazione B2C](/graph/api/resources/b2cauthenticationmethodspolicy).
+## <a name="self-service-password-reset-email-address-beta"></a>Indirizzo di posta elettronica per la reimpostazione della password self-service (beta)
 
-## <a name="identity-providers-user-flow"></a>Provider di identità (flusso utente)
+Un indirizzo di posta elettronica che può essere usato da un utente per la reimpostazione della password per l' [account di accesso del nome utente](identity-provider-local.md#username-sign-in). Per altre informazioni, vedere [Azure ad API dei metodi di autenticazione](/graph/api/resources/emailauthenticationmethod).
 
-Gestire i provider di identità disponibili per i flussi utente nel tenant del Azure AD B2C.
+- [Aggiungere](/graph/api/emailauthenticationmethod-post)
+- [Elenco](/graph/api/emailauthenticationmethod-list)
+- [Ottieni](/graph/api/emailauthenticationmethod-get)
+- [Aggiornamento](/graph/api/emailauthenticationmethod-update)
+- [Elimina](/graph/api/emailauthenticationmethod-delete)
+
+## <a name="identity-providers"></a>Provider di identità
+
+Gestire i [provider di identità](add-identity-provider.md) disponibili per i flussi utente nel tenant del Azure ad B2C.
 
 - [Elencare i provider di identità registrati nel tenant di Azure AD B2C](/graph/api/identityprovider-list)
 - [Creazione di un provider di identità](/graph/api/identityprovider-post-identityproviders)
@@ -62,6 +73,13 @@ Configurare criteri predefiniti per l'iscrizione, l'accesso, l'iscrizione e l'ac
 - [Creare un flusso utente](/graph/api/identitycontainer-post-b2cuserflows)
 - [Ottenere un flusso utente](/graph/api/b2cidentityuserflow-get)
 - [Eliminare un flusso utente](/graph/api/b2cidentityuserflow-delete)
+
+## <a name="user-flow-authentication-methods-beta"></a>Metodi di autenticazione del flusso utente (beta)
+
+Scegliere un meccanismo per consentire agli utenti di effettuare la registrazione tramite account locali. Gli account locali sono gli account in cui Azure AD esegue l'asserzione di identità. Per altre informazioni, vedere [tipo di risorsa b2cAuthenticationMethodsPolicy](/graph/api/resources/b2cauthenticationmethodspolicy).
+
+- [Ottieni](/graph/api/b2cauthenticationmethodspolicy-get)
+- [Aggiornamento](/graph/api/b2cauthenticationmethodspolicy-update)
 
 ## <a name="custom-policies"></a>Criteri personalizzati
 

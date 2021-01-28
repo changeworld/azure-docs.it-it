@@ -1,19 +1,16 @@
 ---
 title: Eseguire esempi di Apache Hadoop MapReduce in HDInsight - Azure
 description: Introduzione all'uso di esempi di MapReduce in file JAR inclusi in HDInsight. Usare SSH per connettersi al cluster e quindi usare il comando di Hadoop per eseguire i processi di esempio.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
-ms.openlocfilehash: cc0918f3d9739a214e682d7faa460b6cc519cb0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e75a39b1f9e8503097914b0c9e735915f9ae667
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207833"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943214"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Eseguire gli esempi di MapReduce inclusi in HDInsight
 
@@ -180,7 +177,7 @@ In questo esempio vengono utilizzati tre set di programmi MapReduce:
 
 * **TeraGen**: programma MapReduce che genera righe di dati da ordinare.
 
-* **TeraSort**esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
+* **TeraSort** esegue il campionamento dei dati di input e usa MapReduce per organizzare i dati in un ordine totale.
 
     TeraSort è un ordinamento standard di MapReduce, ad eccezione di un partitioner personalizzato. Il partitioner usa un elenco ordinato di chiavi campionate N-1 che definiscono l'intervallo di chiavi per ogni riduzione. In particolare, tutte le chiavi corrispondenti al criterio sample[i-1]<= chiave < sample[i] vengono inviate alla funzione reduce i. Il partitioner garantisce che tutti gli output di reduce i siano inferiori all'output della funzione reduce i+1.
 

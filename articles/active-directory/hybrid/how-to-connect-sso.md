@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88eae702782e2f1af9c20797676214db458c2adc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408006"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937632"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -35,8 +35,13 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 
 ![Accesso Single Sign-On facile](./media/how-to-connect-sso/sso1.png)
 
->[!IMPORTANT]
->L'accesso Seamless SSO richiede che il dispositivo dell'utente sia solo **aggiunto al dominio** , ma non viene usato nei dispositivi [aggiunti ad Azure AD](../devices/concept-azure-ad-join.md) o [aggiunti ad Azure AD ibrido](../devices/concept-azure-ad-join-hybrid.md). L'accesso Single Sign-On nei dispositivi aggiunti ad Azure AD, aggiunti ad Azure AD ibrido e registrati con Azure AD funziona in base al [token di aggiornamento primario](../devices/concept-primary-refresh-token.md).
+## <a name="sso-via-primary-refresh-token-vs-seamless-sso"></a>SSO tramite token di aggiornamento primario e accesso SSO facile
+
+Per Windows 10, è consigliabile usare SSO tramite il token di aggiornamento primario (PRT). Per Windows 7 e 8,1 è consigliabile usare seamless SSO.
+Seamless SSO richiede che il dispositivo dell'utente sia aggiunto a un dominio, ma non viene usato in Windows 10 [Azure ad dispositivi aggiunti](../devices/concept-azure-ad-join.md) o [ibridi Azure ad aggiunti](../devices/concept-azure-ad-join-hybrid.md). Single Sign-on Azure AD aggiunto, Azure AD ibrido e Azure AD dispositivi registrati funziona in base al [token di aggiornamento primario (PRT)](../devices/concept-primary-refresh-token.md)
+
+L'accesso SSO tramite PRT funziona dopo che i dispositivi sono stati registrati con Azure AD per i dispositivi ibridi Azure AD aggiunti, Azure AD dispositivi registrati in join o personali tramite Aggiungi account aziendale o dell'Istituto di istruzione. Per altre informazioni sul funzionamento di SSO con Windows 10 con PRT, vedere: [token di aggiornamento primario (PRT) e Azure ad](../devices/concept-primary-refresh-token.md)
+
 
 ## <a name="key-benefits"></a>Vantaggi principali
 
@@ -78,9 +83,6 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 \*\*\*Richiede una [configurazione aggiuntiva](how-to-connect-sso-quick-start.md#browser-considerations).
 
 \*\*\*\*Richiede Microsoft Edge versione 77 o successiva.
-
->[!NOTE]
->Per Windows 10, si consiglia di usare il [join per Azure AD](../devices/concept-azure-ad-join.md) per ottenere risultati ottimali dall'accesso Single Sign-On con Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

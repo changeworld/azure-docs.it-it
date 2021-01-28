@@ -3,7 +3,7 @@ title: Delega e ruoli nella gestione dei diritti-Azure AD
 description: Informazioni su come delegare la governance degli accessi dagli amministratori IT ai responsabili del reparto e ai responsabili di progetto in modo che possano gestire l'accesso.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf3784cc5f6014b04b4668517faf3f319ce55d5
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746678"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937674"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -65,12 +65,12 @@ Il diagramma seguente mostra i cataloghi con risorse per gli uffici marketing, F
 
 Dopo la delega, il reparto marketing potrebbe avere ruoli simili alla tabella seguente.
 
-| Utente | Ruolo di lavoro | Ruolo di Azure AD | Ruolo di gestione dei diritti |
+| User | Ruolo di lavoro | Ruolo di Azure AD | Ruolo di gestione dei diritti |
 | --- | --- | --- | --- |
 | Hana | Amministratore IT | Amministratore globale o Amministratore utenti |  |
-| Muja | Responsabile marketing | Utente | Autore del catalogo e proprietario del catalogo |
-| Bob | Responsabile marketing | Utente | Proprietario Catalogo |
-| Jessica | project manager marketing | Utente | Gestione pacchetti di Access |
+| Muja | Responsabile marketing | User | Autore del catalogo e proprietario del catalogo |
+| Bob | Responsabile marketing | User | Proprietario Catalogo |
+| Jessica | project manager marketing | User | Gestione pacchetti di Access |
 
 ## <a name="entitlement-management-roles"></a>Ruoli di gestione dei diritti
 
@@ -92,7 +92,7 @@ Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
-| Attività | Admin | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Gestione assegnazione pacchetti di Access |
+| Attività | Amministrativi | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Gestione assegnazione pacchetti di Access |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
 | [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
@@ -118,7 +118,7 @@ Nella tabella seguente sono elencate le attività che i ruoli di gestione dei di
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Ruoli necessari per aggiungere risorse a un catalogo
 
-Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Microsoft 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo, ad eccezione di un gruppo configurato come assegnabile a un ruolo della directory.
+Un amministratore globale può aggiungere o rimuovere qualsiasi gruppo (gruppi di sicurezza creati dal cloud o gruppi di Microsoft 365 creati dal cloud), un'applicazione o un sito di SharePoint online in un catalogo. Un amministratore utente può aggiungere o rimuovere qualsiasi gruppo o applicazione in un catalogo, ad eccezione di un gruppo configurato come assegnabile a un ruolo della directory. Si noti che un amministratore utente può gestire i pacchetti di accesso in un catalogo che include i gruppi configurati come assegnabili a un ruolo della directory.
 
 Per un utente che non è un amministratore globale o un amministratore di utenti, per aggiungere gruppi, applicazioni o siti di SharePoint Online a un catalogo, tale utente deve avere *sia* il ruolo della directory Azure ad necessario che il ruolo di gestione dei diritti del proprietario del catalogo. Nella tabella seguente sono elencate le combinazioni di ruoli necessarie per aggiungere risorse a un catalogo. Per rimuovere le risorse da un catalogo, è necessario avere gli stessi ruoli.
 
@@ -132,7 +132,7 @@ Per un utente che non è un amministratore globale o un amministratore di utenti
 | [Amministratore SharePoint](../roles/permissions-reference.md) | Proprietario Catalogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
 | [Amministratore applicazione](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
 | [Amministratore applicazione cloud](../roles/permissions-reference.md) | Proprietario Catalogo |  |  | :heavy_check_mark: |  |
-| Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
+| User | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il proprietario del gruppo | Solo se il proprietario dell'app |  |
 
 > [!NOTE]
 > Se un utente aggiunge un gruppo di sicurezza o un gruppo di Microsoft 365, il gruppo non può essere assegnabile come ruolo. Se l'utente aggiunge un gruppo assegnabile ai ruoli quando crea il pacchetto di accesso, deve essere anche il proprietario di tale gruppo assegnabile al ruolo. Per ulteriori informazioni, fare riferimento a [creare un gruppo assegnabile ai ruoli in Azure Active Directory](../roles/groups-create-eligible.md).

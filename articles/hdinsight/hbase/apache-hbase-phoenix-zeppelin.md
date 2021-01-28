@@ -1,19 +1,16 @@
 ---
 title: Eseguire query Apache di base in Azure HDInsight con Apache Phoenix
 description: Informazioni su come usare Apache Zeppelin per eseguire query Apache di base con Phoenix.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 50a72d0400b23162e05b17b37bdad48783261072
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542795"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944761"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Usare Apache Zeppelin per eseguire query Apache Phoenix su Apache HBase in Azure HDInsight
 
@@ -31,7 +28,7 @@ Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./ap
 
 1. Nell'URL `https://CLUSTERNAME.azurehdinsight.net/zeppelin` seguente sostituire `CLUSTERNAME` con il nome del cluster. Immettere quindi l'URL in un Web browser. Immettere il nome utente e la password dell'account di accesso del cluster.
 
-1. Dalla pagina Zeppelin selezionare **Crea nuova nota** .
+1. Dalla pagina Zeppelin selezionare **Crea nuova nota**.
 
     ![Zeppelin Interactive Query HDInsight](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-create-note.png)
 
@@ -40,13 +37,13 @@ Un cluster Apache HBase in HDInsight. Vedere [Introduzione ad Apache HBase](./ap
     - Nome Nota: immettere un nome per la nota.
     - Interprete predefinito: selezionare **JDBC** dall'elenco a discesa.
 
-    Quindi selezionare **Crea nota** .
+    Quindi selezionare **Crea nota**.
 
 1. Verificare che l'intestazione del notebook mostri uno stato connesso. È indicato da un punto verde nell'angolo superiore destro.
 
     ![Stato di notebook Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Stato di notebook Zeppelin")
 
-1. Creare una tabella HBase. Immettere il comando seguente e quindi premere **MAIUSC + INVIO** :
+1. Creare una tabella HBase. Immettere il comando seguente e quindi premere **MAIUSC + INVIO**:
 
     ```sql
     %jdbc(phoenix)

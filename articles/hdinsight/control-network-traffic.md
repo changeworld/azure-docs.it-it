@@ -1,18 +1,15 @@
 ---
 title: Controllare il traffico di rete in Azure HDInsight
 description: Informazioni sulle tecniche per controllare il traffico in ingresso e in uscita verso i cluster HDInsight di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 0cbda0b533a64e627bfeef9589ab95c4163ae73e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543169"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943370"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Controllare il traffico di rete in Azure HDInsight
 
@@ -40,7 +37,7 @@ Se si intende usare **gruppi di sicurezza di rete** per controllare il traffico 
 
 3. Creare o modificare i gruppi di sicurezza di rete per la subnet in cui si intende installare HDInsight.
 
-    * __Gruppi di sicurezza di rete__ : consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possano raggiungere il cluster dall'esterno della rete virtuale. Per i cluster abilitati per __proxy REST Kafka__ , consentire il traffico __in ingresso__ sulla porta __9400__ . In questo modo si garantisce che il server proxy REST Kafka sia raggiungibile.
+    * __Gruppi di sicurezza di rete__: consentono il traffico __in ingresso__ sulla porta __443__ dagli indirizzi IP. Ciò garantisce che i servizi di gestione di HDInsight possano raggiungere il cluster dall'esterno della rete virtuale. Per i cluster abilitati per __proxy REST Kafka__, consentire il traffico __in ingresso__ sulla porta __9400__. In questo modo si garantisce che il server proxy REST Kafka sia raggiungibile.
 
 Per altre informazioni sui gruppi di sicurezza di rete, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
 

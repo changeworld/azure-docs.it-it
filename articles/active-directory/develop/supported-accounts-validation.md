@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 77521150e73014c5568003597059a9d32f6e80ee
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: eea2e587a075d774a25f479ec61575a002b57f75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752961"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937805"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Differenze di convalida in base ai tipi di conto supportati (signInAudience)
 
@@ -24,9 +24,9 @@ Quando si registra un'applicazione con la piattaforma di identità Microsoft per
 
 Di seguito sono indicate alcune opzioni disponibili:
 
-- *AzureADMyOrg*: solo gli account nella directory aziendale in cui è registrata l'app (tenant singolo)
-- *AzureADMultipleOrgs*: account in qualsiasi directory organizzativa (multi-tenant)
-- *AzureADandPersonalMicrosoftAccount*: account in qualsiasi directory organizzativa (multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox e Outlook.com)
+- **AzureADMyOrg**: solo gli account nella directory aziendale in cui è registrata l'app (tenant singolo).
+- **AzureADMultipleOrgs**: account in qualsiasi directory organizzativa (multi-tenant).
+- **AzureADandPersonalMicrosoftAccount**: account in qualsiasi directory organizzativa (multi-tenant) e account Microsoft personali (ad esempio, Skype, Xbox e Outlook.com).
 
 Per le applicazioni registrate, è possibile trovare il valore per i tipi di account supportati nella sezione **autenticazione** di un'applicazione. È anche possibile trovarlo sotto la `signInAudience` proprietà nel **manifesto**.
 
@@ -44,11 +44,11 @@ Per le differenze di convalida di diverse proprietà per diversi tipi di account
 | Ambiti definiti da questa API ( `oauth2Permissions` ) | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito | Lunghezza massima del nome dell'ambito di 120 caratteri <br><br> Nessun limite * sul numero di ambiti definito |  Lunghezza massima del nome dell'ambito di 40 caratteri <br><br> Massimo 100 ambiti definiti | 
 | Applicazioni client autorizzate ( `preAuthorizedApplications` ) | Nessun limite * | Nessun limite * | Massimo totale di 500 <br><br> Massimo 100 di app client definite <br><br> Massimo 30 ambiti definiti per client | 
 | appRoles | Supportato <br> Nessun limite * | Supportato <br> Nessun limite * | Non supportato | 
-| URL di chiusura sessione | http://localhost consentito <br><br> Lunghezza massima di 255 caratteri | http://localhost consentito <br><br> Lunghezza massima di 255 caratteri | <br><br> https://localhost è consentito, http://localhost non riesce per MSA <br><br> Lunghezza massima di 255 caratteri <br><br> Lo schema HTTP non è consentito <br><br> I caratteri jolly non sono supportati | 
+| URL di disconnessione front-Channel | https://localhost consentito <br><br> `http` schema non consentito <br><br> Lunghezza massima di 255 caratteri | https://localhost consentito <br><br> `http` schema non consentito <br><br> Lunghezza massima di 255 caratteri | <br><br> https://localhost è consentito, http://localhost non riesce per MSA <br><br> Lunghezza massima di 255 caratteri <br><br> `http` schema non consentito <br><br> I caratteri jolly non sono supportati | 
 
-* Esiste un limite globale di circa 1000 elementi in tutte le proprietà della raccolta nell'oggetto app
+* Esiste un limite globale di circa 1000 elementi in tutte le proprietà della raccolta nell'oggetto app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sulla [registrazione dell'applicazione](app-objects-and-service-principals.md)
-- Informazioni sul [Manifesto dell'applicazione](reference-app-manifest.md)
+- Informazioni sulla [registrazione dell'applicazione](app-objects-and-service-principals.md).
+- Informazioni sul [manifesto dell'applicazione](reference-app-manifest.md).

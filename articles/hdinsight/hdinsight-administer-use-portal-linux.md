@@ -1,19 +1,16 @@
 ---
 title: Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 description: Informazioni su come creare e gestire cluster HDInsight di Azure usando il portale di Azure.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 7c644583e994e51f11bdf7991755a6ea94b01e76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012809"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942827"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Apache Hadoop in HDInsight tramite il portale di Azure
 
@@ -63,7 +60,7 @@ Selezionare il nome del cluster dalla pagina [**cluster HDInsight**](#showCluste
     |Avvio rapido|visualizza informazioni utili per iniziare a usare HDInsight.|
     |Strumenti|informazioni della Guida per gli strumenti correlati a HDInsight.|
 
-  - **Menu Impostazioni**  
+  - **Menu impostazioni**  
 
     | Elemento| Descrizione |
     |---|---|
@@ -112,7 +109,7 @@ Dalla [home page del cluster](#homePage), selezionare **Proprietà** in **Impost
 |SISTEMA OPERATIVO|può essere **Windows** o **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|
 |Versione|Vedere [versioni di HDInsight](hdinsight-component-versioning.md).|
-|Versione minima di TLS|Versione di TLS.|
+|Versione minima TLS|Versione di TLS.|
 |SOTTOSCRIZIONE|nome della sottoscrizione.|
 |ORIGINE DATI PREDEFINITA|file system predefinito del cluster.|
 |Dimensioni dei nodi del ruolo di lavoro|dimensioni selezionate dei nodi di lavoro nella macchina virtuale.|

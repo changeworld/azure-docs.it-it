@@ -3,17 +3,16 @@ title: Azure HDInsight creare un cluster-error Dictionary
 description: Informazioni su come risolvere gli errori che si verificano durante la creazione di cluster HDInsight di Azure
 author: karkrish
 ms.author: v-todmc
-ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 6b8c0069d619d3ebd87e3c54b4f653812199f590
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543101"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943332"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: errori di creazione del cluster
 
@@ -24,7 +23,7 @@ Questo articolo descrive le soluzioni per gli errori che si possono incontrare d
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Codice di errore: DeploymentDocument ' CsmDocument_2_0' non ha superato la convalida
 
-**Errore** : "Impossibile accedere al percorso dell'azione di script: \<SCRIPT ACTION URL\> "
+**Errore**: "Impossibile accedere al percorso dell'azione di script: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Messaggio di errore 1
 
@@ -159,9 +158,9 @@ Non sono state fornite le autorizzazioni necessarie per gestire l'identità. L'i
 
 ### <a name="resolution"></a>Soluzione
 
-1. Aprire il Portale di Azure.
+1. Aprire il portale di Azure.
 1. Passare all'account di archiviazione.
-1. Controllare il **controllo di accesso (IAM)** .
+1. Controllare il **controllo di accesso (IAM)**.
 1. Verificare che all'utente sia assegnato il ruolo di collaboratore dei dati BLOB di archiviazione o il ruolo di proprietario dei dati BLOB di archiviazione.
 
 Per altre informazioni, vedere [configurare le autorizzazioni per l'identità gestita nell'account data Lake storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 22654d49d02809460adc4013c2c92ac857805cf7
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98199802"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937177"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Baseline della sicurezza di Azure per la condivisione di dati di Azure
 
@@ -108,7 +108,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 **Linee guida**: la condivisione dati di Azure supporta l'autenticazione SSO con Azure Active Directory. Ridurre il numero di identità e le credenziali che gli utenti devono gestire abilitando SSO per il servizio con le identità preesistenti dell'organizzazione.
 
-- [Informazioni su SSO con Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni su SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

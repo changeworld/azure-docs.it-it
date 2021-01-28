@@ -1,18 +1,15 @@
 ---
 title: La creazione del cluster non riesce con errore DomainNotFound in Azure HDInsight
 description: Procedure di risoluzione dei problemi e possibili soluzioni per i problemi durante l'interazione con i cluster HDInsight di Azure
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/23/2020
-ms.openlocfilehash: 79cd3b687dc8a2eb838146a6dc8a40b184a55fe6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54096e6d1741a7be9f50d4b4f7f0fcabbe880588
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005946"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943355"
 ---
 # <a name="scenario-cluster-creation-fails-with-domainnotfound-error-in-azure-hdinsight"></a>Scenario: la creazione del cluster non riesce con errore DomainNotFound in Azure HDInsight
 
@@ -26,7 +23,7 @@ La creazione di un cluster protetto da HDI (Enterprise Security Package) non rie
 
 Impostazioni DNS non corrette.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Quando vengono distribuiti i cluster aggiunti a un dominio, HDI crea un nome utente e una password interni in AAD DS (per ogni cluster) e unisce tutti i nodi del cluster a questo dominio. L'aggiunta a un dominio viene eseguita usando gli strumenti di Samba. Accertarsi di aver soddisfatto i prerequisiti seguenti:
 

@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 95492a9301095ce4a07a3caad1d9f070b572fece
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 7da10fbdff0b6771fcffb6cc303d5ab183df190a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956469"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98947254"
 ---
-[Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
+[Documentazione di riferimento](/dotnet/api/overview/azure/cognitiveservices/management) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [Esempi](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
 ## <a name="c-prerequisites"></a>Prerequisiti di C#
 
@@ -122,7 +122,7 @@ dotnet run
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Documentazione di riferimento Azure Management SDK](/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
+* [Documentazione di riferimento Azure Management SDK](/dotnet/api/overview/azure/cognitiveservices/management)
 * [Informazioni su Servizi cognitivi di Azure](../../what-are-cognitive-services.md)
 * [Autenticare le richieste a Servizi cognitivi di Azure](../../authentication.md)
 * [Creare una nuova risorsa con il portale di Azure](../../cognitive-services-apis-create-account.md)

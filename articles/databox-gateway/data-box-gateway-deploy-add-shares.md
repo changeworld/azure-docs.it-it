@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: aaa75988e1177590a0ff6f4ca2e00f92de68789f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
-ms.translationtype: HT
+ms.openlocfilehash: 0c0ef6157ebf70c896fbac5ff692246e4fad2c14
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96580668"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937210"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Esercitazione: Trasferire i dati con Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Per creare una condivisione, seguire questa procedura:
 
     3. Specificare l'account di archiviazione in cui risiederà la condivisione. Se non esiste già un contenitore, viene creato nell'account di archiviazione con il nome della condivisione appena creato. Se esiste già un contenitore, viene usato quello.
        > [!IMPORTANT]
-       > Verificare che per l'account di Archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Verificare che per l'account di Archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](../storage/blobs/storage-blob-immutability-policies-manage.md).
     
     4. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come BLOB in blocchi, quindi è questa l'opzione da selezionare. Se si sceglie BLOB di pagine, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
    

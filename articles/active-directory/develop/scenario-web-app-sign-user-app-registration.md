@@ -12,20 +12,20 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b6240f88d309cbf4f26375c5f961d716b472755d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756265"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937885"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>App Web che esegue l'accesso degli utenti: registrazione dell'app
 
-Questo articolo illustra le specifiche di registrazione delle app per un'app Web che esegue l'accesso agli utenti.
+Questo articolo illustra i passaggi di registrazione delle app per un'app Web che esegue l'accesso agli utenti.
 
 Per registrare l'applicazione, è possibile usare:
 
-- [Guide introduttive per le app Web](#register-an-app-by-using-the-quickstarts). Oltre a essere un'ottima esperienza per la creazione di un'applicazione, le guide introduttive nell'portale di Azure contengono un pulsante denominato **apportare questa modifica**. È possibile usare questo pulsante per impostare le proprietà necessarie, anche per un'app esistente. È necessario adattare i valori di queste proprietà al proprio caso. In particolare, l'URL dell'API Web per l'app è probabilmente diverso dal valore predefinito proposto, che influirà anche sull'URI di disconnessione.
+- [Guide introduttive per le app Web](#register-an-app-by-using-the-quickstarts). Oltre a essere un'ottima esperienza per la creazione di un'applicazione, le guide introduttive nell'portale di Azure contengono un pulsante denominato **apportare questa modifica**. È possibile usare questo pulsante per impostare le proprietà necessarie, anche per un'app esistente. Adattare i valori di queste proprietà al proprio caso. In particolare, l'URL dell'API Web per l'app è probabilmente diverso dal valore predefinito proposto, che influirà anche sull'URI di disconnessione.
 - Portale di Azure per [registrare manualmente l'applicazione](#register-an-app-by-using-the-azure-portal).
 - PowerShell e gli strumenti da riga di comando.
 
@@ -56,8 +56,8 @@ Per registrare l'applicazione, è possibile usare:
    1. Selezionare **Registra**.
 1. In **Gestisci** selezionare **autenticazione** e quindi aggiungere le informazioni seguenti:
    1. Nella sezione **Web** aggiungere `https://localhost:44321/signin-oidc` come **URI di reindirizzamento**.
-   1. Aggiungere `https://localhost:44321/signout-oidc` come **URL di disconnessione**.
-   1. In **Concessione implicita** selezionare **Token ID**.
+   1. In **URL di disconnessione front-Channel**, immettere `https://localhost:44321/signout-oidc` .
+   1. In **concessione implicita e flussi ibridi** selezionare **token ID**.
    1. Selezionare **Salva**.
    
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
@@ -65,10 +65,10 @@ Per registrare l'applicazione, è possibile usare:
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
    1. Immettere un **Nome** per l'applicazione, ad esempio `MailApp-openidconnect-v2`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
    1. Scegliere i tipi di account supportati per l'applicazione. Vedere [tipi di account supportati](./v2-supported-account-types.md).
-   1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: **https://localhost:44326/** .
+   1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere un URI di **Reindirizzamento** `https://localhost:44326/` .
    1. Selezionare **Registra** per creare l'applicazione.
 1. In **Gestisci** selezionare **Autenticazione**.
-1. Nella sezione **concessione implicita** selezionare **token ID**. Questo esempio richiede che il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
+1. Nella sezione **concessione implicita e flussi ibridi** selezionare **token ID**. Questo esempio richiede che il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) sia abilitato per l'accesso dell'utente.
 1. Selezionare **Salva**.
 
 # <a name="java"></a>[Java](#tab/java)
@@ -81,10 +81,10 @@ Per registrare l'applicazione, è possibile usare:
 1. Selezionare **Web**.
 1. Per **URI di reindirizzamento**, immettere lo stesso host e numero di porta, seguito da `/msal4jsample/secure/aad` per la pagina di accesso. 
 1. Selezionare **Configura**.
-1. Nella sezione **Web** usare l'host e il numero di porta, seguito da **/msal4jsample/Graph/me** come **URI di reindirizzamento** per la pagina informazioni utente.
+1. Nella sezione **Web** usare l'host e il numero di porta, seguiti da `/msal4jsample/graph/me` come **URI di reindirizzamento** per la pagina informazioni utente.
 Per impostazione predefinita, l'esempio USA:
-   - **http://localhost:8080/msal4jsample/secure/aad**
-   - **http://localhost:8080/msal4jsample/graph/me**
+   - `http://localhost:8080/msal4jsample/secure/aad`
+   - `http://localhost:8080/msal4jsample/graph/me`
 
 1. Selezionare **Salva**.
 1. In **Gestisci**, selezionare **Certificati e segreti**.
@@ -100,7 +100,7 @@ Per impostazione predefinita, l'esempio USA:
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
    1. Immettere un **Nome** per l'applicazione, ad esempio `python-webapp`. Tale nome, che potrebbe essere visualizzato dagli utenti dell'app, può essere modificato in un secondo momento.
    1. Modificare i **tipi di account supportati** **in account in qualsiasi directory organizzativa e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com)**.
-   1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: **http://localhost:5000/getAToken** .
+   1. Nella sezione **URI di reindirizzamento (facoltativo)** selezionare **Web** nella casella combinata e immettere l'URI di reindirizzamento seguente: `http://localhost:5000/getAToken` .
    1. Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota. Sarà necessario per configurare il file di configurazione di Visual Studio per questo progetto.
 1. In **Gestisci**, selezionare **Certificati e segreti**.

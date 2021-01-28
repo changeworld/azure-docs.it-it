@@ -1,19 +1,16 @@
 ---
 title: Cosa sono Apache Hive e HiveQL - Azure HDInsight
 description: Apache Hive è un sistema di data warehouse per Apache Hadoop. È possibile eseguire query sui dati archiviati in Hive tramite HiveQL, che è simile a Transact-SQL. Questo documento riporta informazioni su come usare Hive e HiveQL con Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4e8c6b25055dfc38d56509e1744b8c7fcac40700
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540398"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98944300"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
 
@@ -34,7 +31,7 @@ HDInsight offre diversi tipi di cluster ottimizzati per carichi di lavoro specif
 
 Consultare la tabella seguente per informazioni sui vari modi in cui è possibile usare Hive con HDInsight:
 
-| **Usare questo metodo** se si vuole... | ... **query** interattive | ... elaborazione **batch** | ...da questo **sistema operativo client** |
+| **Usare questo metodo** se si vuole... | ...**query** interattive | ... elaborazione **batch** | ...da questo **sistema operativo client** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Strumenti di HDInsight per Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X o Windows |
 | [Strumenti HDInsight per Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -72,14 +69,14 @@ Per altre informazioni sui formati di file supportati da Hive, vedere il [manual
 
 Con Hive è possibile creare due tipi di tabelle:
 
-* __Interna__ : i dati vengono archiviati nel data warehouse di Hive. Il data warehouse si trova in `/hive/warehouse/` nella risorsa di archiviazione predefinita per il cluster.
+* __Interna__: i dati vengono archiviati nel data warehouse di Hive. Il data warehouse si trova in `/hive/warehouse/` nella risorsa di archiviazione predefinita per il cluster.
 
     Usare le tabelle interne quando si applica una delle condizioni seguenti:
 
     * I dati sono temporanei.
     * Si desidera che Hive gestisca il ciclo di vita della tabella e dei dati.
 
-* __Interna__ : i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
+* __Interna__: i dati vengono archiviati all'esterno del data warehouse. I dati possono essere archiviati in tutte le risorse di archiviazione accessibili dal cluster.
 
     Usare le tabelle esterne quando si applica una delle condizioni seguenti:
 
@@ -92,7 +89,7 @@ Per altre informazioni, vedere il post di blog [Hive Internal and External Table
 
 ## <a name="user-defined-functions-udf"></a>Funzioni definite dall'utente (UDF)
 
-Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)** , che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere i documenti seguenti:
+Hive può anche essere esteso tramite **funzioni definite dall'utente (UDF)**, che consentono di implementare funzionalità o logica non facilmente modellate in HiveQL. Per un esempio sull'uso di funzioni definite dall'utente con Hive, vedere i documenti seguenti:
 
 * [Usare una funzione Java definita dall'utente con Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -137,7 +134,7 @@ Nell'esempio precedente, le istruzioni HiveQL eseguono le azioni seguenti:
 |CREATE EXTERNAL TABLE|Crea una nuova tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso e nel formato originale.|
 |FORMATO DI RIGA|indica a Hive il modo in cui sono formattati i dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
 |ARCHIVIATO COME PERCORSO DI TEXTFILE|Indica a hive dove sono archiviati i dati (la `example/data` Directory) e che sono archiviati come testo. I dati possono essere contenuti in un file o distribuiti tra più file all'interno della directory.|
-|SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]** . L'istruzione restituisce un valore pari a **3** , poiché sono presenti tre righe contenenti questo valore.|
+|SELECT|seleziona un conteggio di tutte le righe in cui la colonna **t4** contiene il valore **[ERROR]**. L'istruzione restituisce un valore pari a **3**, poiché sono presenti tre righe contenenti questo valore.|
 |INPUT__FILE__NAME LIKE '%. log '|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive che devono essere restituiti dati solo da file che terminano con .log.|
 
 > [!NOTE]  
@@ -168,7 +165,7 @@ Le istruzioni eseguono queste azioni:
 |---|---|
 |CREATE TABLE SE NON ESISTE|Se la tabella non esiste, crearla. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. La tabella viene archiviata nel data warehouse di Hive e gestita completamente da Hive.|
 |ARCHIVIATO COME ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|
-|INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]** , quindi inserisce i dati nella tabella **errorLogs** .|
+|INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, quindi inserisce i dati nella tabella **errorLogs**.|
 
 > [!NOTE]  
 > A differenza delle tabelle esterne, se si elimina una tabella interna vengono eliminati anche i dati sottostanti.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 5b0b86321f7f2b320c3fea8e7c5bfa45bd936b77
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: f8fa5532a5664741c9ddb9b78b35d5eed8e2e4e0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753006"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937850"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>App Web per l'accesso degli utenti: accesso e disconnessione
 
@@ -222,19 +222,19 @@ Per altre informazioni, vedere la sezione [inviare una richiesta](v2-protocols-o
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44321/signout-oidc` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [ registrare l'app webapp](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp).
+Durante la registrazione dell'applicazione, si registra un URL di disconnessione front-Channel. In questa esercitazione è stata eseguita `https://localhost:44321/signout-oidc` la registrazione nel campo **URL di disconnessione front-Channel** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](scenario-web-app-sign-user-app-registration.md#register-an-app-by-using-the-azure-portal).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `https://localhost:44308/Account/EndSession` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** . Per informazioni dettagliate, vedere [registrare l'app webapp](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet).
+Durante la registrazione dell'applicazione, non è necessario registrare un URL di disconnessione front-Channel aggiuntivo. L'app verrà richiamata sull'URL principale. 
 
 # <a name="java"></a>[Java](#tab/java)
 
-Durante la registrazione dell'applicazione, si registra un URI di post-disconnessione. In questa esercitazione è stata eseguita la registrazione `http://localhost:8080/msal4jsample/sign_out` nel campo **URL di disconnessione** della sezione **Impostazioni avanzate** della pagina di **autenticazione** .
+Nella registrazione dell'applicazione non è richiesto alcun URL di disconnessione front-Channel.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Durante la registrazione dell'applicazione, non è necessario registrare un URL di disconnessione aggiuntivo. L'app verrà richiamata sull'URL principale.
+Durante la registrazione dell'applicazione, non è necessario registrare un URL di disconnessione front-Channel aggiuntivo. L'app verrà richiamata sull'URL principale.
 
 ---
 
@@ -336,7 +336,7 @@ Nelle versioni precedenti dei modelli ASP.NET Core il `Account` controller era i
 - Chiama `Signout()` , che consente al middleware di OpenID Connect di contattare l'endpoint della piattaforma di identità Microsoft `logout` . L'endpoint:
 
   - Cancella il cookie di sessione dal browser.
-  - Richiama l'URL di disconnessione. Per impostazione predefinita, l'URL di disconnessione Visualizza la pagina della visualizzazione di cui è stato eseguito il [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Questa pagina viene fornita anche come parte di MIcrosoft. Identity. Web.
+  - Richiama l'URI di reindirizzamento dopo la disconnessione. Per impostazione predefinita, l'URI di reindirizzamento dopo la disconnessione Visualizza la pagina di visualizzazione [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Questa pagina viene fornita anche come parte di Microsoft. Identity. Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

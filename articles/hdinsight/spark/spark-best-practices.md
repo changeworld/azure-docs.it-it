@@ -1,18 +1,15 @@
 ---
 title: Linee guida Apache Spark in Azure HDInsight
 description: Informazioni sulle linee guida per l'uso di Apache Spark in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f81435abbedec25cb8abe0b958065a493c15ce4c
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545566"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938816"
 ---
 # <a name="apache-spark-guidelines"></a>Linee guida per Apache Spark
 
@@ -37,7 +34,7 @@ Questo articolo fornisce diverse linee guida per l'uso di Apache Spark in Azure 
 
 | Opzione | Documenti |
 |---|---|
-| Toolkit di Azure per IntelliJ | [Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)](apache-spark-intellij-tool-failure-debug.md) |
+| Azure Toolkit for IntelliJ | [Errore durante il debug del processo Spark con Azure Toolkit for IntelliJ (anteprima)](apache-spark-intellij-tool-failure-debug.md) |
 | Azure Toolkit for IntelliJ tramite SSH | [Eseguire il debug delle applicazioni Apache Spark in modalità remota o in locale su un cluster HDInsight con Azure Toolkit for IntelliJ tramite SSH](apache-spark-intellij-tool-debug-remotely-through-ssh.md) |
 | Azure Toolkit for IntelliJ tramite VPN | [Usare Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni Apache Spark in HDInsight tramite VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) |
 | Grafico del processo nel server di cronologia Apache Spark | [Usare il Server cronologia Apache Spark esteso per il debug e la diagnosi di applicazioni Apache Spark](./apache-azure-spark-history-server.md) |

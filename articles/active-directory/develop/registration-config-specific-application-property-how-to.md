@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ROBOTS: NOINDEX
-ms.openlocfilehash: 222c961f9e5587cd5526778e6ef1c800f5085a69
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 6da6187e59bf028101eac2ea6f09fb1530821bfd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98064301"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937856"
 ---
 # <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Campi di registrazione del portale di Azure per app personalizzate
 
@@ -35,7 +35,7 @@ Questo articolo include una breve descrizione di tutti i campi disponibili nel m
 
 ## <a name="fields-in-the-application-registration-form"></a>Campi nel modulo di registrazione dell'applicazione
 
-| Campo            | Description                                                                              |
+| Campo            | Descrizione                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nome             | Nome dell'applicazione. Deve essere minimo di quattro caratteri.                |
 | Tipi di account supportati| Consente di selezionare gli account che l'applicazione deve supportare: solo gli account in questa directory dell'organizzazione, gli account in qualsiasi directory organizzativa o gli account in qualsiasi directory organizzativa e account Microsoft personali.  |
@@ -45,29 +45,29 @@ Dopo aver compilato i campi sopra indicati, l'applicazione viene registrata nell
 
 ### <a name="overview"></a>Panoramica
 
-| Campo           | Description        |
+| Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID applicazione  | Quando si registra un'applicazione, Azure AD assegna un ID all'applicazione. L'ID dell'applicazione può essere usato per identificare in modo univoco l'applicazione nelle richieste di autenticazione ad Azure AD, nonché per accedere a risorse, ad esempio l'API Graph.                                                          |
 | URI ID app      | Deve trattarsi di un URI univoco, in genere nel formato **https://nome &lt; tenant \_ &gt; / &lt; applicazione \_ &gt; .** Viene usato durante il flusso di concessione dell'autorizzazione come identificatore univoco per specificare la risorsa per cui deve essere emesso il token. Diventa anche l'attestazione "aud" nel token di accesso emesso. |
 
 ### <a name="branding"></a>Personalizzazione
 
-| Campo           | Description        |
+| Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Carica nuovo logo | Questo campo consente di caricare un logo per l'applicazione. Il logo deve essere in formato BMP, jpg o PNG e le dimensioni del file devono essere inferiori a 100 KB. Le dimensioni dell'immagine devono essere 215 x 215 pixel, con le dimensioni dell'immagine centrale di 94 x 94 pixel.|
 | URL della home page   | Questo è l'URL di accesso specificato durante la registrazione dell'applicazione.|
 
 ### <a name="authentication"></a>Authentication
 
-| Campo           | Description        |
+| Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| URL di chiusura sessione      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
+| URL di disconnessione front-Channel      | Si tratta dell'URL di disconnessione Single Sign-out. Azure AD invia una richiesta di disconnessione a questo URL quando l'utente cancella la sessione di Azure AD usando qualsiasi altra applicazione registrata.|
 | Tipi di account supportati  | Questa opzione specifica se l'applicazione può essere usata da più tenant. In genere, ciò significa che le organizzazioni esterne possono usare l'applicazione registrandola nel proprio tenant e concedendo accesso ai dati dell'organizzazione.|
 | URL di reindirizzamento      | Gli URL di reindirizzamento, o risposta, sono gli endpoint in cui Azure AD restituisce i token richiesti dall'applicazione. Per le applicazioni native, questo è il punto in cui l'utente deve essere inviato in seguito a un'autorizzazione riuscita. Azure AD verifica che l'URI di reindirizzamento fornito dall'applicazione nella richiesta OAuth 2,0 corrisponda a uno dei valori registrati nel portale.|
 
 ### <a name="certificates-and-secrets"></a>Certificati e segreti
 
-| Campo           | Description        |
+| Campo           | Descrizione        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Segreti client            | È possibile creare segreti client, o chiavi, per accedere a livello di codice alle API Web protette da Azure AD senza alcuna interazione dell'utente. Nella pagina **nuovo segreto client** immettere una descrizione della chiave e la data di scadenza e salvare per generare la chiave. Assicurarsi di salvarla in un luogo sicuro, poiché non sarà possibile accedervi successivamente.             |
 

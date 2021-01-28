@@ -5,13 +5,13 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 5484d13a70d8eaf905d3c8a51d575f177427019b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.date: 01/27/2021
+ms.openlocfilehash: 3ce22837da2ca30249b399a297b6188d950b1ea4
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98882162"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98935153"
 ---
 # <a name="blob-storage-and-azure-data-lake-gen2-output-from-azure-stream-analytics"></a>Archiviazione BLOB e output di Azure Data Lake Gen2 da analisi di flusso di Azure
 
@@ -44,7 +44,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 Quando si usa l'archiviazione BLOB come output, nei casi seguenti viene creato un nuovo file nel BLOB:
 
 * Se il file supera il numero massimo di blocchi consentiti (attualmente 50.000). È possibile raggiungere il numero massimo di blocchi consentiti senza raggiungere le dimensioni massime consentite per il BLOB. Ad esempio, se la frequenza di output è elevata, ogni blocco può contenere più byte e le dimensioni del file sono superiori. Se la frequenza di output è bassa, ogni blocco contiene meno dati e le dimensioni del file sono inferiori.
-* Se l'output contiene una modifica dello schema e il formato di output richiede uno schema fisso (CSV e Avro).
+* Se è presente una modifica dello schema nell'output e il formato di output richiede uno schema fisso (CSV, avro, parquet).
 * Se un processo viene riavviato, esternamente con l'arresto e l'avvio da parte di un utente oppure internamente per la manutenzione del sistema o il recupero da errori.
 * Se la query è completamente partizionata e, per ogni partizione di output, viene creato un nuovo file.
 * Se l'utente elimina un file o un contenitore dell'account di archiviazione.

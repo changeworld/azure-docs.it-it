@@ -1,19 +1,16 @@
 ---
 title: Architettura della soluzione a disponibilità elevata di Azure HDInsight case study
 description: Questo articolo è un case study fittizio di un'architettura di soluzione a disponibilità elevata di Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 keywords: alta disponibilità di hadoop
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 4b98b03c2d7eb4a0403b4595c1376656ed42511b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0616694d05e3fc9d2255ad97647ebe3bce545a93
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855039"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945365"
 ---
 # <a name="azure-hdinsight-highly-available-solution-architecture-case-study"></a>Architettura della soluzione a disponibilità elevata di Azure HDInsight case study
 
@@ -68,7 +65,7 @@ Sistema di controllo della versione integrato in un Azure Pipelines e ospitato a
 
 La figura seguente illustra l'architettura di ripristino di emergenza a disponibilità elevata di Contoso retail.
 
-:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Architettura di Contoso Retail":::
+:::image type="content" source="./media/hdinsight-high-availability-case-study/contoso-solution.png" alt-text="Soluzione contoso":::
 
 **Kafka** usa la replica [attiva-passiva](hdinsight-business-continuity-architecture.md#apache-kafka) per eseguire il mirroring degli argomenti Kafka dall'area primaria all'area secondaria. Un'alternativa alla replica Kafka potrebbe essere la produzione a Kafka in entrambe le aree.
 

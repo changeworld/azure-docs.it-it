@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c065b7a7269c8da42493ede50466f44f7dd2658
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5f0a84af0c7a4105327405cfb809f5101ab42931
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219947"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938386"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -121,7 +121,9 @@ Nei criteri di accesso condizionale è possibile richiedere che i [criteri di pr
 
 Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'App Store per installare l'app Broker.
 
-Questa impostazione è valida solo per le app client seguenti:
+Per le applicazioni è necessario che **INTUNE SDK** con **policy Assurance** sia implementato e soddisfi determinati altri requisiti per supportare questa impostazione. Gli sviluppatori che implementano applicazioni con Intune SDK sono in grado di trovare altre informazioni nella documentazione di SDK in merito a questi requisiti.
+
+Le seguenti app client sono state confermate per supportare questa impostazione:
 
 - Microsoft Cortana
 - Microsoft Edge

@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: c250868c9d470ee85f765f693aff3e21320fc45e
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f92b8c4835e42e758085e0434ee926fbabce5a38
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346189"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936239"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -136,7 +136,7 @@ Il codice JSON precedente ha risposto con una risposta con un punteggio pari al 
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usare QnA Maker con un bot in C #
 
-Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?preserve-view=true&view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+Bot Framework fornisce l'accesso alle proprietà del QnA Maker con l' [API getanswer](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -277,7 +277,7 @@ Per impostazione predefinita, QnA Maker cerca le domande e le risposte. Se si de
 
 |Codice|Spiegazione|
 |:--|--|
-|2xx|Operazione completata|
+|2xx|Operazione riuscita|
 |400|I parametri della richiesta non sono corretti, vale a dire che i parametri obbligatori mancano, non solo validi o sono troppo grandi|
 |400|Il corpo della richiesta non è corretto, vale a dire che la stringa JSON manca, non è valida o è troppo grande|
 |401|Chiave non valida|

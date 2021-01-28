@@ -3,12 +3,12 @@ title: Distribuire un'applicazione .NET in un contenitore in Azure Service Fabri
 description: Informazioni su come aggiungere un'applicazione .NET esistente a contenitori con Visual Studio ed eseguire il debug dei contenitori in Service Fabric in locale. L'applicazione aggiunta a contenitori viene inviata tramite push a un Registro Azure Container e distribuita in un cluster di Service Fabric. Quando viene distribuita in Azure, l'applicazione usa database SQL di Azure per salvare in modo permanente i dati.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 85e9b553000c52131c04502d496aa050b73d6d8a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7930651a0faa5f37336c15557e2a0f068d613011
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791663"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936719"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -29,7 +29,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 1. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. Abilitare le funzionalità di Windows **Hyper-V** e i **contenitori**.
-3. Installare [Docker CE per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo da poter eseguire i contenitori in Windows 10.
+3. Installare [Docker desktop per Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) in modo che sia possibile eseguire i contenitori in Windows 10.
 4. Installare il [runtime di Service Fabric versione 6.2 o successiva](service-fabric-get-started.md) e [Service Fabric SDK versione 3.1](service-fabric-get-started.md) o versioni successive.
 5. Installare [Visual Studio 2019 versione 16.1](https://www.visualstudio.com/) o successiva con i carichi di lavoro **Sviluppo di Azure** e **Sviluppo ASP.NET e Web**.
 6. Installare [Azure PowerShell][link-azure-powershell-install]

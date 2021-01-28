@@ -1,19 +1,16 @@
 ---
 title: 'Guida introduttiva: Creare Apache Kafka con Azure PowerShell - HDInsight'
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite Azure PowerShell. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
-ms.translationtype: HT
+ms.openlocfilehash: 74fa512711dfb9226fcc88d949f5ddfeb0f9812b
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533003"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942630"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Guida introduttiva: Creare cluster Apache Kafka in Azure HDInsight usando PowerShell
 
@@ -176,7 +173,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Ottenere le informazioni sugli host Apache Zookeeper e broker
 
-Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker* . Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
+Quando si usa Kafka, è necessario conoscere gli host *Apache Zookeeper* e *broker*. Questi host vengono usati con l'API Kafka e molte delle utilità offerte con Kafka.
 
 In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Ambari nel cluster.
 
@@ -232,7 +229,7 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Am
 
 ## <a name="manage-apache-kafka-topics"></a>Gestire gli argomenti di Apache Kafka
 
-Kafka archivia i flussi di dati in *argomenti* . Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
+Kafka archivia i flussi di dati in *argomenti*. Per gestire gli argomenti è possibile usare l'utilità `kafka-topics.sh`.
 
 * **Per creare un argomento** usare il comando seguente nella connessione SSH:
 
@@ -240,7 +237,7 @@ Kafka archivia i flussi di dati in *argomenti* . Per gestire gli argomenti è po
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test** . 
+    Questo comando si connette a Zookeeper usando le informazioni sull'host archiviate in `$KAFKAZKHOSTS` e quindi crea un argomento Kafka denominato **test**. 
 
     * I dati archiviati in questo argomento vengono divisi in otto partizioni.
 
@@ -289,7 +286,7 @@ Per altre informazioni sui comandi disponibili con l'utilità `kafka-topics.sh`,
 
 ## <a name="produce-and-consume-records"></a>Produrre e utilizzare record
 
-Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer* . I producer e i consumer comunicano con il servizio *broker Kafka* . Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
+Kafka archivia i *record* negli argomenti. I record vengono prodotti da *producer* e usati da *consumer*. I producer e i consumer comunicano con il servizio *broker Kafka*. Ogni nodo del ruolo di lavoro nel cluster HDInsight è un host del broker Kafka.
 
 Seguire questa procedura per archiviare i record nell'argomento test creato in precedenza e quindi leggerli usando un consumer:
 

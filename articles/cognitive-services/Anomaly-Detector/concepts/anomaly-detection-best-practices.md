@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
-ms.openlocfilehash: b0869335c386712e6b759bb0ced459ebd1bf383c
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 43ccde054a9630b251aa6c206028d29c7c699316
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702727"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936189"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedure consigliate per l'uso dell'API del rilevamento anomalie
 
@@ -52,7 +52,7 @@ Di seguito è riportato lo stesso set di dati con rilevamento anomalie batch. Il
 
 ## <a name="data-preparation"></a>Preparazione dei dati
 
-L'API rilevatore di anomalie accetta dati di serie temporali formattati in un oggetto richiesta JSON. Una serie temporale può essere costituita da qualsiasi dato numerico registrato nel tempo in ordine sequenziale. È possibile inviare Windows dei dati della serie temporale all'endpoint API del rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati che è possibile inviare è 12 e il valore massimo è 8640 punti. La [granularità](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) è definita come la frequenza con cui vengono campionati i dati. 
+L'API rilevatore di anomalie accetta dati di serie temporali formattati in un oggetto richiesta JSON. Una serie temporale può essere costituita da qualsiasi dato numerico registrato nel tempo in ordine sequenziale. È possibile inviare Windows dei dati della serie temporale all'endpoint API del rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati che è possibile inviare è 12 e il valore massimo è 8640 punti. La [granularità](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) è definita come la frequenza con cui vengono campionati i dati. 
 
 I punti dati inviati all'API del rilevatore di anomalie devono avere un timestamp UTC (Coordinated Universal Time) valido e un valore numerico. 
 

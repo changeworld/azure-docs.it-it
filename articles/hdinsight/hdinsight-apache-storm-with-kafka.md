@@ -1,19 +1,16 @@
 ---
 title: 'Esercitazione: Apache Storm con Apache Kafka - Azure HDInsight'
 description: Informazioni su come creare una pipeline di flusso usando Apache Storm e Apache Kafka in HDInsight. In questa esercitazione si usano i componenti KafkaBolt e KafkaSpout per trasmettere dati da Kafka.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c600c4cfe96b849786664aa878ec1f84407da5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 304ba791d107ca497e65905657e87e84cdb9567d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85963530"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942730"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 

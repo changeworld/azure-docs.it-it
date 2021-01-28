@@ -3,7 +3,7 @@ title: Esercitazione - Creare il pacchetto di accesso - Gestione entitlement di 
 description: Esercitazione dettagliata per la creazione del primo pacchetto di accesso in Gestione entitlement di Azure Active Directory.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
 ms.date: 09/30/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e8d68643b5cc0002467f738dd60343fb2c42dc6
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
-ms.translationtype: HT
+ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631287"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937891"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Esercitazione: Creare il primo pacchetto di accesso in Gestione entitlement di Azure AD
 
@@ -119,7 +119,7 @@ Un *pacchetto di accesso* è un bundle di risorse di cui necessita un team o un 
     ![Nuovo pacchetto di accesso - scheda Ruoli delle risorse](./media/entitlement-management-access-package-first/resource-roles.png)
 
     >[!IMPORTANT]
-    >I gruppi a cui è possibile assegnare ruoli aggiunti a un pacchetto di accesso verranno indicati usando il sotto tipo **Assegnabile ai ruoli**. Per altre informazioni sui gruppi assegnabili ai ruoli di Azure AD, vedere [Creare un gruppo assegnabile a un ruolo](../roles/groups-create-eligible.md) in Azure Active Directory. Se non viene visualizzato un gruppo assegnabile ai ruoli che si vuole aggiungere oppure non si è in grado di aggiungerlo, assicurarsi di disporre del ruolo di Azure AD necessario e del ruolo di gestione dei diritti per eseguire questa operazione. Può essere necessario chiedere a un utente con i ruoli necessari di aggiungere la risorsa al catalogo. Per altre informazioni, vedere [Ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >I gruppi a cui è possibile assegnare ruoli aggiunti a un pacchetto di accesso verranno indicati usando il sotto tipo **Assegnabile ai ruoli**. Per altre informazioni sui gruppi assegnabili ai ruoli di Azure AD, vedere [Creare un gruppo assegnabile a un ruolo](../roles/groups-create-eligible.md) in Azure Active Directory. Tenere presente che, una volta che un gruppo assegnabile al ruolo è presente in un catalogo di pacchetti di accesso, gli utenti amministratori che sono in grado di gestire la gestione dei diritti, inclusi gli amministratori globali, gli amministratori e i proprietari di cataloghi del catalogo, saranno in grado di controllare i pacchetti di accesso nel catalogo, consentendo loro di scegliere chi può essere aggiunto a tali gruppi. Se non viene visualizzato un gruppo assegnabile ai ruoli che si vuole aggiungere oppure non si è in grado di aggiungerlo, assicurarsi di disporre del ruolo di Azure AD necessario e del ruolo di gestione dei diritti per eseguire questa operazione. Può essere necessario chiedere a un utente con i ruoli necessari di aggiungere la risorsa al catalogo. Per altre informazioni, vedere [Ruoli necessari per aggiungere risorse a un catalogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
     > Quando si usano [gruppi dinamici](../enterprise-users/groups-create-rule.md) non vengono visualizzati altri ruoli disponibili oltre a quello di proprietario. Questo si verifica per motivi strutturali.

@@ -3,16 +3,16 @@ title: Attività DevOps del servizio Generatore di immagini di Azure
 description: Attività DevOps di Azure per inserire gli artefatti di compilazione in un'immagine di macchina virtuale in modo da poter installare e configurare l'applicazione e il sistema operativo.
 author: danielsollondon
 ms.author: danis
-ms.date: 08/10/2020
+ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 634fc183cc27db1ae949959c3ae7fae8eda5b644
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: df97ecd1668dcc0e21408b7d39b0973e8f0d8fbf
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684543"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98934295"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Attività DevOps del servizio Generatore di immagini di Azure
 
@@ -154,6 +154,12 @@ L'esempio seguente illustra come funziona:
     & 'c:\buildArtifacts\webapp\webconfig.ps1'
     ```
 
+   È possibile fare riferimento a più script o aggiungere altri comandi, ad esempio:
+
+       ```PowerShell
+       & 'c:\buildArtifacts\webapp\webconfig.ps1'
+       & 'c:\buildArtifacts\webapp\installAgent.ps1'
+       ```
 * Linux: nei sistemi Linux gli artefatti di compilazione vengono inseriti nella `/tmp` Directory. Tuttavia, in molti sistemi operativi Linux, al riavvio, il contenuto della directory/tmp viene eliminato. Se si desidera che gli elementi siano presenti nell'immagine, è necessario creare un'altra directory e copiarli.  Ad esempio:
 
     ```bash
@@ -239,7 +245,7 @@ Non è possibile passare alcun valore a questo, il generatore di immagini creer�
 
 * [Dimensioni macchina virtuale](image-builder-json.md#vmprofile) : è possibile eseguire l'override delle dimensioni della macchina virtuale, dal valore predefinito di *Standard_D1_v2*. È possibile eseguire l'override di per ridurre il tempo di personalizzazione totale o perché si vuole creare le immagini che dipendono da determinate dimensioni di VM, ad esempio GPU/HPC e così via.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Quando si crea la versione, l'attività crea un contenitore nell'account di archiviazione denominato *ImageBuilder-vststask*. Consente di eseguire la cerniera e di caricare gli elementi di compilazione e di creare un token di firma di accesso condiviso per il file zip.
 

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 7539e896d810a2f0fbf3c07f389f25e2d3c31fe1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: f6d610db01b465306cdaaafa9b1308dba63ff9ca
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97844991"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936153"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novità di Riconoscimento modulo
 
@@ -85,7 +85,7 @@ I **nuovi esempi** sono disponibili in GitHub.
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-* **informazioni di riferimento sulla versione 2.0 disponibili** : visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet), [Python](/python/api/overview/azure/?view=azure-python), [Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)e [JavaScript](/javascript/api/overview/azure/?view=azure-node-latest).
+* **informazioni di riferimento sulla versione 2.0 disponibili** : visualizzare le informazioni di [riferimento sulle API v 2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) e gli SDK aggiornati per [.NET](/dotnet/api/overview/azure/ai.formrecognizer-readme), [Python](/python/api/overview/azure/), [Java](/java/api/overview/azure/ai-formrecognizer-readme)e [JavaScript](/javascript/api/overview/azure/).
 * Miglioramenti apportati alla tabella e miglioramenti dell' **estrazione** : include miglioramenti dell'accuratezza ed estrazioni di tabelle, in particolare la funzionalità per apprendere le intestazioni e le strutture delle tabelle in un _training personalizzato senza etichette_. 
 
 * **Supporto della valuta** : rilevamento ed estrazione dei simboli di valuta globali.
@@ -110,10 +110,10 @@ I **nuovi esempi** sono disponibili in GitHub.
 
 ### <a name="new-features"></a>Nuove funzionalità
 * **Supporto dell'SDK per l'API di riconoscimento moduli v 2.0 anteprima pubblica** : questo mese è stato ampliato il supporto tecnico per includere una versione di anteprima dell'SDK per il modulo di riconoscimento v 2.0 (anteprima). Usare i collegamenti seguenti per iniziare a usare la lingua preferita: 
-   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme?view=azure-dotnet)
-   * [SDK per Java](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview)
-   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme?view=azure-python-preview)
-   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview)
+   * [.NET SDK](/dotnet/api/overview/azure/ai.formrecognizer-readme)
+   * [SDK per Java](/java/api/overview/azure/ai-formrecognizer-readme)
+   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
+   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
   Il nuovo SDK supporta tutte le funzionalità dell'API REST v 2.0 per il riconoscimento del modulo. Ad esempio, è possibile eseguire il training di un modello con o senza etichette ed estrarre il testo, le coppie chiave-valore e le tabelle dai moduli, estrarre i dati dalle ricevute con il servizio ricevute predefinite ed estrarre il testo e le tabelle con il servizio di layout dai documenti. È possibile condividere commenti e suggerimenti sugli SDK tramite il [modulo feedback SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -209,7 +209,7 @@ Le risposte JSON per tutte le chiamate API hanno nuovi formati. Alcune chiavi e 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Completare una [Guida introduttiva](quickstarts/client-library.md) per iniziare a scrivere un'app di elaborazione moduli con il riconoscimento del modulo nel linguaggio preferito.
+Completare una [guida di avvio rapido](quickstarts/client-library.md) per apprendere come scrivere un'app di elaborazione moduli con Riconoscimento modulo nel linguaggio preferito.
 
 ## <a name="see-also"></a>Vedere anche
 

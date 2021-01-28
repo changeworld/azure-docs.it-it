@@ -1,19 +1,16 @@
 ---
 title: Eseguire query sui dati da una risorsa di archiviazione di Azure compatibile con HDFS - Azure HDInsight
 description: Informazioni su come eseguire query sui dati da Archiviazione di Azure e Azure Data Lake Storage per archiviare i risultati dell'analisi.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: cedc0ff1b3c2aa64f32445eabc800748a753981d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547436"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98945426"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Usare una risorsa di archiviazione di Azure con cluster Azure HDInsight
 
@@ -44,23 +41,23 @@ La condivisione di un contenitore BLOB come file system predefinito per più clu
 
 ## <a name="access-files-from-within-cluster"></a>Accedere ai file dall'interno del cluster
 
-Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HDInsight. Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia TLS (con il prefisso *wasbs* ). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
+Esistono diversi modi per accedere ai file in Data Lake Storage da un cluster HDInsight. Lo schema URI offre l'accesso non crittografato (con il prefisso *wasb:* ) e l'accesso con crittografia TLS (con il prefisso *wasbs*). Se possibile, è consigliabile usare *wasbs* anche per accedere ai dati presenti nella stessa area di Azure.
 
-* **Uso di nomi completi** . Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
+* **Uso di nomi completi**. Con questo approccio viene fornito il percorso completo al file a cui si desidera accedere.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Uso del formato con percorso abbreviato** . Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
+* **Uso del formato con percorso abbreviato**. Con questo approccio si sostituisce il percorso fino alla radice del cluster con:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Uso del percorso relativo** . Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
+* **Uso del percorso relativo**. Con questo approccio viene fornito unicamente il percorso relativo al file a cui si desidera accedere.
 
     ```
     /<file.path>/

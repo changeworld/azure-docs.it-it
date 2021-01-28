@@ -1,19 +1,16 @@
 ---
 title: Analizzare & elaborare JSON con Apache Hive-Azure HDInsight
 description: Informazioni su come usare i documenti JSON e analizzarli usando Apache Hive in Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5bc9acea219e5d111700840149a26c127b47514d
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547606"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943057"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Elaborare e analizzare documenti JSON tramite apache Hive in HDInsight di Azure
 
@@ -88,13 +85,13 @@ SELECT * FROM StudentsOneLine
 
 Il file JSON non elaborato è disponibile in `wasb://processjson@hditutorialdata.blob.core.windows.net/`. La tabella hive **studentsraw punta al** punta al documento JSON non elaborato che non è bidimensionale.
 
-La tabella Hive **StudentsOneLine** archivia i dati nel file system predefinito di HDInsight nel percorso **/json/students/** .
+La tabella Hive **StudentsOneLine** archivia i dati nel file system predefinito di HDInsight nel percorso **/json/students/**.
 
 L'istruzione **INSERT** popola la tabella **StudentOneLine** con i dati JSON flat.
 
 L'istruzione **SELECT** restituisce solo una riga.
 
-Ecco l'output dell'istruzione **SELECT** :
+Ecco l'output dell'istruzione **SELECT**:
 
 ![HDInsight Flat The JSON Document](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
@@ -129,7 +126,7 @@ La funzione definita dall'utente get-json_object presenta delle limitazioni:
 * Poiché ogni campo della query richiede una nuova analisi della query, si ha un impatto sulle prestazioni.
 * **GET\_JSON_OBJECT()** restituisce la rappresentazione di stringa di una matrice. Per convertirla in una matrice Hive, è necessario usare espressioni regolari per sostituire le parentesi quadre "[" and "]" e quindi è necessario anche chiamare anche una suddivisione per ottenere la matrice.
 
-Questa conversione è il motivo per cui il wiki di hive consiglia di usare **json_tuple** .  
+Questa conversione è il motivo per cui il wiki di hive consiglia di usare **json_tuple**.  
 
 ### <a name="use-the-json_tuple-udf"></a>Usare la funzione definita dall'utente json_tuple
 
@@ -146,7 +143,7 @@ Output dello script nella console di Hive:
 
 ![Risultati della query Apache Hive JSON](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-La `json_tuple` UDF usa la sintassi di [visualizzazione laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) in hive, che consente \_ a JSON Tuple di creare una tabella virtuale applicando la funzione UDT a ogni riga della tabella originale. I documenti JSON complessi diventano troppo difficili da gestire a causa dell'uso ripetuto di **LATERAL VIEW** . Inoltre, **JSON_TUPLE** non è in grado di gestire JSON annidati.
+La `json_tuple` UDF usa la sintassi di [visualizzazione laterale](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) in hive, che consente \_ a JSON Tuple di creare una tabella virtuale applicando la funzione UDT a ogni riga della tabella originale. I documenti JSON complessi diventano troppo difficili da gestire a causa dell'uso ripetuto di **LATERAL VIEW**. Inoltre, **JSON_TUPLE** non è in grado di gestire JSON annidati.
 
 ### <a name="use-a-custom-serde"></a>Usare un'interfaccia SerDe personalizzata
 
@@ -154,7 +151,7 @@ SerDe è la scelta migliore per l'analisi dei documenti JSON nidificati. Consent
 
 ## <a name="summary"></a>Riepilogo
 
-Il tipo di operatore JSON in hive scelto dipende dallo scenario. Con un semplice documento JSON e un campo da cercare, scegliere la **GET_JSON_OBJECT** UDF di hive. Se è necessario cercare più di una chiave, è possibile usare **json_tuple** . Per i documenti annidati, usare il **SerDe JSON** .
+Il tipo di operatore JSON in hive scelto dipende dallo scenario. Con un semplice documento JSON e un campo da cercare, scegliere la **GET_JSON_OBJECT** UDF di hive. Se è necessario cercare più di una chiave, è possibile usare **json_tuple**. Per i documenti annidati, usare il **SerDe JSON**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

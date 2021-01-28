@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a22a0d112671019d73eb4c9a3853462e4e9c8c75
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564016"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937363"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canali di telemetria in Application Insights
 
@@ -18,7 +18,7 @@ I canali di telemetria sono parte integrante di [applicazione Azure SDK di Insig
 
 ## <a name="what-are-telemetry-channels"></a>Che cosa sono i canali di telemetria?
 
-I canali di telemetria sono responsabili del buffering degli elementi di telemetria e dell'invio al servizio Application Insights, dove vengono archiviati per l'esecuzione di query e l'analisi. Un canale di telemetria è qualsiasi classe che implementa l' [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel?view=azure-dotnet) interfaccia.
+I canali di telemetria sono responsabili del buffering degli elementi di telemetria e dell'invio al servizio Application Insights, dove vengono archiviati per l'esecuzione di query e l'analisi. Un canale di telemetria è qualsiasi classe che implementa l' [`Microsoft.ApplicationInsights.ITelemetryChannel`](/dotnet/api/microsoft.applicationinsights.channel.itelemetrychannel) interfaccia.
 
 Il `Send(ITelemetry item)` metodo di un canale di telemetria viene chiamato dopo la chiamata di tutti gli inizializzatori di telemetria e i processori di telemetria. Quindi, tutti gli elementi eliminati da un processore di telemetria non raggiungeranno il canale. `Send()` in genere non invia gli elementi al back-end immediatamente. In genere, li memorizza nel buffer in memoria e li invia in batch per una trasmissione efficiente.
 

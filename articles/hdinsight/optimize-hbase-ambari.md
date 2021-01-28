@@ -1,18 +1,15 @@
 ---
 title: Ottimizzare Apache HBase con Apache Ambari in Azure HDInsight
 description: Usare l'interfaccia utente Web di Apache Ambari per configurare e ottimizzare Apache HBase.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: b262e07bd07320e4b10b12a2f2cf07b97e58c61e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 307e9decad35c20885fbe550cc1f7de58c9386c0
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821704"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98942594"
 ---
 # <a name="optimize-apache-hbase-with-apache-ambari-in-azure-hdinsight"></a>Ottimizzare Apache HBase con Apache Ambari in Azure HDInsight
 

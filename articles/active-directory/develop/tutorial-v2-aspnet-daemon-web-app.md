@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 7d34039a5d56feb42473b1a2b24def5244ec3e04
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756142"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937825"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -109,7 +109,7 @@ Se non si vuole usare l'automazione, seguire i passaggi delle sezioni seguenti.
 1. Selezionare **Registra** per creare l'applicazione.
 1. Nella pagina **Panoramica**  dell'app trovare il valore del campo **ID applicazione (client)** e prenderne nota per usarlo in seguito. Sarà necessario per configurare il file di configurazione di Visual Studio per questo progetto.
 1. In **Gestisci** selezionare **Autenticazione**.
-1. Impostare **URL disconnessione** su `https://localhost:44316/Account/EndSession`.
+1. Impostare l' **URL di disconnessione front-Channel** su `https://localhost:44316/Account/EndSession` .
 1. Nella sezione **Concessione implicita** selezionare **Token di accesso** e quindi **Token ID**. Per questo esempio è necessario abilitare il [flusso di concessione implicita](v2-oauth2-implicit-grant-flow.md) per consentire all'utente di accedere e chiamare un'API.
 1. Selezionare **Salva**.
 1. In **Gestisci**, selezionare **Certificati e segreti**.
@@ -227,7 +227,7 @@ Visual Studio pubblicherà il progetto e aprirà automaticamente un browser all'
 1. Tornare al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 1. Nel riquadro sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
 1. Selezionare l'applicazione **dotnet-web-daemon-v2**.
-1. Nella pagina **Autenticazione** per l'applicazione aggiornare i campi **URL di disconnessione** con l'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Nella pagina **autenticazione** per l'applicazione aggiornare i campi di **URL di disconnessione front-Channel** con l'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession`.
 1. Nel menu **Personalizzazione** aggiornare il valore di **URL pagina iniziale** impostandolo sull'indirizzo del servizio. Ad esempio, usare `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Salvare la configurazione.
 1. Aggiungere lo stesso URL nell'elenco di valori del menu **Autenticazione** > **URI di reindirizzamento**. Se sono presenti più URL di reindirizzamento, assicurarsi che vi sia una nuova voce che usa l'URI del servizio app per ognuno di essi.

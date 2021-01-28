@@ -12,12 +12,12 @@ ms.date: 12/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0067ed618f95e7f83fc041fe214bbc4d715a504f
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567631"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98937615"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>API dell'endpoint Servizio di sincronizzazione Azure AD Connect v2 
 Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta gli elementi seguenti:
@@ -176,7 +176,7 @@ Se l'endpoint V2 è stato abilitato ed è necessario eseguire il ripristino dell
 ## <a name="frequently-asked-questions"></a>Domande frequenti  
  
 **Quando sarà il nuovo endpoint a essere il valore predefinito per gli aggiornamenti e le nuove installazioni?**  
-</br>Si prevede di pubblicare una nuova versione di AADConnect per il download nel 2021 gennaio. Questa versione utilizzerà l'endpoint V2 per impostazione predefinita e consentirà di sincronizzare i gruppi maggiori di 50.000 senza alcuna configurazione aggiuntiva. Questa versione verrà pubblicata successivamente per l'aggiornamento automatico ai server idonei.
+</br>Si prevede di pubblicare una nuova versione di AADConnect per il download nel 2021 febbraio. Questa versione utilizzerà l'endpoint V2 per impostazione predefinita e consentirà di sincronizzare i gruppi maggiori di 50.000 senza alcuna configurazione aggiuntiva. Questa versione verrà pubblicata successivamente per l'aggiornamento automatico ai server idonei.
  
 ## <a name="next-steps"></a>Passaggi successivi
 

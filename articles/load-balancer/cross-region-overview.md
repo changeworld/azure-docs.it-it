@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: fb03d0f8c2dc1f3812d417bc5a5d49857f3c1051
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737677"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98946263"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -142,6 +142,8 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 * Le configurazioni IP front-end IPv6 tra più aree non sono supportate. 
 
 * Attualmente non è possibile configurare un probe di integrità. Un probe di integrità predefinito raccoglie automaticamente le informazioni sulla disponibilità relative al servizio di bilanciamento del carico a livello di area ogni 20 secondi. 
+
+* Attualmente il servizio Azure kubernetes (AKS) non può essere integrato con Load Balancer tra aree. La perdita di connettività dovrebbe essere prevista quando si configura una Load Balancer tra aree davanti a un Load Balancer pubblico distribuito con AKS.
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 Il servizio di bilanciamento del carico tra aree, condivide il [contratto](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) di servizio del servizio di bilanciamento del carico standard.

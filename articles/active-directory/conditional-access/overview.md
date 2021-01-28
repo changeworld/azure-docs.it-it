@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 10/16/2020
+ms.date: 01/27/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4, azuread-video-2020
-ms.openlocfilehash: 9c5f7684083ec533c8100785787572ebe4456bcc
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: 7b43cf23b3f01e64c0be31ed013aa990ff80d3db
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97030247"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938333"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
 Il perimetro di sicurezza moderno si estende ora oltre la rete di un'organizzazione per includere l'identità di utenti e dispositivi. Le organizzazioni possono usare questi segnali di identità come parte delle decisioni relative al controllo di accesso. 
 
-> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-AD-Conditional-Access/player]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MwZs]
 
 L'accesso condizionale è lo strumento usato da Azure Active Directory per raggruppare i segnali, consentendo di prendere decisioni e applicare i criteri dell'organizzazione. L'accesso condizionale è la base del nuovo piano di controllo basato su identità.
 

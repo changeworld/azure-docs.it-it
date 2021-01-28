@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 24c29d34c14e6237bc79e38741ea244da5429e9e
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 12074b6dc5d27c0d28ceea5ab6d266d1f02ecbe2
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754551"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938181"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Come rimuovere un'applicazione registrata con Microsoft Identity Platform
 
@@ -37,7 +37,7 @@ Nelle sezioni seguenti si apprenderà come:
 
 Le applicazioni registrate dall'utente o dalla relativa organizzazione vengono rappresentate nel tenant sia da un oggetto applicazione che da un oggetto entità servizio. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](./app-objects-and-service-principals.md).
 
-Per eliminare un'applicazione, è necessario essere un proprietario dell'applicazione o avere privilegi di amministratore.
+Per eliminare un'applicazione, è possibile elencarla come proprietario dell'applicazione o disporre di privilegi di amministratore.
 
 1. Accedere al <a href="https://portal.azure.com/" target="_blank">portale di Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a> con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.

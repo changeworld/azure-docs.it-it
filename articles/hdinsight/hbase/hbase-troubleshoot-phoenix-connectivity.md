@@ -3,16 +3,13 @@ title: Problemi di connettività Apache Phoenix in Azure HDInsight
 description: Problemi di connettività tra Apache HBase e Apache Phoenix in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: ed12c9629506fa8defb23b987fe672bb3b384418
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2cc6556f681ece170bdfe02b985f56274c0faa1e
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540092"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98936967"
 ---
 # <a name="scenario-apache-phoenix-connectivity-issues-in-azure-hdinsight"></a>Scenario: Apache Phoenix problemi di connettività in Azure HDInsight
 
@@ -28,7 +25,7 @@ L'IP del nodo Zookeeper attivo non è corretto.
 
 ### <a name="resolution"></a>Soluzione
 
-L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase**  >  **collegamenti rapidi**  >  **ZK (attiva)**  >  **Zookeeper info** . Correggere l'indirizzo IP in base alle esigenze.
+L'IP del nodo Zookeeper attivo può essere identificato dall'interfaccia utente di Ambari seguendo i collegamenti a **HBase**  >  **collegamenti rapidi**  >  **ZK (attiva)**  >  **Zookeeper info**. Correggere l'indirizzo IP in base alle esigenze.
 
 ---
 
@@ -50,7 +47,7 @@ ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,
 
 Dall'interfaccia utente di Apache Ambari, completare la procedura seguente per riavviare il servizio HMaster in tutti i nodi ZooKeeper:
 
-1. Dalla sezione di **Riepilogo** di HBase passare a **HBase**  >  **Active HBase Master** .
+1. Dalla sezione di **Riepilogo** di HBase passare a **HBase**  >  **Active HBase Master**.
 
 1. Dalla sezione **componenti** riavviare il servizio HBASE master.
 
@@ -66,4 +63,4 @@ Se il problema riscontrato non è presente in questo elenco o se non si riesce a
 
 * Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
 
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto**. Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
