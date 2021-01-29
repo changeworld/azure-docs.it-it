@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: cynthn
-ms.openlocfilehash: 95f6ce2fefacd20102abe9bbe818f228139ca33d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a995cd1d02438ae3be7091ba55e945549558829d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98898512"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055196"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Come scollegare un disco dati da una macchina virtuale di Windows
 
@@ -53,7 +53,7 @@ Non è possibile rimuovere *a caldo* un disco dati, ma è possibile accertarsi c
 1. Dal menu a sinistra selezionare **Macchine virtuali**.
 1. Selezionare la macchina virtuale con il disco dati da scollegare.
 1. In **Impostazioni** selezionare **Dischi**.
-1. Nell'estremità destra del disco dati che si desidera scollegare nel riquadro **dischi** fare clic sul pulsante **X** Elimina.
+1. Nell'estremità destra del disco dati che si desidera scollegare nel riquadro **dischi** fare clic sul pulsante **Disconnetti X** .
 1. Fare clic su **Salva** nella parte superiore di questa pagina per salvare le modifiche.
 
 Il disco rimane nello spazio di archiviazione ma non è più collegato a una macchina virtuale.

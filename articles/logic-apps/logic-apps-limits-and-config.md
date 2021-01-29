@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/22/2021
-ms.openlocfilehash: b16e95c231096b7b37175cda5233019696fba19c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 01/25/2021
+ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98726516"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054755"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -380,27 +380,42 @@ Quando si disabilita un'app per la logica, non viene eseguita alcuna nuova istan
 Quando si elimina un'app per la logica, non viene eseguita alcuna nuova istanza di esecuzione. Tutte le esecuzioni in corso e in sospeso vengono annullate. Se si dispone di migliaia di esecuzioni, l'annullamento potrebbe richiedere molto tempo.
 
 <a name="configuration"></a>
+<a name="firewall-ip-configuration"></a>
 
 ## <a name="firewall-configuration-ip-addresses-and-service-tags"></a>Configurazione del firewall: Indirizzi IP e tag del servizio
 
-Gli indirizzi IP usati da app per la logica di Azure per le chiamate in ingresso e in uscita dipendono dall'area in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP. Alcune chiamate [Power Automate](/power-automate/getting-started), come le richieste **HTTP** e **HTTP + OpenAPI**, passano direttamente attraverso il servizio App per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [Limiti e configurazione in Power Automate](/flow/limits-and-config#ip-address-configuration).
+Quando l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](#outbound) [ingresso](#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP.
 
-> [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente [tag di servizio](../virtual-network/service-tags-overview.md), invece di specificare gli indirizzi IP di App per la logica per ogni area, come descritto più avanti in questa sezione.
-> Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
->
-> * **LogicAppsManagement**: rappresenta i prefissi degli indirizzi IP in ingresso per il servizio App per la logica.
-> * **LogicApps**: rappresenta i prefissi degli indirizzi IP in uscita per il servizio App per la logica.
+Ad esempio, per supportare le chiamate che le app per la logica nell'area Stati Uniti occidentali inviano o ricevono tramite trigger e azioni predefiniti, ad esempio il [trigger o l'azione http](../connectors/connectors-native-http.md), il firewall deve consentire l'accesso per *tutti* gli indirizzi IP in ingresso del servizio app per la logica *e* gli indirizzi IP in uscita presenti nell'area Stati Uniti occidentali.
 
-* Per [Azure Cina 21Vianet](/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili per i [connettori personalizzati](../logic-apps/custom-connector-overview.md) e i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio Archiviazione di Azure, SQL Server, Office 365 Outlook e così via.
+Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](#outbound) nell'area di Azure dell'app per la logica. Inoltre, se si usano connettori personalizzati che accedono alle risorse locali tramite la [risorsa gateway dati locale in Azure](logic-apps-gateway-connection.md), è necessario configurare l'installazione del gateway per consentire l'accesso per gli *[indirizzi IP in uscita](#outbound)dei connettori gestiti* corrispondenti.
 
-* Per supportare le chiamate che le app per la logica effettuano direttamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e altre richieste HTTP, configurare il firewall con tutti gli indirizzi IP [in ingresso](#inbound) *e* [in uscita](#outbound) usati dal servizio App per la logica, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto le intestazioni **In ingresso** e **In uscita** in questa sezione e vengono ordinati in base all'area.
+Per ulteriori informazioni sulla configurazione delle impostazioni di comunicazione sul gateway, vedere gli argomenti seguenti:
 
-* Per supportare le chiamate effettuate da [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), impostare le configurazioni del firewall in modo che includano *tutti* gli indirizzi IP [in uscita](#outbound) usati da questi connettori, in base alle aree in cui sono presenti le app per la logica. Questi indirizzi vengono visualizzati sotto l'intestazione **In uscita** in questa sezione e vengono ordinati in base all'area.
+* [Configurazione delle impostazioni di comunicazione per il gateway dati locale](/data-integration/gateway/service-gateway-communication)
+* [Configurare le impostazioni proxy per il gateway dati locale](/data-integration/gateway/service-gateway-proxy)
 
-* Per abilitare la comunicazione per le app per la logica eseguite in un ambiente del servizio di integrazione (ISE), assicurarsi di [aprire queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+<a name="ip-setup-considerations"></a>
 
-* Se le app per la logica hanno problemi ad accedere agli account di archiviazione di Azure che usano [firewall e le regole del firewall](../storage/common/storage-network-security.md), sono disponibili [diverse opzioni per abilitare l'accesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
+### <a name="firewall-ip-configuration-considerations"></a>Considerazioni sulla configurazione IP del firewall
+
+Prima di configurare il firewall con gli indirizzi IP, esaminare le considerazioni seguenti:
+
+* Se si usa [Power Automate](/power-automate/getting-started), alcune azioni, ad esempio **http** e **http + openapi**, passano direttamente attraverso il servizio app per la logica di Azure e provengono dagli indirizzi IP elencati qui. Per altre informazioni sugli indirizzi IP usati da Power Automate, vedere [limiti e configurazione per l'automazione dell'energia elettrica](/flow/limits-and-config#ip-address-configuration).
+
+* Per [Azure Cina 21ViaNet](/azure/china/), gli indirizzi IP fissi o riservati non sono disponibili per i [connettori personalizzati](../logic-apps/custom-connector-overview.md) e per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio archiviazione di Azure, SQL Server, Office 365 Outlook e così via.
+
+* Se le app per la logica vengono eseguite in un [ambiente Integration Services (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), assicurarsi di [aprire anche queste porte](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
+
+* Per semplificare le regole di sicurezza che si desidera creare, è possibile utilizzare facoltativamente i [tag di servizio](../virtual-network/service-tags-overview.md) , anziché specificare i prefissi degli indirizzi IP per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio App per la logica:
+
+  * **LogicAppsManagement**: rappresenta i prefissi degli indirizzi IP in ingresso per il servizio App per la logica.
+
+  * **LogicApps**: rappresenta i prefissi degli indirizzi IP in uscita per il servizio App per la logica.
+
+  * **AzureConnectors**: rappresenta i prefissi degli indirizzi IP per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica e le chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure.
+
+* Se le app per la logica hanno problemi ad accedere agli account di archiviazione di Azure che usano [firewall e regole del firewall](../storage/common/storage-network-security.md), sono [disponibili diverse altre opzioni per abilitare l'accesso](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
   Ad esempio, le app per la logica non possono accedere direttamente agli account di archiviazione che usano regole del firewall e si trovano nella stessa area. Se però si consentono gli [indirizzi IP in uscita per i connettori gestiti nella propria area](../logic-apps/logic-apps-limits-and-config.md#outbound), le app per la logica possono accedere agli account di archiviazione che si trovano in un'area diversa, eccetto quando si usano i connettori di archiviazione tabelle di Azure o di archiviazione code di Azure. Per accedere all'archiviazione tabelle o all'archiviazione code, è invece possibile usare azioni e trigger HTTP. Per altre opzioni, vedere [Accedere ad account di archiviazione protetti da firewall](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
@@ -411,9 +426,7 @@ Gli indirizzi IP usati da app per la logica di Azure per le chiamate in ingresso
 Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per la logica di Azure. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in ingresso](#azure-government-inbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area.
-> Per i connettori gestiti, è possibile usare facoltativamente il tag del servizio **AzureConnectors** , invece di specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area.
-> Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicAppsManagement** invece di specificare i prefissi di indirizzi IP di App per la logica in ingresso per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica, anziché specificare i prefissi degli indirizzi IP del connettore gestito in ingresso per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
 
 <a name="multi-tenant-inbound"></a>
 
@@ -479,8 +492,7 @@ Questa sezione elenca gli indirizzi IP in ingresso solo per il servizio App per 
 Questa sezione elenca gli indirizzi IP in uscita per il servizio App per la logica di Azure e per i connettori gestiti. Se si usa Azure per enti pubblici, vedere [Azure per enti pubblici - Indirizzi IP in uscita](#azure-government-outbound).
 
 > [!TIP]
-> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area.
-> Questo tag funziona in tutte le aree in cui è disponibile il servizio App per la logica. 
+> Per ridurre la complessità quando si creano regole di sicurezza, è possibile usare facoltativamente il [tag di servizio](../virtual-network/service-tags-overview.md) **LogicApps** invece di specificare i prefissi di indirizzi IP di App per la logica in uscita per ogni area. Facoltativamente, è anche possibile usare il tag del servizio **AzureConnectors** per i connettori gestiti che eseguono chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure, anziché specificare i prefissi degli indirizzi IP del connettore gestito in uscita per ogni area. Questi tag funzionano in tutte le aree in cui è disponibile il servizio app per la logica.
 
 <a name="multi-tenant-outbound"></a>
 

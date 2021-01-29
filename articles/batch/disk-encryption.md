@@ -3,21 +3,26 @@ title: Creare un pool con la crittografia disco abilitata
 description: Informazioni su come usare la configurazione della crittografia del disco per crittografare i nodi con una chiave gestita dalla piattaforma.
 author: pkshultz
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 01/27/2021
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: a61e87c660bf2d2f0f4c8d02bd1699c58f8da667
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 41fc827459b454e2bcb120a925cdab8fcd46e310
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350671"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055315"
 ---
 # <a name="create-a-pool-with-disk-encryption-enabled"></a>Creare un pool con la crittografia disco abilitata
 
-Quando si crea un pool di Azure Batch usando la configurazione della macchina virtuale, è possibile crittografare i nodi di calcolo nel pool con una chiave gestita dalla piattaforma specificando la configurazione della crittografia del disco.
+Quando si crea un pool di Azure Batch usando la [configurazione della macchina virtuale](nodes-and-pools.md#virtual-machine-configuration), è possibile crittografare i nodi di calcolo nel pool con una chiave gestita dalla piattaforma specificando la configurazione della crittografia del disco.
 
 Questo articolo illustra come creare un pool di batch con la crittografia del disco abilitata.
+
+> [!IMPORTANT]
+> Il supporto per la crittografia nell'host con una chiave gestita dalla piattaforma in Azure Batch è attualmente disponibile in anteprima pubblica per le aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, US Gov Virginia e US Gov Arizona.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="why-use-a-pool-with-disk-encryption-configuration"></a>Perché usare un pool con la configurazione della crittografia del disco?
 
@@ -29,12 +34,10 @@ Batch applicherà una di queste tecnologie di crittografia del disco nei nodi di
 - [Crittografia nell'host mediante una chiave gestita dalla piattaforma](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
 - [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)
 
-> [!IMPORTANT]
-> Il supporto per la crittografia nell'host con una chiave gestita dalla piattaforma in Azure Batch è attualmente disponibile in anteprima pubblica per le aree Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, US Gov Virginia e US Gov Arizona.
-> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
-> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Non sarà possibile specificare quale metodo di crittografia verrà applicato ai nodi nel pool. Al contrario, si forniscono i dischi di destinazione che si vuole crittografare sui rispettivi nodi e batch può scegliere il metodo di crittografia appropriato, assicurando che i dischi specificati siano crittografati nel nodo di calcolo.
+
+> [!IMPORTANT]
+> Se si sta creando un pool con un' [immagine personalizzata](batch-sig-images.md), è possibile abilitare la crittografia del disco solo se si usano macchine virtuali Windows.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -46,7 +49,7 @@ Dopo aver creato il pool, è possibile visualizzare le destinazioni di configura
 
 :::image type="content" source="media/disk-encryption/configuration-target.png" alt-text="Screenshot che mostra le destinazioni di configurazione della crittografia del disco nel portale di Azure.":::
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Gli esempi seguenti illustrano come crittografare il sistema operativo e i dischi temporanei in un pool di batch usando batch .NET SDK, l'API REST di batch e l'interfaccia della riga di comando di Azure.
 
@@ -61,11 +64,14 @@ pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptio
 ### <a name="batch-rest-api"></a>API Batch REST
 
 URL DELL'API REST:
+
 ```
 POST {batchURL}/pools?api-version=2020-03-01.11.0
 client-request-id: 00000000-0000-0000-0000-000000000000
 ```
+
 Corpo della richiesta:
+
 ```
 "pool": {
     "id": "pool2",

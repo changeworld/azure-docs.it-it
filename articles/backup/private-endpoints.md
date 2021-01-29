@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: b1412a79fa6137ce1f8c73d5875e52b6382048fa
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 0d9d77c139896f9067f73943dbb213fc655f00f6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986972"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054873"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -32,7 +32,7 @@ Questo articolo aiuta a comprendere il processo di creazione di endpoint privati
 
 Mentre gli endpoint privati sono abilitati per l'insieme di credenziali, vengono usati per il backup e il ripristino dei carichi di lavoro SQL e SAP HANA in una macchina virtuale di Azure e il backup dell'agente MARS. È anche possibile usare l'insieme di credenziali per il backup di altri carichi di lavoro, ma non richiedono endpoint privati. Oltre al backup dei carichi di lavoro SQL e SAP HANA e al backup con l'agente MARS, gli endpoint privati vengono usati anche per eseguire il ripristino del file per il backup delle macchine virtuali di Azure. Per altre informazioni, vedere la tabella seguente:
 
-| Backup dei carichi di lavoro in una macchina virtuale di Azure (SQL, SAP HANA), backup con l'agente MARS | L'uso di endpoint privati è consigliato per consentire il backup e il ripristino senza che sia necessario consentire l'elenco di indirizzi IP/FQDN per backup di Azure o archiviazione di Azure dalle reti virtuali. |
+| Backup dei carichi di lavoro in una macchina virtuale di Azure (SQL, SAP HANA), backup con l'agente MARS | L'uso di endpoint privati è consigliato per consentire il backup e il ripristino senza che sia necessario consentire l'uso di indirizzi IP/FQDN per backup di Azure o archiviazione di Azure dalle reti virtuali. In questo scenario, assicurarsi che le macchine virtuali che ospitano i database SQL possano raggiungere Azure AD IP o FQDN. |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Backup di macchine virtuali di Azure**                                         | Per il backup delle macchine virtuali non è necessario consentire l'accesso a indirizzi IP o FQDN. Non sono quindi necessari endpoint privati per il backup e il ripristino dei dischi.  <br><br>   Tuttavia, il ripristino di file da un insieme di credenziali contenente endpoint privati è limitato alle reti virtuali che contengono un endpoint privato per l'insieme di credenziali. <br><br>    Quando si usano dischi non gestiti ACL'ed, verificare che l'account di archiviazione che contiene i dischi consenta l'accesso ai **Servizi Microsoft attendibili** se è ACL'ed. |
 | **Backup File di Azure**                                      | File di Azure backup vengono archiviati nell'account di archiviazione locale. Non sono quindi necessari endpoint privati per il backup e il ripristino. |
@@ -386,7 +386,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 #### <a name="create-dns-zones-for-custom-dns-servers"></a>Creare zone DNS per i server DNS personalizzati
 
-È necessario creare tre zone DNS private e collegarle alla rete virtuale.
+È necessario creare tre zone DNS private e collegarle alla rete virtuale. Si tenga presente che, a differenza dei BLOB e delle code, gli URL pubblici del servizio di backup non si registrano nel DNS pubblico di Azure per il reindirizzamento alle zone DNS del collegamento privato. 
 
 | **Zona**                                                     | **Servizio** |
 | ------------------------------------------------------------ | ----------- |

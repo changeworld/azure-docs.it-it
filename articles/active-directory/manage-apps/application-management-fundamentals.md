@@ -16,12 +16,12 @@ ms.date: 11/13/2019
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7a570fb322d24bf0d32efcb6f1a2ee515862755
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 37b9733c8c48f477efcd42571b2206405efdd5cb
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736970"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055094"
 ---
 # <a name="application-management-best-practices"></a>Procedure consigliate per la gestione delle applicazioni
 
@@ -34,7 +34,7 @@ Questo articolo contiene indicazioni e procedure consigliate per la gestione del
 | Usa SSO federato basato su SAML  | Quando un'applicazione la supporta, utilizzare SSO federato basato su SAML con Azure AD anziché SSO basato su password e ADFS.  | 
 | Usare SHA-256 per la firma del certificato  | Per impostazione predefinita, Azure AD usa l'algoritmo SHA-256 per firmare la risposta SAML. Usare SHA-256, a meno che l'applicazione non richieda SHA-1 (vedere le [Opzioni di firma del certificato](certificate-signing-options.md) e il [problema di accesso all'applicazione](application-sign-in-problem-application-error.md)).  | 
 | Richiedi assegnazione utente  | Per impostazione predefinita, gli utenti possono accedere alle applicazioni aziendali senza essere loro assegnati. Tuttavia, se l'applicazione espone ruoli o se si vuole che l'applicazione venga visualizzata in app personali di un utente, richiedere l'assegnazione dell'utente.  | 
-| Distribuisci app personali agli utenti | [My Apps](end-user-experiences.md) at `https://myapps.microsoft.com` è un portale basato sul Web che offre agli utenti un unico punto di ingresso per le applicazioni basate sul cloud assegnate. Con l'aggiunta di funzionalità aggiuntive, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, gli utenti possono trovarle nelle app personali. Vedere [pianificare la distribuzione di app](access-panel-deployment-plan.md).
+| Distribuisci app personali agli utenti | [My Apps](end-user-experiences.md) at `https://myapps.microsoft.com` è un portale basato sul Web che offre agli utenti un unico punto di ingresso per le applicazioni basate sul cloud assegnate. Con l'aggiunta di funzionalità aggiuntive, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, gli utenti possono trovarle nelle app personali. Vedere [pianificare la distribuzione di app](my-apps-deployment-plan.md).
 | USA assegnazione gruppo  | Se incluso nella sottoscrizione, assegnare i gruppi a un'applicazione in modo da poter delegare la gestione degli accessi in corso al proprietario del gruppo.  | 
 | Stabilire un processo per la gestione dei certificati | La durata massima di un certificato di firma è di tre anni. Per prevenire o ridurre al minimo le interruzioni dovute alla scadenza di un certificato, usare i ruoli e le liste di distribuzione di posta elettronica per assicurarsi che le notifiche delle modifiche relative ai certificati siano monitorate attentamente. |
 

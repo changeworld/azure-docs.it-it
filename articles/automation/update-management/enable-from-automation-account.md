@@ -2,15 +2,16 @@
 title: Abilitazione di Gestione aggiornamenti di Automazione di Azure da un account di Automazione
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da un account di Automazione.
 services: automation
+ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380539"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054924"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
@@ -22,7 +23,7 @@ Questo articolo descrive come usare l'account di automazione per abilitare la fu
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](../index.yml) per gestire i computer.
+* [Account di Automazione](../automation-security-overview.md) per gestire i computer.
 * Una [macchina virtuale di Azure](../../virtual-machines/windows/quick-create-portal.md), una VM o un server registrato con i server abilitati per Arc. Per le macchine virtuali o i server non di Azure è necessario che l' [agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per Windows o Linux sia installato e che la creazione di report nell'area di lavoro collegata all'account di automazione gestione aggiornamenti sia abilitata in. Si consiglia di installare l'agente di Log Analytics per Windows o Linux connettendo il computer ai [server abilitati per Azure Arc](../../azure-arc/servers/overview.md)e quindi usando i criteri di Azure per assegnare i criteri predefiniti [Distribuisci agente di log Analytics a computer *Linux* o *Windows* Azure Arc](../../governance/policy/samples/built-in-policies.md#monitoring) . In alternativa, se si prevede di monitorare i computer con Monitoraggio di Azure per le macchine virtuali, usare invece l'iniziativa [abilita monitoraggio di Azure per le macchine virtuali](../../governance/policy/samples/built-in-initiatives.md#monitoring) .
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure

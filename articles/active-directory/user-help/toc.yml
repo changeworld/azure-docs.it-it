@@ -50,6 +50,8 @@
       href: auth-app-android-china.md
     - name: Eseguire il backup e il ripristino degli account
       href: user-help-auth-app-backup-recovery.md
+    - name: Importare le password nell'app Authenticator
+      href: user-help-authenticator-app-import-passwords.md
     - name: Domande frequenti
       href: user-help-auth-app-faq.md
 - name: Guida del portale Account personale

@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 65d6151536eb92e2ab9b740a99984fb0b5977cab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dfeca64804ceb522046e5c0dc10702575f60aad
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256875"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054586"
 ---
 # <a name="get-appsource-certified-for-azure-active-directory"></a>Ottenere la certificazione AppSource per Azure Active Directory
 
@@ -102,11 +102,11 @@ L'esperienza di valutazione gestita dal partner può essere usata quando è nece
 
 Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [questo video](https://aka.ms/trialexperienceforwebapps). 
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-Per l'integrazione di Azure AD, viene usato [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource), con il supporto della community.
+Per l'integrazione Azure AD, [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-active-directory.html) con la community per fornire supporto.
 
-È consigliabile provare prima a porre le domande in Stack Overflow ed esplorare le problematiche esistenti per vedere se un utente ha già posto la stessa domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Ti consigliamo vivamente di porre le tue domande su Microsoft Q&un primo ed esaminare i problemi esistenti per vedere se qualcuno ha già posto la domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

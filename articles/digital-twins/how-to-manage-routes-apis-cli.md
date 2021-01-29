@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fa699163fdf445624c918e714fda890a41a67f07
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98682648"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054510"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "98682648"
 
 Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche degli eventi](how-to-interpret-event-data.md) ai servizi downstream o alle risorse di calcolo connesse. Questa operazione viene eseguita configurando prima di tutto gli **endpoint** che possono ricevere gli eventi. È quindi possibile creare  [**Route di eventi**](concepts-route-events.md) che specificano gli eventi generati dai dispositivi gemelli digitali di Azure che vengono recapitati a quali endpoint.
 
-Questo articolo illustra il processo di creazione di endpoint e route con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Questo articolo illustra il processo di creazione di endpoint e route con le [API REST](/rest/api/azure-digitaltwins/), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)e l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 In alternativa, è anche possibile gestire gli endpoint e le route con la [portale di Azure](https://portal.azure.com). Per una versione di questo articolo che usa invece il portale, vedere [*How-to: Manage Endpoints and routes (Portal)*](how-to-manage-routes-portal.md).
 
@@ -42,51 +42,31 @@ Questi sono i tipi di endpoint supportati che è possibile creare per l'istanza:
 
 Per altre informazioni sui diversi tipi di endpoint, vedere [*scegliere tra i servizi di messaggistica di Azure*](../event-grid/compare-messaging-services.md).
 
-Per collegare un endpoint ai dispositivi gemelli digitali di Azure, è necessario che l'argomento della griglia di eventi, l'hub eventi o il bus di servizio usato per l'endpoint sia già esistente. 
+Questa sezione illustra come creare questi endpoint usando l'interfaccia della riga di comando di Azure. È anche possibile gestire gli endpoint con le [API del piano di controllo DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints).
 
-### <a name="create-an-event-grid-endpoint"></a>Creare un endpoint di griglia di eventi
+[!INCLUDE [digital-twins-endpoint-resources.md](../../includes/digital-twins-endpoint-resources.md)]
 
-L'esempio seguente illustra come creare un endpoint di tipo griglia di eventi usando l'interfaccia della riga di comando di Azure.
+### <a name="create-the-endpoint"></a>Creare l'endpoint
 
-Per prima cosa, creare un argomento di griglia di eventi. È possibile usare il comando seguente o visualizzare i passaggi in modo più dettagliato visitando [la sezione *creare un argomento personalizzato*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
+Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il `az dt endpoint create` comando per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
 
-```azurecli-interactive
-az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
-```
-
-> [!TIP]
-> Per restituire un elenco di nomi di aree di Azure che possono essere passati ai comandi nell'interfaccia della riga di comando di Azure, eseguire questo comando:
-> ```azurecli-interactive
-> az account list-locations -o table
-> ```
-
-Dopo aver creato l'argomento, è possibile collegarlo ai dispositivi gemelli digitali di Azure con il [comando dell'interfaccia della riga di comando di Azure Digital gemello](how-to-use-cli.md)seguente:
+Per creare un endpoint di griglia di eventi:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
+Per creare un endpoint di hub eventi:
+```azurecli-interactive
+az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
+```
 
-### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Creare un hub eventi o un endpoint del bus di servizio
-
-Il processo per la creazione di hub eventi o endpoint del bus di servizio è simile al processo di griglia di eventi illustrato in precedenza.
-
-Prima di tutto, creare le risorse che verranno usate come endpoint. Ecco cosa è necessario:
-* Bus di servizio: _spazio dei nomi del bus_ di servizio, _argomento del bus di servizio_, regola di _autorizzazione_
-* Hub eventi: _spazio dei nomi di hub eventi_, _Hub eventi_, _regola di autorizzazione_
-
-Quindi, usare i comandi seguenti per creare gli endpoint nei dispositivi gemelli digitali di Azure: 
-
-* Aggiungere un endpoint dell'argomento del bus di servizio (richiede una risorsa del bus di servizio creata in precedenza)
+Per creare un endpoint dell'argomento del bus di servizio:
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-* Aggiungere l'endpoint di hub eventi (richiede una risorsa di hub eventi creata in precedenza)
-```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
-```
+Dopo aver eseguito questi comandi, l'argomento griglia di eventi, Hub eventi o bus di servizio sarà disponibile come endpoint all'interno dei dispositivi gemelli digitali di Azure, con il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
 
@@ -121,15 +101,15 @@ Attenersi alla procedura seguente per configurare queste risorse di archiviazion
     
 #### <a name="configure-the-endpoint"></a>Configurare l'endpoint
 
-Per creare un endpoint con messaggi non recapitabili abilitati, è necessario creare l'endpoint usando le API Azure Resource Manager. 
+Per creare un endpoint con messaggi non recapitabili abilitati, è possibile creare l'endpoint usando le API Azure Resource Manager. 
 
 1. Per prima cosa, usare la [documentazione delle api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per configurare una richiesta di creazione di un endpoint e compilare i parametri richiesti della richiesta. 
 
-1. Successivamente, aggiungere un `deadLetterSecret` campo all'oggetto Properties nel **corpo** della richiesta. Impostare questo valore in base al modello riportato di seguito, che esegue l'artigianato di un URL in base al nome dell'account di archiviazione, al nome del contenitore e al valore del token di firma di accesso condiviso raccolti nella [sezione precedente](#set-up-storage-resources).
+2. Successivamente, aggiungere un `deadLetterSecret` campo all'oggetto Properties nel **corpo** della richiesta. Impostare questo valore in base al modello riportato di seguito, che esegue l'artigianato di un URL in base al nome dell'account di archiviazione, al nome del contenitore e al valore del token di firma di accesso condiviso raccolti nella [sezione precedente](#set-up-storage-resources).
       
   :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
 
-1. Inviare la richiesta per creare l'endpoint.
+3. Inviare la richiesta per creare l'endpoint.
 
 Per altre informazioni sulla strutturazione di questa richiesta, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
@@ -169,10 +149,6 @@ Di seguito è riportato un esempio di messaggio non recapitabile per una notific
 
 ## <a name="create-an-event-route"></a>Creare una route di eventi
 
-Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
-
-Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-
 **Prerequisito**: è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
 
 > [!NOTE]
@@ -180,9 +156,7 @@ Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/di
 >
 > Se si crea uno script per questo flusso, è possibile che si voglia tenere conto di questa situazione creando in 2-3 minuti di tempo di attesa per il completamento della distribuzione del servizio endpoint prima di passare alla configurazione del routing.
 
-### <a name="creation-code-with-apis-and-the-c-sdk"></a>Creazione di codice con le API e C# SDK
-
-Le route degli eventi vengono definite usando le [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis). 
+Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Le route degli eventi vengono usate per connettere il flusso eventi, in tutto il sistema e ai servizi downstream.
 
 Una definizione di route può contenere gli elementi seguenti:
 * Nome della route che si vuole usare
@@ -193,6 +167,12 @@ Se non è presente alcun nome di route, nessun messaggio viene instradato all'es
 
 Una route deve consentire la selezione di più notifiche e tipi di evento. 
 
+È possibile creare route di eventi con le API del [piano dati **EventRoutes**](/rest/api/digital-twins/dataplane/eventroutes) di Azure Digital gemelli o i [comandi **AZ DT Route** CLI](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true). Il resto di questa sezione illustra il processo di creazione.
+
+### <a name="create-routes-with-the-apis-and-c-sdk"></a>Creare route con le API e C# SDK
+
+Un modo per definire le route degli eventi è con le [API del piano dati](how-to-use-apis-sdks.md#overview-data-plane-apis). Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+
 `CreateOrReplaceEventRouteAsync` è la chiamata SDK utilizzata per aggiungere una route dell'evento. Di seguito è riportato un esempio di utilizzo:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
@@ -200,11 +180,17 @@ Una route deve consentire la selezione di più notifiche e tipi di evento.
 > [!TIP]
 > Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
-### <a name="event-route-sample-code"></a>Codice di esempio della route di eventi
+#### <a name="event-route-sample-sdk-code"></a>Codice SDK di esempio della route di eventi
 
-Il metodo di esempio seguente mostra come creare, elencare ed eliminare una route di eventi:
+Il metodo di esempio seguente mostra come creare, elencare ed eliminare una route di eventi con C# SDK:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="FullEventRouteSample":::
+
+### <a name="create-routes-with-the-cli"></a>Creare route con l'interfaccia della riga di comando
+
+Le route possono essere gestite anche usando i comandi [AZ DT Route](/cli/azure/ext/azure-iot/dt/route?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di Azure Digital gemelli. 
+
+Per altre informazioni sull'uso dell'interfaccia della riga di comando e sui comandi disponibili, vedere [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 ## <a name="filter-events"></a>Filtrare gli eventi
 
@@ -222,10 +208,6 @@ Per aggiungere un filtro, è possibile usare una richiesta PUT su *https://{Your
 Ecco i filtri di route supportati. Usare i dettagli nella colonna *Filtra schema testo* per sostituire il `<filter-text>` segnaposto nel corpo della richiesta precedente.
 
 [!INCLUDE [digital-twins-route-filters](../../includes/digital-twins-route-filters.md)]
-
-## <a name="manage-endpoints-and-routes-with-cli"></a>Gestire endpoint e route con l'interfaccia della riga di comando
-
-Gli endpoint e le route possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. Per altre informazioni sull'uso dell'interfaccia della riga di comando e sui comandi disponibili, vedere [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

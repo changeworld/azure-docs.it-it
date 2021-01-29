@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: genli
-ms.openlocfilehash: e1e7e78cab1f3a240737b5e25e0dff28c420add8
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 518b8e33ac9adfdd1aa121e0cb8d1558545980e7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883113"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054855"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-problems-in-azure"></a>Risolvere i problemi di connettività SMTP in uscita in Azure
 
@@ -27,13 +27,13 @@ Questa modifica del comportamento si applica solo alle sottoscrizioni e alle dis
 
 ## <a name="recommended-method-of-sending-email"></a>Metodo consigliato per l'invio di posta elettronica
 
-Si consiglia di usare i servizi di inoltro SMTP autenticato per inviare messaggi di posta elettronica da macchine virtuali di Azure o da app Azure servizio. Questi servizi di inoltro in genere si connettono tramite la porta TCP 587 o 443, ma supportano le altre porte. Questi servizi vengono utilizzati per gestire la reputazione IP o di dominio per ridurre al minimo la possibilità che i provider di posta elettronica di terze parti rifiutino i messaggi. [SendGrid](https://sendgrid.com/partners/azure/) è un servizio di inoltro SMTP, ma ne esistono altri. Potrebbe anche essere presente un servizio di inoltro SMTP sicuro in esecuzione in locale che è possibile usare.
+Si consiglia di usare i servizi di inoltro SMTP autenticato per inviare messaggi di posta elettronica da macchine virtuali di Azure o da app Azure servizio. Questi servizi di inoltro in genere si connettono tramite la porta TCP 587, ma supportano altre porte. Questi servizi vengono utilizzati per gestire la reputazione IP o di dominio per ridurre al minimo la possibilità che i provider di posta elettronica di terze parti rifiutino i messaggi. [SendGrid](https://sendgrid.com/partners/azure/) è un servizio di inoltro SMTP, ma ne esistono altri. Potrebbe anche essere presente un servizio di inoltro SMTP sicuro in esecuzione in locale che è possibile usare.
 
 In Azure non sono previste restrizioni relative all'uso di questi servizi di recapito di posta elettronica, indipendentemente dal tipo di sottoscrizione.
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement
 
-Per gli utenti di Azure con contratto Enterprise Agreement, non vi sono variazioni riguardo alla capacità tecnica di inviare posta elettronica senza usare un servizio di inoltro autenticato. Gli utenti con contratto Enterprise Agreement, sia nuovi che esistenti, possono tentare il recapito di posta elettronica in uscita direttamente dalle macchine virtuali di Azure a provider di posta elettronica esterni, senza restrizioni da parte della piattaforma Azure. Non vi è alcuna garanzia che i provider di posta elettronica accettino i messaggi di posta elettronica in arrivo da un determinato utente. Tuttavia, la piattaforma Azure non bloccherà i tentativi di recapito per le macchine virtuali all'interno Enterprise Agreement sottoscrizioni. Dovrai collaborare direttamente con i provider di posta elettronica per risolvere eventuali problemi di recapito dei messaggi o di filtro della posta indesiderata che coinvolgono provider specifici.
+Per gli utenti di Azure con contratto Enterprise Agreement, non vi sono variazioni riguardo alla capacità tecnica di inviare posta elettronica senza usare un servizio di inoltro autenticato. Gli utenti con contratto Enterprise Agreement, sia nuovi che esistenti, possono tentare il recapito di posta elettronica in uscita direttamente dalle macchine virtuali di Azure a provider di posta elettronica esterni, senza restrizioni da parte della piattaforma Azure. Non vi è alcuna garanzia che i provider di posta elettronica accettino i messaggi di posta elettronica in arrivo da un determinato utente. Tuttavia, la piattaforma Azure non bloccherà i tentativi di recapito per le macchine virtuali all'interno Contratto Enterprise sottoscrizioni. Dovrai collaborare direttamente con i provider di posta elettronica per risolvere eventuali problemi di recapito dei messaggi o di filtro della posta indesiderata che coinvolgono provider specifici.
 
 ## <a name="pay-as-you-go"></a>Pagamento in base al consumo
 

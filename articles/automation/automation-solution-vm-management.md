@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372158"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055382"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Panoramica di Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -37,7 +37,7 @@ La funzionalità corrente presenta le limitazioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./manage-runas-account.md). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
+- I runbook per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività funzionano con un [account RunAs di Azure](./automation-security-overview.md#run-as-accounts). L'account RunAs è il metodo di autenticazione preferito perché usa l'autenticazione del certificato anziché una password, che potrebbe scadere o essere modificata di frequente.
 
 - L'account di automazione collegato e l'area di lavoro Log Analytics devono trovarsi nello stesso gruppo di risorse.
 
@@ -79,7 +79,7 @@ Per abilitare una macchina virtuale per la funzionalità Avvio/Arresto di macchi
 È possibile abilitare le macchine virtuali per la funzionalità Avvio/Arresto di macchine virtuali durante gli orari di minore attività con un nuovo account di Automazione e una nuova area di lavoro Log Analytics. In questo caso sono necessarie le autorizzazioni definite nella sezione precedente, oltre alle autorizzazioni definite in questa sezione. Sono necessari anche i ruoli seguenti:
 
 - Co-Administrator sulla sottoscrizione. Questo ruolo è necessario per creare la versione classica dell'account RunAs se si prevede di gestire VM classiche. Gli [account RunAs classici](automation-create-standalone-account.md#create-a-classic-run-as-account) non vengono più creati per impostazione predefinita.
-- Appartenenza al ruolo Sviluppatore applicazioni di [Azure AD](../active-directory/roles/permissions-reference.md). Per altre informazioni sulla configurazione degli account RunAs, vedere [Autorizzazioni per la configurazione degli account RunAs](manage-runas-account.md#permissions).
+- Appartenenza al ruolo Sviluppatore applicazioni di [Azure AD](../active-directory/roles/permissions-reference.md). Per altre informazioni sulla configurazione degli account RunAs, vedere [Autorizzazioni per la configurazione degli account RunAs](automation-security-overview.md#permissions).
 - Collaboratore nella sottoscrizione o le autorizzazioni seguenti.
 
 | Autorizzazione |Scope|

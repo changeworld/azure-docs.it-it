@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 729444b1d1ccf55f34e54a4b59508131458c472b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132296"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054805"
 ---
 # <a name="understand-and-work-with-scopes"></a>Informazioni e utilizzo degli ambiti
 
@@ -114,7 +114,7 @@ Le sottoscrizioni di Azure create da singole offerte, ad esempio il pagamento in
 
     Tipo di risorsa: Non applicabile
 
-I singoli amministratori dell'account di sottoscrizione di Azure possono visualizzare e gestire i dati di fatturazione, ad esempio le fatture e i pagamenti, dal [Centro account di Azure](https://account.azure.com/subscriptions). Non possono tuttavia visualizzare i dati sui costi o gestire le risorse nel portale di Azure. Per concedere l'accesso all'amministratore dell'account, usare i ruoli di Gestione costi descritti in precedenza.
+Gli amministratori dell'account di sottoscrizione di Azure singoli possono visualizzare e gestire i dati di fatturazione, ad esempio fatture e [](https://portal.azure.com)pagamenti, dalle  >  **sottoscrizioni** portale di Azure > selezionare una sottoscrizione.
 
 Diversamente dal Contratto Enterprise, i singoli amministratori dell'account di sottoscrizione di Azure possono visualizzare le fatture nel portale di Azure. Tenere presente che i ruoli Lettore e Collaboratore di Gestione costi non consentono l'accesso alle fatture. Per altre informazioni, vedere [Come concedere l'accesso alle fatture](../manage/manage-billing-access.md#give-read-only-access-to-billing).
 

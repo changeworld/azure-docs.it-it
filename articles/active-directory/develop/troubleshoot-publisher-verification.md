@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 01/28/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 10609f2706d257dbe5d8f43b85da5f06cb986cae
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dd1edc001e51bf20f3ff7745baa520b3844c139b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756183"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054670"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -149,87 +149,95 @@ HTTP/1.1 200 OK
 
 Di seguito è riportato un elenco dei potenziali codici di errore che possono essere ricevuti, sia durante la risoluzione dei problemi con Microsoft Graph che nel corso del processo nel portale di registrazione delle app.
 
-### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess     
+### <a name="mpnaccountnotfoundornoaccess"></a>MPNAccountNotFoundOrNoAccess
 
-L'ID MPN specificato (<MPNID>) non esiste o non è possibile accedervi. Specificare un ID MPN valido e riprovare.
+L'ID MPN specificato (`MPNID`) non esiste o non è possibile accedervi. Specificare un ID MPN valido e riprovare.
     
 In genere, l'utente che ha eseguito l'accesso non è membro del ruolo appropriato per l'account MPN nel centro per i partner. per ulteriori informazioni, vedere i [requisiti](publisher-verification-overview.md#requirements) per un elenco dei ruoli idonei e vedere i [problemi comuni](#common-issues) . Può anche essere causato dal tenant in cui l'app è registrata non viene aggiunta all'account MPN o da un ID MPN non valido.
 
-### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound     
+### <a name="mpnglobalaccountnotfound"></a>MPNGlobalAccountNotFound
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+L'ID MPN specificato (`MPNID`) non è valido. Specificare un ID MPN valido e riprovare.
     
 Si verifica in genere quando viene fornito un ID MPN che corrisponde a un account di località partner (PLA). Sono supportati solo gli account globali partner. Per ulteriori informazioni, vedere la [struttura dell'account del centro](/partner-center/account-structure) per i partner.
 
-### <a name="mpnaccountinvalid"></a>MPNAccountInvalid    
+### <a name="mpnaccountinvalid"></a>MPNAccountInvalid
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+L'ID MPN specificato (`MPNID`) non è valido. Specificare un ID MPN valido e riprovare.
     
 Generalmente causata dall'ID MPN errato fornito.
 
-### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted  
+### <a name="mpnaccountnotvetted"></a>MPNAccountNotVetted
 
-L'ID MPN (<MPNID>) specificato non ha completato il processo di verifica. Completare questo processo in Partner Center e riprovare. 
+L'ID MPN (`MPNID`) specificato non ha completato il processo di verifica. Completare questo processo in Partner Center e riprovare. 
     
 Generalmente causata da quando l'account MPN non ha completato il processo di [Verifica](/partner-center/verification-responses) .
 
-### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount  
+### <a name="nopublisheridonassociatedmpnaccount"></a>NoPublisherIdOnAssociatedMPNAccount
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare. 
+L'ID MPN specificato (`MPNID`) non è valido. Specificare un ID MPN valido e riprovare. 
    
 Generalmente causata dall'ID MPN errato fornito.
 
-### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount    
+### <a name="mpniddoesnotmatchassociatedmpnaccount"></a>MPNIdDoesNotMatchAssociatedMPNAccount
 
-L'ID MPN specificato (<MPNID>) non è valido. Specificare un ID MPN valido e riprovare.
+L'ID MPN specificato (`MPNID`) non è valido. Specificare un ID MPN valido e riprovare.
     
 Generalmente causata dall'ID MPN errato fornito.
 
-### <a name="applicationnotfound"></a>ApplicationNotFound  
+### <a name="applicationnotfound"></a>ApplicationNotFound
 
-Impossibile trovare l'applicazione di destinazione (<AppId>). Specificare un ID di applicazione valido e riprovare.
+Impossibile trovare l'applicazione di destinazione (`AppId`). Specificare un ID di applicazione valido e riprovare.
     
 Si verifica in genere quando viene eseguita la verifica tramite API Graph e l'ID dell'applicazione fornita non è corretto. Nota: è necessario specificare l'ID dell'applicazione, non l'AppId/ClientID.
 
-### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed  
+### <a name="b2ctenantnotallowed"></a>B2CTenantNotAllowed
 
-Questa funzionalità non è supportata in un tenant Azure AD B2C. 
+Questa funzionalità non è supportata in un tenant Azure AD B2C.
 
-### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed    
+### <a name="emailverifiedtenantnotallowed"></a>EmailVerifiedTenantNotAllowed
 
-Questa funzionalità non è supportata in un tenant verificato tramite posta elettronica. 
+Questa funzionalità non è supportata in un tenant verificato tramite posta elettronica.
 
-### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
+### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication
 
-L'applicazione di destinazione ( \<AppId\> ) deve avere un set di domini editore. Impostare un dominio dell'autore e riprovare.
+L'applicazione di destinazione ( `AppId` ) deve avere un set di domini editore. Impostare un dominio dell'autore e riprovare.
 
 Si verifica quando un [dominio del server di pubblicazione](howto-configure-publisher-domain.md) non è configurato nell'app.
 
-### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
+### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch
 
-Il dominio dell'autore dell'applicazione di destinazione (<publisherDomain>) non corrisponde al dominio usato per eseguire la verifica tramite posta elettronica in Partner Center (<pcDomain>). Assicurarsi che questi domini corrispondano e riprovare. 
+Il dominio dell'autore dell'applicazione di destinazione (`publisherDomain`) non corrisponde al dominio usato per eseguire la verifica tramite posta elettronica in Partner Center (`pcDomain`). Assicurarsi che questi domini corrispondano e riprovare. 
     
 Si verifica quando il dominio del [server di pubblicazione](howto-configure-publisher-domain.md) dell'applicazione o uno dei [domini personalizzati](../fundamentals/add-custom-domain.md) aggiunti al tenant di Azure ad corrisponde al dominio utilizzato per eseguire la verifica tramite posta elettronica nel centro per i partner.
 
-### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher   
+### <a name="notauthorizedtoverifypublisher"></a>NotAuthorizedToVerifyPublisher
 
-Non si è autorizzati a configurare la proprietà dell'autore verificato per l'applicazione (<AppId>) 
+Non si dispone delle autorizzazioni necessarie per impostare la proprietà del server di pubblicazione verificato nell'applicazione (<`AppId` ) 
   
 In genere, l'utente che ha eseguito l'accesso non è membro del ruolo appropriato per l'account MPN in Azure AD. vedere i [requisiti](publisher-verification-overview.md#requirements) per un elenco dei ruoli idonei e vedere i [problemi comuni](#common-issues) per ulteriori informazioni.
 
-### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided  
+### <a name="mpnidwasnotprovided"></a>MPNIdWasNotProvided
 
-L'ID MPN non è stato specificato nel corpo della richiesta o il tipo di contenuto della richiesta non è "application/json". 
+L'ID MPN non è stato specificato nel corpo della richiesta o il tipo di contenuto della richiesta non è "application/json".
 
-### <a name="msanotsupported"></a>MSANotSupported  
+### <a name="msanotsupported"></a>MSANotSupported 
 
 Questa funzionalità non è supportata per gli account utente Microsoft. Sono supportate solo le applicazioni registrate in Azure AD da un utente Azure AD.
 
 ### <a name="interactionrequired"></a>InteractionRequired
 
-Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) . Nota: è necessario eseguire l'autenticazione a più fattori nella stessa sessione quando si tenta di aggiungere un server di pubblicazione verificato. Se l'autenticazione a più fattori è abilitata ma non è necessaria per essere eseguita nella sessione, la richiesta avrà esito negativo.   
+Si verifica quando non è stata eseguita l'autenticazione a più fattori prima di tentare di aggiungere un server di pubblicazione verificato all'app. Per ulteriori informazioni, vedere [problemi comuni](#common-issues) . Nota: è necessario eseguire l'autenticazione a più fattori nella stessa sessione quando si tenta di aggiungere un server di pubblicazione verificato. Se l'autenticazione a più fattori è abilitata ma non è necessaria per essere eseguita nella sessione, la richiesta avrà esito negativo. 
 
 Il messaggio di errore visualizzato sarà: "a causa di una modifica della configurazione effettuata dall'amministratore o perché è stato spostato in una nuova posizione, è necessario usare l'autenticazione a più fattori per continuare".
+
+### <a name="unabletoaddpublisher"></a>UnableToAddPublisher
+
+Il messaggio di errore visualizzato è: "Impossibile aggiungere un server di pubblicazione verificato a questa applicazione. Per assistenza, contattare l'amministratore. "
+
+Verificare prima di tutto che siano stati soddisfatti i [requisiti di verifica dell'editore](publisher-verification-overview.md#requirements).
+
+Quando viene effettuata una richiesta di aggiunta di un server di pubblicazione verificato, viene usato un numero di segnali per eseguire una valutazione dei rischi di sicurezza. Se la richiesta viene determinata come rischiosa, viene restituito un errore. Per motivi di sicurezza, Microsoft non divulga i criteri specifici utilizzati per determinare se una richiesta è rischiosa o meno.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

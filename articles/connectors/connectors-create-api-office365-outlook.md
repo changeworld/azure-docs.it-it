@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 9caf69a7f78c7872f0a5f8a2ed07bdc749a29023
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94682996"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055077"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gestire posta elettronica, contatti e calendari con Outlook di Office 365 usando App per la logica di Azure
 
@@ -92,13 +92,15 @@ Un' [azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un'oper
 
 ## <a name="connect-using-other-accounts"></a>Connetti con altri account
 
-Se si prova a connettersi a Outlook usando un account diverso da quello attualmente connesso ad Azure, è possibile che vengano visualizzati errori di [Single Sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Questo problema si verifica quando si accede al portale di Azure con un account, ma si usa un account diverso per creare la connessione. La finestra di progettazione dell'app per la logica prevede di usare l'account che ha eseguito l'accesso ad Azure. Per risolvere il problema, sono disponibili le opzioni seguenti:
+Se si prova a connettersi a Outlook usando un account diverso da quello attualmente connesso ad Azure, è possibile che vengano visualizzati errori di [Single Sign-on (SSO)](../active-directory/manage-apps/what-is-single-sign-on.md) . Questo problema si verifica quando si accede al portale di Azure con un account, ma si usa un account diverso per creare la connessione. Per la finestra di progettazione si prevede di usare l'account che ha eseguito l'accesso al portale di Azure. Per risolvere il problema, sono disponibili le opzioni seguenti:
 
-* Configurare l'altro account come **collaboratore** per il gruppo di risorse dell'app per la logica.
+* Configurare l'altro account con il ruolo **collaboratore** nel gruppo di risorse dell'app per la logica.
 
-  1. Nel menu del gruppo di risorse dell'app per la logica selezionare **controllo di accesso (IAM)**. Configurare l'altro account con il ruolo **collaboratore** . Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+  1. Nel menu del gruppo di risorse dell'app per la logica selezionare **controllo di accesso (IAM)**. Configurare l'altro account con il ruolo **collaboratore** . 
+  
+     Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
-  1. Se è stato effettuato l'accesso al portale di Azure con l'account aziendale o dell'Istituto di istruzione, disconnettersi ed eseguire di nuovo l'accesso con il proprio account. È ora possibile creare una connessione a Outlook usando l'altro account.
+  1. Dopo aver configurato questo ruolo, accedere alla portale di Azure con l'account che ora dispone delle autorizzazioni di collaboratore. È ora possibile usare questo account per creare la connessione a Outlook.
 
 * Configurare l'altro account in modo che l'account aziendale o dell'Istituto di istruzione disponga delle autorizzazioni "Invia come".
 

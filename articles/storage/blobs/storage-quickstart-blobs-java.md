@@ -1,6 +1,6 @@
 ---
-title: Libreria di Archiviazione BLOB di Azure v12 - Java
-description: In questa guida di avvio rapido verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per Java per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
+title: 'Guida introduttiva: libreria di archiviazione BLOB di Azure V12-Java'
+description: Questa Guida introduttiva illustra come usare la libreria client di archiviazione BLOB di Azure versione 12 per Java per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
-ms.translationtype: HT
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501125"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054704"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Guida introduttiva: Gestire i BLOB con Java v12 SDK
 
@@ -37,7 +37,7 @@ Risorse aggiuntive:
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra come preparare un progetto da usare con la libreria client di Archiviazione BLOB di Azure v12 per Java.
+Questa sezione illustra la preparazione di un progetto per l'uso con la libreria client di archiviazione BLOB di Azure V12 per Java.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
@@ -163,7 +163,7 @@ public class App
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
+Il servizio Archiviazione BLOB di Azure è ottimizzato per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
 
 * L'account di archiviazione
 * Un contenitore nell'account di archiviazione
@@ -183,7 +183,7 @@ Per interagire con queste risorse, usare le classi Java seguenti:
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la libreria client di Archiviazione BLOB di Azure per Java:
+Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la libreria client di archiviazione BLOB di Azure per Java:
 
 * [Ottenere la stringa di connessione](#get-the-connection-string)
 * [Creare un contenitore](#create-a-container)
@@ -199,7 +199,7 @@ Il codice seguente recupera la stringa di connessione per l'account di archiviaz
 Aggiungere questo codice all'interno del metodo `Main`:
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 L'output dell'app è simile all'esempio seguente:
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ In questa guida introduttiva si è appreso come caricare, scaricare ed elencare 
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempi di Archiviazione BLOB di Azure SDK v12 - Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Esempi Java per Azure BLOB Storage SDK V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Per altre informazioni, vedere [Azure SDK per Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * Per esercitazioni, esempi, guide di avvio rapido e altre documentazioni, vedere [Azure per sviluppatori cloud Java](/azure/developer/java/).

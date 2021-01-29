@@ -4,12 +4,12 @@ description: Informazioni su come usare Visione personalizzata di Azure per crea
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060520"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055366"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Esercitazione: Analizzare video live con Analisi video live in IoT Edge e Visione personalizzata di Azure
 
@@ -51,7 +51,6 @@ Prima di iniziare, leggere gli articoli seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Prima di iniziare, leggere gli articoli seguenti:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> Questo modulo Visione personalizzata supporta solo **le architetture Intel x86 e amd64** . Prima di continuare, controllare l'architettura del dispositivo perimetrale.
+
 ## <a name="review-the-sample-video"></a>Esaminare il video di esempio
 
 Questa esercitazione usa un file [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per simulare un flusso live. È possibile esaminare il video tramite un'applicazione come il [lettore multimediale VLC](https://www.videolan.org/vlc/). Premere **CTRL+N**, quindi incollare un collegamento al [video di inferenza di una vettura giocattolo](https://lvamedia.blob.core.windows.net/public/t2.mkv) per avviare la riproduzione. Si noti che, in corrispondenza del trentaseiesimo secondo della riproduzione, nel video compare un camion giocattolo. Il modello personalizzato è stato sottoposto a training per rilevare questo camion giocattolo specifico. 
@@ -81,6 +84,9 @@ Il nodo di estensioni HTTP svolge il ruolo di proxy.  Campiona i fotogrammi vide
 Come suggerisce il nome stesso, è possibile usare Visione personalizzata per creare un rilevatore o un classificatore di oggetti personalizzato nel cloud. La sua interfaccia semplice e intuitiva consente di creare facilmente modelli di Visione personalizzata che possono essere distribuiti nel cloud o nel dispositivo Edge tramite contenitori.
 
 Per creare un rilevatore del camion giocattolo, seguire la procedura descritta in [Avvio rapido: Creare un rilevatore di oggetti con il sito Web di Visione personalizzata](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Questo modulo Visione personalizzata supporta solo **le architetture Intel x86 e amd64** . Prima di continuare, controllare l'architettura del dispositivo perimetrale.
 
 Note aggiuntive:
  

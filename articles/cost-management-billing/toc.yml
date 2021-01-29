@@ -384,15 +384,15 @@
       href: /rest/api/cost-management
     - name: API REST per l'utilizzo di Azure
       href: /rest/api/consumption
-    - name: Modello di Resource Manager
+    - name: Modello di budget ARM dell'API REST di consumo
       href: /azure/templates/microsoft.consumption/budgets
     - name: Esempi di API REST di Gestione costi
       href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
-    - name: Gestione costi - Azure PowerShell
+    - name: Cmdlet di Azure PowerShell per gestione costi
       href: /powershell/module/Az.CostManagement
     - name: Scenari di automazione della fatturazione
       href: manage/cost-management-automation-scenarios.md
-    - name: Panoramica dell'API di fatturazione di Azure
+    - name: API REST per i prezzi al dettaglio di Azure
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: API REST di fatturazione di Azure
       href: /rest/api/billing
@@ -400,25 +400,21 @@
       href: manage/consumption-api-overview.md
     - name: API REST per l'utilizzo di Azure
       href: /rest/api/consumption
-    - name: API REST RateCard
-      href: /previous-versions/azure/reference/mt219005(v=azure.100)
-    - name: API REST di utilizzo
-      href: /previous-versions/azure/reference/mt219003(v=azure.100)
-    - name: Panoramica della creazione di report aziendali
+    - name: Panoramica dell'API REST per la creazione di report aziendali
       href: manage/enterprise-api.md
-    - name: API REST di creazione di report aziendali
+    - name: API REST per la creazione di report aziendali
       href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: Prenotazioni
       items:
         - name: API REST per le prenotazioni
           href: reservations/reservation-apis.md?toc=/azure/cost-management-billing/toc.json
-        - name: Prenotazioni - Azure PowerShell
+        - name: Cmdlet di Azure PowerShell per le prenotazioni
           href: /powershell/module/azurerm.reservations
-        - name: Prenotazioni - Interfaccia della riga di comando
+        - name: INTERFACCIA della riga di comando di Azure per prenotazioni
           href: /cli/azure/reservations/reservation
-        - name: Gestione costi - API REST di dettagli su utilizzo e consumo
+        - name: API REST di dettagli sull'utilizzo
           href: /rest/api/consumption/usagedetails
-        - name: Gestione costi - API REST di dettagli su prenotazioni e consumo
+        - name: API REST per le prenotazioni
           href: /rest/api/consumption/reservationsdetails
 - name: Risorse
   items:

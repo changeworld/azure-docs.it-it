@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 39645e8bd370dfd518d570c3088c56a22aa77748
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b353fad64b08f5fc50af2b8d31abab77cd797e25
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927036"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055043"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -58,7 +58,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureBotService** | Servizio Azure Bot. | In uscita | No | No |
 | **AzureCloud** | Tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=56519). | In uscita | Sì | Sì |
 | **AzureCognitiveSearch** | Ricerca cognitiva di Azure <br/><br/>Questo tag o gli indirizzi IP associati possono essere usati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione all'indicizzatore](../search/search-indexer-troubleshooting.md#connection-errors) . <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco di intervalli IP per questo tag del servizio ed **è necessario aggiungerlo anche** al firewall IP delle origini dati. | In ingresso | No | No |
-| **AzureConnectors** | Connettori di App per la logica di Azure per le connessioni probe/back-end. | In ingresso | Sì | Sì |
+| **AzureConnectors** | Questo tag rappresenta gli indirizzi IP usati per i connettori gestiti che rendono i callback del webhook in ingresso al servizio app per la logica di Azure e le chiamate in uscita ai rispettivi servizi, ad esempio archiviazione di Azure o hub eventi di Azure. | In ingresso/in uscita | Sì | Sì |
 | **AzureContainerRegistry** | Registro Azure Container. | In uscita | Sì | Sì |
 | **AzureCosmosDB** | Azure Cosmos DB. | In uscita | Sì | Sì |
 | **AzureDatabricks** | Azure Databricks. | Entrambe | No | No |

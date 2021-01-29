@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12f262347938720a9d5a95e070d792a83ac9188c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740806"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055247"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -147,9 +147,10 @@ Se gli amministratori globali iniziali usano di nuovo le credenziali degli accou
 
 Gli account di posta elettronica personali sono regolarmente sottoposti ad attacchi di phishing da parte di utenti malintenzionati, un rischio che rende gli indirizzi e-mail personali inaccettabili per gli account amministratore globale. Per separare i rischi correlati a Internet dai privilegi amministrativi, creare account dedicati per ogni utente con privilegi amministrativi.
 
-* Assicurarsi di creare account separati per gli utenti per eseguire attività di amministrazione globale
-* Verificare che gli amministratori globali non aprano accidentalmente i messaggi di posta elettronica o eseguano programmi con i propri account amministratore
-* Assicurarsi che la posta elettronica di questi account venga inoltrata a una cassetta postale funzionante
+* Assicurarsi di creare account distinti per consentire agli utenti di eseguire attività di amministrazione globali.
+* Assicurarsi che gli amministratori globali non aprano accidentalmente i messaggi di posta elettronica o eseguano programmi con gli account di amministratore.
+* Assicurarsi che la posta elettronica di questi account venga inoltrata a una cassetta postale funzionante.
+* Gli account di amministratore globale e di altri gruppi con privilegi devono essere account solo cloud senza vincoli per Active Directory locali.
 
 #### <a name="ensure-the-passwords-of-administrative-accounts-have-recently-changed"></a>Verificare che le password degli account amministrativi siano state modificate di recente
 

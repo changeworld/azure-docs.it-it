@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799e879b4d9fd54367d54c17b3d275acfc5f34c1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322513"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054772"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -138,9 +138,15 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
 
 1. A questo punto [creare la risorsa di Azure per l'installazione del gateway](../logic-apps/logic-apps-gateway-connection.md).
 
+<a name="communication-settings"></a>
+
 ## <a name="check-or-adjust-communication-settings"></a>Controllare o modificare le impostazioni di comunicazione
 
-Il gateway dati locale dipende dalla [messaggistica del bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività cloud e stabilisce le connessioni in uscita corrispondenti all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede che il traffico attraversi un proxy o un firewall per accedere a Internet, questa restrizione potrebbe impedire al gateway dati locale di connettersi al servizio cloud gateway e alla messaggistica del bus di servizio di Azure. Il gateway dispone di diverse impostazioni di comunicazione che è possibile modificare. Per altre informazioni, vedere gli argomenti seguenti:
+Il gateway dati locale dipende dalla [messaggistica del bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) per la connettività cloud e stabilisce le connessioni in uscita corrispondenti all'area di Azure associata del gateway. Se l'ambiente di lavoro richiede che il traffico attraversi un proxy o un firewall per accedere a Internet, questa restrizione potrebbe impedire al gateway dati locale di connettersi al servizio cloud gateway e alla messaggistica del bus di servizio di Azure. Il gateway dispone di diverse impostazioni di comunicazione che è possibile modificare.
+
+Uno scenario di esempio è la posizione in cui si usano connettori personalizzati che accedono alle risorse locali usando la risorsa gateway dati locale in Azure. Se si dispone anche di un firewall che limita il traffico a indirizzi IP specifici, è necessario configurare l'installazione del gateway per consentire l'accesso per gli *[indirizzi IP in uscita](logic-apps-limits-and-config.md#outbound)dei connettori gestiti* corrispondenti. *Tutte* le app per la logica nella stessa area usano gli stessi intervalli di indirizzi IP.
+
+Per altre informazioni, vedere gli argomenti seguenti:
 
 * [Configurazione delle impostazioni di comunicazione per il gateway dati locale](/data-integration/gateway/service-gateway-communication)
 * [Configurare le impostazioni proxy per il gateway dati locale](/data-integration/gateway/service-gateway-proxy)

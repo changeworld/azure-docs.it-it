@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 11/25/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 214501c447632232dc00b61643ea21083bd0e4ac
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896495"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055332"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Risolvere i problemi di un ruolo di lavoro ibrido per runbook
 
@@ -106,7 +106,7 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Causa
 
-Questo errore si verifica quando si prova a usare un [account RunAs](../manage-runas-account.md) in un runbook eseguito nel ruolo di lavoro ibrido per runbook in cui non è presente il certificato dell'account RunAs. Per impostazione predefinita, i ruoli di lavoro ibridi per runbook non hanno l'asset del certificato in locale. L'account RunAs richiede il corretto funzionamento di questo asset.
+Questo errore si verifica quando si prova a usare un [account RunAs](../automation-security-overview.md#run-as-accounts) in un runbook eseguito nel ruolo di lavoro ibrido per runbook in cui non è presente il certificato dell'account RunAs. Per impostazione predefinita, i ruoli di lavoro ibridi per runbook non hanno l'asset del certificato in locale. L'account RunAs richiede il corretto funzionamento di questo asset.
 
 #### <a name="resolution"></a>Risoluzione
 

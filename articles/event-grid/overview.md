@@ -2,13 +2,13 @@
 title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 ms.topic: overview
-ms.date: 09/24/2020
-ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
-ms.translationtype: HT
+ms.date: 01/28/2021
+ms.openlocfilehash: e53665c88c3860d37b3512c6498ab626b02a6400
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94576683"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055136"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -20,7 +20,7 @@ Griglia di eventi di Azure viene distribuito per ottimizzare la disponibilità t
 
 Questo articolo offre una panoramica di Griglia di eventi di Azure. Per iniziare a usare Griglia di eventi, vedere [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Creare e instradare eventi personalizzati con Griglia di eventi di Azure). 
 
-:::image type="content" source="./media/overview/functional-model.png" alt-text="Modello di Griglia di eventi per origini e gestori" lightbox="./media/overview/functional-model.png":::
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modello di Griglia di eventi per origini e gestori" lightbox="./media/overview/functional-model-big.png":::
 
 Questa immagine illustra in che modo Griglia di eventi collega origini e gestori, ma non costituisce un elenco completo delle integrazioni supportate.
 
@@ -42,6 +42,7 @@ Attualmente i servizi di Azure seguenti supportano l'invio degli eventi a Grigli
 - [Bus di servizio di Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Sottoscrizioni di Azure](event-schema-subscriptions.md)
+- [Cache Redis di Azure](event-schema-azure-cache.md)
 
 ## <a name="event-handlers"></a>Gestori eventi
 
