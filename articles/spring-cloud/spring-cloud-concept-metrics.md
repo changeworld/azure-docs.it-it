@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: a4838dd6e8f9f4959fc1e4d0dc8dbc2218a30f30
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755479"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051601"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -121,6 +121,7 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 >| Conteggio GC di generazione 0  | gen-0-GC-count | Conteggio        | Numero di Garbage Collection di generazione 0 al secondo. |
 >| Conteggio GC di generazione 1  | gen-1-GC-count | Conteggio        | Numero di Garbage Collection di generazione 1 al secondo. |
 >| Conteggio GC di generazione 2  | Gen-2-GC-count | Conteggio        | Numero di Garbage Collection di generazione 2 al secondo. |
+>| Tempo in GC      | Timein-GC      | Percentuale      | Percentuale di tempo in Garbage Collection dall'ultima Garbage Collection. |
 >| Dimensioni heap di generazione 0 | gen-0-dimensioni     | Byte        | Dimensioni heap di generazione 0. |
 >| Dimensione heap di generazione 1 | gen-1-dimensioni     | Byte        | Dimensioni heap di generazione 1. |
 >| Dimensione heap di generazione 2 | Gen-2-dimensioni     | Byte        | Dimensioni heap di generazione 2. |
@@ -168,7 +169,7 @@ Per altre informazioni, vedere [contatori DotNet](/dotnet/core/diagnostics/dotne
 >| Tomcat. Sessions. rifiutato | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Conteggio | Conteggio attivo sessione Tomcat |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Avvio rapido: Monitoraggio di app Azure Spring Cloud con log, metriche e traccia](spring-cloud-quickstart-logs-metrics-tracing.md)
 

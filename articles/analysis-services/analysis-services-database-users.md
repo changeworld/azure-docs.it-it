@@ -8,12 +8,12 @@ ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 56f98d41fc73cdd2be0923de66a5af09c875a050
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 31910e92ba4d5cbb1f133eaff6880fafb809b772
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013594"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054094"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -30,11 +30,13 @@ Quando si crea un progetto di modello tabulare, è possibile creare ruoli e aggi
 
 Quando si aggiunge un **gruppo di sicurezza**, utilizzare `obj:groupid@tenantid` .
 
+Quando si aggiunge un' **entità servizio** `app:appid@tenantid` , usare.
+
 ## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Per aggiungere o gestire ruoli e utenti in Visual Studio  
   
-1.  In **Esplora modelli tabulari**fare clic con il pulsante destro del mouse su **ruoli**.  
+1.  In **Esplora modelli tabulari** fare clic con il pulsante destro del mouse su **ruoli**.  
   
-2.  In **Gestione ruoli**fare clic su **nuovo**.  
+2.  In **Gestione ruoli** fare clic su **nuovo**.  
   
 3.  Digitare un nome per il ruolo.  
   
@@ -79,7 +81,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
   
 4. Fare clic su **Appartenenza**, quindi immettere un utente o un gruppo nel tenant di Azure AD dall'indirizzo e-mail.
 
-     ![Add User](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Aggiungi utente](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Se il ruolo che si sta creando dispone dell'autorizzazione Lettura, è possibile aggiungere filtri di riga usando una formula DAX. Fare clic su **Filtri di riga**, selezionare una tabella e quindi digitare una formula DAX nel campo **Filtro DAX**. 
 

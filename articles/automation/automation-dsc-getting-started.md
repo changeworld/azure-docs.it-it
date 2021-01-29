@@ -2,19 +2,15 @@
 title: Introduzione a State Configuration di Automazione di Azure
 description: Questo articolo descrive come eseguire le attività più comuni in State Configuration di Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 25f5e92aa8aa211782bc238781c59b9ca0511173
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897242"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051499"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Introduzione a State Configuration di Automazione di Azure
 
@@ -26,7 +22,7 @@ Se si preferisce un ambiente di esempio già configurato senza dover seguire i p
 
 Per completare gli esempi di questo articolo, è necessario quanto segue:
 
-- Un account di automazione di Azure. Per istruzioni sulla creazione di un account RunAs di Automazione di Azure, vedere [Autenticare runbook con account RunAs di Azure](./manage-runas-account.md).
+- Un account di automazione di Azure. Per altre informazioni su un account di automazione e sui relativi requisiti, vedere [Panoramica dell'autenticazione degli account di automazione](./automation-security-overview.md).
 - Una macchina virtuale di Azure Resource Manager (non classica) che esegue un [sistema operativo supportato](automation-dsc-overview.md#operating-system-requirements). Per istruzioni sulla creazione di una VM, vedere [Creare la prima macchina virtuale Windows nel portale di Azure](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>Creare una configurazione DSC

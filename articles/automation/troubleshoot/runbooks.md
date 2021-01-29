@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 11/03/2020
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: 116677354009c538eece02184d801cfda11574a0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896309"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053670"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -134,7 +134,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere [Gestire account RunAs di Automazione di Azure](../manage-runas-account.md).
+Questo errore può verificarsi quando non si usa un account RunAs o quando l'account RunAs è scaduto. Per altre informazioni, vedere [Panoramica degli account RunAs di automazione di Azure](../automation-security-overview.md#run-as-accounts).
 
 Le principali cause di questo errore sono due:
 

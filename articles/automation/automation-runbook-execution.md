@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ac7d99f4a47711f9974d30d877a3237eec15443
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 71273c456b14fa4ea289e2a48d441de99ce8a4b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078834"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053908"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -112,7 +112,7 @@ I log disponibili per l'agente di Log Analytics e l'account **nxautomation** son
 
 ## <a name="runbook-permissions"></a>Autorizzazioni per i runbook
 
-Il runbook richiede le autorizzazioni per l'autenticazione in Azure tramite le credenziali. Vedere [Gestire account RunAs di Automazione di Azure](manage-runas-account.md).
+Il runbook richiede le autorizzazioni per l'autenticazione in Azure tramite le credenziali. Vedere [Panoramica dell'autenticazione di automazione di Azure](automation-security-overview.md).
 
 ## <a name="modules"></a>Moduli
 
@@ -139,6 +139,7 @@ La tabella seguente descrive gli stati possibili per un processo. È possibile v
 
 | Stato | Descrizione |
 |:--- |:--- |
+| Attivazione |È in corso l'attivazione del processo. |
 | Completi |Il processo è stato completato. |
 | Operazione non riuscita |La compilazione di un runbook grafico o di un runbook del flusso di lavoro di PowerShell non è riuscita. Non è stato possibile avviare il runbook di PowerShell oppure il processo conteneva un'eccezione. Vedere [Tipi di runbook di Automazione di Azure](automation-runbook-types.md).|
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |

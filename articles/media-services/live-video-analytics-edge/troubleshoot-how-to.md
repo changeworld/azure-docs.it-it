@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d519193d55c9535dc71206d2d9f72661d7a40d71
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954413"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051296"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Risolvere i problemi di analisi video in tempo reale su IoT Edge
 
@@ -107,7 +107,8 @@ Potrebbero verificarsi problemi anche durante l'esecuzione dello **[script di co
 * Lo script di installazione non è in grado di creare un'entità servizio e/o risorse di Azure.
     * Per superare questo problema, verificare che la sottoscrizione e il tenant di Azure non abbiano raggiunto i limiti di servizio massimi. Scopri di più sui [limiti e sulle restrizioni del servizio Azure ad](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e sulla [sottoscrizione di Azure e limiti, quote e vincoli](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) dei servizi.
 
-
+> [!TIP]
+> Se sono presenti altri problemi che potrebbero richiedere assistenza per, **[raccogliere i log e inviare un ticket di supporto](#collect-logs-for-submitting-a-support-ticket)**. È anche possibile contattarci inviando un messaggio di posta elettronica all'indirizzo **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .
 ### <a name="live-video-analytics-working-with-external-modules"></a>Analisi video in tempo reale utilizzo di moduli esterni
 
 L'analisi di video in tempo reale tramite i processori di estensione del grafico multimediale può estendere il grafico multimediale per inviare e ricevere dati da altri moduli IoT Edge usando protocolli HTTP o gRPC. Come [esempio specifico](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/httpExtension), questo grafico multimediale può inviare fotogrammi video come immagini a un modulo di inferenza esterno, ad esempio Yolo V3 e ricevere risultati analitici basati su JSON usando il protocollo http. In una topologia di questo tipo, la destinazione per gli eventi è principalmente l'hub Internet. In situazioni in cui non vengono visualizzati gli eventi di inferenza nell'hub, verificare quanto segue:

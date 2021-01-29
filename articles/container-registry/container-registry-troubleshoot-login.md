@@ -3,12 +3,12 @@ title: Risolvere i problemi di accesso al registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 5deb1717cf3886d8ea9c021d92afa358946b16dc
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379503"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052079"
 ---
 # <a name="troubleshoot-registry-login"></a>Risolvere i problemi di accesso al registro
 
@@ -39,6 +39,8 @@ Può includere uno o più degli elementi seguenti:
 Eseguire il comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) per ottenere altre informazioni sull'integrità dell'ambiente del registro di sistema e, facoltativamente, l'accesso a un registro di sistema di destinazione. Ad esempio, diagnosticare gli errori di configurazione di Docker o Azure Active Directory problemi di accesso. 
 
 Vedere [verificare l'integrità di un registro contenitori di Azure](container-registry-check-health.md) per gli esempi di comando. Se vengono segnalati errori, esaminare il [riferimento all'errore](container-registry-health-error-reference.md) e le sezioni seguenti per le soluzioni consigliate.
+
+Se si verificano problemi con il servizio wih Azure Kubernetes del registro di sistema, eseguire il comando [AZ AKS check-ACR](/cli/azure/aks#az_aks_check_acr) per verificare che il registro di sistema sia accessibile dal cluster AKS.
 
 > [!NOTE]
 > Alcuni errori di autenticazione o autorizzazione possono verificarsi anche se sono presenti configurazioni di rete o del firewall che impediscono l'accesso al registro di sistema. Vedere [risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md).
@@ -77,9 +79,9 @@ Collegamenti correlati:
 Verificare la validità delle credenziali utilizzate per lo scenario o fornite dal proprietario del registro di sistema. Alcuni possibili problemi:
 
 * Se si usa un'entità servizio Active Directory, assicurarsi di usare le credenziali corrette nel tenant di Active Directory:
-  * Nome utente: ID dell'applicazione dell'entità servizio (noto anche come *ID client* )
-  * Password: password dell'entità servizio (detta anche *segreto client* )
-* Se si usa un servizio di Azure come Azure Kubernetes Service o Azure DevOps per accedere al registro di sistema, verificare la configurazione del registro di sistema per il servizio.
+  * Nome utente: ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
+  * Password: password dell'entità servizio (detta anche *segreto client*)
+* Se si usa un servizio di Azure come Azure Kubernetes Service o Azure DevOps per accedere al registro di sistema, verificare la configurazione del registro di sistema per il servizio. 
 * Se è stato eseguito `az acr login` con l' `--expose-token` opzione, che Abilita l'accesso al registro di sistema senza usare il daemon Docker, assicurarsi di eseguire l'autenticazione con il nome utente `00000000-0000-0000-0000-000000000000` .
 * Se il registro di sistema è configurato per [l'accesso pull anonimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), le credenziali Docker esistenti archiviate da un account di accesso Docker precedente possono impedire l'accesso anonimo. Eseguire `docker logout` prima di tentare un'operazione pull anonima nel registro di sistema.
 
@@ -145,5 +147,5 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di rete con il registro di sistema](container-registry-troubleshoot-access.md)
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domane e risposte Microsoft](/answers/products/)
+* [Domande e risposte Microsoft](/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/) in base alle informazioni fornite, è possibile che venga eseguita una diagnostica rapida per gli errori di autenticazione nel registro di sistema

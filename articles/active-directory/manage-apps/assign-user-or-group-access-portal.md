@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 22acfc5095b1ffcad382fa2b665a86d382645e7a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 59c69e88fb64cbb00063534be9fd41b86dce0b62
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861678"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053381"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gestire l'assegnazione utente per un'app in Azure Active Directory
 
@@ -148,7 +148,7 @@ Questo esempio assegna l'utente Britta Simon all'applicazione [Microsoft Workpla
 ## <a name="related-articles"></a>Articoli correlati
 
 - [Altre informazioni sull'accesso degli utenti finali alle applicazioni](end-user-experiences.md)
-- [Pianificare un Azure AD la distribuzione di app personali](access-panel-deployment-plan.md)
+- [Pianificare un Azure AD la distribuzione di app personali](my-apps-deployment-plan.md)
 - [Gestione dell'accesso alle app](what-is-access-management.md)
  
 ## <a name="next-steps"></a>Passaggi successivi

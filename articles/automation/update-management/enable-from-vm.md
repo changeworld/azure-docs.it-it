@@ -2,15 +2,16 @@
 title: Abilitare Gestione aggiornamenti di Automazione di Azure da una macchina virtuale di Azure
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da una macchina virtuale di Azure.
 services: automation
+ms.subservice: update-management
 ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 35feb136ca1fd7ea0be16a906f7d5193cf8570c7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 39b5b1f988a118e609015f19a086fda434797356
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183550"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050263"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Abilitare Gestione aggiornamenti da una macchina virtuale di Azure
 
@@ -22,7 +23,7 @@ Questo articolo descrive come abilitare la funzionalità [Gestione aggiornamenti
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Account di Automazione](../index.yml) per gestire i computer.
+* [Account di Automazione](../automation-security-overview.md) per gestire i computer.
 * Una [macchina virtuale](../../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure

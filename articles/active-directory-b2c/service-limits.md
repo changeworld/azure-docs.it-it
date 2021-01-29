@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 01/29/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b980624ebf55c3666bcc7dd1d60f681d788c95ae
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 866af8b992374492286f47357f108a01f35e560b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98987048"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051042"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limiti e restrizioni del servizio Azure Active Directory B2C
 
@@ -40,17 +40,15 @@ Nella tabella seguente sono elencati i limiti di configurazione amministrativa n
 |Category  |Limite  |
 |---------|---------|
 |Numero di applicazioni per ogni tenant di Azure AD B2C   |250           |
-|Numero di criteri per ogni tenant di Azure AD B2C       |200          |
-|Dimensioni massime del file di criteri      |400 KB          |
 |Numero di ambiti per applicazione        |1000          |
-|Numero di attributi personalizzati per utente <sup>1</sup>       |100         |
+|Numero di [attributi personalizzati](user-profile-attributes.md#extension-attributes)   per utente <sup>1</sup>       |100         |
 |Numero di URL di reindirizzamento per applicazione       |100         |
 |Numero di URL di disconnessione per applicazione        |1          |
 |Limite stringa per attributo      |250 caratteri          |
 |Numero di tenant B2C per sottoscrizione      |20         |
 |Livelli di [ereditarietà](custom-policy-overview.md#inheritance-model) nei criteri personalizzati     |10         |
-|Numero di criteri per ogni tenant di Azure AD B2C      |200         |
-|Dimensioni massime del file di criteri      |400 KB         |
+|Numero di criteri per ogni tenant di Azure AD B2C      |200          |
+|Dimensioni massime del file di criteri      |400 KB          |
 
 <sup>1</sup> vedere anche [Azure ad limiti e restrizioni del servizio](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

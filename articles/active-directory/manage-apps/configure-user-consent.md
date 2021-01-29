@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: c279b7f4ec2d70e7eb6a97abf02cfbf4f2ef87f0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 184263badc909881f597213a222272bd675fc362
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033613"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051975"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -185,4 +185,4 @@ Per altre informazioni:
 * [Autorizzazioni e consenso in Microsoft Identity Platform](../develop/v2-permissions-and-consent.md)
 
 Per ottenere assistenza o trovare risposte alle domande:
-* [Azure AD in StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Azure AD su Microsoft Q&A.](https://docs.microsoft.com/answers/topics/azure-active-directory.html)

@@ -1,18 +1,18 @@
 ---
 title: Configurare un ambiente di staging in Azure Spring Cloud | Microsoft Docs
 description: Informazioni su come usare la distribuzione blu/verde con Azure Spring Cloud
-author: bmitchell287
+author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8cae73e03fee0b59be0c7596f0783570ac14f6ee
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090710"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053064"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurare un ambiente di staging nel cloud Spring di Azure
 
@@ -22,7 +22,8 @@ Questo articolo illustra come configurare una distribuzione di gestione temporan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'applicazione PiggyMetrics sia già stata distribuita dall' [esercitazione sull'avvio di un'applicazione Azure Spring cloud](./spring-cloud-quickstart.md). PiggyMetrics comprende tre applicazioni: "gateway", "account-Service" e "auth-Service".  
+* Un'applicazione in esecuzione.  Vedere [Guida introduttiva: distribuire la prima applicazione Azure Spring cloud](spring-cloud-quickstart.md).
+* [Estensione](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) dell'interfaccia della riga di comando di Azure
 
 Se si vuole usare un'applicazione diversa per questo esempio, è necessario apportare una semplice modifica in una parte pubblica dell'applicazione.  Questa modifica differenzia la distribuzione di staging dalla produzione.
 
@@ -39,34 +40,61 @@ Installare l'estensione Azure Spring Cloud per l'interfaccia della riga di coman
 az extension add --name spring-cloud
 ```
     
-## <a name="view-all-deployments"></a>Visualizzare tutte le distribuzioni
+## <a name="view-apps-and-deployments"></a>Visualizza le app e le distribuzioni
 
-Passare all'istanza del servizio nell'portale di Azure e selezionare **gestione della distribuzione** per visualizzare tutte le distribuzioni. Per visualizzare altri dettagli, è possibile selezionare ogni distribuzione.
+Visualizzare le app distribuite usando le procedure seguenti.
+
+1. Passare all'istanza di Azure Spring cloud nella portale di Azure.
+
+1. Dal riquadro di spostamento a sinistra aprire **distribuzioni**.
+
+    [![Distribuzione-deprecare](media/spring-cloud-blue-green-staging/deployments.png)](media/spring-cloud-blue-green-staging/deployments.png)
+
+1. Aprire il pannello "app" per visualizzare le app per l'istanza del servizio.
+
+    [![App-Dashboard](media/spring-cloud-blue-green-staging/app-dashboard.png)](media/spring-cloud-blue-green-staging/app-dashboard.png)
+
+1. È possibile fare clic su un'app e visualizzare i dettagli.
+
+    [![App-Panoramica](media/spring-cloud-blue-green-staging/app-overview.png)](media/spring-cloud-blue-green-staging/app-overview.png)
+
+1. Aprire il pannello **distribuzioni** per visualizzare tutte le distribuzioni dell'app. La griglia di distribuzione indica se la distribuzione è di produzione o di gestione temporanea.
+
+    [![Dashboard distribuzioni](media/spring-cloud-blue-green-staging/deployments-dashboard.png)](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+
+1. È possibile fare clic sul nome della distribuzione per visualizzare la panoramica della distribuzione. In questo caso l'unica distribuzione è denominata *default*.
+
+    [![Panoramica delle distribuzioni](media/spring-cloud-blue-green-staging/deployments-overview.png)](media/spring-cloud-blue-green-staging/deployments-overview.png)
+    
 
 ## <a name="create-a-staging-deployment"></a>Creare una distribuzione di staging
 
-1. Nell'ambiente di sviluppo locale, apportare una piccola modifica all'applicazione gateway PiggyMetrics. Ad esempio, modificare il colore nel file *gateway/src/main/Resources/static/CSS/Launch. CSS* . Questa operazione consente di distinguere facilmente le due distribuzioni. Per compilare il pacchetto jar, eseguire il comando seguente: 
+1. Nell'ambiente di sviluppo locale, apportare una piccola modifica all'applicazione. Questa operazione consente di distinguere facilmente le due distribuzioni. Per compilare il pacchetto jar, eseguire il comando seguente: 
 
     ```console
-    mvn clean package
+    mvn clean package -DskipTests
     ```
 
 1. Nell'interfaccia della riga di comando di Azure creare una nuova distribuzione e assegnarle il nome della distribuzione di staging "verde".
 
     ```azurecli
-    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app gateway -n green --jar-path gateway/target/gateway.jar
+    az spring-cloud app deployment create -g <resource-group-name> -s <service-instance-name> --app default -n green --jar-path gateway/target/gateway.jar
     ```
 
-1. Al termine della distribuzione, accedere alla pagina del gateway dal **Dashboard dell'applicazione**e visualizzare tutte le istanze nella scheda **istanze app** a sinistra.
+1. Al termine della distribuzione dell'interfaccia della riga di comando, accedere alla pagina dell'app dal **Dashboard dell'applicazione** e visualizzare tutte le istanze nella scheda **distribuzioni** a sinistra.
+
+   [![Dashboard distribuzioni dopo la distribuzione verde](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)](media/spring-cloud-blue-green-staging/deployments-dashboard-2.png)
+
   
 > [!NOTE]
 > Lo stato di individuazione è *OUT_OF_SERVICE* in modo che il traffico non venga indirizzato a questa distribuzione prima del completamento della verifica.
 
 ## <a name="verify-the-staging-deployment"></a>Verificare la distribuzione di staging
 
-1. Tornare alla pagina **Gestione distribuzione** e selezionare la nuova distribuzione. Lo stato della distribuzione dovrebbe essere *In esecuzione*. Il pulsante **assegna/Annulla assegnazione dominio** dovrebbe essere visualizzato in grigio, perché l'ambiente è un ambiente di gestione temporanea.
-
-1. Nel riquadro **Panoramica** verrà visualizzato un **endpoint di test**. Copiarlo e incollarlo in una nuova finestra del browser e visualizzare la nuova pagina PiggyMetrics.
+Per verificare che lo sviluppo di gestione temporanea verde funzioni correttamente:
+1. passare a **distribuzioni** e fare clic sulla `green` **distribuzione di gestione temporanea**.
+1. Nella pagina **Panoramica** fare clic sull' **endpoint di test**.
+1. Verrà aperta la compilazione di gestione temporanea che mostra le modifiche.
 
 >[!TIP]
 > * Verificare che l'endpoint di test termini con una barra (/) per assicurarsi che il file CSS sia caricato correttamente.  
@@ -79,11 +107,17 @@ Passare all'istanza del servizio nell'portale di Azure e selezionare **gestione 
     
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>Impostare la distribuzione verde come ambiente di produzione
 
-1. Una volta verificata la modifica nell'ambiente di gestione temporanea, è possibile eseguirne il push in produzione. Tornare alla **gestione della distribuzione**e selezionare la casella di controllo applicazione **gateway** .
+1. Una volta verificata la modifica nell'ambiente di gestione temporanea, è possibile eseguirne il push in produzione. Tornare alla **gestione della distribuzione** e selezionare l'applicazione attualmente in `Production` .
 
-2. Selezionare **imposta distribuzione**.
-3. Nell'elenco **distribuzione produzione** selezionare **verde**, quindi selezionare **applica**.
-4. Passare alla pagina **Panoramica** dell'applicazione gateway. Se è già stato assegnato un dominio per l'applicazione gateway, l'URL verrà visualizzato nel riquadro **Panoramica** . Per visualizzare la pagina PiggyMetrics modificata, selezionare l'URL e passare al sito.
+1. Fare clic sui puntini di sospensione dopo lo **stato della registrazione** e impostare la compilazione di produzione su `staging` .
+
+   [Distribuzione di ![ set di gestione temporanea](media/spring-cloud-blue-green-staging/set-staging-deployment.png)](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+
+1. Tornare alla pagina di **gestione della distribuzione** .  `green`Lo stato della distribuzione della distribuzione dovrebbe essere visualizzato. Questa è ora la build di produzione in esecuzione.
+
+   [![Risultato della distribuzione del set di gestione temporanea](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)](media/spring-cloud-blue-green-staging/set-staging-deployment-result.png)
+
+1. Copiare e incollare l'URL in una nuova finestra del browser e visualizzare la pagina nuova applicazione con le modifiche apportate.
 
 >[!NOTE]
 > Dopo aver impostato la distribuzione verde come ambiente di produzione, la distribuzione precedente diventa la distribuzione di gestione temporanea.
@@ -108,4 +142,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud](spring-cloud-quickstart.md)
+* [Integrazione continua/distribuzione continua per il cloud di Azure Spring](https://review.docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-cicd?branch=pr-en-us-142929&pivots=programming-language-java)

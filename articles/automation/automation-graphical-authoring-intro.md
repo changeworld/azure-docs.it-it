@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec74ca19978a4164289276d44b34eb14b694687f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987330"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051582"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Creare runbook grafici in Automazione di Azure
 
@@ -95,7 +95,7 @@ Quando si abilita la ripetizione dei tentativi per un'attività, è possibile im
 
 La condizione di ripetizione dei tentativi è un'espressione di PowerShell che viene valutata dopo ogni esecuzione dell'attività. Se l'espressione restituisce True, l'attività viene eseguita di nuovo. Se l'espressione restituisce False, l'attività non viene eseguita di nuovo e il runbook passa all'attività successiva.
 
-:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot delle impostazioni della funzionalità Abilita ripetizione tentativi.":::
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot che mostra il nuovo tentativo fino a quando questa condizione è true Field ed esempi di espressioni di PowerShell che possono essere usate nella condizione di ripetizione dei tentativi.":::
 
 La condizione di ripetizione dei tentativi può usare una variabile denominata `RetryData` che consente di accedere alle informazioni sulla ripetizione dei tentativi dell'attività. Questa variabile include le proprietà elencate nella tabella seguente:
 
@@ -373,7 +373,7 @@ L'esempio seguente usa l'output di un'attività denominata `Get Twitter Connecti
 
 ## <a name="authenticate-to-azure-resources"></a>Eseguire l'autenticazione nelle risorse di Azure
 
-La maggior parte dei runbook di Automazione di Azure che gestisce risorse di Azure richiede l'autenticazione ad Azure. L'[account RunAs](./manage-runas-account.md), anche detto entità servizio, è il meccanismo predefinito usato dal runbook di Automazione per accedere alle risorse di Azure Resource Manager nella sottoscrizione. È possibile aggiungere questa funzionalità a un runbook grafico aggiungendo l'asset di connessione `AzureRunAsConnection`, che usa il cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) di PowerShell nel canvas. È anche possibile aggiungere il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Questo scenario è illustrato nell'esempio seguente.
+La maggior parte dei runbook di Automazione di Azure che gestisce risorse di Azure richiede l'autenticazione ad Azure. L'[account RunAs](./automation-security-overview.md), anche detto entità servizio, è il meccanismo predefinito usato dal runbook di Automazione per accedere alle risorse di Azure Resource Manager nella sottoscrizione. È possibile aggiungere questa funzionalità a un runbook grafico aggiungendo l'asset di connessione `AzureRunAsConnection`, che usa il cmdlet [Get-AutomationConnection](/system-center/sma/manage-global-assets) di PowerShell nel canvas. È anche possibile aggiungere il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Questo scenario è illustrato nell'esempio seguente.
 
 ![Attività di autenticazione RunAs](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

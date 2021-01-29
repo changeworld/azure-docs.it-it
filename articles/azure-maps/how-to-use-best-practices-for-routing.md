@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 8174529def5e3924086e49f36c225f07a4da2648
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895546"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051652"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedure consigliate per il servizio Route di Azure Maps
 
@@ -59,10 +59,10 @@ Di seguito è riportato un confronto per illustrare alcune funzionalità delle d
 
 | API Maps di Azure | Numero massimo di query nella richiesta | Evitare le aree | Routing di camion e veicoli elettrici | Waypoint e ottimizzazione del commesso viaggiatore | Punti di supporto |
 | :--------------: |  :--------------: |  :--------------: | :--------------: | :--------------: | :--------------: |
-| Get Route Directions | 1 | | X | X | |
-| Direzioni post Route | 1 | X | X | X | X |
-| Batch istruzioni post Route | 700 | | X | X | |
-| Post Route Matrix | 700 | | X | | |
+| Get Route Directions | 1 | | ✔ | ✔ | |
+| Direzioni post Route | 1 | ✔ | ✔ | ✔ | ✔ |
+| Batch istruzioni post Route | 700 | | ✔ | ✔ | |
+| Post Route Matrix | 700 | | ✔ | | |
 
 Per altre informazioni sulle funzionalità di routing di veicoli elettrici, vedere l'esercitazione su come [instradare i veicoli elettrici usando Azure notebooks con Python](tutorial-ev-routing.md).
 
@@ -113,7 +113,7 @@ Nel secondo esempio, abbiamo una richiesta di routing in tempo reale, in cui ora
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-La risposta contiene un riepilogo, come illustrato di seguito. A causa delle congestioni, il valore di **trafficDelaysInSeconds** è maggiore di zero. È anche maggiore di **historicTrafficTravelTimeInSeconds** .
+La risposta contiene un riepilogo, come illustrato di seguito. A causa delle congestioni, il valore di **trafficDelaysInSeconds** è maggiore di zero. È anche maggiore di **historicTrafficTravelTimeInSeconds**.
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Espandere l' `point` elemento per visualizzare l'elenco di coordinate per il per
 
 ![Elemento punti espanso](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Le API Route directions supportano formati diversi di istruzioni che possono essere usate specificando il parametro **instructionsType** . Per formattare le istruzioni per l'elaborazione di Easy computer, usare **instructionsType = coded** . Usare **instructionsType = Tagged** per visualizzare le istruzioni come testo per l'utente. Inoltre, le istruzioni possono essere formattate come testo in cui alcuni elementi delle istruzioni sono contrassegnati e l'istruzione viene visualizzata con una formattazione speciale. Per ulteriori informazioni, vedere l' [elenco dei tipi di istruzioni supportati](/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Le API Route directions supportano formati diversi di istruzioni che possono essere usate specificando il parametro **instructionsType** . Per formattare le istruzioni per l'elaborazione di Easy computer, usare **instructionsType = coded**. Usare **instructionsType = Tagged** per visualizzare le istruzioni come testo per l'utente. Inoltre, le istruzioni possono essere formattate come testo in cui alcuni elementi delle istruzioni sono contrassegnati e l'istruzione viene visualizzata con una formattazione speciale. Per ulteriori informazioni, vedere l' [elenco dei tipi di istruzioni supportati](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Quando vengono richieste istruzioni, la risposta restituisce un nuovo elemento denominato `guidance` . L' `guidance` elemento contiene due tipi di informazioni: direzioni per turni e istruzioni riepilogate.
 
@@ -214,7 +214,7 @@ Azure Maps fornisce attualmente due forme di ottimizzazione delle route:
 
 Per il routing con più interruzioni, è possibile specificare fino a 150 waypoint in una singola richiesta di route. I percorsi delle coordinate iniziali e finali possono essere uguali, come nel caso di un round trip. Tuttavia è necessario fornire almeno un waypoint aggiuntivo per eseguire il calcolo della route. I waypoint possono essere aggiunti alla query tra le coordinate di origine e di destinazione.
 
-Se si vuole ottimizzare l'ordine migliore per visitare i waypoint specificati, è necessario specificare **computeBestOrder = true** . Questo scenario è noto anche come problema di ottimizzazione del commesso viaggiatore.
+Se si vuole ottimizzare l'ordine migliore per visitare i waypoint specificati, è necessario specificare **computeBestOrder = true**. Questo scenario è noto anche come problema di ottimizzazione del commesso viaggiatore.
 
 ### <a name="sample-query"></a>Query di esempio
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/05/2021
 ms.topic: conceptual
-ms.openlocfilehash: 65fa226b368baa3b1d4f376600e610a518c48c02
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 915a0d75622a98b33f647041f3c3b622cb5236b1
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97900322"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053721"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Inviare un messaggio di posta elettronica da un runbook
 
@@ -21,7 +21,7 @@ Per inviare un messaggio di posta elettronica da un runbook con [SendGrid](https
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account SendGrid](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account).
 * [Account di Automazione](./index.yml) con moduli **Az**.
-* [Account RunAs](./manage-runas-account.md) per archiviare ed eseguire il runbook.
+* [Account RunAs](./automation-security-overview.md#run-as-accounts) per archiviare ed eseguire il runbook.
 
 ## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
 
@@ -74,7 +74,7 @@ Per le istruzioni, vedere [Importare moduli Az](shared-resources/modules.md#impo
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Creare il runbook per inviare un messaggio di posta elettronica
 
-Una volta creata un'istanza di Key Vault e archiviata la chiave API per `SendGrid`, è possibile creare il runbook che recupererà la chiave API e invierà un messaggio di posta elettronica. Verrà usato un runbook che usa `AzureRunAsConnection` come [account RunAs](./manage-runas-account.md) per eseguire l'autenticazione con Azure e recuperare il segreto da Azure Key Vault. Il runbook sarà denominato **Send-GridMailMessage**. È possibile modificare lo script di PowerShell usato per l'esempio e riutilizzarlo per scenari diversi.
+Una volta creata un'istanza di Key Vault e archiviata la chiave API per `SendGrid`, è possibile creare il runbook che recupererà la chiave API e invierà un messaggio di posta elettronica. Verrà usato un runbook che usa `AzureRunAsConnection` come [account RunAs](./automation-security-overview.md#run-as-accounts) per eseguire l'autenticazione con Azure e recuperare il segreto da Azure Key Vault. Il runbook sarà denominato **Send-GridMailMessage**. È possibile modificare lo script di PowerShell usato per l'esempio e riutilizzarlo per scenari diversi.
 
 1. Accedere all'account di Automazione di Azure.
 2. In **Automazione processi** selezionare **Runbook**.

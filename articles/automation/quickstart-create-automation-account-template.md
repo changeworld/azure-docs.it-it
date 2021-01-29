@@ -3,22 +3,18 @@ title: 'Avvio rapido: Creare un account di automazione - Modello di Azure'
 titleSuffix: Azure Automation
 description: Questo argomento di avvio rapido illustra come creare un account di automazione con il modello di Azure Resource Manager.
 services: automation
-documentationcenter: na
-author: mgoedtel
 Customer intent: I want to create an Automation account by using an Azure Resource Manager template so that I can automate processes with runbooks.
-ms.service: automation
-ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/23/2020
+ms.date: 01/07/2021
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 9315b898e290dc758c300f9b74006b4b08888e9e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
-ms.translationtype: HT
+ms.openlocfilehash: d0582876a08b433a10106b97179ab603d4ec5762
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078953"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050669"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Avvio rapido: Creare un account di automazione con il modello di Resource Manager
 
@@ -44,7 +40,7 @@ Questo modello di esempio esegue le azioni seguenti:
 * Aggiunge runbook di automazione di esempio all'account.
 
 >[!NOTE]
->La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [Gestire gli account RunAs](manage-runas-account.md).
+>La creazione dell'account RunAs di Automazione non è supportata quando si usa un modello di Resource Manager. Per creare manualmente un account RunAs dal portale o con PowerShell, vedere [creare un account RunAs](create-run-as-account.md).
 
 Dopo aver completato questi passaggi, è necessario [configurare le impostazioni di diagnostica](automation-manage-send-joblogs-log-analytics.md) per l'account di Automazione per inviare lo stato del processo del runbook e i flussi di processo all'area di lavoro Log Analytics collegata.
 

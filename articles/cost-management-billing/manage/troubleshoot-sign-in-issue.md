@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132330"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050471"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Risolvere i problemi di accesso alla sottoscrizione di Azure
 
@@ -32,7 +32,7 @@ Se si blocca la pagina del browser Internet, provare ciascuna delle seguenti ope
 - Usare un browser Internet diverso.
 - Usare la modalità di esplorazione privata per il browser:
 
-   - **Microsoft Edge:** Aprire **Impostazioni** (i tre puntini accanto all'immagine del profilo), selezionare **Nuova finestra InPrivate** e quindi individuare e accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions). 
+   - Microsoft **Edge:** Aprire **Impostazioni** (i tre punti in base all'immagine del profilo), selezionare **nuova finestra InPrivate**, quindi esplorare e accedere al [portale di Azure](https://portal.azure.com/). 
    - **Chrome:** Scegliere la modalità **Incognito**.
    - **Safari:** Scegliere **File**, quindi **Nuova finestra privata**.
 
@@ -53,7 +53,7 @@ Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
    - **Chrome:** Scegliere **Impostazioni** e selezionare **Cancella dati di navigazione** in **Privacy e sicurezza**.
 - Ripristinare le impostazioni predefinite del browser.
 - Usare la modalità di esplorazione privata per il browser. 
-   - **Microsoft Edge:** Aprire **Impostazioni** (i tre puntini accanto all'immagine del profilo), selezionare **Nuova finestra InPrivate** e quindi individuare e accedere al [portale di Azure](https://portal.azure.com/) o al [Centro account di Azure](https://account.azure.com/Subscriptions). 
+   - Microsoft **Edge:** Aprire **Impostazioni** (i tre punti in base all'immagine del profilo), selezionare **nuova finestra InPrivate**, quindi esplorare e accedere al [portale di Azure](https://portal.azure.com/). 
    - **Chrome:** Scegliere la modalità **Incognito**.
    - **Safari:** Scegliere **File**, quindi **Nuova finestra privata**.
 

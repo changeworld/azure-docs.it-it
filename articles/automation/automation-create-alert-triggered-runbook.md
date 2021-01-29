@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03f24bf4cf379504479e554b129f34d94ca423cd
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 03814766d7bc873855df261a50a40b8d342fa69b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896360"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054247"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usare un avviso per attivare un runbook di Automazione di Azure
 
@@ -45,7 +45,7 @@ Come descritto nella sezione precedente, ogni tipo di avviso ha uno schema diver
 
 Questo esempio usa un avviso generato da una macchina virtuale. Recupera i dati della macchina virtuale dal payload e usa le informazioni per arrestare la macchina virtuale. La connessione deve essere configurata nell'account di Automazione in cui è eseguito il runbook. Quando si usano gli avvisi per attivare i runbook, è importante controllare lo stato dell'avviso nel runbook che viene attivato. Il runbook viene attivato ogni volta che lo stato dell'avviso cambia. Gli avvisi hanno più stati; i due più comuni sono Attivato e Risolto. Cercare lo stato nella logica del runbook per assicurarsi che il runbook non venga eseguito più volte. L'esempio in questo articolo illustra come cercare solo gli avvisi con stato Attivato.
 
-Il runbook usa l'[account RunAs](./manage-runas-account.md) `AzureRunAsConnection` dell'asset di connessione per l'autenticazione in Azure per eseguire l'azione di gestione sulla macchina virtuale.
+Il runbook usa l'[account RunAs](./automation-security-overview.md) `AzureRunAsConnection` dell'asset di connessione per l'autenticazione in Azure per eseguire l'azione di gestione sulla macchina virtuale.
 
 Usare questo esempio per creare un runbook denominato **Stop AzureVmInResponsetoVMAlert**. È possibile modificare lo script di PowerShell e usarlo con molte risorse diverse.
 

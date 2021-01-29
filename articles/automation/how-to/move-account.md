@@ -2,19 +2,15 @@
 title: Spostare l'account di Automazione di Azure in un'altra sottoscrizione
 description: Questo articolo descrive come spostare l'account di Automazione in un'altra sottoscrizione.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 03/11/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8454c5a5bb5b44d2a60ae0095a9b82a19ed27c8d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: a86d876a723c89eb8dcdf18c8318f2a9c740a229
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896647"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051025"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Spostare l'account di Automazione di Azure in un'altra sottoscrizione
 
@@ -108,7 +104,7 @@ A questo punto è possibile scollegare l'area di lavoro:
 
 ## <a name="re-create-run-as-accounts"></a>Ricreare gli account RunAs
 
-Gli [account RunAs](../manage-runas-account.md) creano un'entità servizio in Azure Active Directory per l'autenticazione per le risorse di Azure. Quando si modificano le sottoscrizioni, l'account di Automazione non usa più l'account RunAs esistente. Per ricreare gli account RunAs:
+Gli [account RunAs](../automation-security-overview.md#run-as-accounts) creano un'entità servizio in Azure Active Directory per l'autenticazione per le risorse di Azure. Quando si modificano le sottoscrizioni, l'account di Automazione non usa più l'account RunAs esistente. Per ricreare gli account RunAs:
 
 1. Passare all'account di Automazione nella nuova sottoscrizione e selezionare **Account RunAs** in **Impostazioni account**. Si noterà che gli account RunAs vengono ora visualizzati come incompleti.
 
@@ -117,7 +113,7 @@ Gli [account RunAs](../manage-runas-account.md) creano un'entità servizio in Az
 2. Eliminare gli account RunAs, uno alla volta, selezionando **Elimina** nella pagina **Proprietà**. 
 
     > [!NOTE]
-    > Se non si hanno le autorizzazioni per creare o visualizzare gli account RunAs, viene visualizzato il messaggio seguente: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Per altre informazioni, vedere [Autorizzazioni necessarie per configurare gli account RunAs](../manage-runas-account.md#permissions).
+    > Se non si hanno le autorizzazioni per creare o visualizzare gli account RunAs, viene visualizzato il messaggio seguente: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Per altre informazioni, vedere [Autorizzazioni necessarie per configurare gli account RunAs](../automation-security-overview.md#permissions).
 
 3. Dopo aver eliminato gli account RunAs, selezionare **Crea** in **Account RunAs di Azure**. 
 

@@ -3,14 +3,14 @@ title: Risolvere i problemi relativi alle risorse condivise di Automazione di Az
 description: Questo articolo mostra come risolvere i problemi relativi alle risorse condivise di Automazione di Azure.
 services: automation
 ms.subservice: ''
-ms.date: 03/12/2019
+ms.date: 01/27/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: c4ede0bffedc256f4af621d4945ebbbea0f8a4b6
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1a822166ae4c2bf793e0fa50e93018f499fcc27a
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896292"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053620"
 ---
 # <a name="troubleshoot-shared-resource-issues"></a>Risolvere i problemi relativi alle risorse condivise
 
@@ -131,7 +131,7 @@ Non si dispone delle autorizzazioni necessarie per creare o aggiornare l'account
 
 #### <a name="resolution"></a>Risoluzione
 
-Per creare o aggiornare un account RunAs è necessario disporre delle [autorizzazioni](../manage-runas-account.md#permissions) appropriate per le varie risorse usate dall'account RunAs. 
+Per creare o aggiornare un account RunAs è necessario disporre delle [autorizzazioni](../automation-security-overview.md#permissions) appropriate per le varie risorse usate dall'account RunAs.
 
 Se il problema è dovuto a un blocco, verificare che sia possibile rimuoverlo. Passare quindi alla risorsa bloccata nel portale di Azure, fare clic con il pulsante destro del mouse sul blocco e selezionare **Elimina**.
 
@@ -147,7 +147,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>Causa
 
-Questo errore è probabilmente causato da una configurazione non corretta dell'[account RunAs](../manage-runas-account.md).
+Questo errore è probabilmente causato da una configurazione non corretta dell'[account RunAs](../automation-security-overview.md).
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -166,4 +166,3 @@ Se questo articolo non risolve il problema, usare uno dei canali seguenti per ot
 * Ottenere risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/).
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.
 * Archiviare un incidente del supporto tecnico di Azure. Accedere al [sito del supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Supporto tecnico**.
-

@@ -4,17 +4,17 @@ description: Le funzionalità di Gestione dei costi e fatturazione di Azure cons
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
-ms.translationtype: HT
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029941"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051094"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Che cos'è Gestione dei costi e fatturazione di Azure?
 
@@ -43,11 +43,11 @@ L'account di fatturazione viene creato quando ci si iscrive per usare Azure. Vie
 
 Il portale di Azure attualmente supporta i tipi di account di fatturazione seguenti:
 
-- **Programma dei Microsoft Online Services**: viene creato un account di fatturazione individuale per un programma di Microsoft Online Services quando ci si iscrive ad Azure tramite il sito Web di Azure, ad esempio, quando ci si iscrive per ricevere un account Azure gratuito, un account con pagamento in base al consumo o un account di sottoscrittore di Visual Studio.
+- **Programma dei Microsoft Online Services**: viene creato un account di fatturazione individuale per un programma di Microsoft Online Services quando ci si iscrive ad Azure tramite il sito Web di Azure, Ad esempio, quando si effettua l'iscrizione per ottenere un [account Azure gratuito](./manage/create-free-services.md), è possibile usare un account con tariffe con pagamento in base al consumo o come Sottoscrittore di Visual Studio.
 
 - **Contratto Enterprise**: quando l'organizzazione firma un contratto Enterprise Agreement (EA) per l'uso di Azure, viene creato un apposito account di fatturazione.
 
-- **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in specifiche aree che si iscrivono tramite il sito Web di Azure per ricevere un account con pagamento in base al consumo oppure aggiornano il loro account Azure gratuito possono avere un account di fatturazione per un Contratto del cliente Microsoft.
+- **Contratto del cliente Microsoft**: quando l'organizzazione collabora con un rappresentante Microsoft per firmare un Contratto del cliente Microsoft, viene creato un apposito account di fatturazione. Anche alcuni clienti in specifiche aree che si iscrivono tramite il sito Web di Azure per ricevere un account con pagamento in base al consumo oppure [aggiornano](./manage/create-free-services.md) il loro account Azure gratuito possono avere un account di fatturazione per un Contratto del cliente Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Ambiti degli account di fatturazione
 Un ambito è un nodo di un account di fatturazione che si usa per visualizzare e gestire la fatturazione. In questa area vengono gestiti i dati di fatturazione, i pagamenti e le fatture e vengono eseguite le attività generali di gestione degli account.

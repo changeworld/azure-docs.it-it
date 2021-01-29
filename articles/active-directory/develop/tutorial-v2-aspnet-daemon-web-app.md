@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bc7893746cbb98a2d4adc4dabb39e22d015ab2c8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937825"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050398"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -237,9 +237,9 @@ Quando non è più necessario, eliminare l'oggetto app creato nel passaggio [Reg
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Usare [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) per ottenere supporto dalla community.
-Inviare prima le proprie domande a Stack Overflow ed esplorare i post esistenti per vedere se qualcuno ha già posto la stessa domanda.
-Assicurarsi di aggiungere alle domande o ai commenti i tag "adal", "msal" e "dotnet".
+Usare [Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) a per ottenere supporto dalla community.
+È possibile porre le domande su Microsoft Q&un primo ed esaminare i problemi esistenti per verificare se qualcuno ha posto la domanda prima.
+Assicurarsi che le domande o i commenti siano contrassegnati con "Azure-ad-adal-Deprecation", "Azure-ad-MSAL" e "DotNet-standard".
 
 Se nell'esempio si trova un bug, segnalarlo nella pagina di [problemi di GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 

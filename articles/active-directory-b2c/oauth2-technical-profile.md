@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 624cf4012316b832e507518aa7e0f0874f517971
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: f79360269c19f6770fa12120ec34497b29015e7e
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059133"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050686"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un Azure Active Directory B2C criteri personalizzati
 
@@ -77,7 +77,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
@@ -90,6 +90,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 | ClaimsEndpointAccessTokenName | No | Il nome del parametro della stringa di query del token di accesso. Gli endpoint di alcuni provider di identità delle attestazioni supportano la richiesta HTTP GET. In questo caso, il token di connessione viene inviato usando un parametro della stringa di query anziché l'intestazione dell'autorizzazione. Valore predefinito: `access_token` . |
 | ClaimsEndpointFormatName | No | Il nome del parametro della stringa di query di formato. Ad esempio, è possibile impostare il nome come `format` in questo endpoint attestazioni LinkedIn`https://api.linkedin.com/v1/people/~?format=json`. |
 | ClaimsEndpointFormat | No | Il valore del parametro della stringa di query di formato. Ad esempio, è possibile impostare il valore su `json` in questo endpoint attestazioni LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. |
+| BearerTokenTransmissionMethod | No | Specifica la modalità di invio del token. Il metodo predefinito è una stringa di query. Per inviare il token come intestazione della richiesta, impostare su `AuthorizationHeader` . |
 | ProviderName | No | Il nome del provider di identità. |
 | response_mode | No | Il metodo che usa il provider di identità per restituire il risultato ad Azure AD B2C. I valori possibili sono: `query`, `form_post` (impostazione predefinita), o `fragment`. |
 | ambito | No | Ambito della richiesta definito in base alla specifica del provider di identità OAuth2. Ad esempio `openid`, `profile`, e `email`. |
@@ -107,7 +108,7 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` , è possibile omettere la chiave crittografica. |
 

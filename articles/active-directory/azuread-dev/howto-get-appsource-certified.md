@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 85c4488c4e8e1e2f9591b7d734c522c34ea4ba2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a4dd56b509571094ef202fbce781104bda9188
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116324"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052245"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Come ottenere la certificazione AppSource per Azure Active Directory
 
@@ -85,7 +85,7 @@ L'esperienza di valutazione gestita dal partner può essere usata quando è nece
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt="Shows placeholder for setup environment info"/></td>
-            <td>L'ambiente viene configurato</td>
+            <td>Configurare l'ambiente</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt="Shows placeholder for trial info"/></td>
@@ -111,11 +111,11 @@ Per altre informazioni sull'esperienza di valutazione di AppSource, vedere [ques
 - Per altre informazioni sulla creazione di applicazioni che supportano gli accessi di Azure AD, vedere [Scenari di autenticazione per Azure AD](./v1-authentication-scenarios.md).
 - Per informazioni su come inserire un'app SaaS in AppSource, vedere le [informazioni per i partner di AppSource](https://appsource.microsoft.com/partners)
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
-Per l'integrazione di Azure AD, viene usato [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource), con il supporto della community.
+Per l'integrazione Azure AD, [Microsoft Q&](https://docs.microsoft.com/answers/products/) con la community per fornire supporto.
 
-È consigliabile provare prima a porre le domande in Stack Overflow ed esplorare le problematiche esistenti per vedere se un utente ha già posto la stessa domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [ `[azure-active-directory]` e `[appsource]` ](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Ti consigliamo vivamente di porre le tue domande su Microsoft Q&un primo ed esaminare i problemi esistenti per vedere se qualcuno ha già posto la domanda. Assicurarsi che le domande o i commenti siano contrassegnati con [`[azure-active-directory]`](https://docs.microsoft.com/answers/topics/azure-active-directory.html) .
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
 

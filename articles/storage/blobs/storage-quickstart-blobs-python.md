@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Libreria di Archiviazione BLOB di Azure v12 - Python'
-description: In questa guida di avvio rapido verrà illustrato come usare la libreria client di Archiviazione BLOB di Azure versione 12 per Python per creare un contenitore e un BLOB nell'archiviazione (oggetto) BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
+title: 'Guida introduttiva: libreria di archiviazione BLOB di Azure V12-Python'
+description: Questa Guida introduttiva illustra come usare la libreria client di archiviazione BLOB di Azure versione 12 per Python per creare un contenitore e un BLOB nell'archiviazione BLOB (oggetto). Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come elencare tutti i BLOB in un contenitore.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: dbac832165c57e14e737372e12c4f4b2f3039c0d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: b35144c1ff4de9324086629bc764caea4bef98b6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995259"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052737"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Avvio rapido: Gestire i BLOB con Python v12 SDK
 
@@ -36,7 +36,7 @@ Risorse aggiuntive:
 
 ## <a name="setting-up"></a>Configurazione
 
-Questa sezione illustra come preparare un progetto da usare con la libreria client di Archiviazione BLOB di Azure v12 per Python.
+Questa sezione illustra la preparazione di un progetto per l'uso con la libreria client di archiviazione BLOB di Azure V12 per Python.
 
 ### <a name="create-the-project"></a>Creare il progetto
 
@@ -62,13 +62,13 @@ Creare un'applicazione Python denominata *blob-quickstart-v12*.
 
 ### <a name="install-the-package"></a>Installare il pacchetto
 
-Sempre nella directory dell'applicazione installare la libreria client di Archiviazione BLOB di Azure per il pacchetto Python usando il comando `pip install`.
+Nella directory dell'applicazione installare la libreria client di archiviazione BLOB di Azure per il pacchetto python usando il `pip install` comando.
 
 ```console
 pip install azure-storage-blob
 ```
 
-Questo comando installa il pacchetto della libreria client di Archiviazione BLOB di Azure per Python e tutte le librerie da cui dipende. In questo caso, si tratta solo della libreria principale di Azure per Python.
+Questo comando installa la libreria client di archiviazione BLOB di Azure per il pacchetto Python e tutte le librerie da cui dipende. In questo caso, si tratta solo della libreria principale di Azure per Python.
 
 ### <a name="set-up-the-app-framework"></a>Configurare il framework dell'app
 
@@ -85,7 +85,7 @@ Dalla directory del progetto:
     from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient, __version__
 
     try:
-        print("Azure Blob storage v" + __version__ + " - Python quickstart sample")
+        print("Azure Blob Storage v" + __version__ + " - Python quickstart sample")
         # Quick start code goes here
     except Exception as ex:
         print('Exception:')
@@ -98,7 +98,7 @@ Dalla directory del progetto:
 
 ## <a name="object-model"></a>Modello a oggetti
 
-Archiviazione BLOB è ottimizzata per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
+Il servizio Archiviazione BLOB di Azure è ottimizzato per archiviare enormi quantità di dati non strutturati. I dati non strutturati sono dati che non seguono una definizione o un modello di dati specifico, ad esempio dati di testo o binari. L’archiviazione BLOB offre tre tipi di risorse:
 
 * L'account di archiviazione
 * Un contenitore nell'account di archiviazione
@@ -116,7 +116,7 @@ Per interagire con queste risorse, usare le classi Python seguenti:
 
 ## <a name="code-examples"></a>Esempi di codice
 
-Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la libreria client di Archiviazione BLOB di Azure per Python:
+Questi frammenti di codice di esempio illustrano come eseguire le operazioni seguenti con la libreria client di archiviazione BLOB di Azure per Python:
 
 * [Ottenere la stringa di connessione](#get-the-connection-string)
 * [Creare un contenitore](#create-a-container)
@@ -261,7 +261,7 @@ python blob-quickstart-v12.py
 L'output dell'app è simile all'esempio seguente:
 
 ```output
-Azure Blob storage v12 - Python quickstart sample
+Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Azure Storage as blob:
         quickstartcf275796-2188-4057-b6fb-038352e35038.txt
@@ -290,7 +290,7 @@ In questo avvio rapido si è appreso come caricare, scaricare ed elencare i BLOB
 Per visualizzare le app di esempio di Archiviazione BLOB, procedere con:
 
 > [!div class="nextstepaction"]
-> [Esempi dell'SDK di Archiviazione BLOB di Azure v12 per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Esempi di Python per Azure BLOB Storage SDK V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Per altre informazioni, vedere le [librerie client di Archiviazione di Azure per Python](/azure/developer/python/sdk/storage/overview).
 * Per esercitazioni, esempi, guide di avvio rapido e altre documentazioni, vedere [Azure per sviluppatori Python](/azure/python/).

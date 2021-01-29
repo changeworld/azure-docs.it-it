@@ -13,12 +13,12 @@ ms.date: 08/07/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 3a1428f05d1a5f7563b2715a9142cf73dc5063a9
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: 3280952636a915cca4bade40d3e56b795050c321
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98063655"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053466"
 ---
 # <a name="migrate-applications-to-the-microsoft-authentication-library-msal"></a>Eseguire la migrazione di applicazioni a Microsoft Authentication Library (MSAL)
 
@@ -73,7 +73,7 @@ __D: come funziona MSAL con AD FS?__
 R: MSAL.NET supporta alcuni scenari per l'autenticazione con AD FS 2019. Se l'app deve acquisire i token direttamente dalla versione precedente di AD FS, è necessario rimanere in ADAL. [Altre informazioni](msal-net-adfs-support.md)
 
 __D: Ricerca per categorie ottenere assistenza per la migrazione dell'applicazione?__  
-R: vedere la sezione delle [linee guida](#migration-guidance) per la migrazione di questo articolo. Se, dopo aver letto la guida per la piattaforma dell'app, si hanno domande aggiuntive, è possibile pubblicare un post su Stack Overflow con il tag `[adal-deprecation]` o aprire un problema nel repository GitHub della libreria. Vedere la sezione [linguaggi e Framework](msal-overview.md#languages-and-frameworks) dell'articolo Panoramica di MSAL per i collegamenti al repository di ogni libreria.
+R: vedere la sezione delle [linee guida](#migration-guidance) per la migrazione di questo articolo. Se, dopo aver letto la guida per la piattaforma dell'app, si hanno domande aggiuntive, è possibile pubblicare un post su Microsoft Q&A con il tag `[azure-ad-adal-deprecation]` o aprire un problema nel repository GitHub della libreria. Vedere la sezione [linguaggi e Framework](msal-overview.md#languages-and-frameworks) dell'articolo Panoramica di MSAL per i collegamenti al repository di ogni libreria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

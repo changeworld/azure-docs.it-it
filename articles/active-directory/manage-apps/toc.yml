@@ -50,7 +50,7 @@
         - name: Pianificare l'aggiunta di app non elencate nella raccolta
           href: non-gallery-apps.md
         - name: Pianificare una distribuzione di App personali
-          href: access-panel-deployment-plan.md
+          href: my-apps-deployment-plan.md
     - name: Single sign-on
       items:
         - name: Pianificare una distribuzione di Single Sign-On

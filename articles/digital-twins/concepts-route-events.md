@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: aa3466456b99664b1b39bd415680a6a291f85acd
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: c51f8c894c9a88b6ae81460623eec616d29b62ff
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98049287"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050516"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
@@ -50,12 +50,12 @@ Per esaminare il processo di configurazione di una funzione di Azure per elabora
 
 ## <a name="create-an-endpoint"></a>Creare un endpoint
 
-Per definire una route di eventi, gli sviluppatori devono innanzitutto definire gli endpoint. Un **endpoint** è una destinazione esterna ai dispositivi gemelli digitali di Azure che supporta una connessione di route. Le destinazioni supportate includono:
+Per definire una route eventi, gli sviluppatori devono innanzitutto definire gli endpoint. Un **endpoint** è una destinazione esterna ai dispositivi gemelli digitali di Azure che supporta una connessione di route. Le destinazioni supportate includono:
 * Argomenti personalizzati di griglia di eventi
 * Hub eventi
 * Bus di servizio
 
-Per creare un endpoint, è possibile usare le [**API del piano di controllo**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)dei dispositivi gemelli di Azure, i comandi dell' [**interfaccia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)della riga di comando o la [**portale di Azure**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+Per creare un endpoint, è possibile usare le [API REST](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)di Azure Digital gemelli, i comandi dell'interfaccia della riga di comando o la [portale di Azure](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins).
 
 Quando si definisce un endpoint, è necessario fornire:
 * Nome dell'endpoint
@@ -71,7 +71,7 @@ Le API dell'endpoint disponibili nel piano di controllo sono:
 
 ## <a name="create-an-event-route"></a>Creare una route di eventi
  
-Per creare una route di eventi, è possibile usare le API del [**piano dati**](how-to-manage-routes-apis-cli.md#create-an-event-route)di Azure Digital gemelli, i [**comandi dell'interfaccia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)della riga di comando o la [**portale di Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
+Per creare una route di eventi, è possibile usare le [API REST](how-to-manage-routes-apis-cli.md#create-an-event-route)di Azure Digital gemelli, i comandi dell'interfaccia della riga di comando o la [portale di Azure](how-to-manage-routes-portal.md#create-an-event-route).
 
 Di seguito è riportato un esempio di creazione di una route di evento all'interno di un'applicazione client tramite la chiamata a `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) : 
 
@@ -85,8 +85,6 @@ Di seguito è riportato un esempio di creazione di una route di evento all'inter
 
 > [!TIP]
 > Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
-
-È anche possibile creare route usando l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
 

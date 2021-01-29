@@ -3,12 +3,12 @@ title: Argomenti di sistema in griglia di eventi di Azure
 description: Descrive gli argomenti di sistema in griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1fbecb1e372602f9c252d43d2a1f93524ef1846
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297284"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052966"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in griglia di eventi di Azure
 Un argomento di sistema in griglia di eventi rappresenta uno o più eventi pubblicati da servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Un argomento di sistema, ad esempio, può rappresentare **tutti gli eventi BLOB** o solo gli eventi BLOB **creati** e BLOB **eliminati** per un **account di archiviazione specifico**. In questo esempio, quando un BLOB viene caricato nell'account di archiviazione, il servizio di archiviazione di Azure pubblica un evento **BLOB creato** nell'argomento sistema in griglia di eventi, che quindi trasmette l'evento ai [sottoscrittori](event-handlers.md) dell'argomento che ricevono ed elaborano l'evento. 
@@ -34,6 +34,7 @@ Di seguito è riportato l'elenco corrente dei servizi di Azure che supportano la
 - [Bus di servizio di Azure](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Sottoscrizioni di Azure](event-schema-subscriptions.md)
+- [Cache Redis di Azure](event-schema-azure-cache.md)
 
 ## <a name="system-topics-as-azure-resources"></a>Argomenti di sistema come risorse di Azure
 In passato, un argomento di sistema era implicito e non era esposto per semplicità. Gli argomenti di sistema sono ora visibili come risorse di Azure e offrono le funzionalità seguenti:
@@ -49,7 +50,7 @@ In passato, un argomento di sistema era implicito e non era esposto per semplici
 - Creare una [sottoscrizione di eventi in una risorsa di Azure come risorsa di estensione](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), che crea automaticamente un argomento di sistema con il nome nel formato: `<Azure resource name>-<GUID>` . L'argomento di sistema creato in questo modo viene eliminato automaticamente quando viene eliminata l'ultima sottoscrizione di evento per l'argomento. 
 - Creare un argomento di sistema per una risorsa di Azure e quindi creare una sottoscrizione di eventi per tale argomento di sistema. Quando si usa questo metodo, è possibile specificare un nome per l'argomento di sistema. L'argomento di sistema non viene eliminato automaticamente quando viene eliminata l'ultima sottoscrizione di evento. È necessario eliminarlo manualmente. 
 
-    Quando si usa il portale di Azure, si usa sempre questo metodo. Quando si crea una sottoscrizione di eventi usando la [pagina **eventi** di una risorsa di Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), viene creato prima l'argomento di sistema e quindi viene creata la sottoscrizione per l'argomento. Per creare un argomento di sistema in modo esplicito, è possibile usare la [pagina **argomenti del sistema di griglia di eventi** ](create-view-manage-system-topics.md#create-a-system-topic) e quindi creare una sottoscrizione per tale argomento. 
+    Quando si usa il portale di Azure, si usa sempre questo metodo. Quando si crea una sottoscrizione di eventi usando la [pagina **eventi** di una risorsa di Azure](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), viene creato prima l'argomento di sistema e quindi viene creata la sottoscrizione per l'argomento. Per creare un argomento di sistema in modo esplicito, è possibile usare la [pagina **argomenti del sistema di griglia di eventi**](create-view-manage-system-topics.md#create-a-system-topic) e quindi creare una sottoscrizione per tale argomento. 
 
 Quando si usa l' [interfaccia](create-view-manage-system-topics-cli.md)della riga di comando, [Rest](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate)o [Azure Resource Manager modello](create-view-manage-system-topics-arm.md), è possibile scegliere uno dei metodi descritti in precedenza. È consigliabile creare innanzitutto un argomento di sistema e quindi creare una sottoscrizione nell'argomento, in quanto si tratta dell'ultimo modo per creare argomenti di sistema.
 

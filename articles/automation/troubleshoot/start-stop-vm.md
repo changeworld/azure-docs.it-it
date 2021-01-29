@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 763e1321556ade73778b82ea70926af21a83f7ec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896275"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053585"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Risolvere i problemi relativi ad Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -109,7 +109,7 @@ Esaminare l'elenco seguente per le possibili risoluzioni:
   * **ScheduledStartStop_Parent**
   * **SequencedStartStop_Parent**
 
-* Verificare che il proprio [account RunAs](../manage-runas-account.md) abbia le autorizzazioni appropriate sulle macchine virtuali che si tenta di avviare o arrestare. Per informazioni su come controllare le autorizzazioni su una risorsa, vedere [Avvio rapido - Visualizzare i ruoli assegnati a un utente tramite il portale di Azure](../../role-based-access-control/check-access.md). È necessario specificare l'ID applicazione dell'entità servizio usata dall'account RunAs. È possibile recuperare questo valore passando all'account di Automazione nel portale di Azure. Selezionare **Account RunAs** in **Impostazioni account** e selezionare l'account RunAs appropriato.
+* Verificare che il proprio [account RunAs](../automation-security-overview.md#run-as-accounts) abbia le autorizzazioni appropriate sulle macchine virtuali che si tenta di avviare o arrestare. Per informazioni su come controllare le autorizzazioni su una risorsa, vedere [Avvio rapido - Visualizzare i ruoli assegnati a un utente tramite il portale di Azure](../../role-based-access-control/check-access.md). È necessario specificare l'ID applicazione dell'entità servizio usata dall'account RunAs. È possibile recuperare questo valore passando all'account di Automazione nel portale di Azure. Selezionare **Account RunAs** in **Impostazioni account** e selezionare l'account RunAs appropriato.
 
 * Se le macchine virtuali sono escluse in modo esplicito, non possono essere avviate o arrestate. Le macchine virtuali escluse vengono impostate nella variabile `External_ExcludeVMNames` nell'account di Automazione in cui viene distribuita la funzionalità. L'esempio seguente mostra come eseguire una query su tale valore con PowerShell.
 
@@ -201,7 +201,7 @@ Questo problema può essere causato da un account RunAs configurato in modo non 
 
 Per verificare che l'account RunAs sia configurato correttamente, passare al proprio account di Automazione nel portale di Azure e selezionare **Account RunAs** in **Impostazioni account**. Se un account RunAs non è configurato correttamente o è scaduto, lo stato indica la condizione.
 
-Se l'account RunAs è configurato in modo errato, eliminarlo e ricrearlo. Per altre informazioni, vedere [Gestire account RunAs di Automazione di Azure](../manage-runas-account.md).
+Se l'account RunAs è configurato in modo errato, eliminarlo e ricrearlo. Per altre informazioni, vedere [account RunAs di automazione di Azure](../automation-security-overview.md#run-as-accounts).
 
 Se il certificato dell'account RunAs è scaduto, seguire la procedura descritta in [Rinnovo di un certificato autofirmato](../manage-runas-account.md#cert-renewal) per rinnovare il certificato.
 

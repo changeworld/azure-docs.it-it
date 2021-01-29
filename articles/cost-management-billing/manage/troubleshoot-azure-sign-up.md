@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 01/28/2021
 ms.author: v-miegge
-ms.openlocfilehash: 85f6e64cb20a14b9cd03776d138872d6a4191535
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344488"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054162"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Risolvere i problemi di iscrizione a un nuovo account nel portale di Azure o nel Centro account di Azure
 
@@ -139,19 +139,18 @@ Completare il contratto.
 
 ## <a name="other-issues"></a>Altri problemi
 
-### <a name="cant-activate-azure-benefit-plan-like-msdn-bizspark-bizsparkplus-or-mpn"></a>Non è possibile attivare un piano con vantaggi di Azure, ad esempio MSDN, BizSpark, BizSparkPlus o MPN
+### <a name="cant-activate-azure-benefit-plan-like-visual-studio-bizspark-bizsparkplus-or-mpn"></a>Non è possibile attivare un piano con vantaggi di Azure, ad esempio Visual Studio, BizSpark, BizSparkPlus o MPN
 
 Assicurarsi di usare le credenziali di accesso corrette. Controllare quindi il programma dei vantaggi per verificare se si è idonei.
-- MSDN
-  - Verificare lo stato di idoneità nella [pagina dell'account MSDN](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Se non è possibile verificare lo stato, contattare i [centri del Servizio clienti per abbonamenti MSDN](/previous-versions/mappoint/aa493452(v=msdn.10)).
+- Visual Studio
+  - Verificare lo stato di idoneità nella [pagina dell'account di Visual Studio](https://my.visualstudio.com/Benefits).
+  - Se non è possibile verificare lo stato, contattare il [supporto della sottoscrizione di Visual Studio](https://visualstudio.microsoft.com/subscriptions/support/).
 - Microsoft for Startups
   - Accedere al [portale di Microsoft for Startups](https://startups.microsoft.com/#start-two) per verificare il proprio stato di idoneità per Microsoft for Startups.
   - Se non è possibile verificare lo stato, è possibile ottenere assistenza nei [forum di Microsoft for Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
 - MPN
   - Accedere al [portale di MPN](https://mspartner.microsoft.com/Pages/Locale.aspx) per verificare lo stato di idoneità. È possibile usufruire di vantaggi aggiuntivi se si hanno le [competenze Cloud Platform](https://mspartner.microsoft.com/pages/membership/cloud-platform-competency.aspx)appropriate.
   - Se non è possibile verificare lo stato, contattare il [supporto tecnico di MPN](https://mspartner.microsoft.com/Pages/Support/Premium/contact-support.aspx).
-
 
 ### <a name="cant-activate-new-azure-in-open-subscription"></a>Non è possibile attivare una nuova sottoscrizione di Azure in Open
 

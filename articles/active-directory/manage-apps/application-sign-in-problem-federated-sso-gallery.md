@@ -12,17 +12,17 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 596af29fe72a41b5a86a09e4e6d5072d63b6ac71
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 62b828a23805c6d3ab544dd2b9f78b45a3327cde
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586347"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053398"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso ad app configurate per Single Sign-On basato su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
 
-- Installare l'[estensione My App Secure Browser](./access-panel-deployment-plan.md) per aiutare Azure Active Directory (Azure AD) a fornire diagnosi e risoluzioni migliori quando si usa l'esperienza di test nel portale di Azure.
+- Installare l'[estensione My App Secure Browser](my-apps-deployment-plan.md) per aiutare Azure Active Directory (Azure AD) a fornire diagnosi e risoluzioni migliori quando si usa l'esperienza di test nel portale di Azure.
 - Riprodurre l'errore usando l'esperienza di test nella pagina di configurazione dell'app nel portale di Azure. Altre informazioni sul [debug di applicazioni Single Sign-on basate su SAML](./debug-saml-sso-issues.md)
 
 Se si usa l' [esperienza di test](./debug-saml-sso-issues.md) nella portale di Azure con l'estensione My App Secure browser, non è necessario seguire manualmente la procedura riportata di seguito per aprire la pagina di configurazione Single Sign-on basata su SAML.

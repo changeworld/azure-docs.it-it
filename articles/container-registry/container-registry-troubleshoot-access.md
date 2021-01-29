@@ -3,12 +3,12 @@ title: Risolvere i problemi di rete con il registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure in una rete virtuale o dietro a un firewall
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 95b32b839d1b3b804a2035b797e1146a09d5236a
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 2f15eb8a830ce93ecf942663fc8a44b9df86d6d6
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351794"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052162"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Risolvere i problemi di rete con il registro di sistema
 
@@ -40,6 +40,8 @@ Può includere uno o più degli elementi seguenti:
 Eseguire il comando [AZ ACR check-Health](/cli/azure/acr#az-acr-check-health) per ottenere altre informazioni sull'integrità dell'ambiente del registro di sistema e, facoltativamente, l'accesso a un registro di sistema di destinazione. Ad esempio, diagnosticare determinati problemi di configurazione o connettività di rete. 
 
 Vedere [verificare l'integrità di un registro contenitori di Azure](container-registry-check-health.md) per gli esempi di comando. Se vengono segnalati errori, esaminare il [riferimento all'errore](container-registry-health-error-reference.md) e le sezioni seguenti per le soluzioni consigliate.
+
+Se si verificano problemi con il servizio wih Azure Kubernetes del registro di sistema, eseguire il comando [AZ AKS check-ACR](/cli/azure/aks#az_aks_check_acr) per verificare che il registro di sistema sia accessibile dal cluster AKS.
 
 > [!NOTE]
 > Alcuni sintomi della connettività di rete possono verificarsi anche in caso di problemi con l'autenticazione o l'autorizzazione del registro di sistema. Vedere [risolvere i problemi di accesso al registro di sistema](container-registry-troubleshoot-login.md).
@@ -74,7 +76,7 @@ Se il registro di sistema è configurato per una rete virtuale con un endpoint d
 
 Collegamenti correlati:
 
-* [Configurare le regole di rete per IP pubblico](container-registry-access-selected-networks.md)
+* [Configurare le regole di rete IP pubblico](container-registry-access-selected-networks.md)
 * [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
 * [Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure](container-registry-vnet.md)
 
@@ -115,7 +117,7 @@ Collegamenti correlati:
 
 * [Analisi delle immagini del Container Registry di Azure per Centro sicurezza](../security-center/defender-for-container-registries-introduction.md)
 * Invia [commenti e suggerimenti](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
-* [Configurare le regole di rete per IP pubblico](container-registry-access-selected-networks.md)
+* [Configurare le regole di rete IP pubblico](container-registry-access-selected-networks.md)
 * [Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure](container-registry-private-link.md)
 
 
@@ -138,5 +140,5 @@ Se non si risolve il problema, vedere le opzioni seguenti.
   * [Risolvere i problemi di accesso al registro](container-registry-troubleshoot-login.md) 
   * [Risolvere i problemi relativi alle prestazioni del registro](container-registry-troubleshoot-performance.md)
 * Opzioni di [supporto della community](https://azure.microsoft.com/support/community/)
-* [Domane e risposte Microsoft](/answers/products/)
+* [Domande e risposte Microsoft](/answers/products/)
 * [Aprire un ticket di supporto](https://azure.microsoft.com/support/create-ticket/)

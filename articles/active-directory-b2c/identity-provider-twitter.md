@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: a998491729a1d3bd472ecc3de9722c142f8dc182
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 65d3badc02efbb02df50189885c28a8abe851415
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98953785"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050448"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Twitter tramite Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Per abilitare l'accesso per gli utenti con un account Twitter in Azure AD B2C, �
 1. In **Impostazioni autenticazione** selezionare **modifica** .
     1. Selezionare Abilita la casella di controllo **OAuth a tre zampe** .
     1. Selezionare la casella **di controllo Richiedi indirizzo di posta elettronica da utenti** .
-    1. Per gli **URL di callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio: `b2c_1A_signup_signin_twitter`. Usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C.
+    1. Per gli **URL di callback** immettere `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp` . Sostituire `your-tenant` con il nome del nome tenant e `your-user-flow-Id` con l'identificatore del flusso utente. Ad esempio: `b2c_1a_signup_signin_twitter`. Usare tutte le lettere minuscole quando si immette il nome del tenant e l'ID del flusso utente anche se sono definiti con lettere maiuscole in Azure AD B2C.
     1. Per l' **URL del sito Web**, immettere `https://your-tenant.b2clogin.com` . Sostituire `your-tenant` con il nome del tenant. Ad esempio: `https://contosob2c.b2clogin.com`.
     1. Immettere un URL per le **condizioni del servizio**, ad esempio `http://www.contoso.com/tos` . L'URL dei criteri è una pagina che viene mantenuta per fornire i termini e le condizioni per l'applicazione.
     1. Immettere un URL per l' **informativa sulla privacy**, ad esempio `http://www.contoso.com/privacy` . L'URL del criterio è una pagina da mantenere per fornire informazioni sulla privacy per l'applicazione.

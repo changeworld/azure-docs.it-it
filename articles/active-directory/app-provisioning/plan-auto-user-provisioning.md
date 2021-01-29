@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 689276d44a175f3c314b0fcf681fd6a995b8dde2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 8855969a9f1e431fc45b831063732501eead7e99
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832625"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051788"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) il provisioning utenti automatico semplifica q
 
 Vedere [automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) per comprendere meglio le funzionalità.
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso e migliora la qualità dei processi aziendali basati sui dati di identità autorevoli.
 
@@ -322,7 +322,7 @@ Per risolvere eventuali problemi che possono verificarsi durante il provisioning
 
 * [Per rimanere aggiornati sulle novità relative a Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-* [Forum Azure AD stack overflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Forum Microsoft Q&A Azure AD](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare il provisioning utenti automatico](../app-provisioning/configure-automatic-user-provisioning-portal.md)

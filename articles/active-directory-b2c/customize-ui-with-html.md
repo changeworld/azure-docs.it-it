@@ -1,33 +1,33 @@
 ---
-title: Personalizzare l'interfaccia utente
+title: Personalizzare l'interfaccia utente con i modelli HTML
 titleSuffix: Azure AD B2C
-description: Informazioni su come personalizzare l'interfaccia utente per le applicazioni che usano Azure Active Directory B2C.
+description: Informazioni su come personalizzare l'interfaccia utente con i modelli HTML per le applicazioni che usano Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/28/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4a789574b736eb22bd8d13fcf1a9facec5e241c9
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 78ad2540029d78084485ae2004194f9f7c2d6052
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98058668"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050547"
 ---
-# <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente in Azure Active Directory B2C
+# <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente con i modelli HTML in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 La personalizzazione e la personalizzazione dell'interfaccia utente che Azure Active Directory B2C (Azure AD B2C) Visualizza ai clienti contribuisce a offrire un'esperienza utente uniforme nell'applicazione. Queste esperienze includono l'iscrizione, l'accesso, la modifica del profilo e la reimpostazione della password. Questo articolo presenta i metodi di personalizzazione dell'interfaccia utente. 
 
 > [!TIP]
-> Se si desidera modificare solo il logo del banner, l'immagine di sfondo e il colore di sfondo delle pagine del flusso utente, è possibile provare la funzionalità di [personalizzazione della società](company-branding.md) .
+> Se si desidera modificare solo il logo del banner, l'immagine di sfondo e il colore di sfondo delle pagine del flusso utente, è possibile provare la funzionalità di [personalizzazione della società](customize-ui.md) .
 
 ## <a name="custom-html-and-css-overview"></a>Cenni preliminari su HTML e CSS personalizzati
 
@@ -228,7 +228,7 @@ Verificare che l'utente sia pronto attenendosi alla procedura seguente:
 
 1. Ripetere il passaggio Configure CORS. Per le **origini consentite**, immettere `https://www.test-cors.org`
 1. Passare a [www.test-CORS.org](https://www.test-cors.org/) 
-1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio, usare `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
+1. Per la casella **URL remoto** incollare l'URL del file HTML. Ad esempio: `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Selezionare **Invia richiesta**.
     Il risultato deve essere `XHR status: 200` . 
     Se si riceve un messaggio d'errore, verificare che le impostazioni CORS siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.
@@ -379,7 +379,7 @@ Per utilizzare l'esempio:
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    Per
+    A
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -387,7 +387,15 @@ Per utilizzare l'esempio:
 1. A questo punto, modificare il criterio, puntando al file HTML, come indicato in precedenza.
 1. Se vengono visualizzati i tipi di carattere, le immagini o i file CSS mancanti, controllare i riferimenti nei criteri delle estensioni e nei file con estensione \* HTML.
 
+## <a name="use-company-branding-assets-in-custom-html"></a>Usare asset di personalizzazione dell'azienda in codice HTML personalizzato
+
+Per usare le risorse di [personalizzazione della società](customize-ui.md#configure-company-branding) in un HTML personalizzato, aggiungere i tag seguenti all'esterno del `<div id="api">` tag. L'origine dell'immagine viene sostituita con quella dell'immagine di sfondo e il logo del banner.
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Informazioni su come abilitare il [codice JavaScript sul lato client](javascript-and-page-layout.md).
-

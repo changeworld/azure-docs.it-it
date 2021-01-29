@@ -13,18 +13,15 @@ ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 425809339cf4c468293801460fdeb79d9e467968
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 562162e0bd42b0a46b2b0c6d44ca9b37f1841750
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565600"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052861"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Effettuare l'iscrizione alle edizioni Premium di Azure Active Directory
 È possibile acquistare e associare le edizioni Premium di Azure Active Directory (Azure AD) alla sottoscrizione di Azure. Se è necessario creare una nuova sottoscrizione di Azure, sarà anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD.
-
-> [!NOTE]
->Le edizioni Premium e Basic di Azure AD sono disponibili per i clienti in Cina che usano l'istanza globale di Azure Active Directory. Le edizioni Azure AD Premium e Basic non sono attualmente supportate nel servizio di Azure gestito da 21Vianet in Cina. Per altre informazioni, contattare Microsoft tramite il [forum di Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 Prima di iscriversi ad Active Directory Premium 1 o Premium 2, è necessario determinare quale sottoscrizione o piano esistente usare:
 
@@ -55,7 +52,7 @@ Tramite il piano per Contratti multilicenza Microsoft è possibile effettuare l'
 
 - **Per 250 licenze o più.** [Contratto Enterprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-- **Da 5 a 250 licenze.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **Da 5 a 250 licenze.** [Contratti multilicenza Open](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
 Per altre informazioni sulle opzioni di acquisto dei contratti multilicenza, vedere [Come acquistare tramite i contratti multilicenza](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
@@ -69,7 +66,7 @@ Se si effettua l'iscrizione con un nuovo piano di licenza di Azure AD, è necess
 
     - **Accedi.** Scegliere questo collegamento se è già disponibile un tenant e quindi eseguire l'accesso con l'account amministratore esistente. È necessario essere un amministratore globale del tenant in cui le licenze vengono attivate.
 
-    - **Iscriviti.** Scegliere questo collegamento se si vuole aprire la pagina **Creazione del profilo dell'account** e creare un nuovo tenant di Azure AD per il piano di licenza.
+    - **Registrati.** Scegliere questo collegamento se si vuole aprire la pagina **Creazione del profilo dell'account** e creare un nuovo tenant di Azure AD per il piano di licenza.
 
         ![Creare una pagina del profilo dell'account con informazioni di esempio](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 

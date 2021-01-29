@@ -3,14 +3,14 @@ title: Creare un account di Automazione di Azure autonomo
 description: Questo articolo descrive come creare un account di Automazione di Azure autonomo e un account RunAs classico.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/15/2019
+ms.date: 01/07/2021
 ms.topic: conceptual
-ms.openlocfilehash: c78a65c3cc2d913ba0b836947d2184b3a061a648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855395a305624bb2df96d183dc2bcac45f8e6b3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714637"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051465"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Creare un account di Automazione di Azure autonomo
 
@@ -74,7 +74,7 @@ Per creare un account di Automazione di Azure nel portale di Azure, seguire ques
    > [!NOTE]
    > Se si sceglie di non creare l'account RunAs selezionando **No** per **Crea un account RunAs di Azure**, viene visualizzato un messaggio nel riquadro Aggiungi account di Automazione. Anche se l'account viene creato nel portale di Azure, l'account non ha un'identità di autenticazione corrispondente nella sottoscrizione del modello di distribuzione classico o nel servizio directory della sottoscrizione di Azure Resource Manager. Pertanto, l'account di Automazione non ha accesso alle risorse nella sottoscrizione. Questo impedirà ai runbook che fanno riferimento a questo account di completare l'autenticazione ed eseguire attività sulle risorse in tali modelli di distribuzione.
    >
-   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot della richiesta ' non si è autorizzati a creare un account RunAs in Azure Active Directory '.":::
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot della richiesta con il messaggio &quot;si è scelto di non creare un account RunAs&quot;.":::
    >
    > Se non viene creata l'entità servizio, il ruolo Collaboratore non viene assegnato.
    >
@@ -93,7 +93,7 @@ Quando la creazione dell'account di Automazione viene completata, vengono create
 
 ## <a name="create-a-classic-run-as-account"></a>Creare un account RunAs classico
 
-Gli account RunAs classici non vengono più creati per impostazione predefinita quando si crea un account di Automazione di Azure. Se è ancora necessario un account RunAs classico:
+Gli account RunAs classici non vengono creati per impostazione predefinita quando si crea un account di automazione di Azure. Se è necessario un account RunAs classico per gestire le risorse classiche di Azure, seguire questa procedura:
 
 1. Dall'account di Automazione selezionare **Account RunAs** in **impostazioni account**.
 2. Selezionare **Account RunAs classico di Azure**.
@@ -104,5 +104,5 @@ Gli account RunAs classici non vengono più creati per impostazione predefinita 
 * Per altre informazioni sulla creazione grafica, vedere [Creazione grafica in Automazione di Azure](automation-graphical-authoring-intro.md).
 * Per iniziare a usare i runbook PowerShell, vedere [Esercitazione: Creare un runbook di PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Per iniziare a usare i runbook del flusso di lavoro di PowerShell, vedere [Esercitazione: Creare un runbook del flusso di lavoro di PowerShell](learn/automation-tutorial-runbook-textual.md).
-* Per iniziare a usare i runbook di Python 2, vedere [Esercitazione: Creare un runbook di Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).
+* Per iniziare a usare Python 3 manuali operativi, vedere [esercitazione: creare un Runbook Python 3](learn/automation-tutorial-runbook-textual-python-3.md).
+* Per informazioni di riferimento sui cmdlet di PowerShell, vedere [Az.Automation](/powershell/module/az.automation&preserve-view=true#automation).

@@ -10,12 +10,12 @@ ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 manager: anandsub
-ms.openlocfilehash: 70be8d8be48f2b1e1cc275c06e4abff09e3e62f6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498575"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053772"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Ruoli e autorizzazioni per Azure Data Factory
 
@@ -56,6 +56,12 @@ Le autorizzazioni per Azure Repos e GitHub sono indipendenti dalle autorizzazion
 
 > [!IMPORTANT]
 > La distribuzione dei modelli di Resource Manager con il ruolo **Collaboratore Data factory** non eleva le autorizzazioni. Ad esempio, se si distribuisce un modello che crea una macchina virtuale di Azure e non si è autorizzati a creare macchine virtuali, la distribuzione ha esito negativo con un errore di autorizzazione.
+
+> [!IMPORTANT]
+> L'autorizzazione **Microsoft. DataFactory/factorys/Write** è obbligatoria in entrambe le modalità all'interno del contesto di pubblicazione.
+
+- Questa autorizzazione è necessaria solo in modalità Live quando il cliente modifica i parametri globali.
+- Questa autorizzazione è sempre obbligatoria in modalità git poiché ogni volta che il cliente pubblica, perché l'oggetto factory con l'ultimo ID commit viene aggiornato.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Scenari personalizzati e ruoli personalizzati
 

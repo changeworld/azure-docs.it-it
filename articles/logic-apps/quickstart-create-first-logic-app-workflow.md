@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
-ms.translationtype: HT
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455068"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052043"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Avvio rapido: Creare il primo flusso di lavoro di App per la logica - Portale di Azure
 
@@ -30,11 +30,14 @@ Per informazioni su come creare e gestire la prima app per la logica tramite alt
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, [iscriversi per un account Azure gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Un account di posta elettronica da un servizio supportato da App per la logica, ad esempio Office 365 Outlook o Outlook.com. Per altri provider di posta elettronica supportati, [vedere l'elenco dei connettori](/connectors/).
 
     > [!IMPORTANT]
     > Se si usa il [connettore Gmail](/connectors/gmail/), tenere presente che solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Se l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](logic-apps-limits-and-config.md#outbound) [ingresso](logic-apps-limits-and-config.md#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](logic-apps-limits-and-config.md#outbound) nell'area di Azure dell'app per la logica.
 
 <a name="create-logic-app"></a>
 
@@ -51,7 +54,7 @@ Per informazioni su come creare e gestire la prima app per la logica tramite alt
    ![Screenshot della pagina del servizio App per la logica nel portale di Azure che mostra l'elenco di app per la logica e il pulsante "Aggiungi" selezionato.](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. Nel riquadro **App per la logica** specificare i dettagli e le impostazioni di base per l'app per la logica. Creare un nuovo [gruppo di risorse](../azure-resource-manager/management/overview.md#terminology) ai fini di questa app per la logica di esempio.
-    
+
    | Proprietà | Valore | Descrizione |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | Nome dell'app per la logica, che deve essere univoco tra le aree. Il nome può contenere solo lettere, numeri, trattini (`-`), caratteri di sottolineatura (`_`), parentesi (`(`, `)`) e punti (`.`). Questo esempio usa "My-First-Logic-app". |

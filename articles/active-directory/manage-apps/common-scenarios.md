@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b78562bc3590bdf5b15e4061ba23e1284b07c16
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
-ms.translationtype: HT
+ms.openlocfilehash: 882770fefbb48524ad5f11a56089132b319470aa
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94835493"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053347"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizzare la gestione delle applicazioni con Azure AD
 
@@ -43,7 +43,7 @@ Gestione delle password non più necessaria. Accesso sicuro a tutte le risorse n
 |Funzionalità  | Descrizione | Recommendation |
 |---------|---------|---------|
 |SSO|SSO federato basato su standard che usa standard di settore attendibili.|Usare sempre [SAML/OIDC](../develop/v2-howto-app-gallery-listing.md) per abilitare l'accesso SSO quando l'applicazione lo supporta.|
-|App personali|Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri.| Distribuire [App personali](./access-panel-deployment-plan.md) nell'organizzazione dopo aver integrato le app con Azure AD per l'accesso Single Sign-On.|
+|App personali|Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri.| Distribuire [App personali](my-apps-deployment-plan.md) nell'organizzazione dopo aver integrato le app con Azure AD per l'accesso Single Sign-On.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scenario 2: Automazione di provisioning e deprovisioning 
 

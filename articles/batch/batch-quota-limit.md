@@ -2,14 +2,14 @@
 title: Quote e limiti del servizio
 description: Informazioni sui vincoli, limiti e quote di Azure Batch predefiniti e su come richiedere incrementi di quota
 ms.topic: conceptual
-ms.date: 12/29/2020
+ms.date: 01/28/2021
 ms.custom: seodec18
-ms.openlocfilehash: 11c9ad1e916ad7e64b59cc13c0967d2b9daed4aa
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 433272c76b9ff27d9cad542cf65a8ec0d8fc0378
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814636"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052381"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -33,19 +33,7 @@ Si noti inoltre che le quote non sono valori garantiti. Le quote possono variare
 
 ### <a name="cores-quotas-in-batch-service-mode"></a>Quote core in modalità servizio batch
 
-L'applicazione delle quote Core dedicate viene migliorata, con le modifiche rese disponibili in fasi e completate per tutti gli account batch entro la fine del 2021 gennaio.
-
-Sono disponibili quote core per ogni serie di VM supportate da batch e visualizzate nella pagina **quote** del portale. I limiti di quota della serie VM possono essere aggiornati con una richiesta di supporto, come descritto di seguito.
-
-Con la fase di eliminazione del meccanismo esistente, i limiti di quota per le serie di VM non vengono controllati. viene applicato solo il limite di quota totale per l'account. Ciò significa che potrebbe essere possibile allocare più core per una serie di macchine virtuali rispetto a quanto indicato dalla quota della serie di VM, fino al limite totale della quota dell'account.
-
-Il meccanismo aggiornato impone le quote della serie di macchine virtuali, oltre alla quota totale dell'account. Nell'ambito della transizione al nuovo meccanismo, è possibile che i valori delle quote della serie di VM vengano aggiornati per evitare errori di allocazione. la quota della serie di VM usata nei mesi recenti verrà aggiornata in modo da corrispondere alla quota totale dell'account. Questa modifica non consentirà di usare una capacità superiore a quella già disponibile.
-
-È possibile determinare se l'applicazione della quota della serie VM è stata abilitata per un account batch controllando:
-
-* Proprietà dell'API [dedicatedCoreQuotaPerVMFamilyEnforced](/rest/api/batchmanagement/batchaccount/get#batchaccount) dell'account batch.
-
-* Testo nella pagina delle **quote** dell'account batch nel portale.
+Sono disponibili quote core per ogni serie di VM supportate da batch e visualizzate nella pagina **quote** del portale. I limiti di quota della serie VM possono essere aggiornati con una richiesta di supporto, come descritto di seguito. Per i nodi dedicati, batch impone un limite di quota di core per ogni serie di VM, oltre a un limite di quota Core totale per l'intero account batch. Per i nodi con priorità bassa, batch impone solo una quota di core totale per l'account batch senza alcuna distinzione tra diverse serie di macchine virtuali.
 
 ### <a name="cores-quotas-in-user-subscription-mode"></a>Quote di core in modalità di sottoscrizione utente
 

@@ -12,12 +12,12 @@ ms.date: 12/01/2020
 ms.author: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2ade1775d7224ce55ee1c51dfdd2ae417151e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 4185ffd644d54c419f42c78326ca10bf100443c3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97672382"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051431"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Piani di distribuzione di Azure Active Directory
 Per istruzioni end-to-end sulla distribuzione delle funzionalità di Azure Active Directory (Azure AD), Azure AD piani di distribuzione illustrano il valore aziendale, le considerazioni sulla pianificazione e le procedure operative necessarie per distribuire correttamente le funzionalità di Azure AD comuni.
@@ -39,7 +39,7 @@ Da una delle pagine del piano, utilizzare la funzionalità di stampa del browser
 | Funzionalità | Descrizione|
 | -| - |
 | [Single Sign-On](../manage-apps/plan-sso-deployment.md)| Single Sign-on consente agli utenti di accedere alle app e alle risorse necessarie per svolgere le attività di business durante l'accesso una sola volta. Dopo aver eseguito l'accesso, è possibile passare da Microsoft Office a SalesForce a box alle applicazioni interne senza dover immettere le credenziali una seconda volta. |
-| [Pannello di accesso](../manage-apps/access-panel-deployment-plan.md)| Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri. |
+| [App personali](../manage-apps/my-apps-deployment-plan.md)| Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri. |
 | [Dispositivi](../devices/plan-device-deployment.md) | Questo articolo consente di valutare i metodi per integrare il dispositivo con Azure AD, scegliere il piano di implementazione e fornisce collegamenti chiave agli strumenti di gestione dei dispositivi supportati. |
 
 

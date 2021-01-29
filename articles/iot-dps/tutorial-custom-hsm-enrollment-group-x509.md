@@ -3,23 +3,25 @@ title: Esercitazione - Effettuare il provisioning di dispositivi X.509 nell'hub 
 description: Questa esercitazione usa i gruppi di registrazioni. Questa esercitazione illustra come effettuare il provisioning di dispositivi X.509 usando un modulo di protezione hardware (HSM) personalizzato e l'SDK per dispositivi C per il servizio Device Provisioning in hub IoT di Azure.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/18/2020
+ms.date: 01/28/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 566563dde26d2dd36f4358bc8c6dcdcfb5ba8465
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954869"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052364"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>Esercitazione: Effettuare il provisioning di più dispositivi X.509 usando i gruppi di registrazioni
 
-In questa esercitazione si apprenderà come effettuare il provisioning di gruppi di dispositivi IoT che usano certificati X.509 per l'autenticazione. Si userà codice di esempio di [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) per effettuare il provisioning del computer di sviluppo come dispositivo IoT. 
+In questa esercitazione si apprenderà come effettuare il provisioning di gruppi di dispositivi IoT che usano certificati X.509 per l'autenticazione. Il codice del dispositivo di esempio dell' [SDK Azure](https://github.com/Azure/azure-iot-sdk-c) per la distribuzione dei dispositivi di Azure verrà eseguito nel computer di sviluppo per simulare il provisioning di dispositivi X. 509. Sui dispositivi reali, il codice del dispositivo verrebbe distribuito ed eseguito dal dispositivo Internet delle cose.
 
-Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
+Assicurarsi di aver completato almeno i passaggi descritti in [configurare il servizio Device provisioning in hub Internet con il portale di Azure](quick-setup-auto-provision.md) prima di continuare con questa esercitazione. Inoltre, se non si ha familiarità con il processo di provisioning automatico, vedere Panoramica del [provisioning](about-iot-dps.md#provisioning-process) . 
+
+Il servizio Device provisioning in Azure è compatibile con due tipi di registrazione per i dispositivi di provisioning:
 
 * [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
 * [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
@@ -27,8 +29,6 @@ Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
 Questa esercitazione è simile alle esercitazioni precedenti che illustrano come usare i gruppi di registrazioni per effettuare il provisioning di gruppi di dispositivi. In questa esercitazione verranno però usati certificati X.509 al posto delle chiavi simmetriche. Rivedere le esercitazioni precedenti in questa sezione per un approccio semplice tramite l'uso delle [chiavi simmetriche](./concepts-symmetric-key-attestation.md).
 
 In questa esercitazione verrà illustrato l'[esempio di modulo di protezione hardware personalizzato](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client/samples/custom_hsm_example) che fornisce un'implementazione stub per l'interazione con l'archiviazione sicura basata su hardware. Un [modulo di protezione hardware (HSM)](./concepts-service.md#hardware-security-module) viene usato per l'archiviazione sicura basata su hardware dei segreti dei dispositivi. Può essere usato con una chiave simmetrica, un certificato X.509 o un'attestazione TPM per fornire uno spazio di archiviazione sicuro per i segreti. L'archiviazione basata su hardware dei segreti del dispositivo non è obbligatoria, ma è consigliabile per proteggere le informazioni riservate come la chiave privata del certificato del dispositivo.
-
-Se non si ha familiarità con il processo di provisioning automatico, vedere la panoramica relativa al [provisioning](about-iot-dps.md#provisioning-process). Assicurarsi anche di avere completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](quick-setup-auto-provision.md) prima di continuare con questa esercitazione. 
 
 
 In questa esercitazione verranno completati gli obiettivi seguenti:
@@ -44,9 +44,11 @@ In questa esercitazione verranno completati gli obiettivi seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
+I prerequisiti seguenti sono per un ambiente di sviluppo Windows usato per simulare i dispositivi. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017. 
+
+    In questo articolo viene usato Visual Studio per compilare il codice di esempio del dispositivo che verrebbe distribuito nei dispositivi Internet.  Ciò non implica che Visual Studio sia necessario sul dispositivo stesso.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -106,7 +108,7 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
 
 ## <a name="create-an-x509-certificate-chain"></a>Creare una catena di certificati X.509
 
-In questa sezione si genererà una catena di certificati X.509 composta da tre certificati per i test con questa esercitazione. I certificati avranno la gerarchia seguente.
+In questa sezione verrà generata una catena di certificati X. 509 di tre certificati per testare ogni dispositivo con questa esercitazione. I certificati avranno la gerarchia seguente.
 
 ![Catena di certificati dei dispositivi dell'esercitazione](./media/tutorial-custom-hsm-enrollment-group-x509/example-device-cert-chain.png#lightbox)
 
@@ -114,15 +116,17 @@ In questa sezione si genererà una catena di certificati X.509 composta da tre c
 
 [Certificato intermedio](concepts-x509-attestation.md#intermediate-certificate): i certificati intermedi vengono comunemente usati per raggruppare i dispositivi in modo logico per linea di prodotti, reparto aziendale o altri criteri. In questa esercitazione si userà una catena di certificati composta da un certificato intermedio. Il certificato intermedio sarà firmato tramite il certificato radice. Questo certificato verrà usato anche nel gruppo di registrazioni creato nel servizio Device Provisioning per raggruppare in modo logico un set di dispositivi. Questa configurazione consente di gestire un intero gruppo di dispositivi i cui certificati del dispositivo sono firmati con lo stesso certificato intermedio. È possibile creare gruppi di registrazioni per abilitare o disabilitare un gruppo di dispositivi. Per altre informazioni su come disabilitare un gruppo di dispositivi, vedere [Non consentire un certificato X.509 intermedio o un certificato CA radice usando un gruppo di registrazioni](how-to-revoke-device-access-portal.md#disallow-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group).
 
-[Certificato del dispositivo](concepts-x509-attestation.md#end-entity-leaf-certificate): il certificato del dispositivo (foglia) verrà firmato tramite il certificato intermedio e archiviato nel dispositivo insieme alla relativa chiave privata. Per effettuare il provisioning, il certificato presenterà questo certificato e la chiave privata insieme alla catena di certificati. 
+[Certificati](concepts-x509-attestation.md#end-entity-leaf-certificate)del dispositivo: i certificati del dispositivo (foglia) verranno firmati dal certificato intermedio e archiviati nel dispositivo insieme alla relativa chiave privata. Idealmente, questi elementi sensibili verranno archiviati in modo sicuro con un modulo di protezione hardware. Ogni dispositivo presenta il certificato e la chiave privata, insieme alla catena di certificati quando si tenta di eseguire il provisioning. 
 
-Per creare la catena di certificati:
+#### <a name="create-root-and-intermediate-certificates"></a>Creare certificati radice e intermedi
+
+Per creare le parti radice e intermedia della catena di certificati:
 
 1. Aprire un prompt dei comandi di Git Bash. Completare i passaggi 1 e 2 usando le istruzioni della shell Bash disponibili in [Gestione dei certificati CA di prova per esempi ed esercitazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials).
 
-    Questo passaggio crea una directory di lavoro per gli script dei certificati e genera i certificati radice e intermedio di esempio per la catena di certificati usando OpenSSL. 
-
-    L'output mostra la posizione del certificato radice autofirmato. In un secondo momento questo certificato verrà sottoposto al processo di [verifica del possesso](how-to-verify-certificates.md) per verificarne la proprietà.
+    Viene creata una directory di lavoro per gli script del certificato e vengono generati la radice di esempio e il certificato intermedio per la catena di certificati utilizzando OpenSSL. 
+    
+2. L'output mostra la posizione del certificato radice autofirmato. In un secondo momento questo certificato verrà sottoposto al processo di [verifica del possesso](how-to-verify-certificates.md) per verificarne la proprietà.
 
     ```output
     Creating the Root CA Certificate
@@ -142,8 +146,8 @@ Per creare la catena di certificati:
                 Not After : Nov 22 21:30:30 2020 GMT
             Subject: CN=Azure IoT Hub CA Cert Test Only
     ```        
-
-    L'output mostra la posizione del certificato intermedio firmato/emesso dal certificato radice. Questo certificato verrà usato con il gruppo di registrazioni che si creerà successivamente.
+    
+3. L'output mostra la posizione del certificato intermedio firmato/emesso dal certificato radice. Questo certificato verrà usato con il gruppo di registrazioni che si creerà successivamente.
 
     ```output
     Intermediate CA Certificate Generated At:
@@ -161,8 +165,12 @@ Per creare la catena di certificati:
                 Not After : Nov 22 21:30:33 2020 GMT
             Subject: CN=Azure IoT Hub Intermediate Cert Test Only
     ```    
+    
+#### <a name="create-device-certificates"></a>Creare certificati del dispositivo
 
-2. Eseguire quindi il comando seguente per creare un nuovo certificato del dispositivo/foglia con un nome soggetto specificato come parametro. Usare il nome soggetto di esempio fornito per questa esercitazione, `custom-hsm-device-01`. Questo nome soggetto sarà l'ID dispositivo del dispositivo IoT. 
+Per creare i certificati del dispositivo firmati dal certificato intermedio nella catena:
+
+1. Eseguire il comando seguente per creare un nuovo certificato dispositivo/foglia con un nome soggetto fornito come parametro. Usare il nome soggetto di esempio fornito per questa esercitazione, `custom-hsm-device-01`. Questo nome soggetto sarà l'ID dispositivo del dispositivo IoT. 
 
     > [!WARNING]
     > Non usare un nome soggetto che contiene spazi. Questo nome soggetto è l'ID dispositivo del dispositivo IoT di cui effettuare il provisioning. Deve seguire le regole per gli ID dispositivo. Per altre informazioni, vedere [Proprietà delle identità dei dispositivi](../iot-hub/iot-hub-devguide-identity-registry.md#device-identity-properties).
@@ -192,13 +200,13 @@ Per creare la catena di certificati:
             Subject: CN=custom-hsm-device-01
     ```    
     
-3. Eseguire il comando seguente per creare un file PEM della catena di certificati completa che include il nuovo certificato del dispositivo.
+2. Eseguire il comando seguente per creare un file con estensione PEM della catena di certificati completo che include il nuovo certificato del dispositivo per `custom-hsm-device-01` .
 
     ```Bash
-    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-full-chain.cert.pem && cd ..
+    cd ./certs && cat new-device.cert.pem azure-iot-test-only.intermediate.cert.pem azure-iot-test-only.root.ca.cert.pem > new-device-01-full-chain.cert.pem && cd ..
     ```
 
-    Usare un editor di testo per aprire il file della catena di certificati, *./certs/new-device-full-chain.cert.pem*. Il testo della catena di certificati contiene la catena completa di tutti e tre i certificati. Questo testo verrà usato come catena di certificati con il codice del modulo di protezione hardware personalizzato più avanti in questa esercitazione.
+    Usare un editor di testo e aprire il file della catena di certificati, *./certs/New-Device-01-full-chain.cert.pem*. Il testo della catena di certificati contiene la catena completa di tutti e tre i certificati. Questo testo verrà usato come catena di certificati con nel codice del dispositivo HSM personalizzato, più avanti in questa esercitazione per `custom-hsm-device-01` .
 
     Il testo della catena completa ha il formato seguente:
  
@@ -214,115 +222,25 @@ Per creare la catena di certificati:
     -----END CERTIFICATE-----
     ```
 
-5. La chiave privata del nuovo certificato del dispositivo è scritta in *./private/new-device.key.pem*. Il testo di questa chiave servirà al dispositivo durante il provisioning. Verrà aggiunto all'esempio di modulo di protezione hardware personalizzato più avanti.
+3. La chiave privata del nuovo certificato del dispositivo è scritta in *./private/new-device.key.pem*. Rinominare questo file di chiave *./private/New-Device-01.Key.pem* per il `custom-hsm-device-01` dispositivo. Il testo di questa chiave servirà al dispositivo durante il provisioning. Verrà aggiunto all'esempio di modulo di protezione hardware personalizzato più avanti.
+
+    ```bash
+    $ mv private/new-device.key.pem private/new-device-01.key.pem
+    ```
 
     > [!WARNING]
     > Il testo per i certificati contiene solo le informazioni sulla chiave pubblica. 
     >
     > Il dispositivo deve però avere accesso anche alla chiave privata del certificato del dispositivo. Questa informazione è necessaria perché il dispositivo deve eseguire la verifica usando tale chiave in fase di esecuzione durante il tentativo di provisioning. La natura sensibile di questa chiave è uno dei motivi principali per cui è consigliabile usare l'archiviazione basata su hardware in un modulo di protezione hardware reale per proteggere le chiavi private.
 
+4. Ripetere i passaggi 1-3 per un secondo dispositivo con ID dispositivo `custom-hsm-device-02` . Usare i valori seguenti per il dispositivo:
 
-
-## <a name="configure-the-custom-hsm-stub-code"></a>Configurare il codice stub del modulo di protezione hardware personalizzato
-
-Le specifiche di interazione con uno spazio di archiviazione sicuro reale basato su hardware variano a seconda dell'hardware. Di conseguenza, la catena di certificati usata dal dispositivo in questa esercitazione verrà impostata come hardcoded nel codice stub del modulo di protezione hardware personalizzato. In uno scenario reale, la catena di certificati verrebbe archiviata nell'hardware del modulo di protezione hardware effettivo per offrire una maggiore sicurezza per le informazioni sensibili. Verrebbero quindi implementati metodi simili ai metodi stub mostrati in questo esempio per leggere i segreti da tale archiviazione basata su hardware. 
-
-Sebbene non sia necessario hardware HSM, non è consigliabile che le informazioni riservate, ad esempio la chiave privata del certificato, siano archiviate nel codice sorgente. Questa operazione espone la chiave a chiunque possa visualizzare il codice, quindi viene eseguita in questo articolo solo per facilitare l'apprendimento.
-
-Per aggiornare il codice stub del modulo di protezione hardware personalizzato per questa esercitazione:
-
-1. Avviare Visual Studio e aprire il nuovo file di soluzione che è stato creato nella directory `cmake` creata nella radice del repository Git azure-iot-sdk-c. Il nome del file di soluzione è `azure_iot_sdks.sln`.
-
-2. In Esplora soluzioni di Visual Studio passare a **Provisioning_Samples > custom_hsm_example > Source Files** e aprire *custom_hsm_example.c*.
-
-3. Aggiornare il valore stringa della costante stringa `COMMON_NAME` usando il nome comune usato per generare il certificato del dispositivo.
-
-    ```c
-    static const char* const COMMON_NAME = "custom-hsm-device-01";
-    ```
-
-4. Nello stesso file è necessario aggiornare il valore stringa della stringa costante `CERTIFICATE` usando il testo della catena di certificati salvato in *./certs/new-device-full-chain.cert.pem* dopo la generazione dei certificati.
-
-    La sintassi del testo del certificato deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
-
-    ```c
-    // <Device/leaf cert>
-    // <intermediates>
-    // <root>
-    static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
-        ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
-    "-----END CERTIFICATE-----\n"
-    "-----BEGIN CERTIFICATE-----\n"
-    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
-        ...
-    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
-    "-----END CERTIFICATE-----\n"
-    "-----BEGIN CERTIFICATE-----\n"
-    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
-        ...
-    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
-    "-----END CERTIFICATE-----";        
-    ```
-
-    L'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti nel prompt dei comandi di Git Bash e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `CERTIFICATE`.
-
-    ```Bash
-    input="./certs/new-device-full-chain.cert.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then   
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi  
-    done < "$input"
-    ```
-
-    Copiare e incollare il testo del certificato di output per il nuovo valore della costante. 
-
-
-5. Nello stesso file è necessario aggiornare il valore stringa della costante `PRIVATE_KEY` con la chiave privata del certificato del dispositivo.
-
-    La sintassi del testo della chiave privata deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
-
-    ```c
-    static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
-    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
-        ...
-    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
-    "-----END RSA PRIVATE KEY-----";
-    ```
-
-    Anche l'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `PRIVATE_KEY`.
-
-    ```Bash
-    input="./private/new-device.key.pem"
-    bContinue=true
-    prev=
-    while $bContinue; do
-        if read -r next; then
-          if [ -n "$prev" ]; then   
-            echo "\"$prev\\n\""
-          fi
-          prev=$next  
-        else
-          echo "\"$prev\";"
-          bContinue=false
-        fi  
-    done < "$input"
-    ```
-
-    Copiare e incollare il testo della chiave privata di output per il nuovo valore della costante. 
-
-6. Salvare *custom_hsm_example.c*.
-
+    |   Descrizione                 |  Valore  |
+    | :---------------------------- | :--------- |
+    | Nome soggetto                  | `custom-hsm-device-02` |
+    | File catena di certificati completo   | *./certs/new-device-02-full-chain.cert.pem* |
+    | Nome file della chiave privata          | *private/New-Device-02. Key. pem* |
+    
 
 ## <a name="verify-ownership-of-the-root-certificate"></a>Verificare la proprietà del certificato radice
 
@@ -411,21 +329,23 @@ I certificati di firma sono ora considerati attendibili nel dispositivo basato s
 
 ## <a name="configure-the-provisioning-device-code"></a>Configurare il codice del dispositivo di provisioning
 
-In questa sezione si aggiornerà il codice di esempio per effettuare il provisioning del dispositivo con l'istanza del servizio Device Provisioning. Se il dispositivo è autenticato, verrà assegnato a un hub IoT collegato all'istanza del servizio Device Provisioning.
+In questa sezione si aggiorna il codice di esempio con le informazioni sull'istanza del servizio Device provisioning. Se un dispositivo viene autenticato, verrà assegnato a un hub Internet delle cose collegato all'istanza del servizio Device provisioning configurata in questa sezione.
 
 1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_** .
 
     ![Estrarre le informazioni dell'endpoint del servizio Device Provisioning dal pannello del portale](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. In Esplora soluzioni di Visual Studio passare a **Provisioning_Samples > prov_dev_client_sample > Source Files** e aprire *prov_dev_client_sample.c*.
+2. Avviare Visual Studio e aprire il nuovo file di soluzione che è stato creato nella directory `cmake` creata nella radice del repository Git azure-iot-sdk-c. Il nome del file di soluzione è `azure_iot_sdks.sln`.
 
-3. Trovare la costante `id_scope` e sostituire il valore con il valore **Ambito ID** copiato in precedenza. 
+3. In Esplora soluzioni di Visual Studio passare a **Provisioning_Samples > prov_dev_client_sample > Source Files** e aprire *prov_dev_client_sample.c*.
+
+4. Trovare la costante `id_scope` e sostituire il valore con il valore **Ambito ID** copiato in precedenza. 
 
     ```c
     static const char* id_scope = "0ne00000A0A";
     ```
 
-4. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile `hsm_type` sia impostata su `SECURE_DEVICE_TYPE_X509` come illustrato di seguito.
+5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile `hsm_type` sia impostata su `SECURE_DEVICE_TYPE_X509` come illustrato di seguito.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -434,11 +354,110 @@ In questa sezione si aggiornerà il codice di esempio per effettuare il provisio
     //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-5. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**.
+6. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**.
+
+
+## <a name="configure-the-custom-hsm-stub-code"></a>Configurare il codice stub del modulo di protezione hardware personalizzato
+
+Le specifiche di interazione con uno spazio di archiviazione sicuro reale basato su hardware variano a seconda dell'hardware. Di conseguenza, le catene di certificati usati dai dispositivi simulati in questa esercitazione verranno hardcoded nel codice stub del modulo di protezione hardware personalizzato. In uno scenario reale, la catena di certificati verrebbe archiviata nell'hardware del modulo di protezione hardware effettivo per offrire una maggiore sicurezza per le informazioni sensibili. Metodi simili ai metodi stub usati in questo esempio vengono quindi implementati per leggere i segreti da tale archiviazione basata su hardware. 
+
+Sebbene l'hardware HSM non sia necessario, è consigliabile proteggere le informazioni riservate, ad esempio la chiave privata del certificato. Se dall'esempio è stato chiamato un modulo di protezione hardware effettivo, la chiave privata non sarà presente nel codice sorgente. Se la chiave nel codice sorgente espone la chiave a chiunque possa visualizzare il codice. quindi viene eseguita in questo articolo solo per facilitare l'apprendimento.
+
+Per aggiornare il codice dello stub del modulo di protezione hardware personalizzato per simulare l'identità del dispositivo con ID `custom-hsm-device-01` , seguire questa procedura:
+
+1. In Esplora soluzioni di Visual Studio passare a **Provisioning_Samples > custom_hsm_example > Source Files** e aprire *custom_hsm_example.c*.
+
+2. Aggiornare il valore stringa della costante stringa `COMMON_NAME` usando il nome comune usato per generare il certificato del dispositivo.
+
+    ```c
+    static const char* const COMMON_NAME = "custom-hsm-device-01";
+    ```
+
+3. Nello stesso file è necessario aggiornare il valore stringa della `CERTIFICATE` stringa costante usando il testo della catena di certificati salvato in *./certs/New-Device-01-full-chain.cert.pem* dopo la generazione dei certificati.
+
+    La sintassi del testo del certificato deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
+
+    ```c
+    // <Device/leaf cert>
+    // <intermediates>
+    // <root>
+    static const char* const CERTIFICATE = "-----BEGIN CERTIFICATE-----\n"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----\n"
+    "-----BEGIN CERTIFICATE-----\n"
+    "MIIFPDCCAySgAwIBAgIBATANBgkqhkiG9w0BAQsFADAqMSgwJgYDVQQDDB9BenVy\n"
+        ...
+    "MTEyMjIxMzAzM1owNDEyMDAGA1UEAwwpQXp1cmUgSW9UIEh1YiBJbnRlcm1lZGlh\n"
+    "-----END CERTIFICATE-----\n"
+    "-----BEGIN CERTIFICATE-----\n"
+    "MIIFOjCCAyKgAwIBAgIJAPzMa6s7mj7+MA0GCSqGSIb3DQEBCwUAMCoxKDAmBgNV\n"
+        ...
+    "MDMwWhcNMjAxMTIyMjEzMDMwWjAqMSgwJgYDVQQDDB9BenVyZSBJb1QgSHViIENB\n"
+    "-----END CERTIFICATE-----";        
+    ```
+
+    L'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti nel prompt dei comandi di Git Bash e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `CERTIFICATE`.
+
+    ```Bash
+    input="./certs/new-device-01-full-chain.cert.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    Copiare e incollare il testo del certificato di output per il nuovo valore della costante. 
+
+
+4. Nello stesso file è necessario aggiornare il valore stringa della costante `PRIVATE_KEY` con la chiave privata del certificato del dispositivo.
+
+    La sintassi del testo della chiave privata deve essere conforme al modello seguente senza spazi aggiuntivi né analisi eseguita da Visual Studio.
+
+    ```c
+    static const char* const PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\n"
+    "MIIJJwIBAAKCAgEAtjvKQjIhp0EE1PoADL1rfF/W6v4vlAzOSifKSQsaPeebqg8U\n"
+        ...
+    "X7fi9OZ26QpnkS5QjjPTYI/wwn0J9YAwNfKSlNeXTJDfJ+KpjXBcvaLxeBQbQhij\n"
+    "-----END RSA PRIVATE KEY-----";
+    ```
+
+    Anche l'aggiornamento corretto di questo valore stringa in questo passaggio può essere molto complicato e soggetto a errori. Per generare la sintassi corretta nel prompt di Git Bash, copiare e incollare i comandi della shell bash seguenti e premere **INVIO**. Questi comandi consentiranno di generare la sintassi per il valore della costante della stringa `PRIVATE_KEY`.
+
+    ```Bash
+    input="./private/new-device-01.key.pem"
+    bContinue=true
+    prev=
+    while $bContinue; do
+        if read -r next; then
+          if [ -n "$prev" ]; then   
+            echo "\"$prev\\n\""
+          fi
+          prev=$next  
+        else
+          echo "\"$prev\";"
+          bContinue=false
+        fi  
+    done < "$input"
+    ```
+
+    Copiare e incollare il testo della chiave privata di output per il nuovo valore della costante. 
+
+5. Salvare *custom_hsm_example.c*.
 
 6. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Quando viene chiesto di ricompilare il progetto, selezionare **Sì** per ricompilare il progetto prima dell'esecuzione.
 
-    L'output seguente è un esempio dell'avvio corretto del client del dispositivo di provisioning di esempio e della connessione al servizio di provisioning. Il dispositivo è stato assegnato a un hub IoT ed è stato registrato:
+    L'output seguente è un esempio di dispositivo simulato `custom-hsm-device-01` che esegue correttamente l'avvio e la connessione al servizio di provisioning. Il dispositivo è stato assegnato a un hub IoT ed è stato registrato:
 
     ```cmd
     Provisioning API Version: 1.3.9
@@ -455,6 +474,29 @@ In questa sezione si aggiornerà il codice di esempio per effettuare il provisio
 7. Nel portale passare all'hub IoT collegato al servizio di provisioning e selezionare la scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo X.509 nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario premere il pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo del modulo di protezione hardware personalizzato viene registrato con l'hub IoT](./media/tutorial-custom-hsm-enrollment-group-x509/hub-provisioned-custom-hsm-x509-device.png) 
+
+8. Ripetere i passaggi 1-7 per un secondo dispositivo con ID dispositivo `custom-hsm-device-02` . Usare i valori seguenti per il dispositivo:
+
+    |   Descrizione                 |  Valore  |
+    | :---------------------------- | :--------- |
+    | `COMMON_NAME`                 | `"custom-hsm-device-02"` |
+    | Catena di certificati completa        | Genera il testo usando `input="./certs/new-device-02-full-chain.cert.pem"` |
+    | Chiave privata                   | Genera il testo usando `input="./private/new-device-02.key.pem"` |
+
+    L'output seguente è un esempio di dispositivo simulato `custom-hsm-device-02` che esegue correttamente l'avvio e la connessione al servizio di provisioning. Il dispositivo è stato assegnato a un hub IoT ed è stato registrato:
+
+    ```cmd
+    Provisioning API Version: 1.3.9
+    
+    Registering Device
+    
+    Provisioning Status: PROV_DEVICE_REG_STATUS_CONNECTED
+    Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
+    
+    Registration Information received from service: test-docs-hub.azure-devices.net, deviceId: custom-hsm-device-02
+    Press enter key to exit:
+    ```
+
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

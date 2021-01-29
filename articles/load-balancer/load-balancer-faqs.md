@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: e9f46b11d9c0b5251ee4d52f64d657926f6f9c5e
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 38054d983b0a9f01f396b7379fec37de452d03b7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222990"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051873"
 ---
 # <a name="load-balancer-frequently-asked-questions"></a>Load Balancer domande frequenti
 
@@ -48,6 +48,10 @@ Usando il comando nslookup è possibile inviare una query DNS per il nome myip.o
  
 ## <a name="can-i-add-a-vm-from-the-same-availability-set-to-different-backend-pools-of-a-load-balancer"></a>È possibile aggiungere una VM dallo stesso set di disponibilità a diversi pool back-end di un Load Balancer?
 No, non è possibile.
+
+## <a name="what-is-the-maximum-data-throughput-that-can-be-achieved-via-an-azure-load-balancer"></a>Qual è la velocità effettiva massima dei dati che è possibile ottenere tramite un Azure Load Balancer?
+Poiché Azure LB è un servizio di bilanciamento del carico di rete pass-through, le limitazioni della velocità effettiva sono determinate dal tipo di macchina virtuale usato nel pool back-end. Per ulteriori informazioni sulle altre informazioni relative alla velocità effettiva di rete, vedere la [velocità effettiva della rete della macchina virtuale](../virtual-network/virtual-machine-network-throughput.md).
+
 
 ## <a name="how-do-connections-to-azure-storage-in-the-same-region-work"></a>Come funzionano le connessioni ad archiviazione di Azure nella stessa area?
 La connettività in uscita tramite gli scenari precedenti non è necessaria per connettersi ad Archiviazione nella stessa area della macchina virtuale. Se non lo si desidera, usare i gruppi di sicurezza di rete (NSG) come illustrato in precedenza. Per la connettività ad Archiviazione in altre aree, è necessaria la connettività in uscita. Si noti che quando ci si connette ad Archiviazione da una macchina virtuale nella stessa area, l'indirizzo IP di origine nei log di diagnostica di Archiviazione sarà un indirizzo di provider interno e non l'indirizzo IP pubblico della macchina virtuale. Se si vuole limitare l'accesso all'account di Archiviazione alle macchine virtuali in una o più subnet della rete virtuale nella stessa area, usare [endpoint di servizio della rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) e non l'indirizzo IP pubblico quando si configura il firewall dell'account di archiviazione. Una volta configurati gli endpoint di servizio, verrà visualizzato l'indirizzo IP privato della rete virtuale nei log di diagnostica di Archiviazione e non l'indirizzo del provider interno.

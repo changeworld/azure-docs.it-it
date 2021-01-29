@@ -3,17 +3,17 @@ title: Eseguire il provisioning di dispositivi con chiavi simmetriche-servizio D
 description: Come usare le chiavi simmetriche per eseguire il provisioning di dispositivi con l'istanza del servizio Device provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 07/13/2020
+ms.date: 01/28/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: eliotga
-ms.openlocfilehash: dc33dcd2c80b2a6d4a1cc27778e49dc06ac48b34
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+manager: lizross
+ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94967313"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051110"
 ---
 # <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Come eseguire il provisioning dei dispositivi con i gruppi di registrazioni con chiavi simmetriche
 
@@ -21,9 +21,7 @@ Questo articolo illustra come eseguire il provisioning sicuro di più dispositiv
 
 Alcuni dispositivi potrebbero non avere un certificato, un TPM o qualsiasi altra funzionalità di sicurezza che può essere usata per identificare in modo sicuro il dispositivo. Il servizio Device provisioning include l' [attestazione della chiave simmetrica](concepts-symmetric-key-attestation.md). L'attestazione della chiave simmetrica può essere usata per identificare un dispositivo in base a informazioni univoche come l'indirizzo MAC o un numero di serie.
 
-Se è possibile installare facilmente un [modulo di protezione hardware (HSM)](concepts-service.md#hardware-security-module) e un certificato, ciò può rappresentare un approccio più efficace per l'identificazione e il provisioning dei dispositivi. Poiché con questo approccio è consentito ignorare l'aggiornamento del codice distribuito in tutti i dispositivi e non viene incorporata una chiave privata nell'immagine del dispositivo.
-
-Questo articolo presuppone che un modulo di protezione hardware o un certificato non siano opzioni valide. Tuttavia, si presuppone che si disponga di un metodo di aggiornamento del codice dispositivo al fine di usare il servizio Device Provisioning per effettuare il provisioning dei dispositivi. 
+Se è possibile installare facilmente un [modulo di protezione hardware (HSM)](concepts-service.md#hardware-security-module) e un certificato, ciò può rappresentare un approccio più efficace per l'identificazione e il provisioning dei dispositivi. L'uso di un modulo HSM consente di ignorare l'aggiornamento del codice distribuito in tutti i dispositivi e non è presente una chiave privata incorporata nelle immagini del dispositivo. Questo articolo presuppone che un modulo di protezione hardware o un certificato non siano opzioni valide. Tuttavia, si presuppone che si disponga di un metodo di aggiornamento del codice dispositivo al fine di usare il servizio Device Provisioning per effettuare il provisioning dei dispositivi. 
 
 Questo articolo presuppone anche che l'aggiornamento del dispositivo venga eseguito in un ambiente sicuro per impedire accessi non autorizzati alla chiave master di gruppo o alla chiave di dispositivo derivata.
 
@@ -142,39 +140,18 @@ In questo esempio si usa una combinazione di indirizzo MAC e numero di serie che
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Creare un ID di registrazione univoco per il dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino ("-").
+Creare ID di registrazione univoci per ogni dispositivo. I caratteri validi sono i caratteri alfanumerici minuscoli e il trattino ("-").
 
 
 ## <a name="derive-a-device-key"></a>Derivare una chiave di dispositivo 
 
-Per generare la chiave di dispositivo, usare la chiave master di gruppo per calcolare un valore [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID di registrazione univoco per il dispositivo e convertire il risultato nel formato Base64.
+Per generare le chiavi del dispositivo, usare la chiave master del gruppo di registrazione per calcolare un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID registrazione per ogni dispositivo. Il risultato viene quindi convertito in formato Base64 per ogni dispositivo.
 
 > [!WARNING]
-> Il codice del dispositivo deve includere solo la chiave del dispositivo derivato per il singolo dispositivo. Non includere la chiave master di gruppo nel codice del dispositivo. Una chiave master compromessa può compromettere la sicurezza di tutti i dispositivi in cui viene eseguita l'autenticazione.
+> Il codice del dispositivo per ogni dispositivo deve includere solo la chiave del dispositivo derivata corrispondente per quel dispositivo. Non includere la chiave master di gruppo nel codice del dispositivo. Una chiave master compromessa può compromettere la sicurezza di tutti i dispositivi in cui viene eseguita l'autenticazione.
 
 
-#### <a name="linux-workstations"></a>Workstation di Linux
-
-Se si usa una workstation di Linux, è possibile usare openssl per generare la chiave di dispositivo derivata come illustrato nell'esempio seguente.
-
-Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
-
-Sostituire il valore di **REG_ID**(ID_REG) con l'ID di registrazione.
-
-```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
-```
-
-```bash
-Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
-```
-
-
-#### <a name="windows-based-workstations"></a>Workstation basate su Windows
+# <a name="windows"></a>[Windows](#tab/windows)
 
 Se si usan una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
 
@@ -197,8 +174,29 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
+# <a name="linux"></a>[Linux](#tab/linux)
 
-Il dispositivo userà la chiave di dispositivo derivata con l'ID registrazione univoco per eseguire l'attestazione con chiave simmetrica per il gruppo di registrazione durante il provisioning.
+Se si usa una workstation di Linux, è possibile usare openssl per generare la chiave di dispositivo derivata come illustrato nell'esempio seguente.
+
+Sostituire il valore della **CHIAVE** con la **chiave primaria** annotata in precedenza.
+
+Sostituire il valore di **REG_ID**(ID_REG) con l'ID di registrazione.
+
+```bash
+KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
+REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+
+keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
+```
+
+```bash
+Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
+```
+
+---
+
+Ogni dispositivo usa la chiave del dispositivo derivata e l'ID di registrazione univoco per eseguire l'attestazione della chiave simmetrica con il gruppo di registrazione durante il provisioning.
 
 
 
@@ -206,7 +204,7 @@ Il dispositivo userà la chiave di dispositivo derivata con l'ID registrazione u
 
 In questa sezione si aggiornerà un esempio di provisioning denominato **prov\_dev\_client\_sample** che si trova in Azure IoT C SDK precedentemente configurato. 
 
-Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio consente di riconoscere il dispositivo e di assegnarlo all'hub IoT configurato nel gruppo di registrazione.
+Questo codice di esempio simula una sequenza di avvio di dispositivo che invia la richiesta di provisioning all'istanza del servizio Device Provisioning. La sequenza di avvio consente di riconoscere il dispositivo e di assegnarlo all'hub IoT configurato nel gruppo di registrazione. Questa operazione viene completata per ogni dispositivo di cui viene effettuato il provisioning usando il gruppo di registrazione.
 
 1. Nel portale di Azure selezionare la scheda **Panoramica** per il servizio Device Provisioning e prendere nota del valore di **_Ambito ID_**.
 
@@ -280,10 +278,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 ## <a name="security-concerns"></a>Problemi di sicurezza
 
-Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa come parte dell'immagine. Ciò non rappresenta una procedura di sicurezza consigliata. Questo è uno dei motivi per cui sicurezza e facilità d'uso sono compromessi. 
-
-
-
+Tenere presente che questa operazione lascia la chiave del dispositivo derivata inclusa come parte dell'immagine per ogni dispositivo, che non è una procedura consigliata per la sicurezza. Questo è uno dei motivi per cui la sicurezza e la facilità d'uso sono spesso compromessi. È necessario rivedere completamente la sicurezza dei dispositivi in base ai propri requisiti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

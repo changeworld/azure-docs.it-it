@@ -131,7 +131,7 @@
     - name: Configurare Copertura globale di ExpressRoute
       items:
         - name: Portale di Azure
-          href: expressroute-howto-set-global-reach.md
+          href: expressroute-howto-set-global-reach-portal.md
         - name: Azure PowerShell
           href: expressroute-howto-set-global-reach.md
         - name: Interfaccia della riga di comando di Azure

@@ -143,6 +143,8 @@
           href: batch-sig-images.md
         - name: Creare un pool con una risorsa immagine gestita
           href: batch-custom-images.md
+        - name: Creare un pool tra zone di disponibilità
+          href: create-pool-availability-zones.md
         - name: Creare un pool con la crittografia disco abilitata
           href: disk-encryption.md
         - name: Creare un pool in una rete virtuale

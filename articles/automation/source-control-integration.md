@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: c2ddb0143bb9cba0dc2fc48ff9b9df94dc55c29c
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: e7a6b6d3e753352820cdcb910dcbfa9362793493
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579454"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050771"
 ---
 # <a name="use-source-control-integration"></a>Usare l'integrazione del controllo del codice sorgente
 
@@ -29,7 +29,7 @@ Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un repository di controllo del codice sorgente (GitHub o Azure Repos)
-* Un [account RunAs](manage-runas-account.md)
+* Un [account RunAs](automation-security-overview.md#run-as-accounts)
 * I [moduli di Azure più recenti](automation-update-azure-modules.md) nell'account di Automazione, incluso il modulo `Az.Accounts`, ovvero il modulo Az equivalente di `AzureRM.Profile`
 
 > [!NOTE]
@@ -69,7 +69,7 @@ Usare questa procedura per configurare il controllo del codice sorgente usando i
    ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> L'account di accesso per il repository del controllo del codice sorgente può essere diverso dall'account di accesso per il portale di Azure. Quando si configura il controllo del codice sorgente, verificare di avere eseguito l'accesso con l'account corretto per il repository del controllo del codice sorgente. In caso di dubbi, aprire una nuova scheda nel browser, disconnettersi da **dev.azure.com** , **visualstudio.com** o **github.com** e provare a riconnettersi al controllo del codice sorgente.
+> L'account di accesso per il repository del controllo del codice sorgente può essere diverso dall'account di accesso per il portale di Azure. Quando si configura il controllo del codice sorgente, verificare di avere eseguito l'accesso con l'account corretto per il repository del controllo del codice sorgente. In caso di dubbi, aprire una nuova scheda nel browser, disconnettersi da **dev.azure.com**, **visualstudio.com** o **github.com** e provare a riconnettersi al controllo del codice sorgente.
 
 ### <a name="configure-source-control-in-powershell"></a>Configurare il controllo del codice sorgente in PowerShell
 
@@ -86,7 +86,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Creare una connessione al controllo del codice sorgente per Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) usa un URL che accede a **dev.azure.com** anziché **visualstudio.com** , usato nei formati precedenti. Il formato dell'URL precedente `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` è deprecato, ma è ancora supportato. È preferibile il nuovo formato.
+> Azure Repos (Git) usa un URL che accede a **dev.azure.com** anziché **visualstudio.com**, usato nei formati precedenti. Il formato dell'URL precedente `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` è deprecato, ma è ancora supportato. È preferibile il nuovo formato.
 
 
 ```powershell-interactive
@@ -96,7 +96,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Creare una connessione al controllo del codice sorgente per Azure Repos (controllo della versione di Team Foundation)
 
 > [!NOTE]
-> Azure Repos (controllo della versione di Team Foundation) usa un URL che accede a **dev.azure.com** anziché **visualstudio.com** , usato nei formati precedenti. Il formato dell'URL precedente `https://<accountname>.visualstudio.com/<projectname>/_versionControl` è deprecato, ma è ancora supportato. È preferibile il nuovo formato.
+> Azure Repos (controllo della versione di Team Foundation) usa un URL che accede a **dev.azure.com** anziché **visualstudio.com**, usato nei formati precedenti. Il formato dell'URL precedente `https://<accountname>.visualstudio.com/<projectname>/_versionControl` è deprecato, ma è ancora supportato. È preferibile il nuovo formato.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -209,4 +209,4 @@ Non è al momento possibile usare il portale di Azure per aggiornare il token di
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per l'integrazione del controllo del codice sorgente in Automazione di Azure, vedere [Automazione di Azure: Integrazione del controllo del codice sorgente in Automazione di Azure](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
-* Per l'integrazione del controllo del codice sorgente dei runbook con Visual Studio Online, vedere [Automazione di Azure: Integrazione del controllo del codice sorgente dei runbook con Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).
+* Per l'integrazione del controllo del codice sorgente di runbook con gli spazi dei dati di Visual Studio, vedere [automazione di Azure: integrazione del controllo del codice sorgente di runbook con gli spazi dei comandi di Visual Studio](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

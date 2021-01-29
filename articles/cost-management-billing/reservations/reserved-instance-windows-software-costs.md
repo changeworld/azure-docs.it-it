@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 01/28/2021
 ms.author: banders
-ms.openlocfilehash: 625c40ea17cf20449f1be241a1605a80bf6a73f1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: 464e129314a369c14dcc6bc6c16eadf5f8bcf01f
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353001"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052990"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
@@ -61,7 +61,7 @@ Gli sconti relativi alla capacità riservata SQL e all'istanza di macchina virtu
 
 ## <a name="get-rates-for-azure-meters"></a>Ottenere le tariffe per i contatori di Azure
 
-È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
+È possibile ottenere il costo di ognuno dei contatori con l'API prezzi di vendita al dettaglio di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure, vedere [Panoramica dei prezzi al dettaglio di Azure](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguenti:

@@ -4,14 +4,14 @@ description: Come definire le destinazioni di archiviazione in modo che la cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 01/28/2021
 ms.author: v-erkel
-ms.openlocfilehash: b2497a49703ab675bde50c7845995c92de32f376
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: b4df5863cc746490f13685a8d412232217af3bc8
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657177"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054366"
 ---
 # <a name="add-storage-targets"></a>Aggiungere destinazioni di archiviazione
 
@@ -165,19 +165,21 @@ Una destinazione di archiviazione NFS ha impostazioni diverse da una destinazion
 
 Quando si crea una destinazione di archiviazione che punta a un sistema di archiviazione NFS, è necessario scegliere il modello di utilizzo per tale destinazione. Questo modello determina il modo in cui i dati vengono memorizzati nella cache.
 
+I modelli di utilizzo predefiniti consentono di scegliere come bilanciare la risposta rapida con il rischio di recuperare i dati obsoleti. Se si desidera ottimizzare la velocità di lettura del file, è possibile che non si sia interessati a verificare se i file nella cache vengono controllati rispetto ai file back-end. D'altra parte, se si desidera assicurarsi che i file siano sempre aggiornati con l'archiviazione remota, scegliere un modello che controlli di frequente.
+
 Sono disponibili tre opzioni:
 
 * **Read Heavy, scritture rare** : usare questa opzione se si vuole velocizzare l'accesso in lettura ai file statici o modificati raramente.
 
-  Questa opzione consente di memorizzare nella cache i file letti dai client, ma di passare immediatamente le scritture all'archiviazione back-end. I file archiviati nella cache non vengono mai confrontati con i file nel volume di archiviazione NFS.
+  Questa opzione consente di memorizzare nella cache i file letti dai client, ma di passare immediatamente le scritture all'archiviazione back-end. I file archiviati nella cache non vengono confrontati automaticamente con i file nel volume di archiviazione NFS. (Per altre informazioni, leggere la nota seguente sulla verifica del back-end).
 
-  Non usare questa opzione se esiste il rischio che un file venga modificato direttamente nel sistema di archiviazione senza prima scriverlo nella cache. In tal caso, la versione memorizzata nella cache del file non verrà mai aggiornata con le modifiche apportate dal back-end e il set di dati può diventare incoerente.
+  Non usare questa opzione se esiste il rischio che un file venga modificato direttamente nel sistema di archiviazione senza prima scriverlo nella cache. In tal caso, la versione memorizzata nella cache del file non sarà sincronizzata con il file back-end.
 
 * **Scritture superiori al 15%** : questa opzione consente di velocizzare le prestazioni di lettura e scrittura. Quando si usa questa opzione, tutti i client devono accedere ai file tramite la cache HPC di Azure anziché montare direttamente l'archiviazione back-end. I file memorizzati nella cache avranno modifiche recenti che non sono archiviate nel back-end.
 
-  In questo modello di utilizzo i file nella cache non vengono controllati in base ai file nell'archiviazione back-end. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end dopo che è stato inserito nella cache per un'ora senza ulteriori modifiche.
+  In questo modello di utilizzo, i file nella cache vengono verificati solo in base ai file nell'archiviazione back-end ogni otto ore. Si presuppone che la versione memorizzata nella cache del file sia più aggiornata. Un file modificato nella cache viene scritto nel sistema di archiviazione back-end dopo che è stato inserito nella cache per un'ora senza ulteriori modifiche.
 
-* I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache. I file richiesti dai client vengono memorizzati nella cache, ma tutte le modifiche apportate ai file dal client vengono passate immediatamente al sistema di archiviazione back-end.
+* I **client scrivono nella destinazione NFS, ignorando la cache** . scegliere questa opzione se i client nel flusso di lavoro scrivono i dati direttamente nel sistema di archiviazione senza prima scrivere nella cache o se si vuole ottimizzare la coerenza dei dati. I file richiesti dai client vengono memorizzati nella cache, ma tutte le modifiche apportate ai file dal client vengono passate immediatamente al sistema di archiviazione back-end.
 
   Con questo modello di utilizzo, i file nella cache vengono spesso controllati rispetto alle versioni back-end per gli aggiornamenti. Questa verifica consente di modificare i file all'esterno della cache mantenendo la coerenza dei dati.
 
@@ -185,9 +187,12 @@ In questa tabella vengono riepilogate le differenze del modello di utilizzo:
 
 | Modello di utilizzo                   | Modalità di memorizzazione nella cache | Verifica del back-end | Ritardo massimo write-back |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | Nessuno                     |
-| Scritture superiori al 15%       | Lettura/Scrittura   | Mai                 | 1 ora                   |
-| Client che ignorano la cache      | Lettura         | 30 secondi            | Nessuno                     |
+| Lettura di scritture complesse e non frequenti | Lettura         | Mai                 | nessuno                     |
+| Scritture superiori al 15%       | Lettura/Scrittura   | 8 ore               | 1 ora                   |
+| Client che ignorano la cache      | Lettura         | 30 secondi            | nessuno                     |
+
+> [!NOTE]
+> Il valore di **Verifica back-end** indica quando la cache confronta automaticamente i propri file con i file di origine nell'archiviazione remota. Tuttavia, è possibile forzare la cache HPC di Azure per confrontare i file eseguendo un'operazione di directory che include una richiesta READDIRPLUS. READDIRPLUS è un'API NFS standard (detta anche lettura estesa) che restituisce i metadati della directory, che determina il confronto e l'aggiornamento dei file nella cache.
 
 ### <a name="create-an-nfs-storage-target"></a>Creare una destinazione di archiviazione NFS
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/30/2020
-ms.openlocfilehash: aad271875abb9024a1ecc7f45018c04d8c79ce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: HT
+ms.openlocfilehash: 95275e68d0c7674caf4dd2b20f5586db5193fd03
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842564"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054061"
 ---
 # <a name="tutorial-create-schedule-based-and-recurring-automation-workflows-with-azure-logic-apps"></a>Esercitazione: Creare flussi di lavoro di automazione ricorrenti e basati su pianificazione con App per la logica di Azure
 
@@ -42,6 +42,8 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
   > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Per ottenere il tempo di viaggio per un itinerario, è necessaria una chiave di accesso per l'API di Bing Maps. Per ottenere questa chiave, seguire i passaggi per [ottenere una chiave di Bing Maps](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+
+* Se l'app per la logica deve comunicare attraverso un firewall che limita il traffico a indirizzi IP specifici, il firewall deve consentire l'accesso *sia* per gli indirizzi [IP in](logic-apps-limits-and-config.md#outbound) [ingresso](logic-apps-limits-and-config.md#inbound) che in uscita usati dal servizio o dal runtime di app per la logica nell'area di Azure in cui è presente l'app per la logica. Se l'app per la logica usa anche [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), ad esempio il connettore Office 365 Outlook o il connettore SQL oppure usa [connettori personalizzati](/connectors/custom-connectors/), il firewall deve anche consentire l'accesso per *tutti* gli [indirizzi IP in uscita del connettore gestito](logic-apps-limits-and-config.md#outbound) nell'area di Azure dell'app per la logica.
 
 ## <a name="create-your-logic-app"></a>Creare l'app per la logica
 

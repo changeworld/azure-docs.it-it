@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 14520c7c448231045b36e025c2c92332f9daac53
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5f207a0b5f829e952c92133a66313f49e9352f51
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94658724"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99053209"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -62,7 +62,7 @@ Esistono due modi principali in cui è possibile consentire agli utenti di Singl
 
 L'utilizzo di Azure AD per l'accesso SSO basato su password richiede la distribuzione di un'estensione del browser che recupererà in modo sicuro le credenziali e compilerà i form di accesso. Definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](../user-help/my-apps-portal-end-user-access.md). Le opzioni includono:
 
-- [Criteri di gruppo per Internet Explorer](./access-panel-deployment-plan.md)
+- [Criteri di gruppo per Internet Explorer](my-apps-deployment-plan.md)
 - [Configuration Manager per Internet Explorer](/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Download e configurazione gestiti dall'utente per Chrome, Firefox, Microsoft Edge o IE](../user-help/my-apps-portal-end-user-access.md)
 
@@ -235,11 +235,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 
 È consigliabile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 

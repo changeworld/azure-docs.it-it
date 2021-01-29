@@ -1,17 +1,17 @@
 ---
 title: Opzioni di calcolo e archiviazione-database di Azure per MySQL-server flessibile
 description: Questo articolo descrive le opzioni di calcolo e archiviazione in database di Azure per MySQL-server flessibile.
-author: savjani
-ms.author: pariks
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 267b362c94b04b3be634f7e61c2b6d67604d7854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.date: 1/28/2021
+ms.openlocfilehash: b1e8093a1991a97220060c2b6936368f9a4be796
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954682"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052347"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opzioni di calcolo e archiviazione nel database di Azure per MySQL-server flessibile (anteprima)
 
@@ -72,7 +72,7 @@ Le specifiche dettagliate dei tipi di server disponibili sono le seguenti:
 Per ottenere altri dettagli sulle serie di calcolo disponibili, vedere la documentazione relativa alle macchine virtuali [di Azure per utilizzo generico per la](../../virtual-machines/sizes-b-series-burstable.md)serie [Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md)e con ottimizzazione per la [memoria (serie Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Per il livello di calcolo [(serie B) a scaricamento](../../virtual-machines/sizes-b-series-burstable.md) quando il server viene riavviato per qualsiasi motivo, ad esempio avviato dall'utente, pianificato o non pianificato, il credito accumulato potrebbe andare perduto. Il motivo è che ogni volta che il database di Azure per MySQL lo riavvia è rimasto nello stesso nodo, il credito accumulato verrà mantenuto. Contrariamente, ogni volta che il database di Azure per il server MySQL inizia a essere aggiornato in un nuovo nodo, ottiene un credito iniziale. Per ulteriori informazioni, leggere le [domande frequenti su serie B](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
+>Per il [livello di calcolo (serie B) a scaricamento](../../virtual-machines/sizes-b-series-burstable.md) se la macchina virtuale viene avviata, arrestata o riavviata, è possibile che i crediti vadano persi. Per ulteriori informazioni, vedere la pagina relativa alle [domande frequenti sulla serie B](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart).
 
 ## <a name="storage"></a>Archiviazione
 

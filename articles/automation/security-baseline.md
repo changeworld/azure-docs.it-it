@@ -4,15 +4,15 @@ description: Baseline della sicurezza di Azure per l'automazione
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ea984e527eb526e49c87ce5385ba5715803cc72d
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737253"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052754"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -336,11 +336,11 @@ Tuttavia, quando si usa la funzionalità Hybrid Runbook Worker, il Centro sicure
 
 **Linee guida**: usare Azure Active Directory ruoli di amministratore predefiniti che possono essere assegnati in modo esplicito e possono essere sottoposti a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi. Ogni volta che si usano account RunAs dell'account di automazione per la manuali operativi, verificare che anche queste entità servizio siano registrate nell'inventario perché spesso hanno autorizzazioni elevate. Eliminare gli account RunAs non usati per ridurre al minimo la superficie di attacco esposta.
 
-* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-* [Eliminare un account RunAs o un account RunAs classico](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Eliminare un account RunAs o un account RunAs classico](./delete-run-as-account.md)
 
 * [Gestire un account RunAs di Automazione di Azure](./manage-runas-account.md)
 
@@ -364,7 +364,7 @@ Tuttavia, quando si usa la funzionalità Hybrid Runbook Worker, il Centro sicure
 
 * [Altre informazioni su Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
-* [Eliminare un account RunAs o un account RunAs classico](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Eliminare un account RunAs o un account RunAs classico](./delete-run-as-account.md)
 
 * [Gestire un account RunAs di Automazione di Azure](./manage-runas-account.md)
 
@@ -454,7 +454,7 @@ Tuttavia, quando si usa la funzionalità Hybrid Runbook Worker, il Centro sicure
 
 * [Come usare le verifiche di accesso alle identità di Azure](../active-directory/governance/access-reviews-overview.md)
 
-* [Eliminare un account RunAs o un account RunAs classico](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Eliminare un account RunAs o un account RunAs classico](./delete-run-as-account.md)
 
 * [Gestire un account RunAs di Automazione di Azure](./manage-runas-account.md)
 
@@ -696,7 +696,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 * [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -724,7 +724,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 * [Come creare e usare i tag](../azure-resource-manager/management/tag-resources.md)
 
-* [Eliminare un account RunAs o un account RunAs classico](./manage-runas-account.md#delete-a-run-as-or-classic-run-as-account)
+* [Eliminare un account RunAs o un account RunAs classico](./delete-run-as-account.md)
 
 * [Gestire un account RunAs di Automazione di Azure](./manage-runas-account.md)
 
@@ -836,7 +836,7 @@ Il controllo delle applicazioni adattivi è una soluzione end-to-end intelligent
 
 **Indicazioni**: quando si usa la funzionalità Hybrid Runbook Worker e a seconda del tipo di script, è possibile usare configurazioni specifiche del sistema operativo o risorse di terze parti per limitare la capacità degli utenti di eseguire script nelle risorse di calcolo di Azure. È anche possibile usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure per assicurarsi che venga eseguito solo il software autorizzato e che l'esecuzione di tutto il software non autorizzato venga bloccata in macchine virtuali di Azure.
 
-* [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+* [Come controllare l'esecuzione di script di PowerShell negli ambienti Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy)
 
 * [Come usare i controlli delle applicazioni adattivi nel centro sicurezza di Azure](../security-center/security-center-adaptive-application.md)
 
@@ -878,7 +878,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 È anche possibile usare le raccomandazioni del Centro sicurezza di Azure come linea di base di configurazione sicura per le risorse di Azure.
 
-* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Esercitazione: Creare e gestire i criteri per applicare la conformità](../governance/policy/tutorials/create-and-manage.md)
 
@@ -942,7 +942,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 * [Informazioni sulla creazione di modelli ARM](../virtual-machines/windows/ps-template.md)
 
-* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](/azure-stack/operator/azure-stack-add-vm-image?view=azs-1910)
+* [Come caricare un disco rigido virtuale di una macchina virtuale personalizzata in Azure](/azure-stack/operator/azure-stack-add-vm-image)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -952,7 +952,7 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Linee guida**: usare Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, modelli di Azure Resource Manager e script di configurazione dello stato desiderato. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory se integrati con Azure DevOps oppure Active Directory se integrati con TFS. Usare la funzionalità di integrazione del controllo del codice sorgente per tenere aggiornati gli manuali operativi nell'account di automazione con gli script nel repository del controllo del codice sorgente.
 
-* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -1134,7 +1134,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 * [Introduzione ad automazione di Azure](./automation-intro.md)
 
-* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Uso delle chiavi gestite dal cliente per un account di Automazione](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1160,7 +1160,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 * [Introduzione ad automazione di Azure](./automation-intro.md)
 
-* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 * [Uso delle chiavi gestite dal cliente per un account di Automazione](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1176,7 +1176,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 * [Distribuire le risorse con i modelli ARM e portale di Azure](../azure-resource-manager/templates/deploy-portal.md)
 
-* [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come ripristinare le chiavi di Key Vault in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 * [Uso delle chiavi gestite dal cliente per un account di Automazione](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
@@ -1190,7 +1190,7 @@ Usare la funzionalità di integrazione del controllo del codice sorgente per ten
 
 Usare la funzionalità di integrazione del controllo del codice sorgente per tenere aggiornati gli manuali operativi nell'account di automazione con gli script nel repository del controllo del codice sorgente.
 
-* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 * [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
