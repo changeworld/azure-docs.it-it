@@ -8,19 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 01/27/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 625fe5f53318ebc641d102e679ef7fd0607ef683
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 3f403308c77e5ee0dfc066ec3dc53100e520d274
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652846"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090672"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novità dell'API Analisi del testo
 
 Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sempre aggiornati sui recenti sviluppi, in questo articolo vengono fornite informazioni sulle nuove versioni e funzionalità.
+
+## <a name="january-2021"></a>Gennaio 2021
+
+* `2021-01-15`Versione del modello per il [riconoscimento delle entità denominato](how-tos/text-analytics-how-to-entity-linking.md) V3. x, che fornisce 
+  * Supporto del linguaggio espanso per [diverse categorie di entità generali](named-entity-types.md). 
+  * Miglioramento della qualità dell'intelligenza artificiale per le categorie di entità generali per tutti i linguaggi V3 supportati. 
+
+* `2021-01-05`Versione del modello per il [rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md), che fornisce [supporto per lingue](language-support.md?tabs=language-detection)aggiuntive.
 
 ## <a name="december-2020"></a>Dicembre 2020
 
@@ -66,7 +74,7 @@ Il API Analisi del testo viene aggiornato su base continuativa. Per rimanere sem
 ### <a name="text-analytics-for-health-container-updates"></a>Analisi del testo per gli aggiornamenti del contenitore di integrità
 
 Gli aggiornamenti seguenti sono specifici della versione di settembre del Analisi del testo solo per il contenitore di integrità.
-* Una nuova immagine contenitore con tag `1.1.013530001-amd64-preview` con la nuova versione del modello `2020-09-03` è stata rilasciata nel repository containerpreview. 
+* Una nuova immagine contenitore con tag `1.1.013530001-amd64-preview` con la nuova versione del modello `2020-09-03` è stata rilasciata nel repository di anteprima del contenitore. 
 * Questa versione del modello offre miglioramenti al riconoscimento delle entità, al rilevamento delle abbreviazioni e ai miglioramenti della latenza.
 
 > [!div class="nextstepaction"]
@@ -190,14 +198,14 @@ I tipi di entità aggiuntivi sono ora disponibili nel servizio di anteprima pubb
 
 * Riconoscimento dei seguenti tipi di entità generali (solo in inglese):
     * PersonType
-    * Product
-    * Event
+    * Prodotto
+    * Evento
     * Entità geopolitica (GPE) come sottotipo in location
     * Competenza
 
 * Riconoscimento dei seguenti tipi di entità di informazioni personali (solo in inglese):
     * Persona
-    * Organizzazione
+    * Organization
     * Age come sottotipo sotto Quantity
     * Data come sottotipo sotto DateTime
     * E-mail 
@@ -237,7 +245,7 @@ Supporta inglese (), `en` giapponese () `ja` , cinese semplificato ( `zh-Hans` )
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull'API Analisi del testo](overview.md)  
+* [Qual è la API Analisi del testo?](overview.md)  
 * [Esempi di scenari utente](text-analytics-user-scenarios.md)
 * [Analisi del sentiment](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Rilevamento della lingua](how-tos/text-analytics-how-to-language-detection.md)

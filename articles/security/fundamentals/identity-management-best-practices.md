@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: d2abc357a5a636aa15909a3645e284c978fb903f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b609d8389504eb10dd35a5ab74b0c198d3da57a6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197592"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090493"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -102,7 +102,7 @@ Le organizzazioni che non integrano l'identità locale con la propria identità 
 > È necessario scegliere in quali directory includere gli account critici e se la workstation di amministrazione usata è gestita da nuovi servizi cloud o da processi esistenti. L'uso di processi di provisioning di gestione e identità esistenti può ridurre alcuni rischi, ma può anche creare il rischio che un utente malintenzionato comprometta un account locale e passi al cloud. Potrebbe essere necessario usare una strategia diversa per ruoli diversi, ad esempio amministratori IT e amministratori di business unit. Sono disponibili due opzioni. La prima opzione consiste nel creare account di Azure AD non sincronizzati con l'istanza di Active Directory locale. Aggiungere ad Azure AD la workstation di amministrazione, che può essere gestita e corretta tramite patch usando Microsoft Intune. La seconda opzione consiste nell'usare account amministratore esistenti eseguendo la sincronizzazione con l'istanza di Active Directory locale. Usare le workstation esistenti nel dominio di Active Directory per la gestione e la sicurezza.
 
 ## <a name="manage-connected-tenants"></a>Gestire i tenant connessi
-L'organizzazione di sicurezza necessita di visibilità per valutare i rischi e determinare se vengono rispettati i criteri dell'organizzazione e gli eventuali requisiti normativi. È necessario assicurarsi che l'organizzazione di sicurezza abbia visibilità su tutte le sottoscrizioni connesse all'ambiente di produzione e alla rete (tramite [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) o la [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [amministratore globale/amministratore società](../../active-directory/roles/permissions-reference.md#company-administrator-permissions) in Azure AD può elevare i privilegi per l'accesso al ruolo [Amministratore Accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) e visualizzare tutte le sottoscrizioni e tutti i gruppi gestiti connessi all'ambiente.
+L'organizzazione di sicurezza necessita di visibilità per valutare i rischi e determinare se vengono rispettati i criteri dell'organizzazione e gli eventuali requisiti normativi. È necessario assicurarsi che l'organizzazione di sicurezza abbia visibilità su tutte le sottoscrizioni connesse all'ambiente di produzione e alla rete (tramite [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) o la [VPN da sito a sito](../../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)). Un [amministratore globale](../../active-directory/roles/permissions-reference.md#global-administrator-permissions) in Azure ad può elevare l'accesso al ruolo di [amministratore accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator) e visualizzare tutte le sottoscrizioni e i gruppi gestiti connessi all'ambiente.
 
 Vedere [Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure](../../role-based-access-control/elevate-access-global-admin.md) per assicurarsi che l'utente e il gruppo di sicurezza possano visualizzare tutte le sottoscrizioni o i gruppi di gestione connessi all'ambiente. È necessario rimuovere questo accesso con privilegi elevati dopo aver valutato i rischi.
 

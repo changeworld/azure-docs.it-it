@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
-ms.translationtype: HT
+ms.openlocfilehash: 71fa79cb8847d16ac0890f9aba647cb8f5e2e444
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87282484"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089343"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Raccolta di plug-in di Azure Media Player #
 
@@ -21,7 +21,7 @@ ms.locfileid: "87282484"
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Funzionalità aggiuntive                 | | | |
 | **Novità** AMP360Video                | [Demo](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | Il plug-in consente di visualizzare video a 360 gradi in Azure Media Player, sul desktop o in dispositivi compatibili con la realtà virtuale. La documentazione completa è disponibile [qui](https://doc.babylonjs.com/extensions/amp360video): |
-|  Sprite Tip                         | [Demo](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plug-in di Azure Media Player per il rendering della sequenza temporale di un'immagine di anteprima video sprite generata da Media Encoder Standard (MES) di Servizi multimediali di Azure. |
+|  Sprite Tip                         | [Demo](https://www.smwcentral.net/?p=section&a=details&id=10301)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Plug-in di Azure Media Player per il rendering della sequenza temporale di un'immagine di anteprima video sprite generata da Media Encoder Standard (MES) di Servizi multimediali di Azure. |
 | Diagnostics Overlay                 | [Demo](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Questo plug-in visualizza tutti i principali parametri, le statistiche del video, tutti gli eventi del ciclo di vita di riproduzione dei video e le informazioni sulla protezione DRM, se abilitata, ad esempio ID chiave e URL di acquisizione della licenza.                                                                                                                                                                      |
 | Frame rate and Timecode calculator | Non sono disponibili demo | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Questo plug-in calcola la frequenza dei fotogrammi del video in base ai moduli MP4 `tfhd`/`trun` del primo frammento di video MPEG-DASH, analizza il valore della scala temporale dal manifesto del client MPEG-DASH e fornisce anche un modo per generare il timecode per un determinato tempo assoluto del lettore (oltre a fornire il tempo assoluto del lettore in base al timecode) |
 | <strike>Playback Speed</strike>                      | [Demo](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Questo plug-in consente agli utenti di controllare la velocità del video. *Si noti che questa funzionalità è automaticamente disponibile nella versione 2.0.0 e successive di Azure Media Player, ma è disabilitata per impostazione predefinita.* Per informazioni su come abilitarla, vedere gli esempi [qui](https://github.com/Azure-Samples/azure-media-player-samples) |

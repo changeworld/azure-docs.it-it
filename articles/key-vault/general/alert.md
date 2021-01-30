@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 5946a5d6d1adb5f609f497b4c2194582f624fe24
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1b447e907bca3f8d21f522d888632aa687fd0f91
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934595"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070662"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Monitoraggio e avvisi per Azure Key Vault
 
@@ -203,12 +203,13 @@ Vedere i seguenti parametri di configurazione.
 
 7. Creare l'avviso 
 
+### <a name="example-email-alert"></a>Avviso di posta elettronica di esempio 
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot che evidenzia le informazioni necessarie per configurare un avviso di posta elettronica.](../media/alert-20.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 A questo punto, è stato creato un dashboard di monitoraggio e sono stati configurati gli avvisi per l'insieme di credenziali delle chiavi. Dopo aver seguito tutti i passaggi precedenti, è necessario ricevere avvisi di posta elettronica quando l'insieme di credenziali delle chiavi soddisfa i criteri di avviso configurati. Di seguito è illustrato un esempio. Usare gli strumenti configurati in questo articolo per monitorare attivamente l'integrità dell'insieme di credenziali delle chiavi. 
 
-### <a name="example-email-alert"></a>Avviso di posta elettronica di esempio 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot che evidenzia le informazioni necessarie per configurare un avviso di posta elettronica.](../media/alert-20.png)

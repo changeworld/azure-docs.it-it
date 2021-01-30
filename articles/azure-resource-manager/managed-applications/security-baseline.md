@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3422c8eff847ed699fb75854a5ae52b4e8a08a24
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c1bcde3f2b1f61fd241143e308a508d5f19e7b0c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737100"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090571"
 ---
 # <a name="azure-security-baseline-for-azure-managed-applications"></a>Baseline della sicurezza di Azure per le applicazioni gestite di Azure
 
@@ -161,7 +161,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 ### <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteggere e limitare gli utenti con privilegi elevati
 
 **Linee guida**: le applicazioni gestite di Azure usano Azure Active Directory (Azure ad) per l'identità e l'accesso. I ruoli predefiniti più critici sono Azure AD amministratore globale e amministratore del ruolo con privilegi, perché gli utenti assegnati a questi due ruoli possono delegare i ruoli di amministratore:
-- Amministratore globale/amministratore della società: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative di Azure AD, nonché ai servizi che usano Azure AD identità.
+- Amministratore globale: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative di Azure AD, nonché ai servizi che usano Azure AD identità.
 - Amministratore del ruolo con privilegi: gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure AD, oltre che all'interno di Azure AD Privileged Identity Management (PIM). Inoltre, questo ruolo consente la gestione di tutti gli aspetti di PIM e delle unità amministrative.
 
 Nota: è possibile che si disponga di altri ruoli critici che devono essere regolati se si usano ruoli personalizzati con determinate autorizzazioni con privilegi assegnati. Inoltre, è possibile che si desideri applicare controlli simili all'account Administrator degli asset aziendali critici.

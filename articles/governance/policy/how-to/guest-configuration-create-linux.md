@@ -4,12 +4,12 @@ description: Informazioni su come creare criteri di Configurazione guest di Crit
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 705c12cff5f4377249674ef9db155d1ed321ce42
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 38579bb43f012cac2b373bbbbb6ad757604f4c07
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97755872"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070690"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -169,7 +169,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Parametri del cmdle
 
 - **Name**: Nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
 - **ChefInspecProfilePath**: percorso completo del profilo INSPEC. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
@@ -204,7 +204,17 @@ Il cmdlet supporta anche l'input dalla pipeline di PowerShell. Inoltrare tramite
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure.  Il comando `Publish-GuestConfigurationPackage` richiede il `Az.Storage` modulo.
+Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. Il comando `Publish-GuestConfigurationPackage` richiede il `Az.Storage` modulo.
+
+Parametri del cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Path**: percorso del pacchetto da pubblicare
+- **ResourceGroupName**: nome del gruppo di risorse in cui si trova l'account di archiviazione
+- **StorageAccountName**: nome dell'account di archiviazione in cui deve essere pubblicato il pacchetto
+- **StorageContainerName**: (valore predefinito: *guestconfiguration*) nome del contenitore di archiviazione nell'account di archiviazione
+- **Force**: sovrascrivere il pacchetto esistente nell'account di archiviazione con lo stesso nome
+
+L'esempio seguente pubblica il pacchetto nel nome del contenitore di archiviazione ' guestconfiguration '.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -252,7 +262,7 @@ Publish-GuestConfigurationPolicy `
   -Path './policies'
 ```
 
- Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file di criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.
+ Il cmdlet `Publish-GuestConfigurationPolicy` accetta il percorso dalla pipeline di PowerShell. Con questa funzionalità è possibile creare i file dei criteri e pubblicarli in un unico set di comandi inoltrati tramite pipe.
 
  ```azurepowershell-interactive
  New-GuestConfigurationPolicy `

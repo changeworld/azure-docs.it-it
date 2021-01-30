@@ -14,18 +14,18 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36a29048d97798c2e1621fbdc957bde51b5a383
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: b5cb7e1521c649be4abc155d9f28a49b43a11e6d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740602"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071265"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
 Questo articolo descrive come usare le autorizzazioni concesse dai ruoli personalizzati in Azure Active Directory (Azure AD) per soddisfare le esigenze di gestione delle applicazioni. In Azure AD è possibile delegare le autorizzazioni per la creazione e la gestione delle applicazioni nei modi seguenti:
 
-- [Limitazione degli utenti che possono creare applicazioni](#restrict-who-can-create-applications) e gestire le applicazioni create. Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le registrazioni dell'applicazione e gestire tutti gli aspetti delle applicazioni che creano. Questo può essere limitato in modo da consentire solo a utenti selezionati tale autorizzazione.
+- [Limitazione degli utenti che possono creare applicazioni](#restrict-who-can-create-applications) e gestire le applicazioni create. Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le applicazioni e gestire tutti gli aspetti delle applicazioni che creano. Questo può essere limitato in modo da consentire solo a utenti selezionati tale autorizzazione.
 - [Assegnazione di uno o più proprietari a un'applicazione](#assign-application-owners). Si tratta di un modo semplice per concedere a un utente la possibilità di gestire tutti gli aspetti della configurazione Azure AD per un'applicazione specifica.
 - [Assegnazione di un ruolo amministrativo predefinito](#assign-built-in-application-admin-roles) che concede l'accesso per gestire la configurazione in Azure ad per tutte le applicazioni. Questo è il modo consigliato per concedere agli esperti IT l'accesso per gestire le autorizzazioni di configurazione delle applicazioni generali senza concedere l'accesso per gestire altre parti di Azure AD non correlate alla configurazione dell'applicazione.
 - [Creazione di un ruolo personalizzato](#create-and-assign-a-custom-role-preview) che definisce autorizzazioni molto specifiche e relativa assegnazione a un utente nell'ambito di una singola applicazione come proprietario limitato oppure nell'ambito di directory (tutte le applicazioni) come amministratore con limitazioni.
@@ -34,7 +34,7 @@ Questo articolo descrive come usare le autorizzazioni concesse dai ruoli persona
 
 ## <a name="restrict-who-can-create-applications"></a>Limitare gli utenti che possono creare applicazioni
 
-Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le registrazioni dell'applicazione e gestire tutti gli aspetti delle applicazioni che creano. Tutti hanno anche la possibilità di concedere il consenso alle app che accedono ai dati aziendali per loro conto. È possibile scegliere di concedere tali autorizzazioni in modo selettivo impostando il commutatore globale su' No ' e aggiungendo gli utenti selezionati al ruolo di sviluppatore dell'applicazione.
+Per impostazione predefinita, in Azure AD, tutti gli utenti possono registrare le applicazioni e gestire tutti gli aspetti delle applicazioni che creano. Tutti hanno anche la possibilità di concedere il consenso alle app che accedono ai dati aziendali per loro conto. È possibile scegliere di concedere tali autorizzazioni in modo selettivo impostando il commutatore globale su' No ' e aggiungendo gli utenti selezionati al ruolo di sviluppatore dell'applicazione.
 
 ### <a name="to-disable-the-default-ability-to-create-application-registrations-or-consent-to-applications"></a>Per disabilitare la capacità predefinita di creare registrazioni di applicazioni o il consenso alle applicazioni
 

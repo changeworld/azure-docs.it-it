@@ -3,12 +3,12 @@ title: Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 description: Ecco come aggiornare un cluster di Service Fabric esistente per usare i dischi gestiti di Azure con un tempo di inattività minimo o insufficiente per il cluster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c374c4536309a13abcf8c882b041a9c5357878e5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92316150"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090655"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Aggiornare i nodi del cluster per l'uso di Azure Managed Disks
 
@@ -30,11 +30,11 @@ Questo articolo illustra i passaggi per l'aggiornamento del tipo di nodo primari
 > [!CAUTION]
 > Si verificherà un'interruzione con questa procedura solo se si dispone di dipendenze dal DNS del cluster, ad esempio quando si accede a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). La [procedura consigliata per l'architettura per i servizi front-end](/azure/architecture/microservices/design/gateway) consiste nel disporre di un tipo di servizio di [bilanciamento del carico](/azure/architecture/guide/technology-choices/load-balancing-overview) davanti ai tipi di nodo per consentire lo swapping dei nodi senza interruzioni.
 
-Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) per Azure Resource Manager che verranno usati per completare lo scenario di aggiornamento. Le modifiche apportate al modello verranno descritte in [distribuire un set di scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  riportato di seguito.
+Ecco i [modelli e i cmdlet](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) per Azure Resource Manager che verranno usati per completare lo scenario di aggiornamento. Le modifiche apportate al modello verranno descritte in [distribuire un set di scalabilità aggiornato per il tipo di nodo primario](#deploy-an-upgraded-scale-set-for-the-primary-node-type)  riportato di seguito.
 
 ## <a name="set-up-the-test-cluster"></a>Configurare il cluster di test
 
-Si configurano il cluster iniziale Service Fabric test. Per prima cosa, [scaricare](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage) i modelli di esempio Azure Resource Manager che verranno usati per completare questo scenario.
+Si configurano il cluster iniziale Service Fabric test. Per prima cosa, [scaricare](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade) i modelli di esempio Azure Resource Manager che verranno usati per completare questo scenario.
 
 Successivamente, accedere all'account Azure.
 
@@ -156,7 +156,7 @@ A questo punto, è possibile iniziare la procedura di aggiornamento.
 
 ## <a name="deploy-an-upgraded-scale-set-for-the-primary-node-type"></a>Distribuire un set di scalabilità aggiornato per il tipo di nodo primario
 
-Per eseguire l'aggiornamento o la *scalabilità verticale*di un tipo di nodo, è necessario distribuire una copia del set di scalabilità di macchine virtuali del tipo di nodo, che è altrimenti identico al set di scalabilità originale (incluso il riferimento allo stesso `nodeTypeRef` , `subnet` , e), con `loadBalancerBackendAddressPools` la differenza che include l'aggiornamento o le modifiche desiderate e la propria subnet separata e il pool di indirizzi NAT in ingresso Poiché si sta aggiornando un tipo di nodo primario, il nuovo set di scalabilità verrà contrassegnato come Primary ( `isPrimary: true` ), proprio come il set di scalabilità originale. Per gli aggiornamenti del tipo di nodo non primario, è sufficiente omettere questo.
+Per eseguire l'aggiornamento o la *scalabilità verticale* di un tipo di nodo, è necessario distribuire una copia del set di scalabilità di macchine virtuali del tipo di nodo, che è altrimenti identico al set di scalabilità originale (incluso il riferimento allo stesso `nodeTypeRef` , `subnet` , e), con `loadBalancerBackendAddressPools` la differenza che include l'aggiornamento o le modifiche desiderate e la propria subnet separata e il pool di indirizzi NAT in ingresso Poiché si sta aggiornando un tipo di nodo primario, il nuovo set di scalabilità verrà contrassegnato come Primary ( `isPrimary: true` ), proprio come il set di scalabilità originale. Per gli aggiornamenti del tipo di nodo non primario, è sufficiente omettere questo.
 
 Per praticità, le modifiche necessarie sono già state apportate nel [modello](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.json) *upgrade-1NodeType-2ScaleSets-ManagedDisks* e nei file dei [parametri](https://github.com/erikadoyle/service-fabric-scripts-and-templates/blob/managed-disks/templates/nodetype-upgrade-no-outage/Upgrade-1NodeType-2ScaleSets-ManagedDisks.parameters.json) .
 
@@ -205,7 +205,7 @@ Aggiungere i parametri per il nome dell'istanza, il numero e le dimensioni del n
 }
 ```
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variabili
 
 Nella sezione modello di distribuzione `variables` aggiungere una voce per il pool di indirizzi NAT in ingresso del nuovo set di scalabilità.
 
@@ -263,13 +263,13 @@ Dopo aver implementato tutte le modifiche nei file di modello e di parametri, pa
 
 Per distribuire la configurazione aggiornata, è prima di tutto necessario ottenere diversi riferimenti al certificato del cluster archiviato nel Key Vault. Il modo più semplice per trovare questi valori consiste nell'portale di Azure. Saranno necessari gli elementi seguenti:
 
-* **URL Key Vault del certificato del cluster.** Dal Key Vault in portale di Azure selezionare **certificati**  >  *l'*  >  **identificatore del segreto**del certificato desiderato:
+* **URL Key Vault del certificato del cluster.** Dal Key Vault in portale di Azure selezionare **certificati**  >  *l'*  >  **identificatore del segreto** del certificato desiderato:
 
     ```powershell
     $certUrlValue="https://sftestupgradegroup.vault.azure.net/secrets/sftestupgradegroup20200309235308/dac0e7b7f9d4414984ccaa72bfb2ea39"
     ```
 
-* **Identificazione personale del certificato del cluster.** Probabilmente è già presente se è stata effettuata [la connessione al cluster iniziale](#connect-to-the-new-cluster-and-check-health-status) per verificarne lo stato di integrità. Dallo stesso pannello**certificato (Certificates**  >  *your desired certificate*) in portale di Azure, copy **X. 509 SHA-1 identificazione personale (in esadecimale)**:
+* **Identificazione personale del certificato del cluster.** Probabilmente è già presente se è stata effettuata [la connessione al cluster iniziale](#connect-to-the-new-cluster-and-check-health-status) per verificarne lo stato di integrità. Dallo stesso pannello **certificato (Certificates**  >  *your desired certificate*) in portale di Azure, copy **X. 509 SHA-1 identificazione personale (in esadecimale)**:
 
     ```powershell
     $thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
@@ -371,8 +371,8 @@ Viene illustrato come:
 
 * [Rimuovere un tipo di nodo di Service Fabric](service-fabric-how-to-remove-node-type.md)
 
-Vedere anche:
+Vedere anche la pagina relativa alla
 
-* [Esempio: aggiornare i nodi del cluster per l'uso di Azure Managed Disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade-no-outage)
+* [Esempio: aggiornare i nodi del cluster per l'uso di Azure Managed Disks](https://github.com/microsoft/service-fabric-scripts-and-templates/tree/master/templates/nodetype-upgrade)
 
 * [Considerazioni sul ridimensionamento verticale](service-fabric-best-practices-capacity-scaling.md#vertical-scaling-considerations)

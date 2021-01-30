@@ -2,13 +2,13 @@
 title: Domande frequenti
 description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 1/14/2021
-ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 1/27/2021
+ms.openlocfilehash: 3ef3d1b9e6fc76b5f09acf8c300dbea901b4aef2
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062088"
+ms.locfileid: "99072269"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -79,6 +79,12 @@ No. Azure Load Balancer interno supporta solo le macchine virtuali IaaS di Azure
 
 ### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure?
 Sì. Usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure, purché non superi il limite di quattro circuiti ExpressRoute per ogni rete virtuale. Per accedere alla soluzione VMware di Azure dall'ambiente locale tramite ExpressRoute, è necessario avere ExpressRoute Copertura globale perché il gateway di ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.
+
+### <a name="why-does-azure-vmware-solution-use-a-public-4-byte-autonomous-system-number-asn"></a>Perché la soluzione VMware di Azure usa un numero di sistema autonomo (ASN) a 4 byte pubblico?
+La soluzione VMware di Azure usa il ASN pubblico registrato ufficialmente a 4 byte per assicurarsi che non si verifichi mai un conflitto con l'uso locale di ASN privati nel percorso di routing del cliente per la soluzione VMware di Azure.
+ 
+### <a name="how-can-i-use-expressroute-to-connect-to-azure-vmware-solution-if-the-on-premises-expressroute-carrier-partnersisps-dont-support-4-byte-asn"></a>Come è possibile usare ExpressRoute per connettersi alla soluzione VMware di Azure se i partner/provider di ExpressRoute-Carrier locali non supportano ASN a 4 byte?
+L'unico modo per connettersi alla soluzione VMware di Azure tramite ExpressRoute è per l'ambiente in uso e i partner/provider di ExpressRoute-Carrier locali supportano ASN a 4 byte o hanno una compatibilità con le versioni precedenti da 4 byte a 2 byte ASN nell'annuncio dei percorsi ASN del prefisso BGP.
 
 ## <a name="compute-network-storage-and-backup"></a>Calcolo, rete, archiviazione e backup
 

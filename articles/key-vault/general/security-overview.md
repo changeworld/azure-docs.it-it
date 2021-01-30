@@ -9,22 +9,21 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
-ms.openlocfilehash: c4e9f0cd6a7421f5be29200816bb00a56b141367
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937768"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071567"
 ---
-# <a name="azure-key-vault-security-overview"></a>Panoramica della sicurezza di Azure Key Vault
+# <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
 Si usa Azure Key Vault per proteggere le chiavi di crittografia e i segreti come certificati, stringhe di connessione e password nel cloud. Quando si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni necessarie per ottimizzare la sicurezza degli insiemi di credenziali e i dati archiviati.
 
-Questo articolo fornisce una panoramica delle funzionalità di sicurezza e delle procedure consigliate per Azure Key Vault. Per un elenco completo delle raccomandazioni, basate sul [benchmark di sicurezza di Azure](../../security/benchmarks/introduction.md), vedere la [baseline di sicurezza per Azure Key Vault](security-baseline.md).
+Questo articolo fornisce una panoramica delle funzionalità di sicurezza e delle procedure consigliate per Azure Key Vault. 
 
-## <a name="general-guidance"></a>Indicazioni generali
-
-Si consiglia di usare un insieme di credenziali per ogni applicazione per ambiente (sviluppo, pre-produzione e produzione). Ciò consente di non condividere i segreti tra gli ambienti e di ridurre anche la minaccia in caso di violazione.
+> [!NOTE]
+> Per un elenco completo di indicazioni sulla sicurezza Azure Key Vault, vedere la [linea di base di sicurezza per Azure Key Vault](security-baseline.md).
 
 ## <a name="network-security"></a>Sicurezza di rete
 
@@ -109,20 +108,9 @@ Azure Key Vault la protezione dell'eliminazione temporanea e della ripulitura co
 
 È anche necessario eseguire backup regolari dell'insieme di credenziali per l'aggiornamento, l'eliminazione o la creazione di oggetti all'interno di un insieme di credenziali.  
 
-Azure PowerShell comandi di backup:
-
-* [Certificato di backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultCertificate)
-* [Chiave di backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultKey)
-* [Segreto di backup](/powershell/module/azurerm.keyvault/Backup-AzureKeyVaultSecret)
-
-Comandi di backup di Azure CLI
-
-* [Certificato di backup](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Chiave di backup](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Segreto di backup](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
+- [Azure Key Vault Baseline della sicurezza](security-baseline.md)
+- [Procedure consigliate per Azure Key Vault](security-baseline.md)
 - [Endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md)
 - [Controllo degli accessi in base al ruolo Azure: ruoli predefiniti](../../role-based-access-control/built-in-roles.md)

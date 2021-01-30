@@ -4,8 +4,6 @@
   items:
     - name: Informazioni su Gemelli digitali di Azure
       href: overview.md
-    - name: Differenze rispetto alla versione precedente
-      href: overview-differences.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -169,6 +167,8 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins'
     - name: Richieste di dati del cliente
       href: resources-customer-data-requests.md
+    - name: Differenze rispetto alla versione originale
+      href: resources-compare-original-release.md
     - name: API e SDK
       items:
         - name: Piano di controllo

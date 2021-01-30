@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: a4875c2c75b133f0ab4046266d6aac36d5478fe4
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 105128af60b90324e93bcad1bd9900a55461378f
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664045"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071716"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
-In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambiente sono rappresentate dai dispositivi **gemelli digitali** di Azure. Un dispositivo gemello digitale è un'istanza di uno dei [modelli](concepts-models.md)personalizzati definiti. Può essere connessa ad altri dispositivi gemelli digitali tramite **relazioni** per formare un **grafico a due gemelli**: questo grafico a due è la rappresentazione dell'intero ambiente.
+In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambiente sono rappresentate da dispositivi **gemelli digitali**. Un dispositivo gemello digitale è un'istanza di uno dei [modelli](concepts-models.md)personalizzati definiti. Può essere connessa ad altri dispositivi gemelli digitali tramite **relazioni** per formare un **grafico a due gemelli**: questo grafico a due è la rappresentazione dell'intero ambiente.
 
 > [!TIP]
 > "I dispositivi gemelli digitali di Azure" si riferiscono a questo servizio di Azure nel suo complesso. "I gemelli digitali" o solo i "gemelli" si riferiscono ai singoli nodi gemelli all'interno dell'istanza del servizio.

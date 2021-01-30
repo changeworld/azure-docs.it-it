@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 85ffda54d58db0544858ca8ab61335b61f18299e
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881787"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070645"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -227,7 +227,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. I moduli necessari 
 
 - **Name**: nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione DSC compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
 
@@ -261,6 +261,16 @@ New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/Audit
 ```
 
 Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. Il comando `Publish-GuestConfigurationPackage` richiede il `Az.Storage` modulo.
+
+Parametri del cmdlet `Publish-GuestConfigurationPackage`:
+
+- **Path**: percorso del pacchetto da pubblicare
+- **ResourceGroupName**: nome del gruppo di risorse in cui si trova l'account di archiviazione
+- **StorageAccountName**: nome dell'account di archiviazione in cui deve essere pubblicato il pacchetto
+- **StorageContainerName**: (valore predefinito: *guestconfiguration*) nome del contenitore di archiviazione nell'account di archiviazione
+- **Force**: sovrascrivere il pacchetto esistente nell'account di archiviazione con lo stesso nome
+
+L'esempio seguente pubblica il pacchetto nel nome del contenitore di archiviazione ' guestconfiguration '.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
@@ -499,7 +509,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Per il contenuto di
 
 - **Name**: nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
 - **FilesoInclude**: percorso completo del profilo InSpec.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:

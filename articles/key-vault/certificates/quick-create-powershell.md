@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Impostare e visualizzare i certificati di Azure Key Vault - Azure PowerShell'
+title: 'Guida introduttiva: impostare & visualizzare Azure Key Vault certificati con Azure PowerShell'
 description: Avvio rapido che illustra come impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 services: key-vault
 author: msmbaldwin
@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.date: 09/03/2019
+ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: ae53ebac1c2a943a2b1ca98b222a8dbab210bdb5
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
-ms.translationtype: HT
+ms.openlocfilehash: 587815cf9628df35f1e1efdbc6a7a3c89a27ed55
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935122"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071918"
 ---
 # <a name="quickstart-set-and-retrieve-a-certificate-from-azure-key-vault-using-azure-powershell"></a>Avvio rapido: Impostare e recuperare un certificato da Azure Key Vault con Azure PowerShell
 
@@ -35,32 +35,11 @@ Login-AzAccount
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse di Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
-
-```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
-```
+[!INCLUDE [Create a resource group](../../../includes/key-vault-powershell-rg-creation.md)]
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Creata quindi un'istanza di Key Vault. Per questo passaggio sono necessarie alcune informazioni:
-
-Anche se si usa "Contoso KeyVault2" come nome dell'istanza di Key Vault in questa guida di avvio rapido, è necessario usare un nome univoco.
-
-- **Nome dell'insieme di credenziali** Contoso-Vault2.
-- **Nome del gruppo di risorse** ContosoResourceGroup.
-- **Posizione**: Stati Uniti orientali.
-
-```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
-```
-
-L'output di questo cmdlet mostra le proprietà dell'istanza di Key Vault appena creata. Prendere nota delle due proprietà elencate di seguito:
-
-* **Vault Name**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri cmdlet di insieme di credenziali delle chiavi.
-* **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://Contoso-Vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
-
-Dopo aver creato l'insieme di credenziali, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-kv-creation.md)]
 
 ## <a name="add-a-certificate-to-key-vault"></a>Aggiungere un certificato in Key Vault
 
@@ -70,27 +49,23 @@ Digitare i comandi seguenti per creare un certificato autofirmato con un criteri
 
 ```azurepowershell-interactive
 $Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "Self" -ValidityInMonths 6 -ReuseKeyOnRenewal
-Add-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate" -CertificatePolicy $Policy
+
+Add-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
-È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Usare **'https://Contoso-Vault2.vault.azure.net/certificates/ExampleCertificate '** per ottenere la versione corrente. 
+È ora possibile fare riferimento a questo certificato aggiunto ad Azure Key Vault usando il relativo URI. Per ottenere la versione corrente, usare **"https://<il nome univoco** dell'insieme di credenziali delle credenziali di>. Vault.Azure.NET/Certificates/ExampleCertificate". 
 
 Per visualizzare il certificato archiviato in precedenza:
 
 ```azurepowershell-interactive
-Get-AzKeyVaultCertificate -VaultName "Contoso-Vault2" -Name "ExampleCertificate"
+Get-AzKeyVaultCertificate -VaultName "<your-unique-keyvault-name>" -Name "ExampleCertificate"
 ```
 
 A questo punto è stata creata un'istanza di Key Vault nella quale è stato archiviato e recuperato un certificato.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, è consigliabile non cancellare le risorse create.
-Quando non servono più, è possibile usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate. È possibile eliminare le risorse in questo modo:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ContosoResourceGroup
-```
+[!INCLUDE [Create a key vault](../../../includes/key-vault-powershell-delete-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -98,4 +73,4 @@ In questa guida di avvio rapido è stata creata un'istanza di Key Vault in cui �
 
 - Leggere una [panoramica di Azure Key Vault](../general/overview.md)
 - Vedere le informazioni di riferimento sui [cmdlet di Azure PowerShell Key Vault](/powershell/module/az.keyvault/)
-- Vedere [Panoramica della sicurezza di Key Vault](../general/security-overview.md)
+- Vedere [Panoramica della sicurezza di Azure Key Vault](../general/security-overview.md)

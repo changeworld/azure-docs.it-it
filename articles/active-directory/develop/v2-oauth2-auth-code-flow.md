@@ -13,12 +13,12 @@ ms.date: 01/11/2021
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a313633c6c1799136b8b8911ae780ca13be5d2c3
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 5b3f7f8016d9b5da70d76322aead551613b8d9c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756124"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090222"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Flusso del codice di autorizzazione OAuth 2.0 e Microsoft Identity Platform
 
@@ -48,7 +48,7 @@ Se si tenta di usare il flusso del codice di autorizzazione e si verifica questo
 
 ## <a name="request-an-authorization-code"></a>Richiedere un codice di autorizzazione
 
-Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . In questa richiesta, il client richiede le autorizzazioni `openid`, `offline_access`e `https://graph.microsoft.com/mail.read ` all'utente.  Alcune autorizzazioni sono riservate all'amministratore, ad esempio la scrittura di dati nella directory di un'organizzazione usando `Directory.ReadWrite.All`. Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente dell'organizzazione, l'utente riceve un messaggio di errore che indica che non è autorizzato a fornire il consenso alle autorizzazioni dell'applicazione. Per richiedere l'accesso agli ambiti riservati all'amministratore, è necessario richiederli direttamente a un amministratore della società.  Per altre informazioni, vedere [autorizzazioni riservate all'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions).
+Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'utente all'endpoint `/authorize` . In questa richiesta, il client richiede le autorizzazioni `openid`, `offline_access`e `https://graph.microsoft.com/mail.read ` all'utente.  Alcune autorizzazioni sono riservate all'amministratore, ad esempio la scrittura di dati nella directory di un'organizzazione usando `Directory.ReadWrite.All`. Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente dell'organizzazione, l'utente riceve un messaggio di errore che indica che non è autorizzato a fornire il consenso alle autorizzazioni dell'applicazione. Per richiedere l'accesso agli ambiti con restrizioni per l'amministratore, è necessario richiederli direttamente da un amministratore globale.  Per altre informazioni, vedere [autorizzazioni riservate all'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -328,7 +328,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Provare a eseguire la richiesta in Postman. (Non dimenticare di sostituire il `refresh_token`) [![ Provare a eseguire la richiesta in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 >
 
-| Parametro     | Type           | Descrizione        |
+| Parametro     | Tipo           | Descrizione        |
 |---------------|----------------|--------------------|
 | `tenant`        | obbligatorio     | Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | obbligatorio    | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza [Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |

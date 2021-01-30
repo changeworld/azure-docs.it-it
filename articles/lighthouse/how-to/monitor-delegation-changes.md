@@ -1,14 +1,14 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 12/11/2020
+ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: f65ffda642e67ec6e2c7694a823c2ba6845a7af4
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936108"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089419"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -16,10 +16,12 @@ Come provider di servizi, è opportuno tenere presente quando le sottoscrizioni 
 
 Nel tenant di gestione, il [log attività di Azure](../../azure-monitor/platform/platform-logs-overview.md) tiene traccia dell'attività di delega a livello di tenant. Questa attività registrata include tutte le deleghe aggiunte o rimosse da tutti i tenant del cliente.
 
-In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti) e le procedure consigliate per eseguire questa operazione. Include anche uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
+In questo argomento vengono illustrate le autorizzazioni necessarie per monitorare l'attività di delega al tenant (in tutti i clienti). Include anche uno script di esempio che mostra un metodo per l'esecuzione di query e la creazione di report su questi dati.
 
 > [!IMPORTANT]
 > Tutti questi passaggi devono essere eseguiti nel tenant di gestione, anziché in tutti i tenant del cliente.
+>
+> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
 
 ## <a name="enable-access-to-tenant-level-data"></a>Abilitare l'accesso ai dati a livello di tenant
 
@@ -33,33 +35,21 @@ Per istruzioni dettagliate sull'aggiunta e la rimozione dell'elevazione, vedere 
 
 Dopo aver innalzato di livello l'accesso, l'account avrà il ruolo di amministratore accesso utenti in Azure nell'ambito radice. Questa assegnazione di ruolo consente di visualizzare tutte le risorse e di assegnare l'accesso in qualsiasi sottoscrizione o gruppo di gestione nella directory, nonché di effettuare assegnazioni di ruolo nell'ambito radice.
 
-### <a name="create-a-new-service-principal-account-to-access-tenant-level-data"></a>Creare un nuovo account dell'entità servizio per accedere ai dati a livello di tenant
+### <a name="assign-the-monitoring-reader-role-at-root-scope"></a>Assegnare il ruolo di lettore di monitoraggio all'ambito radice
 
 Una volta che l'accesso è stato elevato, è possibile assegnare le autorizzazioni appropriate a un account in modo che sia in grado di eseguire query sui dati del log attività a livello di tenant. Questo account deve avere il ruolo predefinito [lettore di monitoraggio](../../role-based-access-control/built-in-roles.md#monitoring-reader) di Azure assegnato all'ambito radice del tenant di gestione.
 
 > [!IMPORTANT]
-> La concessione di un'assegnazione di ruolo nell'ambito radice significa che le stesse autorizzazioni verranno applicate a tutte le risorse nel tenant.
+> La concessione di un'assegnazione di ruolo nell'ambito radice significa che le stesse autorizzazioni verranno applicate a tutte le risorse nel tenant. Poiché si tratta di un ampio livello di accesso, è possibile [assegnare questo ruolo a un account dell'entità servizio e utilizzare tale account per eseguire query sui dati](#use-a-service-principal-account-to-query-the-activity-log). È inoltre possibile assegnare il ruolo di lettore di monitoraggio nell'ambito radice a singoli utenti o gruppi di utenti in modo che possano [visualizzare le informazioni di delega direttamente nel portale di Azure](#view-delegation-changes-in-the-azure-portal). In tal caso, tenere presente che si tratta di un ampio livello di accesso, che dovrebbe essere limitato al minor numero possibile di utenti.
 
-Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare questo ruolo a un account dell'entità servizio, anziché a un singolo utente o a un gruppo.
-
- È inoltre consigliabile eseguire le procedure consigliate seguenti:
-
-- [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da usare solo per questa funzione, invece di assegnare questo ruolo a un'entità servizio esistente usata per l'automazione.
-- Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
-- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/security-overview.md).
-- Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
-
-> [!NOTE]
-> È anche possibile assegnare il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice a singoli utenti o gruppi di utenti. Questa operazione può essere utile se si desidera che un utente sia in grado di [visualizzare le informazioni di delega direttamente nell'portale di Azure](#view-delegation-changes-in-the-azure-portal). In tal caso, tenere presente che si tratta di un ampio livello di accesso, che dovrebbe essere limitato al minor numero possibile di utenti.
-
-Usare uno dei metodi seguenti per effettuare le assegnazioni dell'ambito radice.
+Usare uno dei metodi seguenti per effettuare l'assegnazione dell'ambito radice.
 
 #### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
 
-New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ApplicationId $servicePrincipal.ApplicationId 
+New-AzRoleAssignment -SignInName <yourLoginName> -Scope "/" -RoleDefinitionName "Monitoring Reader"  -ObjectId <objectId> 
 ```
 
 #### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -72,9 +62,32 @@ az role assignment create --assignee 00000000-0000-0000-0000-000000000000 --role
 
 ### <a name="remove-elevated-access-for-the-global-administrator-account"></a>Rimuovere l'accesso con privilegi elevati per l'account amministratore globale
 
-Dopo aver creato l'account dell'entità servizio e assegnato il ruolo di lettore di monitoraggio nell'ambito radice, assicurarsi di [rimuovere l'accesso con privilegi elevati](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) per l'account amministratore globale, in quanto questo livello di accesso non sarà più necessario.
+Dopo aver assegnato il ruolo di lettore di monitoraggio nell'ambito radice all'account desiderato, assicurarsi di [rimuovere l'accesso con privilegi elevati](../../role-based-access-control/elevate-access-global-admin.md#remove-elevated-access) per l'account amministratore globale, in quanto questo livello di accesso non sarà più necessario.
 
-## <a name="query-the-activity-log"></a>Eseguire una query sul log attività
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Visualizzare le modifiche di delega nel portale di Azure
+
+Gli utenti a cui è stato assegnato il ruolo di lettore di monitoraggio nell'ambito radice possono visualizzare le modifiche della delega direttamente nel portale di Azure.
+
+1. Passare alla pagina **clienti personali** , quindi selezionare **log attività** dal menu di spostamento a sinistra.
+1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
+
+Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa** e i valori **delle risorse** .
+
+:::image type="content" source="../media/delegation-activity-portal.jpg" alt-text="Screenshot delle modifiche della delega nel portale di Azure.":::
+
+## <a name="use-a-service-principal-account-to-query-the-activity-log"></a>Usare un account dell'entità servizio per eseguire una query sul log attività
+
+Poiché il ruolo di lettore di monitoraggio nell'ambito radice è un livello di accesso elevato, è possibile assegnare il ruolo a un account dell'entità servizio e utilizzare tale account per eseguire query sui dati utilizzando lo script seguente.
+
+> [!IMPORTANT]
+> Attualmente, i tenant con una grande quantità di attività di delega possono verificarsi errori durante l'esecuzione di query su questi dati.
+
+Quando si usa un account dell'entità servizio per eseguire una query sul log attività, sono consigliate le procedure consigliate seguenti:
+
+- [Creare un nuovo account dell'entità servizio](../../active-directory/develop/howto-create-service-principal-portal.md) da usare solo per questa funzione, invece di assegnare questo ruolo a un'entità servizio esistente usata per l'automazione.
+- Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
+- [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/security-overview.md).
+- Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
 
 Dopo aver creato un nuovo account dell'entità servizio con il monitoraggio dell'accesso del lettore all'ambito radice del tenant di gestione, è possibile usarlo per eseguire query e creare report sulle attività di delega nel tenant.
 
@@ -164,18 +177,6 @@ else {
     Write-Output "No new delegation events for tenant: $($currentContext.Tenant.TenantId)"
 }
 ```
-
-> [!TIP]
-> Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
-
-## <a name="view-delegation-changes-in-the-azure-portal"></a>Visualizzare le modifiche di delega nel portale di Azure
-
-Gli utenti a cui è stato assegnato il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice possono visualizzare le modifiche della delega direttamente nel portale di Azure.
-
-1. Passare alla pagina **clienti personali** , quindi selezionare **log attività** dal menu di spostamento a sinistra.
-1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
-
-Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa** e i valori **delle risorse** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

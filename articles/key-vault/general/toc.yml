@@ -43,9 +43,11 @@
   items:
     - name: Concetti fondamentali
       href: basic-concepts.md
+    - name: Procedure consigliate
+      href: best-practices.md
     - name: Sicurezza
       items:
-        - name: Panoramica della sicurezza
+        - name: Panoramica
           href: security-overview.md
         - name: Proteggere l'accesso a un insieme di credenziali delle chiavi
           href: secure-your-key-vault.md

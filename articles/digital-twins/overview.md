@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 91915f204a68d59a603b8bdea383b497a5b33d34
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c0bc245a4be1ab7c326fa27cc1422878aca6331d
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664028"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071682"
 ---
 # <a name="what-is-azure-digital-twins"></a>Cos'è il servizio Gemelli digitali di Azure?
 
@@ -94,10 +94,10 @@ Il diagramma seguente illustra il punto in cui si trova Gemelli digitali di Azur
 
 ## <a name="service-limits"></a>Limiti del servizio
 
-Per un elenco dei limiti di Gemelli digitali di Azure, vedere [*Informazioni di riferimento: Limiti del servizio*](reference-service-limits.md).
+Per un elenco dei limiti dei dispositivi gemelli digitali di Azure, vedere [*limiti del servizio Azure Digital Twins*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è già stata usata la prima versione di anteprima di Gemelli digitali di Azure (ottobre 2018), per informazioni su cosa è cambiato, vedere: [*Panoramica: Differenze rispetto alla prima versione*](overview-differences.md).
+* Approfondire l'uso di Azure Digital gemelli nella Guida introduttiva: [*Guida introduttiva: esplorare uno scenario di esempio*](quickstart-adt-explorer.md).
 
-In alternativa, continuare ad approfondire l'uso di Gemelli digitali di Azure con la guida [*Avvio rapido: Esplorare uno scenario di esempio*](quickstart-adt-explorer.md).
+* In alternativa, iniziare a leggere i concetti relativi ai dispositivi gemelli digitali di Azure con [*concetti: modelli personalizzati*](concepts-models.md).
