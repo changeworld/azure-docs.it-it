@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059841"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097541"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -24,7 +24,7 @@ Informazioni su come creare ed eseguire i progetti di etichettatura per aggiunge
 ## <a name="data-labeling-capabilities"></a>Funzionalità di etichettatura dei dati
 
 > [!Important]
-> Attualmente sono supportati solo i progetti etichettatura per la classificazione di immagini e l'identificazione degli oggetti. Le immagini dei dati devono inoltre essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto.
+> Le immagini dei dati devono essere disponibili in un archivio dati BLOB di Azure. Se non si dispone di un archivio dati esistente, è possibile caricare le immagini durante la creazione del progetto.
 
 L'etichettatura dei dati di Azure Machine Learning offre una posizione centrale in cui creare, gestire e monitorare i progetti di etichettatura:
  - Coordinare i dati, le etichette e i membri del team per gestire in modo efficiente le attività di etichettatura. 
@@ -53,6 +53,11 @@ Per creare un progetto, scegliere **Aggiungi il progetto**. Assegnare al progett
 * Scegliere **Classificazione delle immagini multi-classe** per i progetti in cui applicare a un'immagine solo un'*etichetta singola* da un set di etichette.
 * Scegliere **Classificazione delle immagini multi-etichetta** per i progetti in cui applicare a un'immagine *una o più* etichette da un set di etichette. Ad esempio, la foto di un cane potrebbe essere etichettata sia con *cane* che con *giorno*.
 * Scegliere **Identificazione oggetto (rettangolo di selezione)** per i progetti in cui assegnare un'etichetta e un rettangolo di selezione a ogni oggetto all'interno di un'immagine.
+* Scegliere **segmentazione istanza (poligono) (anteprima)** per i progetti quando si desidera assegnare un'etichetta e creare un poligono intorno a ogni oggetto all'interno di un'immagine.
+
+> [!IMPORTANT]
+> La segmentazione dell'istanza (poligono) è in anteprima pubblica.
+> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Selezionare **Avanti** quando si è pronti per procedere.
 
@@ -141,6 +146,7 @@ Per i rettangoli di selezione, le domande importanti sono:
 
 La pagina **Etichettatura assistita da ML** consente di attivare modelli di Machine Learning automatici per accelerare l'attività di etichettatura. All'inizio del progetto di etichettatura, le immagini vengono mescolate in modo casuale per ridurre le potenziali distorsioni. Tuttavia, eventuali distorsioni presenti nel set di dati si rifletteranno nel modello con training. Se, ad esempio, l'80% delle immagini appartiene a una singola classe, circa l'80% dei dati usati per il training del modello sarà di tale classe. Questo training non include l'apprendimento attivo.
 
+
 Selezionare *Abilita etichettatura assistita da ML* e specificare una GPU per abilitare l'etichettatura assistita, costituita da due fasi:
 * Clustering
 * Pre-etichettatura
@@ -150,7 +156,7 @@ Il numero esatto di immagini etichettate necessarie per avviare l'etichettatura 
 Poiché le etichette finali si basano ancora sull'input dell'etichettatore, questa tecnologia viene a volte chiamata etichettatura *human in the loop*.
 
 > [!NOTE]
-> L'etichettatura dei dati assistita da ML non supporta gli account di archiviazione predefiniti protetti da una [rete virtuale](how-to-network-security-overview.md). È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistita da ML. L'account di archiviazione non predefinito può essere protetto tramite la rete virtuale. 
+> L'etichettatura dei dati assistita da ML non supporta gli account di archiviazione predefiniti protetti da una [rete virtuale](how-to-network-security-overview.md). È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistita da ML. L'account di archiviazione non predefinito può essere protetto tramite la rete virtuale.
 
 ### <a name="clustering"></a>Clustering
 

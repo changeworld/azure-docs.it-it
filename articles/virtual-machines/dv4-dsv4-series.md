@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 96bcf70d2f5ec8301b16de5d23d94ad8a7e27b5a
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: aea0a79d1ae27d987a6a30cfefe91e875f9a8382
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920342"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097507"
 ---
 # <a name="dv4-and-dsv4-series"></a>Serie Dv4 e Dsv4
 
@@ -35,6 +35,7 @@ L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchin
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
@@ -58,6 +59,7 @@ Le dimensioni della serie Dsv4 vengono eseguite su Intel &reg; Xeon &reg; Platin
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |

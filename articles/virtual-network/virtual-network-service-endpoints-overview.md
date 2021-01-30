@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 93feaef01b234eeb7ac363c18d8e9d8f52b009de
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5e97a35a272684a99e1ca21cbec9c8f3edef253c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216530"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097423"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -30,7 +30,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *
 
 - **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. storage*): disponibile a livello generale in tutte le aree di Azure.
 - **[Database SQL di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
-- **[Analisi delle sinapsi di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
+- **[Analisi delle sinapsi di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure per i pool SQL dedicati (in precedenza SQL DW).
 - **[Database di Azure per il server PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per il server MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per MariaDB](../mariadb/concepts-data-access-security-vnet.md)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.

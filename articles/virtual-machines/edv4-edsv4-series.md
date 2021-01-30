@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 53b4b09a95d99bc0fb84f495d1105653f61010c1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fc410ef903ac7eca2457516df2c71260a4b19b89
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920359"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097490"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 e Edsv4
 
@@ -31,6 +31,7 @@ Le dimensioni serie Edv4, dotate di processori Intel&reg; Xeon&reg; Platinum 827
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | <sup>**</sup> Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
@@ -58,6 +59,7 @@ Le dimensioni serie Edsv4, dotate di processori Intel&reg; Xeon&reg; Platinum 82
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | <sup>**</sup> Velocità effettiva massima memorizzata nella cache e archiviazione temporanea: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
