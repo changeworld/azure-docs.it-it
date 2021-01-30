@@ -1,17 +1,17 @@
 ---
 title: Panoramica della disponibilità elevata con ridondanza della zona con il server flessibile database di Azure per MySQL
 description: Informazioni sui concetti relativi alla disponibilità elevata con ridondanza della zona con il server flessibile di database di Azure per MySQL
-author: mksuni
-ms.author: sumuth
+author: ambhatna
+ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: cd7be998c49a710ee7652cf18c35bed743606ffd
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.date: 01/29/2021
+ms.openlocfilehash: f01a0869f7786ee6197835610456f4bb1cbd6b03
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241185"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097118"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concetti relativi alla disponibilità elevata nel server flessibile database di Azure per MySQL (anteprima)
 
@@ -48,7 +48,7 @@ Di seguito sono riportati alcuni vantaggi per l'uso della funzionalità di ridon
 -   La replica in standby verrà distribuita in una configurazione di macchina virtuale identica a quella del database primario, ad esempio Vcore, archiviazione, impostazioni di rete (VNET, firewall) e così via.
 -   Possibilità di rimuovere la replica standby disabilitando la disponibilità elevata.
 -   I backup automatici sono basati su snapshot, eseguiti dal server di database primario e archiviati in una risorsa di archiviazione con ridondanza della zona.
--   Se si verifica un evento di failover, viene eseguito il provisioning di una nuova replica standby nella zona di disponibilità primaria originale.
+-   In caso di failover, il server flessibile del database di Azure per MySQL viene automaticamente Sottoponi a failover nella replica standby se è abilitata la disponibilità elevata. Il programma di installazione a disponibilità elevata eseguirà il monitoraggio del server primario e riporterà online.
 -   I client si connettono sempre al server di database primario.
 -   Se si verifica un arresto anomalo del database o un errore del nodo, il riavvio verrà eseguito prima nello stesso nodo. Se l'operazione ha esito negativo, viene attivato il failover automatico.
 -   Possibilità di riavviare il server per rilevare eventuali modifiche ai parametri del server statico.

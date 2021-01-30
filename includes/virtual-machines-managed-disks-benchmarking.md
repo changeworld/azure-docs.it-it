@@ -5,102 +5,70 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 01/29/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 358e92d8e43473c168e24be9f4af504e6ffcc37a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 25404837d5bc66ff415be8d8670eb6650475c30f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96026673"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094629"
 ---
-*Preparare la cache*  
-Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
+## <a name="warm-up-the-cache"></a>Riscaldamento della cache
+
+Il disco con memorizzazione nella cache dell'host ReadOnly è in grado di fornire un numero maggiore di IOPS rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache comportano un numero maggiore di IOPS dal disco single cache enabled.
 
 > [!IMPORTANT]
->  è necessario preparare la cache prima di eseguire il benchmarking, ogni volta che la VM viene riavviata.
+> È necessario scaldare la cache prima di eseguire i benchmark ogni volta che viene riavviata la macchina virtuale.
 
-## <a name="iometer"></a>Iometer
+## <a name="diskspd"></a>DISKSPD
 
-[Scaricare lo strumento Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) nella VM.
+[Scaricare lo strumento DISKSP](https://github.com/Microsoft/diskspd) nella macchina virtuale. DISKSPD è uno strumento che è possibile personalizzare per creare carichi di lavoro sintetici personalizzati. Per eseguire i test di benchmarking verrà utilizzata la stessa configurazione descritta in precedenza. È possibile modificare le specifiche per testare carichi di lavoro diversi.
 
-### <a name="test-file"></a>File di test
+In questo esempio viene usato il set di parametri di base seguente:
 
-Iometer usa un file di test archiviato nel volume in cui eseguire il test di benchmarking. Gestisce le operazioni di lettura e scrittura sul file di test per misurare i valori di IOPS e velocità effettiva del disco. Iometer crea questo file di test se non ne è stato fornito uno. Creare un file di test di 200 GB denominato iobw.tst nei volumi CacheReads e NoCacheWrites.
+- -c200G: crea o ricrea il file di esempio usato nel test. Può essere impostata in byte, KiB, MiB, GiB o blocchi. In questo caso, viene usato un file di grandi dimensioni del file di destinazione 200-GiB per ridurre al minimo la memorizzazione nella cache della memoria.
+- -W100: specifica la percentuale di operazioni che sono richieste di scrittura (-W0 equivale a 100% Read).
+- -b4K: indica le dimensioni del blocco in byte, KiB, MiB o GiB. In questo caso, la dimensione del blocco 4K viene usata per simulare un test di I/O casuale.
+- -F4: imposta un totale di quattro thread.
+- -r: indica il test di I/O casuale (esegue l'override del parametro-s).
+- -O128: indica il numero di richieste di I/O in attesa per ogni destinazione per thread. Questa operazione è nota anche come profondità della coda. In questo caso, viene usato 128 per sottolineare la CPU.
+- -W7200: specifica la durata del periodo di riscaldamento prima dell'avvio delle misure.
+- -D30: specifica la durata del test, escluso il riscaldamento.
+- -SH: Disabilita la memorizzazione nella cache di scrittura software e hardware (equivalente a-SUW).
 
-### <a name="access-specifications"></a>Specifiche di accesso
+Per un elenco completo dei parametri, vedere il [repository GitHub](https://github.com/Microsoft/diskspd/wiki/Command-line-and-parameters).
 
-Le specifiche, la dimensione della richiesta I/O, la percentuale di letture/scritture e la percentuale di operazioni casuali/sequenziali vengono configurate tramite la scheda "Access Specifications" in Iometer. Creare una specifica di accesso per ogni scenario illustrato di seguito. Creare le specifiche di accesso, quindi salvarle con un nome appropriato, ad esempio RandomWrites\_8K, RandomReads\_8K. Selezionare la specifica corrispondente durante l'esecuzione dello scenario di test.
+### <a name="maximum-write-iops"></a>IOPS massime di scrittura
+Viene usata una profondità della coda elevata di 128, una dimensione del blocco ridotta di 8 KB e quattro thread di lavoro per la guida delle operazioni di scrittura. I ruoli di lavoro di scrittura indirizzano il traffico sul volume "NoCacheWrites", che include tre dischi con la cache impostata su "None".
 
-Un esempio di specifiche di accesso per uno scenario con valori massimi di IOPS di scrittura è riportato di seguito,   
-    ![Esempio di specifiche di accesso per valori massimi di IOPS di scrittura](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+Eseguire il comando seguente per 30 secondi di riscaldamento e 30 secondi di misurazione:
 
-### <a name="maximum-iops-test-specifications"></a>Specifiche per il valore massimo di IOPS di test
+`diskspd -c200G -w100 -b8K -F4 -r -o128 -W30 -d30 -Sh testfile.dat`
 
- Per illustrare il valore massimo di IOPS, usare una dimensione minore della richiesta. Usare una dimensione di richiesta pari a 8 K e creare specifiche per letture e scritture casuali.
+I risultati mostrano che la macchina virtuale Standard_D8ds_v4 sta distribuendo il limite massimo di IOPS di scrittura di 12.800.
 
-| Specifica di accesso | Dimensione della richiesta | % di casuali | % di letture |
-| --- | --- | --- | --- |
-| RandomWrites\_8K |8 K |100 |0 |
-| RandomReads\_8K |8 K |100 |100 |
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-write-io-per-second.png" alt-text="Per 3208642560 byte totali, numero massimo di I/O totale di 391680, con un totale di 101,97 MiB/s e un totale di 13052,65 I/O al secondo.":::
 
-### <a name="maximum-throughput-test-specifications"></a>Specifiche per il valore massimo di velocità effettiva di test
+### <a name="maximum-read-iops"></a>IOPS massime di lettura
 
- Per illustrare il valore massimo di velocità effettiva, usare una dimensione maggiore della richiesta. Usare una dimensione di richiesta pari a 64 K e creare specifiche per letture e scritture casuali.
+Viene usata una profondità della coda elevata di 128, una dimensione del blocco ridotta di quattro KB e quattro thread di lavoro per guidare le operazioni di lettura. I thread di lavoro di lettura stanno indirizzando il traffico sul volume "CacheReads", che ha un disco con cache impostata su "ReadOnly".
 
-| Specifica di accesso | Dimensione della richiesta | % di casuali | % di letture |
-| --- | --- | --- | --- |
-| RandomWrites\_64K |64 K |100 |0 |
-| RandomReads\_64K |64 K |100 |100 |
+Eseguire il comando seguente per due ore di riscaldamento e 30 secondi di misurazione:
 
-### <a name="run-the-iometer-test"></a>Esecuzione del test di Iometer
+`diskspd -c200G -b4K -F4 -r -o128 -W7200 -d30 -Sh testfile.dat`
 
- Seguire questa procedura per preparare la cache.
+I risultati mostrano che la macchina virtuale Standard_D8ds_v4 sta distribuendo il limite massimo di IOPS di lettura di 77.000.
 
-1. Creare le specifiche di accesso con i valori seguenti.
+:::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/disks-benchmarks-diskspd-max-read-io-per-second.png" alt-text="Per 9652785152 byte totali, sono disponibili 2356637 I/o totali, al 306,72 MiB/s totale e un totale di 78521,23 I/o al secondo.":::
 
-   | Nome | Dimensione della richiesta | % di casuali | % di letture |
-   | --- | --- | --- | --- |
-   | RandomWrites\_1MB |1 MB |100 |0 |
-   | RandomReads\_1MB |1 MB |100 |100 |
-1. Eseguire il test di Iometer per l'inizializzazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
+### <a name="maximum-throughput"></a>Velocità effettiva massima
 
-   | Scenario | Volume di destinazione | Nome | Duration |
-   | --- | --- | --- | --- |
-   | Inizializzare il disco della cache |CacheReads |RandomWrites\_1MB |2 ore |
-1. Eseguire il test di Iometer per la preparazione del disco della cache con i parametri seguenti. Usare tre thread di lavoro per il volume di destinazione e una profondità della coda pari a 128. Impostare la durata relativa al tempo di esecuzione del test su 2 ore nella scheda "Test Setup".
-
-   | Scenario | Volume di destinazione | Nome | Duration |
-   | --- | --- | --- | --- |
-   | Preparare il disco della cache |CacheReads |RandomReads\_1MB |2 ore |
-
-Dopo la preparazione del disco della cache, procedere con gli scenari di test elencati di seguito. Per eseguire il test di Iometer, usare almeno tre thread di lavoro per **ogni** volume di destinazione. Per ogni thread di lavoro selezionare il volume di destinazione, impostare la profondità della coda e selezionare una delle specifiche di test salvate, come illustrato nella tabella seguente, per eseguire lo scenario di test corrispondente. La tabella illustra anche i risultati previsti per IOPS e velocità effettiva quando si eseguono questi test. Per tutti gli scenari vengono usati una dimensione di I/O ridotta pari a 8 KB e un valore elevato per la profondità della coda pari a 128.
-
-| Scenario di test | Volume di destinazione | Nome | Risultato |
-| --- | --- | --- | --- |
-| Max. IOPS di lettura |CacheReads |RandomWrites\_8K |50.000 IOPS |
-| Max. IOPS di scrittura |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
-| Max. IOPS combinate |CacheReads |RandomWrites\_8K |100.000 IOPS |
-| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
-| Max. letture MB/sec |CacheReads |RandomWrites\_64K |524 MB/sec |
-| Max. scritture MB/sec |NoCacheWrites |RandomReads\_64K |524 MB/sec |
-| MB/sec combinati |CacheReads |RandomWrites\_64K |1000 MB/sec |
-| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
-
-Le schermate seguenti illustrano i risultati dei test di Iometer per scenari combinati di IOPS e velocità effettiva.
-
-### <a name="combined-reads-and-writes-maximum-iops"></a>Valori massimi per IOPS di letture e scritture combinate
-
-![Valori massimi per IOPS di letture e scritture combinate](../articles/virtual-machines/linux/media/premium-storage-performance/image9.png)
-
-### <a name="combined-reads-and-writes-maximum-throughput"></a>Velocità effettiva massima di letture e scritture combinate
-
-![Velocità effettiva massima di letture e scritture combinate](../articles/virtual-machines/linux/media/premium-storage-performance/image10.png)
-
+Per ottenere la velocità effettiva massima di lettura e scrittura, è possibile passare a una dimensione del blocco maggiore di 64 KB.
 ## <a name="fio"></a>FIO
 
-FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della sezione Benchmarking e preparare la cache prima di eseguire i test di benchmarking.
+FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usato un Standard_D8ds_v4 che esegue **Ubuntu**. Usare la stessa configurazione descritta all'inizio della sezione benchmark e scaldare la cache prima di eseguire i test di benchmark.
 
 Prima di iniziare, [scaricare FIO](https://github.com/axboe/fio) e installarlo nella macchina virtuale.
 
@@ -110,7 +78,7 @@ Eseguire il comando seguente per Ubuntu:
 apt-get install fio
 ```
 
-Vengono usati quattro thread di lavoro per la gestione delle operazioni di scrittura e quattro thread di lavoro per la gestione delle operazioni di lettura sui dischi. I ruoli di lavoro di scrittura indirizzano il traffico verso il volume "nocache", che include 10 dischi con cache impostata su "None". I ruoli di lavoro di lettura indirizzano il traffico verso il volume "readcache", che include un disco con cache impostata su "ReadOnly".
+Vengono usati quattro thread di lavoro per la gestione delle operazioni di scrittura e quattro thread di lavoro per la gestione delle operazioni di lettura sui dischi. I ruoli di lavoro di scrittura indirizzano il traffico sul volume "nocache", che include tre dischi con la cache impostata su "None". I thread di lavoro di lettura stanno indirizzando il traffico sul volume "readcache", che ha un disco con cache impostata su "ReadOnly".
 
 ### <a name="maximum-write-iops"></a>IOPS massime di scrittura
 
@@ -122,7 +90,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [writer1]
@@ -133,7 +101,7 @@ directory=/mnt/nocache
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:  
 
 * Profondità della coda elevata pari a 256.  
-* Dimensione di blocco ridotta pari a 8 KB.  
+* Dimensione di blocco ridotta pari a 4 KB.  
 * Più thread che eseguono scritture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:  
@@ -142,8 +110,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 sudo fio --runtime 30 fiowrite.ini
 ```
 
-Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di scrittura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce il limite massimo di IOPS di scrittura pari a 50.000 IOPS.  
-    ![Il numero di operazioni di i/o a macchina virtuale e dischi Premium sono disponibili.](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di scrittura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la macchina virtuale Standard_D8ds_v4 sta distribuendo il limite massimo di IOPS di scrittura di 12.800 IOPS.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-uncached-writes-1.jpg" alt-text="Il numero di operazioni di i/o al secondo in scrittura e SSD Premium viene recapito, indica che le Scritture sono 13.1 k IOPS":::
 
 ### <a name="maximum-read-iops"></a>IOPS massime di lettura
 
@@ -155,7 +123,7 @@ size=30g
 direct=1
 iodepth=256
 ioengine=libaio
-bs=8k
+bs=4k
 numjobs=4
 
 [reader1]
@@ -166,7 +134,7 @@ directory=/mnt/readcache
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
 
 * Profondità della coda elevata pari a 256.  
-* Dimensione di blocco ridotta pari a 8 KB.  
+* Dimensione di blocco ridotta pari a 4 KB.  
 * Più thread che eseguono scritture casuali.
 
 Eseguire il comando seguente per attivare il test FIO per 30 secondi:
@@ -175,8 +143,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 sudo fio --runtime 30 fioread.ini
 ```
 
-Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di lettura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 64.000 IOPS di lettura. Ciò dipende da una combinazione delle prestazioni del disco e della cache.  
-    ![Screenshot del numero di operazioni di i/o al secondo in scrittura e dischi Premium.](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS di lettura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la macchina virtuale Standard_D8ds_v4 sta distribuendo più di 77.000 operazioni di i/o al secondo. Ciò dipende da una combinazione delle prestazioni del disco e della cache.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-cached-reads-1.jpg" alt-text="Screenshot del numero di operazioni di i/o al secondo in scrittura di VM e SSD Premium, indica che le letture sono 78.6 k.":::
 
 ### <a name="maximum-read-and-write-iops"></a>IOPS massime di lettura e scrittura
 
@@ -198,7 +166,7 @@ directory=/mnt/readcache
 [writer1]
 rw=randwrite
 directory=/mnt/nocache
-rate_iops=12500
+rate_iops=3200
 ```
 
 Notare gli elementi chiave seguenti conformi alle indicazioni di progettazione illustrate nelle sezioni precedenti. Queste specifiche sono essenziali per ottenere il valore massimo per IOPS:
@@ -213,8 +181,8 @@ Eseguire il comando seguente per attivare il test FIO per 30 secondi:
 sudo fio --runtime 30 fioreadwrite.ini
 ```
 
-Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS combinate di lettura e scrittura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la VM DS14 fornisce un valore superiore a 100.000 IOPS combinate di lettura e scrittura. Ciò dipende da una combinazione delle prestazioni del disco e della cache.  
-    ![IOPS combinate di lettura e scrittura](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+Durante l'esecuzione del test, è possibile visualizzare il numero di operazioni IOPS combinate di lettura e scrittura gestite dalla macchina virtuale e dai dischi Premium. Come illustrato nell'esempio seguente, la macchina virtuale Standard_D8ds_v4 distribuisce più di 90.000 operazioni di i/o di lettura e scrittura combinate. Ciò dipende da una combinazione delle prestazioni del disco e della cache.  
+    :::image type="content" source="../articles/virtual-machines/linux/media/premium-storage-performance/fio-both-1.jpg" alt-text="Operazioni di i/o di lettura e scrittura combinate, indica che le letture sono 78.3 k e le Scritture sono 12,6 k IOPS.":::
 
 ### <a name="maximum-combined-throughput"></a>Velocità effettiva massima combinata
 

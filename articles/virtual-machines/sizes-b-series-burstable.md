@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 31a65cab7dfdd478560b7babba156cec7645cf33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917252"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097691"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
@@ -28,6 +28,7 @@ La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata * *<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): supportati <br>
 
 * Le macchine virtuali della serie B sono in sequenza e i numeri di ACU variano in base ai carichi di lavoro e all'utilizzo di base.<br>
 * * La rete accelerata è supportata solo per *Standard_B12ms*, *Standard_B16ms* e *Standard_B20ms*.

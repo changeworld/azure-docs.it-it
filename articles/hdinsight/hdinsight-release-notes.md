@@ -5,12 +5,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/12/2020
-ms.openlocfilehash: 76bf9376d3eb33153584f74c9d0d9196706428ae
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 88e2161cfddf95f7f250b8b76c067d045f1529da
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932091"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092235"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -50,6 +50,9 @@ HDInsight ha aggiunto gruppi di sicurezza di rete (gruppi) e il controllo delle 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nelle versioni future verranno apportate le modifiche seguenti.
 
+### <a name="breaking-change-for-net-for-apache-spark-100"></a>Modifica di rilievo per .NET per Apache Spark 1.0.0
+In HDInsight verrà introdotta la prima versione ufficiale principale di .NET per Apache Spark nella prossima versione. Fornisce la completezza dell'API dataframe per Spark 2.4. x e Spark 3.0. x insieme ad altre funzionalità. Verranno apportate modifiche di rilievo per la versione principale, fare riferimento a [questo GUID della migrazione](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10) per comprendere i passaggi necessari per aggiornare il codice e le pipeline. Fare clic [qui](https://docs.microsoft.com/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight) per altre informazioni.
+
 ### <a name="default-cluster-vm-size-will-be-changed-to-ev3-family"></a>Le dimensioni predefinite della macchina virtuale del cluster verranno modificate in EV3 Family
 A partire dalla versione successiva (intorno alla fine di gennaio), le dimensioni predefinite delle macchine virtuali del cluster verranno modificate dalla famiglia D alla famiglia EV3. Questa modifica si applica ai nodi head e ai nodi del ruolo di lavoro. Per evitare questa modifica, specificare le dimensioni delle macchine virtuali che si vuole usare nel modello ARM.
 
@@ -71,7 +74,7 @@ Questa release non prevede alcuna modifica della versione dei componenti. È pos
 ## <a name="known-issues"></a>Problemi noti
 ### <a name="prevent-hdinsight-cluster-vms-from-rebooting-periodically"></a>Impedire il riavvio periodico delle macchine virtuali del cluster HDInsight
 
-A partire dalla metà del 2020 novembre, è possibile che si sia notato che le macchine virtuali del cluster HDInsight vengono riavviate a intervalli regolari. Il problema potrebbe essere causato da:
+A partire dalla metà del 2020 novembre, è possibile che si sia notato che le macchine virtuali del cluster HDInsight vengono riavviate regolarmente. Il problema potrebbe essere causato da:
 
 1.  ClamAV è abilitato nel cluster. Il nuovo pacchetto azsec-ClamAV utilizza una grande quantità di memoria che attiva il riavvio del nodo. 
 2.  Un processo CRON è pianificato ogni giorno che monitora le modifiche all'elenco di autorità di certificazione (CAs) usate dai servizi di Azure. Quando è disponibile un nuovo certificato CA, lo script aggiunge il certificato all'archivio di attendibilità JDK e pianifica un riavvio.

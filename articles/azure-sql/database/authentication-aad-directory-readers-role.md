@@ -9,19 +9,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 2374b1fb7f355b336c713a8a3240eacc8b1f188c
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5764a8df862610fc076ce2810fcc0d4bf8dbda3c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675072"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094557"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 > [!NOTE]
-> Questa funzionalità in questo articolo è in **anteprima pubblica** .
+> Questa funzionalità in questo articolo è in **anteprima pubblica**.
 
 Azure Active Directory (Azure AD) ha introdotto l' [uso di gruppi cloud per gestire le assegnazioni di ruolo in Azure Active Directory (anteprima)](../../active-directory/roles/groups-concept.md). In questo modo è possibile assegnare i ruoli Azure AD ai gruppi.
 
@@ -37,15 +37,15 @@ Il ruolo **Readers directory** è necessario per:
 
 ## <a name="assigning-the-directory-readers-role"></a>Assegnazione del ruolo lettori directory
 
-Per assegnare il ruolo [**lettore directory**](../../active-directory/roles/permissions-reference.md#directory-readers) a un'identità, è necessario disporre delle autorizzazioni amministratore [globale](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o [amministratore ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) . Gli utenti che spesso gestiscono o distribuiscono il database SQL, SQL Istanza gestita o la sinapsi di Azure potrebbero non avere accesso a questi ruoli con privilegi elevati. Questo può causare spesso complicazioni per gli utenti che creano risorse SQL di Azure non pianificate o che necessitano di assistenza da membri del ruolo con privilegi elevati spesso inaccessibili nelle organizzazioni di grandi dimensioni.
+Per assegnare il ruolo [**lettore directory**](../../active-directory/roles/permissions-reference.md#directory-readers) a un'identità, è necessario disporre delle autorizzazioni amministratore [globale](../../active-directory/roles/permissions-reference.md#global-administrator) o [amministratore ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) . Gli utenti che spesso gestiscono o distribuiscono il database SQL, SQL Istanza gestita o la sinapsi di Azure potrebbero non avere accesso a questi ruoli con privilegi elevati. Questo può causare spesso complicazioni per gli utenti che creano risorse SQL di Azure non pianificate o che necessitano di assistenza da membri del ruolo con privilegi elevati spesso inaccessibili nelle organizzazioni di grandi dimensioni.
 
 Per l'istanza gestita di SQL, è necessario assegnare il **ruolo con autorizzazioni di lettura nella directory** a un'identità dell'istanza gestita prima di poter [configurare un amministratore di Azure AD per l'istanza gestita](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance). 
 
-Quando si configura un amministratore di Azure AD per il server logico, non è necessario assegnare il **ruolo con autorizzazioni di lettura nella directory** all'identità del server per il database SQL o Azure Synapse. Tuttavia, per abilitare la creazione di un oggetto Azure AD nel database SQL o in Azure Synapse per conto di un'applicazione Azure AD, è necessario il **ruolo con autorizzazioni di lettura nella directory** . Se il ruolo non è assegnato all'identità del server logico SQL, la creazione degli utenti di Azure AD in Azure SQL avrà esito negativo. Per altre informazioni, vedere [Entità servizio di Azure Active Directory con Azure SQL](authentication-aad-service-principal.md).
+Quando si configura un amministratore di Azure AD per il server logico, non è necessario assegnare il **ruolo con autorizzazioni di lettura nella directory** all'identità del server per il database SQL o Azure Synapse. Tuttavia, per abilitare la creazione di un oggetto Azure AD nel database SQL o in Azure Synapse per conto di un'applicazione Azure AD, è necessario il **ruolo con autorizzazioni di lettura nella directory**. Se il ruolo non è assegnato all'identità del server logico SQL, la creazione degli utenti di Azure AD in Azure SQL avrà esito negativo. Per altre informazioni, vedere [Entità servizio di Azure Active Directory con Azure SQL](authentication-aad-service-principal.md).
 
 ## <a name="granting-the-directory-readers-role-to-an-azure-ad-group"></a>Concessione del ruolo lettori directory a un gruppo di Azure AD
 
-Attualmente in **anteprima pubblica** , è ora possibile avere un amministratore [globale](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) o un [amministratore del ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) creare un gruppo di Azure ad e assegnare l'autorizzazione per la lettura della [**directory**](../../active-directory/roles/permissions-reference.md#directory-readers) al gruppo. Questo consentirà l'accesso alla Azure AD API Graph per i membri di questo gruppo. Inoltre, Azure AD utenti proprietari di questo gruppo possono assegnare nuovi membri per questo gruppo, incluse le identità dei server logici SQL di Azure.
+Attualmente in **anteprima pubblica**, è ora possibile avere un amministratore [globale](../../active-directory/roles/permissions-reference.md#global-administrator) o un [amministratore del ruolo con privilegi](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) creare un gruppo di Azure ad e assegnare l'autorizzazione per la lettura della [**directory**](../../active-directory/roles/permissions-reference.md#directory-readers) al gruppo. Questo consentirà l'accesso alla Azure AD API Graph per i membri di questo gruppo. Inoltre, Azure AD utenti proprietari di questo gruppo possono assegnare nuovi membri per questo gruppo, incluse le identità dei server logici SQL di Azure.
 
 Questa soluzione richiede ancora un utente con privilegi elevati (amministratore globale o amministratore del ruolo con privilegi) per creare un gruppo e assegnare gli utenti come attività una volta, ma i proprietari del gruppo di Azure AD potranno assegnare altri membri in futuro. In questo modo si elimina la necessità di coinvolgere un utente con privilegi elevati in futuro per configurare tutti i database SQL, le istanze gestite di SQL o i server di Azure sinapsi nel tenant Azure AD.
 

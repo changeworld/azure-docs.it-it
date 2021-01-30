@@ -172,6 +172,8 @@
           href: concept-enterprise-security.md
         - name: Baseline di sicurezza
           href: security-baseline.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          href: ./security-controls-policy.md
     - name: ML responsabile
       items:
         - name: Panoramica di ML responsabile
@@ -609,6 +611,8 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Forum degli utenti
       href: /answers/topics/azure-machine-learning.html
+    - name: Microsoft Learn
+      href: /learn/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Confrontare i prodotti Machine Learning

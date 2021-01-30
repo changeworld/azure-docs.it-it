@@ -192,6 +192,8 @@
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          href: ./security-controls-policy.md
         - name: Autenticare il recapito di eventi ai gestori di eventi
           href: security-authentication.md
         - name: Autenticare i client di pubblicazione

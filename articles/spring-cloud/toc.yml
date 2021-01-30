@@ -45,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Attuatore Spring Boot per Azure
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Controlli di sicurezza
-      href: spring-cloud-concept-security-controls.md
+    - name: Sicurezza
+      items:
+        - name: Controlli di sicurezza
+          href: spring-cloud-concept-security-controls.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          href: ./security-controls-policy.md
     - name: Informazioni sullo stato dell'app
       href: spring-cloud-concept-app-status.md
     - name: Pianificare il ripristino di emergenza

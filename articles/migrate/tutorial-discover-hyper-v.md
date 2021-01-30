@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 7c3bca9e5ad87c681fc38a5c618331a3f7a97ae1
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8b46d08da87565d133962c23e8281b221544d9ca
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897511"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092518"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Esercitazione: Individuare le macchine virtuali Hyper-V con Valutazione server
 
@@ -87,7 +87,7 @@ Verificare i requisiti dell'host | Verifica che l'host esegua una versione suppo
 Verificare la versione di PowerShell | Verifica che lo script sia in esecuzione in una versione di PowerShell supportata. | Verificare di eseguire PowerShell versione 4.0 o successiva nell'host Hyper-V.
 Creare un account | Verifica che siano disponibili le autorizzazioni corrette nell'host Hyper-V.<br/><br/> Consente di creare un account utente locale con le autorizzazioni corrette. | Opzione 1: Preparare un account con accesso come amministratore al computer host Hyper-V.<br/><br/> Opzione 2: Preparare un account amministratore locale o un account amministratore di dominio e aggiungere l'account a questi gruppi: Remote Management Users, Hyper-V Administrators e Performance Monitor Users.
 Abilitare la comunicazione remota di PowerShell | Abilita la comunicazione remota di PowerShell nell'host, in modo che l'appliance di Azure Migrate possa eseguire i comandi di PowerShell nell'host, tramite una connessione WinRM. | Per configurare, in ogni host aprire una console di PowerShell come amministratore ed eseguire il comando seguente: ``` powershell Enable-PSRemoting -force ```
-Configurare i servizi di integrazione Hyper-V | Verifica che i servizi di integrazione Hyper-V siano abilitati in tutte le macchine virtuali gestite dall'host. | [Abilitare i servizi di integrazione di Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services.md) su ogni VM.<br/><br/> Se si esegue Windows Server 2003, [seguire queste istruzioni](prepare-windows-server-2003-migration.md).
+Configurare i servizi di integrazione Hyper-V | Verifica che i servizi di integrazione Hyper-V siano abilitati in tutte le macchine virtuali gestite dall'host. | [Abilitare i servizi di integrazione di Hyper-V](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) su ogni VM.<br/><br/> Se si esegue Windows Server 2003, [seguire queste istruzioni](prepare-windows-server-2003-migration.md).
 Delegare le credenziali se i dischi delle macchine virtuali si trovano in condivisioni SMB remote | Delega le credenziali | Eseguire questo comando per consentire a CredSSP di delegare le credenziali negli host che eseguono macchine virtuali Hyper-V con dischi in condivisioni SMB: ```powershell Enable-WSManCredSSP -Role Server -Force ```<br/><br/> È possibile eseguire questo comando in remoto in tutti gli host Hyper-V.<br/><br/> Se si aggiungono nuovi nodi host in un cluster, vengono aggiunti automaticamente per l'individuazione, ma è necessario abilitare CredSSP manualmente.<br/><br/> Quando si configura l'appliance, si completa la configurazione di CredSSP [abilitandolo nell'appliance](#delegate-credentials-for-smb-vhds). 
 
 ### <a name="run-the-script"></a>Eseguire lo script

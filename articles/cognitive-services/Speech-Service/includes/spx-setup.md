@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 87af99d5136a8bed93854e9396895cddeb22549a
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
-ms.translationtype: HT
+ms.openlocfilehash: 68362b61aa0d919bd0e95f3cebb1cf1189f9f0f3
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98540477"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095183"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -19,9 +19,15 @@ ms.locfileid: "98540477"
 Per installare l’interfaccia della riga di comando di Voce su Windows, seguire questa procedura:
 
 1. In Windows è necessaria la versione di [Microsoft Visual C++ Redistributable per Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) per la piattaforma in uso. La prima volta che si esegue questa installazione può essere necessario riavviare il sistema.
-2. Scaricare l'[archivio zip](https://aka.ms/speech/spx-zips.zip) dell’interfaccia della riga di comando di Voce, quindi estrarlo.
-3. Passare alla directory in cui è stato estratto `spx-zips`. Questa cartella contiene i file di programma per l'interfaccia della riga di comando di Voce in un'ampia varietà di piattaforme. 
-4. Estrarre i file per la piattaforma in uso (`spx-net471` per .NET Framework 4.7 o `spx-netcore-win-x64` per .NET Core 3.0 in CPU x64). Tenere presente che `spx` verrà eseguito da questa directory.
+1. Installare [.NET Core 3,1](/dotnet/core/install/linux.md).
+2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
+
+Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando di Voce.
+
+> [!NOTE]
+> In alternativa a NuGet, è possibile scaricare ed estrarre l' [archivio zip](https://aka.ms/speech/spx-zips.zip)dell'interfaccia della riga di comando vocale, trovare ed estrarre la piattaforma dalla `spx-zips` Directory e aggiungere il `spx` percorso alla variabile del **percorso** di sistema.
 
 ### <a name="run-the-speech-cli"></a>Eseguire l'interfaccia della riga di comando per Voce
 
@@ -43,15 +49,16 @@ Se l'output viene restituito in un file, è possibile che anche un editor di tes
 
 Per installare l’interfaccia della riga di comando di Voce su Linux su una CPU x64, seguire questa procedura:
 
-1. Installare [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
-2. Scaricare l'[archivio zip](https://aka.ms/speech/spx-zips.zip) dell’interfaccia della riga di comando di Voce, quindi estrarlo.
-3. Passare alla directory radice `spx-zips` estratta dal download ed estrarre `spx-netcore-30-linux-x64` in una nuova directory `~/spx`.
-4. In un terminale digitare i comandi seguenti:
-   1. `cd ~/spx`
-   2. `sudo chmod +r+x spx`
-   3. `PATH=~/spx:$PATH`
+1. Installare [.NET Core 3,1](/dotnet/core/install/linux.md).
+2. Installare l'interfaccia della riga di comando vocale usando NuGet immettendo questo comando:
+
+    `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI --version 1.15.0`
 
 Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando di Voce.
+
+> [!NOTE]
+> In alternativa a NuGet, è possibile scaricare i file binari nell' [archivio zip](https://aka.ms/speech/spx-zips.zip), estrarre `spx-netcore-30-linux-x64` in una nuova `~/spx` Directory, digitare `sudo chmod +r+x spx` sul file binario e aggiungere il `~/spx` percorso della variabile di sistema Path.
+
 
 #### <a name="docker-install-windows-linux-macos"></a>[Installazione in Docker (Windows, Linux, macOS)](#tab/dockerinstall)
 

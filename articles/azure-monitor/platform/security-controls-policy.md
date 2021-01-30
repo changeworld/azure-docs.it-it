@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Monitoraggio di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Monitoraggio di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 author: rboucher
 ms.author: robb
 ms.service: azure-monitor
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 04d43e40d6faf2cd884b56d342762e4984a2ae57
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 25ed58a1779caa42c32e35f7b9d44a339002987a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98795676"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093285"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-monitor"></a>Controlli di conformità alle normative di Criteri di Azure per Monitoraggio di Azure
 

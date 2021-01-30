@@ -127,6 +127,10 @@
           href: iot-data-flow.md
         - name: Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
           href: iot-mapping-templates.md
+    - name: Sicurezza
+      items:
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          href: ./security-controls-policy.md
 - name: Risorse
   items:
     - name: Domande frequenti

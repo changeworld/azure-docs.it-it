@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 6a71bcbfb8341098711e330cebf8545e1fd2751c
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656955"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096322"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Eseguire la migrazione alla versione 3. x del API Analisi del testo
 
@@ -46,9 +46,6 @@ Per esempi della risposta JSON, vedere la documentazione di riferimento.
 
 ### <a name="feature-changes"></a>Modifiche apportate alle funzionalità
 
-> [!NOTE] 
-> Attualmente, le [categorie di entità V3](named-entity-types.md) vengono restituite solo con testo in lingua inglese e spagnolo. L'API restituisce i risultati della versione 2,1 per le richieste in altre lingue, purché siano supportate nella versione 2,1.
-
 Nella versione 2,1, il API Analisi del testo usa un endpoint per il riconoscimento delle entità denominate (NER) e il collegamento di entità. La versione 3 fornisce il rilevamento esteso delle entità denominate e USA endpoint distinti per le richieste NER e di collegamento di entità. A partire dalla versione 3.1-Preview. 1, NER può rilevare anche `pii` le informazioni personali e di integrità `phi` . 
 
 ### <a name="steps-to-migrate"></a>Passaggi per la migrazione
@@ -73,6 +70,35 @@ Per esempi della risposta JSON, vedere la documentazione di riferimento.
 #### <a name="client-libraries"></a>Librerie client
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
+
+#### <a name="version-21-entity-categories"></a>Categorie di entità versione 2,1
+
+Nella tabella seguente sono elencate le categorie di entità restituite per NER v 2.1.
+
+| Category   | Descrizione                          |
+|------------|--------------------------------------|
+| Persona   |   Nomi delle persone.  |
+|Location    | Punti di interesse naturali e umani, strutture, funzionalità geografiche e entità geopolitiche |
+|Organization | Società, gruppi politici, bande musicali, sport clubs, enti governativi e organizzazioni pubbliche. Le nazionalità e le religioni non sono incluse in questo tipo di entità. |
+| PhoneNumber | Numeri di telefono (solo numeri di telefono US e UE). |
+| E-mail | Indirizzi di posta elettronica. |
+| URL | URL per siti Web. |
+| IP | Indirizzi IP di rete. |
+| Datetime | Date e ore del giorno.| 
+| Data | Date calendario. |
+| Tempo | Ora del giorno |
+| DateRange | Intervalli di date. |
+| Intervallo di tempo | Intervalli di tempo. |
+| Duration | Durate |
+| Set | Set, ripetuto volte. |
+| Quantità | Numeri e quantità numeriche. |
+| Number | Numeri. |
+| Percentuale | Percentuali.|
+| Ordinale | Numeri ordinali. |
+| Età | Età. |
+| Valuta | Valute. |
+| Dimension | Dimensioni e misurazioni. |
+| Temperatura | Temperature. |
 
 ## <a name="language-detection"></a>[Rilevamento della lingua](#tab/language-detection)
 

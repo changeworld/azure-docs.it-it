@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: a08b5db19aab19402aa3c93cfa23ce7b39a0a838
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2416c0b4002f560e272393c95a86c543cb5f1009
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918689"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097843"
 ---
 # <a name="lsv2-series"></a>Serie Lsv2
 
@@ -33,6 +33,7 @@ La serie Lsv2 offre velocità effettiva elevata, bassa latenza, risorse di archi
 [Supporto](generation-2.md)per la generazione di VM: generazione 1 e 2<br>
 In sequenza: supportato<br>
 [Rete accelerata](../virtual-network/create-vm-accelerated-networking-cli.md): supportata<br>
+[Dischi del sistema operativo temporaneo](ephemeral-os-disks.md): non supportati <br>
 <br>
 
 | Dimensione | vCPU | Memoria (GiB) | Disco temporaneo<sup>1</sup> (GiB) | Dischi NVMe<sup>2</sup> | Velocità effettiva del disco NVMe<sup>3</sup> (letture IOPS/Mbps) | Velocità effettiva del disco dati non memorizzata nella cache (IOPs/MBps)<sup>4</sup> | Velocità effettiva massima del disco dati non memorizzato nella cache (IOPs/MBps)<sup>5</sup>| Numero massimo di dischi dati | Schede di interfaccia di rete max | Larghezza di banda di rete prevista (Mbps) |

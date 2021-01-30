@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: afa21e6aae769e69e8bc83b9fa0d4f9b76396f7e
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2f56fc285ed263b4b58985b5df620740a33cb3f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220313"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092352"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
 
@@ -240,9 +240,9 @@ Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 Usare il parametro `-Result` per rilevare se i processi finiti sono stati completati correttamente. Dispone di questi valori:
 
 * Operazione annullata
-* Operazione non riuscita
+* Non riuscito
 * nessuno
-* Operazione riuscita
+* Completato
 
 ``` powershell
 # List Successful jobs.
@@ -298,7 +298,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Analisi della cronologia processo
 
-L'uso di Azure PowerShell per analizzare la cronologia dei processi eseguiti in Data Lake Analytics è una tecnica potente. In questo modo, è possibile ottenere informazioni dettagliate sull'utilizzo e sui costi. Per altre informazioni, vedere il [repository di esempio di analisi della cronologia processo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+L'uso di Azure PowerShell per analizzare la cronologia dei processi eseguiti in Data Lake Analytics è una tecnica potente. In questo modo, è possibile ottenere informazioni dettagliate sull'utilizzo e sui costi. Per altre informazioni, vedere il [repository di esempio di analisi della cronologia processo](https://github.com/jpalbright31/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="list-job-pipelines-and-recurrences"></a>Elencare pipeline e ricorrenze dei processi
 
@@ -552,4 +552,4 @@ foreach ($sub in $subs)
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * Introduzione a data Lake Analytics usando l'interfaccia della riga di comando di [portale di Azure](data-lake-analytics-get-started-portal.md)  |  [Azure PowerShell](data-lake-analytics-get-started-powershell.md)  |  [Azure](data-lake-analytics-get-started-cli.md)
-* Gestire Azure Data Lake Analytics usando [Azure portal](data-lake-analytics-manage-use-portal.md)l'  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [interfaccia](data-lake-analytics-manage-use-cli.md) della riga di comando di portale di Azure Azure PowerShell
+* Gestire Azure Data Lake Analytics usando [](data-lake-analytics-manage-use-portal.md)l'  |  [](data-lake-analytics-manage-use-powershell.md)  |  [interfaccia](data-lake-analytics-manage-use-cli.md) della riga di comando di portale di Azure Azure PowerShell

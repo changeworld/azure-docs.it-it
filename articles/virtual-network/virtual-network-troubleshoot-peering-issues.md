@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 75b62eb00b1a1a534be01f9f118b4d5066e44a37
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cb5ce421b6a38edcb8d92866f749a544eff927d6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222888"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096390"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Risolvere i problemi di peering di rete virtuale
 
@@ -87,7 +87,7 @@ Seguire la procedura descritta in [Configurare il transito nel gateway VPN per i
 Per altre informazioni, vedere [Concatenamento di servizi](./virtual-network-peering-overview.md#service-chaining).
 
 > [!Note]
-> Se è necessaria assistenza per configurare un'appliance virtuale di rete, [contattare il fornitore dell'appliance](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+> Se è necessaria assistenza per configurare un'appliance virtuale di rete, [contattare il fornitore dell'appliance](https://mskb.pkisolutions.com/kb/2984655).
 
 Per informazioni sulla risoluzione dei problemi relativi alla configurazione e al routing di appliance virtuali di rete, vedere [Problemi delle appliance virtuali di rete in Azure](./virtual-network-troubleshoot-nva.md).
 
@@ -190,7 +190,7 @@ Per le connessioni da punto a sito:
 
 Una rete hub deve includere un'appliance virtuale di rete. Configurare le route definite dall'utente negli spoke per cui è impostata un'appliance virtuale di rete come hop successivo e abilitare l'opzione **Consenti traffico inoltrato**  nella rete virtuale hub.
 
-Per altre informazioni, vedere [Concatenamento dei servizi](./virtual-network-peering-overview.md#service-chaining) e rivolgersi al [fornitore dell'appliance virtuale di rete](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) per discutere dei requisiti.
+Per altre informazioni, vedere [Concatenamento dei servizi](./virtual-network-peering-overview.md#service-chaining) e rivolgersi al [fornitore dell'appliance virtuale di rete](https://mskb.pkisolutions.com/kb/2984655) per discutere dei requisiti.
 
 ## <a name="troubleshoot-a-hub-spoke-network-connectivity-issue-between-spoke-virtual-networks-in-different-regions"></a>Risolvere un problema di connettività di rete hub-spoke tra reti virtuali spoke in aree diverse
 

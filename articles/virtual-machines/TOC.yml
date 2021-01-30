@@ -1742,7 +1742,7 @@
         - name: Eseguire il backup di più macchine virtuali
           href: ../backup/tutorial-backup-vm-at-scale.md
         - name: Opzioni di ripristino
-          href: ../backup/backup-azure-arm-restore-vms.md
+          href: /azure/backup/backup-azure-arm-restore-vms
         - name: Matrice di supporto
           href: ../backup/backup-support-matrix-iaas.md
         - name: Prezzi

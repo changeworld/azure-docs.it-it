@@ -6,12 +6,12 @@ ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 8105988cd2036f44d214befad3365cf9ee96ee0d
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 07df391e664fe04b9c7d2eda34960666c44a2e06
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015981"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094085"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -43,7 +43,7 @@ Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 4. Scegliere il valore del livello di compatibilità desiderato.
 5. Selezionare **Save (Salva** ) nella parte inferiore della pagina.
 
-![Livello di compatibilità di Analisi di flusso nel portale di Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
+![Livello di compatibilità di Analisi di flusso nel portale di Azure](media/stream-analytics-compatibility-level/stream-analytics-compat-level-1-2.png)
 
 Quando si aggiorna il livello di compatibilità, il compilatore T convalida il processo con la sintassi che corrisponde al livello di compatibilità selezionato.
 
