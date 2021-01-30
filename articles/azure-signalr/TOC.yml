@@ -86,6 +86,8 @@
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          href: ./security-controls-policy.md
 - name: Guide pratiche
   items:
     - name: Scalabilità

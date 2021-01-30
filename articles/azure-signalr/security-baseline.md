@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b750d4cc911dc72b60974171dd884b373921fad5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734597"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093966"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Baseline della sicurezza di Azure per il servizio Azure SignalR
 
@@ -220,7 +220,7 @@ Azure Advanced Threat Protection (ATP) è una soluzione di sicurezza che può us
 
 **Linee guida**: i ruoli predefiniti più critici sono Azure Active Directory (Azure ad) sono amministratore globale e amministratore del ruolo con privilegi come gli utenti assegnati a questi due ruoli possono delegare i ruoli di amministratore:
 
-- Amministratore globale/amministratore della società: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative di Azure AD, nonché ai servizi che usano Azure AD identità.
+- Amministratore globale: gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative di Azure AD, nonché ai servizi che usano Azure AD identità.
 
 - Amministratore del ruolo con privilegi: gli utenti con questo ruolo possono gestire le assegnazioni di ruolo in Azure Active Directory (Azure AD) e in Azure AD Privileged Identity Management (PIM). Inoltre, questo ruolo consente la gestione di tutti gli aspetti di PIM e delle unità amministrative.
 

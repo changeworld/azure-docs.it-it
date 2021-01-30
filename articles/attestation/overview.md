@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 6a587ecbe7ff67908b22d4f2429cfdd0c511e07d
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
-ms.translationtype: HT
+ms.openlocfilehash: a2b26ae8debf1c52693018ce9a758bfa9b029fa2
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748774"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093377"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Attestazione di Microsoft Azure (anteprima)
+# <a name="microsoft-azure-attestation"></a>Attestazione di Microsoft Azure 
 
-Attestazione di Microsoft Azure (anteprima) è una soluzione unificata che consente di verificare in remoto l'attendibilità di una piattaforma e l'integrità dei file binari in esecuzione al suo interno. Il servizio supporta l'attestazione delle piattaforme supportate da TPM (Trusted Platform Module) insieme alla possibilità di attestare lo stato degli ambienti di esecuzione attendibile (TEE), ad esempio le [enclavi di Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) e le enclavi con [sicurezza basata su virtualizzazione](/windows-hardware/design/device-experiences/oem-vbs) (VBS). 
+Microsoft Azure attestazione è una soluzione unificata per verificare in remoto l'attendibilità di una piattaforma e l'integrità dei file binari in esecuzione al suo interno. Il servizio supporta l'attestazione delle piattaforme supportate da TPM (Trusted Platform Module) insieme alla possibilità di attestare lo stato degli ambienti di esecuzione attendibile (TEE), ad esempio le [enclavi di Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) e le enclavi con [sicurezza basata su virtualizzazione](/windows-hardware/design/device-experiences/oem-vbs) (VBS). 
 
 L'attestazione è un processo per dimostrare che siano state create istanze corrette dei binari software in una piattaforma attendibile. Le relying party remote possono quindi avere la certezza che solo tale software previsto venga eseguito su hardware attendibile. Attestazione di Azure è un servizio e framework unificato rivolto ai clienti per l'attestazione.
 
@@ -39,6 +39,12 @@ Le applicazioni client possono essere progettate per sfruttare le enclavi SGX de
 [Open Enclave](https://openenclave.io/sdk/) (OE) è una raccolta di librerie destinate alla creazione di una singola astrazione unificata per enclavi che consente agli sviluppatori di creare applicazioni basate su TEE. Offre un modello di app sicuro universale che riduce al minimo le specifiche della piattaforma. Microsoft lo considera come un primo passo essenziale per la democratizzazione di tecnologie di enclave basate su hardware, ad esempio SGX, e l'aumento della loro diffusione in Azure.
 
 OE standardizza i requisiti specifici per la verifica dell'evidenza di un'enclave. Per questo motivo, OE si qualifica come consumer di attestazione perfettamente idoneo per Attestazione di Azure.
+
+### <a name="tpm-attestation"></a>Attestazione TPM 
+
+L'attestazione basata su Trusted Platform Module (TPM) è fondamentale per fornire la prova dello stato di una piattaforma. Il TPM funge da radice di attendibilità e dal coprocessore di sicurezza per fornire la validità crittografica alle misurazioni (evidenza). I dispositivi con un TPM possono basarsi sull'attestazione per dimostrare che l'integrità di avvio non viene compromessa insieme all'uso delle attestazioni per rilevare l'abilitazione degli Stati delle funzionalità durante l'avvio. 
+
+Le applicazioni client possono essere progettate per trarre vantaggio dall'attestazione TPM delegando le attività sensibili alla sicurezza solo dopo che una piattaforma è stata convalidata per essere protetta. Tali applicazioni possono quindi utilizzare l'attestazione di Azure per stabilire periodicamente la relazione di trust nella piattaforma e la possibilità di accedere ai dati sensibili.
 
 ## <a name="azure-attestation-can-run-in-a-tee"></a>Attestazione di Azure è eseguibile in un ambiente TEE
 

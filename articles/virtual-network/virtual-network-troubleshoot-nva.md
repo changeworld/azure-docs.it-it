@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 18f2128b6869b4047cc6f35e1638aca81233a014
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: fe4c17b74cd786d03bd19257dea190a21ecaa9f5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98219250"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095642"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "98219250"
 Il supporto tecnico per le appliance virtuali di rete di terze parti e per la rispettiva integrazione con la piattaforma Azure viene fornito dal fornitore dell'appliance virtuale di rete.
 
 > [!NOTE]
-> Se si verifica un problema di connettività o di routing che interessa un'appliance virtuale di rete, è necessario [contattare il fornitore dell'appliance virtuale di rete](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) direttamente.
+> Se si verifica un problema di connettività o di routing che interessa un'appliance virtuale di rete, è necessario [contattare il fornitore dell'appliance virtuale di rete](https://mskb.pkisolutions.com/kb/2984655) direttamente.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -52,7 +52,7 @@ Il supporto tecnico per le appliance virtuali di rete di terze parti e per la ri
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Controllare i requisiti di configurazione minimi per le appliance virtuali di rete in Azure
 
-Per il funzionamento corretto in Azure, a ogni appliance virtuale di rete sono associati requisiti di configurazione di base. La sezione seguente fornisce la procedura da seguire per verificare tali configurazioni di base. Per altre informazioni, [contattare il fornitore dell'appliance virtuale di rete](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Per il funzionamento corretto in Azure, a ogni appliance virtuale di rete sono associati requisiti di configurazione di base. La sezione seguente fornisce la procedura da seguire per verificare tali configurazioni di base. Per altre informazioni, [contattare il fornitore dell'appliance virtuale di rete](https://mskb.pkisolutions.com/kb/2984655).
 
 **Controllare se l'inoltro IP è abilitato nell'appliance virtuale di rete**
 
@@ -112,17 +112,17 @@ Usare PowerShell
     ```console
    netstat -an | grep -i listen
     ```
-2. Se non viene visualizzata la porta TCP usata dal software dell'appliance virtuale di rete elencata nei risultati, è necessario configurare l'applicazione sull'appliance virtuale di rete e sulla macchina virtuale in modo che sia in ascolto e risponda al traffico che raggiunge tali porte. [Contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza in base alla necessità](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+2. Se non viene visualizzata la porta TCP usata dal software dell'appliance virtuale di rete elencata nei risultati, è necessario configurare l'applicazione sull'appliance virtuale di rete e sulla macchina virtuale in modo che sia in ascolto e risponda al traffico che raggiunge tali porte. [Contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza in base alla necessità](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Controllare le prestazioni dell'appliance virtuale di rete
 
 ### <a name="validate-vm-cpu"></a>Convalidare la CPU della VM
 
-Se l'utilizzo della CPU si avvicina al 100%, è possibile che si verifichino problemi che influiscono sulle cadute dei pacchetti di rete. La macchina virtuale segnala un utilizzo medio della CPU per un intervallo di tempo specifico nel portale di Azure. Durante un picco di utilizzo della CPU, esaminare il processo nella VM guest che provoca l'utilizzo elevato della CPU e attenuare il problema, se possibile. Potrebbe essere anche necessario ridimensionare la VM specificando dimensioni di SKU più elevate oppure, per un set di scalabilità di macchine virtuali, aumentare il numero di istanze o impostare il ridimensionamento automatico per l'utilizzo della CPU. Per uno di questi problemi, [rivolgersi al fornitore dell'appliance virtuale di servizio per assistenza](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alle esigenze.
+Se l'utilizzo della CPU si avvicina al 100%, è possibile che si verifichino problemi che influiscono sulle cadute dei pacchetti di rete. La macchina virtuale segnala un utilizzo medio della CPU per un intervallo di tempo specifico nel portale di Azure. Durante un picco di utilizzo della CPU, esaminare il processo nella VM guest che provoca l'utilizzo elevato della CPU e attenuare il problema, se possibile. Potrebbe essere anche necessario ridimensionare la VM specificando dimensioni di SKU più elevate oppure, per un set di scalabilità di macchine virtuali, aumentare il numero di istanze o impostare il ridimensionamento automatico per l'utilizzo della CPU. Per uno di questi problemi, [rivolgersi al fornitore dell'appliance virtuale di servizio per assistenza](https://mskb.pkisolutions.com/kb/2984655), in base alle esigenze.
 
 ### <a name="validate-vm-network-statistics"></a>Convalidare le statistiche di rete della VM
 
-Se l'utilizzo della rete della VM presenta picchi o periodi di utilizzo elevato, potrebbe essere anche necessario aumentare le dimensioni di SKU della VM per ottenere funzionalità più elevate per la velocità effettiva. È anche possibile ridistribuire la macchina virtuale abilitando Rete accelerata. Per verificare che l'appliance virtuale di rete supporti la funzionalità Rete accelerata, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alla necessità.
+Se l'utilizzo della rete della VM presenta picchi o periodi di utilizzo elevato, potrebbe essere anche necessario aumentare le dimensioni di SKU della VM per ottenere funzionalità più elevate per la velocità effettiva. È anche possibile ridistribuire la macchina virtuale abilitando Rete accelerata. Per verificare che l'appliance virtuale di rete supporti la funzionalità Rete accelerata, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://mskb.pkisolutions.com/kb/2984655), in base alla necessità.
 
 ## <a name="advanced-network-administrator-troubleshooting"></a>Risoluzione avanzata dei problemi dell'amministratore di rete
 
@@ -146,4 +146,4 @@ Acquisire una traccia di rete simultanea nella macchina virtuale di origine, nel
 
 Se non è possibile visualizzare i pacchetti in ingresso nella traccia della macchina virtuale di back-end, è probabile che sia presente un'interferenza dovuta a un gruppo di sicurezza di rete o a una route definita dall'utente oppure che le tabelle di dell'appliance virtuale di rete non siano corrette.
 
-Se si visualizzano i pacchetti in entrata, ma non viene restituita alcuna risposta, può essere necessario risolvere un problema di firewall o di un'applicazione di VM. Se si verifica uno di questi problemi, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines), in base alla necessità.
+Se si visualizzano i pacchetti in entrata, ma non viene restituita alcuna risposta, può essere necessario risolvere un problema di firewall o di un'applicazione di VM. Se si verifica uno di questi problemi, [contattare il fornitore dell'appliance virtuale di rete per ottenere assistenza](https://mskb.pkisolutions.com/kb/2984655), in base alla necessità.

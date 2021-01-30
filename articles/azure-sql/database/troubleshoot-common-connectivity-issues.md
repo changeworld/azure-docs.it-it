@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791359"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99093758"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Risolvere gli errori di connessione temporanei nel database SQL e in SQL Istanza gestita
 
@@ -31,7 +31,7 @@ Questo articolo descrive come prevenire, risolvere i problemi, diagnosticare e m
 
 Un errore temporaneo è un errore la cui causa sottostante si risolverà automaticamente in modo rapido. Una causa occasionale di errori temporanei è costituita dal cambio rapido di risorse hardware da parte del sistema Azure per ottenere un bilanciamento migliore dei diversi carichi di lavoro. La maggior parte di questi eventi di riconfigurazione viene completata in meno di 60 secondi. Durante questo intervallo di riconfigurazione, è possibile che si verifichino problemi di connessione al database nel database SQL. Le applicazioni che si connettono al database devono essere compilate in modo da prevedere questi errori temporanei. Per gestirli, implementare la logica di ripetizione nel codice anziché mostrarli agli utenti come errori dell'applicazione.
 
-Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException** .
+Se il programma client usa ADO.NET, l'errore temporaneo verrà segnalato al programma tramite la generazione di un'eccezione **SqlException**.
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -126,17 +126,17 @@ Per semplificare il test, il programma riconosce un parametro di runtime che ha 
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parametri di SqlConnection di .NET per nuovi tentativi di connessione
 
-Se il programma client si connette al database nel database SQL usando la classe .NET Framework **System. Data. SqlClient. SqlConnection** , usare .NET 4.6.1 o versioni successive (o .NET Core) per poter usare la funzionalità di ripetizione dei tentativi di connessione. Per ulteriori informazioni sulla funzionalità, vedere [SqlConnection. ConnectionString Property](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
+Se il programma client si connette al database nel database SQL usando la classe .NET Framework **System. Data. SqlClient. SqlConnection**, usare .NET 4.6.1 o versioni successive (o .NET Core) per poter usare la funzionalità di ripetizione dei tentativi di connessione. Per ulteriori informazioni sulla funzionalità, vedere [SqlConnection. ConnectionString Property](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Quando si crea la [stringa di connessione](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) per l'oggetto **SqlConnection** , coordinare i valori tra i parametri seguenti:
+Quando si crea la [stringa di connessione](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) per l'oggetto **SqlConnection**, coordinare i valori tra i parametri seguenti:
 
-- **ConnectRetryCount** : il &nbsp; &nbsp; valore predefinito è 1. L'intervallo consentito è tra 0 e 255.
-- **ConnectRetryInterval** : il &nbsp; &nbsp; valore predefinito è 10 secondi. L'intervallo consentito è tra 1 e 60.
-- **Timeout connessione** : il &nbsp; &nbsp; valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647.
+- **ConnectRetryCount**: il &nbsp; &nbsp; valore predefinito è 1. L'intervallo consentito è tra 0 e 255.
+- **ConnectRetryInterval**: il &nbsp; &nbsp; valore predefinito è 10 secondi. L'intervallo consentito è tra 1 e 60.
+- **Timeout connessione**: il &nbsp; &nbsp; valore predefinito è 15 secondi. L'intervallo consentito è tra 0 e 2147483647.
 
 In particolare, i valori scelti devono rendere vera l'uguaglianza seguente: Timeout di connessione = ConnectRetryCount * ConnectionRetryInterval
 
@@ -151,7 +151,7 @@ I parametri **ConnectRetryCount** e **ConnectRetryInterval** consentono all'ogge
 - Chiamata al metodo SqlConnection. Open
 - SqlConnection.Exechiamata al metodo carino
 
-È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query* , l'oggetto **SqlConnection** non ripete l'operazione di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se viene rilevato un problema, **SqlConnection** ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
+È importante sottolineare che, se si verifica un errore temporaneo durante l'esecuzione della *query*, l'oggetto **SqlConnection** non ripete l'operazione di connessione e certamente non ritenta l'esecuzione della query. Prima di inviare la query per l'esecuzione, tuttavia, **SqlConnection** controlla rapidamente la connessione e, se viene rilevato un problema, **SqlConnection** ritenta l'operazione di connessione. Se il tentativo ha esito positivo, la query viene inviata per l'esecuzione.
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>Opportunità di combinare ConnectRetryCount con la logica di ripetizione dei tentativi nell'applicazione
 
@@ -189,7 +189,7 @@ In genere è sufficiente assicurarsi che soltanto la porta 1433 sia aperta per l
 Ad esempio, se il programma client è ospitato in un computer Windows, è possibile usare Windows Firewall nell'host per aprire la porta 1433.
 
 1. Aprire il Pannello di controllo.
-2. Selezionare **tutti gli elementi del pannello di controllo**  >  **Windows Firewall**  >  **Impostazioni avanzate**  >  **regole in uscita**  >  **azioni**  >  **nuova regola** .
+2. Selezionare **tutti gli elementi del pannello di controllo**  >  **Windows Firewall**  >  **Impostazioni avanzate**  >  **regole in uscita**  >  **azioni**  >  **nuova regola**.
 
 Se il programma client si trova su una macchina virtuale (VM) di Azure, leggere [Porte superiori a 1433 per ADO.NET 4.5 e il database SQL](adonet-v12-develop-direct-route-ports.md).
 
@@ -207,7 +207,7 @@ Se il programma usa classi ADO.NET come **System.Data.SqlClient.SqlConnection** 
 
 #### <a name="starting-with-adonet-461"></a>A partire da ADO.NET 4.6.1
 
-- Per il database SQL, è possibile migliorare l'affidabilità aprendo una connessione con il metodo **SqlConnection.Open** . Il metodo **Open** incorpora ora meccanismi di ripetizione dei tentativi di tipo "massimo sforzo" in risposta agli errori temporanei, per alcuni errori entro l'intervallo di durata della connessione.
+- Per il database SQL, è possibile migliorare l'affidabilità aprendo una connessione con il metodo **SqlConnection.Open**. Il metodo **Open** incorpora ora meccanismi di ripetizione dei tentativi di tipo "massimo sforzo" in risposta agli errori temporanei, per alcuni errori entro l'intervallo di durata della connessione.
 - È supportato il pool di connessioni, inclusa una verifica efficiente del corretto funzionamento dell'oggetto connessione fornito al programma.
 
 Quando si usa un oggetto connessione da un pool di connessioni, è consigliabile che il programma chiuda temporaneamente la connessione se questa non deve essere usata immediatamente. Riaprire una connessione non ha alcun costo, a differenza della creazione di una nuova connessione.
@@ -331,7 +331,7 @@ Enterprise Library 6 (EntLib60) è un Framework di classi .NET che consente di i
 Logica di ripetizione dei tentativi per la gestione degli errori temporanei è un'area in cui EntLib60 può essere utile. Per altre informazioni, vedere [4 - Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
-> Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
+> Il codice sorgente per EntLib60 è disponibile per il download pubblico nell'[Area download](https://github.com/MicrosoftArchive/enterprise-library). Microsoft non prevede di fornire altre funzionalità o aggiornamenti di manutenzione per EntLib.
 
 <a id="entlib60-classes-for-transient-errors-and-retry" name="entlib60-classes-for-transient-errors-and-retry"></a>
 
@@ -339,7 +339,7 @@ Logica di ripetizione dei tentativi per la gestione degli errori temporanei è u
 
 Le classi seguenti di EntLib60 sono particolarmente utili per la logica di ripetizione dei tentativi. Tutte queste classi sono disponibili nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** o nei livelli sottostanti.
 
-Nello spazio dei nomi **Microsoft. practices. enterpriselibrary. TransientFaultHandling** :
+Nello spazio dei nomi **Microsoft. practices. enterpriselibrary. TransientFaultHandling**:
 
 - **RetryPolicy**
   - **ExecuteAction**
@@ -348,7 +348,7 @@ Nello spazio dei nomi **Microsoft. practices. enterpriselibrary. TransientFaultH
 - **ReliableSqlConnection**
   - **ExecuteCommand**
 
-Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
+Nello spazio dei nomi **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
 
 - **AlwaysTransientErrorDetectionStrategy**
 - **NeverTransientErrorDetectionStrategy**
@@ -375,7 +375,7 @@ Per altre informazioni, vedere [5 - Più facile che mai: uso del blocco applicaz
 
 ### <a name="entlib60-istransient-method-source-code"></a>Codice sorgente del metodo IsTransient di EntLib60
 
-La classe **SqlDatabaseTransientErrorDetectionStrategy** include anche il codice sorgente C# per il metodo **IsTransient** . Il codice sorgente chiarisce gli errori considerati temporanei e idonei alla ripetizione dei tentativi, a partire da aprile 2013.
+La classe **SqlDatabaseTransientErrorDetectionStrategy** include anche il codice sorgente C# per il metodo **IsTransient**. Il codice sorgente chiarisce gli errori considerati temporanei e idonei alla ripetizione dei tentativi, a partire da aprile 2013.
 
 ```csharp
 public bool IsTransient(Exception ex)

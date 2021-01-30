@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a668fa9bf0ef4fd3b5451ff4c815b676fe237e51
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 88fda4ec810d0b410dcd75ac9c6be69bd54b16d9
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410624"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092650"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Risoluzione degli problemi durante la sincronizzazione
 Gli errori potrebbero verificarsi durante la sincronizzazione dei dati dell'identità da Windows Server Active Directory (AD DS) ad Azure Active Directory (Azure AD). L'articolo offre una panoramica delle diverse tipologie di errori di sincronizzazione, di alcuni scenari possibili che causano tali errori e delle possibili soluzioni per correggere questi errori. In questo articolo vengono descritti soltanto gli errori più comuni.
@@ -34,7 +34,7 @@ A partire dal 1 settembre 2016 la funzionalità [Azure Active Directory Duplicat
 Azure AD Connect esegue tre tipi di operazioni dalle directory che mantiene sincronizzate: importazione, sincronizzazione ed esportazione. Gli errori possono verificarsi durante tutte le operazioni. L'articolo si concentra prevalentemente sugli errori che si verificano durante l'esportazione in Azure AD.
 
 ## <a name="errors-during-export-to-azure-ad"></a>Errori durante l'esportazione in Azure AD
-La sezione seguente descrive le differenti tipologie di errori di sincronizzazione che possono verificarsi durante l'esportazione in Azure AD usando il connettore di Azure AD, identificabile dal formato del nome: "contoso. *onmicrosoft.com* ".
+La sezione seguente descrive le differenti tipologie di errori di sincronizzazione che possono verificarsi durante l'esportazione in Azure AD usando il connettore di Azure AD, identificabile dal formato del nome: "contoso.*onmicrosoft.com*".
 Quando si verificano un errore durante l'esportazione in Azure AD significa che l'operazione di \(aggiunta, aggiornamento, eliminazione e così via\) tentata dal \(motore di sincronizzazione\) di Azure AD Connect in Azure Active Directory non è andata a buon fine.
 
 ![Panoramica degli errori di esportazione](./media/tshoot-connect-sync-errors/Export_Errors_Overview_01.png)
@@ -74,11 +74,11 @@ Lo schema di Azure Active Directory non consente a due o più oggetti di avere l
 1. **Bob Smith** è un utente sincronizzato in Azure Active Directory dall'Active Directory locale di *contoso.com*
 2. Il **userPrincipalName** di Bob Smith è impostato come **Bob \@ contoso.com**.
 3. **"abcdefghijklmnopqrstuv = ="** è l'attributo **SourceAnchor** calcolato da Azure AD Connect usando l'attributo **objectGUID** di Bob Smith dall'Active Directory locale, che corrisponde all'attributo **immutableId** di Bob Smith in Azure Active Directory.
-4. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses** :
+4. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses**:
    * SMTP: bobs@contoso.com
    * SMTP: bob.smith@contoso.com
    * **SMTP: Bob \@ contoso.com**
-5. Un nuovo utente, **Bob Taylor** , viene aggiunto all'Active Directory locale.
+5. Un nuovo utente, **Bob Taylor**, viene aggiunto all'Active Directory locale.
 6. Il **userPrincipalName** di Bob Taylor è impostato come **bobt \@ contoso.com**.
 7. **"abcdefghijkl0123456789 = =" "** è l'attributo **sourceAnchor** calcolato da Azure AD Connect usando l'attributo **objectGUID** di Bob Taylor dall'Active Directory locale. L'oggetto di Bob Taylor NON è stato ancora sincronizzato ad Azure Active Directory.
 8. Bob Taylor dispone dei valori seguenti per l'attributo proxyAddresses
@@ -144,13 +144,13 @@ Se Azure AD Connect tenta di aggiungere un nuovo oggetto o di aggiornare un ogge
 #### <a name="example-case"></a>Caso di esempio:
 1. **Bob Smith** è un utente sincronizzato in Azure Active Directory da un'Active Directory locale di contoso.com
 2. Il **userPrincipalName** di Bob Smith in locale è impostato come **Bob \@ contoso.com**.
-3. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses** :
+3. Bob dispone anche dei seguenti valori per l'attributo **proxyAddresses**:
    * SMTP: bobs@contoso.com
    * SMTP: bob.smith@contoso.com
    * **SMTP: Bob \@ contoso.com**
-4. Un nuovo utente, **Bob Taylor** , viene aggiunto all'Active Directory locale.
+4. Un nuovo utente, **Bob Taylor**, viene aggiunto all'Active Directory locale.
 5. Il **userPrincipalName** di Bob Taylor è impostato come **bobt \@ contoso.com**.
-6. **Bob Taylor** dispone dei valori seguenti per l'attributo **proxyAddresses** : SMTP: bobt@contoso.com ii. SMTP: bob.taylor@contoso.com
+6. **Bob Taylor** dispone dei valori seguenti per l'attributo **proxyAddresses**: SMTP: bobt@contoso.com ii. SMTP: bob.taylor@contoso.com
 7. L'oggetto di Bob Taylor viene sincronizzato correttamente con Azure AD.
 8. L'amministratore ha deciso di aggiornare l'attributo **ProxyAddresses** di Bob Taylor con il seguente valore: i. **SMTP: Bob \@ contoso.com**
 9. Azure AD tenterà di aggiornare l'oggetto di Bob Taylor in Azure AD con il valore indicato sopra, ma tale operazione avrà esito negativo poiché il valore di ProxyAddresses è già stato assegnato a Bob Smith; di conseguenza verrà restituito l'errore "AttributeValueMustBeUnique".
@@ -195,13 +195,13 @@ Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è sta
 4. L'attributo userPrincipalName di Bob non viene aggiornato e si verifica l'errore di sincronizzazione "FederatedDomainChangeError".
 
 #### <a name="how-to-fix"></a>Procedura di correzione
-Se il suffisso UserPrincipalName di un utente è stato aggiornato da bob@ **contoso.com** a Bob \@ **Fabrikam.com** , in cui sia **contoso.com** che **Fabrikam.com** sono **domini federati** , attenersi alla procedura seguente per correggere l'errore di sincronizzazione
+Se il suffisso UserPrincipalName di un utente è stato aggiornato da bob@**contoso.com** a Bob \@ **Fabrikam.com**, in cui sia **contoso.com** che **Fabrikam.com** sono **domini federati**, attenersi alla procedura seguente per correggere l'errore di sincronizzazione
 
 1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com. È possibile utilizzare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Consentire al ciclo di sincronizzazione successivo di eseguire un nuovo tentativo di sincronizzazione. Questa volta la sincronizzazione andrà a buon fine e permetterà di aggiornare l'attributo UserPrincipalName di Bob su bob@fabrikam.com, come previsto.
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Le modifiche non vengono sincronizzate dallo strumento di sincronizzazione Azure Active Directory dopo la modifica dell'UPN di un account utente per l'utilizzo di un dominio federato diverso](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [Le modifiche non vengono sincronizzate dallo strumento di sincronizzazione Azure Active Directory dopo la modifica dell'UPN di un account utente per l'utilizzo di un dominio federato diverso](/azure/active-directory/hybrid/howto-troubleshoot-upn-changes)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>Descrizione

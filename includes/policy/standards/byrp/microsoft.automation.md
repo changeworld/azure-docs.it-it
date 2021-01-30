@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 08cdf44931e9aab28fad5fb5c670d0e2b9361e52
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 7c7e036cb2b26d46ba12ac27efe723f974ee9f8a
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98859697"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092926"
 ---
 ## <a name="azure-security-benchmark"></a>Benchmark di sicurezza di Azure
 
@@ -41,4 +41,13 @@ Per ulteriori informazioni su questo standard di conformità, vedere [Cybersecur
 |---|---|---|---|---|
 |Protezione del sistema e delle comunicazioni |SC. 3.177 |Utilizzare la crittografia convalidata da FIPS quando utilizzata per proteggere la riservatezza di. |[Le variabili dell'account di automazione devono essere crittografate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 |Protezione del sistema e delle comunicazioni |SC. 3.191 |Proteggere la riservatezza di CUI nello stato inattivo. |[Le variabili dell'account di automazione devono essere crittografate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
+
+## <a name="iso-270012013"></a>ISO 27001:2013
+
+Per esaminare il mapping tra i criteri di Azure disponibili predefiniti per tutti i servizi di Azure e questo standard di conformità, vedere [conformità alle normative di criteri di Azure-ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
+Per ulteriori informazioni su questo standard di conformità, vedere [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html).
+
+|Dominio |ID controllo |Titolo controllo |Policy<br /><sub>(Portale di Azure)</sub> |Versione del criterio<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Crittografia |10.1.1 |Criteri per l'utilizzo di controlli crittografici |[Le variabili dell'account di automazione devono essere crittografate](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3657f5a0-770e-44a3-b44e-9431ba1e9735) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Automation/Automation_AuditUnencryptedVars_Audit.json) |
 

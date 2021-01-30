@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 23af7b3f7cfd5ec0531c5cac73cf8a334ef4aa62
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347483"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096441"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -34,7 +34,7 @@ Questo articolo descrive come creare e pubblicare un'offerta del modulo IoT Edge
 Immettere l'ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
-- Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
 Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
@@ -169,7 +169,7 @@ Immettere l'indirizzo Web dell'informativa sulla privacy dell'organizzazione. L'
 
 Specificare altri documenti online sull'offerta. È possibile aggiungere fino a 25 collegamenti. Per aggiungere un collegamento, selezionare **+ Aggiungi un collegamento** e quindi completare i campi seguenti:
 
-- **Titolo** : i clienti visualizzeranno il titolo nella pagina dei dettagli dell'offerta.
+- **Titolo**: i clienti visualizzeranno il titolo nella pagina dei dettagli dell'offerta.
 - **Collegamento (URL)** : immettere un collegamento affinché i clienti possano visualizzare il documento online. Il collegamento deve iniziare con `http://` o `https://` .
 
 Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal  [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/).
@@ -184,7 +184,7 @@ Assicurarsi di aggiungere almeno un collegamento alla documentazione e un colleg
 
 Nella sezione **Contatto supporto tecnico** specificare l'indirizzo Web del **sito Web di supporto** dove i partner possono trovare il supporto per l'offerta a seconda che sia disponibile in Azure globale, Azure per enti pubblici o entrambi.
 
-Nella sezione **Contatto programma CSP** specificare il collegamento ( **materiale di marketing del programma CSP** ) in cui i partner CSP possono trovare materiali di marketing per l'offerta.
+Nella sezione **Contatto programma CSP** specificare il collegamento (**materiale di marketing del programma CSP**) in cui i partner CSP possono trovare materiali di marketing per l'offerta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Risorse aggiuntive per la presentazione nel marketplace
 
@@ -305,7 +305,7 @@ Dopo aver creato i piani, la scheda **Panoramica del piano** mostra:
 
 Le azioni disponibili in Panoramica del piano variano a seconda dello stato attuale del piano. Tali impostazioni includono:
 
-- **Elimina bozza** : se lo stato del piano è Bozza.
+- **Elimina bozza**: se lo stato del piano è Bozza.
 - **Stop sell Plan** (Interrompi la vendita del piano): se lo stato del piano è pubblicato.
 
 ### <a name="create-new-plan"></a>Creare un nuovo piano
@@ -403,15 +403,15 @@ Dopo aver pubblicato l'offerta, l'immagine del contenitore IoT Edge viene copiat
 
 Specificare le informazioni seguenti nella scheda **Image repository details** (Dettagli del repository di immagini).
 
-**Selezionare l'origine dell'immagine** : selezionare l'opzione **Registro Azure Container**.
+**Selezionare l'origine dell'immagine**: selezionare l'opzione **Registro Azure Container**.
 
-**ID della sottoscrizione di Azure** : specificare l'ID della sottoscrizione in cui viene segnalato l'utilizzo della risorsa e i servizi vengono fatturati per Registro Azure Container che include l'immagine del contenitore. È possibile trovare questo ID nella pagina [Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure.
+**ID della sottoscrizione di Azure**: specificare l'ID della sottoscrizione in cui viene segnalato l'utilizzo della risorsa e i servizi vengono fatturati per Registro Azure Container che include l'immagine del contenitore. È possibile trovare questo ID nella pagina [Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure.
 
-**Nome del gruppo di risorse di Azure** : specificare il [nome del gruppo di risorse](../../azure-resource-manager/management/manage-resource-groups-portal.md) che contiene Registro Azure Container con l'immagine del contenitore. Il gruppo di risorse deve essere accessibile nell'ID della sottoscrizione (sopra). È possibile trovare il nome nella pagina [Gruppi di risorse ](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) del portale di Azure.
+**Nome del gruppo di risorse di Azure**: specificare il [nome del gruppo di risorse](../../azure-resource-manager/management/manage-resource-groups-portal.md) che contiene Registro Azure Container con l'immagine del contenitore. Il gruppo di risorse deve essere accessibile nell'ID della sottoscrizione (sopra). È possibile trovare il nome nella pagina [Gruppi di risorse ](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) del portale di Azure.
 
-**Nome del Registro Azure Container** : Specificare il nome del [Registro Azure Container](../../container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Specificare solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
+**Nome del Registro Azure Container**: Specificare il nome del [Registro Azure Container](../../container-registry/container-registry-intro.md) con l'immagine del contenitore. Il registro contenitori deve trovarsi nel gruppo di risorse di Azure specificato in precedenza. Specificare solo il nome del registro, non il nome completo del server di accesso. Assicurarsi di non inserire **azurecr.io** nel nome. È possibile trovare il nome del registro nella pagina [Registri contenitori](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) del portale di Azure.
 
-**Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) associato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
+**Nome utente amministratore per il container Registry di Azure**: specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) associato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
 :::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
@@ -419,7 +419,7 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 1. Utente amministratore
 
-<br>**Password del Registro Azure Container** : specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
+<br>**Password del Registro Azure Container**: specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
 
 :::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrata la schermata chiave di accesso nella portale di Azure.":::
 
@@ -430,6 +430,9 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 3. Password
 
 **Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
+
+> [!NOTE]
+> Azure Container Registry crittografato per la certificazione dei moduli Edge non è supportato. Il Container Registry di Azure deve essere creato senza la crittografia abilitata.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tag dell'immagine per le nuove versioni dell'offerta
 
@@ -481,9 +484,9 @@ Nell'angolo in alto a destra del portale selezionare **Rivedi e pubblica**.
 Nella pagina di revisione è possibile visualizzare lo stato di pubblicazione:
 
 - Visualizzare lo stato di completamento di ogni sezione dell'offerta. Non è possibile eseguire la pubblicazione fino a quando tutte le sezioni dell'offerta non vengono contrassegnate come complete.
-    - **Non avviata** : la sezione non è stata avviata e deve essere completata.
-    - **Incompleta** : la sezione contiene errori che devono essere corretti o è necessario inserire altre informazioni. Per indicazioni, vedere le sezioni precedenti di questo documento.
-    - **Completa** : la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere completate prima dell'invio.
+    - **Non avviata**: la sezione non è stata avviata e deve essere completata.
+    - **Incompleta**: la sezione contiene errori che devono essere corretti o è necessario inserire altre informazioni. Per indicazioni, vedere le sezioni precedenti di questo documento.
+    - **Completa**: la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere completate prima dell'invio.
 - Inviare al team di certificazione istruzioni di test per assicurarsi che l'offerta venga testata correttamente. Specificare anche eventuali note supplementari utili per comprendere l'offerta.
 
 Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.

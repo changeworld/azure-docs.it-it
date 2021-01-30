@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-ms.translationtype: HT
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060368"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096967"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -63,11 +63,7 @@ Azure abilita il pulsante **Invia** solo dopo aver completato l'aggiunta dei tag
 
 Dopo aver inviato i tag per i dati a disposizione, Azure aggiornerà la pagina con un nuovo set di immagini dalla coda di lavoro.
 
-### <a name="assisted-machine-learning-preview"></a>Machine Learning assistito (anteprima) 
-
-> [!IMPORTANT]
-> Il servizio Machine Learning assistito è attualmente disponibile in anteprima pubblica.
-> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Machine Learning assistito
 
 Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono abilitati questi algoritmi, è possibile che vengano visualizzati gli elementi seguenti:
 
@@ -75,7 +71,14 @@ Gli algoritmi di Machine Learning possono essere attivati. Se nel progetto sono 
 
 * In un secondo momento, è possibile visualizzare **Attività pre-etichettate** accanto al nome del progetto.  Le immagini verranno quindi visualizzate con un'etichetta suggerita che deriva da un modello di classificazione di Machine Learning. Nessun modello di Machine Learning ha una precisione del 100%. Sebbene vengano usate solo le immagini per cui il modello è attendibile, è possibile che le immagini siano ancora pre-etichettate in modo errato.  Quando vengono visualizzate queste etichette, correggere eventuali etichette errate prima di inviare la pagina.  
 
-* Per i modelli di rilevamento degli oggetti, è possibile che siano già presenti riquadri delimitatori ed etichette.  Correggere quelli non corretti prima di inviare la pagina.
+* Per i modelli di identificazione degli oggetti, è possibile che siano già presenti caselle di delimitazione ed etichette.  Correggere quelli non corretti prima di inviare la pagina.
+
+* Per i modelli di segmentazione, è possibile visualizzare i poligoni e le etichette già presenti.  Correggere quelli non corretti prima di inviare la pagina. 
+
+    > [!IMPORTANT]
+    > Le funzionalità elencate con (anteprima) sono disponibili in anteprima pubblica.   
+    > La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Soprattutto all'inizio di un progetto di etichettatura, il modello di Machine Learning può essere sufficientemente accurato da pre-etichettare solo un piccolo subset di immagini. Una volta etichettate queste immagini, il progetto di etichettatura tornerà all'etichettatura manuale per raccogliere più dati per il ciclo successivo di training del modello. Con il tempo, il modello diventerà più affidabile rispetto a una proporzione più elevata di immagini, ottenendo in seguito più attività di pre-etichettatura nel progetto.
 

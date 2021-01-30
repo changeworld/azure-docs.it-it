@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: bc7893746cbb98a2d4adc4dabb39e22d015ab2c8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d4f8ab190d0418fbb25dad2cd7af231eabfe0f02
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050398"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090256"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Esercitazione: Creare un daemon multi-tenant che usa Microsoft Identity Platform
 
@@ -45,7 +45,7 @@ L'app viene creata come applicazione MVC ASP.NET. Usa il middleware OWIN OpenID 
 
 Il componente "daemon" in questo esempio è un controller API, `SyncController.cs`. Quando viene chiamato, il controller recupera da Microsoft Graph un elenco di utenti del tenant di Azure Active Directory (Azure AD) del cliente. `SyncController.cs` viene attivato da una chiamata AJAX nell'applicazione Web. Usa [Microsoft Authentication Library (MSAL) per .NET](msal-overview.md) per acquisire un token di accesso per Microsoft Graph.
 
-Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un modo per "iscriversi" o "connettere" l'applicazione ai dati aziendali. Durante il flusso di connessione, un amministratore dell'azienda concede prima di tutto le *autorizzazioni dell'applicazione* direttamente all'app affinché possa accedere ai dati aziendali in modo non interattivo, senza la presenza di un utente connesso. La maggior parte della logica di questo esempio mostra come ottenere questo flusso di connessione usando l'endpoint del [consenso dell'amministratore](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) di Identity Platform.
+Poiché l'app è multi-tenant per i clienti aziendali Microsoft, deve fornire un modo per "iscriversi" o "connettere" l'applicazione ai dati aziendali. Durante il flusso di connessione, un amministratore globale concede le *autorizzazioni dell'applicazione* direttamente all'app, in modo che possa accedere ai dati aziendali in modo non interattivo, senza la presenza di un utente connesso. La maggior parte della logica di questo esempio mostra come ottenere questo flusso di connessione usando l'endpoint del [consenso dell'amministratore](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) di Identity Platform.
 
 ![Diagramma che mostra l'app UserSync con tre elementi locali che si connettono ad Azure, con Start.Auth che acquisisce un token in modo interattivo per connettersi ad Azure AD, AccountController che ottiene il consenso dell'amministratore per connettersi ad Azure AD e SyncController che legge l'utente per connettersi a Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 

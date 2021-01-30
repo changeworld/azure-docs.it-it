@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: e19bf5b4ee5b6c48f002ca79711646cca7b0ec5f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b8711b3995c322614c547434850d7c031abfadd5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98729129"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99094944"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
@@ -71,7 +71,7 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 ## <a name="provision-azure-ad-admin-sql-managed-instance"></a>Provisioning amministratore Azure AD (SQL Istanza gestita)
 
 > [!IMPORTANT]
-> Se si esegue il provisioning di un Istanza gestita SQL di Azure, seguire questa procedura. Questa operazione può essere eseguita solo dall'amministratore globale/aziendale o da un amministratore del ruolo con privilegi in Azure AD.
+> Se si esegue il provisioning di un Istanza gestita SQL di Azure, seguire questa procedura. Questa operazione può essere eseguita solo da un amministratore globale o da un amministratore del ruolo con privilegi in Azure AD.
 >
 > Nell' **anteprima pubblica** è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità dell'istanza gestita come membro di questo gruppo, che consente di effettuare il provisioning di un amministratore Azure AD per il Istanza gestita SQL. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -79,7 +79,7 @@ Il Istanza gestita SQL richiede le autorizzazioni per leggere Azure AD per esegu
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD usando il portale di Azure, accedere come amministratore globale/aziendale in Azure AD e seguire questa procedura:
+Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD utilizzando il portale di Azure, accedere come amministratore globale in Azure AD e attenersi alla procedura seguente:
 
 1. Nell'angolo in alto a destra della [portale di Azure](https://portal.azure.com)selezionare la connessione da un elenco a discesa di possibili directory attive.
 
@@ -126,7 +126,7 @@ Per concedere l'autorizzazione di lettura a SQL Istanza gestita Azure AD tramite
 
 ```powershell
 # Gives Azure Active Directory read permission to a Service Principal representing the SQL Managed Instance.
-# Can be executed only by a "Company Administrator", "Global Administrator", or "Privileged Role Administrator" type of user.
+# Can be executed only by a "Global Administrator" or "Privileged Role Administrator" type of user.
 
 $aadTenant = "<YourTenantId>" # Enter your tenant ID
 $managedInstanceName = "MyManagedInstance"

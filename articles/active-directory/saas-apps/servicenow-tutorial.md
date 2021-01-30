@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 7a15248300150c9b79c4678701f81fac923d56a3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
-ms.translationtype: HT
+ms.openlocfilehash: c90234249f3cf7eb6ed4793110d61e1f8190ed60
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353610"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ServiceNow
 
@@ -36,7 +36,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 * Una sottoscrizione di ServiceNow abilitata per l'accesso Single Sign-On (SSO).
 * Per ServiceNow, un'istanza o un tenant di ServiceNow supporta le versioni di Calgary, Kingston, Londra, Madrid, New York, Orlando e Parigi o versione successiva.
 * Per ServiceNow Express, un'istanza di ServiceNow Express, versione Helsinki o successiva.
-* Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0).
+* Nel tenant di ServiceNow deve essere abilitato il [plug-in Multiple Provider Single Sign On](https://old.wiki/index.php/Multiple_Provider_Single_Sign-On#gsc.tab=0).
 * Per la configurazione automatica, abilitare il plug-in per più provider per ServiceNow.
 * Per installare l'applicazione ServiceNow Classic (Mobile), passare allo store appropriato, cercare l'applicazione ServiceNow Classic e quindi scaricarla.
 

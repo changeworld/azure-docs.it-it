@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 210d5b06cfe417f581995ad5b356d62e1c35a6d2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 995fe7bc81b0fae75ebf93338722c21bd12bde49
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95972616"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095574"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>Esercitazione: Eseguire la migrazione offline di SQL Server a Istanza gestita di SQL di Azure con Servizio Migrazione del database
 
@@ -66,7 +66,7 @@ Per completare questa esercitazione, è necessario:
     >[!NOTE]
     >Per impostazione predefinita, Servizio Migrazione del database di Azure supporta solo la migrazione di account di accesso SQL. È però possibile abilitare la migrazione degli account di accesso Windows seguendo questa procedura:
     >
-    >- Assicurarsi che l'istanza di destinazione di Istanza gestita di SQL abbia accesso in lettura ad AAD, che può essere configurato tramite il portale di Azure da un utente con il ruolo **Amministratore società** o **Amministratore globale**.
+    >- Verificare che il Istanza gestita SQL di destinazione disponga dell'accesso in lettura ad AAD, che può essere configurato tramite l'portale di Azure da un utente con ruolo di **amministratore globale** .
     >- Configurare l'istanza di Servizio Migrazione del database di Azure in modo da abilitare le migrazioni degli account di accesso utente/gruppo di Windows, che può essere impostato nella pagina Configurazione del portale di Azure. Dopo aver abilitato questa impostazione, riavviare il servizio per rendere effettive le modifiche.
     >
     > Dopo il riavvio del servizio, gli account di accesso utente/gruppo di Windows vengono visualizzati nell'elenco degli account di accesso disponibili per la migrazione. Per tutti gli account di accesso utente/gruppo di Windows di cui si esegue la migrazione viene richiesto di specificare il nome di dominio associato. Gli account utente del servizio (account con nome di dominio NT AUTHORITY) e gli account utente virtuali (account con nome di dominio NT SERVICE) non sono supportati.

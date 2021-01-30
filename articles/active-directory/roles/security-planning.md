@@ -14,12 +14,12 @@ ms.subservice: roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e38ca27606ecf04b08bd29867894ba269148260c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6ae8dbf6ffd2d827bbcd0fd723f63255d71d47a5
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055247"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090791"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -40,7 +40,7 @@ La protezione dell'accesso con privilegi richiede modifiche a:
 È possibile proteggere l'accesso con privilegi in modo che sia gestito e segnalato nei servizi Microsoft a cui si è interessati. Se si hanno account amministrativi locali, fare riferimento alle indicazioni per l'accesso con privilegi in ambienti locali e ibridi da Active Directory in [Protezione dell'accesso con privilegi](/windows-server/identity/securing-privileged-access/securing-privileged-access).
 
 > [!NOTE]
-> Le indicazioni riportate in questo articolo si riferiscono principalmente alle funzionalità di Azure Active Directory incluse nei piani di Azure Active Directory Premium P1 e P2. Azure Active Directory Premium P2 è incluso nelle suite EMS E5 e Microsoft 365 E5. Queste indicazioni presuppongono che l'organizzazione abbia già acquistato le licenze di Azure AD Premium P2 per gli utenti. Se non si hanno queste licenze, alcune delle indicazioni fornite potrebbero non essere applicabili all'organizzazione. Inoltre, in questo articolo il termine amministratore globale (o amministratore globale) indica la stessa cosa di "amministratore società" o "amministratore tenant".
+> Le indicazioni riportate in questo articolo si riferiscono principalmente alle funzionalità di Azure Active Directory incluse nei piani di Azure Active Directory Premium P1 e P2. Azure Active Directory Premium P2 è incluso nelle suite EMS E5 e Microsoft 365 E5. Queste indicazioni presuppongono che l'organizzazione abbia già acquistato le licenze di Azure AD Premium P2 per gli utenti. Se non si hanno queste licenze, alcune delle indicazioni fornite potrebbero non essere applicabili all'organizzazione. Inoltre, in questo articolo, il termine amministratore globale significa la stessa cosa di "amministratore società" o "amministratore tenant".
 
 ## <a name="develop-a-roadmap"></a>Sviluppare una roadmap
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management è incluso in Azure AD Premium P2 o EMS 
 
 Dopo l'attivazione di Azure AD Privileged Identity Management:
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account di amministratore globale dell'organizzazione di produzione di Azure AD.
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account che sia un amministratore globale dell'organizzazione di produzione Azure ad.
 
 2. Per selezionare l'organizzazione di Azure AD in cui si vuole usare Privileged Identity Management, selezionare il nome utente nell'angolo in alto a destra del portale di Azure.
 
@@ -93,7 +93,7 @@ Dopo l'attivazione di Azure AD Privileged Identity Management, visualizzare gli 
 * Amministratori di Exchange
 * Amministratore di SharePoint
 
-Se non si ha Azure AD Privileged Identity Management nell'organizzazione, è possibile usare l'[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Iniziare con il ruolo Amministratore globale perché un amministratore globale ha le stesse autorizzazioni per tutti i servizi cloud sottoscritti dall'organizzazione. Queste autorizzazioni vengono concesse indipendentemente dal modo in cui sono state assegnate: nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure o con il modulo Azure AD per Microsoft PowerShell.
+Se non si ha Azure AD Privileged Identity Management nell'organizzazione, è possibile usare l'[API PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember). Iniziare con il ruolo di amministratore globale perché un amministratore globale ha le stesse autorizzazioni in tutti i servizi cloud per cui l'organizzazione ha sottoscritto. Queste autorizzazioni vengono concesse indipendentemente dal modo in cui sono state assegnate: nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure o con il modulo Azure AD per Microsoft PowerShell.
 
 Rimuovere tutti gli account non più necessari in questi ruoli. Classificare quindi gli account rimanenti assegnati ai ruoli di amministratore:
 
@@ -141,13 +141,13 @@ L'aumento degli scenari "Bring Your Own Device" e di lavoro da casa e la diffusi
 
 #### <a name="identify-microsoft-accounts-in-administrative-roles-that-need-to-be-switched-to-work-or-school-accounts"></a>Identificare gli account Microsoft in ruoli amministrativi che devono essere spostati in account aziendali o dell'istituto di istruzione
 
-Se gli amministratori globali iniziali usano di nuovo le credenziali degli account Microsoft esistenti quando iniziano a usare Azure AD, sostituire gli account Microsoft con singoli account basati sul cloud o sincronizzati.
+Se gli amministratori globali iniziali riutilizzano le credenziali di account Microsoft esistenti quando iniziano a usare Azure AD, sostituire gli account Microsoft con singoli account basati sul cloud o sincronizzati.
 
-#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Separare gli account utente e l'inoltro della posta elettronica per gli account amministratore globale
+#### <a name="ensure-separate-user-accounts-and-mail-forwarding-for-global-administrator-accounts"></a>Verificare la presenza di account utente e di invio di posta elettronica distinti per gli account amministratore globale
 
-Gli account di posta elettronica personali sono regolarmente sottoposti ad attacchi di phishing da parte di utenti malintenzionati, un rischio che rende gli indirizzi e-mail personali inaccettabili per gli account amministratore globale. Per separare i rischi correlati a Internet dai privilegi amministrativi, creare account dedicati per ogni utente con privilegi amministrativi.
+Gli account di posta elettronica personali sono regolarmente phishing da utenti malintenzionati, un rischio che rende gli indirizzi di posta elettronica personali inaccettabili per gli account amministratore globale. Per separare i rischi correlati a Internet dai privilegi amministrativi, creare account dedicati per ogni utente con privilegi amministrativi.
 
-* Assicurarsi di creare account distinti per consentire agli utenti di eseguire attività di amministrazione globali.
+* Assicurarsi di creare account distinti per consentire agli utenti di eseguire le attività di amministratore globale.
 * Assicurarsi che gli amministratori globali non aprano accidentalmente i messaggi di posta elettronica o eseguano programmi con gli account di amministratore.
 * Assicurarsi che la posta elettronica di questi account venga inoltrata a una cassetta postale funzionante.
 * Gli account di amministratore globale e di altri gruppi con privilegi devono essere account solo cloud senza vincoli per Active Directory locali.
@@ -431,7 +431,7 @@ Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicur
 
 **D:** Cosa fare se non sono ancora stati implementati componenti di accesso sicuro?
 
-**Risposta:** Definire almeno due account di emergenza, assegnare MFA agli account amministratore con privilegi e separare gli account utente dagli account amministratore globale.
+**Risposta:** Definire almeno due account di break-Glass, assegnare l'autenticazione a più fattori agli account amministratore con privilegi e separare gli account utente dagli account amministratore globale.
 
 **D:** Dopo una violazione, qual è il problema principale da affrontare?
 
@@ -439,7 +439,7 @@ Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicur
 
 **D:** Cosa succede se gli amministratori con privilegi sono stati disattivati?
 
-**Risposta:** Creare un account amministratore globale che venga mantenuto sempre aggiornato.
+**Risposta:** Creare un account amministratore globale sempre aggiornato.
 
 **D:** Cosa accade se è rimasto un solo amministratore globale e non è possibile raggiungerlo?
 

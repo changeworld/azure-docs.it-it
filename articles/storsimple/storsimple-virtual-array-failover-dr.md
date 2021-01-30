@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 509a3ac383cebd91821e9c4b872c253ab3b0a947
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005861"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096424"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
@@ -156,7 +156,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
     1. Selezionare e fare clic sul dispositivo StorSimple usato come dispositivo di destinazione per il processo di failover.
     2. Passare a **Impostazioni > Gestione > Condivisioni** o **Volumi** in caso di server iSCSI. Nel pannello **Condivisioni** è possibile visualizzare tutte le condivisioni (volumi) del dispositivo precedente.
         ![Screenshot del pannello dispositivi. Il dispositivo di destinazione è elencato con lo stato online.](./media/storsimple-virtual-array-failover-dr/failover9.png)
-14. Sarà necessario [creare un alias DNS](https://support.microsoft.com/kb/168322) in modo che tutte le applicazioni che stanno tentando di connettersi possano venire reindirizzate al nuovo dispositivo.
+14. Sarà necessario [creare un alias DNS](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322) in modo che tutte le applicazioni che stanno tentando di connettersi possano venire reindirizzate al nuovo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errori durante il ripristino di emergenza
 

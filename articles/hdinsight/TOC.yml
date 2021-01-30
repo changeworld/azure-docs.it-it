@@ -278,6 +278,8 @@
           href: /rest/api/hdinsightspark/
         - name: Modello di Resource Manager
           href: /azure/templates/microsoft.hdinsight/allversions
+        - name: Criteri di Azure predefiniti
+          href: ./policy-reference.md
     - name: Risorse
       items:
         - name: Rilasci

@@ -76,6 +76,8 @@
               items:
                 - name: Baseline di sicurezza
                   href: security-baseline.md
+                - name: Controlli di sicurezza in base a Criteri di Azure
+                  href: ./security-controls-policy.md
                 - name: Esaminare la sicurezza
                   href: data-box-security.md
             - name: Trasferire elenchi di controllo di accesso e metadati

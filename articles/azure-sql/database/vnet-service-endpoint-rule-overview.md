@@ -11,18 +11,18 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: d480239c0eb99ed48c13ec2fdb5b052574acc318
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97092500"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095359"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
+# <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint servizio di rete virtuale e le regole per il database SQL di Azure
 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server per i database e i pool elastici nel [database SQL di Azure](sql-database-paas-overview.md) o per i database in [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da determinate subnet nelle reti virtuali. Questo articolo illustra il motivo per cui le regole della rete virtuale sono a volte la scelta migliore per consentire in modo sicuro la comunicazione con il database nel database SQL e nell'analisi delle sinapsi di Azure.
+*Le regole della rete virtuale* sono una funzionalità di sicurezza del firewall che controlla se il server per i database e i pool elastici nel [database SQL di Azure](sql-database-paas-overview.md) o per il pool SQL dedicato (in precedenza SQL DW) database in [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accetta le comunicazioni inviate da determinate subnet nelle reti virtuali. Questo articolo illustra il motivo per cui le regole della rete virtuale sono a volte la scelta migliore per consentire in modo sicuro la comunicazione con il database nel database SQL e nell'analisi delle sinapsi di Azure.
 
 > [!NOTE]
 > Questo articolo si applica sia al database SQL che ad Azure sinapsi Analytics. Per semplicità, il termine *database* fa riferimento a entrambi i database nel database SQL e in Azure sinapsi Analytics. Analogamente, tutti i riferimenti al *Server* si riferiscono al [server logico SQL](logical-servers.md) che ospita il database SQL e Azure sinapsi Analytics.

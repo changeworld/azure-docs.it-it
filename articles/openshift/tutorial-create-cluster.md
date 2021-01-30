@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 909385b4f670d084a9357b6ac2840a9458604667
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063030"
+ms.locfileid: "99072237"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Creare un cluster di Azure Red Hat OpenShift 4
 
@@ -88,7 +88,7 @@ Se si specifica un dominio personalizzato per il cluster, tenere presente quanto
 
 * La console OpenShift sarà disponibile a un indirizzo URL come `https://console-openshift-console.apps.example.com`, invece di quello del dominio predefinito `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* Per impostazione predefinita, OpenShift usa certificati autofirmati per tutte le route create in domini personalizzati `*.apps.example.com`.  Se si sceglie di usare un DNS personalizzato dopo la connessione al cluster, è necessario attenersi alla documentazione di OpenShift per [configurare un'autorità di certificazione personalizzata per il controller del traffico in ingresso](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) e un'[autorità di certificazione personalizzata per il server API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* Per impostazione predefinita, OpenShift usa certificati autofirmati per tutte le route create in domini personalizzati `*.apps.example.com`.  Se si sceglie di usare un DNS personalizzato dopo la connessione al cluster, è necessario attenersi alla documentazione di OpenShift per [configurare un'autorità di certificazione personalizzata per il controller del traffico in ingresso](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) e un'[autorità di certificazione personalizzata per il server API](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuote
 

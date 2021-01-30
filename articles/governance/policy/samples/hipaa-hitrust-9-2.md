@@ -1,15 +1,15 @@
 ---
 title: Dettagli sulla conformità alle normative per HIPAA HITRUST 9.2
 description: Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: bbec4e1ea72f458557281f76b5ca5178bce2c316
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 4ee5f87b5bf8d2476685eb469df05bb2267bcf2f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805595"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095758"
 ---
 # <a name="details-of-the-hipaa-hitrust-92-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa predefinita di conformità alle normative per HIPAA HITRUST 9.2
 
@@ -1438,7 +1438,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 |[È consigliabile correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe8cbc669-f12d-49eb-93e7-9273119e9933) |Verifica le vulnerabilità nella configurazione della sicurezza nei computer in cui è installato Docker e le visualizza come raccomandazioni nel Centro sicurezza di Azure. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ContainerBenchmark_Audit.json) |
 |[Le vulnerabilità nella configurazione di sicurezza delle macchine devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15) |I server che non soddisfano la baseline configurata verranno monitorati dal Centro sicurezza di Azure che invierà i consigli corrispondenti |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_OSVulnerabilities_Audit.json) |
 |[Le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali devono essere risolte](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4) |Controlla le vulnerabilità del sistema operativo nei set di scalabilità di macchine virtuali per proteggerli da attacchi. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VmssOSVulnerabilities_Audit.json) |
@@ -1461,7 +1461,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
+|[È consigliabile abilitare una soluzione di valutazione della vulnerabilità nelle macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Controlla le macchine virtuali per rilevare se eseguono una soluzione di valutazione della vulnerabilità supportata. Un componente principale di ogni programma per la sicurezza e il rischio informatico è costituito dall'identificazione e dall'analisi delle vulnerabilità. Il piano tariffario standard del Centro sicurezza di Azure include l'analisi delle vulnerabilità per le macchine virtuali senza costi aggiuntivi. Inoltre, il Centro sicurezza è in grado di distribuire automaticamente questo strumento. |AuditIfNotExists, Disabled |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### <a name="patches-are-tested-and-evaluated-before-they-are-installed"></a>Le patch vengono testate e valutate prima dell'installazione.
 

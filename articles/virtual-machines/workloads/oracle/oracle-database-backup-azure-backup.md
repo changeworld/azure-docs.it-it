@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: d623d7b7ec25c096ebf54c030cf302e0a72e7fb2
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064072"
+ms.locfileid: "99072405"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Eseguire il backup e il ripristino di un database di Oracle Database 19C in una VM Linux di Azure con backup di Azure
 
@@ -39,19 +39,19 @@ Per preparare l'ambiente, eseguire i passaggi seguenti:
 
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
 
-Per creare una sessione Secure Shell, SSH con la macchina virtuale, usare il comando seguente. Sostituire l'indirizzo IP e la combinazione di nome host con il valore `<publicIpAddress>` per la macchina virtuale.
+1. Per creare una sessione Secure Shell, SSH con la macchina virtuale, usare il comando seguente. Sostituire l'indirizzo IP e la combinazione di nome host con il valore `<publicIpAddress>` per la macchina virtuale.
     
    ```bash
    ssh azureuser@<publicIpAddress>
    ```
    
-Passa all'utente *root* :
+1. Passa all'utente *root* :
 
    ```bash
    sudo su -
    ```
     
-Aggiungere l'utente Oracle al file */etc/sudoers* :
+1. Aggiungere l'utente Oracle al file */etc/sudoers* :
 
    ```bash
    echo "oracle   ALL=(ALL)      NOPASSWD: ALL" >> /etc/sudoers
@@ -59,9 +59,9 @@ Aggiungere l'utente Oracle al file */etc/sudoers* :
 
 ### <a name="prepare-the-database"></a>Preparare il database
 
-1. Questo passaggio presuppone che si disponga di un'istanza di Oracle (*test*) in esecuzione in una macchina virtuale denominata *vmoracle19c*.
+Questo passaggio presuppone che si disponga di un'istanza di Oracle (*test*) in esecuzione in una macchina virtuale denominata *vmoracle19c*.
 
-   Passa all'utente *Oracle* :
+1. Passa all'utente *Oracle* :
  
    ```bash
     sudo su - oracle
@@ -156,7 +156,7 @@ Aggiungere l'utente Oracle al file */etc/sudoers* :
     NOARCHIVELOG
     ```
 
-    Se si è in modalità NOARCHIVELOG, eseguire i comandi seguenti:
+    Se è in modalità NOARCHIVELOG, eseguire i comandi seguenti:
 
     ```bash
     SQL> SHUTDOWN IMMEDIATE;
@@ -205,19 +205,19 @@ Il servizio Backup di Azure offre soluzioni semplici, sicure ed economicamente c
 
 Il servizio backup di Azure fornisce un [Framework](../../../backup/backup-azure-linux-app-consistent.md) per ottenere la coerenza delle applicazioni durante i backup di macchine virtuali Windows e Linux per varie applicazioni come Oracle, MySQL, Mongo DB, SAP HANA e PostgreSQL. Ciò implica la chiamata di uno script di pre-elaborazione (per mettere in stato le applicazioni) prima di creare uno snapshot dei dischi e la chiamata di post-script (comandi per sbloccare le applicazioni) dopo il completamento dello snapshot, per ripristinare le applicazioni in modalità normale. Sebbene i pre-script di esempio e i post-script siano disponibili su GitHub, la creazione e la manutenzione di questi script è responsabilità dell'utente. 
 
-Ora backup di Azure fornisce un Framework avanzato di pre-script e post-backup, in cui il servizio backup di Azure fornirà gli script e i post-script in pacchetto per le applicazioni selezionate. Gli utenti di backup di Azure devono solo assegnare un nome all'applicazione e quindi il backup delle macchine virtuali di Azure richiamerà automaticamente gli script pre-post pertinenti. Gli script e i post-script in pacchetto verranno gestiti dal team di backup di Azure, in modo che gli utenti possano essere certi del supporto, della proprietà e della validità di tali script. Attualmente, le applicazioni supportate per il Framework migliorato sono ***Oracle e MySQL** _, con più tipi di applicazione previsti in futuro.
+Ora backup di Azure fornisce un Framework avanzato di pre-script e post-backup, in cui il servizio backup di Azure fornirà gli script e i post-script in pacchetto per le applicazioni selezionate. Gli utenti di backup di Azure devono solo assegnare un nome all'applicazione e quindi il backup delle macchine virtuali di Azure richiamerà automaticamente gli script pre-post pertinenti. Gli script e i post-script in pacchetto verranno gestiti dal team di backup di Azure, in modo che gli utenti possano essere certi del supporto, della proprietà e della validità di tali script. Attualmente, le applicazioni supportate per il Framework migliorato sono *Oracle* e *MySQL*.
 
-In questa sezione si userà il Framework avanzato di backup di Azure per eseguire snapshot coerenti con l'applicazione della macchina virtuale in esecuzione e del database Oracle. Il database verrà inserito in modalità di backup che consente di eseguire un backup online coerente a livello di transazione mentre backup di Azure esegue uno snapshot dei dischi delle macchine virtuali. Lo snapshot sarà una copia completa dello spazio di archiviazione e non una copia incrementale o di copia nello snapshot di scrittura, pertanto si tratta di un supporto efficace per il ripristino del database da. Il vantaggio dell'uso di snapshot coerenti con l'applicazione di backup di Azure consiste nel fatto che sono estremamente veloci, indipendentemente dalla dimensione del database, ed è possibile usare uno snapshot per le operazioni di ripristino non appena viene eseguita, senza dover attendere il trasferimento dell'insieme di credenziali di servizi di ripristino.
+In questa sezione si userà il Framework avanzato di backup di Azure per eseguire snapshot coerenti con l'applicazione della macchina virtuale in esecuzione e del database Oracle. Il database verrà inserito in modalità di backup che consente di eseguire un backup online coerente a livello di transazione mentre backup di Azure esegue uno snapshot dei dischi delle macchine virtuali. Lo snapshot sarà una copia completa dello spazio di archiviazione e non una copia incrementale o di copia nello snapshot di scrittura, pertanto si tratta di un supporto efficace per il ripristino del database da. Il vantaggio dell'uso di snapshot coerenti con l'applicazione di backup di Azure consiste nel fatto che sono estremamente veloci, indipendentemente dalla dimensione del database, ed è possibile usare uno snapshot per le operazioni di ripristino non appena viene eseguita, senza dover attendere che il trasferimento venga trasferito nell'insieme di credenziali di servizi di ripristino.
 
 Per usare backup di Azure per eseguire il backup del database, completare i passaggi seguenti:
 
-1. Preparare l'ambiente per il backup coerente con l'applicazione.
+1. Preparare l'ambiente per un backup coerente con l'applicazione.
 1. Configurare backup coerenti con l'applicazione.
-1. Attivare il backup coerente con l'applicazione della macchina virtuale
+1. Attivare un backup coerente con l'applicazione della macchina virtuale.
 
-### <a name="prepare-the-environment-for-application-consistent-backup"></a>Preparare l'ambiente per il backup coerente con l'applicazione
+### <a name="prepare-the-environment-for-an-application-consistent-backup"></a>Preparare l'ambiente per un backup coerente con l'applicazione
 
-1. Passa all'utente _ *root**:
+1. Passa all'utente *root* :
 
    ```bash
    sudo su -
@@ -237,16 +237,15 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    echo export PATH='$ORACLE_HOME'/bin:'$PATH' >> ~azbackup/.bashrc
    ```
    
-3. Configurare l'autenticazione esterna per un nuovo utente di backup. 
-   L'utente di backup deve essere in grado di accedere al database usando l'autenticazione esterna, in modo che non venga richiesta una password.
+3. Configurare l'autenticazione esterna per il nuovo utente di backup. L'utente di backup deve essere in grado di accedere al database usando l'autenticazione esterna, in modo che non venga richiesta una password.
 
-   Prima tornare all'utente **Oracle** :
+   Per prima cosa, tornare all'utente *Oracle* :
 
    ```bash
    su - oracle
    ```
 
-   Accedere al database con sqlplus e controllare le impostazioni predefinite per l'autenticazione esterna
+   Accedere al database usando sqlplus e controllare le impostazioni predefinite per l'autenticazione esterna:
    
    ```bash
    sqlplus / as sysdba
@@ -254,7 +253,7 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    SQL> show parameter remote_os_authent
    ```
    
-   L'output dovrebbe essere visualizzato 
+   L'output dovrebbe essere simile a questo esempio: 
 
    ```output
    NAME                                 TYPE        VALUE
@@ -263,23 +262,30 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    remote_os_authent                    boolean     FALSE
    ```
 
-   A questo punto, creare un utente del database azbackup autenticato esternamente e concedere il privilegio sysbackup:
+   A questo punto, creare un utente di database *azbackup* autenticato esternamente e concedere il privilegio sysbackup:
    
    ```bash
    SQL> CREATE USER ops$azbackup IDENTIFIED EXTERNALLY;
    SQL> GRANT CREATE SESSION, ALTER SESSION, SYSBACKUP TO ops$azbackup;
    ```
 
-   >[!IMPORTANT] 
-   >Se viene visualizzato l'errore "ORA-46953: il file di password non è nel formato 12,2".  Quando si esegue l'istruzione GRANT precedente, seguire questa procedura per eseguire la migrazione del file orapwd nel formato 12,2:
+   > [!IMPORTANT] 
+   > Se si riceve `ORA-46953: The password file is not in the 12.2 format.`  un errore quando si esegue l' `GRANT` istruzione, attenersi alla procedura seguente per eseguire la migrazione del file orapwd nel formato 12,2:
    >
-   >Uscire da sqlplus, spostare il file di password con il formato precedente in un nuovo nome, migrare il file della password e quindi rimuovere il file precedente. Dopo aver eseguito i comandi seguenti, eseguire di nuovo l'operazione di concessione precedente in sqlplus.
-   
-   ```bash
-   mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
-   orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
-   rm $ORACLE_HOME/dbs/orapwtest.tmp
-   ```
+   > 1. Uscire da sqlplus.
+   > 1. Spostare il file di password con il vecchio formato in un nuovo nome.
+   > 1. Eseguire la migrazione del file di password.
+   > 1. Rimuovere il file precedente.
+   > 1. Eseguire il comando seguente:
+   >
+   >    ```bash
+   >    mv $ORACLE_HOME/dbs/orapwtest $ORACLE_HOME/dbs/orapwtest.tmp
+   >    orapwd file=$ORACLE_HOME/dbs/orapwtest input_file=$ORACLE_HOME/dbs/orapwtest.tmp
+   >    rm $ORACLE_HOME/dbs/orapwtest.tmp
+   >    ```
+   >
+   > 1. Eseguire di nuovo l' `GRANT` operazione in sqlplus.
+   >
    
 4. Creare una stored procedure per registrare i messaggi di backup nel log degli avvisi del database:
 
@@ -302,18 +308,22 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    
 ### <a name="set-up-application-consistent-backups"></a>Configurare backup coerenti con l'applicazione  
 
-1. Passa all'utente root 
+1. Passa all'utente *root* :
+
    ```bash
    sudo su -
    ```
 
-2. Creare la directory di lavoro del backup coerente con l'applicazione
+2. Creare la directory di lavoro per il backup coerente con l'applicazione:
+
    ```bash
    if [ ! -d "/etc/azure" ]; then
       sudo mkdir /etc/azure
    fi
    ```
-3. Creare un file nella directory/etc/Azure denominato **workload. conf** con il contenuto seguente, che deve iniziare con `[workload]` . Il comando seguente creerà il file e compilerà il contenuto:
+
+3. Creare un file nella directory */etc/Azure* denominato *workload. conf* con il contenuto seguente, che deve iniziare con `[workload]` . Il comando seguente creerà il file e compilerà il contenuto:
+
    ```bash
    echo "[workload]
    workload_name = oracle
@@ -321,14 +331,16 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    timeout = 90
    linux_user = azbackup" > /etc/azure/workload.conf
    ```
-1. Scaricare gli script preOracleMaster. SQL e postOracleMaster. SQL dal [repository GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) e copiarli nella directory/etc/Azure
 
-4. Modificare le autorizzazioni per i file
-   ```bash
+4. Scaricare gli script preOracleMaster. SQL e postOracleMaster. SQL dal [repository GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts) e copiarli nella directory */etc/Azure* .
+
+5. Modificare le autorizzazioni per i file
+
+```bash
    chmod 744 workload.conf preOracleMaster.sql postOracleMaster.sql 
    ```
 
-### <a name="trigger-application-consistent-backup-of-the-vm"></a>Attivare il backup coerente con l'applicazione della macchina virtuale
+### <a name="trigger-an-application-consistent-backup-of-the-vm"></a>Attivare un backup coerente con l'applicazione della macchina virtuale
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -375,7 +387,8 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
    ```azurecli
    az backup vault create --location eastus --name myVault --resource-group rg-oracle
    ```
-2. Abilitare la protezione dei backup per la macchina virtuale
+
+2. Abilitare la protezione dei backup per la macchina virtuale:
 
    ```azurecli
    az backup protection enable-for-vm \
@@ -384,7 +397,8 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
       --vm vmoracle19c \
       --policy-name DefaultPolicy
    ```
-3. Attivare un backup per eseguirlo adesso anziché attendere l'attivazione del backup in base alla pianificazione predefinita (05:00 UTC). 
+
+3. Attiva un backup per eseguirlo ora invece di attendere che il backup venga attivato con la pianificazione predefinita (05:00 UTC): 
 
    ```azurecli
    az backup protection backup-now \
@@ -394,7 +408,8 @@ Per usare backup di Azure per eseguire il backup del database, completare i pass
       --container-name vmoracle19c \
       --item-name vmoracle19c 
    ```
-   È possibile monitorare lo stato di avanzamento del processo di backup usando `az backup job list` e `az backup job show`
+
+   È possibile monitorare lo stato di avanzamento del processo di backup utilizzando `az backup job list` e `az backup job show` .
 
 ---
 
@@ -433,15 +448,15 @@ Più avanti in questo articolo verrà illustrato come testare il processo di rip
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Nella portale di Azure cercare l'elemento insieme di *credenziali dei servizi* di ripristino di insieme di credenziali e fare clic su di esso.
+1. Nella portale di Azure cercare l'elemento insiemi di *credenziali dei servizi* di ripristino di insieme di credenziali e selezionarlo.
 
     ![Elementi di backup myVault degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery-service-06.png)
 
-2. Nel pannello **Panoramica** selezionare elementi di **backup** e selezionare **_macchina virtuale di Azure_* _, che dovrebbe avere un numero di elementi di backup anon-zero elencato.
+2. Nel pannello **Panoramica** selezionare elementi di **backup** e selezionare la **macchina virtuale di Azure** in cui è elencato il numero di elementi di backup anon-zero.
 
     ![Numero di elementi di backup di macchine virtuali di Azure in insiemi di credenziali di servizi di ripristino](./media/oracle-backup-recovery/recovery-service-07.png)
 
-3. Nella pagina elementi di backup (macchine virtuali di Azure) la macchina virtuale _ *vmoracle19c** è elencata. Fare clic sui puntini di sospensione a destra per visualizzare il menu e selezionare **ripristino file**.
+3. Nella pagina elementi di backup (macchine virtuali di Azure) la macchina virtuale **vmoracle19c** è elencata. Fare clic sui puntini di sospensione a destra per visualizzare il menu e selezionare **ripristino file**.
 
     ![Schermata della pagina di ripristino dei file degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery-service-08.png)
 
@@ -455,6 +470,7 @@ Più avanti in questo articolo verrà illustrato come testare il processo di rip
 
     > [!IMPORTANT]
     > Nell'esempio seguente assicurarsi di aggiornare i valori dell'indirizzo IP e della cartella. I valori devono corrispondere a quelli della cartella in cui è stato salvato il file.
+    >
 
     ```bash
     $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -500,6 +516,7 @@ Nell'esempio seguente viene illustrato come usare un comando di copia di sicurez
 
 > [!IMPORTANT]
 > Nell'esempio seguente assicurarsi di aggiornare i valori dell'indirizzo IP e della cartella. I valori devono corrispondere a quelli della cartella in cui è stato salvato il file.
+>
 
 ```bash
 $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
@@ -510,7 +527,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
 
 1. Creare un punto di montaggio di ripristino e copiarvi lo script.
 
-    Nell'esempio seguente creare una directory **_/Restore_* _ per lo snapshot da montare, spostare il file nella directory e modificare il file in modo che sia di proprietà dell'utente root e dell'eseguibile.
+    Nell'esempio seguente creare una directory */Restore* in cui eseguire il montaggio dello snapshot, spostare il file nella directory e modificare il file in modo che sia di proprietà dell'utente root e che sia stato creato un file eseguibile.
 
     ```bash 
     ssh azureuser@<publicIpAddress>
@@ -528,7 +545,7 @@ $ scp vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py azureuser@<publicIpAddress>:/tmp
     ./vmoracle19c_xxxxxx_xxxxxx_xxxxxx.py
     ```
 
-    L'esempio seguente illustra ciò che dovrebbe venire visualizzato dopo aver eseguito lo script precedente. Quando viene richiesto di continuare, immettere _ * Y * *.
+    L'esempio seguente illustra ciò che dovrebbe venire visualizzato dopo aver eseguito lo script precedente. Quando viene chiesto di continuare, immettere **Y**.
 
     ```output
     Microsoft Azure VM Backup - File Recovery
@@ -676,30 +693,28 @@ Per ripristinare l'intera macchina virtuale, completare i passaggi seguenti:
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Creare un account di archiviazione per la gestione temporanea:
-   
-   Configurare l'archiviazione file nel portale di Azure
+1. Creare un account di archiviazione per la gestione temporanea nel portale di Azure.
 
-   Nella portale di Azure selezionare **_+ Crea una risorsa_* _ e cercare e selezionare _*_account di archiviazione_*_
+   1. Nella portale di Azure selezionare **+ Crea una risorsa** e cercare e selezionare **account di archiviazione**.
     
-   ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/storage-1.png)
+      ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/storage-1.png)
     
     
-   Nella pagina Crea account di archiviazione scegliere il gruppo di risorse esistente _*_RG-Oracle_*_, assegnare un nome all'account di archiviazione _*_Oracrestore_*_ e scegliere _*_archiviazione V2 (generalpurpose v2)_*_ per tipo di account. Modificare la replica in _*_archiviazione con ridondanza locale (con ridondanza locale)_*_ e impostare le prestazioni su _*_standard_*_. Assicurarsi che location sia impostato sulla stessa area di tutte le altre risorse nel gruppo di risorse. 
+   1. Nella pagina Crea account di archiviazione scegliere il gruppo di risorse esistente **RG-Oracle**, assegnare un nome all'account di archiviazione **Oracrestore** e scegliere **archiviazione V2 (generalpurpose v2)** per tipo di account. Modificare la replica in **archiviazione con ridondanza locale (con ridondanza locale)** e impostare le prestazioni su **standard**. Assicurarsi che location sia impostato sulla stessa area di tutte le altre risorse nel gruppo di risorse. 
     
-   ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/recovery-storage-1.png)
+      ![Pagina Aggiungi account di archiviazione](./media/oracle-backup-recovery/recovery-storage-1.png)
    
-   Fare clic su Verifica + crea e quindi su Crea.
+   1. Fare clic su Verifica + crea e quindi su Crea.
 
-2. Nella portale di Azure cercare l'elemento _myVault * insiemi di credenziali dei servizi di ripristino e fare clic su di esso.
+2. Nella portale di Azure cercare l'elemento insieme di *credenziali dei servizi* di ripristino di insieme di credenziali e fare clic su di esso.
 
     ![Elementi di backup myVault degli insiemi di credenziali dei servizi di ripristino](./media/oracle-backup-recovery/recovery-service-06.png)
     
-3.  Nel pannello **Panoramica** selezionare elementi di **backup** e selezionare **_macchina virtuale di Azure_* _, che dovrebbe avere un numero di elementi di backup anon-zero elencato.
+3.  Nel pannello **Panoramica** selezionare elementi di **backup** e selezionare la **macchina virtuale di Azure** in cui è elencato il numero di elementi di backup anon-zero.
 
     ![Numero di elementi di backup di macchine virtuali di Azure in insiemi di credenziali di servizi di ripristino](./media/oracle-backup-recovery/recovery-service-07.png)
 
-4.  Per gli elementi di backup (macchine virtuali di Azure), viene visualizzata la pagina VM _ *vmoracle19c**. Fare clic sul nome della macchina virtuale.
+4.  Per gli elementi di backup (macchine virtuali di Azure), viene visualizzata la pagina **vmoracle19c** della VM. Fare clic sul nome della macchina virtuale.
 
     ![Pagina di ripristino della macchina virtuale](./media/oracle-backup-recovery/recover-vm-02.png)
 
@@ -916,11 +931,11 @@ Dopo il ripristino della macchina virtuale, è necessario riassegnare l'indirizz
 
 ### <a name="connect-to-the-vm"></a>Connettersi alla VM
 
-* Per eseguire la connessione alla macchina virtuale, usare lo script seguente:
+Per eseguire la connessione alla macchina virtuale, usare lo script seguente:
 
-    ```azurecli
-    ssh <publicIpAddress>
-    ```
+```azurecli
+ssh <publicIpAddress>
+```
 
 ### <a name="start-the-database-to-mount-stage-and-perform-recovery"></a>Avviare il database per montare la fase ed eseguire il ripristino
 

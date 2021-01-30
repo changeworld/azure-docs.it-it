@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/05/2020
+ms.date: 01/29/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 535b49cb20d60bd9ab294543b82bdb24b040eb7b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5f0c8d237e270177ef38c60c523364054bae15af
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879478"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090859"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
 Azure Active Directory (Azure AD) consente di designare amministratori limitati per gestire le attività relative alle identità in ruoli con meno privilegi. È possibile assegnare amministratori per eseguire attività come l'aggiunta o la modifica di utenti, l’assegnazione di ruoli amministrativi, la reimpostazione delle password utente, la gestione delle licenze utente e la gestione dei nomi di dominio. Le [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md) possono essere modificate solo nelle impostazioni utente in Azure AD.
 
-## <a name="limit-use-of-global-administrator"></a>Limitare l'uso dell'amministratore globale
+## <a name="limit-use-of-global-administrator"></a>Limitare l'utilizzo dell'amministratore globale
 
-Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, quando un utente si iscrive a un servizio cloud Microsoft, viene creato un tenant di Azure AD e l'utente viene reso membro del ruolo di amministratore globale. Quando si aggiunge una sottoscrizione a un tenant esistente, non viene assegnato al ruolo di amministratore globale. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
+Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, quando un utente si iscrive a un servizio cloud Microsoft, viene creato un tenant di Azure AD e l'utente viene reso membro del ruolo di amministratore globale. Quando si aggiunge una sottoscrizione a un tenant esistente, non viene assegnato al ruolo di amministratore globale. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
 
 La procedura consigliata prevede di assegnare questo ruolo a meno di cinque utenti nell'organizzazione. Se nell'organizzazione esistono più di cinque amministratori assegnati al ruolo di amministratore globale, di seguito sono riportati alcuni modi per ridurne l'uso.
 
@@ -37,7 +37,7 @@ Se è frustrante trovare il ruolo necessario scegliendo da un elenco di molti ru
 
 ### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Esiste ora un ruolo che non esisteva quando è stato assegnato il ruolo di amministratore globale
 
-È possibile che siano stati aggiunti ruoli ad Azure AD che forniscono autorizzazioni più granulari che non erano disponibili quando si è deciso di elevare i privilegi di alcuni utenti ad amministratore globale. Nel corso del tempo, verranno implementati ulteriori ruoli per l'esecuzione di attività in precedenza consentite solo dal ruolo di amministratore globale. Le informazioni su queste novità saranno ripotate nella sezione [Ruoli disponibili](#available-roles) di seguito.
+È possibile che un ruolo o ruoli siano stati aggiunti a Azure AD che forniscono autorizzazioni più granulari che non sono un'opzione quando si elevano alcuni utenti a un amministratore globale. Nel corso del tempo, verranno implementati ruoli aggiuntivi che eseguono attività che possono essere eseguite solo dal ruolo amministratore globale. Le informazioni su queste novità saranno ripotate nella sezione [Ruoli disponibili](#available-roles) di seguito.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Assegnare o rimuovere ruoli di amministratore
 
@@ -59,7 +59,7 @@ gli utenti in questo ruolo possono creare e gestire tutti gli aspetti delle appl
 Questo ruolo consente inoltre di concedere il _consenso_ alle autorizzazioni delegate e alle autorizzazioni dell'applicazione, fatta eccezione per le autorizzazioni dell'applicazione nell'API Microsoft Graph.
 
 > [!IMPORTANT]
-> Questa eccezione indica che è ancora possibile fornire il consenso per le autorizzazioni per _altre_ app, ad esempio app non Microsoft o app registrate, ma non per Azure AD stesso. È comunque possibile _richiedere_ queste autorizzazioni nell'ambito della registrazione dell'app, ma per _concedere_ (ovvero fornire il consenso per) queste autorizzazioni è richiesto un amministratore di Azure AD. Questo significa che un utente malintenzionato non può facilmente elevare le proprie autorizzazioni, ad esempio creando e fornendo il consenso per un'app che può scrivere nell'intera directory e tramite le autorizzazioni di tale app elevare i privilegi per diventare un amministratore globale.
+> Questa eccezione indica che è ancora possibile fornire il consenso per le autorizzazioni per _altre_ app, ad esempio app non Microsoft o app registrate, ma non per Azure AD stesso. È comunque possibile _richiedere_ queste autorizzazioni come parte della registrazione dell'app, ma _concedendo_ (ovvero il consenso a) queste autorizzazioni richiede un amministratore Azure ad. Ciò significa che un utente malintenzionato non può facilmente elevare le proprie autorizzazioni, ad esempio creando e consentindo a un'app che può scrivere nell'intera directory e tramite le autorizzazioni di tale app di diventare un amministratore globale.
 >
 >questo ruolo concede la possibilità di gestire le credenziali delle applicazioni. Gli utenti assegnati a questo ruolo possono aggiungere credenziali a un'applicazione e usarle per rappresentare l'identità dell'applicazione. Se all'identità dell'applicazione è stato concesso l'accesso a una risorsa, ad esempio la possibilità di creare o aggiornare l'utente o altri oggetti, un utente assegnato a questo ruolo potrebbe eseguire tali azioni durante la rappresentazione dell'applicazione. Questa possibilità di rappresentare l'identità dell'applicazione può essere un'elevazione dei privilegi rispetto alle operazioni che l'utente può eseguire tramite le assegnazioni di ruolo. È importante comprendere che assegnare a un utente il ruolo di Amministratore di applicazioni gli concede la possibilità di rappresentare l'identità di un'applicazione.
 
@@ -222,18 +222,13 @@ Questo amministratore gestisce la federazione tra le organizzazioni Azure AD e i
 * Organizzazioni Azure AD per dipendenti e partner: l'aggiunta di una federazione, ad esempio con Gmail, influirà immediatamente su tutti gli inviti guest non ancora riscattati. Vedere [Aggiungere Google come provider di identità per utenti guest B2B](../external-identities/google-federation.md).
 * Organizzazioni Azure Active Directory B2C: l'aggiunta di una federazione, ad esempio con Facebook o con un'altra organizzazione Azure AD, non ha impatto immediato sui flussi degli utenti finali fino all'aggiunta del provider di identità come opzione in un flusso utente, definito anche criterio predefinito. Per un esempio, vedere [Configurazione di un account Microsoft come provider di identità](../../active-directory-b2c/identity-provider-microsoft-account.md).  Per modificare i flussi utente, è necessario il ruolo limitato di "Amministratore dei flussi utente B2C".
 
-### <a name="global-administrator--company-administrator"></a>[Amministratore globale/Amministratore società](#company-administrator-permissions)
+### <a name="global-administrator"></a>[Amministratore globale](#global-administrator-permissions)
 
-gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Inoltre, gli amministratori globali possono [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure. Ciò consente agli amministratori globali di ottenere l'accesso completo a tutte le risorse di Azure usando il rispettivo tenant Azure AD. La persona che effettua l'iscrizione per l'organizzazione Azure AD diventa amministratore globale. In una società possono essere presenti più amministratori globali. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
-
-> [!NOTE]
-> Nell'API Microsoft Graph e in Azure AD PowerShell questo ruolo è identificato come "Amministratore società". È l'"amministratore globale" nel [portale di Azure](https://portal.azure.com).
->
->
+gli utenti con questo ruolo hanno accesso a tutte le funzionalità amministrative in Azure Active Directory, nonché ai servizi che usano identità di Azure Active Directory come Centro sicurezza Microsoft 365, Centro conformità Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Inoltre, gli amministratori globali possono [elevare l'accesso](../../role-based-access-control/elevate-access-global-admin.md) per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure. Ciò consente agli amministratori globali di ottenere l'accesso completo a tutte le risorse di Azure usando il rispettivo tenant Azure AD. La persona che si iscrive al Azure AD organizzazione diventa un amministratore globale. L'azienda può avere più di un amministratore globale. Gli amministratori globali possono reimpostare la password per qualsiasi utente e per tutti gli altri amministratori.
 
 ### <a name="global-reader"></a>[Ruolo con autorizzazioni di lettura globali](#global-reader-permissions)
 
-Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni amministrative tra servizi Microsoft 365, ma non possono eseguire azioni di gestione. Il ruolo con autorizzazioni di lettura globali è la controparte di sola lettura dell'amministratore globale. Assegnare il ruolo con autorizzazioni di lettura globali anziché l'amministratore globale per le attività di pianificazione, controllo o indagine. Usare il ruolo con autorizzazioni di lettura globali insieme ad altri ruoli amministrativi limitati, come l'amministratore di Exchange, per semplificare il lavoro senza assegnare il ruolo di amministratore globale. Il ruolo con autorizzazioni di lettura globali funziona con l'interfaccia di amministrazione di Microsoft 365, l'interfaccia di amministrazione di Exchange, l'interfaccia di amministrazione di SharePoint, l'interfaccia di amministrazione di Teams, il Centro sicurezza, il Centro conformità, l'interfaccia di amministrazione di Azure AD e l'interfaccia di amministrazione di Gestione dispositivi.
+Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni amministrative tra servizi Microsoft 365, ma non possono eseguire azioni di gestione. Global Reader è la controparte di sola lettura dell'amministratore globale. Assegnare il Reader globale anziché l'amministratore globale per la pianificazione, i controlli o le indagini. Usare il ruolo con autorizzazioni di lettura globali insieme ad altri ruoli amministrativi limitati, come l'amministratore di Exchange, per semplificare il lavoro senza assegnare il ruolo di amministratore globale. Il ruolo con autorizzazioni di lettura globali funziona con l'interfaccia di amministrazione di Microsoft 365, l'interfaccia di amministrazione di Exchange, l'interfaccia di amministrazione di SharePoint, l'interfaccia di amministrazione di Teams, il Centro sicurezza, il Centro conformità, l'interfaccia di amministrazione di Azure AD e l'interfaccia di amministrazione di Gestione dispositivi.
 
 > [!NOTE]
 > Il ruolo con autorizzazioni di lettura globali presenta al momento alcune limitazioni:
@@ -327,7 +322,7 @@ Gli utenti con il ruolo di utente Commerce moderno hanno in genere autorizzazion
 
 * **Acquisto self-service nell'interfaccia di amministrazione di Microsoft 365** - L'acquisto self-service offre agli utenti la possibilità di provare nuovi prodotti acquistandoli o effettuando l'iscrizione autonomamente. Questi prodotti vengono gestiti nell'interfaccia di amministrazione. Agli utenti che effettuano un acquisto self-service viene assegnato un ruolo nel sistema commerciale e il ruolo utente commerciale moderno per poter gestire gli acquisti nell'interfaccia di amministrazione. Gli amministratori possono bloccare gli acquisti self-service (per Power BI, Power Apps, Power Automate) tramite [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Per altre informazioni, vedere [Domande frequenti sugli acquisti self-service](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
 * **Acquisti da Microsoft Commercial Marketplace**  : Analogamente all'acquisto self-service, quando un utente acquista un prodotto o un servizio da Microsoft AppSource o Azure Marketplace, viene assegnato il ruolo utente Commerce moderno se non ha il ruolo amministratore globale o amministratore fatturazione. In alcuni casi, è possibile che gli utenti non possano effettuare questi acquisti. Per altre informazioni, vedere [Marketplace commerciale Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Proposte da Microsoft** - Una proposta è un'offerta formale da Microsoft per l'organizzazione per l'acquisto di prodotti e servizi Microsoft. Quando la persona che accetta la proposta non ha un ruolo di amministratore globale o amministratore della fatturazione in Azure AD, viene assegnato un ruolo specifico del commercio per completare la proposta e il ruolo utente commerciale moderno per accedere al centro di amministrazione. Quando accedono all'interfaccia di amministrazione, possono usare solo le funzionalità autorizzate dal proprio ruolo specifico per attività commerciali.
+* **Proposte da Microsoft** - Una proposta è un'offerta formale da Microsoft per l'organizzazione per l'acquisto di prodotti e servizi Microsoft. Quando la persona che accetta la proposta non ha un ruolo amministratore globale o amministratore fatturazione in Azure AD, viene assegnato un ruolo specifico del commercio per completare la proposta e il ruolo utente commerciale moderno per accedere al centro di amministrazione. Quando accedono all'interfaccia di amministrazione, possono usare solo le funzionalità autorizzate dal proprio ruolo specifico per attività commerciali.
 * **Ruoli specifici per attività commerciali** - Ad alcuni utenti vengono assegnati ruoli specifici per attività commerciali. Se un utente non è un amministratore globale o di fatturazione, ottiene il ruolo di utente commerciale moderno per poter accedere al centro di amministrazione.  
 
 Se il ruolo utente Commerce moderno non è assegnato a un utente, perderà l'accesso al centro di amministrazione di Microsoft 365. Se era responsabile della gestione di prodotti, per se stesso o per l'organizzazione, non sarà più in grado di occuparsene. I compiti di gestione potrebbero includere l'assegnazione di licenze, la modifica dei metodi di pagamento, il pagamento di fatture o altre attività per la gestione delle sottoscrizioni.
@@ -376,7 +371,7 @@ Gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato d
 
 ### <a name="privileged-authentication-administrator"></a>[Amministratore autenticazione con privilegi](#privileged-authentication-administrator-permissions)
 
-Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, e possono aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione con privilegi possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di ricordare l'autenticazione a più fattori sul dispositivo, richiedendo l'autenticazione MFA al successivo accesso per tutti gli utenti. Il ruolo di [amministratore dell'autenticazione](#authentication-administrator) può forzare la ripetizione della registrazione e l'autenticazione MFA solo per utenti non amministratori e utenti assegnati ai ruoli Azure AD seguenti:
+Gli utenti con questo ruolo possono impostare o reimpostare le credenziali non password per tutti gli utenti, inclusi gli amministratori globali, ed è possibile aggiornare le password per tutti gli utenti. Gli amministratori dell'autenticazione con privilegi possono forzare gli utenti a eseguire di nuovo la registrazione per le credenziali esistenti diverse dalle password (ad esempio MFA, FIDO) e revocare la scelta di ricordare l'autenticazione a più fattori sul dispositivo, richiedendo l'autenticazione MFA al successivo accesso per tutti gli utenti. Il ruolo di [amministratore dell'autenticazione](#authentication-administrator) può forzare la ripetizione della registrazione e l'autenticazione MFA solo per utenti non amministratori e utenti assegnati ai ruoli Azure AD seguenti:
 
 * Amministratore dell'autenticazione
 * Ruoli con autorizzazioni di lettura nella directory
@@ -445,7 +440,7 @@ In ingresso | Operazione consentita
 --- | ---
 [Centro sicurezza Microsoft 365](https://protection.office.com) | Visualizzare i criteri correlati alla sicurezza in tutti i servizi di Microsoft 365<br>Visualizzare gli avvisi e le minacce alla sicurezza<br>Visualizzazione di report
 Centro di Identity Protection | Leggere tutte le informazioni sulle impostazioni e sui report di sicurezza per le funzionalità di sicurezza<br><ul><li>Filtro posta indesiderata<li>Crittografia<li>Prevenzione della perdita dei dati<li>Antimalware<li>Protezione avanzata dalle minacce<li>Anti-phishing<li>Regole del flusso di posta
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD Privileged Identity Management: Criteri e report per le assegnazioni di ruolo e le verifiche della sicurezza di Azure AD.<br>**Non è possibile** iscriversi per Azure AD Privileged Identity Management o apportare modifiche. Nel portale di Privileged Identity Management o tramite PowerShell, un utente con questo ruolo può attivare altri ruoli, ad esempio Amministratore globale o Amministratore di ruoli con privilegi, se è idoneo per questi ruoli.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ha accesso in sola lettura a tutte le informazioni presentate in Azure AD Privileged Identity Management: Criteri e report per le assegnazioni di ruolo e le verifiche della sicurezza di Azure AD.<br>**Non è possibile** iscriversi per Azure AD Privileged Identity Management o apportare modifiche. Nel portale di Privileged Identity Management o tramite PowerShell, un utente con questo ruolo può attivare ruoli aggiuntivi, ad esempio amministratore globale o amministratore del ruolo con privilegi, se l'utente è idoneo.
 [Centro sicurezza e conformità di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Visualizzare i criteri di sicurezza<br>Visualizzare e analizzare le minacce alla sicurezza<br>Visualizzazione di report
 Windows Defender ATP ed EDR | Visualizzare e analizzare gli avvisi. Quando si attiva il controllo degli accessi in base al ruolo in Windows Defender ATP, gli utenti con autorizzazioni di sola lettura, ad esempio il ruolo con autorizzazioni di lettura per la sicurezza di Azure AD, perdono l'accesso fino a quando non vengono assegnati a un ruolo di Windows Defender ATP.
 [Intune](/intune/role-based-access-control) | Visualizzare le informazioni relative a utenti, dispositivi e applicazioni e i dati di registrazione e configurazione. Non è consentito apportare modifiche a Intune.
@@ -747,9 +742,9 @@ Accesso completo per la gestione dei dispositivi in Azure AD.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 
-### <a name="company-administrator-permissions"></a>Autorizzazioni per l'amministratore società
+### <a name="global-administrator-permissions"></a>Autorizzazioni di amministratore globale
 
-Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano identità di Azure AD. Questo ruolo è noto anche come ruolo di amministratore globale. 
+Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano identità di Azure AD.
 
 > [!NOTE]
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1749,10 +1744,12 @@ Creare e gestire gli eventi di sicurezza.
 | Microsoft. directory/cloudAppSecurity/allProperties/allTasks | Leggere e configurare Microsoft Cloud App Security. |
 | Microsoft. directory/identityProtection/allProperties/Read | Eseguire la lettura di tutte le risorse in microsoft.aad.identityProtection. |
 | Microsoft. directory/privilegedIdentityManagement/allProperties/Read | Eseguire tutte le risorse in microsoft.aad.privilegedIdentityManagement. |
+| microsoft.directory/provisioningLogs/allProperties/read | Leggere tutte le proprietà dei log di provisioning. |
 | microsoft.intune/allEntities/allTasks | Gestire tutti gli aspetti di Intune. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Leggere e configurare Centro sicurezza e conformità. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leggere e configurare Windows Defender Advanced Threat Protection. |
+
 
 ### <a name="security-reader-permissions"></a>Autorizzazioni per il ruolo con autorizzazioni di lettura per la sicurezza
 
