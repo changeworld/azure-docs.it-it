@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d94aca51d3d305b70c8c555e2b41e3d0ab857b3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927907"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061953"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
@@ -59,7 +59,7 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 ## <a name="azure-data-explorer"></a>Esplora dati di Azure
 
-Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](/azure/data-explorer/) con il potente linguaggio di query [kusto](/azure/kusto/query/index) .   
+Le cartelle di lavoro ora includono il supporto per l'esecuzione di query da cluster [Esplora dati di Azure](/azure/data-explorer/) con il potente linguaggio di query [kusto](/azure/kusto/query/index) .
 
 ![Screenshot della finestra di query kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -79,9 +79,43 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 ![Screenshot della query degli avvisi che Mostra gli elenchi dei filtri di integrità.](./media/workbooks-overview/resource-health.png)
 
+## <a name="change-analysis-preview"></a>Analisi delle modifiche (anteprima)
+
+Per eseguire un controllo query usando l' [analisi delle modifiche dell'applicazione](../app/change-analysis.md) come origine dati, usare l'elenco a discesa *origine dati* e scegliere *modifica analisi (anteprima)* e selezionare una singola risorsa. È possibile visualizzare le modifiche fino agli ultimi 14 giorni. È possibile usare l'elenco a discesa *livello* per filtrare tra le modifiche "importanti", "normali" e "rumorose" e questo elenco a discesa supporta i parametri della cartella di lavoro di tipo [elenco a discesa](workbooks-dropdowns.md).
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot di una cartella di lavoro con analisi delle modifiche](./media/workbooks-data-sources/change-analysis-data-source.png)
+
+## <a name="merge-data-from-different-sources"></a>Unisci dati da origini diverse
+
+Spesso è necessario riunire i dati da origini diverse che migliorano l'esperienza di Insights. Un esempio è l'aumento delle informazioni di avviso attive con i dati di metrica correlati. Ciò consente agli utenti di vedere non solo l'effetto (un avviso attivo), ma anche le possibili cause, ad esempio un utilizzo elevato della CPU. Il dominio di monitoraggio include numerose origini dati correlate che sono spesso cruciali per il flusso di lavoro di valutazione e diagnostica.
+
+Le cartelle di lavoro di non consentono solo l'esecuzione di query di origini dati diverse, ma forniscono anche semplici controlli che consentono di unire o unire i dati per fornire informazioni dettagliate avanzate. Il `merge` controllo consente di ottenerlo.
+
+Nell'esempio seguente vengono combinati i dati relativi agli avvisi con i dati sulle prestazioni delle macchine virtuali di log Analytics per ottenere una griglia di informazioni dettagliate.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot di una cartella di lavoro con un controllo di merge che combina i dati di avviso e di log Analytics](./media/workbooks-data-sources/merge-control.png)
+
+Le cartelle di lavoro supportano un'ampia gamma di unioni:
+
+* Join univoco interno
+* inner join completa
+* Full outer join
+* Left outer join
+* Right outer join
+* Left semi join
+* Semi join a destra
+* Left anti-join
+* Anti-join a destra
+* Union
+* Duplica tabella
+
 ## <a name="json"></a>JSON
 
 Il provider JSON consente di creare un risultato di query dal contenuto JSON statico. Viene in genere usato nei parametri per creare parametri a discesa di valori statici. Le matrici o gli oggetti semplici JSON verranno convertiti automaticamente in righe e colonne della griglia.  Per comportamenti più specifici, è possibile usare la scheda risultati e le impostazioni JSONPath per configurare le colonne.
+
+Questo provider supporta [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="alerts-preview"></a>Avvisi (anteprima)
 
@@ -100,12 +134,14 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 Le cartelle di lavoro supportano il recupero di dati da qualsiasi origine esterna. Se i dati si trovano all'esterno di Azure, è possibile portarli nelle cartelle di lavoro usando questo tipo di origine dati.
 
-Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _endpoint personalizzato_ . Fornire i parametri appropriati, ad esempio `Http method` ,, `url` `headers` `url parameters` e/o `body` . Verificare che l'origine dati supporti [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in caso contrario, la richiesta avrà esito negativo.
+Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _endpoint personalizzato_. Fornire i parametri appropriati, ad esempio `Http method` ,, `url` `headers` `url parameters` e/o `body` . Verificare che l'origine dati supporti [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in caso contrario, la richiesta avrà esito negativo.
 
-Per evitare di effettuare automaticamente chiamate a host non attendibili quando si usano i modelli, l'utente deve contrassegnare gli host usati come attendibili. A tale scopo, è possibile fare clic sul pulsante _Aggiungi come attendibile_ oppure aggiungerlo come host attendibile nelle impostazioni della cartella di lavoro. Queste impostazioni verranno salvate nei browser che supportano IndexDb con i Web Worker. [qui](https://caniuse.com/#feat=indexeddb)sono disponibili altre informazioni.
+Per evitare di effettuare automaticamente chiamate a host non attendibili quando si usano i modelli, l'utente deve contrassegnare gli host usati come attendibili. A tale scopo, è possibile fare clic sul pulsante _Aggiungi come attendibile_ oppure aggiungerlo come host attendibile nelle impostazioni della cartella di lavoro. Queste impostazioni verranno salvate nei [browser che supportano IndexDb con i Web Worker](https://caniuse.com/#feat=indexeddb).
 
 > [!NOTE]
 > Non scrivere alcun segreto in nessuno dei campi (,, `headers` `parameters` `body` , `url` ), perché saranno visibili a tutti gli utenti della cartella di lavoro.
+
+Questo provider supporta [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

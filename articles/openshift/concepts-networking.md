@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 9cfe8c7e7d2484649bf458524032365b692c9243
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
-ms.translationtype: HT
+ms.openlocfilehash: 6d1fd873de3313678875a8c167b90fafb8ede7ae
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093520"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061650"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Concetti di rete per Azure Red Hat OpenShift (ARO)
 
@@ -68,12 +68,15 @@ OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/contain
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Rete per Azure Red Hat OpenShift
 
-Le funzionalità di rete seguenti sono specifiche di Azure Red Hat OpenShift:
+Le funzionalità di rete seguenti sono specifiche di Azure Red Hat OpenShift:  
 * Gli utenti possono creare il loro cluster ARO in una rete virtuale esistente oppure creare una rete virtuale durante la creazione del cluster ARO.
 * I CIDR di rete per pod e servizi sono configurabili.
 * I nodi e i master si trovano in subnet diverse.
 * Le subnet di rete virtuale di nodi e master devono avere dimensioni minime di /27.
-* Il CIDR pod deve avere dimensioni minime di /18 (la rete pod ha indirizzi IP non instradabili e viene usata solo all'interno di OpenShift SDN).
+* CIDR Pod predefinito è 10.128.0.0/14.
+* CIDR servizio predefinito è 172.30.0.0/16.
+* CIDRs di rete di Pod e servizi non devono sovrapporsi ad altri intervalli di indirizzi in uso nella rete e non devono trovarsi all'interno dell'intervallo di indirizzi IP della rete virtuale del cluster.
+* La dimensione CIDR del Pod deve essere minima/18. (La rete Pod è indirizzi IP non instradabili e viene usata solo all'interno di OpenShift SDN).
 * A ogni nodo è allocata una subnet di dimensioni /23 (512 IP) per i pod. Questo valore non può essere modificato.
 * Non è possibile collegare un pod a più reti.
 * Non è possibile configurare un indirizzo IP statico in uscita (questa è una funzionalità OpenShift. Per altre informazioni, vedere [Configurazione di indirizzi IP in uscita](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).

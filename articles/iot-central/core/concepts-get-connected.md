@@ -1,8 +1,8 @@
 ---
 title: Connettività dei dispositivi in Azure IoT Central | Microsoft Docs
 description: Questo articolo presenta i concetti fondamentali relativi alla connettività dei dispositivi in Azure IoT Central
-author: TheJasonAndrew
-ms.author: v-anjaso
+author: dominicbetts
+ms.author: dobett
 ms.date: 1/15/2020
 ms.topic: conceptual
 ms.service: iot-central
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: c633b488fab521947e4f34abb95ada2342dc2eb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789771"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062679"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Connettersi ad Azure IoT Central
 
@@ -234,11 +234,8 @@ Gli Azure IoT SDK offrono il modo più semplice per implementare il codice del d
 Tutte le comunicazioni dei dispositivi con l'hub IoT usano le opzioni di connettività dell'hub IoT seguenti:
 
 - [Messaggistica da dispositivo a cloud](../../iot-hub/iot-hub-devguide-messages-d2c.md)
-- [Messaggistica da cloud a dispositivo](../../iot-hub/iot-hub-csharp-csharp-c2d.md)
+- [Messaggistica da cloud a dispositivo](../../iot-hub/iot-hub-devguide-messages-c2d.md)
 - [Dispositivi gemelli](../../iot-hub/iot-hub-devguide-device-twins.md)
-
-> [!NOTE]
-> Azure supporta ora
 
 La tabella seguente riepiloga le corrispondenze tra le funzionalità di dispositivo di Azure IoT Central e le funzionalità dell'hub IoT:
 

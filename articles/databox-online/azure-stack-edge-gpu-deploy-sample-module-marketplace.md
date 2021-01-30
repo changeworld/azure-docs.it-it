@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c46e8a7cae9ddba9606abf75ac022e804fde9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760060"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062502"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Distribuire un modulo Internet delle cose abilitate per la GPU da Azure Marketplace sul dispositivo GPU Azure Stack Edge Pro
 
@@ -53,7 +53,7 @@ Prima di iniziare, verificare di avere:
 
     ![Ottenere il modulo di esempio](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)
 
-4. Selezionare **continua** per confermare le condizioni per l'utilizzo e l'informativa sulla privacy del provider. 
+4. Selezionare **continua** per confermare le condizioni per l'utilizzo e l'informativa sulla privacy del provider. 
 
     ![Ottenere il modulo 2 di esempio](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/terms-of-use-1.png)
 
@@ -63,13 +63,11 @@ Prima di iniziare, verificare di avere:
 
 6. Immettere il nome del servizio hub Internet che è stato creato al momento della configurazione del dispositivo Azure Stack Edge Pro. Per trovare il nome del servizio hub Internet delle cose, passare alla risorsa Azure Stack Edge associata al dispositivo in portale di Azure. 
 
-    1. Nel riquadro a sinistra opzioni menu Vai a **bordo calcolo >** inizia. 
-
-    1. Nel riquadro **Configura calcolo Edge** selezionare **Visualizza configurazione**. 
+    1. Nel riquadro a sinistra opzioni menu passare a **servizi perimetrali > IOT Edge**. 
 
         ![Visualizza la configurazione di calcolo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/view-config-1.png)
 
-    1. Nel pannello **configurazione di calcolo Edge** :
+    1. Passare a **Proprietà**. 
 
         1. Prendere nota del servizio hub Internet che è stato creato quando è stato configurato il calcolo nel dispositivo Azure Stack Edge Pro.
         2. Prendere nota del nome del dispositivo IoT Edge creato durante la configurazione di calcolo. Questo nome verrà usato nel passaggio successivo.
@@ -78,16 +76,16 @@ Prima di iniziare, verificare di avere:
 
 10. Scegliere **Distribuisci in un dispositivo**.
 
-11. Immettere il nome del dispositivo IoT Edge o selezionare **trova dispositivo**   per cercare tra i dispositivi registrati con l'hub.
+11. Immettere il nome del dispositivo IoT Edge o selezionare **trova dispositivo** per cercare tra i dispositivi registrati con l'hub.
 
     ![Trova dispositivo](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/find-device-1.png)
 
-12. Selezionare **Crea**   per continuare il processo standard di configurazione di un manifesto di distribuzione, ad esempio l'aggiunta di altri moduli, se lo si desidera. I dettagli per il nuovo modulo, ad esempio URI dell'immagine, opzioni di creazione e proprietà desiderate, sono predefiniti, ma possono essere modificati.
+12. Selezionare **Crea** per continuare il processo standard di configurazione di un manifesto di distribuzione, ad esempio l'aggiunta di altri moduli, se lo si desidera. I dettagli per il nuovo modulo, ad esempio URI dell'immagine, opzioni di creazione e proprietà desiderate, sono predefiniti, ma possono essere modificati.
 
     ![Selezionare Crea](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/target-devices-iot-edge-module-1.png)
 
 
-13. Verificare che il modulo sia distribuito nell'hub Internet delle cose nel portale di Azure. Selezionare il dispositivo, selezionare **imposta moduli**per   elencare il modulo nella sezione **moduli IOT Edge**   .
+13. Verificare che il modulo sia distribuito nell'hub Internet delle cose nel portale di Azure. Selezionare il dispositivo, selezionare **imposta moduli** per elencare il modulo nella sezione **moduli IOT Edge** .
 
     ![Selezionare Crea 2](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/running-module-iotres-1.png)
 
@@ -97,7 +95,7 @@ Prima di iniziare, verificare di avere:
 
 2. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. In questo caso, selezionare la sottoscrizione usata per distribuire il dispositivo Azure Stack Edge Pro e selezionare il dispositivo IoT Edge creato per il dispositivo Azure Stack Edge Pro. Questo errore si verifica quando si configura il calcolo tramite il portale di Azure nei passaggi precedenti.
 
-3. In Esplora VS Code espandere la sezione Hub Azure. In **dispositivi**dovrebbe essere visualizzato il dispositivo IOT Edge corrispondente al dispositivo Azure stack Edge Pro. 
+3. In Esplora VS Code espandere la sezione Hub Azure. In **dispositivi** dovrebbe essere visualizzato il dispositivo IOT Edge corrispondente al dispositivo Azure stack Edge Pro. 
 
     1. Selezionare il dispositivo, fare clic con il pulsante destro del mouse e scegliere **Avvia monitoraggio endpoint evento predefinito**.
   

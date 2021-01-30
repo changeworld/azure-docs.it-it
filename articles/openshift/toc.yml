@@ -16,6 +16,10 @@
       href: tutorial-delete-cluster.md
 - name: Guide pratiche
   items:
+    - name: Operazioni del cluster
+      items:
+        - name: Aggiornare un cluster ARO
+          href: howto-upgrade.md
     - name: Rete
       items:
         - name: Creare un cluster di Azure Red Hat OpenShift privato
@@ -28,6 +32,8 @@
           href: howto-create-a-storageclass.md
         - name: Usare il registro contenitori predefinito
           href: built-in-container-registry.md
+        - name: Usare il registro contenitori di Azure
+          href: howto-use-acr-with-aro.md
     - name: Sicurezza e autenticazione
       items:
         - name: Configurare l'autenticazione di Azure Active Directory (interfaccia della riga di comando)

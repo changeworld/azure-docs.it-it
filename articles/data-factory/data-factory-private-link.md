@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 6fb460c65d37723b03c1dfd4fba2c353c19455bd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a1b5ba56d30124bea7a814c2ffcf0cfff28903aa
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944574"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062189"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
@@ -48,7 +48,7 @@ Con il supporto del collegamento privato per Azure Data Factory, è possibile:
 * Creare un endpoint privato nella rete virtuale.
 * Abilitare la connessione privata a un'istanza di data factory specifica. 
 
-Le comunicazioni al servizio Azure Data Factory passano attraverso un collegamento privato e forniscono una connettività privata sicura. Non è necessario configurare il dominio e la porta precedenti in una rete virtuale o nel firewall aziendale per fornire un modo più sicuro per proteggere le risorse.  
+Le comunicazioni al servizio Azure Data Factory passano attraverso un collegamento privato e forniscono una connettività privata sicura. 
 
 ![Diagramma del collegamento privato per l'architettura Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
@@ -62,6 +62,9 @@ L'abilitazione del servizio di collegamento privato per ognuno dei canali di com
 
    > [!NOTE]
    > Per le funzionalità che non sono attualmente supportate, è comunque necessario configurare il dominio e la porta indicati in precedenza nella rete virtuale o nel firewall aziendale. 
+
+   > [!NOTE]
+   > La connessione a Azure Data Factory tramite endpoint privato è applicabile solo al runtime di integrazione self-hosted in data factory. Non è supportato in sinapsi.
 
 > [!WARNING]
 > Quando si crea un servizio collegato, assicurarsi che le credenziali siano archiviate in Azure Key Vault. In caso contrario, le credenziali non funzioneranno quando si Abilita il collegamento privato in Azure Data Factory.

@@ -3,12 +3,12 @@ title: Proteggi le VM della soluzione VMware di Azure con l'integrazione del Cen
 description: Informazioni su come proteggere le VM della soluzione VMware di Azure con gli strumenti di sicurezza nativi di Azure da un singolo dashboard nel centro sicurezza di Azure.
 ms.topic: how-to
 ms.date: 11/06/2020
-ms.openlocfilehash: e461e7e49619f7063c0583975f36a2e3dfe5a724
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 66270c5abef48f9d9f30ed1b262a6b4f2f8144c8
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937339"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061465"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteggi le VM della soluzione VMware di Azure con l'integrazione del Centro sicurezza di Azure
 
@@ -45,7 +45,7 @@ Una volta raccolti i log dall'area di lavoro Log Analytics, è possibile configu
 
 ## <a name="create-a-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
 
-Sarà necessaria un'area di lavoro Log Analytics per raccogliere dati da diverse origini. Vedere i passaggi descritti in [creare un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/learn/quick-create-workspace.md). 
+Sarà necessaria un'area di lavoro Log Analytics per raccogliere dati da diverse origini. Per ulteriori informazioni, vedere [la pagina relativa alla creazione di un'area di lavoro log Analytics dalla portale di Azure](../azure-monitor/learn/quick-create-workspace.md). 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Distribuire il Centro sicurezza e configurare le macchine virtuali della soluzione VMware di Azure
 
@@ -173,7 +173,7 @@ Dopo aver connesso le origini dati ad Azure Sentinel, è possibile creare regole
         |where count_ > 3
         ```
         
-    - Entità mappa
+    - Esegui mapping entità
     - Pianificazione di query
     - Soglia di avviso
     - Raggruppamento di eventi

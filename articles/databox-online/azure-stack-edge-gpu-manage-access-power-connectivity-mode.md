@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 01/28/2021
 ms.author: alkohli
-ms.openlocfilehash: 38dcb32b2993838f8c3f13334e0bc44e9146f113
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: b1b5c236c147f060ca1c05e8ed9de12e7e88cf68
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448597"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061809"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per la GPU Pro Azure Stack Edge
 
@@ -54,7 +54,7 @@ Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecch
 
 1. Nel portale di Azure passare a **Panoramica > Reimposta password amministratore**.
 
-    ![Screenshot mostra la password del dispositivo con Reimposta il dispositivo selezionato.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![Screenshot mostra la password del dispositivo con Reimposta il dispositivo selezionato.](media/azure-stack-edge-gpu-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Immettere la nuova password e quindi confermarla. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Selezionare **Reimposta**.

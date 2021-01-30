@@ -2,17 +2,19 @@
 title: Riferimento di errore per i controlli di integrità del registro di sistema
 description: Codici di errore e possibili soluzioni per i problemi rilevati mediante l'esecuzione del comando AZ ACR check-Health Diagnostic in Azure Container Registry
 ms.topic: article
-ms.date: 07/02/2019
-ms.openlocfilehash: 9136d41097207bfb17776071e958308f36a9aadd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/25/2021
+ms.openlocfilehash: 05ae5a7ac19bb7748d5313ccb4974b639ab52d9c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565599"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061869"
 ---
 # <a name="health-check-error-reference"></a>Riferimento errore controllo integrità
 
 Di seguito sono riportati i dettagli sui codici di errore restituiti dal comando [AZ ACR check-Health][az-acr-check-health] . Per ogni errore, sono elencate le possibili soluzioni.
+
+Per informazioni sull'esecuzione `az acr check-healh` di, vedere [verificare l'integrità di un registro contenitori di Azure](container-registry-check-health.md).
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
@@ -49,6 +51,12 @@ Questo errore indica che il client Helm non è stato trovato dall'interfaccia de
 Questo errore indica che l'interfaccia della riga di comando non è stata in grado di determinare la versione di Helm installata. Questo problema può verificarsi se la versione dell'interfaccia della riga di comando di Azure (o se la versione Helm) utilizzata è obsoleta.
 
 *Possibili soluzioni*: eseguire l'aggiornamento alla versione più recente dell'interfaccia della riga di comando di Azure o alla versione consigliata. eseguire il comando manualmente ed esaminare il messaggio di errore.
+
+## <a name="cmk_error"></a>CMK_ERROR
+
+Questo errore indica che il registro di sistema non è in grado di accedere all'identità gestita assegnata dall'utente o sysem utilizzata per configurare la crittografia del registro di sistema con una chiave gestita dal cliente. L'identità gestita potrebbe essere stata eliminata.  
+
+*Potenziale soluzione*: per risolvere il problema e ruotare la chiave usando un'identità gestita diversa, vedere la procedura per risolvere i problemi relativi [all'identità assegnata dall'utente](container-registry-customer-managed-keys.md#troubleshoot).
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 

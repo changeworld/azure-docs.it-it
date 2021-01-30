@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 18665fabad079a8759f26be8834b2fe029ab5f49
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: aa05fc9f02c26192762ed34db54b60b4760bf3bf
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742778"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99061852"
 ---
 # <a name="install-net-on-azure-cloud-services-classic-roles"></a>Installare .NET nei ruoli di servizi cloud di Azure (versione classica)
 
@@ -32,7 +32,7 @@ Per installare .NET nei ruoli Web e di lavoro, includere il programma di install
 ## <a name="add-the-net-installer-to-your-project"></a>Aggiungere al progetto il programma di installazione .NET
 Per scaricare il programma di installazione Web per .NET Framework, scegliere la versione da installare:
 
-* [Programma di installazione Web di .NET Framework 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Programma di installazione Web di .NET Framework 4,8](https://go.microsoft.com/fwlink/?LinkId=2150985)
 * [Programma di installazione Web 4.7.2 .NET Framework](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Programma di installazione Web 4.6.2 .NET Framework](https://www.microsoft.com/download/details.aspx?id=53345)
 

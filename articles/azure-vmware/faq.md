@@ -3,12 +3,12 @@ title: Domande frequenti
 description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 1/14/2021
-ms.openlocfilehash: 8245cd8da983ce48ba88d7faef76ab9b7ceb8c26
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 090b29b1e013ffbceb9296250fed99a04d15a82c
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218587"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062088"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -258,11 +258,11 @@ VMware HCX Enterprise è disponibile con la soluzione VMware di Azure come funzi
 
 ### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
 
-Per le sottoscrizioni gestite da CSP, il cliente deve inviare la richiesta al partner. Il team partner si impegna quindi con Microsoft per aumentare la quota per la sottoscrizione. Per informazioni dettagliate, vedere l' [articolo come abilitare la risorsa di soluzione VMware di Azure](enable-azure-vmware-solution.md) . 
+Per le sottoscrizioni gestite da CSP, il cliente deve inviare la richiesta al partner. Il team partner si impegna quindi con Microsoft per aumentare la quota per la sottoscrizione. Per altre informazioni, vedere [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md). 
 
 Per le sottoscrizioni EA, attenersi alla procedura riportata di seguito. Per prima cosa, è necessario:
 
-* Un [Enterprise Agreement di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
+* Un [contratto Enterprise di Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 * Un account Azure in una sottoscrizione di Azure.
 
 Prima di poter creare la risorsa della soluzione VMware di Azure, è necessario inviare un ticket di supporto per allocare gli host. Sono necessari fino a cinque giorni lavorativi per confermare e soddisfare la richiesta. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri host, sarà necessario seguire lo stesso processo.
