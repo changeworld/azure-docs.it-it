@@ -13,12 +13,12 @@ ms.date: 01/25/2021
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 560caa7e29ce12b58e151a1362aaf2c662646f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 8488325613b05d54b352a19a06860e08f1779877
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954801"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063115"
 ---
 # <a name="logging-in-msal-for-python"></a>Registrazione in MSAL per Python
 
@@ -55,5 +55,3 @@ Per ulteriori informazioni sulla registrazione in Python, vedere la pagina relat
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altri esempi di codice, vedere [esempi di codice della piattaforma Microsoft Identity](sample-v2-code.md).
-
----

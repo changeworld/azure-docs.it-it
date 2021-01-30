@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 1/17/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 2ab1b5ae87cee6265c965c45b706c7fbf10dfe3f
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: c8a5666d373852da5ff79490f435b2d66d5cc6e0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702955"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090367"
 ---
 # <a name="tutorial-configure-keyless-with-azure-active-directory-b2c"></a>Esercitazione: configurare senza chiave con Azure Active Directory B2C
 
@@ -83,10 +83,10 @@ Per configurare un provider di identità, attenersi alla procedura seguente:
 1. Selezionare il **tipo di provider di identità**  >  **OpenID Connect (anteprima)**
 2. Compilare il modulo per configurare il provider di identità:
 
-   |Proprietà | valore |
+   |Proprietà | Valore |
    |:-----| :-----------|
    | Nome   | Keyless |
-   | URL dei metadati | Inserire l'URI dell'app di autenticazione con chiave digitale ospitata, seguita dal percorso specifico, ad esempio https://keyless.auth/.well-known/openid-configuration |
+   | URL dei metadati | Inserire l'URI dell'app di autenticazione con chiave digitale ospitata, seguita dal percorso specifico, ad esempio ' https://keyless.auth/.well-known/openid-configuration ' |
    | Client Secret | Il segreto associato all'istanza di autenticazione senza chiave, non uguale a quello configurato in precedenza. Inserire una stringa complessa di propria scelta. Questo segreto verrà usato in un secondo momento nella configurazione del contenitore con chiave privata.|
    | ID client | ID del client. Questo ID verrà usato in un secondo momento nella configurazione del contenitore con chiave automatica.|
    | Ambito | openid |
@@ -99,7 +99,7 @@ Per configurare un provider di identità, attenersi alla procedura seguente:
 
 5. Compilare il modulo per eseguire il mapping del provider di identità:
 
-   |Proprietà | valore |
+   |Proprietà | Valore |
    |:-----| :-----------|
    | UserID    | Dalla sottoscrizione |
    | Nome visualizzato | Dalla sottoscrizione |

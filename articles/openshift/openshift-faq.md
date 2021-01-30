@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 3a474228776c689dbbd6f15ddd926f29383400ce
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964712"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99071053"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Domande frequenti su Azure Red Hat OpenShift
 
@@ -81,7 +81,7 @@ I nodi vengono riavviati come parte di un aggiornamento.
 
 ### <a name="can-i-use-prometheus-to-monitor-my-applications"></a>È possibile utilizzare Prometeo per monitorare le applicazioni?
 
-Prometeo è preinstallato e configurato per i cluster Azure Red Hat OpenShift 4. x. Scopri di più sul [monitoraggio del cluster](https://docs.openshift.com/container-platform/3.11/install_config/prometheus_cluster_monitoring.html).
+Prometeo è preinstallato e configurato per i cluster Azure Red Hat OpenShift 4. x. Scopri di più sul [monitoraggio del cluster](https://docs.openshift.com/container-platform/4.6/operators/operator_sdk/osdk-monitoring-prometheus.html).
 
 Per i cluster Azure Red Hat OpenShift 3,11, è possibile distribuire Prometeo nello spazio dei nomi e monitorare le applicazioni nello spazio dei nomi. Per altre informazioni, vedere [deploy Prometheus instance in Azure Red Hat OpenShift cluster](howto-deploy-prometheus.md).
 
@@ -97,7 +97,7 @@ I log delle macchine virtuali sottostanti sono gestiti dal servizio gestito e no
 
 ### <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-azure-red-hat-openshift-cluster"></a>In che modo un cliente può accedere a metriche come CPU/memoria a livello di nodo per intervenire su scalabilità, problemi di debug e così via? Non posso sembrare di eseguire kubectl top in un cluster Azure Red Hat OpenShift.
 
-Per i cluster Azure Red Hat OpenShift 4. x, la console Web OpenShift contiene tutte le metriche a livello di nodo. Per ulteriori informazioni, vedere la documentazione di Red Hat sulla [visualizzazione delle informazioni sul cluster](https://docs.openshift.com/aro/4/web_console/using-dashboard-to-get-cluster-information.html).
+Per i cluster Azure Red Hat OpenShift 4. x, la console Web OpenShift contiene tutte le metriche a livello di nodo. Per ulteriori informazioni, vedere la documentazione di Red Hat sulla [visualizzazione delle informazioni sul cluster](https://docs.openshift.com/container-platform/4.6/web_console/using-dashboard-to-get-cluster-information.html).
 
 Per i cluster Azure Red Hat OpenShift 3,11, i clienti possono accedere alle metriche della CPU/memoria a livello di nodo usando il comando `oc adm top nodes` o `kubectl top nodes` con il ruolo del cluster Customer-admin. I clienti possono anche accedere alle metriche della CPU/memoria di `pods` con il comando `oc adm top pods` o `kubectl top pods` .
 
@@ -116,14 +116,14 @@ Quando si usano etichette specifiche, è necessario prestare attenzione:
 - Il nome host non deve essere usato. Il nome host viene ruotato spesso con aggiornamenti e aggiornamenti e ne viene garantita la modifica.
 - Se il cliente dispone di una richiesta di etichette specifiche o di una strategia di distribuzione, questa operazione può essere eseguita, ma richiede sforzi di progettazione e non è attualmente supportata.
 
-Per altre informazioni, vedere [controllo della selezione host per pod](https://docs.openshift.com/aro/4/nodes/scheduling/nodes-scheduler-about.html).
+Per altre informazioni, vedere [controllo della selezione host per pod](https://docs.openshift.com/container-platform/4.6/nodes/scheduling/nodes-scheduler-about.html).
 
 ### <a name="is-the-image-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Il registro immagini è disponibile esternamente per poter usare strumenti come Jenkins?
 
 Per i cluster 4. x, è necessario esporre un registro di sistema sicuro e configurare l'autenticazione. Per ulteriori informazioni, vedere la seguente documentazione di Red Hat:
 
-- [Esposizione di un registro](https://docs.openshift.com/aro/4/registry/securing-exposing-registry.html)
-- [Accesso al registro di sistema](https://docs.openshift.com/aro/4/registry/accessing-the-registry.html)
+- [Esposizione di un registro](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
+- [Accesso al registro di sistema](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
 
 Per i cluster 3,11, il registro immagini Docker è disponibile. Il registro Docker è disponibile da `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` . È anche possibile usare Container Registry di Azure.
 
@@ -181,24 +181,24 @@ oc adm policy \
 
 Per ulteriori informazioni, vedere la documentazione di OpenShift sulla disabilitazione del provisioning automatico per la versione del cluster:
 
-- [Disabilitazione del provisioning automatico in cluster 4,3](https://docs.openshift.com/aro/4/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
+- [Disabilitazione del provisioning automatico in cluster 4,6](https://docs.openshift.com/container-platform/4.6/applications/projects/configuring-project-creation.html#disabling-project-self-provisioning_configuring-project-creation)
 - [Disabilitazione del provisioning automatico in cluster 3,11](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)
 
 ### <a name="which-unix-rights-in-iaas-are-available-for-mastersinfraapp-nodes"></a>Quali diritti UNIX (in IaaS) sono disponibili per i nodi master/infra/app?
 
-Per i cluster 4. x, l'accesso al nodo è disponibile tramite il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Per i cluster 4. x, l'accesso al nodo è disponibile tramite il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 Per i cluster 3,11, l'accesso ai nodi non è consentito.
 
 ### <a name="which-ocp-rights-do-we-have-cluster-admin-project-admin"></a>Quali sono i diritti di OCP? Amministrazione cluster Project-amministratore?
 
-Per i cluster 4. x, è disponibile il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.3/authentication/using-rbac.html).
+Per i cluster 4. x, è disponibile il ruolo di amministratore del cluster. Per altre informazioni, vedere [KUBERNETES RBAC Overview](https://docs.openshift.com/container-platform/4.6/authentication/using-rbac.html).
 
 Per i cluster 3,11, vedere [Cenni preliminari sull'amministrazione del cluster](https://docs.openshift.com/aro/admin_guide/index.html) .
 
 ### <a name="which-identity-providers-are-available"></a>Quali provider di identità sono disponibili?
 
-Per i cluster 4. x, è possibile configurare un provider di identità personalizzato. Per altre informazioni, vedere la documentazione di Red Hat sulla [configurazione dei ProDiver delle identità](https://docs.openshift.com/aro/4/authentication/identity_providers/configuring-ldap-identity-provider.html).
+Per i cluster 4. x, è possibile configurare un provider di identità personalizzato. Per ulteriori informazioni, vedere la documentazione di Red Hat relativa alla [configurazione dei provider di identità](https://docs.openshift.com/container-platform/4.6/authentication/identity_providers/configuring-ldap-identity-provider.html).
 
 Per i cluster 3,11, è possibile usare l'integrazione Azure AD. 
 
@@ -210,13 +210,13 @@ Per impostazione predefinita, i dati vengono crittografati a riposo. La piattafo
 
 ### <a name="is-data-stored-in-etcd-encrypted-on-azure-red-hat-openshift"></a>I dati vengono archiviati in etcd crittografati in Azure Red Hat OpenShift?
 
-Per i cluster Azure Red Hat OpenShift 4, i dati non vengono crittografati per impostazione predefinita, ma è possibile abilitare la crittografia. Per ulteriori informazioni, vedere la guida alla [crittografia di ETCD](https://docs.openshift.com/container-platform/4.3/authentication/encrypting-etcd.html).
+Per i cluster Azure Red Hat OpenShift 4, i dati non vengono crittografati per impostazione predefinita, ma è possibile abilitare la crittografia. Per ulteriori informazioni, vedere la guida alla [crittografia di ETCD](https://docs.openshift.com/container-platform/4.6/security/encrypting-etcd.html).
 
 Per i cluster 3,11, i dati non vengono crittografati a livello di ETCD. L'opzione per attivare la crittografia non è attualmente supportata. OpenShift supporta questa funzionalità, ma sono necessari sforzi di progettazione per crearla sulla mappa stradale. I dati vengono crittografati a livello di disco. Per ulteriori informazioni, vedere [crittografia dei dati a livello di archivio dati](https://docs.openshift.com/container-platform/3.11/admin_guide/encrypting_data.html) .
 
 ### <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>È possibile scegliere qualsiasi soluzione di archiviazione persistente, ad esempio OCS? 
 
-Per i cluster 4. x, il disco di Azure (Premium_LRS) viene configurato come classe di archiviazione predefinita. Per i provider di archiviazione aggiuntivi e per i dettagli di configurazione (incluso file di Azure), vedere la documentazione di Red Hat sull' [archivio permanente](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
+Per i cluster 4. x, il disco di Azure (Premium_LRS) viene configurato come classe di archiviazione predefinita. Per i provider di archiviazione aggiuntivi e per i dettagli di configurazione (incluso file di Azure), vedere la documentazione di Red Hat sull' [archivio permanente](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
 
 Per i cluster 3,11, per impostazione predefinita vengono fornite due classi di archiviazione: una per i dischi di Azure (Premium_LRS) e una per file di Azure.
 

@@ -6,16 +6,16 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 11/23/2020
-ms.openlocfilehash: 6d1fd873de3313678875a8c167b90fafb8ede7ae
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 07b0dd38b616525728c264bd315c5cb8ddcaa79a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061650"
+ms.locfileid: "99072053"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Concetti di rete per Azure Red Hat OpenShift (ARO)
 
-Questa guida offre una panoramica delle funzionalità di rete di Azure Red Hat OpenShift sui cluster OpenShift 4, oltre a un diagramma e a un elenco di endpoint importanti. Per altre informazioni sui principali concetti di rete di OpenShift, vedere la [documentazione relativa alle funzionalità di rete di Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
+Questa guida offre una panoramica delle funzionalità di rete di Azure Red Hat OpenShift sui cluster OpenShift 4, oltre a un diagramma e a un elenco di endpoint importanti. Per altre informazioni sui principali concetti di rete di OpenShift, vedere la [documentazione relativa alle funzionalità di rete di Azure Red Hat OpenShift 4](https://docs.openshift.com/container-platform/4.6/networking/understanding-networking.html).
 
 ![Diagramma di rete di Azure Red Hat OpenShift 4](./media/concepts-networking/aro4-networking-diagram.png)
 
@@ -64,7 +64,7 @@ Di seguito sono elencati i componenti di rete importanti di un cluster di Azure 
 
 ## <a name="networking-basics-in-openshift"></a>Nozioni fondamentali sulla rete in OpenShift
 
-OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html) si usa per configurare una rete di overlay tramite Open vSwitch [(OVS)](https://www.openvswitch.org/), un'implementazione di OpenFlow basata sulla specifica CNI (Container Network Interface). SDN supporta diversi plug-in e Criteri di rete è quello usato in Azure Red Hat su OpenShift 4. Tutte le comunicazioni di rete sono gestite da SDN, quindi non sono necessarie route aggiuntive sulle reti virtuali per ottenere la comunicazione da pod a pod.
+OpenShift Software Defined Networking [(SDN)](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/about-openshift-sdn.html) si usa per configurare una rete di overlay tramite Open vSwitch [(OVS)](https://www.openvswitch.org/), un'implementazione di OpenFlow basata sulla specifica CNI (Container Network Interface). SDN supporta diversi plug-in e Criteri di rete è quello usato in Azure Red Hat su OpenShift 4. Tutte le comunicazioni di rete sono gestite da SDN, quindi non sono necessarie route aggiuntive sulle reti virtuali per ottenere la comunicazione da pod a pod.
 
 ## <a name="networking--for-azure-red-hat-openshift"></a>Rete per Azure Red Hat OpenShift
 
@@ -79,7 +79,7 @@ Le funzionalità di rete seguenti sono specifiche di Azure Red Hat OpenShift:
 * La dimensione CIDR del Pod deve essere minima/18. (La rete Pod è indirizzi IP non instradabili e viene usata solo all'interno di OpenShift SDN).
 * A ogni nodo è allocata una subnet di dimensioni /23 (512 IP) per i pod. Questo valore non può essere modificato.
 * Non è possibile collegare un pod a più reti.
-* Non è possibile configurare un indirizzo IP statico in uscita (questa è una funzionalità OpenShift. Per altre informazioni, vedere [Configurazione di indirizzi IP in uscita](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/assigning-egress-ips.html)).
+* Non è possibile configurare un indirizzo IP statico in uscita (questa è una funzionalità OpenShift. Per altre informazioni, vedere [Configurazione di indirizzi IP in uscita](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/assigning-egress-ips.html)).
 
 ## <a name="network-settings"></a>Impostazioni di rete
 
@@ -98,7 +98,7 @@ I gruppi di sicurezza di rete vengono creati nel gruppo di risorse del nodo, che
 Con un server API visibile pubblicamente non è possibile creare gruppi di sicurezza di rete e assegnarli alle schede di interfaccia di rete.
 
 ## <a name="domain-forwarding"></a>Inoltro del dominio
-Azure Red Hat OpenShift usa CoreDNS. L'inoltro del dominio può essere configurato. Non è possibile usare il DNS personale nelle reti virtuali. Per altre informazioni, vedere la documentazione sull'[uso dell'inoltro DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html#nw-dns-forward_dns-operator).
+Azure Red Hat OpenShift usa CoreDNS. L'inoltro del dominio può essere configurato. Non è possibile usare il DNS personale nelle reti virtuali. Per altre informazioni, vedere la documentazione sull'[uso dell'inoltro DNS](https://docs.openshift.com/container-platform/4.6/networking/dns-operator.html#nw-dns-forward_dns-operator).
 
 ## <a name="whats-new-in-openshift-45"></a>Novità di OpenShift 4.5
 

@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
-ms.openlocfilehash: 4997853fea97d14491bd9e9101f79f324807a6a1
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 83ffccb7bae4fabc10796c36e782e72c661bd346
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920816"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063013"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
@@ -216,7 +216,7 @@ Quando si utilizza il trigger Request per gestire le richieste in ingresso, è p
 > Se un'azione di risposta include queste intestazioni, App per la logica rimuove le intestazioni dal messaggio di risposta generato senza visualizzare alcun avviso o errore:
 >
 > * `Allow`
-> * `Content-*` con le eccezioni seguenti: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+> * `Content-*` le intestazioni ad eccezione di `Content-Disposition` , `Content-Encoding` e `Content-Type` quando si usano operazioni post e Put, ma non sono incluse per le operazioni Get
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`

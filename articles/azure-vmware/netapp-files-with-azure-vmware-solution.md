@@ -3,12 +3,12 @@ title: Azure NetApp Files con la soluzione VMware di Azure
 description: Usare Azure NetApp Files con le macchine virtuali della soluzione VMware di Azure per eseguire la migrazione e sincronizzare i dati tra i server locali, le macchine virtuali della soluzione VMware di Azure e le infrastrutture cloud.
 ms.topic: how-to
 ms.date: 01/20/2021
-ms.openlocfilehash: 97a9172dfbed2722d4af0abbd6231a0367dc4e3c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b712b25130a8bed19bd784d2c45c18a55a582be6
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798457"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062979"
 ---
 # <a name="azure-netapp-files-with-azure-vmware-solution"></a>Azure NetApp Files con la soluzione VMware di Azure
 
@@ -102,7 +102,7 @@ Di seguito sono riportate alcune interessanti Azure NetApp Files casi d'uso.
 - Condivisioni file in una soluzione VMware di Azure
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sui [limiti delle risorse per Azure NetApp files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits).
-- Vedere [linee guida per la pianificazione di Azure NetApp files rete](../azure-netapp-files/azure-netapp-files-network-topologies.md).
-- Informazioni sulla [replica tra aree di Azure NetApp files volumi](../azure-netapp-files/cross-region-replication-introduction.md). 
-- Vedere le [domande frequenti su Azure NetApp files](../azure-netapp-files/azure-netapp-files-faqs.md).
+- [Limiti delle risorse per Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
+- [Linee guida per la pianificazione della rete per Azure NetApp Files](../azure-netapp-files/azure-netapp-files-network-topologies.md)
+- [Replica tra aree di volumi Azure NetApp Files](../azure-netapp-files/cross-region-replication-introduction.md) 
+- [Domande frequenti su Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)

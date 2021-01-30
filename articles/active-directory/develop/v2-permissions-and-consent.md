@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40
-ms.openlocfilehash: aa8c00d1ee2a0dc3d019cc75b4e411ede984e74a
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 570314bcaedb86cc593846ffc1d6846d1d2fe335
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756057"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090188"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform"></a>Autorizzazioni e consenso in Microsoft Identity Platform
 
@@ -164,7 +164,7 @@ Se l'applicazione richiede le autorizzazioni dell'applicazione e un amministrato
 
 Dopo aver usato l'endpoint di consenso dell'amministratore per concedere il consenso dell'amministratore, l'operazione è terminata. Gli utenti non devono eseguire altre azioni. Una volta concesso il consenso dell'amministratore, gli utenti possono ottenere un token di accesso tramite un tipico flusso di autenticazione. Il token di accesso risultante ha le autorizzazioni consentite.
 
-Quando un amministratore della società usa l'applicazione e viene indirizzato all'endpoint di autorizzazione, la piattaforma Microsoft Identity rileva il ruolo dell'utente. Viene chiesto se l'amministratore della società vuole dare il consenso per conto dell'intero tenant per le autorizzazioni richieste. È invece possibile usare un endpoint di consenso dell'amministratore dedicato per richiedere in modo proattivo a un amministratore di concedere l'autorizzazione per conto dell'intero tenant. Questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione. Non è possibile richiedere le autorizzazioni dell'applicazione usando l'endpoint di autorizzazione.
+Quando un amministratore globale USA l'applicazione e viene indirizzato all'endpoint di autorizzazione, la piattaforma Microsoft Identity rileva il ruolo dell'utente. Viene chiesto se l'amministratore globale desidera concedere il consenso per conto dell'intero tenant per le autorizzazioni richieste. È invece possibile usare un endpoint di consenso dell'amministratore dedicato per richiedere in modo proattivo a un amministratore di concedere l'autorizzazione per conto dell'intero tenant. Questo endpoint è necessario anche per richiedere le autorizzazioni dell'applicazione. Non è possibile richiedere le autorizzazioni dell'applicazione usando l'endpoint di autorizzazione.
 
 Seguendo questa procedura, l'app può richiedere le autorizzazioni per tutti gli utenti di un tenant, inclusi gli ambiti riservati all'amministratore. Questa operazione è con privilegi elevati. Usare l'operazione solo se necessario per lo scenario.
 

@@ -5,67 +5,40 @@ description: Monitorare lo stato, lo stato di avanzamento e i risultati degli in
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 0107dfb24ddad2a5b0f9f0ab12d2fe701466e385
-ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
+ms.date: 01/28/2021
+ms.openlocfilehash: a94720e6b84821d53a3bfdcbdce249390078940f
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94372830"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063268"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore ricerca cognitiva di Azure
 
-Azure ricerca cognitiva fornisce informazioni sullo stato e sul monitoraggio delle esecuzioni correnti e cronologiche di ogni indicizzatore.
+È possibile monitorare l'elaborazione dell'indicizzatore nell'portale di Azure o a livello di codice tramite chiamate REST o Azure SDK. Oltre allo stato dell'indicizzatore, è possibile esaminare gli orari di inizio e di fine, nonché gli errori e gli avvisi dettagliati di una determinata esecuzione.
 
-Il monitoraggio dell'indicizzatore è utile quando si desidera:
+## <a name="monitor-using-azure-portal"></a>Monitoraggio con portale di Azure
 
-* Tenere traccia dello stato di avanzamento di un indicizzatore durante un'esecuzione in corso.
-* Esaminare i risultati dell'esecuzione dell'indicizzatore in corso o in precedenza.
-* Identificare gli errori dell'indicizzatore di primo livello ed errori o avvisi relativi a singoli documenti indicizzati.
-
-## <a name="get-status-and-history"></a>Ottenere lo stato e la cronologia
-
-È possibile accedere alle informazioni di monitoraggio dell'indicizzatore in diversi modi, tra cui:
-
-* Nella [portale di Azure](#portal)
-* Uso dell' [API REST](#restapi)
-* Uso di [.NET SDK](#dotnetsdk)
-
-Le informazioni di monitoraggio disponibili per l'indicizzatore includono tutti gli elementi seguenti (anche se i formati di dati variano in base al metodo di accesso usato):
-
-* Informazioni sullo stato dell'indicizzatore stesso
-* Informazioni sulla più recente esecuzione dell'indicizzatore, inclusi lo stato, l'ora di inizio e di fine, nonché gli errori e gli avvisi dettagliati.
-* Elenco di esecuzioni cronologiche degli indicizzatori e relativi stati, risultati, errori e avvisi.
-
-Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto tempo per l'esecuzione. Ad esempio, gli indicizzatori che gestiscono milioni di documenti di origine possono essere eseguiti per 24 ore e quindi riavviati quasi immediatamente. Lo stato per gli indicizzatori con volumi elevati può sempre indicare **in corso** nel portale. Anche quando un indicizzatore è in esecuzione, sono disponibili dettagli sullo stato di avanzamento e sulle esecuzioni precedenti.
-
-<a name="portal"></a>
-
-## <a name="monitor-using-the-portal"></a>Monitorare tramite il portale
-
-È possibile visualizzare lo stato corrente di tutti gli indicizzatori nell'elenco **indicizzatori** della pagina di panoramica del servizio di ricerca.
+È possibile visualizzare lo stato corrente di tutti gli indicizzatori nella pagina di panoramica del servizio di ricerca. Le pagine del portale vengono aggiornate ogni pochi minuti, quindi non sarà possibile visualizzare immediatamente l'evidenza di un nuovo indicizzatore.
 
    ![Elenco di indicizzatori](media/search-monitor-indexers/indexers-list.png "Elenco di indicizzatori")
 
-Quando un indicizzatore è in esecuzione, lo stato nell'elenco viene visualizzato **in corso** e il valore **docs succeeded** indica il numero di documenti elaborati fino a questo momento. Potrebbero essere necessari alcuni minuti prima che il portale aggiorni i valori di stato e i conteggi dei documenti dell'indicizzatore.
+| Stato | Descrizione |
+|--------|-------------|
+| **In corso** | Indica l'esecuzione attiva. Il portale segnalerà informazioni parziali. Man mano che l'indicizzazione avanza, è possibile osservare che la crescita del valore docs è stata **completata** in risposta. Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto tempo per l'esecuzione. Ad esempio, gli indicizzatori che gestiscono milioni di documenti di origine possono essere eseguiti per 24 ore e quindi riavviati quasi immediatamente. Lo stato per gli indicizzatori con volumi elevati può sempre indicare **in corso** nel portale. Anche quando un indicizzatore è in esecuzione, sono disponibili dettagli sullo stato di avanzamento e sulle esecuzioni precedenti. |
+| **Success** | Indica che l'esecuzione è stata completata. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore. |
+| **Operazione non riuscita** | Il numero di errori ha superato il numero **massimo di elementi non riusciti** e l'indicizzazione è stata arrestata. |
+| **Reimpostazione** | Lo stato di rilevamento delle modifiche interno dell'indicizzatore è stato reimpostato. L'indicizzatore viene eseguito in modo completo, aggiornando tutti i documenti e non solo quelli con timestamp più recenti. |
 
-Un indicizzatore la cui esecuzione più recente ha avuto esito positivo indica l' **esito** positivo. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore.
-
-Se l'esecuzione più recente è terminata con un errore, lo stato viene visualizzato come **non riuscito**. Lo stato **Reset** indica che lo stato di rilevamento delle modifiche dell'indicizzatore è stato reimpostato.
-
-Fare clic su un indicizzatore nell'elenco per visualizzare altri dettagli sulle esecuzioni correnti e recenti dell'indicizzatore.
+È possibile fare clic su un indicizzatore nell'elenco per visualizzare altri dettagli sulle esecuzioni correnti e recenti dell'indicizzatore.
 
    ![Riepilogo e cronologia di esecuzione dell'indicizzatore](media/search-monitor-indexers/indexer-summary.png "Riepilogo e cronologia di esecuzione dell'indicizzatore")
 
 Nel grafico di **Riepilogo dell'indicizzatore** viene visualizzato un grafico del numero di documenti elaborati nelle esecuzioni più recenti.
 
-L'elenco **Dettagli esecuzione** Mostra fino a 50 dei risultati dell'esecuzione più recenti.
-
-Fare clic su un risultato dell'esecuzione nell'elenco per visualizzare le specifiche relative all'esecuzione. Sono incluse le ore di inizio e di fine e gli eventuali errori e avvisi che si sono verificati.
+L'elenco **Dettagli esecuzione** Mostra fino a 50 dei risultati dell'esecuzione più recenti. Fare clic su un risultato dell'esecuzione nell'elenco per visualizzare le specifiche relative all'esecuzione. Sono incluse le ore di inizio e di fine e gli eventuali errori e avvisi che si sono verificati.
 
    ![Dettagli esecuzione indicizzatore](media/search-monitor-indexers/indexer-execution.png "Dettagli esecuzione indicizzatore")
 
@@ -73,13 +46,11 @@ Se durante l'esecuzione si sono verificati problemi specifici del documento, que
 
    ![Dettagli indicizzatore con errori](media/search-monitor-indexers/indexer-execution-error.png "Dettagli indicizzatore con errori")
 
-Gli avvisi sono comuni ad alcuni tipi di indicizzatori e non sempre indicano un problema. Ad esempio, gli indicizzatori che usano servizi cognitivi possono segnalare avvisi quando i file di immagine o PDF non contengono testo da elaborare.
+Gli avvisi sono comuni ad alcuni tipi di indicizzatori e non sempre indicano un problema. Ad esempio, gli indicizzatori che usano servizi cognitivi possono segnalare avvisi quando i file di immagine o PDF non contengono testo da elaborare. 
 
 Per ulteriori informazioni sull'analisi degli errori e degli avvisi dell'indicizzatore, vedere [risoluzione dei problemi comuni dell'indicizzatore in ricerca cognitiva di Azure](search-indexer-troubleshooting.md).
 
-<a name="restapi"></a>
-
-## <a name="monitor-using-rest-apis"></a>Monitorare con le API REST
+## <a name="monitor-using-get-indexer-status-rest-api"></a>Monitorare con lo stato di Get Indexer (API REST)
 
 È possibile recuperare lo stato e la cronologia di esecuzione di un indicizzatore usando il [comando Get Indexer status](/rest/api/searchservice/get-indexer-status):
 
@@ -122,15 +93,13 @@ La cronologia di esecuzione contiene fino alle 50 esecuzioni più recenti, che s
 
 Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello è per l'indicizzatore stesso. Lo stato dell'indicizzatore **in esecuzione** indica che l'indicizzatore è configurato correttamente e disponibile per l'esecuzione, ma non è attualmente in esecuzione.
 
-Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'esecuzione specifica è in corso ( **in esecuzione** ) o è già stata completata con uno stato di **esito positivo** , **transientFailure** o **persistentFailure** . 
+Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'esecuzione specifica è in corso (**in esecuzione**) o è già stata completata con uno stato di **esito positivo**, **transientFailure** o **persistentFailure** . 
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce della cronologia di esecuzione separata con uno stato di **reimpostazione** .
 
-Per ulteriori informazioni sui codici di stato e sui dati di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
+Per altri dettagli sui codici di stato e sui dati di monitoraggio dell'indicizzatore, vedere [ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status).
 
-<a name="dotnetsdk"></a>
-
-## <a name="monitor-using-the-net-sdk"></a>Monitorare con .NET SDK
+## <a name="monitor-using-net"></a>Monitorare con .NET
 
 Con Azure ricerca cognitiva .NET SDK, l'esempio C# seguente scrive informazioni sullo stato di un indicizzatore e i risultati dell'esecuzione più recente (o in corso) nella console.
 
@@ -180,7 +149,7 @@ Latest run
 
 Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello è lo stato dell'indicizzatore stesso. Lo stato dell'indicizzatore **in esecuzione** indica che l'indicizzatore è configurato correttamente e disponibile per l'esecuzione, ma non è attualmente in esecuzione.
 
-Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se l'esecuzione specifica è in corso ( **in esecuzione** ) o se è già stata completata con uno stato di **esito positivo** o **TransientError** . 
+Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se l'esecuzione specifica è in corso (**in esecuzione**) o se è già stata completata con uno stato di **esito positivo** o **TransientError** . 
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce di cronologia separata con uno stato di **reimpostazione** .
 

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ff8aa6688d8a838fa2e06d2eef546025cdd9213f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 762db9d165358f3347fc9b7f3aaaf39f0c762308
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340054"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063197"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>Creare connessioni dell'indicizzatore tramite un endpoint privato
 
@@ -40,14 +40,14 @@ La tabella seguente elenca le risorse di Azure per le quali è possibile creare 
 | Archiviazione di Azure-BLOB (o) ADLS gen 2 | `blob`|
 | Archiviazione di Azure-tabelle | `table`|
 | API Azure Cosmos DB-SQL | `Sql`|
-| database SQL di Azure | `sqlServer`|
+| Database SQL di Azure | `sqlServer`|
 | Database di Azure per MySQL (anteprima) | `mysqlServer`|
 | Insieme di credenziali chiave di Azure | `vault` |
 | Funzioni di Azure (anteprima) | `sites` |
 
 È anche possibile eseguire una query sulle risorse di Azure per le quali le connessioni agli endpoint privati in uscita sono supportate usando l' [elenco delle API supportate](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-Nella parte restante di questo articolo viene usata una combinazione di API [ARMClient](https://github.com/projectkudu/ARMClient) e [postazione](https://www.postman.com/) per illustrare le chiamate all'API REST.
+Nella parte restante di questo articolo, è possibile usare una combinazione dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/) (o [ARMClient](https://github.com/projectkudu/ARMClient) se si preferisce) e l' [impostore](https://www.postman.com/) (o qualsiasi altro client HTTP come [curl](https://curl.se/) se si preferisce) per illustrare le chiamate all'API REST.
 
 > [!NOTE]
 > Gli esempi in questo articolo si basano sui presupposti seguenti:
@@ -69,7 +69,11 @@ Configurare l'account di archiviazione per [consentire l'accesso solo da subnet 
 
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Passaggio 1: creare una risorsa di collegamento privato condiviso nell'account di archiviazione
 
-Per richiedere ad Azure ricerca cognitiva di creare una connessione all'endpoint privato in uscita con l'account di archiviazione, effettuare la chiamata API seguente: 
+Per richiedere ad Azure ricerca cognitiva di creare una connessione all'endpoint privato in uscita all'account di archiviazione, effettuare la chiamata API seguente, ad esempio con l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/): 
+
+`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+
+In alternativa, se si preferisce usare [ARMClient](https://github.com/projectkudu/ARMClient):
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -99,6 +103,10 @@ Come in tutte le operazioni asincrone di Azure, la `PUT` chiamata restituisce un
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
 È possibile eseguire periodicamente il polling di questo URI per ottenere lo stato dell'operazione. Prima di procedere, è consigliabile attendere che lo stato dell'operazione della risorsa collegamento privato condiviso abbia raggiunto uno stato terminale, ovvero che lo stato dell'operazione sia *succeeded*.
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+
+In alternativa, usare ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
@@ -130,6 +138,10 @@ Una volta approvata la *richiesta di connessione* all'endpoint privato, il traff
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Passaggio 2b: eseguire una query sullo stato della risorsa collegamento privato condiviso
 
 Per confermare che la risorsa di collegamento privato condiviso è stata aggiornata dopo l'approvazione, ottenerne lo stato tramite l' [API Get](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+
+`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+
+In alternativa, usare ARMClient:
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 

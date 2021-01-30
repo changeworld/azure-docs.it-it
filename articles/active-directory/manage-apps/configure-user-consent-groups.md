@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: b318ed0d5cd97ca7c020097dff25516f0783c70e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 719bdd6a4d629bb4a35e7e11631670b0340e72a6
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055298"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090012"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo
 
@@ -31,7 +31,7 @@ I proprietari di gruppi e team possono autorizzare le applicazioni, ad esempio l
 
 Seguire questa procedura per gestire il consenso del proprietario del gruppo alle app che accedono ai dati di gruppo:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator).
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
 3. In **Group owner consent for apps accessing data** (Consenso del proprietario del gruppo per le app che accedono ai dati) selezionare l'opzione che si vuole abilitare.
 4. Per salvare le impostazioni, fare clic su **Save** (Salva).

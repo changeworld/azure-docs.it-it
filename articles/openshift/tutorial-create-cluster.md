@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: HT
+ms.openlocfilehash: 909385b4f670d084a9357b6ac2840a9458604667
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675720"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063030"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Creare un cluster di Azure Red Hat OpenShift 4
 
@@ -82,8 +82,8 @@ Quando si esegue il comando `az aro create`, è possibile specificare un dominio
 Se si specifica un dominio personalizzato per il cluster, tenere presente quanto segue:
 
 * Dopo aver creato il cluster, è necessario creare 2 record A DNS nel server DNS per il parametro `--domain` specificato:
-    * **api** , che punta all'indirizzo IP del server API
-    * **\*.apps** , che punta all'indirizzo IP del traffico in ingresso
+    * **api**, che punta all'indirizzo IP del server API
+    * **\*.apps**, che punta all'indirizzo IP del traffico in ingresso
     * Recuperare questi valori eseguendo il comando seguente dopo la creazione del cluster: `az aro show -n -g --query '{api:apiserverProfile.ip, ingress:ingressProfiles[0].ip}'`.
 
 * La console OpenShift sarà disponibile a un indirizzo URL come `https://console-openshift-console.apps.example.com`, invece di quello del dominio predefinito `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
@@ -92,7 +92,7 @@ Se si specifica un dominio personalizzato per il cluster, tenere presente quanto
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Creare una rete virtuale contenente due subnet vuote
 
-Successivamente, verrà creata una rete virtuale contenente due subnet vuote.
+Successivamente, verrà creata una rete virtuale contenente due subnet vuote. Se si dispone di una rete virtuale esistente che soddisfi le proprie esigenze, è possibile ignorare questo passaggio.
 
 1. **Impostare le variabili seguenti nell'ambiente della shell in cui si eseguiranno i comandi `az`.**
 
@@ -131,7 +131,7 @@ Successivamente, verrà creata una rete virtuale contenente due subnet vuote.
 
 2. **Creare una rete virtuale.**
 
-   I cluster di Azure Red Hat OpenShift che eseguono OpenShift 4 richiedono una rete virtuale con due subnet vuote, per i nodi master e di lavoro.
+   I cluster di Azure Red Hat OpenShift che eseguono OpenShift 4 richiedono una rete virtuale con due subnet vuote, per i nodi master e di lavoro. È possibile creare una nuova rete virtuale per questo o usare una rete virtuale esistente.
 
    Creare una nuova rete virtuale nello stesso gruppo di risorse creato in precedenza:
 

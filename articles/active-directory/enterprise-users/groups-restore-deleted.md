@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfdc96df548a4a3df2b789759889b85835e1382a
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
-ms.translationtype: HT
+ms.openlocfilehash: 1eacba47e68310dd45976bcd9ddff052fa193436
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860729"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090138"
 ---
 # <a name="restore-a-deleted-microsoft-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Microsoft 365 eliminato in Azure Active Directory
 
@@ -32,7 +32,7 @@ Per ripristinare un gruppo sono necessarie una delle autorizzazioni seguenti:
 Ruolo | Autorizzazioni
 --------- | ---------
 Amministratore globale, Amministratore gruppo, Supporto partner - Livello 2 e Amministratore di Intune | È possibile ripristinare qualsiasi gruppo di Microsoft 365 eliminato
-Amministratore utenti e Supporto partner - Livello 1 | È possibile ripristinare qualsiasi gruppo di Microsoft 365 eliminato, ad eccezione dei gruppi assegnati al ruolo Amministratore società
+Amministratore utenti e Supporto partner - Livello 1 | Consente di ripristinare eventuali gruppi di Microsoft 365 eliminati, ad eccezione di quelli assegnati al ruolo di amministratore globale
 Utente | È possibile ripristinare qualsiasi gruppo di Microsoft 365 eliminato di cui si è proprietari
 
 ## <a name="view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore"></a>Visualizzare e gestire i gruppi di Microsoft 365 eliminati disponibili per il ripristino

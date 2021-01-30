@@ -3,25 +3,25 @@ title: Analizzare i costi di Azure con l'app Power BI
 description: Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2020
+ms.date: 1/29/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
-ms.translationtype: HT
+ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413242"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070158"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizzare i costi con l'app Power BI Gestione costi di Azure per contratti Enterprise (EA)
 
 Questo articolo illustra come installare e usare l'app Power BI Gestione costi di Azure. L'app consente di analizzare e gestire i costi di Azure in Power BI. È possibile usare l'app per monitorare i costi e le tendenze di utilizzo e per identificare le opzioni di ottimizzazione dei costi per ridurre le spese.
 
-è possibile usarla così com'è oppure modificarla personalizzando i filtri, le viste e le visualizzazioni predefiniti in base alle esigenze. È quindi possibile usarla per unire dati aggiuntivi per creare report personalizzati in modo da ottenere una visione olistica dei costi aziendali complessivi.
+Il Power BI app gestione costi di Azure supporta attualmente solo i clienti con una [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-Attualmente l'app Power BI Gestione costi di Azure supporta solo i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
+L'app limita la personalizzazione. Per modificare ed estendere i filtri, le visualizzazioni e le visualizzazioni predefinite da personalizzare in base alle proprie esigenze, usare invece il [connettore di gestione costi di Azure in Power bi desktop](/power-bi/connect-data/desktop-connect-azure-cost-management) . Con il connettore di gestione dei costi di Azure è possibile aggiungere altri dati da altre origini per creare report personalizzati per ottenere visualizzazioni olistiche dei costi aziendali complessivi. Il connettore supporta inoltre i contratti dei clienti Microsoft.
 
 > [!NOTE]
 > Le app modello Power BI non supportano il download del file PBIX.

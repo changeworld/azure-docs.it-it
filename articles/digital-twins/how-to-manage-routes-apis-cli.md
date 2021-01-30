@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 11/18/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e2623ebf929f6a24cfc977896acea514634ffb23
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d25a429873ccf8b546c0919456c97e64445f184c
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054510"
+ms.locfileid: "99071699"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -48,7 +48,7 @@ Questa sezione illustra come creare questi endpoint usando l'interfaccia della r
 
 ### <a name="create-the-endpoint"></a>Creare l'endpoint
 
-Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il `az dt endpoint create` comando per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
+Dopo aver creato le risorse dell'endpoint, è possibile usarle per un endpoint di Azure Digital gemelli. Gli esempi seguenti illustrano come creare endpoint usando il comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Sostituire i segnaposto nei comandi con i dettagli delle proprie risorse.
 
 Per creare un endpoint di griglia di eventi:
 
@@ -56,21 +56,39 @@ Per creare un endpoint di griglia di eventi:
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Per creare un endpoint di hub eventi:
+Per creare un endpoint di hub eventi (autenticazione basata su chiavi):
 ```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-Per creare un endpoint dell'argomento del bus di servizio:
+Per creare un endpoint dell'argomento del bus di servizio (autenticazione basata su chiavi):
 ```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 Dopo aver eseguito questi comandi, l'argomento griglia di eventi, Hub eventi o bus di servizio sarà disponibile come endpoint all'interno dei dispositivi gemelli digitali di Azure, con il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
+#### <a name="create-an-endpoint-with-identity-based-authentication"></a>Creare un endpoint con l'autenticazione basata su identità
+
+È anche possibile creare un endpoint con autenticazione basata su identità, per usare l'endpoint con un' [identità gestita](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Questa opzione è disponibile solo per gli endpoint di tipo hub eventi e bus di servizio (non è supportata per griglia di eventi).
+
+Il comando CLI per creare questo tipo di endpoint è riportato di seguito. Per inserire i segnaposto nel comando sono necessari i valori seguenti:
+* ID risorsa di Azure dell'istanza di Azure Digital gemelli
+* nome di un endpoint
+* tipo di endpoint
+* spazio dei nomi della risorsa dell'endpoint
+* nome dell'hub eventi o dell'argomento del bus di servizio
+* il percorso dell'istanza di Azure Digital Twins
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
 
 Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**.
+
+Gli endpoint con messaggi non recapitabili abilitati possono essere configurati con l' [interfaccia](how-to-use-cli.md) della riga di comando di Azure Digital gemelli o il [piano di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
 Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: route degli eventi*](concepts-route-events.md#dead-letter-events). Per istruzioni su come configurare un endpoint con messaggi non recapitabili, continuare con la parte restante di questa sezione.
 
@@ -78,7 +96,7 @@ Per ulteriori informazioni sui messaggi non recapitabili, vedere [*concetti: rou
 
 Prima di impostare il percorso dei messaggi non recapitabili, è necessario avere un [account di archiviazione](../storage/common/storage-account-create.md?tabs=azure-portal) con un [contenitore](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) configurato nell'account Azure. 
 
-Si fornirà l'URL per questo contenitore durante la creazione dell'endpoint in un secondo momento. La posizione dei messaggi non recapitabili verrà fornita all'endpoint come URL del contenitore con un [token](../storage/common/storage-sas-overview.md)di firma di accesso condiviso. Il token necessita `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. L'URL con formato completo sarà nel formato: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>` .
+Si fornirà l'URI per questo contenitore durante la creazione dell'endpoint in un secondo momento. La posizione dei messaggi non recapitabili verrà fornita all'endpoint come URI del contenitore con un [token](../storage/common/storage-sas-overview.md)di firma di accesso condiviso. Il token necessita `write` dell'autorizzazione per il contenitore di destinazione nell'account di archiviazione. Il formato dell'URI di firma di accesso condiviso con **lettera non recapitabile** completo sarà: `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>` .
 
 Attenersi alla procedura seguente per configurare queste risorse di archiviazione nell'account di Azure, per preparare la configurazione della connessione dell'endpoint nella sezione successiva.
 
@@ -99,25 +117,44 @@ Attenersi alla procedura seguente per configurare queste risorse di archiviazion
 
     :::image type="content" source="./media/how-to-manage-routes-apis-cli/copy-sas-token.png" alt-text="Copiare il token SAS da usare nel segreto dei messaggi non recapitabili." lightbox="./media/how-to-manage-routes-apis-cli/copy-sas-token.png":::
     
-#### <a name="configure-the-endpoint"></a>Configurare l'endpoint
+#### <a name="create-the-dead-letter-endpoint"></a>Creare l'endpoint dei messaggi non recapitabili
 
-Per creare un endpoint con messaggi non recapitabili abilitati, è possibile creare l'endpoint usando le API Azure Resource Manager. 
+Per creare un endpoint con messaggi non recapitabili abilitati, aggiungere il seguente parametro del messaggio non recapitabile al comando [AZ DT endpoint create](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) per l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
-1. Per prima cosa, usare la [documentazione delle api Azure Resource Manager](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per configurare una richiesta di creazione di un endpoint e compilare i parametri richiesti della richiesta. 
+Il valore del parametro è l'URI di firma di accesso condiviso dei messaggi non **recapitabili** costituito dal nome dell'account di archiviazione, dal nome del contenitore e dal token SAS raccolti nella [sezione precedente](#set-up-storage-resources). Questo parametro crea l'endpoint con l'autenticazione basata su chiavi.
 
-2. Successivamente, aggiungere un `deadLetterSecret` campo all'oggetto Properties nel **corpo** della richiesta. Impostare questo valore in base al modello riportato di seguito, che esegue l'artigianato di un URL in base al nome dell'account di archiviazione, al nome del contenitore e al valore del token di firma di accesso condiviso raccolti nella [sezione precedente](#set-up-storage-resources).
-      
-  :::code language="json" source="~/digital-twins-docs-samples/api-requests/deadLetterEndpoint.json":::
+```azurecli
+--deadletter-sas-uri https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>
+```
 
-3. Inviare la richiesta per creare l'endpoint.
+Aggiungere questo parametro alla fine dei comandi di creazione dell'endpoint dalla sezione [*creare l'endpoint*](#create-the-endpoint) in precedenza per creare un endpoint del tipo desiderato in cui è abilitato il messaggio non recapitabile.
 
-Per altre informazioni sulla strutturazione di questa richiesta, vedere la documentazione dell'API REST di Azure Digital gemelli: [endpoints-DigitalTwinsEndpoint CreateOrUpdate](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+In alternativa, è possibile creare endpoint di messaggi non recapitabili usando le [API del piano di controllo dei gemelli digitali di Azure](how-to-use-apis-sdks.md#overview-control-plane-apis) anziché l'interfaccia della riga di comando A tale scopo, vedere la [documentazione di DigitalTwinsEndpoint](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per informazioni su come strutturare la richiesta e aggiungere i parametri dei messaggi non recapitabili.
 
-### <a name="message-storage-schema"></a>Schema di archiviazione messaggi
+#### <a name="create-a-dead-letter-endpoint-with-identity-based-authentication"></a>Creare un endpoint dei messaggi non recapitabili con l'autenticazione basata su identità
+
+È anche possibile creare un endpoint di messaggi non recapitabili con autenticazione basata su identità, per usare l'endpoint con un' [identità gestita](concepts-security.md#managed-identity-for-accessing-other-resources-preview). Questa opzione è disponibile solo per gli endpoint di tipo hub eventi e bus di servizio (non è supportata per griglia di eventi).
+
+Per creare questo tipo di endpoint, usare lo stesso comando CLI precedente per [creare un endpoint con l'autenticazione basata sull'identità](#create-an-endpoint-with-identity-based-authentication), con un campo aggiuntivo nel payload JSON per un `deadLetterUri` .
+
+Di seguito sono riportati i valori necessari per inserire i segnaposto nel comando:
+* ID risorsa di Azure dell'istanza di Azure Digital gemelli
+* nome di un endpoint
+* tipo di endpoint
+* spazio dei nomi della risorsa dell'endpoint
+* nome dell'hub eventi o dell'argomento del bus di servizio
+* Dettagli URI SAS dei messaggi non **recapitabili** : nome dell'account di archiviazione, nome del contenitore
+* il percorso dell'istanza di Azure Digital Twins
+
+```azurecli-interactive
+az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoints/<endpoint-name> --properties '{\"properties\": { \"endpointType\": \"<endpoint-type>\", \"authenticationType\": \"IdentityBased\", \"endpointUri\": \"sb://<endpoint-namespace>.servicebus.windows.net\", \"entityPath\": \"<name-of-event-hub-or-Service-Bus-topic>\", \"deadLetterUri\": \"https://<storage-account-name>.blob.core.windows.net/<container-name>\"}, \"location\":\"<instance-location>\" }' --is-full-object
+```
+
+#### <a name="message-storage-schema"></a>Schema di archiviazione messaggi
 
 Una volta configurato l'endpoint con i messaggi non recapitabili, i messaggi non recapitabili verranno archiviati nel formato seguente nell'account di archiviazione:
 
-`{container}/{endpointName}/{year}/{month}/{day}/{hour}/{eventId}.json`
+`{container}/{endpoint-name}/{year}/{month}/{day}/{hour}/{event-ID}.json`
 
 I messaggi non recapitabili corrisponderanno allo schema dell'evento originale destinato a essere recapitato all'endpoint originale.
 
@@ -128,7 +165,7 @@ Di seguito è riportato un esempio di messaggio non recapitabile per una notific
   "specversion": "1.0",
   "id": "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "type": "Microsoft.DigitalTwins.Twin.Create",
-  "source": "<yourInstance>.api.<yourregion>.da.azuredigitaltwins-test.net",
+  "source": "<your-instance>.api.<your-region>.da.azuredigitaltwins-test.net",
   "data": {
     "$dtId": "<yourInstance>xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "$etag": "W/\"xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxxxxx\"",

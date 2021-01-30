@@ -4,12 +4,12 @@ description: Informazioni su come connettere l'app per le funzioni a Application
 ms.date: 8/31/2020
 ms.topic: how-to
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 73ed679288d9d03b81a0b01670aa0f574a14839f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: e24f2b1a61d77dafd7a23b04d225d0301f82ca59
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684709"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070141"
 ---
 # <a name="how-to-configure-monitoring-for-azure-functions"></a>Come configurare il monitoraggio per funzioni di Azure
 
@@ -246,7 +246,7 @@ Se si sceglie **Crea**, viene creata una risorsa di Application Insights con l'a
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Aggiungere un'app per le funzioni esistente 
 
-Se non è stato creato un Application Insights risorse con l'app per le funzioni, seguire questa procedura per creare la risorsa. È quindi possibile aggiungere la chiave di strumentazione dalla risorsa come [impostazione dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings) nell'app per le funzioni.
+Se non è stata creata una risorsa di Application Insights con l'app per le funzioni, seguire questa procedura per creare la risorsa. È quindi possibile aggiungere la chiave di strumentazione dalla risorsa come [impostazione dell'applicazione](functions-how-to-use-azure-function-app-settings.md#settings) nell'app per le funzioni.
 
 1. Nella [portale di Azure](https://portal.azure.com)cercare e selezionare app per le **funzioni** e quindi scegliere l'app per le funzioni. 
 
@@ -271,6 +271,30 @@ Se non è stato creato un Application Insights risorse con l'app per le funzioni
 
 > [!NOTE]
 > Nelle versioni precedenti di Funzioni veniva usato il servizio di monitoraggio incorporato, che non è più consigliato. Quando si abilita l'integrazione di Application Insights per un'app per le funzioni di questo tipo, è necessario anche [disabilitare la registrazione predefinita](#disable-built-in-logging).  
+
+## <a name="query-scale-controller-logs"></a>Log del controller di scalabilità delle query
+
+Dopo aver abilitato la registrazione del controller di scalabilità e l'integrazione di Application Insights, è possibile usare la ricerca log Application Insights per eseguire una query per i log del controller di scala emessi. I log del controller di ridimensionamento vengono salvati nella `traces` raccolta nella categoria **ScaleControllerLogs** .
+
+La query seguente può essere usata per cercare tutti i log del controller di scalabilità per l'app per le funzioni corrente entro il periodo di tempo specificato:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+```
+
+La query seguente si espande nella query precedente per mostrare come ottenere solo i log che indicano una modifica della scala:
+
+```kusto
+traces 
+| extend CustomDimensions = todynamic(tostring(customDimensions))
+| where CustomDimensions.Category == "ScaleControllerLogs"
+| where message == "Instance count changed"
+| extend Reason = CustomDimensions.Reason
+| extend PreviousInstanceCount = CustomDimensions.PreviousInstanceCount
+| extend NewInstanceCount = CustomDimensions.CurrentInstanceCount
+```
 
 ## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
 

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b46262e34f57b3ff9aeb6bd4ea671ec611b99df
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3101cf3650fcfb7f9313b13c1c07a03dd734e9dd
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740347"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089225"
 ---
 # <a name="understand-roles-in-azure-active-directory"></a>Informazioni sui ruoli in Azure Active Directory
 
@@ -61,7 +61,7 @@ La tabella seguente illustra queste categorie di ruoli. I nomi delle categorie s
 Category | Role
 ---- | ----
 Ruoli specifici di Azure AD | Amministratore di applicazioni<br>Sviluppatore di applicazioni<br>Amministratore dell'autenticazione<br>Amministratore dei set di chiavi IEF B2C<br>Amministratore dei criteri IEF B2C<br>Amministratore applicazione cloud<br>Amministratore dispositivo cloud<br>Amministratore accesso condizionale<br>Amministratori di dispositivi<br>Ruoli con autorizzazioni di lettura nella directory<br>Account di sincronizzazione della directory<br>Writer di directory<br>ID esterno - Amministratore dei flussi utente<br>ID esterno - Amministratore degli attributi dei flussi utente<br>Amministratore dei provider di identità esterni<br>Amministratore di gruppi<br>Mittente dell'invito guest<br>Amministratore del supporto tecnico<br>Amministratore delle identità ibride<br>Amministratore licenze<br>Supporto partner - Livello 1<br>Supporto partner - Livello 2<br>Amministratore password<br>Amministratore autenticazione con privilegi<br>Amministratore dei ruoli con privilegi<br>Lettore di report<br>Amministratore account utente
-Ruoli tra servizi | Amministratore società<br>Amministratore di conformità<br>Amministratore dati di conformità<br>Ruolo con autorizzazioni di lettura globali<br>Amministratore della protezione<br>Operatore di sicurezza<br>Ruolo con autorizzazioni di lettura per la sicurezza<br>Amministratore del supporto servizio
+Ruoli tra servizi | Amministratore globale<br>Amministratore di conformità<br>Amministratore dati di conformità<br>Ruolo con autorizzazioni di lettura globali<br>Amministratore della protezione<br>Operatore di sicurezza<br>Ruolo con autorizzazioni di lettura per la sicurezza<br>Amministratore del supporto servizio
 Ruoli specifici del servizio | Amministratore di Azure DevOps<br>Amministratore di Azure Information Protection<br>Amministratore fatturazione<br>Amministratore del servizio CRM<br>Responsabile approvazione per l'accesso a Customer Lockbox<br>Amministratore di Desktop Analytics<br>Amministratore del servizio Exchange<br>Amministratore di Insights<br>Leader aziendale di Insights<br>Amministratore del servizio Intune<br>Amministratore di Kaizala<br>Amministratore del servizio Lync<br>Ruolo con autorizzazioni di lettura per la privacy del Centro messaggi<br>Ruolo con autorizzazioni di lettura per il Centro messaggi<br>Utente Commerce moderno<br>Amministratore di rete<br>Amministratore delle app di Office<br>Amministratore del servizio Power BI<br>Amministratore di Power Platform<br>Amministratore stampante<br>Tecnico della stampante<br>Amministratore della ricerca<br>Editor della ricerca<br>Amministratore del servizio SharePoint<br>Amministratore comunicazioni Teams<br>Tecnico di supporto comunicazioni Teams<br>Specialista di supporto comunicazioni Teams<br>Amministratore di dispositivi di Teams<br>Amministratore del servizio Teams
 
 ## <a name="next-steps"></a>Passaggi successivi

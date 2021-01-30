@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 304d88dfcf0c72769f27911186df04c66224419e
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 501fe17734be1e73ffc516a7b94300445c331e86
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740143"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090944"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Gestisci gli utenti con il personale (anteprima)
 
@@ -89,7 +89,7 @@ I ruoli seguenti sono autorizzati a reimpostare la password di un utente:
 
 - [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
 - [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
-- [Amministratore globale](permissions-reference.md#global-administrator--company-administrator)
+- [Amministratore globale](permissions-reference.md#global-administrator)
 - [Amministratore helpdesk](permissions-reference.md#helpdesk-administrator)
 - [Amministratore utenti](permissions-reference.md#user-administrator)
 - [Amministratore password](permissions-reference.md#password-administrator)
@@ -117,9 +117,9 @@ Per gestire il numero di telefono di un utente, è necessario disporre di uno de
 
 - [Amministratore autenticazione](permissions-reference.md#authentication-administrator)
 - [Amministratore di autenticazione con privilegi](permissions-reference.md#privileged-authentication-administrator)
-- [Amministratore globale](permissions-reference.md#global-administrator--company-administrator)
+- [Amministratore globale](permissions-reference.md#global-administrator)
 
-## <a name="search"></a>Ricerca
+## <a name="search"></a>Cerca
 
 È possibile cercare gli AUs e gli utenti dell'organizzazione usando la barra di ricerca del personale. È possibile eseguire ricerche in tutte le unità di analisi e tutti gli utenti dell'organizzazione, ma è possibile apportare modifiche solo agli utenti che si trovano in un'unità di analisi per cui sono state concesse le autorizzazioni di amministratore.
 

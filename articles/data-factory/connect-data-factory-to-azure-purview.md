@@ -13,20 +13,41 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: d1a07a3733bddc1516a4d2e19f3cac31a7702954
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 36eac4c60e0d7fd54ec304f0f17c2ecb454f0629
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944935"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063458"
 ---
 # <a name="connect-data-factory-to-azure-purview-preview"></a>Connetti Data Factory ad Azure (anteprima)
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In questo articolo viene illustrato come connettere data factory ad Azure e come segnalare la derivazione dei dati delle attività di ADF copia dati, flusso di dati ed esecuzione pacchetto SSIS.
+Questo articolo illustra come connettere Data Factory ad Azure e come segnalare la derivazione dei dati di Azure Data Factory attività copia dati, flusso di dati ed esecuzione pacchetto SSIS.
 
-## <a name="connect-data-factory-to-azure-purview"></a>Connetti data factory ad Azure competenza
-Azure competenza è un nuovo servizio cloud per l'uso da parte degli utenti di dati per la gestione centralizzata della governance dei dati nei rispettivi ambienti cloud e locali. È possibile connettere la data factory ad Azure e la connessione consente di sfruttare le competenze di Azure per l'acquisizione dei dati di derivazione di copia, flusso di dati ed esecuzione di un pacchetto SSIS. Per informazioni su come registrare data factory in Azure, vedere [come connettersi Azure Data Factory e Azure](../purview/how-to-link-azure-data-factory.md). 
+
+## <a name="connect-data-factory-to-azure-purview"></a>Connetti Data Factory ad Azure competenza
+Azure competenza è un nuovo servizio cloud per l'uso da parte degli utenti di dati per la gestione centralizzata della governance dei dati nei rispettivi ambienti cloud e locali. È possibile connettere la Data Factory ad Azure e la connessione consente di usare la competenza di Azure per l'acquisizione dei dati di derivazione di copia, flusso di dati ed esecuzione di un pacchetto SSIS. Sono disponibili due modi per connettersi data factory ad Azure competenza:
+### <a name="register-azure-purview-account-to-data-factory"></a>Registrare l'account Azure per la competenza Data Factory
+1. Nel portale di Azure Data Factory, passare a **Gestisci**  ->  **competenza Azure**. Selezionare **Connect to a Purview account** (Connetti a un account Purview). 
+
+:::image type="content" source="./media/data-factory-purview/register-purview-account.png" alt-text="Screenshot per la registrazione di un account di competenza.":::
+2. È possibile scegliere **Dalla sottoscrizione di Azure** o **Immetti manualmente**. Con l'opzione **Dalla sottoscrizione di Azure** è possibile selezionare l'account a cui si ha accesso. 
+3. Una volta stabilita la connessione, dovrebbe essere possibile visualizzare il nome dell'account di competenza nell' **account di competenza** della scheda. 
+4. È possibile usare la barra di ricerca in alto al centro del portale di Azure Data Factory per cercare i dati. 
+
+Se viene visualizzato un messaggio di avviso nel portale di Azure Data Factor dopo la registrazione dell'account Azure per la Data Factory, seguire questa procedura per risolvere il problema:
+
+:::image type="content" source="./media/data-factory-purview/register-purview-account-warning.png" alt-text="Screenshot per l'avviso relativo alla registrazione di un account di competenza.":::
+
+1. Passare a portale di Azure e trovare il data factory. Scegliere la sezione "Tags" e verificare se è presente un tag denominato **catalogUri**. In caso contrario, disconnettere e riconnettere l'account Azure per le competenze nel portale di ADF.
+
+:::image type="content" source="./media/data-factory-purview/register-purview-account-tag.png" alt-text="Screenshot per i tag di registrazione di un account di competenza.":::
+
+2. Controllare se l'autorizzazione viene concessa per la registrazione di un account di Azure per la Data Factory. Scopri [come connettere Azure Data Factory e Azure](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory#create-new-data-factory-connection) .
+
+### <a name="register-data-factory-in-azure-purview"></a>Registra Data Factory in Azure
+Per informazioni su come registrare Data Factory in Azure, vedere [come connettersi Azure Data Factory e Azure](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory). 
 
 ## <a name="report-lineage-data-to-azure-purview"></a>Segnala i dati di derivazione ad Azure competenza
 Quando i clienti eseguono la copia, il flusso di dati o l'attività Esegui pacchetto SSIS in Azure Data Factory, i clienti possono ottenere la relazione di dipendenza e ottenere una panoramica di alto livello dell'intero processo del flusso di lavoro tra origini dati e destinazione.

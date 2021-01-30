@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: f005bdfa5643ea187fb2973cac065563c4cc2ee6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292456"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062996"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure
 
@@ -249,7 +249,7 @@ Se un trigger o un'azione HTTP include queste intestazioni, app per la logica ri
 
 * `Accept-*` intestazioni ad eccezione di `Accept-version`
 * `Allow`
-* `Content-*` con le eccezioni seguenti: `Content-Disposition`, `Content-Encoding` e `Content-Type`
+* `Content-*` le intestazioni ad eccezione di `Content-Disposition` , `Content-Encoding` e `Content-Type` quando si usano operazioni post e Put, ma non sono incluse per le operazioni Get
 * `Cookie`
 * `Expires`
 * `Host`

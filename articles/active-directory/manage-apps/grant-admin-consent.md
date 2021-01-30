@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fd102bad45bf482cb9a9750bf05e862b9c91e8e
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: eaf8f92ec2c7d9653595b3249521582620670aaf
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055213"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089954"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
@@ -27,7 +27,7 @@ Per altre informazioni sul consenso alle applicazioni, vedere [framework di cons
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per concedere il consenso dell'amministratore a livello di tenant, è necessario accedere come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
+Per concedere il consenso dell'amministratore a livello di tenant, è necessario accedere come [amministratore globale](../roles/permissions-reference.md#global-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > Quando a un'applicazione viene concesso il consenso dell'amministratore a livello di tenant, tutti gli utenti saranno in grado di accedere all'app a meno che non sia stata configurata per richiedere l'assegnazione dell'utente. Per limitare gli utenti che possono accedere a un'applicazione, richiedere l'assegnazione dell'utente e quindi assegnare utenti o gruppi all'applicazione. Per altre informazioni, vedere [Metodi per l'assegnazione di utenti e gruppi](./assign-user-or-group-access-portal.md).
@@ -47,7 +47,7 @@ Per concedere il consenso dell'amministratore a livello di tenant, è necessario
 
 Per concedere il consenso dell'amministratore a livello di tenant a un'app elencata in **applicazioni aziendali**:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selezionare **Azure Active Directory** quindi **applicazioni aziendali**.
 3. Selezionare l'applicazione a cui si vuole concedere il consenso dell'amministratore a livello di tenant.
 4. Selezionare **autorizzazioni** e quindi fare clic su **concedi il consenso dell'amministratore**.
@@ -63,7 +63,7 @@ Per le applicazioni sviluppate dall'organizzazione o registrate direttamente nel
 
 Per concedere il consenso dell'amministratore a livello di tenant da **registrazioni app**:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator), [amministratore dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator).
 2. Selezionare **Azure Active Directory** quindi **registrazioni app**.
 3. Selezionare l'applicazione a cui si vuole concedere il consenso dell'amministratore a livello di tenant.
 4. Selezionare **autorizzazioni API** , quindi fare clic su **concedi il consenso dell'amministratore**.

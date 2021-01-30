@@ -3,12 +3,12 @@ title: "Concetto: integrare una distribuzione della soluzione VMware di Azure in
 description: Informazioni sull'integrazione di una distribuzione della soluzione VMware di Azure in un'architettura Hub e spoke in Azure.
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 0d511c8d6a96ffb6fa666bcb7c989764f398bdc9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: bfc442e569572349b1323500fbd0b2f912ebbc62
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901386"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062746"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integrare la soluzione VMware di Azure in un'architettura Hub e spoke
 
@@ -21,7 +21,7 @@ Lo scenario Hub e spoke presuppone un ambiente cloud ibrido con carichi di lavor
 * Soluzione Azure VMware 
 * vSphere locale
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 L' *Hub* è una rete virtuale di Azure che funge da punto centrale di connettività al cloud privato della soluzione VMware locale e di Azure. I *spoke* sono reti virtuali con peering con l'hub per abilitare la comunicazione tra reti virtuali.
 
@@ -76,7 +76,7 @@ Poiché un gateway ExpressRoute non fornisce il routing transitivo tra i circuit
   :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Flusso di traffico della rete virtuale di Azure da soluzione VMware a hub" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
-Per ulteriori informazioni sui concetti relativi alla rete e alla connettività della soluzione VMware di Azure, vedere la [documentazione del prodotto della soluzione VMware di Azure](./concepts-networking.md).
+Per altre informazioni sui concetti relativi alla rete e alla connettività della soluzione VMware di Azure, vedere la [documentazione del prodotto della soluzione VMware di Azure](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentazione del traffico
 
@@ -103,7 +103,7 @@ Un secondo livello di segmentazione del traffico che usa i gruppi di sicurezza d
 
 Applicazione Azure gateway V1 e V2 sono stati testati con app Web eseguite in macchine virtuali della soluzione VMware di Azure come pool back-end. Il gateway applicazione è attualmente l'unico metodo supportato per esporre le app Web in esecuzione su macchine virtuali della soluzione VMware di Azure a Internet. Può inoltre esporre le app agli utenti interni in modo sicuro.
 
-Per informazioni dettagliate e requisiti, vedere l'articolo specifico della soluzione VMware di Azure nel [gateway applicazione](./protect-azure-vmware-solution-with-application-gateway.md) .
+Per altre informazioni, vedere l'articolo specifico della soluzione VMware di Azure nel [gateway applicazione](./protect-azure-vmware-solution-with-application-gateway.md).
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Secondo livello di segmentazione del traffico con i gruppi di sicurezza di rete" border="false":::
 

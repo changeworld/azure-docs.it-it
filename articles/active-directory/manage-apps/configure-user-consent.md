@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 184263badc909881f597213a222272bd675fc362
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 992f082c5157521ea7f0d8a681557d6c7cc3dc04
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051975"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089986"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -48,7 +48,7 @@ Scegliendo i criteri di consenso delle app applicabili a tutti gli utenti, è po
 
 Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Accedere al [portale di Azure](https://portal.azure.com) come [amministratore globale](../roles/permissions-reference.md#global-administrator).
 1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Impostazioni per il consenso utente**.
 1. In **User consent for applications** (Consenso utente per le applicazioni) selezionare l'impostazione di consenso che si intende configurare per tutti gli utenti.
 1. Per salvare le impostazioni, fare clic su **Save** (Salva).

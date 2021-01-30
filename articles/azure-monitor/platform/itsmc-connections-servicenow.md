@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 3cc38fad6f26bf6f382b4a275638c450c8333a04
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 221678da819d32539d0078b72a87c61851ed3e8f
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955733"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99089259"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Connettere ServiceNow con IT Service Management Connector
 
@@ -125,7 +125,7 @@ Utilizzare la procedura seguente per creare una connessione ServiceNow.
    | **URL server**   | Immettere l'URL dell'istanza di ServiceNow che si desidera connettere a connettore. L'URL deve puntare a una versione SaaS supportata con il suffisso *. servicenow.com* , ad esempio https://XXXXX.service-now.com/) .|
    | **Nome utente**   | Immettere il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a connettore.|
    | **Password**   | Immettere la password associata al nome utente. **Nota**: il nome utente e la password vengono usati solo per la generazione di token di autenticazione. Non vengono archiviati in nessun punto del servizio connettore.  |
-   | **ID client**   | Immettere l'ID client che si vuole usare per l'autenticazione OAuth2, che è stata generata in precedenza. Per ulteriori informazioni sulla generazione di un ID client e di un segreto, vedere la pagina relativa alla [configurazione di OAuth](https://wiki.servicenow.com/index.php?title=OAuth_Setup). |
+   | **ID client**   | Immettere l'ID client che si vuole usare per l'autenticazione OAuth2, che è stata generata in precedenza. Per ulteriori informazioni sulla generazione di un ID client e di un segreto, vedere la pagina relativa alla [configurazione di OAuth](https://old.wiki/index.php/OAuth_Setup). |
    | **Segreto client**   | Immettere il segreto client generato per questo ID.   |
    | **Ambito sincronizzazione dati (in giorni)** | Immettere il numero di giorni precedenti da cui si desiderano i dati. Il limite è di 120 giorni. |
    | **Elementi di lavoro da sincronizzare**   | Selezionare gli elementi di lavoro ServiceNow che si vuole sincronizzare con Azure Log Analytics, tramite connettore. I valori selezionati vengono importati in Log Analytics. Le opzioni sono eventi imprevisti e richieste di modifica.|

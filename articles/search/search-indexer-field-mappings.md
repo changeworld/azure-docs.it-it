@@ -3,19 +3,17 @@ title: Mapping dei campi negli indicizzatori
 titleSuffix: Azure Cognitive Search
 description: Configurare i mapping dei campi in un indicizzatore per tenere conto delle differenze nei nomi dei campi e nelle rappresentazioni dei dati.
 manager: nitinme
-author: mattmsft
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/11/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.date: 01/28/2021
+ms.openlocfilehash: efee1e1cda7767620931ef81825708d94a1925c3
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358933"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99063180"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
 
@@ -28,7 +26,7 @@ Alcune situazioni in cui i mapping dei campi sono utili:
 * L'origine dati include un campo denominato `_id` , ma Azure ricerca cognitiva non consente i nomi di campo che iniziano con un carattere di sottolineatura. Un mapping dei campi consente di rinominare in modo efficace un campo.
 * Si desidera popolare più campi nell'indice dagli stessi dati dell'origine dati. Ad esempio, potrebbe essere necessario applicare diversi analizzatori a tali campi.
 * Si desidera popolare un campo di indice con dati da più di un'origine dati e le origini dati utilizzano nomi di campo diversi.
-* È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping** , incluse quelle per la codifica e decodifica Base64.
+* È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping**, incluse quelle per la codifica e decodifica Base64.
 
 > [!NOTE]
 > I mapping dei campi negli indicizzatori sono un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con una certa capacità di conversione dei dati leggeri. I dati più complessi potrebbero richiedere la pre-elaborazione per riformarli in un modulo che favorisce l'indicizzazione. Una delle opzioni che è possibile prendere in considerazione è [Azure Data Factory](../data-factory/index.yml).
@@ -46,7 +44,7 @@ I mapping dei campi vengono aggiunti alla `fieldMappings` matrice della definizi
 > [!NOTE]
 > Se non viene aggiunto alcun mapping di campi, gli indicizzatori presuppongono che i campi dell'origine dati debbano essere mappati ai campi di indice con lo stesso nome. L'aggiunta di un mapping dei campi consente di rimuovere i mapping dei campi predefiniti per il campo di origine e di destinazione. Alcuni indicizzatori, ad esempio [l'indicizzatore di archiviazione BLOB](search-howto-indexing-azure-blob-storage.md), aggiungono i mapping dei campi predefiniti per il campo chiave di indice.
 
-## <a name="map-fields-using-the-rest-api"></a>Eseguire il mapping dei campi con l'API REST
+## <a name="map-fields-using-rest"></a>Eseguire il mapping di campi con REST
 
 È possibile aggiungere i mapping dei campi quando si crea un nuovo indicizzatore usando la richiesta dell'API di [creazione dell'indicizzatore](/rest/api/searchservice/create-Indexer) . È possibile gestire i mapping dei campi di un indicizzatore esistente usando la richiesta dell'API di [aggiornamento dell'indicizzatore](/rest/api/searchservice/update-indexer) .
 
@@ -77,9 +75,8 @@ api-key: [admin key]
 > [!NOTE]
 > Azure ricerca cognitiva usa il confronto senza distinzione tra maiuscole e minuscole per risolvere i nomi di campo e funzione nei mapping dei campi. Questa caratteristica è utile perché non è necessario fare attenzione all'uso di maiuscole e minuscole, ma significa anche che l'origine dati o l'indice non può contenere campi differenziati solo in base all'uso di maiuscole e minuscole.  
 >
->
 
-## <a name="map-fields-using-the-net-sdk"></a>Eseguire il mapping di campi con .NET SDK
+## <a name="map-fields-using-net"></a>Eseguire il mapping di campi con .NET
 
 I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , che include le proprietà `SourceFieldName` e e `TargetFieldName` un riferimento facoltativo `MappingFunction` .
 

@@ -16,12 +16,12 @@ ms.custom:
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 060ed8bfc424fcb9dab8fc12faf5e3822fa86a31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: d9ca9dd345be7fb8f1a2b613386bdca7bdcd835a
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621445"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070380"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -176,7 +176,7 @@ Dopo che un dispositivo ha eseguito la connessione, in genere tenta di inviare d
 Per prima cosa, recuperare la stringa di connessione corrente per il dispositivo simulato usando il comando seguente:
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
+az iot hub device-identity connection-string show --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
 Per eseguire un dispositivo simulato che invia messaggi, passare alla cartella **iot-hub\Tutorials\ConnectivityTests** nel codice scaricato.

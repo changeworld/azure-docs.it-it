@@ -3,12 +3,12 @@ title: Creare una nuova risorsa di Azure Application Insights | Microsoft Docs
 description: Impostare manualmente il monitoraggio di Application Insights per una nuova applicazione live.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: adc40db493c701a21fd30d10a4452edee1b87ab9
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: e69611d650f61630c8b36f7387b79cffbb61f227
+ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951268"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99062914"
 ---
 # <a name="create-an-application-insights-resource"></a>Creare una risorsa di Application Insights
 
@@ -36,8 +36,8 @@ Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa App
 
 Immettere i valori appropriati nei campi obbligatori e quindi selezionare **Verifica + crea**.
 
-[!div class="mx-imgBorder"]
-![Immettere i valori nei campi obbligatori e quindi selezionare "verifica + crea".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Immettere i valori nei campi obbligatori e quindi selezionare "verifica + crea".](./media/create-new-resource/review-create.png)
 
 Quando l'app è stata creata, viene aperto un nuovo riquadro. In questo riquadro vengono visualizzati i dati sulle prestazioni e sull'utilizzo dell'applicazione monitorata. 
 

@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9b014775f55671ef1297e040620390c23f842ce0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: c07cc08f086b87e6b4ad35b569eef1a0d6b509ce
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053249"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99090017"
 ---
 # <a name="configure-permission-classifications"></a>Configurare le classificazioni delle autorizzazioni
 
@@ -34,7 +34,7 @@ Attualmente è supportata solo la classificazione delle autorizzazioni a "Impatt
 
 Seguire questa procedura per classificare le autorizzazioni usando il portale di Azure:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore [globale](../roles/permissions-reference.md#global-administrator--company-administrator), amministratore [dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator)
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore [globale](../roles/permissions-reference.md#global-administrator), amministratore [dell'applicazione](../roles/permissions-reference.md#application-administrator)o [amministratore di applicazioni cloud](../roles/permissions-reference.md#cloud-application-administrator)
 1. Selezionare **Azure Active Directory** > **Applicazioni aziendali** > **Consenso e autorizzazioni** > **Permission classifications (Classificazioni autorizzazioni)** .
 1. Scegliere **Aggiungi autorizzazioni** per classificare un'altra autorizzazione come a "Impatto basso".
 1. Selezionare l'API e quindi selezionare le autorizzazioni delegate.
