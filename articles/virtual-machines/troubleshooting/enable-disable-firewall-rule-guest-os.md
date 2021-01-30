@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee27f429dbfd1e550a45bbc26413a1c259c4fbe
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87058756"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99092369"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Abilitare o disabilitare una regola del firewall in un sistema operativo guest in una macchina virtuale di Azure
 
@@ -95,11 +95,11 @@ Se la macchina virtuale è online ed è accessibile su un'altra macchina virtual
 
 #### <a name="mitigation-4-remote-registry"></a>Mitigazione 4: Registro di sistema remoto
 
-Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile usare il [Registro di sistema remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry) nell'altra macchina virtuale.
+Se la macchina virtuale è online ed è accessibile su un'altra macchina virtuale nella stessa rete virtuale, è possibile usare il [Registro di sistema remoto](https://www.betaarchive.com/wiki/index.php?title=Microsoft_KB_Archive/314837) nell'altra macchina virtuale.
 
 1.  Nella macchina virtuale per la risoluzione dei problemi, avviare l'editor del registro di sistema (regedit.exe), quindi selezionare **file**  >  **Connetti registro di rete**.
 
-2.  Aprire il ramo \System del *computer di destinazione*e quindi specificare i valori seguenti:
+2.  Aprire il ramo \System del *computer di destinazione* e quindi specificare i valori seguenti:
 
     * Per abilitare una regola, aprire il valore del Registro di sistema seguente:
     
