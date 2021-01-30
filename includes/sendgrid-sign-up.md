@@ -4,15 +4,13 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5bc00f4de95d22eec71f9b1b2504b00f506232dc
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015427"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99214736"
 ---
-I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratuiti ogni mese. Questi 25.000 di messaggi di posta elettronica mensili gratuiti ti consentono di accedere a report avanzati e analisi e a [tutte le API][all APIs] (Web, SMTP, Event, Parse e altro ancora). Per informazioni sui servizi aggiuntivi offerti da SendGrid, vedere la pagina delle [soluzioni di SendGrid][SendGrid Solutions].
-
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Per iscriversi a un account SendGrid
 1. Accedere al [portale di Azure][Azure portal].
 2. Nel menu portale di Azure o nella home page selezionare **Crea una risorsa**.
@@ -30,7 +28,7 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 8. Creare un nuovo **gruppo di risorse** o selezionarne uno esistente.
 9. Nella sezione **Piano tariffario** selezionare il piano di SendGrid a cui si desidera iscriversi.
 
-    ![Screenshot della finestra di dialogo Crea un nuovo account SendGrid con la sezione scegliere il piano tariffario aperto e il piano tariffario gratuito selezionato.][sendgrid-pricing]
+    ![Screenshot della finestra di dialogo Crea un nuovo account SendGrid con la sezione scegliere il piano tariffario aperto][sendgrid-pricing]
 10. Se disponibile, immettere un **codice di promozione**.
 11. Immettere le **informazioni di contatto**.
 12. Rivedere e accettare le **condizioni legali**.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a4a2034d44d98de9696b435c68c97a8a54a1c351
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: f014ce55dc40723faf1b60f908814f9fa0428b8e
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027624"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99213929"
 ---
 Azure prevede i seguenti ruoli predefiniti di Azure per l'autorizzazione dell'accesso a dati di BLOB e code tramite Azure AD e OAuth:
 
@@ -31,4 +31,4 @@ Solo i ruoli definiti in modo esplicito per l'accesso ai dati consentono a un'en
 Per informazioni dettagliate sui ruoli predefiniti di Azure per Archiviazione di Azure, sia per i servizi dati che per il servizio di gestione, vedere la sezione **Archiviazione** in [Ruoli predefiniti di Azure per il controllo degli accessi in base al ruolo di Azure](../articles/role-based-access-control/built-in-roles.md#storage). Inoltre, per informazioni sui diversi tipi di ruolo che forniscono le autorizzazioni in Azure, vedere [Ruoli di amministratore della sottoscrizione classica, ruoli di Azure e ruoli di Azure AD](../articles/role-based-access-control/rbac-and-directory-admin-roles.md).
 
 > [!IMPORTANT]
-> La propagazione delle assegnazioni dei ruoli può richiedere fino a cinque minuti.
+> Le assegnazioni di ruolo di Azure possono richiedere fino a 30 minuti per la propagazione.
