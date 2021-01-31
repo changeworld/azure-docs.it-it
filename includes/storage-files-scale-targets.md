@@ -2,20 +2,20 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 09/16/2020
+ms.date: 01/27/2021
 ms.author: rogarana
-ms.openlocfilehash: e7b7fae094ad15bc1732778b6a4a3259fb4dd3b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: 7da7c2fbb49a9dd936762b23f3c251d2142c52fd
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027194"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221785"
 ---
 | Risorsa | Condivisioni file Standard\* | Condivisioni file Premium |
 |----------|---------------|------------------------------------------|
 | Dimensione massima di una condivisione file | Nessun limite minimo; pagamento in base al consumo | 100 GiB; con provisioning |
 | Dimensioni massime di una condivisione file | 100 TiB\*\*, 5 TiB | 100 TiB |
-| Dimensioni massime di un file in una condivisione file | 1 TiB | 4 TiB |
+| Dimensioni massime di un file in una condivisione file | 4 TiB | 4 TiB |
 | Numero massimo di file in una condivisione file | Nessun limite | Nessun limite |
 | Numero massimo di operazioni di I/O al secondo per condivisione | 10.000 operazioni di I/O al secondo\*\*, 1.000 operazioni di I/O al secondo o 100 richieste in 100 ms | 100.000 IOPS |
 | Numero massimo di criteri di accesso archiviati per ogni condivisione file | 5 | 5 |

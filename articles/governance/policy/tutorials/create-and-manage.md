@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Creare criteri per applicare la conformità'
 description: In questa esercitazione vengono usati i criteri per applicare gli standard, controllare i costi, mantenere la sicurezza e applicare principi di progettazione a livello aziendale.
-ms.date: 10/05/2020
+ms.date: 01/29/2021
 ms.topic: tutorial
-ms.openlocfilehash: bf3da82abcdcada1fc38df29efc988a1805c3020
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
-ms.translationtype: HT
+ms.openlocfilehash: a643e7ccede4966719972694ea29eeb77789595e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96005436"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221194"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Esercitazione: Creare e gestire i criteri per applicare la conformità
 
@@ -71,6 +71,10 @@ Il primo passaggio per applicare la conformità a Criteri di Azure consiste nell
 1. Lasciare l'opzione **Crea un'attività di correzione** deselezionata. Questa casella consente di creare un'attività per modificare le risorse esistenti, oltre a risorse nuove o aggiornate. Per altre informazioni, vedere [Correggere le risorse](../how-to/remediate-resources.md).
 
 1. **Crea un'identità gestita** è automaticamente selezionata perché questa definizione dei criteri usa l'effetto [modify](../concepts/effects.md#modify). Le **Autorizzazioni** sono automaticamente impostate su _Collaboratore_ in base alla definizione del criterio. Per altre informazioni, vedere le [identità gestite](../../../active-directory/managed-identities-azure-resources/overview.md) e il [funzionamento della sicurezza di monitoraggio e aggiornamento](../how-to/remediate-resources.md#how-remediation-security-works).
+
+1. Selezionare la scheda **messaggi non di conformità** nella parte superiore della procedura guidata.
+
+1. Imposta il **messaggio di non conformità** su _questa risorsa non ha il tag richiesto_. Questo messaggio personalizzato viene visualizzato quando una risorsa viene negata o per le risorse non conformi durante una valutazione regolare.
 
 1. Selezionare la scheda **Rivedi e crea** nella parte superiore della procedura guidata.
 

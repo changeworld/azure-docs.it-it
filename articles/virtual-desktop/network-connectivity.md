@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 4c0017a36d84973a4d99c49a5ea33faeb189b35f
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: e4149864e16196b695d38a8c46ab5af835453412
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94639342"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221211"
 ---
 # <a name="understanding-windows-virtual-desktop-network-connectivity"></a>Informazioni sulla connettività di rete per desktop virtuali Windows
 
@@ -50,7 +50,7 @@ Sequenza di connessione client descritta di seguito:
 
 ## <a name="connection-security"></a>Sicurezza delle connessioni
 
-TLS 1,2 viene usato per tutte le connessioni avviate dai client e dagli host di sessione ai componenti dell'infrastruttura desktop virtuale di Windows.
+TLS 1,2 viene usato per tutte le connessioni avviate dai client e dagli host di sessione ai componenti dell'infrastruttura desktop virtuale di Windows. Desktop virtuale Windows usa le stesse crittografie TLS 1,2 come [sportello anteriore di Azure](../frontdoor/front-door-faq.md#what-are-the-current-cipher-suites-supported-by-azure-front-door). È importante assicurarsi che entrambi i computer client e gli host di sessione possano usare queste crittografie.
 Per il trasporto con connessione inversa, sia il client che l'host sessione si connettono al gateway desktop virtuale di Windows. Dopo aver stabilito la connessione TCP, il client o l'host sessione convalida il certificato del gateway di desktop virtuale di Windows.
 Dopo aver stabilito il trasporto di base, RDP stabilisce una connessione TLS annidata tra il client e l'host sessione usando i certificati dell'host sessione. Per impostazione predefinita, il certificato usato per la crittografia RDP viene generato automaticamente dal sistema operativo durante la distribuzione. Se lo si desidera, i clienti possono distribuire certificati gestiti centralmente emessi dall'autorità di certificazione globale (Enterprise). Per ulteriori informazioni sulla configurazione dei certificati, vedere la [documentazione di Windows Server](/troubleshoot/windows-server/remote/remote-desktop-listener-certificate-configurations).
 

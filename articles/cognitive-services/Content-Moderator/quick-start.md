@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, moderazione del contenuto
-ms.openlocfilehash: c026c42fe3c7a7f3f0d6b80e3123904077c104cf
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
-ms.translationtype: HT
+ms.openlocfilehash: f8ad9c135fea4e582e6ba47764d0401936f8c295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905214"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221177"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Avvio rapido: Provare Content Moderator sul Web
 
@@ -88,6 +88,6 @@ In alternativa, continuare con i passaggi successivi per iniziare a usare le API
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa sezione vengono fornite informazioni su come usare le API di moderazione nell'app.
-- Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) oppure seguire una [guida di avvio rapido sull'uso della libreria client o dell'API REST](client-libraries.md) per analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte.
-- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure seguire una [guida di avvio rapido sull'uso della libreria client o dell'API REST](client-libraries.md) per analizzare il contenuto di testo e rilevare potenziali espressioni volgari, la classificazione di testo indesiderato basata su Machine Learning (anteprima) e dati personali.
+- Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) o seguire una [Guida introduttiva](client-libraries.md) per analizzare le immagini e rilevare il contenuto di un potenziale adulto e audace usando tag, punteggi di confidenza e altre informazioni estratte.
+- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) o seguire una [Guida introduttiva](client-libraries.md) per analizzare il contenuto del testo in merito a potenziali volgarità, dati personali e altro testo indesiderato.
 - Implementare la moderazione video. Seguire la [Guida pratica alla moderazione video per C#](video-moderation-api.md) per analizzare i video e rilevare potenziali contenuti spinti e per adulti. 

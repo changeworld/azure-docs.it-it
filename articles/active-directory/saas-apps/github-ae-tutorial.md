@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 3628cb6dbb397b561ff91ba6b6747293a39fd602
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 1d66396b2d97a7f33158f91025f5735c7714cd65
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632784"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con GitHub AE
 
@@ -71,7 +71,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella pagina di integrazione dell'applicazione **GitHub AE** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita per modificare le impostazioni di **Configurazione SAML di base**.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -93,11 +93,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![image](common/default-attributes.png)
 
-1. Oltre a quanto sopra, l'applicazione di GitHub AE prevede che vengano restituiti altri attributi nella risposta SAML, illustrati di seguito. Anche questi attributi vengono prepopolati, ma è possibile esaminarli in base ai requisiti.
-    
-    | Nome |  Attributo di origine|
-    | ----------- | --------- |
-    | entità | true |
+1. Modificare **gli attributi utente & attestazioni**.
+
+1. Fare clic su **Aggiungi nuova attestazione** e immettere il nome come **amministratore** nella casella di testo.
+
+1. Espandere **condizioni attestazione** e selezionare **membri** da **tipo utente**.
+
+1. Fare clic su **Seleziona gruppi** e cercare il **gruppo** in cui si vuole includere questa attestazione, in cui i membri devono essere amministratori di GHAE.
+
+1. Selezionare **attribute** per **source** e immettere **true** per il **valore**. 
+
+10. Fare clic su **Salva**.
+
+    ![Gestisci attestazione](./media/github-ae-tutorial/administrator.png)
 
     > [!NOTE]
     > Per informazioni sulle istruzioni su come aggiungere un'attestazione, seguire il [collegamento](https://docs.github.com/en/github-ae@latest/admin/authentication/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad).

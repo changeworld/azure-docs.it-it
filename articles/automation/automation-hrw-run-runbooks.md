@@ -3,14 +3,14 @@ title: Eseguire runbook di Automazione di Azure in un ruolo di lavoro ibrido per
 description: Questo articolo descrive come eseguire manuali operativi nei computer nel Data Center locale o in un altro provider di servizi cloud con Hybrid Runbook workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/06/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 4a080505f780e724bfd2ab997f5c823e467c4bec
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896970"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220974"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Eseguire runbook in un ruolo di lavoro ibrido per runbook
 
@@ -94,6 +94,10 @@ Usare la procedura seguente per specificare un account RunAs per un gruppo di ru
 ## <a name="install-run-as-account-certificate"></a><a name="runas-script"></a>Installare il certificato dell'account RunAs
 
 Nell'ambito del processo di compilazione automatizzato per la distribuzione di risorse in Azure, può essere necessario accedere a sistemi locali per supportare un'attività o un set di passaggi nella sequenza di distribuzione. Per consentire l'autenticazione in Azure con l'account RunAs, è necessario installare il certificato dell'account RunAs.
+
+>[!NOTE]
+>Questo runbook di PowerShell attualmente non viene eseguito nei computer LInux. Viene eseguito solo su computer Windows.
+>
 
 Il runbook di PowerShell seguente, denominato **Export-RunAsCertificateToHybridWorker**, esporta il certificato RunAs dall'account di Automazione di Azure. Il runbook scarica e importa il certificato nell'archivio certificati del computer locale in un ruolo di lavoro ibrido per runbook connesso allo stesso account. Dopo aver completato questo passaggio, il runbook verifica che il ruolo di lavoro possa eseguire l'autenticazione ad Azure usando l'account RunAs.
 

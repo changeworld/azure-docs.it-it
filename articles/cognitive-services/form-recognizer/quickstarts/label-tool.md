@@ -7,16 +7,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: elaborazione di documenti
-ms.openlocfilehash: a1cf919e17e22cb6280dce27faceb7cd034a6962
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
-ms.translationtype: HT
+ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845546"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221092"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -202,7 +202,7 @@ Creare quindi i tag (etichette) e applicarli agli elementi di testo che dovranno
    1. Fare clic su **+** per creare un nuovo tag.
    1. Immettere il nome del tag.
    1. Premere INVIO per salvare il tag.
-1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle. Nella versione _v2.1 preview.2_ è anche possibile fare clic per selezionare _contrassegni di selezione_, ad esempio pulsanti di opzione e caselle di controllo come coppie chiave-valore. Riconoscimento modulo identificherà se l'indicatore di selezione è "selezionato" o "deselezionato" come valore.
+1. Nell'editor principale fare clic per selezionare parole dagli elementi di testo evidenziati per selezionarle. Nell'API _v 2.1 Preview. 2_ è anche possibile fare clic per selezionare i _contrassegni di selezione_ come pulsanti di opzione e caselle di controllo come coppie chiave-valore. Riconoscimento modulo identificherà se l'indicatore di selezione è "selezionato" o "deselezionato" come valore.
 1. Fare clic sul tag da applicare oppure premere il tasto corrispondente della tastiera. I tasti numerici vengono assegnati come tasti di scelta rapida per i primi 10 tag. È possibile riordinare i tag usando le icone delle frecce su e giù nel riquadro dell'editor di tag.
     > [!Tip]
     > Per l'etichettatura dei moduli, tenere presenti i suggerimenti seguenti.
@@ -290,7 +290,7 @@ Questa funzionalità è attualmente disponibile in v2.1. preview.
 
 Con lo strumento di composizione modelli è possibile comporre fino a 100 modelli in un solo ID modello. Quando si esegue l'analisi con questo ID di modello composto, Riconoscimento modulo classifica prima di tutto il modulo inviato, associandolo al modello con la corrispondenza migliore, quindi restituisce i risultati per tale modello. Questo è utile nel caso in cui i moduli in ingresso appartengano a uno dei diversi modelli.
 
-Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'icona a forma di freccia di unione dello strumento di composizione modelli a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti. Fare clic sul pulsante "Componi". Nella finestra popup assegnare un nome al nuovo modello composto e fare clic su "Componi". Al termine dell'operazione, il nuovo modello composto dovrebbe essere visualizzato nell'elenco. 
+Per comporre modelli nello strumento di etichettatura campioni, fare clic sull'icona a forma di freccia di unione dello strumento di composizione modelli a sinistra. A sinistra selezionare i modelli da comporre insieme. I modelli contrassegnati con l'icona della freccia sono già composti. Fare clic sul pulsante "Componi". Nella finestra popup assegnare un nome al nuovo modello composto e fare clic su "compose". Al termine dell'operazione, il nuovo modello composto dovrebbe essere visualizzato nell'elenco. 
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Visualizzazione dell'esperienza utente di composizione modelli.":::
 

@@ -6,18 +6,18 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95998567"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221027"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creare e gestire un collegamento privato per database di Azure per MySQL con il portale
 
 Un endpoint privato è il blocco predefinito fondamentale per il collegamento privato in Azure. Consente alle risorse di Azure, come le macchine virtuali (VM), di comunicare privatamente con risorse Collegamento privato. In questo articolo si apprenderà come usare il portale di Azure per creare una macchina virtuale in una rete virtuale di Azure e un database di Azure per il server MySQL con un endpoint privato di Azure.
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
 > La funzionalità di collegamento privato è disponibile solo per i server di database di Azure per MySQL nei piani tariffari per utilizzo generico o con ottimizzazione per la memoria. Verificare che il server di database sia in uno di questi piani tariffari.
@@ -32,7 +32,7 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >    >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
@@ -99,7 +99,7 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
 
 In questa sezione verrà creato un database di Azure per il server MySQL in Azure. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >  **Databases**  >  **Azure per MySQL**.
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >    >  **Azure per MySQL**.
 
 1. In **database di Azure per MySQL** fornire queste informazioni:
 
@@ -223,6 +223,8 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
     ```
+    > [!NOTE]
+    > Se l'accesso pubblico è disabilitato nelle impostazioni del firewall in database di Azure per MySQL-server singolo. Questi test ping e Telnet riusciranno a prescindere dalle impostazioni del firewall. I test garantiranno la connettività di rete.
 
 3. Testare la connessione del collegamento privato per il server MySQL usando un client disponibile. Nell'esempio seguente ho usato [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) per eseguire l'operazione.
 
@@ -245,7 +247,7 @@ Dopo aver creato **myVm**, connettersi alla macchina virtuale da Internet come i
 
 8. Chiudere la connessione Desktop remoto a myVm.
 
-## <a name="clean-up-resources"></a>Pulizia delle risorse
+## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine dell'operazione, eliminare il gruppo di risorse e tutte le risorse in esso contenute usando l'endpoint privato, il server MySQL e la macchina virtuale:
 
 1. Immettere *myResourceGroup* nella casella **Cerca** nella parte superiore del portale e selezionare *myResourceGroup* nei risultati della ricerca.

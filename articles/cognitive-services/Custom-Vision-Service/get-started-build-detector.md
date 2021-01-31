@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/30/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: b27864fc1fd1f94f99fccacd90a66120e6d044c4
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: 5ecd5fee565a8d31e0ff05f3b234771446242d02
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132580"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221296"
 ---
 # <a name="quickstart-build-an-object-detector-with-the-custom-vision-website"></a>Avvio rapido: Creare un rilevatore di oggetti con il sito Web di Visione personalizzata
 
@@ -68,9 +68,9 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 ## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
-In questa sezione si caricheranno e si aggiungeranno manualmente i tag alle immagini per eseguire il training del rilevatore. 
+In questa sezione si caricherà e si contrassegnano manualmente le immagini per facilitare il training del rilevamento. 
 
-1. Per aggiungere immagini, fare clic sul pulsante __Aggiungi immagini__ e quindi selezionare __Esplora file locali__. Selezionare __Apri__ per caricare le immagini.
+1. Per aggiungere immagini, selezionare __Aggiungi immagini__ , quindi selezionare __Sfoglia file locali__. Selezionare __Apri__ per caricare le immagini.
 
     ![Il controllo per l'aggiunta di immagini è visualizzato in alto a sinistra e come pulsante in basso al centro.](./media/get-started-build-detector/add-images.png)
 
@@ -78,7 +78,7 @@ In questa sezione si caricheranno e si aggiungeranno manualmente i tag alle imma
 
     ![Immagini caricate nella sezione Senza tag](./media/get-started-build-detector/images-untagged.png)
 
-1. Fare clic e trascinare un rettangolo intorno all'oggetto nell'immagine. Immettere quindi un nuovo nome di tag con il pulsante **+** oppure selezionare un tag esistente dall'elenco a discesa. È molto importante aggiungere i tag a ogni istanza degli oggetti che si desidera rilevare, perché il rilevatore usa l'area di sfondo senza tag come esempio negativo durante il training. Dopo aver aggiunto i tag, fare clic sulla freccia a destra per salvarli e per passare all'immagine successiva.
+1. Fare clic e trascinare un rettangolo intorno all'oggetto nell'immagine. Immettere quindi un nuovo nome di tag con il pulsante **+** oppure selezionare un tag esistente dall'elenco a discesa. È importante contrassegnare ogni istanza degli oggetti che si desidera rilevare, perché il rilevatore usa l'area di sfondo senza tag come esempio negativo nel training. Dopo aver aggiunto i tag, fare clic sulla freccia a destra per salvarli e per passare all'immagine successiva.
 
     ![Aggiunta di tag a un oggetto con una selezione rettangolare](./media/get-started-build-detector/image-tagging.png)
 
@@ -114,7 +114,7 @@ Il dispositivo di scorrimento della **soglia di sovrapposizione** gestisce il li
 
 ## <a name="manage-training-iterations"></a>Gestire le iterazioni di training
 
-Ogni volta che si esegue il training del rilevatore, si crea una nuova _iterazione_ con le relative metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **Prestazioni**. Nel riquadro a sinistra è presente anche il pulsante **Elimina**, che consente di eliminare un'iterazione obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
+Ogni volta che si esegue il training del rilevatore, si crea una nuova _iterazione_ con le relative metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **prestazioni** . Nel riquadro sinistro è disponibile anche il pulsante **Elimina** , che è possibile usare per eliminare un'iterazione se è obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
 
 Per informazioni su come accedere ai modelli sottoposti a training a livello di codice, vedere [Usare il modello con l'API Previsioni](./use-prediction-api.md).
 

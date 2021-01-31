@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 09/29/2020
+ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento delle immagini, app per il riconoscimento delle immagini, visione personalizzata
-ms.openlocfilehash: d644c323cb60e5ef9a89670cd9b828e3e9676299
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
-ms.translationtype: HT
+ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131696"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221245"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>Avvio rapido: Creare un classificatore con il sito Web di Visione personalizzata
 
@@ -71,7 +71,7 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 In questa sezione si procederà al caricamento delle immagini e all'aggiunta manuale dei tag alle immagini per eseguire il training del classificatore. 
 
-1. Per aggiungere immagini, fare clic sul pulsante __Aggiungi immagini__ e quindi selezionare __Esplora file locali__. Selezionare __Open__ (Apri) per passare all'assegnazione di tag. La selezione di tag verrà applicata all'intero gruppo di immagini da caricare selezionate per semplificare il caricamento delle immagini in gruppi separati in base ai tag desiderati. È anche possibile modificare i tag per le singole immagini dopo averle caricate.
+1. Per aggiungere immagini, selezionare __Aggiungi immagini__ , quindi selezionare __Sfoglia file locali__. Selezionare __Open__ (Apri) per passare all'assegnazione di tag. La selezione dei tag verrà applicata all'intero gruppo di immagini selezionate per il caricamento, quindi è più semplice caricare le immagini in gruppi distinti in base ai tag applicati. È anche possibile modificare i tag per le singole immagini dopo che sono state caricate.
 
     ![Il controllo per l'aggiunta di immagini è visualizzato in alto a sinistra e come pulsante in basso al centro.](./media/getting-started-build-a-classifier/add-images01.png)
 

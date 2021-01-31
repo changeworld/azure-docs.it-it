@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/24/2020
-ms.openlocfilehash: c7e8f96e7917173aaec308b8ae5218684a722483
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: e32b93c669bffd382b1eb648111f9b8931b07eac
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507473"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99221143"
 ---
 # <a name="copy-data-to-and-from-azure-databricks-delta-lake-by-using-azure-data-factory"></a>Copiare dati da e verso Azure Databricks Delta Lake usando Azure Data Factory
 
@@ -41,8 +41,8 @@ In generale, Azure Data Factory supporta Delta Lake con le funzionalità seguent
 
 Per usare questo connettore Azure Databricks Delta Lake, è necessario configurare un cluster in Azure Databricks.
 
-- Per copiare dati in Delta Lake, l'attività di copia richiama Azure Databricks cluster per leggere i dati da un'archiviazione di Azure, che è l'origine originale o un'area di gestione temporanea in cui Data Factory innanzitutto scrive i dati di origine tramite una copia di gestione temporanea incorporata. Scopri di più da [Delta Lake come origine](#delta-lake-as-source).
-- Analogamente, per copiare dati da Delta Lake, l'attività di copia richiama Azure Databricks cluster per scrivere i dati in una risorsa di archiviazione di Azure, ovvero il sink originale o un'area di gestione temporanea da cui Data Factory continua a scrivere i dati nel sink finale tramite una copia temporanea incorporata. Altre informazioni sono disponibili in [Delta Lake come sink](#delta-lake-as-sink).
+- Per copiare dati in Delta Lake, l'attività di copia richiama Azure Databricks cluster per leggere i dati da un'archiviazione di Azure, che è l'origine originale o un'area di gestione temporanea in cui Data Factory innanzitutto scrive i dati di origine tramite una copia di gestione temporanea incorporata. Altre informazioni sono disponibili in [Delta Lake come sink](#delta-lake-as-sink).
+- Analogamente, per copiare dati da Delta Lake, l'attività di copia richiama Azure Databricks cluster per scrivere i dati in una risorsa di archiviazione di Azure, ovvero il sink originale o un'area di gestione temporanea da cui Data Factory continua a scrivere i dati nel sink finale tramite una copia temporanea incorporata. Scopri di più da [Delta Lake come origine](#delta-lake-as-source).
 
 Il cluster databricks deve avere accesso all'account BLOB o Azure Data Lake Storage Gen2 di Azure, sia il contenitore di archiviazione/file system usato per l'origine/sink/gestione temporanea e il contenitore/file system in cui si vogliono scrivere le tabelle Delta Lake.
 
@@ -83,7 +83,7 @@ Le proprietà seguenti sono supportate per un servizio collegato Azure Databrick
 | :---------- | :----------------------------------------------------------- | :------- |
 | type        | La proprietà Type deve essere impostata su **AzureDatabricksDeltaLake**. | Sì      |
 | dominio      | Specificare l'URL dell'area di lavoro Azure Databricks, ad esempio `https://adb-xxxxxxxxx.xx.azuredatabricks.net` . |          |
-| clusterId   | Specificare l'ID cluster di un cluster esistente. Deve essere un cluster interattivo già creato. <br>È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altre informazioni](/azure/databricks/clusters/configure#cluster-tags). |          |
+| clusterId   | Specificare l'ID cluster di un cluster esistente. Deve essere un cluster interattivo già creato. <br>È possibile trovare l'ID cluster di un cluster interattivo nell'area di lavoro di Databricks -> Cluster -> Interactive Cluster Name (Nome cluster interattivo) -> Configurazione -> Tag. [Altre informazioni](/azure/databricks/clusters/configure#cluster-tags) |          |
 | accessToken | Il token di accesso è obbligatorio per l'autenticazione del data factory con Azure Databricks. Deve essere generato dall'area di lavoro di Databricks. I passaggi più dettagliati per trovare il token di accesso sono disponibili [qui](/azure/databricks/dev-tools/api/latest/authentication#generate-token). |          |
 | connectVia  | [Runtime di integrazione](concepts-integration-runtime.md) usato per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No       |
 
