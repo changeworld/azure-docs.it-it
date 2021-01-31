@@ -3,19 +3,24 @@ title: Distribuire il ruolo Gateway Desktop remoto Windows desktop virtuale-Azur
 description: Come distribuire il ruolo Gateway Desktop remoto nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ca3c36f339d5cbca6d5b5990415fba180ae42a13
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 71bd7d38727d99c05a15c54e5141c613960d9050
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798435"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220820"
 ---
-# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop"></a>Distribuire il ruolo Gateway Desktop remoto in desktop virtuale di Windows
+# <a name="deploy-the-rd-gateway-role-in-windows-virtual-desktop-preview"></a>Distribuire il ruolo Gateway Desktop remoto in desktop virtuale Windows (anteprima)
 
-Questo articolo illustra come distribuire i server Gateway Desktop remoto nell'ambiente in uso. Puoi installare i ruoli del server in computer fisici o macchine virtuali, a seconda che tu stia creando un ambiente locale, basato sul cloud o ibrido.
+> [!IMPORTANT]
+> Questa funzionalità è attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Questo articolo illustra come usare il ruolo Gateway Desktop remoto (anteprima) per distribuire i server Gateway Desktop remoto nell'ambiente in uso. È possibile installare i ruoli del server in computer fisici o macchine virtuali a seconda che si stia creando un ambiente locale, basato sul cloud o ibrido.
 
 ## <a name="install-the-rd-gateway-role"></a>Installare il ruolo Gateway Desktop remoto
 

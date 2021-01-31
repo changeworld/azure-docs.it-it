@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: efc4f6293623278314df3ac55b2fecae2e28f7d8
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: a2b5350e1aebeff3cc9dc3996f7e0a92c424ecf3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968350"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219995"
 ---
 # <a name="ibm-workloads-on-azure"></a>Carichi di lavoro IBM in Azure
 
 Molti carichi di lavoro IBM mainframe basati su z/OS possono essere replicati in Azure senza alcuna perdita di funzionalità e senza che gli utenti abbiano notato modifiche nei sistemi sottostanti. La riallocazione di applicazioni in Azure ti offre le funzionalità di tipo mainframe che ti servono e l'elasticità, la disponibilità e il risparmio di costi potenziali del cloud.
 
-Azure supporta l'integrazione con gli ambienti mainframe IBM esistenti, consentendo di eseguire la migrazione di applicates che hanno senso, di eseguire soluzioni ibride laddove necessario e di eseguire la migrazione nel tempo. Sebbene sia possibile riscrivere completamente programmi basati su mainframe esistenti per Azure, è più comune riallocarli. La riscrittura aggiunge i costi, la complessità e il tempo per i progetti di migrazione. Con la riallocazione è possibile:
+Azure supporta l'integrazione con gli ambienti mainframe IBM esistenti, consentendo di eseguire la migrazione delle applicazioni che hanno senso, eseguire soluzioni ibride laddove necessario e migrare nel tempo. Sebbene sia possibile riscrivere completamente programmi basati su mainframe esistenti per Azure, è più comune riallocarli. La riscrittura aggiunge i costi, la complessità e il tempo per i progetti di migrazione. Con la riallocazione è possibile:
 
 - Spostare le applicazioni in un emulatore basato sul cloud.
 
@@ -41,4 +41,4 @@ Inoltre, il software IBM, incluso WebSphere e MQ, è ora disponibile in Azure Ma
 - [Migrazione del mainframe: miti e fact](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Installare l'ambiente di sviluppo/test IBM zD&T in Azure](./install-ibm-z-environment.md)
 - [Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1](./demo.md)
-- [IBM DB2 pureScale in Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale in Azure](ibm-db2-purescale-azure.md)

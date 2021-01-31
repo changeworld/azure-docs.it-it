@@ -11,24 +11,24 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7bd04790c7ac124afe3e9b503803f27118ae959
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861861"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219673"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un profilo tecnico fornisce un Framework con un meccanismo incorporato per la comunicazione con tipi diversi di entità mediante un criterio personalizzato in Azure Active Directory B2C (Azure AD B2C). I profili tecnici vengono usati per comunicare con il tenant di Azure AD B2C, creare un utente o leggere un profilo utente. Un profilo tecnico può essere autocertificato per consentire l'interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso e quindi eseguire il rendering della pagina di iscrizione o di reimpostazione della password.
+Un profilo tecnico fornisce un Framework con un meccanismo incorporato per la comunicazione con diversi tipi di entità. I profili tecnici vengono usati per comunicare con il tenant di Azure AD B2C, creare un utente o leggere un profilo utente. Un profilo tecnico può essere autocertificato per consentire l'interazione con l'utente, ad esempio per raccogliere le credenziali dell'utente per l'accesso e quindi eseguire il rendering della pagina di iscrizione o di reimpostazione della password.
 
 ## <a name="type-of-technical-profiles"></a>Tipi di profili tecnici
 
 Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 
-- [Application Insights](application-insights-technical-profile.md) l'invio di dati di evento a [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md) l'invio di dati di evento a [Application Insights](../azure-monitor/app/app-insights-overview.md).
 - [Azure Active Directory](active-directory-technical-profile.md): supporto della gestione degli utenti di Azure Active Directory B2C.
 - [Azure AD multi-factor authentication](multi-factor-auth-technical-profile.md) : viene fornito il supporto per la verifica di un numero di telefono utilizzando Azure ad multi-factor authentication (multi-factor authentication). 
 - [Trasformazione delle attestazioni](claims-transformation-technical-profile.md): chiamata di trasformazioni delle attestazioni di output per convalidare le attestazioni, modificarne i valori o impostare valori predefiniti per un set di attestazioni di output.
@@ -47,7 +47,7 @@ Un profilo tecnico supporta i tipi di scenario riportati di seguito.
 
 ## <a name="technical-profile-flow"></a>Flusso dei profili tecnici
 
-Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attestazioni di input, si esegue la trasformazione delle attestazioni e si comunica con l'entità configurata, ad esempio un provider di identità, un'API REST o servizi directory di Azure AD. Al termine del processo, il profilo tecnico restituisce le attestazioni di output ed è possibile che venga eseguita la trasformazione delle attestazioni di output. Il diagramma seguente illustra come vengono elaborati le trasformazioni e i mapping a cui viene fatto riferimento nel profilo tecnico. Indipendentemente dall'entità con cui interagisce il profilo tecnico, dopo l'esecuzione di qualsiasi trasformazione delle attestazioni, le attestazioni di output del profilo tecnico vengono immediatamente archiviate nel contenitore delle attestazioni.
+Tutti i tipi di profili tecnici condividono lo stesso concetto. Per iniziare, leggere le attestazioni di input, eseguire la trasformazione delle attestazioni. Comunicare quindi con l'entità configurata, ad esempio un provider di identità, un'API REST o Azure AD servizi directory. Al termine del processo, il profilo tecnico restituisce le attestazioni di output ed è possibile che venga eseguita la trasformazione delle attestazioni di output. Il diagramma seguente illustra come vengono elaborati le trasformazioni e i mapping a cui viene fatto riferimento nel profilo tecnico. Dopo l'esecuzione della trasformazione delle attestazioni, le attestazioni di output vengono archiviate immediatamente nell'elenco delle attestazioni. Indipendentemente dall'entità con cui il profilo tecnico interagisce.
 
 ![Diagramma che illustra il flusso del profilo tecnico](./media/technical-profiles/technical-profile-flow.png)
 
@@ -64,7 +64,7 @@ Tutti i tipi di profili tecnici condividono lo stesso concetto. Si inviano attes
 1. **Trasformazioni di attestazioni di output** : dopo il completamento del profilo tecnico, Azure ad B2C esegue la trasformazione output delle [attestazioni](claimstransformations.md). 
 1. **Gestione delle sessioni Single Sign-on (SSO)** : rende permanente i dati del profilo tecnico nella sessione, usando la [gestione delle sessioni SSO](custom-policy-reference-sso.md).
 
-Un elemento **TechnicalProfiles** contiene un set di profili tecnici supportati dal provider di attestazione. Ogni provider di attestazioni deve disporre di uno o più profili tecnici che determinano gli endpoint e i protocolli necessari per comunicare con il provider stesso. Un provider di attestazioni può avere più profili tecnici.
+Un elemento **TechnicalProfiles** contiene un set di profili tecnici supportati dal provider di attestazione. Ogni provider di attestazioni deve disporre di almeno un profilo tecnico. Il profilo tecnico determina gli endpoint e i protocolli necessari per comunicare con il provider di attestazioni. Un provider di attestazioni può avere più profili tecnici.
 
 ```xml
 <ClaimsProvider>
@@ -84,7 +84,7 @@ Un elemento **TechnicalProfiles** contiene un set di profili tecnici supportati 
 
 L'elemento **TechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 |---------|---------|---------|
 | Id | Sì | Un identificatore univoco del profilo tecnico. È possibile fare riferimento al profilo tecnico usando questo identificatore dagli altri elementi nel file dei criteri. Ad esempio, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
@@ -96,14 +96,14 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 | DisplayName | 1:1 | Nome visualizzato del profilo tecnico. |
 | Descrizione | 0:1 | Descrizione del profilo tecnico. |
 | Protocollo | 1:1 | Il protocollo usato per la comunicazione con altre entità. |
-| Metadati | 0:1 | Una raccolta di coppie di chiavi/valori che vengono usate dal protocollo per comunicare con l'endpoint durante la transazione. |
+| Metadati | 0:1 | Raccolta di chiave/valore che controlla il comportamento del profilo tecnico. |
 | InputTokenFormat | 0:1 | Il formato del token di input. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. Il valore `JWT` rappresenta un Token JSON Web in base alla specifica IETF. Il valore `SAML11` rappresenta un token di sicurezza SAML 1.1 in base alla specifica di OASIS.  Il valore `SAML2` rappresenta un token di sicurezza SAML 2.0 in base alla specifica di OASIS. |
 | OutputTokenFormat | 0:1 | Il formato del token di output. I valori possibili sono: `JSON`, `JWT`, `SAML11` o `SAML2`. |
 | CryptographicKeys | 0:1 | Un elenco di chiavi di crittografia usate nel profilo tecnico. |
 | InputClaimsTransformations | 0:1 | Un elenco di riferimenti definiti in precedenza per le trasformazioni di attestazioni che devono essere eseguiti prima che le attestazioni siano inviate al provider di attestazioni o relying party. |
 | InputClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione eseguiti come input nel profilo tecnico. |
-| PersistedClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione mantenuti dal provider di attestazioni che si riferisce al profilo tecnico. |
-| DisplayClaims | 0:1 | Elenco dei riferimenti definiti in precedenza ai tipi di attestazione presentati dal provider di attestazioni correlato al [profilo tecnico autocertificato](self-asserted-technical-profile.md). La funzionalità DisplayClaims è attualmente in fase di **Anteprima**. |
+| PersistedClaims | 0:1 | Elenco dei riferimenti definiti in precedenza ai tipi di attestazione che verranno resi permanente dal profilo tecnico. |
+| DisplayClaims | 0:1 | Elenco dei riferimenti definiti in precedenza ai tipi di attestazione presentati dal [profilo tecnico autocertificato](self-asserted-technical-profile.md). La funzionalità DisplayClaims è attualmente in fase di **Anteprima**. |
 | OutputClaims | 0:1 | Un elenco dei riferimenti definiti in precedenza per i tipi di attestazione eseguiti come output nel profilo tecnico. |
 | OutputClaimsTransformations | 0:1 | Un elenco di riferimenti definiti in precedenza per le trasformazioni di attestazioni che devono essere eseguiti prima che le attestazioni siano ricevute dal provider di attestazioni. |
 | ValidationTechnicalProfiles | 0:n | Un elenco di riferimenti ad altri profili tecnici che il profilo tecnico usa ai fini della convalida. Per altre informazioni, vedere [profilo tecnico di convalida](validation-technical-profile.md)|
@@ -118,10 +118,10 @@ L'elemento **TechnicalProfile** contiene gli elementi seguenti:
 
 Il **protocollo** specifica il protocollo da utilizzare per la comunicazione con l'altra parte. L'elemento **Protocollo** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| Name | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` o `None` . |
-| Gestore | No | Quando il nome del protocollo è impostato su `Proprietary`, specificare il nome completo dell'assembly usato da Azure AD B2C per determinare il gestore di protocollo. |
+| Nome | Sì | Nome di un protocollo valido supportato da Azure AD B2C usato come parte del profilo tecnico. Valori possibili: `OAuth1` , `OAuth2` , `SAML2` , `OpenIdConnect` , `Proprietary` o `None` . |
+| Gestore | No | Quando il nome del protocollo è impostato su `Proprietary` , specificare il nome dell'assembly usato da Azure ad B2C per determinare il gestore del protocollo. |
 
 ## <a name="metadata"></a>Metadati
 
@@ -129,13 +129,13 @@ L'elemento **Metadata** contiene le opzioni di configurazione rilevanti per un p
 
 | Elemento | Occorrenze | Descrizione |
 | ------- | ----------- | ----------- |
-| Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per altre informazioni, vedere la sezione dedicata ai tipi di profilo tecnico. |
+| Elemento | 0:n | I metadati che riguardano il profilo tecnico. Ogni tipo di profilo tecnico dispone di un diverso set di elementi di metadati. Per ulteriori informazioni, vedere la sezione tipi di profilo tecnico.  |
 
 ### <a name="item"></a>Elemento
 
 L'elemento **Item** dell'elemento **Metadata** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Chiave | Sì | Chiave dei metadati. Per l'elenco di elementi di metadati, vedere ogni [tipo di profilo tecnico](#type-of-technical-profiles). |
 
@@ -173,7 +173,7 @@ L'esempio seguente illustra l'uso dei metadati rilevanti per il [profilo tecnico
 
 ## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
-Azure AD B2C archivia i segreti e i certificati sotto forma di [chiavi dei criteri](policy-keys-overview.md) per stabilire una relazione di trust con i servizi con cui si integra. Durante l'esecuzione del profilo tecnico, Azure AD B2C recupera le chiavi crittografiche da Azure AD B2C chiavi dei criteri, quindi usa le chiavi stabiliscono la relazione di trust, crittografare o firmare un token. Queste attendibilità sono costituite da:
+Per stabilire una relazione di trust con i servizi con cui si integra, Azure AD B2C archivia i segreti e i certificati sotto forma di [chiavi dei criteri](policy-keys-overview.md). Durante l'esecuzione del profilo tecnico, Azure AD B2C recupera le chiavi crittografiche da Azure AD B2C chiavi dei criteri. USA quindi le chiavi per stabilire una relazione di trust, crittografare o firmare un token. Queste attendibilità sono costituite da:
 
 - Federazione con provider di identità [OAuth1](oauth1-technical-profile.md#cryptographic-keys), [OAuth2](oauth2-technical-profile.md#cryptographic-keys)e [SAML](saml-identity-provider-technical-profile.md#cryptographic-keys)
 - Proteggere la connessione con i [Servizi API REST](secure-rest-api.md)
@@ -189,7 +189,7 @@ L'elemento **CryptographicKeys** contiene l'elemento seguente:
 
 L'elemento **Chiave** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Id | No | Un identificatore univoco di una coppia di chiavi specifica a cui fanno riferimento altri elementi nel file dei criteri. |
 | StorageReferenceId | Sì | Un identificatore di un contenitore di chiavi di archiviazione a cui fanno riferimento altri elementi nel file dei criteri. |
@@ -198,7 +198,7 @@ L'elemento **Chiave** contiene l'attributo seguente:
 
 L'elemento **InputClaimsTransformations** può contenere una raccolta di elementi di trasformazione delle attestazioni di input utilizzati per modificare le attestazioni di input o generarne una nuova. 
 
-Le attestazioni di output di una trasformazione delle attestazioni precedente nella raccolta delle trasformazioni delle attestazioni possono essere attestazioni di input di una trasformazione delle attestazioni di input successiva, che consente di disporre di una sequenza di trasformazione delle attestazioni in base all'altra
+Le attestazioni di output di una trasformazione delle attestazioni precedente nella raccolta delle trasformazioni delle attestazioni possono essere attestazioni di input di una trasformazione delle attestazioni di input successiva, che consente di avere una sequenza di trasformazione delle attestazioni in base all'altra
 
 L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
@@ -210,7 +210,7 @@ L'elemento **InputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **InputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -249,15 +249,15 @@ L'elemento **InputClaims** contiene l'elemento seguente:
 
 L'elemento **InputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
+| ClaimTypeReferenceId | Sì | Identificatore di un tipo di attestazione. L'attestazione è già definita nella sezione schema delle attestazioni nel file di criteri o nel file dei criteri padre. |
 | DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
 | PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 ## <a name="display-claims"></a>Visualizza attestazioni
 
-L'elemento **DisplayClaims** contiene un elenco di attestazioni definite dal [profilo tecnico autocertificato](self-asserted-technical-profile.md) da presentare sullo schermo per la raccolta di dati dall'utente. Nella raccolta di attestazioni di visualizzazione è possibile includere un riferimento a un [tipo di attestazione](claimsschema.md)o un [DisplayControl](display-controls.md) creato. 
+L'elemento **DisplayClaims** contiene un elenco di attestazioni da presentare sullo schermo per raccogliere i dati dall'utente. Nella raccolta di attestazioni di visualizzazione è possibile includere un riferimento a un [tipo di attestazione](claimsschema.md)o un [DisplayControl](display-controls.md) creato. 
 
 - Un tipo di attestazione è un riferimento a un'attestazione da visualizzare sullo schermo. 
   - Per forzare l'utente a fornire un valore per un'attestazione specifica, impostare l'attributo **obbligatorio** dell'elemento **DisplayClaim** su `true` .
@@ -277,11 +277,11 @@ L'elemento **DisplayClaims** contiene l'elemento seguente:
 
 L'elemento **DisplayClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | No | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
 | DisplayControlReferenceId | No | Identificatore di un [controllo di visualizzazione](display-controls.md) già definito nella sezione ClaimsSchema del file di criteri o del file di criteri padre. |
-| Obbligatorio | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
+| Necessario | No | Indica se l'attestazione di visualizzazione è obbligatoria. |
 
 Nell'esempio seguente viene illustrato l'utilizzo di attestazioni e controlli di visualizzazione con in un profilo tecnico autocertificato.
 
@@ -323,10 +323,10 @@ L'elemento **PersistedClaims** contiene gli elementi seguenti:
 
 L'elemento **PersistedClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
+| DefaultValue | No | Valore predefinito da utilizzare per creare un'attestazione se l'attestazione non esiste. |
 | PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 Nell'esempio seguente, il profilo tecnico **AAD-UserWriteUsingLogonEmail** o lo [Starter Pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), che crea un nuovo account locale, Salva in modo permanente le attestazioni seguenti:
@@ -354,16 +354,16 @@ Nell'esempio seguente, il profilo tecnico **AAD-UserWriteUsingLogonEmail** o lo 
 
 L'elemento **OutputClaim** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Sì | L'identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri o del file dei criteri padre. |
-| DefaultValue | No | Un valore predefinito da usare per creare un'attestazione se l'attestazione indicata da ClaimTypeReferenceId non esiste, in modo che l'attestazione che ne deriva possa essere usata come InputClaim dal profilo tecnico. |
+| DefaultValue | No | Valore predefinito da utilizzare per creare un'attestazione se l'attestazione non esiste. |
 |AlwaysUseDefaultValue |No |Forzare l'uso del valore predefinito.  |
-| PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se l'attributo PartnerClaimType non è specificato, viene eseguito il mapping del tipo di attestazione di criteri specificato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
+| PartnerClaimType | No | L'identificatore del tipo di attestazione del partner esterno verso cui il tipo di attestazione di criterio specificato esegue il mapping. Se non si specifica l'attributo del tipo di attestazione partner, il tipo di attestazione dei criteri specificato viene mappato al tipo di attestazione partner con lo stesso nome. Utilizzare questa proprietà quando il nome del tipo di attestazione è diverso da altre entità. Ad esempio, il primo nome dell'attestazione è 'givenName', mentre il partner usa un'attestazione denominata 'first_name'. |
 
 ## <a name="output-claims-transformations"></a>Trasformazioni delle attestazioni di output
 
-L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** che vengono usati per modificare le attestazioni di output o per generarne di nuove. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. È possibile usare tali attestazioni nel passaggio orchestrazioni successive.
+L'elemento **OutputClaimsTransformations** può contenere una raccolta di elementi **OutputClaimsTransformation** . Le trasformazioni delle attestazioni di output vengono usate per modificare le attestazioni di output o generarne di nuove. Al termine dell'esecuzione, le attestazioni di output vengono inserite nel contenitore delle attestazioni. È possibile usare tali attestazioni nel passaggio orchestrazioni successive.
 
 Le attestazioni di output di una trasformazione delle attestazioni precedente nella raccolta delle trasformazioni delle attestazioni possono essere attestazioni di input di una trasformazione delle attestazioni di input successiva, che consente di disporre di una sequenza di trasformazione delle attestazioni in base all'altra
 
@@ -377,7 +377,7 @@ L'elemento **OutputClaimsTransformations** contiene l'elemento seguente:
 
 L'elemento **OutputClaimsTransformation** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore di trasformazione delle attestazioni già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -404,7 +404,7 @@ Il profilo tecnico seguente fa riferimento alla trasformazione delle attestazion
 
 ## <a name="validation-technical-profiles"></a>Profili tecnici di convalida
 
-Un profilo tecnico di convalida viene usato per convalidare alcune o tutte le attestazioni di output del riferimento in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#validation-technical-profiles). Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce le attestazioni di output oppure restituisce il codice di errore. Viene eseguito il rendering del messaggio di errore all'utente sullo schermo, consentendo all'utente di riprovare.
+Un profilo tecnico di convalida viene usato per convalidare le attestazioni di output in un [profilo tecnico autocertificato](self-asserted-technical-profile.md#validation-technical-profiles). Un profilo tecnico di convalida è un profilo tecnico standard di un qualsiasi protocollo, ad esempio [Azure Active Directory](active-directory-technical-profile.md) o un'[API REST](restful-technical-profile.md). Il profilo tecnico di convalida restituisce le attestazioni di output oppure restituisce il codice di errore. Viene eseguito il rendering del messaggio di errore all'utente sullo schermo, consentendo all'utente di riprovare.
 
 Il diagramma seguente illustra il modo in cui Azure AD B2C usa un profilo tecnico di convalida per convalidare le credenziali utente
 
@@ -420,7 +420,7 @@ L'elemento **ValidationTechnicalProfiles** contiene l'elemento seguente:
 
 L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -428,17 +428,19 @@ L'elemento **ValidationTechnicalProfile** contiene gli attributi seguenti:
 
 **SubjectNamingInfo** definisce il nome del soggetto utilizzato nei token in un [criterio di relying party](relyingparty.md#subjectnaminginfo). Il **SubjectNamingInfo** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ClaimType | Sì | Un identificatore di un tipo di attestazione già definito nella sezione ClaimsSchema del file dei criteri. |
 
 ## <a name="include-technical-profile"></a>Includi profilo tecnico
 
-Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità. L'elemento **IncludeTechnicalProfile** è un riferimento al profilo tecnico comune da cui deriva un profilo tecnico. Per ridurre la ridondanza e la complessità degli elementi dei criteri, usare l'inclusione quando si hanno più profili tecnici che condividono gli elementi di base. Usare un profilo tecnico comune con il set di configurazione comune, insieme a profili tecnici specifici per le attività che includono il profilo tecnico comune. Si supponga, ad esempio, di avere un [profilo tecnico dell'API REST](restful-technical-profile.md) con un singolo endpoint in cui è necessario inviare un set di attestazioni diverso per diversi scenari. Creare un profilo tecnico comune con le funzionalità condivise, ad esempio l'URI dell'endpoint dell'API REST, i metadati, il tipo di autenticazione e le chiavi crittografiche. Creare quindi profili tecnici specifici per le attività che includono il profilo tecnico comune, aggiungere le attestazioni di input, le attestazioni di output o sovrascrivere l'URI dell'endpoint dell'API REST pertinente per quel profilo tecnico.
+Un profilo tecnico può includere un altro profilo tecnico per modificare le impostazioni o aggiungere nuove funzionalità. L'elemento **IncludeTechnicalProfile** è un riferimento al profilo tecnico comune da cui deriva un profilo tecnico. Per ridurre la ridondanza e la complessità degli elementi dei criteri, usare l'inclusione quando si hanno più profili tecnici che condividono gli elementi di base. Usare un profilo tecnico comune con il set di configurazione comune, insieme a profili tecnici specifici per le attività che includono il profilo tecnico comune. 
+
+Si supponga di avere un [profilo tecnico dell'API REST](restful-technical-profile.md) con un singolo endpoint in cui è necessario inviare un set di attestazioni diverso per diversi scenari. Creare un profilo tecnico comune con le funzionalità condivise, ad esempio l'URI dell'endpoint dell'API REST, i metadati, il tipo di autenticazione e le chiavi crittografiche. Creare profili tecnici specifici per le attività che includono il profilo tecnico comune. Aggiungere quindi le attestazioni di input, le attestazioni di output o sovrascrivere l'URI dell'endpoint dell'API REST pertinente per quel profilo tecnico.
 
 L'elemento **IncludeTechnicalProfile** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Identificatore di un profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -547,7 +549,7 @@ Un profilo tecnico può includere un solo profilo tecnico. Non esiste alcun limi
 
 Riferimento all'elemento **UseTechnicalProfileForSessionManagement** al [profilo tecnico della sessione Single Sign-on](custom-policy-reference-sso.md). L'elemento **UseTechnicalProfileForSessionManagement** contiene l'attributo seguente:
 
-| Attributo | Obbligatorio | Descrizione |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | ReferenceId | Sì | Un identificatore del profilo tecnico già definito nel file dei criteri o nel file dei criteri padre. |
 
@@ -561,7 +563,10 @@ L'elemento [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) i
 - **OnItemExistenceInStringCollectionClaim**, eseguire solo quando un elemento esiste in un'attestazione di raccolta di stringhe.
 - **OnItemExistenceInStringCollectionClaim**, eseguire solo quando un elemento non esiste in un'attestazione di raccolta di stringhe.
 
-Usando **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** oppure **OnItemAbsenceInStringCollectionClaim**, è necessario fornire i seguenti metadati: **ClaimTypeOnWhichToEnable** specifica il tipo dell'attestazione che deve essere valutata; **ClaimValueOnWhichToEnable** specifica il valore da confrontare.
+Per usare **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** o **OnItemAbsenceInStringCollectionClaim**, è necessario fornire i metadati seguenti: 
+
+- **ClaimTypeOnWhichToEnable** : specifica il tipo di attestazione da valutare.
+- **ClaimValueOnWhichToEnable** -specifica il valore da confrontare.
 
 Il seguente profilo tecnico viene eseguito solo se la raccolta di stringhe **identityProviders** contiene il valore di `facebook.com`:
 

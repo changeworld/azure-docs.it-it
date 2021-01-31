@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
-ms.date: 11/12/2020
-ms.openlocfilehash: 6d40eab12c9726459543d0b69e27b73178eba99f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.date: 01/29/2021
+ms.openlocfilehash: e44a029c61db5a22513387772c2b0d7a3e4d1a40
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96170617"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219231"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorare Azure AD B2C con monitoraggio di Azure
 
@@ -31,6 +31,10 @@ Usare monitoraggio di Azure per indirizzare l'accesso Azure Active Directory B2C
 ![Monitoraggio di Azure](./media/azure-monitor/azure-monitor-flow.png)
 
 Questo articolo illustra come trasferire i log in un'area di lavoro di Azure Log Analytics. È quindi possibile creare un dashboard o creare avvisi basati sulle attività Azure AD B2C degli utenti.
+
+> [!IMPORTANT]
+> Quando si prevede di trasferire i log Azure AD B2C a diverse soluzioni di monitoraggio o a un repository, tenere presente quanto segue. I log Azure AD B2C contengono dati personali. Tali dati devono essere elaborati in modo da garantire la sicurezza appropriata dei dati personali, inclusa la protezione da un'elaborazione non autorizzata o illecita, usando misure tecniche o organizzative appropriate.
+
 
 ## <a name="deployment-overview"></a>Panoramica della distribuzione
 
@@ -224,7 +228,7 @@ Per altri esempi, vedere il [repository GitHub Azure ad B2C Siem](https://aka.ms
 
 ### <a name="62-create-a-workbook"></a>6,2 creare una cartella di lavoro
 
-Le cartelle di lavoro offrono un canvas flessibile per l'analisi dei dati e la creazione di report visivi avanzati nel portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. Per altre informazioni, vedere [cartelle di lavoro di monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
+Le cartelle di lavoro offrono un canvas flessibile per l'analisi dei dati e la creazione di report visivi avanzati nel portale di Azure. Consentono di sfruttare più origini dati in tutto Azure e di combinarle in esperienze interattive unificate. Per altre informazioni, vedere [cartelle di lavoro di monitoraggio di Azure](../azure-monitor/platform/workbooks-overview.md).
 
 Seguire le istruzioni riportate di seguito per creare una nuova cartella di lavoro usando un modello di raccolta JSON. Questa cartella di lavoro fornisce un dashboard **User Insights** e **Authentication** per Azure ad B2C tenant.
 
@@ -296,7 +300,7 @@ Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di 
 
 Di seguito è riportato un esempio di messaggio di posta elettronica di notifica di avviso. 
 
-   ![Notifica tramite posta elettronica](./media/azure-monitor/alert-email-notification.png)
+   ![Notifica con posta elettronica](./media/azure-monitor/alert-email-notification.png)
 
 ## <a name="multiple-tenants"></a>Più tenant
 

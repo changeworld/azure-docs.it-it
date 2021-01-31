@@ -12,14 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2021
+ms.date: 01/29/2021
 ms.author: b-juche
-ms.openlocfilehash: e51297e8fe5c3dccf43318a066ac5da4a7d24cb2
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.custom: references_regions
+ms.openlocfilehash: fd3e8295820cd9388bd7999d3008b4c583dbf295
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696092"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99220905"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replica tra aree di volumi Azure NetApp Files
 
@@ -28,26 +29,31 @@ La funzionalità di replica Azure NetApp Files garantisce la protezione dei dati
 > [!IMPORTANT]
 > La funzionalità di replica tra aree è attualmente disponibile in anteprima pubblica. È necessario inviare una richiesta di attesa per l'accesso alla funzionalità tramite la pagina Azure NetApp Files l'invio dell'oggetto di attesa per la [replica tra aree](https://aka.ms/anfcrrpreviewsignup). Attendere un messaggio di posta elettronica di conferma ufficiale dal team di Azure NetApp Files prima di usare la funzionalità di replica tra aree.
 
-## <a name="supported-region-pairs"></a>Coppie di aree supportate
+## <a name="supported-cross-region-replication-pairs"></a><a name="supported-region-pairs"></a>Coppie di replica tra aree supportate
 
-Azure NetApp Files replica del volume è attualmente disponibile nelle seguenti coppie di aree fisse:  
+Azure NetApp Files replica del volume è supportata tra varie coppie di aree di [Azure](/azure/best-practices-availability-paired-regions#azure-regional-pairs) e non coppie. Azure NetApp Files replica del volume è attualmente disponibile tra le aree seguenti:  
 
-* Stati Uniti occidentali e Stati Uniti orientali
-* Stati Uniti occidentali 2 e Stati Uniti orientali 
-* Stati Uniti centro-meridionali e Stati Uniti centrali 
-* Stati Uniti centro-meridionali e Stati Uniti orientali
-* Stati Uniti centro-meridionali e Stati Uniti orientali 2 
-* Stati Uniti orientali e Stati Uniti orientali 2  
-* Stati Uniti orientali 2 e Stati Uniti centrali 
+### <a name="azure-regional-pairs"></a>Coppie di aree di Azure
+
+* Stati Uniti orientali e Stati Uniti occidentali
+* Stati Uniti orientali 2 e Stati Uniti centrali
 * Australia orientale e Australia sudorientale
 * Canada centrale e Canada orientale
-* India centrale e India meridionale
+* India meridionale e India centrale 
 * Germania centro-occidentale e Germania settentrionale
 * Giappone orientale e Giappone occidentale
 * Europa settentrionale e Europa occidentale
-* Asia sudorientale e Australia orientale
-* Regno Unito meridionale e Germania centro-occidentale
 * Regno Unito meridionale e Regno Unito occidentale
+
+### <a name="azure-regional-non-pairs"></a>Non coppie regionali di Azure
+
+*   Stati Uniti occidentali 2 e Stati Uniti orientali
+*   Stati Uniti centro-meridionali e Stati Uniti centrali
+*   Stati Uniti centro-meridionali e Stati Uniti orientali
+*   Stati Uniti centro-meridionali e Stati Uniti orientali 2
+*   Stati Uniti orientali e Stati Uniti orientali 2
+*   Australia orientale e Asia sudorientale 
+*   Germania centro-occidentale e Regno Unito meridionale
 
 ## <a name="service-level-objectives"></a>Obiettivi a livello di servizio
 

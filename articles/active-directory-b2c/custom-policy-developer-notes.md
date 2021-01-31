@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 68e282f192b87b9f2217e0727753e7d37ff1aeb1
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 18a3216855516156792524dc577ecef725d3119d
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97516103"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218775"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Note per gli sviluppatori relative ai criteri personalizzati in Azure Active Directory B2C
 
@@ -37,14 +37,14 @@ Anche se la maggior parte delle opzioni dei criteri personalizzati disponibili �
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Responsabilità degli sviluppatori che usano il set di funzionalità dei criteri personalizzati
 
-La configurazione manuale dei criteri garantisce un accesso di livello inferiore alla piattaforma sottostante di Azure AD B2C e determina la creazione di un framework attendibilità univoco. Le numerose possibili permutazioni di provider di identità personalizzati, relazioni di trust, integrazioni con servizi esterni e flussi di lavoro dettagliati richiedono un approccio metodico alla progettazione e alla configurazione.
+La configurazione manuale dei criteri garantisce un accesso di livello inferiore alla piattaforma sottostante di Azure AD B2C e determina la creazione di un framework attendibilità univoco. Le numerose permutazioni possibili di provider di identità personalizzati, relazioni di trust, integrazioni con servizi esterni e flussi di lavoro Step by Step richiedono un approccio metodico per la progettazione e la configurazione.
 
 Gli sviluppatori che usano il set di funzionalità dei criteri personalizzati devono rispettare le linee guida seguenti:
 
 - Acquisire familiarità con il linguaggio di configurazione dei criteri personalizzati e con la con la gestione di chiavi e segreti. Per altre informazioni, vedere [TrustFrameworkPolicy](trustframeworkpolicy.md).
 - Assumere la proprietà degli scenari e delle integrazioni personalizzate. Documentare il lavoro e informare l'organizzazione del sito live.
 - Eseguire test metodici degli scenari.
-- Seguire le procedure consigliate di staging e sviluppo software con almeno un ambiente di sviluppo e testing e un ambiente di produzione.
+- Seguire le procedure consigliate per lo sviluppo e la gestione temporanea. È consigliabile almeno un ambiente di sviluppo e test.
 - Mantenersi aggiornati sui nuovi sviluppi dei servizi e dei provider di identità con cui viene eseguita l'integrazione. Ad esempio, tenere traccia delle modifiche dei segreti e delle modifiche pianificate e non pianificate del servizio.
 - Configurare il monitoraggio attivo e monitorare il tempo di risposta degli ambienti di produzione. Per altre informazioni sull'integrazione con Application Insights, vedere [Azure Active Directory B2C: Raccolta di log](analytics-with-application-insights.md).
 - Mantenere aggiornati gli indirizzi di posta elettronica di contatto nella sottoscrizione di Azure e prestare attenzione ai messaggi di posta elettronica del team del sito live Microsoft.
@@ -58,7 +58,7 @@ Gli sviluppatori che usano il set di funzionalità dei criteri personalizzati de
 
 ## <a name="features-by-stage-and-known-issues"></a>Funzionalità per fase e problemi noti
 
-Le funzionalità dei criteri personalizzati o di Identity Experience Framework sono in costante e rapida evoluzione. Questa tabella è un indice delle funzionalità e della disponibilità dei componenti.
+Le funzionalità dei criteri personalizzati sono in fase di sviluppo costante. Questa tabella è un indice delle funzionalità e della disponibilità dei componenti.
 
 
 ### <a name="protocols-and-authorization-flows"></a>Protocolli e flussi di autorizzazione
@@ -144,7 +144,7 @@ Le funzionalità dei criteri personalizzati o di Identity Experience Framework s
 | Portale di Azure: esperienza utente del framework dell'esperienza di gestione delle identità |  |  | X |  |
 | Caricamento dei criteri |  |  | X |  |
 | [Log del percorso utente di Application Insights](troubleshoot-with-application-insights.md) |  | X |  | Usato per la risoluzione dei problemi durante lo sviluppo.  |
-| [Log eventi di Application Insights](application-insights-technical-profile.md) |  | X |  | Usato per monitorare i flussi degli utenti nell'ambiente di produzione. |
+| [Log eventi di Application Insights](analytics-with-application-insights.md) |  | X |  | Usato per monitorare i flussi degli utenti nell'ambiente di produzione. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

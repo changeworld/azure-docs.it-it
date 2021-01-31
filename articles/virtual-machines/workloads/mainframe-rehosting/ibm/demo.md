@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: dcd354b906b4d6c92d8b3186fc8e09c94a31ca55
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: c76768fa94b524763ac8ad94c9c3f5bb3a73dddb
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94968401"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219439"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configurare una distribuzione controllata per gli sviluppatori di applicazioni (ADCD) in IBM zD&T V1
 
@@ -57,7 +57,7 @@ L'accesso al supporto ADCD è obbligatorio. I passaggi seguenti presuppongono ch
 
 4. Immettere la descrizione della parte o il numero di parte, quindi fare clic su **Finder**.
 
-5. Facoltativamente, fare clic sull'elenco ordine alfabetico per visualizzare e visualizzare prodotto in base al nome.
+5. Facoltativamente, fare clic sull'elenco ordine alfabetico per visualizzare e visualizzare il prodotto in base al nome.
 
 6. Selezionare **tutti i sistemi operativi** nel **campo sistema operativo** e **tutte le lingue** nel **campo lingue**. Quindi, fare clic su **Vai**.
 
@@ -190,7 +190,7 @@ Congratulazioni! Si sta ora eseguendo un ambiente IBM mainframe in Azure.
 ## <a name="learn-more"></a>Altre informazioni
 
 - [Migrazione del mainframe: miti e fact](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale in Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [IBM DB2 pureScale in Azure](ibm-db2-purescale-azure.md)
 - [Risoluzione dei problemi](../../../troubleshooting/index.yml)
 - [Demistificazione della migrazione da mainframe ad Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.openlocfilehash: c712af41fdc191cab4fd08c9d8175a849d4f286a
-ms.sourcegitcommit: 0830e02635d2f240aae2667b947487db01f5fdef
+ms.date: 01/29/2021
+ms.openlocfilehash: e74c96e0c03d75f34a16d95d0bed642c1900f558
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97706771"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219724"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e ripristino nel database di Azure per PostgreSQL-server singolo
 
@@ -82,6 +82,16 @@ Il ripristino temporizzato è utile in più scenari, ad esempio quando un utente
 
 Per poter eseguire il ripristino a un momento specifico negli ultimi cinque minuti, potrebbe essere prima necessario attendere l'esecuzione del backup del log delle transazioni successivo.
 
+Se si desidera ripristinare una tabella eliminata, 
+1. Ripristinare il server di origine utilizzando un metodo temporizzato.
+2. Esegui il dump della tabella utilizzando `pg_dump` dal server ripristinato.
+3. Rinominare la tabella di origine nel server originale.
+4. Importa la tabella usando la riga di comando di PSQL nel server originale.
+5. Facoltativamente, è possibile eliminare il server ripristinato.
+
+>[!Note]
+> Si consiglia di non creare più ripristini per lo stesso server nello stesso momento. 
+
 ### <a name="geo-restore"></a>Ripristino geografico
 
 Se il server è stato configurato per backup con ridondanza geografica, è possibile ripristinare un server in un'altra area di Azure in cui il servizio è disponibile. I server che supportano fino a 4 TB di spazio di archiviazione possono essere ripristinati nell'area geografica abbinata o in qualsiasi area che supporta fino a 16 TB di spazio di archiviazione. Per i server che supportano fino a 16 TB di spazio di archiviazione, è possibile ripristinare i backup geografici in qualsiasi area che supporti i server a 16 TB. Esaminare i [piani tariffari di database di Azure per PostgreSQL](concepts-pricing-tiers.md) per l'elenco delle aree supportate.
@@ -97,7 +107,7 @@ Durante il ripristino geografico è possibile modificare le seguenti opzioni rel
 
 Dopo il ripristino con uno dei due meccanismi, per rendere nuovamente operativi gli utenti e le applicazioni è consigliabile eseguire queste attività:
 
-- Se il nuovo server è destinato a sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server
+- Se il nuovo server ha lo scopo di sostituire il server originale, reindirizzare i client e le applicazioni client al nuovo server. Modificare anche il nome utente in `username@new-restored-server-name` .
 - Assicurarsi che le regole del firewall a livello di server e del VNet siano appropriate per consentire agli utenti di connettersi. Queste regole non vengono copiate dal server originale.
 - Verificare che siano presenti gli account di accesso e le autorizzazioni a livello di database appropriati
 - Configurare gli avvisi in base alle proprie esigenze.

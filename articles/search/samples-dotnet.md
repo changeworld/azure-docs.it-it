@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/27/2021
-ms.openlocfilehash: 5567cf3bf606b08ce430f9189467d796498ae691
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cbb84a4934eed4d258cf07772753315785f98019
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953904"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218163"
 ---
 # <a name="net-c-code-samples-for-azure-cognitive-search"></a>Esempi di codice .NET (C#) per Azure ricerca cognitiva
 
@@ -69,3 +69,4 @@ Gli esempi seguenti sono pubblicati anche dal team di ricerca cognitiva, ma non 
 | [Acceleratore di soluzione Knowledge Mining](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Include modelli, file di supporto e report analitici che consentono di eseguire il prototipo di una soluzione di Knowledge mining end-to-end.  |
 | [Covid-19 Cerca repository app](https://github.com/liamca/covid19search) | Repository del codice sorgente per l' [app Covid-19 Search](https://covid19search.azurewebsites.net/) basata su ricerca cognitiva |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Scopri di più sulla [soluzione JFK](https://www.microsoft.com/ai/ai-lab-jfk-files). |
+| [Cerca + acceleratore QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | [Soluzione](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) che combina la potenza di ricerca e QnA Maker. Vedere il [sito demo](https://aka.ms/qnaWithAzureSearchDemo)Live. |

@@ -5,22 +5,32 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 01/29/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f0f9832a8128a447970535f18cceca3cd4dccc69
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 217a804b0155d7886a068283f8669ace0bc81856
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880254"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218520"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione di Analisi archiviazione di Azure
 
 Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite e non a un servizio di archiviazione. Queste informazioni possono essere utilizzate per monitorare le singole richieste e per diagnosticare problemi relativi a un servizio di archiviazione. Le richieste vengono registrate in base al massimo sforzo.
 
- La registrazione di Analisi archiviazione non è abilitata per impostazione predefinita per l'account di archiviazione. È possibile abilitarla nel [portale di Azure](https://portal.azure.com/); per informazioni dettagliate, vedere [Monitorare un account di archiviazione nel portale di Azure](./storage-monitor-storage-account.md). È inoltre possibile abilitare Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Usare le operazioni [Recupera proprietà del servizio BLOB](/rest/api/storageservices/Blob-Service-REST-API), [Recupera proprietà del servizio di accodamento](/rest/api/storageservices/Get-Queue-Service-Properties), [Recupera proprietà del servizio tabelle](/rest/api/storageservices/Get-Table-Service-Properties) per abilitare Analisi archiviazione per ciascun servizio.
+> [!NOTE]
+> È consigliabile usare i log di archiviazione di Azure in monitoraggio di Azure invece dei log Analisi archiviazione. I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Questa anteprima Abilita i log per i BLOB (che includono Azure Data Lake Storage Gen2), file, code e tabelle. Per altre informazioni, vedere gli articoli seguenti:
+>
+> - [Monitoraggio dell'archiviazione BLOB di Azure](../blobs/monitor-blob-storage.md)
+> - [File di Azure di monitoraggio](../files/storage-files-monitoring.md)
+> - [Monitoraggio dell'archiviazione code di Azure](../queues/monitor-queue-storage.md)
+> - [Monitoraggio dell'archiviazione tabelle di Azure](../tables/monitor-table-storage.md)
+
+ La registrazione di Analisi archiviazione non è abilitata per impostazione predefinita per l'account di archiviazione. È possibile abilitarlo nella [portale di Azure](https://portal.azure.com/) o tramite PowerShell o l'interfaccia della riga di comando di Azure. Per istruzioni dettagliate, vedere [Enable and manage analisi archiviazione di Azure logs (classico)](manage-storage-analytics-logs.md). 
+
+È anche possibile abilitare i log di Analisi archiviazione a livello di codice tramite l'API REST o la libreria client. Usare le operazioni [Recupera proprietà del servizio BLOB](/rest/api/storageservices/Blob-Service-REST-API), [Recupera proprietà del servizio di accodamento](/rest/api/storageservices/Get-Queue-Service-Properties), [Recupera proprietà del servizio tabelle](/rest/api/storageservices/Get-Table-Service-Properties) per abilitare Analisi archiviazione per ciascun servizio. Per un esempio in cui si abilitano i log di Analisi archiviazione con .NET, vedere [abilitare i log](manage-storage-analytics-logs.md)
 
  Le voci di registro vengono create solo se esistono richieste effettuate per l'endpoint di servizio. Se, ad esempio, un account di archiviazione presenta un'attività nell'endpoint BLOB ma non negli endpoint tabella o coda, saranno creati solo log relativi al servizio BLOB.
 
@@ -125,91 +135,10 @@ Per informazioni sulla creazione di elenchi di BLOB a livello di codice, vedere 
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-## <a name="enable-storage-logging"></a>Abilitare Registrazione di archiviazione
-
-È possibile abilitare Registrazione di archiviazione con portale di Azure, PowerShell e gli SDK di archiviazione.
-
-### <a name="enable-storage-logging-using-the-azure-portal"></a>Abilitare Registrazione di archiviazione usando il portale di Azure  
-
-Nel portale di Azure usare il pannello **Impostazioni di diagnostica (versione classica)** per controllare Registrazione di archiviazione, accessibile dalla sezione **Monitoraggio (versione classica)** del **pannello Menu** di un account di archiviazione.
-
-È possibile specificare i servizi di archiviazione che si desidera registrare e il periodo di conservazione (in giorni) per i dati registrati.  
-
-### <a name="enable-storage-logging-using-powershell"></a>Abilitare Registrazione archiviazione usando PowerShell  
-
- È possibile usare PowerShell nel computer locale per configurare la registrazione dell'archiviazione nell'account di archiviazione usando il cmdlet Azure PowerShell **Get-AzStorageServiceLoggingProperty** per recuperare le impostazioni correnti e il cmdlet **set-AzStorageServiceLoggingProperty** per modificare le impostazioni correnti.  
-
- I cmdlet che controllano Registrazione archiviazione usano il parametro **LoggingOperations**, costituito da una stringa contenente un elenco separato da virgole dei tipi di richiesta da registrare. I tre tipi possibili di richiesta sono **read**, **write** e **delete**. Per disattivare la registrazione, usare il valore **none** per il parametro **LoggingOperations**.  
-
- Il seguente comando attiva la registrazione per le richieste di lettura, scrittura ed eliminazione per il Servizio di accodamento nell'account di archiviazione predefinito, con periodo di conservazione di cinque giorni:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
-```  
-
- Il seguente comando disattiva la registrazione per il servizio tabelle nell'account di archiviazione predefinito:  
-
-```powershell
-Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
-```  
-
- Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).  
-
-### <a name="enable-storage-logging-programmatically"></a>Abilitare Registrazione archiviazione a livello di codice  
-
- Oltre al portale di Azure o ai cmdlet di Azure PowerShell, per controllare la Registrazione archiviazione è possibile anche usare una delle API di Archiviazione di Azure. Se, ad esempio, si usa un linguaggio .NET, è possibile usare la libreria client di archiviazione.  
-
-# <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
-
-:::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
-
-# <a name="net-v11-sdk"></a>[\.NET v11 SDK](#tab/dotnet11)
-
-```csharp
-var storageAccount = CloudStorageAccount.Parse(connStr);  
-var queueClient = storageAccount.CreateCloudQueueClient();  
-var serviceProperties = queueClient.GetServiceProperties();  
-
-serviceProperties.Logging.LoggingOperations = LoggingOperations.All;  
-serviceProperties.Logging.RetentionDays = 2;  
-
-queueClient.SetServiceProperties(serviceProperties);  
-```  
-
----
-
-
- Per altre informazioni sull'uso di un linguaggio .NET per configurare Registrazione archiviazione, vedere [Riferimenti alla libreria del client di archiviazione](/previous-versions/azure/dn261237(v=azure.100)).  
-
- Per informazioni generali sulla configurazione di Registrazione archiviazione mediante l'API REST, vedere [Abilitazione e configurazione di Analisi archiviazione](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
-
-## <a name="download-storage-logging-log-data"></a>Download dei dati di log di Registrazione archiviazione
-
- Per visualizzare e analizzare i dati di log, è necessario scaricare su un computer locale i BLOB contenenti i dati di log a cui si è interessati. Molti strumenti di esplorazione delle informazioni archiviate consentono di scaricare i BLOB dall'account di archiviazione. Per scaricare i dati di log è possibile anche usare lo strumento di Azure per la copia [AzCopy](storage-use-azcopy-v10.md) fornito dal team di Archiviazione di Azure.  
- 
->[!NOTE]
-> Il contenitore `$logs` non è integrato con Griglia di eventi, quindi non si riceveranno notifiche quando vengono scritti i file di log. 
-
- Per scaricare soltanto i dati di log a cui si è interessati e per evitare di scaricare più volte gli stessi dati, procedere come segue:  
-
--   Usare la convenzione di denominazione di data e ora per i BLOB contenenti dati di log, in modo da tenere traccia di quelli già scaricati a scopo di analisi ed evitare di ripetere il download.  
-
--   Usare i metadati dei BLOB contenenti dati di log per identificare il periodo specifico di conservazione dei dati e individuare esattamente il BLOB che è necessario scaricare.  
-
-Per iniziare a usare AzCopy, vedere [Introduzione ad AzCopy](storage-use-azcopy-v10.md) 
-
-Nell'esempio seguente viene illustrato come è possibile scaricare i dati di log per il servizio di accodamento per le ore a partire dalle 09, le 10.00 e le 11.00 del 20 maggio 2014.
-
-```
-azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
-```
-
-Per altre informazioni su come scaricare file specifici, vedere [Scaricare file specifici](./storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#transfer-data).
-
-Una volta scaricati i dati di log, è possibile visualizzare le voci di log nei file. Questi file di log utilizzano un formato di testo delimitato che molti strumenti di lettura log sono in grado di analizzare (per ulteriori informazioni, vedere la Guida [monitoraggio, diagnosi e risoluzione dei problemi archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Altri strumenti dispongono di funzionalità differenti per la formattazione, il filtro, l'ordinamento e la ricerca nei contenuti dei file di log. Per altre informazioni sul formato dei file di log di Registrazione archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format) e [Operazioni e messaggi di stato registrati di Analisi archiviazione](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Abilitare e gestire i log di Analisi archiviazione di Azure (versione classica)](manage-storage-analytics-logs.md)
 * [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format)
 * [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Metriche di Analisi archiviazione (versione classica)](storage-analytics-metrics.md)

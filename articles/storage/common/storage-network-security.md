@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: c8807f0200f96dc12a3b3d43fa50a91bec85ed38
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071182"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219910"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -538,11 +538,11 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## <a name="grant-access-to-azure-services"></a>Concedi l'accesso ai servizi di Azure 
+## <a name="grant-access-to-trusted-azure-services"></a>Concessione dell'accesso ai servizi di Azure attendibili 
 
-Alcuni servizi di Azure operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di tali servizi di Azure attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili utilizzeranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione. 
+Alcuni servizi di Azure operano da reti che non possono essere incluse nelle regole di rete. È possibile concedere a un sottoinsieme di tali servizi di Azure attendibili l'accesso all'account di archiviazione, mantenendo al tempo stesso le regole di rete per altre app. Questi servizi attendibili utilizzeranno quindi l'autenticazione avanzata per connettersi in modo sicuro all'account di archiviazione.
 
-È possibile concedere l'accesso ai servizi di Azure attendibili creando un'eccezione della regola di rete. Per istruzioni dettagliate, vedere la sezione [gestire le eccezioni](#manage-exceptions) di questo articolo. 
+È possibile concedere l'accesso ai servizi di Azure attendibili creando un'eccezione della regola di rete. Per istruzioni dettagliate, vedere la sezione [gestire le eccezioni](#manage-exceptions) di questo articolo.
 
 Quando si concede l'accesso ai servizi di Azure attendibili, vengono concessi i tipi di accesso seguenti:
 
@@ -583,17 +583,23 @@ La tabella seguente elenca i servizi che possono avere accesso ai dati dell'acco
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Gestione API di Azure           | Microsoft.ApiManagement/service        | Consente al servizio gestione API di accedere agli account di archiviazione dietro il firewall usando i criteri. [Altre informazioni](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy) |
 | Ricerca cognitiva di Azure         | Microsoft.Search/searchServices        | Consente ai servizi Ricerca cognitiva di accedere agli account di archiviazione per l'indicizzazione, l'elaborazione e l'esecuzione di query. |
-| Servizi cognitivi di Azure       | Microsoft. CognitiveService             | Consente ai servizi cognitivi di accedere agli account di archiviazione. |
+| Servizi cognitivi di Azure       | Microsoft. CognitiveService/accounts    | Consente ai servizi cognitivi di accedere agli account di archiviazione. |
 | Attività di Registro Azure Container | Microsoft.ContainerRegistry/registries | Le attività del Registro Azure Container possono accedere agli account di archiviazione durante la compilazione di immagini del contenitore. |
 | Data factory di Azure             | Microsoft.DataFactory/factories        | Consente l'accesso agli account di archiviazione tramite il runtime di Azure Data Factory. |
 | Condivisione dati di Azure               | Microsoft.DataShare/accounts           | Consente l'accesso agli account di archiviazione tramite Condivisione dati. |
+| Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Consente l'accesso agli account di archiviazione tramite DevTest Labs. |
 | Hub IoT Azure                  | Microsoft.Devices/IotHubs              | Consente la scrittura dei dati di un hub IoT nell'archivio BLOB. [Altre informazioni](../../iot-hub/virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) |
 | App per la logica di Azure               | Microsoft.Logic/workflows              | Consente alle app per la logica di accedere agli account di archiviazione. [Altre informazioni](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) |
-| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) | 
-| Azure Synapse Analytics       | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase (nel pool dedicato) o la `openrowset` funzione e le tabelle esterne in un pool senza server. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
-| Database SQL di Azure       | Microsoft.Sql                          | Consente di [scrivere](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) i dati di controllo negli account di archiviazione dietro il firewall. |
-| Analisi di flusso di Azure         | Microsoft.StreamAnalytics             | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
-| Azure Synapse Analytics        | Microsoft.Synapse/workspaces          | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
+| Servizio Azure Machine Learning | Microsoft.MachineLearningServices      | Le aree di lavoro autorizzate di Azure Machine Learning scrivono l'output di esperimenti, i modelli e i log nell'archivio BLOB e leggono i dati. [Altre informazioni](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources) |
+| Servizi multimediali di Azure           | Microsoft.Media/mediaservices          | Consente l'accesso agli account di archiviazione tramite servizi multimediali. |
+| Azure Migrate                  | Microsoft. migrate/migrateprojects      | Consente l'accesso agli account di archiviazione tramite Azure Migrate. |
+| Azure Purview                  | Microsoft. competenza/account             | Consente alle competenze di accedere agli account di archiviazione. |
+| Rendering remoto di Azure         | Microsoft. MixedReality/remoteRenderingAccounts | Consente l'accesso agli account di archiviazione tramite il rendering remoto. |
+| Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Consente l'accesso agli account di archiviazione tramite Site Recovery. |
+| Database SQL di Azure             | Microsoft.Sql                          | Consente di [scrivere](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) i dati di controllo negli account di archiviazione dietro il firewall. |
+| Azure Synapse Analytics        | Microsoft.Sql                          | Consente l'importazione e l'esportazione di dati da database SQL specifici usando l'istruzione COPY o la polibase (nel pool dedicato) o la `openrowset` funzione e le tabelle esterne in un pool senza server. [Altre informazioni](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) |
+| Analisi di flusso di Azure         | Microsoft.StreamAnalytics              | Consente la scrittura dei dati di un processo di streaming nell'archivio BLOB. [Altre informazioni](../../stream-analytics/blob-output-managed-identity.md) |
+| Azure Synapse Analytics        | Microsoft.Synapse/workspaces           | Consente l'accesso ai dati in archiviazione di Azure da Azure sinapsi Analytics. |
 
 ## <a name="grant-access-to-storage-analytics"></a>Concedi l'accesso a analisi archiviazione
 

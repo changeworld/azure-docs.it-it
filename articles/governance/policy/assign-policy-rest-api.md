@@ -1,14 +1,14 @@
 ---
 title: "Avvio rapido: Nuova assegnazione di criteri con l'API REST"
 description: In questo argomento di avvio rapido viene usata un'API REST per creare un'assegnazione di Criteri di Azure per identificare le risorse non conformi.
-ms.date: 10/14/2020
+ms.date: 01/29/2021
 ms.topic: quickstart
-ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
-ms.translationtype: HT
+ms.openlocfilehash: 438d8004cd50e6e2ef7586c51adc63257f37978b
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074006"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219978"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Avvio rapido: Creare un criterio per identificare le risorse non conformi con un'API REST
 
@@ -47,6 +47,11 @@ Eseguire questo comando per creare un'assegnazione di criteri:
          "displayName": "Audit VMs without managed disks Assignment",
          "description": "Shows all virtual machines not using managed disks",
          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/06a78e20-9358-41c9-923c-fb736d382a4d",
+         "nonComplianceMessages": [
+             {
+                 "message": "Virtual machines should use a managed disk"
+             }
+         ]
        }
      }
      ```
@@ -54,17 +59,18 @@ Eseguire questo comando per creare un'assegnazione di criteri:
 L'endpoint e il corpo della richiesta precedenti usano le informazioni seguenti:
 
 URI DELL'API REST:
-- **Scope** : ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. Può spaziare da un gruppo di gestione a una singola risorsa. Assicurarsi di sostituire `{scope}` con uno dei criteri seguenti:
+- **Scope**: ambito che determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri. Può spaziare da un gruppo di gestione a una singola risorsa. Assicurarsi di sostituire `{scope}` con uno dei criteri seguenti:
   - Gruppo di gestione: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Sottoscrizione: `/subscriptions/{subscriptionId}`
   - Gruppo di risorse: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Risorsa: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Name** : nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_ .
+- **Name**: nome effettivo dell'assegnazione. Per questo esempio è stato usato il nome _audit-vm-manageddisks_.
 
 Corpo della richiesta:
-- **DisplayName** : nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_ .
-- **Description** : spiegazione più dettagliata delle operazioni eseguite dal criterio o dei motivi per cui è assegnato a questo ambito.
-- **policyDefinitionId** : ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri _Controllare le macchine virtuali che non usano i dischi gestiti_ .
+- **DisplayName**: nome visualizzato per l'assegnazione di criteri. In questo caso viene usato _controllare le macchine virtuali senza assegnazione di dischi gestiti_.
+- **Description**: spiegazione più dettagliata delle operazioni eseguite dal criterio o dei motivi per cui è assegnato a questo ambito.
+- **policyDefinitionId**: ID della definizione di criteri in base alla quale si crea l'assegnazione. In questo caso si tratta dell'ID della definizione di criteri _Controllare le macchine virtuali che non usano i dischi gestiti_.
+- **nonComplianceMessages** : consente di impostare il messaggio visualizzato quando una risorsa viene negata a causa di una mancata conformità o di una valutazione non conforme. Per ulteriori informazioni, vedere [assegnazione di messaggi di non conformità](./concepts/assignment-structure.md#non-compliance-messages).
 
 ## <a name="identify-non-compliant-resources"></a>Identificare risorse non conformi
 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: cefcf6b1bcd7ac5f81fa4e872b30660183a46a82
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: a6a7bf24571660d8e728c1acba29af2504539a18
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98755258"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219961"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Procedure consigliate e raccomandazioni per Microsoft Identity Platform
 
@@ -68,7 +68,7 @@ Usare il seguente elenco di controllo per assicurarsi che l'applicazione sia int
 
 ![CheckBox ](./media/active-directory-integration-checklist/checkbox-two.svg) Usa le soluzioni di autenticazione moderne (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) per accedere in modo sicuro agli utenti.
 
-![](./media/active-directory-integration-checklist/checkbox-two.svg)la casella di controllo non viene programmata direttamente con protocolli come OAuth 2,0 e Open ID. Utilizzare invece [Microsoft Authentication Library (MSAL)](msal-overview.md). Le librerie MSAL incapsulano in modo sicuro i protocolli di sicurezza in una libreria di facile utilizzo e si ottiene il supporto incorporato per gli scenari di [accesso condizionale](../conditional-access/overview.md) , l'Single Sign-on a livello di dispositivo [(SSO)](../manage-apps/what-is-single-sign-on.md)e il supporto per la memorizzazione nella cache dei token incorporati. Per ulteriori informazioni, vedere l'elenco delle librerie [client](reference-v2-libraries.md#microsoft-supported-client-libraries) supportate da Microsoft e delle librerie [middleware](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries) e l'elenco delle [librerie client di terze parti compatibili](reference-v2-libraries.md#compatible-client-libraries).<br/><br/>Se è necessario consegnare il codice per i protocolli di autenticazione, è necessario seguire una metodologia come [Microsoft SDL](https://www.microsoft.com/sdl/default.aspx). Prestare particolare attenzione alle considerazioni sulla sicurezza nelle specifiche degli standard per ogni protocollo.
+![](./media/active-directory-integration-checklist/checkbox-two.svg)la casella di controllo non viene programmata direttamente con protocolli come OAuth 2,0 e Open ID. Utilizzare invece [Microsoft Authentication Library (MSAL)](msal-overview.md). Le librerie MSAL incapsulano in modo sicuro i protocolli di sicurezza in una libreria di facile utilizzo e si ottiene il supporto incorporato per gli scenari di [accesso condizionale](../conditional-access/overview.md) , l'Single Sign-on a livello di dispositivo [(SSO)](../manage-apps/what-is-single-sign-on.md)e il supporto per la memorizzazione nella cache dei token incorporati. Per ulteriori informazioni, vedere l'elenco delle [librerie client](reference-v2-libraries.md)supportate da Microsoft. Se è necessario scrivere codice per i protocolli di autenticazione, è necessario seguire il [processo SDL Microsoft](https://www.microsoft.com/sdl/default.aspx) o una metodologia di sviluppo simile. Prestare particolare attenzione alle considerazioni sulla sicurezza nelle specifiche degli standard per ogni protocollo.
 
 ![casella ](./media/active-directory-integration-checklist/checkbox-two.svg) di controllo migrate Apps existing da [Azure Active Directory Authentication Library (adal)](../azuread-dev/active-directory-authentication-libraries.md) a [Microsoft Authentication Library](msal-overview.md). MSAL è la soluzione più recente della piattaforma di identità Microsoft ed è preferibile a ADAL. È disponibile in .NET, JavaScript, Android, iOS e macOS ed è disponibile anche in anteprima pubblica per Python e Java. Scopri di più sulla migrazione di app broker [adal.NET](msal-net-migration.md), [ADAL.js](msal-compare-msal-js-and-adal-js.md)e [adal.NET e iOS](msal-net-migration-ios-broker.md) .
 

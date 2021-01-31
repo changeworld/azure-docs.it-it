@@ -1,18 +1,18 @@
 ---
 title: Definizioni dei criteri predefiniti per Azure HDInsight
 description: Elenca le definizioni dei criteri predefiniti di criteri di Azure per Azure HDInsight. Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.topic: reference
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 697b9189e13b36877b403ad91b49ab7dd50ff1b3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: c2886792f651ba2bade09b717727e20d8dbafc2f
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99180527"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219512"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-hdinsight"></a>Definizioni predefinite di criteri di Azure per Azure HDInsight
 

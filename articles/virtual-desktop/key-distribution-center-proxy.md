@@ -3,19 +3,24 @@ title: Configurare Kerberos Centro distribuzione chiavi proxy desktop virtuale W
 description: Come configurare un pool host di desktop virtuali Windows per l'uso di un proxy Centro distribuzione chiavi Kerberos.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 01/30/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f123659941eaeb3b8ceeb6a999abf836eb9cf5ea
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 102ddc1c8937c66a92416ddb6d5f2d25f2a3c349
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798422"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219656"
 ---
-# <a name="configure-a-kerberos-key-distribution-center-proxy"></a>Configurare un proxy Centro distribuzione chiavi Kerberos
+# <a name="configure-a-kerberos-key-distribution-center-proxy-preview"></a>Configurare un proxy di Centro distribuzione chiavi Kerberos (anteprima)
 
-Questo articolo illustra come configurare un proxy Distribiution Center (KDC) Kerberos per il pool host. Questo proxy consente alle organizzazioni di eseguire l'autenticazione con Kerberos al di fuori dei confini aziendali. Ad esempio, è possibile usare il proxy KDC per abilitare l'autenticazione con smart card per i client esterni.
+> [!IMPORTANT]
+> Questa funzionalità è attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In questo articolo viene illustrato come configurare un proxy di Centro distribuzione chiavi Kerberos (KDC) (anteprima) per il pool host. Questo proxy consente alle organizzazioni di eseguire l'autenticazione con Kerberos al di fuori dei confini aziendali. Ad esempio, è possibile usare il proxy KDC per abilitare l'autenticazione con smart card per i client esterni.
 
 ## <a name="how-to-configure-the-kdc-proxy"></a>Come configurare il proxy KDC
 

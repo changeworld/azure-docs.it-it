@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
-ms.date: 09/22/2020
+ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904079"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219567"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -22,6 +22,7 @@ Si usa JSON per creare un'assegnazione di criteri. L'assegnazione di criteri con
 - modalità di imposizione
 - ambiti esclusi
 - definizione dei criteri
+- messaggi di non conformità
 - parametri
 
 Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalità _DoNotEnforce_ con i parametri dinamici:
@@ -37,6 +38,11 @@ Ad esempio, il codice JSON seguente mostra un'assegnazione di criteri in modalit
         "enforcementMode": "DoNotEnforce",
         "notScopes": [],
         "policyDefinitionId": "/subscriptions/{mySubscriptionID}/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+        "nonComplianceMessages": [
+            {
+                "message": "Resource names must start with 'DeptA' and end with '-LC'."
+            }
+        ],
         "parameters": {
             "prefix": {
                 "value": "DeptA"
@@ -61,9 +67,9 @@ La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare
 
 Questa proprietà presenta i valori seguenti:
 
-|Modalità |Valore JSON |Type |Correzione manuale |Voce del log attività |Descrizione |
+|Modalità |Valore JSON |Tipo |Correzione manuale |Voce del log attività |Descrizione |
 |-|-|-|-|-|-|
-|Attivato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
+|Abilitato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
 
 Se **enforcementMode** non è specificato nella definizione di un criterio o di un'iniziativa, viene usato il valore _predefinito_ . È possibile avviare le [attività di correzione](../how-to/remediate-resources.md) per i criteri [deployIfNotExists](./effects.md#deployifnotexists) , anche quando **enforcementMode** è impostato su _DoNotEnforce_.
@@ -79,6 +85,32 @@ L' **ambito** dell'assegnazione include tutti i contenitori di risorse figlio e 
 
 Questo campo deve essere il nome completo del percorso di una definizione di criteri o di una definizione di iniziativa.
 `policyDefinitionId` è una stringa e non una matrice. Se più criteri vengono spesso assegnati insieme, è consigliabile usare invece un' [iniziativa](./initiative-definition-structure.md) .
+
+## <a name="non-compliance-messages"></a>Messaggi di non conformità
+
+Per impostare un messaggio personalizzato che descrive il motivo per cui una risorsa non è conforme alla definizione di criteri o di iniziativa, impostare `nonComplianceMessages` nella definizione di assegnazione. Questo nodo è una matrice di `message` voci. Questo messaggio personalizzato è in aggiunta al messaggio di errore predefinito per la mancata conformità ed è facoltativo.
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    }
+]
+```
+
+Se l'assegnazione è per un'iniziativa, è possibile configurare messaggi diversi per ogni definizione di criterio nell'iniziativa. I messaggi usano il `policyDefinitionReferenceId` valore configurato nella definizione Initiative. Per informazioni dettagliate, vedere Proprietà delle [definizioni di proprietà](./initiative-definition-structure.md#policy-definition-properties).
+
+```json
+"nonComplianceMessages": [
+    {
+        "message": "Default message"
+    },
+    {
+        "message": "Message for just this policy definition by reference ID",
+        "policyDefinitionReferenceId": "10420126870854049575"
+    }
+]
+```
 
 ## <a name="parameters"></a>Parametri
 

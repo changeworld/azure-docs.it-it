@@ -3,15 +3,15 @@ title: Accedere alle origini dati in locale
 description: Connettersi a origini dati locali da app per la logica di Azure creando una risorsa del gateway dati in Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, divswa, logicappspm
+ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 08/18/2020
-ms.openlocfilehash: 2dd086ccc45458299cf6b8a7ad83d023055c96ae
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/20/2021
+ms.openlocfilehash: 356e63bb0a749ad0f41d886e75971e9b05c7f9dc
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009255"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218995"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Connettersi a origini dati locali da App per la logica di Azure
 
@@ -57,8 +57,11 @@ In app per la logica di Azure il gateway dati locale supporta i [connettori loca
 * Si hanno lo [stesso account di Azure e la stessa sottoscrizione](../logic-apps/logic-apps-gateway-install.md#requirements) usati per l'installazione del gateway. Questo account Azure deve appartenere solo a una singola [Directory o a un tenant di Azure Active Directory (Azure ad)](../active-directory/fundamentals/active-directory-whatis.md#terminology). È necessario usare lo stesso account e la stessa sottoscrizione di Azure per creare la risorsa del gateway in Azure perché solo l'amministratore del gateway può creare la risorsa del gateway in Azure. Le entità servizio attualmente non sono supportate.
 
   * Quando si crea una risorsa del gateway in Azure, si seleziona un'installazione del gateway da collegare alla risorsa del gateway e solo a tale risorsa del gateway. Ogni risorsa del gateway può essere collegata a una sola installazione del gateway. Non è possibile selezionare un'installazione del gateway che è già associata a un'altra risorsa del gateway.
-  
-  * L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure. Se si dispone dell'accesso alla sottoscrizione, in trigger e azioni che possono accedere alle origini dati locali, è possibile selezionare altre sottoscrizioni di Azure con risorse del gateway.
+
+  * L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure. In trigger e azioni in cui è possibile usare la risorsa del gateway, è possibile selezionare una sottoscrizione di Azure diversa con una risorsa del gateway, ma solo se tale sottoscrizione esiste nello stesso Azure AD tenant o nella stessa directory dell'app per la logica. È inoltre necessario disporre delle autorizzazioni di amministratore sul gateway, che può essere configurato da un altro amministratore. Per altre informazioni, vedere [Data Gateway: automazione con PowerShell-parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: Data Gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+
+    > [!NOTE]
+    > Attualmente, non è possibile condividere una risorsa o un'installazione del gateway tra più sottoscrizioni. Per inviare commenti e suggerimenti sul prodotto, vedere [Microsoft Azure Forum dei commenti](https://feedback.azure.com/forums/34192--general-feedback).
 
 <a name="create-gateway-resource"></a>
 
@@ -103,10 +106,10 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
 1. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale).
 
-1. Nell'elenco **sottoscrizioni** in **gateway** selezionare la sottoscrizione di Azure con la risorsa del gateway desiderata.
+1. In **gateway**, dall'elenco **sottoscrizione** , selezionare la sottoscrizione di Azure con la risorsa del gateway desiderata.
 
-   Se si dispone dell'accesso alla sottoscrizione, è possibile scegliere tra diverse sottoscrizioni di Azure associate a una risorsa del gateway diversa. L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure.
-
+   L'app per la logica e la risorsa del gateway non devono esistere nella stessa sottoscrizione di Azure. È possibile scegliere tra altre sottoscrizioni di Azure ognuna con una risorsa del gateway, ma solo se queste sottoscrizioni sono presenti nello stesso Azure AD tenant o nella stessa directory dell'app per la logica e si dispone delle autorizzazioni di amministratore per il gateway, che un altro amministratore può configurare per l'utente. Per altre informazioni, vedere [Data Gateway: automazione con PowerShell-parte 1](https://community.powerbi.com/t5/Community-Blog/Data-Gateway-Automation-using-PowerShell-Part-1/ba-p/1117330) e [PowerShell: Data Gateway-Add-DataGatewayClusterUser](/powershell/module/datagateway/add-datagatewayclusteruser).
+  
 1. Dall'elenco **gateway connessione** , che mostra le risorse del gateway disponibili nella sottoscrizione selezionata, selezionare la risorsa del gateway desiderata. Ogni risorsa del gateway è collegata a una singola installazione del gateway.
 
    > [!NOTE]
@@ -116,7 +119,7 @@ Dopo aver creato la risorsa per il gateway e associato la sottoscrizione di Azur
 
    Un nome di connessione univoco consente di individuare facilmente la connessione in un secondo momento, soprattutto se si creano più connessioni. Se applicabile, è necessario includere anche il dominio completo per il proprio nome utente.
 
-   Esempio:
+   Ecco un esempio:
 
    ![Creare una connessione tra l'app per la logica e il gateway dati](./media/logic-apps-gateway-connection/logic-app-gateway-connection.png)
 
@@ -139,7 +142,7 @@ Per aggiornare le impostazioni per una connessione gateway, è possibile modific
 
 Per trovare tutte le connessioni API associate alla sottoscrizione di Azure:
 
-* Dal menu portale di Azure selezionare **tutti i servizi**  >  **Web**  >  **connessioni API** Web.
+* Dal menu portale di Azure selezionare **tutti i servizi**  >    >  **connessioni API** Web.
 * In alternativa, scegliere **tutte le risorse** dal menu portale di Azure. Impostare il filtro dei **tipi** su **connessione API**.
 
 <a name="change-delete-gateway-resource"></a>

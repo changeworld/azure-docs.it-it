@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: d3329d9cac9547fbe9ec971bb8944f50971732b5
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 3d1238bffd785a47b6e0ffab70366a15dfff0ef3
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757407"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99218112"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 
@@ -150,6 +150,7 @@ Macchine virtuali di seconda generazione | Supportato <br> Backup di Azure suppo
 Backup di macchine virtuali di Azure con blocchi | Non supportato per le macchine virtuali non gestite. <br><br> Supportato per le macchine virtuali gestite.
 [VM Spot](../virtual-machines/spot-vms.md) | Non supportato. Backup di Azure Ripristina le VM spot come normali macchine virtuali di Azure.
 [Host dedicato di Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Supportato
+Configurazione di spazi di archiviazione di Windows per macchine virtuali di Azure autonome | Supportato 
 
 ## <a name="vm-storage-support"></a>Supporto per l'archiviazione delle macchine virtuali
 
@@ -166,7 +167,7 @@ Aggiunta di un disco a una macchina virtuale protetta | Supportato.
 Ridimensionamento di un disco in una macchina virtuale protetta | Supportato.
 Archiviazione condivisa| Il backup di macchine virtuali con Volume condiviso cluster (CSV) o Scale-Out file server non è supportato. È probabile che i writer Volume condiviso cluster generino un errore durante il backup. Al momento del ripristino, i dischi contenenti volumi Volume condiviso cluster potrebbero non essere disponibili.
 [Dischi condivisi](../virtual-machines/disks-shared-enable.md) | Non supportato.
-Dischi Ultra SSD | Non supportato. Per ulteriori informazioni, vedere queste [limitazioni](selective-disk-backup-restore.md#limitations).
+Dischi Ultra SSD | Non supportata. Per ulteriori informazioni, vedere queste [limitazioni](selective-disk-backup-restore.md#limitations).
 [Dischi temporanei](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | I dischi temporanei non vengono sottoposti a backup da backup di Azure.
 
 ## <a name="vm-network-support"></a>Supporto della rete delle macchine virtuali

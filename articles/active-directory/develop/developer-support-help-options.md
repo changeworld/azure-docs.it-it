@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1d50e0ed6ac67ed1595b289d27bd08a089840308
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
+ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051907"
+ms.lasthandoff: 01/31/2021
+ms.locfileid: "99219944"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opzioni di supporto tecnico e assistenza per gli sviluppatori
 
@@ -36,7 +36,7 @@ In caso di domande relative allo sviluppo, potrebbe essere possibile trovare la 
 
 ### <a name="scoped-search"></a>Ricerca per ambito
 
-Per ottenere risultati più rapidi, definire l'ambito della ricerca a Microsoft Q&A, alla documentazione e agli esempi di codice usando la query seguente nel motore di ricerca preferito:
+Per ottenere risultati più rapidi, definire l'ambito della ricerca a [Microsoft Q&](https://docs.microsoft.com/answers/products/)la documentazione e gli esempi di codice usando la query seguente nel motore di ricerca preferito:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,9 +53,9 @@ Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Inviare una domanda a Microsoft Q&A
 
-Microsoft Q&A è il canale preferito per le domande relative allo sviluppo. Qui, membri della community degli sviluppatori e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
+[Microsoft Q&A](https://docs.microsoft.com/answers/products/) è il canale preferito per le domande relative allo sviluppo. Qui, membri della community degli sviluppatori e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
 
-Se non si riesce a trovare una risposta alla domanda tramite la ricerca, inviare una nuova domanda a Microsoft Q&A. Per porre domande alla community in modo che possa identificarle e rispondere più rapidamente, usare uno dei tag seguenti:
+Se non si riesce a trovare una risposta alla domanda tramite la ricerca, inviare una nuova domanda a [Microsoft Q&a](https://docs.microsoft.com/answers/products/) . Per porre domande alla community in modo che possa identificarle e rispondere più rapidamente, usare uno dei tag seguenti:
 
 |Componente/area  | Tag |
 |---------|---------|
@@ -65,9 +65,9 @@ Se non si riesce a trovare una risposta alla domanda tramite la ricerca, inviare
 | [Azure B2B](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
 | [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
 | [API Microsoft Graph](https://developer.microsoft.com/graph/) | [[Azure-AD-Graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
+| Qualsiasi altra area correlata ad argomenti relativi all'autenticazione o all'autorizzazione | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
 
-I post seguenti di Microsoft Q&A contengono suggerimenti su come porre domande e su come aggiungere il codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
+I post seguenti di [Microsoft Q&A](https://docs.microsoft.com/answers/products/) contengono suggerimenti su come porre domande e su come aggiungere il codice sorgente. Seguire queste linee guida per aumentare la probabilità che i membri della community valutino le domande e rispondano rapidamente:
 
 * [Ricerca per categorie porre una domanda corretta](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
 * [Come creare un esempio minimo, completo e verificabile](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
