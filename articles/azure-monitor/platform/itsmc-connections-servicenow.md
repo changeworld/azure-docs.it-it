@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 221678da819d32539d0078b72a87c61851ed3e8f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: cc4f961c399e9ac5e853085106924584eb3935d0
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089259"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223390"
 ---
 # <a name="connect-servicenow-with-it-service-management-connector"></a>Connettere ServiceNow con IT Service Management Connector
 
@@ -29,10 +29,11 @@ Per informazioni sull'installazione di connettore, vedere [aggiungere la soluzio
 
 ### <a name="oauth-setup"></a>Configurazione di OAuth
 
-Le versioni supportate di ServiceNow includono Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki e Ginevra.
+Le versioni supportate di ServiceNow includono Parigi, Orlando, New York, Madrid, Londra, Kingston, Jakarta, Istanbul, Helsinki e Ginevra.
 
 Gli amministratori di ServiceNow devono generare un ID client e un segreto client per la relativa istanza di ServiceNow. Vedere le informazioni seguenti come richiesto:
 
+- [Configurare OAuth per Parigi](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Configurare OAuth per Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per New York)
 - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Madrid)

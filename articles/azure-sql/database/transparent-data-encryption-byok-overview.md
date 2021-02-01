@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 03/18/2020
-ms.openlocfilehash: 2a7d77579eaebd3ee951d0184e25937783420806
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/01/2021
+ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96325197"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223441"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -185,11 +185,9 @@ Considerazione aggiuntiva per i file di log: i file di log di cui è stato esegu
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Disponibilità elevata con Transparent Data Management gestita dal cliente
 
-Anche nei casi in cui non è stata configurata alcuna ridondanza geografica per il server, si consiglia di configurare il server per l'uso di due diversi Key Vault in due aree diverse con lo stesso materiale della chiave. Questa operazione può essere eseguita creando una protezione TDE con il Key Vault primario posizionato nella stessa area del server e clonando la chiave in un Key Vault in un'area di Azure diversa, in modo che il server abbia accesso a un secondo Key Vault nel caso in cui si verificasse un'interruzione del Key Vault primario mentre il database è attivo e in esecuzione.
+Anche nei casi in cui non è stata configurata alcuna ridondanza geografica per il server, si consiglia di configurare il server per l'uso di due diversi Key Vault in due aree diverse con lo stesso materiale della chiave. La chiave nell'insieme di credenziali delle chiavi secondario nell'altra area non deve essere contrassegnata come protezione Transparent Data Encryption e non è consentita. Se si verifica un'interruzione che interessano l'insieme di credenziali delle chiavi primarie e solo successivamente, il sistema passa automaticamente all'altra chiave collegata con la stessa identificazione personale nell'insieme di credenziali delle chiavi secondario, se esistente. Si noti che questa opzione non si verifica se la protezione Transparent Data Encryption è inaccessibile a causa di diritti di accesso revocati o perché la chiave o l'insieme di credenziali delle chiavi è stato eliminato, in quanto può indicare che il cliente ha intenzionalmente voluto limitare l'accesso alla chiave da parte del server. Per fornire lo stesso materiale della chiave a due insiemi di credenziali delle chiavi in aree diverse è possibile creare la chiave al di fuori dell'insieme di credenziali delle chiavi e importarli in entrambi gli insiemi di credenziali delle chiavi. 
 
-Usare il cmdlet Backup-AzureKeyVaultKey per recuperare la chiave in formato crittografato dal Key Vault primario e quindi usare il cmdlet Restore-AzureKeyVaultKey e specificare un Key Vault nella seconda area per clonare la chiave. In alternativa, usare la portale di Azure per eseguire il backup e il ripristino della chiave. La chiave nell'insieme di credenziali delle chiavi secondario nell'altra area non deve essere contrassegnata come protezione Transparent Data Encryption e non è consentita.
-
-Se si verifica un'interruzione che interessano l'insieme di credenziali delle chiavi primarie e solo successivamente, il sistema passa automaticamente all'altra chiave collegata con la stessa identificazione personale nell'insieme di credenziali delle chiavi secondario, se esistente. Si noti che il passaggio non si verifica se la protezione TDE non è accessibile a causa di diritti di accesso revocati o perché la chiave o il Key Vault è stato eliminato. Ciò potrebbe indicare che il cliente ha intenzionalmente voluto limitare l'accesso alla chiave da parte del server.
+In alternativa, può essere eseguita generando la chiave usando l'insieme di credenziali delle chiavi primarie nella stessa area del server e clonando la chiave in un insieme di credenziali delle chiavi in un'area di Azure diversa. Usare il cmdlet [backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) per recuperare la chiave in formato crittografato dall'insieme di credenziali delle chiavi primarie e quindi usare il cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) e specificare un insieme di credenziali delle chiavi nella seconda area per clonare la chiave. In alternativa, usare la portale di Azure per eseguire il backup e il ripristino della chiave. L'operazione di backup/ripristino delle chiavi è consentita solo tra insiemi di credenziali delle chiavi nella stessa sottoscrizione di Azure e in [geografia di Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Disponibilità elevata con server singolo](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

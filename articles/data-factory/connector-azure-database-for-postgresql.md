@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 2537167783f3e68c52c665dafa9378193852acb4
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.date: 02/01/2021
+ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96930399"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223093"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiare e trasformare i dati nel database di Azure per PostgreSQL usando Azure Data Factory
 
@@ -34,7 +34,7 @@ Questo connettore di database di Azure per PostgreSQL è supportato per le attiv
 - [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
-## <a name="getting-started"></a>Introduzione
+## <a name="getting-started"></a>Guida introduttiva
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -175,8 +175,9 @@ Per copiare dati in database di Azure per PostgreSQL, nella sezione **sink** del
 |:--- |:--- |:--- |
 | type | La proprietà Type del sink dell'attività di copia deve essere impostata su **AzurePostgreSQLSink**. | Sì |
 | preCopyScript | Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nel database di Azure per PostgreSQL a ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. | No |
-| writeBatchSize | Inserisce i dati nella tabella di database di Azure per PostgreSQL quando la dimensione del buffer raggiunge writeBatchSize.<br>Il valore consentito è un numero intero che rappresenta il numero di righe. | No (il valore predefinito è 10.000) |
-| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br>I valori consentiti sono stringhe TimeSpan. Ad esempio "00:30:00" (30 minuti). | No (il valore predefinito è 00:00:30) |
+| writeMethod | Metodo usato per scrivere i dati nel database di Azure per PostgreSQL.<br>I valori consentiti sono: **CopyCommand** (anteprima, che è più efficiente), **BulkInsert** (impostazione predefinita). | No |
+| writeBatchSize | Numero di righe caricate nel database di Azure per PostgreSQL per batch.<br>Il valore consentito è un numero intero che rappresenta il numero di righe. | No (il valore predefinito è 1 milione) |
+| writeBatchTimeout | Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br>I valori consentiti sono stringhe TimeSpan. Ad esempio "00:30:00" (30 minuti). | No (il valore predefinito è 00:30:00) |
 
 **Esempio**:
 
@@ -204,7 +205,8 @@ Per copiare dati in database di Azure per PostgreSQL, nella sezione **sink** del
             "sink": {
                 "type": "AzurePostgreSQLSink",
                 "preCopyScript": "<custom SQL script>",
-                "writeBatchSize": 100000
+                "writeMethod": "CopyCommand",
+                "writeBatchSize": 1000000
             }
         }
     }
@@ -219,7 +221,7 @@ Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere
 
 La tabella seguente elenca le proprietà supportate dall'origine del database di Azure per PostgreSQL. È possibile modificare queste proprietà nella scheda **Opzioni di origine** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Tabella | Se si seleziona tabella come input, il flusso di dati recupera tutti i dati dalla tabella specificata nel set di dati. | No | - |*(solo per set di dati inline)*<br>tableName |
 | Query | Se si seleziona query come input, specificare una query SQL per recuperare i dati dall'origine, che esegue l'override di qualsiasi tabella specificata nel set di dati. L'uso delle query è un ottimo modo per ridurre le righe per il test o le ricerche.<br><br>La clausola **Order by** non è supportata, ma è possibile impostare un'istruzione SELECT from completa. È possibile usare anche funzioni di tabella definite dall'utente. **Select * from udfGetData ()** è una funzione definita dall'utente in SQL che restituisce una tabella che è possibile utilizzare nel flusso di dati.<br>Esempio di query: `select * from mytable where customerId > 1000 and customerId < 2000` o `select * from "MyTable"` . Nota in PostgreSQL, il nome dell'entità viene considerato senza distinzione tra maiuscole e minuscole se non è racchiuso tra virgolette.| No | string | query |
@@ -242,7 +244,7 @@ source(allowSchemaDrift: true,
 
 La tabella seguente elenca le proprietà supportate dal sink del database di Azure per PostgreSQL. È possibile modificare queste proprietà nella scheda **Opzioni sink** .
 
-| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| Nome | Descrizione | Obbligatoria | Valori consentiti | Proprietà script flusso di dati |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update (metodo) | Specificare le operazioni consentite per la destinazione del database. Per impostazione predefinita, sono consentiti solo gli inserimenti.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
 | Colonne chiave | Per gli aggiornamenti, Upsert ed eliminazioni, è necessario impostare le colonne chiave per determinare la riga da modificare.<br>Il nome della colonna scelto come chiave verrà usato come parte del successivo aggiornamento, Upsert, DELETE. Pertanto, è necessario selezionare una colonna esistente nel mapping del sink. | No | Array | chiavi |

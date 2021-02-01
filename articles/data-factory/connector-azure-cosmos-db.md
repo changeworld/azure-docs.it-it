@@ -10,13 +10,13 @@ ms.service: multiple
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/11/2019
-ms.openlocfilehash: bb9f2673eb080ee2919297fcbb5199f99d176bce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 01/29/2021
+ms.openlocfilehash: 1d9e43aafbe1f9fdd48596c54138075e23a25590
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013684"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222917"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure Cosmos DB (API SQL) usando Azure Data Factory
 
@@ -160,6 +160,7 @@ Nella sezione **source** dell'attività di copia sono supportate le proprietà s
 | query |Specificare la query Azure Cosmos DB per leggere i dati.<br/><br/>Esempio:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se non specificato, viene eseguita questa istruzione SQL: `select <columns defined in structure> from mycollection` |
 | preferredRegions | Elenco preferito di aree a cui connettersi durante il recupero di dati da Cosmos DB. | No |
 | pageSize | Numero di documenti per pagina del risultato della query. Il valore predefinito è "-1", che indica l'utilizzo delle dimensioni di pagina dinamiche del lato servizio fino a 1000. | No |
+| detectDatetime | Indica se rilevare DateTime dai valori stringa nei documenti. I valori consentiti sono: **true** (predefinito), **false**. | No |
 
 Se si usa l'origine del tipo "DocumentDbCollectionSource", è ancora supportata così com'è per la compatibilità con le versioni precedenti. Si consiglia di utilizzare il nuovo modello in futuro, che offre funzionalità più avanzate per la copia dei dati da Cosmos DB.
 
@@ -295,13 +296,16 @@ Le impostazioni specifiche per Azure Cosmos DB sono disponibili nella scheda **I
 * None: nessuna azione verrà eseguita nella raccolta.
 * Ricrea: la raccolta viene eliminata e ricreata
 
-**Dimensioni batch**: controlla il numero di righe scritte in ogni bucket. Dimensioni batch più grandi migliorano l'ottimizzazione della compressione e della memoria, ma rischiano di causare eccezioni di memoria insufficiente durante la memorizzazione nella cache dei dati.
+**Dimensioni batch**: numero intero che rappresenta il numero di oggetti scritti in Cosmos DB raccolta in ogni batch. In genere, è sufficiente iniziare con le dimensioni del batch predefinite. Per ottimizzare ulteriormente questo valore, tenere presente quanto segue:
+
+- Cosmos DB limita le dimensioni per una singola richiesta a 2 MB. La formula è "dimensioni richiesta = singolo documento dimensioni * dimensioni batch". Se viene segnalato un errore indicante che la dimensione della richiesta è troppo grande, ridurre il valore delle dimensioni del batch.
+- Maggiore è la dimensione del batch, migliore sarà la velocità effettiva di ADF, assicurandosi di allocare un numero sufficiente di ur per consentire il carico di lavoro.
 
 **Chiave di partizione:** Immettere una stringa che rappresenta la chiave di partizione per la raccolta. Esempio: ```/movies/title```
 
 **Velocità effettiva:** Impostare un valore facoltativo per il numero di ur da applicare alla raccolta CosmosDB per ogni esecuzione del flusso di dati. Il valore minimo è 400.
 
-**Budget della velocità effettiva di scrittura:** Intero che rappresenta il numero di ur da allocare al processo Spark di inserimento bulk. Questo numero è esterno alla velocità effettiva totale allocata per la raccolta.
+**Budget della velocità effettiva di scrittura:** Intero che rappresenta le UR che si desidera allocare per questa operazione di scrittura del flusso di dati, dalla velocità effettiva totale allocata alla raccolta.
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

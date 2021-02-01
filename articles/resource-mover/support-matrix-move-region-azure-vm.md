@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 00b220e07dc3fa7580100d6d36108c14fe598d40
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572188"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222799"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -127,7 +127,7 @@ Dimensione massima del disco dati | 8192 GB per i dischi gestiti
 Dimensione minima del disco dati |  2 GB per i dischi gestiti |
 Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica dei dati media sul disco è costantemente superiore al limite massimo, la preparazione non verrà aggiornata.<br/><br/>  Tuttavia, se il valore massimo viene superato sporadicamente, la preparazione può essere aggiornata, ma è possibile che vengano visualizzati punti di ripristino leggermente ritardati.
-Disco dati (account di archiviazione standard) | Non supportato. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
+Disco dati (account di archiviazione standard) | Non supportata. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco dati (account di archiviazione Premium) | Non supportato | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco gestito (standard) | Supportato  |
 Disco gestito (Premium) | Supportato |
@@ -154,7 +154,7 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 --- | --- | ---
 NIC | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione. 
 Servizio di bilanciamento del carico interno | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
-Bilanciamento del carico pubblico | Attualmente non supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
+Bilanciamento del carico pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.<br/><br/> L'indirizzo IP pubblico è specifico dell'area e non verrà mantenuto nell'area di destinazione dopo lo spostamento. Tenere presente questo aspetto quando si modificano le impostazioni di rete (incluse le regole di bilanciamento del carico) nel percorso di destinazione.
 Gruppo di sicurezza di rete | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP riservato (statico) | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine. <br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione ha lo stesso indirizzo IP disponibile, viene assegnata alla macchina virtuale di destinazione.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP disponibile, lo spostamento di avvio per la macchina virtuale avrà esito negativo.

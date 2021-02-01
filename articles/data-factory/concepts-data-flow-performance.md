@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/18/2020
-ms.openlocfilehash: 9706bee07f028c36b4d03311a7abbb969a1be685
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 01/29/2021
+ms.openlocfilehash: 01c448165e6d1f4d6103c61387298f2d9eb40254
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944984"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222950"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -244,7 +244,7 @@ L' **output in un singolo file** combina tutti i dati in una singola partizione.
 
 Quando si scrive in CosmosDB, la modifica della velocità effettiva e delle dimensioni del batch durante l'esecuzione del flusso di dati può migliorare le prestazioni. Queste modifiche diventano effettive durante l'esecuzione dell'attività flusso di dati e restituiranno le impostazioni della raccolta originale dopo la conclusione. 
 
-**Dimensioni batch:** Calcolare la dimensione approssimativa delle righe dei dati e verificare che le dimensioni delle righe * batch siano minori di 2 milioni. In caso contrario, aumentare la dimensione del batch per ottenere una velocità effettiva migliore
+**Dimensioni batch:** In genere, è sufficiente iniziare con le dimensioni del batch predefinite. Per ottimizzare ulteriormente questo valore, calcolare le dimensioni dell'oggetto grezzo dei dati e verificare che le dimensioni degli oggetti * dimensioni del batch siano inferiori a 2 MB. In tal caso, è possibile aumentare le dimensioni del batch per ottenere una velocità effettiva migliore.
 
 **Velocità effettiva:** Impostare un'impostazione della velocità effettiva superiore per consentire ai documenti di scrivere più velocemente in CosmosDB. Tenere presente i costi delle unità richiesta maggiori in base a un'impostazione di velocità effettiva elevata.
 

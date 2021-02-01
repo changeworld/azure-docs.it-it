@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb8cfa3e1aa874f807ce46b254a22f3003c2f600
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600654"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222816"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -62,7 +62,7 @@ Sì, sia in transito che inattivi.
 
 ### <a name="how-is-managed-identity-used-in-resource-mover"></a>In che modo viene usata l'identità gestita nel motore di risorse?
 
-[Identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (precedentemente nota come identità del servizio gestita (MIS)) fornisce servizi di Azure con un'identità gestita automaticamente in Azure ad.
+[Identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (precedentemente nota come identità del servizio gestita (MSI)) fornisce servizi di Azure con un'identità gestita automaticamente in Azure ad.
 - Il motore di risorse usa l'identità gestita in modo che possa accedere alle sottoscrizioni di Azure per spostare le risorse tra le aree.
 - Una raccolta di spostamento richiede un'identità assegnata dal sistema, con accesso alla sottoscrizione che contiene le risorse che si stanno spostando.
 
@@ -87,7 +87,7 @@ Quando si aggiungono risorse nell'hub di Spostamento risorse nel portale, le aut
 --- | ---
 Quando si aggiunge una risorsa per la prima volta, non si è un *collaboratore* e un *amministratore di accesso utente* (o *proprietario*). | Utilizzare un account con autorizzazioni *collaboratore* e *amministratore accesso utenti* (o *proprietario*) per la sottoscrizione.
 L'identità gestita del motore di risorse non ha il ruolo richiesto. | Aggiungere i ruoli "collaboratore" e "amministratore accesso utenti".
-L'identità gestita del motore di risorse è stata reimpostata su *None*. | Riabilitare un'identità assegnata dal sistema nell' **identità**di spostamento della raccolta >. In alternativa, aggiungere di nuovo la risorsa in **Aggiungi risorse**, che esegue la stessa operazione.  
+L'identità gestita del motore di risorse è stata reimpostata su *None*. | Riabilitare un'identità assegnata dal sistema nell' **identità** di spostamento della raccolta >. In alternativa, aggiungere di nuovo la risorsa in **Aggiungi risorse**, che esegue la stessa operazione.  
 La sottoscrizione è stata spostata in un tenant diverso. | Disabilitare e quindi abilitare l'identità gestita per la raccolta di spostamento.
 
 ### <a name="how-can-i-do-multiple-moves-together"></a>Come è possibile eseguire più spostamenti contemporaneamente?

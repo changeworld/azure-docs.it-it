@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b3ab569666ea413ba36da0dc00f6c37336c4443
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931304"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223096"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiare dati da e in un endpoint REST utilizzando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +26,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 La differenza tra questo connettore REST, il [connettore http](connector-http.md)e il [connettore della tabella Web](connector-web-table.md) è:
 
 - Il **connettore Rest** supporta specificamente la copia di dati da API RESTful; 
-- Il **connettore http** è generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare il file. Prima che il connettore REST diventi disponibile, può capitare di usare il connettore HTTP per copiare dati dall'API RESTful, operazione supportata ma meno funzionale rispetto all'uso del connettore REST.
+- Il **connettore http** è generico per recuperare i dati da qualsiasi endpoint HTTP, ad esempio per scaricare il file. Prima di questo connettore REST è possibile che si verifichi l'uso del connettore HTTP per copiare i dati dall'API RESTful, che è supportata ma meno funzionale rispetto al connettore REST.
 - Il **connettore Tabella Web** estrae il contenuto della tabella da una pagina Web HTML.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
@@ -140,7 +140,7 @@ Impostare la proprietà **authenticationType** su **AadServicePrincipal**. Oltre
 
 Impostare la proprietà **authenticationType** su **ManagedServiceIdentity**. Oltre alle proprietà generiche descritte nella sezione precedente, specificare le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | aadResourceId | Specificare la risorsa AAD richiesta per l'autorizzazione, ad esempio `https://management.core.windows.net` .| Sì |
 
@@ -378,7 +378,7 @@ Questo connettore REST generico supporta i modelli di paginazione seguenti:
 
 **Valori supportati** nelle regole di paginazione:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 |:--- |:--- |
 | Headers.*intestazione_risposta* o Headers['intestazione_risposta'] | "response_header" è definito dall'utente, che fa riferimento a un nome di intestazione nella risposta HTTP corrente, il cui valore verrà usato per emettere la richiesta successiva. |
 | Espressione JSONPath che inizia con "$" (che rappresenta la radice del corpo della risposta) | Il corpo della risposta deve contenere un solo oggetto JSON. L'espressione JSONPath deve restituire un singolo valore primitivo, che verrà usato per inviare la richiesta successiva. |

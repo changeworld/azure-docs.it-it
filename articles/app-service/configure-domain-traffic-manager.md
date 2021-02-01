@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012945"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223341"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
 
@@ -75,9 +75,9 @@ Dopo aver completato l'aggiunta o la modifica di record DNS presso il provider d
 
 ### <a name="what-about-root-domains"></a>Per quanto riguarda i domini radice?
 
-Poiché Gestione traffico supporta solo il mapping del dominio personalizzato con record CNAME e poiché gli standard DNS non supportano i record CNAME per il mapping dei domini radice (ad esempio, **contoso.com**), gestione traffico non supporta il mapping ai domini radice. Per risolvere questo problema, usare un reindirizzamento URL da a livello di app. In ASP.NET Core, ad esempio, è possibile usare la [riscrittura degli URL](/aspnet/core/fundamentals/url-rewriting). Usare quindi Gestione traffico per bilanciare il carico del sottodominio (**www.contoso.com**).
+Poiché Gestione traffico supporta solo il mapping del dominio personalizzato con record CNAME e poiché gli standard DNS non supportano i record CNAME per il mapping dei domini radice (ad esempio, **contoso.com**), gestione traffico non supporta il mapping ai domini radice. Per risolvere questo problema, usare un reindirizzamento URL da a livello di app. In ASP.NET Core, ad esempio, è possibile usare la [riscrittura degli URL](/aspnet/core/fundamentals/url-rewriting). Usare quindi Gestione traffico per bilanciare il carico del sottodominio (**www.contoso.com**). Un altro approccio consiste [nel creare un record alias per il nome di dominio Apex per fare riferimento a un profilo di gestione traffico di Azure](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). ad esempio contoso.com. Anziché usare un servizio di reindirizzamento, è possibile configurare DNS di Azure in modo che faccia riferimento a un profilo di gestione traffico direttamente dalla zona. 
 
-Per gli scenari di disponibilità elevata, è possibile implementare una configurazione DNS a tolleranza di errore senza gestione traffico creando più *record a* che puntano dal dominio radice a ogni indirizzo IP della copia dell'app. Eseguire quindi [il mapping dello stesso dominio radice a tutte le copie dell'app](app-service-web-tutorial-custom-domain.md#map-an-a-record). Poiché non è possibile eseguire il mapping dello stesso nome di dominio a due diverse app nella stessa area, questa configurazione funziona solo quando le copie dell'app si trovano in aree diverse.
+Per gli scenari di disponibilità elevata, è possibile implementare una configurazione DNS di bilanciamento del carico senza gestione traffico creando più *record a* che puntano dal dominio radice a ogni indirizzo IP della copia dell'app. Eseguire quindi [il mapping dello stesso dominio radice a tutte le copie dell'app](app-service-web-tutorial-custom-domain.md#map-an-a-record). Poiché non è possibile eseguire il mapping dello stesso nome di dominio a due diverse app nella stessa area, questa configurazione funziona solo quando le copie dell'app si trovano in aree diverse.
 
 ## <a name="enable-custom-domain"></a>Abilita dominio personalizzato
 Dopo la propagazione dei record per il nome di dominio, usare il browser per verificare che il nome di dominio personalizzato venga risolto nell'app del servizio app.

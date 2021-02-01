@@ -329,6 +329,8 @@
               href: platform/data-sources-linux-applications.md
             - name: Log di IIS
               href: platform/data-sources-iis-logs.md
+            - name: Dati Event Tracing for Windows
+              href: platform/data-sources-event-tracing-windows.md
             - name: Log personalizzati
               href: platform/data-sources-custom-logs.md
             - name: Campi personalizzati

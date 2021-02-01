@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82247ae9817e5ff2e26d0862230654021876406b
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89567419"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99223281"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Modificare i ruoli delle risorse per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -103,7 +103,7 @@ Per altre informazioni, vedere [confrontare gruppi](/office365/admin/create-grou
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un gruppo o un team](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
     Tutti gli utenti con assegnazioni esistenti al pacchetto di accesso diventeranno automaticamente membri di questo gruppo o team quando verranno aggiunti.
 
@@ -134,7 +134,7 @@ Di seguito sono riportate alcune considerazioni per la selezione di un'applicazi
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un'applicazione](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso a questa applicazione al momento dell'aggiunta.
 
@@ -144,7 +144,13 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
 1. Nella pagina **Aggiungi ruoli risorse all'accesso al pacchetto** fare clic su **siti SharePoint** per aprire il riquadro selezionare i siti di SharePoint Online.
 
-1. Selezionare i siti di SharePoint Online che si desidera includere nel pacchetto di accesso.
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-portal.png" alt-text="Pacchetto di accesso-Aggiungi ruoli delle risorse-selezionare siti di SharePoint-visualizzazione del portale":::
+
+1. Se si dispone di più aree [geografiche](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365?view=o365-worldwide) abilitate per SharePoint, selezionare l'ambiente da cui si desidera selezionare i siti.
+    
+    :::image type="content" source="media/entitlement-management-access-package-resources/sharepoint-multigeo-select.png" alt-text="Pacchetto di accesso-aggiungere ruoli delle risorse-selezionare i siti di SharePoint multigeo":::
+
+1. Se la funzionalità multigeo non è abilitata, non è necessario selezionare un ambiente. Selezionare i siti di SharePoint Online che si desidera includere nel pacchetto di accesso.
 
     ![Pacchetto di accesso-Aggiungi ruoli delle risorse-selezionare i siti di SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-select.png)
 
@@ -154,7 +160,7 @@ Azure AD possibile assegnare automaticamente agli utenti l'accesso a un sito di 
 
     ![Pacchetto di accesso-Aggiungi ruolo risorsa per un sito di SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. Scegliere **Aggiungi**.
+1. Fare clic su **Aggiungi**.
 
     A tutti gli utenti con assegnazioni esistenti al pacchetto di accesso verrà automaticamente concesso l'accesso al sito di SharePoint Online quando viene aggiunto.
 

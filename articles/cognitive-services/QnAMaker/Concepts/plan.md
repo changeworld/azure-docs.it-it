@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 048b53186aa0be388d9d801cd6590d4295a4faa7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
+ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353171"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99222866"
 ---
 # <a name="plan-your-qna-maker-app"></a>Pianificare l'app QnA Maker
 
@@ -94,13 +94,13 @@ La prima Knowledge base creata nella risorsa QnA Maker imposta la lingua per la 
 
 ### <a name="ingest-data-sources"></a>Inserire origini dati
 
-Per creare una Knowledge base, è possibile utilizzare una delle seguenti [origini dati](../index.yml) inserite:
+Per creare una Knowledge base, è possibile utilizzare una delle seguenti [origini dati](../Concepts/data-sources-and-content.md) inserite:
 
 * URL pubblico
 * URL di SharePoint privato
 * File
 
-Il processo di inserimento converte i [tipi di contenuto supportati](../index.yml) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato una Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+Il processo di inserimento converte i [tipi di contenuto supportati](../reference-document-format-guidelines.md) in Markdown. Tutte le altre modifiche della *risposta* vengono eseguite con Markdown. Dopo aver creato una Knowledge base, è possibile modificare le [coppie QnA](question-answer-set.md) nel portale di QnA Maker con la funzionalità di [creazione di testo avanzata](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Considerazioni sul formato dei dati
 
@@ -124,7 +124,7 @@ Il flusso di conversazione inizia in genere con una formula di saluto da un uten
 
 I collaboratori possono essere altri sviluppatori che condividono lo stack di sviluppo completo dell'applicazione Knowledge base oppure possono essere limitati alla semplice creazione della Knowledge base.
 
-La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in base al ruolo](../index.yml) che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
+La creazione della Knowledge base supporta diverse [autorizzazioni di accesso in base al ruolo](../reference-role-based-access-control.md) che si applicano al portale di Azure per limitare l'ambito delle capacità di un collaboratore.
 
 ## <a name="integration-with-client-applications"></a>Integrazione con le applicazioni client
 
